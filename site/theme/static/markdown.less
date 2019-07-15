@@ -17,6 +17,11 @@
   box-shadow: 0 8px 20px rgba(143, 168, 191, 0.35);
 }
 
+.markdown p > img.markdown-inline-image {
+  margin: 0 34px;
+  box-shadow: none;
+}
+
 .markdown h1 {
   margin-top: 8px;
   margin-bottom: 20px;
@@ -216,8 +221,8 @@
     th,
     td {
       padding: 14px 16px;
-      border-width: 1px 0;
       border-color: @border-color-split;
+      border-width: 1px 0;
     }
     th {
       border-width: 0 0 2px 0;
@@ -233,7 +238,7 @@
       font-size: @font-size-base - 1px;
       word-break: break-all;
     }
-    td:last-child {
+    td:nth-child(4) {
       width: 13%;
       font-size: @font-size-base - 1px;
     }

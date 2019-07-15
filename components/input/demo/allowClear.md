@@ -1,8 +1,8 @@
 ---
 order: 11
 title:
-    zh-CN: 带移除图标
-    en-US: With clear icon
+  zh-CN: 带移除图标
+  en-US: With clear icon
 ---
 
 ## zh-CN
@@ -11,16 +11,17 @@ title:
 
 ## en-US
 
-Input type of password.
+Input box with the remove icon, click the icon to delete everything.
 
-````jsx
+```jsx
 import { Input } from 'antd';
 
-const onChange = (e) => {
+const onChange = e => {
   console.log(e);
 };
 
 ReactDOM.render(
-  <Input placeholder="input with clear icon" allowClear onChange={onChange} />
-, mountNode);
-````
+  <Input placeholder="input with clear icon" allowClear onChange={onChange} />,
+  mountNode,
+);
+```

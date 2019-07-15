@@ -14,14 +14,13 @@ subtitle: 页头
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| title | 自定义标题文字 | ReactNode | - |
-| subTitle | 自定义的二级标题文字 | ReactNode | - |
-| backIcon | 自定义 back icon ，如果为 false 不渲染 back icon | ReactNode | `<Icon type="arrow-left" />` |
-| tags | title 旁的 tag 列表 | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |
-| extra | 操作区，位于 title 行的行尾 | ReactNode | - |
-| breadcrumb | 面包屑的配置 |  [breadcrumb](https://ant.design/components/breadcrumb-cn/)  | - |
-| footer | PageHeader 的页脚，一般用于渲染 TabBar | ReactNode | - |
-| onBack | 返回按钮的点击事件 | `()=>void` | `()=>history.back()` |
-
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| title | 自定义标题文字 | ReactNode | - | 3.14.0 |
+| subTitle | 自定义的二级标题文字 | ReactNode | - | 3.14.0 |
+| backIcon | 自定义 back icon ，如果为 false 不渲染 back icon | ReactNode | `<Icon type="arrow-left" />` | 3.14.0 |
+| tags | title 旁的 tag 列表 | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - | 3.14.0 |
+| extra | 操作区，位于 title 行的行尾 | ReactNode | - | 3.14.0 |
+| breadcrumb | 面包屑的配置 | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - | 3.14.0 |
+| footer | PageHeader 的页脚，一般用于渲染 TabBar | ReactNode | - | 3.14.0 |
+| onBack | 返回按钮的点击事件 | `()=>void` | `()=>history.back()` | 3.14.0 |

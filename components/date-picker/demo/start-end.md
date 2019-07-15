@@ -8,16 +8,18 @@ title:
 ## zh-CN
 
 当 `RangePicker` 无法满足业务需求时，可以使用两个 `DatePicker` 实现类似的功能。
-> * 通过设置 `disabledDate` 方法，来约束开始和结束日期。
-> * 通过 `open` `onOpenChange` 来优化交互。
+
+> - 通过设置 `disabledDate` 方法，来约束开始和结束日期。
+> - 通过 `open` `onOpenChange` 来优化交互。
 
 ## en-US
 
 When `RangePicker` does not satisfied your requirements, try to implement similar functionality with two `DatePicker`.
-> * Use the `disabledDate` property to limit the start and end dates.
-> * Improve user experience with `open` and `onOpenChange`.
 
-````jsx
+> - Use the `disabledDate` property to limit the start and end dates.
+> - Improve user experience with `open` and `onOpenChange`.
+
+```jsx
 import { DatePicker } from 'antd';
 
 class DateRange extends React.Component {
@@ -27,45 +29,45 @@ class DateRange extends React.Component {
     endOpen: false,
   };
 
-  disabledStartDate = (startValue) => {
-    const endValue = this.state.endValue;
+  disabledStartDate = startValue => {
+    const { endValue } = this.state;
     if (!startValue || !endValue) {
       return false;
     }
     return startValue.valueOf() > endValue.valueOf();
-  }
+  };
 
-  disabledEndDate = (endValue) => {
-    const startValue = this.state.startValue;
+  disabledEndDate = endValue => {
+    const { startValue } = this.state;
     if (!endValue || !startValue) {
       return false;
     }
     return endValue.valueOf() <= startValue.valueOf();
-  }
+  };
 
   onChange = (field, value) => {
     this.setState({
       [field]: value,
     });
-  }
+  };
 
-  onStartChange = (value) => {
+  onStartChange = value => {
     this.onChange('startValue', value);
-  }
+  };
 
-  onEndChange = (value) => {
+  onEndChange = value => {
     this.onChange('endValue', value);
-  }
+  };
 
-  handleStartOpenChange = (open) => {
+  handleStartOpenChange = open => {
     if (!open) {
       this.setState({ endOpen: true });
     }
-  }
+  };
 
-  handleEndOpenChange = (open) => {
+  handleEndOpenChange = open => {
     this.setState({ endOpen: open });
-  }
+  };
 
   render() {
     const { startValue, endValue, endOpen } = this.state;
@@ -96,4 +98,4 @@ class DateRange extends React.Component {
 }
 
 ReactDOM.render(<DateRange />, mountNode);
-````
+```

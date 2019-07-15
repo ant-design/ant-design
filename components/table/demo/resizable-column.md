@@ -13,11 +13,11 @@ title:
 
 Implement resizable column by integrate with react-resizable.
 
-````jsx
+```jsx
 import { Table } from 'antd';
 import { Resizable } from 'react-resizable';
 
-const ResizeableTitle = (props) => {
+const ResizeableTitle = props => {
   const { onResize, width, ...restProps } = props;
 
   if (!width) {
@@ -33,29 +33,33 @@ const ResizeableTitle = (props) => {
 
 class Demo extends React.Component {
   state = {
-    columns: [{
-      title: 'Date',
-      dataIndex: 'date',
-      width: 200,
-    }, {
-      title: 'Amount',
-      dataIndex: 'amount',
-      width: 100,
-    }, {
-      title: 'Type',
-      dataIndex: 'type',
-      width: 100,
-    }, {
-      title: 'Note',
-      dataIndex: 'note',
-      width: 100,
-    }, {
-      title: 'Action',
-      key: 'action',
-      render: () => (
-        <a href="javascript:;">Delete</a>
-      ),
-    }],
+    columns: [
+      {
+        title: 'Date',
+        dataIndex: 'date',
+        width: 200,
+      },
+      {
+        title: 'Amount',
+        dataIndex: 'amount',
+        width: 100,
+      },
+      {
+        title: 'Type',
+        dataIndex: 'type',
+        width: 100,
+      },
+      {
+        title: 'Note',
+        dataIndex: 'note',
+        width: 100,
+      },
+      {
+        title: 'Action',
+        key: 'action',
+        render: () => <a href="javascript:;">Delete</a>,
+      },
+    ],
   };
 
   components = {
@@ -64,25 +68,29 @@ class Demo extends React.Component {
     },
   };
 
-  data = [{
-    key: 0,
-    date: '2018-02-11',
-    amount: 120,
-    type: 'income',
-    note: 'transfer',
-  }, {
-    key: 1,
-    date: '2018-03-11',
-    amount: 243,
-    type: 'income',
-    note: 'transfer',
-  }, {
-    key: 2,
-    date: '2018-04-11',
-    amount: 98,
-    type: 'income',
-    note: 'transfer',
-  }];
+  data = [
+    {
+      key: 0,
+      date: '2018-02-11',
+      amount: 120,
+      type: 'income',
+      note: 'transfer',
+    },
+    {
+      key: 1,
+      date: '2018-03-11',
+      amount: 243,
+      type: 'income',
+      note: 'transfer',
+    },
+    {
+      key: 2,
+      date: '2018-04-11',
+      amount: 98,
+      type: 'income',
+      note: 'transfer',
+    },
+  ];
 
   handleResize = index => (e, { size }) => {
     this.setState(({ columns }) => {
@@ -104,24 +112,17 @@ class Demo extends React.Component {
       }),
     }));
 
-    return (
-      <Table
-        bordered
-        components={this.components}
-        columns={columns}
-        dataSource={this.data}
-      />
-    );
+    return <Table bordered components={this.components} columns={columns} dataSource={this.data} />;
   }
 }
 
-
 ReactDOM.render(<Demo />, mountNode);
-````
+```
 
-````css
+```css
 #components-table-demo-resizable-column .react-resizable {
   position: relative;
+  background-clip: padding-box;
 }
 
 #components-table-demo-resizable-column .react-resizable-handle {
@@ -131,5 +132,6 @@ ReactDOM.render(<Demo />, mountNode);
   bottom: 0;
   right: -5px;
   cursor: col-resize;
+  z-index: 1;
 }
-````
+```

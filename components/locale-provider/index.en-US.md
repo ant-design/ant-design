@@ -9,7 +9,7 @@ title: LocaleProvider
 
 ## Usage
 
-`LocaleProvider` takes use of [context](https://facebook.github.io/react/docs/context.html), a feature of React, to accomplish global effectiveness by wrapping the app only once.
+`LocaleProvider` makes use of [context](https://facebook.github.io/react/docs/context.html), a feature of React, to accomplish global effectiveness by wrapping the app only once.
 
 ```jsx
 import { LocaleProvider } from 'antd';
@@ -23,7 +23,7 @@ moment.locale('fr');
 return <LocaleProvider locale={fr_FR}><App /></LocaleProvider>;
 ```
 
-We provide some locale like English, Chinese, Russian, German, French and etc, all locale packages can be found in [here](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/).
+We provide some locales like English, Chinese, Russian, German, French etc. All locale packages can be found in [here](https://github.com/ant-design/ant-design/blob/master/components/locale-provider/).
 
 Note: if you need to use antd's UMD dist file, please use `antd/dist/antd-with-locales.js` and corresponding moment locale:
 
@@ -41,10 +41,16 @@ If you can't find your language, you are welcome to create a locale package base
 
 ### Other localization needs
 
-This component aims for localization of the built-in text, if you want to support other documents, we recommend using [react-intl](https://github.com/yahoo/react-intl), refer to [Intl demo 1](http://github.com/ant-design/intl-example) and [Intl demo 2](http://yiminghe.me/learning-react/examples/react-intl.html?locale=en-US).
+This component aims to provide localization of the built-in text. If you want to support other documents, we recommend using [react-intl](https://github.com/yahoo/react-intl), refer to [Intl demo 1](http://github.com/ant-design/intl-example) and [Intl demo 2](http://yiminghe.me/learning-react/examples/react-intl.html?locale=en-US).
 
 ## API
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |  |
+
+## FAQ
+
+#### Locale problem is still existed even LocaleProvider is used?
+
+Please make sure you set moment locale by `moment.locale('zh-cn')`, or you don't have two moment of different version.

@@ -144,7 +144,9 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
       this.props.confirmFilter(
         this.props.column,
-        filterDropdown ? selectedKeys : selectedKeys.map(key => valueKeys[key]),
+        filterDropdown
+          ? selectedKeys
+          : selectedKeys.map(key => valueKeys[key]).filter(key => key !== undefined),
       );
     }
   }
@@ -261,7 +263,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
-        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode,
+        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode as HTMLElement,
       });
     }
 

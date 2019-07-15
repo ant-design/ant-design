@@ -87,10 +87,10 @@ describe('Table', () => {
     expect(wrapper.find('tbody').props().id).toBe('wrapper2');
   });
 
-  it('warning if both `expandedRowRender` & `scroll` are used', () => {
-    mount(<Table expandedRowRender={() => null} scroll={{}} />);
+  it('warning if both `expandedRowRender` & `Column.fixed` are used', () => {
+    mount(<Table expandedRowRender={() => null} columns={[{ fixed: true }]} />);
     expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] `expandedRowRender` and `scroll` are not compatible. Please use one of them at one time.',
+      'Warning: [antd: Table] `expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
     );
   });
 });

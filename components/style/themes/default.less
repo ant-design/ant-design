@@ -47,8 +47,6 @@
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 @text-color: fade(@black, 65%);
 @text-color-secondary: fade(@black, 45%);
-@text-color-warning: @gold-7;
-@text-color-danger: @red-7;
 @text-color-inverse: @white;
 @icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
@@ -56,6 +54,7 @@
 @heading-color-dark: fade(@white, 100%);
 @text-color-dark: fade(@white, 85%);
 @text-color-secondary-dark: fade(@white, 65%);
+@text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';
 @font-size-base: 14px;
@@ -154,7 +153,7 @@
 @btn-primary-bg: @primary-color;
 
 @btn-default-color: @text-color;
-@btn-default-bg: #fff;
+@btn-default-bg: @component-background;
 @btn-default-border: @border-color-base;
 
 @btn-danger-color: @error-color;
@@ -186,6 +185,10 @@
 @checkbox-color: @primary-color;
 @checkbox-check-color: #fff;
 @checkbox-border-width: @border-width-base;
+
+// Dropdown
+
+@dropdown-selected-color: @primary-color;
 
 // Empty
 @empty-font-size: @font-size-base;
@@ -276,14 +279,24 @@
 @animation-duration-base: 0.2s;
 @animation-duration-fast: 0.1s; // Tooltip
 
+//CollapsePanel
+@collapse-panel-border-radius: @border-radius-base;
+
+//Dropdown
+@dropdown-vertical-padding: 5px;
+@dropdown-font-size: @font-size-base;
+@dropdown-line-height: 22px;
+
 // Form
 // ---
 @label-required-color: @highlight-color;
 @label-color: @heading-color;
+@form-warning-input-bg: @input-bg;
 @form-item-margin-bottom: 24px;
 @form-item-trailing-colon: true;
 @form-vertical-label-padding: 0 0 8px;
 @form-vertical-label-margin: 0;
+@form-error-input-bg: @input-bg;
 
 // Input
 // ---
@@ -300,7 +313,7 @@
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-border-color: @border-color-base;
-@input-bg: #fff;
+@input-bg: @component-background;
 @input-number-handler-active-bg: #f4f4f4;
 @input-addon-bg: @background-color-light;
 @input-hover-border-color: @primary-color;
@@ -330,7 +343,7 @@
 // Popover
 // ---
 // Popover body background color
-@popover-bg: #fff;
+@popover-bg: @component-background;
 // Popover text color
 @popover-color: @text-color;
 // Popover maximum width
@@ -349,7 +362,7 @@
 // --
 @modal-body-padding: 24px;
 @modal-header-bg: @component-background;
-@modal-footer-bg: tranparent;
+@modal-footer-bg: transparent;
 @modal-mask-bg: fade(@black, 65%);
 
 // Progress
@@ -370,6 +383,7 @@
 @menu-item-active-bg: @item-active-bg;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
+
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
 @menu-dark-bg: @layout-header-background;
@@ -391,7 +405,10 @@
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: rgba(0, 0, 0, 0.01);
 @table-row-hover-bg: @primary-1;
+@table-selected-row-color: inherit;
 @table-selected-row-bg: #fafafa;
+@table-body-selected-sort-bg: @table-selected-row-bg;
+@table-selected-row-hover-bg: @table-selected-row-bg;
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
@@ -445,6 +462,8 @@
 // ---
 @comment-padding-base: 16px 0;
 @comment-nest-indent: 44px;
+@comment-font-size-base: @font-size-base;
+@comment-font-size-sm: @font-size-sm;
 @comment-author-name-color: @text-color-secondary;
 @comment-author-time-color: #ccc;
 @comment-action-color: @text-color-secondary;
@@ -504,7 +523,7 @@
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
-@pagination-item-bg-active: transparent;
+@pagination-item-bg-active: @component-background;
 
 // PageHeader
 // ---
@@ -548,7 +567,8 @@
 
 // Collapse
 // ---
-@collapse-header-padding: 12px 16px 12px 40px;
+@collapse-header-padding: 12px 16px;
+@collapse-header-padding-extra: 40px;
 @collapse-header-bg: @background-color-light;
 @collapse-content-padding: @padding-md;
 @collapse-content-bg: @component-background;
@@ -559,7 +579,9 @@
 
 // Transfer
 // ---
+@transfer-header-height: 40px;
 @transfer-disabled-bg: @disabled-bg;
+@transfer-list-height: 200px;
 
 // Message
 // ---

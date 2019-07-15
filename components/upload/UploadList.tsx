@@ -2,38 +2,11 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { previewImage, isImageUrl } from './utils';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-
-const extname = (url: string) => {
-  if (!url) {
-    return '';
-  }
-  const temp = url.split('/');
-  const filename = temp[temp.length - 1];
-  const filenameWithoutSuffix = filename.split(/#|\?/)[0];
-  return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
-};
-const isImageFileType = (type: string): boolean => !!type && type.indexOf('image/') === 0;
-const isImageUrl = (file: UploadFile): boolean => {
-  if (isImageFileType(file.type)) {
-    return true;
-  }
-  const url: string = (file.thumbUrl || file.url) as string;
-  const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp|dpg)$/i.test(extension)) {
-    return true;
-  } else if (/^data:/.test(url)) {
-    // other file types of base64
-    return false;
-  } else if (extension) {
-    // other file types which have extension
-    return false;
-  }
-  return true;
-};
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
@@ -44,6 +17,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     },
     showRemoveIcon: true,
     showPreviewIcon: true,
+    previewFile: previewImage,
   };
 
   handleClose = (file: UploadFile) => {
@@ -62,36 +36,33 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return onPreview(file);
   };
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-  previewFile = (file: File | Blob, callback: Function) => {
-    if (!isImageFileType(file.type)) {
-      return callback('');
-    }
-    const reader = new FileReader();
-    reader.onloadend = () => callback(reader.result);
-    reader.readAsDataURL(file);
-  };
-
   componentDidUpdate() {
-    if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
+    const { listType, items, previewFile } = this.props;
+    if (listType !== 'picture' && listType !== 'picture-card') {
       return;
     }
-    (this.props.items || []).forEach(file => {
+    (items || []).forEach(file => {
+      const isValidateFile =
+        file.originFileObj instanceof File || file.originFileObj instanceof Blob;
+
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File) ||
+        !isValidateFile ||
         file.thumbUrl !== undefined
       ) {
         return;
       }
       file.thumbUrl = '';
-      this.previewFile(file.originFileObj, (previewDataUrl: string) => {
-        file.thumbUrl = previewDataUrl;
-        this.forceUpdate();
-      });
+      if (previewFile) {
+        previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
+          // Need append '' to avoid dead loop
+          file.thumbUrl = previewDataUrl || '';
+          this.forceUpdate();
+        });
+      }
     });
   }
 

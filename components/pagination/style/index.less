@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
@@ -49,7 +49,8 @@
     user-select: none;
 
     a {
-      margin: 0 6px;
+      display: block;
+      padding: 0 6px;
       color: @text-color;
       transition: none;
     }
@@ -92,6 +93,7 @@
 
       .@{pagination-prefix-cls}-item-link-icon {
         .iconfont-size-under-12px(12px);
+
         color: @primary-color;
         letter-spacing: -1px;
         opacity: 0;
@@ -225,6 +227,7 @@
 
       input {
         .input;
+
         width: 50px;
         margin: 0 8px;
       }
@@ -320,7 +323,58 @@
 
       input {
         .input-sm;
+
         width: 44px;
+      }
+    }
+  }
+
+  // ============================ Disabled ============================
+  &&-disabled {
+    cursor: not-allowed;
+
+    .@{pagination-prefix-cls}-item {
+      background: @disabled-bg;
+      border-color: @border-color-base;
+      cursor: not-allowed;
+
+      a {
+        color: @disabled-color;
+        background: transparent;
+        border: none;
+        cursor: not-allowed;
+      }
+
+      &-active {
+        background: darken(@disabled-bg, 10%);
+        border-color: transparent;
+        a {
+          color: #fff;
+        }
+      }
+    }
+
+    .@{pagination-prefix-cls}-item-link {
+      &,
+      &:hover,
+      &:focus {
+        color: @text-color-secondary;
+        background: @disabled-bg;
+        border-color: @border-color-base;
+        cursor: not-allowed;
+      }
+    }
+
+    .@{pagination-prefix-cls}-jump-prev,
+    .@{pagination-prefix-cls}-jump-next {
+      &:focus,
+      &:hover {
+        .@{pagination-prefix-cls}-item-link-icon {
+          opacity: 0;
+        }
+        .@{pagination-prefix-cls}-item-ellipsis {
+          opacity: 1;
+        }
       }
     }
   }

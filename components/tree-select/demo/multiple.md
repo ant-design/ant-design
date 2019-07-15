@@ -13,20 +13,20 @@ title:
 
 Multiple selection usage.
 
-````jsx
+```jsx
 import { TreeSelect } from 'antd';
 
-const TreeNode = TreeSelect.TreeNode;
+const { TreeNode } = TreeSelect;
 
 class Demo extends React.Component {
   state = {
     value: undefined,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     console.log(value);
     this.setState({ value });
-  }
+  };
 
   render() {
     return (
@@ -56,4 +56,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

@@ -14,21 +14,21 @@ title:
 
 The most basic usage.
 
-````jsx
+```jsx
 import { TreeSelect, Icon } from 'antd';
 
-const TreeNode = TreeSelect.TreeNode;
+const { TreeNode } = TreeSelect;
 const icon = <Icon type="smile" />;
 
 class Demo extends React.Component {
   state = {
     value: undefined,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     console.log(value);
     this.setState({ value });
-  }
+  };
 
   render() {
     return (
@@ -58,4 +58,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

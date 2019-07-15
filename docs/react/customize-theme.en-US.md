@@ -3,7 +3,7 @@ order: 5
 title: Customize Theme
 ---
 
-Ant Design allows you to customize some basic design aspects in order to meet the needs of UI diversity from business and brand, including primary color, border radius, border color, etc.
+Ant Design allows you to customize our design tokens in order to meet the needs of UI diversity from business and brand, including primary color, border radius, border color, etc.
 
 ![customized themes](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
 
@@ -14,19 +14,19 @@ We are using [Less](http://lesscss.org/) as the development language for styling
 There are some major variables below, all less variables could be found in [Default Variables](https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less).
 
 ```less
-@primary-color: #1890ff;                         // primary color for all components
-@link-color: #1890ff;                            // link color
-@success-color: #52c41a;                         // success state color
-@warning-color: #faad14;                         // warning state color
-@error-color: #f5222d;                           // error state color
-@font-size-base: 14px;                           // major text font size
-@heading-color: rgba(0, 0, 0, .85);              // heading text color
-@text-color: rgba(0, 0, 0, .65);                 // major text color
-@text-color-secondary : rgba(0, 0, 0, .45);      // secondary text color
-@disabled-color : rgba(0, 0, 0, .25);            // disable state color
-@border-radius-base: 4px;                        // major border radius
-@border-color-base: #d9d9d9;                     // major border color
-@box-shadow-base: 0 2px 8px rgba(0, 0, 0, .15);  // major shadow for layers
+@primary-color: #1890ff; // primary color for all components
+@link-color: #1890ff; // link color
+@success-color: #52c41a; // success state color
+@warning-color: #faad14; // warning state color
+@error-color: #f5222d; // error state color
+@font-size-base: 14px; // major text font size
+@heading-color: rgba(0, 0, 0, 0.85); // heading text color
+@text-color: rgba(0, 0, 0, 0.65); // major text color
+@text-color-secondary : rgba(0, 0, 0, .45); // secondary text color
+@disabled-color : rgba(0, 0, 0, .25); // disable state color
+@border-radius-base: 4px; // major border radius
+@border-color-base: #d9d9d9; // major border color
+@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
 ```
 
 Please report an issue if the existing list of variables is not enough for you.
@@ -55,6 +55,8 @@ module.exports = {
 +         'primary-color': '#1DA57A',
 +         'link-color': '#1DA57A',
 +         'border-radius-base': '2px',
++         // or
++         'hack': `true; @import "your-less-file-path.less";`, // Override with less file
 +       },
 +       javascriptEnabled: true,
 +     },
@@ -92,16 +94,15 @@ Follow [Use in create-react-app](/docs/react/use-with-create-react-app).
 Another approach to customize theme is creating a `less` file within variables to override `antd.less`.
 
 ```css
-@import "~antd/dist/antd.less";   // Import Ant Design styles by less entry
-@import "your-theme-file.less";   // variables to override above
+@import '~antd/dist/antd.less'; // Import Ant Design styles by less entry
+@import 'your-theme-file.less'; // variables to override above
 ```
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
 ## How to avoid modifying global styles?
 
-Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc).
-If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
+Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc). If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
 
 While there's no canonical way to do it, you can take one of the following paths :
 
@@ -112,7 +113,7 @@ It's possible to configure webpack to load an alternate less file:
 ```ts
 new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') )
 
-#antd { @import '~antd/lib/style/core/index.less'; @import '~antd/lib/style/themes/default.less'; }
+#antd { @import '~antd/es/style/core/index.less'; @import '~antd/es/style/themes/default.less'; }
 ```
 
 Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector : the result is that all of the "global" styles are being applied with the #antd scope.

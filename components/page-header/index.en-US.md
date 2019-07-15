@@ -14,14 +14,13 @@ It can also be used as inter-page navigation when it is needed to make the user 
 
 ## API
 
-| Param | Description | Type | Default value |
-| ----- | ----------- | ---- | ------------- |
-| title | custom title text | ReactNode | - |
-| subTitle | custom subTitle text | ReactNode | - |
-| backIcon | custom back icon, if false the back icon will not be displayed | ReactNode | `<Icon type="arrow-left" />` |
-| tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |
-| extra | Operating area, at the end of the line of the title line | ReactNode | - |
-| breadcrumb | breadcrumb config |  [breadcrumb](https://ant.design/components/breadcrumb-cn/)  | - |
-| footer | PageHeader's footer, generally used to render TabBar | ReactNode | -  |
-| onBack | back icon click event | `()=>void` | `()=>history.back()` |
-
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| title | custom title text | ReactNode | - | 3.14.0 |
+| subTitle | custom subTitle text | ReactNode | - | 3.14.0 |
+| backIcon | custom back icon, if false the back icon will not be displayed | ReactNode | `<Icon type="arrow-left" />` | 3.14.0 |
+| tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - | 3.14.0 |
+| extra | Operating area, at the end of the line of the title line | ReactNode | - | 3.14.0 |
+| breadcrumb | breadcrumb config | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - | 3.14.0 |
+| footer | PageHeader's footer, generally used to render TabBar | ReactNode | - | 3.14.0 |
+| onBack | back icon click event | `()=>void` | `()=>history.back()` | 3.14.0 |

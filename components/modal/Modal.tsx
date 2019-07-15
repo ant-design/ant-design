@@ -11,8 +11,24 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 let mousePosition: { x: number; y: number } | null;
-let mousePositionEventBinded: boolean;
 export const destroyFns: Array<() => void> = [];
+
+// ref: https://github.com/ant-design/ant-design/issues/15795
+const getClickPosition = (e: MouseEvent) => {
+  mousePosition = {
+    x: e.pageX,
+    y: e.pageY,
+  };
+  // 100ms 内发生过点击事件，则从点击位置动画展示
+  // 否则直接 zoom 展示
+  // 这样可以兼容非点击方式展开
+  setTimeout(() => (mousePosition = null), 100);
+};
+
+// 只有点击事件支持从鼠标位置动画展开
+if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
+  addEventListener(document.documentElement, 'click', getClickPosition);
+}
 
 export interface ModalProps {
   /** 对话框是否可见*/
@@ -24,9 +40,9 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮*/
   closable?: boolean;
   /** 点击确定回调*/
-  onOk?: (e: React.MouseEvent<any>) => void;
+  onOk?: (e: React.MouseEvent<HTMLElement>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
-  onCancel?: (e: React.MouseEvent<any>) => void;
+  onCancel?: (e: React.MouseEvent<HTMLElement>) => void;
   afterClose?: () => void;
   /** 垂直居中 */
   centered?: boolean;
@@ -68,8 +84,9 @@ export interface ModalFuncProps {
   visible?: boolean;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  onOk?: (...args: any[]) => any | PromiseLike<any>;
-  onCancel?: (...args: any[]) => any | PromiseLike<any>;
+  // TODO: find out exact types
+  onOk?: (...args: any[]) => any;
+  onCancel?: (...args: any[]) => any;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   centered?: boolean;
@@ -124,8 +141,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
     confirmLoading: false,
     visible: false,
     okType: 'primary' as ButtonType,
-    okButtonDisabled: false,
-    cancelButtonDisabled: false,
   };
 
   static propTypes = {
@@ -138,7 +153,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
     width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     confirmLoading: PropTypes.bool,
     visible: PropTypes.bool,
-    align: PropTypes.object,
     footer: PropTypes.node,
     title: PropTypes.node,
     closable: PropTypes.bool,
@@ -157,24 +171,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
       onOk(e);
     }
   };
-
-  componentDidMount() {
-    if (mousePositionEventBinded) {
-      return;
-    }
-    // 只有点击事件支持从鼠标位置动画展开
-    addEventListener(document.documentElement, 'click', (e: MouseEvent) => {
-      mousePosition = {
-        x: e.pageX,
-        y: e.pageY,
-      };
-      // 100ms 内发生过点击事件，则从点击位置动画展示
-      // 否则直接 zoom 展示
-      // 这样可以兼容非点击方式展开
-      setTimeout(() => (mousePosition = null), 100);
-    });
-    mousePositionEventBinded = true;
-  }
 
   renderFooter = (locale: ModalLocale) => {
     const { okText, okType, cancelText, confirmLoading } = this.props;
@@ -195,13 +191,17 @@ export default class Modal extends React.Component<ModalProps, {}> {
     );
   };
 
-  renderModal = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderModal = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+  }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       footer,
       visible,
       wrapClassName,
       centered,
+      getContainer,
       ...restProps
     } = this.props;
 
@@ -214,13 +214,14 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type={'close'} />
+        <Icon className={`${prefixCls}-close-icon`} type="close" />
       </span>
     );
 
     return (
       <Dialog
         {...restProps}
+        getContainer={getContainer || getContextPopupContainer}
         prefixCls={prefixCls}
         wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
         footer={footer === undefined ? defaultFooter : footer}

@@ -13,18 +13,14 @@ title:
 
 When user visit a page with a list of items, and want to create a new item. The page can popup a form in Modal, then let user fill in the form to create an item.
 
-````jsx
-import {
-  Button, Modal, Form, Input, Radio,
-} from 'antd';
+```jsx
+import { Button, Modal, Form, Input, Radio } from 'antd';
 
 const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
   // eslint-disable-next-line
   class extends React.Component {
     render() {
-      const {
-        visible, onCancel, onCreate, form,
-      } = this.props;
+      const { visible, onCancel, onCreate, form } = this.props;
       const { getFieldDecorator } = form;
       return (
         <Modal
@@ -38,9 +34,7 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
             <Form.Item label="Title">
               {getFieldDecorator('title', {
                 rules: [{ required: true, message: 'Please input the title of collection!' }],
-              })(
-                <Input />
-              )}
+              })(<Input />)}
             </Form.Item>
             <Form.Item label="Description">
               {getFieldDecorator('description')(<Input type="textarea" />)}
@@ -52,14 +46,14 @@ const CollectionCreateForm = Form.create({ name: 'form_in_modal' })(
                 <Radio.Group>
                   <Radio value="public">Public</Radio>
                   <Radio value="private">Private</Radio>
-                </Radio.Group>
+                </Radio.Group>,
               )}
             </Form.Item>
           </Form>
         </Modal>
       );
     }
-  }
+  },
 );
 
 class CollectionsPage extends React.Component {
@@ -69,14 +63,14 @@ class CollectionsPage extends React.Component {
 
   showModal = () => {
     this.setState({ visible: true });
-  }
+  };
 
   handleCancel = () => {
     this.setState({ visible: false });
-  }
+  };
 
   handleCreate = () => {
-    const form = this.formRef.props.form;
+    const { form } = this.formRef.props;
     form.validateFields((err, values) => {
       if (err) {
         return;
@@ -86,16 +80,18 @@ class CollectionsPage extends React.Component {
       form.resetFields();
       this.setState({ visible: false });
     });
-  }
+  };
 
-  saveFormRef = (formRef) => {
+  saveFormRef = formRef => {
     this.formRef = formRef;
-  }
+  };
 
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>New Collection</Button>
+        <Button type="primary" onClick={this.showModal}>
+          New Collection
+        </Button>
         <CollectionCreateForm
           wrappedComponentRef={this.saveFormRef}
           visible={this.state.visible}
@@ -108,10 +104,10 @@ class CollectionsPage extends React.Component {
 }
 
 ReactDOM.render(<CollectionsPage />, mountNode);
-````
+```
 
-````css
+```css
 .collection-create-form_last-form-item {
   margin-bottom: 0;
 }
-````
+```

@@ -35,10 +35,10 @@ Some component use dynamic style to support wave effect. You can config `csp` pr
 
 ## API
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| autoInsertSpaceInButton | Set `false` to remove space between 2 chinese characters on Button | boolean | true |
-| csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |
-| renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |
-| getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` |
-| prefixCls | set prefix class | string | ant |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| autoInsertSpaceInButton | Set `false` to remove space between 2 chinese characters on Button | boolean | true | 3.13.0 |
+| csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - | 3.13.1 |
+| renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - | 3.12.2 |
+| getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` | 3.11.0 |
+| prefixCls | set prefix class | string | ant | 3.12.0 |

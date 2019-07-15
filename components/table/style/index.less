@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @table-header-icon-color: #bfbfbf;
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
 @table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
+@table-selection-column-width: 60px;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -12,6 +13,7 @@
 
 .@{table-prefix-cls} {
   .reset-component;
+
   position: relative;
   clear: both;
 
@@ -20,14 +22,19 @@
   }
 
   &-empty &-body {
-    overflow: auto !important;
+    // https://github.com/ant-design/ant-design/issues/11135
+    overflow-x: auto !important;
+    // https://github.com/ant-design/ant-design/issues/17175
+    overflow-y: hidden !important;
   }
 
+  // https://github.com/ant-design/ant-design/issues/17611
   table {
     width: 100%;
     text-align: left;
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
   }
 
   &-thead > tr > th {
@@ -84,6 +91,7 @@
         .@{table-prefix-cls}-column-sorter-up,
         .@{table-prefix-cls}-column-sorter-down {
           .iconfont-size-under-12px(11px);
+
           display: block;
           height: 1em;
           line-height: 1em;
@@ -116,6 +124,9 @@
       -webkit-background-clip: border-box; // For Chrome extra space: https://github.com/ant-design/ant-design/issues/14926
 
       &.@{table-prefix-cls}-column-has-filters {
+        // https://github.com/ant-design/ant-design/issues/12650
+        padding-right: 30px !important;
+
         .@{iconfont-css-prefix}-filter,
         .@{table-prefix-cls}-filter-icon {
           &.@{table-prefix-cls}-filter-open {
@@ -154,41 +165,36 @@
           }
         }
       }
-
-      // https://github.com/ant-design/ant-design/issues/12650
-      &.@{table-prefix-cls}-column-has-sorters,
-      &.@{table-prefix-cls}-column-has-filters {
-        padding-right: 30px !important;
-      }
-
-      &.@{table-prefix-cls}-column-has-sorters.@{table-prefix-cls}-column-has-filters {
-        padding-right: 54px !important;
-      }
     }
 
-    .@{table-prefix-cls}-column-sorters {
-      display: table;
+    .@{table-prefix-cls}-header-column {
+      display: inline-block;
+      vertical-align: top;
 
-      > .@{table-prefix-cls}-column-title {
-        display: table-cell;
-        vertical-align: middle;
-      }
+      .@{table-prefix-cls}-column-sorters {
+        display: table;
 
-      > *:not(.@{table-prefix-cls}-column-sorter) {
-        position: relative;
-      }
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: transparent;
-        transition: all 0.3s;
-        content: '';
-      }
-      &:hover::before {
-        background: rgba(0, 0, 0, 0.04);
+        > .@{table-prefix-cls}-column-title {
+          display: table-cell;
+          vertical-align: middle;
+        }
+
+        > *:not(.@{table-prefix-cls}-column-sorter) {
+          position: relative;
+        }
+        &::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: transparent;
+          transition: all 0.3s;
+          content: '';
+        }
+        &:hover::before {
+          background: rgba(0, 0, 0, 0.04);
+        }
       }
     }
 
@@ -225,6 +231,19 @@
     &:hover {
       &:not(.@{table-prefix-cls}-expanded-row) > td {
         background: @table-row-hover-bg;
+      }
+    }
+    &.@{table-prefix-cls}-row-selected > td {
+      &.@{table-prefix-cls}-column-sort {
+        background: @table-body-selected-sort-bg;
+      }
+    }
+    &:hover {
+      &.@{table-prefix-cls}-row-selected > td {
+        background: @table-selected-row-hover-bg;
+        &.@{table-prefix-cls}-column-sort {
+          background: @table-body-selected-sort-bg;
+        }
       }
     }
   }
@@ -269,8 +288,8 @@
 
   &-title + &-content {
     position: relative;
-    overflow: hidden;
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
+
     .@{table-prefix-cls}-bordered & {
       &,
       table,
@@ -293,6 +312,7 @@
   }
 
   &-tbody > tr.@{table-prefix-cls}-row-selected td {
+    color: @table-selected-row-color;
     background: @table-selected-row-bg;
   }
 
@@ -307,20 +327,6 @@
   &-thead > tr > th,
   &-tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
-  }
-
-  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
-    .@{table-prefix-cls}-selection {
-      margin-right: -15px;
-    }
-  }
-
-  &-thead > tr > th.@{table-prefix-cls}-selection-column,
-  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
-    text-align: center;
-    .@{ant-prefix}-radio-wrapper {
-      margin-right: 0;
-    }
   }
 
   &-expand-icon-th,
@@ -407,11 +413,13 @@
   &-placeholder {
     position: relative;
     z-index: 1;
+    margin-top: -1px;
     padding: @table-padding-vertical @table-padding-horizontal;
     color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
     background: @component-background;
+    border-top: @border-width-base @border-style-base @border-color-split;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     .@{iconfont-css-prefix} {
@@ -558,10 +566,6 @@
         content: '.';
       }
     }
-
-    &[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
-      display: inline-block;
-    }
   }
 
   tr&-expanded-row {
@@ -613,6 +617,35 @@
     // Workaround for additional scroll bar on the table header
     // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
     opacity: 0.9999;
+
+    &::-webkit-scrollbar {
+      border: 1px solid @border-color-split;
+      border-width: 0 0 1px 0;
+    }
+  }
+
+  &-hide-scrollbar {
+    // https://github.com/ant-design/ant-design/issues/4637
+    // https://stackoverflow.com/a/54101063
+    // https://github.com/react-component/table/pull/333
+    scrollbar-color: transparent transparent;
+    &::-webkit-scrollbar {
+      background-color: transparent;
+    }
+  }
+
+  // optimize header style of borderd table after hide extra scrollbar
+  &-bordered&-fixed-header &-scroll &-header {
+    &::-webkit-scrollbar {
+      border: 1px solid @border-color-split;
+      border-width: 1px 1px 1px 0;
+    }
+    &.@{table-prefix-cls}-hide-scrollbar
+      .@{table-prefix-cls}-thead
+      > tr:only-child
+      > th:last-child {
+      border-right-color: transparent;
+    }
   }
 
   &-fixed-left,
@@ -681,6 +714,42 @@
 
   &&-scroll-position-right &-fixed-right {
     box-shadow: none;
+  }
+
+  // ========================== Row Selection ==========================
+  colgroup {
+    > col.@{table-prefix-cls}-selection-col {
+      width: @table-selection-column-width;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
+    .@{table-prefix-cls}-selection {
+      margin-right: -15px;
+    }
+  }
+
+  &-thead > tr > th.@{table-prefix-cls}-selection-column,
+  &-tbody > tr > td.@{table-prefix-cls}-selection-column {
+    text-align: center;
+
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
+  }
+
+  &-row[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
+    display: inline-block;
+  }
+}
+
+/**
+* Another fix of Firefox:
+*/
+@supports (-moz-appearance: meterbar) {
+  // https://github.com/ant-design/ant-design/issues/12628
+  .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-has-actions {
+    background-clip: padding-box;
   }
 }
 

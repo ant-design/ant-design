@@ -34,6 +34,14 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
       Danger
     </span>
   </button>
+  <button
+    class="ant-btn ant-btn-link"
+    type="button"
+  >
+    <span>
+      Link
+    </span>
+  </button>
 </div>
 `;
 
@@ -68,7 +76,15 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     type="button"
   >
     <span>
-      danger
+      Danger
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-block"
+    type="button"
+  >
+    <span>
+      Link
     </span>
   </button>
 </div>
@@ -177,6 +193,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
           class=""
           data-icon="left"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -206,6 +223,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
           class=""
           data-icon="right"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -233,6 +251,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
           class=""
           data-icon="cloud"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -256,6 +275,7 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
           class=""
           data-icon="cloud-download"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -328,6 +348,24 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
       Dashed(disabled)
     </span>
   </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-link"
+    type="button"
+  >
+    <span>
+      Link
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Link(disabled)
+    </span>
+  </button>
   <div
     style="padding:8px 8px 0 8px;background:rgb(190, 200, 200)"
   >
@@ -388,6 +426,14 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
       danger
     </span>
   </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-background-ghost"
+    type="button"
+  >
+    <span>
+      link
+    </span>
+  </button>
 </div>
 `;
 
@@ -406,6 +452,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -429,6 +476,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -455,6 +503,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -478,6 +527,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -505,6 +555,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -528,6 +579,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -554,6 +606,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -577,6 +630,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
         class=""
         data-icon="search"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -594,7 +648,7 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
 `;
 
 exports[`renders ./components/button/demo/loading.md correctly 1`] = `
-<span>
+<div>
   <button
     class="ant-btn ant-btn-primary ant-btn-loading"
     type="button"
@@ -608,6 +662,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
         class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="0 0 1024 1024"
         width="1em"
@@ -634,6 +689,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
         class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="0 0 1024 1024"
         width="1em"
@@ -669,6 +725,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
         class=""
         data-icon="poweroff"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -696,6 +753,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
         class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="0 0 1024 1024"
         width="1em"
@@ -719,6 +777,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
         class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="0 0 1024 1024"
         width="1em"
@@ -729,7 +788,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
       </svg>
     </i>
   </button>
-</span>
+</div>
 `;
 
 exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
@@ -766,6 +825,7 @@ exports[`renders ./components/button/demo/multiple.md correctly 1`] = `
         class=""
         data-icon="down"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -877,6 +937,14 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       Danger
     </span>
   </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-lg"
+    type="button"
+  >
+    <span>
+      Link
+    </span>
+  </button>
   <br />
   <button
     class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
@@ -891,6 +959,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         class=""
         data-icon="download"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -914,6 +983,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         class=""
         data-icon="download"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -940,6 +1010,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
         class=""
         data-icon="download"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -970,6 +1041,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
           class=""
           data-icon="left"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -999,6 +1071,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
           class=""
           data-icon="right"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"

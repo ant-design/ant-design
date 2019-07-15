@@ -15,6 +15,8 @@ export interface CascaderOptionType {
   value?: string;
   label?: React.ReactNode;
   disabled?: boolean;
+  isLeaf?: boolean;
+  loading?: boolean;
   children?: Array<CascaderOptionType>;
   [key: string]: any;
 }
@@ -89,7 +91,7 @@ export interface CascaderProps {
   onPopupVisibleChange?: (popupVisible: boolean) => void;
   prefixCls?: string;
   inputPrefixCls?: string;
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   popupVisible?: boolean;
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
@@ -204,6 +206,14 @@ function flattenTree(
 
 const defaultDisplayRender = (label: string[]) => label.join(' / ');
 
+function warningValueNotExist(list: CascaderOptionType[] = [], fieldNames: FieldNamesType = {}) {
+  list.forEach(item => {
+    const valueFieldName = fieldNames.value || 'value';
+    warning(valueFieldName in item, 'Cascader', 'Not found `value` in `options`.');
+    warningValueNotExist(item[fieldNames.children || 'children'], fieldNames);
+  });
+}
+
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     placeholder: 'Please select',
@@ -227,6 +237,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     }
     if (nextProps.showSearch && prevProps.options !== nextProps.options) {
       newState.flattenOptions = flattenTree(nextProps.options, nextProps);
+    }
+
+    if (process.env.NODE_ENV !== 'production' && nextProps.options) {
+      warningValueNotExist(nextProps.options, getFieldNames(nextProps));
     }
 
     return newState;
@@ -292,7 +306,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.keyCode === KeyCode.BACKSPACE) {
+    // SPACE => https://github.com/ant-design/ant-design/issues/16871
+    if (e.keyCode === KeyCode.BACKSPACE || e.keyCode === KeyCode.SPACE) {
       e.stopPropagation();
     }
   };
@@ -423,6 +438,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       allowClear,
       showSearch = false,
       suffixIcon,
+      notFoundContent,
       ...otherProps
     } = props;
 
@@ -480,8 +496,19 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     ]);
 
     let options = props.options;
-    if (state.inputValue) {
-      options = this.generateFilteredOptions(prefixCls, renderEmpty);
+    if (options.length > 0) {
+      if (state.inputValue) {
+        options = this.generateFilteredOptions(prefixCls, renderEmpty);
+      }
+    } else {
+      const names: FilledFieldNamesType = getFilledFieldNames(this.props);
+      options = [
+        {
+          [names.label]: notFoundContent || renderEmpty('Cascader'),
+          [names.value]: 'ANT_CASCADER_NOT_FOUND',
+          disabled: true,
+        },
+      ];
     }
     // Dropdown menu should keep previous status until it is fully closed.
     if (!state.popupVisible) {
@@ -499,7 +526,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     // The default value of `matchInputWidth` is `true`
     const resultListMatchInputWidth =
       (showSearch as ShowSearchType).matchInputWidth === false ? false : true;
-    if (resultListMatchInputWidth && state.inputValue && this.input) {
+    if (resultListMatchInputWidth && (state.inputValue || isNotFound) && this.input) {
       dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
     }
 

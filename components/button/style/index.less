@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
 
@@ -24,6 +24,7 @@
   > i,
   > span {
     display: inline-block;
+    transition: margin-left 0.3s @ease-in-out;
     pointer-events: none;
   }
 
@@ -69,6 +70,10 @@
     .btn-danger;
   }
 
+  &-link {
+    .btn-link;
+  }
+
   &-round {
     .btn-round(@btn-prefix-cls);
   }
@@ -90,8 +95,8 @@
     border-radius: inherit;
     opacity: 0.35;
     transition: opacity 0.2s;
-    pointer-events: none;
     content: '';
+    pointer-events: none;
   }
 
   .@{iconfont-css-prefix} {
@@ -107,14 +112,17 @@
     }
   }
 
+  &&-loading {
+    position: relative;
+    pointer-events: none;
+  }
+
   &&-loading::before {
     display: block;
   }
 
   &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    position: relative;
     padding-left: 29px;
-    pointer-events: none;
     .@{iconfont-css-prefix}:not(:last-child) {
       margin-left: -14px;
     }
@@ -160,6 +168,12 @@
 
   &-background-ghost&-danger {
     .button-variant-ghost(@btn-danger-color);
+  }
+
+  &-background-ghost&-link {
+    .button-variant-ghost(@link-color; transparent);
+
+    color: @component-background;
   }
 
   &-two-chinese-chars::first-letter {

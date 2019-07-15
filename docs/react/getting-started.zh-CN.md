@@ -5,8 +5,7 @@ title: 快速上手
 
 Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
-> 在开始之前，推荐先学习 [React](http://reactjs.org) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v8 或以上。
-> 官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
+> 在开始之前，推荐先学习 [React](http://reactjs.org) 和 [ES2015](http://babeljs.io/docs/learn-es2015/)，并正确安装和配置了 [Node.js](https://nodejs.org/) v8 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
 
 ---
 
@@ -29,11 +28,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { LocaleProvider, DatePicker, message } from 'antd';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
-import zhCN from 'antd/lib/locale-provider/zh_CN';
+import zhCN from 'antd/es/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import "antd/dist/antd.css";
-import "./index.css";
+import 'antd/dist/antd.css';
+import './index.css';
 
 moment.locale('zh-cn');
 
@@ -42,10 +41,10 @@ class App extends React.Component {
     date: null,
   };
 
-  handleChange = (date) => {
+  handleChange = date => {
     message.info(`您选择的日期是: ${date.format('YYYY-MM-DD')}`);
     this.setState({ date });
-  }
+  };
   render() {
     const { date } = this.state;
     return (
@@ -66,8 +65,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 ### 3. 探索更多组件用法
 
-你可以在左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。
-在代码演示部分找到第一个例子，点击右下角的图标展开代码。
+你可以在左侧菜单查看组件列表，比如 [Alert](/components/alert-cn) 组件，组件文档中提供了各类演示，最下方有组件 API 文档可以查阅。在代码演示部分找到第一个例子，点击右下角的图标展开代码。
 
 然后依照演示代码的写法，在之前的 codesandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
 
@@ -90,8 +88,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 
 <img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/Up3%24VYhN0S/134614ee-7440-46f1-a797-fa6f6b3e300f.png" alt="codesandbox screenshot" />
 
-好的，现在你已经会使用基本的 antd 组件了，你可以在这个例子中继续探索其他组件的用法。
-如果你遇到组件的 bug，也推荐建一个可重现的 codesandbox 来报告 bug。
+好的，现在你已经会使用基本的 antd 组件了，你可以在这个例子中继续探索其他组件的用法。如果你遇到组件的 bug，也推荐建一个可重现的 codesandbox 来报告 bug。
 
 ### 4. 下一步
 
@@ -107,8 +104,8 @@ ReactDOM.render(<App />, document.getElementById('root'));
 Ant Design React 支持所有的现代浏览器和 IE9+。
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| IE9, IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+| --- | --- | --- | --- | --- | --- |
+| IE9, IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 我们对 IE9/10 提供有限度的支持，部分样式和动画在 IE9/10 下的表现会比较裸。少数组件使用到了 Flex 布局，在 IE9/10 下也会有问题。
 
@@ -143,11 +140,11 @@ You are using a whole package of antd, please use https://www.npmjs.com/package/
 可以通过以下的写法来按需加载组件。
 
 ```jsx
-import Button from 'antd/lib/button';
-import 'antd/lib/button/style'; // 或者 antd/lib/button/style/css 加载 css 文件
+import Button from 'antd/es/button';
+import 'antd/es/button/style'; // 或者 antd/es/button/style/css 加载 css 文件
 ```
 
-> `antd/es/button` 可以加载 ES 版本的模块，方便进一步 Tree Shake.
+> 注意：antd 默认支持基于 ES module 的 tree shaking，对于 js 部分，直接引入 `import { Button } from 'antd'` 也会有按需加载的效果。
 
 如果你使用了 babel，那么可以使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 来进行按需加载，加入这个插件后。你可以仍然这么写：
 
@@ -155,7 +152,7 @@ import 'antd/lib/button/style'; // 或者 antd/lib/button/style/css 加载 css �
 import { Button } from 'antd';
 ```
 
-插件会帮你转换成 `antd/lib/xxx` 的写法。另外此插件配合 [style](https://github.com/ant-design/babel-plugin-import#usage) 属性可以做到模块样式的按需自动加载。
+插件会帮你转换成 `antd/es/xxx` 的写法。另外此插件配合 [style](https://github.com/ant-design/babel-plugin-import#usage) 属性可以做到模块样式的按需自动加载。
 
 > 注意，babel-plugin-import 的 `style` 属性除了引入对应组件的样式，也会引入一些必要的全局样式。如果你不需要它们，建议不要使用此属性。你可以 `import 'antd/dist/antd.css'` 手动引入，并覆盖全局样式。
 

@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
@@ -34,6 +34,7 @@
 
 .@{select-prefix-cls} {
   .reset-component;
+
   position: relative;
   display: inline-block;
   outline: 0;
@@ -53,6 +54,7 @@
   // arrow
   &-arrow {
     .iconfont-mixin();
+
     position: absolute;
     top: 50%;
     right: @control-padding-horizontal - 1px;
@@ -69,9 +71,7 @@
 
   &-selection {
     display: block;
-
     box-sizing: border-box;
-
     background-color: @component-background;
     border: @border-width-base @border-style-base @select-border-color;
     // strange align fix for chrome but works
@@ -161,8 +161,8 @@
       display: inline-block;
       width: 0;
       visibility: hidden;
-      pointer-events: none;
       content: '.';
+      pointer-events: none;
     }
   }
 
@@ -351,6 +351,7 @@
 
     .@{select-prefix-cls}-selection__choice__remove {
       .iconfont-mixin();
+
       position: absolute;
       right: 4px;
       display: inline-block;
@@ -422,6 +423,7 @@
 
 .@{select-prefix-cls}-dropdown {
   .reset-component;
+
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -432,7 +434,6 @@
   // https://github.com/ant-design/ant-design/issues/11456
   // https://github.com/ant-design/ant-design/issues/11843
   font-variant: initial;
-
   background-color: @component-background;
   border-radius: @border-radius-base;
   outline: none;
@@ -503,7 +504,7 @@
       cursor: pointer;
       transition: background 0.3s ease;
 
-      &:hover {
+      &:hover:not(&-disabled) {
         background-color: @item-hover-bg;
       }
 
@@ -515,27 +516,23 @@
         border-radius: 0 0 @border-radius-base @border-radius-base;
       }
 
+      &-selected {
+        color: @text-color;
+        font-weight: @select-item-selected-font-weight;
+        background-color: @background-color-light;
+      }
+
       &-disabled {
         color: @disabled-color;
         cursor: not-allowed;
 
         &:hover {
           color: @disabled-color;
-          background-color: @component-background;
           cursor: not-allowed;
         }
       }
 
-      &-selected {
-        &,
-        &:hover {
-          color: @text-color;
-          font-weight: @select-item-selected-font-weight;
-          background-color: @background-color-light;
-        }
-      }
-
-      &-active {
+      &-active:not(&-disabled) {
         background-color: @item-active-bg;
       }
 

@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @divider-prefix-cls: ~'@{ant-prefix}-divider';
 
 .@{divider-prefix-cls} {
   .reset-component;
+
   background: @border-color-split;
 
   &,  /* for compatiable */
@@ -17,6 +18,7 @@
     margin: 0 8px;
     vertical-align: middle;
   }
+
   &-horizontal {
     display: block;
     clear: both;
@@ -26,7 +28,7 @@
     margin: 24px 0;
   }
 
-  &-horizontal&-with-text,
+  &-horizontal&-with-text-center,
   &-horizontal&-with-text-left,
   &-horizontal&-with-text-right {
     display: table;
@@ -86,9 +88,12 @@
 
   &-dashed {
     background: none;
-    border-top: 1px dashed @border-color-split;
+    border-color: @border-color-split;
+    border-style: dashed;
+    border-width: 1px 0 0;
   }
-  &-horizontal&-with-text&-dashed,
+
+  &-horizontal&-with-text-center&-dashed,
   &-horizontal&-with-text-left&-dashed,
   &-horizontal&-with-text-right&-dashed {
     border-top: 0;
@@ -96,5 +101,9 @@
     &::after {
       border-style: dashed none none;
     }
+  }
+
+  &-vertical&-dashed {
+    border-width: 0 0 0 1px;
   }
 }

@@ -111,4 +111,60 @@ describe('CheckboxGroup', () => {
     expect(onChange).toHaveBeenCalled();
     expect(onChange.mock.calls[0][0].target.value).toEqual('my');
   });
+
+  // https://github.com/ant-design/ant-design/issues/16376
+  it('onChange should filter removed value', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Checkbox.Group defaultValue={[1]} onChange={onChange}>
+        <Checkbox key={1} value={1} />
+        <Checkbox key={2} value={2} />
+      </Checkbox.Group>,
+    );
+
+    wrapper.setProps({
+      children: [<Checkbox key={2} value={2} />],
+    });
+
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change');
+
+    expect(onChange).toHaveBeenCalledWith([2]);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/17297
+  it('onChange should keep the order of the original values', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Checkbox.Group onChange={onChange}>
+        <Checkbox key={1} value={1} />
+        <Checkbox key={2} value={2} />
+        <Checkbox key={3} value={3} />
+        <Checkbox key={4} value={4} />
+      </Checkbox.Group>,
+    );
+
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change');
+    expect(onChange).toHaveBeenCalledWith([1]);
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(1)
+      .simulate('change');
+    expect(onChange).toHaveBeenCalledWith([1, 2]);
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change');
+    expect(onChange).toHaveBeenCalledWith([2]);
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change');
+    expect(onChange).toHaveBeenCalledWith([1, 2]);
+  });
 });

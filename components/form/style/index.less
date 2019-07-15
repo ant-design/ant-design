@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 @import '../../button/style/mixin';
@@ -56,35 +56,6 @@
   }
 }
 
-// Radio && Checkbox
-input[type='radio'],
-input[type='checkbox'] {
-  &[disabled],
-  &.disabled {
-    cursor: not-allowed;
-  }
-}
-
-// These classes are used directly on <label>s
-.@{ant-prefix}-radio-inline,
-.@{ant-prefix}-radio-vertical,
-.@{ant-prefix}-checkbox-inline,
-.@{ant-prefix}-checkbox-vertical {
-  &.disabled {
-    cursor: not-allowed;
-  }
-}
-
-// These classes are used on elements with <label> descendants
-.@{ant-prefix}-radio,
-.@{ant-prefix}-checkbox {
-  &.disabled {
-    label {
-      cursor: not-allowed;
-    }
-  }
-}
-
 // Form items
 // You should wrap labels and controls in .@{form-prefix-cls}-item for optimum spacing
 .@{form-prefix-cls}-item {
@@ -98,6 +69,7 @@ input[type='checkbox'] {
   }
 
   .reset-component;
+
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
@@ -112,7 +84,7 @@ input[type='checkbox'] {
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @form-explain-height - @form-help-margin-top;
+    margin-bottom: max(0, @form-item-margin-bottom - @form-explain-height - @form-help-margin-top);
   }
 
   &-label {
@@ -162,11 +134,14 @@ input[type='checkbox'] {
   text-align: center;
 }
 
-// 表单下的输入框尺寸唯一: 大尺寸
 form {
   .has-feedback {
     .@{ant-prefix}-input {
       padding-right: 24px;
+    }
+
+    .@{ant-prefix}-input-password-icon {
+      margin-right: 18px;
     }
 
     // Fix overlapping between feedback icon and <Select>'s arrow.
@@ -212,6 +187,7 @@ form {
     }
   }
 
+  .@{ant-prefix}-mentions,
   textarea.@{ant-prefix}-input {
     height: auto;
     margin-bottom: 4px;
@@ -279,33 +255,6 @@ form {
     top: -1px;
     display: inline-block;
     vertical-align: middle;
-  }
-}
-
-// Input combined with select
-.@{ant-prefix}-input-group-wrap {
-  .@{ant-prefix}-select-selection {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    &:hover {
-      border-color: @border-color-base;
-    }
-  }
-
-  .@{ant-prefix}-select-selection--single {
-    height: @input-height-lg;
-    margin-left: -1px;
-    background-color: fade(@black, 7%);
-    .@{ant-prefix}-select-selection__rendered {
-      padding-right: 25px;
-      padding-left: 8px;
-      line-height: 30px;
-    }
-  }
-
-  .@{ant-prefix}-select-open .@{ant-prefix}-select-selection {
-    border-color: @border-color-base;
-    box-shadow: none;
   }
 }
 
@@ -456,7 +405,7 @@ form {
 }
 
 .has-warning {
-  .form-control-validation(@warning-color; @warning-color;);
+  .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg;);
 
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @warning-color;
@@ -505,7 +454,7 @@ form {
 }
 
 .has-error {
-  .form-control-validation(@error-color; @error-color;);
+  .form-control-validation(@error-color; @error-color; @form-error-input-bg;);
 
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @error-color;

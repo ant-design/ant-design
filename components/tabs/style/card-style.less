@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @tab-prefix-cls: ~'@{ant-prefix}-tabs';
@@ -28,6 +28,10 @@
     background: @component-background;
     border-color: @border-color-split;
     border-bottom: @border-width-base solid @component-background;
+  }
+  &&-card &-card-bar &-tab-disabled {
+    color: @tabs-card-active-color;
+    color: @disabled-color;
   }
   &&-card &-card-bar &-tab-inactive {
     padding: 0;
@@ -97,7 +101,7 @@
   &-vertical&-card &-card-bar&-left-bar,
   &-vertical&-card &-card-bar&-right-bar {
     .@{tab-prefix-cls}-nav-container {
-      height: auto;
+      height: 100%;
     }
     .@{tab-prefix-cls}-tab {
       margin-bottom: 8px;
@@ -146,6 +150,7 @@
 
   // https://github.com/ant-design/ant-design/issues/9104
   & &-card-bar&-bottom-bar &-tab {
+    height: auto;
     border-top: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;

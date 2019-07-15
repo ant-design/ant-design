@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
@@ -6,6 +6,7 @@
 // Base class
 .@{tooltip-prefix-cls} {
   .reset-component;
+
   position: absolute;
   z-index: @zindex-tooltip;
   display: block;
@@ -54,23 +55,29 @@
   // Arrows
   &-arrow {
     position: absolute;
-    width: 0;
-    height: 0;
+    display: block;
+    width: sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2);
+    height: sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2);
+    background: transparent;
     border-style: solid;
-    border-color: transparent;
+    border-width: sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) / 2;
+    transform: rotate(45deg);
   }
 
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
-    bottom: @tooltip-distance - @tooltip-arrow-width;
-    border-width: @tooltip-arrow-width @tooltip-arrow-width 0;
-    border-top-color: @tooltip-arrow-color;
+    bottom: @tooltip-distance - @tooltip-arrow-width + 2.2px;
+    border-top-color: transparent;
+    border-right-color: tint(fadein(@tooltip-bg, 100%), 25%); // make it not transparent
+    border-bottom-color: tint(fadein(@tooltip-bg, 100%), 25%); // make it not transparent
+    border-left-color: transparent;
+    box-shadow: 3px 3px 7px fade(@black, 7%);
   }
 
   &-placement-top &-arrow {
     left: 50%;
-    margin-left: -@tooltip-arrow-width;
+    transform: translateX(-50%) rotate(45deg);
   }
 
   &-placement-topLeft &-arrow {
@@ -84,14 +91,17 @@
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
-    left: @tooltip-distance - @tooltip-arrow-width;
-    border-width: @tooltip-arrow-width @tooltip-arrow-width @tooltip-arrow-width 0;
-    border-right-color: @tooltip-arrow-color;
+    left: @tooltip-distance - @tooltip-arrow-width + 2px;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: tint(fadein(@tooltip-bg, 100%), 25%);
+    border-left-color: tint(fadein(@tooltip-bg, 100%), 25%);
+    box-shadow: -3px 3px 7px fade(@black, 7%);
   }
 
   &-placement-right &-arrow {
     top: 50%;
-    margin-top: -@tooltip-arrow-width;
+    transform: translateY(-50%) rotate(45deg);
   }
 
   &-placement-rightTop &-arrow {
@@ -105,14 +115,17 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: @tooltip-distance - @tooltip-arrow-width;
-    border-width: @tooltip-arrow-width 0 @tooltip-arrow-width @tooltip-arrow-width;
-    border-left-color: @tooltip-arrow-color;
+    right: @tooltip-distance - @tooltip-arrow-width + 2px;
+    border-top-color: tint(fadein(@tooltip-bg, 100%), 25%);
+    border-right-color: tint(fadein(@tooltip-bg, 100%), 25%);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    box-shadow: 3px -3px 7px fade(@black, 7%);
   }
 
   &-placement-left &-arrow {
     top: 50%;
-    margin-top: -@tooltip-arrow-width;
+    transform: translateY(-50%) rotate(45deg);
   }
 
   &-placement-leftTop &-arrow {
@@ -126,14 +139,17 @@
   &-placement-bottom &-arrow,
   &-placement-bottomLeft &-arrow,
   &-placement-bottomRight &-arrow {
-    top: @tooltip-distance - @tooltip-arrow-width;
-    border-width: 0 @tooltip-arrow-width @tooltip-arrow-width;
-    border-bottom-color: @tooltip-arrow-color;
+    top: @tooltip-distance - @tooltip-arrow-width + 2px;
+    border-top-color: tint(fadein(@tooltip-bg, 100%), 25%);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: tint(fadein(@tooltip-bg, 100%), 25%);
+    box-shadow: -2px -2px 5px fade(@black, 6%);
   }
 
   &-placement-bottom &-arrow {
     left: 50%;
-    margin-left: -@tooltip-arrow-width;
+    transform: translateX(-50%) rotate(45deg);
   }
 
   &-placement-bottomLeft &-arrow {

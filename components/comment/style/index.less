@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @comment-prefix-cls: ~'@{ant-prefix}-comment';
@@ -27,25 +27,25 @@
     position: relative;
     flex: 1 1 auto;
     min-width: 1px;
-    font-size: 14px;
+    font-size: @comment-font-size-base;
     word-wrap: break-word;
 
     &-author {
       display: flex;
       justify-content: flex-start;
       margin-bottom: 4px;
-      font-size: 14px;
+      font-size: @comment-font-size-base;
       & > a,
       & > span {
         height: 18px;
         padding-right: 8px;
-        font-size: 12px;
+        font-size: @comment-font-size-sm;
         line-height: 18px;
       }
 
       &-name {
         color: @comment-author-name-color;
-        font-size: 14px;
+        font-size: @comment-font-size-base;
         transition: color 0.3s;
         > * {
           color: @comment-author-name-color;
@@ -76,7 +76,7 @@
       > span {
         padding-right: 10px;
         color: @comment-action-color;
-        font-size: 12px;
+        font-size: @comment-font-size-sm;
         cursor: pointer;
         transition: color 0.3s;
         user-select: none;

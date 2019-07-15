@@ -21,7 +21,7 @@ export interface InputNumberProps
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
   formatter?: (value: number | string | undefined) => string;
-  parser?: (displayValue: string | undefined) => number;
+  parser?: (displayValue: string | undefined) => number | string;
   decimalSeparator?: string;
   placeholder?: string;
   style?: React.CSSProperties;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import Header from './Header';
+import Header, { HeaderRender } from './Header';
 import enUS from './locale/en_US';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -23,7 +23,6 @@ function zerofixed(v: number) {
 }
 
 export type CalendarMode = 'month' | 'year';
-
 export interface CalendarProps {
   prefixCls?: string;
   className?: string;
@@ -42,6 +41,7 @@ export interface CalendarProps {
   onChange?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   validRange?: [moment.Moment, moment.Moment];
+  headerRender?: HeaderRender;
 }
 
 export interface CalendarState {
@@ -72,6 +72,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     value: PropTypes.object as PropTypes.Requireable<moment.Moment>,
     onSelect: PropTypes.func,
     onChange: PropTypes.func,
+    headerRender: PropTypes.func,
   };
 
   static getDerivedStateFromProps(nextProps: CalendarProps) {
@@ -205,6 +206,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
       style,
       className,
       fullscreen,
+      headerRender,
       dateFullCellRender,
       monthFullCellRender,
     } = props;
@@ -237,6 +239,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
               <Header
                 fullscreen={fullscreen}
                 type={mode}
+                headerRender={headerRender}
                 value={value}
                 locale={locale.lang}
                 prefixCls={prefixCls}

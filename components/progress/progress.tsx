@@ -25,7 +25,7 @@ export interface ProgressProps {
   status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
   strokeWidth?: number;
-  strokeLinecap?: string;
+  strokeLinecap?: 'butt' | 'square' | 'round';
   strokeColor?: string | ProgressGradient;
   trailColor?: string;
   width?: number;
@@ -58,8 +58,23 @@ export default class Progress extends React.Component<ProgressProps> {
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,
-    default: PropTypes.oneOf(['default', 'small']),
   };
+
+  getPercentNumber() {
+    const { successPercent, percent = 0 } = this.props;
+    return parseInt(
+      successPercent !== undefined ? successPercent.toString() : percent.toString(),
+      10,
+    );
+  }
+
+  getProgressStatus() {
+    const { status } = this.props;
+    if (ProgressStatuses.indexOf(status!) < 0 && this.getPercentNumber() >= 100) {
+      return 'success';
+    }
+    return status || 'normal';
+  }
 
   renderProcessInfo(prefixCls: string, progressStatus: (typeof ProgressStatuses)[number]) {
     const { showInfo, format, type, percent, successPercent } = this.props;
@@ -104,15 +119,9 @@ export default class Progress extends React.Component<ProgressProps> {
       ...restProps
     } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
-    const progressStatus =
-      parseInt(successPercent !== undefined ? successPercent.toString() : percent.toString(), 10) >=
-        100 && !('status' in props)
-        ? 'success'
-        : status || 'normal';
-    let progress;
-
+    const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
-
+    let progress;
     // Render progress shape
     if (type === 'line') {
       progress = (

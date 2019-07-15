@@ -13,20 +13,25 @@ title:
 
 Comments can be nested.
 
-````jsx
+```jsx
 import { Comment, Avatar } from 'antd';
 
 const ExampleComment = ({ children }) => (
   <Comment
     actions={[<span>Reply to</span>]}
     author={<a>Han Solo</a>}
-    avatar={(
+    avatar={
       <Avatar
         src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
         alt="Han Solo"
       />
-    )}
-    content={<p>We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure).</p>}
+    }
+    content={
+      <p>
+        We supply a series of design principles, practical patterns and high quality design
+        resources (Sketch and Axure).
+      </p>
+    }
   >
     {children}
   </Comment>
@@ -41,4 +46,4 @@ ReactDOM.render(
   </ExampleComment>,
   mountNode,
 );
-````
+```

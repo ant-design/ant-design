@@ -6,11 +6,12 @@ import createFormField from 'rc-form/lib/createFormField';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { ColProps } from '../grid/col';
-import { Omit, tuple } from '../_util/type';
+import { tuple } from '../_util/type';
 import warning from '../_util/warning';
-import FormItem from './FormItem';
+import FormItem, { FormLabelAlign } from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
 import { FormContext } from './context';
+import { FormWrappedProps } from './interface';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
 
@@ -19,7 +20,7 @@ interface FormCreateOptionMessages {
 }
 
 export interface FormCreateOption<T> {
-  onFieldsChange?: (props: T, fields: object, allFields: any, add: string) => void;
+  onFieldsChange?: (props: T, fields: any, allFields: any) => void;
   onValuesChange?: (props: T, changedValues: any, allValues: any) => void;
   mapPropsToFields?: (props: T) => void;
   validateMessages?: FormCreateOptionMessages;
@@ -33,7 +34,7 @@ export type FormLayout = (typeof FormLayouts)[number];
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
   form?: WrappedFormUtils;
-  onSubmit?: React.FormEventHandler<any>;
+  onSubmit?: React.FormEventHandler<HTMLFormElement>;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
@@ -47,7 +48,7 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
    * @since 3.15.0
    */
   colon?: boolean;
-  labelAlign?: 'left' | 'right';
+  labelAlign?: FormLabelAlign;
 }
 
 export type ValidationRule = {
@@ -170,8 +171,8 @@ export type WrappedFormUtils<V = any> = {
   validateFieldsAndScroll(options: ValidateFieldsOptions): void;
   validateFieldsAndScroll(): void;
   /** 获取某个输入控件的 Error */
-  getFieldError(name: string): Object[];
-  getFieldsError(names?: Array<string>): Object;
+  getFieldError(name: string): string[] | undefined;
+  getFieldsError(names?: Array<string>): Record<string, string[] | undefined>;
   /** 判断一个输入控件是否在校验状态 */
   isFieldValidating(name: string): boolean;
   isFieldTouched(name: string): boolean;
@@ -185,7 +186,7 @@ export type WrappedFormUtils<V = any> = {
   ): (node: React.ReactNode) => React.ReactNode;
 };
 
-export interface FormComponentProps<V = any> {
+export interface WrappedFormInternalProps<V = any> {
   form: WrappedFormUtils<V>;
 }
 
@@ -193,10 +194,8 @@ export interface RcBaseFormProps {
   wrappedComponentRef?: any;
 }
 
-export interface ComponentDecorator {
-  <P extends FormComponentProps>(
-    component: React.ComponentClass<P> | React.SFC<P>,
-  ): React.ComponentClass<RcBaseFormProps & Omit<P, keyof FormComponentProps>>;
+export interface FormComponentProps<V = any> extends WrappedFormInternalProps<V>, RcBaseFormProps {
+  form: WrappedFormUtils<V>;
 }
 
 export default class Form extends React.Component<FormProps, any> {
@@ -222,9 +221,9 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps>(
+  static create = function<TOwnProps extends FormComponentProps>(
     options: FormCreateOption<TOwnProps> = {},
-  ): ComponentDecorator {
+  ): FormWrappedProps<TOwnProps> {
     return createDOMForm({
       fieldNameProp: 'id',
       ...options,

@@ -1,7 +1,10 @@
+const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
+
 // jest config for server render environment
 module.exports = {
   setupFiles: ['./tests/setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
+  moduleNameMapper,
   transform: {
     '\\.tsx?$': './node_modules/antd-tools/lib/jest/codePreprocessor',
     '\\.js$': './node_modules/antd-tools/lib/jest/codePreprocessor',
@@ -10,6 +13,7 @@ module.exports = {
   },
   testRegex: 'demo\\.test\\.js$',
   testEnvironment: 'node',
+  transformIgnorePatterns,
   snapshotSerializers: ['enzyme-to-json/serializer'],
   globals: {
     'ts-jest': {

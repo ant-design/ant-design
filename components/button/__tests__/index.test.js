@@ -157,4 +157,15 @@ describe('Button', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/15342
+  it('should merge text if children using variable', () => {
+    const wrapper = mount(
+      <Button>
+        This {'is'} a test {1}
+      </Button>,
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

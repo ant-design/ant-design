@@ -14,13 +14,10 @@ debug: true
 
 Please check this before commit.
 
-````jsx
-import {
-  Button, Modal, Form, Row, Col, Input, Select, InputNumber, Radio, DatePicker,
-} from 'antd';
+```jsx
+import { Button, Modal, Form, Row, Col, Input, Select, InputNumber, Radio, DatePicker } from 'antd';
 
-const RadioGroup = Radio.Group;
-const ColSpan = {lg:12,md:24};
+const ColSpan = { lg: 12, md: 24 };
 
 class App extends React.Component {
   constructor() {
@@ -75,41 +72,41 @@ class App extends React.Component {
             <Row>
               <Col span={span}>
                 <Item colon={false} {...itemLayout} label="测试字段">
-                  {getFieldDecorator("item1", {
-                    rules: [{ required: true, message: "请必须填写此字段" }],
+                  {getFieldDecorator('item1', {
+                    rules: [{ required: true, message: '请必须填写此字段' }],
                   })(<Input />)}
                 </Item>
               </Col>
               <Col span={span}>
                 <Item {...itemLayout} label="测试字段">
-                  {getFieldDecorator("item2", {
-                    rules: [{ required: true, message: "请必须填写此字段" }],
+                  {getFieldDecorator('item2', {
+                    rules: [{ required: true, message: '请必须填写此字段' }],
                   })(<Input />)}
                 </Item>
               </Col>
               <Col span={span}>
                 <Item {...itemLayout} label="测试字段">
-                  {getFieldDecorator("item3")(<Input />)}
+                  {getFieldDecorator('item3')(<Input />)}
                 </Item>
               </Col>
               <Col span={span}>
                 <Item {...itemLayout} label="测试字段">
-                  {getFieldDecorator("item4", {
-                    rules: [{ required: true, message: "请必须填写此字段" }],
+                  {getFieldDecorator('item4', {
+                    rules: [{ required: true, message: '请必须填写此字段' }],
                   })(<Input />)}
                 </Item>
               </Col>
               <Col span={span}>
                 <Item {...itemLayout} label="测试字段">
-                  {getFieldDecorator("item5", {
-                    rules: [{ required: true, message: "请必须填写此字段" }],
+                  {getFieldDecorator('item5', {
+                    rules: [{ required: true, message: '请必须填写此字段' }],
                   })(<Input />)}
                 </Item>
               </Col>
               <Col span={span}>
                 <Item {...itemLayout} label="测试字段">
-                  {getFieldDecorator("item6", {
-                    rules: [{ required: true, message: "请必须填写此字段" }],
+                  {getFieldDecorator('item6', {
+                    rules: [{ required: true, message: '请必须填写此字段' }],
                   })(<Input />)}
                 </Item>
               </Col>
@@ -119,36 +116,36 @@ class App extends React.Component {
 
         {/* case 2: Form different item */}
         <Form>
-            <Row gutter={16}>
-                <Col {...ColSpan}>
-                    <Item colon={false} label="input:64.5px">
-                        <Input />
-                    </Item>
-                </Col>
-                <Col {...ColSpan}>
-                    <Item label="select:64px">
-                        <Select />
-                    </Item>
-                </Col>
-                <Col {...ColSpan}>
-                    <Item label="InputNumber:64px">
-                        <InputNumber />
-                    </Item>
-                </Col>
-                <Col {...ColSpan}>
-                    <Item label="DatePicker: 64.5px">
-                        <DatePicker />
-                    </Item>
-                </Col>
-                <Col {...ColSpan}>
-                    <Item label="RadioGroup: 64px">
-                        <RadioGroup>
-                            <Radio value={0}>男</Radio>
-                            <Radio value={1}>女</Radio>
-                        </RadioGroup>
-                    </Item>
-                </Col>
-            </Row>
+          <Row gutter={16}>
+            <Col {...ColSpan}>
+              <Item colon={false} label="input:64.5px">
+                <Input />
+              </Item>
+            </Col>
+            <Col {...ColSpan}>
+              <Item label="select:64px">
+                <Select />
+              </Item>
+            </Col>
+            <Col {...ColSpan}>
+              <Item label="InputNumber:64px">
+                <InputNumber />
+              </Item>
+            </Col>
+            <Col {...ColSpan}>
+              <Item label="DatePicker: 64.5px">
+                <DatePicker />
+              </Item>
+            </Col>
+            <Col {...ColSpan}>
+              <Item label="RadioGroup: 64px">
+                <Radio.Group>
+                  <Radio value={0}>男</Radio>
+                  <Radio value={1}>女</Radio>
+                </Radio.Group>
+              </Item>
+            </Col>
+          </Row>
         </Form>
       </div>
     );
@@ -158,5 +155,4 @@ class App extends React.Component {
 const WrapApp = Form.create()(App);
 
 ReactDOM.render(<WrapApp />, mountNode);
-````
-
+```

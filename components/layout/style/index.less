@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @layout-prefix-cls: ~'@{ant-prefix}-layout';
@@ -96,6 +96,7 @@
         position: absolute;
         top: @layout-header-height;
         right: -@layout-zero-trigger-width;
+        z-index: 1;
         width: @layout-zero-trigger-width;
         height: @layout-zero-trigger-height;
         color: @layout-trigger-color;

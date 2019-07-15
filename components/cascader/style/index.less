@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
@@ -8,8 +8,11 @@
   .reset-component;
 
   &-input.@{ant-prefix}-input {
-    position: relative;
+    // Keep it static for https://github.com/ant-design/ant-design/issues/16738
+    position: static;
     width: 100%;
+    // https://github.com/ant-design/ant-design/issues/17582
+    padding-right: 24px;
     // Add important to fix https://github.com/ant-design/ant-design/issues/5078
     // because input.less will compile after cascader.less
     background-color: transparent !important;
@@ -22,6 +25,7 @@
 
   &-picker {
     .reset-component;
+
     position: relative;
     display: inline-block;
     background-color: @component-background;
@@ -58,7 +62,7 @@
       width: 100%;
       height: 20px;
       margin-top: -10px;
-      padding: 0 @control-padding-horizontal;
+      padding: 0 20px 0 @control-padding-horizontal;
       overflow: hidden;
       line-height: 20px;
       white-space: nowrap;
@@ -106,6 +110,11 @@
         transform: rotate(180deg);
       }
     }
+  }
+
+  // https://github.com/ant-design/ant-design/pull/12407#issuecomment-424657810
+  &-picker-label:hover + &-input {
+    .hover;
   }
 
   &-picker-small &-picker-clear,
@@ -194,8 +203,8 @@
     &-active:not(&-disabled) {
       &,
       &:hover {
-        font-weight: 600;
-        background: @background-color-base;
+        font-weight: @select-item-selected-font-weight;
+        background-color: @background-color-light;
       }
     }
     &-expand {
@@ -204,8 +213,9 @@
     }
 
     &-expand &-expand-icon,
-    &-expand &-loading-icon {
+    &-loading-icon {
       .iconfont-size-under-12px(10px);
+
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;

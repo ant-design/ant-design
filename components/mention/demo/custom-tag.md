@@ -15,10 +15,10 @@ title:
 
 Customize suggestions.
 
-````jsx
+```jsx
 import { Mention } from 'antd';
 
-const Nav = Mention.Nav;
+const { Nav } = Mention;
 
 const webFrameworks = [
   { name: 'React', type: 'JavaScript' },
@@ -35,21 +35,22 @@ function onSelect(suggestion, data) {
 class CustomNavMention extends React.Component {
   state = {
     suggestions: [],
-  }
+  };
 
-  onSearchChange = (value) => {
+  onSearchChange = value => {
     const searchValue = value.toLowerCase();
-    const filtered = webFrameworks.filter(item => item.name.toLowerCase().indexOf(searchValue) !== -1);
+    const filtered = webFrameworks.filter(
+      item => item.name.toLowerCase().indexOf(searchValue) !== -1,
+    );
     const suggestions = filtered.map(suggestion => (
-      <Nav
-        value={suggestion.name}
-        data={suggestion}
-      >
-        <span>{suggestion.name} - {suggestion.type}</span>
+      <Nav value={suggestion.name} data={suggestion}>
+        <span>
+          {suggestion.name} - {suggestion.type}
+        </span>
       </Nav>
     ));
     this.setState({ suggestions });
-  }
+  };
 
   render() {
     const { suggestions } = this.state;
@@ -66,4 +67,4 @@ class CustomNavMention extends React.Component {
 }
 
 ReactDOM.render(<CustomNavMention />, mountNode);
-````
+```

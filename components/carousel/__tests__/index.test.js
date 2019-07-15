@@ -3,11 +3,11 @@ import { mount } from 'enzyme';
 import Carousel from '..';
 
 describe('Carousel', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.useRealTimers();
   });
 
@@ -77,5 +77,57 @@ describe('Carousel', () => {
     wrapper.unmount();
     expect(spy).toHaveBeenCalled();
     expect(spy2).toHaveBeenCalledWith('resize', onWindowResized);
+  });
+
+  describe('should works for dotPosition', () => {
+    ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
+      it(dotPosition, () => {
+        const wrapper = mount(
+          <Carousel dotPosition={dotPosition}>
+            <div />
+          </Carousel>,
+        );
+        jest.runAllTimers();
+        expect(wrapper.render()).toMatchSnapshot();
+      });
+    });
+  });
+
+  it('warning', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Carousel vertical>
+        <div />
+      </Carousel>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
+    );
+    warnSpy.mockRestore();
+  });
+
+  describe('should active when children change', () => {
+    it('should active', () => {
+      const wrapper = mount(<Carousel />);
+      wrapper.setProps({
+        children: <div />,
+      });
+      wrapper.update();
+      expect(wrapper.find('.slick-active').length).toBeTruthy();
+    });
+
+    it('should keep initialSlide', () => {
+      const wrapper = mount(<Carousel initialSlide={1} />);
+      wrapper.setProps({
+        children: [<div key="1" />, <div key="2" />, <div key="3" />],
+      });
+      wrapper.update();
+      expect(
+        wrapper
+          .find('.slick-dots li')
+          .at(1)
+          .hasClass('slick-active'),
+      ).toBeTruthy();
+    });
   });
 });

@@ -10,7 +10,7 @@ export interface SearchProps extends InputProps {
   onSearch?: (
     value: string,
     event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
-  ) => any;
+  ) => void;
   enterButton?: boolean | React.ReactNode;
 }
 

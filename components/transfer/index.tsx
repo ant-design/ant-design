@@ -9,21 +9,29 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale-provider/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
+import { TransferListBodyProps } from './renderListBody';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
 export { TransferSearchProps } from './search';
 
-function noop() {}
-
 export type TransferDirection = 'left' | 'right';
-type TransferRender = (record: TransferItem) => React.ReactNode;
+
+export interface RenderResultObject {
+  label: React.ReactElement;
+  value: string;
+}
+
+export type RenderResult = React.ReactElement | RenderResultObject | string | null;
+
+type TransferRender = (item: TransferItem) => RenderResult;
 
 export interface TransferItem {
   key: string;
   title: string;
   description?: string;
   disabled?: boolean;
+  [name: string]: any;
 }
 
 export interface TransferProps {
@@ -34,7 +42,7 @@ export interface TransferProps {
   targetKeys?: string[];
   selectedKeys?: string[];
   render?: TransferRender;
-  onChange?: (targetKeys: string[], direction: string, moveKeys: any) => void;
+  onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
   listStyle?: React.CSSProperties;
@@ -42,7 +50,7 @@ export interface TransferProps {
   titles?: string[];
   operations?: string[];
   showSearch?: boolean;
-  filterOption?: (inputValue: any, item: any) => boolean;
+  filterOption?: (inputValue: string, item: TransferItem) => boolean;
   searchPlaceholder?: string;
   notFoundContent?: React.ReactNode;
   locale?: {};
@@ -53,6 +61,8 @@ export interface TransferProps {
   onSearch?: (direction: TransferDirection, value: string) => void;
   lazy?: {} | boolean;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
+  children?: (props: TransferListBodyProps) => React.ReactNode;
+  showSelectAll?: boolean;
 }
 
 export interface TransferLocale {
@@ -71,7 +81,6 @@ class Transfer extends React.Component<TransferProps, any> {
 
   static defaultProps = {
     dataSource: [],
-    render: noop as TransferRender,
     locale: {},
     showSearch: false,
   };
@@ -127,10 +136,14 @@ class Transfer extends React.Component<TransferProps, any> {
         'please use `locale` instead.',
     );
 
+    warning(
+      !('body' in props),
+      'Transfer',
+      '`body` is internal usage and will bre removed, please use `children` instead.',
+    );
+
     const { selectedKeys = [], targetKeys = [] } = props;
     this.state = {
-      leftFilter: '',
-      rightFilter: '',
       sourceSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) === -1),
       targetSelectedKeys: selectedKeys.filter(key => targetKeys.indexOf(key) > -1),
     };
@@ -205,43 +218,57 @@ class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
+  onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
+    const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
+
+    let mergedCheckedKeys = [];
+    if (checkAll) {
+      // Merge current keys with origin key
+      mergedCheckedKeys = Array.from(new Set([...originalSelectedKeys, ...selectedKeys]));
+    } else {
+      // Remove current keys from origin keys
+      mergedCheckedKeys = originalSelectedKeys.filter(
+        (key: string) => selectedKeys.indexOf(key) === -1,
+      );
+    }
+
+    this.handleSelectChange(direction, mergedCheckedKeys);
+
+    if (!this.props.selectedKeys) {
+      this.setState({
+        [this.getSelectedKeysName(direction)]: mergedCheckedKeys,
+      });
+    }
+  };
+
   handleSelectAll = (
     direction: TransferDirection,
     filteredDataSource: TransferItem[],
     checkAll: boolean,
   ) => {
-    const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
-    const currentKeys = filteredDataSource.map(item => item.key);
-    // Only operate current keys from original selected keys
-    const newKeys1 = originalSelectedKeys.filter((key: string) => currentKeys.indexOf(key) === -1);
-    const newKeys2 = [...originalSelectedKeys];
-    currentKeys.forEach(key => {
-      if (newKeys2.indexOf(key) === -1) {
-        newKeys2.push(key);
-      }
-    });
-    const holder = checkAll ? newKeys1 : newKeys2;
-    this.handleSelectChange(direction, holder);
-
-    if (!this.props.selectedKeys) {
-      this.setState({
-        [this.getSelectedKeysName(direction)]: holder,
-      });
-    }
+    warning(
+      false,
+      'Transfer',
+      '`handleSelectAll` will be removed, please use `onSelectAll` instead.',
+    );
+    this.onItemSelectAll(direction, filteredDataSource.map(({ key }) => key), !checkAll);
   };
 
+  // [Legacy] Old prop `body` pass origin check as arg. It's confusing.
+  // TODO: Remove this in next version.
   handleLeftSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
-    this.handleSelectAll('left', filteredDataSource, checkAll);
+    this.handleSelectAll('left', filteredDataSource, !checkAll);
   handleRightSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
-    this.handleSelectAll('right', filteredDataSource, checkAll);
+    this.handleSelectAll('right', filteredDataSource, !checkAll);
+
+  onLeftItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
+    this.onItemSelectAll('left', selectedKeys, checkAll);
+  onRightItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
+    this.onItemSelectAll('right', selectedKeys, checkAll);
 
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearchChange, onSearch } = this.props;
     const value = e.target.value;
-    this.setState({
-      // add filter
-      [`${direction}Filter`]: value,
-    });
     if (onSearchChange) {
       warning(false, 'Transfer', '`onSearchChange` is deprecated. Please use `onSearch` instead.');
       onSearchChange(direction, e);
@@ -256,9 +283,6 @@ class Transfer extends React.Component<TransferProps, any> {
 
   handleClear = (direction: TransferDirection) => {
     const { onSearch } = this.props;
-    this.setState({
-      [`${direction}Filter`]: '',
-    });
     if (onSearch) {
       onSearch(direction, '');
     }
@@ -267,15 +291,15 @@ class Transfer extends React.Component<TransferProps, any> {
   handleLeftClear = () => this.handleClear('left');
   handleRightClear = () => this.handleClear('right');
 
-  handleSelect = (direction: TransferDirection, selectedItem: TransferItem, checked: boolean) => {
+  onItemSelect = (direction: TransferDirection, selectedKey: string, checked: boolean) => {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
     const holder = direction === 'left' ? [...sourceSelectedKeys] : [...targetSelectedKeys];
-    const index = holder.indexOf(selectedItem.key);
+    const index = holder.indexOf(selectedKey);
     if (index > -1) {
       holder.splice(index, 1);
     }
     if (checked) {
-      holder.push(selectedItem.key);
+      holder.push(selectedKey);
     }
     this.handleSelectChange(direction, holder);
 
@@ -286,13 +310,19 @@ class Transfer extends React.Component<TransferProps, any> {
     }
   };
 
-  handleLeftSelect = (selectedItem: TransferItem, checked: boolean) => {
-    return this.handleSelect('left', selectedItem, checked);
+  handleSelect = (direction: TransferDirection, selectedItem: TransferItem, checked: boolean) => {
+    warning(false, 'Transfer', '`handleSelect` will be removed, please use `onSelect` instead.');
+    this.onItemSelect(direction, selectedItem.key, checked);
   };
+  handleLeftSelect = (selectedItem: TransferItem, checked: boolean) =>
+    this.handleSelect('left', selectedItem, checked);
+  handleRightSelect = (selectedItem: TransferItem, checked: boolean) =>
+    this.handleSelect('right', selectedItem, checked);
 
-  handleRightSelect = (selectedItem: TransferItem, checked: boolean) => {
-    return this.handleSelect('right', selectedItem, checked);
-  };
+  onLeftItemSelect = (selectedKey: string, checked: boolean) =>
+    this.onItemSelect('left', selectedKey, checked);
+  onRightItemSelect = (selectedKey: string, checked: boolean) =>
+    this.onItemSelect('right', selectedKey, checked);
 
   handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => {
     const { onScroll } = this.props;
@@ -348,16 +378,21 @@ class Transfer extends React.Component<TransferProps, any> {
           filterOption,
           render,
           lazy,
+          children,
+          showSelectAll,
         } = this.props;
         const prefixCls = getPrefixCls('transfer', customizePrefixCls);
         const locale = this.getLocale(transferLocale, renderEmpty);
-        const { leftFilter, rightFilter, sourceSelectedKeys, targetSelectedKeys } = this.state;
+        const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 
         const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
         const leftActive = targetSelectedKeys.length > 0;
         const rightActive = sourceSelectedKeys.length > 0;
 
-        const cls = classNames(className, prefixCls, disabled && `${prefixCls}-disabled`);
+        const cls = classNames(className, prefixCls, {
+          [`${prefixCls}-disabled`]: disabled,
+          [`${prefixCls}-customize-list`]: !!children,
+        });
 
         const titles = this.getTitles(locale);
         return (
@@ -366,7 +401,6 @@ class Transfer extends React.Component<TransferProps, any> {
               prefixCls={`${prefixCls}-list`}
               titleText={titles[0]}
               dataSource={leftDataSource}
-              filter={leftFilter}
               filterOption={filterOption}
               style={listStyle}
               checkedKeys={sourceSelectedKeys}
@@ -374,13 +408,18 @@ class Transfer extends React.Component<TransferProps, any> {
               handleClear={this.handleLeftClear}
               handleSelect={this.handleLeftSelect}
               handleSelectAll={this.handleLeftSelectAll}
+              onItemSelect={this.onLeftItemSelect}
+              onItemSelectAll={this.onLeftItemSelectAll}
               render={render}
               showSearch={showSearch}
               body={body}
+              renderList={children}
               footer={footer}
               lazy={lazy}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
+              direction="left"
+              showSelectAll={showSelectAll}
               {...locale}
             />
             <Operation
@@ -398,7 +437,6 @@ class Transfer extends React.Component<TransferProps, any> {
               prefixCls={`${prefixCls}-list`}
               titleText={titles[1]}
               dataSource={rightDataSource}
-              filter={rightFilter}
               filterOption={filterOption}
               style={listStyle}
               checkedKeys={targetSelectedKeys}
@@ -406,13 +444,18 @@ class Transfer extends React.Component<TransferProps, any> {
               handleClear={this.handleRightClear}
               handleSelect={this.handleRightSelect}
               handleSelectAll={this.handleRightSelectAll}
+              onItemSelect={this.onRightItemSelect}
+              onItemSelectAll={this.onRightItemSelectAll}
               render={render}
               showSearch={showSearch}
               body={body}
+              renderList={children}
               footer={footer}
               lazy={lazy}
               onScroll={this.handleRightScroll}
               disabled={disabled}
+              direction="right"
+              showSelectAll={showSelectAll}
               {...locale}
             />
           </div>

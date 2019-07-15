@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @pageheader-prefix-cls: ~'@{ant-prefix}-page-header';
 
 .@{pageheader-prefix-cls} {
   .reset-component;
+
   position: relative;
   padding: @page-header-padding-vertical @page-header-padding-horizontal;
   background: @component-background;
@@ -13,27 +14,28 @@
     padding-bottom: 0;
   }
 
-  &-back-icon {
+  &-back {
     display: inline-block;
     padding: 4px 0;
     font-size: 16px;
     line-height: 100%;
-    cursor: pointer;
-    i:hover {
-      color: @primary-color;
+    &-button {
+      .operation-unit();
+      color: @text-color;
+      cursor: pointer;
     }
   }
 
-  .@{ant-prefix}-divider {
+  .@{ant-prefix}-divider-vertical {
     height: 14px;
     margin: 0 12px;
   }
 
-  .@{ant-prefix}-breadcrumb {
-    margin-bottom: 12px;
+  .@{ant-prefix}-breadcrumb + &-heading {
+    margin-top: 12px;
   }
 
-  &-title-view {
+  &-heading {
     display: inline-block;
     &-title {
       display: inline-block;
@@ -62,15 +64,15 @@
       top: 16px;
       right: @page-header-padding-horizontal;
       > * {
-        margin-right: 8px;
+        margin-left: 8px;
       }
-      > *:last-child {
-        margin-right: 0;
+      > *:first-child {
+        margin-left: 0;
       }
     }
   }
 
-  &-content-view {
+  &-content {
     padding-top: 12px;
   }
 

@@ -15,6 +15,7 @@ export default {
     filterReset: 'Сбросить',
     selectAll: 'Выбрать всё',
     selectInvert: 'Инвертировать выбор',
+    sortTitle: 'Сортировка',
   },
   Modal: {
     okText: 'OK',
@@ -38,5 +39,14 @@ export default {
   },
   Empty: {
     description: 'Нет данных',
+  },
+  Text: {
+    edit: 'редактировать',
+    copy: 'копировать',
+    copied: 'скопировано',
+    expand: 'раскрыть',
+  },
+  PageHeader: {
+    back: 'назад',
   },
 };

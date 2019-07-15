@@ -2,6 +2,7 @@
 
 .@{calendar-prefix-cls}-picker-container {
   .reset-component;
+
   position: absolute;
   z-index: @zindex-picker;
   font-family: @font-family;
@@ -33,6 +34,7 @@
 
 .@{calendar-prefix-cls}-picker {
   .reset-component;
+
   position: relative;
   display: inline-block;
   outline: none;
@@ -41,6 +43,10 @@
 
   &-input {
     outline: none;
+
+    &.@{ant-prefix}-input {
+      line-height: @line-height-base;
+    }
   }
 
   &-input.@{ant-prefix}-input-sm {

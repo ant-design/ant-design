@@ -34,8 +34,9 @@ export type ListItemLayout = 'horizontal' | 'vertical';
 export interface ListProps<T> {
   bordered?: boolean;
   className?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
-  dataSource: T[];
+  dataSource?: T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
@@ -44,8 +45,8 @@ export interface ListProps<T> {
   loadMore?: React.ReactNode;
   pagination?: PaginationConfig | false;
   prefixCls?: string;
-  rowKey?: any;
-  renderItem: (item: T, index: number) => React.ReactNode;
+  rowKey?: ((item: T) => string) | string;
+  renderItem?: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
@@ -78,11 +79,6 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     pagination: false as ListProps<any>['pagination'],
   };
 
-  state = {
-    paginationCurrent: 1,
-    paginationSize: 10,
-  };
-
   defaultPaginationProps = {
     current: 1,
     total: 0,
@@ -93,6 +89,18 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
   private onPaginationChange = this.triggerPaginationEvent('onChange');
 
   private onPaginationShowSizeChange = this.triggerPaginationEvent('onShowSizeChange');
+
+  constructor(props: ListProps<T>) {
+    super(props);
+
+    const { pagination } = props;
+    const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
+
+    this.state = {
+      paginationCurrent: paginationObj.defaultCurrent || 1,
+      paginationSize: paginationObj.defaultPageSize || 10,
+    };
+  }
 
   getChildContext() {
     return {
@@ -116,6 +124,8 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
 
   renderItem = (item: any, index: number) => {
     const { renderItem, rowKey } = this.props;
+    if (!renderItem) return null;
+
     let key;
 
     if (typeof rowKey === 'function') {
@@ -162,7 +172,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
       loadMore,
       pagination,
       grid,
-      dataSource,
+      dataSource = [],
       size,
       rowKey,
       renderItem,
@@ -251,7 +261,11 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
         );
       });
 
-      childrenContent = grid ? <Row gutter={grid.gutter}>{childrenList}</Row> : childrenList;
+      childrenContent = grid ? (
+        <Row gutter={grid.gutter}>{childrenList}</Row>
+      ) : (
+        <ul className={`${prefixCls}-items`}>{childrenList}</ul>
+      );
     } else if (!children && !isLoading) {
       childrenContent = this.renderEmpty(prefixCls, renderEmpty);
     }

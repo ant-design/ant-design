@@ -94,8 +94,8 @@ describe('Form', () => {
       return (
         <Form>
           <Form.Item label="Account">
-            {form.getFieldDecorator('account')(<input />)}
-            {form.getFieldDecorator('account')(<input />)}
+            {form.getFieldDecorator('field_1')(<input />)}
+            {form.getFieldDecorator('field_2')(<input />)}
           </Form.Item>
         </Form>
       );
@@ -115,8 +115,8 @@ describe('Form', () => {
       return (
         <Form>
           <Form.Item label="Account" help="custom help information">
-            {form.getFieldDecorator('account')(<input />)}
-            {form.getFieldDecorator('account')(<input />)}
+            {form.getFieldDecorator('field_1')(<input />)}
+            {form.getFieldDecorator('field_2')(<input />)}
           </Form.Item>
         </Form>
       );

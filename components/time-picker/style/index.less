@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
@@ -7,6 +7,7 @@
 
 .@{timepicker-prefix-cls}-panel {
   .reset-component;
+
   position: absolute;
   z-index: @zindex-picker;
   font-family: @font-family;
@@ -38,7 +39,6 @@
 
     &-wrap {
       position: relative;
-      box-sizing: border-box;
       padding: 7px 2px 7px @control-padding-horizontal;
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
@@ -55,7 +55,6 @@
   &-select {
     position: relative; // Fix chrome weird render bug
     float: left;
-    box-sizing: border-box;
     width: @time-picker-panel-column-width;
     max-height: @timepicker-item-height * 6;
     overflow: hidden;
@@ -80,7 +79,6 @@
     }
 
     ul {
-      box-sizing: border-box;
       width: 100%;
       margin: 0;
       padding: 0 0 @timepicker-item-height * 5;
@@ -88,7 +86,6 @@
     }
 
     li {
-      box-sizing: content-box;
       width: 100%;
       height: @timepicker-item-height;
       margin: 0;
@@ -97,8 +94,14 @@
       text-align: left;
       list-style: none;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
       user-select: none;
+
+      &:focus {
+        color: @primary-color;
+        font-weight: 600;
+        outline: none;
+      }
     }
 
     li:hover {
@@ -106,7 +109,7 @@
     }
 
     li&-option-selected {
-      font-weight: bold;
+      font-weight: 600;
       background: @time-picker-selected-bg;
       &:hover {
         background: @time-picker-selected-bg;
@@ -158,6 +161,7 @@
 
 .@{timepicker-prefix-cls} {
   .reset-component;
+
   position: relative;
   display: inline-block;
   width: 128px;
@@ -221,5 +225,16 @@
   &-small &-icon,
   &-small &-clear {
     right: @control-padding-horizontal-sm - 1px;
+  }
+}
+
+// Fix cursor height in safari
+// https://stackoverflow.com/q/3843408/3040605
+// https://browserstrangeness.github.io/css_hacks.html#safari
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .@{ant-prefix}-input {
+      line-height: @line-height-base;
+    }
   }
 }

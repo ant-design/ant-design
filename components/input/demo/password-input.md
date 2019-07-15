@@ -1,8 +1,8 @@
 ---
 order: 10
 title:
-    zh-CN: 密码框
-    en-US: Password box
+  zh-CN: 密码框
+  en-US: Password box
 ---
 
 ## zh-CN
@@ -13,8 +13,8 @@ title:
 
 Input type of password and added in 3.12.0.
 
-````jsx
+```jsx
 import { Input } from 'antd';
 
 ReactDOM.render(<Input.Password placeholder="input password" />, mountNode);
-````
+```

@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @progress-prefix-cls: ~'@{ant-prefix}-progress';
 
 .@{progress-prefix-cls} {
   .reset-component;
+
   display: inline-block;
 
   &-line {
@@ -148,6 +149,12 @@
   &-circle&-status-success {
     .@{progress-prefix-cls}-text {
       color: @success-color;
+    }
+  }
+
+  &-circle-gradient {
+    .@{progress-prefix-cls}-circle-path {
+      stroke: url(#gradient);
     }
   }
 }

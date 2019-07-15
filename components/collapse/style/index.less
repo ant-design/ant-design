@@ -1,14 +1,15 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @collapse-prefix-cls: ~'@{ant-prefix}-collapse';
 
 .@{collapse-prefix-cls} {
   .reset-component;
+
   background-color: @collapse-header-bg;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
-  border-radius: @border-radius-base;
+  border-radius: @collapse-panel-border-radius;
 
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
@@ -16,13 +17,14 @@
     &:last-child {
       &,
       & > .@{collapse-prefix-cls}-header {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
+        border-radius: 0 0 @collapse-panel-border-radius @collapse-panel-border-radius;
       }
     }
 
     > .@{collapse-prefix-cls}-header {
       position: relative;
       padding: @collapse-header-padding;
+      padding-left: @collapse-header-padding-extra;
       color: @heading-color;
       line-height: 22px;
       cursor: pointer;
@@ -30,13 +32,12 @@
 
       .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
+
         position: absolute;
         top: 50%;
         left: @padding-md;
         display: inline-block;
-        margin-top: 2px;
         font-size: @font-size-sm;
-        line-height: 46px;
         transform: translateY(-50%);
 
         & svg {
@@ -56,6 +57,21 @@
     &.@{collapse-prefix-cls}-no-arrow {
       > .@{collapse-prefix-cls}-header {
         padding-left: 12px;
+      }
+    }
+  }
+
+  // Expand Icon right
+  &-icon-position-right {
+    & > .@{collapse-prefix-cls}-item {
+      > .@{collapse-prefix-cls}-header {
+        padding: @collapse-header-padding;
+        padding-right: @collapse-header-padding-extra;
+
+        .@{collapse-prefix-cls}-arrow {
+          right: @padding-md;
+          left: initial;
+        }
       }
     }
   }
@@ -81,7 +97,7 @@
 
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
+      border-radius: 0 0 @collapse-panel-border-radius @collapse-panel-border-radius;
     }
   }
 

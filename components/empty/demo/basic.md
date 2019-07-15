@@ -16,8 +16,5 @@ Simplest Usage.
 ```jsx
 import { Empty } from 'antd';
 
-ReactDOM.render(
-  <Empty />,
-  mountNode
-);
+ReactDOM.render(<Empty />, mountNode);
 ```

@@ -1,101 +1,120 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="An enterprise-class UI design language and React-based implementation with a set of high-quality React components, one of best React UI library for enterprises">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An enterprise-class UI design language and React implementation with a set of high-quality React components, one of best React UI library for enterprises"
+    />
     <title>Ant Design - A UI Design Language</title>
-    <link rel="icon" href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="{{ root }}index-1.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ root }}index-2.css"/>
+    <link
+      rel="icon"
+      href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+      type="image/x-icon"
+    />
+    {% for cssFile in manifest["css"] %}
+    <link rel="stylesheet" type="text/css" href="{{ root }}{{ cssFile }}" />
+    {% endfor %}
     <style id="nprogress-style">
-      #nprogress { display: none }
+      #nprogress {
+        display: none;
+      }
     </style>
-    <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less"/>
-    <script src="https://gw.alipayobjects.com/os/lib/es6-shim/0.35.5/??es6-sham.min.js,es6-shim.min.js"></script>
-    <!--[if lte IE 10]>
-    <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
-    <![endif]-->
-    <script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.min.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
+    <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,matchMedia"></script>
     <script>
-    (function() {
-      function isLocalStorageNameSupported() {
-        var testKey = 'test';
-        var storage = window.localStorage;
-        try {
-          storage.setItem(testKey, '1');
-          storage.removeItem(testKey);
-          return true;
-        } catch (error) {
-          return false;
+      (function() {
+        function isLocalStorageNameSupported() {
+          var testKey = 'test';
+          var storage = window.localStorage;
+          try {
+            storage.setItem(testKey, '1');
+            storage.removeItem(testKey);
+            return true;
+          } catch (error) {
+            return false;
+          }
         }
-      }
-      // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
-      var pathname = location.pathname;
+        // 优先级提高到所有静态资源的前面，语言不对，加载其他静态资源没意义
+        var pathname = location.pathname;
 
-      function isZhCN(pathname) {
-        return /-cn\/?$/.test(pathname);
-      }
-      function getLocalizedPathname(path, zhCN) {
-        var pathname = path.startsWith('/') ? path : '/' + path;
-        if (!zhCN) { // to enUS
-          return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
-        } else if (pathname === '/') {
-          return '/index-cn';
-        } else if (pathname.endsWith('/')) {
-          return pathname.replace(/\/$/, '-cn/');
+        function isZhCN(pathname) {
+          return /-cn\/?$/.test(pathname);
         }
-        return pathname + '-cn';
-      }
+        function getLocalizedPathname(path, zhCN) {
+          var pathname = path.startsWith('/') ? path : '/' + path;
+          if (!zhCN) {
+            // to enUS
+            return /\/?index-cn/.test(pathname) ? '/' : pathname.replace('-cn', '');
+          } else if (pathname === '/') {
+            return '/index-cn';
+          } else if (pathname.endsWith('/')) {
+            return pathname.replace(/\/$/, '-cn/');
+          }
+          return pathname + '-cn';
+        }
 
-      // 兼容旧的 URL， `?locale=...`
-      var queryString = location.search;
-      if (queryString) {
-        var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
-        if (isZhCNConfig && !isZhCN(pathname)) {
-          location.pathname = getLocalizedPathname(pathname, isZhCNConfig)
+        // 兼容旧的 URL， `?locale=...`
+        var queryString = location.search;
+        if (queryString) {
+          var isZhCNConfig = queryString.indexOf('zh-CN') > -1;
+          if (isZhCNConfig && !isZhCN(pathname)) {
+            location.pathname = getLocalizedPathname(pathname, isZhCNConfig);
+          }
         }
-      }
 
-      // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
-      if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
-        var lang = (window.localStorage && localStorage.getItem('locale')) || ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn' ? 'zh-CN' : 'en-US');
-        // safari is 'zh-cn', while other browser is 'zh-CN';
-        if ((lang === 'zh-CN') !== isZhCN(pathname)) {
-          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+        // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
+        if (isLocalStorageNameSupported() && (pathname === '/' || pathname === '/index-cn')) {
+          var lang =
+            (window.localStorage && localStorage.getItem('locale')) ||
+            ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
+              ? 'zh-CN'
+              : 'en-US');
+          // safari is 'zh-cn', while other browser is 'zh-CN';
+          if ((lang === 'zh-CN') !== isZhCN(pathname)) {
+            location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+          }
         }
-      }
-      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
-    })()
+        document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
+      })();
     </script>
   </head>
   <body>
     <div id="react-content">
       {{ content | safe }}
     </div>
-    <script src="{{ root }}index.js"></script>
+    {% for jsFile in manifest["js"] %}<script src="{{ root }}{{ jsFile }}"></script>
+    {% endfor %}
     <!-- Global Site Tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-72788897-1"></script>
     <script>
-    if (!location.port) {
-      // Enable Google Analytics
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-72788897-1');
-    }
+      if (!location.port) {
+        // Enable Google Analytics
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-72788897-1');
+      }
     </script>
     <!-- Hotjar Tracking Code for ant.design -->
     <script>
-    (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:473408,hjsv:5};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+      (function(h, o, t, j, a, r) {
+        h.hj =
+          h.hj ||
+          function() {
+            (h.hj.q = h.hj.q || []).push(arguments);
+          };
+        h._hjSettings = { hjid: 473408, hjsv: 5 };
+        a = o.getElementsByTagName('head')[0];
+        r = o.createElement('script');
+        r.async = 1;
+        r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window, document, '//static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
   </body>
 </html>

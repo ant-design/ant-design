@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 
 .@{dropdown-prefix-cls} {
   .reset-component;
+
   position: absolute;
   top: -9999px;
   left: -9999px;
@@ -77,11 +78,11 @@
     &-submenu-title {
       clear: both;
       margin: 0;
-      padding: 5px @control-padding-horizontal;
+      padding: @dropdown-vertical-padding @control-padding-horizontal;
       color: @text-color;
       font-weight: normal;
-      font-size: @font-size-base;
-      line-height: 22px;
+      font-size: @dropdown-font-size;
+      line-height: @dropdown-line-height;
       white-space: nowrap;
       cursor: pointer;
       transition: all 0.3s;
@@ -101,7 +102,7 @@
 
       &-selected,
       &-selected > a {
-        color: @primary-color;
+        color: @dropdown-selected-color;
         background-color: @item-active-bg;
       }
 

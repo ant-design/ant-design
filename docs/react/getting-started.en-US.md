@@ -21,15 +21,14 @@ Visit http://u.ant.design/codesandbox-repro to create a codesandbox. Don't forge
 
 ### 2. Using antd component
 
-Replace the content of `index.js` with the following code.
-As you can see, there is no difference between antd's components and typical React components.
+Replace the content of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
 
 ```jsx
-import React from "react";
-import ReactDOM from "react-dom";
-import { DatePicker, message } from "antd";
-import "antd/dist/antd.css";
-import "./index.css";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { DatePicker, message } from 'antd';
+import 'antd/dist/antd.css';
+import './index.css';
 
 class App extends React.Component {
   state = {
@@ -37,30 +36,29 @@ class App extends React.Component {
   };
 
   handleChange = date => {
-    message.info(`Selected Date: ${date ? date.format("YYYY-MM-DD") : "None"}`);
+    message.info(`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`);
     this.setState({ date });
   };
 
   render() {
     const { date } = this.state;
     return (
-      <div style={{ width: 400, margin: "100px auto" }}>
+      <div style={{ width: 400, margin: '100px auto' }}>
         <DatePicker onChange={this.handleChange} />
         <div style={{ marginTop: 20 }}>
-          Selected Date: {date ? date.format("YYYY-MM-DD") : "None"}
+          Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
         </div>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById('root'));
 ```
 
 ### 3. Explore more components
 
-You can look up components in the side menu like the [Alert](/components/alert) component. Plenty of examples are provided in the component pages and
-API documentation.
+You can look up components in the side menu like the [Alert](/components/alert) component. Plenty of examples are provided in the component pages and API documentation.
 
 Click the "Open in Editor" icon in the first example to open an editor with source code to use out-of-the-box. Now you can import the `Alert` component into the codesandbox:
 
@@ -83,8 +81,7 @@ Now you can see the result in the preview section.
 
 <img width="420" src="https://gw.alipayobjects.com/zos/antfincdn/QjCr7oLcpT/c7ce72d2-601e-4130-a33b-456d4652bb2d.png" alt="codesandbox screenshot" />
 
-OK! Now you know how to use antd components in a clear way. You are welcome to explore more components in the codesandbox.
-We also strongly recommend using codesandbox to provide a reproducible demo when reporting a bug.
+OK! Now you know how to use antd components in a clear way. You are welcome to explore more components in the codesandbox. We also strongly recommend using codesandbox to provide a reproducible demo when reporting a bug.
 
 ### 4. Next Step
 
@@ -100,8 +97,8 @@ In the real world you will need a development workflow consisting of `compile/bu
 Ant Design React supports all modern browsers and IE9+.
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
-| --------- | --------- | --------- | --------- | --------- | --------- |
-| IE9, IE10, IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+| --- | --- | --- | --- | --- | --- |
+| IE9, IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 We offer very limited support for IE9/10 which means some styles and animations will be mininal for them. Also, we use Flex layout in a few components.
 
@@ -138,13 +135,13 @@ You are using a whole package of antd, please use https://www.npmjs.com/package/
 However, we can import individual components on demand:
 
 ```jsx
-import Button from 'antd/lib/button';
-import 'antd/lib/button/style'; // or antd/lib/button/style/css for css format file
+import Button from 'antd/es/button';
+import 'antd/es/button/style'; // or antd/es/button/style/css for css format file
 ```
 
-> `antd/es/button` to import es version module for tree shaking.
+> Note: antd support ES6 tree shaking, so `import { Button } from 'antd';` will drop the js code you don't use too.
 
-We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:
+We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/es/xxx' way:
 
 ```jsx
 import { Button } from 'antd';

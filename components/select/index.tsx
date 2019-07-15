@@ -30,9 +30,11 @@ export interface AbstractSelectProps {
   dropdownStyle?: React.CSSProperties;
   dropdownMenuStyle?: React.CSSProperties;
   dropdownMatchSelectWidth?: boolean;
-  onSearch?: (value: string) => any;
-  getPopupContainer?: (triggerNode?: Element) => HTMLElement;
-  filterOption?: boolean | ((inputValue: string, option: React.ReactElement<OptionProps>) => any);
+  onSearch?: (value: string) => void;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  filterOption?:
+    | boolean
+    | ((inputValue: string, option: React.ReactElement<OptionProps>) => boolean);
   id?: string;
   defaultOpen?: boolean;
   open?: boolean;
@@ -55,16 +57,20 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
-  onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
-  onSelect?: (value: T, option: React.ReactElement<any>) => any;
-  onDeselect?: (value: T) => any;
+  onChange?: (
+    value: T,
+    option: React.ReactElement<any> | React.ReactElement<any>[],
+  ) => void;
+  onSelect?: (value: T extends (infer I)[] ? I : T, option: React.ReactElement<any>) => void;
+  onDeselect?: (value: T extends (infer I)[] ? I : T) => void;
   onBlur?: (value: T) => void;
   onFocus?: () => void;
   onPopupScroll?: React.UIEventHandler<HTMLDivElement>;
   onInputKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => any;
-  onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => any;
+  onMouseEnter?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLInputElement>) => void;
   maxTagCount?: number;
+  maxTagTextLength?: number;
   maxTagPlaceholder?: React.ReactNode | ((omittedValues: T[]) => React.ReactNode);
   optionFilterProp?: string;
   labelInValue?: boolean;

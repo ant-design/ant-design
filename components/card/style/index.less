@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @card-prefix-cls: ~'@{ant-prefix}-card';
@@ -10,6 +10,7 @@
 
 .@{card-prefix-cls} {
   .reset-component;
+
   position: relative;
   background: @component-background;
   border-radius: @card-radius;
@@ -108,7 +109,7 @@
     padding-bottom: 0;
   }
 
-  &-contain-tabs &-extra {
+  &-contain-tabs > &-head &-extra {
     padding-bottom: 0;
   }
 

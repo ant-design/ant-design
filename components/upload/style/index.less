@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @upload-prefix-cls: ~'@{ant-prefix}-upload';
@@ -8,6 +8,7 @@
 
 .@{upload-prefix-cls} {
   .reset-component;
+
   outline: 0;
 
   p {
@@ -26,6 +27,10 @@
 
   &&-select {
     display: inline-block;
+  }
+
+  &&-disabled {
+    cursor: not-allowed;
   }
 
   &&-select-picture-card {
@@ -98,6 +103,7 @@
         color: @primary-5;
         font-size: 48px;
       }
+
       margin-bottom: 20px;
     }
     p.@{upload-prefix-cls}-text {
@@ -160,6 +166,7 @@
 
     .@{iconfont-css-prefix}-close {
       .iconfont-size-under-12px(10px);
+
       position: absolute;
       top: 6px;
       right: 4px;

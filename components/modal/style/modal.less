@@ -5,11 +5,13 @@
 
 .@{dialog-prefix-cls} {
   .reset-component;
+
   position: relative;
   top: 100px;
   width: auto;
   margin: 0 auto;
   padding-bottom: 24px;
+  pointer-events: none;
 
   &-wrap {
     position: fixed;
@@ -29,6 +31,7 @@
     font-weight: 500;
     font-size: @font-size-lg;
     line-height: 22px;
+    word-wrap: break-word;
   }
 
   &-content {
@@ -38,6 +41,7 @@
     border: 0;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+    pointer-events: auto;
   }
 
   &-close {

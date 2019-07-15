@@ -8,7 +8,7 @@ import { tuple } from '../_util/type';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = (typeof SpinSizes)[number];
-export type SpinIndicator = React.ReactElement<any>;
+export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
   prefixCls?: string;
@@ -34,8 +34,8 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
   const { indicator } = props;
   const dotClassName = `${prefixCls}-dot`;
   if (React.isValidElement(indicator)) {
-    return React.cloneElement(indicator as SpinIndicator, {
-      className: classNames((indicator as SpinIndicator).props.className, dotClassName),
+    return React.cloneElement(indicator, {
+      className: classNames(indicator.props.className, dotClassName),
     });
   }
 
@@ -98,6 +98,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 
   componentWillUnmount() {
+    this.cancelExistingSpin();
+  }
+
+  cancelExistingSpin() {
     const updateSpinning: any = this.updateSpinning;
     if (updateSpinning && updateSpinning.cancel) {
       updateSpinning.cancel();
@@ -116,6 +120,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
   debouncifyUpdateSpinning = (props?: SpinProps) => {
     const { delay } = props || this.props;
     if (delay) {
+      this.cancelExistingSpin();
       this.updateSpinning = debounce(this.originalUpdateSpinning, delay);
     }
   };

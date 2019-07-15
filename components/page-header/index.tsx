@@ -1,12 +1,13 @@
 import * as React from 'react';
+import classnames from 'classnames';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Icon from '../icon';
-import classnames from 'classnames';
-import { BreadcrumbProps } from '../breadcrumb';
 import Divider from '../divider';
-import Breadcrumb from '../breadcrumb';
 import Tag from '../tag';
-import Wave from '../_util/wave';
+import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
+import TransButton from '../_util/transButton';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -15,10 +16,10 @@ export interface PageHeaderProps {
   subTitle?: React.ReactNode;
   style?: React.CSSProperties;
   breadcrumb?: BreadcrumbProps;
-  tags?: Tag[];
+  tags?: React.ReactElement<Tag> | React.ReactElement<Tag>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
-  onBack?: (e: React.MouseEvent<HTMLElement>) => void;
+  onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
 }
 
@@ -31,17 +32,24 @@ const renderBack = (
     return null;
   }
   return (
-    <div
-      className={`${prefixCls}-back-icon`}
-      onClick={e => {
-        if (onBack) {
-          onBack(e);
-        }
-      }}
-    >
-      <Wave>{backIcon}</Wave>
-      <Divider type="vertical" />
-    </div>
+    <LocaleReceiver componentName="PageHeader">
+      {({ back }: { back: string }) => (
+        <div className={`${prefixCls}-back`}>
+          <TransButton
+            onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+              if (onBack) {
+                onBack(e);
+              }
+            }}
+            className={`${prefixCls}-back-button`}
+            aria-label={back}
+          >
+            {backIcon}
+          </TransButton>
+          <Divider type="vertical" />
+        </div>
+      )}
+    </LocaleReceiver>
   );
 };
 
@@ -51,7 +59,7 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
 
 const renderHeader = (prefixCls: string, props: PageHeaderProps) => {
   const { breadcrumb, backIcon, onBack } = props;
-  if (breadcrumb && breadcrumb.routes && breadcrumb.routes.length >= 2) {
+  if (breadcrumb && breadcrumb.routes) {
     return renderBreadcrumb(breadcrumb);
   }
   return renderBack(prefixCls, backIcon, onBack);
@@ -59,15 +67,18 @@ const renderHeader = (prefixCls: string, props: PageHeaderProps) => {
 
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
   const { title, subTitle, tags, extra } = props;
-  const titlePrefixCls = `${prefixCls}-title-view`;
-  return (
-    <div className={`${prefixCls}-title-view`}>
-      <span className={`${titlePrefixCls}-title`}>{title}</span>
-      {subTitle && <span className={`${titlePrefixCls}-sub-title`}>{subTitle}</span>}
-      {tags && <span className={`${titlePrefixCls}-tags`}>{tags}</span>}
-      {extra && <span className={`${titlePrefixCls}-extra`}>{extra}</span>}
-    </div>
-  );
+  const headingPrefixCls = `${prefixCls}-heading`;
+  if (title || subTitle || tags || extra) {
+    return (
+      <div className={headingPrefixCls}>
+        {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
+        {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
+        {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
+        {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
+      </div>
+    );
+  }
+  return null;
 };
 
 const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
@@ -101,7 +112,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         <div className={className} style={style}>
           {renderHeader(prefixCls, props)}
           {renderTitle(prefixCls, props)}
-          {children && <div className={`${prefixCls}-content-view`}>{children}</div>}
+          {children && <div className={`${prefixCls}-content`}>{children}</div>}
           {renderFooter(prefixCls, footer)}
         </div>
       );
