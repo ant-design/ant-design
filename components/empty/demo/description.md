@@ -2,7 +2,7 @@
 order: 0
 title:
   zh-CN: 无描述
-  en-US: Basic
+  en-US: No description
 ---
 
 ## zh-CN
