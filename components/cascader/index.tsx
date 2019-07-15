@@ -15,6 +15,8 @@ export interface CascaderOptionType {
   value?: string;
   label?: React.ReactNode;
   disabled?: boolean;
+  isLeaf?: boolean;
+  loading?: boolean;
   children?: Array<CascaderOptionType>;
   [key: string]: any;
 }
