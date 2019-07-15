@@ -740,12 +740,17 @@
 
 /**
 * Another fix of Firefox:
-* - https://github.com/ant-design/ant-design/issues/12628
-* - https://github.com/ant-design/ant-design/issues/12628
 */
 @supports (-moz-appearance: meterbar) {
+  // https://github.com/ant-design/ant-design/issues/12628
   .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-has-actions {
     background-clip: padding-box;
+  }
+
+  // https://github.com/ant-design/ant-design/issues/17611
+  .@{table-prefix-cls} table {
+    border-collapse: separate;
+    border-spacing: 0;
   }
 }
 
