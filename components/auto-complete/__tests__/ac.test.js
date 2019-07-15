@@ -27,4 +27,10 @@ describe('AutoComplete with Custom Input Element Render', () => {
     );
     expect(mockRef).toHaveBeenCalled();
   });
+
+  it('id should be passed to input element correctly', () => {
+    const wrapper = mount(<AutoComplete id="test" dataSource={[]} />);
+    const input = wrapper.find('input')
+    expect(input.getDOMNode().attributes.getNamedItem('id').value).toEqual('test')
+  });
 });

@@ -7,6 +7,7 @@ import warning from '../_util/warning';
 export interface AbstractSelectProps {
   prefixCls?: string;
   className?: string;
+  id?: string,
   size?: 'default' | 'large' | 'small';
   notFoundContent?: React.ReactNode | null;
   transitionName?: string;
