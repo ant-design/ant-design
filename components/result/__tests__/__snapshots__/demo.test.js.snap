@@ -627,7 +627,7 @@ exports[`renders ./components/result/demo/404.md correctly 1`] = `
   <div
     class="ant-result-subtitle"
   >
-    'Sorry, the page you visited does not exist.
+    Sorry, the page you visited does not exist.
   </div>
   <div
     class="ant-result-extra"

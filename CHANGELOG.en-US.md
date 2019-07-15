@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.20.3
+
+`2019-07-15`
+
+- 🚨 Revert change of Input suffix style in [#17508](https://github.com/ant-design/ant-design/pull/17508), since it introduced other problems
+
 ## 3.20.2
 
 `2019-07-13`
