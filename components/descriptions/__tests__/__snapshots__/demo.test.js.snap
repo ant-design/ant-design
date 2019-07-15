@@ -294,7 +294,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
               Product
             </th>
@@ -305,7 +305,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               Cloud Database
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
               Billing
             </th>
@@ -316,7 +316,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               Prepaid
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
               time
             </th>
@@ -331,7 +331,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
               Amount
             </th>
@@ -342,7 +342,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               $80.00
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
               Discount
             </th>
@@ -353,7 +353,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               $20.00
             </td>
             <th
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
               Official
             </th>
@@ -368,7 +368,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
             class="ant-descriptions-row"
           >
             <th
-              class="ant-descriptions-item-label"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
               Config Info
             </th>
