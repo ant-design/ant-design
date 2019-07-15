@@ -18,7 +18,7 @@ export interface EmptyProps {
    */
   imageStyle?: React.CSSProperties;
   image?: React.ReactNode;
-  description?: React.ReactNode;
+  description?: React.ReactNode | boolean;
   children?: React.ReactNode;
 }
 
@@ -39,7 +39,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
         <LocaleReceiver componentName="Empty">
           {(locale: TransferLocale) => {
             const prefixCls = getPrefixCls('empty', customizePrefixCls);
-            const des = description || locale.description;
+            const des = typeof description === 'boolean' ? description : (description || locale.description);
             const alt = typeof des === 'string' ? des : 'empty';
 
             let imageNode: React.ReactNode = null;
@@ -64,7 +64,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
                 <div className={`${prefixCls}-image`} style={imageStyle}>
                   {imageNode}
                 </div>
-                <p className={`${prefixCls}-description`}>{des}</p>
+                {des && <p className={`${prefixCls}-description`}>{des}</p>}
                 {children && <div className={`${prefixCls}-footer`}>{children}</div>}
               </div>
             );
