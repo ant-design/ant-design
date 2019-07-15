@@ -9,8 +9,8 @@ import animation from '../_util/openAnimation';
 export type ExpandIconPosition = 'left' | 'right';
 
 export interface CollapseProps {
-  activeKey?: Array<string> | string;
-  defaultActiveKey?: Array<string>;
+  activeKey?: Array<string | number> | string | number;
+  defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
   accordion?: boolean;
   destroyInactivePanel?: boolean;

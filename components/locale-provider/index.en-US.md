@@ -45,9 +45,9 @@ This component aims to provide localization of the built-in text. If you want to
 
 ## API
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |  |
 
 ## FAQ
 
