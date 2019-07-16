@@ -39,7 +39,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
         <LocaleReceiver componentName="Empty">
           {(locale: TransferLocale) => {
             const prefixCls = getPrefixCls('empty', customizePrefixCls);
-            const des = description == null ? description : (description || locale.description);
+            const des = typeof description !== 'undefined' ? description : (description || locale.description);
             const alt = typeof des === 'string' ? des : 'empty';
 
             let imageNode: React.ReactNode = null;

@@ -16,5 +16,5 @@ Simplest Usage with no description.
 ```jsx
 import { Empty } from 'antd';
 
-ReactDOM.render(<Empty description={undefined} />, mountNode);
+ReactDOM.render(<Empty description={false} />, mountNode);
 ```
