@@ -256,8 +256,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   // =================== Render ===================
   renderAffix = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { affixStyle, placeholderStyle, status } = this.state;
-    const { prefixCls, style, children } = this.props;
+    const { affixStyle, placeholderStyle } = this.state;
+    const { prefixCls, children } = this.props;
     const className = classNames({
       [getPrefixCls('affix', prefixCls)]: affixStyle,
     });
@@ -267,22 +267,26 @@ class Affix extends React.Component<AffixProps, AffixState> {
     if (process.env.NODE_ENV === 'test') {
       props = omit(props, ['onTestUpdatePosition']);
     }
-    const mergedPlaceholderStyle = {
-      ...(status === AffixStatus.None ? placeholderStyle : null),
-      ...style,
-    };
+
     return (
-      <div {...props} style={mergedPlaceholderStyle} ref={this.savePlaceholderNode}>
-        <div className={className} ref={this.saveFixedNode} style={this.state.affixStyle}>
-          <ResizeObserver
-            onResize={() => {
-              this.updatePosition();
-            }}
-          >
-            {children}
-          </ResizeObserver>
+      <ResizeObserver
+        onResize={() => {
+          this.updatePosition();
+        }}
+      >
+        <div {...props} ref={this.savePlaceholderNode}>
+          {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
+          <div className={className} ref={this.saveFixedNode} style={affixStyle}>
+            <ResizeObserver
+              onResize={() => {
+                this.updatePosition();
+              }}
+            >
+              {children}
+            </ResizeObserver>
+          </div>
         </div>
-      </div>
+      </ResizeObserver>
     );
   };
 
