@@ -132,6 +132,9 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor defaultActive Prop', () => {
+    const mockGetCurrentAnchor = jest.fn().mockReturnValueOnce('');
+    Anchor.prototype.getCurrentAnchor = mockGetCurrentAnchor;
+
     const wrapper = mount(
       <Anchor defaultActive="#DEMO">
         <Link href="#API" title="API" />
@@ -139,5 +142,6 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     expect(wrapper.instance().state.activeLink).toEqual('#DEMO');
+    expect(mockGetCurrentAnchor).toHaveBeenCalledTimes(1);
   });
 });
