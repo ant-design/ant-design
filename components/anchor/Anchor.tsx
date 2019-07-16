@@ -98,6 +98,7 @@ export interface AnchorProps {
   bounds?: number;
   affix?: boolean;
   showInkInFixed?: boolean;
+  defaultActive?: string;
   getContainer?: () => AnchorContainer;
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
@@ -193,8 +194,17 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       return;
     }
     const { activeLink } = this.state;
-    const { offsetTop, bounds } = this.props;
+    const { offsetTop, bounds, defaultActive } = this.props;
     const currentActiveLink = this.getCurrentAnchor(offsetTop, bounds);
+
+    if (!currentActiveLink && defaultActive) {
+      if (activeLink === defaultActive) return;
+      this.setState({
+        activeLink: defaultActive,
+      });
+      return;
+    }
+
     if (activeLink !== currentActiveLink) {
       this.setState({
         activeLink: currentActiveLink,

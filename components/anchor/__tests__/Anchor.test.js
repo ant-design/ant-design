@@ -130,4 +130,14 @@ describe('Anchor Render', () => {
     expect(event).not.toBe(undefined);
     expect(link).toEqual({ href, title });
   });
+
+  it('Anchor defaultActive Prop', () => {
+    const wrapper = mount(
+      <Anchor defaultActive="#DEMO">
+        <Link href="#API" title="API" />
+        <Link href="#DEMO" title="DEMO" />
+      </Anchor>,
+    );
+    expect(wrapper.instance().state.activeLink).toEqual('#DEMO');
+  });
 });
