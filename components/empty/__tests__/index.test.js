@@ -9,7 +9,7 @@ describe('Empty', () => {
   });
 
   it('description can be false', () => {
-    const wrapper = mount(<Empty description={false} />);
+    const wrapper = mount(<Empty description={undefined} />);
     expect(wrapper.find('.ant-empty-description').length).toBe(0);
   });
 });
