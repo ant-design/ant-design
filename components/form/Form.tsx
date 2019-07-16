@@ -141,7 +141,7 @@ export type WrappedFormUtils<V = any> = {
   /** 获取一个输入控件的值 */
   getFieldValue(fieldName: string): any;
   /** 设置一组输入控件的值 */
-  setFieldsValue(obj: Object): void;
+  setFieldsValue(obj: Object, callback?: Function): void;
   /** 设置一组输入控件的值 */
   setFields(obj: Object): void;
   /** 校验并获取一组输入域的值与 Error */
