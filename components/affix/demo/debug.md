@@ -20,7 +20,6 @@ import { Affix, Button } from 'antd';
 class Demo extends React.Component {
   state = {
     top: 10,
-    bottom: 10,
   };
 
   render() {
