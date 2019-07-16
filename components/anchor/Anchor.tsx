@@ -48,6 +48,7 @@ const sharpMatcherRegx = /#([^#]+)$/;
 function scrollTo(
   href: string,
   offsetTop = 0,
+  fixDistance = 0,
   getContainer: () => AnchorContainer,
   callback = () => {},
 ) {
@@ -62,7 +63,7 @@ function scrollTo(
     return;
   }
   const eleOffsetTop = getOffsetTop(targetElement, container);
-  const targetScrollTop = scrollTop + eleOffsetTop - offsetTop;
+  const targetScrollTop = scrollTop + eleOffsetTop - offsetTop - fixDistance;
   const startTime = Date.now();
   const frameFunc = () => {
     const timestamp = Date.now();
@@ -97,6 +98,7 @@ export interface AnchorProps {
   offsetTop?: number;
   bounds?: number;
   affix?: boolean;
+  fixDistance?: number;
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
   onClick?: (
@@ -203,10 +205,10 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   };
 
   handleScrollTo = (link: string) => {
-    const { offsetTop, getContainer } = this.props as AnchorDefaultProps;
+    const { offsetTop, getContainer, fixDistance } = this.props as AnchorDefaultProps;
     this.animating = true;
     this.setState({ activeLink: link });
-    scrollTo(link, offsetTop, getContainer, () => {
+    scrollTo(link, offsetTop, fixDistance, getContainer, () => {
       this.animating = false;
     });
   };
