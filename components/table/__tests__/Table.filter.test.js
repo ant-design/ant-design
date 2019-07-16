@@ -712,12 +712,39 @@ describe('Table.filter', () => {
       );
     };
 
-    const wrapper = mount(<Test />);
+    mount(<Test />);
     expect(filterDropdownMock).toHaveBeenCalledWith(
       expect.objectContaining({
         visible: false,
       }),
     );
+  });
+
+  it('visible prop of filterDropdown changes on click', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
+
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
+
+    const wrapper = mount(<Test />);
 
     wrapper
       .find('.ant-dropdown-trigger')
