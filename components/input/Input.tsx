@@ -257,6 +257,8 @@ class Input extends React.Component<InputProps, any> {
     const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
       [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
       [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
+      [`${prefixCls}-affix-wrapper-with-clear-btn`]:
+        props.suffix && props.allowClear && this.state.value,
     });
     return (
       <span className={affixWrapperCls} style={props.style}>
