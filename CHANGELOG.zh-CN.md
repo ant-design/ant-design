@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 3.20.3
+
+`2019-07-15`
+
+- 🚨 回滚 [#17508](https://github.com/ant-design/ant-design/pull/17508) 中对 Input 后缀样式的修改，因其导致了其他更多问题。
+
+## 3.20.2
+
+`2019-07-13`
+
+- 📖 文档中增加对组件新特性的版本说明。[#17373](https://github.com/ant-design/ant-design/pull/17373) [@muzea](https://github.com/muzea)
+- 🐞 修复 Button 组件的 loading 样式问题。[#17596](https://github.com/ant-design/ant-design/pull/17596) [@LilyWakana](https://github.com/LilyWakana)
+- Cascader - 🐞 修复 options 为空时不展示空内容的问题。[#17538](https://github.com/ant-design/ant-design/pull/17538) - 🐞 修复 option 的 isLeaf 为 true 时 loading 样式没有对齐的问题。[#17550](https://github.com/ant-design/ant-design/pull/17550) - 🐞 修复文本过长被箭头遮挡的问题。[#17583](https://github.com/ant-design/ant-design/pull/17583)
+- 🐞 修复 Input 组件存在多个后缀图标时的样式错乱问题。[#17508](https://github.com/ant-design/ant-design/pull/17508) [@LilyWakana](https://github.com/LilyWakana)
+- TypeScript - 💄 完善 Cascader 的 `option` 类型定义。[#17581](https://github.com/ant-design/ant-design/pull/17581) [@MrHeer](https://github.com/MrHeer) - 🐞 修复 Descriptions 的 `title` 类型定义。[#17412](https://github.com/ant-design/ant-design/pull/17412) - 🐞 修复 Collapse 的 activeKey、defaultActiveKey 以及 Collapse.Panel 的 key 类型定义。[#17557](https://github.com/ant-design/ant-design/pull/17557) [@thylsky](https://github.com/thylsky)
+
 ## 3.20.1
 
 - 💄 优化 TimePicker 聚焦状态的样式。[#17447](https://github.com/ant-design/ant-design/pull/17447)

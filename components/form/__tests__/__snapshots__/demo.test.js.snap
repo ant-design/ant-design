@@ -2074,7 +2074,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         title=""
       >
         <span>
-          Nickname 
+          Nickname 
           <i
             aria-label="icon: question-circle-o"
             class="anticon anticon-question-circle-o"
@@ -2349,7 +2349,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     <span
                       class="ant-select-search__field__mirror"
                     >
-                       
+                       
                     </span>
                   </div>
                 </li>
@@ -3063,7 +3063,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     <span
                       class="ant-select-search__field__mirror"
                     >
-                       
+                       
                     </span>
                   </div>
                 </li>

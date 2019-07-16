@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.20.1",
+  "version": "3.20.3",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
@@ -99,7 +99,6 @@
   },
   "devDependencies": {
     "@ant-design/colors": "^3.1.0",
-    "@babel/plugin-transform-typescript": "~7.4.5",
     "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.4.0",
     "@types/classnames": "^2.2.8",

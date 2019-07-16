@@ -20,7 +20,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | --- | --- | --- | --- | --- |
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string | - |  |
 | action | Uploading URL | string\|(file) => `Promise` | - |  |
-| directory | support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false |  |
+| directory | support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false | 3.7.0 |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9**。 | (file, fileList) => `boolean | Promise` | - |  |
 | customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |  |
 | data | Uploading params or function which can return uploading params. | object\|function(file) | - |  |
@@ -35,7 +35,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon` and `showRemoveIcon` individually | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |  |
 | supportServerRender | Need to be turned on while the server side is rendering | boolean | false |  |
 | withCredentials | ajax upload with cookie sent | boolean | false |  |
-| openFileDialogOnClick | click open file dialog | boolean | true |  |
+| openFileDialogOnClick | click open file dialog | boolean | true | 3.10.0 |
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | Function | - |  |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked | Function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject | Function(file): `boolean | Promise` | - |  |

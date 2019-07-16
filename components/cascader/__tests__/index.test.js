@@ -398,6 +398,19 @@ describe('Cascader', () => {
     errorSpy.mockReset();
   });
 
+  it('should show not found content when options.length is 0', () => {
+    const customerOptions = [];
+    const wrapper = mount(<Cascader options={customerOptions} />);
+    wrapper.find('input').simulate('click');
+    const popupWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(popupWrapper).toMatchSnapshot();
+  });
+
   describe('limit filtered item count', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

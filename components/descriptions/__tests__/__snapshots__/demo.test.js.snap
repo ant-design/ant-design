@@ -278,7 +278,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
 exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
 <div>
   <div
-    class="ant-descriptions"
+    class="ant-descriptions ant-descriptions-bordered"
   >
     <div
       class="ant-descriptions-title"
@@ -293,128 +293,100 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
           <tr
             class="ant-descriptions-row"
           >
+            <th
+              class="ant-descriptions-item-label"
+            >
+              Product
+            </th>
             <td
-              class="ant-descriptions-item"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Product
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Cloud Database
-              </span>
+              Cloud Database
             </td>
+            <th
+              class="ant-descriptions-item-label"
+            >
+              Billing
+            </th>
             <td
-              class="ant-descriptions-item"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Billing
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Prepaid
-              </span>
+              Prepaid
             </td>
+            <th
+              class="ant-descriptions-item-label"
+            >
+              time
+            </th>
             <td
-              class="ant-descriptions-item"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                time
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                18:00:00
-              </span>
+              18:00:00
             </td>
           </tr>
           <tr
             class="ant-descriptions-row"
           >
+            <th
+              class="ant-descriptions-item-label"
+            >
+              Amount
+            </th>
             <td
-              class="ant-descriptions-item"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Amount
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                $80.00
-              </span>
+              $80.00
             </td>
+            <th
+              class="ant-descriptions-item-label"
+            >
+              Discount
+            </th>
             <td
-              class="ant-descriptions-item"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Discount
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                $20.00
-              </span>
+              $20.00
             </td>
+            <th
+              class="ant-descriptions-item-label"
+            >
+              Official
+            </th>
             <td
-              class="ant-descriptions-item"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Official
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                $60.00
-              </span>
+              $60.00
             </td>
           </tr>
           <tr
             class="ant-descriptions-row"
           >
-            <td
-              class="ant-descriptions-item"
-              colspan="3"
+            <th
+              class="ant-descriptions-item-label"
             >
-              <span
-                class="ant-descriptions-item-label"
-              >
-                Config Info
-              </span>
-              <span
-                class="ant-descriptions-item-content"
-              >
-                Data disk type: MongoDB
-                <br />
-                Database version: 3.4
-                <br />
-                Package: dds.mongo.mid
-                <br />
-                Storage space: 10 GB
-                <br />
-                Replication_factor:3
-                <br />
-                Region: East China 1
-              </span>
+              Config Info
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="5"
+            >
+              Data disk type: MongoDB
+              <br />
+              Database version: 3.4
+              <br />
+              Package: dds.mongo.mid
+              <br />
+              Storage space: 10 GB
+              <br />
+              Replication_factor:3
+              <br />
+              Region: East China 1
             </td>
           </tr>
         </tbody>
