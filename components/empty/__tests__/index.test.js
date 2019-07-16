@@ -8,7 +8,7 @@ describe('Empty', () => {
     expect(wrapper.find('.ant-empty-image').props().style.height).toBe(20);
   });
 
-  it('description can be false', () => {
+  it('description can be undefined or null', () => {
     const wrapper = mount(<Empty description={undefined} />);
     expect(wrapper.find('.ant-empty-description').length).toBe(0);
   });
