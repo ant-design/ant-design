@@ -14,7 +14,7 @@ cols: 1
 
 ## API
 
-| Property | Description | Type | Default | Version |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | actions | 在评论内容下面呈现的操作项列表 | Array<ReactNode> | - | 3.11.0 |
 | author | 要显示为注释作者的元素 | string\|ReactNode | - | 3.11.0 |
