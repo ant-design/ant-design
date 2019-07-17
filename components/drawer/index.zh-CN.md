@@ -21,7 +21,7 @@ title: Drawer
 | closable | 是否显示右上角的关闭按钮 | boolean | true | 3.7.0 |
 | destroyOnClose | 关闭时销毁 Drawer 里的子元素 | boolean | false | 3.7.0 |
 | getContainer | 指定 Drawer 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| `() => HTMLElement` \| Selectors \| false | 'body' | 3.7.0 |
-| maskClosable | 点击蒙层是否允许关闭 | boolean | true | 3.7.0 | 
+| maskClosable | 点击蒙层是否允许关闭 | boolean | true | 3.7.0 |
 | mask | 是否展示遮罩 | Boolean | true | 3.7.0 |
 | maskStyle | 遮罩样式 | object | {} | 3.7.0 |
 | style | 可用于设置 Drawer 最外层容器的样式 | object | - | 3.7.0 |
