@@ -14,7 +14,7 @@
   &&-card &-card-bar &-tab {
     height: @tabs-card-height;
     margin: 0;
-    margin-right: 2px;
+    margin-right: @tabs-card-gutter;
     padding: 0 16px;
     line-height: @tabs-card-height - 2px;
     background: @tabs-card-head-background;
@@ -28,6 +28,10 @@
     background: @component-background;
     border-color: @border-color-split;
     border-bottom: @border-width-base solid @component-background;
+
+    &::before {
+      border-top: @tabs-card-tab-active-border-top;
+    }
   }
   &&-card &-card-bar &-tab-disabled {
     color: @tabs-card-active-color;

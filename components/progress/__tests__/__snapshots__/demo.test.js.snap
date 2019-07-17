@@ -491,7 +491,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:0%;height:8px;border-radius:100px"
+            style="width:0%;height:8px;border-radius:"
           />
         </div>
       </div>
@@ -664,7 +664,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:99.9%;height:8px;border-radius:100px;background-image:linear-gradient(to right, #108ee9 0%, #87d068 100%)"
+            style="width:99.9%;height:8px;border-radius:;background-image:linear-gradient(to right, #108ee9 0%, #87d068 100%)"
           />
         </div>
       </div>
@@ -688,7 +688,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:99.9%;height:8px;border-radius:100px;background-image:linear-gradient(to right, #108ee9, #87d068)"
+            style="width:99.9%;height:8px;border-radius:;background-image:linear-gradient(to right, #108ee9, #87d068)"
           />
         </div>
       </div>
@@ -854,7 +854,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:30%;height:8px;border-radius:100px"
+            style="width:30%;height:8px;border-radius:"
           />
         </div>
       </div>
@@ -878,7 +878,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:50%;height:8px;border-radius:100px"
+            style="width:50%;height:8px;border-radius:"
           />
         </div>
       </div>
@@ -902,7 +902,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:70%;height:8px;border-radius:100px"
+            style="width:70%;height:8px;border-radius:"
           />
         </div>
       </div>
@@ -943,7 +943,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:100%;height:8px;border-radius:100px"
+            style="width:100%;height:8px;border-radius:"
           />
         </div>
       </div>
@@ -984,7 +984,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:50%;height:8px;border-radius:100px"
+            style="width:50%;height:8px;border-radius:"
           />
         </div>
       </div>
@@ -1009,7 +1009,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:30%;height:6px;border-radius:100px"
+            style="width:30%;height:6px;border-radius:"
           />
         </div>
       </div>
@@ -1033,7 +1033,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:50%;height:6px;border-radius:100px"
+            style="width:50%;height:6px;border-radius:"
           />
         </div>
       </div>
@@ -1057,7 +1057,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:70%;height:6px;border-radius:100px"
+            style="width:70%;height:6px;border-radius:"
           />
         </div>
       </div>
@@ -1098,7 +1098,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:100%;height:6px;border-radius:100px"
+            style="width:100%;height:6px;border-radius:"
           />
         </div>
       </div>
@@ -1257,11 +1257,11 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:60%;height:8px;border-radius:100px"
+            style="width:60%;height:8px;border-radius:"
           />
           <div
             class="ant-progress-success-bg"
-            style="width:30%;height:8px;border-radius:100px"
+            style="width:30%;height:8px;border-radius:"
           />
         </div>
       </div>
