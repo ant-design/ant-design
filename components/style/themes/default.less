@@ -156,9 +156,9 @@
 @btn-default-bg: @component-background;
 @btn-default-border: @border-color-base;
 
-@btn-danger-color: @error-color;
-@btn-danger-bg: @background-color-base;
-@btn-danger-border: @border-color-base;
+@btn-danger-color: #fff;
+@btn-danger-bg: color(~`colorPalette('@{error-color}', 5) `);
+@btn-danger-border: color(~`colorPalette('@{error-color}', 5) `);
 
 @btn-disable-color: @disabled-color;
 @btn-disable-bg: @disabled-bg;
