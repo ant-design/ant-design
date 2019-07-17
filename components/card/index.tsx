@@ -84,7 +84,7 @@ export default class Card extends React.Component<CardProps, {}> {
   getAction(actions: React.ReactNode[]) {
     const actionList = actions.map((action, index) => (
       <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-        <div>{action}</div>
+        <span>{action}</span>
       </li>
     ));
     return actionList;
