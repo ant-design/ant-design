@@ -3,7 +3,7 @@ order: 99
 title:
   zh-CN: 调试
   en-US: Debug
-only: true
+debug: true
 ---
 
 ## zh-CN
