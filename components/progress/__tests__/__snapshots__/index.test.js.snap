@@ -13,11 +13,11 @@ exports[`Progress render format 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 50%; height: 8px; border-radius: 100px;"
+          style="width: 50%; height: 8px;"
         />
         <div
           class="ant-progress-success-bg"
-          style="width: 10%; height: 8px; border-radius: 100px;"
+          style="width: 10%; height: 8px;"
         />
       </div>
     </div>
@@ -44,7 +44,7 @@ exports[`Progress render negetive progress 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 0%; height: 8px; border-radius: 100px;"
+          style="width: 0%; height: 8px;"
         />
       </div>
     </div>
@@ -71,11 +71,11 @@ exports[`Progress render negetive successPercent 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 50%; height: 8px; border-radius: 100px;"
+          style="width: 50%; height: 8px;"
         />
         <div
           class="ant-progress-success-bg"
-          style="width: 0%; height: 8px; border-radius: 100px;"
+          style="width: 0%; height: 8px;"
         />
       </div>
     </div>
@@ -102,7 +102,7 @@ exports[`Progress render normal progress 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 0%; height: 8px; border-radius: 100px;"
+          style="width: 0%; height: 8px;"
         />
       </div>
     </div>
@@ -129,7 +129,7 @@ exports[`Progress render out-of-range progress 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; border-radius: 100px;"
+          style="width: 100%; height: 8px;"
         />
       </div>
     </div>
@@ -173,7 +173,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
       >
         <div
           class="ant-progress-bg"
-          style="width: 100%; height: 8px; border-radius: 100px;"
+          style="width: 100%; height: 8px;"
         />
       </div>
     </div>
@@ -296,7 +296,7 @@ exports[`Progress render strokeColor 2`] = `
               style={
                 Object {
                   "backgroundImage": "linear-gradient(to right, #108ee9, #87d068)",
-                  "borderRadius": "100px",
+                  "borderRadius": "",
                   "height": 8,
                   "width": "50%",
                 }
@@ -363,7 +363,7 @@ exports[`Progress render strokeColor 3`] = `
               style={
                 Object {
                   "backgroundImage": "linear-gradient(to right, #108ee9 0%, #87d068 100%)",
-                  "borderRadius": "100px",
+                  "borderRadius": "",
                   "height": 8,
                   "width": "50%",
                 }
