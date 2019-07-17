@@ -63,8 +63,18 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     push: false,
   };
 
-  parentDrawer: Drawer;
+  parentDrawer: Drawer | null;
+
   destroyClose: boolean;
+
+  public componentDidMount() {
+    // fix: delete drawer in child and re-render, no push started.
+    // <Drawer>{show && <Drawer />}</Drawer>
+    const { visible } = this.props;
+    if (visible && this.parentDrawer) {
+      this.parentDrawer.push();
+    }
+  }
 
   public componentDidUpdate(preProps: DrawerProps) {
     const { visible } = this.props;
@@ -74,6 +84,14 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       } else {
         this.parentDrawer.pull();
       }
+    }
+  }
+
+  public componentWillUnmount() {
+    // unmount drawer in child, clear push.
+    if (this.parentDrawer) {
+      this.parentDrawer.pull();
+      this.parentDrawer = null;
     }
   }
 
@@ -186,7 +204,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     );
   };
 
-  // render Provider for Multi-level drawe
+  // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
     const {
       prefixCls,
