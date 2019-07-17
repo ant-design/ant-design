@@ -15,7 +15,7 @@ import raf from '../_util/raf';
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;
-  item: unknown;
+  item: any;
   domEvent: Event;
   selectedKeys: Array<string>;
 }
@@ -23,7 +23,7 @@ export interface SelectParam {
 export interface ClickParam {
   key: string;
   keyPath: Array<string>;
-  item: unknown;
+  item: any;
   domEvent: Event;
 }
 
@@ -276,10 +276,6 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
         // submenu should hide without animation
         if (this.state.switchingModeFromInline) {
           menuOpenAnimation = '';
-          this.setState({
-            switchingModeFromInline: false,
-          });
-          // this.switchingModeFromInline = false;
         } else {
           menuOpenAnimation = 'zoom-big';
         }

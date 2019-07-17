@@ -5,6 +5,7 @@ import InputElement from './InputElement';
 import Input, { InputProps } from '../input';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { Omit } from '../_util/type';
 
 export interface DataSourceItemObject {
   value: string;
@@ -17,8 +18,8 @@ export type DataSourceItemType =
   | React.ReactElement<OptGroupProps>;
 
 export interface AutoCompleteInputProps {
-  onChange?: React.FormEventHandler<unknown>;
-  value: unknown;
+  onChange?: React.FormEventHandler<any>;
+  value: any;
 }
 
 export type ValidInputElement =
@@ -26,7 +27,7 @@ export type ValidInputElement =
   | HTMLTextAreaElement
   | React.ReactElement<AutoCompleteInputProps>;
 
-export interface AutoCompleteProps extends AbstractSelectProps {
+export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> {
   value?: SelectValue;
   defaultValue?: SelectValue;
   dataSource?: DataSourceItemType[];
@@ -34,7 +35,7 @@ export interface AutoCompleteProps extends AbstractSelectProps {
   backfill?: boolean;
   optionLabelProp?: string;
   onChange?: (value: SelectValue) => void;
-  onSelect?: (value: SelectValue, option: Object) => unknown;
+  onSelect?: (value: SelectValue, option: Object) => any;
   onBlur?: (value: SelectValue) => void;
   onFocus?: () => void;
   children?:

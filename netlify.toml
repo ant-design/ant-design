@@ -2,10 +2,6 @@
   publish = "_site"
   command = "npm run site"
 
-[context.production]
-  command = "echo build"
-  publish = "."
-
 [[redirects]]
   from = "/docs/resource/download"
   to = "/docs/spec/download"

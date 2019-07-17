@@ -103,6 +103,8 @@ export { default as Radio } from './radio';
 
 export { default as Rate } from './rate';
 
+export { default as Result } from './result';
+
 export { default as Row } from './row';
 
 export { default as Select } from './select';

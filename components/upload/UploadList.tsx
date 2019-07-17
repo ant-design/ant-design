@@ -42,19 +42,22 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       return;
     }
     (items || []).forEach(file => {
+      const isValidateFile =
+        file.originFileObj instanceof File || file.originFileObj instanceof Blob;
+
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File) ||
+        !isValidateFile ||
         file.thumbUrl !== undefined
       ) {
         return;
       }
       file.thumbUrl = '';
       if (previewFile) {
-        previewFile(file.originFileObj).then((previewDataUrl: string) => {
+        previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
           // Need append '' to avoid dead loop
           file.thumbUrl = previewDataUrl || '';
           this.forceUpdate();

@@ -19,7 +19,7 @@ export type MentionPlacement = 'top' | 'bottom';
 export interface OptionProps {
   value: string;
   children: React.ReactNode;
-  [key: string]: unknown;
+  [key: string]: any;
 }
 
 export interface MentionProps extends RcMentionsProps {

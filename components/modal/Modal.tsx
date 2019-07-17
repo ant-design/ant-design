@@ -74,7 +74,7 @@ export interface ModalProps {
   maskStyle?: React.CSSProperties;
   mask?: boolean;
   keyboard?: boolean;
-  wrapProps?: unknown;
+  wrapProps?: any;
   prefixCls?: string;
 }
 
@@ -85,8 +85,8 @@ export interface ModalFuncProps {
   title?: React.ReactNode;
   content?: React.ReactNode;
   // TODO: find out exact types
-  onOk?: (...args: unknown[]) => unknown;
-  onCancel?: (...args: unknown[]) => unknown;
+  onOk?: (...args: any[]) => any;
+  onCancel?: (...args: any[]) => any;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   centered?: boolean;
@@ -214,7 +214,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type={'close'} />
+        <Icon className={`${prefixCls}-close-icon`} type="close" />
       </span>
     );
 
