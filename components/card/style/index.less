@@ -139,7 +139,7 @@
 
       & > span {
         position: relative;
-        display: inline-block;
+        display: block;
         min-width: 32px;
         font-size: 14px;
         line-height: 22px;
@@ -155,7 +155,8 @@
           line-height: 22px;
         }
 
-        a {
+        a,
+        i {
           display: inline-block;
           width: 100%;
           color: @text-color-secondary;
@@ -163,6 +164,7 @@
 
           &:hover {
             color: @primary-color;
+            transition: color 0.3s;
           }
         }
       }
