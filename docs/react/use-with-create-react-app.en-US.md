@@ -201,7 +201,7 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 ## eject
 
-You can also could try [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) for a custom setup of create-react-app, although you should dig into it by yourself.
+You can also eject your application using [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) for a custom setup of create-react-app, although you should dig into it by yourself.
 
 ## Source code and other boilerplates
 
