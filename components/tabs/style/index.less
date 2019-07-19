@@ -181,6 +181,18 @@
       cursor: pointer;
       transition: color 0.3s @ease-in-out;
 
+      &::before {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        border-top: 2px solid transparent;
+        border-radius: @border-radius-base @border-radius-base 0 0;
+        transition: all 0.3s;
+        content: '';
+        pointer-events: none;
+      }
+
       &:last-child {
         margin-right: 0;
       }
