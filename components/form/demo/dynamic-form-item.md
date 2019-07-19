@@ -61,7 +61,7 @@ const DynamicFieldSet = () => {
                         message: "Please input passenger's name or delete this field.",
                       },
                     ]}
-                    inline
+                    noStyle
                   >
                     <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
                   </Form.Item>
