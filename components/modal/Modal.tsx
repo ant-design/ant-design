@@ -68,7 +68,7 @@ export interface ModalProps {
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
-  getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  getContainer?: string | HTMLElement | getContainerFunc | false | null;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
@@ -77,6 +77,8 @@ export interface ModalProps {
   wrapProps?: any;
   prefixCls?: string;
 }
+
+type getContainerFunc = () => HTMLElement;
 
 export interface ModalFuncProps {
   prefixCls?: string;
@@ -106,7 +108,7 @@ export interface ModalFuncProps {
   maskStyle?: React.CSSProperties;
   type?: string;
   keyboard?: boolean;
-  getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  getContainer?: string | HTMLElement | getContainerFunc | false | null;
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
@@ -221,7 +223,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     return (
       <Dialog
         {...restProps}
-        getContainer={getContainer || getContextPopupContainer}
+        getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
         prefixCls={prefixCls}
         wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
         footer={footer === undefined ? defaultFooter : footer}

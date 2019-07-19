@@ -7,7 +7,12 @@ $('lib')
   .hasFile('index.d.ts');
 
 $('lib/*')
-  .filter(filename => !filename.endsWith('index.js') && !filename.endsWith('index.d.ts'))
+  .filter(
+    filename =>
+      !filename.endsWith('index.js') &&
+      !filename.endsWith('index.d.ts') &&
+      !filename.endsWith('.map'),
+  )
   .isDirectory()
   .filter(filename => !filename.endsWith('style') && !filename.endsWith('_util'))
   .hasFile('index.js')
