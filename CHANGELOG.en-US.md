@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.20.5
+
+`2019-07-19`
+
+- 🐞 Fix `<Button type="danger" ghost />` broken style. [#17743](https://github.com/ant-design/ant-design/pull/17743)
+
 ## 3.20.4
 
 `2019-07-19`
