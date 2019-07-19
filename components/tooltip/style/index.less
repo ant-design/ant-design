@@ -73,13 +73,13 @@
     overflow: hidden;
     pointer-events: none;
 
-    &:before {
+    &::before {
       width: @tooltip-arrow-width;
       height: @tooltip-arrow-width;
       content: '';
       display: block;
       margin: auto;
-      background: @tooltip-bg;
+      background-color: @tooltip-bg;
       position: relative;
       pointer-events: auto;
     }
@@ -90,7 +90,7 @@
   &-placement-topRight &-arrow {
     bottom: -@tooltip-arrow-shadow-width * 2;
 
-    &:before {
+    &::before {
       transform: translateY(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
     }
@@ -114,7 +114,7 @@
   &-placement-rightBottom &-arrow {
     left: -@tooltip-arrow-shadow-width * 2;
 
-    &:before {
+    &::before {
       transform: translateX(@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
     }
@@ -138,7 +138,7 @@
   &-placement-leftBottom &-arrow {
     right: -@tooltip-arrow-shadow-width * 2;
 
-    &:before {
+    &::before {
       transform: translateX(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
     }
@@ -162,7 +162,7 @@
   &-placement-bottomRight &-arrow {
     top: -@tooltip-arrow-shadow-width * 2;
 
-    &:before {
+    &::before {
       transform: translateY(@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
     }
