@@ -101,7 +101,7 @@ const RegistrationForm = () => {
   };
 
   const prefixSelector = (
-    <Form.Item name="prefix" inline>
+    <Form.Item name="prefix" noStyle>
       <Select style={{ width: 70 }}>
         <Option value="86">+86</Option>
         <Option value="87">+87</Option>
@@ -237,7 +237,7 @@ const RegistrationForm = () => {
           <Col span={12}>
             <Form.Item
               name="captcha"
-              inline
+              noStyle
               rules={[{ required: true, message: 'Please input the captcha you got!' }]}
             >
               <Input />

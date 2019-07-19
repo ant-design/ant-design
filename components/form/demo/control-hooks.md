@@ -67,7 +67,7 @@ const Demo = () => {
         </Select>
       </Form.Item>
       <Form.Item
-        inline
+        noStyle
         shouldUpdate={(prevValues, currentValues) => prevValues.gender !== currentValues.gender}
       >
         {({ getFieldValue }) => {

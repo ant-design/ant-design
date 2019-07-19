@@ -89,7 +89,7 @@ const Demo = () => {
       </Form.Item>
 
       <Form.Item label="InputNumber">
-        <Form.Item name="input-number" inline>
+        <Form.Item name="input-number" noStyle>
           <InputNumber min={1} max={10} />
         </Form.Item>
         <span className="ant-form-text"> machines</span>
@@ -172,7 +172,7 @@ const Demo = () => {
 
       <Form.Item label="Dragger">
         <div className="dropbox">
-          <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} inline>
+          <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
             <Upload.Dragger name="files" action="/upload.do">
               <p className="ant-upload-drag-icon">
                 <Icon type="inbox" />

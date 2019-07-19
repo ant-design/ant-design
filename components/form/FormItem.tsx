@@ -19,7 +19,7 @@ type RenderChildren = (form: FormInstance) => React.ReactElement;
 
 interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
-  inline?: boolean;
+  noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
   children: React.ReactElement | RenderChildren;
@@ -36,7 +36,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
   const {
     name,
     fieldKey,
-    inline,
+    noStyle,
     dependencies,
     prefixCls: customizePrefixCls,
     style,
@@ -85,8 +85,8 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         const mergedName = toArray(name).length ? metaName : [];
 
         // ======================== Errors ========================
-        // Collect inline Field error to the top FormItem
-        const updateChildItemErrors = inline
+        // Collect noStyle Field error to the top FormItem
+        const updateChildItemErrors = noStyle
           ? updateItemErrors
           : (subName: string, subErrors: string[]) => {
               if (!isEqual(inlineErrors[subName], subErrors)) {
@@ -97,7 +97,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
               }
             };
 
-        if (inline) {
+        if (noStyle) {
           nameRef.current = [...mergedName];
           if (fieldKey) {
             nameRef.current[nameRef.current.length - 1] = fieldKey;
@@ -188,7 +188,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           childNode = children(context);
         }
 
-        if (inline) {
+        if (noStyle) {
           return childNode;
         }
 

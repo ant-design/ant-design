@@ -94,16 +94,16 @@ describe('Form', () => {
       </Form.Item>
     ));
 
-    testList('nest inline', field => (
+    testList('nest noStyle', field => (
       <Form.Item key={field.key}>
-        <Form.Item inline {...field} rules={[{ required: true }]}>
+        <Form.Item noStyle {...field} rules={[{ required: true }]}>
           <Input />
         </Form.Item>
       </Form.Item>
     ));
   });
 
-  it('inline Form.Item', async () => {
+  it('noStyle Form.Item', async () => {
     const onChange = jest.fn();
 
     const wrapper = mount(
