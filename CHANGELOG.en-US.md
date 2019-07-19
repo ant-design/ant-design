@@ -15,6 +15,32 @@ timeline: true
 
 ---
 
+## 3.20.4
+
+`2019-07-19`
+
+- 🐞 Fix multiple level Drawer with falsy `mask`, parent Drawer can not collapse after removing sub component. [#17698](https://github.com/ant-design/ant-design/pull/17698)
+- 🐞 Fix Table border radius missing in Firefox. [#17641](https://github.com/ant-design/ant-design/pull/17641)
+- 🐞 Fix Menu throw warning `Cannot update during an existing state transition`. [#17657](https://github.com/ant-design/ant-design/pull/17657)
+- 🐞 Fix Affix not resize when container size changed. [#17678](https://github.com/ant-design/ant-design/pull/17678)
+- 🐞 Fix Anchor not update bind element when `getContainer` changed. [#17677](https://github.com/ant-design/ant-design/pull/17677)
+- 🐞 Fix window scroll issue when using Modal and Drawer same time. [#17600](https://github.com/ant-design/ant-design/pull/17600)
+- 🌟 Empty `description` supports `false`. [#17659](https://github.com/ant-design/ant-design/pull/17659) [@billfeller](https://github.com/billfeller)
+- 💄 Remove Pagination element underline style to avoid polluted by global style. [#17728](https://github.com/ant-design/ant-design/pull/17728)
+- 💄 Extends Card action click area. [#17705](https://github.com/ant-design/ant-design/pull/17705) [@lhx6538665](https://github.com/lhx6538665)
+- 💄 Tweak less variables and UI to improve style customization. [#17705](https://github.com/ant-design/ant-design/pull/17705)
+
+  - Optimize danger Button UI design.
+
+    <img width="103" alt="image" src="https://user-images.githubusercontent.com/507615/61370809-e37aa480-a8c5-11e9-98b3-51ce06dfba24.png">
+
+  - Fix `@border-radius-sm` not working for Slider, TreeSelect.
+  - Added some less variables for Progress, Tabs, Slider and Timeline.
+
+- TypeScript
+  - 💄 Improve type definition of Form. [#17676](https://github.com/ant-design/ant-design/pull/17676) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
+  - 💄 Improve type definition of Tabs. [#17675](https://github.com/ant-design/ant-design/pull/17675)
+
 ## 3.20.3
 
 `2019-07-15`
@@ -28,9 +54,9 @@ timeline: true
 - 📖 Add version description for every features. [#17373](https://github.com/ant-design/ant-design/pull/17373) [@muzea](https://github.com/muzea)
 - 🐞 Fix Button transition style when loading. [#17596](https://github.com/ant-design/ant-design/pull/17596) [@LilyWakana](https://github.com/LilyWakana)
 - Cascader
-    - 🐞 Fix not display `notFoundContent` when options.length is 0. [#17538](https://github.com/ant-design/ant-design/pull/17538)
-    - 🐞 Fix option's loading not aligned when `isLeaf` is true. [#17550](https://github.com/ant-design/ant-design/pull/17550)
-    - 🐞 Fix over-length text covered by arrow. [#17583](https://github.com/ant-design/ant-design/pull/17583)
+  - 🐞 Fix not display `notFoundContent` when options.length is 0. [#17538](https://github.com/ant-design/ant-design/pull/17538)
+  - 🐞 Fix option's loading not aligned when `isLeaf` is true. [#17550](https://github.com/ant-design/ant-design/pull/17550)
+  - 🐞 Fix over-length text covered by arrow. [#17583](https://github.com/ant-design/ant-design/pull/17583)
 - 🐞 Fix Input style when suffix and clear icon exist both. [#17508](https://github.com/ant-design/ant-design/pull/17508) [@LilyWakana](https://github.com/LilyWakana)
 - TypeScript
   - 💄 Improve type definition of Cascader's option. [#17581](https://github.com/ant-design/ant-design/pull/17581) [@MrHeer](https://github.com/MrHeer)
