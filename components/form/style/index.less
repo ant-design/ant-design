@@ -36,7 +36,7 @@
 }
 
 .@{form-prefix-cls}-item-label > label {
-  color: @label-color;
+  color: @label-color-form;
 
   &::after {
     & when (@form-item-trailing-colon=true) {
@@ -348,9 +348,6 @@ form {
 }
 
 .@{form-prefix-cls}-vertical {
-  .@{form-prefix-cls}-item {
-    padding-bottom: 8px;
-  }
   .@{form-prefix-cls}-item-control {
     line-height: @line-height-base;
   }
