@@ -37,7 +37,7 @@ export default class ListItem extends React.Component<any, any> {
         onClick={disabled || item.disabled ? undefined : () => onClick(item)}
       >
         <Checkbox checked={checked} disabled={disabled || item.disabled} />
-        <span>{renderedEl}</span>
+        <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>
       </li>
     );
     let children: JSX.Element | null = null;
