@@ -35,11 +35,14 @@ timeline: true
 - 💄 去除 Pagination 元素下划线以防止被全局样式污染。[#17728](https://github.com/ant-design/ant-design/pull/17728)
 - 💄 拓展 Card action 可点击区域。[#17705](https://github.com/ant-design/ant-design/pull/17705) [@lhx6538665](https://github.com/lhx6538665)
 - 💄 对 Less 变量进行了一波调整，以适应更多细节风格定制。[#17697](https://github.com/ant-design/ant-design/pull/17697)
+
   - 调整危险按钮样式。
 
     <img width="103" class="markdown-inline-image" alt="image" src="https://user-images.githubusercontent.com/507615/61370809-e37aa480-a8c5-11e9-98b3-51ce06dfba24.png">
+
   - 修复 `@border-radius-sm` 对 Slider、TreeSelect 不生效的问题。
   - Progress、Tabs、Slider、Timeline 组件补充 less 变量。
+
 - TypeScript
   - 💄 完善 Form 的类型定义。[#17676](https://github.com/ant-design/ant-design/pull/17676) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
   - 💄 完善 Tabs 的类型定义。[#17675](https://github.com/ant-design/ant-design/pull/17675)
@@ -63,7 +66,7 @@ timeline: true
 - 🐞 修复 Input 组件存在多个后缀图标时的样式错乱问题。[#17508](https://github.com/ant-design/ant-design/pull/17508) [@LilyWakana](https://github.com/LilyWakana)
 - TypeScript
   - 💄 完善 Cascader 的 `option` 类型定义。[#17581](https://github.com/ant-design/ant-design/pull/17581) [@MrHeer](https://github.com/MrHeer)
-  - 🐞 修复 Descriptions 的 `title` 类型定义。[#17412](https://github.com/ant-design/ant-design/pull/17412)
+  - 🐞 修复 Descriptions 的 `title` 类型定义。[#17559](https://github.com/ant-design/ant-design/pull/17559)
   - 🐞 修复 Collapse 的 activeKey、defaultActiveKey 以及 Collapse.Panel 的 key 类型定义。[#17557](https://github.com/ant-design/ant-design/pull/17557) [@thylsky](https://github.com/thylsky)
 
 ## 3.20.1
