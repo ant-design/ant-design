@@ -107,6 +107,13 @@ module.exports = {
 - 如果你在使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件。
 - 如果你是通过 `'antd/dist/antd.css'` 引入样式的，改为 `antd/dist/antd.less`。
 
+## 官方主题 🌈
+
+我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
+
+- [黑色主题（Beta）](https://github.com/ant-design/ant-design-dark-theme)
+- [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
+
 ## 社区教程
 
 - [Using Ant Design in Sass-Styled Webpack Projects with `antd-scss-theme-plugin`](https://intoli.com/blog/antd-scss-theme-plugin/)
