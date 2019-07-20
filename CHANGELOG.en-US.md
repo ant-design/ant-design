@@ -35,11 +35,14 @@ timeline: true
 - 💄 Remove Pagination element underline style to avoid polluted by global style. [#17728](https://github.com/ant-design/ant-design/pull/17728)
 - 💄 Extends Card action click area. [#17705](https://github.com/ant-design/ant-design/pull/17705) [@lhx6538665](https://github.com/lhx6538665)
 - 💄 Tweak less variables and UI to improve style customization. [#17705](https://github.com/ant-design/ant-design/pull/17705)
+
   - Optimize danger Button UI design.
 
     <img width="103" class="markdown-inline-image" alt="image" src="https://user-images.githubusercontent.com/507615/61370809-e37aa480-a8c5-11e9-98b3-51ce06dfba24.png">
+
   - Fix `@border-radius-sm` not working for Slider, TreeSelect.
   - Added some less variables for Progress, Tabs, Slider and Timeline.
+
 - TypeScript
   - 💄 Improve type definition of Form. [#17676](https://github.com/ant-design/ant-design/pull/17676) [@lixiaoyang1992](https://github.com/lixiaoyang1992)
   - 💄 Improve type definition of Tabs. [#17675](https://github.com/ant-design/ant-design/pull/17675)
@@ -63,7 +66,7 @@ timeline: true
 - 🐞 Fix Input style when suffix and clear icon exist both. [#17508](https://github.com/ant-design/ant-design/pull/17508) [@LilyWakana](https://github.com/LilyWakana)
 - TypeScript
   - 💄 Improve type definition of Cascader's option. [#17581](https://github.com/ant-design/ant-design/pull/17581) [@MrHeer](https://github.com/MrHeer)
-  - 🐞 Fix type definition of Descriptions.title. [#17412](https://github.com/ant-design/ant-design/pull/17412)
+  - 🐞 Fix type definition of Descriptions.title. [#17559](https://github.com/ant-design/ant-design/pull/17559)
   - 🐞 Fix type definition of Collapse.activeKey, Collapse.defaultActiveKey and CollapsePanel.key. [#17557](https://github.com/ant-design/ant-design/pull/17557) [@thylsky](https://github.com/thylsky)
 
 ## 3.20.1
