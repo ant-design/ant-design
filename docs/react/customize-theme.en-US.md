@@ -129,6 +129,13 @@ You must import styles as less format. A common mistake would be importing multi
 - If you import styles by specifying the `style` option of [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), change it from `'css'` to `true`, which will import the `less` version of antd.
 - If you import styles from `'antd/dist/antd.css'`, change it to `antd/dist/antd.less`.
 
+## Offcial Themes 🌈
+
+We have some offcial themes, try on and give us feedback!
+
+- [Dark Theme (Beta)](https://github.com/ant-design/ant-design-dark-theme)
+- [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
+
 ## Related Articles
 
 - [Using Ant Design in Sass-Styled Webpack Projects with `antd-scss-theme-plugin`](https://intoli.com/blog/antd-scss-theme-plugin/)

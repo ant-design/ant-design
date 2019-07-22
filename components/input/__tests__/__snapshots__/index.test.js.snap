@@ -3,7 +3,6 @@
 exports[`Input allowClear should change type when click 1`] = `
 <Input
   allowClear={true}
-  disabled={false}
   type="text"
 >
   <span
@@ -11,7 +10,6 @@ exports[`Input allowClear should change type when click 1`] = `
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -70,7 +68,6 @@ exports[`Input allowClear should change type when click 1`] = `
 exports[`Input allowClear should change type when click 2`] = `
 <Input
   allowClear={true}
-  disabled={false}
   type="text"
 >
   <span
@@ -78,7 +75,6 @@ exports[`Input allowClear should change type when click 2`] = `
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -96,7 +92,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 <Input
   allowClear={true}
   defaultValue={null}
-  disabled={false}
   type="text"
 >
   <span
@@ -104,7 +99,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -121,7 +115,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
 <Input
   allowClear={true}
-  disabled={false}
   type="text"
 >
   <span
@@ -129,7 +122,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -147,7 +139,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 <Input
   allowClear={true}
   defaultValue=""
-  disabled={false}
   type="text"
 >
   <span
@@ -155,7 +146,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -172,7 +162,6 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
 exports[`Input allowClear should not show icon if value is undefined, null or empty string 1`] = `
 <Input
   allowClear={true}
-  disabled={false}
   type="text"
   value={null}
 >
@@ -181,7 +170,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -198,7 +186,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 exports[`Input allowClear should not show icon if value is undefined, null or empty string 2`] = `
 <Input
   allowClear={true}
-  disabled={false}
   type="text"
 >
   <span
@@ -206,7 +193,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -223,7 +209,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 exports[`Input allowClear should not show icon if value is undefined, null or empty string 3`] = `
 <Input
   allowClear={true}
-  disabled={false}
   type="text"
   value=""
 >
@@ -232,7 +217,6 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
   >
     <input
       className="ant-input"
-      disabled={false}
       onChange={[Function]}
       onKeyDown={[Function]}
       style={null}
@@ -248,13 +232,11 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 
 exports[`Input should support maxLength 1`] = `
 <Input
-  disabled={false}
   maxLength={3}
   type="text"
 >
   <input
     className="ant-input"
-    disabled={false}
     maxLength={3}
     onChange={[Function]}
     onKeyDown={[Function]}
@@ -274,7 +256,6 @@ exports[`Input.Password should change type when click 1`] = `
   <Input
     action="click"
     className="ant-input-password"
-    disabled={false}
     prefixCls="ant-input"
     suffix={
       <Icon
@@ -292,7 +273,6 @@ exports[`Input.Password should change type when click 1`] = `
       <input
         action="click"
         className="ant-input"
-        disabled={false}
         onChange={[Function]}
         onKeyDown={[Function]}
         style={null}
@@ -363,7 +343,6 @@ exports[`Input.Password should change type when click 2`] = `
   <Input
     action="click"
     className="ant-input-password"
-    disabled={false}
     prefixCls="ant-input"
     suffix={
       <Icon
@@ -381,7 +360,6 @@ exports[`Input.Password should change type when click 2`] = `
       <input
         action="click"
         className="ant-input"
-        disabled={false}
         onChange={[Function]}
         onKeyDown={[Function]}
         style={null}
@@ -448,7 +426,6 @@ exports[`Input.Password should change type when click 3`] = `
   <Input
     action="click"
     className="ant-input-password"
-    disabled={false}
     prefixCls="ant-input"
     suffix={
       <Icon
@@ -466,7 +443,6 @@ exports[`Input.Password should change type when click 3`] = `
       <input
         action="click"
         className="ant-input"
-        disabled={false}
         onChange={[Function]}
         onKeyDown={[Function]}
         style={null}
@@ -534,7 +510,6 @@ exports[`Input.Search should support suffix 1`] = `
 >
   <Input
     className="ant-input-search"
-    disabled={false}
     onPressEnter={[Function]}
     prefixCls="ant-input"
     suffix={
@@ -554,7 +529,6 @@ exports[`Input.Search should support suffix 1`] = `
     >
       <input
         className="ant-input"
-        disabled={false}
         onChange={[Function]}
         onKeyDown={[Function]}
         style={null}

@@ -45,7 +45,6 @@ class Input extends React.Component<InputProps, any> {
 
   static defaultProps = {
     type: 'text',
-    disabled: false,
   };
 
   static propTypes = {
