@@ -686,4 +686,19 @@ describe('Table.filter', () => {
     dropdownWrapper2.find('.confirm').simulate('click');
     expect(onChange).toHaveBeenCalled();
   });
+
+  it('should support getPopupContainer', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdownVisible: true,
+          },
+        ],
+        getPopupContainer: node => node.parentNode,
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
