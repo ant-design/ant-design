@@ -1168,9 +1168,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
                 onExpand(record, event);
               }}
               aria-label={expanded ? locale.collapse : locale.expand}
-            >
-              <Icon type={expanded ? 'minus-square' : 'plus-square'} />
-            </TransButton>
+              noStyle
+            />
           )}
         </LocaleReceiver>
       );
