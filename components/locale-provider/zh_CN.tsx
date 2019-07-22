@@ -20,6 +20,8 @@ export default {
     selectAll: '全选当页',
     selectInvert: '反选当页',
     sortTitle: '排序',
+    expand: '展开行',
+    collapse: '关闭行',
   },
   Modal: {
     okText: '确定',
