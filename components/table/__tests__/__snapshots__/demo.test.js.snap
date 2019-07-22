@@ -2502,32 +2502,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -2628,32 +2604,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -2754,32 +2706,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -2880,32 +2808,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -3006,32 +2910,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -3132,32 +3012,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -3258,32 +3114,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -3384,32 +3216,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -3510,32 +3318,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -3636,32 +3420,8 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
                         role="button"
-                        style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                         tabindex="0"
-                      >
-                        <i
-                          aria-label="icon: plus-square"
-                          class="anticon anticon-plus-square"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class=""
-                            data-icon="plus-square"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                            />
-                            <path
-                              d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                            />
-                          </svg>
-                        </i>
-                      </div>
+                      />
                     </td>
                     <td
                       class="ant-table-selection-column"
@@ -4790,32 +4550,8 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
                       role="button"
-                      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                       tabindex="0"
-                    >
-                      <i
-                        aria-label="icon: plus-square"
-                        class="anticon anticon-plus-square"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="plus-square"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                          />
-                          <path
-                            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                          />
-                        </svg>
-                      </i>
-                    </div>
+                    />
                   </td>
                   <td
                     class=""
@@ -4853,32 +4589,8 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
                       role="button"
-                      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                       tabindex="0"
-                    >
-                      <i
-                        aria-label="icon: plus-square"
-                        class="anticon anticon-plus-square"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="plus-square"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                          />
-                          <path
-                            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                          />
-                        </svg>
-                      </i>
-                    </div>
+                    />
                   </td>
                   <td
                     class=""
@@ -4916,32 +4628,8 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
                       role="button"
-                      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                       tabindex="0"
-                    >
-                      <i
-                        aria-label="icon: plus-square"
-                        class="anticon anticon-plus-square"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="plus-square"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                          />
-                          <path
-                            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                          />
-                        </svg>
-                      </i>
-                    </div>
+                    />
                   </td>
                   <td
                     class=""
@@ -5219,32 +4907,8 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
                       role="button"
-                      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                       tabindex="0"
-                    >
-                      <i
-                        aria-label="icon: plus-square"
-                        class="anticon anticon-plus-square"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="plus-square"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                          />
-                          <path
-                            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                          />
-                        </svg>
-                      </i>
-                    </div>
+                    />
                     John Brown sr.
                   </td>
                   <td
@@ -11188,32 +10852,8 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
                       role="button"
-                      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                       tabindex="0"
-                    >
-                      <i
-                        aria-label="icon: plus-square"
-                        class="anticon anticon-plus-square"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="plus-square"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                          />
-                          <path
-                            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                          />
-                        </svg>
-                      </i>
-                    </div>
+                    />
                   </td>
                   <td
                     class=""
@@ -11266,32 +10906,8 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
                       role="button"
-                      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                       tabindex="0"
-                    >
-                      <i
-                        aria-label="icon: plus-square"
-                        class="anticon anticon-plus-square"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="plus-square"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                          />
-                          <path
-                            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                          />
-                        </svg>
-                      </i>
-                    </div>
+                    />
                   </td>
                   <td
                     class=""
@@ -11344,32 +10960,8 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                       aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
                       role="button"
-                      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
                       tabindex="0"
-                    >
-                      <i
-                        aria-label="icon: plus-square"
-                        class="anticon anticon-plus-square"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          class=""
-                          data-icon="plus-square"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                          />
-                          <path
-                            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
-                          />
-                        </svg>
-                      </i>
-                    </div>
+                    />
                   </td>
                   <td
                     class=""
