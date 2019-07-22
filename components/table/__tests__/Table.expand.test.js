@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Table from '..';
 
 describe('Table.expand', () => {
