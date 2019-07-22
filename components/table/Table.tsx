@@ -1151,31 +1151,36 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   renderExpandIcon = (prefixCls: string) => ({
     expandable,
     expanded,
+    needIndentSpaced,
     record,
     onExpand,
   }: ExpandIconProps<T>) => {
-    if (!expandable) {
+    if (expandable) {
+      return (
+        <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
+          {(locale: TableLocale) => (
+            <TransButton
+              className={classNames(`${prefixCls}-row-expand-icon`, {
+                [`${prefixCls}-row-collapsed`]: !expanded,
+                [`${prefixCls}-row-expanded`]: expanded,
+              })}
+              onClick={event => {
+                onExpand(record, event);
+              }}
+              aria-label={expanded ? locale.collapse : locale.expand}
+            >
+              <Icon type={expanded ? 'minus-square' : 'plus-square'} />
+            </TransButton>
+          )}
+        </LocaleReceiver>
+      );
+    }
+
+    if (needIndentSpaced) {
       return <span className={`${prefixCls}-row-expand-icon ${prefixCls}-row-spaced`} />;
     }
 
-    return (
-      <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-        {(locale: TableLocale) => (
-          <TransButton
-            className={classNames(`${prefixCls}-row-expand-icon`, {
-              [`${prefixCls}-row-collapsed`]: !expanded,
-              [`${prefixCls}-row-expanded`]: expanded,
-            })}
-            onClick={event => {
-              onExpand(record, event);
-            }}
-            aria-label={expanded ? locale.collapse : locale.expand}
-          >
-            <Icon type={expanded ? 'minus-square' : 'plus-square'} />
-          </TransButton>
-        )}
-      </LocaleReceiver>
-    );
+    return null;
   };
 
   renderTable = (
