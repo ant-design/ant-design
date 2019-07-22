@@ -57,10 +57,7 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
-  onChange?: (
-    value: T,
-    option: React.ReactElement<any> | React.ReactElement<any>[],
-  ) => void;
+  onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
   onSelect?: (value: T extends (infer I)[] ? I : T, option: React.ReactElement<any>) => void;
   onDeselect?: (value: T extends (infer I)[] ? I : T) => void;
   onBlur?: (value: T) => void;
@@ -183,15 +180,15 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
   renderSuffixIcon(prefixCls: string) {
     const { loading, suffixIcon } = this.props;
+    if (loading) {
+      return <Icon type="loading" />;
+    }
     if (suffixIcon) {
       return React.isValidElement<{ className?: string }>(suffixIcon)
         ? React.cloneElement(suffixIcon, {
             className: classNames(suffixIcon.props.className, `${prefixCls}-arrow-icon`),
           })
         : suffixIcon;
-    }
-    if (loading) {
-      return <Icon type="loading" />;
     }
     return <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
   }
