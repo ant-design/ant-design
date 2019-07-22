@@ -85,6 +85,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     locale: PropTypes.object,
     dropdownPrefixCls: PropTypes.string,
     sortDirections: PropTypes.array,
+    getPopupContainer: PropTypes.func,
   };
 
   static defaultProps = {
@@ -762,15 +763,13 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return recordKey === undefined ? index : recordKey;
   };
 
-  getPopupContainer = () => {
-    return ReactDOM.findDOMNode(this) as HTMLElement;
-  };
-
   generatePopupContainerFunc = () => {
-    const { scroll } = this.props;
-
+    const { scroll, getPopupContainer } = this.props;
+    if (getPopupContainer) {
+      return getPopupContainer;
+    }
     // Use undefined to let rc component use default logic.
-    return scroll ? this.getPopupContainer : undefined;
+    return scroll ? () => ReactDOM.findDOMNode(this) as HTMLElement : undefined;
   };
 
   renderRowSelection(prefixCls: string, locale: TableLocale) {
