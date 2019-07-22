@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import List from '../list';
 import Checkbox from '../../checkbox';
-import raf from '../../_util/raf';
 
 const listCommonProps = {
   prefixCls: 'ant-transfer-list',
