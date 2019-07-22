@@ -19,6 +19,8 @@ export default {
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
     sortTitle: 'Sort',
+    expand: 'Expand row',
+    collapse: 'Collapse row',
   },
   Modal: {
     okText: 'OK',

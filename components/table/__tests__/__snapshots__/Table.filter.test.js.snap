@@ -144,10 +144,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jack
                   </td>
                 </tr>
@@ -158,10 +154,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Lucy
                   </td>
                 </tr>
@@ -172,10 +164,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Tom
                   </td>
                 </tr>
@@ -186,10 +174,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jerry
                   </td>
                 </tr>
