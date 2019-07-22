@@ -38,7 +38,10 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 
   componentDidUpdate(prevProps: TransferListBodyProps) {
-    if (prevProps.filteredRenderItems.length !== this.props.filteredRenderItems.length) {
+    if (
+      prevProps.filteredRenderItems.length !== this.props.filteredRenderItems.length &&
+      this.props.lazy !== false
+    ) {
       // TODO: Replace this with ref when react 15 support removed.
       const container = findDOMNode(this);
 
