@@ -28,25 +28,25 @@
   &-placement-top,
   &-placement-topLeft,
   &-placement-topRight {
-    padding-bottom: @tooltip-arrow-rotate-width - @tooltip-arrow-shadow-width * 2;
+    padding-bottom: @tooltip-distance;
   }
 
   &-placement-right,
   &-placement-rightTop,
   &-placement-rightBottom {
-    padding-left: @tooltip-arrow-rotate-width - @tooltip-arrow-shadow-width * 2;
+    padding-left: @tooltip-distance;
   }
 
   &-placement-bottom,
   &-placement-bottomLeft,
   &-placement-bottomRight {
-    padding-top: @tooltip-arrow-rotate-width - @tooltip-arrow-shadow-width * 2;
+    padding-top: @tooltip-distance;
   }
 
   &-placement-left,
   &-placement-leftTop,
   &-placement-leftBottom {
-    padding-right: @tooltip-arrow-rotate-width - @tooltip-arrow-shadow-width * 2;
+    padding-right: @tooltip-distance;
   }
 
   // Wrapper for the tooltip content
@@ -88,7 +88,7 @@
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
-    bottom: -@tooltip-arrow-shadow-width * 2;
+    bottom: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
       transform: translateY(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
@@ -112,7 +112,7 @@
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
-    left: -@tooltip-arrow-shadow-width * 2;
+    left: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
       transform: translateX(@tooltip-arrow-rotate-width / 2) rotate(45deg);
@@ -136,7 +136,7 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: -@tooltip-arrow-shadow-width * 2;
+    right: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
       transform: translateX(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
@@ -160,7 +160,7 @@
   &-placement-bottom &-arrow,
   &-placement-bottomLeft &-arrow,
   &-placement-bottomRight &-arrow {
-    top: -@tooltip-arrow-shadow-width * 2;
+    top: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
       transform: translateY(@tooltip-arrow-rotate-width / 2) rotate(45deg);
