@@ -25,7 +25,12 @@ const ResizeableTitle = props => {
   }
 
   return (
-    <Resizable width={width} height={0} onResize={onResize}>
+    <Resizable
+      width={width}
+      height={0}
+      onResize={onResize}
+      draggableOpts={{ enableUserSelectHack: false }}
+    >
       <th {...restProps} />
     </Resizable>
   );
