@@ -30,6 +30,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
   };
 
   private mountId: number;
+  private lazyId: number;
 
   componentDidMount() {
     this.mountId = raf(() => {
@@ -45,7 +46,8 @@ class ListBody extends React.Component<TransferListBodyProps> {
       // TODO: Replace this with ref when react 15 support removed.
       const container = findDOMNode(this);
 
-      raf(() => {
+      raf.cancel(this.lazyId);
+      this.lazyId = raf(() => {
         if (container) {
           const scrollEvent = new Event('scroll', { bubbles: true });
           container.dispatchEvent(scrollEvent);
@@ -56,6 +58,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   componentWillUnmount() {
     raf.cancel(this.mountId);
+    raf.cancel(this.lazyId);
   }
 
   onItemSelect = (item: TransferItem) => {
