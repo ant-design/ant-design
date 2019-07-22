@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 import Animate from 'rc-animate';
 import raf from '../_util/raf';
 import { Omit, tuple } from '../_util/type';
@@ -34,6 +35,20 @@ class ListBody extends React.Component<TransferListBodyProps> {
     this.mountId = raf(() => {
       this.setState({ mounted: true });
     });
+  }
+
+  componentDidUpdate(prevProps: TransferListBodyProps) {
+    if (prevProps.filteredRenderItems.length !== this.props.filteredRenderItems.length) {
+      // TODO: Replace this with ref when react 15 support removed.
+      const container = findDOMNode(this);
+
+      raf(() => {
+        if (container) {
+          const scrollEvent = new Event('scroll', { bubbles: true });
+          container.dispatchEvent(scrollEvent);
+        }
+      });
+    }
   }
 
   componentWillUnmount() {
