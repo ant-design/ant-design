@@ -66,7 +66,7 @@
   // Arrows
   &-arrow {
     position: absolute;
-    display: flex;
+    display: block;
     width: @tooltip-arrow-rotate-width;
     height: @tooltip-arrow-rotate-width;
     background: transparent;
@@ -79,8 +79,12 @@
       content: '';
       display: block;
       margin: auto;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background-color: @tooltip-bg;
-      position: relative;
+      position: absolute;
       pointer-events: auto;
     }
   }
