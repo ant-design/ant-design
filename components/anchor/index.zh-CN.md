@@ -25,7 +25,7 @@ title: Anchor
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number |  |  |
 | showInkInFixed | 固定模式是否显示小圆点 | boolean | false |  |
 | onClick | `click` 事件的 handler | Function(e: Event, link: Object) | - | 3.9.0 |
-| getCurrentAnchor | 自定义高亮的锚点 | () => string | - |  |
+| getCurrentAnchor | 自定义高亮的锚点 | () => string | - | 3.21.0 |
 
 ### Link Props
 
