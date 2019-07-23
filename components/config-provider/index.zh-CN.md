@@ -42,4 +42,5 @@ return (
 | csp | 设置 [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - | 3.13.1 |
 | renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | Function(componentName: string): ReactNode | - | 3.12.2 |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | Function(triggerNode) | () => document.body | 3.11.0 |
+| locale | 配置本地化语言 | Locale | - | 3.21.0 |
 | prefixCls | 设置统一样式前缀 | string | ant | 3.12.0 |
