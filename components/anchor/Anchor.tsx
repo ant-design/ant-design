@@ -47,7 +47,7 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
 const sharpMatcherRegx = /#([^#]+)$/;
 function scrollTo(
   href: string,
-  offsetTop = 0,
+  targetOffset = 0,
   getContainer: () => AnchorContainer,
   callback = () => {},
 ) {
@@ -62,7 +62,7 @@ function scrollTo(
     return;
   }
   const eleOffsetTop = getOffsetTop(targetElement, container);
-  const targetScrollTop = scrollTop + eleOffsetTop - offsetTop;
+  const targetScrollTop = scrollTop + eleOffsetTop - targetOffset;
   const startTime = Date.now();
   const frameFunc = () => {
     const timestamp = Date.now();
@@ -105,6 +105,8 @@ export interface AnchorProps {
     e: React.MouseEvent<HTMLElement>,
     link: { title: React.ReactNode; href: string },
   ) => void;
+  /** Scroll to target offset value, if none, it's offsetTop prop value or 0. */
+  targetOffset?: number;
 }
 
 export interface AnchorState {
@@ -264,10 +266,10 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   };
 
   handleScrollTo = (link: string) => {
-    const { offsetTop, getContainer } = this.props as AnchorDefaultProps;
+    const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
     this.animating = true;
     this.setState({ activeLink: link });
-    scrollTo(link, offsetTop, getContainer, () => {
+    scrollTo(link, targetOffset || offsetTop || 0, getContainer, () => {
       this.animating = false;
     });
   };
