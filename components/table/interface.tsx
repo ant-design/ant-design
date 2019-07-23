@@ -190,6 +190,7 @@ export interface TableProps<T> {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   sortDirections?: SortOrder[];
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 export interface TableStateFilters {
