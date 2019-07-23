@@ -23,6 +23,7 @@ cols: 1
 | column | 一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number | 3 | 3.19.0 |
 | size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效） | `default | middle | small` | false | 3.19.0 |
 | layout | 描述布局 | `horizontal | vertical` | `horizontal` | 3.19.8 |
+| colon | 配置 `Descriptions.Item` 的 `colon` 的默认值 | boolean | true | 3.21.0 |
 
 ### DescriptionItem
 

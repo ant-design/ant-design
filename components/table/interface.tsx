@@ -80,6 +80,8 @@ export interface TableLocale {
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
   sortTitle?: string;
+  expand?: string;
+  collapse?: string;
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';
@@ -122,7 +124,7 @@ export interface ExpandIconProps<T> {
   record: T;
   needIndentSpaced: boolean;
   expandable: boolean;
-  onExpand: (record: T, event: MouseEvent) => void;
+  onExpand: (record: T, event?: React.MouseEvent) => void;
 }
 
 export interface TableCurrentDataSource<T> {
@@ -188,6 +190,7 @@ export interface TableProps<T> {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   sortDirections?: SortOrder[];
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 export interface TableStateFilters {
