@@ -244,4 +244,15 @@ describe('Anchor Render', () => {
     wrapper.setProps({ 'data-only-trigger-re-render': true });
     expect(removeListenerSpy).toHaveBeenCalled();
   });
+
+  it('Anchor getCurrentAnchor prop', () => {
+    const getCurrentAnchor = () => '#API2';
+    const wrapper = mount(
+      <Anchor getCurrentAnchor={getCurrentAnchor}>
+        <Link href="#API1" title="API1" />
+        <Link href="#API2" title="API2" />
+      </Anchor>,
+    );
+    expect(wrapper.instance().state.activeLink).toBe('#API2');
+  });
 });

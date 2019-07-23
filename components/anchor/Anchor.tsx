@@ -99,6 +99,7 @@ export interface AnchorProps {
   affix?: boolean;
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
+  getCurrentAnchor?: () => string;
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     link: { title: React.ReactNode; href: string },
@@ -225,6 +226,12 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   };
 
   getCurrentAnchor(offsetTop = 0, bounds = 5): string {
+    const { getCurrentAnchor } = this.props;
+
+    if (typeof getCurrentAnchor === 'function') {
+      return getCurrentAnchor();
+    }
+
     const activeLink = '';
     if (typeof document === 'undefined') {
       return activeLink;
