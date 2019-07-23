@@ -4,6 +4,7 @@ import { render, mount } from 'enzyme';
 import Table from '..';
 import Input from '../../input';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 
 function getDropdownWrapper(wrapper) {
   return mount(
@@ -698,6 +699,22 @@ describe('Table.filter', () => {
         ],
         getPopupContainer: node => node.parentNode,
       }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support getPopupContainer from ConfigProvider', () => {
+    const wrapper = mount(
+      <ConfigProvider getPopupContainer={node => node.parentNode}>
+        {createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownVisible: true,
+            },
+          ],
+        })}
+      </ConfigProvider>
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
