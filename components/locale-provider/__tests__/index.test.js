@@ -243,7 +243,7 @@ describe('Locale Provider', () => {
       </LocaleProvider>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: LocaleProvider] `LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://ant.design/components/config-provider-cn/#components-config-provider-demo-locale',
+      'Warning: [antd: LocaleProvider] `LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
     );
 
     errorSpy.mockRestore();
