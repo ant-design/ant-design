@@ -231,16 +231,18 @@ span.@{radio-prefix-cls} + * {
     pointer-events: none;
   }
 
-  &-checked {
+  &-checked:not(&-disabled) {
     z-index: 1;
     color: @radio-dot-color;
     background: @radio-button-checked-bg;
     border-color: @radio-dot-color;
     box-shadow: -1px 0 0 0 @radio-dot-color;
+
     &::before {
       background-color: @radio-dot-color !important;
       opacity: 0.1;
     }
+
     &:first-child {
       border-color: @radio-dot-color;
       box-shadow: none !important;

@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.20.3",
+  "version": "3.20.5",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
@@ -53,7 +53,7 @@
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "omit.js": "^1.0.2",
     "prop-types": "^15.7.2",

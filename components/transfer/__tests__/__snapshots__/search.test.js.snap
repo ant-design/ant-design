@@ -7,7 +7,6 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
 >
   <div>
     <Input
-      disabled={false}
       onChange={[Function]}
       placeholder=""
       type="text"
@@ -15,7 +14,6 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
     >
       <input
         className="ant-input"
-        disabled={false}
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder=""
@@ -72,7 +70,6 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
 >
   <div>
     <Input
-      disabled={false}
       onChange={[Function]}
       placeholder=""
       type="text"
@@ -80,7 +77,6 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
     >
       <input
         className="ant-input"
-        disabled={false}
         onChange={[Function]}
         onKeyDown={[Function]}
         placeholder=""

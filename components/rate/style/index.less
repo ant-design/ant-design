@@ -26,11 +26,14 @@
     position: relative;
     display: inline-block;
     margin: 0;
-    margin-right: 8px;
     padding: 0;
     color: inherit;
     cursor: pointer;
     transition: all 0.3s;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
 
     > div {
       &:focus {
