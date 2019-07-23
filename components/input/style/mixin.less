@@ -30,7 +30,7 @@
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette('@{color}', 5) `;
+  border-color: @color;
   border-right-width: @border-width-base !important;
 }
 
