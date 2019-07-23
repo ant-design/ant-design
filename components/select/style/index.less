@@ -147,6 +147,9 @@
     position: relative;
     height: @input-height-base;
     cursor: pointer;
+    .@{select-prefix-cls}-selection__rendered {
+      margin-right: 25px;
+    }
   }
 
   &-selection__rendered {
@@ -374,12 +377,6 @@
 
   &-allow-clear &-selection--single &-selection-selected-value {
     padding-right: 16px;
-  }
-
-  &-selection--single {
-    .@{select-prefix-cls}-selection__rendered {
-      margin-right: 25px;
-    }
   }
 
   &-allow-clear &-selection--multiple &-selection__rendered,
