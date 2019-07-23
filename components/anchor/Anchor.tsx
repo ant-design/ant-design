@@ -99,6 +99,7 @@ export interface AnchorProps {
   affix?: boolean;
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
+  /** Return customize highlight anchor */
   getCurrentAnchor?: () => string;
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
