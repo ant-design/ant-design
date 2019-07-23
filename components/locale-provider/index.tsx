@@ -56,7 +56,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     warning(
       props._ANT_MARK__ === ANT_MARK,
       'LocaleProvider',
-      '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead.',
+      '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://ant.design/components/config-provider-cn/#components-config-provider-demo-locale',
     );
   }
 
