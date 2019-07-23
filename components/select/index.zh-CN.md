@@ -59,6 +59,7 @@ title: Select
 | onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value, option:Option/Array&lt;Option>) | - |  |
 | onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 | function(string\|number\|LabeledValue) | - |  |
 | onFocus | 获得焦点时回调 | function | - |  |
+| onInputKeyDown | 按键按下时回调 | function | - | 3.1.0 |
 | onMouseEnter | 鼠标移入时回调 | function | - |  |
 | onMouseLeave | 鼠标移出时回调 | function | - |  |
 | onPopupScroll | 下拉列表滚动时的回调 | function | - |  |
