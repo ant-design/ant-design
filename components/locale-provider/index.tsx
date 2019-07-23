@@ -53,7 +53,6 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     setMomentLocale(props.locale);
     changeConfirmLocale(props.locale && props.locale.Modal);
 
-    console.log('====>', props._ANT_MARK__, ANT_MARK);
     warning(
       props._ANT_MARK__ === ANT_MARK,
       'LocaleProvider',
