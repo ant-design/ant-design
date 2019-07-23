@@ -269,7 +269,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
     this.animating = true;
     this.setState({ activeLink: link });
-    scrollTo(link, targetOffset || offsetTop || 0, getContainer, () => {
+    scrollTo(link, targetOffset !== undefined ? targetOffset : offsetTop, getContainer, () => {
       this.animating = false;
     });
   };
