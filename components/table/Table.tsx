@@ -39,7 +39,7 @@ import { RadioChangeEvent } from '../radio';
 import TransButton from '../_util/transButton';
 import { CheckboxChangeEvent } from '../checkbox';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import warning from '../_util/warning';
 
