@@ -3,6 +3,7 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
+import { formatTimeStr } from '../utils';
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
@@ -102,6 +103,12 @@ describe('Statistic', () => {
         expect(onFinish).toHaveBeenCalled();
         jest.useFakeTimers();
       });
+    });
+  });
+
+  describe('utils', () => {
+    it('format should support escape', () => {
+      expect(formatTimeStr(1000 * 60 * 60 * 24, 'D [Day]')).toBe('1 Day');
     });
   });
 });
