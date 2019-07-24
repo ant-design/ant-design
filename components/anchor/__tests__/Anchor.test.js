@@ -1,12 +1,30 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
+import { spyElementPrototypes } from '../../__tests__/util/domHook';
 
 const { Link } = Anchor;
 
 const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 describe('Anchor Render', () => {
+  const getBoundingClientRectMock = jest.fn(() => ({
+    width: 100,
+    height: 100,
+    top: 1000,
+  }));
+  const getClientRectsMock = jest.fn(() => ({
+    length: 1,
+  }));
+  const headingSpy = spyElementPrototypes(HTMLHeadingElement, {
+    getBoundingClientRect: getBoundingClientRectMock,
+    getClientRects: getClientRectsMock,
+  });
+
+  afterAll(() => {
+    headingSpy.mockRestore();
+  });
+
   it('Anchor render perfectly', () => {
     const wrapper = mount(
       <Anchor>
@@ -254,5 +272,34 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     expect(wrapper.instance().state.activeLink).toBe('#API2');
+  });
+
+  it('Anchor targetOffset prop', async () => {
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    let root = document.getElementById('root');
+    if (!root) {
+      root = document.createElement('div', { id: 'root' });
+      root.id = 'root';
+      document.body.appendChild(root);
+    }
+    mount(<h1 id="API">Hello</h1>, { attachTo: root });
+    const wrapper = mount(
+      <Anchor>
+        <Link href="#API" title="API" />
+      </Anchor>,
+    );
+    wrapper.instance().handleScrollTo('#API');
+    await delay(1000);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
+
+    wrapper.setProps({ offsetTop: 100 });
+    wrapper.instance().handleScrollTo('#API');
+    await delay(1000);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
+
+    wrapper.setProps({ targetOffset: 200 });
+    wrapper.instance().handleScrollTo('#API');
+    await delay(1000);
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
   });
 });

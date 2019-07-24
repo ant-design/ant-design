@@ -41,7 +41,9 @@ function easeInOutCubic(t: number, b: number, c: number, d: number) {
   if (t < 1) {
     return (cc / 2) * t * t * t + b;
   }
-  return (cc / 2) * ((t -= 2) * t * t + 2) + b;
+  const r = (cc / 2) * ((t -= 2) * t * t + 2) + b;
+  // fix return value more than target value
+  return cc > 0 ? (r > c ? c : r) : r < c ? c : r;
 }
 
 const sharpMatcherRegx = /#([^#]+)$/;
