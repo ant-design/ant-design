@@ -132,7 +132,7 @@ class App extends React.Component {
         ...this.getColumnSearchProps('address'),
       },
     ];
-    return <Table columns={columns} dataSource={data} />;
+    return <Table columns={columns} dataSource={data} onChange={this.onChange} />;
   }
 }
 

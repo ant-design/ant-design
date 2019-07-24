@@ -138,12 +138,13 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
   };
 
   confirmFilter() {
+    const { column, selectedKeys: propSelectedKeys, confirmFilter } = this.props;
     const { selectedKeys, valueKeys } = this.state;
-    const { filterDropdown } = this.props.column;
+    const { filterDropdown } = column;
 
-    if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
-      this.props.confirmFilter(
-        this.props.column,
+    if (!shallowequal(selectedKeys, propSelectedKeys)) {
+      confirmFilter(
+        column,
         filterDropdown
           ? selectedKeys
           : selectedKeys.map(key => valueKeys[key]).filter(key => key !== undefined),
