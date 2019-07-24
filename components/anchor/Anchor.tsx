@@ -7,6 +7,7 @@ import raf from 'raf';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
 
 function getDefaultContainer() {
@@ -35,54 +36,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
   return rect.top;
 }
 
-function easeInOutCubic(t: number, b: number, c: number, d: number) {
-  const cc = c - b;
-  t /= d / 2;
-  if (t < 1) {
-    return (cc / 2) * t * t * t + b;
-  }
-  const r = (cc / 2) * ((t -= 2) * t * t + 2) + b;
-  // fix return value more than target value
-  return cc > 0 ? (r > c ? c : r) : r < c ? c : r;
-}
-
 const sharpMatcherRegx = /#([^#]+)$/;
-function scrollTo(
-  href: string,
-  targetOffset = 0,
-  getContainer: () => AnchorContainer,
-  callback = () => {},
-) {
-  const container = getContainer();
-  const scrollTop = getScroll(container, true);
-  const sharpLinkMatch = sharpMatcherRegx.exec(href);
-  if (!sharpLinkMatch) {
-    return;
-  }
-  const targetElement = document.getElementById(sharpLinkMatch[1]);
-  if (!targetElement) {
-    return;
-  }
-  const eleOffsetTop = getOffsetTop(targetElement, container);
-  const targetScrollTop = scrollTop + eleOffsetTop - targetOffset;
-  const startTime = Date.now();
-  const frameFunc = () => {
-    const timestamp = Date.now();
-    const time = timestamp - startTime;
-    const nextScrollTop = easeInOutCubic(time, scrollTop, targetScrollTop, 450);
-    if (container === window) {
-      window.scrollTo(window.pageXOffset, nextScrollTop);
-    } else {
-      (container as HTMLElement).scrollTop = nextScrollTop;
-    }
-    if (time < 450) {
-      raf(frameFunc);
-    } else {
-      callback();
-    }
-  };
-  raf(frameFunc);
-}
 
 type Section = {
   link: string;
@@ -208,7 +162,35 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     if (this.scrollEvent) {
       this.scrollEvent.remove();
     }
-  }
+  };
+
+  handleScrollTo = (link: string) => {
+    const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
+
+    this.setState({ activeLink: link });
+    const container = getContainer();
+    const scrollTop = getScroll(container, true);
+    const sharpLinkMatch = sharpMatcherRegx.exec(link);
+    if (!sharpLinkMatch) {
+      return;
+    }
+    const targetElement = document.getElementById(sharpLinkMatch[1]);
+    if (!targetElement) {
+      return;
+    }
+
+    const eleOffsetTop = getOffsetTop(targetElement, container);
+    let y = scrollTop + eleOffsetTop;
+    y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
+    this.animating = true;
+
+    scrollTo(window.pageXOffset, y, {
+      callback: () => {
+        this.animating = false;
+      },
+      getContainer,
+    });
+  };
 
   getCurrentAnchor(offsetTop = 0, bounds = 5): string {
     const { getCurrentAnchor } = this.props;
@@ -265,15 +247,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
         activeLink: currentActiveLink,
       });
     }
-  };
-
-  handleScrollTo = (link: string) => {
-    const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
-    this.animating = true;
-    this.setState({ activeLink: link });
-    scrollTo(link, targetOffset !== undefined ? targetOffset : offsetTop, getContainer, () => {
-      this.animating = false;
-    });
   };
 
   updateInk = () => {
