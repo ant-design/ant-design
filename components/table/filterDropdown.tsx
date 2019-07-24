@@ -132,7 +132,9 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
 
   onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
-    if (!visible) {
+    const { column } = this.props;
+    // https://github.com/ant-design/ant-design/issues/17833
+    if (!visible && !(column.filterDropdown instanceof Function)) {
       this.confirmFilter();
     }
   };
