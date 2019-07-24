@@ -102,7 +102,7 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 我的组件默认语言是英文的？如何切回中文的。
 
-请尝试使用 [LocaleProvider](https://ant.design/components/locale-provider-cn/) 组件来包裹你的应用。
+请尝试使用 [ConfigProvider](/components/config-provider/#components-config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `moment.locale('zh-cn')` 并**检查你本地的 `moment` 版本和 `antd` 依赖的 `moment` 版本是否一致**。
 

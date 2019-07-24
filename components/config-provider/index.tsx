@@ -2,6 +2,7 @@ import * as React from 'react';
 import createReactContext from '@ant-design/create-react-context';
 
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
+import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 
 export { RenderEmptyHandler };
 
@@ -16,6 +17,7 @@ export interface ConfigConsumerProps {
   renderEmpty: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  locale?: Locale;
 }
 
 export const configConsumerProps = [
@@ -25,6 +27,7 @@ export const configConsumerProps = [
   'renderEmpty',
   'csp',
   'autoInsertSpaceInButton',
+  'locale',
 ];
 
 export interface ConfigProviderProps {
@@ -34,6 +37,7 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  locale?: Locale;
 }
 
 const ConfigContext = createReactContext<ConfigConsumerProps>({
@@ -59,7 +63,14 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   };
 
   renderProvider = (context: ConfigConsumerProps) => {
-    const { children, getPopupContainer, renderEmpty, csp, autoInsertSpaceInButton } = this.props;
+    const {
+      children,
+      getPopupContainer,
+      renderEmpty,
+      csp,
+      autoInsertSpaceInButton,
+      locale,
+    } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
@@ -75,7 +86,13 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       config.renderEmpty = renderEmpty;
     }
 
-    return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+    return (
+      <ConfigContext.Provider value={config}>
+        <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
+          {children}
+        </LocaleProvider>
+      </ConfigContext.Provider>
+    );
   };
 
   render() {

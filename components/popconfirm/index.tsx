@@ -5,7 +5,7 @@ import Icon from '../icon';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface PopconfirmProps extends AbstractTooltipProps {

@@ -1,11 +1,11 @@
 ---
 category: Components
-type: Other
+type: Deprecated
 cols: 1
-title: LocaleProvider
+title: LocaleProvider (Deprecated)
 ---
 
-`LocaleProvider` provides a uniform localization support for built-in text of components.
+`LocaleProvider` component. Deprecated, please use [ConfigProvider](/components/config-provider) instead.
 
 ## Usage
 
