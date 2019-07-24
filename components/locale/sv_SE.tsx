@@ -31,4 +31,10 @@ export default {
   Empty: {
     description: 'Ingen information',
   },
+  Text: {
+    edit: 'editera',
+    copy: 'kopiera',
+    copied: 'kopiering lyckades',
+    expand: 'expandera',
+  },
 };
