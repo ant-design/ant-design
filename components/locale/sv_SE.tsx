@@ -34,7 +34,7 @@ export default {
   Text: {
     edit: 'editera',
     copy: 'kopiera',
-    copied: 'kopiering lyckades',
+    copied: 'kopierad',
     expand: 'expandera',
   },
 };
