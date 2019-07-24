@@ -5,13 +5,13 @@ import Eases from './eases';
 type easeType = keyof typeof Eases;
 
 interface ScrollToOptions {
-  /** Scroll container, deault as window */
+  /** Scroll container, default as window */
   getContainer?: () => HTMLElement | Window;
   /** Scroll end callback */
   callback?: () => any;
   /** Animation duration, default as 450 */
   duration?: number;
-  /** easing function name, default as easeInOutCubic */
+  /** easing function, default as easeInOutCubic */
   ease?: easeType;
 }
 
@@ -30,7 +30,7 @@ export default function scrollTo(x: number, y: number, options: ScrollToOptions 
   let easeFunc = Eases[ease];
 
   if (!easeFunc) {
-    console.warn('Unkonw easing funciton in scrollTo');
+    console.warn('Unknown easing funciton in scrollTo, default use easeInOutCubic');
     easeFunc = Eases.easeInOutCubic;
   }
 
