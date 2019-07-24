@@ -621,6 +621,39 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-input').instance().value).toBe('');
   });
 
+  // https://github.com/ant-design/ant-design/issues/17833
+  it('should not trigger onChange when bluring custom filterDropdown', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange,
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filterDropdown: ({ setSelectedKeys }) => (
+              <input onChange={e => setSelectedKeys([e.target.value])} />
+            ),
+          },
+        ],
+      }),
+    );
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { value: 'whatevervalue' } });
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
   // https://github.com/ant-design/ant-design/issues/17089
   it('not crash when dynamic change filter', () => {
     const onChange = jest.fn();
