@@ -26,7 +26,7 @@ title: Anchor
 | showInkInFixed | 固定模式是否显示小圆点 | boolean | false |  |
 | onClick | `click` 事件的 handler | Function(e: Event, link: Object) | - | 3.9.0 |
 | getCurrentAnchor | 自定义高亮的锚点 | () => string | - | 3.21.0 |
-| targetOffset | 滚动到目标的偏移量 | number | `offsetTop` |  | 0 | 3.21.0 |
+| targetOffset | 锚点滚动偏移量，默认与 offsetTop 相同，[例子](#components-anchor-demo-targetOffset) | number | `offsetTop` | 3.21.0 |
 
 ### Link Props
 
