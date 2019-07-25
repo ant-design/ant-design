@@ -1,8 +1,8 @@
 import raf from 'raf';
 import getScroll from './getScroll';
-import Eases from './eases';
+import Easings from './easings';
 
-type easeType = keyof typeof Eases;
+type easeType = keyof typeof Easings;
 
 interface ScrollToOptions {
   /** Scroll container, default as window */
@@ -27,11 +27,11 @@ export default function scrollTo(x: number, y: number, options: ScrollToOptions 
   const container = getContainer();
   const scrollTop = getScroll(container, true);
   const startTime = Date.now();
-  let easeFunc = Eases[ease];
+  let easeFunc = Easings[ease];
 
   if (!easeFunc) {
     console.warn('Unknown easing funciton in scrollTo, default use easeInOutCubic');
-    easeFunc = Eases.easeInOutCubic;
+    easeFunc = Easings.easeInOutCubic;
   }
 
   const frameFunc = () => {
