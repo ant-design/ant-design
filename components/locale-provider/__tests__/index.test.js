@@ -53,6 +53,7 @@ import skSK from '../sk_SK';
 import slSI from '../sl_SI';
 import srRS from '../sr_RS';
 import svSE from '../sv_SE';
+import taIN from '../ta_IN';
 import thTH from '../th_TH';
 import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
@@ -100,6 +101,7 @@ const locales = [
   slSI,
   srRS,
   svSE,
+  taIN,
   thTH,
   trTR,
   ukUA,
