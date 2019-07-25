@@ -15,6 +15,10 @@ timeline: true
 
 ---
 
+## 3.20.7
+
+- 🐞 Fix Upload can not click in Form.Item. [#17897](https://github.com/ant-design/ant-design/pull/17897)
+
 ## 3.20.6
 
 `2019-07-24`
