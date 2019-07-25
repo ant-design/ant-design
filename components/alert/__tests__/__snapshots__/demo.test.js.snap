@@ -66,7 +66,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <a
+    <span
       class="ant-alert-close-icon"
     >
       <i
@@ -88,7 +88,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </span>
   </div>
   <br />
   <div
@@ -170,7 +170,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <a
+    <span
       class="ant-alert-close-icon"
     >
       <i
@@ -192,7 +192,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </span>
   </div>
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-closable"
@@ -208,7 +208,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     >
       Error Description Error Description Error Description Error Description Error Description Error Description
     </span>
-    <a
+    <span
       class="ant-alert-close-icon"
     >
       <i
@@ -230,7 +230,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </span>
   </div>
 </div>
 `;
@@ -248,11 +248,15 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
   <span
     class="ant-alert-description"
   />
-  <a
+  <span
     class="ant-alert-close-icon"
   >
-    Close Now
-  </a>
+    <span
+      class="ant-alert-close-text"
+    >
+      Close Now
+    </span>
+  </span>
 </div>
 `;
 
@@ -898,7 +902,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <a
+    <span
       class="ant-alert-close-icon"
     >
       <i
@@ -920,7 +924,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </span>
   </div>
   <p>
     placeholder text here
