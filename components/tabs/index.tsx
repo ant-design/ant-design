@@ -132,6 +132,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       React.Children.forEach(
         children as React.ReactNode,
         (child: React.ReactElement<any>, index) => {
+        if(child){
           let closable = child.props.closable;
           closable = typeof closable === 'undefined' ? true : closable;
           const closeIcon = closable ? (
@@ -152,6 +153,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
               key: child.key || index,
             }),
           );
+        }
         },
       );
       // Add new tab handler
