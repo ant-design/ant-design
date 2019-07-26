@@ -4,6 +4,7 @@ import { ClickParam } from '.';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
+import { Omit } from '../_util/type';
 
 export interface MenuItemProps
   extends Omit<
