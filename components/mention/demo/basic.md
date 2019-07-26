@@ -31,7 +31,7 @@ ReactDOM.render(
     style={{ width: '100%' }}
     onChange={onChange}
     defaultValue={toContentState('@afc163')}
-    defaultSuggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
+    defaultSuggestions={['aaaafc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
     onSelect={onSelect}
   />,
   mountNode,
