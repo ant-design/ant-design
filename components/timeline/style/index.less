@@ -19,14 +19,15 @@
 
     &-tail {
       position: absolute;
-      top: 0.75em;
+      top: 10px;
       left: 4px;
-      height: 100%;
+      height: calc(100% - 10px);
       border-left: @timeline-width solid @timeline-color;
     }
 
     &-pending &-head {
       font-size: @font-size-sm;
+      background-color: transparent;
     }
 
     &-pending &-tail {
