@@ -142,6 +142,7 @@
 
   &&-pending &-item-last &-item-tail {
     display: block;
+    height: calc(100% - 14px);
     border-left: 2px dotted @timeline-color;
   }
 
@@ -151,9 +152,9 @@
 
   &&-reverse &-item-pending {
     .@{timeline-prefix-cls}-item-tail {
+      top: 13px;
       display: block;
       border-left: 2px dotted @timeline-color;
-      top: 11px;
     }
     .@{timeline-prefix-cls}-item-content {
       min-height: 48px;
