@@ -36,7 +36,7 @@ title: Ant Design of React
 
 - 现代浏览器和 IE9 及以上（需要 [polyfills](https://ant.design/docs/react/getting-started-cn#兼容性)）。
 - 支持服务端渲染。
-- [Electron](http://electron.atom.io/)
+- [Electron](https://electronjs.org/)
 
 ## 版本
 

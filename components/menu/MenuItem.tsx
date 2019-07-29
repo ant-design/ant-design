@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Item } from 'rc-menu';
 import { ClickParam } from '.';
-import { MenuContext, MenuContextProps } from './';
+import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 
