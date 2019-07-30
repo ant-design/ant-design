@@ -16,6 +16,9 @@ describe('Tabs', () => {
           <TabPane tab="foo" key="1">
             foo
           </TabPane>
+          {undefined}
+          {null}
+          {false}
         </Tabs>,
       );
     });
@@ -31,6 +34,10 @@ describe('Tabs', () => {
     it('remove card', () => {
       wrapper.find('.anticon-close').simulate('click');
       expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
+    });
+
+    it('validateElement', () => {
+      expect(wrapper.find('.ant-tabs-tab').length).toBe(1);
     });
   });
 
