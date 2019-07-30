@@ -1,37 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Tag visibility can be controlled by visible with hidden as initial value 1`] = `
-<div
+<span
   class="ant-tag ant-tag-hidden"
 />
 `;
 
 exports[`Tag visibility can be controlled by visible with hidden as initial value 2`] = `
-<div
+<span
   class="ant-tag"
 />
 `;
 
 exports[`Tag visibility can be controlled by visible with hidden as initial value 3`] = `
-<div
+<span
   class="ant-tag ant-tag-hidden"
 />
 `;
 
 exports[`Tag visibility can be controlled by visible with visible as initial value 1`] = `
-<div
+<span
   class="ant-tag"
 />
 `;
 
 exports[`Tag visibility can be controlled by visible with visible as initial value 2`] = `
-<div
+<span
   class="ant-tag ant-tag-hidden"
 />
 `;
 
 exports[`Tag visibility can be controlled by visible with visible as initial value 3`] = `
-<div
+<span
   class="ant-tag"
 />
 `;

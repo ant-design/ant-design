@@ -350,16 +350,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-green"
                       >
                         NICE
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-geekblue"
                       >
                         DEVELOPER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -413,11 +413,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-volcano"
                       >
                         LOSER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -471,16 +471,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-green"
                       >
                         COOL
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-geekblue"
                       >
                         TEACHER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -10912,16 +10912,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         nice
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         developer
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -10976,11 +10976,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         loser
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -11035,16 +11035,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         cool
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         teacher
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
