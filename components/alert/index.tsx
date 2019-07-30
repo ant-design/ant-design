@@ -134,7 +134,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
 
     const closeIcon = closable ? (
-      <span onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
+      <span role="button" onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
         {closeText ? (
           <span className={`${prefixCls}-close-text`}>{closeText}</span>
         ) : (
