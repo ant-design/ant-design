@@ -357,7 +357,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           const haveColon = computedColon && !vertical;
           // Remove duplicated user input colon
           if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-            labelChildren = (label as string).replace(/[：|:]\s*$/, '');
+            labelChildren = (label as string).replace(/(：|:)\s*$/, '');
           }
 
           const labelClassName = classNames({
