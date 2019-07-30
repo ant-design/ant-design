@@ -32,7 +32,7 @@ export interface SinglePickerProps {
   defaultPickerValue?: moment.Moment;
   placeholder?: string;
   renderExtraFooter?: (mode: DatePickerMode) => React.ReactNode;
-  onChange?: (date: moment.Moment, dateString: string) => void;
+  onChange?: (date: moment.Moment | null, dateString: string) => void;
 }
 
 const DatePickerModes = tuple('time', 'date', 'month', 'year', 'decade');

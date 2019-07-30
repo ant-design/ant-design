@@ -263,3 +263,25 @@ If you are the user of v3, you can ref [migrate doc](/components/form/v3)。
   word-wrap: break-word;
 }
 </style>
+
+## FAQ
+
+### Customize validator do not working
+
+It caused by your `validator` with some error that `callback` can not be called. You can use `async` instead or use `try...catch` to catch the error:
+
+```jsx
+validator: async (rule, value) => {
+  throw new Error('Something wrong!');
+}
+
+// or
+
+validator(rule, value, callback) => {
+  try {
+    throw new Error('Something wrong!');
+  } catch (err) {
+    callback(err);
+  }
+}
+```

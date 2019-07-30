@@ -131,6 +131,18 @@
   }
 }
 
+.calendar-selected-cell() {
+  .@{calendar-prefix-cls}-date {
+    color: @text-color-inverse;
+    background: @primary-color;
+    border: @border-width-base @border-style-base transparent;
+
+    &:hover {
+      background: @primary-color;
+    }
+  }
+}
+
 .@{calendar-prefix-cls} {
   position: relative;
   width: 280px;
@@ -255,27 +267,19 @@
     border-color: @primary-color;
   }
 
+  &-selected-day &-date {
+    background: @primary-2;
+  }
+
+  &-selected-date {
+    .calendar-selected-cell;
+  }
+
   &-last-month-cell &-date,
   &-next-month-btn-day &-date {
-    color: @disabled-color;
-  }
-
-  &-selected-day &-date {
-    background: tint(@primary-color, 80%);
-  }
-
-  &-selected-date,
-  &-selected-start-date,
-  &-selected-end-date {
-    .@{calendar-prefix-cls}-date {
-      color: @text-color-inverse;
-      background: @primary-color;
-      border: @border-width-base @border-style-base transparent;
-
-      &:hover {
-        background: @primary-color;
-      }
-    }
+    color: @disabled-color !important;
+    background: transparent !important;
+    border-color: transparent !important;
   }
 
   &-disabled-cell &-date {

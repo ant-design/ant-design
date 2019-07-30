@@ -129,31 +129,29 @@ export default class Tabs extends React.Component<TabsProps, any> {
     let childrenWithClose: React.ReactElement<any>[] = [];
     if (type === 'editable-card') {
       childrenWithClose = [];
-      React.Children.forEach(
-        children as React.ReactNode,
-        (child: React.ReactElement<any>, index) => {
-          let closable = child.props.closable;
-          closable = typeof closable === 'undefined' ? true : closable;
-          const closeIcon = closable ? (
-            <Icon
-              type="close"
-              className={`${prefixCls}-close-x`}
-              onClick={e => this.removeTab(child.key as string, e)}
-            />
-          ) : null;
-          childrenWithClose.push(
-            React.cloneElement(child, {
-              tab: (
-                <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
-                  {child.props.tab}
-                  {closeIcon}
-                </div>
-              ),
-              key: child.key || index,
-            }),
-          );
-        },
-      );
+      React.Children.forEach(children as React.ReactNode, (child, index) => {
+        if (!React.isValidElement(child)) return child;
+        let closable = child.props.closable;
+        closable = typeof closable === 'undefined' ? true : closable;
+        const closeIcon = closable ? (
+          <Icon
+            type="close"
+            className={`${prefixCls}-close-x`}
+            onClick={e => this.removeTab(child.key as string, e)}
+          />
+        ) : null;
+        childrenWithClose.push(
+          React.cloneElement(child, {
+            tab: (
+              <div className={closable ? undefined : `${prefixCls}-tab-unclosable`}>
+                {child.props.tab}
+                {closeIcon}
+              </div>
+            ),
+            key: child.key || index,
+          }),
+        );
+      });
       // Add new tab handler
       if (!hideAdd) {
         tabBarExtraContent = (

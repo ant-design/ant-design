@@ -264,3 +264,25 @@ validateFields()
   word-wrap: break-word;
 }
 </style>
+
+## FAQ
+
+### 自定义 validator 没有效果
+
+这是由于你的 `validator` 有错误导致 `callback` 没有执行到。你可以选择通过 `async` 返回一个 promise 或者使用 `try...catch` 进行错误捕获：
+
+```jsx
+validator: async (rule, value) => {
+  throw new Error('Something wrong!');
+}
+
+// or
+
+validator(rule, value, callback) => {
+  try {
+    throw new Error('Something wrong!');
+  } catch (err) {
+    callback(err);
+  }
+}
+```

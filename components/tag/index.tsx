@@ -10,7 +10,7 @@ import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
 
-export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
   color?: string;
@@ -104,19 +104,23 @@ class Tag extends React.Component<TagProps, TagState> {
     const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const divProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable']);
+    const tagProps = omit(otherProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
     return isNeedWave ? (
       <Wave>
-        <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
+        <span
+          {...tagProps}
+          className={this.getTagClassName(configProps)}
+          style={this.getTagStyle()}
+        >
           {children}
           {this.renderCloseIcon()}
-        </div>
+        </span>
       </Wave>
     ) : (
-      <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
+      <span {...tagProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
         {children}
         {this.renderCloseIcon()}
-      </div>
+      </span>
     );
   };
 

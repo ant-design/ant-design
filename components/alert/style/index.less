@@ -86,8 +86,11 @@
   }
 
   &-close-text {
-    position: absolute;
-    right: 16px;
+    color: @alert-close-color;
+    transition: color 0.3s;
+    &:hover {
+      color: @alert-close-hover-color;
+    }
   }
 
   &-with-description {

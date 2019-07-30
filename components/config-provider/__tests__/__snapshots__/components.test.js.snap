@@ -12515,46 +12515,46 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
 
 exports[`ConfigProvider components Tags configProvider 1`] = `
 <div>
-  <div
+  <span
     class="config-tag"
   >
     Bamboo
-  </div>
-  <div
+  </span>
+  <span
     class="config-tag config-tag-checkable"
   >
     Light
-  </div>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Tags normal 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag"
   >
     Bamboo
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Light
-  </div>
+  </span>
 </div>
 `;
 
 exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
-  <div
+  <span
     class="prefix-Tags"
   >
     Bamboo
-  </div>
-  <div
+  </span>
+  <span
     class="prefix-Tags prefix-Tags-checkable"
   >
     Light
-  </div>
+  </span>
 </div>
 `;
 
