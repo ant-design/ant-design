@@ -506,28 +506,35 @@ describe('Upload List', () => {
     });
   });
 
-  it('customize previewFile support', async () => {
-    const mockThumbnail = 'mock-image';
-    const previewFile = jest.fn(() => {
-      return Promise.resolve(mockThumbnail);
-    });
-    const file = {
-      ...fileList[0],
-      originFileObj: new File([], 'xxx.png'),
-    };
-    delete file.thumbUrl;
+  describe('customize previewFile support', () => {
+    function test(name, renderInstance) {
+      it(name, async () => {
+        const mockThumbnail = 'mock-image';
+        const previewFile = jest.fn(() => {
+          return Promise.resolve(mockThumbnail);
+        });
+        const file = {
+          ...fileList[0],
+          originFileObj: renderInstance(),
+        };
+        delete file.thumbUrl;
 
-    const wrapper = mount(
-      <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
-        <button type="button" />
-      </Upload>,
-    );
-    wrapper.setState({});
-    await delay(0);
+        const wrapper = mount(
+          <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
+            <button type="button" />
+          </Upload>,
+        );
+        wrapper.setState({});
+        await delay(0);
 
-    expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
-    wrapper.update();
+        expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
+        wrapper.update();
 
-    expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
+        expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
+      });
+    }
+
+    test('File', () => new File([], 'xxx.png'));
+    test('Blob', () => new Blob());
   });
 });

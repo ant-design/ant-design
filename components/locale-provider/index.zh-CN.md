@@ -46,6 +46,12 @@ return <LocaleProvider locale={locales.en_US}><App /></LocaleProvider>;
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| locale | 语言包配置，语言包可到 [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) 目录下寻找 | object | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| locale | 语言包配置，语言包可到 [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) 目录下寻找 | object | - |  |
+
+## FAQ
+
+#### 为什么我使用了 LocaleProvider 还有问题？
+
+请检查是否设置了 `moment.locale('zh-cn')`，或者是否有两个版本的 moment 共存。

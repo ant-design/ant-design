@@ -56,7 +56,7 @@ $ yarn add antd
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
@@ -88,7 +88,7 @@ export default App;
 
 ## 高级配置
 
-我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（对前端性能是个隐患）。
+我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（gzipped 后一共大约 60kb）。
 
 此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) （一个对 create-react-app 进行自定义配置的社区解决方案）。
 
@@ -121,6 +121,8 @@ module.exports = function override(config, env) {
 
 ### 使用 babel-plugin-import
 
+> 注意：antd 默认支持基于 ES module 的 tree shaking，js 代码部分不使用这个插件也会有按需加载的效果。
+
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config-overrides.js` 文件。
 
 ```bash
@@ -148,7 +150,7 @@ $ yarn add babel-plugin-import
 ```diff
   // src/App.js
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 
@@ -201,7 +203,7 @@ module.exports = override(
 
 ## eject
 
-你也可以使用 create-react-app 提供的 [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。
+你也可以使用 create-react-app 提供的 [yarn run eject](https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject) 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。
 
 ## 源码和其他脚手架
 

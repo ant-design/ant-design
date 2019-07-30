@@ -16,7 +16,7 @@ Select your favourite topics.
 ```jsx
 import { Tag } from 'antd';
 
-const CheckableTag = Tag.CheckableTag;
+const { CheckableTag } = Tag;
 
 const tagsFromServer = ['Movies', 'Books', 'Music', 'Sports'];
 

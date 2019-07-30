@@ -350,16 +350,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-green"
                       >
                         NICE
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-geekblue"
                       >
                         DEVELOPER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -413,11 +413,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-volcano"
                       >
                         LOSER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -471,16 +471,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-green"
                       >
                         COOL
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-geekblue"
                       >
                         TEACHER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -5152,6 +5152,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             <div
               class="ant-table-body"
               style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0)"
+              tabindex="-1"
             >
               <table
                 class="ant-table-fixed"
@@ -6057,6 +6058,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             <div
               class="ant-table-body"
               style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0);max-height:300px;overflow-y:scroll"
+              tabindex="-1"
             >
               <table
                 class="ant-table-fixed"
@@ -7526,6 +7528,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             <div
               class="ant-table-body"
               style="max-height:240px;overflow-y:scroll"
+              tabindex="-1"
             >
               <table
                 class=""
@@ -9195,6 +9198,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             <div
               class="ant-table-body"
               style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0);max-height:240px;overflow-y:scroll"
+              tabindex="-1"
             >
               <table
                 class="ant-table-fixed"
@@ -10908,16 +10912,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         nice
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         developer
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -10972,11 +10976,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         loser
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -11031,16 +11035,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         cool
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         teacher
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td

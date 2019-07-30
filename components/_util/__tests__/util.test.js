@@ -169,7 +169,11 @@ describe('Test utils function', () => {
 
     it('should not throw when click it', () => {
       expect(() => {
-        const wrapper = mount(<Wave><div /></Wave>);
+        const wrapper = mount(
+          <Wave>
+            <div />
+          </Wave>,
+        );
         wrapper.simulate('click');
       }).not.toThrow();
     });
@@ -184,9 +188,7 @@ describe('Test utils function', () => {
 
   describe('TransButton', () => {
     it('can be focus/blur', () => {
-      const wrapper = mount(
-        <TransButton>TransButton</TransButton>,
-      );
+      const wrapper = mount(<TransButton>TransButton</TransButton>);
       expect(typeof wrapper.instance().focus).toBe('function');
       expect(typeof wrapper.instance().blur).toBe('function');
     });
@@ -194,9 +196,7 @@ describe('Test utils function', () => {
     it('should trigger onClick when press enter', () => {
       const onClick = jest.fn();
       const preventDefault = jest.fn();
-      const wrapper = mount(
-        <TransButton onClick={onClick}>TransButton</TransButton>,
-      );
+      const wrapper = mount(<TransButton onClick={onClick}>TransButton</TransButton>);
       wrapper.simulate('keyUp', { keyCode: KeyCode.ENTER });
       expect(onClick).toHaveBeenCalled();
       wrapper.simulate('keyDown', { keyCode: KeyCode.ENTER, preventDefault });

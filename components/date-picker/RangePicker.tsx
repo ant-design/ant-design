@@ -150,6 +150,9 @@ class RangePicker extends React.Component<any, RangePickerState> {
         showDate: getShowDateFromValue(value) || showDate,
       }));
     }
+    if (value[0] && value[0].diff(value[1]) > 0) {
+      value[1] = undefined;
+    }
     const [start, end] = value;
     props.onChange(value, [formatDate(start, props.format), formatDate(end, props.format)]);
   };

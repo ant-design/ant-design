@@ -30,7 +30,7 @@ class ButtonSize extends React.Component {
   };
 
   render() {
-    const size = this.state.size;
+    const { size } = this.state;
     return (
       <div>
         <Radio.Group value={size} onChange={this.handleSizeChange}>

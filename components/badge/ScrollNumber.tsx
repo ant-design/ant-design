@@ -22,7 +22,7 @@ export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
   count?: string | number | null;
-  displayComponent?: React.ReactElement<any>;
+  displayComponent?: React.ReactElement<HTMLElement>;
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;
@@ -105,7 +105,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
     if (onAnimated) {
       onAnimated();
     }
-  }
+  };
 
   renderNumberList(position: number) {
     const childrenToReturn: React.ReactElement<any>[] = [];

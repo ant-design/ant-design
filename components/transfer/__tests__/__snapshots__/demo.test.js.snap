@@ -1320,11 +1320,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 cat
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1369,11 +1369,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 dog
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1418,11 +1418,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 cat
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1468,11 +1468,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 dog
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1517,11 +1517,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 cat
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1566,11 +1566,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 dog
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1615,11 +1615,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 cat
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1664,11 +1664,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 dog
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1714,11 +1714,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 cat
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""
@@ -1763,11 +1763,11 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                             <td
                               class=""
                             >
-                              <div
+                              <span
                                 class="ant-tag"
                               >
                                 dog
-                              </div>
+                              </span>
                             </td>
                             <td
                               class=""

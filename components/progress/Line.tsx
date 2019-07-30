@@ -78,13 +78,13 @@ const Line: React.SFC<LineProps> = props => {
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
   };
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
   };
   const successSegment =
     successPercent !== undefined ? (

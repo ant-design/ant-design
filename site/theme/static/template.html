@@ -8,7 +8,7 @@
       name="description"
       content="An enterprise-class UI design language and React implementation with a set of high-quality React components, one of best React UI library for enterprises"
     />
-    <title>Ant Design - A UI Design Language</title>
+    <title>{% if title %}{{ title }}{% else %}Ant Design - A UI Design Language{% endif %}</title>
     <link
       rel="icon"
       href="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
@@ -23,11 +23,7 @@
       }
     </style>
     <link rel="stylesheet/less" type="text/css" href="{{ root }}color.less" />
-    <script src="https://gw.alipayobjects.com/os/lib/es6-shim/0.35.5/??es6-sham.min.js,es6-shim.min.js"></script>
-    <!--[if lte IE 10]>
-      <script src="https://as.alipayobjects.com/g/component/??console-polyfill/0.2.2/index.js,media-match/2.0.2/media.match.min.js"></script>
-    <![endif]-->
-    <script src="https://as.alipayobjects.com/g/component/intl/1.0.1/??Intl.min.js,locale-data/jsonp/en.js,locale-data/jsonp/zh.js"></script>
+    <script src="https://polyfill.alicdn.com/polyfill.min.js?features=default,es2015,matchMedia"></script>
     <script>
       (function() {
         function isLocalStorageNameSupported() {

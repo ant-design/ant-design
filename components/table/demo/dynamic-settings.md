@@ -132,7 +132,7 @@ class Demo extends React.Component {
   };
 
   render() {
-    const state = this.state;
+    const { state } = this;
     return (
       <div>
         <div className="components-table-demo-control-bar">
