@@ -16,7 +16,7 @@ describe('Test ScrollTo function', () => {
 
   it('test callback - option', async () => {
     const cbMock = jest.fn();
-    scrollTo(0, 1000, {
+    scrollTo(1000, {
       callback: cbMock,
     });
     await sleep(1000);
