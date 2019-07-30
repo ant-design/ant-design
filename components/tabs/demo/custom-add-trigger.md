@@ -84,7 +84,6 @@ class Demo extends React.Component {
               {pane.content}
             </TabPane>
           ))}
-          {undefined}
         </Tabs>
       </div>
     );
