@@ -69,7 +69,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
 
   scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
     const { target = getDefaultTarget } = this.props;
-    scrollTo(window.pageXOffset, 0, {
+    scrollTo(0, {
       getContainer: target,
     });
     if (typeof this.props.onClick === 'function') {

@@ -184,7 +184,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
     this.animating = true;
 
-    scrollTo(window.pageXOffset, y, {
+    scrollTo(y, {
       callback: () => {
         this.animating = false;
       },

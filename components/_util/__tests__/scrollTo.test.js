@@ -8,7 +8,7 @@ describe('Test ScrollTo function', () => {
       w.scrollY = y;
       w.pageYOffset = y;
     });
-    scrollTo(0, 1000);
+    scrollTo(1000);
     await sleep(1000);
     expect(window.pageYOffset).toBe(1000);
     scrollToSpy.mockRestore();
@@ -25,7 +25,7 @@ describe('Test ScrollTo function', () => {
 
   it('test getContainer - option', async () => {
     const div = document.createElement('div');
-    scrollTo(0, 1000, {
+    scrollTo(1000, {
       getContainer: () => div,
     });
     await sleep(1000);
