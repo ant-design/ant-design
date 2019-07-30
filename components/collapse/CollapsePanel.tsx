@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CollapsePanelProps {
-  key: string;
+  key: string | number;
   header: React.ReactNode;
   disabled?: boolean;
   className?: string;

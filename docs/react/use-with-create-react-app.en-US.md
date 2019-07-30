@@ -56,7 +56,7 @@ Modify `src/App.js`, import Button component from `antd`.
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
@@ -88,7 +88,7 @@ Ok, you should now see a blue primary button displayed on the page. Next you can
 
 ## Advanced Guides
 
-We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo. For instance, we actually import all styles of components in the project which may be a network performance issue.
+We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo. For instance, we actually import styles of all components in the project which may be a css bundle size issue (It is OK then if you don't case the gzipped 60kb css file size).
 
 Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
 
@@ -121,6 +121,8 @@ module.exports = function override(config, env) {
 
 ### Use babel-plugin-import
 
+> Note: antd support ES6 tree shaking by default even without this babel plugin for js part.
+
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) is a babel plugin for importing components on demand ([How does it work?](/docs/react/getting-started#Import-on-Demand)). We are now trying to install it and modify `config-overrides.js`.
 
 ```bash
@@ -148,7 +150,7 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
 ```diff
   // src/App.js
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 
@@ -199,7 +201,7 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 ## eject
 
-You can also could try [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) for a custom setup of create-react-app, although you should dig into it by yourself.
+You can also eject your application using [yarn run eject](https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject) for a custom setup of create-react-app, although you should dig into it by yourself.
 
 ## Source code and other boilerplates
 

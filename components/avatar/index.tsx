@@ -20,7 +20,7 @@ export interface AvatarProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  children?: any;
+  children?: React.ReactNode;
   alt?: string;
   /* callback when img load error */
   /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self*/

@@ -16,7 +16,7 @@ Submenus open as pop-ups.
 ```jsx
 import { Menu, Icon } from 'antd';
 
-const { SubMenu }  = Menu;
+const { SubMenu } = Menu;
 
 function handleClick(e) {
   console.log('click', e);

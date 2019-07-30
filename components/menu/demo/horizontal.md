@@ -16,7 +16,7 @@ Horizontal top navigation menu.
 ```jsx
 import { Menu, Icon } from 'antd';
 
-const { SubMenu }  = Menu;
+const { SubMenu } = Menu;
 
 class App extends React.Component {
   state = {

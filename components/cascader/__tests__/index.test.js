@@ -398,6 +398,19 @@ describe('Cascader', () => {
     errorSpy.mockReset();
   });
 
+  it('should show not found content when options.length is 0', () => {
+    const customerOptions = [];
+    const wrapper = mount(<Cascader options={customerOptions} />);
+    wrapper.find('input').simulate('click');
+    const popupWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(popupWrapper).toMatchSnapshot();
+  });
+
   describe('limit filtered item count', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -428,5 +441,34 @@ describe('Cascader', () => {
         "Warning: [antd: Cascader] 'limit' of showSearch should be positive number or false.",
       );
     });
+  });
+
+  it('should warning if not find `value` in `options`', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] Not found `value` in `options`.',
+    );
+    errorSpy.mockRestore();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/17690
+  it('should not breaks when children is null', () => {
+    const optionsWithChildrenNull = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: null,
+          },
+        ],
+      },
+    ];
+    expect(() => {
+      mount(<Cascader options={optionsWithChildrenNull} />);
+    }).not.toThrow();
   });
 });

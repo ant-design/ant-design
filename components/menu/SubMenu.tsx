@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import { SubMenu as RcSubMenu } from 'rc-menu';
 import classNames from 'classnames';
 
-import { MenuContext, MenuContextProps } from './index';
+import MenuContext, { MenuContextProps } from './MenuContext';
 
 interface TitleEventEntity {
   key: string;
@@ -19,6 +19,7 @@ export interface SubMenuProps {
   onTitleClick?: (e: TitleEventEntity) => void;
   onTitleMouseEnter?: (e: TitleEventEntity) => void;
   onTitleMouseLeave?: (e: TitleEventEntity) => void;
+  popupOffset?: [number, number];
 }
 
 class SubMenu extends React.Component<SubMenuProps, any> {

@@ -9,7 +9,7 @@ export interface AnchorLinkProps {
   prefixCls?: string;
   href: string;
   title: React.ReactNode;
-  children?: any;
+  children?: React.ReactNode;
   className?: string;
 }
 

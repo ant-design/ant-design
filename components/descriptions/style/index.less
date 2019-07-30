@@ -27,6 +27,7 @@
   }
 
   &-row {
+    > th,
     > td {
       padding-bottom: 16px;
     }
@@ -37,14 +38,23 @@
 
   &-item-label {
     color: @heading-color;
+    font-weight: normal;
     font-size: @font-size-base;
     line-height: @line-height-base;
     white-space: nowrap;
+
     &::after {
       position: relative;
       top: -0.5px;
       margin: 0 8px 0 2px;
       content: ':';
+    }
+  }
+
+  &-item-no-label {
+    &::after {
+      margin: 0;
+      content: '';
     }
   }
 
@@ -60,49 +70,31 @@
     > span {
       display: inline-block;
     }
-    .@{descriptions-prefix-cls}-item-label {
-      float: left;
-      padding: 0 !important;
-    }
-    .@{descriptions-prefix-cls}-item-content {
-      float: left;
-      padding: 0 !important;
-    }
   }
 
-  // padding setting
-  .@{descriptions-prefix-cls}-item-label,
-  .@{descriptions-prefix-cls}-item-content {
-    padding: @descriptions-default-padding;
-  }
-
-  &.bordered.middle {
-    .@{descriptions-prefix-cls}-item-label,
-    .@{descriptions-prefix-cls}-item-content {
-      padding: @descriptions-middle-padding;
-    }
-  }
-  &.bordered.small {
-    .@{descriptions-prefix-cls}-item-label,
-    .@{descriptions-prefix-cls}-item-content {
-      padding: @descriptions-small-padding;
-    }
-  }
-  &.bordered {
+  &-bordered {
     .@{descriptions-prefix-cls}-view {
       border: 1px solid @border-color-split;
       > table {
         table-layout: auto;
       }
     }
+
     .@{descriptions-prefix-cls}-item-label,
     .@{descriptions-prefix-cls}-item-content {
+      padding: @descriptions-default-padding;
       border-right: 1px solid @border-color-split;
+
+      &:last-child {
+        border-right: none;
+      }
     }
 
-    .@{descriptions-prefix-cls}-item-label:last-child,
-    .@{descriptions-prefix-cls}-item-content:last-child {
-      border-right: none;
+    .@{descriptions-prefix-cls}-item-label {
+      background-color: #fafafa;
+      &::after {
+        display: none;
+      }
     }
 
     .@{descriptions-prefix-cls}-row {
@@ -112,10 +104,17 @@
       }
     }
 
-    .@{descriptions-prefix-cls}-item-label {
-      background-color: #fafafa;
-      &::after {
-        display: none;
+    &.@{descriptions-prefix-cls}-middle {
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        padding: @descriptions-middle-padding;
+      }
+    }
+
+    &.@{descriptions-prefix-cls}-small {
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        padding: @descriptions-small-padding;
       }
     }
   }

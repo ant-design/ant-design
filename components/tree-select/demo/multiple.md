@@ -16,7 +16,7 @@ Multiple selection usage.
 ```jsx
 import { TreeSelect } from 'antd';
 
-const TreeNode = TreeSelect.TreeNode;
+const { TreeNode } = TreeSelect;
 
 class Demo extends React.Component {
   state = {

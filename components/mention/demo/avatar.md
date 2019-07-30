@@ -18,7 +18,7 @@ Customize suggestions.
 ```jsx
 import { Mention, Avatar } from 'antd';
 
-const Nav = Mention.Nav;
+const { Nav } = Mention;
 
 const webFrameworks = [
   {

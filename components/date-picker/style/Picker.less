@@ -43,6 +43,10 @@
 
   &-input {
     outline: none;
+
+    &.@{ant-prefix}-input {
+      line-height: @line-height-base;
+    }
   }
 
   &-input.@{ant-prefix}-input-sm {
@@ -51,7 +55,7 @@
   }
 
   &:hover &-input:not(.@{ant-prefix}-input-disabled) {
-    border-color: @primary-color;
+    border-color: @input-hover-border-color;
   }
 
   &:focus &-input:not(.@{ant-prefix}-input-disabled) {

@@ -21,20 +21,18 @@ Please makes sure that these form are filled before submitting your pull request
 - [ ] Branch merge
 - [ ] Other (about what?)
 
-### 👻 What's the background?
+### 🔗 Related issue link
 
 <!--
 1. Describe the source of requirement, like related issue link.
-
-2. Describe the problem and the scenario.
 -->
 
-### 💡 Solution
+### 💡 Background and solution
 
 <!--
-1. How to fix the problem, and list final API implementation and usage sample if that is an new feature.
-
+1. Describe the problem and the scenario.
 2. GIF or snapshot should be provided if includes UI/interactive modification.
+3. How to fix the problem, and list final API implementation and usage sample if that is an new feature.
 -->
 
 ### 📝 Changelog

@@ -40,9 +40,9 @@ export interface ModalProps {
   /** 是否显示右上角的关闭按钮*/
   closable?: boolean;
   /** 点击确定回调*/
-  onOk?: (e: React.MouseEvent<any>) => void;
+  onOk?: (e: React.MouseEvent<HTMLElement>) => void;
   /** 点击模态框右上角叉、取消按钮、Props.maskClosable 值为 true 时的遮罩层或键盘按下 Esc 时的回调*/
-  onCancel?: (e: React.MouseEvent<any>) => void;
+  onCancel?: (e: React.MouseEvent<HTMLElement>) => void;
   afterClose?: () => void;
   /** 垂直居中 */
   centered?: boolean;
@@ -68,7 +68,7 @@ export interface ModalProps {
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
-  getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  getContainer?: string | HTMLElement | getContainerFunc | false | null;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
@@ -78,14 +78,17 @@ export interface ModalProps {
   prefixCls?: string;
 }
 
+type getContainerFunc = () => HTMLElement;
+
 export interface ModalFuncProps {
   prefixCls?: string;
   className?: string;
   visible?: boolean;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  onOk?: (...args: any[]) => any | PromiseLike<any>;
-  onCancel?: (...args: any[]) => any | PromiseLike<any>;
+  // TODO: find out exact types
+  onOk?: (...args: any[]) => any;
+  onCancel?: (...args: any[]) => any;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   centered?: boolean;
@@ -105,7 +108,7 @@ export interface ModalFuncProps {
   maskStyle?: React.CSSProperties;
   type?: string;
   keyboard?: boolean;
-  getContainer?: (instance: React.ReactInstance) => HTMLElement;
+  getContainer?: string | HTMLElement | getContainerFunc | false | null;
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
@@ -213,14 +216,14 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type={'close'} />
+        <Icon className={`${prefixCls}-close-icon`} type="close" />
       </span>
     );
 
     return (
       <Dialog
         {...restProps}
-        getContainer={getContainer || getContextPopupContainer}
+        getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
         prefixCls={prefixCls}
         wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
         footer={footer === undefined ? defaultFooter : footer}

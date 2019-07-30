@@ -24,6 +24,7 @@
   > i,
   > span {
     display: inline-block;
+    transition: margin-left 0.3s @ease-in-out;
     pointer-events: none;
   }
 
@@ -166,7 +167,7 @@
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-color);
+    .button-variant-ghost(@btn-danger-border);
   }
 
   &-background-ghost&-link {
