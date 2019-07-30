@@ -14,17 +14,6 @@ describe('Test ScrollTo function', () => {
     scrollToSpy.mockRestore();
   });
 
-  it('test unknown easing funciton', () => {
-    const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => {});
-    scrollTo(0, 0, {
-      ease: 'ffff',
-    });
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Unknown easing funciton in scrollTo, default use easeInOutCubic',
-    );
-    warnSpy.mockRestore();
-  });
-
   it('test callback - option', async () => {
     const cbMock = jest.fn();
     scrollTo(0, 1000, {
