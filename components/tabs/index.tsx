@@ -125,7 +125,6 @@ export default class Tabs extends React.Component<TabsProps, any> {
       [`${prefixCls}-${type}`]: true,
       [`${prefixCls}-no-animation`]: !tabPaneAnimated,
     });
-
     // only card type tabs can be added and closed
     let childrenWithClose: React.ReactElement<any>[] = [];
     if (type === 'editable-card') {
