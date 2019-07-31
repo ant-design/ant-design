@@ -447,8 +447,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       ...otherProps
     } = props;
 
-    const direction = layoutDirection;
-    const isRtlLayout = direction === 'rtl';
+    const isRtlLayout = layoutDirection === 'rtl';
     const { value, inputFocused } = state;
 
     const prefixCls = getPrefixCls('cascader', customizePrefixCls);
@@ -477,7 +476,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       [`${prefixCls}-picker-${size}`]: !!size,
       [`${prefixCls}-picker-show-search`]: !!showSearch,
       [`${prefixCls}-picker-focused`]: inputFocused,
-      rtl: isRtlLayout,
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004

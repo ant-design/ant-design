@@ -13,7 +13,7 @@ title:
 
 ## en-US
 
-Cascade selection box for selecting province/city/district.
+Rtl cascade selection box for selecting province/city/district.
 
 ```jsx
 import { Cascader, ConfigProvider, Icon } from 'antd';

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import createReactContext from '@ant-design/create-react-context';
 
+import classNames from 'classnames';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 
@@ -92,11 +93,13 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     }
 
     return (
-      <ConfigContext.Provider value={config}>
-        <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
-          {children}
-        </LocaleProvider>
-      </ConfigContext.Provider>
+      <div dir={layoutDirection}>
+        <ConfigContext.Provider value={config}>
+          <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
+            {children}
+          </LocaleProvider>
+        </ConfigContext.Provider>
+      </div>
     );
   };
 
