@@ -82,6 +82,7 @@ export interface UploadProps {
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
+  transformFile?: (file: UploadFile) => any | Promise<any>;
 }
 
 export interface UploadState {
