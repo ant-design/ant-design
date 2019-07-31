@@ -26,6 +26,7 @@ Select component to select value from options.
 | allowClear | Show clear button. | boolean | false |  |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags`. | boolean | true | 3.10.0 |
 | autoFocus | Get focus by default | boolean | false |  |
+| choiceTransitionName | CSS animation name for selected items. Only applies when `mode` is set to `multiple` or `tags`. Set to `''` to discard the animation. | string | 'zoom' |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
@@ -53,6 +54,7 @@ Select component to select value from options.
 | clearIcon | The custom clear icon | ReactNode | - | 3.11.0 |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - | 3.11.0 |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |  |
+| transitionName | Dropdown CSS animation name | string | 'slide-up' |  |
 | value | Current selected option. | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |  |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, option:Option/Array&lt;Option>) | - |  |
