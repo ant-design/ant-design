@@ -12,8 +12,8 @@
     border: 0 solid #aaa;
     border-width: 1.5px 0 0 1.5px;
     border-radius: 1px;
-    transform: rotate(-45deg) scale(.8);
-    transition: all .3s;
+    transform: rotate(-45deg) scale(0.8);
+    transition: all 0.3s;
     content: '';
   }
 
@@ -42,7 +42,7 @@
 
   &::before,
   &::after {
-    transform: rotate(135deg) scale(.8);
+    transform: rotate(135deg) scale(0.8);
   }
 }
 
@@ -277,9 +277,12 @@
 
   &-last-month-cell &-date,
   &-next-month-btn-day &-date {
-    color: @disabled-color !important;
-    background: transparent !important;;
-    border-color: transparent !important;;
+    &,
+    &:hover {
+      color: @disabled-color;
+      background: transparent;
+      border-color: transparent;
+    }
   }
 
   &-disabled-cell &-date {

@@ -84,7 +84,10 @@
     transform: translateX(-50%);
   }
 
-  .@{calendar-prefix-cls}-today {
+  .@{calendar-prefix-cls}-today
+    :not(.@{calendar-prefix-cls}-disabled-cell)
+    :not(.@{calendar-prefix-cls}-last-month-cell)
+    :not(.@{calendar-prefix-cls}-next-month-btn-day) {
     .@{calendar-prefix-cls}-date {
       color: @primary-color;
       background: @primary-2;
