@@ -1,6 +1,6 @@
 {
   "name": "wowworks-antd",
-  "version": "3.20.7",
+  "version": "3.20.8",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "https://wow-kit.firebaseapp.com/",
@@ -223,7 +223,7 @@
     "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
     "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
     "prettier": "prettier -c --write '**/*'",
-    "pretty-quick": "pretty-quick"
+    "pretty-quick": "pretty-quick",
     "build": "bisheng build --ssr -c ./site/bisheng.config.js",
     "firebase:deploy": "rimraf ./buildFile && npm run build && firebase deploy",
     "publishsc": "npm run build && npm run dist && npm run compile && npm publish --public"
