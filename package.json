@@ -1,5 +1,5 @@
 {
-  "name": "antd",
+  "name": "wowworks-antd",
   "version": "3.20.7",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
@@ -225,7 +225,7 @@
     "prettier": "prettier -c --write '**/*'",
     "build": "bisheng build --ssr -c ./site/bisheng.config.js",
     "firebase:deploy": "rimraf ./buildFile && npm run build && firebase deploy",
-    "publishsc": "npm run dist && npm run compile && npm publish --public"
+    "publishsc": "npm run build && npm run dist && npm run compile && npm publish --public"
   },
   "pre-commit": [
     "lint-staged"
