@@ -18,7 +18,7 @@ import { Breadcrumb } from 'antd';
 
 ReactDOM.render(
   <Breadcrumb separator="">
-    <Breadcrumb.Item>location</Breadcrumb.Item>
+    <Breadcrumb.Item>Location</Breadcrumb.Item>
     <Breadcrumb.Separator>:</Breadcrumb.Separator>
     <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
     <Breadcrumb.Separator />

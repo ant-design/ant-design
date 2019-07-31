@@ -1,25 +1,14 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export interface BreadcrumbProps {
-  separator?: React.ReactNode;
-}
-
-export default class BreadcrumbSeparator extends React.Component<BreadcrumbProps, any> {
-  static defaultProps = {
-    defaultSeparator: '/',
-  };
-
-  static propTypes = {
-    defaultSeparator: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  };
+export default class BreadcrumbSeparator extends React.Component<any> {
+  static __ANT_BREADCRUMB_SEPARATOR = true;
 
   renderSeparator = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { children, defaultSeparator } = this.props;
+    const { children } = this.props;
     const prefixCls = getPrefixCls('breadcrumb');
 
-    return <span className={`${prefixCls}-separator`}>{children || defaultSeparator}</span>;
+    return <span className={`${prefixCls}-separator`}>{children || '/'}</span>;
   };
 
   render() {

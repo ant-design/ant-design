@@ -299,6 +299,58 @@ exports[`renders ./components/breadcrumb/demo/separator.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/breadcrumb/demo/separator-1.md correctly 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Location
+    </span>
+  </span>
+  <span
+    class="ant-breadcrumb-separator"
+  >
+    :
+  </span>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      Application Center
+    </a>
+  </span>
+  <span
+    class="ant-breadcrumb-separator"
+  >
+    /
+  </span>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      Application List
+    </a>
+  </span>
+  <span
+    class="ant-breadcrumb-separator"
+  >
+    /
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      An Application
+    </span>
+  </span>
+</div>
+`;
+
 exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
 <div
   class="ant-breadcrumb"
