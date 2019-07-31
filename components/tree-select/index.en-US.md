@@ -18,6 +18,7 @@ Tree selection control.
 | --- | --- | --- | --- | --- |
 | allowClear | Whether allow clear | boolean | false |  |
 | autoClearSearchValue | auto clear search input value when multiple select is selected/deselected | boolean | true | 3.7.0 |
+| choiceTransitionName | CSS animation name for selected items. Only applies when `mode` is set to `multiple` or `tags`. Set to `''` to discard the animation. | string | 'zoom' |  |
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - | 3.3.0 |
@@ -38,6 +39,7 @@ Tree selection control.
 | showSearch | Support search or not | boolean | single: `false` \| multiple: `true` |  |
 | size | To set the size of the select input, options: `large` `small` | string | 'default' |  |
 | suffixIcon | The custom suffix icon | ReactNode | - | 3.10.0 |
+| transitionName | Dropdown CSS animation name | string | 'slide-up' |  |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
 | treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array\<{ value, title, children, \[disabled, disableCheckbox, selectable] }> | \[] |  |
