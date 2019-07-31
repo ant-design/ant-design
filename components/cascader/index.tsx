@@ -422,7 +422,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
   };
 
   renderCascader = (
-    { getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty }: ConfigConsumerProps,
+    {
+      getPopupContainer: getContextPopupContainer,
+      getPrefixCls,
+      renderEmpty,
+      layoutDirection,
+    }: ConfigConsumerProps,
     locale: CascaderLocale,
   ) => {
     const { props, state } = this;
@@ -442,6 +447,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       ...otherProps
     } = props;
 
+    const direction = layoutDirection;
+    const isRtlLayout = direction === 'rtl';
     const { value, inputFocused } = state;
 
     const prefixCls = getPrefixCls('cascader', customizePrefixCls);
@@ -470,6 +477,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       [`${prefixCls}-picker-${size}`]: !!size,
       [`${prefixCls}-picker-show-search`]: !!showSearch,
       [`${prefixCls}-picker-focused`]: inputFocused,
+      rtl: isRtlLayout,
     });
 
     // Fix bug of https://github.com/facebook/react/pull/5004
@@ -566,8 +574,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       </span>
     );
 
-    const expandIcon = <Icon type="right" />;
-
+    let expandIcon = <Icon type="right" />;
+    if (isRtlLayout) {
+      expandIcon = <Icon type="left" />;
+    }
     const loadingIcon = (
       <span className={`${prefixCls}-menu-item-loading-icon`}>
         <Icon type="redo" spin />
@@ -590,6 +600,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
         expandIcon={expandIcon}
         loadingIcon={loadingIcon}
+        popupClassName={layoutDirection}
       >
         {input}
       </RcCascader>

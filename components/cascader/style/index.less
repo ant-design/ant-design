@@ -17,6 +17,11 @@
     // because input.less will compile after cascader.less
     background-color: transparent !important;
     cursor: pointer;
+    [dir='rtl'] &,
+    .rtl & {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: 24px;
+    }
   }
 
   &-picker-show-search &-input.@{ant-prefix}-input {
@@ -67,6 +72,11 @@
       line-height: 20px;
       white-space: nowrap;
       text-overflow: ellipsis;
+
+      [dir='rtl'] &,
+      .rtl & {
+        padding: 0 @control-padding-horizontal 0 20px;
+      }
     }
 
     &-clear {
@@ -86,6 +96,11 @@
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
         color: @text-color-secondary;
+      }
+      [dir='rtl'] &,
+      .rtl & {
+        right: auto;
+        left: @control-padding-horizontal;
       }
     }
 
@@ -109,6 +124,11 @@
       &&-expand {
         transform: rotate(180deg);
       }
+      [dir='rtl'] &,
+      .rtl & {
+        right: auto;
+        left: @control-padding-horizontal;
+      }
     }
   }
 
@@ -120,6 +140,11 @@
   &-picker-small &-picker-clear,
   &-picker-small &-picker-arrow {
     right: @control-padding-horizontal-sm;
+    [dir='rtl'] &,
+    .rtl & {
+      right: auto;
+      left: @control-padding-horizontal;
+    }
   }
 
   &-menus {
@@ -172,6 +197,11 @@
     border-right: @border-width-base @border-style-base @border-color-split;
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
+    [dir='rtl'] &,
+    .rtl & {
+      border-right: none;
+      border-left: @border-width-base @border-style-base @border-color-split;
+    }
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
@@ -179,6 +209,13 @@
       margin-right: -1px;
       border-right-color: transparent;
       border-radius: 0 @border-radius-base @border-radius-base 0;
+      [dir='rtl'] &,
+      .rtl & {
+        margin-right: 0;
+        margin-left: -1px;
+        border-left-color: transparent;
+        border-radius: 0 0 4px 4px;
+      }
     }
     &:only-child {
       border-radius: @border-radius-base;
@@ -210,6 +247,11 @@
     &-expand {
       position: relative;
       padding-right: 24px;
+      [dir='rtl'] &,
+      .rtl & {
+        padding-right: @control-padding-horizontal;
+        padding-left: 24px;
+      }
     }
 
     &-expand &-expand-icon,
@@ -219,6 +261,11 @@
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;
+      [dir='rtl'] &,
+      .rtl & {
+        right: auto;
+        left: @control-padding-horizontal;
+      }
     }
 
     & &-keyword {
