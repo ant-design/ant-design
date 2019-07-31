@@ -25,6 +25,7 @@ const dataSource = ['12345', '23456', '34567'];
 | backfill | backfill selected item the input when using keyboard | boolean | false |  |
 | children (for customize input element) | customize input element | HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |  |
 | children (for dataSource) | Data source for autocomplete | React.ReactElement<OptionProps> / Array&lt;React.ReactElement<OptionProps>> | - |  |
+| choiceTransitionName | CSS animation name for selected items. Only applies when `mode` is set to `multiple` or `tags`. Set to `''` to discard the animation. | string | 'zoom' |  |
 | dataSource | Data source for autocomplete | [DataSourceItemType](https://git.io/vMMKF)\[] | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultValue | Initial selected option. | string\|string\[] | - |  |
@@ -32,6 +33,7 @@ const dataSource = ['12345', '23456', '34567'];
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |  |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |  |
 | placeholder | placeholder of input | string | - |  |
+| transitionName | Dropdown CSS animation name | string | 'slide-up' |  |
 | value | selected option | string\|string\[]\|{ key: string, label: string\|ReactNode }\|Array&lt;{ key: string, label: string\|ReactNode }> | - |  |
 | onBlur | Called when leaving the component. | function() | - | 3.6.5 |
 | onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |  |
