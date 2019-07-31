@@ -54,7 +54,8 @@ module.exports = {
   selector: ($, pathname) => {
     let description = '';
     if (pathname !== '/') {
-      description = ($('section.markdown p').text() || '').slice(0, 50);
+      const desc = ($('section.markdown p').text() || '');
+      description = desc.length > 50 ? `${desc.slice(0, 50)}...` : desc;
     }
     console.log('description', description);
     return {
