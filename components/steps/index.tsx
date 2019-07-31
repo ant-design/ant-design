@@ -1,10 +1,12 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcSteps from 'rc-steps';
+import classNames from 'classnames';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface StepsProps {
+  type?: 'default' | 'nav';
   className?: string;
   current?: number;
   direction?: 'horizontal' | 'vertical';
@@ -45,11 +47,22 @@ export default class Steps extends React.Component<StepsProps, any> {
   renderSteps = ({ getPrefixCls }: ConfigConsumerProps) => {
     const prefixCls = getPrefixCls('steps', this.props.prefixCls);
     const iconPrefix = getPrefixCls('', this.props.iconPrefix);
+    const className = classNames(this.props.className, {
+      [`${prefixCls}-nav`]: this.props.type === 'nav',
+    });
     const icons = {
       finish: <Icon type="check" className={`${prefixCls}-finish-icon`} />,
       error: <Icon type="close" className={`${prefixCls}-error-icon`} />,
     };
-    return <RcSteps icons={icons} {...this.props} prefixCls={prefixCls} iconPrefix={iconPrefix} />;
+    return (
+      <RcSteps
+        icons={icons}
+        {...this.props}
+        className={className}
+        prefixCls={prefixCls}
+        iconPrefix={iconPrefix}
+      />
+    );
   };
 
   render() {
