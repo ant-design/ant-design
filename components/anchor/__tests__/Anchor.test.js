@@ -2,10 +2,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
 import { spyElementPrototypes } from '../../__tests__/util/domHook';
+import { sleep } from '../../../tests/utils';
 
 const { Link } = Anchor;
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
 
 describe('Anchor Render', () => {
   const getBoundingClientRectMock = jest.fn(() => ({
@@ -82,7 +81,7 @@ describe('Anchor Render', () => {
     wrapper.instance().handleScrollTo('##API');
     expect(wrapper.instance().state.activeLink).toBe('##API');
     expect(scrollToSpy).not.toHaveBeenCalled();
-    await delay(1000);
+    await sleep(1000);
     expect(scrollToSpy).toHaveBeenCalled();
   });
 
@@ -172,7 +171,7 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
-    await delay(1000);
+    await sleep(1000);
     wrapper.setProps({ getContainer: getContainerB });
     expect(removeListenerSpy).not.toHaveBeenCalled();
   });
@@ -205,7 +204,7 @@ describe('Anchor Render', () => {
     );
     const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
-    await delay(1000);
+    await sleep(1000);
     wrapper.setProps({ getContainer: getContainerB });
     expect(removeListenerSpy).toHaveBeenCalled();
   });
@@ -257,7 +256,7 @@ describe('Anchor Render', () => {
     );
     const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
-    await delay(1000);
+    await sleep(1000);
     holdContainer.container = document.getElementById('API2');
     wrapper.setProps({ 'data-only-trigger-re-render': true });
     expect(removeListenerSpy).toHaveBeenCalled();
@@ -289,17 +288,17 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     wrapper.instance().handleScrollTo('#API');
-    await delay(1000);
+    await sleep(1000);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
 
     wrapper.setProps({ offsetTop: 100 });
     wrapper.instance().handleScrollTo('#API');
-    await delay(1000);
+    await sleep(1000);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
 
     wrapper.setProps({ targetOffset: 200 });
     wrapper.instance().handleScrollTo('#API');
-    await delay(1000);
+    await sleep(1000);
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
   });
 });
