@@ -7,18 +7,14 @@ import Wave from '../_util/wave';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-export type SwitchSize = 'small' | 'default';
-export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
-export type SwitchClickEventHandler = SwitchChangeEventHandler;
-
 export interface SwitchProps {
   prefixCls?: string;
-  size?: SwitchSize;
+  size?: 'small' | 'default';
   className?: string;
   checked?: boolean;
   defaultChecked?: boolean;
-  onChange?: SwitchChangeEventHandler;
-  onClick?: SwitchClickEventHandler;
+  onChange?: (checked: boolean, event: MouseEvent) => any;
+  onClick?: (checked: boolean, event: MouseEvent) => any;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;
@@ -29,8 +25,6 @@ export interface SwitchProps {
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
-  static __ANT_SWITCH = true;
-
   static propTypes = {
     prefixCls: PropTypes.string,
     // HACK: https://github.com/ant-design/ant-design/issues/5368

@@ -20,14 +20,14 @@ We can upload serveral files at once in modern browsers by giving the input the 
 ```jsx
 import { Upload, Icon, message } from 'antd';
 
-const { Dragger } = Upload;
+const Dragger = Upload.Dragger;
 
 const props = {
   name: 'file',
   multiple: true,
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
   onChange(info) {
-    const { status } = info.file;
+    const status = info.file.status;
     if (status !== 'uploading') {
       console.log(info.file, info.fileList);
     }

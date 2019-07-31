@@ -332,13 +332,12 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     if (listType === 'picture-card') {
       return (
-        <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
+        <span className={className}>
           {uploadList}
           {uploadButton}
         </span>
       );
     }
-
     return (
       <span className={className}>
         {uploadButton}

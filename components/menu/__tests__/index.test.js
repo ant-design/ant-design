@@ -569,6 +569,7 @@ describe('Menu', () => {
         .instance()
         .getMenuOpenAnimation(''),
     ).toBe('');
+    expect(wrapper.find('InternalMenu').state().switchingModeFromInline).toBe(false);
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {

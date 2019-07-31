@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
+import createContext from '@ant-design/create-react-context';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import SubMenu from './SubMenu';
@@ -10,13 +11,12 @@ import warning from '../_util/warning';
 import { polyfill } from 'react-lifecycles-compat';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
-import MenuContext, { MenuTheme } from './MenuContext';
 
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;
   item: any;
-  domEvent: Event;
+  domEvent: any;
   selectedKeys: Array<string>;
 }
 
@@ -24,10 +24,12 @@ export interface ClickParam {
   key: string;
   keyPath: Array<string>;
   item: any;
-  domEvent: Event;
+  domEvent: any;
 }
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
+
+export type MenuTheme = 'light' | 'dark';
 
 export interface MenuProps {
   id?: string;
@@ -71,6 +73,15 @@ export interface MenuState {
   prevProps: InternalMenuProps;
   mounted: boolean;
 }
+
+export interface MenuContextProps {
+  inlineCollapsed: boolean;
+  antdMenuTheme?: MenuTheme;
+}
+
+export const MenuContext = createContext<MenuContextProps>({
+  inlineCollapsed: false,
+});
 
 class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
   static defaultProps: Partial<MenuProps> = {
@@ -265,6 +276,10 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
         // submenu should hide without animation
         if (this.state.switchingModeFromInline) {
           menuOpenAnimation = '';
+          this.setState({
+            switchingModeFromInline: false,
+          });
+          // this.switchingModeFromInline = false;
         } else {
           menuOpenAnimation = 'zoom-big';
         }

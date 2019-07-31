@@ -15,8 +15,8 @@ export interface RateProps {
   allowClear?: boolean;
   disabled?: boolean;
   tooltips?: Array<string>;
-  onChange?: (value: number) => void;
-  onHoverChange?: (value: number) => void;
+  onChange?: (value: number) => any;
+  onHoverChange?: (value: number) => any;
   character?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;

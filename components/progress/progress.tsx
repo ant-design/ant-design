@@ -25,7 +25,7 @@ export interface ProgressProps {
   status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
   strokeWidth?: number;
-  strokeLinecap?: 'butt' | 'square' | 'round';
+  strokeLinecap?: string;
   strokeColor?: string | ProgressGradient;
   trailColor?: string;
   width?: number;

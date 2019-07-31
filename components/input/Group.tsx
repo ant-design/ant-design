@@ -5,7 +5,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface GroupProps {
   className?: string;
   size?: 'large' | 'small' | 'default';
-  children?: React.ReactNode;
+  children?: any;
   style?: React.CSSProperties;
   onMouseEnter?: React.MouseEventHandler<HTMLSpanElement>;
   onMouseLeave?: React.MouseEventHandler<HTMLSpanElement>;

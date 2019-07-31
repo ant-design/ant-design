@@ -11,10 +11,10 @@
   z-index: @zindex-modal;
   width: 0%;
   height: 100%;
-  transition: transform @animation-duration-slow @ease-base-out;
+
   > * {
-    transition: transform @animation-duration-slow @ease-base-out,
-      box-shadow @animation-duration-slow @ease-base-out;
+    transition: transform @animation-duration-slow @ease-base-in,
+      box-shadow @animation-duration-slow @ease-base-in;
   }
 
   &-content-wrapper {
@@ -110,7 +110,7 @@
     .@{drawer-prefix-cls} {
       &-mask {
         height: 100%;
-        opacity: 1;
+        opacity: 0.3;
         transition: none;
         animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
       }
@@ -193,10 +193,11 @@
     height: 0;
     background-color: @modal-mask-bg;
     opacity: 0;
-    filter: ~'alpha(opacity=45)';
+    filter: ~'alpha(opacity=50)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
   &-open {
+    transition: transform @animation-duration-slow @ease-base-out;
     &-content {
       box-shadow: @shadow-2;
     }
@@ -208,6 +209,6 @@
     opacity: 0;
   }
   100% {
-    opacity: 1;
+    opacity: 0.3;
   }
 }

@@ -45,12 +45,6 @@ This component aims to provide localization of the built-in text. If you want to
 
 ## API
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |  |
-
-## FAQ
-
-#### Locale problem is still existed even LocaleProvider is used?
-
-Please make sure you set moment locale by `moment.locale('zh-cn')`, or you don't have two moment of different version.
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |

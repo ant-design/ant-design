@@ -9,8 +9,8 @@ import animation from '../_util/openAnimation';
 export type ExpandIconPosition = 'left' | 'right';
 
 export interface CollapseProps {
-  activeKey?: Array<string | number> | string | number;
-  defaultActiveKey?: Array<string | number> | string | number;
+  activeKey?: Array<string> | string;
+  defaultActiveKey?: Array<string>;
   /** 手风琴效果 */
   accordion?: boolean;
   destroyInactivePanel?: boolean;
@@ -19,7 +19,7 @@ export interface CollapseProps {
   className?: string;
   bordered?: boolean;
   prefixCls?: string;
-  expandIcon?: (panelProps: PanelProps) => React.ReactNode;
+  expandIcon?: (panelProps: any) => React.ReactNode;
   expandIconPosition?: ExpandIconPosition;
 }
 

@@ -4,12 +4,11 @@ import Drawer from '..';
 import Button from '../../button';
 
 class MultiDrawer extends React.Component {
-  state = { visible: false, childrenDrawer: false, hasChildren: true };
+  state = { visible: false, childrenDrawer: false };
 
   showDrawer = () => {
     this.setState({
       visible: true,
-      hasChildren: true,
     });
   };
 
@@ -22,7 +21,6 @@ class MultiDrawer extends React.Component {
   showChildrenDrawer = () => {
     this.setState({
       childrenDrawer: true,
-      hasChildren: true,
     });
   };
 
@@ -32,22 +30,13 @@ class MultiDrawer extends React.Component {
     });
   };
 
-  onRemoveChildDrawer = () => {
-    this.setState({
-      hasChildren: false,
-    });
-  };
-
   render() {
-    const { childrenDrawer, visible, hasChildren } = this.state;
+    const { childrenDrawer, visible } = this.state;
     const { placement } = this.props;
     return (
       <div>
         <Button type="primary" id="open_drawer" onClick={this.showDrawer}>
           Open drawer
-        </Button>
-        <Button type="primary" id="remove_drawer" onClick={this.onRemoveChildDrawer}>
-          rm child drawer
         </Button>
         <Drawer
           title="Multi-level drawer"
@@ -61,19 +50,17 @@ class MultiDrawer extends React.Component {
           <Button type="primary" id="open_two_drawer" onClick={this.showChildrenDrawer}>
             Two-level drawer
           </Button>
-          {hasChildren && (
-            <Drawer
-              title="Two-level Drawer"
-              width={320}
-              className="Two-level"
-              getContainer={false}
-              placement={placement}
-              onClose={this.onChildrenDrawerClose}
-              visible={childrenDrawer}
-            >
-              <div id="two_drawer_text">This is two-level drawer</div>
-            </Drawer>
-          )}
+          <Drawer
+            title="Two-level Drawer"
+            width={320}
+            className="Two-level"
+            getContainer={false}
+            placement={placement}
+            onClose={this.onChildrenDrawerClose}
+            visible={childrenDrawer}
+          >
+            <div id="two_drawer_text">This is two-level drawer</div>
+          </Drawer>
           <div
             style={{
               position: 'absolute',
@@ -131,19 +118,6 @@ describe('Drawer', () => {
     wrapper.find('button#open_drawer').simulate('click');
     wrapper.find('button#open_two_drawer').simulate('click');
     const translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
-    expect(translateX).toEqual('translateY(180px)');
-    expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
-  });
-
-  it('render MultiDrawer is child in unmount', () => {
-    const wrapper = mount(<MultiDrawer placement="top" mask={false} />);
-    wrapper.find('button#open_drawer').simulate('click');
-    wrapper.find('button#open_two_drawer').simulate('click');
-    wrapper.find('button#remove_drawer').simulate('click');
-    let translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
-    expect(translateX).toEqual(undefined);
-    wrapper.find('button#open_two_drawer').simulate('click');
-    translateX = wrapper.find('.ant-drawer.test_drawer').get(0).props.style.transform;
     expect(translateX).toEqual('translateY(180px)');
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
   });

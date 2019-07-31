@@ -39,7 +39,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
         <LocaleReceiver componentName="Empty">
           {(locale: TransferLocale) => {
             const prefixCls = getPrefixCls('empty', customizePrefixCls);
-            const des = typeof description !== 'undefined' ? description : locale.description;
+            const des = description || locale.description;
             const alt = typeof des === 'string' ? des : 'empty';
 
             let imageNode: React.ReactNode = null;
@@ -64,7 +64,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
                 <div className={`${prefixCls}-image`} style={imageStyle}>
                   {imageNode}
                 </div>
-                {des && <p className={`${prefixCls}-description`}>{des}</p>}
+                <p className={`${prefixCls}-description`}>{des}</p>
                 {children && <div className={`${prefixCls}-footer`}>{children}</div>}
               </div>
             );

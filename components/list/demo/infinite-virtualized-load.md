@@ -58,7 +58,7 @@ class VirtualizedExample extends React.Component {
   };
 
   handleInfiniteOnLoad = ({ startIndex, stopIndex }) => {
-    let { data } = this.state;
+    let data = this.state.data;
     this.setState({
       loading: true,
     });

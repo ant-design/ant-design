@@ -42,22 +42,19 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       return;
     }
     (items || []).forEach(file => {
-      const isValidateFile =
-        file.originFileObj instanceof File || file.originFileObj instanceof Blob;
-
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !isValidateFile ||
+        !(file.originFileObj instanceof File) ||
         file.thumbUrl !== undefined
       ) {
         return;
       }
       file.thumbUrl = '';
       if (previewFile) {
-        previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
+        previewFile(file.originFileObj).then((previewDataUrl: string) => {
           // Need append '' to avoid dead loop
           file.thumbUrl = previewDataUrl || '';
           this.forceUpdate();
@@ -89,11 +86,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           );
         } else {
           const thumbnail = isImageUrl(file) ? (
-            <img
-              src={file.thumbUrl || file.url}
-              alt={file.name}
-              className={`${prefixCls}-list-item-image`}
-            />
+            <img src={file.thumbUrl || file.url} alt={file.name} />
           ) : (
             <Icon type="file" className={`${prefixCls}-list-item-icon`} theme="twoTone" />
           );

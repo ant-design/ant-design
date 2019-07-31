@@ -30,7 +30,7 @@ class DateRange extends React.Component {
   };
 
   disabledStartDate = startValue => {
-    const { endValue } = this.state;
+    const endValue = this.state.endValue;
     if (!startValue || !endValue) {
       return false;
     }
@@ -38,7 +38,7 @@ class DateRange extends React.Component {
   };
 
   disabledEndDate = endValue => {
-    const { startValue } = this.state;
+    const startValue = this.state.startValue;
     if (!endValue || !startValue) {
       return false;
     }

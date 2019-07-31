@@ -23,7 +23,7 @@ export interface UploadFile {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
-  originFileObj?: File | Blob;
+  originFileObj?: File;
   response?: any;
   error?: any;
   linkProps?: any;
@@ -61,12 +61,12 @@ export interface UploadProps {
   fileList?: Array<UploadFile>;
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
-  data?: object | ((file: UploadFile) => object);
+  data?: Object | ((file: UploadFile) => any);
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
   accept?: string;
-  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<void>;
+  beforeUpload?: (file: RcFile, FileList: RcFile[]) => boolean | PromiseLike<any>;
   onChange?: (info: UploadChangeParam) => void;
   listType?: UploadListType;
   className?: string;
@@ -76,7 +76,7 @@ export interface UploadProps {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (option: object) => void;
+  customRequest?: (option: any) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;

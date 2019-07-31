@@ -25,7 +25,7 @@ function getDefaultTarget() {
 
 export interface BackTopProps {
   visibilityHeight?: number;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler<any>;
   target?: () => HTMLElement | Window;
   prefixCls?: string;
   className?: string;

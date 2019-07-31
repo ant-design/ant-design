@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @timeline-prefix-cls: ~'@{ant-prefix}-timeline';
+@timeline-color: @border-color-split;
 
 .@{timeline-prefix-cls} {
   .reset-component;
@@ -19,15 +20,14 @@
 
     &-tail {
       position: absolute;
-      top: 10px;
+      top: 0.75em;
       left: 4px;
-      height: calc(100% - 10px);
-      border-left: @timeline-width solid @timeline-color;
+      height: 100%;
+      border-left: 2px solid @timeline-color;
     }
 
     &-pending &-head {
       font-size: @font-size-sm;
-      background-color: transparent;
     }
 
     &-pending &-tail {
@@ -38,20 +38,18 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: @timeline-dot-bg;
-      border: @timeline-dot-border-width solid transparent;
+      background-color: @component-background;
+      border: 2px solid transparent;
       border-radius: 100px;
 
       &-blue {
         color: @primary-color;
         border-color: @primary-color;
       }
-
       &-red {
         color: @error-color;
         border-color: @error-color;
       }
-
       &-green {
         color: @success-color;
         border-color: @success-color;
@@ -142,7 +140,6 @@
 
   &&-pending &-item-last &-item-tail {
     display: block;
-    height: calc(100% - 14px);
     border-left: 2px dotted @timeline-color;
   }
 
@@ -152,9 +149,7 @@
 
   &&-reverse &-item-pending {
     .@{timeline-prefix-cls}-item-tail {
-      top: 15px;
       display: block;
-      height: calc(100% - 15px);
       border-left: 2px dotted @timeline-color;
     }
     .@{timeline-prefix-cls}-item-content {

@@ -22,7 +22,7 @@ export interface ScrollNumberProps {
   prefixCls?: string;
   className?: string;
   count?: string | number | null;
-  displayComponent?: React.ReactElement<HTMLElement>;
+  displayComponent?: React.ReactElement<any>;
   component?: string;
   onAnimated?: Function;
   style?: React.CSSProperties;

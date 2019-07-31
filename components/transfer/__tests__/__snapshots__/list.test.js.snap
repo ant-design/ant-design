@@ -60,9 +60,7 @@ exports[`Transfer.List should render correctly 1`] = `
             />
           </span>
         </label>
-        <span
-          class="ant-transfer-list-content-item-text"
-        />
+        <span />
       </li>
       <li
         class="ant-transfer-list-content-item"
@@ -83,9 +81,7 @@ exports[`Transfer.List should render correctly 1`] = `
             />
           </span>
         </label>
-        <span
-          class="ant-transfer-list-content-item-text"
-        />
+        <span />
       </li>
       <li
         class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
@@ -107,9 +103,7 @@ exports[`Transfer.List should render correctly 1`] = `
             />
           </span>
         </label>
-        <span
-          class="ant-transfer-list-content-item-text"
-        />
+        <span />
       </li>
     </ul>
   </div>

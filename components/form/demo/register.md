@@ -82,12 +82,12 @@ class RegistrationForm extends React.Component {
   };
 
   handleConfirmBlur = e => {
-    const { value } = e.target;
+    const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   };
 
   compareToFirstPassword = (rule, value, callback) => {
-    const { form } = this.props;
+    const form = this.props.form;
     if (value && value !== form.getFieldValue('password')) {
       callback('Two passwords that you enter is inconsistent!');
     } else {
@@ -96,7 +96,7 @@ class RegistrationForm extends React.Component {
   };
 
   validateToNextPassword = (rule, value, callback) => {
-    const { form } = this.props;
+    const form = this.props.form;
     if (value && this.state.confirmDirty) {
       form.validateFields(['confirm'], { force: true });
     }

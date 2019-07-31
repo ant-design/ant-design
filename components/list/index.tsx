@@ -45,7 +45,7 @@ export interface ListProps<T> {
   loadMore?: React.ReactNode;
   pagination?: PaginationConfig | false;
   prefixCls?: string;
-  rowKey?: ((item: T) => string) | string;
+  rowKey?: any;
   renderItem?: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;

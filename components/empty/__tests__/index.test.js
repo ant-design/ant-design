@@ -7,9 +7,4 @@ describe('Empty', () => {
     const wrapper = mount(<Empty imageStyle={{ height: 20 }} />);
     expect(wrapper.find('.ant-empty-image').props().style.height).toBe(20);
   });
-
-  it('description can be false', () => {
-    const wrapper = mount(<Empty description={false} />);
-    expect(wrapper.find('.ant-empty-description').length).toBe(0);
-  });
 });

@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Input box with the remove icon, click the icon to delete everything.
+Input type of password.
 
 ```jsx
 import { Input } from 'antd';

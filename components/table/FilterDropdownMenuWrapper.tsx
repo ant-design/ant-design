@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 export interface FilterDropdownMenuWrapperProps {
-  children?: React.ReactNode;
+  children?: any;
   className?: string;
 }
 

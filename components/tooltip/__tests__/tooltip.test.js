@@ -2,7 +2,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Tooltip from '..';
 import Button from '../../button';
-import Switch from '../../switch';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
@@ -78,35 +77,28 @@ describe('Tooltip', () => {
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
-  describe('should hide when mouse leave antd disabled component', () => {
-    function testComponent(name, Component) {
-      it(name, () => {
-        const onVisibleChange = jest.fn();
-        const wrapper = mount(
-          <Tooltip
-            title="xxxxx"
-            mouseEnterDelay={0}
-            mouseLeaveDelay={0}
-            onVisibleChange={onVisibleChange}
-          >
-            <Component disabled />
-          </Tooltip>,
-        );
+  it('should hide when mouse leave antd disabled Button', () => {
+    const onVisibleChange = jest.fn();
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <Button disabled>Hello world!</Button>
+      </Tooltip>,
+    );
 
-        expect(wrapper.render()).toMatchSnapshot();
-        const button = wrapper.find('span').at(0);
-        button.simulate('mouseenter');
-        expect(onVisibleChange).toHaveBeenCalledWith(true);
-        expect(wrapper.instance().tooltip.props.visible).toBe(true);
+    expect(wrapper.render()).toMatchSnapshot();
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
+    expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
-        button.simulate('mouseleave');
-        expect(onVisibleChange).toHaveBeenCalledWith(false);
-        expect(wrapper.instance().tooltip.props.visible).toBe(false);
-      });
-    }
-
-    testComponent('Button', Button);
-    testComponent('Switch', Switch);
+    button.simulate('mouseleave');
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
+    expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
   it('should render disabled Button style properly', () => {

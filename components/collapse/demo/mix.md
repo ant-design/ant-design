@@ -16,7 +16,7 @@ title:
 ```jsx
 import { Collapse } from 'antd';
 
-const { Panel } = Collapse;
+const Panel = Collapse.Panel;
 
 function callback(key) {
   console.log(key);

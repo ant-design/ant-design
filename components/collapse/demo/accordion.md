@@ -16,7 +16,7 @@ In accordion mode, only one panel can be expanded at a time.
 ```jsx
 import { Collapse } from 'antd';
 
-const { Panel } = Collapse;
+const Panel = Collapse.Panel;
 
 const text = `
   A dog is a type of domesticated animal.

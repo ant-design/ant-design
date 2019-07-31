@@ -18,11 +18,9 @@ import { Rate } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Rate defaultValue={3} />
-    <span className="ant-rate-text">allowClear: true</span>
+    <Rate defaultValue={3} /> allowClear: true
     <br />
-    <Rate allowClear={false} defaultValue={3} />
-    <span className="ant-rate-text">allowClear: false</span>
+    <Rate allowClear={false} defaultValue={3} /> allowClear: false
   </div>,
   mountNode,
 );

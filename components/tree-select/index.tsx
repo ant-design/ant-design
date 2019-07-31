@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
-import { TreeSelectProps, TreeNodeValue } from './interface';
+import { TreeSelectProps } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
@@ -10,10 +10,7 @@ import omit from 'omit.js';
 
 export { TreeNode, TreeSelectProps } from './interface';
 
-export default class TreeSelect<T extends TreeNodeValue> extends React.Component<
-  TreeSelectProps<T>,
-  any
-> {
+export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   static TreeNode = TreeNode;
   static SHOW_ALL = SHOW_ALL;
   static SHOW_PARENT = SHOW_PARENT;
@@ -26,7 +23,7 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
 
   private rcTreeSelect: any;
 
-  constructor(props: TreeSelectProps<T>) {
+  constructor(props: TreeSelectProps) {
     super(props);
 
     warning(

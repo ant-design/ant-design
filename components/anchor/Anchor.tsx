@@ -145,8 +145,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   };
 
   private inkNode: HTMLSpanElement;
-  // scroll scope's container
-  private scrollContainer: HTMLElement | Window;
 
   private links: string[] = [];
   private scrollEvent: any;
@@ -176,8 +174,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
 
   componentDidMount() {
     const { getContainer } = this.props as AnchorDefaultProps;
-    this.scrollContainer = getContainer();
-    this.scrollEvent = addEventListener(this.scrollContainer, 'scroll', this.handleScroll);
+    this.scrollEvent = addEventListener(getContainer(), 'scroll', this.handleScroll);
     this.handleScroll();
   }
 
@@ -188,16 +185,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   }
 
   componentDidUpdate() {
-    if (this.scrollEvent) {
-      const { getContainer } = this.props as AnchorDefaultProps;
-      const currentContainer = getContainer();
-      if (this.scrollContainer !== currentContainer) {
-        this.scrollContainer = currentContainer;
-        this.scrollEvent.remove();
-        this.scrollEvent = addEventListener(this.scrollContainer, 'scroll', this.handleScroll);
-        this.handleScroll();
-      }
-    }
     this.updateInk();
   }
 
@@ -205,14 +192,10 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     if (this.animating) {
       return;
     }
-    const { activeLink } = this.state;
     const { offsetTop, bounds } = this.props;
-    const currentActiveLink = this.getCurrentAnchor(offsetTop, bounds);
-    if (activeLink !== currentActiveLink) {
-      this.setState({
-        activeLink: currentActiveLink,
-      });
-    }
+    this.setState({
+      activeLink: this.getCurrentAnchor(offsetTop, bounds),
+    });
   };
 
   handleScrollTo = (link: string) => {

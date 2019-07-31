@@ -21,7 +21,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
    */
   icon?: React.ReactNode;
   href?: string;
-  children?: React.ReactNode;
+  children?: any;
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {

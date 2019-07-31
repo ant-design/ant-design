@@ -39,29 +39,29 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     />
   </div>
   <div
-    class="ant-page-header-heading"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-heading-title"
+      class="ant-page-header-title-view-title"
     >
       Title
     </span>
     <span
-      class="ant-page-header-heading-sub-title"
+      class="ant-page-header-title-view-sub-title"
     >
       This is a subtitle
     </span>
     <span
-      class="ant-page-header-heading-tags"
+      class="ant-page-header-title-view-tags"
     >
-      <span
+      <div
         class="ant-tag ant-tag-red"
       >
         Warning
-      </span>
+      </div>
     </span>
     <span
-      class="ant-page-header-heading-extra"
+      class="ant-page-header-title-view-extra"
     >
       <button
         class="ant-btn"
@@ -90,7 +90,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-page-header-content"
+    class="ant-page-header-content-view"
   >
     <div
       class="wrap"
@@ -448,15 +448,15 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
     />
   </div>
   <div
-    class="ant-page-header-heading"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-heading-title"
+      class="ant-page-header-title-view-title"
     >
       Title
     </span>
     <span
-      class="ant-page-header-heading-sub-title"
+      class="ant-page-header-title-view-sub-title"
     >
       This is a subtitle
     </span>
@@ -519,10 +519,10 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-page-header-heading"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-heading-title"
+      class="ant-page-header-title-view-title"
     >
       Title
     </span>
@@ -585,16 +585,16 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-page-header-heading"
+    class="ant-page-header-title-view"
   >
     <span
-      class="ant-page-header-heading-title"
+      class="ant-page-header-title-view-title"
     >
       Title
     </span>
   </div>
   <div
-    class="ant-page-header-content"
+    class="ant-page-header-content-view"
   >
     <div
       class="wrap"

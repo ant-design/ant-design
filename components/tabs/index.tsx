@@ -18,24 +18,20 @@ export interface TabsProps {
   hideAdd?: boolean;
   onChange?: (activeKey: string) => void;
   onTabClick?: Function;
-  onPrevClick?: React.MouseEventHandler<HTMLElement>;
-  onNextClick?: React.MouseEventHandler<HTMLElement>;
+  onPrevClick?: React.MouseEventHandler<any>;
+  onNextClick?: React.MouseEventHandler<any>;
   tabBarExtraContent?: React.ReactNode | null;
   tabBarStyle?: React.CSSProperties;
   type?: TabsType;
   tabPosition?: TabsPosition;
-  onEdit?: (targetKey: string | React.MouseEvent<HTMLElement>, action: 'add' | 'remove') => void;
+  onEdit?: (targetKey: string | React.MouseEvent<HTMLElement>, action: any) => void;
   size?: 'large' | 'default' | 'small';
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
   animated?: boolean | { inkBar: boolean; tabPane: boolean };
   tabBarGutter?: number;
-  renderTabBar?: (
-    props: TabsProps,
-    DefaultTabBar: React.ComponentClass<any>,
-  ) => React.ReactElement<any>;
-  destroyInactiveTabPane?: boolean;
+  renderTabBar?: (props: TabsProps, DefaultTabBar: React.ReactNode) => React.ReactElement<any>;
 }
 
 // Tabs

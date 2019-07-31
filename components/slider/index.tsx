@@ -25,7 +25,7 @@ interface HandleGeneratorInfo {
 export type HandleGeneratorFn = (
   tooltipPrefixCls: string,
   info: HandleGeneratorInfo,
-) => React.ReactNode;
+) => React.ReactElement<any>;
 
 export interface SliderProps {
   prefixCls?: string;

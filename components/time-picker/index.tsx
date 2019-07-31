@@ -66,6 +66,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     align: {
       offset: [0, -2],
     },
+    disabled: false,
     disabledHours: undefined,
     disabledMinutes: undefined,
     disabledSeconds: undefined,

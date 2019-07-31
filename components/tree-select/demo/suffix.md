@@ -17,7 +17,7 @@ The most basic usage.
 ```jsx
 import { TreeSelect, Icon } from 'antd';
 
-const { TreeNode } = TreeSelect;
+const TreeNode = TreeSelect.TreeNode;
 const icon = <Icon type="smile" />;
 
 class Demo extends React.Component {

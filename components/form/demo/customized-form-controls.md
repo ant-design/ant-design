@@ -71,7 +71,7 @@ class PriceInput extends React.Component {
 
   triggerChange = changedValue => {
     // Should provide an event to pass value to Form.
-    const { onChange } = this.props;
+    const onChange = this.props.onChange;
     if (onChange) {
       onChange(Object.assign({}, this.state, changedValue));
     }
@@ -79,7 +79,7 @@ class PriceInput extends React.Component {
 
   render() {
     const { size } = this.props;
-    const { state } = this;
+    const state = this.state;
     return (
       <span>
         <Input

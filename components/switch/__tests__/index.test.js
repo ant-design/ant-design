@@ -1,6 +1,6 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Switch from '..';
+import { mount } from 'enzyme';
 import focusTest from '../../../tests/shared/focusTest';
 
 describe('Switch', () => {

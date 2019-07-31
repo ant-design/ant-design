@@ -70,7 +70,7 @@ export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEvent<HTMLElement>;
+  event: React.MouseEvent<any>;
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
@@ -83,17 +83,7 @@ export interface AntTreeNodeDropEvent {
   dragNodesKeys: string[];
   dropPosition: number;
   dropToGap?: boolean;
-  event: React.MouseEvent<HTMLElement>;
-}
-
-export interface TreeNodeNormal {
-  title?: React.ReactNode;
-  key: string;
-  isLeaf?: boolean;
-  disabled?: boolean;
-  disableCheckbox?: boolean;
-  selectable?: boolean;
-  children?: TreeNodeNormal[];
+  event: React.MouseEvent<any>;
 }
 
 export interface TreeProps {
@@ -127,7 +117,7 @@ export interface TreeProps {
   defaultSelectedKeys?: string[];
   selectable?: boolean;
   /** 展开/收起节点时触发 */
-  onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<void>;
+  onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<any>;
   /** 点击复选框触发 */
   onCheck?: (
     checkedKeys: string[] | { checked: string[]; halfChecked: string[] },
@@ -142,7 +132,7 @@ export interface TreeProps {
   /** filter some AntTreeNodes as you need. it should return true */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
   /** 异步加载数据 */
-  loadData?: (node: AntTreeNode) => PromiseLike<void>;
+  loadData?: (node: AntTreeNode) => PromiseLike<any>;
   loadedKeys?: string[];
   onLoad?: (loadedKeys: string[], info: { event: 'load'; node: AntTreeNode }) => void;
   /** 响应右键点击 */
@@ -157,13 +147,12 @@ export interface TreeProps {
   onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
-  icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
+  icon?: (nodeProps: AntdTreeNodeAttribute) => React.ReactNode | React.ReactNode;
   switcherIcon?: React.ReactElement<any>;
   prefixCls?: string;
   filterTreeNode?: (node: AntTreeNode) => boolean;
-  children?: React.ReactNode;
+  children?: React.ReactNode | React.ReactNode[];
   blockNode?: boolean;
-  treeData?: Array<TreeNodeNormal>;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {

@@ -47,9 +47,9 @@ export interface ColumnProps<T> {
   filteredValue?: any[];
   sortOrder?: SortOrder | boolean;
   children?: ColumnProps<T>[];
-  onCellClick?: (record: T, event: Event) => void;
-  onCell?: (record: T, rowIndex: number) => TableEventListeners;
-  onHeaderCell?: (props: ColumnProps<T>) => TableEventListeners;
+  onCellClick?: (record: T, event: any) => void;
+  onCell?: (record: T, rowIndex: number) => any;
+  onHeaderCell?: (props: ColumnProps<T>) => any;
   sortDirections?: SortOrder[];
 }
 
@@ -88,7 +88,7 @@ export type SelectionSelectFn<T> = (
   selected: boolean,
   selectedRows: Object[],
   nativeEvent: Event,
-) => void;
+) => any;
 
 export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
 
@@ -129,15 +129,6 @@ export interface TableCurrentDataSource<T> {
   currentDataSource: T[];
 }
 
-export interface TableEventListeners {
-  onClick?: (arg: React.SyntheticEvent) => void;
-  onDoubleClick?: (arg: React.SyntheticEvent) => void;
-  onContextMenu?: (arg: React.SyntheticEvent) => void;
-  onMouseEnter?: (arg: React.SyntheticEvent) => void;
-  onMouseLeave?: (arg: React.SyntheticEvent) => void;
-  [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
-}
-
 export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
@@ -174,8 +165,8 @@ export interface TableProps<T> {
   locale?: TableLocale;
   indentSize?: number;
   onRowClick?: (record: T, index: number, event: Event) => void;
-  onRow?: (record: T, index: number) => TableEventListeners;
-  onHeaderRow?: (columns: ColumnProps<T>[]) => TableEventListeners;
+  onRow?: (record: T, index: number) => any;
+  onHeaderRow?: (columns: ColumnProps<T>[], index: number) => any;
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
@@ -202,7 +193,7 @@ export interface TableState<T> {
   pivot?: number;
 }
 
-export type SelectionItemSelectFn = (key: string[]) => void;
+export type SelectionItemSelectFn = (key: string[]) => any;
 type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 
 export interface SelectionItem {
@@ -213,10 +204,10 @@ export interface SelectionItem {
 
 export interface SelectionCheckboxAllProps<T> {
   store: Store;
-  locale: TableLocale;
+  locale: any;
   disabled: boolean;
-  getCheckboxPropsByItem: (item: T, index: number) => { defaultChecked: boolean };
-  getRecordKey: (record: T, index?: number) => string;
+  getCheckboxPropsByItem: (item: any, index: number) => any;
+  getRecordKey: (record: any, index?: number) => string;
   data: T[];
   prefixCls: string | undefined;
   onSelect: (key: string, index: number, selectFunc: any) => void;
@@ -264,7 +255,7 @@ export interface FilterMenuProps<T> {
 
 export interface FilterMenuState<T> {
   selectedKeys: string[];
-  valueKeys: { [name: string]: string };
+  valueKeys: { [name: string]: any };
   keyPathOfSelectedItem: { [key: string]: string };
   visible?: boolean;
   prevProps: FilterMenuProps<T>;

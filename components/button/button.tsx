@@ -91,15 +91,15 @@ export interface BaseButtonProps {
 export type AnchorButtonProps = {
   href: string;
   target?: string;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler<any>;
 } & BaseButtonProps &
-  Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
+  Omit<React.AnchorHTMLAttributes<any>, 'type'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLElement>;
+  onClick?: React.MouseEventHandler<any>;
 } & BaseButtonProps &
-  Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
+  Omit<React.ButtonHTMLAttributes<any>, 'type'>;
 
 export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 

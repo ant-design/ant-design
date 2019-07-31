@@ -62,9 +62,7 @@ exports[`Transfer should render correctly 1`] = `
               />
             </span>
           </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          />
+          <span />
         </li>
         <li
           class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
@@ -85,9 +83,7 @@ exports[`Transfer should render correctly 1`] = `
               />
             </span>
           </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          />
+          <span />
         </li>
       </ul>
     </div>
@@ -201,9 +197,7 @@ exports[`Transfer should render correctly 1`] = `
               />
             </span>
           </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          />
+          <span />
         </li>
       </ul>
     </div>
@@ -272,9 +266,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
               />
             </span>
           </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
+          <span>
             a
           </span>
         </li>
@@ -392,9 +384,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
               />
             </span>
           </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
+          <span>
             c
           </span>
         </li>
@@ -417,9 +407,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
               />
             </span>
           </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
+          <span>
             b
           </span>
         </li>

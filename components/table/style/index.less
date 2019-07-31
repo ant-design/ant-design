@@ -22,19 +22,14 @@
   }
 
   &-empty &-body {
-    // https://github.com/ant-design/ant-design/issues/11135
-    overflow-x: auto !important;
-    // https://github.com/ant-design/ant-design/issues/17175
-    overflow-y: hidden !important;
+    overflow: auto !important;
   }
 
-  // https://github.com/ant-design/ant-design/issues/17611
   table {
     width: 100%;
     text-align: left;
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
   }
 
   &-thead > tr > th {
@@ -233,19 +228,6 @@
         background: @table-row-hover-bg;
       }
     }
-    &.@{table-prefix-cls}-row-selected > td {
-      &.@{table-prefix-cls}-column-sort {
-        background: @table-body-selected-sort-bg;
-      }
-    }
-    &:hover {
-      &.@{table-prefix-cls}-row-selected > td {
-        background: @table-selected-row-hover-bg;
-        &.@{table-prefix-cls}-column-sort {
-          background: @table-body-selected-sort-bg;
-        }
-      }
-    }
   }
 
   &-thead > tr:hover {
@@ -413,15 +395,16 @@
   &-placeholder {
     position: relative;
     z-index: 1;
-    margin-top: -1px;
     padding: @table-padding-vertical @table-padding-horizontal;
     color: @disabled-color;
     font-size: @font-size-base;
     text-align: center;
     background: @component-background;
-    border-top: @border-width-base @border-style-base @border-color-split;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+    .@{iconfont-css-prefix} {
+      margin-right: 4px;
+    }
   }
 
   &-pagination.@{ant-prefix}-pagination {
@@ -468,10 +451,6 @@
 
     .@{ant-prefix}-dropdown-menu-item {
       overflow: hidden;
-    }
-
-    .@{ant-prefix}-checkbox-wrapper + span {
-      padding-left: 8px;
     }
 
     > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
@@ -641,10 +620,7 @@
       border: 1px solid @border-color-split;
       border-width: 1px 1px 1px 0;
     }
-    &.@{table-prefix-cls}-hide-scrollbar
-      .@{table-prefix-cls}-thead
-      > tr:only-child
-      > th:last-child {
+    &.@{table-prefix-cls}-hide-scrollbar .@{table-prefix-cls}-thead > tr > th:last-child {
       border-right-color: transparent;
     }
   }
@@ -746,9 +722,10 @@
 
 /**
 * Another fix of Firefox:
+* - https://github.com/ant-design/ant-design/issues/12628
+* - https://github.com/ant-design/ant-design/issues/12628
 */
 @supports (-moz-appearance: meterbar) {
-  // https://github.com/ant-design/ant-design/issues/12628
   .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-has-actions {
     background-clip: padding-box;
   }

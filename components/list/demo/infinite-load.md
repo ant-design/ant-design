@@ -49,7 +49,7 @@ class InfiniteListExample extends React.Component {
   };
 
   handleInfiniteOnLoad = () => {
-    let { data } = this.state;
+    let data = this.state.data;
     this.setState({
       loading: true,
     });

@@ -5,7 +5,7 @@ export interface SkeletonAvatarProps {
   prefixCls?: string;
   className?: string;
   style?: object;
-  size?: 'large' | 'small' | 'default' | number;
+  size?: 'large' | 'small' | 'default';
   shape?: 'circle' | 'square';
 }
 

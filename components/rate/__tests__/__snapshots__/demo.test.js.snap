@@ -1133,11 +1133,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
   </ul>
-  <span
-    class="ant-rate-text"
-  >
-    allowClear: true
-  </span>
+   allowClear: true
   <br />
   <ul
     class="ant-rate"
@@ -1435,11 +1431,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
   </ul>
-  <span
-    class="ant-rate-text"
-  >
-    allowClear: false
-  </span>
+   allowClear: false
 </div>
 `;
 

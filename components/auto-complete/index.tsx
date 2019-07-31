@@ -5,7 +5,6 @@ import InputElement from './InputElement';
 import Input, { InputProps } from '../input';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { Omit } from '../_util/type';
 
 export interface DataSourceItemObject {
   value: string;
@@ -27,7 +26,7 @@ export type ValidInputElement =
   | HTMLTextAreaElement
   | React.ReactElement<AutoCompleteInputProps>;
 
-export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> {
+export interface AutoCompleteProps extends AbstractSelectProps {
   value?: SelectValue;
   defaultValue?: SelectValue;
   dataSource?: DataSourceItemType[];

@@ -36,8 +36,7 @@
     width: 100%;
     vertical-align: middle;
     background-color: @progress-remaining-color;
-    border-radius: @progress-radius;
-    overflow: hidden;
+    border-radius: 100px;
   }
 
   &-circle-trail {
@@ -53,7 +52,6 @@
   &-bg {
     position: relative;
     background-color: @progress-default-color;
-    border-radius: @progress-radius;
     transition: all 0.4s @ease-out-circ 0s;
   }
 
@@ -151,12 +149,6 @@
   &-circle&-status-success {
     .@{progress-prefix-cls}-text {
       color: @success-color;
-    }
-  }
-
-  &-circle-gradient {
-    .@{progress-prefix-cls}-circle-path {
-      stroke: url(#gradient);
     }
   }
 }
