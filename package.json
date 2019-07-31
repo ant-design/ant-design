@@ -72,7 +72,7 @@
     "rc-mentions": "~0.3.1",
     "rc-menu": "~7.4.23",
     "rc-notification": "~3.3.1",
-    "rc-pagination": "~1.20.1",
+    "rc-pagination": "^1.20.5",
     "rc-progress": "~2.5.0",
     "rc-rate": "~2.5.0",
     "rc-select": "~9.2.0",
