@@ -1,6 +1,5 @@
 ---
 order: 12
-debug: true
 title:
   zh-CN: 右到左
   en-US: Right to left
@@ -17,6 +16,7 @@ Rtl cascade selection box for selecting province/city/district.
 
 ```jsx
 import { Cascader, ConfigProvider, Icon } from 'antd';
+
 const options = [
   {
     value: 'tehran',
