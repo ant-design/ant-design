@@ -7,6 +7,7 @@ import { tuple } from '../_util/type';
 import Line from './Line';
 import Circle from './Circle';
 import { validProgress } from './utils';
+import { RCProgressProps } from 'rc-progress';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -25,12 +26,12 @@ export interface ProgressProps {
   status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
   strokeWidth?: number;
-  strokeLinecap?: string;
+  strokeLinecap?: RCProgressProps['strokeLinecap'];
   strokeColor?: string | ProgressGradient;
   trailColor?: string;
   width?: number;
   style?: React.CSSProperties;
-  gapDegree?: number;
+  gapDegree?: RCProgressProps['gapDegree'];
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
 }

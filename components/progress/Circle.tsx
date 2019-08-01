@@ -49,7 +49,7 @@ const Circle: React.SFC<CircleProps> = props => {
   };
   const circleWidth = strokeWidth || 6;
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
-  const gapDeg = gapDegree || (type === 'dashboard' && 75);
+  const gapDeg = gapDegree || 75;
 
   return (
     <div className={`${prefixCls}-inner`} style={circleStyle}>
