@@ -29,7 +29,7 @@ ReactDOM.render(
     >
       Technical testing
     </Timeline.Item>
-    <Timeline.Item>Network problems being solved</Timeline.Item>
+    <Timeline.Item stamp="2015-09-04">Network problems being solved</Timeline.Item>
   </Timeline>,
   mountNode,
 );

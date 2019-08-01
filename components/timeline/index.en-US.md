@@ -42,4 +42,4 @@ Node of timeline
 | color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |  |
 | dot | Customize timeline dot | string\|ReactNode | - |  |
 | position | Customize node position | `left` \| `right` | - | 3.17.0 |
-| stamp | Timeline stamp , suggest 'yyyy-MM-dd' | string | - |  |
+| stamp | Timeline stamp , currently only supported 'yyyy-MM-dd' | string | - |  |

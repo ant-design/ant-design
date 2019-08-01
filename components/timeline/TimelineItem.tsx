@@ -43,9 +43,12 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
         [`${prefixCls}-item-head-${color}`]: true,
       });
 
+      const stampShow =
+        stamp.length == 10 ? <div className={`${prefixCls}-item-stamp`}>{stamp}</div> : null;
+
       return (
         <li {...restProps} className={itemClassName}>
-          <div className={`${prefixCls}-item-stamp`}>{stamp}</div>
+          {stampShow}
           <div className={`${prefixCls}-item-tail`} />
           <div
             className={dotClassName}

@@ -43,4 +43,4 @@ title: Timeline
 | color    | 指定圆圈颜色 `blue, red, green`，或自定义的色值 | string            | blue   |        |
 | dot      | 自定义时间轴点                                  | string\|ReactNode | -      |        |
 | position | 自定义节点位置                                  | `left` \| `right` | -      | 3.17.0 |
-| stamp    | 轴点时间戳，建议'yyyy-MM-dd'                    | string            | -      |        |
+| stamp    | 轴点时间戳，目前仅支持 'yyyy-MM-dd'             | string            | -      |        |
