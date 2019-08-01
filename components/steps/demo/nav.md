@@ -39,14 +39,14 @@ class Demo extends React.Component {
     return (
       <div>
         <div style={containerStyle}>
-          <Steps type="nav" size="small" current={current} onChange={this.onChange}>
+          <Steps type="navigation" size="small" current={current} onChange={this.onChange}>
             <Step title="Step 1" status="finish" description="This is a description." />
             <Step title="Step 2" status="finish" description="This is a description." />
             <Step title="Step 3" description="This is a description." />
           </Steps>
         </div>
         <div style={containerStyle}>
-          <Steps type="nav" current={current} onChange={this.onChange}>
+          <Steps type="navigation" current={current} onChange={this.onChange}>
             <Step title="Step 1" />
             <Step title="Step 2" />
             <Step title="Step 3" />
@@ -54,7 +54,7 @@ class Demo extends React.Component {
           </Steps>
         </div>
         <div style={containerStyle}>
-          <Steps type="nav" size="small" current={current} onChange={this.onChange}>
+          <Steps type="navigation" size="small" current={current} onChange={this.onChange}>
             <Step title="Step 1" />
             <Step title="Step 2" />
             <Step title="Step 3" />

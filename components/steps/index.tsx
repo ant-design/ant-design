@@ -6,7 +6,7 @@ import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface StepsProps {
-  type?: 'default' | 'nav';
+  type?: 'default' | 'navigation';
   className?: string;
   current?: number;
   direction?: 'horizontal' | 'vertical';
@@ -48,7 +48,7 @@ export default class Steps extends React.Component<StepsProps, any> {
     const prefixCls = getPrefixCls('steps', this.props.prefixCls);
     const iconPrefix = getPrefixCls('', this.props.iconPrefix);
     const className = classNames(this.props.className, {
-      [`${prefixCls}-nav`]: this.props.type === 'nav',
+      [`${prefixCls}-nav`]: this.props.type === 'navigation',
     });
     const icons = {
       finish: <Icon type="check" className={`${prefixCls}-finish-icon`} />,
