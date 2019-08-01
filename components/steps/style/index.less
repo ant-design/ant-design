@@ -44,6 +44,10 @@
   overflow: hidden;
   vertical-align: top;
 
+  &-container {
+    outline: none;
+  }
+
   &:last-child {
     flex: none;
   }
@@ -135,19 +139,20 @@
   }
 
   // ===================== Clickable =====================
-  &-container[role='button'] {
-    outline: none;
 
-    &:not(.@{steps-prefix-cls}-item-process) {
-      cursor: pointer;
+  &:not(.@{steps-prefix-cls}-item-active) > &-container[role='button'] {
+    cursor: pointer;
 
+    .@{steps-prefix-cls}-item {
       &-title,
       &-description,
       &-icon .@{steps-prefix-cls}-icon {
         transition: color 0.3s;
       }
+    }
 
-      &:hover {
+    &:hover {
+      .@{steps-prefix-cls}-item {
         &-title,
         &-description {
           color: @primary-color;

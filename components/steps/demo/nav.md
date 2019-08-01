@@ -42,7 +42,7 @@ class Demo extends React.Component {
           <Steps type="nav" size="small" current={current} onChange={this.onChange}>
             <Step title="Step 1" status="finish" description="This is a description." />
             <Step title="Step 2" status="finish" description="This is a description." />
-            <Step title="Step 3" description="This is a long long description." />
+            <Step title="Step 3" description="This is a description." />
           </Steps>
         </div>
         <div style={containerStyle}>
