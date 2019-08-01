@@ -144,6 +144,35 @@
     }
   }
 
+  &.@{timeline-prefix-cls}-stamp {
+    .@{timeline-prefix-cls}-item {
+      display: flex;
+      &-stamp {
+        top: -6px;
+        width: 72px;
+        position: relative;
+        text-align: right;
+        display: block;
+      }
+
+      &-tail {
+        left: 84px;
+      }
+
+      &-head {
+        left: 80px;
+      }
+
+      &-head-custom {
+        left: 85px;
+      }
+
+      &-content {
+        margin: 0 0 0 26px;
+      }
+    }
+  }
+
   &&-pending &-item-last &-item-tail {
     display: block;
     border-left: 2px dotted @timeline-color;
