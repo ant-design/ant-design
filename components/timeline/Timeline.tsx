@@ -46,11 +46,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     );
 
     const pendingItem = !!pending ? (
-      <TimelineItem
-        ifstamp={mode === 'stamp' ? true : false}
-        pending={!!pending}
-        dot={pendingDot || <Icon type="loading" />}
-      >
+      <TimelineItem pending={!!pending} dot={pendingDot || <Icon type="loading" />}>
         {pendingNode}
       </TimelineItem>
     ) : null;
