@@ -32,7 +32,7 @@ title: Breadcrumb
 | overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | -      | 3.17.0 |
 | onClick | 单击事件       | (e:MouseEvent)=>void                   | -      | 3.17.0 |
 
-### Breadcrumb.Separator
+### Breadcrumb.Separator `3.21.0`
 
 | 参数     | 参数           | 类型              | 默认值 | 版本   |
 | -------- | -------------- | ----------------- | ------ | ------ |
