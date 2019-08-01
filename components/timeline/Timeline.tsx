@@ -12,7 +12,7 @@ export interface TimelineProps {
   pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
   reverse?: boolean;
-  mode?: 'left' | 'alternate' | 'right';
+  mode?: 'left' | 'alternate' | 'right' | 'stamp';
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
@@ -46,7 +46,11 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     );
 
     const pendingItem = !!pending ? (
-      <TimelineItem pending={!!pending} dot={pendingDot || <Icon type="loading" />}>
+      <TimelineItem
+        ifstamp={mode === 'stamp' ? true : false}
+        pending={!!pending}
+        dot={pendingDot || <Icon type="loading" />}
+      >
         {pendingNode}
       </TimelineItem>
     ) : null;
