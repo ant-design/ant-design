@@ -42,7 +42,7 @@ class App extends React.Component {
   };
 
   handleChange = date => {
-    message.info(`您选择的日期是: ${date.format('YYYY-MM-DD')}`);
+    message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
     this.setState({ date });
   };
   render() {

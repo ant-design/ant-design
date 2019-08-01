@@ -134,9 +134,13 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
 
     const closeIcon = closable ? (
-      <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
-        {closeText || <Icon type="close" />}
-      </a>
+      <span role="button" onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
+        {closeText ? (
+          <span className={`${prefixCls}-close-text`}>{closeText}</span>
+        ) : (
+          <Icon type="close" />
+        )}
+      </span>
     ) : null;
 
     const dataOrAriaProps = getDataOrAriaProps(this.props);
