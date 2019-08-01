@@ -1,7 +1,6 @@
 import * as React from 'react';
 import createReactContext from '@ant-design/create-react-context';
 
-import classNames from 'classnames';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 
