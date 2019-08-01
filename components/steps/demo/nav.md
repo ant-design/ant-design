@@ -21,8 +21,6 @@ const { Step } = Steps;
 class Demo extends React.Component {
   state = {
     current: 0,
-    current1: 0,
-    current2: 0,
   };
 
   onChange = current => {
@@ -30,21 +28,11 @@ class Demo extends React.Component {
     this.setState({ current });
   };
 
-  onChange1 = current1 => {
-    console.log('onChange1:', current1);
-    this.setState({ current1 });
-  };
-
-  onChange2 = current2 => {
-    console.log('onChange2:', current2);
-    this.setState({ current2 });
-  };
-
   render() {
     const { current, current1, current2 } = this.state;
     const containerStyle = {
-      padding: '8px 64px 0 64px',
-      boxShadow: '1px 1px 3px #ccc',
+      padding: '0 64px',
+      border: '1px solid rgb(235, 237, 240)',
       marginBottom: 24,
     };
 
@@ -54,11 +42,11 @@ class Demo extends React.Component {
           <Steps type="nav" size="small" current={current} onChange={this.onChange}>
             <Step title="Step 1" status="finish" description="This is a description." />
             <Step title="Step 2" status="finish" description="This is a description." />
-            <Step title="Step 4" description="This is a description." />
+            <Step title="Step 3" description="This is a long long description." />
           </Steps>
         </div>
         <div style={containerStyle}>
-          <Steps type="nav" current={current1} onChange={this.onChange1}>
+          <Steps type="nav" current={current} onChange={this.onChange}>
             <Step title="Step 1" />
             <Step title="Step 2" />
             <Step title="Step 3" />
@@ -66,7 +54,7 @@ class Demo extends React.Component {
           </Steps>
         </div>
         <div style={containerStyle}>
-          <Steps type="nav" size="small" current={current2} onChange={this.onChange2}>
+          <Steps type="nav" size="small" current={current} onChange={this.onChange}>
             <Step title="Step 1" />
             <Step title="Step 2" />
             <Step title="Step 3" />

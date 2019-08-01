@@ -1,13 +1,15 @@
 .@{steps-prefix-cls}-nav {
+  padding-top: 12px;
   .@{steps-prefix-cls}-item {
     &-container {
       display: inline-block;
-      padding-bottom: 8px;
-    }
-
-    &-title {
-      &:after {
-        display: none;
+      height: 100%;
+      padding-bottom: 12px;
+      .@{steps-prefix-cls}-item-title {
+        padding-right: 0;
+        &:after {
+          display: none;
+        }
       }
     }
 
@@ -20,21 +22,22 @@
       display: inline-block;
       width: 16px;
       height: 16px;
-      border: 1px solid @steps-nav-arrow;
+      border: 1px solid @steps-nav-arrow-color;
       border-bottom: none;
       border-left: none;
       transform: rotate(45deg);
       position: absolute;
       top: 50%;
       left: 50%;
-      margin-top: -12px;
+      margin-top: -14px;
       margin-left: 50px;
     }
   }
 
   .@{steps-prefix-cls}-item-active {
     .@{steps-prefix-cls}-item-container {
-      border-bottom: 2px solid @primary-color;
+      padding-bottom: 10px;
+      border-bottom: 2px solid @steps-nav-active-color;
       .@{steps-prefix-cls}-item-title {
         color: @primary-color;
       }
