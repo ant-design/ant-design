@@ -53,6 +53,7 @@ export type UploadType = 'drag' | 'select';
 export type UploadListType = 'text' | 'picture' | 'picture-card';
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
+type TransformFileHandler = (file: UploadFile) => string | Blob | File | PromiseLike<string | Blob | File>;
 
 export interface UploadProps {
   type?: UploadType;
@@ -82,7 +83,7 @@ export interface UploadProps {
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
-  transformFile?: (file: UploadFile) => any | Promise<any>;
+  transformFile?: TransformFileHandler;
 }
 
 export interface UploadState {
