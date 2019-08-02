@@ -14,7 +14,7 @@ title:
 Navgation steps.
 
 ```jsx
-import { Steps, Divider } from 'antd';
+import { Steps } from 'antd';
 
 const { Step } = Steps;
 
@@ -29,7 +29,7 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { current, current1, current2 } = this.state;
+    const { current } = this.state;
     const containerStyle = {
       border: '1px solid rgb(235, 237, 240)',
       marginBottom: 24,
