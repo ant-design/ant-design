@@ -5,6 +5,7 @@ import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import warning from '../_util/warning';
 
 function noop() {}
 
@@ -41,10 +42,20 @@ export interface AlertState {
 }
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
-  state: AlertState = {
-    closing: true,
-    closed: false,
-  };
+  constructor(props: AlertProps) {
+    super(props);
+
+    warning(
+      !('iconType' in props),
+      'Alert',
+      '`iconType` is deprecated. Please use `icon` instead.',
+    );
+
+    this.state = {
+      closing: true,
+      closed: false,
+    };
+  }
 
   handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -89,8 +100,6 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     type = banner && type === undefined ? 'warning' : type || 'info';
 
     let iconTheme: ThemeType = 'filled';
-    // should we give a warning?
-    // warning(!iconType, `The property 'iconType' is deprecated. Use the property 'icon' instead.`);
     if (!iconType) {
       switch (type) {
         case 'success':
