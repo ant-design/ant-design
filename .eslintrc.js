@@ -1,5 +1,5 @@
 const eslintrc = {
-  extends: ['airbnb', 'prettier', 'plugin:jest/recommended'],
+  extends: ['airbnb', 'prettier', 'plugin:jest/recommended', 'plugin:react/recommended'],
   env: {
     browser: true,
     node: true,
@@ -7,8 +7,8 @@ const eslintrc = {
     jest: true,
     es6: true,
   },
-  parser: 'babel-eslint',
-  plugins: ['markdown', 'react', 'babel', 'jest'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint'],
   rules: {
     'react/jsx-one-expression-per-line': 0,
     'react/prop-types': 0,
