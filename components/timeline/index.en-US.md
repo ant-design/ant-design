@@ -31,7 +31,7 @@ Timeline
 | pending | Set the last ghost node's existence or its content | boolean\|string\|ReactNode | `false` |  |
 | pendingDot | Set the dot of the last ghost node when pending is true | string\|ReactNode | `<Icon type="loading" />` | 3.3.0 |
 | reverse | reverse nodes or not | boolean | false | 3.5.0 |
-| mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` \| `stamp` | - | 3.8.0 |
+| mode | By sending `alternate` the timeline will distribute the nodes to the left and right. | `left` \| `alternate` \| `right` \| `stamp-left` \| `stamp-right` | - | 3.8.0 |
 
 ### Timeline.Item
 

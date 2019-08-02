@@ -1,8 +1,8 @@
 ---
 order: 5
 title:
-  zh-CN: 时间戳轴点
-  en-US: Stamp
+  zh-CN: 左侧时间戳轴点
+  en-US: Stamp-left
 ---
 
 ## zh-CN
@@ -11,13 +11,13 @@ title:
 
 ## en-US
 
-Alternate Stamp.
+Stamp left, content right.
 
 ```jsx
 import { Timeline, Icon } from 'antd';
 
 ReactDOM.render(
-  <Timeline mode="stamp">
+  <Timeline mode="stamp-left">
     <Timeline.Item stamp="2015-09-01">Create a services site</Timeline.Item>
     <Timeline.Item stamp="2015-09-02" color="green">
       Solve initial network problems

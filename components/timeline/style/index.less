@@ -144,7 +144,7 @@
     }
   }
 
-  &.@{timeline-prefix-cls}-stamp {
+  &.@{timeline-prefix-cls}-stamp-left {
     .@{timeline-prefix-cls}-item {
       display: flex;
       &-stamp {
@@ -152,7 +152,6 @@
         width: 72px;
         position: relative;
         text-align: right;
-        display: block;
       }
 
       &-tail {
@@ -169,6 +168,38 @@
 
       &-content {
         margin: 0 0 0 26px;
+      }
+    }
+  }
+
+  &.@{timeline-prefix-cls}-stamp-right {
+    .@{timeline-prefix-cls}-item {
+      display: flex;
+      &-stamp {
+        top: -6px;
+        left: calc(100% - 72px);
+        width: 72px;
+        position: relative;
+        text-align: left;
+      }
+
+      &-tail {
+        left: calc(100% - 84px);
+      }
+
+      &-head {
+        left: calc(100% - 88px);
+      }
+
+      &-head-custom {
+        left: calc(100% - 83px);
+      }
+
+      &-content {
+        right: 72px;
+        width: calc(100% - 96px);
+        text-align: right;
+        margin: 0;
       }
     }
   }
