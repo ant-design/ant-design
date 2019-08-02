@@ -31,7 +31,6 @@ class Demo extends React.Component {
   render() {
     const { current, current1, current2 } = this.state;
     const containerStyle = {
-      padding: '0 64px',
       border: '1px solid rgb(235, 237, 240)',
       marginBottom: 24,
     };
@@ -42,25 +41,29 @@ class Demo extends React.Component {
           <Steps type="navigation" size="small" current={current} onChange={this.onChange}>
             <Step
               title="Step 1"
-              subTitle="Left 00:00:05"
+              subTitle="00:00:05"
               status="finish"
               description="This is a description."
             />
             <Step
               title="Step 2"
-              subTitle="Left 00:01:02"
+              subTitle="00:01:02"
               status="error"
               description="This is a description."
             />
-            <Step title="Step 3" subTitle="waiting" description="This is a description." />
+            <Step
+              title="Step 3"
+              subTitle="waiting for longlong time"
+              description="This is a description."
+            />
           </Steps>
         </div>
         <div style={containerStyle}>
           <Steps type="navigation" current={current} onChange={this.onChange}>
-            <Step title="Step 1" />
-            <Step title="Step 2" />
-            <Step title="Step 3" />
-            <Step title="Step 4" />
+            <Step status="finish" title="Step 1" />
+            <Step status="process" title="Step 2" />
+            <Step status="wait" title="Step 3" />
+            <Step status="wait" title="Step 4" />
           </Steps>
         </div>
         <div style={containerStyle}>

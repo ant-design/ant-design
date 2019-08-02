@@ -1,20 +1,38 @@
 .@{steps-prefix-cls}-nav {
   padding-top: 12px;
+
   .@{steps-prefix-cls}-item {
+    text-align: center;
+    overflow: visible;
+
     &-container {
       display: inline-block;
+      text-align: left;
       height: 100%;
       padding-bottom: 12px;
+
+      .@{steps-prefix-cls}-item-content {
+        max-width: @steps-nav-content-max-width;
+      }
+
       .@{steps-prefix-cls}-item-title {
         padding-right: 0;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
         &:after {
           display: none;
         }
       }
     }
 
-    &:last-child:after {
-      display: none;
+    &:last-child {
+      flex: 1;
+      &:after {
+        display: none;
+      }
     }
 
     &:after {
@@ -28,9 +46,9 @@
       transform: rotate(45deg);
       position: absolute;
       top: 50%;
-      left: 50%;
+      left: 100%;
       margin-top: -14px;
-      margin-left: 50px;
+      margin-left: -8px;
     }
   }
 
