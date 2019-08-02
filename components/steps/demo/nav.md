@@ -40,9 +40,19 @@ class Demo extends React.Component {
       <div>
         <div style={containerStyle}>
           <Steps type="navigation" size="small" current={current} onChange={this.onChange}>
-            <Step title="Step 1" status="finish" description="This is a description." />
-            <Step title="Step 2" status="finish" description="This is a description." />
-            <Step title="Step 3" description="This is a description." />
+            <Step
+              title="Step 1"
+              subTitle="Left 00:00:05"
+              status="finish"
+              description="This is a description."
+            />
+            <Step
+              title="Step 2"
+              subTitle="Left 00:01:02"
+              status="error"
+              description="This is a description."
+            />
+            <Step title="Step 3" subTitle="waiting" description="This is a description." />
           </Steps>
         </div>
         <div style={containerStyle}>

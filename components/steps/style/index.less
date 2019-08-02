@@ -116,6 +116,13 @@
       content: '';
     }
   }
+  &-subtitle {
+    display: inline-block;
+    color: @text-color-secondary;
+    font-size: @font-size-base;
+    margin-left: 8px;
+    font-weight: normal;
+  }
   &-description {
     color: @text-color-secondary;
     font-size: @font-size-base;
@@ -140,36 +147,39 @@
 
   // ===================== Clickable =====================
 
-  &:not(.@{steps-prefix-cls}-item-active) > &-container[role='button'] {
-    cursor: pointer;
+  &:not(.@{steps-prefix-cls}-item-active) {
+    & > .@{steps-prefix-cls}-item-container[role='button'] {
+      cursor: pointer;
 
-    .@{steps-prefix-cls}-item {
-      &-title,
-      &-description,
-      &-icon .@{steps-prefix-cls}-icon {
-        transition: color 0.3s;
-      }
-    }
-
-    &:hover {
       .@{steps-prefix-cls}-item {
         &-title,
-        &-description {
-          color: @primary-color;
+        &-description,
+        &-icon .@{steps-prefix-cls}-icon {
+          transition: color 0.3s;
+        }
+      }
+
+      &:hover {
+        .@{steps-prefix-cls}-item {
+          &-title,
+          &-description {
+            color: @primary-color;
+          }
         }
       }
     }
-  }
 
-  &:not(.@{steps-prefix-cls}-item-active):not(.@{steps-prefix-cls}-item-process)
-    > &-container[role='button'] {
-    &:hover {
-      .@{steps-prefix-cls}-item {
-        &-icon {
-          border-color: @primary-color;
+    &:not(.@{steps-prefix-cls}-item-process) {
+      & > .@{steps-prefix-cls}-item-container[role='button'] {
+        &:hover {
+          .@{steps-prefix-cls}-item {
+            &-icon {
+              border-color: @primary-color;
 
-          .@{steps-prefix-cls}-icon {
-            color: @primary-color;
+              .@{steps-prefix-cls}-icon {
+                color: @primary-color;
+              }
+            }
           }
         }
       }
