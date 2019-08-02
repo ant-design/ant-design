@@ -22,7 +22,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
 
-        &:after {
+        &::after {
           display: none;
         }
       }
@@ -30,12 +30,12 @@
 
     &:last-child {
       flex: 1;
-      &:after {
+      &::after {
         display: none;
       }
     }
 
-    &:after {
+    &::after {
       content: '';
       display: inline-block;
       width: 16px;
