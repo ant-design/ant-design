@@ -48,4 +48,5 @@ A single step in the step bar.
 | icon | icon of the step, optional property | string\|ReactNode | - |  |
 | status | to specify the status. It will be automatically set by `current` of `Steps` if not configured. Optional values are: `wait` `process` `finish` `error` | string | `wait` |  |
 | title | title of the step | string\|ReactNode | - |  |
+| subTitle | subTitle of the step | string\|ReactNode | - |  |
 | disabled | disable click | boolean | false | 3.21.0 |
