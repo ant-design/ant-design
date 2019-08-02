@@ -157,7 +157,14 @@
         &-description {
           color: @primary-color;
         }
+      }
+    }
+  }
 
+  &:not(.@{steps-prefix-cls}-item-active):not(.@{steps-prefix-cls}-item-process)
+    > &-container[role='button'] {
+    &:hover {
+      .@{steps-prefix-cls}-item {
         &-icon {
           border-color: @primary-color;
 

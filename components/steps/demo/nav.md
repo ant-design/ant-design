@@ -55,10 +55,10 @@ class Demo extends React.Component {
         </div>
         <div style={containerStyle}>
           <Steps type="navigation" size="small" current={current} onChange={this.onChange}>
-            <Step title="Step 1" />
-            <Step title="Step 2" />
-            <Step title="Step 3" />
-            <Step title="Step 4" />
+            <Step status="finish" title="finish 1" />
+            <Step status="finish" title="finish 2" />
+            <Step status="process" title="current process" />
+            <Step status="wait" title="wait" disabled />
           </Steps>
         </div>
       </div>

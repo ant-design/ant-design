@@ -27,6 +27,7 @@ export interface StepProps {
   icon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   status?: 'wait' | 'process' | 'finish' | 'error';
+  disabled?: boolean;
   title?: React.ReactNode;
   style?: React.CSSProperties;
 }
