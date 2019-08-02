@@ -255,7 +255,8 @@
   &-footer {
     position: relative;
     padding: @table-padding-vertical @table-padding-horizontal;
-    background: @table-header-bg;
+    color: @table-footer-color;
+    background: @table-footer-bg;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
     &::before {
@@ -264,7 +265,7 @@
       left: 0;
       width: 100%;
       height: 1px;
-      background: @table-header-bg;
+      background: @table-footer-bg;
       content: '';
     }
   }
@@ -542,15 +543,25 @@
 
   &-row {
     &-expand-icon {
+      .operation-unit();
+
       display: inline-block;
       width: 17px;
       height: 17px;
+      color: inherit;
       line-height: 14px;
       text-align: center;
       background: @component-background;
       border: @border-width-base @border-style-base @border-color-split;
-      cursor: pointer;
+      outline: none;
+      transition: all 0.3s;
       user-select: none;
+
+      &:focus,
+      &:hover,
+      &:active {
+        border-color: currentColor;
+      }
     }
 
     &-expanded::after {

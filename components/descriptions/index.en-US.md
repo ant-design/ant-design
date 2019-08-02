@@ -22,6 +22,7 @@ Commonly displayed on the details page.
 | column | the number of `DescriptionItems` in a row,could be a number or a object like `{ xs: 8, sm: 16, md: 24}`,(Only set `bordered={true}` to take effect) | number | 3 | 3.19.0 |
 | size | set the size of the list. Can be set to `middle`,`small`, or not filled | `default | middle | small` | false | 3.19.0 |
 | layout | Define description layout | `horizontal | vertical` | `horizontal` | 3.19.8 |
+| colon | change default props `colon` value of `Descriptions.Item` | boolean | true | 3.21.0 |
 
 ### DescriptionItem
 

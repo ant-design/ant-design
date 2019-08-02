@@ -16,12 +16,12 @@ More layouts with navigation: [layout](/components/layout).
 ## API
 
 ```html
-<Menu>
+<menu>
   <Menu.Item>Menu</Menu.Item>
   <SubMenu title="SubMenu">
     <Menu.Item>SubMenuItem</Menu.Item>
   </SubMenu>
-</Menu>
+</menu>
 ```
 
 ### Menu

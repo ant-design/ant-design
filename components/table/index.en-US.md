@@ -87,6 +87,7 @@ const columns = [
 | onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |  |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |  |
 | onRow | Set props on per row | Function(record, index) | - |  |
+| getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
 
 #### onRow usage
 

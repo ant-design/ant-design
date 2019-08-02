@@ -266,7 +266,6 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
-        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode as HTMLElement,
       });
     }
 
@@ -284,7 +283,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
           selectedKeys={originSelectedKeys && originSelectedKeys.map(val => val.toString())}
-          getPopupContainer={(triggerNode: HTMLElement) => triggerNode.parentNode}
+          getPopupContainer={getPopupContainer}
         >
           {this.renderMenus(column.filters!)}
         </Menu>

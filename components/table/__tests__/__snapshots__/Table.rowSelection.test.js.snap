@@ -122,10 +122,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Jack
                     </td>
                   </tr>
@@ -157,10 +153,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Lucy
                     </td>
                   </tr>
@@ -192,10 +184,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Tom
                     </td>
                   </tr>
@@ -227,10 +215,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Jerry
                     </td>
                   </tr>

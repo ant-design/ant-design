@@ -2038,7 +2038,7 @@ timeline: true
 
   ```javascript
   import { LocaleProvider } from 'antd';
-  import zhCN from 'antd/lib/locale-provider/zh_CN';
+  import zhCN from 'antd/lib/locale/zh_CN';
 
   ReactDOM.render(
     <LocaleProvider locale={zhCN}>

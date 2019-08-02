@@ -92,6 +92,7 @@ const columns = [
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |  |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |  |
 | onRow | 设置行属性 | Function(record, index) | - |  |
+| getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
 
 #### onRow 用法
 

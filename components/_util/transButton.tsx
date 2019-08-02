@@ -7,6 +7,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 
 interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+  noStyle?: boolean;
 }
 
 const inlineStyle: React.CSSProperties = {
@@ -53,7 +54,8 @@ class TransButton extends React.Component<TransButtonProps> {
   }
 
   render() {
-    const { style } = this.props;
+    const { style, noStyle } = this.props;
+
     return (
       <div
         role="button"
@@ -62,7 +64,7 @@ class TransButton extends React.Component<TransButtonProps> {
         {...this.props}
         onKeyDown={this.onKeyDown}
         onKeyUp={this.onKeyUp}
-        style={{ ...inlineStyle, ...style }}
+        style={{ ...(!noStyle ? inlineStyle : null), ...style }}
       />
     );
   }

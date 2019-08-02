@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
+import { resetWarned } from '../../_util/warning';
 import {
   LocaleProvider,
   Pagination,
@@ -41,6 +42,7 @@ import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kuIQ from '../ku_IQ';
 import mnMN from '../mn_MN';
+import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
 import neNP from '../ne-NP';
 import nlBE from '../nl_BE';
@@ -87,6 +89,7 @@ const locales = [
   knIN,
   koKR,
   kuIQ,
+  msMY,
   mnMN,
   nbNO,
   neNP,
@@ -228,5 +231,21 @@ describe('Locale Provider', () => {
     expect(wrapper.render()).toMatchSnapshot();
     wrapper.setState({ locale: null });
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('warning if use LocaleProvider', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    resetWarned();
+
+    mount(
+      <LocaleProvider locale={{}}>
+        <div />
+      </LocaleProvider>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: LocaleProvider] `LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
+    );
+
+    errorSpy.mockRestore();
   });
 });
