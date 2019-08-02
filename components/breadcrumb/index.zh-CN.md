@@ -26,12 +26,19 @@ title: Breadcrumb
 
 ### Breadcrumb.Item
 
-| 参数      | 参数           | 类型                                   | 默认值 | 版本   |
-| --------- | -------------- | -------------------------------------- | ------ | ------ |
-| href      | 链接的目的地   | string                                 | -      | 3.17.0 |
-| separator | 自定义的分隔符 | string\|ReactNode                      | '/'    | 3.17.0 |
-| overlay   | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | -      | 3.17.0 |
-| onClick   | 单击事件       | (e:MouseEvent)=>void                   | -      | 3.17.0 |
+| 参数    | 参数           | 类型                                   | 默认值 | 版本   |
+| ------- | -------------- | -------------------------------------- | ------ | ------ |
+| href    | 链接的目的地   | string                                 | -      | 3.17.0 |
+| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | -      | 3.17.0 |
+| onClick | 单击事件       | (e:MouseEvent)=>void                   | -      | 3.17.0 |
+
+### Breadcrumb.Separator `3.21.0`
+
+| 参数     | 参数           | 类型              | 默认值 | 版本   |
+| -------- | -------------- | ----------------- | ------ | ------ |
+| children | 要显示的分隔符 | string\|ReactNode | '/'    | 3.21.0 |
+
+> 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
 
 ### routes
 
