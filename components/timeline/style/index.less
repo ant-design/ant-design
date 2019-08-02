@@ -17,7 +17,7 @@
     font-size: @font-size-base;
     list-style: none;
 
-    &-stamp {
+    &-label {
       display: none;
     }
 
@@ -148,10 +148,10 @@
     }
   }
 
-  &.@{timeline-prefix-cls}-stamp-left {
+  &.@{timeline-prefix-cls}-label-left {
     .@{timeline-prefix-cls}-item {
       display: flex;
-      &-stamp {
+      &-label {
         top: -6px;
         width: 72px;
         position: relative;
@@ -177,10 +177,10 @@
     }
   }
 
-  &.@{timeline-prefix-cls}-stamp-right {
+  &.@{timeline-prefix-cls}-label-right {
     .@{timeline-prefix-cls}-item {
       display: flex;
-      &-stamp {
+      &-label {
         top: -6px;
         left: calc(100% - 72px);
         width: 72px;

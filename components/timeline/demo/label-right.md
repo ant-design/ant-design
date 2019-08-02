@@ -2,7 +2,7 @@
 order: 5
 title:
   zh-CN: 右侧时间戳轴点
-  en-US: Stamp-right
+  en-US: Label-right
 ---
 
 ## zh-CN
@@ -11,25 +11,25 @@ title:
 
 ## en-US
 
-Stamp right, content left.
+Label right, content left.
 
 ```jsx
 import { Timeline, Icon } from 'antd';
 
 ReactDOM.render(
-  <Timeline mode="stamp-right">
-    <Timeline.Item stamp="2015-09-01">Create a services site</Timeline.Item>
-    <Timeline.Item stamp="2015-09-02" color="green">
+  <Timeline mode="label-right">
+    <Timeline.Item label="2015-09-01">Create a services site</Timeline.Item>
+    <Timeline.Item label="2015-09-02" color="green">
       Solve initial network problems
     </Timeline.Item>
     <Timeline.Item
-      stamp="2015-09-03"
+      label="2015-09-03"
       dot={<Icon type="clock-circle-o" style={{ fontSize: '16px' }} />}
       color="red"
     >
       Technical testing
     </Timeline.Item>
-    <Timeline.Item stamp="2015-09-04">Network problems being solved</Timeline.Item>
+    <Timeline.Item label="2015-09-04">Network problems being solved</Timeline.Item>
   </Timeline>,
   mountNode,
 );

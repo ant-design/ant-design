@@ -6,7 +6,7 @@ export interface TimeLineItemProps {
   prefixCls?: string;
   className?: string;
   color?: string;
-  stamp?: string;
+  label?: string;
   dot?: React.ReactNode;
   pending?: boolean;
   position?: string;
@@ -20,7 +20,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
         prefixCls: customizePrefixCls,
         className,
         color = '',
-        stamp = '',
+        label = '',
         children,
         pending,
         position,
@@ -45,7 +45,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
 
       return (
         <li {...restProps} className={itemClassName}>
-          {stamp.length === 10 ? <div className={`${prefixCls}-item-stamp`}>{stamp}</div> : null}
+          {label.length === 10 ? <div className={`${prefixCls}-item-label`}>{label}</div> : null}
           <div className={`${prefixCls}-item-tail`} />
           <div
             className={dotClassName}
@@ -63,7 +63,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
 TimelineItem.defaultProps = {
   color: 'blue',
   pending: false,
-  stamp: '',
+  label: '',
   position: '',
 };
 

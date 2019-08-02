@@ -12,7 +12,7 @@ export interface TimelineProps {
   pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
   reverse?: boolean;
-  mode?: 'left' | 'alternate' | 'right' | 'stamp-left' | 'stamp-right';
+  mode?: 'left' | 'alternate' | 'right' | 'label-left' | 'label-right';
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
@@ -64,8 +64,8 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       if (mode === 'left') return `${prefixCls}-item-left`;
       if (mode === 'right') return `${prefixCls}-item-right`;
       if (ele.props.position === 'right') return `${prefixCls}-item-right`;
-      if (mode === 'stamp-left') return `${prefixCls}-item-stamp-left`;
-      if (mode === 'stamp-right') return `${prefixCls}-item-stamp-right`;
+      if (mode === 'label-left') return `${prefixCls}-item-label-left`;
+      if (mode === 'label-right') return `${prefixCls}-item-label-right`;
       return '';
     };
 

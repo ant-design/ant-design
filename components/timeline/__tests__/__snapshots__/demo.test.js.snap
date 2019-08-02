@@ -621,15 +621,15 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/stamp-left.md correctly 1`] = `
+exports[`renders ./components/timeline/demo/label-left.md correctly 1`] = `
 <ul
-  class="ant-timeline ant-timeline-stamp-left"
+  class="ant-timeline ant-timeline-label-left"
 >
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-label-left"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-01
     </div>
@@ -646,10 +646,10 @@ exports[`renders ./components/timeline/demo/stamp-left.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-label-left"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-02
     </div>
@@ -666,10 +666,10 @@ exports[`renders ./components/timeline/demo/stamp-left.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-label-left"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-03
     </div>
@@ -710,10 +710,10 @@ exports[`renders ./components/timeline/demo/stamp-left.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-last"
+    class="ant-timeline-item ant-timeline-item-last ant-timeline-item-label-left"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-04
     </div>
@@ -732,15 +732,15 @@ exports[`renders ./components/timeline/demo/stamp-left.md correctly 1`] = `
 </ul>
 `;
 
-exports[`renders ./components/timeline/demo/stamp-right.md correctly 1`] = `
+exports[`renders ./components/timeline/demo/label-right.md correctly 1`] = `
 <ul
-  class="ant-timeline ant-timeline-stamp-right"
+  class="ant-timeline ant-timeline-label-right"
 >
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-label-right"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-01
     </div>
@@ -757,10 +757,10 @@ exports[`renders ./components/timeline/demo/stamp-right.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-label-right"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-02
     </div>
@@ -777,10 +777,10 @@ exports[`renders ./components/timeline/demo/stamp-right.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item"
+    class="ant-timeline-item ant-timeline-item-label-right"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-03
     </div>
@@ -821,10 +821,10 @@ exports[`renders ./components/timeline/demo/stamp-right.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-last"
+    class="ant-timeline-item ant-timeline-item-last ant-timeline-item-label-right"
   >
     <div
-      class="ant-timeline-item-stamp"
+      class="ant-timeline-item-label"
     >
       2015-09-04
     </div>
