@@ -171,15 +171,13 @@
     }
 
     &:not(.@{steps-prefix-cls}-item-process) {
-      & > .@{steps-prefix-cls}-item-container[role='button'] {
-        &:hover {
-          .@{steps-prefix-cls}-item {
-            &-icon {
-              border-color: @primary-color;
+      & > .@{steps-prefix-cls}-item-container[role='button']:hover {
+        .@{steps-prefix-cls}-item {
+          &-icon {
+            border-color: @primary-color;
 
-              .@{steps-prefix-cls}-icon {
-                color: @primary-color;
-              }
+            .@{steps-prefix-cls}-icon {
+              color: @primary-color;
             }
           }
         }
