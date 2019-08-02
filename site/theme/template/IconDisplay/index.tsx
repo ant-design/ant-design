@@ -1,6 +1,7 @@
 import * as React from 'react';
-import manifest from '@ant-design/icons/lib/manifest';
-import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
+import * as AntdIcons from '@ant-design/icons';
+// import manifest from '@ant-design/icons/lib/manifest';
+// import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
 import { Radio, Icon, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/lib/radio/interface';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
@@ -22,11 +23,11 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   static newIconNames: string[] = [];
 
-  static themeTypeMapper: { [key: string]: ThemeFolderType } = {
-    filled: 'fill',
-    outlined: 'outline',
-    twoTone: 'twotone',
-  };
+  // static themeTypeMapper: { [key: string]: ThemeFolderType } = {
+  //   filled: 'fill',
+  //   outlined: 'outline',
+  //   twoTone: 'twotone',
+  // };
 
   state: IconDisplayState = {
     theme: 'outlined',
@@ -39,14 +40,14 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
   }
 
   getComputedDisplayList() {
-    return Object.keys(IconDisplay.categories)
-      .map((category: CategoriesKeys) => ({
-        category,
-        icons: (IconDisplay.categories[category] || []).filter(
-          name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
-        ),
-      }))
-      .filter(({ icons }) => Boolean(icons.length));
+    // return Object.keys(IconDisplay.categories)
+    //   .map((category: CategoriesKeys) => ({
+    //     category,
+    //     icons: (IconDisplay.categories[category] || []).filter(
+    //       name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
+    //     ),
+    //   }))
+    //   .filter(({ icons }) => Boolean(icons.length));
   }
 
   handleChangeTheme = (e: RadioChangeEvent) => {
@@ -75,9 +76,8 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
       .concat({ category: 'other', icons: otherIcons })
       .map(({ category, icons }) => ({
         category,
-        icons: icons
-          .filter(name => name.includes(searchKey))
-          .filter(name => manifest[IconDisplay.themeTypeMapper[theme]].includes(name)),
+        icons: icons.filter(name => name.includes(searchKey)),
+        // .filter(name => manifest[IconDisplay.themeTypeMapper[theme]].includes(name)),
       }))
       .filter(({ icons }) => !!icons.length)
       .map(({ category, icons }) => (
@@ -95,7 +95,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     const {
       intl: { messages },
     } = this.props;
-    const list = this.getComputedDisplayList();
+    // const list = this.getComputedDisplayList();
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -124,7 +124,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             autoFocus
           />
         </div>
-        {this.renderCategories(list)}
+        {/* {this.renderCategories(list)} */}
       </>
     );
   }
