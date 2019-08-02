@@ -57,7 +57,7 @@ const getSideBarOpenKeys = nextProps => {
   return shouldOpenKeys;
 };
 
-const getSubMenuTitle = (menuItem) => {
+const getSubMenuTitle = menuItem => {
   if (menuItem.title !== 'Components') {
     return menuItem.title;
   }
@@ -71,7 +71,9 @@ const getSubMenuTitle = (menuItem) => {
     <h4>
       {menuItem.title === 'Components' ? (
         <FormattedMessage id="app.header.menu.components" />
-      ) : menuItem.title}
+      ) : (
+        menuItem.title
+      )}
       <span className="menu-antd-components-count">{count}</span>
     </h4>
   );
@@ -138,10 +140,7 @@ export default class MainContent extends Component {
     return menuItems.map(menuItem => {
       if (menuItem.children) {
         return (
-          <SubMenu
-            title={getSubMenuTitle(menuItem)}
-            key={menuItem.title}
-          >
+          <SubMenu title={getSubMenuTitle(menuItem)} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
                 return (
@@ -312,7 +311,10 @@ export default class MainContent extends Component {
         <Row>
           {isMobile ? (
             <MobileMenu
-              iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
+              iconChild={[
+                <Icon key="menu-unfold" type="menu-unfold" />,
+                <Icon key="menu-fold" type="menu-fold" />,
+              ]}
               key="Mobile-menu"
               wrapperClassName="drawer-wrapper"
             >
