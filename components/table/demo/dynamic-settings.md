@@ -18,13 +18,26 @@ import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
 
 const FormItem = Form.Item;
 
+const nameRender = text => <a href="javascript:;">{text}</a>;
+const actionRender = (text, record) => (
+  <span>
+    <a href="javascript:;">Action 一 {record.name}</a>
+    <Divider type="vertical" />
+    <a href="javascript:;">Delete</a>
+    <Divider type="vertical" />
+    <a href="javascript:;" className="ant-dropdown-link">
+      More actions <Icon type="down" />
+    </a>
+  </span>
+);
+
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
     width: 150,
-    render: text => <a href="javascript:;">{text}</a>,
+    render: nameRender,
   },
   {
     title: 'Age',
@@ -41,17 +54,7 @@ const columns = [
     title: 'Action',
     key: 'action',
     width: 360,
-    render: (text, record) => (
-      <span>
-        <a href="javascript:;">Action 一 {record.name}</a>
-        <Divider type="vertical" />
-        <a href="javascript:;">Delete</a>
-        <Divider type="vertical" />
-        <a href="javascript:;" className="ant-dropdown-link">
-          More actions <Icon type="down" />
-        </a>
-      </span>
-    ),
+    render: actionRender,
   },
 ];
 

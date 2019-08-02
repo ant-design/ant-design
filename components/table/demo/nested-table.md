@@ -23,6 +23,25 @@ const menu = (
   </Menu>
 );
 
+const statusRender = () => (
+  <span>
+    <Badge status="success" />
+    Finished
+  </span>
+);
+const operationRender = () => (
+  <span className="table-operation">
+    <a href="javascript:;">Pause</a>
+    <a href="javascript:;">Stop</a>
+    <Dropdown overlay={menu}>
+      <a href="javascript:;">
+        More <Icon type="down" />
+      </a>
+    </Dropdown>
+  </span>
+);
+const actionRender = () => <a href="javascript:;">Publish</a>;
+
 function NestedTable() {
   const expandedRowRender = () => {
     const columns = [
@@ -31,29 +50,14 @@ function NestedTable() {
       {
         title: 'Status',
         key: 'state',
-        render: () => (
-          <span>
-            <Badge status="success" />
-            Finished
-          </span>
-        ),
+        render: statusRender,
       },
       { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
       {
         title: 'Action',
         dataIndex: 'operation',
         key: 'operation',
-        render: () => (
-          <span className="table-operation">
-            <a href="javascript:;">Pause</a>
-            <a href="javascript:;">Stop</a>
-            <Dropdown overlay={menu}>
-              <a href="javascript:;">
-                More <Icon type="down" />
-              </a>
-            </Dropdown>
-          </span>
-        ),
+        render: operationRender,
       },
     ];
 
@@ -76,7 +80,7 @@ function NestedTable() {
     { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
     { title: 'Creator', dataIndex: 'creator', key: 'creator' },
     { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
-    { title: 'Action', key: 'operation', render: () => <a href="javascript:;">Publish</a> },
+    { title: 'Action', key: 'operation', render: actionRender },
   ];
 
   const data = [];

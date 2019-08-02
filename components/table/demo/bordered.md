@@ -16,11 +16,13 @@ Add border, title and footer for table.
 ```jsx
 import { Table } from 'antd';
 
+const nameRender = text => <a href="javascript:;">{text}</a>;
+
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    render: nameRender,
   },
   {
     title: 'Cash Assets',

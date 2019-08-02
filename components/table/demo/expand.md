@@ -16,6 +16,8 @@ When there's too much information to show and the table can't display all at onc
 ```jsx
 import { Table } from 'antd';
 
+const actionRender = () => <a href="javascript:;">Delete</a>;
+
 const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
   { title: 'Age', dataIndex: 'age', key: 'age' },
@@ -24,7 +26,7 @@ const columns = [
     title: 'Action',
     dataIndex: '',
     key: 'x',
-    render: () => <a href="javascript:;">Delete</a>,
+    render: actionRender,
   },
 ];
 

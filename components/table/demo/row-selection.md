@@ -20,11 +20,13 @@ Rows can be selectable by making first column as a selectable column.
 ```jsx
 import { Table } from 'antd';
 
+const nameRender = text => <a href="javascript:;">{text}</a>;
+
 const columns = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: text => <a href="javascript:;">{text}</a>,
+    render: nameRender,
   },
   {
     title: 'Age',

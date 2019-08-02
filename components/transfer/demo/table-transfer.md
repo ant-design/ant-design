@@ -81,6 +81,8 @@ for (let i = 0; i < 20; i++) {
 
 const originTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
+const tagRender = tag => <Tag>{tag}</Tag>;
+
 const leftTableColumns = [
   {
     dataIndex: 'title',
@@ -89,7 +91,7 @@ const leftTableColumns = [
   {
     dataIndex: 'tag',
     title: 'Tag',
-    render: tag => <Tag>{tag}</Tag>,
+    render: tagRender,
   },
   {
     dataIndex: 'description',

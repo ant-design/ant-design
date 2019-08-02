@@ -24,6 +24,8 @@ To fix some columns and scroll inside other columns, and you must set `scroll.x`
 ```jsx
 import { Table } from 'antd';
 
+const actionRender = () => <a href="javascript:;">action</a>;
+
 const columns = [
   {
     title: 'Full Name',
@@ -52,7 +54,7 @@ const columns = [
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: () => <a href="javascript:;">action</a>,
+    render: actionRender,
   },
 ];
 
