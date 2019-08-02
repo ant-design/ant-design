@@ -7,6 +7,11 @@ const eslintrc = {
     jest: true,
     es6: true,
   },
+  settings: {
+    react: {
+      version: '16.8',
+    },
+  },
   parser: '@typescript-eslint/parser',
   plugins: ['markdown', 'react', 'babel', 'jest', '@typescript-eslint'],
   rules: {
