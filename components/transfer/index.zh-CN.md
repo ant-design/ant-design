@@ -76,6 +76,6 @@ return <Transfer rowKey={record => record.uid} />;
 
 ## FAQ
 
-### Transfer 穿梭框使用 ajax 远程加载数据
+### 怎样让 Transfer 穿梭框列表支持异步数据加载
 
-从体验角度考虑，我们将左侧穿梭框移至右侧的数据设置为禁用。<https://codesandbox.io/s/93xeb>
+为了保持页码同步以及用户体验考虑，我们将左侧穿梭框移至右侧的列表数据设置为禁用。<https://codesandbox.io/s/93xeb>
