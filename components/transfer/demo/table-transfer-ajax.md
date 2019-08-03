@@ -40,12 +40,14 @@ class TableTransfer extends React.Component {
     },
     loading: false,
   };
+
   componentDidMount() {
     this.fetch();
   }
+
   fetch = (params = this.state.pagination) => {
     this.setState({ loading: true });
-    const r = reqwest({
+    reqwest({
       url: 'https://jsonplaceholder.typicode.com/posts',
       method: 'get',
       data: {
@@ -97,14 +99,14 @@ class TableTransfer extends React.Component {
             selectedRowKeys: listSelectedKeys,
           };
 
-          const handleTableChange = pagination => {
+          const handleTableChange = paginationObj => {
             if (direction === 'left') {
               const pager = { ...this.state.pagination };
-              pager.current = pagination.current;
+              pager.current = paginationObj.current;
               this.setState({
                 pagination: pager,
               });
-              this.fetch(pagination);
+              this.fetch(paginationObj);
             }
           };
 
@@ -142,11 +144,13 @@ class App extends React.Component {
   state = {
     targetKeys: [],
   };
+
   onChange = targetKeys => {
     this.setState({
       targetKeys,
     });
   };
+
   render() {
     return <TableTransfer targetKeys={this.state.targetKeys} onChange={this.onChange} />;
   }
