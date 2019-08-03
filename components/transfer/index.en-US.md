@@ -76,4 +76,4 @@ return <Transfer rowKey={record => record.uid} />;
 
 ### Transfer column fetch and present data from a remote server.
 
-We moved on the left column items of the shuttle box on the right column of the data set to the disabled for experience consideration. <https://codesandbox.io/s/2xyj5zr85p>
+We moved on the left column items of the shuttle box on the right column of the data set to the disabled for experience consideration. <https://codesandbox.io/s/93xeb>
