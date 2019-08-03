@@ -48,7 +48,7 @@ class Demo extends React.Component {
             <Step
               title="Step 2"
               subTitle="00:01:02"
-              status="error"
+              status="process"
               description="This is a description."
             />
             <Step
