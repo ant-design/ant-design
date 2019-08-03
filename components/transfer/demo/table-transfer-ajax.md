@@ -46,7 +46,7 @@ class TableTransfer extends React.Component {
   fetch = (params = this.state.pagination) => {
     this.setState({ loading: true });
     const r = reqwest({
-      url: 'http://jsonplaceholder.typicode.com/posts',
+      url: 'https://jsonplaceholder.typicode.com/posts',
       method: 'get',
       data: {
         _start: (params.current - 1) * params.pageSize,
