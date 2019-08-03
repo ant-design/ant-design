@@ -71,3 +71,9 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 // eg. your primary key is `uid`
 return <Transfer rowKey={record => record.uid} />;
 ```
+
+## FAQ
+
+### Transfer column fetch and present data from a remote server.
+
+We moved on the left column items of the shuttle box on the right column of the data set to the disabled for experience consideration. <https://codesandbox.io/s/2xyj5zr85p>

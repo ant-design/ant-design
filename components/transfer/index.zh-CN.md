@@ -73,3 +73,9 @@ title: Transfer
 // 比如你的数据主键是 uid
 return <Transfer rowKey={record => record.uid} />;
 ```
+
+## FAQ
+
+### Transfer 穿梭框使用 ajax 远程加载数据
+
+从体验角度考虑，我们将左侧穿梭框移至右侧的数据设置为禁用。<https://codesandbox.io/s/93xeb>
