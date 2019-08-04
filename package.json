@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.20.5",
+  "version": "3.20.7",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
@@ -107,10 +107,10 @@
     "@types/warning": "^3.0.0",
     "@yesmeck/offline-plugin": "^5.0.5",
     "antd-theme-generator": "^1.1.6",
-    "antd-tools": "^7.6.0",
+    "@ant-design/tools": "^8.0.0",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "^1.2.4",
+    "bisheng": "^1.3.0",
     "bisheng-plugin-antd": "^1.0.2",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.0.0",
@@ -137,21 +137,21 @@
     "eslint-tinker": "^0.5.0",
     "fetch-jsonp": "^1.1.3",
     "glob": "^7.1.4",
+    "husky": "^3.0.2",
     "immutability-helper": "^3.0.0",
     "intersection-observer": "^0.7.0",
     "jest": "^24.8.0",
     "jsdom": "^15.1.1",
     "jsonml.js": "^0.1.0",
-    "lint-staged": "^9.0.0",
     "logrocket": "^1.0.0",
     "logrocket-react": "^3.0.0",
     "lz-string": "^1.4.4",
     "mockdate": "^2.0.2",
     "node-fetch": "^2.6.0",
-    "pre-commit": "^1.2.2",
     "preact": "^8.4.2",
     "preact-compat": "^3.18.5",
     "prettier": "^1.17.1",
+    "pretty-quick": "^1.11.0",
     "querystring": "^0.2.0",
     "rc-queue-anim": "^1.6.12",
     "rc-scroll-anim": "^2.5.8",
@@ -219,20 +219,13 @@
     "prepublish": "antd-tools run guard",
     "pre-publish": "npm run check-commit && npm run test-all",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
-    "lint-staged": "lint-staged",
-    "lint-staged:ts": "tsc && node node_modules/tslint/bin/tslint",
-    "lint-staged:es": "eslint ./.*.js ./webpack.config.js",
-    "lint-staged:demo": "cross-env RUN_ENV=DEMO eslint --ext '.md'",
-    "prettier": "prettier -c --write '**/*'"
+    "prettier": "prettier -c --write '**/*'",
+    "pretty-quick": "pretty-quick"
   },
-  "pre-commit": [
-    "lint-staged"
-  ],
-  "lint-staged": {
-    "**/*.{js,jsx,tsx,ts,less,md,json}": [
-      "prettier --write",
-      "git add"
-    ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "sideEffects": [
     "dist/*",

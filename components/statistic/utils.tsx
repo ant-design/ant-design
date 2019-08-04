@@ -35,10 +35,14 @@ const timeUnits: [string, number][] = [
   ['S', 1], // million seconds
 ];
 
-function formatTimeStr(duration: number, format: string) {
+export function formatTimeStr(duration: number, format: string) {
   let leftDuration: number = duration;
 
-  return timeUnits.reduce((current, [name, unit]) => {
+  const escapeRegex = /\[[^\]]*\]/g;
+  const keepList: string[] = (format.match(escapeRegex) || []).map(str => str.slice(1, -1));
+  const templateText = format.replace(escapeRegex, '[]');
+
+  const replacedText = timeUnits.reduce((current, [name, unit]) => {
     if (current.indexOf(name) !== -1) {
       const value = Math.floor(leftDuration / unit);
       leftDuration -= value * unit;
@@ -48,7 +52,14 @@ function formatTimeStr(duration: number, format: string) {
       });
     }
     return current;
-  }, format);
+  }, templateText);
+
+  let index = 0;
+  return replacedText.replace(escapeRegex, () => {
+    const match = keepList[index];
+    index += 1;
+    return match;
+  });
 }
 
 export function formatCountdown(value: countdownValueType, config: CountdownFormatConfig) {
