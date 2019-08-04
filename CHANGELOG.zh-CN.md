@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 3.21.0
+
+- 🌟 新增 `Breadcrumb.Separator` 组件，可进行 `separator` 自定义。[#17873](https://github.com/ant-design/ant-design/issues/17873) [@long-zhuge](https://github.com/long-zhuge)
+- 🌟 Descriptions 新增 `colon` 属性。[#17560](https://github.com/ant-design/ant-design/pull/17560) [@hengkx](https://github.com/hengkx)
+- 🌟 当 Sider 在右边时，翻转 `trigger` 方向。[#18043](https://github.com/ant-design/ant-design/pull/18043) [@kagawagao](https://github.com/kagawagao)
+- 🌟 Table 新增 `getPopupContainer` 属性用于设置表格内的各类浮层渲染节点。[#17806](https://github.com/ant-design/ant-design/pull/17806)
+- 🌟 Timeline.Item 新增 `gray` 色彩类型，可用于未完成或失效状态。[#17731](https://github.com/ant-design/ant-design/pull/17731)
+- 🌟 Upload 新增 `transformFile` 支持上传之前转换文件。[#18009](https://github.com/ant-design/ant-design/pull/18009) [@lijinke666](https://github.com/lijinke666)
+- 🐞 修复 ConfigProvider `getPopupContainer` 对 Table 不生效的问题。 [#17806](https://github.com/ant-design/ant-design/pull/17806)
+- 🐞 修复 Statistic 字体与全局字体不一致的问题。[#18044](https://github.com/ant-design/ant-design/pull/18044)
+- 🐞 修复 `Form.Item` label 正则替换问题。[#17985](https://github.com/ant-design/ant-design/pull/17985) [@shaodahong](https://github.com/shaodahong)
+- 🐞 修复 Select 搜索框箭头样式问题。 [#17760](https://github.com/ant-design/ant-design/pull/17760) [@chenyizhongx](https://github.com/chenyizhongx)
+- 🐞 修复 DatePicker 中选择 `mode` 为 decade 时，border 样式 bug。[#17887](https://github.com/ant-design/ant-design/pull/17887) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 修复 Button 以及相关组件的波纹性能问题。[#17945](https://github.com/ant-design/ant-design/pull/17945)
+- 🐞 修复 Tabs `tabBarExtraContent` 不居中对齐的问题。[#17969](https://github.com/ant-design/ant-design/pull/17969)
+- 🐞 修复 Tabs 在 `type` 为 `editable-card` 且子组件为 false 值时会报错的问题。[#17965](https://github.com/ant-design/ant-design/pull/17965) [@oldturkey](https://github.com/oldturkey)
+- 🐞 移除 Alert 关闭标签中的 `a` 标签。[#17872](https://github.com/ant-design/ant-design/pull/17872) [@geograous](https://github.com/geograous)
+- 💄 统一 Drawer 和 Modal 的 `mask` 透明度为 45%。[#17943](https://github.com/ant-design/ant-design/pull/17943)
+- 💄 优化 RangePicker 当前选中样式，与 DatePicker 样式统一。[#17983](https://github.com/ant-design/ant-design/pull/17983)
+- 💄 调整 Tag 的 html 标签为 `span`。[#17971](https://github.com/ant-design/ant-design/pull/17971)
+- 💄 提升 Table 展开按钮的无障碍体验。[#17781](https://github.com/ant-design/ant-design/pull/17781)
+- 💄 将 LocaleProvider 合并入 ConfigProvider。[#17816](https://github.com/ant-design/ant-design/pull/17816)
+- 💄 增加 less 变量 [#17976](https://github.com/ant-design/ant-design/pull/17976) [@Yangzhedi](https://github.com/Yangzhedi) [#17613](https://github.com/ant-design/ant-design/pull/17613) [@alxkosov](https://github.com/alxkosov)：
+  - `@table-footer-bg`
+  - `@table-footer-color `
+  - `menu-icon-size`
+  - `menu-icon-size-lg`
+- 🇲🇾 新增马来语语言包。[#17546](https://github.com/ant-design/ant-design/pull/17546) [@austin-krave](https://github.com/austin-krave)
+- 🇸🇪 新增 Typography 的瑞典语言翻译。[#17858](https://github.com/ant-design/ant-design/pull/17858) [@Malven](https://github.com/Malven)
+- 🇫🇷 新增 Typography 的法语语言翻译。[#17418](https://github.com/ant-design/ant-design/pull/17418) [@Clafouti](https://github.com/Clafouti)
+- 🏴 新增部分组件的泰米尔语语言翻译。[#17903](https://github.com/ant-design/ant-design/pull/17903) [@sivaraj-dev](https://github.com/sivaraj-dev)
+- TypeScript
+  - 🐞 修复 DatePicker `onChange` 类型定义。[#17955](https://github.com/ant-design/ant-design/pull/17955) [@haimrait](https://github.com/haimrait)
+
 ## 3.20.7
 
 - 🐞 修复 Upload 在 Form.Item 中无法点击的问题。[#17897](https://github.com/ant-design/ant-design/pull/17897)
