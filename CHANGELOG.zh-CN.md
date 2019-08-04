@@ -40,8 +40,8 @@ timeline: true
 - 💄 增加 less 变量 [#17976](https://github.com/ant-design/ant-design/pull/17976) [@Yangzhedi](https://github.com/Yangzhedi) [#17613](https://github.com/ant-design/ant-design/pull/17613) [@alxkosov](https://github.com/alxkosov)：
   - `@table-footer-bg`
   - `@table-footer-color `
-  - `menu-icon-size`
-  - `menu-icon-size-lg`
+  - `@menu-icon-size`
+  - `@menu-icon-size-lg`
 - 🇲🇾 新增马来语语言包。[#17546](https://github.com/ant-design/ant-design/pull/17546) [@austin-krave](https://github.com/austin-krave)
 - 🇸🇪 新增 Typography 的瑞典语言翻译。[#17858](https://github.com/ant-design/ant-design/pull/17858) [@Malven](https://github.com/Malven)
 - 🇫🇷 新增 Typography 的法语语言翻译。[#17418](https://github.com/ant-design/ant-design/pull/17418) [@Clafouti](https://github.com/Clafouti)

@@ -40,8 +40,8 @@ timeline: true
 - 💄 Add some less variables. [#17976](https://github.com/ant-design/ant-design/pull/17976) [@Yangzhedi](https://github.com/Yangzhedi) [#17613](https://github.com/ant-design/ant-design/pull/17613) [@alxkosov](https://github.com/alxkosov):
   - `@table-footer-bg`
   - `@table-footer-color `
-  - `menu-icon-size`
-  - `menu-icon-size-lg`
+  - `@menu-icon-size`
+  - `@menu-icon-size-lg`
 - 🇲🇾 Add locale Malay. [#17546](https://github.com/ant-design/ant-design/pull/17546) [@austin-krave](https://github.com/austin-krave)
 - 🇸🇪 Add Swedish translation for Typography (Text) component. [#17858](https://github.com/ant-design/ant-design/pull/17858) [@Malven](https://github.com/Malven)
 - 🇫🇷 Add French translation for Typography (Text) component. [#17418](https://github.com/ant-design/ant-design/pull/17418) [@Clafouti](https://github.com/Clafouti)
