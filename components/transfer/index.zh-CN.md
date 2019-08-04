@@ -78,4 +78,4 @@ return <Transfer rowKey={record => record.uid} />;
 
 ### 怎样让 Transfer 穿梭框列表支持异步数据加载
 
-为了保持页码同步以及用户体验考虑，我们将左侧穿梭框移至右侧的列表数据设置为禁用。<https://codesandbox.io/s/93xeb>
+为了保持页码同步，在勾选时可以不移除选项而以禁用代替：<https://codesandbox.io/s/93xeb>

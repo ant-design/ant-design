@@ -76,4 +76,4 @@ return <Transfer rowKey={record => record.uid} />;
 
 ### How to support fetch and present data from a remote server in Transfer column.
 
-We moved on the left column items of the shuttle box on the right column of the data set to the disabled for keeping the page number synchronization and experience consideration. <https://codesandbox.io/s/93xeb>
+In order to keep the page number synchronized, you can disable columns you checked without removing the option: <https://codesandbox.io/s/93xeb>
