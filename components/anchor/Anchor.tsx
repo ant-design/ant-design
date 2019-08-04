@@ -240,8 +240,11 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
       return;
     }
     const { activeLink } = this.state;
-    const { offsetTop, bounds } = this.props;
-    const currentActiveLink = this.getCurrentAnchor(offsetTop, bounds);
+    const { offsetTop, bounds, targetOffset } = this.props;
+    const currentActiveLink = this.getCurrentAnchor(
+      targetOffset !== undefined ? targetOffset : offsetTop || 0,
+      bounds,
+    );
     if (activeLink !== currentActiveLink) {
       this.setState({
         activeLink: currentActiveLink,
