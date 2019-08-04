@@ -64,7 +64,13 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
   extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
-export const OriginResult: React.SFC<ResultProps> = props => (
+export interface ResultType extends React.SFC<ResultProps> {
+  PRESENTED_IMAGE_404: React.ReactNode;
+  PRESENTED_IMAGE_403: React.ReactNode;
+  PRESENTED_IMAGE_500: React.ReactNode;
+}
+
+const Result: ResultType = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {
@@ -91,24 +97,12 @@ export const OriginResult: React.SFC<ResultProps> = props => (
   </ConfigConsumer>
 );
 
-OriginResult.defaultProps = {
+Result.defaultProps = {
   status: 'info',
 };
 
-// Provide default svg for user access
-interface PrivateSVG {
-  PRESENTED_IMAGE_404: React.ReactNode;
-  PRESENTED_IMAGE_403: React.ReactNode;
-  PRESENTED_IMAGE_500: React.ReactNode;
-}
-
-type ResultType = typeof OriginResult & PrivateSVG;
-
-const Result: ResultType = OriginResult as ResultType;
-
-ExceptionStatus.forEach((key: ExceptionStatusType) => {
-  const privateKey = `PRESENTED_IMAGE_${key}` as keyof PrivateSVG;
-  Result[privateKey] = ExceptionMap[key];
-});
+Result.PRESENTED_IMAGE_403 = ExceptionMap[403];
+Result.PRESENTED_IMAGE_404 = ExceptionMap[404];
+Result.PRESENTED_IMAGE_500 = ExceptionMap[500];
 
 export default Result;

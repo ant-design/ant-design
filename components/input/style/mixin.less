@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @input-affix-width: 19px;
+@input-affix-with-clear-btn-width: 38px;
 
 // size mixins for input
 .input-lg() {
@@ -30,7 +31,7 @@
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette('@{color}', 5) `;
+  border-color: @color;
   border-right-width: @border-width-base !important;
 }
 
@@ -371,13 +372,21 @@
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
-    top: 50%;
+    top: 0;
     z-index: 2;
     color: @input-color;
     line-height: 0;
-    transform: translateY(-50%);
+    height: 100%;
+    box-sizing: border-box;
+    padding: @input-padding-vertical-base + @border-width-base 0;
     :not(.anticon) {
       line-height: @line-height-base;
+    }
+    .anticon {
+      position: relative;
+      vertical-align: top;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 
@@ -395,5 +404,8 @@
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+  }
+  &.@{inputClass}-affix-wrapper-with-clear-btn .@{inputClass}:not(:last-child) {
+    padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
   }
 }
