@@ -15,11 +15,23 @@ timeline: true
 
 ---
 
+## 3.21.2
+
+`2019-08-06`
+
+- 🐞 修复 `React does not recognize the noStyle prop on a DOM element` 的问题。[#18088](https://github.com/ant-design/ant-design/pull/18088)
+- 🐞 修复 Input `prefix` & `suffix` 文本没对齐的问题。[#18097](https://github.com/ant-design/ant-design/pull/18097)
+- 🐞 修复 ConfigProvider 嵌套于 LocaleProvider 内时 `locale` 无效的问题。[#18105](https://github.com/ant-design/ant-design/pull/18105)
+
 ## 3.21.1
+
+`2019-08-05`
 
 - 🐞 修复 ConfigProvider 存在多个子节点崩溃的问题。[#18075](https://github.com/ant-design/ant-design/pull/18075)
 
 ## 3.21.0
+
+`2019-08-04`
 
 - 🌟 新增 `Breadcrumb.Separator` 组件，可进行 `separator` 自定义。[#17873](https://github.com/ant-design/ant-design/issues/17873) [@long-zhuge](https://github.com/long-zhuge)
 - 🌟 Descriptions 新增 `colon` 属性。[#17560](https://github.com/ant-design/ant-design/pull/17560) [@hengkx](https://github.com/hengkx)
@@ -55,6 +67,8 @@ timeline: true
   - 🐞 修复 DatePicker `onChange` 类型定义。[#17955](https://github.com/ant-design/ant-design/pull/17955) [@haimrait](https://github.com/haimrait)
 
 ## 3.20.7
+
+`2019-07-26`
 
 - 🐞 修复 Upload 在 Form.Item 中无法点击的问题。[#17897](https://github.com/ant-design/ant-design/pull/17897)
 
