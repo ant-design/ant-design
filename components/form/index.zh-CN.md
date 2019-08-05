@@ -229,7 +229,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
 ```tsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form';
+import { FormComponentProps } from 'antd/es/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;

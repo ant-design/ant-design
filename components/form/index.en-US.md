@@ -227,7 +227,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 ```tsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form';
+import { FormComponentProps } from 'antd/es/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;

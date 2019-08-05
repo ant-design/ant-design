@@ -190,7 +190,7 @@ Properties for row selection.
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnProps } from 'antd/lib/table';
+import { ColumnProps } from 'antd/es/table';
 
 interface User {
   key: number,
