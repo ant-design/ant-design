@@ -6,6 +6,7 @@ export interface TimeLineItemProps {
   prefixCls?: string;
   className?: string;
   color?: string;
+  label?: string;
   dot?: React.ReactNode;
   pending?: boolean;
   position?: string;
@@ -19,6 +20,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
         prefixCls: customizePrefixCls,
         className,
         color = '',
+        label,
         children,
         pending,
         position,
@@ -50,6 +52,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
           >
             {dot}
           </div>
+          <div className={`${prefixCls}-item-label`}>{label}</div>
           <div className={`${prefixCls}-item-content`}>{children}</div>
         </li>
       );
