@@ -55,7 +55,9 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
       return (
         <span>
           {link}
-          <span className={`${prefixCls}-separator`}>{separator}</span>
+          {separator && separator !== '' && (
+            <span className={`${prefixCls}-separator`}>{separator}</span>
+          )}
         </span>
       );
     }
