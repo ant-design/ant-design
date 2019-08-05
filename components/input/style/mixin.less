@@ -369,24 +369,22 @@
     text-align: inherit;
   }
 
+  // Should not break align of icon & text
+  // https://github.com/ant-design/ant-design/issues/18087
+  // https://github.com/ant-design/ant-design/issues/17414
+  // https://github.com/ant-design/ant-design/pull/17684
+  // https://codesandbox.io/embed/pensive-paper-di2wk
+  // https://codesandbox.io/embed/nifty-benz-gb7ml
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
-    top: 0;
+    top: 50%;
     z-index: 2;
     color: @input-color;
     line-height: 0;
-    height: 100%;
-    box-sizing: border-box;
-    padding: @input-padding-vertical-base + @border-width-base 0;
+    transform: translateY(-50%);
     :not(.anticon) {
       line-height: @line-height-base;
-    }
-    .anticon {
-      position: relative;
-      vertical-align: top;
-      top: 50%;
-      transform: translateY(-50%);
     }
   }
 
