@@ -54,14 +54,14 @@ class TransButton extends React.Component<TransButtonProps> {
   }
 
   render() {
-    const { style, noStyle } = this.props;
+    const { style, noStyle, ...restProps } = this.props;
 
     return (
       <div
         role="button"
         tabIndex={0}
         ref={this.setRef}
-        {...this.props}
+        {...restProps}
         onKeyDown={this.onKeyDown}
         onKeyUp={this.onKeyUp}
         style={{ ...(!noStyle ? inlineStyle : null), ...style }}
