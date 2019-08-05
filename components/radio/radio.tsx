@@ -10,6 +10,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export default class Radio extends React.Component<RadioProps, {}> {
   static Group: typeof RadioGroup;
+
   static Button: typeof RadioButton;
 
   static defaultProps = {
@@ -32,14 +33,6 @@ export default class Radio extends React.Component<RadioProps, {}> {
     );
   }
 
-  focus() {
-    this.rcCheckbox.focus();
-  }
-
-  blur() {
-    this.rcCheckbox.blur();
-  }
-
   saveCheckbox = (node: any) => {
     this.rcCheckbox = node;
   };
@@ -53,6 +46,14 @@ export default class Radio extends React.Component<RadioProps, {}> {
       this.context.radioGroup.onChange(e);
     }
   };
+
+  focus() {
+    this.rcCheckbox.focus();
+  }
+
+  blur() {
+    this.rcCheckbox.blur();
+  }
 
   renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props, context } = this;
@@ -74,6 +75,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
 
     return (
       <label
+        htmlFor={wrapperClassString}
         className={wrapperClassString}
         style={style}
         onMouseEnter={props.onMouseEnter}

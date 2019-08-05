@@ -28,6 +28,7 @@ export interface TextAreaState {
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   nextFrameActionId: number;
+
   resizeFrameId: number;
 
   state = {
@@ -53,32 +54,8 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     raf.cancel(this.resizeFrameId);
   }
 
-  resizeOnNextFrame = () => {
-    raf.cancel(this.nextFrameActionId);
-    this.nextFrameActionId = raf(this.resizeTextarea);
-  };
-
-  focus() {
-    this.textAreaRef.focus();
-  }
-
-  blur() {
-    this.textAreaRef.blur();
-  }
-
-  resizeTextarea = () => {
-    const { autosize } = this.props;
-    if (!autosize || !this.textAreaRef) {
-      return;
-    }
-    const { minRows, maxRows } = autosize as AutoSizeType;
-    const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
-    this.setState({ textareaStyles, resizing: true }, () => {
-      raf.cancel(this.resizeFrameId);
-      this.resizeFrameId = raf(() => {
-        this.setState({ resizing: false });
-      });
-    });
+  saveTextAreaRef = (textArea: HTMLTextAreaElement) => {
+    this.textAreaRef = textArea;
   };
 
   handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -101,9 +78,33 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
   };
 
-  saveTextAreaRef = (textArea: HTMLTextAreaElement) => {
-    this.textAreaRef = textArea;
+  resizeOnNextFrame = () => {
+    raf.cancel(this.nextFrameActionId);
+    this.nextFrameActionId = raf(this.resizeTextarea);
   };
+
+  resizeTextarea = () => {
+    const { autosize } = this.props;
+    if (!autosize || !this.textAreaRef) {
+      return;
+    }
+    const { minRows, maxRows } = autosize as AutoSizeType;
+    const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
+    this.setState({ textareaStyles, resizing: true }, () => {
+      raf.cancel(this.resizeFrameId);
+      this.resizeFrameId = raf(() => {
+        this.setState({ resizing: false });
+      });
+    });
+  };
+
+  focus() {
+    this.textAreaRef.focus();
+  }
+
+  blur() {
+    this.textAreaRef.blur();
+  }
 
   renderTextArea = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { textareaStyles, resizing } = this.state;

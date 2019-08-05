@@ -241,6 +241,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -381,6 +382,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -475,6 +477,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <div
             class="ant-table ant-table-default ant-table-empty ant-table-scroll-position-left"
+            style="margin-top:8px"
           >
             <div
               class="ant-table-content"

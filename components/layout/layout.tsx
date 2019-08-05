@@ -34,8 +34,11 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
   return (BasicComponent: React.ComponentClass<BasicPropsWithTagName>): any => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
+
       static Footer: any;
+
       static Content: any;
+
       static Sider: any;
 
       renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -52,6 +55,7 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
   };
 }
 
+/* eslint-disable react/prefer-stateless-function */
 class Basic extends React.Component<BasicPropsWithTagName, any> {
   render() {
     const { prefixCls, className, children, tagName, ...others } = this.props;

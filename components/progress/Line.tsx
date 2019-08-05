@@ -18,6 +18,7 @@ interface LineProps extends ProgressProps {
  */
 export const sortGradient = (gradients: ProgressGradient) => {
   let tempArr = [];
+  /* eslint-disable no-restricted-syntax */
   for (const [key, value] of Object.entries(gradients)) {
     const formatKey = parseFloat(key.replace(/%/g, ''));
     if (isNaN(formatKey)) {

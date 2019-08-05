@@ -2188,6 +2188,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                  for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
                 >
                   <span
                     class="ant-radio-button ant-radio-button-checked"
@@ -2208,6 +2209,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
                 <label
                   class="ant-radio-button-wrapper"
+                  for="ant-radio-button-wrapper"
                 >
                   <span
                     class="ant-radio-button"
@@ -2227,6 +2229,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
                 <label
                   class="ant-radio-button-wrapper"
+                  for="ant-radio-button-wrapper"
                 >
                   <span
                     class="ant-radio-button"
@@ -2276,6 +2279,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               >
                 <label
                   class="ant-radio-button-wrapper"
+                  for="ant-radio-button-wrapper"
                 >
                   <span
                     class="ant-radio-button"
@@ -2295,6 +2299,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                  for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
                 >
                   <span
                     class="ant-radio-button ant-radio-button-checked"
@@ -2315,6 +2320,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
                 <label
                   class="ant-radio-button-wrapper"
+                  for="ant-radio-button-wrapper"
                 >
                   <span
                     class="ant-radio-button"
@@ -2334,6 +2340,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 </label>
                 <label
                   class="ant-radio-button-wrapper"
+                  for="ant-radio-button-wrapper"
                 >
                   <span
                     class="ant-radio-button"
@@ -2421,6 +2428,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                             >
                               <label
                                 class="ant-checkbox-wrapper"
+                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -2539,6 +2547,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -2641,6 +2650,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -2743,6 +2753,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -2845,6 +2856,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -2947,6 +2959,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -3049,6 +3062,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -3151,6 +3165,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -3253,6 +3268,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -3355,6 +3371,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -3457,6 +3474,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -4819,6 +4837,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                           >
                             <label
                               class="ant-checkbox-wrapper"
+                              for="checkbox-label"
                             >
                               <span
                                 class="ant-checkbox"
@@ -4909,6 +4928,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -4960,6 +4980,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -11960,6 +11981,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                           >
                             <label
                               class="ant-checkbox-wrapper"
+                              for="checkbox-label"
                             >
                               <span
                                 class="ant-checkbox"
@@ -12050,6 +12072,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -12096,6 +12119,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -12142,6 +12166,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -12188,6 +12213,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                     <span>
                       <label
                         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox ant-checkbox-disabled"
@@ -12373,6 +12399,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                             >
                               <label
                                 class="ant-checkbox-wrapper"
+                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -12463,6 +12490,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12504,6 +12532,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12545,6 +12574,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12586,6 +12616,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12627,6 +12658,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12668,6 +12700,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12709,6 +12742,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12750,6 +12784,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12791,6 +12826,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -12832,6 +12868,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
+                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -13032,6 +13069,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                           >
                             <label
                               class="ant-table-selection-select-all-custom ant-checkbox-wrapper"
+                              for="checkbox-label"
                             >
                               <span
                                 class="ant-checkbox"
@@ -13145,6 +13183,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13186,6 +13225,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13227,6 +13267,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13268,6 +13309,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13309,6 +13351,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13350,6 +13393,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13391,6 +13435,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13432,6 +13477,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13473,6 +13519,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"
@@ -13514,6 +13561,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     <span>
                       <label
                         class="ant-checkbox-wrapper"
+                        for="checkbox-label"
                       >
                         <span
                           class="ant-checkbox"

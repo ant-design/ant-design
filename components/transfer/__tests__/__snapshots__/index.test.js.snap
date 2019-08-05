@@ -12,6 +12,7 @@ exports[`Transfer should render correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox ant-checkbox-checked"
@@ -48,6 +49,7 @@ exports[`Transfer should render correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -71,6 +73,7 @@ exports[`Transfer should render correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox ant-checkbox-disabled"
@@ -153,6 +156,7 @@ exports[`Transfer should render correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -188,6 +192,7 @@ exports[`Transfer should render correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -223,6 +228,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -259,6 +265,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -343,6 +350,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -379,6 +387,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -404,6 +413,7 @@ exports[`Transfer should show sorted targetkey 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
+            for="checkbox-label"
           >
             <span
               class="ant-checkbox"

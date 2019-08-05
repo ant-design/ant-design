@@ -45,6 +45,7 @@ export interface CheckboxChangeEvent {
 
 class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;
+
   static defaultProps = {
     indeterminate: false,
   };
@@ -65,6 +66,18 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
     }
   }
 
+  shouldComponentUpdate(
+    nextProps: CheckboxProps,
+    nextState: {},
+    nextContext: CheckboxGroupContext,
+  ) {
+    return (
+      !shallowEqual(this.props, nextProps) ||
+      !shallowEqual(this.state, nextState) ||
+      !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup)
+    );
+  }
+
   componentDidUpdate({ value: prevValue }: CheckboxProps) {
     const { value } = this.props;
     const { checkboxGroup = {} } = this.context || {};
@@ -82,17 +95,9 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
     }
   }
 
-  shouldComponentUpdate(
-    nextProps: CheckboxProps,
-    nextState: {},
-    nextContext: CheckboxGroupContext,
-  ) {
-    return (
-      !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState) ||
-      !shallowEqual(this.context.checkboxGroup, nextContext.checkboxGroup)
-    );
-  }
+  saveCheckbox = (node: any) => {
+    this.rcCheckbox = node;
+  };
 
   focus() {
     this.rcCheckbox.focus();
@@ -101,10 +106,6 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
   blur() {
     this.rcCheckbox.blur();
   }
-
-  saveCheckbox = (node: any) => {
-    this.rcCheckbox = node;
-  };
 
   renderCheckbox = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props, context } = this;
@@ -142,6 +143,7 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
     });
     return (
       <label
+        htmlFor="checkbox-label"
         className={classString}
         style={style}
         onMouseEnter={onMouseEnter}

@@ -1,8 +1,9 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import createReactContext from '@ant-design/create-react-context';
-import warning from '../_util/warning';
 import classNames from 'classnames';
+import omit from 'omit.js';
+import warning from '../_util/warning';
 import Icon from '../icon';
 import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -159,6 +160,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     const { closable, prefixCls, onClose } = this.props;
     return (
       closable && (
+        /* eslint-disable react/button-has-type */
         <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
           <Icon type="close" />
         </button>
@@ -208,27 +210,12 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   renderProvider = (value: Drawer) => {
     const {
       prefixCls,
-      zIndex,
-      style,
       placement,
       className,
       wrapClassName,
       width,
       height,
-      closable,
-      destroyOnClose,
       mask,
-      bodyStyle,
-      title,
-      push,
-      visible,
-      // ConfigConsumerProps
-      getPopupContainer,
-      rootPrefixCls,
-      getPrefixCls,
-      renderEmpty,
-      csp,
-      autoInsertSpaceInButton,
       ...rest
     } = this.props;
     warning(
@@ -248,7 +235,22 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       <DrawerContext.Provider value={this}>
         <RcDrawer
           handler={false}
-          {...rest}
+          {...omit(rest, [
+            'zIndex',
+            'style',
+            'closable',
+            'destroyOnClose',
+            'bodyStyle',
+            'title',
+            'push',
+            'visible',
+            'getPopupContainer',
+            'rootPrefixCls',
+            'getPrefixCls',
+            'renderEmpty',
+            'csp',
+            'autoInsertSpaceInButton',
+          ])}
           {...offsetStyle}
           prefixCls={prefixCls}
           open={this.props.visible}

@@ -194,7 +194,7 @@
     "test-node": "jest --config .jest.node.js --no-cache",
     "test-all": "./scripts/test-all.sh",
     "check-commit": "node ./scripts/check-commit.js",
-    "lint": "npm run lint:ts && npm run lint:es && npm run lint:demo && npm run lint:style && npm run lint:deps",
+    "lint": "npm run lint:ts && npm run lint:ts:with-eslint && npm run lint:es && npm run lint:demo && npm run lint:style && npm run lint:deps",
     "lint:deps": "antd-tools run deps-lint",
     "lint:ts": "npm run tsc && antd-tools run ts-lint",
     "lint:es": "eslint tests site scripts components ./.*.js ./webpack.config.js --ext '.js,.jsx'",

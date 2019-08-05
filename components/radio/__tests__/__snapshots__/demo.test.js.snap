@@ -3,6 +3,7 @@
 exports[`renders ./components/radio/demo/basic.md correctly 1`] = `
 <label
   class="ant-radio-wrapper"
+  for="ant-radio-wrapper"
 >
   <span
     class="ant-radio"
@@ -25,6 +26,7 @@ exports[`renders ./components/radio/demo/disable.md correctly 1`] = `
 <div>
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    for="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
     <span
       class="ant-radio ant-radio-disabled"
@@ -45,6 +47,7 @@ exports[`renders ./components/radio/demo/disable.md correctly 1`] = `
   <br />
   <label
     class="ant-radio-wrapper ant-radio-wrapper-disabled"
+    for="ant-radio-wrapper ant-radio-wrapper-disabled"
   >
     <span
       class="ant-radio ant-radio-checked ant-radio-disabled"
@@ -86,6 +89,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -106,6 +110,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -125,6 +130,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -144,6 +150,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -171,6 +178,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -191,6 +199,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -211,6 +220,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -230,6 +240,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -257,6 +268,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled"
       >
         <span
           class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
@@ -278,6 +290,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -298,6 +311,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -318,6 +332,7 @@ exports[`renders ./components/radio/demo/radiobutton.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -349,6 +364,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -369,6 +385,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -388,6 +405,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -407,6 +425,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -434,6 +453,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -453,6 +473,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-disabled"
       >
         <span
           class="ant-radio-button ant-radio-button-disabled"
@@ -473,6 +494,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -493,6 +515,7 @@ exports[`renders ./components/radio/demo/radiobutton-solid.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -521,6 +544,7 @@ exports[`renders ./components/radio/demo/radiogroup.md correctly 1`] = `
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked"
+    for="ant-radio-wrapper ant-radio-wrapper-checked"
   >
     <span
       class="ant-radio ant-radio-checked"
@@ -541,6 +565,7 @@ exports[`renders ./components/radio/demo/radiogroup.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
   >
     <span
       class="ant-radio"
@@ -560,6 +585,7 @@ exports[`renders ./components/radio/demo/radiogroup.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
   >
     <span
       class="ant-radio"
@@ -579,6 +605,7 @@ exports[`renders ./components/radio/demo/radiogroup.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
   >
     <span
       class="ant-radio"
@@ -605,6 +632,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked"
+    for="ant-radio-wrapper ant-radio-wrapper-checked"
     style="display:block;height:30px;line-height:30px"
   >
     <span
@@ -626,6 +654,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
     style="display:block;height:30px;line-height:30px"
   >
     <span
@@ -646,6 +675,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
     style="display:block;height:30px;line-height:30px"
   >
     <span
@@ -666,6 +696,7 @@ exports[`renders ./components/radio/demo/radiogroup-more.md correctly 1`] = `
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
     style="display:block;height:30px;line-height:30px"
   >
     <span
@@ -694,6 +725,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
+      for="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
         class="ant-radio ant-radio-checked"
@@ -714,6 +746,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
+      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -733,6 +766,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
+      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -756,6 +790,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
+      for="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
         class="ant-radio ant-radio-checked"
@@ -776,6 +811,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
+      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -795,6 +831,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
+      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -818,6 +855,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
+      for="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
         class="ant-radio ant-radio-checked"
@@ -838,6 +876,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
+      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -857,6 +896,7 @@ exports[`renders ./components/radio/demo/radiogroup-options.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
+      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -884,6 +924,7 @@ exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] =
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked"
+    for="ant-radio-wrapper ant-radio-wrapper-checked"
   >
     <span
       class="ant-radio ant-radio-checked"
@@ -905,6 +946,7 @@ exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] =
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
   >
     <span
       class="ant-radio"
@@ -925,6 +967,7 @@ exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] =
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
   >
     <span
       class="ant-radio"
@@ -945,6 +988,7 @@ exports[`renders ./components/radio/demo/radiogroup-with-name.md correctly 1`] =
   </label>
   <label
     class="ant-radio-wrapper"
+    for="ant-radio-wrapper"
   >
     <span
       class="ant-radio"
@@ -974,6 +1018,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -994,6 +1039,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1013,6 +1059,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1032,6 +1079,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1059,6 +1107,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -1079,6 +1128,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1098,6 +1148,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1117,6 +1168,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1144,6 +1196,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+        for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
@@ -1164,6 +1217,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1183,6 +1237,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"
@@ -1202,6 +1257,7 @@ exports[`renders ./components/radio/demo/size.md correctly 1`] = `
       </label>
       <label
         class="ant-radio-button-wrapper"
+        for="ant-radio-button-wrapper"
       >
         <span
           class="ant-radio-button"

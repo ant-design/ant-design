@@ -1273,6 +1273,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
+          for="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
           <span
             class="config-radio-button config-radio-button-checked"
@@ -1293,6 +1294,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </label>
         <label
           class="config-radio-button-wrapper"
+          for="config-radio-button-wrapper"
         >
           <span
             class="config-radio-button"
@@ -2263,6 +2265,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       >
         <label
           class="config-radio-button-wrapper"
+          for="config-radio-button-wrapper"
         >
           <span
             class="config-radio-button"
@@ -2282,6 +2285,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </label>
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
+          for="config-radio-button-wrapper config-radio-button-wrapper-checked"
         >
           <span
             class="config-radio-button config-radio-button-checked"
@@ -2672,6 +2676,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -2692,6 +2697,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         </label>
         <label
           class="ant-radio-button-wrapper"
+          for="ant-radio-button-wrapper"
         >
           <span
             class="ant-radio-button"
@@ -3662,6 +3668,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       >
         <label
           class="ant-radio-button-wrapper"
+          for="ant-radio-button-wrapper"
         >
           <span
             class="ant-radio-button"
@@ -3681,6 +3688,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         </label>
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -4071,6 +4079,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -4091,6 +4100,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         </label>
         <label
           class="ant-radio-button-wrapper"
+          for="ant-radio-button-wrapper"
         >
           <span
             class="ant-radio-button"
@@ -5061,6 +5071,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       >
         <label
           class="ant-radio-button-wrapper"
+          for="ant-radio-button-wrapper"
         >
           <span
             class="ant-radio-button"
@@ -5080,6 +5091,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         </label>
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+          for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
@@ -5919,6 +5931,7 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
 >
   <label
     class="config-checkbox-wrapper"
+    for="checkbox-label"
   >
     <span
       class="config-checkbox"
@@ -5944,6 +5957,7 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
 >
   <label
     class="ant-checkbox-wrapper"
+    for="checkbox-label"
   >
     <span
       class="ant-checkbox"
@@ -5969,6 +5983,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 >
   <label
     class="prefix-Checkbox-wrapper"
+    for="checkbox-label"
   >
     <span
       class="prefix-Checkbox"
@@ -9682,6 +9697,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked"
+      for="config-radio-wrapper config-radio-wrapper-checked"
     >
       <span
         class="config-radio config-radio-checked"
@@ -9705,6 +9721,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked"
+      for="config-radio-button-wrapper config-radio-button-wrapper-checked"
     >
       <span
         class="config-radio-button config-radio-button-checked"
@@ -9733,6 +9750,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
+      for="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
         class="ant-radio ant-radio-checked"
@@ -9756,6 +9774,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -9784,6 +9803,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
   >
     <label
       class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
+      for="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
     >
       <span
         class="prefix-Radio prefix-Radio-checked"
@@ -9807,6 +9827,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
   >
     <label
       class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
+      for="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
     >
       <span
         class="prefix-Radio prefix-Radio-checked"
@@ -11630,6 +11651,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             >
                               <label
                                 class="config-checkbox-wrapper"
+                                for="checkbox-label"
                               >
                                 <span
                                   class="config-checkbox"
@@ -11876,6 +11898,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                             >
                               <label
                                 class="ant-checkbox-wrapper"
+                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -12122,6 +12145,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             >
                               <label
                                 class="ant-checkbox-wrapper"
+                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -12658,6 +12682,7 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
   <span
     class="prefix-Tags"
+    prefixcls="prefix-Tags"
   >
     Bamboo
   </span>
@@ -16107,6 +16132,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     >
       <label
         class="config-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="config-checkbox"
@@ -16247,6 +16273,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
     >
       <label
         class="config-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="config-checkbox"
@@ -16340,6 +16367,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -16480,6 +16508,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -16573,6 +16602,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -16713,6 +16743,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"

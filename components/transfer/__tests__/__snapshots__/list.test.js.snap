@@ -9,6 +9,7 @@ exports[`Transfer.List should render correctly 1`] = `
   >
     <label
       class="ant-checkbox-wrapper"
+      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-indeterminate"
@@ -45,6 +46,7 @@ exports[`Transfer.List should render correctly 1`] = `
       >
         <label
           class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+          for="checkbox-label"
         >
           <span
             class="ant-checkbox ant-checkbox-checked"
@@ -69,6 +71,7 @@ exports[`Transfer.List should render correctly 1`] = `
       >
         <label
           class="ant-checkbox-wrapper"
+          for="checkbox-label"
         >
           <span
             class="ant-checkbox"
@@ -92,6 +95,7 @@ exports[`Transfer.List should render correctly 1`] = `
       >
         <label
           class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+          for="checkbox-label"
         >
           <span
             class="ant-checkbox ant-checkbox-disabled"

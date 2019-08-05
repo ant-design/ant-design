@@ -154,6 +154,9 @@ describe('Radio', () => {
   });
 
   it('optional should correct render', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
     const wrapper = mount(createRadioGroupByOption());
     const radios = wrapper.find('input');
 

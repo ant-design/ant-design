@@ -54,6 +54,7 @@ export interface DropDownProps {
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
   static Button: typeof DropdownButton;
+
   static defaultProps = {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
@@ -90,7 +91,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     warning(
       !overlayProps.mode || overlayProps.mode === 'vertical',
       'Dropdown',
-      `mode="${overlayProps.mode}" is not supported for Dropdown\'s Menu.`,
+      `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
     );
 
     // menu cannot be selectable in dropdown defaultly

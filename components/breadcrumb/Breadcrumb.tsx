@@ -1,6 +1,5 @@
-import * as React from 'react';
+import React, { cloneElement } from 'react';
 import * as PropTypes from 'prop-types';
-import { cloneElement } from 'react';
 import classNames from 'classnames';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
@@ -60,11 +59,10 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     prefixCls: PropTypes.string,
     separator: PropTypes.node,
     routes: PropTypes.array,
-    params: PropTypes.object,
   };
 
   componentDidMount() {
-    const props = this.props;
+    const { props } = this;
     warning(
       !('linkRender' in props || 'nameRender' in props),
       'Breadcrumb',
@@ -124,6 +122,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       );
     });
   };
+
   renderBreadcrumb = ({ getPrefixCls }: ConfigConsumerProps) => {
     let crumbs;
     const {

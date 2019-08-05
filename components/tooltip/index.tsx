@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { cloneElement } from 'react';
+import React, { cloneElement } from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
@@ -82,6 +81,50 @@ const splitObject = (obj: any, keys: string[]) => {
   return { picked, omitted };
 };
 
+// Fix Tooltip won't hide at disabled button
+// mouse events don't trigger at disabled button in Chrome
+// https://github.com/react-component/tooltip/issues/18
+function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
+  const elementType = element.type as any;
+  if (
+    (elementType.__ANT_BUTTON || elementType.__ANT_SWITCH || element.type === 'button') &&
+    element.props.disabled
+  ) {
+    // Pick some layout related style properties up to span
+    // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
+    const { picked, omitted } = splitObject(element.props.style, [
+      'position',
+      'left',
+      'right',
+      'top',
+      'bottom',
+      'float',
+      'display',
+      'zIndex',
+    ]);
+    const spanStyle = {
+      display: 'inline-block', // default inline-block is important
+      ...picked,
+      cursor: 'not-allowed',
+      width: element.props.block ? '100%' : null,
+    };
+    const buttonStyle = {
+      ...omitted,
+      pointerEvents: 'none',
+    };
+    const child = cloneElement(element, {
+      style: buttonStyle,
+      className: null,
+    });
+    return (
+      <span style={spanStyle} className={element.props.className}>
+        {child}
+      </span>
+    );
+  }
+  return element;
+}
+
 class Tooltip extends React.Component<TooltipProps, any> {
   static defaultProps = {
     placement: 'top' as TooltipPlacement,
@@ -135,54 +178,9 @@ class Tooltip extends React.Component<TooltipProps, any> {
     );
   }
 
-  // Fix Tooltip won't hide at disabled button
-  // mouse events don't trigger at disabled button in Chrome
-  // https://github.com/react-component/tooltip/issues/18
-  getDisabledCompatibleChildren(element: React.ReactElement<any>) {
-    const elementType = element.type as any;
-    if (
-      (elementType.__ANT_BUTTON || elementType.__ANT_SWITCH || element.type === 'button') &&
-      element.props.disabled
-    ) {
-      // Pick some layout related style properties up to span
-      // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254
-      const { picked, omitted } = splitObject(element.props.style, [
-        'position',
-        'left',
-        'right',
-        'top',
-        'bottom',
-        'float',
-        'display',
-        'zIndex',
-      ]);
-      const spanStyle = {
-        display: 'inline-block', // default inline-block is important
-        ...picked,
-        cursor: 'not-allowed',
-        width: element.props.block ? '100%' : null,
-      };
-      const buttonStyle = {
-        ...omitted,
-        pointerEvents: 'none',
-      };
-      const child = cloneElement(element, {
-        style: buttonStyle,
-        className: null,
-      });
-      return (
-        <span style={spanStyle} className={element.props.className}>
-          {child}
-        </span>
-      );
-    }
-    return element;
-  }
-
-  isNoTitle() {
-    const { title, overlay } = this.props;
-    return !title && !overlay; // overlay for old version compatibility
-  }
+  saveTooltip = (node: typeof RcTooltip) => {
+    this.tooltip = node;
+  };
 
   // 动态设置动画点
   onPopupAlign = (domNode: HTMLElement, align: any) => {
@@ -215,9 +213,10 @@ class Tooltip extends React.Component<TooltipProps, any> {
     domNode.style.transformOrigin = `${transformOrigin.left} ${transformOrigin.top}`;
   };
 
-  saveTooltip = (node: typeof RcTooltip) => {
-    this.tooltip = node;
-  };
+  isNoTitle() {
+    const { title, overlay } = this.props;
+    return !title && !overlay; // overlay for old version compatibility
+  }
 
   renderTooltip = ({
     getPopupContainer: getContextPopupContainer,
@@ -234,13 +233,13 @@ class Tooltip extends React.Component<TooltipProps, any> {
     } = props;
     const children = props.children as React.ReactElement<any>;
     const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
-    let visible = state.visible;
+    let { visible } = state;
     // Hide tooltip when there is no title
     if (!('visible' in props) && this.isNoTitle()) {
       visible = false;
     }
 
-    const child = this.getDisabledCompatibleChildren(
+    const child = getDisabledCompatibleChildren(
       React.isValidElement(children) ? children : <span>{children}</span>,
     );
 

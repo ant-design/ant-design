@@ -80,7 +80,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={close.bind(this, { triggerCancel: true })}
+      onCancel={() => close({ triggerCancel: true })}
       visible={visible}
       title=""
       transitionName={transitionName}
@@ -123,28 +123,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
+  /* eslint-disable no-use-before-define */
   let currentConfig = { ...config, close, visible: true } as any;
-
-  function close(...args: any[]) {
-    currentConfig = {
-      ...currentConfig,
-      visible: false,
-      afterClose: destroy.bind(this, ...args),
-    };
-    if (IS_REACT_16) {
-      render(currentConfig);
-    } else {
-      destroy(...args);
-    }
-  }
-
-  function update(newConfig: ModalFuncProps) {
-    currentConfig = {
-      ...currentConfig,
-      ...newConfig,
-    };
-    render(currentConfig);
-  }
 
   function destroy(...args: any[]) {
     const unmountResult = ReactDOM.unmountComponentAtNode(div);
@@ -165,7 +145,28 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   function render(props: any) {
-    ReactDOM.render(<ConfirmDialog {...props} getContainer={false}/>, div);
+    ReactDOM.render(<ConfirmDialog {...props} getContainer={false} />, div);
+  }
+
+  function close(...args: any[]) {
+    currentConfig = {
+      ...currentConfig,
+      visible: false,
+      afterClose: destroy.bind(this, ...args),
+    };
+    if (IS_REACT_16) {
+      render(currentConfig);
+    } else {
+      destroy(...args);
+    }
+  }
+
+  function update(newConfig: ModalFuncProps) {
+    currentConfig = {
+      ...currentConfig,
+      ...newConfig,
+    };
+    render(currentConfig);
   }
 
   render(currentConfig);

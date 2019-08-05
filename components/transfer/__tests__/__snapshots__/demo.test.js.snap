@@ -13,6 +13,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -208,6 +209,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -350,6 +352,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       >
         <label
           class="ant-checkbox-wrapper"
+          for="checkbox-label"
         >
           <span
             class="ant-checkbox"
@@ -503,6 +506,7 @@ exports[`renders ./components/transfer/demo/basic.md correctly 1`] = `
       >
         <label
           class="ant-checkbox-wrapper"
+          for="checkbox-label"
         >
           <span
             class="ant-checkbox"
@@ -592,6 +596,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -733,6 +738,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -826,6 +832,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -966,6 +973,7 @@ exports[`renders ./components/transfer/demo/large-data.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -1059,6 +1067,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -1234,6 +1243,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
+        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -1426,6 +1436,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                                     >
                                       <label
                                         class="ant-checkbox-wrapper"
+                                        for="checkbox-label"
                                       >
                                         <span
                                           class="ant-checkbox"
@@ -1516,6 +1527,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox ant-checkbox-disabled"
@@ -1562,6 +1574,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -1607,6 +1620,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -1652,6 +1666,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox ant-checkbox-disabled"
@@ -1698,6 +1713,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -1743,6 +1759,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -1788,6 +1805,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -1833,6 +1851,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -1878,6 +1897,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox ant-checkbox-disabled"
@@ -1924,6 +1944,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -2175,6 +2196,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                                     >
                                       <label
                                         class="ant-checkbox-wrapper"
+                                        for="checkbox-label"
                                       >
                                         <span
                                           class="ant-checkbox"
@@ -2229,6 +2251,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -2260,6 +2283,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -2291,6 +2315,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox ant-checkbox-disabled"
@@ -2323,6 +2348,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -2354,6 +2380,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -2385,6 +2412,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               <span>
                                 <label
                                   class="ant-checkbox-wrapper"
+                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"

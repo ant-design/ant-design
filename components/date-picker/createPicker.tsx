@@ -78,12 +78,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       }
     }
 
-    renderFooter = (...args: any[]) => {
-      const { renderExtraFooter } = this.props;
-      const { prefixCls } = this;
-      return renderExtraFooter ? (
-        <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
-      ) : null;
+    saveInput = (node: any) => {
+      this.input = node;
     };
 
     clearSelection = (e: React.MouseEvent<HTMLElement>) => {
@@ -126,8 +122,12 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
       this.input.blur();
     }
 
-    saveInput = (node: any) => {
-      this.input = node;
+    renderFooter = (...args: any[]) => {
+      const { renderExtraFooter } = this.props;
+      const { prefixCls } = this;
+      return renderExtraFooter ? (
+        <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
+      ) : null;
     };
 
     renderPicker = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -272,5 +272,6 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
     }
   }
   polyfill(CalenderWrapper);
+
   return CalenderWrapper;
 }

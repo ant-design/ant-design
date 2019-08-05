@@ -42,17 +42,22 @@ export interface MentionState {
 
 class Mention extends React.Component<MentionProps, MentionState> {
   static getMentions = getMentions;
+
   static defaultProps = {
     notFoundContent: 'No matches found',
     loading: false,
     multiLines: false,
     placement: 'bottom' as MentionPlacement,
   };
+
   static Nav = Nav;
+
   static toString = toString;
+
   static toContentState = toEditorState;
 
   private mentionEle: any;
+
   constructor(props: MentionProps) {
     super(props);
     this.state = {
@@ -67,6 +72,10 @@ class Mention extends React.Component<MentionProps, MentionState> {
     );
   }
 
+  mentionRef = (ele: any) => {
+    this.mentionEle = ele;
+  };
+
   onSearchChange = (value: string, prefix: string) => {
     if (this.props.onSearchChange) {
       return this.props.onSearchChange(value, prefix);
@@ -79,22 +88,6 @@ class Mention extends React.Component<MentionProps, MentionState> {
       this.props.onChange(editorState);
     }
   };
-
-  defaultSearchChange(value: string): void {
-    const searchValue = value.toLowerCase();
-    const filteredSuggestions = (this.props.defaultSuggestions || []).filter(suggestion => {
-      if (typeof suggestion === 'string') {
-        return suggestion.toLowerCase().indexOf(searchValue) !== -1;
-      } else if (suggestion.type && suggestion.type === Nav) {
-        return suggestion.props.value
-          ? suggestion.props.value.toLowerCase().indexOf(searchValue) !== -1
-          : true;
-      }
-    });
-    this.setState({
-      filteredSuggestions,
-    });
-  }
 
   onFocus = (ev: React.FocusEvent<HTMLElement>) => {
     this.setState({
@@ -118,9 +111,24 @@ class Mention extends React.Component<MentionProps, MentionState> {
     this.mentionEle._editor.focusEditor();
   };
 
-  mentionRef = (ele: any) => {
-    this.mentionEle = ele;
-  };
+  defaultSearchChange(value: string): void {
+    const searchValue = value.toLowerCase();
+    const filteredSuggestions = (this.props.defaultSuggestions || []).filter(suggestion => {
+      if (typeof suggestion === 'string') {
+        return suggestion.toLowerCase().indexOf(searchValue) !== -1;
+      }
+      if (suggestion.type && suggestion.type === Nav) {
+        return suggestion.props.value
+          ? suggestion.props.value.toLowerCase().indexOf(searchValue) !== -1
+          : true;
+      }
+      return false;
+    });
+    this.setState({
+      filteredSuggestions,
+    });
+  }
+
   renderMention = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,

@@ -108,7 +108,7 @@ function getNotificationInstance(
       className: `${prefixCls}-${placement}`,
       style: getPlacementStyle(placement, top, bottom),
       getContainer,
-      closeIcon: <Icon className={`${prefixCls}-close-icon`} type={'close'} />,
+      closeIcon: <Icon className={`${prefixCls}-close-icon`} type="close" />,
     },
     (notification: any) => {
       notificationInstance[cacheKey] = notification;

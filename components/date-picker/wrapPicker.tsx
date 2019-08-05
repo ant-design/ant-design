@@ -89,6 +89,22 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
       }
     }
 
+    savePicker = (node: any) => {
+      this.picker = node;
+    };
+
+    getDefaultLocale = () => {
+      const result = {
+        ...enUS,
+        ...this.props.locale,
+      };
+      result.lang = {
+        ...result.lang,
+        ...(this.props.locale || {}).lang,
+      };
+      return result;
+    };
+
     handleOpenChange = (open: boolean) => {
       const { onOpenChange } = this.props;
       onOpenChange(open);
@@ -129,22 +145,6 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
     blur() {
       this.picker.blur();
     }
-
-    savePicker = (node: any) => {
-      this.picker = node;
-    };
-
-    getDefaultLocale = () => {
-      const result = {
-        ...enUS,
-        ...this.props.locale,
-      };
-      result.lang = {
-        ...result.lang,
-        ...(this.props.locale || {}).lang,
-      };
-      return result;
-    };
 
     renderPicker = (locale: any, localeCode: string) => {
       const { format, showTime } = this.props;

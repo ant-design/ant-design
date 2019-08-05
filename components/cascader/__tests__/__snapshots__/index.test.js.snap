@@ -1218,7 +1218,7 @@ exports[`Cascader should render not found content 1`] = `
                       >
                         <Empty
                           className="ant-empty-small"
-                          image={<_default />}
+                          image={<Simple />}
                         >
                           <LocaleReceiver
                             componentName="Empty"
@@ -1229,7 +1229,7 @@ exports[`Cascader should render not found content 1`] = `
                               <div
                                 className="ant-empty-image"
                               >
-                                <_default>
+                                <Simple>
                                   <svg
                                     height="41"
                                     viewBox="0 0 64 41"
@@ -1262,7 +1262,7 @@ exports[`Cascader should render not found content 1`] = `
                                       </g>
                                     </g>
                                   </svg>
-                                </_default>
+                                </Simple>
                               </div>
                               <p
                                 className="ant-empty-description"
@@ -1541,7 +1541,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                       >
                         <Empty
                           className="ant-empty-small"
-                          image={<_default />}
+                          image={<Simple />}
                         >
                           <LocaleReceiver
                             componentName="Empty"
@@ -1552,7 +1552,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                               <div
                                 className="ant-empty-image"
                               >
-                                <_default>
+                                <Simple>
                                   <svg
                                     height="41"
                                     viewBox="0 0 64 41"
@@ -1585,7 +1585,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                                       </g>
                                     </g>
                                   </svg>
-                                </_default>
+                                </Simple>
                               </div>
                               <p
                                 className="ant-empty-description"

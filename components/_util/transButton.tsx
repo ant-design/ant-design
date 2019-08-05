@@ -20,6 +20,7 @@ const inlineStyle: React.CSSProperties = {
 
 class TransButton extends React.Component<TransButtonProps> {
   div?: HTMLDivElement;
+
   lastKeyCode?: number;
 
   onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {

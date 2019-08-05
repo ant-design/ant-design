@@ -1,9 +1,10 @@
+/* eslint-disable react/button-has-type */
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
-import Group from './button-group';
 import omit from 'omit.js';
+import Group from './button-group';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
@@ -13,29 +14,6 @@ const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str: any) {
   return typeof str === 'string';
-}
-
-function spaceChildren(children: React.ReactNode, needInserted: boolean) {
-  let isPrevChildPure: boolean = false;
-  const childList: React.ReactNode[] = [];
-  React.Children.forEach(children, child => {
-    const type = typeof child;
-    const isCurrentChildPure = type === 'string' || type === 'number';
-    if (isPrevChildPure && isCurrentChildPure) {
-      const lastIndex = childList.length - 1;
-      const lastChild = childList[lastIndex];
-      childList[lastIndex] = `${lastChild}${child}`;
-    } else {
-      childList.push(child);
-    }
-
-    isPrevChildPure = isCurrentChildPure;
-  });
-
-  // Pass to React.Children.map to auto fill key
-  return React.Children.map(childList, child =>
-    insertSpace(child as React.ReactChild, needInserted),
-  );
 }
 
 // Insert one space between two chinese characters automatically.
@@ -61,6 +39,29 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
     return <span>{child}</span>;
   }
   return child;
+}
+
+function spaceChildren(children: React.ReactNode, needInserted: boolean) {
+  let isPrevChildPure: boolean = false;
+  const childList: React.ReactNode[] = [];
+  React.Children.forEach(children, child => {
+    const type = typeof child;
+    const isCurrentChildPure = type === 'string' || type === 'number';
+    if (isPrevChildPure && isCurrentChildPure) {
+      const lastIndex = childList.length - 1;
+      const lastChild = childList[lastIndex];
+      childList[lastIndex] = `${lastChild}${child}`;
+    } else {
+      childList.push(child);
+    }
+
+    isPrevChildPure = isCurrentChildPure;
+  });
+
+  // Pass to React.Children.map to auto fill key
+  return React.Children.map(childList, child =>
+    insertSpace(child as React.ReactChild, needInserted),
+  );
 }
 
 const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
@@ -110,6 +111,7 @@ interface ButtonState {
 
 class Button extends React.Component<ButtonProps, ButtonState> {
   static Group: typeof Group;
+
   static __ANT_BUTTON = true;
 
   static defaultProps = {
@@ -142,6 +144,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
   }
 
   private delayTimeout: number;
+
   private buttonNode: HTMLElement | null;
 
   constructor(props: ButtonProps) {
@@ -166,9 +169,8 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     const { loading } = this.props;
     if (loading && typeof loading !== 'boolean' && loading.delay) {
       this.delayTimeout = window.setTimeout(() => this.setState({ loading }), loading.delay);
-    } else if (prevProps.loading === this.props.loading) {
-      return;
-    } else {
+    } else if (prevProps.loading !== this.props.loading) {
+      /* eslint-disable react/no-did-update-set-state */
       this.setState({ loading });
     }
   }
@@ -181,6 +183,17 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   saveButtonRef = (node: HTMLElement | null) => {
     this.buttonNode = node;
+  };
+
+  handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
+    const { loading } = this.state;
+    const { onClick } = this.props;
+    if (loading) {
+      return;
+    }
+    if (onClick) {
+      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
+    }
   };
 
   fixTwoCNChar() {
@@ -202,17 +215,6 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     }
   }
 
-  handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
-    const { loading } = this.state;
-    const { onClick } = this.props;
-    if (!!loading) {
-      return;
-    }
-    if (onClick) {
-      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
-    }
-  };
-
   isNeedInserted() {
     const { icon, children } = this.props;
     return React.Children.count(children) === 1 && !icon;
@@ -228,7 +230,6 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       children,
       icon,
       ghost,
-      loading: _loadingProp,
       block,
       ...rest
     } = this.props;
@@ -289,7 +290,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
     const buttonNode = (
       <button
-        {...(otherProps as NativeButtonProps)}
+        {...(omit(otherProps, ['loading']) as NativeButtonProps)}
         type={htmlType}
         className={classes}
         onClick={this.handleClick}

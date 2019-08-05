@@ -9,6 +9,7 @@ export interface SkeletonAvatarProps {
   shape?: 'circle' | 'square';
 }
 
+/* eslint-disable react/prefer-stateless-function */
 class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
   static defaultProps: Partial<SkeletonAvatarProps> = {
     size: 'large',
