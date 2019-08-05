@@ -15,6 +15,10 @@ timeline: true
 
 ---
 
+## 3.21.1
+
+- 🐞 Fix ConfigProvider crash with multiple children. [#18075](https://github.com/ant-design/ant-design/pull/18075)
+
 ## 3.21.0
 
 - 🌟 Breadcrumb adds `Separator` component. [#17873](https://github.com/ant-design/ant-design/pull/17873) [@long-zhuge](https://github.com/long-zhuge)
@@ -39,7 +43,7 @@ timeline: true
 - 💄 Merge LocaleProvider into ConfigProvider. [#17816](https://github.com/ant-design/ant-design/pull/17816)
 - 💄 Add some less variables. [#17976](https://github.com/ant-design/ant-design/pull/17976) [@Yangzhedi](https://github.com/Yangzhedi) [#17613](https://github.com/ant-design/ant-design/pull/17613) [@alxkosov](https://github.com/alxkosov):
   - `@table-footer-bg`
-  - `@table-footer-color `
+  - `@table-footer-color`
   - `@menu-icon-size`
   - `@menu-icon-size-lg`
 - 🇲🇾 Add locale Malay. [#17546](https://github.com/ant-design/ant-design/pull/17546) [@austin-krave](https://github.com/austin-krave)
