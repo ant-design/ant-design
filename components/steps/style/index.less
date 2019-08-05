@@ -145,9 +145,10 @@
   &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title::after {
     background: @error-icon-color;
   }
+}
 
-  // ===================== Clickable =====================
-
+// ===================== Clickable =====================
+.@{steps-prefix-cls}:not(.@{steps-prefix-cls}-navigation) .@{steps-prefix-cls}-item {
   &:not(.@{steps-prefix-cls}-item-active) {
     & > .@{steps-prefix-cls}-item-container[role='button'] {
       cursor: pointer;
@@ -163,6 +164,7 @@
       &:hover {
         .@{steps-prefix-cls}-item {
           &-title,
+          &-subtitle,
           &-description {
             color: @primary-color;
           }
