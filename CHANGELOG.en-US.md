@@ -2060,13 +2060,13 @@ We provide a [migration tool](https://github.com/ant-design/antd-migration-helpe
 - Improved global reset style, if you encounter style problem after upgrading, you can try import our v2 compatible style.
 
   ```javascript
-  import 'antd/lib/style/v2-compatible-reset';
+  import 'antd/es/style/v2-compatible-reset';
   ```
 
   Or use less
 
   ```less
-  @import '~antd/lib/style/v2-compatible-reset.less';
+  @import '~antd/es/style/v2-compatible-reset.less';
   ```
 
 - Since we changed default locale to en_US, LocalProvider is not required any more for English users.

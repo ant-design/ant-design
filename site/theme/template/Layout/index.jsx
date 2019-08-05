@@ -7,7 +7,7 @@ import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
-import zhCN from 'antd/lib/locale-provider/zh_CN';
+import zhCN from 'antd/es/locale/zh_CN';
 import Header from './Header';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
