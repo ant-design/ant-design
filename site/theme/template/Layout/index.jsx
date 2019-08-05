@@ -7,6 +7,7 @@ import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
+/* eslint-disable import/no-unresolved */
 import zhCN from 'antd/es/locale/zh_CN';
 import Header from './Header';
 import enLocale from '../../en-US';
