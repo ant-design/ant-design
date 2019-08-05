@@ -54,6 +54,7 @@ class Demo extends React.Component {
             <Step
               title="Step 3"
               subTitle="waiting for longlong time"
+              status="wait"
               description="This is a description."
             />
           </Steps>

@@ -1,9 +1,11 @@
 .@{steps-prefix-cls}-navigation {
   padding-top: 12px;
 
-  .@{steps-prefix-cls}-item .@{steps-prefix-cls}-small {
-    &-container {
-      margin-left: -12px;
+  &.@{steps-prefix-cls}-small {
+    .@{steps-prefix-cls}-item {
+      &-container {
+        margin-left: -12px;
+      }
     }
   }
 
@@ -74,7 +76,7 @@
       position: absolute;
       left: 50%;
       bottom: 0;
-      height: 2px;
+      height: 3px;
       width: 0;
       background-color: @steps-nav-active-color;
       transition: width 0.3s, left 0.3s;
