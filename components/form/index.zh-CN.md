@@ -83,9 +83,9 @@ this.form // => The instance of CustomizedForm
 
 > 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
 
-| 方法       | 说明                                     | 类型       | 版本 |
+| 方法 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 |  |
+| getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 |  |  |
 | getFieldError | 获取某个输入控件的 Error | Function(name) |  |
 | getFieldsError | 获取一组输入控件的 Error ，如不传入参数，则获取全部组件的 Error | Function(\[names: string\[]]) |  |
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function(\[fieldNames: string\[]]) |  |

@@ -211,36 +211,50 @@
 
 .markdown.api-container {
   overflow-x: auto;
+
   table {
-    min-width: 719px;
+    min-width: 720px;
     margin: 2em 0;
-    font-size: @font-size-base;
+    font-size: @font-size-base - 1px;
     font-family: @code-family;
     line-height: @line-height-base;
-    border-width: 0;
+    border: 1px solid @border-color-split;
+
     th,
     td {
-      padding: 14px 16px;
+      padding: 12px;
       border-color: @border-color-split;
       border-width: 1px 0;
     }
+
     th {
+      padding-top: 14px;
       border-width: 0 0 2px 0;
     }
-    td:first-child {
-      width: 20%;
-      color: @blue-9;
-      font-weight: 500;
+
+    tbody tr {
+      transition: all 0.3s;
+      &:hover {
+        background: rgba(60, 90, 100, 0.04);
+      }
     }
-    td:nth-child(3) {
-      width: 22%;
-      color: @magenta-7;
-      font-size: @font-size-base - 1px;
-      word-break: break-all;
-    }
-    td:nth-child(4) {
-      width: 13%;
-      font-size: @font-size-base - 1px;
+
+    td {
+      &:first-child {
+        width: 20%;
+        color: @gray-8;
+        font-weight: 600;
+      }
+      &:nth-child(3) {
+        width: 22%;
+        color: @magenta-7;
+        font-size: @font-size-base - 1px;
+        word-break: break-all;
+      }
+      &:nth-child(4) {
+        width: 13%;
+        font-size: @font-size-base - 1px;
+      }
     }
   }
 }
