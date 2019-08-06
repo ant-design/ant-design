@@ -5,21 +5,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import calculateNodeHeight from './calculateNodeHeight';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import ResizeObserver from '../_util/resizeObserver';
-
-function onNextFrame(cb: () => void) {
-  if (window.requestAnimationFrame) {
-    return window.requestAnimationFrame(cb);
-  }
-  return window.setTimeout(cb, 1);
-}
-
-function clearNextFrameAction(nextFrameId: number) {
-  if (window.cancelAnimationFrame) {
-    window.cancelAnimationFrame(nextFrameId);
-  } else {
-    window.clearTimeout(nextFrameId);
-  }
-}
+import raf from '../_util/raf';
 
 export interface AutoSizeType {
   minRows?: number;
@@ -36,13 +22,17 @@ export interface TextAreaProps extends HTMLTextareaProps {
 
 export interface TextAreaState {
   textareaStyles?: React.CSSProperties;
+  /** We need add process style to disable scroll first and then add back to avoid unexpected scrollbar  */
+  resizing?: boolean;
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   nextFrameActionId: number;
+  resizeFrameId: number;
 
   state = {
     textareaStyles: {},
+    resizing: false,
   };
 
   private textAreaRef: HTMLTextAreaElement;
@@ -58,11 +48,14 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
   }
 
+  componentWillUnmount() {
+    raf.cancel(this.nextFrameActionId);
+    raf.cancel(this.resizeFrameId);
+  }
+
   resizeOnNextFrame = () => {
-    if (this.nextFrameActionId) {
-      clearNextFrameAction(this.nextFrameActionId);
-    }
-    this.nextFrameActionId = onNextFrame(this.resizeTextarea);
+    raf.cancel(this.nextFrameActionId);
+    this.nextFrameActionId = raf(this.resizeTextarea);
   };
 
   focus() {
@@ -80,7 +73,12 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
     const { minRows, maxRows } = autosize as AutoSizeType;
     const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
-    this.setState({ textareaStyles });
+    this.setState({ textareaStyles, resizing: true }, () => {
+      raf.cancel(this.resizeFrameId);
+      this.resizeFrameId = raf(() => {
+        this.setState({ resizing: false });
+      });
+    });
   };
 
   handleTextareaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -108,6 +106,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   renderTextArea = ({ getPrefixCls }: ConfigConsumerProps) => {
+    const { textareaStyles, resizing } = this.state;
     const { prefixCls: customizePrefixCls, className, disabled, autosize } = this.props;
     const { ...props } = this.props;
     const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autosize']);
@@ -118,7 +117,8 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
     const style = {
       ...props.style,
-      ...this.state.textareaStyles,
+      ...textareaStyles,
+      ...(resizing ? { overflow: 'hidden' } : null),
     };
     // Fix https://github.com/ant-design/ant-design/issues/6776
     // Make sure it could be reset when using form.getFieldDecorator

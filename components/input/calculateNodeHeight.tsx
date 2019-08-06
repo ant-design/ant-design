@@ -4,7 +4,7 @@
  * calculateNodeHeight(uiTextNode, useCache = false)
  */
 
-const HIDDEN_TEXTAREA_STYLE = `
+const HIDDEN_TEXTAREA_STYLE1 = `
   min-height:0 !important;
   max-height:none !important;
   height:0 !important;
@@ -12,6 +12,16 @@ const HIDDEN_TEXTAREA_STYLE = `
   overflow:hidden !important;
   position:absolute !important;
   z-index:-1000 !important;
+  top:0 !important;
+  right:0 !important
+`;
+const HIDDEN_TEXTAREA_STYLE = `
+  min-height:0 !important;
+  max-height:none !important;
+  height:0 !important;
+  overflow:hidden !important;
+  position:absolute !important;
+  z-index:1000 !important;
   top:0 !important;
   right:0 !important
 `;
