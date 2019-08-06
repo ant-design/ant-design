@@ -242,6 +242,13 @@
     }
   }
 
+  // Create a empty element to aovid margin merge
+  // https://github.com/ant-design/ant-design/issues/18103
+  &-content::before {
+    content: '';
+    display: inline-block;
+  }
+
   // Horizontal Content
   .@{tab-prefix-cls}-top-content,
   .@{tab-prefix-cls}-bottom-content {
