@@ -1,3 +1,6 @@
+// TODO: remove this lint
+// SFC has specified a displayName, but not worked.
+/* eslint-disable react/display-name */
 import * as React from 'react';
 import createReactContext from '@ant-design/create-react-context';
 

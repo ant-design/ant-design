@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default () => (
+const Simple = () => (
   <svg width="64" height="41" viewBox="0 0 64 41" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(0 1)" fill="none" fillRule="evenodd">
       <ellipse fill="#F5F5F5" cx="32" cy="33" rx="32" ry="7" />
@@ -14,3 +14,5 @@ export default () => (
     </g>
   </svg>
 );
+
+export default Simple;

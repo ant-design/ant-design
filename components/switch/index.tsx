@@ -43,6 +43,10 @@ export default class Switch extends React.Component<SwitchProps, {}> {
 
   private rcSwitch: typeof RcSwitch;
 
+  saveSwitch = (node: typeof RcSwitch) => {
+    this.rcSwitch = node;
+  };
+
   focus() {
     this.rcSwitch.focus();
   }
@@ -50,10 +54,6 @@ export default class Switch extends React.Component<SwitchProps, {}> {
   blur() {
     this.rcSwitch.blur();
   }
-
-  saveSwitch = (node: typeof RcSwitch) => {
-    this.rcSwitch = node;
-  };
 
   renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;

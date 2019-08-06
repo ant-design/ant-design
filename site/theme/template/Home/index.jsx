@@ -58,7 +58,7 @@ function getStyle() {
   `;
 }
 
-/* eslint-disable react/prefer-stateless-function */
+// eslint-disable-next-line react/prefer-stateless-function
 class Home extends React.Component {
   static contextTypes = {
     intl: PropTypes.object.isRequired,

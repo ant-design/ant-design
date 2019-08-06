@@ -7,6 +7,7 @@ import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
+// eslint-disable-next-line import/no-unresolved
 import zhCN from 'antd/es/locale/zh_CN';
 import Header from './Header';
 import enLocale from '../../en-US';
@@ -20,14 +21,14 @@ if (typeof window !== 'undefined' && navigator.serviceWorker) {
 }
 
 if (typeof window !== 'undefined') {
-  /* eslint-disable global-require */
+  // eslint-disable-next-line global-require
   require('../../static/style');
 
   // Expose to iframe
   window.react = React;
   window['react-dom'] = ReactDOM;
+  // eslint-disable-next-line global-require
   window.antd = require('antd');
-  /* eslint-enable global-require */
 
   // Error log statistic
   window.addEventListener('error', function onError(e) {

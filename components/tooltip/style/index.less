@@ -69,22 +69,22 @@
     display: block;
     width: @tooltip-arrow-rotate-width;
     height: @tooltip-arrow-rotate-width;
-    background: transparent;
     overflow: hidden;
+    background: transparent;
     pointer-events: none;
 
     &::before {
-      width: @tooltip-arrow-width;
-      height: @tooltip-arrow-width;
-      content: '';
-      display: block;
-      margin: auto;
+      position: absolute;
       top: 0;
+      right: 0;
       bottom: 0;
       left: 0;
-      right: 0;
+      display: block;
+      width: @tooltip-arrow-width;
+      height: @tooltip-arrow-width;
+      margin: auto;
       background-color: @tooltip-bg;
-      position: absolute;
+      content: '';
       pointer-events: auto;
     }
   }
@@ -95,8 +95,8 @@
     bottom: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
-      transform: translateY(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
+      transform: translateY(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
 
@@ -119,8 +119,8 @@
     left: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
-      transform: translateX(@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
+      transform: translateX(@tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
 
@@ -143,8 +143,8 @@
     right: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
-      transform: translateX(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
+      transform: translateX(-@tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
 
@@ -167,8 +167,8 @@
     top: @tooltip-distance - @tooltip-arrow-rotate-width;
 
     &::before {
-      transform: translateY(@tooltip-arrow-rotate-width / 2) rotate(45deg);
       box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
+      transform: translateY(@tooltip-arrow-rotate-width / 2) rotate(45deg);
     }
   }
 

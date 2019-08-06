@@ -156,13 +156,17 @@ class Descriptions extends React.Component<
     size: 'default',
     column: defaultColumnMap,
   };
+
   static Item: typeof DescriptionsItem = DescriptionsItem;
+
   state: {
     screens: BreakpointMap;
   } = {
     screens: {},
   };
+
   token: string;
+
   componentDidMount() {
     const { column } = this.props;
     this.token = ResponsiveObserve.subscribe(screens => {
@@ -189,7 +193,7 @@ class Descriptions extends React.Component<
         }
       }
     }
-    //If the configuration is not an object, it is a number, return number
+    // If the configuration is not an object, it is a number, return number
     if (typeof column === 'number') {
       return column as number;
     }
