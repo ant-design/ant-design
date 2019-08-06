@@ -426,7 +426,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       getPopupContainer: getContextPopupContainer,
       getPrefixCls,
       renderEmpty,
-      layoutDirection,
+      direction,
     }: ConfigConsumerProps,
     locale: CascaderLocale,
   ) => {
@@ -447,7 +447,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       ...otherProps
     } = props;
 
-    const isRtlLayout = layoutDirection === 'rtl';
+    const isRtlLayout = direction === 'rtl';
     const { value, inputFocused } = state;
 
     const prefixCls = getPrefixCls('cascader', customizePrefixCls);
@@ -598,7 +598,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
         expandIcon={expandIcon}
         loadingIcon={loadingIcon}
-        popupClassName={layoutDirection}
+        popupClassName={direction}
       >
         {input}
       </RcCascader>

@@ -18,7 +18,7 @@ export interface ConfigConsumerProps {
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
-  layoutDirection?: string;
+  direction?: string;
 }
 
 export const configConsumerProps = [
@@ -29,7 +29,7 @@ export const configConsumerProps = [
   'csp',
   'autoInsertSpaceInButton',
   'locale',
-  'layoutDirection',
+  'direction',
 ];
 
 export interface ConfigProviderProps {
@@ -40,7 +40,7 @@ export interface ConfigProviderProps {
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
-  layoutDirection?: 'auto' | 'ltr' | 'rtl';
+  direction?: 'auto' | 'ltr' | 'rtl';
 }
 
 const ConfigContext = createReactContext<ConfigConsumerProps>({
@@ -73,7 +73,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       locale,
-      layoutDirection,
+      direction,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -81,7 +81,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       getPrefixCls: this.getPrefixCls,
       csp,
       autoInsertSpaceInButton,
-      layoutDirection,
+      direction,
     };
 
     if (getPopupContainer) {
@@ -92,7 +92,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     }
 
     return (
-      <div dir={layoutDirection}>
+      <div dir={direction}>
         <ConfigContext.Provider value={config}>
           <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
             {children}

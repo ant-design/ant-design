@@ -12,7 +12,7 @@ title:
 
 ## en-US
 
-Rtl cascade selection box for selecting province/city/district.
+Cascader component supports right to left (rtl) direction if placed inside `ConfigProvider` with `direction='rtl'`
 
 ```jsx
 import { Cascader, ConfigProvider, Icon } from 'antd';
@@ -54,15 +54,31 @@ const options = [
 function onChange(value) {
   console.log(value);
 }
+function filter(inputValue, path) {
+  return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+}
 ReactDOM.render(
   <div>
-    <ConfigProvider layoutDirection="rtl">
+    <ConfigProvider direction="rtl">
       <Cascader
         suffixIcon={<Icon type="smile" />}
         options={options}
         onChange={onChange}
         placeholder="یک مورد انتخاب کنید"
         popupPlacement="bottomRight"
+      />
+      <br />
+      <br />
+      <br />
+      With search:
+      <br />
+      <Cascader
+        suffixIcon={<Icon type="search" />}
+        options={options}
+        onChange={onChange}
+        placeholder="یک مورد انتخاب کنید"
+        popupPlacement="bottomRight"
+        showSearch={{ filter }}
       />
     </ConfigProvider>
   </div>,
