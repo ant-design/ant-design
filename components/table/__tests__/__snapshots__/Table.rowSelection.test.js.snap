@@ -50,7 +50,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                             >
                               <label
                                 class="ant-checkbox-wrapper"
-                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -105,7 +104,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
-                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -137,7 +135,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
-                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -169,7 +166,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
-                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -201,7 +197,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                       <span>
                         <label
                           class="ant-checkbox-wrapper"
-                          for="checkbox-label"
                         >
                           <span
                             class="ant-checkbox"
@@ -264,7 +259,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                               >
                                 <label
                                   class="ant-checkbox-wrapper"
-                                  for="checkbox-label"
                                 >
                                   <span
                                     class="ant-checkbox"
@@ -301,7 +295,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <span>
                           <label
                             class="ant-checkbox-wrapper"
-                            for="checkbox-label"
                           >
                             <span
                               class="ant-checkbox"
@@ -328,7 +321,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <span>
                           <label
                             class="ant-checkbox-wrapper"
-                            for="checkbox-label"
                           >
                             <span
                               class="ant-checkbox"
@@ -355,7 +347,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <span>
                           <label
                             class="ant-checkbox-wrapper"
-                            for="checkbox-label"
                           >
                             <span
                               class="ant-checkbox"
@@ -382,7 +373,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <span>
                           <label
                             class="ant-checkbox-wrapper"
-                            for="checkbox-label"
                           >
                             <span
                               class="ant-checkbox"

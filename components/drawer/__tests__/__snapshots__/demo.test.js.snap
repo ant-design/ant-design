@@ -69,7 +69,6 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
   >
     <label
       class="ant-radio-wrapper"
-      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -89,7 +88,6 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
-      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -109,7 +107,6 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper"
-      for="ant-radio-wrapper"
     >
       <span
         class="ant-radio"
@@ -129,7 +126,6 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
-      for="ant-radio-wrapper ant-radio-wrapper-checked"
     >
       <span
         class="ant-radio ant-radio-checked"

@@ -241,7 +241,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
-            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -382,7 +381,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
-            for="checkbox-label"
           >
             <span
               class="ant-checkbox"

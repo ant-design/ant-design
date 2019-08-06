@@ -911,7 +911,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
   >
     <label
       class="ant-radio-button-wrapper"
-      for="ant-radio-button-wrapper"
     >
       <span
         class="ant-radio-button"
@@ -931,7 +930,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-      for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
@@ -952,7 +950,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
     </label>
     <label
       class="ant-radio-button-wrapper"
-      for="ant-radio-button-wrapper"
     >
       <span
         class="ant-radio-button"

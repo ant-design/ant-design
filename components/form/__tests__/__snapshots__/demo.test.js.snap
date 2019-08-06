@@ -910,7 +910,6 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
-            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -1193,7 +1192,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
-                for="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
@@ -1214,7 +1212,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               </label>
               <label
                 class="ant-radio-button-wrapper"
-                for="ant-radio-button-wrapper"
               >
                 <span
                   class="ant-radio-button"
@@ -1234,7 +1231,6 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               </label>
               <label
                 class="ant-radio-button-wrapper"
-                for="ant-radio-button-wrapper"
               >
                 <span
                   class="ant-radio-button"
@@ -1473,7 +1469,6 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
-            for="checkbox-label"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -2120,7 +2115,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
-            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -2502,7 +2496,6 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                 >
                   <label
                     class="ant-radio-wrapper"
-                    for="ant-radio-wrapper"
                   >
                     <span
                       class="ant-radio"
@@ -2522,7 +2515,6 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                   </label>
                   <label
                     class="ant-radio-wrapper"
-                    for="ant-radio-wrapper"
                   >
                     <span
                       class="ant-radio"
@@ -3465,7 +3457,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <label
               class="ant-radio-wrapper"
-              for="ant-radio-wrapper"
             >
               <span
                 class="ant-radio"
@@ -3485,7 +3476,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </label>
             <label
               class="ant-radio-wrapper"
-              for="ant-radio-wrapper"
             >
               <span
                 class="ant-radio"
@@ -3505,7 +3495,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </label>
             <label
               class="ant-radio-wrapper"
-              for="ant-radio-wrapper"
             >
               <span
                 class="ant-radio"
@@ -3557,7 +3546,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <label
               class="ant-radio-button-wrapper"
-              for="ant-radio-button-wrapper"
             >
               <span
                 class="ant-radio-button"
@@ -3577,7 +3565,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </label>
             <label
               class="ant-radio-button-wrapper"
-              for="ant-radio-button-wrapper"
             >
               <span
                 class="ant-radio-button"
@@ -3597,7 +3584,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             </label>
             <label
               class="ant-radio-button-wrapper"
-              for="ant-radio-button-wrapper"
             >
               <span
                 class="ant-radio-button"
@@ -3658,7 +3644,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
-                  for="checkbox-label"
                 >
                   <span
                     class="ant-checkbox ant-checkbox-checked"
@@ -3683,7 +3668,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
-                  for="checkbox-label"
                 >
                   <span
                     class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
@@ -3709,7 +3693,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper"
-                  for="checkbox-label"
                 >
                   <span
                     class="ant-checkbox"
@@ -3733,7 +3716,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper"
-                  for="checkbox-label"
                 >
                   <span
                     class="ant-checkbox"
@@ -3757,7 +3739,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper"
-                  for="checkbox-label"
                 >
                   <span
                     class="ant-checkbox"

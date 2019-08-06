@@ -206,7 +206,6 @@ exports[`Table.filter renders menu correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
-            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -230,7 +229,6 @@ exports[`Table.filter renders menu correctly 1`] = `
         >
           <label
             class="ant-checkbox-wrapper"
-            for="checkbox-label"
           >
             <span
               class="ant-checkbox"
@@ -303,7 +301,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         >
           <label
             class="ant-radio-wrapper"
-            for="ant-radio-wrapper"
           >
             <span
               class="ant-radio"
@@ -327,7 +324,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         >
           <label
             class="ant-radio-wrapper"
-            for="ant-radio-wrapper"
           >
             <span
               class="ant-radio"
@@ -468,7 +464,6 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                             >
                               <label
                                 class="ant-checkbox-wrapper"
-                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -493,7 +488,6 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                             >
                               <label
                                 class="ant-checkbox-wrapper"
-                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -689,7 +683,6 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                             >
                               <label
                                 class="ant-checkbox-wrapper"
-                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
@@ -714,7 +707,6 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                             >
                               <label
                                 class="ant-checkbox-wrapper"
-                                for="checkbox-label"
                               >
                                 <span
                                   class="ant-checkbox"
