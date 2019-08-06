@@ -118,7 +118,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
           // 此处类型自动推导为 string
           return (
             <Radio
-              key={`radio-group-value-${option}`}
+              key={option}
               prefixCls={prefixCls}
               disabled={this.props.disabled}
               value={option}
@@ -131,7 +131,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
         // 此处类型自动推导为 { label: string value: string }
         return (
           <Radio
-            key={`radio-group-value-options-${option}`}
+            key={`radio-group-value-options-${option.value}`}
             prefixCls={prefixCls}
             disabled={option.disabled || this.props.disabled}
             value={option.value}
