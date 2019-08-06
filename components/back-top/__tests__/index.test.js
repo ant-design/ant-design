@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { sleep } from '../../../tests/utils';
 import BackTop from '..';
 
 describe('BackTop', () => {
@@ -20,8 +21,10 @@ describe('BackTop', () => {
     window.scrollTo(0, 400);
     // trigger scroll manually
     wrapper.instance().handleScroll();
+    await sleep();
     jest.runAllTimers();
     wrapper.find('.ant-back-top').simulate('click');
+    await sleep(1000);
     jest.runAllTimers();
     expect(window.pageYOffset).toBe(0);
     scrollToSpy.mockRestore();
