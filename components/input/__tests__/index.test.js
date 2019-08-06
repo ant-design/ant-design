@@ -79,6 +79,7 @@ describe('TextArea', () => {
     wrapper.setProps({ value: '1111' });
     jest.runAllTimers();
     expect(mockFunc).toHaveBeenCalledTimes(2);
+    expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
   });
 
   it('should support onPressEnter and onKeyDown', () => {
