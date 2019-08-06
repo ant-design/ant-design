@@ -60,26 +60,28 @@ function filter(inputValue, path) {
 ReactDOM.render(
   <div>
     <ConfigProvider direction="rtl">
-      <Cascader
-        suffixIcon={<Icon type="smile" />}
-        options={options}
-        onChange={onChange}
-        placeholder="یک مورد انتخاب کنید"
-        popupPlacement="bottomRight"
-      />
-      <br />
-      <br />
-      <br />
-      With search:
-      <br />
-      <Cascader
-        suffixIcon={<Icon type="search" />}
-        options={options}
-        onChange={onChange}
-        placeholder="یک مورد انتخاب کنید"
-        popupPlacement="bottomRight"
-        showSearch={{ filter }}
-      />
+      <div>
+        <Cascader
+          suffixIcon={<Icon type="smile" />}
+          options={options}
+          onChange={onChange}
+          placeholder="یک مورد انتخاب کنید"
+          popupPlacement="bottomRight"
+        />
+        <br />
+        <br />
+        <br />
+        With search:
+        <br />
+        <Cascader
+          suffixIcon={<Icon type="search" />}
+          options={options}
+          onChange={onChange}
+          placeholder="یک مورد انتخاب کنید"
+          popupPlacement="bottomRight"
+          showSearch={{ filter }}
+        />
+      </div>
     </ConfigProvider>
   </div>,
   mountNode,
