@@ -5,6 +5,7 @@ const eslintrc = {
     'plugin:jest/recommended',
     'plugin:react/recommended',
     'plugin:import/typescript',
+    'prettier/react',
   ],
   env: {
     browser: true,

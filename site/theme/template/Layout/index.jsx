@@ -27,8 +27,8 @@ if (typeof window !== 'undefined') {
   // Expose to iframe
   window.react = React;
   window['react-dom'] = ReactDOM;
+  // eslint-disable-next-line global-require
   window.antd = require('antd');
-  /* eslint-enable global-require */
 
   // Error log statistic
   window.addEventListener('error', function onError(e) {
