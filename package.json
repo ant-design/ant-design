@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.21.2",
+  "version": "3.21.3-beta.0",
   "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
   "homepage": "http://ant.design/",
@@ -99,6 +99,13 @@
     "@ant-design/colors": "^3.1.0",
     "@ant-design/tools": "^8.0.0",
     "@packtracker/webpack-plugin": "^2.0.1",
+    "@pika/cli": "^0.2.0",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.6.0",
+    "@pika/plugin-build-types": "^0.6.0",
+    "@pika/plugin-build-web": "^0.6.0",
+    "@pika/plugin-ts-standard-pkg": "^0.6.0",
+    "@pika/types": "^0.6.0",
     "@sentry/browser": "^5.4.0",
     "@types/classnames": "^2.2.8",
     "@types/prop-types": "^15.7.1",
@@ -223,7 +230,10 @@
     "pre-publish": "npm run check-commit && npm run test-all",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
     "prettier": "prettier -c --write '**/*'",
-    "pretty-quick": "pretty-quick"
+    "pretty-quick": "pretty-quick",
+    "pika-build": "pika build",
+    "pika-publish": "pika publish",
+    "version": "npx @pika/pack"
   },
   "husky": {
     "hooks": {
@@ -241,5 +251,23 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 9"
-  ]
+  ],
+  "@pika/pack": {
+    "pipeline": [
+      "rm -rf src",
+      "cp -rf components src",
+      [
+        "@pika/plugin-ts-standard-pkg",
+        {
+          "exclude": [
+            "__tests__/**/*"
+          ]
+        }
+      ],
+      "cp index.js pkg/dist-src/",
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  }
 }
