@@ -1,8 +1,9 @@
 import * as React from 'react';
 import AntdIcon, { createFromIconfontCN } from '@ant-design/icons';
+import { ThemeType } from '@ant-design/icons-svg/lib/types';
+
 import { withThemeSuffix, removeTypeTheme, getThemeFromTypeName, alias } from './utils';
 import warning from '../_util/warning';
-import { ThemeType } from '@ant-design/icons-svg/lib/types';
 
 const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1329669_t1u72b9zk8s.js',
@@ -27,7 +28,6 @@ const OldIcon: React.FC<{
     removeTypeTheme(alias(computedType)),
     theme || ('outlined' as ThemeType),
   );
-  console.log(computedType, 'computedType');
   return <IconFont {...props} type={`icon-${computedType}`} />;
 };
 

@@ -14,13 +14,13 @@ title:
 Specific them property `theme` to `twoTone` to render two-tone icons. You can also set the primary color.
 
 ```jsx
-import { Icon } from 'antd';
+import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
 
 ReactDOM.render(
   <div className="icons-list">
-    <Icon type="smile" theme="twoTone" />
-    <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" />
-    <Icon type="check-circle" theme="twoTone" twoToneColor="#52c41a" />
+    <SmileTwoTone />
+    <HeartTwoTone twoToneColor="#eb2f96" />
+    <CheckCircleTwoTone twoToneColor="#52c41a" />
   </div>,
   mountNode,
 );
