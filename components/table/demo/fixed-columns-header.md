@@ -24,8 +24,6 @@ A Solution for displaying large amounts of data with long columns.
 ```jsx
 import { Table } from 'antd';
 
-const actionRender = () => <a href="javascript:;">action</a>;
-
 const columns = [
   {
     title: 'Full Name',
@@ -89,7 +87,7 @@ const columns = [
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: actionRender,
+    render: () => <a href="javascript:;">action</a>,
   },
 ];
 

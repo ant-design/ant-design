@@ -120,7 +120,14 @@ class Tag extends React.Component<TagProps, TagState> {
     const { children, ...otherProps } = this.props;
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const tagProps = omit(otherProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
+    const tagProps = omit(otherProps, [
+      'onClose',
+      'afterClose',
+      'color',
+      'visible',
+      'closable',
+      'prefixCls',
+    ]);
     return isNeedWave ? (
       <Wave>
         <span

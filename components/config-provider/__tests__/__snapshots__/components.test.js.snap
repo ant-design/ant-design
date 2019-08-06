@@ -12658,7 +12658,6 @@ exports[`ConfigProvider components Tags prefixCls 1`] = `
 <div>
   <span
     class="prefix-Tags"
-    prefixcls="prefix-Tags"
   >
     Bamboo
   </span>

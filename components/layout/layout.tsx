@@ -31,7 +31,7 @@ interface BasicPropsWithTagName extends BasicProps {
 }
 
 function generator({ suffixCls, tagName }: GeneratorProps) {
-  return (BasicComponent: React.ComponentClass<BasicPropsWithTagName>): any => {
+  return (BasicComponent: any) => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
 
@@ -55,14 +55,11 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
   };
 }
 
-/* eslint-disable react/prefer-stateless-function */
-class Basic extends React.Component<BasicPropsWithTagName, any> {
-  render() {
-    const { prefixCls, className, children, tagName, ...others } = this.props;
-    const classString = classNames(className, prefixCls);
-    return React.createElement(tagName, { className: classString, ...others }, children);
-  }
-}
+const Basic = (props: BasicPropsWithTagName) => {
+  const { prefixCls, className, children, tagName, ...others } = props;
+  const classString = classNames(className, prefixCls);
+  return React.createElement(tagName, { className: classString, ...others }, children);
+};
 
 interface BasicLayoutState {
   siders: string[];

@@ -13,7 +13,6 @@ export default function createStore(initialState: object): Store {
       ...state,
       ...partial,
     };
-    // eslint-disable-next-line
     for (let i = 0; i < listeners.length; i++) {
       listeners[i]();
     }

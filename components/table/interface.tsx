@@ -5,7 +5,7 @@ import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 
-// eslint-disable-next-line
+/* eslint-disable import/prefer-default-export */
 export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
