@@ -1,21 +1,14 @@
 import scrollTo from '../scrollTo';
+import { sleep } from '../../../tests/utils';
 
 describe('Test ScrollTo function', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   it('test scrollTo', async () => {
     const scrollToSpy = jest.spyOn(window, 'scrollTo').mockImplementation((x, y) => {
       window.scrollY = y;
       window.pageYOffset = y;
     });
     scrollTo(1000);
-    jest.runAllTimers();
+    await sleep(500);
     expect(window.pageYOffset).toBe(1000);
     scrollToSpy.mockRestore();
   });
@@ -25,7 +18,7 @@ describe('Test ScrollTo function', () => {
     scrollTo(1000, {
       callback: cbMock,
     });
-    jest.runAllTimers();
+    await sleep(500);
     expect(cbMock).toHaveBeenCalledTimes(1);
   });
 
@@ -34,7 +27,7 @@ describe('Test ScrollTo function', () => {
     scrollTo(1000, {
       getContainer: () => div,
     });
-    jest.runAllTimers();
+    await sleep(500);
     expect(div.scrollTop).toBe(1000);
   });
 });
