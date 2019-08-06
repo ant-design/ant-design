@@ -123,7 +123,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
-  /* eslint-disable no-use-before-define */
+  // eslint-disable-next-line no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {

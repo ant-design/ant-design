@@ -74,7 +74,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
     });
 
     return (
-      /* eslint-disable jsx-a11y/label-has-associated-control */
+      // eslint-disable-next-line jsx-a11y/label-has-associated-control
       <label
         className={wrapperClassString}
         style={style}

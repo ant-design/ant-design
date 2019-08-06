@@ -79,7 +79,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
     this.lastCount = prevState.count;
     const { animateStarted } = this.state;
     if (animateStarted) {
-      /* eslint-disable react/no-did-update-set-state */
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState(
         (__, props) => ({
           animateStarted: false,

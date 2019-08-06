@@ -24,7 +24,7 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, Sel
     }
   }
 
-  /* eslint-disable class-methods-use-this */
+  // eslint-disable-next-line class-methods-use-this
   getCheckState(props: SelectionBoxProps) {
     const { store, defaultSelection, rowIndex } = props;
     let checked = false;

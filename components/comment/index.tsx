@@ -6,7 +6,7 @@ function getAction(actions: React.ReactNode[]) {
   if (!actions || !actions.length) {
     return null;
   }
-  /* eslint-disable react/no-array-index-key */
+  // eslint-disable-next-line react/no-array-index-key
   const actionList = actions.map((action, index) => <li key={`action-${index}`}>{action}</li>);
   return actionList;
 }

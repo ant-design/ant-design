@@ -26,7 +26,7 @@ export function throttleByAnimationFrameDecorator() {
     return {
       configurable: true,
       get() {
-        /* eslint-disable no-prototype-builtins */
+        // eslint-disable-next-line no-prototype-builtins
         if (definingProperty || this === target.prototype || this.hasOwnProperty(key)) {
           return fn;
         }

@@ -267,7 +267,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
 
 polyfill(InternalSider);
 
-/* eslint-disable react/prefer-stateless-function */
+// eslint-disable-next-line react/prefer-stateless-function
 export default class Sider extends React.Component {
   render() {
     return (

@@ -7,7 +7,7 @@ import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
-/* eslint-disable import/no-unresolved */
+// eslint-disable-next-line import/no-unresolved
 import zhCN from 'antd/es/locale/zh_CN';
 import Header from './Header';
 import enLocale from '../../en-US';
@@ -21,7 +21,7 @@ if (typeof window !== 'undefined' && navigator.serviceWorker) {
 }
 
 if (typeof window !== 'undefined') {
-  /* eslint-disable global-require */
+  // eslint-disable-next-line global-require
   require('../../static/style');
 
   // Expose to iframe

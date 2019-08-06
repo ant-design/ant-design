@@ -15,7 +15,7 @@ function isHidden(element: HTMLElement) {
 }
 
 function isNotGrey(color: string) {
-  /* eslint-disable no-useless-escape */
+  // eslint-disable-next-line no-useless-escape
   const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
   if (match && match[1] && match[2] && match[3]) {
     return !(match[1] === match[2] && match[2] === match[3]);

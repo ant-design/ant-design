@@ -12,7 +12,7 @@ import { Omit } from '../_util/type';
 
 function getAction(actions: React.ReactNode[]) {
   const actionList = actions.map((action, index) => (
-    /* eslint-disable react/no-array-index-key */
+    // eslint-disable-next-line react/no-array-index-key
     <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
       <span>{action}</span>
     </li>

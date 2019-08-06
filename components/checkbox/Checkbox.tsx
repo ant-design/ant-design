@@ -142,7 +142,7 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
       [`${prefixCls}-indeterminate`]: indeterminate,
     });
     return (
-      /* eslint-disable jsx-a11y/label-has-associated-control */
+      // eslint-disable-next-line jsx-a11y/label-has-associated-control
       <label
         className={classString}
         style={style}

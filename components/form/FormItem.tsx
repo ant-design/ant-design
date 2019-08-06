@@ -91,7 +91,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
             } else if (React.isValidElement(e.message)) {
               node = e.message;
             }
-            /* eslint-disable react/no-array-index-key */
+            // eslint-disable-next-line react/no-array-index-key
             return node ? React.cloneElement(node, { key: index }) : e.message;
           }),
         );
