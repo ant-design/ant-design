@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
-const getWebpackConfig = require('antd-tools/lib/getWebpackConfig');
+const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 
 const { webpack } = getWebpackConfig;

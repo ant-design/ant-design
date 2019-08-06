@@ -426,7 +426,7 @@ describe('Upload', () => {
     clearIntervalSpy.mockRestore();
   });
 
-  it('corrent dragCls when type is drag', () => {
+  it('correct dragCls when type is drag', () => {
     const fileList = [{ status: 'uploading', uid: 'file' }];
     const wrapper = mount(
       <Upload type="drag" fileList={fileList}>

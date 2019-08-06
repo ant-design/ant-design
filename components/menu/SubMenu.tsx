@@ -26,8 +26,10 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   static contextTypes = {
     antdMenuTheme: PropTypes.string,
   };
+
   // fix issue:https://github.com/ant-design/ant-design/issues/8666
   static isSubMenu = 1;
+
   private subMenu: any;
 
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {

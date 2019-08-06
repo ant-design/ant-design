@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @input-affix-width: 19px;
+@input-affix-with-clear-btn-width: 38px;
 
 // size mixins for input
 .input-lg() {
@@ -39,6 +40,7 @@
   background-color: @input-disabled-bg;
   cursor: not-allowed;
   opacity: 1;
+
   &:hover {
     .hover(@input-border-color);
   }
@@ -115,6 +117,7 @@
 
   > [class*='col-'] {
     padding-right: 8px;
+
     &:last-child {
       padding-right: 0;
     }
@@ -146,10 +149,12 @@
     width: 100%;
     margin-bottom: 0;
     text-align: inherit;
+
     &:focus {
       z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
       border-right-width: 1px;
     }
+
     &:hover {
       z-index: 1;
       border-right-width: 1px;
@@ -228,6 +233,7 @@
   &-addon:first-child {
     border-right: 0;
   }
+
   &-addon:last-child {
     border-left: 0;
   }
@@ -279,9 +285,11 @@
     > .@{inputClass} {
       &:not(:first-child):not(:last-child) {
         border-right-width: @border-width-base;
+
         &:hover {
           z-index: 1;
         }
+
         &:focus {
           z-index: 1;
         }
@@ -314,9 +322,11 @@
     & > .@{ant-prefix}-time-picker .@{ant-prefix}-time-picker-input {
       border-right-width: @border-width-base;
       border-radius: 0;
+
       &:hover {
         z-index: 1;
       }
+
       &:focus {
         z-index: 1;
       }
@@ -368,6 +378,12 @@
     text-align: inherit;
   }
 
+  // Should not break align of icon & text
+  // https://github.com/ant-design/ant-design/issues/18087
+  // https://github.com/ant-design/ant-design/issues/17414
+  // https://github.com/ant-design/ant-design/pull/17684
+  // https://codesandbox.io/embed/pensive-paper-di2wk
+  // https://codesandbox.io/embed/nifty-benz-gb7ml
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
@@ -376,6 +392,7 @@
     color: @input-color;
     line-height: 0;
     transform: translateY(-50%);
+
     :not(.anticon) {
       line-height: @line-height-base;
     }
@@ -395,5 +412,9 @@
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+  }
+
+  &.@{inputClass}-affix-wrapper-with-clear-btn .@{inputClass}:not(:last-child) {
+    padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
   }
 }

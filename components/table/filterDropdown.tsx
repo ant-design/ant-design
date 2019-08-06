@@ -139,6 +139,29 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     }
   };
 
+  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
+    const { selectedKeys } = this.state;
+    if (!info.keyPath || info.keyPath.length <= 1) {
+      return;
+    }
+    const { keyPathOfSelectedItem } = this.state;
+    if (selectedKeys && selectedKeys.indexOf(info.key) >= 0) {
+      // deselect SubMenu child
+      delete keyPathOfSelectedItem[info.key];
+    } else {
+      // select SubMenu child
+      keyPathOfSelectedItem[info.key] = info.keyPath;
+    }
+    this.setState({ keyPathOfSelectedItem });
+  };
+
+  hasSubMenu() {
+    const {
+      column: { filters = [] },
+    } = this.props;
+    return filters.some(item => !!(item.children && item.children.length > 0));
+  }
+
   confirmFilter() {
     const { column, selectedKeys: propSelectedKeys, confirmFilter } = this.props;
     const { selectedKeys, valueKeys } = this.state;
@@ -152,35 +175,6 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
           : selectedKeys.map(key => valueKeys[key]).filter(key => key !== undefined),
       );
     }
-  }
-
-  renderMenuItem(item: ColumnFilterItem) {
-    const { column } = this.props;
-    const { selectedKeys } = this.state;
-    const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
-
-    // We still need trade key as string since Menu render need string
-    const internalSelectedKeys = (selectedKeys || []).map(key => key.toString());
-
-    const input = multiple ? (
-      <Checkbox checked={internalSelectedKeys.indexOf(item.value.toString()) >= 0} />
-    ) : (
-      <Radio checked={internalSelectedKeys.indexOf(item.value.toString()) >= 0} />
-    );
-
-    return (
-      <MenuItem key={item.value}>
-        {input}
-        <span>{item.text}</span>
-      </MenuItem>
-    );
-  }
-
-  hasSubMenu() {
-    const {
-      column: { filters = [] },
-    } = this.props;
-    return filters.some(item => !!(item.children && item.children.length > 0));
   }
 
   renderMenus(items: ColumnFilterItem[]): React.ReactElement<any>[] {
@@ -202,22 +196,6 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
       return this.renderMenuItem(item);
     });
   }
-
-  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
-    const { selectedKeys } = this.state;
-    if (!info.keyPath || info.keyPath.length <= 1) {
-      return;
-    }
-    const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
-    if (selectedKeys && selectedKeys.indexOf(info.key) >= 0) {
-      // deselect SubMenu child
-      delete keyPathOfSelectedItem[info.key];
-    } else {
-      // select SubMenu child
-      keyPathOfSelectedItem[info.key] = info.keyPath;
-    }
-    this.setState({ keyPathOfSelectedItem });
-  };
 
   renderFilterIcon = () => {
     const { column, locale, prefixCls, selectedKeys } = this.props;
@@ -249,6 +227,28 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     );
   };
 
+  renderMenuItem(item: ColumnFilterItem) {
+    const { column } = this.props;
+    const { selectedKeys } = this.state;
+    const multiple = 'filterMultiple' in column ? column.filterMultiple : true;
+
+    // We still need trade key as string since Menu render need string
+    const internalSelectedKeys = (selectedKeys || []).map(key => key.toString());
+
+    const input = multiple ? (
+      <Checkbox checked={internalSelectedKeys.indexOf(item.value.toString()) >= 0} />
+    ) : (
+      <Radio checked={internalSelectedKeys.indexOf(item.value.toString()) >= 0} />
+    );
+
+    return (
+      <MenuItem key={item.value}>
+        {input}
+        <span>{item.text}</span>
+      </MenuItem>
+    );
+  }
+
   render() {
     const { selectedKeys: originSelectedKeys } = this.state;
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
@@ -266,7 +266,6 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
-        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode as HTMLElement,
       });
     }
 
@@ -284,7 +283,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
           selectedKeys={originSelectedKeys && originSelectedKeys.map(val => val.toString())}
-          getPopupContainer={(triggerNode: HTMLElement) => triggerNode.parentNode}
+          getPopupContainer={getPopupContainer}
         >
           {this.renderMenus(column.filters!)}
         </Menu>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-/* eslint-disable import/no-unresolved */
+// eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -79,6 +79,7 @@ describe('TextArea', () => {
     wrapper.setProps({ value: '1111' });
     jest.runAllTimers();
     expect(mockFunc).toHaveBeenCalledTimes(2);
+    expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
   });
 
   it('should support onPressEnter and onKeyDown', () => {

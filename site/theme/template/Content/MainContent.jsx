@@ -311,7 +311,10 @@ export default class MainContent extends Component {
         <Row>
           {isMobile ? (
             <MobileMenu
-              iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
+              iconChild={[
+                <Icon key="menu-unfold" type="menu-unfold" />,
+                <Icon key="menu-fold" type="menu-fold" />,
+              ]}
               key="Mobile-menu"
               wrapperClassName="drawer-wrapper"
             >

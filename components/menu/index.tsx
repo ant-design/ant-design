@@ -2,12 +2,12 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
-import { polyfill } from 'react-lifecycles-compat';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
 import MenuContext, { MenuTheme } from './MenuContext';
@@ -162,13 +162,44 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     raf.cancel(this.mountRafId);
   }
 
-  restoreModeVerticalFromInline() {
-    const { switchingModeFromInline } = this.state;
-    if (switchingModeFromInline) {
-      this.setState({
-        switchingModeFromInline: false,
-      });
+  setOpenKeys(openKeys: string[]) {
+    if (!('openKeys' in this.props)) {
+      this.setState({ openKeys });
     }
+  }
+
+  getRealMenuMode() {
+    const inlineCollapsed = this.getInlineCollapsed();
+    if (this.state.switchingModeFromInline && inlineCollapsed) {
+      return 'inline';
+    }
+    const { mode } = this.props;
+    return inlineCollapsed ? 'vertical' : mode;
+  }
+
+  getInlineCollapsed() {
+    const { inlineCollapsed } = this.props;
+    if (this.props.siderCollapsed !== undefined) {
+      return this.props.siderCollapsed;
+    }
+    return inlineCollapsed;
+  }
+
+  getMenuOpenAnimation(menuMode: MenuMode) {
+    const { openAnimation, openTransitionName } = this.props;
+    let menuOpenAnimation = openAnimation || openTransitionName;
+    if (openAnimation === undefined && openTransitionName === undefined) {
+      if (menuMode === 'horizontal') {
+        menuOpenAnimation = 'slide-up';
+      } else if (menuMode === 'inline') {
+        menuOpenAnimation = animation;
+      } else {
+        // When mode switch from inline
+        // submenu should hide without animation
+        menuOpenAnimation = this.state.switchingModeFromInline ? '' : 'zoom-big';
+      }
+    }
+    return menuOpenAnimation;
   }
 
   // Restore vertical mode when menu is collapsed responsively when mounted
@@ -222,48 +253,13 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
   };
 
-  setOpenKeys(openKeys: string[]) {
-    if (!('openKeys' in this.props)) {
-      this.setState({ openKeys });
+  restoreModeVerticalFromInline() {
+    const { switchingModeFromInline } = this.state;
+    if (switchingModeFromInline) {
+      this.setState({
+        switchingModeFromInline: false,
+      });
     }
-  }
-
-  getRealMenuMode() {
-    const inlineCollapsed = this.getInlineCollapsed();
-    if (this.state.switchingModeFromInline && inlineCollapsed) {
-      return 'inline';
-    }
-    const { mode } = this.props;
-    return inlineCollapsed ? 'vertical' : mode;
-  }
-
-  getInlineCollapsed() {
-    const { inlineCollapsed } = this.props;
-    if (this.props.siderCollapsed !== undefined) {
-      return this.props.siderCollapsed;
-    }
-    return inlineCollapsed;
-  }
-
-  getMenuOpenAnimation(menuMode: MenuMode) {
-    const { openAnimation, openTransitionName } = this.props;
-    let menuOpenAnimation = openAnimation || openTransitionName;
-    if (openAnimation === undefined && openTransitionName === undefined) {
-      if (menuMode === 'horizontal') {
-        menuOpenAnimation = 'slide-up';
-      } else if (menuMode === 'inline') {
-        menuOpenAnimation = animation;
-      } else {
-        // When mode switch from inline
-        // submenu should hide without animation
-        if (this.state.switchingModeFromInline) {
-          menuOpenAnimation = '';
-        } else {
-          menuOpenAnimation = 'zoom-big';
-        }
-      }
-    }
-    return menuOpenAnimation;
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
@@ -332,8 +328,11 @@ polyfill(InternalMenu);
 // We should keep this as ref-able
 export default class Menu extends React.Component<MenuProps, {}> {
   static Divider = Divider;
+
   static Item = Item;
+
   static SubMenu = SubMenu;
+
   static ItemGroup = ItemGroup;
 
   render() {

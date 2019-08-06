@@ -147,8 +147,15 @@
     position: relative;
     height: @input-height-base;
     cursor: pointer;
+
     .@{select-prefix-cls}-selection__rendered {
-      margin-right: 25px;
+      margin-right: 24px;
+    }
+  }
+
+  &-no-arrow {
+    .@{select-prefix-cls}-selection__rendered {
+      margin-right: @control-padding-horizontal - 1px;
     }
   }
 
@@ -196,7 +203,7 @@
       height: @input-height-sm;
     }
     .@{select-prefix-cls}-selection__rendered {
-      margin: 0 @control-padding-horizontal-sm - 1px;
+      margin-left: @control-padding-horizontal-sm - 1px;
       line-height: @input-height-sm - 2px;
     }
     .@{select-prefix-cls}-selection--multiple {

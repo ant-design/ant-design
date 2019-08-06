@@ -1,4 +1,3 @@
-/* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
@@ -78,6 +77,7 @@ function notice(args: ArgsProps): MessageType {
       const iconNode = (
         <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
       );
+      const switchIconNode = iconType ? iconNode : '';
       instance.notice({
         key: target,
         duration,
@@ -88,7 +88,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : iconType ? iconNode : ''}
+            {args.icon ? args.icon : switchIconNode}
             <span>{args.content}</span>
           </div>
         ),
@@ -159,7 +159,7 @@ const api: any = {
       onClose = duration;
       duration = undefined;
     }
-    return api.open({ content, duration: duration, type, onClose });
+    return api.open({ content, duration, type, onClose });
   };
 });
 

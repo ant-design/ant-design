@@ -87,6 +87,7 @@ const columns = [
 | onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |  |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |  |
 | onRow | Set props on per row | Function(record, index) | - |  |
+| getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
 
 #### onRow usage
 
@@ -169,7 +170,7 @@ Properties for row selection.
 | fixed | Fixed selection column on the left | boolean | - |  |
 | getCheckboxProps | Get Checkbox or Radio props | Function(record) | - |  |
 | hideDefaultSelections | Remove the default `Select All` and `Select Invert` selections when [custom selection](#components-table-demo-row-selection-custom) | boolean | `false` |  |
-| selectedRowKeys | Controlled selected row keys | string\[] | \[] |  |
+| selectedRowKeys | Controlled selected row keys | string\[]\|number[] | \[] |  |
 | selections | Custom selection [config](#rowSelection), only displays default selections when set to `true` | object\[]\|boolean | - |  |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` |  |
 | onChange | Callback executed when selected rows change | Function(selectedRowKeys, selectedRows) | - |  |
@@ -189,7 +190,7 @@ Properties for row selection.
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnProps } from 'antd/lib/table';
+import { ColumnProps } from 'antd/es/table';
 
 interface User {
   key: number,

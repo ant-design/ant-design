@@ -12,9 +12,8 @@ const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
   t /= d / 2;
   if (t < 1) {
     return (cc / 2) * t * t * t + b;
-  } else {
-    return (cc / 2) * ((t -= 2) * t * t + 2) + b;
   }
+  return (cc / 2) * ((t -= 2) * t * t + 2) + b;
 };
 
 function noop() {}
@@ -47,6 +46,29 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     };
   }
 
+  componentDidMount() {
+    const getTarget = this.props.target || getDefaultTarget;
+    this.scrollEvent = addEventListener(getTarget(), 'scroll', this.handleScroll);
+    this.handleScroll();
+  }
+
+  componentWillUnmount() {
+    if (this.scrollEvent) {
+      this.scrollEvent.remove();
+    }
+  }
+
+  setScrollTop(value: number) {
+    const getTarget = this.props.target || getDefaultTarget;
+    const targetNode = getTarget();
+    if (targetNode === window) {
+      document.body.scrollTop = value;
+      document.documentElement!.scrollTop = value;
+    } else {
+      (targetNode as HTMLElement).scrollTop = value;
+    }
+  }
+
   getCurrentScrollTop = () => {
     const getTarget = this.props.target || getDefaultTarget;
     const targetNode = getTarget();
@@ -73,17 +95,6 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     (this.props.onClick || noop)(e);
   };
 
-  setScrollTop(value: number) {
-    const getTarget = this.props.target || getDefaultTarget;
-    const targetNode = getTarget();
-    if (targetNode === window) {
-      document.body.scrollTop = value;
-      document.documentElement!.scrollTop = value;
-    } else {
-      (targetNode as HTMLElement).scrollTop = value;
-    }
-  }
-
   handleScroll = () => {
     const { visibilityHeight, target = getDefaultTarget } = this.props;
     const scrollTop = getScroll(target(), true);
@@ -91,18 +102,6 @@ export default class BackTop extends React.Component<BackTopProps, any> {
       visible: scrollTop > (visibilityHeight as number),
     });
   };
-
-  componentDidMount() {
-    const getTarget = this.props.target || getDefaultTarget;
-    this.scrollEvent = addEventListener(getTarget(), 'scroll', this.handleScroll);
-    this.handleScroll();
-  }
-
-  componentWillUnmount() {
-    if (this.scrollEvent) {
-      this.scrollEvent.remove();
-    }
-  }
 
   renderBackTop = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', children } = this.props;

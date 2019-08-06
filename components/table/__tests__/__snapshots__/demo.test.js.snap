@@ -172,10 +172,38 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
               <div
                 class="ant-empty-image"
               >
-                <img
-                  alt="No Data"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHZpZXdCb3g9IjAgMCA2NCA0MSIgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
-                />
+                <svg
+                  height="41"
+                  viewBox="0 0 64 41"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="translate(0 1)"
+                  >
+                    <ellipse
+                      cx="32"
+                      cy="33"
+                      fill="#F5F5F5"
+                      rx="32"
+                      ry="7"
+                    />
+                    <g
+                      fill-rule="nonzero"
+                      stroke="#D9D9D9"
+                    >
+                      <path
+                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      />
+                      <path
+                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#FAFAFA"
+                      />
+                    </g>
+                  </g>
+                </svg>
               </div>
               <p
                 class="ant-empty-description"
@@ -326,10 +354,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -389,10 +413,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -447,10 +467,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -687,10 +703,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -715,10 +727,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -743,10 +751,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -969,10 +973,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -1007,10 +1007,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -1045,10 +1041,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -1084,10 +1076,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -1118,10 +1106,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                     class=""
                     colspan="5"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -1375,10 +1359,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <span>
                       <span
                         class=""
@@ -1417,10 +1397,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <span>
                       <span
                         class=""
@@ -1459,10 +1435,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <span>
                       <span
                         class=""
@@ -1501,10 +1473,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <span>
                       <span
                         class=""
@@ -1717,10 +1685,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     John Brown
                   </td>
                   <td
@@ -1743,10 +1707,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jim Green
                   </td>
                   <td
@@ -1769,10 +1729,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Joe Black
                   </td>
                   <td
@@ -2526,8 +2482,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -2625,8 +2584,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -2724,8 +2686,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -2823,8 +2788,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -2922,8 +2890,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -3021,8 +2992,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -3120,8 +3094,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -3219,8 +3196,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -3318,8 +3298,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -3417,8 +3400,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class="ant-table-row-expand-icon-cell"
                     >
-                      <span
+                      <div
+                        aria-label="Expand row"
                         class="ant-table-row-expand-icon ant-table-row-collapsed"
+                        role="button"
+                        tabindex="0"
                       />
                     </td>
                     <td
@@ -3729,10 +3715,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                         class="editable-cell-value-wrap"
                         style="padding-right:24px"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edward King 0
                       </div>
                     </td>
@@ -3767,10 +3749,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                         class="editable-cell-value-wrap"
                         style="padding-right:24px"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edward King 1
                       </div>
                     </td>
@@ -3999,10 +3977,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 0
                   </td>
                   <td
@@ -4030,10 +4004,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 1
                   </td>
                   <td
@@ -4061,10 +4031,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 2
                   </td>
                   <td
@@ -4092,10 +4058,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 3
                   </td>
                   <td
@@ -4123,10 +4085,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 4
                   </td>
                   <td
@@ -4154,10 +4112,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 5
                   </td>
                   <td
@@ -4185,10 +4139,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 6
                   </td>
                   <td
@@ -4216,10 +4166,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 7
                   </td>
                   <td
@@ -4247,10 +4193,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 8
                   </td>
                   <td
@@ -4278,10 +4220,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edrward 9
                   </td>
                   <td
@@ -4592,8 +4530,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <td
                     class="ant-table-row-expand-icon-cell"
                   >
-                    <span
+                    <div
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
+                      role="button"
+                      tabindex="0"
                     />
                   </td>
                   <td
@@ -4628,8 +4569,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <td
                     class="ant-table-row-expand-icon-cell"
                   >
-                    <span
+                    <div
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
+                      role="button"
+                      tabindex="0"
                     />
                   </td>
                   <td
@@ -4664,8 +4608,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <td
                     class="ant-table-row-expand-icon-cell"
                   >
-                    <span
+                    <div
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
+                      role="button"
+                      tabindex="0"
                     />
                   </td>
                   <td
@@ -4940,8 +4887,11 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                       class="ant-table-row-indent indent-level-0"
                       style="padding-left:0px"
                     />
-                    <span
+                    <div
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
+                      role="button"
+                      tabindex="0"
                     />
                     John Brown sr.
                   </td>
@@ -5347,10 +5297,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -5415,10 +5361,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Jim Green
                     </td>
                     <td
@@ -5553,10 +5495,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                       <td
@@ -5572,10 +5510,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Jim Green
                       </td>
                       <td
@@ -6063,10 +5997,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 0
                     </td>
                     <td
@@ -6131,10 +6061,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 1
                     </td>
                     <td
@@ -6199,10 +6125,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 2
                     </td>
                     <td
@@ -6267,10 +6189,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 3
                     </td>
                     <td
@@ -6335,10 +6253,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 4
                     </td>
                     <td
@@ -6403,10 +6317,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 5
                     </td>
                     <td
@@ -6471,10 +6381,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 6
                     </td>
                     <td
@@ -6539,10 +6445,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 7
                     </td>
                     <td
@@ -6607,10 +6509,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 8
                     </td>
                     <td
@@ -6675,10 +6573,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edrward 9
                     </td>
                     <td
@@ -6830,10 +6724,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 0
                       </td>
                       <td
@@ -6849,10 +6739,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 1
                       </td>
                       <td
@@ -6868,10 +6754,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 2
                       </td>
                       <td
@@ -6887,10 +6769,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 3
                       </td>
                       <td
@@ -6906,10 +6784,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 4
                       </td>
                       <td
@@ -6925,10 +6799,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 5
                       </td>
                       <td
@@ -6944,10 +6814,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 6
                       </td>
                       <td
@@ -6963,10 +6829,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 7
                       </td>
                       <td
@@ -6982,10 +6844,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 8
                       </td>
                       <td
@@ -7001,10 +6859,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         Edrward 9
                       </td>
                       <td
@@ -7508,10 +7362,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 0
                     </td>
                     <td
@@ -7532,10 +7382,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 1
                     </td>
                     <td
@@ -7556,10 +7402,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 2
                     </td>
                     <td
@@ -7580,10 +7422,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 3
                     </td>
                     <td
@@ -7604,10 +7442,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 4
                     </td>
                     <td
@@ -7628,10 +7462,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 5
                     </td>
                     <td
@@ -7652,10 +7482,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 6
                     </td>
                     <td
@@ -7676,10 +7502,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 7
                     </td>
                     <td
@@ -7700,10 +7522,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 8
                     </td>
                     <td
@@ -7724,10 +7542,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 9
                     </td>
                     <td
@@ -7748,10 +7562,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 10
                     </td>
                     <td
@@ -7772,10 +7582,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 11
                     </td>
                     <td
@@ -7796,10 +7602,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 12
                     </td>
                     <td
@@ -7820,10 +7622,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 13
                     </td>
                     <td
@@ -7844,10 +7642,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 14
                     </td>
                     <td
@@ -7868,10 +7662,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 15
                     </td>
                     <td
@@ -7892,10 +7682,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 16
                     </td>
                     <td
@@ -7916,10 +7702,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 17
                     </td>
                     <td
@@ -7940,10 +7722,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 18
                     </td>
                     <td
@@ -7964,10 +7742,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 19
                     </td>
                     <td
@@ -7988,10 +7762,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 20
                     </td>
                     <td
@@ -8012,10 +7782,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 21
                     </td>
                     <td
@@ -8036,10 +7802,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 22
                     </td>
                     <td
@@ -8060,10 +7822,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 23
                     </td>
                     <td
@@ -8084,10 +7842,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 24
                     </td>
                     <td
@@ -8108,10 +7862,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 25
                     </td>
                     <td
@@ -8132,10 +7882,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 26
                     </td>
                     <td
@@ -8156,10 +7902,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 27
                     </td>
                     <td
@@ -8180,10 +7922,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 28
                     </td>
                     <td
@@ -8204,10 +7942,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 29
                     </td>
                     <td
@@ -8228,10 +7962,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 30
                     </td>
                     <td
@@ -8252,10 +7982,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 31
                     </td>
                     <td
@@ -8276,10 +8002,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 32
                     </td>
                     <td
@@ -8300,10 +8022,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 33
                     </td>
                     <td
@@ -8324,10 +8042,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 34
                     </td>
                     <td
@@ -8348,10 +8062,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 35
                     </td>
                     <td
@@ -8372,10 +8082,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 36
                     </td>
                     <td
@@ -8396,10 +8102,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 37
                     </td>
                     <td
@@ -8420,10 +8122,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 38
                     </td>
                     <td
@@ -8444,10 +8142,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 39
                     </td>
                     <td
@@ -8468,10 +8162,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 40
                     </td>
                     <td
@@ -8492,10 +8182,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 41
                     </td>
                     <td
@@ -8516,10 +8202,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 42
                     </td>
                     <td
@@ -8540,10 +8222,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 43
                     </td>
                     <td
@@ -8564,10 +8242,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 44
                     </td>
                     <td
@@ -8588,10 +8262,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 45
                     </td>
                     <td
@@ -8612,10 +8282,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 46
                     </td>
                     <td
@@ -8636,10 +8302,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 47
                     </td>
                     <td
@@ -8660,10 +8322,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 48
                     </td>
                     <td
@@ -8684,10 +8342,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 49
                     </td>
                     <td
@@ -9194,10 +8848,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9243,10 +8893,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9292,10 +8938,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9341,10 +8983,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9390,10 +9028,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9439,10 +9073,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9488,10 +9118,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9537,10 +9163,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9586,10 +9208,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9635,10 +9253,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -9769,10 +9383,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9783,10 +9393,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9797,10 +9403,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9811,10 +9413,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9825,10 +9423,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9839,10 +9433,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9853,10 +9443,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9867,10 +9453,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9881,10 +9463,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -9895,10 +9473,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       <td
                         class="ant-table-column-has-actions ant-table-column-has-filters"
                       >
-                        <span
-                          class="ant-table-row-indent indent-level-0"
-                          style="padding-left:0px"
-                        />
                         John Brown
                       </td>
                     </tr>
@@ -10493,10 +10067,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jim Green
                   </td>
                   <td
@@ -10517,10 +10087,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     John Brown
                   </td>
                   <td
@@ -10541,10 +10107,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Joe Black
                   </td>
                   <td
@@ -10565,10 +10127,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jim Red
                   </td>
                   <td
@@ -10843,10 +10401,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     John
                   </td>
                   <td
@@ -10907,10 +10461,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jim
                   </td>
                   <td
@@ -10966,10 +10516,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Joe
                   </td>
                   <td
@@ -11286,8 +10832,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <td
                     class="ant-table-row-expand-icon-cell"
                   >
-                    <span
+                    <div
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
+                      role="button"
+                      tabindex="0"
                     />
                   </td>
                   <td
@@ -11337,8 +10886,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <td
                     class="ant-table-row-expand-icon-cell"
                   >
-                    <span
+                    <div
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
+                      role="button"
+                      tabindex="0"
                     />
                   </td>
                   <td
@@ -11388,8 +10940,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <td
                     class="ant-table-row-expand-icon-cell"
                   >
-                    <span
+                    <div
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-collapsed"
+                      role="button"
+                      tabindex="0"
                     />
                   </td>
                   <td
@@ -11820,10 +11375,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -11844,10 +11395,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Jim Green
                     </td>
                     <td
@@ -11868,10 +11415,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Joe Black
                     </td>
                     <td
@@ -11892,10 +11435,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Jim Red
                     </td>
                     <td
@@ -12151,10 +11690,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     2018-02-11
                   </td>
                   <td
@@ -12189,10 +11724,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     2018-03-11
                   </td>
                   <td
@@ -12227,10 +11758,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     2018-04-11
                   </td>
                   <td
@@ -12498,10 +12025,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -12548,10 +12071,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -12598,10 +12117,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -12649,10 +12164,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     <a
                       href="javascript:;"
                     >
@@ -12926,10 +12437,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 0
                     </td>
                     <td
@@ -12971,10 +12478,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 1
                     </td>
                     <td
@@ -13016,10 +12519,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 2
                     </td>
                     <td
@@ -13061,10 +12560,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 3
                     </td>
                     <td
@@ -13106,10 +12601,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 4
                     </td>
                     <td
@@ -13151,10 +12642,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 5
                     </td>
                     <td
@@ -13196,10 +12683,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 6
                     </td>
                     <td
@@ -13241,10 +12724,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 7
                     </td>
                     <td
@@ -13286,10 +12765,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 8
                     </td>
                     <td
@@ -13331,10 +12806,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Edward King 9
                     </td>
                     <td
@@ -13648,10 +13119,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 0
                   </td>
                   <td
@@ -13693,10 +13160,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 1
                   </td>
                   <td
@@ -13738,10 +13201,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 2
                   </td>
                   <td
@@ -13783,10 +13242,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 3
                   </td>
                   <td
@@ -13828,10 +13283,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 4
                   </td>
                   <td
@@ -13873,10 +13324,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 5
                   </td>
                   <td
@@ -13918,10 +13365,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 6
                   </td>
                   <td
@@ -13963,10 +13406,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 7
                   </td>
                   <td
@@ -14008,10 +13447,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 8
                   </td>
                   <td
@@ -14053,10 +13488,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Edward King 9
                   </td>
                   <td
@@ -14290,10 +13721,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -14314,10 +13741,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Jim Green
                     </td>
                     <td
@@ -14338,10 +13761,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Joe Black
                     </td>
                     <td
@@ -14534,10 +13953,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       John Brown
                     </td>
                     <td
@@ -14558,10 +13973,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Jim Green
                     </td>
                     <td
@@ -14582,10 +13993,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <span
-                        class="ant-table-row-indent indent-level-0"
-                        style="padding-left:0px"
-                      />
                       Joe Black
                     </td>
                     <td
