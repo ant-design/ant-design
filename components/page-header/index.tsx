@@ -3,7 +3,6 @@ import classnames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Icon from '../icon';
-import Divider from '../divider';
 import Tag from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import TransButton from '../_util/transButton';
@@ -46,7 +45,6 @@ const renderBack = (
           >
             {backIcon}
           </TransButton>
-          <Divider type="vertical" />
         </div>
       )}
     </LocaleReceiver>
@@ -57,20 +55,21 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
   return <Breadcrumb {...breadcrumb} />;
 };
 
-const renderHeader = (prefixCls: string, props: PageHeaderProps) => {
-  const { breadcrumb, backIcon, onBack } = props;
+const renderHeader = (breadcrumb: PageHeaderProps['breadcrumb']) => {
   if (breadcrumb && breadcrumb.routes) {
     return renderBreadcrumb(breadcrumb);
   }
-  return renderBack(prefixCls, backIcon, onBack);
+  return null;
 };
 
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
-  const { title, subTitle, tags, extra } = props;
+  const { title, subTitle, tags, extra, backIcon, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
+    const backIconDom = renderBack(prefixCls, backIcon, onBack);
     return (
       <div className={headingPrefixCls}>
+        {backIconDom}
         {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
         {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
         {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
@@ -96,21 +95,16 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         style,
         footer,
         children,
+        breadcrumb,
         className: customizeClassName,
       } = props;
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-      const className = classnames(
-        prefixCls,
-        {
-          [`${prefixCls}-has-footer`]: footer,
-        },
-        customizeClassName,
-      );
+      const className = classnames(prefixCls, customizeClassName);
 
       return (
         <div className={className} style={style}>
-          {renderHeader(prefixCls, props)}
+          {renderHeader(breadcrumb)}
           {renderTitle(prefixCls, props)}
           {children && <div className={`${prefixCls}-content`}>{children}</div>}
           {renderFooter(prefixCls, footer)}

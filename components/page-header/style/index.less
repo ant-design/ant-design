@@ -8,17 +8,12 @@
 
   position: relative;
   padding: @page-header-padding-vertical @page-header-padding-horizontal;
-  background: @component-background;
-
-  &.@{pageheader-prefix-cls}-has-footer {
-    padding-bottom: 0;
-  }
 
   &-back {
     display: inline-block;
-    padding: 4px 0;
-    font-size: 16px;
-    line-height: 100%;
+    line-height: 1;
+    font-size: 24px;
+    margin-right: 16px;
     &-button {
       .operation-unit();
       color: @text-color;
@@ -29,20 +24,23 @@
   .@{ant-prefix}-divider-vertical {
     height: 14px;
     margin: 0 12px;
+    vertical-align: middle;
   }
 
   .@{ant-prefix}-breadcrumb + &-heading {
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   &-heading {
+    width: 100%;
     display: inline-block;
     &-title {
       display: inline-block;
       padding-right: 12px;
+      margin-bottom: 0;
       color: @heading-color;
-      font-weight: bold;
-      font-size: 16px;
+      font-weight: 600;
+      font-size: @heading-3-size;
       line-height: 1.4;
     }
 
@@ -51,18 +49,17 @@
       padding-right: 12px;
       color: @text-color-secondary;
       font-size: 14px;
-      line-height: 1.8;
+      line-height: 1;
+      vertical-align: text-top;
     }
 
     &-tags {
       display: inline-block;
-      vertical-align: top;
+      vertical-align: text-bottom;
     }
 
     &-extra {
-      position: absolute;
-      top: 16px;
-      right: @page-header-padding-horizontal;
+      float: right;
       > * {
         margin-left: 8px;
       }
@@ -83,8 +80,8 @@
       margin-bottom: 1px;
       border-bottom: 0;
       .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-        padding: 12px 8px;
-        padding-top: 0;
+        font-size: 16px;
+        padding: 8px;
       }
     }
   }

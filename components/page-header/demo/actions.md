@@ -57,7 +57,7 @@ ReactDOM.render(
     onBack={() => window.history.back()}
     title="Title"
     subTitle="This is a subtitle"
-    tags={<Tag color="red">Warning</Tag>}
+    tags={<Tag color="#1890FF">Warning</Tag>}
     extra={[
       <Button key="3">Operation</Button>,
       <Button key="2">Operation</Button>,
