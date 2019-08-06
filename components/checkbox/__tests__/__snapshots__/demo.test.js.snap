@@ -3,7 +3,6 @@
 exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
 <label
   class="ant-checkbox-wrapper"
-  for="checkbox-label"
 >
   <span
     class="ant-checkbox"
@@ -29,7 +28,6 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
   >
     <label
       class="ant-checkbox-wrapper"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-indeterminate"
@@ -53,7 +51,6 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
   >
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-checked"
@@ -74,7 +71,6 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox"
@@ -94,7 +90,6 @@ exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-checked"
@@ -124,7 +119,6 @@ exports[`renders ./components/checkbox/demo/controller.md correctly 1`] = `
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-checked"
@@ -169,7 +163,6 @@ exports[`renders ./components/checkbox/demo/disabled.md correctly 1`] = `
 <div>
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
-    for="checkbox-label"
   >
     <span
       class="ant-checkbox ant-checkbox-disabled"
@@ -187,7 +180,6 @@ exports[`renders ./components/checkbox/demo/disabled.md correctly 1`] = `
   <br />
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
-    for="checkbox-label"
   >
     <span
       class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
@@ -213,7 +205,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
   >
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-checked"
@@ -234,7 +225,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox"
@@ -254,7 +244,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox"
@@ -280,7 +269,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
   >
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox"
@@ -300,7 +288,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-checked"
@@ -321,7 +308,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox"
@@ -347,7 +333,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
   >
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
@@ -369,7 +354,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-disabled"
@@ -390,7 +374,6 @@ exports[`renders ./components/checkbox/demo/group.md correctly 1`] = `
     </label>
     <label
       class="ant-checkbox-group-item ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
-      for="checkbox-label"
     >
       <span
         class="ant-checkbox ant-checkbox-disabled"
@@ -426,7 +409,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
-        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -450,7 +432,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
-        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -474,7 +455,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
-        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -498,7 +478,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
-        for="checkbox-label"
       >
         <span
           class="ant-checkbox"
@@ -522,7 +501,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     >
       <label
         class="ant-checkbox-wrapper"
-        for="checkbox-label"
       >
         <span
           class="ant-checkbox"

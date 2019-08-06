@@ -74,8 +74,8 @@ export default class Radio extends React.Component<RadioProps, {}> {
     });
 
     return (
+      /* eslint-disable jsx-a11y/label-has-associated-control */
       <label
-        htmlFor={wrapperClassString}
         className={wrapperClassString}
         style={style}
         onMouseEnter={props.onMouseEnter}

@@ -142,8 +142,8 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
       [`${prefixCls}-indeterminate`]: indeterminate,
     });
     return (
+      /* eslint-disable jsx-a11y/label-has-associated-control */
       <label
-        htmlFor="checkbox-label"
         className={classString}
         style={style}
         onMouseEnter={onMouseEnter}
