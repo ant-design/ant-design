@@ -13,6 +13,7 @@ describe('BackTop', () => {
     window.scrollTo(0, 400);
     // trigger scroll manually
     wrapper.instance().handleScroll();
+    await sleep();
     wrapper.find('.ant-back-top').simulate('click');
     await sleep(500);
     expect(window.pageYOffset).toBe(0);
