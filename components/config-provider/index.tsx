@@ -40,7 +40,7 @@ export interface ConfigProviderProps {
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
-  direction?: 'auto' | 'ltr' | 'rtl';
+  direction?: 'ltr' | 'rtl' | 'auto';
 }
 
 const ConfigContext = createReactContext<ConfigConsumerProps>({
