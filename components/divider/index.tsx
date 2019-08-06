@@ -31,7 +31,7 @@ const Divider: React.SFC<DividerProps> = props => (
         [`${prefixCls}-dashed`]: !!dashed,
       });
       return (
-        <div className={classString} {...restProps}>
+        <div className={classString} {...restProps} role="separator">
           {children && <span className={`${prefixCls}-inner-text`}>{children}</span>}
         </div>
       );
