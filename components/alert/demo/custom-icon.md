@@ -16,8 +16,9 @@ A relevant icon makes information clearer and more friendly.
 
 ```jsx
 import { Alert, Icon } from 'antd';
+import { Smile } from '@ant-design/icons';
 
-const icon = <Icon type="smile" />;
+const icon = <Smile />;
 
 ReactDOM.render(
   <div>
