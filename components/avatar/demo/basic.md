@@ -15,20 +15,21 @@ Three sizes and two shapes are available.
 
 ```jsx
 import { Avatar } from 'antd';
+import { User } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
     <div>
-      <Avatar size={64} icon="user" />
-      <Avatar size="large" icon="user" />
-      <Avatar icon="user" />
-      <Avatar size="small" icon="user" />
+      <Avatar size={64} icon={<User />} />
+      <Avatar size="large" icon={<User />} />
+      <Avatar icon={<User />} />
+      <Avatar size="small" icon={<User />} />
     </div>
     <div>
-      <Avatar shape="square" size={64} icon="user" />
-      <Avatar shape="square" size="large" icon="user" />
-      <Avatar shape="square" icon="user" />
-      <Avatar shape="square" size="small" icon="user" />
+      <Avatar shape="square" size={64} icon={<User />} />
+      <Avatar shape="square" size="large" icon={<User />} />
+      <Avatar shape="square" icon={<User />} />
+      <Avatar shape="square" size="small" icon={<User />} />
     </div>
   </div>,
   mountNode,
