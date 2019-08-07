@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { Smile } from '@ant-design/icons';
+
 import message from '..';
-import Icon from '../../icon';
 
 describe('message', () => {
   beforeEach(() => {
@@ -118,8 +119,8 @@ describe('message', () => {
   });
 
   it('should allow custom icon', () => {
-    message.open({ content: 'Message', icon: <Icon type="smile-o" /> });
-    expect(document.querySelectorAll('.anticon-smile-o').length).toBe(1);
+    message.open({ content: 'Message', icon: <Smile /> });
+    expect(document.querySelectorAll('.anticon-smile').length).toBe(1);
   });
 
   it('should have no icon', () => {

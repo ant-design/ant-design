@@ -1,7 +1,10 @@
 /* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon';
+import {
+  Loading, ExclamationCircleFilled, CloseCircleFilled,
+  CheckCircleFilled, InfoCircleFilled,
+} from '@ant-design/icons';
 
 let defaultDuration = 3;
 let defaultTop: number;
@@ -56,15 +59,17 @@ export interface ArgsProps {
   icon?: React.ReactNode;
 }
 
+const iconMap = {
+  info: InfoCircleFilled,
+  success: CheckCircleFilled,
+  error: CloseCircleFilled,
+  warning: ExclamationCircleFilled,
+  loading: Loading,
+};
+
 function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const iconType = {
-    info: 'info-circle',
-    success: 'check-circle',
-    error: 'close-circle',
-    warning: 'exclamation-circle',
-    loading: 'loading',
-  }[args.type];
+  const iconNode = iconMap[args.type];
 
   const target = key++;
   const closePromise = new Promise(resolve => {
@@ -75,9 +80,6 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
     getMessageInstance(instance => {
-      const iconNode = (
-        <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
-      );
       instance.notice({
         key: target,
         duration,
@@ -88,7 +90,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : iconType ? iconNode : ''}
+            {args.icon ? args.icon : iconNode || ''}
             <span>{args.content}</span>
           </div>
         ),
