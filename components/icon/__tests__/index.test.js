@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import ReactIcon from '@ant-design/icons-react';
+import { getTwoToneColor, setTwoToneColor } from '@ant-design/icons';
 import Icon from '..';
 import Tooltip from '../../tooltip';
 import { getThemeFromTypeName, withThemeSuffix } from '../utils';
@@ -42,12 +42,10 @@ describe('Icon', () => {
   });
 
   it('should support config global two-tone primary color', () => {
-    const colors = ReactIcon.getTwoToneColors();
-    Icon.setTwoToneColor('#1890ff');
-    expect(Icon.getTwoToneColor()).toBe('#1890ff');
+    setTwoToneColor('#1890ff');
+    expect(getTwoToneColor()).toBe('#1890ff');
     const wrapper = render(<Icon type="check-circle" theme="twoTone" />);
     expect(wrapper).toMatchSnapshot();
-    ReactIcon.setTwoToneColors(colors);
   });
 
   it('should support pass svg paths as children', () => {
