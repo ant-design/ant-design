@@ -87,7 +87,10 @@ const splitObject = (obj: any, keys: string[]) => {
 function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
   const elementType = element.type as any;
   if (
-    (elementType.__ANT_BUTTON || elementType.__ANT_SWITCH || element.type === 'button') &&
+    (elementType.__ANT_BUTTON ||
+      elementType.__ANT_SWITCH ||
+      elementType.__ANT_CHECKBOX ||
+      element.type === 'button') &&
     element.props.disabled
   ) {
     // Pick some layout related style properties up to span
