@@ -20,7 +20,8 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Icon from '../icon';
+import { Bars, Right, Left } from '@ant-design/icons';
+
 import isNumeric from '../_util/isNumeric';
 
 const dimensionMap = {
@@ -206,12 +207,12 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
             reverseArrow ? 'right' : 'left'
           }`}
         >
-          <Icon type="bars" />
+          <Bars />
         </span>
       ) : null;
     const iconObj = {
-      expanded: reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
-      collapsed: reverseArrow ? <Icon type="left" /> : <Icon type="right" />,
+      expanded: reverseArrow ? <Right /> : <Left />,
+      collapsed: reverseArrow ? <Left /> : <Right />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];
