@@ -1,11 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import Icon from '../icon';
+
 import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
-import warning from '../_util/warning';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -29,16 +28,10 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     maskStyle,
     okButtonProps,
     cancelButtonProps,
-    iconType = 'question-circle',
+    icon,
   } = props;
-  warning(
-    !('iconType' in props),
-    'Modal',
-    `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
-  );
 
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
-  const icon = props.icon === undefined ? iconType : props.icon;
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
@@ -73,8 +66,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
-  const iconNode = typeof icon === 'string' ? <Icon type={icon} /> : icon;
-
   return (
     <Dialog
       prefixCls={prefixCls}
@@ -99,7 +90,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <div className={`${contentPrefixCls}-body`}>
-          {iconNode}
+          {icon}
           <span className={`${contentPrefixCls}-title`}>{props.title}</span>
           <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>
