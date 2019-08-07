@@ -32,7 +32,7 @@ cols: 1
 | showLessItems | show less page items | boolean | false | 3.16.3 |
 | showQuickJumper | 是否可以快速跳转至某页 | boolean \| `{ goButton: ReactNode }` | false |  |
 | showSizeChanger | 是否可以改变 pageSize | boolean | false |  |
-| showTotal | 用于显示数据总量和当前数据顺序 | Function(total, range) | - | 3.19.3 |
+| showTotal | 用于显示数据总量和当前数据顺序 | Function(total, range) | - |  |
 | simple | 当添加该属性时，显示为简单分页 | boolean | - |  |
 | size | 当为「small」时，是小尺寸分页 | string | "" |  |
 | total | 数据总数 | number | 0 |  |
