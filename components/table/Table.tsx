@@ -30,14 +30,16 @@ import {
   TableRowSelection,
   PaginationConfig,
   PrepareParamsArgumentsReturn,
+  ExpandIconProps,
 } from './interface';
 import Pagination from '../pagination';
 import Icon from '../icon';
 import Spin, { SpinProps } from '../spin';
 import { RadioChangeEvent } from '../radio';
+import TransButton from '../_util/transButton';
 import { CheckboxChangeEvent } from '../checkbox';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import warning from '../_util/warning';
 
@@ -83,6 +85,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     locale: PropTypes.object,
     dropdownPrefixCls: PropTypes.string,
     sortDirections: PropTypes.array,
+    getPopupContainer: PropTypes.func,
   };
 
   static defaultProps = {
@@ -760,18 +763,24 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return recordKey === undefined ? index : recordKey;
   };
 
-  getPopupContainer = () => {
-    return ReactDOM.findDOMNode(this) as HTMLElement;
-  };
-
-  generatePopupContainerFunc = () => {
+  generatePopupContainerFunc = (getPopupContainer: TableProps<T>['getPopupContainer']) => {
     const { scroll } = this.props;
-
+    if (getPopupContainer) {
+      return getPopupContainer;
+    }
     // Use undefined to let rc component use default logic.
-    return scroll ? this.getPopupContainer : undefined;
+    return scroll ? () => ReactDOM.findDOMNode(this) as HTMLElement : undefined;
   };
 
-  renderRowSelection(prefixCls: string, locale: TableLocale) {
+  renderRowSelection({
+    prefixCls,
+    locale,
+    getPopupContainer,
+  }: {
+    prefixCls: string;
+    locale: TableLocale;
+    getPopupContainer: TableProps<T>['getPopupContainer'];
+  }) {
     const { rowSelection } = this.props;
     const columns = this.columns.concat();
     if (rowSelection) {
@@ -811,7 +820,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             onSelect={this.handleSelectRow}
             selections={rowSelection.selections}
             hideDefaultSelections={rowSelection.hideDefaultSelections}
-            getPopupContainer={this.generatePopupContainerFunc()}
+            getPopupContainer={this.generatePopupContainerFunc(getPopupContainer)}
           />
         );
       }
@@ -851,12 +860,19 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return this.getColumnKey(sortColumn) === this.getColumnKey(column);
   }
 
-  renderColumnsDropdown(
-    prefixCls: string,
-    dropdownPrefixCls: string,
-    columns: ColumnProps<T>[],
-    locale: TableLocale,
-  ) {
+  renderColumnsDropdown({
+    prefixCls,
+    dropdownPrefixCls,
+    columns,
+    locale,
+    getPopupContainer,
+  }: {
+    prefixCls: string;
+    dropdownPrefixCls: string;
+    columns: ColumnProps<T>[];
+    locale: TableLocale;
+    getPopupContainer: TableProps<T>['getPopupContainer'];
+  }) {
     const { sortOrder, filters } = this.state;
     return treeMap(columns, (column, i) => {
       const key = this.getColumnKey(column, i) as string;
@@ -874,7 +890,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
             confirmFilter={this.handleFilter}
             prefixCls={`${prefixCls}-filter`}
             dropdownPrefixCls={dropdownPrefixCls || 'ant-dropdown'}
-            getPopupContainer={this.generatePopupContainerFunc()}
+            getPopupContainer={this.generatePopupContainerFunc(getPopupContainer)}
             key="filter-dropdown"
           />
         );
@@ -1146,16 +1162,61 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     };
   }
 
-  renderTable = (
-    prefixCls: string,
-    renderEmpty: RenderEmptyHandler,
-    dropdownPrefixCls: string,
-    contextLocale: TableLocale,
-  ) => {
-    const { style, className, showHeader, locale, ...restProps } = this.props;
+  renderExpandIcon = (prefixCls: string) => ({
+    expandable,
+    expanded,
+    needIndentSpaced,
+    record,
+    onExpand,
+  }: ExpandIconProps<T>) => {
+    if (expandable) {
+      return (
+        <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
+          {(locale: TableLocale) => (
+            <TransButton
+              className={classNames(`${prefixCls}-row-expand-icon`, {
+                [`${prefixCls}-row-collapsed`]: !expanded,
+                [`${prefixCls}-row-expanded`]: expanded,
+              })}
+              onClick={event => {
+                onExpand(record, event);
+              }}
+              aria-label={expanded ? locale.collapse : locale.expand}
+              noStyle
+            />
+          )}
+        </LocaleReceiver>
+      );
+    }
+
+    if (needIndentSpaced) {
+      return <span className={`${prefixCls}-row-expand-icon ${prefixCls}-row-spaced`} />;
+    }
+
+    return null;
+  };
+
+  renderTable = ({
+    prefixCls,
+    renderEmpty,
+    dropdownPrefixCls,
+    contextLocale,
+    getPopupContainer: contextGetPopupContainer,
+  }: {
+    prefixCls: string;
+    renderEmpty: RenderEmptyHandler;
+    dropdownPrefixCls: string;
+    contextLocale: TableLocale;
+    getPopupContainer: TableProps<T>['getPopupContainer'];
+  }) => {
+    const { style, className, showHeader, locale, getPopupContainer, ...restProps } = this.props;
     const data = this.getCurrentPageData();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
 
+    // use props.getPopupContainer first
+    const realGetPopupContainer = getPopupContainer || contextGetPopupContainer;
+
+    // Merge too locales
     const mergedLocale = { ...contextLocale, ...locale };
     if (!locale || !locale.emptyText) {
       mergedLocale.emptyText = renderEmpty('Table');
@@ -1168,13 +1229,23 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       [`${prefixCls}-without-column-header`]: !showHeader,
     });
 
-    let columns = this.renderRowSelection(prefixCls, mergedLocale);
-    columns = this.renderColumnsDropdown(prefixCls, dropdownPrefixCls, columns, mergedLocale);
-    columns = columns.map((column, i) => {
+    const columnsWithRowSelection = this.renderRowSelection({
+      prefixCls,
+      locale: mergedLocale,
+      getPopupContainer: realGetPopupContainer,
+    });
+    const columns = this.renderColumnsDropdown({
+      columns: columnsWithRowSelection,
+      prefixCls,
+      dropdownPrefixCls,
+      locale: mergedLocale,
+      getPopupContainer: realGetPopupContainer,
+    }).map((column, i) => {
       const newColumn = { ...column };
       newColumn.key = this.getColumnKey(newColumn, i);
       return newColumn;
     });
+
     let expandIconColumnIndex = columns[0] && columns[0].key === 'selection-column' ? 1 : 0;
     if ('expandIconColumnIndex' in restProps) {
       expandIconColumnIndex = restProps.expandIconColumnIndex as number;
@@ -1183,6 +1254,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return (
       <RcTable
         key="table"
+        expandIcon={this.renderExpandIcon(prefixCls)}
         {...restProps}
         onRow={(record: T, index: number) => this.onRow(prefixCls, record, index)}
         components={this.components}
@@ -1198,7 +1270,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     );
   };
 
-  renderComponent = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, renderEmpty, getPopupContainer }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       dropdownPrefixCls: customizeDropdownPrefixCls,
@@ -1218,7 +1290,15 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
     const table = (
       <LocaleReceiver componentName="Table" defaultLocale={defaultLocale.Table}>
-        {locale => this.renderTable(prefixCls, renderEmpty, dropdownPrefixCls, locale)}
+        {locale =>
+          this.renderTable({
+            prefixCls,
+            renderEmpty,
+            dropdownPrefixCls,
+            contextLocale: locale,
+            getPopupContainer,
+          })
+        }
       </LocaleReceiver>
     );
 

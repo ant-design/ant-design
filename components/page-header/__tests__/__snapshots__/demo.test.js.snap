@@ -54,11 +54,11 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     <span
       class="ant-page-header-heading-tags"
     >
-      <div
+      <span
         class="ant-tag ant-tag-red"
       >
         Warning
-      </div>
+      </span>
     </span>
     <span
       class="ant-page-header-heading-extra"

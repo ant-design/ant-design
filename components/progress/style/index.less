@@ -36,7 +36,8 @@
     width: 100%;
     vertical-align: middle;
     background-color: @progress-remaining-color;
-    border-radius: 100px;
+    border-radius: @progress-radius;
+    overflow: hidden;
   }
 
   &-circle-trail {
@@ -52,6 +53,7 @@
   &-bg {
     position: relative;
     background-color: @progress-default-color;
+    border-radius: @progress-radius;
     transition: all 0.4s @ease-out-circ 0s;
   }
 

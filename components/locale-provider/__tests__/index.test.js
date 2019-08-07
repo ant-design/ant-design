@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
+import { resetWarned } from '../../_util/warning';
 import {
   LocaleProvider,
   Pagination,
@@ -54,6 +55,7 @@ import skSK from '../sk_SK';
 import slSI from '../sl_SI';
 import srRS from '../sr_RS';
 import svSE from '../sv_SE';
+import taIN from '../ta_IN';
 import thTH from '../th_TH';
 import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
@@ -102,6 +104,7 @@ const locales = [
   slSI,
   srRS,
   svSE,
+  taIN,
   thTH,
   trTR,
   ukUA,
@@ -147,7 +150,7 @@ const App = () => (
     <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
     <Calendar fullscreen={false} value={moment()} />
     <Table dataSource={[]} columns={columns} />
-    <Modal title="Locale Modal" visible>
+    <Modal title="Locale Modal" visible getContainer={false}>
       <p>Locale Modal</p>
     </Modal>
   </div>
@@ -230,5 +233,21 @@ describe('Locale Provider', () => {
     expect(wrapper.render()).toMatchSnapshot();
     wrapper.setState({ locale: null });
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('warning if use LocaleProvider', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    resetWarned();
+
+    mount(
+      <LocaleProvider locale={{}}>
+        <div />
+      </LocaleProvider>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: LocaleProvider] `LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
+    );
+
+    errorSpy.mockRestore();
   });
 });

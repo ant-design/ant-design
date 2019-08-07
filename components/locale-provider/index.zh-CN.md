@@ -1,12 +1,12 @@
 ---
 category: Components
-subtitle: 国际化
+subtitle: 国际化（废弃）
 cols: 1
-type: 其他
+type: 废弃
 title: LocaleProvider
 ---
 
-为组件内建文案提供统一的国际化支持。
+国际化组件。已废弃，请使用 [ConfigProvider](/components/config-provider) 代替。
 
 ## 使用
 

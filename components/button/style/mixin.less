@@ -66,26 +66,6 @@
   }
   .button-disabled();
 }
-.button-variant-danger(@color; @background; @border) {
-  .button-color(@color; @background; @border);
-  &:hover {
-    .button-color(
-      @btn-primary-color; ~`colorPalette('@{color}', 5) `; ~`colorPalette('@{color}', 5) `
-    );
-  }
-  &:focus {
-    .button-color(
-      ~`colorPalette('@{color}', 5) `; @component-background; ~`colorPalette('@{color}', 5) `
-    );
-  }
-  &:active,
-  &.active {
-    .button-color(
-      @btn-primary-color; ~`colorPalette('@{color}', 7) `; ~`colorPalette('@{color}', 7) `
-    );
-  }
-  .button-disabled();
-}
 .button-variant-ghost(@color; @border: @color) {
   .button-color(@color; transparent; @border);
   text-shadow: none;
@@ -230,7 +210,7 @@
 }
 // danger button style
 .btn-danger() {
-  .button-variant-danger(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+  .button-variant-primary(@btn-danger-color, @btn-danger-bg);
 }
 // link button style
 .btn-link() {

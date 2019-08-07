@@ -12,8 +12,8 @@
     border: 0 solid #aaa;
     border-width: 1.5px 0 0 1.5px;
     border-radius: 1px;
-    transform: rotate(-45deg) scale(.8);
-    transition: all .3s;
+    transform: rotate(-45deg) scale(0.8);
+    transition: all 0.3s;
     content: '';
   }
 
@@ -42,7 +42,7 @@
 
   &::before,
   &::after {
-    transform: rotate(135deg) scale(.8);
+    transform: rotate(135deg) scale(0.8);
   }
 }
 
@@ -128,6 +128,18 @@
   .@{calendar-prefix-cls}-next-month-btn {
     right: 29px;
     .calendarRightArrow;
+  }
+}
+
+.calendar-selected-cell() {
+  .@{calendar-prefix-cls}-date {
+    color: @text-color-inverse;
+    background: @primary-color;
+    border: @border-width-base @border-style-base transparent;
+
+    &:hover {
+      background: @primary-color;
+    }
   }
 }
 
@@ -255,26 +267,21 @@
     border-color: @primary-color;
   }
 
+  &-selected-day &-date {
+    background: @primary-2;
+  }
+
+  &-selected-date {
+    .calendar-selected-cell;
+  }
+
   &-last-month-cell &-date,
   &-next-month-btn-day &-date {
-    color: @disabled-color;
-  }
-
-  &-selected-day &-date {
-    background: tint(@primary-color, 80%);
-  }
-
-  &-selected-date,
-  &-selected-start-date,
-  &-selected-end-date {
-    .@{calendar-prefix-cls}-date {
-      color: @text-color-inverse;
-      background: @primary-color;
-      border: @border-width-base @border-style-base transparent;
-
-      &:hover {
-        background: @primary-color;
-      }
+    &,
+    &:hover {
+      color: @disabled-color;
+      background: transparent;
+      border-color: transparent;
     }
   }
 

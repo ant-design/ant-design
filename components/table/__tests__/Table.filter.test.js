@@ -4,6 +4,7 @@ import { render, mount } from 'enzyme';
 import Table from '..';
 import Input from '../../input';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 
 function getDropdownWrapper(wrapper) {
   return mount(
@@ -621,6 +622,39 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-input').instance().value).toBe('');
   });
 
+  // https://github.com/ant-design/ant-design/issues/17833
+  it('should not trigger onChange when bluring custom filterDropdown', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange,
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filterDropdown: ({ setSelectedKeys }) => (
+              <input onChange={e => setSelectedKeys([e.target.value])} />
+            ),
+          },
+        ],
+      }),
+    );
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { value: 'whatevervalue' } });
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
   // https://github.com/ant-design/ant-design/issues/17089
   it('not crash when dynamic change filter', () => {
     const onChange = jest.fn();
@@ -686,6 +720,37 @@ describe('Table.filter', () => {
       .simulate('click');
     dropdownWrapper2.find('.confirm').simulate('click');
     expect(onChange).toHaveBeenCalled();
+  });
+
+  it('should support getPopupContainer', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdownVisible: true,
+          },
+        ],
+        getPopupContainer: node => node.parentNode,
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support getPopupContainer from ConfigProvider', () => {
+    const wrapper = mount(
+      <ConfigProvider getPopupContainer={node => node.parentNode}>
+        {createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownVisible: true,
+            },
+          ],
+        })}
+      </ConfigProvider>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('pass visible prop to filterDropdown', () => {

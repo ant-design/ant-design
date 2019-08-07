@@ -18,7 +18,7 @@ import {
 } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export { UploadProps };
@@ -332,12 +332,13 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     if (listType === 'picture-card') {
       return (
-        <span className={className}>
+        <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
           {uploadList}
           {uploadButton}
         </span>
       );
     }
+
     return (
       <span className={className}>
         {uploadButton}

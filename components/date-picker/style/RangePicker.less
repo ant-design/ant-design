@@ -84,6 +84,22 @@
     transform: translateX(-50%);
   }
 
+  .@{calendar-prefix-cls}-today
+    :not(.@{calendar-prefix-cls}-disabled-cell)
+    :not(.@{calendar-prefix-cls}-last-month-cell)
+    :not(.@{calendar-prefix-cls}-next-month-btn-day) {
+    .@{calendar-prefix-cls}-date {
+      color: @primary-color;
+      background: @primary-2;
+      border-color: @primary-color;
+    }
+  }
+
+  .@{calendar-prefix-cls}-selected-start-date,
+  .@{calendar-prefix-cls}-selected-end-date {
+    .calendar-selected-cell;
+  }
+
   &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-date-input-wrap {
     margin-left: 0;
   }
@@ -170,7 +186,8 @@
 
   .@{calendar-prefix-cls},
   .@{calendar-prefix-cls}-month-panel,
-  .@{calendar-prefix-cls}-year-panel {
+  .@{calendar-prefix-cls}-year-panel,
+  .@{calendar-prefix-cls}-decade-panel {
     &-header {
       border-bottom: 0;
     }

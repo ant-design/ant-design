@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon, Affix } from 'antd';
+import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
@@ -54,6 +55,28 @@ const getSideBarOpenKeys = nextProps => {
     .getMenuItems(moduleData, locale, themeConfig.categoryOrder, themeConfig.typeOrder)
     .map(m => (m.title && m.title[locale]) || m.title);
   return shouldOpenKeys;
+};
+
+const getSubMenuTitle = menuItem => {
+  if (menuItem.title !== 'Components') {
+    return menuItem.title;
+  }
+  let count = 0;
+  menuItem.children.forEach(item => {
+    if (item.children) {
+      count += item.children.length;
+    }
+  });
+  return (
+    <h4>
+      {menuItem.title === 'Components' ? (
+        <FormattedMessage id="app.header.menu.components" />
+      ) : (
+        menuItem.title
+      )}
+      <span className="menu-antd-components-count">{count}</span>
+    </h4>
+  );
 };
 
 export default class MainContent extends Component {
@@ -117,7 +140,7 @@ export default class MainContent extends Component {
     return menuItems.map(menuItem => {
       if (menuItem.children) {
         return (
-          <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
+          <SubMenu title={getSubMenuTitle(menuItem)} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
                 return (

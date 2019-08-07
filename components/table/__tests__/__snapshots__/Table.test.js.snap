@@ -119,10 +119,6 @@ exports[`Table renders JSX correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     John
                   </td>
                   <td
@@ -143,10 +139,6 @@ exports[`Table renders JSX correctly 1`] = `
                   <td
                     class=""
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jim
                   </td>
                   <td

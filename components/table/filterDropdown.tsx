@@ -132,18 +132,21 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
 
   onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
-    if (!visible) {
+    const { column } = this.props;
+    // https://github.com/ant-design/ant-design/issues/17833
+    if (!visible && !(column.filterDropdown instanceof Function)) {
       this.confirmFilter();
     }
   };
 
   confirmFilter() {
+    const { column, selectedKeys: propSelectedKeys, confirmFilter } = this.props;
     const { selectedKeys, valueKeys } = this.state;
-    const { filterDropdown } = this.props.column;
+    const { filterDropdown } = column;
 
-    if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
-      this.props.confirmFilter(
-        this.props.column,
+    if (!shallowequal(selectedKeys, propSelectedKeys)) {
+      confirmFilter(
+        column,
         filterDropdown
           ? selectedKeys
           : selectedKeys.map(key => valueKeys[key]).filter(key => key !== undefined),
@@ -282,7 +285,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
           selectedKeys={originSelectedKeys && originSelectedKeys.map(val => val.toString())}
-          getPopupContainer={(triggerNode: HTMLElement) => triggerNode.parentNode}
+          getPopupContainer={getPopupContainer}
         >
           {this.renderMenus(column.filters!)}
         </Menu>

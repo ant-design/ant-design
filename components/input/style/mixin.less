@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @input-affix-width: 19px;
+@input-affix-with-clear-btn-width: 38px;
 
 // size mixins for input
 .input-lg() {
@@ -9,12 +10,14 @@
   padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   font-size: @font-size-lg;
   line-height: @input-height-lg;
+  line-height: ~'@{line-height-base} \9'; // https://github.com/ant-design/ant-design/issues/17753
 }
 
 .input-sm() {
   height: @input-height-sm;
   padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
   line-height: @input-height-sm;
+  line-height: ~'@{line-height-base} \9'; // https://github.com/ant-design/ant-design/issues/17753
 }
 
 // input status
@@ -28,7 +31,7 @@
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette('@{color}', 5) `;
+  border-color: @color;
   border-right-width: @border-width-base !important;
 }
 
@@ -52,6 +55,7 @@
   color: @input-color;
   font-size: @font-size-base;
   line-height: @input-height-base;
+  line-height: ~'@{line-height-base} \9'; // https://github.com/ant-design/ant-design/issues/17753
   background-color: @input-bg;
   background-image: none;
   border: @border-width-base @border-style-base @input-border-color;
@@ -368,20 +372,20 @@
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
-    top: 50%;
+    top: 0;
     z-index: 2;
-    height: calc(100% - 2px);
     color: @input-color;
     line-height: 0;
-    background-color: #fff;
-    transform: translateY(-50%);
+    height: 100%;
+    box-sizing: border-box;
+    padding: @input-padding-vertical-base + @border-width-base 0;
     :not(.anticon) {
       line-height: @line-height-base;
     }
     .anticon {
       position: relative;
-      top: 50%;
       vertical-align: top;
+      top: 50%;
       transform: translateY(-50%);
     }
   }
@@ -400,5 +404,8 @@
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+  }
+  &.@{inputClass}-affix-wrapper-with-clear-btn .@{inputClass}:not(:last-child) {
+    padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
   }
 }
