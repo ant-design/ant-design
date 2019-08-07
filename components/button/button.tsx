@@ -289,13 +289,12 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     }
 
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-    const { htmlType, title, ...otherProps } = rest as NativeButtonProps;
+    const { htmlType, ...otherProps } = rest as NativeButtonProps;
 
     const buttonNode = (
       <button
         {...omit(otherProps, ['loading']) as NativeButtonProps}
         type={htmlType}
-        title={title}
         className={classes}
         onClick={this.handleClick}
         ref={this.saveButtonRef}
