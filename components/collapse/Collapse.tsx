@@ -31,6 +31,7 @@ interface PanelProps {
   showArrow?: boolean;
   forceRender?: boolean;
   disabled?: boolean;
+  panelKey?: string
   extra?: React.ReactNode;
 }
 
