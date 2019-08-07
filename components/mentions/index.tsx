@@ -73,11 +73,11 @@ class Mentions extends React.Component<MentionProps, MentionState> {
       .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
   };
 
-  private rcMentions: any;
-
   state = {
     focused: false,
   };
+
+  private rcMentions: any;
 
   onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     const { onFocus } = this.props;
