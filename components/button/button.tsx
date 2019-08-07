@@ -93,14 +93,12 @@ export type AnchorButtonProps = {
   href: string;
   target?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  title?: string;
 } & BaseButtonProps &
   Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  title?: string;
 } & BaseButtonProps &
   Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
 
