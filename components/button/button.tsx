@@ -93,12 +93,14 @@ export type AnchorButtonProps = {
   href: string;
   target?: string;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  title?: string;
 } & BaseButtonProps &
   Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
   onClick?: React.MouseEventHandler<HTMLElement>;
+  title?: string;
 } & BaseButtonProps &
   Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
 
@@ -131,6 +133,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     className: PropTypes.string,
     icon: PropTypes.string,
     block: PropTypes.bool,
+    title: PropTypes.string,
   };
 
   static getDerivedStateFromProps(nextProps: ButtonProps, prevState: ButtonState) {
@@ -286,12 +289,13 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     }
 
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-    const { htmlType, ...otherProps } = rest as NativeButtonProps;
+    const { htmlType, title, ...otherProps } = rest as NativeButtonProps;
 
     const buttonNode = (
       <button
-        {...(omit(otherProps, ['loading']) as NativeButtonProps)}
+        {...omit(otherProps, ['loading']) as NativeButtonProps}
         type={htmlType}
+        title={title}
         className={classes}
         onClick={this.handleClick}
         ref={this.saveButtonRef}
