@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Mentions from '..';
-// import focusTest from '../../../tests/shared/focusTest';
+import focusTest from '../../../tests/shared/focusTest';
 
 const { getMentions } = Mentions;
 
@@ -34,8 +34,6 @@ function simulateInput(wrapper, text = '', keyEvent) {
 }
 
 describe('Mentions', () => {
-  // focusTest(Mentions); // 注释看focus测试能否正常
-
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -73,6 +71,8 @@ describe('Mentions', () => {
     expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
     expect(onBlur).toHaveBeenCalled();
   });
+
+  focusTest(Mentions);
 
   it('loading', () => {
     const wrapper = mount(<Mentions loading />);
