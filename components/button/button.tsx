@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { Loading } from '@ant-design/icons';
 import { polyfill } from 'react-lifecycles-compat';
-import Group from './button-group';
 import omit from 'omit.js';
-import Icon from '../icon';
+import Group from './button-group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
@@ -74,7 +74,7 @@ export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
 
 export interface BaseButtonProps {
   type?: ButtonType;
-  icon?: string;
+  icon?: React.ReactNode;
   shape?: ButtonShape;
   size?: ButtonSize;
   loading?: boolean | { delay?: number };
@@ -127,7 +127,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     onClick: PropTypes.func,
     loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
     className: PropTypes.string,
-    icon: PropTypes.string,
+    icon: PropTypes.node,
     block: PropTypes.bool,
   };
 
@@ -262,8 +262,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-block`]: block,
     });
 
-    const iconType = loading ? 'loading' : icon;
-    const iconNode = iconType ? <Icon type={iconType} /> : null;
+    const iconNode = loading ? <Loading /> : icon || null;
     const kids =
       children || children === 0
         ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
