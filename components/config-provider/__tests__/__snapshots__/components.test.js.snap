@@ -6285,9 +6285,10 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6296,6 +6297,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6303,7 +6305,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </div>
   </span>
 </div>
@@ -6321,9 +6323,10 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6332,6 +6335,7 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6339,7 +6343,7 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </div>
   </span>
 </div>
@@ -6357,9 +6361,10 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-DatePicker-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6368,6 +6373,7 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6375,7 +6381,7 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </div>
   </span>
 </div>
@@ -6393,9 +6399,10 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6404,6 +6411,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6411,7 +6419,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </div>
   </span>
 </div>
@@ -6429,9 +6437,10 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6440,6 +6449,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6447,7 +6457,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </div>
   </span>
 </div>
@@ -6465,9 +6475,10 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-MonthPicker-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6476,6 +6487,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6483,7 +6495,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </div>
   </span>
 </div>
@@ -6517,9 +6529,10 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
         tabindex="-1"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6528,6 +6541,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6535,7 +6549,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
 </div>
@@ -6569,9 +6583,10 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
         tabindex="-1"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6580,6 +6595,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6587,7 +6603,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
 </div>
@@ -6621,9 +6637,10 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
         tabindex="-1"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-RangePicker-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6632,6 +6649,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6639,7 +6657,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
 </div>
@@ -6659,9 +6677,10 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar config-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6670,6 +6689,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6677,7 +6697,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
 </div>
@@ -6697,9 +6717,10 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar ant-calendar-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6708,6 +6729,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6715,7 +6737,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
 </div>
@@ -6735,9 +6757,10 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
         readonly=""
         value=""
       />
-      <i
-        aria-label="icon: calendar"
+      <span
+        aria-label="calendar"
         class="anticon anticon-calendar prefix-WeekPicker-picker-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -6746,6 +6769,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6753,7 +6777,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
 </div>

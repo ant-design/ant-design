@@ -5,7 +5,7 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Icon from '../icon';
+import { CloseCircleFilled, Calendar } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
@@ -202,11 +202,9 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       const clearIcon =
         !props.disabled && props.allowClear && value ? (
-          <Icon
-            type="close-circle"
+          <CloseCircleFilled
             className={`${prefixCls}-picker-clear`}
             onClick={this.clearSelection}
-            theme="filled"
           />
         ) : null;
 
@@ -220,7 +218,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           })
         ) : (
           <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-        ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
+        ))) || <Calendar className={`${prefixCls}-picker-icon`} />;
 
       const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (

@@ -4,7 +4,8 @@ import { polyfill } from 'react-lifecycles-compat';
 import Calendar from 'rc-calendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
-import Icon from '../icon';
+import { CloseCircleFilled } from '@ant-design/icons';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
 import InputIcon from './InputIcon';
@@ -173,11 +174,9 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     );
     const clearIcon =
       !disabled && allowClear && this.state.value ? (
-        <Icon
-          type="close-circle"
+        <CloseCircleFilled
           className={`${prefixCls}-picker-clear`}
           onClick={this.clearSelection}
-          theme="filled"
         />
       ) : null;
 
