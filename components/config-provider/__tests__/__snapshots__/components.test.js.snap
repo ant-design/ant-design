@@ -6997,9 +6997,10 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     class="config-btn config-dropdown-trigger config-btn-default"
     type="button"
   >
-    <i
-      aria-label="icon: ellipsis"
+    <span
+      aria-label="ellipsis"
       class="anticon anticon-ellipsis"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -7008,14 +7009,15 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
+        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
         <path
-          d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
         />
       </svg>
-    </i>
+    </span>
   </button>
 </div>
 `;
@@ -7036,9 +7038,10 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     class="ant-btn ant-dropdown-trigger ant-btn-default"
     type="button"
   >
-    <i
-      aria-label="icon: ellipsis"
+    <span
+      aria-label="ellipsis"
       class="anticon anticon-ellipsis"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -7047,14 +7050,15 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
+        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
         <path
-          d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
         />
       </svg>
-    </i>
+    </span>
   </button>
 </div>
 `;
@@ -7075,9 +7079,10 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     class="ant-btn ant-dropdown-trigger ant-btn-default"
     type="button"
   >
-    <i
-      aria-label="icon: ellipsis"
+    <span
+      aria-label="ellipsis"
       class="anticon anticon-ellipsis"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -7086,14 +7091,15 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
+        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
         <path
-          d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+          d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
         />
       </svg>
-    </i>
+    </span>
   </button>
 </div>
 `;

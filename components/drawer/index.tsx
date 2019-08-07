@@ -1,9 +1,9 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import createReactContext from '@ant-design/create-react-context';
+import { Close } from '@ant-design/icons';
 import warning from '../_util/warning';
 import classNames from 'classnames';
-import Icon from '../icon';
 import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 
@@ -160,7 +160,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     return (
       closable && (
         <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-          <Icon type="close" />
+          <Close />
         </button>
       )
     );

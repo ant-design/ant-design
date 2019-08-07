@@ -6,25 +6,23 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
   href="#"
 >
   Hover me 
-  <i
-    aria-label="icon: down"
-    class="anticon anticon-down"
+  <span
+    class="anticon"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
-      data-icon="down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
       width="1em"
     >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      <use
+        href="#icon-down-o"
       />
     </svg>
-  </i>
+  </span>
 </a>
 `;
 
@@ -57,19 +55,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       type="button"
     >
       <span
-        class="anticon"
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
         role="img"
       >
         <svg
           aria-hidden="true"
           class=""
+          data-icon="ellipsis"
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
+          viewBox="64 64 896 896"
           width="1em"
         >
-          <use
-            href="#icon-ellipsis-o"
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
           />
         </svg>
       </span>
@@ -127,19 +129,23 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       type="button"
     >
       <span
-        class="anticon"
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
         role="img"
       >
         <svg
           aria-hidden="true"
           class=""
+          data-icon="ellipsis"
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align:-0.125em"
+          viewBox="64 64 896 896"
           width="1em"
         >
-          <use
-            href="#icon-ellipsis-o"
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
           />
         </svg>
       </span>
@@ -179,25 +185,23 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
   href="#"
 >
   Hover me, Click menu item 
-  <i
-    aria-label="icon: down"
-    class="anticon anticon-down"
+  <span
+    class="anticon"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
-      data-icon="down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
       width="1em"
     >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      <use
+        href="#icon-down-o"
       />
     </svg>
-  </i>
+  </span>
 </a>
 `;
 
@@ -207,25 +211,23 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
   href="#"
 >
   Hover me 
-  <i
-    aria-label="icon: down"
-    class="anticon anticon-down"
+  <span
+    class="anticon"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
-      data-icon="down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
       width="1em"
     >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      <use
+        href="#icon-down-o"
       />
     </svg>
-  </i>
+  </span>
 </a>
 `;
 
@@ -235,25 +237,23 @@ exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
   href="#"
 >
   Hover me 
-  <i
-    aria-label="icon: down"
-    class="anticon anticon-down"
+  <span
+    class="anticon"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
-      data-icon="down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
       width="1em"
     >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      <use
+        href="#icon-down-o"
       />
     </svg>
-  </i>
+  </span>
 </a>
 `;
 
@@ -317,25 +317,23 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
   href="#"
 >
   Cascading menu 
-  <i
-    aria-label="icon: down"
-    class="anticon anticon-down"
+  <span
+    class="anticon"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
-      data-icon="down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
       width="1em"
     >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      <use
+        href="#icon-down-o"
       />
     </svg>
-  </i>
+  </span>
 </a>
 `;
 
@@ -345,24 +343,22 @@ exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
   href="#"
 >
   Click me 
-  <i
-    aria-label="icon: down"
-    class="anticon anticon-down"
+  <span
+    class="anticon"
+    role="img"
   >
     <svg
       aria-hidden="true"
       class=""
-      data-icon="down"
       fill="currentColor"
       focusable="false"
       height="1em"
-      viewBox="64 64 896 896"
       width="1em"
     >
-      <path
-        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      <use
+        href="#icon-down-o"
       />
     </svg>
-  </i>
+  </span>
 </a>
 `;
