@@ -11,6 +11,7 @@ import Password from './Password';
 import Icon from '../icon';
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
+import { CloseCircleFilled } from '@ant-design/icons';
 
 function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
@@ -183,9 +184,7 @@ class Input extends React.Component<InputProps, any> {
       return null;
     }
     return (
-      <Icon
-        type="close-circle"
-        theme="filled"
+      <CloseCircleFilled
         onClick={this.handleReset}
         className={`${prefixCls}-clear-icon`}
         role="button"
