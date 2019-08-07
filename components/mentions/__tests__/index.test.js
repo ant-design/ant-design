@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Mentions from '..';
+import focusTest from '../../../tests/shared/focusTest';
 
 const { getMentions } = Mentions;
 
@@ -33,6 +34,8 @@ function simulateInput(wrapper, text = '', keyEvent) {
 }
 
 describe('Mentions', () => {
+  focusTest(Mentions);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -55,7 +58,7 @@ describe('Mentions', () => {
     ]);
   });
 
-  it('focus event', () => {
+  it('focus', () => {
     const onFocus = jest.fn();
     const onBlur = jest.fn();
 
@@ -65,33 +68,6 @@ describe('Mentions', () => {
     expect(onFocus).toHaveBeenCalled();
 
     wrapper.find('textarea').simulate('blur');
-    jest.runAllTimers();
-    wrapper.update();
-    expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
-    expect(onBlur).toHaveBeenCalled();
-  });
-
-  it('focus and blur calls', () => {
-    const onFocus = jest.fn();
-    const onBlur = jest.fn();
-
-    let mentions;
-
-    const wrapper = mount(
-      <Mentions
-        onFocus={onFocus}
-        onBlur={onBlur}
-        ref={node => {
-          mentions = node;
-        }}
-      />,
-    );
-
-    mentions.focus();
-    expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeTruthy();
-    expect(onFocus).toHaveBeenCalled();
-
-    mentions.blur();
     jest.runAllTimers();
     wrapper.update();
     expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
