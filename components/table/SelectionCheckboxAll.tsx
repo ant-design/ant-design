@@ -1,9 +1,10 @@
 import * as React from 'react';
 import Checkbox, { CheckboxChangeEvent } from '../checkbox';
+import classNames from 'classnames';
+import { Down } from '@ant-design/icons';
+
 import Dropdown from '../dropdown';
 import Menu from '../menu';
-import Icon from '../icon';
-import classNames from 'classnames';
 import { SelectionCheckboxAllProps, SelectionCheckboxAllState, SelectionItem } from './interface';
 
 export default class SelectionCheckboxAll<T> extends React.Component<
@@ -166,7 +167,7 @@ export default class SelectionCheckboxAll<T> extends React.Component<
         newSelections.length > 0 ? (
           <Dropdown overlay={menu} getPopupContainer={getPopupContainer}>
             <div className={`${selectionPrefixCls}-down`}>
-              <Icon type="down" />
+              <Down />
             </div>
           </Dropdown>
         ) : null;
