@@ -6,9 +6,6 @@
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 @tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
 
-/* Get even number here to make better vision */
-@tree-node-title-height: ceil((@font-size-base * @line-height-base) / 2) * 2;
-
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
 .@{tree-prefix-cls} {
@@ -67,10 +64,11 @@
 
   // >>> Title
   & &-node-content-wrapper {
-    min-height: @tree-node-title-height;
-    margin: (@tree-title-height - @tree-node-title-height) / 2 0 0 0;
+    min-height: @tree-title-height;
+    margin: 0;
     padding: 0 4px;
     color: inherit;
+    line-height: @tree-title-height;
     background: transparent;
     border-radius: @border-radius-sm;
     cursor: pointer;
@@ -81,6 +79,32 @@
     }
     &.@{tree-prefix-cls}-node-selected {
       background-color: @primary-2;
+    }
+  }
+
+  // ==================== Draggable =====================
+  &-node-content-wrapper[draggable='true'] {
+    line-height: @tree-title-height - 4px;
+    border-top: 2px transparent solid;
+    border-bottom: 2px transparent solid;
+    user-select: none;
+  }
+
+  .@{tree-node-prefix-cls}.drag-over {
+    > [draggable] {
+      color: white;
+      background-color: @primary-color;
+      opacity: 0.8;
+    }
+  }
+  .@{tree-node-prefix-cls}.drag-over-gap-top {
+    > [draggable] {
+      border-top-color: @primary-color;
+    }
+  }
+  .@{tree-node-prefix-cls}.drag-over-gap-bottom {
+    > [draggable] {
+      border-bottom-color: @primary-color;
     }
   }
 }
