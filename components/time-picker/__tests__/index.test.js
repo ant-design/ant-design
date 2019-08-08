@@ -42,10 +42,10 @@ describe('TimePicker', () => {
   });
 
   it('handleChange should work correctly', done => {
-    const date = moment('2000-01-01 00:00:00');
+    const date = moment('2000-01-01 00:00');
     const onChange = (value, formattedValue) => {
       expect(value).toBe(date);
-      expect(formattedValue).toBe(date.format('HH:mm:ss'));
+      expect(formattedValue).toBe(date.format('HH:mm'));
       done();
     };
     const wrapper = mount(<TimePicker onChange={onChange} />).instance();
