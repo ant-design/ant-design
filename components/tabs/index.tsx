@@ -8,6 +8,7 @@ import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { isFlexSupported } from '../_util/styleChecker';
+import { Close, Plus } from '@ant-design/icons';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -134,8 +135,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         let closable = child.props.closable;
         closable = typeof closable === 'undefined' ? true : closable;
         const closeIcon = closable ? (
-          <Icon
-            type="close"
+          <Close
             className={`${prefixCls}-close-x`}
             onClick={e => this.removeTab(child.key as string, e)}
           />
@@ -156,7 +156,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       if (!hideAdd) {
         tabBarExtraContent = (
           <span>
-            <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
+            <Plus className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
             {tabBarExtraContent}
           </span>
         );
