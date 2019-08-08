@@ -211,12 +211,12 @@ describe('Upload List', () => {
       </Upload>,
     );
     wrapper
-      .find('.anticon-eye-o')
+      .find('.anticon-eye')
       .at(0)
       .simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
     wrapper
-      .find('.anticon-eye-o')
+      .find('.anticon-eye')
       .at(1)
       .simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[1]);

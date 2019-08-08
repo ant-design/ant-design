@@ -41,9 +41,10 @@ exports[`List.pagination renders pagination correctly 1`] = `
         <a
           class="ant-pagination-item-link"
         >
-          <i
-            aria-label="icon: left"
+          <span
+            aria-label="left"
             class="anticon anticon-left"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -52,14 +53,15 @@ exports[`List.pagination renders pagination correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
+              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
               />
             </svg>
-          </i>
+          </span>
         </a>
       </li>
       <li
@@ -89,9 +91,10 @@ exports[`List.pagination renders pagination correctly 1`] = `
         <a
           class="ant-pagination-item-link"
         >
-          <i
-            aria-label="icon: right"
+          <span
+            aria-label="right"
             class="anticon anticon-right"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -100,14 +103,15 @@ exports[`List.pagination renders pagination correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
+              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
               <path
-                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
               />
             </svg>
-          </i>
+          </span>
         </a>
       </li>
     </ul>
@@ -128,9 +132,10 @@ exports[`List.pagination should change page size work 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        aria-label="icon: left"
+      <span
+        aria-label="left"
         class="anticon anticon-left"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -139,14 +144,15 @@ exports[`List.pagination should change page size work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
           />
         </svg>
-      </i>
+      </span>
     </a>
   </li>
   <li
@@ -166,9 +172,10 @@ exports[`List.pagination should change page size work 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -177,14 +184,15 @@ exports[`List.pagination should change page size work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
     </a>
   </li>
   <li
@@ -219,9 +227,10 @@ exports[`List.pagination should change page size work 1`] = `
           style="user-select: none;"
           unselectable="on"
         >
-          <i
-            aria-label="icon: down"
+          <span
+            aria-label="down"
             class="anticon anticon-down ant-select-arrow-icon"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -230,6 +239,7 @@ exports[`List.pagination should change page size work 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
+              style="vertical-align: -0.125em;"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -237,7 +247,7 @@ exports[`List.pagination should change page size work 1`] = `
                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </span>
       </div>
     </div>
@@ -258,9 +268,10 @@ exports[`List.pagination should change page size work 2`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        aria-label="icon: left"
+      <span
+        aria-label="left"
         class="anticon anticon-left"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -269,14 +280,15 @@ exports[`List.pagination should change page size work 2`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
           />
         </svg>
-      </i>
+      </span>
     </a>
   </li>
   <li
@@ -296,9 +308,10 @@ exports[`List.pagination should change page size work 2`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -307,14 +320,15 @@ exports[`List.pagination should change page size work 2`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
     </a>
   </li>
   <li
@@ -350,9 +364,10 @@ exports[`List.pagination should change page size work 2`] = `
           style="user-select: none;"
           unselectable="on"
         >
-          <i
-            aria-label="icon: down"
+          <span
+            aria-label="down"
             class="anticon anticon-down ant-select-arrow-icon"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -361,6 +376,7 @@ exports[`List.pagination should change page size work 2`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
+              style="vertical-align: -0.125em;"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -368,7 +384,7 @@ exports[`List.pagination should change page size work 2`] = `
                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </span>
       </div>
     </div>
@@ -444,9 +460,10 @@ exports[`List.pagination should default work 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        aria-label="icon: left"
+      <span
+        aria-label="left"
         class="anticon anticon-left"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -455,14 +472,15 @@ exports[`List.pagination should default work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
           />
         </svg>
-      </i>
+      </span>
     </a>
   </li>
   <li
@@ -491,9 +509,10 @@ exports[`List.pagination should default work 1`] = `
     <a
       class="ant-pagination-item-link"
     >
-      <i
-        aria-label="icon: right"
+      <span
+        aria-label="right"
         class="anticon anticon-right"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -502,14 +521,15 @@ exports[`List.pagination should default work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
+          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
           <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
-      </i>
+      </span>
     </a>
   </li>
   <li
@@ -544,9 +564,10 @@ exports[`List.pagination should default work 1`] = `
           style="user-select: none;"
           unselectable="on"
         >
-          <i
-            aria-label="icon: down"
+          <span
+            aria-label="down"
             class="anticon anticon-down ant-select-arrow-icon"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -555,6 +576,7 @@ exports[`List.pagination should default work 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
+              style="vertical-align: -0.125em;"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -562,7 +584,7 @@ exports[`List.pagination should default work 1`] = `
                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </span>
       </div>
     </div>

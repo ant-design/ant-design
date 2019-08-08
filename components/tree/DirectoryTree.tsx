@@ -15,6 +15,7 @@ import Tree, {
 } from './Tree';
 import { calcRangeKeys, getFullKeyList, convertDirectoryKeysToNodes } from './util';
 import Icon from '../icon';
+import { File, FolderOpen, Folder } from '@ant-design/icons';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 
@@ -30,9 +31,9 @@ export interface DirectoryTreeState {
 function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
   const { isLeaf, expanded } = props;
   if (isLeaf) {
-    return <Icon type="file" />;
+    return <File />;
   }
-  return <Icon type={expanded ? 'folder-open' : 'folder'} />;
+  return expanded ? <FolderOpen /> : <Folder />;
 }
 
 class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {

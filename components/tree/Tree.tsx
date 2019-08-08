@@ -1,8 +1,9 @@
 import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
-import DirectoryTree from './DirectoryTree';
+import { Loading, File, MinusSquare, PlusSquare, CaretDownFilled } from '@ant-design/icons';
 import classNames from 'classnames';
-import Icon from '../icon';
+
+import DirectoryTree from './DirectoryTree';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { collapseMotion } from '../_util/motion';
 
@@ -189,19 +190,15 @@ export default class Tree extends React.Component<TreeProps, any> {
   ) => {
     const { showLine } = this.props;
     if (loading) {
-      return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
+      return <Loading className={`${prefixCls}-switcher-loading-icon`} />;
     }
     if (showLine) {
       if (isLeaf) {
-        return <Icon type="file" className={`${prefixCls}-switcher-line-icon`} />;
+        return <File className={`${prefixCls}-switcher-line-icon`} />;
       }
-      return (
-        <Icon
-          type={expanded ? 'minus-square' : 'plus-square'}
-          className={`${prefixCls}-switcher-line-icon`}
-          theme="outlined"
-        />
-      );
+      return React.createElement(expanded ? MinusSquare : PlusSquare , {
+        className: `${prefixCls}-switcher-line-icon`,
+      });
     } else {
       const switcherCls = `${prefixCls}-switcher-icon`;
       if (isLeaf) {
@@ -212,7 +209,7 @@ export default class Tree extends React.Component<TreeProps, any> {
           className: classNames(switcherOriginCls, switcherCls),
         });
       } else {
-        return <Icon type="caret-down" className={switcherCls} theme="filled" />;
+        return <CaretDownFilled className={switcherCls} />;
       }
     }
   };

@@ -73,12 +73,12 @@ describe('Typography', () => {
 
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Bamboo is Little ...');
+        expect(wrapper.find('span:not(.anticon)').text()).toEqual('Bamboo is Little ...');
 
         wrapper.setProps({ ellipsis: { rows: 2 } });
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Bamboo is Little Light Bamboo is Litt...');
+        expect(wrapper.find('span:not(.anticon)').text()).toEqual('Bamboo is Little Light Bamboo is Litt...');
 
         wrapper.setProps({ ellipsis: { rows: 99 } });
         jest.runAllTimers();
@@ -101,7 +101,7 @@ describe('Typography', () => {
         jest.runAllTimers();
         wrapper.update();
 
-        expect(wrapper.find('span').text()).toEqual('Bamboo is Little...');
+        expect(wrapper.find('span:not(.anticon)').text()).toEqual('Bamboo is Little...');
       });
 
       it('should expandable work', () => {
