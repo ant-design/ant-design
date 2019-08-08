@@ -12593,7 +12593,7 @@ Array [
     <input
       class="config-time-picker-input"
       id=""
-      placeholder="Select time"
+      placeholder="Time"
       type="text"
       value=""
     />
@@ -12636,7 +12636,7 @@ Array [
         >
           <input
             class="config-time-picker-panel-input"
-            placeholder="Select time"
+            placeholder="Time"
             value=""
           />
         </div>
@@ -13540,7 +13540,7 @@ Array [
     <input
       class="ant-time-picker-input"
       id=""
-      placeholder="Select time"
+      placeholder="Time"
       type="text"
       value=""
     />
@@ -13583,7 +13583,7 @@ Array [
         >
           <input
             class="ant-time-picker-panel-input"
-            placeholder="Select time"
+            placeholder="Time"
             value=""
           />
         </div>
@@ -14487,7 +14487,7 @@ Array [
     <input
       class="prefix-TimePicker-input"
       id=""
-      placeholder="Select time"
+      placeholder="Time"
       type="text"
       value=""
     />
@@ -14530,7 +14530,7 @@ Array [
         >
           <input
             class="prefix-TimePicker-panel-input"
-            placeholder="Select time"
+            placeholder="Time"
             value=""
           />
         </div>

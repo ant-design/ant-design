@@ -1539,7 +1539,7 @@ exports[`RangePicker show month panel according to value 1`] = `
               class="ant-calendar-time-picker-btn"
               role="button"
             >
-              select time
+              Time
             </a>
             <a
               class="ant-calendar-ok-btn"
@@ -3053,7 +3053,7 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
               class="ant-calendar-time-picker-btn"
               role="button"
             >
-              select time
+              Time
             </a>
             <a
               class="ant-calendar-ok-btn"
