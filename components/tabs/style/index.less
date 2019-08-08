@@ -242,10 +242,10 @@
     }
   }
 
-  // Create a empty element to aovid margin merge
+  // Create an empty element to avoid margin collapsing
   // https://github.com/ant-design/ant-design/issues/18103
   &-content::before {
-    display: inline-block;
+    display: table;
     content: '';
   }
 
