@@ -5,6 +5,7 @@ import omit from 'omit.js';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { StarFilled } from '@ant-design/icons';
 
 export interface RateProps {
   prefixCls?: string;
@@ -33,7 +34,7 @@ export default class Rate extends React.Component<RateProps, any> {
   };
 
   static defaultProps = {
-    character: <Icon type="star" theme="filled" />,
+    character: <StarFilled />,
   };
 
   private rcRate: any;
