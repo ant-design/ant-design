@@ -7,6 +7,7 @@ import { tuple } from '../_util/type';
 import Line from './Line';
 import Circle from './Circle';
 import { validProgress } from './utils';
+import { Close, CloseCircle, Check, CheckCircle, CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -82,13 +83,13 @@ export default class Progress extends React.Component<ProgressProps> {
 
     let text;
     const textFormatter = format || (percentNumber => `${percentNumber}%`);
-    const iconType = type === 'circle' || type === 'dashboard' ? '' : '-circle';
+    const isLineType = type === 'line';
     if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
     } else if (progressStatus === 'exception') {
-      text = <Icon type={`close${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
+      text = isLineType ? <CloseCircleFilled /> : <Close />;
     } else if (progressStatus === 'success') {
-      text = <Icon type={`check${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
+      text = isLineType ? <CheckCircleFilled /> : <Check />;
     }
     return (
       <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
