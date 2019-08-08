@@ -29,9 +29,13 @@
     // Disabled
     &-disabled {
       // >>> Title
-      .@{tree-prefix-cls}-node-content-wrapper:hover {
-        background: transparent;
+      .@{tree-prefix-cls}-node-content-wrapper {
+        color: @disabled-color;
         cursor: not-allowed;
+
+        &:hover {
+          background: transparent;
+        }
       }
     }
   }
