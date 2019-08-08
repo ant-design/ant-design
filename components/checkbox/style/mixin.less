@@ -137,6 +137,11 @@
       color: @disabled-color;
       cursor: not-allowed;
     }
+
+    &:hover::after,
+    .@{checkbox-prefix-cls}-wrapper:hover &::after {
+      visibility: hidden;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper {
