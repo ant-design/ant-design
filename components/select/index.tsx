@@ -4,8 +4,9 @@ import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import omit from 'omit.js';
+import { Loading, Down, Close, CloseCircleFilled, Check } from '@ant-design/icons';
+
 import warning from '../_util/warning';
-import Icon from '../icon';
 import { tuple } from '../_util/type';
 
 const SelectSizes = tuple('default', 'large', 'small');
@@ -188,9 +189,9 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         : suffixIcon;
     }
     if (loading) {
-      return <Icon type="loading" />;
+      return <Loading />;
     }
-    return <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
+    return <Down className={`${prefixCls}-arrow-icon`} />;
   }
 
   renderSelect = ({
@@ -239,7 +240,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         ? React.cloneElement(removeIcon, {
             className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
           })
-        : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+        : removeIcon)) || <Close className={`${prefixCls}-remove-icon`} />;
 
     const finalClearIcon = (clearIcon &&
       (React.isValidElement<{ className?: string }>(clearIcon)
@@ -247,7 +248,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
             className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
           })
         : clearIcon)) || (
-      <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
+      <CloseCircleFilled className={`${prefixCls}-clear-icon`} />
     );
 
     const finalMenuItemSelectedIcon = (menuItemSelectedIcon &&
@@ -258,7 +259,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
               `${prefixCls}-selected-icon`,
             ),
           })
-        : menuItemSelectedIcon)) || <Icon type="check" className={`${prefixCls}-selected-icon`} />;
+        : menuItemSelectedIcon)) || <Check className={`${prefixCls}-selected-icon`} />;
 
     return (
       <RcSelect
