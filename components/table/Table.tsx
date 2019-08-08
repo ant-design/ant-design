@@ -944,7 +944,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
                 onExpand(record, event);
               }}
               aria-label={expanded ? locale.collapse : locale.expand}
-              noStyle
+              noStyle={true}
             />
           )}
         </LocaleReceiver>
