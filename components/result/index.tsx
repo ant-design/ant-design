@@ -1,5 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import { CheckCircleFilled, CloseCircleFilled, ExclamationCircleFilled, WarningFilled } from '@ant-design/icons';
+
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 import Icon from '../icon';
 import noFound from './noFound';
@@ -7,10 +9,10 @@ import serverError from './serverError';
 import unauthorized from './unauthorized';
 
 export const IconMap = {
-  success: 'check-circle',
-  error: 'close-circle',
-  info: 'exclamation-circle',
-  warning: 'warning',
+  success: CheckCircleFilled,
+  error: CloseCircleFilled,
+  info: ExclamationCircleFilled,
+  warning: WarningFilled,
 };
 
 export const ExceptionMap = {
@@ -55,10 +57,9 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
     );
   }
 
-  const iconString: string = IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>];
-  const iconNode = icon || <Icon type={iconString} theme="filled" />;
+  const iconNode = React.createElement(IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>]);
 
-  return <div className={className}>{iconNode}</div>;
+  return <div className={className}>{icon || iconNode}</div>;
 };
 
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
