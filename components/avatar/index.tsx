@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface AvatarProps {

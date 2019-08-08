@@ -8,7 +8,7 @@ import Search from './Search';
 import TextArea from './TextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Password from './Password';
-import Icon from '../icon';
+
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
 import { CloseCircleFilled } from '@ant-design/icons';

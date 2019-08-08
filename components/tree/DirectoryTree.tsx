@@ -14,7 +14,7 @@ import Tree, {
   AntTreeNode,
 } from './Tree';
 import { calcRangeKeys, getFullKeyList, convertDirectoryKeysToNodes } from './util';
-import Icon from '../icon';
+
 import { File, FolderOpen, Folder } from '@ant-design/icons';
 
 export type ExpandAction = false | 'click' | 'doubleClick';

@@ -8,7 +8,7 @@ import {
 } from '@ant-design/icons';
 
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
-import Icon from '../icon';
+
 import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';

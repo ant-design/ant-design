@@ -5,7 +5,7 @@ import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import TabBar from './TabBar';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { isFlexSupported } from '../_util/styleChecker';

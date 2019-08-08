@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Input, { InputProps } from './Input';
-import Icon from '../icon';
+
 import { Eye, EyeInvisible } from '@ant-design/icons';
 
 export interface PasswordProps extends InputProps {

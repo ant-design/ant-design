@@ -16,7 +16,6 @@ import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
-import warning from '../_util/warning';
 
 function noop() {}
 

@@ -1,13 +1,6 @@
 import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
-import {
-  Loading,
-  File,
-  MinusSquare,
-  PlusSquare,
-  CaretDownFilled,
-  CaretDown,
-} from '@ant-design/icons';
+import { Loading, File, MinusSquare, PlusSquare, CaretDownFilled } from '@ant-design/icons';
 import classNames from 'classnames';
 
 import DirectoryTree from './DirectoryTree';
