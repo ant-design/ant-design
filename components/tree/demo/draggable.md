@@ -143,9 +143,8 @@ class Demo extends React.Component {
         blockNode
         onDragEnter={this.onDragEnter}
         onDrop={this.onDrop}
-      >
-        {loop(this.state.gData)}
-      </Tree>
+        treeData={this.state.gData}
+      />
     );
   }
 }
