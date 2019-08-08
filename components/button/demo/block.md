@@ -25,8 +25,8 @@ ReactDOM.render(
     <Button type="dashed" block>
       Dashed
     </Button>
-    <Button type="danger" block>
-      Danger
+    <Button type="secondary" block>
+      Secondary
     </Button>
     <Button type="link" block>
       Link

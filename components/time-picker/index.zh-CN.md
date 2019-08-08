@@ -19,7 +19,7 @@ title: TimePicker
 
 ```jsx
 import moment from 'moment';
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
+<TimePicker defaultValue={moment('13:30', 'HH:mm')} />;
 ```
 
 | 参数 | 说明 | 类型 | 默认值 |
@@ -35,7 +35,7 @@ import moment from 'moment';
 | disabledHours | 禁止选择部分小时选项 | function() | 无 |
 | disabledMinutes | 禁止选择部分分钟选项 | function(selectedHour) | 无 |
 | disabledSeconds | 禁止选择部分秒选项 | function(selectedHour, selectedMinute) | 无 |
-| format | 展示的时间格式 | string | "HH:mm:ss" |
+| format | 展示的时间格式 | string | "HH:mm" |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |
 | hourStep | 小时选项间隔 | number | 1 |

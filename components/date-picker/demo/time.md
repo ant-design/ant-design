@@ -29,7 +29,7 @@ function onOk(value) {
 
 ReactDOM.render(
   <div>
-    <DatePicker showTime placeholder="Select Time" onChange={onChange} onOk={onOk} />
+    <DatePicker showTime placeholder="Time" onChange={onChange} onOk={onOk} />
     <br />
     <RangePicker
       showTime={{ format: 'HH:mm' }}

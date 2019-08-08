@@ -109,6 +109,7 @@
 
 // Border color
 @border-color-base: hsv(0, 0, 85%); // base border outline a component
+@border-color-default: #f3f3f3;
 @border-color-split: hsv(0, 0, 91%); // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
@@ -121,6 +122,7 @@
 
 @background-color-light: hsv(0, 0, 98%); // background of header and selected item
 @background-color-base: hsv(0, 0, 96%); // Default grey background color
+@background-color-default: #f3f3f3;
 
 // Disabled states
 @disabled-color: fade(#000, 25%);
@@ -150,13 +152,13 @@
 @btn-primary-color: #fff;
 @btn-primary-bg: @primary-color;
 
-@btn-default-color: @text-color;
-@btn-default-bg: @component-background;
-@btn-default-border: @border-color-base;
+@btn-secondary-color: @text-color;
+@btn-secondary-bg: @component-background;
+@btn-secondary-border: @border-color-base;
 
-@btn-danger-color: @error-color;
-@btn-danger-bg: @background-color-base;
-@btn-danger-border: @border-color-base;
+@btn-default-color: #333333;
+@btn-default-bg: @background-color-default;
+@btn-default-border: @border-color-default;
 
 @btn-disable-color: @disabled-color;
 @btn-disable-bg: @disabled-bg;
@@ -196,9 +198,9 @@
 @radio-dot-color: @primary-color;
 
 // Radio buttons
-@radio-button-bg: @btn-default-bg;
-@radio-button-checked-bg: @btn-default-bg;
-@radio-button-color: @btn-default-color;
+@radio-button-bg: @btn-secondary-bg;
+@radio-button-checked-bg: @btn-secondary-bg;
+@radio-button-color: @btn-secondary-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
 

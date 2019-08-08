@@ -119,7 +119,7 @@ The following APIs are shared by DatePicker, MonthPicker, RangePicker, WeekPicke
 | defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
 | defaultPickerValue | to set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - |  |
 | disabledTime | to specify the time that cannot be selected | function(dates: \[moment, moment], partial: `'start'|'end'`) | - |  |
-| format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD HH:mm:ss" |  |
+| format | to set the date format, refer to [moment.js](http://momentjs.com/). When an array is provided, all values are used for parsing and first value is used for formatting. | string \| string[] | "YYYY-MM-DD HH:mm" |  |
 | ranges | preseted ranges for quick selection | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | - |  |
 | renderExtraFooter | render extra footer in panel | () => React.ReactNode | - |  |
 | separator | set separator between inputs | string | '~' | 3.14.0 |

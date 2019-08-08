@@ -7,9 +7,9 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
   <input
     class="ant-time-picker-input"
     id=""
-    placeholder="Select time"
+    placeholder="Time"
     type="text"
-    value="00:00:00"
+    value="00:00"
   />
   <span
     class="ant-time-picker-icon"
@@ -51,7 +51,7 @@ Array [
       id=""
       placeholder="Избери дата"
       type="text"
-      value="00:00:00"
+      value="00:00"
     />
     <span
       class="ant-time-picker-icon"
@@ -114,7 +114,7 @@ Array [
           <input
             class="ant-time-picker-panel-input"
             placeholder="Избери дата"
-            value="00:00:00"
+            value="00:00"
           />
         </div>
         <div

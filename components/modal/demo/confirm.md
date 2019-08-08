@@ -36,7 +36,7 @@ function showDeleteConfirm() {
     title: 'Are you sure delete this task?',
     content: 'Some descriptions',
     okText: 'Yes',
-    okType: 'danger',
+    okType: 'secondary',
     cancelText: 'No',
     onOk() {
       console.log('OK');
@@ -52,7 +52,7 @@ function showPropsConfirm() {
     title: 'Are you sure delete this task?',
     content: 'Some descriptions',
     okText: 'Yes',
-    okType: 'danger',
+    okType: 'secondary',
     okButtonProps: {
       disabled: true,
     },

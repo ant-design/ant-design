@@ -63,7 +63,7 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
   return child;
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
+const ButtonTypes = tuple('primary', 'default', 'ghost', 'dashed', 'secondary', 'link');
 export type ButtonType = (typeof ButtonTypes)[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = (typeof ButtonShapes)[number];

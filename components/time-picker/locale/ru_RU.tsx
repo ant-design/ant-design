@@ -2,7 +2,7 @@
  * Created by Andrey Gayvoronsky on 13/04/16.
  */
 const locale = {
-  placeholder: 'Выберите время',
+  placeholder: 'Время',
 };
 
 export default locale;

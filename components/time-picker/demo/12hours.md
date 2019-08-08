@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-12 小时制的时间选择器，默认的 format 为 `h:mm:ss a`。
+12 小时制的时间选择器，默认的 format 为 `h:mm a`。
 
 ## en-US
 
-TimePicker of 12 hours format, with default format `h:mm:ss a`.
+TimePicker of 12 hours format, with default format `h:mm a`.
 
 ```jsx
 import { TimePicker } from 'antd';
@@ -23,7 +23,7 @@ function onChange(time, timeString) {
 ReactDOM.render(
   <div>
     <TimePicker use12Hours onChange={onChange} />
-    <TimePicker use12Hours format="h:mm:ss A" onChange={onChange} />
+    <TimePicker use12Hours format="h:mm A" onChange={onChange} />
     <TimePicker use12Hours format="h:mm a" onChange={onChange} />
   </div>,
   mountNode,

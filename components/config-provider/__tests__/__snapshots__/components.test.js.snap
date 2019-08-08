@@ -6950,7 +6950,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
   class="config-btn-group config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-default"
+    class="config-btn config-btn-secondary"
     type="button"
   >
     <span>
@@ -6958,7 +6958,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-dropdown-trigger config-btn-default"
+    class="config-btn config-dropdown-trigger config-btn-secondary"
     type="button"
   >
     <i
@@ -6989,7 +6989,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
   class="ant-btn-group ant-dropdown-button"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-secondary"
     type="button"
   >
     <span>
@@ -6997,7 +6997,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default"
+    class="ant-btn ant-dropdown-trigger ant-btn-secondary"
     type="button"
   >
     <i
@@ -7028,7 +7028,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
   class="ant-btn-group prefix-Dropdown"
 >
   <button
-    class="ant-btn ant-btn-default"
+    class="ant-btn ant-btn-secondary"
     type="button"
   >
     <span>
@@ -7036,7 +7036,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-dropdown-trigger ant-btn-default"
+    class="ant-btn ant-dropdown-trigger ant-btn-secondary"
     type="button"
   >
     <i

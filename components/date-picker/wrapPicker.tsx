@@ -18,7 +18,7 @@ interface PickerMap {
 
 const DEFAULT_FORMAT: PickerMap = {
   date: 'YYYY-MM-DD',
-  dateTime: 'YYYY-MM-DD HH:mm:ss',
+  dateTime: 'YYYY-MM-DD HH:mm',
   week: 'gggg-wo',
   month: 'YYYY-MM',
 };
@@ -176,7 +176,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
               [`${inputPrefixCls}-disabled`]: disabled,
             });
 
-            const timeFormat = (showTime && showTime.format) || 'HH:mm:ss';
+            const timeFormat = (showTime && showTime.format) || 'HH:mm';
             const rcTimePickerProps = {
               ...generateShowHourMinuteSecond(timeFormat),
               format: timeFormat,

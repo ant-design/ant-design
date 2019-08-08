@@ -33,7 +33,7 @@ const data = [
       <Tooltip
         title={moment()
           .subtract(1, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
+          .format('YYYY-MM-DD HH:mm')}
       >
         <span>
           {moment()
@@ -58,7 +58,7 @@ const data = [
       <Tooltip
         title={moment()
           .subtract(2, 'days')
-          .format('YYYY-MM-DD HH:mm:ss')}
+          .format('YYYY-MM-DD HH:mm')}
       >
         <span>
           {moment()

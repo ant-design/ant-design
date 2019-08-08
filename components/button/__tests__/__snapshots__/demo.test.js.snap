@@ -11,7 +11,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -27,11 +27,11 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-danger"
+    class="ant-btn ant-btn-secondary"
     type="button"
   >
     <span>
-      Danger
+      Secondary
     </span>
   </button>
   <button
@@ -72,11 +72,11 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-danger ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-block"
     type="button"
   >
     <span>
-      Danger
+      Secondary
     </span>
   </button>
   <button
@@ -350,6 +350,24 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
   </button>
   <br />
   <button
+    class="ant-btn ant-btn-default"
+    type="button"
+  >
+    <span>
+      Secondary
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-default"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Secondary(disabled)
+    </span>
+  </button>
+  <br />
+  <button
     class="ant-btn ant-btn-link"
     type="button"
   >
@@ -419,11 +437,11 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-danger ant-btn-background-ghost"
+    class="ant-btn ant-btn-default ant-btn-background-ghost"
     type="button"
   >
     <span>
-      danger
+      secondary
     </span>
   </button>
   <button
@@ -918,7 +936,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <span>
-      Normal
+      Default
     </span>
   </button>
   <button
@@ -930,11 +948,11 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-danger ant-btn-lg"
+    class="ant-btn ant-btn-default ant-btn-lg"
     type="button"
   >
     <span>
-      Danger
+      Secondary
     </span>
   </button>
   <button

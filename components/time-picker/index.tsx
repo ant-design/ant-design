@@ -109,7 +109,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     if (!('value' in this.props)) {
       this.setState({ value });
     }
-    const { onChange, format = 'HH:mm:ss' } = this.props;
+    const { onChange, format = 'HH:mm' } = this.props;
     if (onChange) {
       onChange(value, (value && value.format(format)) || '');
     }
@@ -139,9 +139,9 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     if (format) {
       return format;
     } else if (use12Hours) {
-      return 'h:mm:ss a';
+      return 'h:mm a';
     }
-    return 'HH:mm:ss';
+    return 'HH:mm';
   }
 
   getAllowClear() {

@@ -35,7 +35,7 @@
       border-left-color: @btn-group-border;
 
       &:disabled {
-        border-color: @btn-default-border;
+        border-color: @btn-secondary-border;
       }
     }
 
@@ -43,7 +43,7 @@
       &:not(:last-child) {
         border-right-color: @btn-group-border;
         &[disabled] {
-          border-right-color: @btn-default-border;
+          border-right-color: @btn-secondary-border;
         }
       }
     }
@@ -52,7 +52,7 @@
     .@{btn-prefix-cls}-group & + & {
       border-left-color: @btn-group-border;
       &[disabled] {
-        border-left-color: @btn-default-border;
+        border-left-color: @btn-secondary-border;
       }
     }
   }
@@ -65,8 +65,8 @@
     .btn-dashed;
   }
 
-  &-danger {
-    .btn-danger;
+  &-secondary {
+    .btn-secondary;
   }
 
   &-link {
@@ -165,8 +165,8 @@
     .button-variant-ghost(@btn-primary-bg);
   }
 
-  &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-color);
+  &-background-ghost&-default {
+    .button-variant-ghost(@btn-default-color);
   }
 
   &-background-ghost&-link {

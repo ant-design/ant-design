@@ -19,7 +19,7 @@ function getTime(value?: countdownValueType) {
 
 class Countdown extends React.Component<CountdownProps, {}> {
   static defaultProps: Partial<CountdownProps> = {
-    format: 'HH:mm:ss',
+    format: 'HH:mm',
   };
 
   countdownId?: number;

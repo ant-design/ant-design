@@ -33,14 +33,14 @@ class TimeRelatedForm extends React.Component {
       const values = {
         ...fieldsValue,
         'date-picker': fieldsValue['date-picker'].format('YYYY-MM-DD'),
-        'date-time-picker': fieldsValue['date-time-picker'].format('YYYY-MM-DD HH:mm:ss'),
+        'date-time-picker': fieldsValue['date-time-picker'].format('YYYY-MM-DD HH:mm'),
         'month-picker': fieldsValue['month-picker'].format('YYYY-MM'),
         'range-picker': [rangeValue[0].format('YYYY-MM-DD'), rangeValue[1].format('YYYY-MM-DD')],
         'range-time-picker': [
-          rangeTimeValue[0].format('YYYY-MM-DD HH:mm:ss'),
-          rangeTimeValue[1].format('YYYY-MM-DD HH:mm:ss'),
+          rangeTimeValue[0].format('YYYY-MM-DD HH:mm'),
+          rangeTimeValue[1].format('YYYY-MM-DD HH:mm'),
         ],
-        'time-picker': fieldsValue['time-picker'].format('HH:mm:ss'),
+        'time-picker': fieldsValue['time-picker'].format('HH:mm'),
       };
       console.log('Received values of form: ', values);
     });
@@ -71,7 +71,7 @@ class TimeRelatedForm extends React.Component {
         </Form.Item>
         <Form.Item label="DatePicker[showTime]">
           {getFieldDecorator('date-time-picker', config)(
-            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
+            <DatePicker showTime format="YYYY-MM-DD HH:mm" />,
           )}
         </Form.Item>
         <Form.Item label="MonthPicker">
@@ -82,7 +82,7 @@ class TimeRelatedForm extends React.Component {
         </Form.Item>
         <Form.Item label="RangePicker[showTime]">
           {getFieldDecorator('range-time-picker', rangeConfig)(
-            <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
+            <RangePicker showTime format="YYYY-MM-DD HH:mm" />,
           )}
         </Form.Item>
         <Form.Item label="TimePicker">
