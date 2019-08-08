@@ -6,6 +6,16 @@ import confirm from './confirm';
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
 
+function modalWarn(props: ModalFuncProps) {
+  const config = {
+    type: 'warning',
+    icon: <ExclamationCircle />,
+    okCancel: false,
+    ...props,
+  };
+  return confirm(config);
+}
+
 Modal.info = function(props: ModalFuncProps) {
   const config = {
     type: 'info',
@@ -45,6 +55,10 @@ Modal.warning = Modal.warn = function(props: ModalFuncProps) {
   };
   return confirm(config);
 };
+
+Modal.warning = modalWarn;
+
+Modal.warn = modalWarn;
 
 Modal.confirm = function(props: ModalFuncProps) {
   const config = {

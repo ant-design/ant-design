@@ -54,7 +54,7 @@ class Demo extends React.Component {
           </TreeNode>
         );
       }
-      return <TreeNode {...item} dataRef={item} />;
+      return <TreeNode key={item.key} {...item} dataRef={item} />;
     });
 
   render() {

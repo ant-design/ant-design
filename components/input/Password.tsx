@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import Input, { InputProps } from './Input';
 import Icon from '../icon';
 import { Eye, EyeInvisible } from '@ant-design/icons';
@@ -32,9 +33,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   };
 
   onChange = () => {
-    this.setState({
-      visible: !this.state.visible,
-    });
+    this.setState(({ visible }) => ({ visible: !visible }));
   };
 
   getIcon() {
@@ -60,7 +59,6 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
       prefixCls,
       inputPrefixCls,
       size,
-      suffix,
       visibilityToggle,
       ...restProps
     } = this.props;
@@ -70,7 +68,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     });
     return (
       <Input
-        {...restProps}
+        {...omit(restProps, ['suffix'])}
         type={this.state.visible ? 'text' : 'password'}
         size={size}
         className={inputClassName}

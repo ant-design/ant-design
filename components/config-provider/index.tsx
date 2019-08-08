@@ -1,7 +1,12 @@
+// TODO: remove this lint
+// SFC has specified a displayName, but not worked.
+/* eslint-disable react/display-name */
 import * as React from 'react';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
+import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 export { RenderEmptyHandler };
 
@@ -16,6 +21,7 @@ export interface ConfigConsumerProps {
   renderEmpty: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  locale?: Locale;
 }
 
 export const configConsumerProps = [
@@ -25,6 +31,7 @@ export const configConsumerProps = [
   'renderEmpty',
   'csp',
   'autoInsertSpaceInButton',
+  'locale',
 ];
 
 export interface ConfigProviderProps {
@@ -37,6 +44,7 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
   };
+  locale?: Locale;
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
@@ -61,7 +69,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
   };
 
-  renderProvider = (context: ConfigConsumerProps) => {
+  renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
       getPopupContainer,
@@ -69,6 +77,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       form,
+      locale,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -94,11 +103,25 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       );
     }
 
-    return <ConfigContext.Provider value={config}>{childNode}</ConfigContext.Provider>;
+    return (
+      <ConfigContext.Provider value={config}>
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {childNode}
+        </LocaleProvider>
+      </ConfigContext.Provider>
+    );
   };
 
   render() {
-    return <ConfigConsumer>{this.renderProvider}</ConfigConsumer>;
+    return (
+      <LocaleReceiver>
+        {(_, __, legacyLocale) => (
+          <ConfigConsumer>
+            {context => this.renderProvider(context, legacyLocale as Locale)}
+          </ConfigConsumer>
+        )}
+      </LocaleReceiver>
+    );
   }
 }
 

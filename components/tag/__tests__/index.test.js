@@ -65,7 +65,8 @@ describe('Tag', () => {
     const afterClose = jest.fn();
     const wrapper = mount(<Tag closable afterClose={afterClose} />);
 
-    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(errorSpy.mock.calls.length).toBe(1);
+    expect(errorSpy.mock.calls[0][0].includes('React does not recognize')).toBeTruthy();
 
     wrapper.find('.anticon-close').simulate('click');
     expect(afterClose).not.toHaveBeenCalled();

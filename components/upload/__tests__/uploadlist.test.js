@@ -529,4 +529,29 @@ describe('Upload List', () => {
     test('File', () => new File([], 'xxx.png'));
     test('Blob', () => new Blob());
   });
+
+  it('should support transformFile', done => {
+    const handleTransformFile = jest.fn();
+    const onChange = ({ file }) => {
+      if (file.status === 'done') {
+        expect(handleTransformFile).toHaveBeenCalled();
+        done();
+      }
+    };
+    const wrapper = mount(
+      <Upload
+        action="http://jsonplaceholder.typicode.com/posts/"
+        transformFile={handleTransformFile}
+        onChange={onChange}
+        customRequest={successRequest}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ name: 'foo.png' }],
+      },
+    });
+  });
 });

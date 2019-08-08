@@ -2,10 +2,10 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import omit from 'omit.js';
 import { Loading, Down, Close, CloseCircleFilled, Check } from '@ant-design/icons';
 
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import warning from '../_util/warning';
 import { tuple } from '../_util/type';
 
@@ -115,6 +115,7 @@ const SelectPropTypes = {
 
 export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
+
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
   static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -141,18 +142,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     );
   }
 
-  focus() {
-    this.rcSelect.focus();
-  }
-
-  blur() {
-    this.rcSelect.blur();
-  }
-
-  saveSelect = (node: any) => {
-    this.rcSelect = node;
-  };
-
   getNotFoundContent(renderEmpty: RenderEmptyHandler) {
     const { notFoundContent } = this.props;
     if (notFoundContent !== undefined) {
@@ -172,6 +161,18 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
     // return renderEmpty('Select');
     // // return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
+  }
+
+  saveSelect = (node: any) => {
+    this.rcSelect = node;
+  };
+
+  focus() {
+    this.rcSelect.focus();
+  }
+
+  blur() {
+    this.rcSelect.blur();
   }
 
   isCombobox() {
@@ -247,9 +248,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         ? React.cloneElement(clearIcon, {
             className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
           })
-        : clearIcon)) || (
-      <CloseCircleFilled className={`${prefixCls}-clear-icon`} />
-    );
+        : clearIcon)) || <CloseCircleFilled className={`${prefixCls}-clear-icon`} />;
 
     const finalMenuItemSelectedIcon = (menuItemSelectedIcon &&
       (React.isValidElement<{ className?: string }>(menuItemSelectedIcon)

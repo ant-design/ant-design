@@ -1,11 +1,11 @@
 ---
 category: Components
-type: Other
+type: Deprecated
 cols: 1
-title: LocaleProvider
+title: LocaleProvider (Deprecated)
 ---
 
-`LocaleProvider` provides a uniform localization support for built-in text of components.
+`LocaleProvider` component. Deprecated, please use [ConfigProvider](/components/config-provider) instead.
 
 ## Usage
 
@@ -13,7 +13,7 @@ title: LocaleProvider
 
 ```jsx
 import { LocaleProvider } from 'antd';
-import fr_FR from 'antd/lib/locale-provider/fr_FR';
+import fr_FR from 'antd/es/locale-provider/fr_FR';
 import moment from 'moment';
 import 'moment/locale/fr';
 
@@ -47,7 +47,7 @@ This component aims to provide localization of the built-in text. If you want to
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| locale | language package setting, you can find the packages in [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) | object | - |  |
+| locale | language package setting, you can find the packages in [antd/es/locale-provider](http://unpkg.com/antd/es/locale-provider/) | object | - |  |
 
 ## FAQ
 

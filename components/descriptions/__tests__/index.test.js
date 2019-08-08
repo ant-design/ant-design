@@ -152,6 +152,15 @@ describe('Descriptions', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('Descriptions support colon', () => {
+    const wrapper = mount(
+      <Descriptions colon={false}>
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('Descriptions support style', () => {
     const wrapper = mount(
       <Descriptions style={{ backgroundColor: '#e8e8e8' }}>

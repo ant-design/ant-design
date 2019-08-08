@@ -22,6 +22,10 @@ export default class Search extends React.Component<SearchProps, any> {
 
   private input: Input;
 
+  saveInput = (node: Input) => {
+    this.input = node;
+  };
+
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
     const { onSearch } = this.props;
     if (onSearch) {
@@ -38,20 +42,12 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.blur();
   }
 
-  saveInput = (node: Input) => {
-    this.input = node;
-  };
-
   renderSuffix = (prefixCls: string) => {
     const { suffix, enterButton } = this.props;
     if (enterButton) return suffix;
 
     const node = (
-      <IconSearch
-        className={`${prefixCls}-icon`}
-        key="searchIcon"
-        onClick={this.onSearch}
-      />
+      <IconSearch className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
     );
 
     if (suffix) {

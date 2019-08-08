@@ -1,9 +1,11 @@
-/* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
 import {
-  Loading, ExclamationCircleFilled, CloseCircleFilled,
-  CheckCircleFilled, InfoCircleFilled,
+  Loading,
+  ExclamationCircleFilled,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  InfoCircleFilled,
 } from '@ant-design/icons';
 
 let defaultDuration = 3;
@@ -90,7 +92,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : iconNode || ''}
+            {args.icon ? args.icon : iconNode}
             <span>{args.content}</span>
           </div>
         ),
@@ -161,7 +163,7 @@ const api: any = {
       onClose = duration;
       duration = undefined;
     }
-    return api.open({ content, duration: duration, type, onClose });
+    return api.open({ content, duration, type, onClose });
   };
 });
 

@@ -6,7 +6,7 @@ import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
@@ -45,7 +45,8 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   static getDerivedStateFromProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {
       return { visible: nextProps.visible };
-    } else if ('defaultVisible' in nextProps) {
+    }
+    if ('defaultVisible' in nextProps) {
       return { visible: nextProps.defaultVisible };
     }
     return null;
@@ -92,7 +93,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   };
 
   setVisible(visible: boolean, e?: React.MouseEvent<HTMLButtonElement>) {
-    const props = this.props;
+    const { props } = this;
     if (!('visible' in props)) {
       this.setState({ visible });
     }

@@ -40,6 +40,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
   }
 
   private input: any;
+
   private prefixCls?: string;
 
   constructor(props: any) {
@@ -62,6 +63,10 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
       this.focus();
     }
   }
+
+  saveInput = (node: any) => {
+    this.input = node;
+  };
 
   weekDateRender = (current: any) => {
     const selectedValue = this.state.value;
@@ -106,13 +111,6 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     this.handleChange(null);
   };
 
-  renderFooter = (...args: any[]) => {
-    const { prefixCls, renderExtraFooter } = this.props;
-    return renderExtraFooter ? (
-      <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
-    ) : null;
-  };
-
   focus() {
     this.input.focus();
   }
@@ -121,8 +119,11 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     this.input.blur();
   }
 
-  saveInput = (node: any) => {
-    this.input = node;
+  renderFooter = (...args: any[]) => {
+    const { prefixCls, renderExtraFooter } = this.props;
+    return renderExtraFooter ? (
+      <div className={`${prefixCls}-footer-extra`}>{renderExtraFooter(...args)}</div>
+    ) : null;
   };
 
   renderWeekPicker = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -174,10 +175,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     );
     const clearIcon =
       !disabled && allowClear && this.state.value ? (
-        <CloseCircleFilled
-          className={`${prefixCls}-picker-clear`}
-          onClick={this.clearSelection}
-        />
+        <CloseCircleFilled className={`${prefixCls}-picker-clear`} onClick={this.clearSelection} />
       ) : null;
 
     const inputIcon = <InputIcon suffixIcon={suffixIcon} prefixCls={prefixCls} />;

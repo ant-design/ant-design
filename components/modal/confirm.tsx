@@ -16,6 +16,7 @@ const IS_REACT_16 = !!ReactDOM.createPortal;
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
   const {
+    icon,
     onCancel,
     onOk,
     close,
@@ -28,7 +29,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     maskStyle,
     okButtonProps,
     cancelButtonProps,
-    icon,
   } = props;
 
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
@@ -71,7 +71,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={close.bind(this, { triggerCancel: true })}
+      onCancel={() => close({ triggerCancel: true })}
       visible={visible}
       title=""
       transitionName={transitionName}
@@ -114,7 +114,31 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
+  // eslint-disable-next-line no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
+
+  function destroy(...args: any[]) {
+    const unmountResult = ReactDOM.unmountComponentAtNode(div);
+    if (unmountResult && div.parentNode) {
+      div.parentNode.removeChild(div);
+    }
+    const triggerCancel = args.some(param => param && param.triggerCancel);
+    if (config.onCancel && triggerCancel) {
+      config.onCancel(...args);
+    }
+    for (let i = 0; i < destroyFns.length; i++) {
+      const fn = destroyFns[i];
+      // eslint-disable-next-line no-use-before-define
+      if (fn === close) {
+        destroyFns.splice(i, 1);
+        break;
+      }
+    }
+  }
+
+  function render(props: any) {
+    ReactDOM.render(<ConfirmDialog {...props} getContainer={false} />, div);
+  }
 
   function close(...args: any[]) {
     currentConfig = {
@@ -135,28 +159,6 @@ export default function confirm(config: ModalFuncProps) {
       ...newConfig,
     };
     render(currentConfig);
-  }
-
-  function destroy(...args: any[]) {
-    const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    if (unmountResult && div.parentNode) {
-      div.parentNode.removeChild(div);
-    }
-    const triggerCancel = args.some(param => param && param.triggerCancel);
-    if (config.onCancel && triggerCancel) {
-      config.onCancel(...args);
-    }
-    for (let i = 0; i < destroyFns.length; i++) {
-      const fn = destroyFns[i];
-      if (fn === close) {
-        destroyFns.splice(i, 1);
-        break;
-      }
-    }
-  }
-
-  function render(props: any) {
-    ReactDOM.render(<ConfirmDialog {...props} getContainer={false} />, div);
   }
 
   render(currentConfig);

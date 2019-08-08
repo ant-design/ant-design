@@ -2,7 +2,11 @@ import * as React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { Badge } from 'antd';
 import classNames from 'classnames';
-import * as AntdIcons from '@ant-design/icons/es/icons';
+import * as AntdIcons from '@ant-design/icons';
+
+const allIcons: {
+  [key: string]: any;
+} = AntdIcons;
 
 export interface CopyableIconProps {
   name: string;
@@ -18,7 +22,7 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({ name, isNew, justCopied, o
   return (
     <CopyToClipboard text={`<${name} />`} onCopy={(text: string) => onCopied(name, text)}>
       <li className={className}>
-        {React.createElement(AntdIcons[name])}
+        {React.createElement(allIcons[name])}
         <span className="anticon-class">
           <Badge dot={isNew}>{name}</Badge>
         </span>

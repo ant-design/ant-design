@@ -9,13 +9,19 @@ export default class InputElement extends React.Component<InputElementProps, any
   private ele: HTMLInputElement;
 
   focus = () => {
-    this.ele.focus
-      ? this.ele.focus()
-      : (ReactDOM.findDOMNode(this.ele) as HTMLInputElement).focus();
+    if (this.ele.focus) {
+      this.ele.focus();
+    } else {
+      (ReactDOM.findDOMNode(this.ele) as HTMLInputElement).focus();
+    }
   };
 
   blur = () => {
-    this.ele.blur ? this.ele.blur() : (ReactDOM.findDOMNode(this.ele) as HTMLInputElement).blur();
+    if (this.ele.blur) {
+      this.ele.blur();
+    } else {
+      (ReactDOM.findDOMNode(this.ele) as HTMLInputElement).blur();
+    }
   };
 
   saveRef = (ele: HTMLInputElement) => {

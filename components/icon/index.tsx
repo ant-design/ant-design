@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 import AntdIcon, { createFromIconfontCN } from '@ant-design/icons';
 import { ThemeType } from '@ant-design/icons-svg/lib/types';
@@ -31,7 +32,7 @@ const OldIcon: React.FC<{
   return <IconFont {...props} type={`icon-${computedType}`} />;
 };
 
-const Icon = props => {
+const Icon = (props: any) => {
   if (typeof props.type === 'string') {
     return <OldIcon {...props} />;
   }

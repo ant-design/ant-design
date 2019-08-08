@@ -16,6 +16,7 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
       onChange(!checked);
     }
   };
+
   renderCheckableTag = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, checked, ...restProps } = this.props;
     const prefixCls = getPrefixCls('tag', customizePrefixCls);

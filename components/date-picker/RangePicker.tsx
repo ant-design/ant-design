@@ -31,10 +31,9 @@ function getShowDateFromValue(value: RangePickerValue, mode?: string | string[])
   }
   if (mode && mode[0] === 'month') {
     return [start, end] as RangePickerValue;
-  } else {
-    const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
-    return [start, newEnd] as RangePickerValue;
   }
+  const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
+  return [start, newEnd] as RangePickerValue;
 }
 
 function pickerValueAdapter(
@@ -103,7 +102,9 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   private picker: HTMLSpanElement;
+
   private prefixCls?: string;
+
   private tagPrefixCls?: string;
 
   constructor(props: any) {
@@ -134,6 +135,17 @@ class RangePicker extends React.Component<any, RangePickerState> {
     }
   }
 
+  setValue(value: RangePickerValue, hidePanel?: boolean) {
+    this.handleChange(value);
+    if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
+      this.setState({ open: false });
+    }
+  }
+
+  savePicker = (node: HTMLSpanElement) => {
+    this.picker = node;
+  };
+
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -144,7 +156,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
   clearHoverValue = () => this.setState({ hoverValue: [] });
 
   handleChange = (value: RangePickerValue) => {
-    const props = this.props;
+    const { props } = this;
     if (!('value' in props)) {
       this.setState(({ showDate }) => ({
         value,
@@ -211,13 +223,6 @@ class RangePicker extends React.Component<any, RangePickerState> {
     }
   };
 
-  setValue(value: RangePickerValue, hidePanel?: boolean) {
-    this.handleChange(value);
-    if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
-      this.setState({ open: false });
-    }
-  }
-
   focus() {
     this.picker.focus();
   }
@@ -225,10 +230,6 @@ class RangePicker extends React.Component<any, RangePickerState> {
   blur() {
     this.picker.blur();
   }
-
-  savePicker = (node: HTMLSpanElement) => {
-    this.picker = node;
-  };
 
   renderFooter = () => {
     const { ranges, renderExtraFooter } = this.props;
@@ -365,10 +366,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     const [startValue, endValue] = value as RangePickerValue;
     const clearIcon =
       !props.disabled && props.allowClear && value && (startValue || endValue) ? (
-        <CloseCircleFilled
-          className={`${prefixCls}-picker-clear`}
-          onClick={this.clearSelection}
-        />
+        <CloseCircleFilled className={`${prefixCls}-picker-clear`} onClick={this.clearSelection} />
       ) : null;
 
     const inputIcon = <InputIcon suffixIcon={suffixIcon} prefixCls={prefixCls} />;

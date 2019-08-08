@@ -23,6 +23,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
   };
 
   private mountId: number;
+
   private lazyId: number;
 
   componentDidMount() {
@@ -32,10 +33,8 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 
   componentDidUpdate(prevProps: TransferListBodyProps) {
-    if (
-      prevProps.filteredRenderItems.length !== this.props.filteredRenderItems.length &&
-      this.props.lazy !== false
-    ) {
+    const { filteredRenderItems, lazy } = this.props;
+    if (prevProps.filteredRenderItems.length !== filteredRenderItems.length && lazy !== false) {
       // TODO: Replace this with ref when react 15 support removed.
       const container = findDOMNode(this);
 
@@ -95,4 +94,6 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 }
 
-export default (props: TransferListBodyProps) => <ListBody {...props} />;
+const ListBodyWrapper = (props: TransferListBodyProps) => <ListBody {...props} />;
+
+export default ListBodyWrapper;

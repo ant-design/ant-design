@@ -4,10 +4,11 @@ import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { addLocaleData, IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
-import { LocaleProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
-import zhCN from 'antd/lib/locale-provider/zh_CN';
+// eslint-disable-next-line import/no-unresolved
+import zhCN from 'antd/es/locale/zh_CN';
 import Header from './Header';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
@@ -20,14 +21,14 @@ if (typeof window !== 'undefined' && navigator.serviceWorker) {
 }
 
 if (typeof window !== 'undefined') {
-  /* eslint-disable global-require */
+  // eslint-disable-next-line global-require
   require('../../static/style');
 
   // Expose to iframe
   window.react = React;
   window['react-dom'] = ReactDOM;
+  // eslint-disable-next-line global-require
   window.antd = require('antd');
-  /* eslint-enable global-require */
 
   // Error log statistic
   window.addEventListener('error', function onError(e) {
@@ -113,12 +114,12 @@ export default class Layout extends React.Component {
     // Temp remove SentryBoundary
     return (
       <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
-        <LocaleProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+        <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
           <div className="page-wrapper">
             <Header {...restProps} />
             {children}
           </div>
-        </LocaleProvider>
+        </ConfigProvider>
       </IntlProvider>
     );
   }

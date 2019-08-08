@@ -16,6 +16,7 @@ import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import warning from '../_util/warning';
 
 function noop() {}
 
@@ -65,7 +66,7 @@ const iconMapOutlined = {
 };
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
-  state: AlertState = {
+  state = {
     closing: true,
     closed: false,
   };
@@ -134,7 +135,12 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
 
     const closeIcon = closable ? (
-      <span role="button" onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
+      <span
+        role="button"
+        onClick={this.handleClose}
+        className={`${prefixCls}-close-icon`}
+        tabIndex={0}
+      >
         {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : <Close />}
       </span>
     ) : null;

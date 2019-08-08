@@ -1,13 +1,21 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import Line from './Line';
 import Circle from './Circle';
 import { validProgress } from './utils';
-import { Close, CloseCircle, Check, CheckCircle, CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
+import {
+  Close,
+  CloseCircle,
+  Check,
+  CheckCircle,
+  CheckCircleFilled,
+  CloseCircleFilled,
+} from '@ant-design/icons';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -99,26 +107,8 @@ export default class Progress extends React.Component<ProgressProps> {
   }
 
   renderProgress = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const props = this.props;
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      percent = 0,
-      status,
-      format,
-      trailColor,
-      size,
-      successPercent,
-      type,
-      strokeWidth,
-      width,
-      showInfo,
-      gapDegree = 0,
-      gapPosition,
-      strokeColor,
-      strokeLinecap = 'round',
-      ...restProps
-    } = props;
+    const { props } = this;
+    const { prefixCls: customizePrefixCls, className, size, type, showInfo, ...restProps } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
     const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
@@ -150,7 +140,22 @@ export default class Progress extends React.Component<ProgressProps> {
     );
 
     return (
-      <div {...restProps} className={classString}>
+      <div
+        {...omit(restProps, [
+          'status',
+          'format',
+          'trailColor',
+          'successPercent',
+          'strokeWidth',
+          'width',
+          'gapDegree',
+          'gapPosition',
+          'strokeColor',
+          'strokeLinecap',
+          'percent',
+        ])}
+        className={classString}
+      >
         {progress}
       </div>
     );

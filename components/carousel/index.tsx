@@ -1,7 +1,7 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Settings } from 'react-slick';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
 // matchMedia polyfill for
@@ -85,16 +85,26 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     }
   }
 
+  getDotPosition(): DotPosition {
+    if (this.props.dotPosition) {
+      return this.props.dotPosition;
+    }
+    if ('vertical' in this.props) {
+      return this.props.vertical ? 'right' : 'bottom';
+    }
+    return 'bottom';
+  }
+
+  saveSlick = (node: any) => {
+    this.slick = node;
+  };
+
   onWindowResized = () => {
     // Fix https://github.com/ant-design/ant-design/issues/2550
     const { autoplay } = this.props;
     if (autoplay && this.slick && this.slick.innerSlider && this.slick.innerSlider.autoPlay) {
       this.slick.innerSlider.autoPlay();
     }
-  };
-
-  saveSlick = (node: any) => {
-    this.slick = node;
   };
 
   next() {
@@ -107,15 +117,6 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
   goTo(slide: number, dontAnimate = false) {
     this.slick.slickGoTo(slide, dontAnimate);
-  }
-
-  getDotPosition(): DotPosition {
-    if (this.props.dotPosition) {
-      return this.props.dotPosition;
-    } else if ('vertical' in this.props) {
-      return this.props.vertical ? 'right' : 'bottom';
-    }
-    return 'bottom';
   }
 
   renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {

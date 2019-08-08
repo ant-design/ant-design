@@ -40,8 +40,11 @@ export interface InputProps
 
 class Input extends React.Component<InputProps, any> {
   static Group: typeof Group;
+
   static Search: typeof Search;
+
   static TextArea: typeof TextArea;
+
   static Password: typeof Password;
 
   static defaultProps = {
@@ -89,6 +92,10 @@ class Input extends React.Component<InputProps, any> {
     };
   }
 
+  // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
+  // We keep an empty function here.
+  componentDidUpdate() {}
+
   getSnapshotBeforeUpdate(prevProps: InputProps) {
     if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
       warning(
@@ -100,32 +107,6 @@ class Input extends React.Component<InputProps, any> {
     return null;
   }
 
-  // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
-  // We keep an empty function here.
-  componentDidUpdate() {}
-
-  handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const { onPressEnter, onKeyDown } = this.props;
-    if (e.keyCode === 13 && onPressEnter) {
-      onPressEnter(e);
-    }
-    if (onKeyDown) {
-      onKeyDown(e);
-    }
-  };
-
-  focus() {
-    this.input.focus();
-  }
-
-  blur() {
-    this.input.blur();
-  }
-
-  select() {
-    this.input.select();
-  }
-
   getInputClassName(prefixCls: string) {
     const { size, disabled } = this.props;
     return classNames(prefixCls, {
@@ -134,10 +115,6 @@ class Input extends React.Component<InputProps, any> {
       [`${prefixCls}-disabled`]: disabled,
     });
   }
-
-  saveInput = (node: HTMLInputElement) => {
-    this.input = node;
-  };
 
   setValue(
     value: string,
@@ -167,6 +144,20 @@ class Input extends React.Component<InputProps, any> {
     }
   }
 
+  saveInput = (node: HTMLInputElement) => {
+    this.input = node;
+  };
+
+  handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const { onPressEnter, onKeyDown } = this.props;
+    if (e.keyCode === 13 && onPressEnter) {
+      onPressEnter(e);
+    }
+    if (onKeyDown) {
+      onKeyDown(e);
+    }
+  };
+
   handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     this.setValue('', e, () => {
       this.focus();
@@ -176,6 +167,18 @@ class Input extends React.Component<InputProps, any> {
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setValue(e.target.value, e);
   };
+
+  focus() {
+    this.input.focus();
+  }
+
+  blur() {
+    this.input.blur();
+  }
+
+  select() {
+    this.input.select();
+  }
 
   renderClearIcon(prefixCls: string) {
     const { allowClear } = this.props;
@@ -256,6 +259,8 @@ class Input extends React.Component<InputProps, any> {
     const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
       [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
       [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
+      [`${prefixCls}-affix-wrapper-with-clear-btn`]:
+        props.suffix && props.allowClear && this.state.value,
     });
     return (
       <span className={affixWrapperCls} style={props.style}>

@@ -44,6 +44,10 @@ export default class Switch extends React.Component<SwitchProps, {}> {
 
   private rcSwitch: typeof RcSwitch;
 
+  saveSwitch = (node: typeof RcSwitch) => {
+    this.rcSwitch = node;
+  };
+
   focus() {
     this.rcSwitch.focus();
   }
@@ -52,10 +56,6 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     this.rcSwitch.blur();
   }
 
-  saveSwitch = (node: typeof RcSwitch) => {
-    this.rcSwitch = node;
-  };
-
   renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
@@ -63,9 +63,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
-    const loadingIcon = loading ? (
-      <Loading className={`${prefixCls}-loading-icon`} />
-    ) : null;
+    const loadingIcon = loading ? <Loading className={`${prefixCls}-loading-icon`} /> : null;
     return (
       <Wave insertExtraNode>
         <RcSwitch

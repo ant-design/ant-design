@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Checkbox, { CheckboxChangeEvent } from '../checkbox';
 import classNames from 'classnames';
 import { Down } from '@ant-design/icons';
+import Checkbox, { CheckboxChangeEvent } from '../checkbox';
 
 import Dropdown from '../dropdown';
 import Menu from '../menu';
@@ -12,6 +12,7 @@ export default class SelectionCheckboxAll<T> extends React.Component<
   SelectionCheckboxAllState
 > {
   unsubscribe: () => void;
+
   defaultSelections: SelectionItem[];
 
   constructor(props: SelectionCheckboxAllProps<T>) {
@@ -52,31 +53,6 @@ export default class SelectionCheckboxAll<T> extends React.Component<
     }
   }
 
-  subscribe() {
-    const { store } = this.props;
-    this.unsubscribe = store.subscribe(() => {
-      this.setCheckState(this.props);
-    });
-  }
-
-  checkSelection(
-    props: SelectionCheckboxAllProps<T>,
-    data: T[],
-    type: string,
-    byDefaultChecked: boolean,
-  ) {
-    const { store, getCheckboxPropsByItem, getRecordKey } = props || this.props;
-    // type should be 'every' | 'some'
-    if (type === 'every' || type === 'some') {
-      return byDefaultChecked
-        ? data[type]((item, i) => getCheckboxPropsByItem(item, i).defaultChecked)
-        : data[type](
-            (item, i) => store.getState().selectedRowKeys.indexOf(getRecordKey(item, i)) >= 0,
-          );
-    }
-    return false;
-  }
-
   setCheckState(props: SelectionCheckboxAllProps<T>) {
     const checked = this.getCheckState(props);
     const indeterminate = this.getIndeterminateState(props);
@@ -90,20 +66,6 @@ export default class SelectionCheckboxAll<T> extends React.Component<
       }
       return newState;
     });
-  }
-
-  getCheckState(props: SelectionCheckboxAllProps<T>) {
-    const { store, data } = props;
-    let checked;
-    if (!data.length) {
-      checked = false;
-    } else {
-      checked = store.getState().selectionDirty
-        ? this.checkSelection(props, data, 'every', false)
-        : this.checkSelection(props, data, 'every', false) ||
-          this.checkSelection(props, data, 'every', true);
-    }
-    return checked;
   }
 
   getIndeterminateState(props: SelectionCheckboxAllProps<T>) {
@@ -123,10 +85,49 @@ export default class SelectionCheckboxAll<T> extends React.Component<
     return indeterminate;
   }
 
+  getCheckState(props: SelectionCheckboxAllProps<T>) {
+    const { store, data } = props;
+    let checked;
+    if (!data.length) {
+      checked = false;
+    } else {
+      checked = store.getState().selectionDirty
+        ? this.checkSelection(props, data, 'every', false)
+        : this.checkSelection(props, data, 'every', false) ||
+          this.checkSelection(props, data, 'every', true);
+    }
+    return checked;
+  }
+
   handleSelectAllChange = (e: CheckboxChangeEvent) => {
-    const checked = e.target.checked;
+    const { checked } = e.target;
     this.props.onSelect(checked ? 'all' : 'removeAll', 0, null);
   };
+
+  checkSelection(
+    props: SelectionCheckboxAllProps<T>,
+    data: T[],
+    type: string,
+    byDefaultChecked: boolean,
+  ) {
+    const { store, getCheckboxPropsByItem, getRecordKey } = props || this.props;
+    // type should be 'every' | 'some'
+    if (type === 'every' || type === 'some') {
+      return byDefaultChecked
+        ? data[type]((item, i) => getCheckboxPropsByItem(item, i).defaultChecked)
+        : data[type](
+            (item, i) => store.getState().selectedRowKeys.indexOf(getRecordKey(item, i)) >= 0,
+          );
+    }
+    return false;
+  }
+
+  subscribe() {
+    const { store } = this.props;
+    this.unsubscribe = store.subscribe(() => {
+      this.setCheckState(this.props);
+    });
+  }
 
   renderMenus(selections: SelectionItem[]) {
     return selections.map((selection, index) => {

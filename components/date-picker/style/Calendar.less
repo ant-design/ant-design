@@ -277,9 +277,12 @@
 
   &-last-month-cell &-date,
   &-next-month-btn-day &-date {
-    color: @disabled-color !important;
-    background: transparent !important;
-    border-color: transparent !important;
+    &,
+    &:hover {
+      color: @disabled-color;
+      background: transparent;
+      border-color: transparent;
+    }
   }
 
   &-disabled-cell &-date {

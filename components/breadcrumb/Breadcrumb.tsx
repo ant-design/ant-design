@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React, { cloneElement } from 'react';
 import * as PropTypes from 'prop-types';
-import { cloneElement } from 'react';
 import classNames from 'classnames';
 import BreadcrumbItem from './BreadcrumbItem';
+import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
@@ -50,6 +50,8 @@ function defaultItemRender(route: Route, params: any, routes: Route[], paths: st
 export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
   static Item: typeof BreadcrumbItem;
 
+  static Separator: typeof BreadcrumbSeparator;
+
   static defaultProps = {
     separator: '/',
   };
@@ -58,7 +60,6 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     prefixCls: PropTypes.string,
     separator: PropTypes.node,
     routes: PropTypes.array,
-    params: PropTypes.object,
   };
 
   getPath = (path: string, params: any) => {
@@ -112,6 +113,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       );
     });
   };
+
   renderBreadcrumb = ({ getPrefixCls }: ConfigConsumerProps) => {
     let crumbs;
     const {
@@ -131,11 +133,14 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         if (!element) {
           return element;
         }
+
         warning(
-          element.type && element.type.__ANT_BREADCRUMB_ITEM,
+          element.type &&
+            (element.type.__ANT_BREADCRUMB_ITEM || element.type.__ANT_BREADCRUMB_SEPARATOR),
           'Breadcrumb',
-          "Only accepts Breadcrumb.Item as it's children",
+          "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
         );
+
         return cloneElement(element, {
           separator,
           key: index,

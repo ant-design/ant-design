@@ -4,11 +4,10 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
-import { OptionProps as RcOptionProps } from 'rc-mentions/lib/Option';
 import Spin from '../spin';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
-const Option: React.FunctionComponent<RcOptionProps> = RcMentions.Option;
+const { Option } = RcMentions;
 
 function loadingFilterOption() {
   return true;
@@ -109,7 +108,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     const { children, loading } = this.props;
     if (loading) {
       return (
-        <Option value={'ANTD_SEARCHING'} disabled>
+        <Option value="ANTD_SEARCHING" disabled>
           <Spin size="small" />
         </Option>
       );

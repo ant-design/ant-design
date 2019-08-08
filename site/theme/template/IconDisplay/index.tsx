@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as AntdIcons from '@ant-design/icons';
 import { Radio, Icon, Input } from 'antd';
-import { RadioChangeEvent } from 'antd/lib/radio/interface';
+import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
 import debounce from 'lodash/debounce';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { ThemeType } from 'antd/lib/icon';
+import { ThemeType } from 'antd/es/icon';
 
 interface IconDisplayProps extends InjectedIntlProps {}
 

@@ -1,6 +1,11 @@
 import warning from 'warning';
 
-const warned: Record<string, boolean> = {};
+let warned: Record<string, boolean> = {};
+
+export function resetWarned() {
+  warned = {};
+}
+
 export default (valid: boolean, component: string, message: string): void => {
   if (!valid && !warned[message]) {
     warning(false, `[antd: ${component}] ${message}`);

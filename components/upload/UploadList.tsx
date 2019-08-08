@@ -1,7 +1,15 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
-import { Loading, PaperClip, PictureTwoTone, FileTwoTone, Eye, Delete, Close } from '@ant-design/icons';
+import {
+  Loading,
+  PaperClip,
+  PictureTwoTone,
+  FileTwoTone,
+  Eye,
+  Delete,
+  Close,
+} from '@ant-design/icons';
 
 import { UploadListProps, UploadFile, UploadListType } from './interface';
 import { previewImage, isImageUrl } from './utils';
@@ -19,22 +27,6 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     showRemoveIcon: true,
     showPreviewIcon: true,
     previewFile: previewImage,
-  };
-
-  handleClose = (file: UploadFile) => {
-    const { onRemove } = this.props;
-    if (onRemove) {
-      onRemove(file);
-    }
-  };
-
-  handlePreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
-    const { onPreview } = this.props;
-    if (!onPreview) {
-      return;
-    }
-    e.preventDefault();
-    return onPreview(file);
   };
 
   componentDidUpdate() {
@@ -67,6 +59,22 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     });
   }
 
+  handlePreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
+    const { onPreview } = this.props;
+    if (!onPreview) {
+      return;
+    }
+    e.preventDefault();
+    return onPreview(file);
+  };
+
+  handleClose = (file: UploadFile) => {
+    const { onRemove } = this.props;
+    if (onRemove) {
+      onRemove(file);
+    }
+  };
+
   renderUploadList = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -75,6 +83,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showPreviewIcon,
       showRemoveIcon,
       locale,
+      progressAttr,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -85,9 +94,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         if (listType === 'picture-card' && file.status === 'uploading') {
           icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
         } else if (!file.thumbUrl && !file.url) {
-          icon = (
-            <PictureTwoTone className={`${prefixCls}-list-item-thumbnail`} />
-          );
+          icon = <PictureTwoTone className={`${prefixCls}-list-item-thumbnail`} />;
         } else {
           const thumbnail = isImageUrl(file) ? (
             <img
@@ -116,7 +123,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         // show loading icon if upload progress listener is disabled
         const loadingProgress =
           'percent' in file ? (
-            <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
+            <Progress type="line" {...progressAttr} percent={file.percent} />
           ) : null;
 
         progress = (

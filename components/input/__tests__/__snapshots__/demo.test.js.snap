@@ -1011,60 +1011,83 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
-<span
-  class="ant-input-affix-wrapper"
->
+<div>
   <span
-    class="ant-input-prefix"
+    class="ant-input-affix-wrapper"
   >
     <span
-      class="anticon"
-      role="img"
-      style="color:rgba(0,0,0,.25)"
+      class="ant-input-prefix"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        width="1em"
+      <span
+        class="anticon"
+        role="img"
+        style="color:rgba(0,0,0,.25)"
       >
-        <use
-          href="#icon-user-o"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          class=""
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          width="1em"
+        >
+          <use
+            href="#icon-user-o"
+          />
+        </svg>
+      </span>
+    </span>
+    <input
+      class="ant-input"
+      placeholder="Enter your username"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <span
+        class="anticon"
+        role="img"
+        style="color:rgba(0,0,0,.45)"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          width="1em"
+        >
+          <use
+            href="#icon-info-circle-o"
+          />
+        </svg>
+      </span>
     </span>
   </span>
-  <input
-    class="ant-input"
-    placeholder="Enter your username"
-    type="text"
-    value=""
-  />
+  <br />
+  <br />
   <span
-    class="ant-input-suffix"
+    class="ant-input-affix-wrapper"
   >
     <span
-      class="anticon"
-      role="img"
-      style="color:rgba(0,0,0,.45)"
+      class="ant-input-prefix"
     >
-      <svg
-        aria-hidden="true"
-        class=""
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        width="1em"
-      >
-        <use
-          href="#icon-info-circle-o"
-        />
-      </svg>
+      ￥
+    </span>
+    <input
+      class="ant-input"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      RMB
     </span>
   </span>
-</span>
+</div>
 `;
 
 exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
