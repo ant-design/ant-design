@@ -43,7 +43,6 @@ class App extends React.Component {
         <Radio.Group onChange={this.onChange} value={this.state.value}>
           <Radio value={false}>current dom</Radio>
           <Radio value=".main-wrapper">selectors</Radio>
-          <Radio value={document.getElementsByClassName('main-container')[0]}>HTMLElement</Radio>
         </Radio.Group>
         <div style={{ marginTop: 16 }}>
           <Button type="primary" onClick={this.showDrawer}>
