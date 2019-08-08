@@ -14,6 +14,11 @@
 .@{tree-prefix-cls} {
   .reset-component;
 
+  // =================== Virtual List ===================
+  &-list-holder-inner {
+    align-items: flex-start;
+  }
+
   // ===================== TreeNode =====================
   .@{tree-node-prefix-cls} {
     display: flex;
@@ -21,6 +26,7 @@
     padding: 0 0 4px 0;
     outline: none;
 
+    // Disabled
     &-disabled {
       // >>> Title
       .@{tree-prefix-cls}-node-content-wrapper:hover {
@@ -39,6 +45,14 @@
     margin: 0;
     line-height: @tree-title-height;
     text-align: center;
+
+    &_close {
+      .@{tree-prefix-cls}-switcher-icon {
+        svg {
+          transform: rotate(-90deg);
+        }
+      }
+    }
   }
 
   // >>> Checkbox
@@ -52,14 +66,18 @@
     min-height: @tree-node-title-height;
     margin: (@tree-title-height - @tree-node-title-height) / 2 0 0 0;
     padding: 0 4px;
+    color: inherit;
     background: transparent;
     border-radius: @border-radius-sm;
     cursor: pointer;
     transition: all 0.3s;
-  }
 
-  .@{tree-node-prefix-cls}:hover &-node-content-wrapper {
-    background: @item-hover-bg;
+    &:hover {
+      background-color: @item-hover-bg;
+    }
+    &.@{tree-prefix-cls}-node-selected {
+      background-color: @primary-2;
+    }
   }
 }
 
