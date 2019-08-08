@@ -16,7 +16,7 @@ Flex child elements vertically aligned.
 ```jsx
 import { Row, Col } from 'antd';
 
-const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;
+const DemoBox = props => <p style={{ height: props.value }}>{props.children}</p>;
 
 ReactDOM.render(
   <div>
