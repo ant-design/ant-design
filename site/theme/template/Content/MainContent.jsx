@@ -187,6 +187,9 @@ class MainContent extends Component {
     if (this.scroller) {
       this.scroller.destroy();
     }
+    if (!document.querySelector('.markdown > h2, .code-box')) {
+      return;
+    }
     require('intersection-observer'); // eslint-disable-line
     const scrollama = require('scrollama'); // eslint-disable-line
     this.scroller = scrollama();
