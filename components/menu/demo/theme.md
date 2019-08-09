@@ -14,7 +14,8 @@ title:
 There are two built-in themes: 'light' and 'dark'. The default value is 'light'.
 
 ```jsx
-import { Menu, Icon, Switch } from 'antd';
+import { Menu, Switch } from 'antd';
+import { Mail, Appstore, Setting } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -60,7 +61,7 @@ class Sider extends React.Component {
             key="sub1"
             title={
               <span>
-                <Icon type="mail" />
+                <Mail />
                 <span>Navigation One</span>
               </span>
             }
@@ -74,7 +75,7 @@ class Sider extends React.Component {
             key="sub2"
             title={
               <span>
-                <Icon type="appstore" />
+                <Appstore />
                 <span>Navigtion Two</span>
               </span>
             }
@@ -90,7 +91,7 @@ class Sider extends React.Component {
             key="sub4"
             title={
               <span>
-                <Icon type="setting" />
+                <Setting />
                 <span>Navigation Three</span>
               </span>
             }

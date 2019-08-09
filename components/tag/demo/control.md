@@ -14,7 +14,8 @@ title:
 Generating a set of Tags by array, you can add and remove dynamically.
 
 ```jsx
-import { Tag, Input, Tooltip, Icon } from 'antd';
+import { Tag, Input, Tooltip } from 'antd';
+import { Plus } from '@ant-design/icons';
 
 class EditableTagGroup extends React.Component {
   state = {
@@ -86,7 +87,7 @@ class EditableTagGroup extends React.Component {
         )}
         {!inputVisible && (
           <Tag onClick={this.showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
-            <Icon type="plus" /> New Tag
+            <Plus /> New Tag
           </Tag>
         )}
       </div>

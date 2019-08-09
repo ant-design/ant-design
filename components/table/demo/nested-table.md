@@ -14,7 +14,8 @@ title:
 Showing more detailed info of every row.
 
 ```jsx
-import { Table, Badge, Menu, Dropdown, Icon } from 'antd';
+import { Table, Badge, Menu, Dropdown } from 'antd';
+import { Down } from '@ant-design/icons';
 
 const menu = (
   <Menu>
@@ -49,7 +50,7 @@ function NestedTable() {
             <a href="javascript:;">Stop</a>
             <Dropdown overlay={menu}>
               <a href="javascript:;">
-                More <Icon type="down" />
+                More <Down />
               </a>
             </Dropdown>
           </span>

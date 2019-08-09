@@ -14,13 +14,11 @@ title:
 Set `icon` props to customize the icon.
 
 ```jsx
-import { Popconfirm, Icon } from 'antd';
+import { Popconfirm } from 'antd';
+import { QuestionCircle } from '@ant-design/icons';
 
 ReactDOM.render(
-  <Popconfirm
-    title="Are you sure？"
-    icon={<Icon type="question-circle-o" style={{ color: 'red' }} />}
-  >
+  <Popconfirm title="Are you sure？" icon={<QuestionCircle style={{ color: 'red' }} />}>
     <a href="#">Delete</a>
   </Popconfirm>,
   mountNode,

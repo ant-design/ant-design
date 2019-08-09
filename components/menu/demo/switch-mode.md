@@ -14,7 +14,8 @@ title:
 Show the dynamic switching mode (between 'inline' and 'vertical').
 
 ```jsx
-import { Menu, Icon, Switch } from 'antd';
+import { Menu, Switch } from 'antd';
+import { Mail, Calendar, Appstore, Setting } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -52,18 +53,18 @@ class Sider extends React.Component {
           theme={this.state.theme}
         >
           <Menu.Item key="1">
-            <Icon type="mail" />
+            <Mail />
             Navigation One
           </Menu.Item>
           <Menu.Item key="2">
-            <Icon type="calendar" />
+            <Calendar />
             Navigation Two
           </Menu.Item>
           <SubMenu
             key="sub1"
             title={
               <span>
-                <Icon type="appstore" />
+                <Appstore />
                 <span>Navigation Three</span>
               </span>
             }
@@ -79,7 +80,7 @@ class Sider extends React.Component {
             key="sub2"
             title={
               <span>
-                <Icon type="setting" />
+                <Setting />
                 <span>Navigation Four</span>
               </span>
             }
