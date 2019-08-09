@@ -9,7 +9,12 @@ import Icon from '@ant-design/icons';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { ThemeType } from 'antd/es/icon';
+
+type ThemeType = 'filled' | 'outlined' | 'twoTone';
+
+const allIcons: {
+  [key: string]: any;
+} = AntdIcons;
 
 interface IconDisplayProps extends InjectedIntlProps {}
 
@@ -37,7 +42,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     return Object.keys(categories)
       .map((category: CategoriesKeys) => ({
         category,
-        icons: (IconDisplay.categories[category] || []).filter(name => !!AntdIcons[name]),
+        icons: (IconDisplay.categories[category] || []).filter(name => !!allIcons[name]),
       }))
       .filter(({ icons }) => Boolean(icons.length));
   }
