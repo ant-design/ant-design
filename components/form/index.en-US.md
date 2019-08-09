@@ -82,7 +82,7 @@ If the form has been decorated by `Form.create` then it has `this.props.form` pr
 
 | Method | Description | Type | Version |
 | --- | --- | --- | --- |
-| getFieldDecorator | Two-way binding for form, please read below for details. |  |
+| getFieldDecorator | Two-way binding for form, please read below for details. |  |  |
 | getFieldError | Get the error of a field. | Function(name) |  |
 | getFieldsError | Get the specified fields' error. If you don't specify a parameter, you will get all fields' error. | Function(\[names: string\[]]) |  |
 | getFieldsValue | Get the specified fields' values. If you don't specify a parameter, you will get all fields' values. | Function(\[fieldNames: string\[]]) |  |
@@ -227,7 +227,7 @@ See more advanced usage at [async-validator](https://github.com/yiminghe/async-v
 
 ```tsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form';
+import { FormComponentProps } from 'antd/es/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;

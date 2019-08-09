@@ -1,8 +1,12 @@
+// TODO: remove this lint
+// SFC has specified a displayName, but not worked.
+/* eslint-disable react/display-name */
 import * as React from 'react';
 import createReactContext from '@ant-design/create-react-context';
 
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 export { RenderEmptyHandler };
 
@@ -62,7 +66,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
   };
 
-  renderProvider = (context: ConfigConsumerProps) => {
+  renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
     const {
       children,
       getPopupContainer,
@@ -88,7 +92,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     return (
       <ConfigContext.Provider value={config}>
-        <LocaleProvider locale={locale} _ANT_MARK__={ANT_MARK}>
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
           {children}
         </LocaleProvider>
       </ConfigContext.Provider>
@@ -96,7 +100,15 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
   };
 
   render() {
-    return <ConfigConsumer>{this.renderProvider}</ConfigConsumer>;
+    return (
+      <LocaleReceiver>
+        {(_, __, legacyLocale) => (
+          <ConfigConsumer>
+            {context => this.renderProvider(context, legacyLocale as Locale)}
+          </ConfigConsumer>
+        )}
+      </LocaleReceiver>
+    );
   }
 }
 

@@ -93,21 +93,6 @@ class Spin extends React.Component<SpinProps, SpinState> {
     this.debouncifyUpdateSpinning(props);
   }
 
-  isNestedPattern() {
-    return !!(this.props && this.props.children);
-  }
-
-  componentWillUnmount() {
-    this.cancelExistingSpin();
-  }
-
-  cancelExistingSpin() {
-    const updateSpinning: any = this.updateSpinning;
-    if (updateSpinning && updateSpinning.cancel) {
-      updateSpinning.cancel();
-    }
-  }
-
   componentDidMount() {
     this.updateSpinning();
   }
@@ -115,6 +100,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
   componentDidUpdate() {
     this.debouncifyUpdateSpinning();
     this.updateSpinning();
+  }
+
+  componentWillUnmount() {
+    this.cancelExistingSpin();
   }
 
   debouncifyUpdateSpinning = (props?: SpinProps) => {
@@ -132,6 +121,17 @@ class Spin extends React.Component<SpinProps, SpinState> {
       this.setState({ spinning });
     }
   };
+
+  cancelExistingSpin() {
+    const { updateSpinning } = this;
+    if (updateSpinning && (updateSpinning as any).cancel) {
+      (updateSpinning as any).cancel();
+    }
+  }
+
+  isNestedPattern() {
+    return !!(this.props && this.props.children);
+  }
 
   renderSpin = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {

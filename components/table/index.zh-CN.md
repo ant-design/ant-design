@@ -195,7 +195,7 @@ const columns = [
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnProps } from 'antd/lib/table';
+import { ColumnProps } from 'antd/es/table';
 
 interface User {
   key: number;

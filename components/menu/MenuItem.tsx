@@ -24,6 +24,7 @@ export interface MenuItemProps
 
 export default class MenuItem extends React.Component<MenuItemProps> {
   static isMenuItem = true;
+
   private menuItem: this;
 
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {

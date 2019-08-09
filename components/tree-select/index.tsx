@@ -1,12 +1,12 @@
 import * as React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import { TreeSelectProps, TreeNodeValue } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
-import omit from 'omit.js';
 
 export { TreeNode, TreeSelectProps } from './interface';
 
@@ -15,8 +15,11 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
   any
 > {
   static TreeNode = TreeNode;
+
   static SHOW_ALL = SHOW_ALL;
+
   static SHOW_PARENT = SHOW_PARENT;
+
   static SHOW_CHILD = SHOW_CHILD;
 
   static defaultProps = {
@@ -36,6 +39,10 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
     );
   }
 
+  saveTreeSelect = (node: typeof RcTreeSelect) => {
+    this.rcTreeSelect = node;
+  };
+
   focus() {
     this.rcTreeSelect.focus();
   }
@@ -43,10 +50,6 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
   blur() {
     this.rcTreeSelect.blur();
   }
-
-  saveTreeSelect = (node: typeof RcTreeSelect) => {
-    this.rcTreeSelect = node;
-  };
 
   renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
     if (loading) {

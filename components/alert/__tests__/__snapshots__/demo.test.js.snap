@@ -69,6 +69,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     <span
       class="ant-alert-close-icon"
       role="button"
+      tabindex="0"
     >
       <i
         aria-label="icon: close"
@@ -174,6 +175,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     <span
       class="ant-alert-close-icon"
       role="button"
+      tabindex="0"
     >
       <i
         aria-label="icon: close"
@@ -213,6 +215,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     <span
       class="ant-alert-close-icon"
       role="button"
+      tabindex="0"
     >
       <i
         aria-label="icon: close"
@@ -254,6 +257,7 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
   <span
     class="ant-alert-close-icon"
     role="button"
+    tabindex="0"
   >
     <span
       class="ant-alert-close-text"
@@ -909,6 +913,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
     <span
       class="ant-alert-close-icon"
       role="button"
+      tabindex="0"
     >
       <i
         aria-label="icon: close"
