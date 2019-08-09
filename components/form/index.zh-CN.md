@@ -83,9 +83,9 @@ this.form // => The instance of CustomizedForm
 
 > 注意：使用 `getFieldsValue` `getFieldValue` `setFieldsValue` 等时，应确保对应的 field 已经用 `getFieldDecorator` 注册过了。
 
-| 方法       | 说明                                     | 类型       | 版本 |
+| 方法 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 |  |
+| getFieldDecorator | 用于和表单进行双向绑定，详见下方描述 |  |  |
 | getFieldError | 获取某个输入控件的 Error | Function(name) |  |
 | getFieldsError | 获取一组输入控件的 Error ，如不传入参数，则获取全部组件的 Error | Function(\[names: string\[]]) |  |
 | getFieldsValue | 获取一组输入控件的值，如不传入参数，则获取全部组件的值 | Function(\[fieldNames: string\[]]) |  |
@@ -229,7 +229,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 
 ```tsx
 import { Form } from 'antd';
-import { FormComponentProps } from 'antd/lib/form';
+import { FormComponentProps } from 'antd/es/form';
 
 interface UserFormProps extends FormComponentProps {
   age: number;
@@ -254,3 +254,25 @@ const App = Form.create<UserFormProps>({
   word-wrap: break-word;
 }
 </style>
+
+## FAQ
+
+### 自定义 validator 没有效果
+
+这是由于你的 `validator` 有错误导致 `callback` 没有执行到。你可以选择通过 `async` 返回一个 promise 或者使用 `try...catch` 进行错误捕获：
+
+```jsx
+validator: async (rule, value) => {
+  throw new Error('Something wrong!');
+}
+
+// or
+
+validator(rule, value, callback) => {
+  try {
+    throw new Error('Something wrong!');
+  } catch (err) {
+    callback(err);
+  }
+}
+```

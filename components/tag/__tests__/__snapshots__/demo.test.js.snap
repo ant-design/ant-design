@@ -9,7 +9,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
       <span
         style="display:inline-block"
       >
-        <div
+        <span
           class="ant-tag"
         >
           Tag 1
@@ -33,12 +33,12 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
               />
             </svg>
           </i>
-        </div>
+        </span>
       </span>
       <span
         style="display:inline-block"
       >
-        <div
+        <span
           class="ant-tag"
         >
           Tag 2
@@ -62,12 +62,12 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
               />
             </svg>
           </i>
-        </div>
+        </span>
       </span>
       <span
         style="display:inline-block"
       >
-        <div
+        <span
           class="ant-tag"
         >
           Tag 3
@@ -91,11 +91,11 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
               />
             </svg>
           </i>
-        </div>
+        </span>
       </span>
     </div>
   </div>
-  <div
+  <span
     class="ant-tag"
     style="background:#fff;border-style:dashed"
   >
@@ -122,18 +122,18 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
       </svg>
     </i>
      New Tag
-  </div>
+  </span>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag"
   >
     Tag 1
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     <a
@@ -141,8 +141,8 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
     >
       Link
     </a>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Tag 2
@@ -166,8 +166,8 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Prevent Default
@@ -191,27 +191,27 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
+  </span>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
     Tag1
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
     Tag2
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
     Tag3
-  </div>
+  </span>
 </div>
 `;
 
@@ -223,61 +223,61 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     Presets:
   </h4>
   <div>
-    <div
+    <span
       class="ant-tag ant-tag-magenta"
     >
       magenta
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-red"
     >
       red
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-volcano"
     >
       volcano
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-orange"
     >
       orange
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-gold"
     >
       gold
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-lime"
     >
       lime
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-green"
     >
       green
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-cyan"
     >
       cyan
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-blue"
     >
       blue
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-geekblue"
     >
       geekblue
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-purple"
     >
       purple
-    </div>
+    </span>
   </div>
   <h4
     style="margin:16px 0"
@@ -285,42 +285,42 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     Custom:
   </h4>
   <div>
-    <div
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#f50"
     >
       #f50
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#2db7f5"
     >
       #2db7f5
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#87d068"
     >
       #87d068
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#108ee9"
     >
       #108ee9
-    </div>
+    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag"
   >
     Unremovable
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Tag 2
@@ -344,8 +344,8 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Tag 3
@@ -369,8 +369,8 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
     style="background:#fff;border-style:dashed"
   >
@@ -397,13 +397,13 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
       </svg>
     </i>
      New Tag
-  </div>
+  </span>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag"
   >
     Movies
@@ -427,7 +427,7 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
+  </span>
   <br />
   <button
     class="ant-btn ant-btn-sm"
@@ -447,25 +447,25 @@ exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
   >
     Categories:
   </h6>
-  <div
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Movies
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Books
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Music
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Sports
-  </div>
+  </span>
 </div>
 `;

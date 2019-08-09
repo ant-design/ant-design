@@ -1,16 +1,11 @@
 import React, { Children, cloneElement } from 'react';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import DocumentTitle from 'react-document-title';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert, Affix } from 'antd';
 import EditButton from './EditButton';
 
-export default class Article extends React.Component {
-  static contextTypes = {
-    intl: PropTypes.object.isRequired,
-  };
-
+class Article extends React.Component {
   shouldComponentUpdate(nextProps) {
     const { location } = this.props;
     const { location: nextLocation } = nextProps;
@@ -69,13 +64,9 @@ export default class Article extends React.Component {
   }
 
   render() {
-    const { props } = this;
-    const { content } = props;
+    const { content, intl: { locale }, utils } = this.props;
     const { meta, description } = content;
     const { title, subtitle, filename } = meta;
-    const {
-      intl: { locale },
-    } = this.context;
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     return (
       <DocumentTitle title={`${title[locale] || title} - Ant Design`}>
@@ -104,22 +95,22 @@ export default class Article extends React.Component {
           </h1>
           {!description
             ? null
-            : props.utils.toReactComponent(
+            : utils.toReactComponent(
                 ['section', { className: 'markdown' }].concat(getChildren(description)),
               )}
           {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
             <Affix className="toc-affix" offsetTop={16}>
-              {props.utils.toReactComponent(
+              {utils.toReactComponent(
                 ['ul', { className: 'toc' }].concat(getChildren(content.toc)),
               )}
             </Affix>
           )}
           {this.getArticle(
-            props.utils.toReactComponent(
+            utils.toReactComponent(
               ['section', { className: 'markdown' }].concat(getChildren(content.content)),
             ),
           )}
-          {props.utils.toReactComponent(
+          {utils.toReactComponent(
             [
               'section',
               {
@@ -132,3 +123,5 @@ export default class Article extends React.Component {
     );
   }
 }
+
+export default injectIntl(Article);

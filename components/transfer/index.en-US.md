@@ -71,3 +71,9 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 // eg. your primary key is `uid`
 return <Transfer rowKey={record => record.uid} />;
 ```
+
+## FAQ
+
+### How to support fetch and present data from a remote server in Transfer column.
+
+In order to keep the page number synchronized, you can disable columns you checked without removing the option: <https://codesandbox.io/s/93xeb>

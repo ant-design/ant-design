@@ -316,7 +316,7 @@
 @input-bg: @component-background;
 @input-number-handler-active-bg: #f4f4f4;
 @input-addon-bg: @background-color-light;
-@input-hover-border-color: @primary-color;
+@input-hover-border-color: @primary-5;
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
 
@@ -363,7 +363,7 @@
 @modal-body-padding: 24px;
 @modal-header-bg: @component-background;
 @modal-footer-bg: transparent;
-@modal-mask-bg: fade(@black, 65%);
+@modal-mask-bg: fade(@black, 45%);
 
 // Progress
 // --
@@ -387,6 +387,15 @@
 @menu-icon-size: @font-size-base;
 @menu-icon-size-lg: @font-size-lg;
 
+@menu-item-vertical-margin: 4px;
+@menu-item-font-size: @font-size-base;
+@menu-item-boundary-margin: 8px;
+@menu-icon-size: @font-size-base;
+@menu-icon-size-lg: @font-size-lg;
+@menu-dark-selected-item-icon-color: @white;
+@menu-dark-selected-item-text-color: @white;
+@dark-menu-item-hover-bg: transparent;
+
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
 @menu-dark-bg: @layout-header-background;
@@ -394,7 +403,9 @@
 @menu-dark-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
-
+@menu-dark-selected-item-icon-color: @white;
+@menu-dark-selected-item-text-color: @white;
+@menu-dark-item-hover-bg: transparent;
 // Spin
 // ---
 @spin-dot-size-sm: 14px;
@@ -416,6 +427,8 @@
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
 @table-border-radius-base: @border-radius-base;
+@table-footer-bg: @background-color-light;
+@table-footer-color: @heading-color;
 
 // Tag
 // --
@@ -629,7 +642,7 @@
 @statistic-title-font-size: @font-size-base;
 @statistic-content-font-size: 24px;
 @statistic-unit-font-size: 16px;
-@statistic-font-family: Tahoma, 'Helvetica Neue', @font-family;
+@statistic-font-family: @font-family;
 
 // Drawer
 // ---

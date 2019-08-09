@@ -2,15 +2,17 @@ import * as React from 'react';
 import manifest from '@ant-design/icons/lib/manifest';
 import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
 import { Radio, Icon, Input } from 'antd';
-import { RadioChangeEvent } from 'antd/lib/radio/interface';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { RadioChangeEvent } from 'antd/es/radio/interface';
+import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { ThemeType } from 'antd/lib/icon';
+import { ThemeType } from 'antd/es/icon';
 
-interface IconDisplayProps extends InjectedIntlProps {}
+interface IconDisplayProps {
+  intl: any;
+}
 
 interface IconDisplayState {
   theme: ThemeType;

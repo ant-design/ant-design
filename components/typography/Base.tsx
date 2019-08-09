@@ -15,7 +15,7 @@ import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
-import { measure } from './util';
+import measure from './util';
 
 export type BaseType = 'secondary' | 'danger' | 'warning';
 
@@ -63,9 +63,7 @@ function wrapperDecorations(
   function wrap(needed: boolean | undefined, tag: string) {
     if (!needed) return;
 
-    currentContent = React.createElement(tag, {
-      children: currentContent,
-    });
+    currentContent = React.createElement(tag, {}, currentContent);
   }
 
   wrap(strong, 'strong');
@@ -118,14 +116,20 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   editIcon?: TransButton;
+
   content?: HTMLElement;
+
   copyId?: number;
+
   rafId?: number;
 
   // Locale
   expandStr?: string;
+
   copyStr?: string;
+
   copiedStr?: string;
+
   editStr?: string;
 
   state: BaseState = {
@@ -144,9 +148,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   componentDidUpdate(prevProps: BlockProps) {
+    const { children } = this.props;
     const ellipsis = this.getEllipsis();
     const prevEllipsis = this.getEllipsis(prevProps);
-    if (this.props.children !== prevProps.children || ellipsis.rows !== prevEllipsis.rows) {
+    if (children !== prevProps.children || ellipsis.rows !== prevEllipsis.rows) {
       this.resizeOnNextFrame();
     }
   }

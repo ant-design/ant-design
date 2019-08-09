@@ -16,6 +16,7 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
       onChange(!checked);
     }
   };
+
   renderCheckableTag = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, checked, ...restProps } = this.props;
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
@@ -29,7 +30,7 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
     );
 
     delete (restProps as any).onChange; // TypeScript cannot check delete now.
-    return <div {...(restProps as any)} className={cls} onClick={this.handleClick} />;
+    return <span {...(restProps as any)} className={cls} onClick={this.handleClick} />;
   };
 
   render() {

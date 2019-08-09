@@ -172,10 +172,38 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
               <div
                 class="ant-empty-image"
               >
-                <img
-                  alt="No Data"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHZpZXdCb3g9IjAgMCA2NCA0MSIgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
-                />
+                <svg
+                  height="41"
+                  viewBox="0 0 64 41"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="translate(0 1)"
+                  >
+                    <ellipse
+                      cx="32"
+                      cy="33"
+                      fill="#F5F5F5"
+                      rx="32"
+                      ry="7"
+                    />
+                    <g
+                      fill-rule="nonzero"
+                      stroke="#D9D9D9"
+                    >
+                      <path
+                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      />
+                      <path
+                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#FAFAFA"
+                      />
+                    </g>
+                  </g>
+                </svg>
               </div>
               <p
                 class="ant-empty-description"
@@ -346,16 +374,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-green"
                       >
                         NICE
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-geekblue"
                       >
                         DEVELOPER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -369,6 +397,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
+                        role="separator"
                       />
                       <a
                         href="javascript:;"
@@ -405,11 +434,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-volcano"
                       >
                         LOSER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -423,6 +452,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
+                        role="separator"
                       />
                       <a
                         href="javascript:;"
@@ -459,16 +489,16 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-green"
                       >
                         COOL
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-geekblue"
                       >
                         TEACHER
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -482,6 +512,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
+                        role="separator"
                       />
                       <a
                         href="javascript:;"
@@ -2556,6 +2587,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -2564,6 +2596,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2658,6 +2691,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -2666,6 +2700,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2760,6 +2795,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -2768,6 +2804,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2862,6 +2899,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -2870,6 +2908,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -2964,6 +3003,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -2972,6 +3012,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -3066,6 +3107,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -3074,6 +3116,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -3168,6 +3211,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -3176,6 +3220,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -3270,6 +3315,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -3278,6 +3324,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -3372,6 +3419,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -3380,6 +3428,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -3474,6 +3523,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           href="javascript:;"
@@ -3482,6 +3532,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
+                          role="separator"
                         />
                         <a
                           class="ant-dropdown-link"
@@ -10438,16 +10489,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         nice
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         developer
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -10461,6 +10512,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
+                        role="separator"
                       />
                       <a
                         href="javascript:;"
@@ -10498,11 +10550,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         loser
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -10516,6 +10568,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
+                        role="separator"
                       />
                       <a
                         href="javascript:;"
@@ -10553,16 +10606,16 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <div
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         cool
-                      </div>
-                      <div
+                      </span>
+                      <span
                         class="ant-tag ant-tag-blue"
                       >
                         teacher
-                      </div>
+                      </span>
                     </span>
                   </td>
                   <td
@@ -10576,6 +10629,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
+                        role="separator"
                       />
                       <a
                         href="javascript:;"

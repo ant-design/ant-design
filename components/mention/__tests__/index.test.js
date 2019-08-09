@@ -118,7 +118,9 @@ describe('Mention', () => {
     if (process.env.REACT === '15') {
       return;
     }
-    const wrapper = mount(<Mention defaultSuggestions={[<Mention.Nav value="light" />]} />);
+    const wrapper = mount(
+      <Mention defaultSuggestions={[<Mention.Nav key="light" value="light" />]} />,
+    );
     wrapper.find('DraftEditorContents').simulate('focus');
     const ed = wrapper.find('.public-DraftEditor-content');
     ed.simulate('beforeInput', { data: '@l' });
