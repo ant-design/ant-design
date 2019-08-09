@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.21.4
+
+`2019-08-09`
+
+- 🐞 Fix the problem that Dropdown.Button requires `title` props.
+
 ## 3.21.3
 
 `2019-08-09`
