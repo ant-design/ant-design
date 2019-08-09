@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 import Tree, {
   TreeProps,
@@ -53,11 +53,14 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   }
 
   state: DirectoryTreeState;
+
   tree: Tree;
+
   onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
 
   // Shift click usage
   lastSelectedKey?: string;
+
   cachedSelectedKeys?: string[];
 
   constructor(props: DirectoryTreeProps) {

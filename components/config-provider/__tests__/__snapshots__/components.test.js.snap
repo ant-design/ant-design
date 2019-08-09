@@ -6750,18 +6750,21 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
 exports[`ConfigProvider components Divider configProvider 1`] = `
 <div
   class="config-divider config-divider-horizontal"
+  role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider normal 1`] = `
 <div
   class="ant-divider ant-divider-horizontal"
+  role="separator"
 />
 `;
 
 exports[`ConfigProvider components Divider prefixCls 1`] = `
 <div
   class="prefix-Divider prefix-Divider-horizontal"
+  role="separator"
 />
 `;
 

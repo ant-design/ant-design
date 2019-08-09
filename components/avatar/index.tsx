@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Icon from '../icon';
 import classNames from 'classnames';
+import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface AvatarProps {
@@ -23,7 +23,7 @@ export interface AvatarProps {
   children?: React.ReactNode;
   alt?: string;
   /* callback when img load error */
-  /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self*/
+  /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self */
   onError?: () => boolean;
 }
 
@@ -44,8 +44,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
   };
 
   private avatarNode: HTMLElement;
+
   private avatarChildren: HTMLElement;
+
   private lastChildrenWidth: number;
+
   private lastNodeWidth: number;
 
   componentDidMount() {
@@ -127,7 +130,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
           }
         : {};
 
-    let children = this.props.children;
+    let { children } = this.props;
     if (src && isImgExist) {
       children = <img src={src} srcSet={srcSet} onError={this.handleImgLoadError} alt={alt} />;
     } else if (icon) {

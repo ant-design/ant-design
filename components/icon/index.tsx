@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 import classNames from 'classnames';
 import * as allIcons from '@ant-design/icons/lib/dist';
@@ -18,7 +19,27 @@ import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 ReactIcon.add(...Object.keys(allIcons).map(key => (allIcons as any)[key]));
 setTwoToneColor('#1890ff');
 let defaultTheme: ThemeType = 'outlined';
-let dangerousTheme: ThemeType | undefined = undefined;
+let dangerousTheme: ThemeType | undefined;
+
+function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
+  warning(
+    false,
+    'Icon',
+    `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
+      `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  dangerousTheme = theme;
+}
+
+function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
+  warning(
+    false,
+    'Icon',
+    `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
+      `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  defaultTheme = theme;
+}
 
 export interface TransferLocale {
   icon: string;
@@ -195,26 +216,6 @@ const Icon: IconComponent<IconProps> = props => {
     </LocaleReceiver>
   );
 };
-
-function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
-  warning(
-    false,
-    'Icon',
-    `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
-      `make sure that all the icons with theme '${theme}' display correctly.`,
-  );
-  dangerousTheme = theme;
-}
-
-function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
-  warning(
-    false,
-    'Icon',
-    `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
-      `make sure that all the icons with theme '${theme}' display correctly.`,
-  );
-  defaultTheme = theme;
-}
 
 Icon.createFromIconfontCN = createFromIconfontCN;
 Icon.getTwoToneColor = getTwoToneColor;

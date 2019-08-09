@@ -59,7 +59,7 @@ class DecimalStep extends React.Component {
   };
 
   onChange = value => {
-    if (Number.isNaN(value)) {
+    if (isNaN(value)) {
       return;
     }
     this.setState({

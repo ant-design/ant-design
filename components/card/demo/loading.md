@@ -46,7 +46,11 @@ class App extends React.Component {
 
         <Card
           style={{ width: 300, marginTop: 16 }}
-          actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+          actions={[
+            <Icon type="setting" key="setting" />,
+            <Icon type="edit" key="edit" />,
+            <Icon type="ellipsis" key="ellipsis" />,
+          ]}
         >
           <Skeleton loading={loading} avatar active>
             <Meta

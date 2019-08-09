@@ -82,6 +82,7 @@
       position: relative;
       top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
       margin: 0 0 0 18px;
+      word-break: break-word;
     }
 
     &-last {
@@ -112,18 +113,16 @@
 
       &-left {
         .@{timeline-prefix-cls}-item-content {
-          left: 50%;
-          width: 50%;
+          left: calc(50% - 4px);
+          width: calc(50% - 14px);
           text-align: left;
         }
       }
 
       &-right {
         .@{timeline-prefix-cls}-item-content {
-          right: 50%;
-          left: -30px;
-          width: 50%;
-          margin-right: 18px;
+          width: calc(50% - 14px);
+          margin: 0;
           text-align: right;
         }
       }
@@ -135,12 +134,10 @@
       .@{timeline-prefix-cls}-item-tail,
       .@{timeline-prefix-cls}-item-head,
       .@{timeline-prefix-cls}-item-head-custom {
-        left: 100%;
+        left: calc(100% - 4px - @timeline-width);
       }
       .@{timeline-prefix-cls}-item-content {
-        right: 0;
-        left: -30px;
-        width: 100%;
+        width: calc(100% - 18px);
       }
     }
   }

@@ -20,7 +20,7 @@ const Typography: React.SFC<InternalTypographyProps> = ({
   prefixCls: customizePrefixCls,
   component = 'article',
   className,
-  ['aria-label']: ariaLabel,
+  'aria-label': ariaLabel,
   setContentRef,
   children,
   ...restProps

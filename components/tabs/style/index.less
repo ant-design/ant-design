@@ -242,6 +242,13 @@
     }
   }
 
+  // Create an empty element to avoid margin collapsing
+  // https://github.com/ant-design/ant-design/issues/18103
+  &-content::before {
+    display: table;
+    content: '';
+  }
+
   // Horizontal Content
   .@{tab-prefix-cls}-top-content,
   .@{tab-prefix-cls}-bottom-content {

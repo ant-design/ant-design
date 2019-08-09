@@ -14,7 +14,7 @@ LocaleProvider 使用 React 的 [context](https://facebook.github.io/react/docs/
 
 ```jsx
 import { LocaleProvider } from 'antd';
-import zh_CN from 'antd/lib/locale-provider/zh_CN';
+import zh_CN from 'antd/es/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
@@ -48,7 +48,7 @@ return <LocaleProvider locale={locales.en_US}><App /></LocaleProvider>;
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| locale | 语言包配置，语言包可到 [antd/lib/locale-provider](http://unpkg.com/antd/lib/locale-provider/) 目录下寻找 | object | - |  |
+| locale | 语言包配置，语言包可到 [antd/es/locale-provider](http://unpkg.com/antd/es/locale-provider/) 目录下寻找 | object | - |  |
 
 ## FAQ
 

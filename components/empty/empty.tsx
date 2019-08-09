@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default () => (
+const Empty = () => (
   <svg width="184" height="152" viewBox="0 0 184 152" xmlns="http://www.w3.org/2000/svg">
     <g fill="none" fillRule="evenodd">
       <g transform="translate(24 31.67)">
@@ -34,3 +34,5 @@ export default () => (
     </g>
   </svg>
 );
+
+export default Empty;

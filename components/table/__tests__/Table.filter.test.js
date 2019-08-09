@@ -529,12 +529,13 @@ describe('Table.filter', () => {
   });
 
   it('renders custom filter icon correctly', () => {
+    const filterIcon = filtered => <span>{filtered ? 'filtered' : 'unfiltered'}</span>;
     const wrapper = mount(
       createTable({
         columns: [
           {
             ...column,
-            filterIcon: filtered => <span>{filtered ? 'filtered' : 'unfiltered'}</span>,
+            filterIcon,
           },
         ],
       }),
@@ -625,6 +626,9 @@ describe('Table.filter', () => {
   // https://github.com/ant-design/ant-design/issues/17833
   it('should not trigger onChange when bluring custom filterDropdown', () => {
     const onChange = jest.fn();
+    const filterDropdown = ({ setSelectedKeys }) => (
+      <input onChange={e => setSelectedKeys([e.target.value])} />
+    );
     const wrapper = mount(
       createTable({
         onChange,
@@ -633,9 +637,7 @@ describe('Table.filter', () => {
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            filterDropdown: ({ setSelectedKeys }) => (
-              <input onChange={e => setSelectedKeys([e.target.value])} />
-            ),
+            filterDropdown,
           },
         ],
       }),
