@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-渲染在当前 dom 里。自定义容器，查看 getContainer API。
+渲染在当前 dom 里。自定义容器，查看 getContainer。
 
 ## en-US
 
-Render in current dom. custom container, check getContainer API.
+Render in current dom. custom container, check getContainer.
 
 ```jsx
 import { Drawer, Button } from 'antd';
@@ -33,34 +33,35 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <div
-          style={{
-            height: 200,
-            overflow: 'hidden',
-            position: 'relative',
-            border: '1px solid #eee',
-            borderRadius: 2,
-          }}
-        >
-          render in this
-          <div style={{ marginTop: 16 }}>
-            <Button type="primary" onClick={this.showDrawer}>
-              Open
-            </Button>
-          </div>
-          <Drawer
-            title="Basic Drawer"
-            placement="right"
-            closable={false}
-            onClose={this.onClose}
-            visible={this.state.visible}
-            getContainer={false}
-            style={{ position: 'absolute' }}
-          >
-            <p>Some contents...</p>
-          </Drawer>
+      <div
+        style={{
+          height: 200,
+          overflow: 'hidden',
+          position: 'relative',
+          border: '1px solid #ebedf0',
+          borderRadius: 2,
+          padding: 48,
+          textAlign: 'center',
+          background: '#fafafa',
+        }}
+      >
+        Render in this
+        <div style={{ marginTop: 16 }}>
+          <Button type="primary" onClick={this.showDrawer}>
+            Open
+          </Button>
         </div>
+        <Drawer
+          title="Basic Drawer"
+          placement="right"
+          closable={false}
+          onClose={this.onClose}
+          visible={this.state.visible}
+          getContainer={false}
+          style={{ position: 'absolute' }}
+        >
+          <p>Some contents...</p>
+        </Drawer>
       </div>
     );
   }
