@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as AntdIcons from '@ant-design/icons';
-import { Radio, Icon, Input } from 'antd';
+import { Radio, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl, InjectedIntlProps } from 'react-intl';
 import debounce from 'lodash/debounce';
+import Icon from '@ant-design/icons';
+
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
@@ -85,7 +87,6 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
       intl: { messages },
     } = this.props;
     const list = this.getComputedDisplayList();
-    console.log(list, 'list');
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>

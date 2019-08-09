@@ -6,7 +6,9 @@ import { FormattedMessage } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Icon, Tooltip } from 'antd';
+import { Tooltip } from 'antd';
+
+import Icon from '../../Icon';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
 import ErrorBoundary from '../ErrorBoundary';

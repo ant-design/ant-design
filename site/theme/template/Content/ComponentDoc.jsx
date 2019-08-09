@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
 import { FormattedMessage } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Icon, Affix, Tooltip } from 'antd';
+import { Row, Col, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
+import Icon from '../Icon';
 import { ping } from '../utils';
 
 export default class ComponentDoc extends React.Component {
