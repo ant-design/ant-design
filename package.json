@@ -104,7 +104,7 @@
     "@sentry/browser": "^5.4.0",
     "@types/classnames": "^2.2.8",
     "@types/prop-types": "^15.7.1",
-    "@types/react": "~16.8.19",
+    "@types/react": "~16.9.0",
     "@types/react-dom": "^16.8.4",
     "@types/react-intl": "^2.3.17",
     "@types/warning": "^3.0.0",
