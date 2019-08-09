@@ -24,8 +24,8 @@ const dataSource = ['12345', '23456', '34567'];
 | allowClear | 支持清除, 单选模式有效 | boolean | false |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false |  |
-| children (自动完成的数据源) | 自动完成的数据源 | React.ReactElement<OptionProps> / Array&lt;React.ReactElement<OptionProps>> | - |  |  |
-| children (自定义输入框) | 自定义输入框 | HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` | @todo.muyu |
+| children (自定义输入框) | 自定义输入框 | HTMLInputElement <br /><br /> HTMLTextAreaElement <br /><br /> `React.ReactElement<InputProps>` | `<Input />` |  |
+| children (自动完成的数据源) | 自动完成的数据源 | `React.ReactElement<OptionProps>` <br /><br /> `Array<React.ReactElement<OptionProps>>` | - |  |
 | dataSource | 自动完成的数据源 | [DataSourceItemType](https://git.io/vMMKF)\[] |  |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |  |
 | defaultValue | 指定默认选中的条目 | string\|string\[]\| 无 |  |
