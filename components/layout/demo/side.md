@@ -22,7 +22,7 @@ The level of the aside navigation is scalable. The first, second, and third leve
 
 ```jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { PieChart, File, Team, User } from '@ant-design/icons';
+import { Desktop, PieChart, File, Team, User } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;

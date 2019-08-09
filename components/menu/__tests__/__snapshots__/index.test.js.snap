@@ -10,23 +10,6 @@ exports[`Menu should controlled collapse work 1`] = `
     role="menuitem"
     style="padding-left: 24px;"
   >
-    <span
-      class="anticon"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        width="1em"
-      >
-        <use
-          href="#icon-pie-chart-o"
-        />
-      </svg>
-    </span>
     <span>
       Option 1
     </span>
@@ -44,23 +27,6 @@ exports[`Menu should controlled collapse work 2`] = `
     role="menuitem"
     style="padding-left: 24px;"
   >
-    <span
-      class="anticon"
-      role="img"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        width="1em"
-      >
-        <use
-          href="#icon-pie-chart-o"
-        />
-      </svg>
-    </span>
     <span>
       Option 1
     </span>
