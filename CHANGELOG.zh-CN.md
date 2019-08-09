@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 3.21.3
+
+`2019-08-09`
+
+- Timeline
+  - 🐞 修复 `content` 内容连续过长时不换行的问题。[#18092](https://github.com/ant-design/ant-design/pull/18092) [@xrkffgg](https://github.com/xrkffgg)
+  - 🐞 修复 `alternate` 和 `right` 模式下样式不一致和 `content` 的宽度溢出的问题。 [#18093](https://github.com/ant-design/ant-design/pull/18093) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 修复 Tabs 内容带有 margin 时会与标题相互作用的问题。[#18112](https://github.com/ant-design/ant-design/pull/18112)
+- 🐞 修复 Textarea `autosize` 在调整尺寸后仍然显示滚动条的问题。[#18114](https://github.com/ant-design/ant-design/pull/18114)
+- 🐞 修复 Tooltip 在 `disabled` Checkbox 上不能正确工作的问题。[#18138](https://github.com/ant-design/ant-design/pull/18138)
+- 🐞 修复 Button 的行高对齐问题。[#18139](https://github.com/ant-design/ant-design/pull/18139)
+- 🐞 修复 Mentions 没有 `blur` 和 `focus` 方法的问题。[#18132](https://github.com/ant-design/ant-design/pull/18132) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Button 无法设置 `title` 的问题。[#18130](https://github.com/ant-design/ant-design/pull/18130) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Upload 在 IE9 下报 File 未定义的问题。[#18115](https://github.com/ant-design/ant-design/pull/18115)
+- 🐞 修复 Input 清除图标不居中对齐的问题。[#18151](https://github.com/ant-design/ant-design/pull/18151)
+- 🐞 修复 Card `actions` 内使用 Button 的样式问题。[#18179](https://github.com/ant-design/ant-design/pull/18179)
+- 🐞 修复 Modal.confirm 无法设置 `getContainer` 的问题。[#18182](https://github.com/ant-design/ant-design/pull/18182)
+- ⌨️ 增强 Divider 可访问性支持。[#18116](https://github.com/ant-design/ant-design/pull/18116)
+
 ## 3.21.2
 
 `2019-08-06`
