@@ -1087,7 +1087,6 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1221,7 +1220,6 @@ exports[`renders ./components/result/demo/info.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1270,7 +1268,6 @@ exports[`renders ./components/result/demo/success.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1332,7 +1329,6 @@ exports[`renders ./components/result/demo/warning.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >

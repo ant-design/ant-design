@@ -68,7 +68,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -89,7 +88,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -134,7 +132,6 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                         fill="currentColor"
                         focusable="false"
                         height="1em"
-                        style="vertical-align:-0.125em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
@@ -554,7 +551,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -594,7 +590,6 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -812,7 +807,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -852,7 +846,6 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1156,7 +1149,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1196,7 +1188,6 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1545,7 +1536,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1585,7 +1575,6 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1787,7 +1776,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1827,7 +1815,6 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -3529,7 +3516,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -3569,7 +3555,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -3805,7 +3790,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -3845,7 +3829,6 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -4277,7 +4260,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4356,7 +4338,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -4403,7 +4384,6 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4683,7 +4663,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4723,7 +4702,6 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -5001,7 +4979,6 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -5041,7 +5018,6 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -5649,7 +5625,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -5689,7 +5664,6 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -7128,7 +7102,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -7207,7 +7180,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -7254,7 +7226,6 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -8417,7 +8388,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -8467,7 +8437,6 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -8570,7 +8539,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           fill="currentColor"
                           focusable="false"
                           height="1em"
-                          style="vertical-align:-0.125em"
                           viewBox="64 64 896 896"
                           width="1em"
                         >
@@ -8673,7 +8641,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -8694,7 +8661,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -9387,7 +9353,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                           fill="currentColor"
                           focusable="false"
                           height="1em"
-                          style="vertical-align:-0.125em"
                           viewBox="64 64 896 896"
                           width="1em"
                         >
@@ -9716,7 +9681,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -9795,7 +9759,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -9842,7 +9805,6 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -9923,7 +9885,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -9950,7 +9911,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         fill="currentColor"
                         focusable="false"
                         height="1em"
-                        style="vertical-align:-0.125em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
@@ -9993,7 +9953,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -10014,7 +9973,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -10061,7 +10019,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -10082,7 +10039,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -10109,7 +10065,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                         fill="currentColor"
                         focusable="false"
                         height="1em"
-                        style="vertical-align:-0.125em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
@@ -10233,7 +10188,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -10273,7 +10227,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -10666,7 +10619,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -10706,7 +10658,6 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -11088,7 +11039,6 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -11128,7 +11078,6 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -11238,7 +11187,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -11259,7 +11207,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -11286,7 +11233,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           fill="currentColor"
                           focusable="false"
                           height="1em"
-                          style="vertical-align:-0.125em"
                           viewBox="64 64 896 896"
                           width="1em"
                         >
@@ -11329,7 +11275,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -11350,7 +11295,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -11397,7 +11341,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -11418,7 +11361,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="0 0 1024 1024"
                                   width="1em"
                                 >
@@ -11445,7 +11387,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                           fill="currentColor"
                           focusable="false"
                           height="1em"
-                          style="vertical-align:-0.125em"
                           viewBox="64 64 896 896"
                           width="1em"
                         >
@@ -11569,7 +11510,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -11609,7 +11549,6 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -11910,7 +11849,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -11950,7 +11888,6 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -12310,7 +12247,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -12350,7 +12286,6 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -12952,7 +12887,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -13029,7 +12963,6 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -13124,7 +13057,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  style="vertical-align:-0.125em"
                                   viewBox="64 64 896 896"
                                   width="1em"
                                 >
@@ -13640,7 +13572,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -13717,7 +13648,6 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -13917,7 +13847,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -13957,7 +13886,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -14153,7 +14081,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -14193,7 +14120,6 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >

@@ -80,11 +80,6 @@ exports[`Input allowClear should change type when click 1`] = `
                   "theme": "fill",
                 }
               }
-              style={
-                Object {
-                  "verticalAlign": "-0.125em",
-                }
-              }
             >
               <svg
                 aria-hidden="true"
@@ -94,11 +89,6 @@ exports[`Input allowClear should change type when click 1`] = `
                 focusable="false"
                 height="1em"
                 key="svg-close-circle"
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -407,11 +397,6 @@ exports[`Input.Password should change type when click 1`] = `
                     "theme": "outline",
                   }
                 }
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
               >
                 <svg
                   aria-hidden="true"
@@ -421,11 +406,6 @@ exports[`Input.Password should change type when click 1`] = `
                   focusable="false"
                   height="1em"
                   key="svg-eye-invisible"
-                  style={
-                    Object {
-                      "verticalAlign": "-0.125em",
-                    }
-                  }
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -546,11 +526,6 @@ exports[`Input.Password should change type when click 2`] = `
                     "theme": "outline",
                   }
                 }
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
               >
                 <svg
                   aria-hidden="true"
@@ -560,11 +535,6 @@ exports[`Input.Password should change type when click 2`] = `
                   focusable="false"
                   height="1em"
                   key="svg-eye"
-                  style={
-                    Object {
-                      "verticalAlign": "-0.125em",
-                    }
-                  }
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -693,11 +663,6 @@ exports[`Input.Password should change type when click 3`] = `
                     "theme": "outline",
                   }
                 }
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
               >
                 <svg
                   aria-hidden="true"
@@ -707,11 +672,6 @@ exports[`Input.Password should change type when click 3`] = `
                   focusable="false"
                   height="1em"
                   key="svg-eye-invisible"
-                  style={
-                    Object {
-                      "verticalAlign": "-0.125em",
-                    }
-                  }
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -829,11 +789,6 @@ exports[`Input.Search should support suffix 1`] = `
                     "theme": "outline",
                   }
                 }
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
               >
                 <svg
                   aria-hidden="true"
@@ -843,11 +798,6 @@ exports[`Input.Search should support suffix 1`] = `
                   focusable="false"
                   height="1em"
                   key="svg-search"
-                  style={
-                    Object {
-                      "verticalAlign": "-0.125em",
-                    }
-                  }
                   viewBox="64 64 896 896"
                   width="1em"
                 >

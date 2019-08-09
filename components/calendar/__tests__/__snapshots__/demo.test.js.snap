@@ -48,7 +48,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -101,7 +100,6 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -1099,7 +1097,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1152,7 +1149,6 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2209,7 +2205,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -2266,7 +2261,6 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3221,7 +3215,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -3274,7 +3267,6 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -4680,7 +4672,6 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4733,7 +4724,6 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >

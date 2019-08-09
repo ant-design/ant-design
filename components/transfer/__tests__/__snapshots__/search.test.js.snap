@@ -76,11 +76,6 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
                   "theme": "outline",
                 }
               }
-              style={
-                Object {
-                  "verticalAlign": "-0.125em",
-                }
-              }
             >
               <svg
                 aria-hidden="true"
@@ -90,11 +85,6 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
                 focusable="false"
                 height="1em"
                 key="svg-search"
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -190,11 +180,6 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
                   "theme": "fill",
                 }
               }
-              style={
-                Object {
-                  "verticalAlign": "-0.125em",
-                }
-              }
             >
               <svg
                 aria-hidden="true"
@@ -204,11 +189,6 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
                 focusable="false"
                 height="1em"
                 key="svg-close-circle"
-                style={
-                  Object {
-                    "verticalAlign": "-0.125em",
-                  }
-                }
                 viewBox="64 64 896 896"
                 width="1em"
               >

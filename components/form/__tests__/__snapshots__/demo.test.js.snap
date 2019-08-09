@@ -358,7 +358,6 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -526,7 +525,6 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -676,7 +674,6 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -804,7 +801,6 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -1601,7 +1597,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -1630,7 +1625,6 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -1980,7 +1974,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2043,7 +2036,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2159,7 +2151,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -2180,7 +2171,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -2266,7 +2256,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                         fill="currentColor"
                         focusable="false"
                         height="1em"
-                        style="vertical-align:-0.125em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
@@ -2371,7 +2360,6 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -2549,7 +2537,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2607,7 +2594,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2664,7 +2650,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2737,7 +2722,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2811,7 +2795,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2870,7 +2853,6 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -3004,7 +2986,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -3133,7 +3114,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -3162,7 +3142,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -3716,7 +3695,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3741,7 +3719,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3778,7 +3755,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3803,7 +3779,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3840,7 +3815,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3865,7 +3839,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3902,7 +3875,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3927,7 +3899,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3964,7 +3935,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -3989,7 +3959,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -4334,7 +4303,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4396,7 +4364,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4476,7 +4443,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -4541,7 +4507,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -4562,7 +4527,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -4630,7 +4594,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      style="vertical-align:-0.125em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
@@ -4681,7 +4644,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                       fill="currentColor"
                       focusable="false"
                       height="1em"
-                      style="vertical-align:-0.125em"
                       viewBox="64 64 896 896"
                       width="1em"
                     >
@@ -4743,7 +4705,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -4772,7 +4733,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -4854,7 +4814,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -4883,7 +4842,6 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >

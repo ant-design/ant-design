@@ -52,7 +52,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -86,7 +85,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -115,7 +113,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -149,7 +146,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -178,7 +174,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -212,7 +207,6 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -281,7 +275,6 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -315,7 +308,6 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -390,7 +382,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -414,7 +405,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -476,7 +466,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -500,7 +489,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -562,7 +550,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -586,7 +573,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -648,7 +634,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -672,7 +657,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -734,7 +718,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -758,7 +741,6 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -832,7 +814,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -886,7 +867,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -953,7 +933,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -1007,7 +986,6 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >

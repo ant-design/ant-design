@@ -86,7 +86,6 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -140,7 +139,6 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -194,7 +192,6 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="0 0 1024 1024"
             width="1em"
           >
@@ -253,7 +250,6 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -307,7 +303,6 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -365,7 +360,6 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -471,7 +465,6 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -537,7 +530,6 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -575,7 +567,6 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -653,7 +644,6 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -719,7 +709,6 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -816,7 +805,6 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1036,7 +1024,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -1100,7 +1087,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -1138,7 +1124,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -1223,7 +1208,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -1261,7 +1245,6 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >

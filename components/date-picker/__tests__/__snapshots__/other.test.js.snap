@@ -998,7 +998,6 @@ exports[`Picker format by locale date 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1019,7 +1018,6 @@ exports[`Picker format by locale date 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1057,7 +1055,6 @@ exports[`Picker format by locale dateTime 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1078,7 +1075,6 @@ exports[`Picker format by locale dateTime 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1115,7 +1111,6 @@ exports[`Picker format by locale month 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1136,7 +1131,6 @@ exports[`Picker format by locale month 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1175,7 +1169,6 @@ exports[`Picker format by locale week 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -1196,7 +1189,6 @@ exports[`Picker format by locale week 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >

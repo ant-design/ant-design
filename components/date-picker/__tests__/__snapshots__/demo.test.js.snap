@@ -24,7 +24,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -58,7 +57,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -108,7 +106,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -144,7 +141,6 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -182,7 +178,6 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -231,7 +226,6 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -270,7 +264,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -305,7 +298,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -357,7 +349,6 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -396,7 +387,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -430,7 +420,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -481,7 +470,6 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -519,7 +507,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -553,7 +540,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -602,7 +588,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -652,7 +637,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -685,7 +669,6 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -724,7 +707,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -745,7 +727,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -780,7 +761,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -801,7 +781,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -836,7 +815,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -857,7 +835,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -908,7 +885,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -929,7 +905,6 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -968,7 +943,6 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1018,7 +992,6 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1072,7 +1045,6 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1123,7 +1095,6 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1225,7 +1196,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1259,7 +1229,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1309,7 +1278,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1345,7 +1313,6 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1384,7 +1351,6 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1418,7 +1384,6 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1689,7 +1654,6 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1740,7 +1704,6 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >

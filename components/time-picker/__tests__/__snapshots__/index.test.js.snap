@@ -26,7 +26,6 @@ exports[`TimePicker not render clean icon when allowClear is false 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -70,7 +69,6 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -96,7 +94,6 @@ Array [
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align: -0.125em;"
         viewBox="64 64 896 896"
         width="1em"
       >

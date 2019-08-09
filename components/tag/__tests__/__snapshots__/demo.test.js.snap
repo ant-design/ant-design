@@ -26,7 +26,6 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -57,7 +56,6 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -88,7 +86,6 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -160,7 +157,6 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -187,7 +183,6 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -342,7 +337,6 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -369,7 +363,6 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -424,7 +417,6 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >

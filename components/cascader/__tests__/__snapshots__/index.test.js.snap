@@ -30,7 +30,6 @@ exports[`Cascader can be selected 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -62,7 +61,6 @@ exports[`Cascader can be selected 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -98,7 +96,6 @@ exports[`Cascader can be selected 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -145,7 +142,6 @@ exports[`Cascader can be selected 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -177,7 +173,6 @@ exports[`Cascader can be selected 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -213,7 +208,6 @@ exports[`Cascader can be selected 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -271,7 +265,6 @@ exports[`Cascader can be selected 3`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -303,7 +296,6 @@ exports[`Cascader can be selected 3`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -339,7 +331,6 @@ exports[`Cascader can be selected 3`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -407,7 +398,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -439,7 +429,6 @@ exports[`Cascader popup correctly when panel is open 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -486,7 +475,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -518,7 +506,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -554,7 +541,6 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1653,7 +1639,6 @@ exports[`Cascader support controlled mode 1`] = `
       fill="currentColor"
       focusable="false"
       height="1em"
-      style="vertical-align: -0.125em;"
       viewBox="64 64 896 896"
       width="1em"
     >
@@ -1674,7 +1659,6 @@ exports[`Cascader support controlled mode 1`] = `
       fill="currentColor"
       focusable="false"
       height="1em"
-      style="vertical-align: -0.125em;"
       viewBox="64 64 896 896"
       width="1em"
     >

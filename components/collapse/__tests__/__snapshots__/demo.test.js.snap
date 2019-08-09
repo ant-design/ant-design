@@ -26,7 +26,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -59,7 +58,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -92,7 +90,6 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -132,7 +129,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em;-ms-transform:rotate(90deg);transform:rotate(90deg)"
+          style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -180,7 +177,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -213,7 +209,6 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -253,7 +248,7 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em;-ms-transform:rotate(90deg);transform:rotate(90deg)"
+          style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -299,7 +294,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -332,7 +326,6 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -486,7 +479,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em;-ms-transform:rotate(90deg);transform:rotate(90deg)"
+            style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -556,7 +549,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -611,7 +603,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -689,7 +680,6 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -729,7 +719,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -762,7 +751,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -795,7 +783,6 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -835,7 +822,7 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em;-ms-transform:rotate(90deg);transform:rotate(90deg)"
+          style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
           viewBox="64 64 896 896"
           width="1em"
         >

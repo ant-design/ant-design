@@ -41,7 +41,6 @@ exports[`Drawer className is test_drawer 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -139,7 +138,6 @@ exports[`Drawer destroyOnClose is true 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -208,7 +206,6 @@ exports[`Drawer have a title 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -272,7 +269,6 @@ exports[`Drawer render correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -335,7 +331,6 @@ exports[`Drawer render top drawer 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >

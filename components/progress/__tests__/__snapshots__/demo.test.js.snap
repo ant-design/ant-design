@@ -93,7 +93,6 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -154,7 +153,6 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -325,7 +323,6 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -386,7 +383,6 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -757,7 +753,6 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -853,7 +848,6 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -896,7 +890,6 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -1012,7 +1005,6 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -1055,7 +1047,6 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >

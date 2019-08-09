@@ -53,7 +53,6 @@ exports[`List.pagination renders pagination correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -103,7 +102,6 @@ exports[`List.pagination renders pagination correctly 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -144,7 +142,6 @@ exports[`List.pagination should change page size work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -184,7 +181,6 @@ exports[`List.pagination should change page size work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -239,7 +235,6 @@ exports[`List.pagination should change page size work 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align: -0.125em;"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -280,7 +275,6 @@ exports[`List.pagination should change page size work 2`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -320,7 +314,6 @@ exports[`List.pagination should change page size work 2`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -376,7 +369,6 @@ exports[`List.pagination should change page size work 2`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align: -0.125em;"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -472,7 +464,6 @@ exports[`List.pagination should default work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -521,7 +512,6 @@ exports[`List.pagination should default work 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align: -0.125em;"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -576,7 +566,6 @@ exports[`List.pagination should default work 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align: -0.125em;"
               viewBox="64 64 896 896"
               width="1em"
             >

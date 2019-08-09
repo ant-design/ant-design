@@ -59,7 +59,6 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="0 0 1024 1024"
         width="1em"
       >
@@ -92,7 +91,6 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="0 0 1024 1024"
         width="1em"
       >

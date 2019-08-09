@@ -210,7 +210,6 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -278,7 +277,6 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -346,7 +344,6 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -1213,7 +1210,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -1266,7 +1262,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2258,7 +2253,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2618,7 +2612,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -2671,7 +2664,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -3663,7 +3655,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4023,7 +4014,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -4076,7 +4066,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -5068,7 +5057,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -5851,7 +5839,6 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
       fill="currentColor"
       focusable="false"
       height="1em"
-      style="vertical-align:-0.125em"
       viewBox="64 64 896 896"
       width="1em"
     >
@@ -5891,7 +5878,6 @@ exports[`ConfigProvider components Cascader normal 1`] = `
       fill="currentColor"
       focusable="false"
       height="1em"
-      style="vertical-align:-0.125em"
       viewBox="64 64 896 896"
       width="1em"
     >
@@ -5931,7 +5917,6 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
       fill="currentColor"
       focusable="false"
       height="1em"
-      style="vertical-align:-0.125em"
       viewBox="64 64 896 896"
       width="1em"
     >
@@ -6043,7 +6028,6 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6083,7 +6067,6 @@ exports[`ConfigProvider components Collapse normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6123,7 +6106,6 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6321,7 +6303,6 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6359,7 +6340,6 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6397,7 +6377,6 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6435,7 +6414,6 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6473,7 +6451,6 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6511,7 +6488,6 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6565,7 +6541,6 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6619,7 +6594,6 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6673,7 +6647,6 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6713,7 +6686,6 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6753,7 +6725,6 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6793,7 +6764,6 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -6866,7 +6836,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -6928,7 +6897,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -6990,7 +6958,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -7039,7 +7006,6 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -7080,7 +7046,6 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -7121,7 +7086,6 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
         fill="currentColor"
         focusable="false"
         height="1em"
-        style="vertical-align:-0.125em"
         viewBox="64 64 896 896"
         width="1em"
       >
@@ -7270,7 +7234,6 @@ exports[`ConfigProvider components Input configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -7322,7 +7285,6 @@ exports[`ConfigProvider components Input normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -7374,7 +7336,6 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -7418,7 +7379,6 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -7447,7 +7407,6 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -7500,7 +7459,6 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -7529,7 +7487,6 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -7582,7 +7539,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -7611,7 +7567,6 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -8255,7 +8210,6 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -8349,7 +8303,6 @@ exports[`ConfigProvider components Modal normal 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -8443,7 +8396,6 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  style="vertical-align:-0.125em"
                   viewBox="64 64 896 896"
                   width="1em"
                 >
@@ -8519,7 +8471,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -8559,7 +8510,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -8614,7 +8564,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -8661,7 +8610,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -8701,7 +8649,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -8756,7 +8703,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -8808,7 +8754,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -8848,7 +8793,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -8903,7 +8847,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -8950,7 +8893,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -8990,7 +8932,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -9045,7 +8986,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -9097,7 +9037,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -9137,7 +9076,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -9192,7 +9130,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -9239,7 +9176,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -9279,7 +9215,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -9334,7 +9269,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                style="vertical-align:-0.125em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
@@ -9400,7 +9334,6 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -9482,7 +9415,6 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -9564,7 +9496,6 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
                     fill="currentColor"
                     focusable="false"
                     height="1em"
-                    style="vertical-align:-0.125em"
                     viewBox="64 64 896 896"
                     width="1em"
                   >
@@ -9970,7 +9901,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -9995,7 +9925,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10032,7 +9961,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10057,7 +9985,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10094,7 +10021,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10119,7 +10045,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10156,7 +10081,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10181,7 +10105,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10218,7 +10141,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10243,7 +10165,6 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10289,7 +10210,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10314,7 +10234,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10351,7 +10270,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10376,7 +10294,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10413,7 +10330,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10438,7 +10354,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10475,7 +10390,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10500,7 +10414,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10537,7 +10450,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10562,7 +10474,6 @@ exports[`ConfigProvider components Rate normal 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10608,7 +10519,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10633,7 +10543,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10670,7 +10579,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10695,7 +10603,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10732,7 +10639,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10757,7 +10663,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10794,7 +10699,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10819,7 +10723,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10856,7 +10759,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10881,7 +10783,6 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -10931,7 +10832,6 @@ Array [
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -11021,7 +10921,6 @@ Array [
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -11111,7 +11010,6 @@ Array [
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -11738,7 +11636,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -11759,7 +11656,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -11786,7 +11682,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         fill="currentColor"
                         focusable="false"
                         height="1em"
-                        style="vertical-align:-0.125em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
@@ -11990,7 +11885,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -12011,7 +11905,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -12038,7 +11931,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                         fill="currentColor"
                         focusable="false"
                         height="1em"
-                        style="vertical-align:-0.125em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
@@ -12242,7 +12134,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -12263,7 +12154,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                style="vertical-align:-0.125em"
                                 viewBox="0 0 1024 1024"
                                 width="1em"
                               >
@@ -12290,7 +12180,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         fill="currentColor"
                         focusable="false"
                         height="1em"
-                        style="vertical-align:-0.125em"
                         viewBox="64 64 896 896"
                         width="1em"
                       >
@@ -12463,7 +12352,6 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -12493,7 +12381,6 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -12596,7 +12483,6 @@ exports[`ConfigProvider components Tabs normal 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -12626,7 +12512,6 @@ exports[`ConfigProvider components Tabs normal 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -12729,7 +12614,6 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -12759,7 +12643,6 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -12903,7 +12786,6 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -13996,7 +13878,6 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -15089,7 +14970,6 @@ Array [
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -16956,7 +16836,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -17034,7 +16913,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -17112,7 +16990,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -17170,7 +17047,6 @@ Array [
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -17259,7 +17135,6 @@ Array [
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -17348,7 +17223,6 @@ Array [
             fill="currentColor"
             focusable="false"
             height="1em"
-            style="vertical-align:-0.125em"
             viewBox="64 64 896 896"
             width="1em"
           >
@@ -17429,7 +17303,6 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -17460,7 +17333,6 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -17503,7 +17375,6 @@ exports[`ConfigProvider components Upload normal 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -17534,7 +17405,6 @@ exports[`ConfigProvider components Upload normal 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
@@ -17577,7 +17447,6 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
               fill="currentColor"
               focusable="false"
               height="1em"
-              style="vertical-align:-0.125em"
               viewBox="64 64 896 896"
               width="1em"
             >
@@ -17608,7 +17477,6 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          style="vertical-align:-0.125em"
           viewBox="64 64 896 896"
           width="1em"
         >
