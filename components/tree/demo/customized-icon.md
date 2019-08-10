@@ -24,7 +24,11 @@ const treeData = [
     key: '0-0',
     icon: <Icon type="smile-o" />,
     children: [
-      { title: 'leaf', key: '0-0-0', icon: <Icon type="meh-o" /> },
+      {
+        title: 'leaf',
+        key: '0-0-0',
+        icon: <Icon type="meh-o" />,
+      },
       {
         title: 'leaf',
         key: '0-0-1',

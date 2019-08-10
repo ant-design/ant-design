@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 @import '../../checkbox/style/mixin';
 @import './mixin';
+@import './directory';
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 @tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
@@ -14,6 +15,17 @@
   // =================== Virtual List ===================
   &-list-holder-inner {
     align-items: flex-start;
+  }
+
+  &.@{tree-prefix-cls}-block-node {
+    .@{tree-prefix-cls}-list-holder-inner {
+      align-items: stretch;
+
+      // >>> Title
+      .@{tree-prefix-cls}-node-content-wrapper {
+        flex: auto;
+      }
+    }
   }
 
   // ===================== TreeNode =====================
@@ -117,5 +129,3 @@
     }
   }
 }
-
-// TODO: block node

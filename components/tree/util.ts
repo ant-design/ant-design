@@ -1,6 +1,4 @@
-import * as React from 'react';
-import { getNodeChildren, convertTreeToEntities } from 'rc-tree/lib/util';
-import { AntTreeNodeProps, AntTreeNode } from './Tree';
+import { DataNode } from 'rc-tree/lib/interface';
 
 enum Record {
   None,
@@ -8,34 +6,23 @@ enum Record {
   End,
 }
 
-// TODO: Move this logic into `rc-tree`
 function traverseNodesKey(
-  rootChildren: React.ReactNode | React.ReactNode[],
-  callback: (key: string | number | null, node: AntTreeNode) => boolean,
+  treeData: DataNode[],
+  callback: (key: string | number | null, node: DataNode) => boolean,
 ) {
-  const nodeList: React.ReactNode[] = getNodeChildren(rootChildren) || [];
-
-  function processNode(node: React.ReactElement<AntTreeNodeProps>) {
-    const {
-      key,
-      props: { children },
-    } = node;
-    if (callback(key, node as any) !== false) {
-      traverseNodesKey(children, callback);
+  function processNode(dataNode: DataNode) {
+    const { key, children } = dataNode;
+    if (callback(key, dataNode) !== false) {
+      traverseNodesKey(children || [], callback);
     }
   }
 
-  nodeList.forEach(processNode);
-}
-
-export function getFullKeyList(children: React.ReactNode | React.ReactNode[]) {
-  const { keyEntities } = convertTreeToEntities(children);
-  return Object.keys(keyEntities);
+  treeData.forEach(processNode);
 }
 
 /** 计算选中范围，只考虑expanded情况以优化性能 */
 export function calcRangeKeys(
-  rootChildren: React.ReactNode | React.ReactNode[],
+  treeData: DataNode[],
   expandedKeys: string[],
   startKey?: string,
   endKey?: string,
@@ -54,7 +41,7 @@ export function calcRangeKeys(
     return key === startKey || key === endKey;
   }
 
-  traverseNodesKey(rootChildren, (key: string) => {
+  traverseNodesKey(treeData, (key: string) => {
     if (record === Record.End) {
       return false;
     }
@@ -84,13 +71,10 @@ export function calcRangeKeys(
   return keys;
 }
 
-export function convertDirectoryKeysToNodes(
-  rootChildren: React.ReactNode | React.ReactNode[],
-  keys: string[],
-) {
+export function convertDirectoryKeysToNodes(treeData: DataNode[], keys: string[]) {
   const restKeys: string[] = [...keys];
-  const nodes: AntTreeNode[] = [];
-  traverseNodesKey(rootChildren, (key: string, node: AntTreeNode) => {
+  const nodes: DataNode[] = [];
+  traverseNodesKey(treeData, (key: string, node: DataNode) => {
     const index = restKeys.indexOf(key);
     if (index !== -1) {
       nodes.push(node);

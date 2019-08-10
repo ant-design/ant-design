@@ -5,6 +5,7 @@ import DirectoryTree from './DirectoryTree';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import collapseMotion from '../_util/motion';
+import { DataNode } from 'rc-tree/lib/interface';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -61,7 +62,7 @@ export interface AntTreeNodeCheckedEvent extends AntTreeNodeBaseEvent {
 export interface AntTreeNodeSelectedEvent extends AntTreeNodeBaseEvent {
   event: 'select';
   selected?: boolean;
-  selectedNodes?: AntTreeNode[];
+  selectedNodes?: DataNode[];
 }
 
 export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
@@ -181,7 +182,7 @@ export default class Tree extends React.Component<TreeProps, any> {
     blockNode: false,
   };
 
-  tree: any;
+  public tree: any;
 
   renderSwitcherIcon = (
     prefixCls: string,
