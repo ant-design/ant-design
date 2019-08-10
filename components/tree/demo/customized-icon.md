@@ -18,22 +18,30 @@ import { Tree, Icon } from 'antd';
 
 const { TreeNode } = Tree;
 
+const treeData = [
+  {
+    title: 'parent 1',
+    key: '0-0',
+    icon: <Icon type="smile-o" />,
+    children: [
+      { title: 'leaf', key: '0-0-0', icon: <Icon type="meh-o" /> },
+      {
+        title: 'leaf',
+        key: '0-0-1',
+        icon: ({ selected }) => <Icon type="frown" theme={selected ? 'filled' : 'outlined'} />,
+      },
+    ],
+  },
+];
+
 ReactDOM.render(
   <Tree
     showIcon
     defaultExpandAll
     defaultSelectedKeys={['0-0-0']}
     switcherIcon={<Icon type="down" />}
-  >
-    <TreeNode icon={<Icon type="smile-o" />} title="parent 1" key="0-0">
-      <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-0" />
-      <TreeNode
-        icon={({ selected }) => <Icon type={selected ? 'frown' : 'frown-o'} />}
-        title="leaf"
-        key="0-0-1"
-      />
-    </TreeNode>
-  </Tree>,
+    treeData={treeData}
+  />,
   mountNode,
 );
 ```

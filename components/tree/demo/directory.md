@@ -3,6 +3,7 @@ order: 7
 title:
   zh-CN: 目录
   en-US: directory
+only: true
 ---
 
 ## zh-CN
