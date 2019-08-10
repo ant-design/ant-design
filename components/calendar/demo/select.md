@@ -19,8 +19,8 @@ import moment from 'moment';
 
 class App extends React.Component {
   state = {
-    value: moment('2017-01-25'),
-    selectedValue: moment('2017-01-25'),
+    value: moment('2019-08-10'),
+    selectedValue: moment('2019-08-10'),
   };
 
   onSelect = value => {
