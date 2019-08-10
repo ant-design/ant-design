@@ -3,6 +3,7 @@ order: 3
 title:
   zh-CN: 异步数据加载
   en-US: load data asynchronously
+only: true
 ---
 
 ## zh-CN
@@ -29,6 +30,7 @@ class Demo extends React.Component {
 
   onLoadData = treeNode =>
     new Promise(resolve => {
+      console.log('=>', treeNode);
       if (treeNode.props.children) {
         resolve();
         return;
@@ -45,20 +47,8 @@ class Demo extends React.Component {
       }, 1000);
     });
 
-  renderTreeNodes = data =>
-    data.map(item => {
-      if (item.children) {
-        return (
-          <TreeNode title={item.title} key={item.key} dataRef={item}>
-            {this.renderTreeNodes(item.children)}
-          </TreeNode>
-        );
-      }
-      return <TreeNode key={item.key} {...item} dataRef={item} />;
-    });
-
   render() {
-    return <Tree loadData={this.onLoadData}>{this.renderTreeNodes(this.state.treeData)}</Tree>;
+    return <Tree loadData={this.onLoadData} treeData={this.state.treeData} />;
   }
 }
 
