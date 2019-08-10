@@ -14,12 +14,41 @@ only: true
 
 To load data asynchronously when click to expand a treeNode.
 
-```jsx
+```tsx
 import { Tree } from 'antd';
 
 const { TreeNode } = Tree;
 
-class Demo extends React.Component {
+const initTreeDate = [
+  { title: 'Expand to load', key: '0' },
+  { title: 'Expand to load', key: '1' },
+  { title: 'Tree Node', key: '2', isLeaf: true },
+];
+
+const Demo: React.FC<{}> = () => {
+  const [treeData, setTreeData] = React.useState(initTreeDate);
+
+  function onLoadData({ props: { data } }) {
+    return new Promise(resolve => {
+      if (data.children) {
+        resolve();
+        return;
+      }
+      setTimeout(() => {
+        data.children = [
+          { title: 'Child Node', key: `${data.key}-0` },
+          { title: 'Child Node', key: `${data.key}-1` },
+        ];
+        setTreeData([...treeData]);
+        resolve();
+      }, 1000);
+    });
+  }
+
+  return <Tree loadData={onLoadData} treeData={treeData} />;
+};
+
+class Demo1 extends React.Component {
   state = {
     treeData: [
       { title: 'Expand to load', key: '0' },
@@ -28,9 +57,10 @@ class Demo extends React.Component {
     ],
   };
 
-  onLoadData = treeNode =>
-    new Promise(resolve => {
-      console.log('=>', treeNode);
+  onLoadData = treeNode => {
+    const { treeData } = this.state;
+    return new Promise(resolve => {
+      const { props } = treeNode;
       if (treeNode.props.children) {
         resolve();
         return;
@@ -46,6 +76,7 @@ class Demo extends React.Component {
         resolve();
       }, 1000);
     });
+  };
 
   render() {
     return <Tree loadData={this.onLoadData} treeData={this.state.treeData} />;
