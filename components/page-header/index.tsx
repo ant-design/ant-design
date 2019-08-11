@@ -5,6 +5,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Icon from '../icon';
 import Tag from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
+import Avatar, { AvatarProps } from '../avatar';
 import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
@@ -18,6 +19,7 @@ export interface PageHeaderProps {
   tags?: React.ReactElement<Tag> | React.ReactElement<Tag>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
+  avatar?: AvatarProps;
   onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
 }
@@ -63,7 +65,7 @@ const renderHeader = (breadcrumb: PageHeaderProps['breadcrumb']) => {
 };
 
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
-  const { title, subTitle, tags, extra, backIcon, onBack } = props;
+  const { title, avatar, subTitle, tags, extra, backIcon, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
     const backIconDom = renderBack(prefixCls, backIcon, onBack);
@@ -71,6 +73,7 @@ const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
       <div className={headingPrefixCls}>
         {backIconDom}
         {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
+        {avatar && <Avatar {...avatar} />}
         {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
         {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
         {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
