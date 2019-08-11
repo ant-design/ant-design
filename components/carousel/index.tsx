@@ -23,6 +23,7 @@ if (typeof window !== 'undefined') {
 // Fix https://github.com/ant-design/ant-design/issues/6560
 // Fix https://github.com/ant-design/ant-design/issues/3308
 const SlickCarousel = polyfill(require('react-slick').default);
+
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
 

@@ -221,7 +221,7 @@ export default class Form extends React.Component<FormProps, any> {
 
   static createFormField = createFormField;
 
-  static create = function<TOwnProps extends FormComponentProps>(
+  static create = function create<TOwnProps extends FormComponentProps>(
     options: FormCreateOption<TOwnProps> = {},
   ): FormWrappedProps<TOwnProps> {
     return createDOMForm({
