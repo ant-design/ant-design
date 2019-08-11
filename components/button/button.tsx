@@ -271,7 +271,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
         ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
         : null;
 
-    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType']);
+    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
     if (linkButtonRestProps.href !== undefined) {
       return (
         <a
@@ -291,7 +291,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
     const buttonNode = (
       <button
-        {...omit(otherProps, ['loading']) as NativeButtonProps}
+        {...(omit(otherProps, ['loading']) as NativeButtonProps)}
         type={htmlType}
         className={classes}
         onClick={this.handleClick}
