@@ -25,13 +25,13 @@ const Divider: React.SFC<DividerProps> = props => (
         ...restProps
       } = props;
       const prefixCls = getPrefixCls('divider', customizePrefixCls);
-      const orientationPrefix = orientation.length > 0 ? '-' + orientation : orientation;
+      const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
       const classString = classNames(className, prefixCls, `${prefixCls}-${type}`, {
         [`${prefixCls}-with-text${orientationPrefix}`]: children,
         [`${prefixCls}-dashed`]: !!dashed,
       });
       return (
-        <div className={classString} {...restProps}>
+        <div className={classString} {...restProps} role="separator">
           {children && <span className={`${prefixCls}-inner-text`}>{children}</span>}
         </div>
       );

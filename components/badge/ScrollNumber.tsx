@@ -1,9 +1,8 @@
-import * as React from 'react';
-import { createElement, Component } from 'react';
+import React, { createElement, Component } from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getNumberArray(num: string | number | undefined | null) {
   return num
@@ -16,6 +15,20 @@ function getNumberArray(num: string | number | undefined | null) {
           return isNaN(current) ? i : current;
         })
     : [];
+}
+
+function renderNumberList(position: number) {
+  const childrenToReturn: React.ReactElement<any>[] = [];
+  for (let i = 0; i < 30; i++) {
+    const currentClassName = position === i ? 'current' : '';
+    childrenToReturn.push(
+      <p key={i.toString()} className={currentClassName}>
+        {i % 10}
+      </p>,
+    );
+  }
+
+  return childrenToReturn;
 }
 
 export interface ScrollNumberProps {
@@ -62,6 +75,21 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
     };
   }
 
+  componentDidUpdate(_: any, prevState: ScrollNumberState) {
+    this.lastCount = prevState.count;
+    const { animateStarted } = this.state;
+    if (animateStarted) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState(
+        (__, props) => ({
+          animateStarted: false,
+          count: props.count,
+        }),
+        this.onAnimated,
+      );
+    }
+  }
+
   getPositionByNum(num: number, i: number) {
     const { count } = this.state;
     const currentCount = Math.abs(Number(count));
@@ -86,40 +114,12 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
     return num;
   }
 
-  componentDidUpdate(_: any, prevState: ScrollNumberState) {
-    this.lastCount = prevState.count;
-    const { animateStarted } = this.state;
-    if (animateStarted) {
-      this.setState(
-        (__, props) => ({
-          animateStarted: false,
-          count: props.count,
-        }),
-        this.onAnimated,
-      );
-    }
-  }
-
   onAnimated = () => {
     const { onAnimated } = this.props;
     if (onAnimated) {
       onAnimated();
     }
   };
-
-  renderNumberList(position: number) {
-    const childrenToReturn: React.ReactElement<any>[] = [];
-    for (let i = 0; i < 30; i++) {
-      const currentClassName = position === i ? 'current' : '';
-      childrenToReturn.push(
-        <p key={i.toString()} className={currentClassName}>
-          {i % 10}
-        </p>,
-      );
-    }
-
-    return childrenToReturn;
-  }
 
   renderCurrentNumber(prefixCls: string, num: number | string, i: number) {
     if (typeof num === 'number') {
@@ -138,7 +138,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
           },
           key: i,
         },
-        this.renderNumberList(position),
+        renderNumberList(position),
       );
     }
 

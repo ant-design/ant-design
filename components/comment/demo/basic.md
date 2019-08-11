@@ -44,7 +44,7 @@ class App extends React.Component {
     const { likes, dislikes, action } = this.state;
 
     const actions = [
-      <span>
+      <span key="comment-basic-like">
         <Tooltip title="Like">
           <Icon
             type="like"
@@ -54,7 +54,7 @@ class App extends React.Component {
         </Tooltip>
         <span style={{ paddingLeft: 8, cursor: 'auto' }}>{likes}</span>
       </span>,
-      <span>
+      <span key=' key="comment-basic-dislike"'>
         <Tooltip title="Dislike">
           <Icon
             type="dislike"
@@ -64,7 +64,7 @@ class App extends React.Component {
         </Tooltip>
         <span style={{ paddingLeft: 8, cursor: 'auto' }}>{dislikes}</span>
       </span>,
-      <span>Reply to</span>,
+      <span key="comment-basic-reply-to">Reply to</span>,
     ];
 
     return (

@@ -50,6 +50,7 @@ import nlNL from '../nl_NL';
 import plPL from '../pl_PL';
 import ptBR from '../pt_BR';
 import ptPT from '../pt_PT';
+import roRO from '../ro_RO';
 import ruRU from '../ru_RU';
 import skSK from '../sk_SK';
 import slSI from '../sl_SI';
@@ -99,6 +100,7 @@ const locales = [
   plPL,
   ptBR,
   ptPT,
+  roRO,
   ruRU,
   skSK,
   slSI,

@@ -1023,7 +1023,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
+exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
 >

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import DocumentTitle from 'react-document-title';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
@@ -9,11 +8,7 @@ import Demo from './Demo';
 import EditButton from './EditButton';
 import { ping } from '../utils';
 
-export default class ComponentDoc extends React.Component {
-  static contextTypes = {
-    intl: PropTypes.object,
-  };
-
+class ComponentDoc extends React.Component {
   state = {
     expandAll: false,
     showRiddleButton: false,
@@ -57,21 +52,23 @@ export default class ComponentDoc extends React.Component {
   };
 
   render() {
-    const { props } = this;
-    const { doc, location } = props;
-    const { content, meta } = doc;
     const {
+      doc,
+      location,
       intl: { locale },
-    } = this.context;
-    const demos = Object.keys(props.demos).map(key => props.demos[key]);
+      utils,
+      demos,
+    } = this.props;
+    const { content, meta } = doc;
+    const demoValues = Object.keys(demos).map(key => demos[key]);
     const { expandAll, showRiddleButton } = this.state;
 
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    const showedDemo = demos.some(demo => demo.meta.only)
-      ? demos.filter(demo => demo.meta.only)
-      : demos.filter(demo => demo.preview);
+    const showedDemo = demoValues.some(demo => demo.meta.only)
+      ? demoValues.filter(demo => demo.meta.only)
+      : demoValues.filter(demo => demo.preview);
     showedDemo
       .sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
@@ -79,7 +76,7 @@ export default class ComponentDoc extends React.Component {
           <Demo
             {...demoData}
             key={demoData.meta.filename}
-            utils={props.utils}
+            utils={utils}
             expand={expandAll}
             location={location}
           />
@@ -126,7 +123,7 @@ export default class ComponentDoc extends React.Component {
                 filename={filename}
               />
             </h1>
-            {props.utils.toReactComponent(
+            {utils.toReactComponent(
               ['section', { className: 'markdown' }].concat(getChildren(content)),
             )}
             <h2>
@@ -159,7 +156,7 @@ export default class ComponentDoc extends React.Component {
               </Col>
             )}
           </Row>
-          {props.utils.toReactComponent(
+          {utils.toReactComponent(
             [
               'section',
               {
@@ -172,3 +169,5 @@ export default class ComponentDoc extends React.Component {
     );
   }
 }
+
+export default injectIntl(ComponentDoc);

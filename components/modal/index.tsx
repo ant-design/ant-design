@@ -6,6 +6,16 @@ import Icon from '../icon';
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
 
+function modalWarn(props: ModalFuncProps) {
+  const config = {
+    type: 'warning',
+    icon: <Icon type="exclamation-circle" />,
+    okCancel: false,
+    ...props,
+  };
+  return confirm(config);
+}
+
 Modal.info = function(props: ModalFuncProps) {
   const config = {
     type: 'info',
@@ -36,15 +46,9 @@ Modal.error = function(props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.warning = Modal.warn = function(props: ModalFuncProps) {
-  const config = {
-    type: 'warning',
-    icon: <Icon type="exclamation-circle" />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
-};
+Modal.warning = modalWarn;
+
+Modal.warn = modalWarn;
 
 Modal.confirm = function(props: ModalFuncProps) {
   const config = {

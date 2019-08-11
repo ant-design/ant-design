@@ -19,7 +19,7 @@ import moment from 'moment';
 
 const data = [
   {
-    actions: [<span>Reply to</span>],
+    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: (
@@ -44,7 +44,7 @@ const data = [
     ),
   },
   {
-    actions: [<span>Reply to</span>],
+    actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
     avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
     content: (

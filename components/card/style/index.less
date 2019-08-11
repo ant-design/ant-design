@@ -4,6 +4,7 @@
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
 @card-hover-border: fade(@black, 9%);
+@card-action-icon-size: 16px;
 
 @gradient-min: fade(@card-background, 20%);
 @gradient-max: fade(@card-background, 40%);
@@ -137,7 +138,7 @@
       color: @text-color-secondary;
       text-align: center;
 
-      & > span {
+      > span {
         position: relative;
         display: block;
         min-width: 32px;
@@ -150,22 +151,22 @@
           transition: color 0.3s;
         }
 
-        & > .anticon {
-          font-size: 16px;
-          line-height: 22px;
-        }
-
         a,
-        i {
+        > .anticon {
           display: inline-block;
           width: 100%;
           color: @text-color-secondary;
           line-height: 22px;
+          transition: color 0.3s;
 
           &:hover {
             color: @primary-color;
-            transition: color 0.3s;
           }
+        }
+
+        > .anticon {
+          font-size: @card-action-icon-size;
+          line-height: 22px;
         }
       }
 
