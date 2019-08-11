@@ -37,7 +37,7 @@ function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
 }
 
 function getTreeData({ treeData, children }: DirectoryTreeProps) {
-  return treeData ? treeData : convertTreeToData(children);
+  return treeData || convertTreeToData(children);
 }
 
 class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {

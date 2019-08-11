@@ -182,7 +182,7 @@ export default class Tree extends React.Component<TreeProps, any> {
     blockNode: false,
   };
 
-  public tree: any;
+  tree: any;
 
   renderSwitcherIcon = (
     prefixCls: string,
