@@ -4,12 +4,12 @@ import RcTabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { Close, Plus } from '@ant-design/icons';
 import TabBar from './TabBar';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { isFlexSupported } from '../_util/styleChecker';
-import { Close, Plus } from '@ant-design/icons';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';

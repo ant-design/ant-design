@@ -2,10 +2,10 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
+import { StarFilled } from '@ant-design/icons';
 
 import Tooltip from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { StarFilled } from '@ant-design/icons';
 
 export interface RateProps {
   prefixCls?: string;

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Input, { InputProps } from './Input';
-
 import { Eye, EyeInvisible } from '@ant-design/icons';
+
+import Input, { InputProps } from './Input';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;

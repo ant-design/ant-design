@@ -4,6 +4,7 @@ import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
 import { polyfill } from 'react-lifecycles-compat';
+import { File, FolderOpen, Folder } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 import Tree, {
@@ -14,8 +15,6 @@ import Tree, {
   AntTreeNode,
 } from './Tree';
 import { calcRangeKeys, getFullKeyList, convertDirectoryKeysToNodes } from './util';
-
-import { File, FolderOpen, Folder } from '@ant-design/icons';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 

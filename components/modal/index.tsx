@@ -3,6 +3,7 @@ import { InfoCircle, CheckCircle, CloseCircle, ExclamationCircle } from '@ant-de
 
 import Modal, { ModalFuncProps, destroyFns } from './Modal';
 import confirm from './confirm';
+
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
 
@@ -40,16 +41,6 @@ Modal.error = function(props: ModalFuncProps) {
   const config = {
     type: 'error',
     icon: <CloseCircle />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
-};
-
-Modal.warning = Modal.warn = function(props: ModalFuncProps) {
-  const config = {
-    type: 'warning',
-    icon: <ExclamationCircle />,
     okCancel: false,
     ...props,
   };

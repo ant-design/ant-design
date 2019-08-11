@@ -2,13 +2,13 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { Close, Check, CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import Line from './Line';
 import Circle from './Circle';
 import { validProgress } from './utils';
-import { Close, Check, CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];

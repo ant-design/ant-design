@@ -113,7 +113,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     type = banner && type === undefined ? 'warning' : type || 'info';
 
     // use outline icon in alert with description
-    const iconType = (!!description ? iconMapOutlined : iconMapFilled)[type] || null;
+    const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
 
     // closeable when closeText is assigned
     if (closeText) {

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import classNames from 'classnames';
-import { TabsProps } from './index';
-
 import { Up, Left, Down, Right } from '@ant-design/icons';
+
+import { TabsProps } from './index';
 
 export default class TabBar extends React.Component<TabsProps> {
   static defaultProps = {
