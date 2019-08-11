@@ -25,7 +25,7 @@ import {
   Table,
   List,
 } from 'antd';
-import { Simple } from '@ant-design/icons';
+import { Smile } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>

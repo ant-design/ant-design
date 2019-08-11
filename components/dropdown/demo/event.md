@@ -15,7 +15,7 @@ An event will be triggered when you click menu items, in which you can make diff
 
 ```jsx
 import { Menu, Dropdown, message } from 'antd';
-import { Down, User } from '@ant-design/icons';
+import { Down } from '@ant-design/icons';
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);

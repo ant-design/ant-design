@@ -19,16 +19,7 @@ Here is [a complete demo](/components/layout/#components-layout-demo-side) with 
 
 ```jsx
 import { Menu, Button } from 'antd';
-import {
-  Appstore,
-  MenuUnfold,
-  MenuFold,
-  PieChart,
-  Desktop,
-  Inbox,
-  Mail,
-  AppStore,
-} from '@ant-design/icons';
+import { Appstore, MenuUnfold, MenuFold, PieChart, Desktop, Inbox, Mail } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 

@@ -15,7 +15,7 @@ Both the top navigation and the sidebar, commonly used in application site.
 
 ```jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { File, User, Laptop, Notification } from '@ant-design/icons';
+import { User, Laptop, Notification } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
