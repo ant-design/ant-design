@@ -11,6 +11,7 @@
 
 .@{tree-prefix-cls} {
   .reset-component;
+  background: @component-background;
 
   // =================== Virtual List ===================
   &-list-holder-inner {
@@ -135,6 +136,41 @@
   .@{tree-node-prefix-cls}.drag-over-gap-bottom {
     > [draggable] {
       border-bottom-color: @primary-color;
+    }
+  }
+
+  // ==================== Show Line =====================
+  &-show-line {
+    // ================ Indent lines ================
+    .@{tree-prefix-cls}-indent {
+      align-self: stretch;
+      user-select: none;
+
+      &-unit {
+        position: relative;
+        height: 100%;
+
+        &::after {
+          position: absolute;
+          top: -@tree-title-height / 2;
+          right: -@tree-title-height / 2;
+          bottom: @tree-title-height / 4;
+          border-right: 1px solid @border-color-base;
+          content: '';
+        }
+      }
+    }
+
+    .@{tree-node-prefix-cls}-start {
+      .@{tree-prefix-cls}-indent-unit:last-child::after {
+        display: none;
+      }
+    }
+
+    // ============== Cover Background ==============
+    .@{tree-prefix-cls}-switcher {
+      z-index: 1;
+      background: @component-background;
     }
   }
 }
