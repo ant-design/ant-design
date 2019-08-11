@@ -87,7 +87,6 @@ describe('Carousel', () => {
             <div />
           </Carousel>,
         );
-        jest.runAllTimers();
         expect(wrapper.render()).toMatchSnapshot();
       });
     });
@@ -122,6 +121,7 @@ describe('Carousel', () => {
         children: [<div key="1" />, <div key="2" />, <div key="3" />],
       });
       wrapper.update();
+      jest.runAllTimers();
       expect(
         wrapper
           .find('.slick-dots li')
