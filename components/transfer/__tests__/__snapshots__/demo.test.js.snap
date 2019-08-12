@@ -2557,7 +2557,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                 style="display:flex;flex-direction:column"
               >
                 <div
-                  class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   role="treeitem"
                   tabindex="0"
                 >
@@ -2629,7 +2629,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   role="treeitem"
                   tabindex="0"
                 >
@@ -2638,8 +2638,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     class="ant-tree-indent"
                   >
                     <span
-                      class="ant-tree-indent-unit"
-                      style="display:inline-block;padding-left:18px;user-select:none"
+                      class="ant-tree-indent-unit ant-tree-indent-unit-start"
                     />
                   </span>
                   <span
@@ -2664,7 +2663,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   role="treeitem"
                   tabindex="0"
                 >
@@ -2673,8 +2672,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                     class="ant-tree-indent"
                   >
                     <span
-                      class="ant-tree-indent-unit"
-                      style="display:inline-block;padding-left:18px;user-select:none"
+                      class="ant-tree-indent-unit ant-tree-indent-unit-end"
                     />
                   </span>
                   <span
@@ -2699,7 +2697,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                   </span>
                 </div>
                 <div
-                  class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+                  class="ant-tree-treenode ant-tree-treenode-switcher-open"
                   role="treeitem"
                   tabindex="0"
                 >

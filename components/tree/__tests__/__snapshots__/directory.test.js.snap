@@ -11,7 +11,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
       style="display:flex;flex-direction:column"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -73,7 +73,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -82,8 +82,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display:inline-block;padding-left:18px;user-select:none"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -124,7 +123,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -133,8 +132,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display:inline-block;padding-left:18px;user-select:none"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
@@ -175,7 +173,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -237,7 +235,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -246,8 +244,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display:inline-block;padding-left:18px;user-select:none"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -288,7 +285,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -297,8 +294,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display:inline-block;padding-left:18px;user-select:none"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
@@ -354,7 +350,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
       style="display:flex;flex-direction:column"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -416,7 +412,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -493,7 +489,7 @@ exports[`Directory Tree expand click 1`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -554,9 +550,11 @@ exports[`Directory Tree expand click 1`] = `
           </span>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tree-treenode-motion"
+      >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -565,8 +563,7 @@ exports[`Directory Tree expand click 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start"
             />
           </span>
           <span
@@ -607,7 +604,7 @@ exports[`Directory Tree expand click 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -616,8 +613,7 @@ exports[`Directory Tree expand click 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end"
             />
           </span>
           <span
@@ -659,7 +655,7 @@ exports[`Directory Tree expand click 1`] = `
         </div>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -736,7 +732,7 @@ exports[`Directory Tree expand click 2`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -798,7 +794,7 @@ exports[`Directory Tree expand click 2`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -875,7 +871,7 @@ exports[`Directory Tree expand double click 1`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -936,9 +932,11 @@ exports[`Directory Tree expand double click 1`] = `
           </span>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tree-treenode-motion"
+      >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -947,8 +945,7 @@ exports[`Directory Tree expand double click 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start"
             />
           </span>
           <span
@@ -989,7 +986,7 @@ exports[`Directory Tree expand double click 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -998,8 +995,7 @@ exports[`Directory Tree expand double click 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end"
             />
           </span>
           <span
@@ -1041,7 +1037,7 @@ exports[`Directory Tree expand double click 1`] = `
         </div>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -1118,7 +1114,7 @@ exports[`Directory Tree expand double click 2`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -1180,7 +1176,7 @@ exports[`Directory Tree expand double click 2`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -1257,7 +1253,7 @@ exports[`Directory Tree expand with state control click 1`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -1318,9 +1314,11 @@ exports[`Directory Tree expand with state control click 1`] = `
           </span>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tree-treenode-motion"
+      >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start ant-tree-treenode-end"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -1329,8 +1327,7 @@ exports[`Directory Tree expand with state control click 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
             />
           </span>
           <span
@@ -1387,7 +1384,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -1448,9 +1445,11 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
           </span>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tree-treenode-motion"
+      >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start ant-tree-treenode-end"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -1459,8 +1458,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start ant-tree-indent-unit-end"
             />
           </span>
           <span
@@ -1517,7 +1515,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-close"
         role="treeitem"
         tabindex="0"
       >
@@ -1579,7 +1577,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -1640,9 +1638,11 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </span>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-tree-treenode-motion"
+      >
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-start"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -1651,8 +1651,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-start"
             />
           </span>
           <span
@@ -1693,7 +1692,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
           </span>
         </div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-end"
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
           role="treeitem"
           tabindex="0"
         >
@@ -1702,8 +1701,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
             class="ant-tree-indent"
           >
             <span
-              class="ant-tree-indent-unit"
-              style="display: inline-block; padding-left: 18px; user-select: none;"
+              class="ant-tree-indent-unit ant-tree-indent-unit-end"
             />
           </span>
           <span
@@ -1760,7 +1758,7 @@ exports[`Directory Tree group select 1`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -1822,7 +1820,7 @@ exports[`Directory Tree group select 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -1831,8 +1829,7 @@ exports[`Directory Tree group select 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -1873,7 +1870,7 @@ exports[`Directory Tree group select 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -1882,8 +1879,7 @@ exports[`Directory Tree group select 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
@@ -1924,7 +1920,7 @@ exports[`Directory Tree group select 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -1986,7 +1982,7 @@ exports[`Directory Tree group select 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -1995,8 +1991,7 @@ exports[`Directory Tree group select 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -2037,7 +2032,7 @@ exports[`Directory Tree group select 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -2046,8 +2041,7 @@ exports[`Directory Tree group select 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
@@ -2103,7 +2097,7 @@ exports[`Directory Tree group select 2`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -2165,7 +2159,7 @@ exports[`Directory Tree group select 2`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -2174,8 +2168,7 @@ exports[`Directory Tree group select 2`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -2216,7 +2209,7 @@ exports[`Directory Tree group select 2`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -2225,8 +2218,7 @@ exports[`Directory Tree group select 2`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
@@ -2267,7 +2259,7 @@ exports[`Directory Tree group select 2`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -2329,7 +2321,7 @@ exports[`Directory Tree group select 2`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -2338,8 +2330,7 @@ exports[`Directory Tree group select 2`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -2380,7 +2371,7 @@ exports[`Directory Tree group select 2`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -2389,8 +2380,7 @@ exports[`Directory Tree group select 2`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
@@ -2446,7 +2436,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
       style="display: flex; flex-direction: column;"
     >
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -2508,7 +2498,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -2517,8 +2507,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -2559,7 +2548,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -2568,8 +2557,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
@@ -2610,7 +2598,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -2672,7 +2660,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-start"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-selected"
         role="treeitem"
         tabindex="0"
       >
@@ -2681,8 +2669,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-start"
           />
         </span>
         <span
@@ -2723,7 +2710,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
         </span>
       </div>
       <div
-        class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-end"
+        class="ant-tree-treenode ant-tree-treenode-switcher-open"
         role="treeitem"
         tabindex="0"
       >
@@ -2732,8 +2719,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
           class="ant-tree-indent"
         >
           <span
-            class="ant-tree-indent-unit"
-            style="display: inline-block; padding-left: 18px; user-select: none;"
+            class="ant-tree-indent-unit ant-tree-indent-unit-end"
           />
         </span>
         <span
