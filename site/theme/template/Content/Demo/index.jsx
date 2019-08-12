@@ -6,8 +6,8 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Tooltip } from 'antd';
+import { Snippets, Check } from '@ant-design/icons';
 
-import Icon from '../../Icon';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
 import ErrorBoundary from '../ErrorBoundary';
@@ -295,10 +295,9 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
-                <Icon
-                  type={copied && copyTooltipVisible ? 'check' : 'snippets'}
-                  className="code-box-code-copy"
-                />
+                {React.createElement(copied && copyTooltipVisible ? Check : Snippets, {
+                  className: 'code-box-code-copy',
+                })}
               </Tooltip>
             </CopyToClipboard>
             <Tooltip
