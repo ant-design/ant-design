@@ -32,7 +32,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | rotate | 图标旋转角度（3.13.0 后新增，IE9 无效） | number | - | 3.13.0 |
 | twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - | 3.9.0 |
 
-其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题为后缀。
+其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
 ```jsx
 import { Star, StarFilled, StarTwoTone } from '@ant-design/icons';

@@ -19,20 +19,21 @@ If you want specific control over the positioning and placement of the `Icon`, t
 
 ```jsx
 import { Button } from 'antd';
+import { Search as IconSearch } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
-    <Button type="primary" shape="circle" icon="search" />
-    <Button type="primary" icon="search">
+    <Button type="primary" shape="circle" icon={<IconSearch />} />
+    <Button type="primary" icon={<IconSearch />}>
       Search
     </Button>
-    <Button shape="circle" icon="search" />
-    <Button icon="search">Search</Button>
+    <Button shape="circle" icon={<IconSearch />} />
+    <Button icon={<IconSearch />}>Search</Button>
     <br />
-    <Button shape="circle" icon="search" />
-    <Button icon="search">Search</Button>
-    <Button type="dashed" shape="circle" icon="search" />
-    <Button type="dashed" icon="search">
+    <Button shape="circle" icon={<IconSearch />} />
+    <Button icon={<IconSearch />}>Search</Button>
+    <Button type="dashed" shape="circle" icon={<IconSearch />} />
+    <Button type="dashed" icon={<IconSearch />}>
       Search
     </Button>
   </div>,

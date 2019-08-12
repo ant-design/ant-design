@@ -1033,7 +1033,6 @@ exports[`renders ./components/result/demo/customIcon.md correctly 1`] = `
       aria-label="smile"
       class="anticon anticon-smile"
       role="img"
-      theme="twoTone"
     >
       <svg
         aria-hidden="true"

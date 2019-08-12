@@ -19,7 +19,7 @@ import { Smile } from '@ant-design/icons';
 
 ReactDOM.render(
   <Result
-    icon={<Smile theme="twoTone" />}
+    icon={<Smile />}
     title="Great, we have done all the operations!"
     extra={<Button type="primary">Next</Button>}
   />,

@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可以通过设置 `theme` 属性为 `twoTone` 来渲染双色图标，并且可以设置主题色。
+双色图标可以通过 `twoToneColor` 属性设置主题色。
 
 ## en-US
 
-Specific them property `theme` to `twoTone` to render two-tone icons. You can also set the primary color.
+You can set `twoToneColor` prop to specific primary color for two-tone icons.
 
 ```jsx
 import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
