@@ -521,7 +521,7 @@ describe('Upload List', () => {
 
         const wrapper = mount(
           <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
-            <button type="button" />
+            <button type="button">button</button>
           </Upload>,
         );
         wrapper.setState({});
