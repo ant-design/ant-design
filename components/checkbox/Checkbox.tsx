@@ -46,6 +46,8 @@ export interface CheckboxChangeEvent {
 class Checkbox extends React.Component<CheckboxProps, {}> {
   static Group: typeof CheckboxGroup;
 
+  static __ANT_CHECKBOX = true;
+
   static defaultProps = {
     indeterminate: false,
   };

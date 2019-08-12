@@ -75,6 +75,8 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     focused: false,
   };
 
+  private rcMentions: any;
+
   onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     const { onFocus } = this.props;
     if (onFocus) {
@@ -125,6 +127,18 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     return filterOption;
   };
 
+  saveMentions = (node: typeof RcMentions) => {
+    this.rcMentions = node;
+  };
+
+  focus() {
+    this.rcMentions.focus();
+  }
+
+  blur() {
+    this.rcMentions.blur();
+  }
+
   renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
     const { focused } = this.state;
     const { prefixCls: customizePrefixCls, className, disabled, ...restProps } = this.props;
@@ -146,6 +160,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
         filterOption={this.getFilterOption()}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
+        ref={this.saveMentions}
       >
         {this.getOptions()}
       </RcMentions>

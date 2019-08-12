@@ -1,8 +1,7 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
@@ -19,11 +18,7 @@ function compress(string) {
     .replace(/=+$/, ''); // Remove ending '='
 }
 
-export default class Demo extends React.Component {
-  static contextTypes = {
-    intl: PropTypes.object,
-  };
-
+class Demo extends React.Component {
   state = {
     codeExpand: false,
     copied: false,
@@ -114,8 +109,10 @@ export default class Demo extends React.Component {
       style,
       highlightedStyle,
       expand,
+      utils,
+      intl: { locale },
     } = props;
-    const { copied } = state;
+    const { copied, copyTooltipVisible } = state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
@@ -125,17 +122,14 @@ export default class Demo extends React.Component {
         preview(React, ReactDOM)
       );
     }
-    const codeExpand = state.codeExpand || expand;
+    const codeExpand = this.state.codeExpand || expand;
     const codeBoxClass = classNames('code-box', {
       expand: codeExpand,
       'code-box-debug': meta.debug,
     });
-    const {
-      intl: { locale },
-    } = this.context;
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = props.utils.toReactComponent(['div'].concat(localizeIntro));
+    const introChildren = utils.toReactComponent(['div'].concat(localizeIntro));
 
     const highlightClass = classNames({
       'highlight-wrapper': true,
@@ -295,12 +289,12 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
             </form>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
-                visible={state.copyTooltipVisible}
+                visible={copyTooltipVisible}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
                 <Icon
-                  type={state.copied && state.copyTooltipVisible ? 'check' : 'snippets'}
+                  type={copied && copyTooltipVisible ? 'check' : 'snippets'}
                   className="code-box-code-copy"
                 />
               </Tooltip>
@@ -339,3 +333,5 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
     );
   }
 }
+
+export default injectIntl(Demo);
