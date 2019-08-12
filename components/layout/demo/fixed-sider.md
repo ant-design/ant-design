@@ -17,7 +17,7 @@ When dealing with long content, a fixed sider can provide a better user experien
 ```jsx
 import { Layout, Menu } from 'antd';
 import {
-  AppStore,
+  Appstore,
   BarChart,
   Cloud,
   Shop,
@@ -62,7 +62,7 @@ ReactDOM.render(
           <span className="nav-text">nav 5</span>
         </Menu.Item>
         <Menu.Item key="6">
-          <AppStore />
+          <Appstore />
           <span className="nav-text">nav 6</span>
         </Menu.Item>
         <Menu.Item key="7">
