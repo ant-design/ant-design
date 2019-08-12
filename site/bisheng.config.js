@@ -125,6 +125,12 @@ module.exports = {
 
     alertBabelConfig(config.module.rules);
 
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
+
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
     return config;

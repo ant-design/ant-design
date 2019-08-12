@@ -91,6 +91,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
   </button>
   <div
     class="ant-divider ant-divider-horizontal"
+    role="separator"
   />
   <div
     class="config-provider"

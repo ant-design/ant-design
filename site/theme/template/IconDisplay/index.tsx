@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as AntdIcons from '@ant-design/icons';
 import { Radio, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import Icon from '@ant-design/icons';
 
@@ -16,7 +16,9 @@ const allIcons: {
   [key: string]: any;
 } = AntdIcons;
 
-interface IconDisplayProps extends InjectedIntlProps {}
+interface IconDisplayProps {
+  intl: any;
+}
 
 interface IconDisplayState {
   theme: ThemeType;

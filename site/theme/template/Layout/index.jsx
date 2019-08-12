@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
-import { addLocaleData, IntlProvider } from 'react-intl';
+import { IntlProvider } from 'react-intl';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
@@ -63,7 +63,6 @@ export default class Layout extends React.Component {
     super(props);
     const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
-    addLocaleData(appLocale.data);
 
     this.state = {
       appLocale,
@@ -110,10 +109,8 @@ export default class Layout extends React.Component {
   render() {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
-
-    // Temp remove SentryBoundary
     return (
-      <IntlProvider locale={appLocale.locale} messages={appLocale.messages}>
+      <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
         <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
           <div className="page-wrapper">
             <Header {...restProps} />

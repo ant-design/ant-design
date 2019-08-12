@@ -37,6 +37,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
     </div>
     <div
       class="ant-divider ant-divider-vertical"
+      role="separator"
     />
   </div>
   <div
@@ -449,6 +450,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
     </div>
     <div
       class="ant-divider ant-divider-vertical"
+      role="separator"
     />
   </div>
   <div

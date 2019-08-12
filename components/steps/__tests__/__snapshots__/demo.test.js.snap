@@ -104,6 +104,7 @@ exports[`renders ./components/steps/demo/clickable.md correctly 1`] = `
   </div>
   <div
     class="ant-divider ant-divider-horizontal"
+    role="separator"
   />
   <div
     class="ant-steps ant-steps-vertical"

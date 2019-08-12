@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { message } from 'antd';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { injectIntl } from 'react-intl';
 
 import CopyableIcon from './CopyableIcon';
 import { CategoriesKeys } from './fields';
 
-interface CategoryProps extends InjectedIntlProps {
+interface CategoryProps {
   title: CategoriesKeys;
   icons: string[];
   newIcons: string[];
+  intl: any;
 }
 
 interface CategoryState {
