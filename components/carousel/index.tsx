@@ -1,7 +1,6 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
 import { Settings } from 'react-slick';
-import { polyfill } from 'react-lifecycles-compat';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
@@ -22,7 +21,7 @@ if (typeof window !== 'undefined') {
 // make sure matchMedia polyfill run before require('react-slick')
 // Fix https://github.com/ant-design/ant-design/issues/6560
 // Fix https://github.com/ant-design/ant-design/issues/3308
-const SlickCarousel = polyfill(require('react-slick').default);
+const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
