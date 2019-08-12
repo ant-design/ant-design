@@ -16,8 +16,6 @@ You can customize icons for different nodes.
 ```jsx
 import { Tree, Icon } from 'antd';
 
-const { TreeNode } = Tree;
-
 const treeData = [
   {
     title: 'parent 1',

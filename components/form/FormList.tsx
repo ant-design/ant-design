@@ -1,6 +1,6 @@
 import * as React from 'react';
-import warning from '../_util/warning';
 import { List } from 'rc-field-form';
+import warning from '../_util/warning';
 
 interface FieldData {
   name: number;
