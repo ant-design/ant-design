@@ -6,6 +6,7 @@
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 @tree-node-prefix-cls: ~'@{tree-prefix-cls}-treenode';
+@tree-motion: ~'@{ant-prefix}-motion-collapse';
 
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
@@ -47,6 +48,17 @@
           background: transparent;
         }
       }
+    }
+  }
+
+  // >>> Indent
+  &-indent {
+    align-self: stretch;
+    user-select: none;
+
+    &-unit {
+      display: inline-block;
+      width: @tree-title-height;
     }
   }
 
@@ -143,27 +155,33 @@
   &-show-line {
     // ================ Indent lines ================
     .@{tree-prefix-cls}-indent {
-      align-self: stretch;
-      user-select: none;
-
       &-unit {
         position: relative;
         height: 100%;
 
-        &::after {
+        &::before {
           position: absolute;
-          top: -@tree-title-height / 2;
+          top: calc(100% - 4px);
           right: -@tree-title-height / 2;
-          bottom: @tree-title-height / 4;
+          bottom: -@tree-title-height - 4px;
           border-right: 1px solid @border-color-base;
           content: '';
+        }
+
+        &-end {
+          &::before {
+            display: none;
+          }
         }
       }
     }
 
-    .@{tree-node-prefix-cls}-start {
-      .@{tree-prefix-cls}-indent-unit:last-child::after {
-        display: none;
+    /* Motion should hide line of measure */
+    .@{tree-node-prefix-cls}-motion:not(.@{tree-motion}-leave):not(.@{tree-motion}-appear-active) {
+      .@{tree-prefix-cls}-indent-unit {
+        &::before {
+          display: none;
+        }
       }
     }
 
