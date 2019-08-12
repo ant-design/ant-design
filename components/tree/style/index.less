@@ -71,6 +71,11 @@
     margin: 0;
     line-height: @tree-title-height;
     text-align: center;
+    cursor: pointer;
+
+    &-noop {
+      cursor: default;
+    }
 
     &_close {
       .@{tree-prefix-cls}-switcher-icon {
