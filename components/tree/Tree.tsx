@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
 import classNames from 'classnames';
+import { DataNode } from 'rc-tree/lib/interface';
 import DirectoryTree from './DirectoryTree';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -61,7 +62,7 @@ export interface AntTreeNodeCheckedEvent extends AntTreeNodeBaseEvent {
 export interface AntTreeNodeSelectedEvent extends AntTreeNodeBaseEvent {
   event: 'select';
   selected?: boolean;
-  selectedNodes?: AntTreeNode[];
+  selectedNodes?: DataNode[];
 }
 
 export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {

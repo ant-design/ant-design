@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
+import Icon from '../icon';
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext } from './context';

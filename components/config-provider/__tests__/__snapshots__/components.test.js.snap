@@ -16769,229 +16769,271 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
 
 exports[`ConfigProvider components Tree configProvider 1`] = `
 <div>
-  <ul
-    class="config-tree config-tree-icon-hide"
+  <div
+    class="config-tree-list config-tree config-tree-icon-hide"
     role="tree"
-    unselectable="on"
   >
-    <li
-      class="config-tree-treenode-switcher-close"
-      role="treeitem"
-    >
-      <span
-        class="config-tree-switcher config-tree-switcher-noop"
-      />
-      <span
-        class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
-        title="bamboo"
+    <div>
+      <div
+        class="config-tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
       >
-        <span
-          class="config-tree-title"
+        <div
+          class="config-tree-treenode config-tree-treenode-switcher-close"
+          role="treeitem"
+          tabindex="0"
         >
-          bamboo
-        </span>
-      </span>
-    </li>
-  </ul>
-  <ul
-    class="config-tree config-tree-directory"
-    role="tree"
-    unselectable="on"
-  >
-    <li
-      class="config-tree-treenode-switcher-close"
-      role="treeitem"
-    >
-      <span
-        class="config-tree-switcher config-tree-switcher-noop"
-      />
-      <span
-        class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
-        title="bamboo"
-      >
-        <span
-          class="config-tree-iconEle config-tree-icon__customize"
-        >
-          <i
-            aria-label="icon: folder"
-            class="anticon anticon-folder"
+          <span
+            class="config-tree-switcher config-tree-switcher-noop"
+          />
+          <span
+            class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
+            title="bamboo"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="folder"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="config-tree-title"
             >
-              <path
-                d="M880 298.4H521L403.7 186.2a8.15 8.15 0 0 0-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-              />
-            </svg>
-          </i>
-        </span>
-        <span
-          class="config-tree-title"
+              bamboo
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="config-tree-list config-tree config-tree-directory config-tree-block-node"
+    role="tree"
+  >
+    <div>
+      <div
+        class="config-tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
+      >
+        <div
+          class="config-tree-treenode config-tree-treenode-switcher-close"
+          role="treeitem"
+          tabindex="0"
         >
-          bamboo
-        </span>
-      </span>
-    </li>
-  </ul>
+          <span
+            class="config-tree-switcher config-tree-switcher-noop"
+          />
+          <span
+            class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
+            title="bamboo"
+          >
+            <span
+              class="config-tree-iconEle config-tree-icon__customize"
+            >
+              <i
+                aria-label="icon: folder"
+                class="anticon anticon-folder"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="folder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M880 298.4H521L403.7 186.2a8.15 8.15 0 0 0-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                  />
+                </svg>
+              </i>
+            </span>
+            <span
+              class="config-tree-title"
+            >
+              bamboo
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Tree normal 1`] = `
 <div>
-  <ul
-    class="ant-tree ant-tree-icon-hide"
+  <div
+    class="ant-tree-list ant-tree ant-tree-icon-hide"
     role="tree"
-    unselectable="on"
   >
-    <li
-      class="ant-tree-treenode-switcher-close"
-      role="treeitem"
-    >
-      <span
-        class="ant-tree-switcher ant-tree-switcher-noop"
-      />
-      <span
-        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-        title="bamboo"
+    <div>
+      <div
+        class="ant-tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
       >
-        <span
-          class="ant-tree-title"
+        <div
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          role="treeitem"
+          tabindex="0"
         >
-          bamboo
-        </span>
-      </span>
-    </li>
-  </ul>
-  <ul
-    class="ant-tree ant-tree-directory"
-    role="tree"
-    unselectable="on"
-  >
-    <li
-      class="ant-tree-treenode-switcher-close"
-      role="treeitem"
-    >
-      <span
-        class="ant-tree-switcher ant-tree-switcher-noop"
-      />
-      <span
-        class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-        title="bamboo"
-      >
-        <span
-          class="ant-tree-iconEle ant-tree-icon__customize"
-        >
-          <i
-            aria-label="icon: folder"
-            class="anticon anticon-folder"
+          <span
+            class="ant-tree-switcher ant-tree-switcher-noop"
+          />
+          <span
+            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+            title="bamboo"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="folder"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="ant-tree-title"
             >
-              <path
-                d="M880 298.4H521L403.7 186.2a8.15 8.15 0 0 0-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-              />
-            </svg>
-          </i>
-        </span>
-        <span
-          class="ant-tree-title"
+              bamboo
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    role="tree"
+  >
+    <div>
+      <div
+        class="ant-tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
+      >
+        <div
+          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          role="treeitem"
+          tabindex="0"
         >
-          bamboo
-        </span>
-      </span>
-    </li>
-  </ul>
+          <span
+            class="ant-tree-switcher ant-tree-switcher-noop"
+          />
+          <span
+            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+            title="bamboo"
+          >
+            <span
+              class="ant-tree-iconEle ant-tree-icon__customize"
+            >
+              <i
+                aria-label="icon: folder"
+                class="anticon anticon-folder"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="folder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M880 298.4H521L403.7 186.2a8.15 8.15 0 0 0-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                  />
+                </svg>
+              </i>
+            </span>
+            <span
+              class="ant-tree-title"
+            >
+              bamboo
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`ConfigProvider components Tree prefixCls 1`] = `
 <div>
-  <ul
-    class="prefix-Tree prefix-Tree-icon-hide"
+  <div
+    class="prefix-Tree-list prefix-Tree prefix-Tree-icon-hide"
     role="tree"
-    unselectable="on"
   >
-    <li
-      class="prefix-Tree-treenode-switcher-close"
-      role="treeitem"
-    >
-      <span
-        class="prefix-Tree-switcher prefix-Tree-switcher-noop"
-      />
-      <span
-        class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
-        title="bamboo"
+    <div>
+      <div
+        class="prefix-Tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
       >
-        <span
-          class="prefix-Tree-title"
+        <div
+          class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
+          role="treeitem"
+          tabindex="0"
         >
-          bamboo
-        </span>
-      </span>
-    </li>
-  </ul>
-  <ul
-    class="prefix-Tree prefix-Tree-directory"
-    role="tree"
-    unselectable="on"
-  >
-    <li
-      class="prefix-Tree-treenode-switcher-close"
-      role="treeitem"
-    >
-      <span
-        class="prefix-Tree-switcher prefix-Tree-switcher-noop"
-      />
-      <span
-        class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
-        title="bamboo"
-      >
-        <span
-          class="prefix-Tree-iconEle prefix-Tree-icon__customize"
-        >
-          <i
-            aria-label="icon: folder"
-            class="anticon anticon-folder"
+          <span
+            class="prefix-Tree-switcher prefix-Tree-switcher-noop"
+          />
+          <span
+            class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
+            title="bamboo"
           >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="folder"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              class="prefix-Tree-title"
             >
-              <path
-                d="M880 298.4H521L403.7 186.2a8.15 8.15 0 0 0-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-              />
-            </svg>
-          </i>
-        </span>
-        <span
-          class="prefix-Tree-title"
+              bamboo
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="prefix-Tree-list prefix-Tree prefix-Tree-directory prefix-Tree-block-node"
+    role="tree"
+  >
+    <div>
+      <div
+        class="prefix-Tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
+      >
+        <div
+          class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
+          role="treeitem"
+          tabindex="0"
         >
-          bamboo
-        </span>
-      </span>
-    </li>
-  </ul>
+          <span
+            class="prefix-Tree-switcher prefix-Tree-switcher-noop"
+          />
+          <span
+            class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
+            title="bamboo"
+          >
+            <span
+              class="prefix-Tree-iconEle prefix-Tree-icon__customize"
+            >
+              <i
+                aria-label="icon: folder"
+                class="anticon anticon-folder"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="folder"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M880 298.4H521L403.7 186.2a8.15 8.15 0 0 0-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                  />
+                </svg>
+              </i>
+            </span>
+            <span
+              class="prefix-Tree-title"
+            >
+              bamboo
+            </span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

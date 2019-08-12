@@ -2,7 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
-import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
+import { conductExpandParent } from 'rc-tree/lib/util';
+import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 import { polyfill } from 'react-lifecycles-compat';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -13,7 +14,7 @@ import Tree, {
   AntTreeNodeSelectedEvent,
   AntTreeNode,
 } from './Tree';
-import { calcRangeKeys, getFullKeyList, convertDirectoryKeysToNodes } from './util';
+import { calcRangeKeys, convertDirectoryKeysToNodes } from './util';
 import Icon from '../icon';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -33,6 +34,10 @@ function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
     return <Icon type="file" />;
   }
   return <Icon type={expanded ? 'folder-open' : 'folder'} />;
+}
+
+function getTreeData({ treeData, children }: DirectoryTreeProps) {
+  return treeData || convertTreeToData(children);
 }
 
 class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
@@ -66,14 +71,8 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   constructor(props: DirectoryTreeProps) {
     super(props);
 
-    const {
-      defaultExpandAll,
-      defaultExpandParent,
-      expandedKeys,
-      defaultExpandedKeys,
-      children,
-    } = props;
-    const { keyEntities } = convertTreeToEntities(children);
+    const { defaultExpandAll, defaultExpandParent, expandedKeys, defaultExpandedKeys } = props;
+    const { keyEntities } = convertDataToEntities(getTreeData(props));
 
     // Selected keys
     this.state = {
@@ -82,7 +81,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
     // Expanded keys
     if (defaultExpandAll) {
-      this.state.expandedKeys = getFullKeyList(props.children);
+      this.state.expandedKeys = Object.keys(keyEntities);
     } else if (defaultExpandParent) {
       this.state.expandedKeys = conductExpandParent(
         expandedKeys || defaultExpandedKeys,
@@ -137,11 +136,12 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   };
 
   onSelect = (keys: string[], event: AntTreeNodeSelectedEvent) => {
-    const { onSelect, multiple, children } = this.props;
+    const { onSelect, multiple } = this.props;
     const { expandedKeys = [] } = this.state;
     const { node, nativeEvent } = event;
     const { eventKey = '' } = node.props;
 
+    const treeData = getTreeData(this.props);
     const newState: DirectoryTreeState = {};
 
     // We need wrap this event since some value is not same
@@ -161,22 +161,22 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
       newSelectedKeys = keys;
       this.lastSelectedKey = eventKey;
       this.cachedSelectedKeys = newSelectedKeys;
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(children, newSelectedKeys);
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     } else if (multiple && shiftPick) {
       // Shift click
       newSelectedKeys = Array.from(
         new Set([
           ...(this.cachedSelectedKeys || []),
-          ...calcRangeKeys(children, expandedKeys, eventKey, this.lastSelectedKey),
+          ...calcRangeKeys(treeData, expandedKeys, eventKey, this.lastSelectedKey),
         ]),
       );
-      newEvent.selectedNodes = convertDirectoryKeysToNodes(children, newSelectedKeys);
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys);
     } else {
       // Single click
       newSelectedKeys = [eventKey];
       this.lastSelectedKey = eventKey;
       this.cachedSelectedKeys = newSelectedKeys;
-      newEvent.selectedNodes = [event.node];
+      newEvent.selectedNodes = [event.node.props.data];
     }
     newState.selectedKeys = newSelectedKeys;
 
@@ -224,6 +224,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
       <Tree
         icon={getIcon}
         ref={this.setTreeRef}
+        blockNode
         {...props}
         prefixCls={prefixCls}
         className={connectClassName}
