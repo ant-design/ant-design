@@ -7,13 +7,19 @@
   .reset-component;
 
   position: relative;
-  padding: @page-header-padding-top @page-header-padding-horizontal @page-header-padding-vertical
-    @page-header-padding-horizontal;
+  padding: @page-header-padding;
+  &.has-breadcrumb {
+    padding-top: @page-header-padding-breadcrumb;
+  }
+
+  &.has-footer {
+    padding-bottom: @page-header-padding-vertical;
+  }
 
   &-back {
     line-height: 1;
     font-size: 20px;
-    margin: 6px;
+    margin: 6px 0;
     margin-right: 16px;
     float: left;
     &-button {
@@ -79,17 +85,52 @@
 
   &-content {
     padding-top: 12px;
+    overflow: hidden;
+    &-main {
+      width: calc(100% - 400px);
+      margin-right: 80px;
+      float: left;
+    }
+
+    &-extra {
+      width: 320px;
+      float: right;
+      text-align: right;
+    }
   }
 
   &-footer {
-    margin: 0 -8px;
-    padding-top: 24px;
+    margin-top: 16px;
     .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
       .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
         font-size: 16px;
         padding: 8px;
+      }
+    }
+  }
+
+  @media (max-width: @screen-sm-max) {
+    &-heading {
+      &-extra {
+        float: unset;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+        padding-top: 12px;
+      }
+    }
+    &-content {
+      &-main {
+        width: 100%;
+        margin-right: 0px;
+        margin-bottom: 12px;
+      }
+
+      &-extra {
+        width: 100%;
+        text-align: left;
       }
     }
   }

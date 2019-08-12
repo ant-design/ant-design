@@ -1,20 +1,20 @@
 ---
 order: 3
 title:
-  zh-CN: 带内容的例子
-  en-US: Example with content
+  zh-CN: 全都要
+  en-US: All have
 ---
 
 ## zh-CN
 
-带内容的例子,可以优先展示页面的主要信息。
+使用了所有的 props。
 
 ## en-US
 
-An example with content that gives priority to the main information of the page.
+Show all props.
 
 ```jsx
-import { PageHeader, Typography } from 'antd';
+import { PageHeader, Icon, Button, Tag, Typography } from 'antd';
 
 const { Paragraph } = Typography;
 
@@ -33,6 +33,25 @@ const routes = [
   },
 ];
 
+const IconLink = ({ src, text }) => (
+  <a
+    style={{
+      marginRight: 16,
+      display: 'flex',
+      alignItems: 'center',
+    }}
+  >
+    <img
+      style={{
+        marginRight: 8,
+      }}
+      src={src}
+      alt="start"
+    />
+    {text}
+  </a>
+);
+
 const content = (
   <div className="content">
     <Paragraph>
@@ -44,64 +63,50 @@ const content = (
       easier for designers to have a clear psychological expectation of color when adjusting colors,
       as well as facilitate communication in teams.
     </Paragraph>
-    <p className="contentLink">
-      <a>
-        <img
-          src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
-          alt="start"
-        />
-        Quick Start
-      </a>
-      <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" alt="info" />
-        Product Info
-      </a>
-      <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc" />
-        Product Doc
-      </a>
+    <p className="contentLink" style={{ display: 'flex' }}>
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
+        text="Quick Start"
+      />
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+        text=" Product Info"
+      />
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+        text="Product Doc"
+      />
     </p>
   </div>
 );
 
-const extraContent = (
-  <img
-    src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
-    alt="content"
-  />
-);
-
 ReactDOM.render(
-  <PageHeader title="Title" breadcrumb={{ routes }}>
-    <div className="wrap">
-      <div className="content">{content}</div>
-      <div className="extraContent">{extraContent}</div>
-    </div>
+  <PageHeader
+    onBack={() => null}
+    title="Title"
+    subTitle="This is a subtitle"
+    tags={<Tag color="blue">Running</Tag>}
+    extra={[
+      <Button key="3">Operation</Button>,
+      <Button key="2">Operation</Button>,
+      <Button key="1" type="primary">
+        Primary
+      </Button>,
+      <Button type="link" ghost key="more">
+        <Icon type="ellipsis" />
+      </Button>,
+    ]}
+    avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
+    extraContent={
+      <img
+        src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+        alt="content"
+      />
+    }
+    breadcrumb={{ routes }}
+  >
+    {content}
   </PageHeader>,
   mountNode,
 );
 ```
-
-<style>
-#components-page-header-demo-content .wrap {
-  display: flex;
-}
-#components-page-header-demo-content .content {
-  flex: 1;
-}
-#components-page-header-demo-content .extraContent {
-  min-width: 240px;
-  text-align: right;
-}
-#components-page-header-demo-content .contentLink {
-  padding-top: 16px;
-}
-#components-page-header-demo-content .contentLink a {
-  display: inline-block;
-  vertical-align: text-top;
-  margin-right: 32px;
-}
-#components-page-header-demo-content .contentLink a img {
-  margin-right: 8px;
-}
-</style>
