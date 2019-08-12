@@ -72,6 +72,10 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     const truthyItems = timeLineItems.filter(item => !!item);
     const itemsCount = React.Children.count(truthyItems);
     const lastCls = `${prefixCls}-item-last`;
+    const isLabel =
+      truthyItems.length > 0
+        ? truthyItems.some(item => item.props.label !== undefined && item.props.label.length > 0)
+        : false;
     const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
       const pendingClass = idx === itemsCount - 2 ? lastCls : '';
       const readyClass = idx === itemsCount - 1 ? lastCls : '';
@@ -80,6 +84,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
           ele.props.className,
           !reverse && !!pending ? pendingClass : readyClass,
           getPositionCls(ele, idx),
+          isLabel ? `${prefixCls}-label` : '',
         ]),
       });
     });
