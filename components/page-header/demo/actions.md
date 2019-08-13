@@ -14,7 +14,7 @@ title:
 Use the operating area and customize the sub-nodes, suitable for use in the need to display some complex information to help users quickly understand the information and operations of this page.
 
 ```jsx
-import { PageHeader, Tabs, Button, Statistic, Row, Col, Descriptions } from 'antd';
+import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'antd';
 
 const { TabPane } = Tabs;
 
