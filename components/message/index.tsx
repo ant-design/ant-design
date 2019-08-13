@@ -71,7 +71,7 @@ const iconMap = {
 
 function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const iconNode = iconMap[args.type];
+  const IconComponent = iconMap[args.type];
 
   const target = key++;
   const closePromise = new Promise(resolve => {
@@ -92,7 +92,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : iconNode}
+            {args.icon ? args.icon : <IconComponent />}
             <span>{args.content}</span>
           </div>
         ),

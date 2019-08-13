@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-使用 `icon` 自定义提示 `icon`。
+自定义提示 `icon`。
 
 ## en-US
 
