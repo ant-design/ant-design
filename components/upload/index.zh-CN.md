@@ -38,6 +38,7 @@ title: Upload
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true | 3.10.0 |
 | onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | Function | 无 |  |
+| onSuccess | 上传文件成功，并获取到回传数据时的回调，详见 [onSuccess](#onSuccess) | Function | 无 |  |
 | onPreview | 点击文件链接或预览图标时的回调 | Function(file) | 无 |  |
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。               | Function(file): `boolean | Promise` | 无   |  |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | Function(file): `string | Blob | File | Promise<string | Blob | File>` | 无   | 3.21.0 |
@@ -45,6 +46,10 @@ title: Upload
 ### onChange
 
 > 上传中、完成、失败都会调用这个函数。
+
+```js
+onChange: (info: UploadChangeParam<UploadFile>) => void; 
+```
 
 文件状态改变的回调，返回为：
 
@@ -70,6 +75,23 @@ title: Upload
 
 2. `fileList` 当前的文件列表。
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
+
+### onSuccess
+
+> 上传成功时会调用这个函数。
+
+```js
+onSuccess: (response: any, file: UploadFile) => void;
+```
+
+文件上传成功的回调，返回为：
+
+```js
+{
+  response: { /* ... */ },  // response 的值为上传接口的返回值，字段可以由后端自定义。
+  file: { /* ... */ },      // 同 onChange 的`file`操作的文件对象
+}
+```
 
 ## FAQ
 
