@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import { Search } from '@ant-design/icons';
 import Button from '..';
-import Icon from '../../icon';
 
 describe('Button', () => {
   it('renders correctly', () => {
@@ -23,7 +23,7 @@ describe('Button', () => {
     // should not insert space when there is icon
     const wrapper2 = render(
       <Button>
-        <Icon type="search" />
+        <Search />
         按钮
       </Button>,
     );

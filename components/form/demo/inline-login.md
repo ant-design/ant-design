@@ -14,7 +14,8 @@ title:
 Inline login form is often used in navigation bar.
 
 ```tsx
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Input, Button } from 'antd';
+import { User, Lock } from '@ant-design/icons';
 
 const HorizontalLoginForm = () => {
   const [form] = Form.useForm();
@@ -35,17 +36,14 @@ const HorizontalLoginForm = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
-        <Input
-          prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-          placeholder="Username"
-        />
+        <Input prefix={<User style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
       </Form.Item>
       <Form.Item
         name="password"
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
         <Input
-          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+          prefix={<Lock style={{ color: 'rgba(0,0,0,.25)' }} />}
           type="password"
           placeholder="Password"
         />

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { polyfill } from 'react-lifecycles-compat';
-import Icon from '../icon';
+import { Enter } from '@ant-design/icons';
+
 import TextArea from '../input/TextArea';
 
 interface EditableProps {
@@ -127,7 +128,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
           aria-label={ariaLabel}
           autosize
         />
-        <Icon type="enter" className={`${prefixCls}-edit-content-confirm`} />
+        <Enter className={`${prefixCls}-edit-content-confirm`} />
       </div>
     );
   }

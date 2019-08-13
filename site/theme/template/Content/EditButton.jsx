@@ -1,5 +1,7 @@
 import React from 'react';
-import { Tooltip, Icon } from 'antd';
+import { Tooltip } from 'antd';
+
+import Icon from '../Icon';
 
 const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
 

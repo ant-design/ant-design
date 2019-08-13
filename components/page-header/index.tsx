@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import { ArrowLeft } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Icon from '../icon';
 import Divider from '../divider';
 import Tag from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
@@ -121,7 +121,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
 );
 
 PageHeader.defaultProps = {
-  backIcon: <Icon type="arrow-left" />,
+  backIcon: <ArrowLeft />,
 };
 
 export default PageHeader;

@@ -6,7 +6,8 @@ import RangeCalendar from 'rc-calendar/lib/RangeCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
-import Icon from '../icon';
+import { CloseCircleFilled } from '@ant-design/icons';
+
 import Tag from '../tag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
@@ -365,12 +366,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     const [startValue, endValue] = value as RangePickerValue;
     const clearIcon =
       !props.disabled && props.allowClear && value && (startValue || endValue) ? (
-        <Icon
-          type="close-circle"
-          className={`${prefixCls}-picker-clear`}
-          onClick={this.clearSelection}
-          theme="filled"
-        />
+        <CloseCircleFilled className={`${prefixCls}-picker-clear`} onClick={this.clearSelection} />
       ) : null;
 
     const inputIcon = <InputIcon suffixIcon={suffixIcon} prefixCls={prefixCls} />;

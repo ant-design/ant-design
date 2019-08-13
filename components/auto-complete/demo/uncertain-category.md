@@ -14,7 +14,8 @@ title:
 Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set datasource of autocomplete with `dataSource` property.
 
 ```jsx
-import { Icon, Button, Input, AutoComplete } from 'antd';
+import { Button, Input, AutoComplete } from 'antd';
+import { Search } from '@ant-design/icons';
 
 const { Option } = AutoComplete;
 
@@ -90,7 +91,7 @@ class Complete extends React.Component {
                 size="large"
                 type="primary"
               >
-                <Icon type="search" />
+                <Search />
               </Button>
             }
           />

@@ -4,6 +4,8 @@ import { polyfill } from 'react-lifecycles-compat';
 import toArray from 'rc-util/lib/Children/toArray';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
+import { Edit, Check, Copy } from '@ant-design/icons';
+
 import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
@@ -11,7 +13,6 @@ import TransButton from '../_util/transButton';
 import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
-import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
@@ -342,7 +343,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onEditClick}
           aria-label={this.editStr}
         >
-          <Icon role="button" type="edit" />
+          <Edit role="button" />
         </TransButton>
       </Tooltip>
     );
@@ -361,7 +362,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onCopyClick}
           aria-label={title}
         >
-          <Icon role="button" type={copied ? 'check' : 'copy'} />
+          {copied ? <Check /> : <Copy />}
         </TransButton>
       </Tooltip>
     );

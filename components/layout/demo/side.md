@@ -21,7 +21,8 @@ Generally, the mainnav is placed on the left side of the page, and the secondary
 The level of the aside navigation is scalable. The first, second, and third level navigations could be present more fluently and relevantly, and aside navigation can be fixed, allowing the user to quickly switch and spot the current position, improving the user experience. However, this navigation occupies some horizontal space of the contents
 
 ```jsx
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { Desktop, PieChart, File, Team, User } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -43,18 +44,18 @@ class SiderDemo extends React.Component {
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
-              <Icon type="pie-chart" />
+              <PieChart />
               <span>Option 1</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="desktop" />
+              <Desktop />
               <span>Option 2</span>
             </Menu.Item>
             <SubMenu
               key="sub1"
               title={
                 <span>
-                  <Icon type="user" />
+                  <User />
                   <span>User</span>
                 </span>
               }
@@ -67,7 +68,7 @@ class SiderDemo extends React.Component {
               key="sub2"
               title={
                 <span>
-                  <Icon type="team" />
+                  <Team />
                   <span>Team</span>
                 </span>
               }
@@ -76,8 +77,7 @@ class SiderDemo extends React.Component {
               <Menu.Item key="8">Team 2</Menu.Item>
             </SubMenu>
             <Menu.Item key="9">
-              <Icon type="file" />
-              <span>File</span>
+              <File />
             </Menu.Item>
           </Menu>
         </Sider>

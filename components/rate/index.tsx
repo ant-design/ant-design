@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
-import Icon from '../icon';
+import { StarFilled } from '@ant-design/icons';
+
 import Tooltip from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -33,7 +34,7 @@ export default class Rate extends React.Component<RateProps, any> {
   };
 
   static defaultProps = {
-    character: <Icon type="star" theme="filled" />,
+    character: <StarFilled />,
   };
 
   private rcRate: any;

@@ -5,6 +5,8 @@ import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
+import { CaretUpFilled, CaretDownFilled } from '@ant-design/icons';
+
 import FilterDropdown from './filterDropdown';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
@@ -34,7 +36,6 @@ import {
   ExpandIconProps,
 } from './interface';
 import Pagination from '../pagination';
-import Icon from '../icon';
 import Spin, { SpinProps } from '../spin';
 import { RadioChangeEvent } from '../radio';
 import TransButton from '../_util/transButton';
@@ -1110,18 +1111,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         const isDescend = isSortColumn && sortOrder === 'descend';
 
         const ascend = sortDirections.indexOf('ascend') !== -1 && (
-          <Icon
-            className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
-            type="caret-up"
-            theme="filled"
-          />
+          <CaretUpFilled className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`} />
         );
 
         const descend = sortDirections.indexOf('descend') !== -1 && (
-          <Icon
+          <CaretDownFilled
             className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
-            type="caret-down"
-            theme="filled"
           />
         );
 

@@ -1,9 +1,18 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
+import {
+  Loading,
+  PaperClip,
+  PictureTwoTone,
+  FileTwoTone,
+  Eye,
+  Delete,
+  Close,
+} from '@ant-design/icons';
+
 import { UploadListProps, UploadFile, UploadListType } from './interface';
 import { previewImage, isImageUrl } from './utils';
-import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -76,15 +85,13 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
       let progress;
-      let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
+      let icon = file.status === 'uploading' ? <Loading /> : <PaperClip />;
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (listType === 'picture-card' && file.status === 'uploading') {
           icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
         } else if (!file.thumbUrl && !file.url) {
-          icon = (
-            <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" theme="twoTone" />
-          );
+          icon = <PictureTwoTone className={`${prefixCls}-list-item-thumbnail`} />;
         } else {
           const thumbnail = isImageUrl(file) ? (
             <img
@@ -93,7 +100,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               className={`${prefixCls}-list-item-image`}
             />
           ) : (
-            <Icon type="file" className={`${prefixCls}-list-item-icon`} theme="twoTone" />
+            <FileTwoTone className={`${prefixCls}-list-item-icon`} />
           );
           icon = (
             <a
@@ -162,14 +169,14 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           onClick={e => this.handlePreview(file, e)}
           title={locale.previewFile}
         >
-          <Icon type="eye-o" />
+          <Eye />
         </a>
       ) : null;
       const removeIcon = showRemoveIcon ? (
-        <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
+        <Delete title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const removeIconClose = showRemoveIcon ? (
-        <Icon type="close" title={locale.removeFile} onClick={() => this.handleClose(file)} />
+        <Close title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
       const actions =
         listType === 'picture-card' && file.status !== 'uploading' ? (

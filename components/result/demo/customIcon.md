@@ -14,11 +14,12 @@ title:
 Custom icon.
 
 ```jsx
-import { Result, Icon, Button } from 'antd';
+import { Result, Button } from 'antd';
+import { Smile } from '@ant-design/icons';
 
 ReactDOM.render(
   <Result
-    icon={<Icon type="smile" theme="twoTone" />}
+    icon={<Smile />}
     title="Great, we have done all the operations!"
     extra={<Button type="primary">Next</Button>}
   />,

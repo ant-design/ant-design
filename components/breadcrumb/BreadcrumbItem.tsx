@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
+import { Down } from '@ant-design/icons';
 import omit from 'omit.js';
+
 import DropDown, { DropDownProps } from '../dropdown/dropdown';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface BreadcrumbItemProps {
@@ -70,7 +71,7 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
         <DropDown overlay={overlay} placement="bottomCenter">
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
-            <Icon type="down" />
+            <Down />
           </span>
         </DropDown>
       );

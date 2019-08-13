@@ -23,12 +23,12 @@ import {
   Slider,
   Button,
   Upload,
-  Icon,
   Rate,
   Checkbox,
   Row,
   Col,
 } from 'antd';
+import { Upload as IconUpload, Inbox } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -165,7 +165,7 @@ const Demo = () => {
       >
         <Upload name="logo" action="/upload.do" listType="picture">
           <Button>
-            <Icon type="upload" /> Click to upload
+            <IconUpload /> Click to upload
           </Button>
         </Upload>
       </Form.Item>
@@ -175,7 +175,7 @@ const Demo = () => {
           <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
             <Upload.Dragger name="files" action="/upload.do">
               <p className="ant-upload-drag-icon">
-                <Icon type="inbox" />
+                <Inbox />
               </p>
               <p className="ant-upload-text">Click or drag file to this area to upload</p>
               <p className="ant-upload-hint">Support for a single or bulk upload.</p>

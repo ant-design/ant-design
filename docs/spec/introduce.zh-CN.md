@@ -28,10 +28,12 @@ title: 介绍
 我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
 
 ```__react
-import { Icon } from 'antd';
+import {
+  Export as ExportIcon,
+} from '@ant-design/icons';
 
 const LinkIcon = () => (
-  <Icon type="export" className="outside-link-icon" />
+  <ExportIcon className="outside-link-icon" />
 );
 
 const LinksList = () => (

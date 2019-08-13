@@ -1,9 +1,11 @@
 import React from 'react';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
+
+import Icon from '../Icon';
 import * as utils from '../utils';
 
 import svgBgToParallax from './util';

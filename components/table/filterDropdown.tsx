@@ -5,8 +5,9 @@ import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import closest from 'dom-closest';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
+import { FilterFilled } from '@ant-design/icons';
+
 import Dropdown from '../dropdown';
-import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
@@ -217,10 +218,8 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
         onClick: stopPropagation,
       })
     ) : (
-      <Icon
+      <FilterFilled
         title={locale.filterTitle}
-        type="filter"
-        theme="filled"
         className={dropdownIconClass}
         onClick={stopPropagation}
       />

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon';
+import { Calendar } from '@ant-design/icons';
 
 export default function InputIcon(props: { suffixIcon: React.ReactNode; prefixCls: string }) {
   const { suffixIcon, prefixCls } = props;
@@ -15,6 +15,6 @@ export default function InputIcon(props: { suffixIcon: React.ReactNode; prefixCl
         })
       ) : (
         <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-      ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />
+      ))) || <Calendar className={`${prefixCls}-picker-icon`} />
   );
 }

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
+import { Right } from '@ant-design/icons';
+
 import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import Icon from '../icon';
 import { tuple } from '../_util/type';
 
 const Placements = tuple(
@@ -100,7 +101,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
 
     const expandIcon = (
       <span className={`${prefixCls}-menu-submenu-arrow`}>
-        <Icon type="right" className={`${prefixCls}-menu-submenu-arrow-icon`} />
+        <Right className={`${prefixCls}-menu-submenu-arrow-icon`} />
       </span>
     );
 

@@ -2,7 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
-import Icon from '../icon';
+import { Close } from '@ant-design/icons';
+
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { PresetColorTypes } from '../_util/colors';
@@ -99,7 +100,7 @@ class Tag extends React.Component<TagProps, TagState> {
 
   renderCloseIcon() {
     const { closable } = this.props;
-    return closable ? <Icon type="close" onClick={this.handleIconClick} /> : null;
+    return closable ? <Close onClick={this.handleIconClick} /> : null;
   }
 
   renderTag = (configProps: ConfigConsumerProps) => {

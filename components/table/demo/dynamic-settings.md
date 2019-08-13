@@ -14,7 +14,8 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
+import { Table, Switch, Radio, Form, Divider } from 'antd';
+import { Down } from '@ant-design/icons';
 
 const FormItem = Form.Item;
 
@@ -48,7 +49,7 @@ const columns = [
         <a href="javascript:;">Delete</a>
         <Divider type="vertical" />
         <a href="javascript:;" className="ant-dropdown-link">
-          More actions <Icon type="down" />
+          More actions <Down />
         </a>
       </span>
     ),

@@ -1,14 +1,13 @@
 import * as React from 'react';
 import { message } from 'antd';
-import { ThemeType } from '../../../../components/icon';
-import CopyableIcon from './CopyableIcon';
 import { injectIntl } from 'react-intl';
+
+import CopyableIcon from './CopyableIcon';
 import { CategoriesKeys } from './fields';
 
 interface CategoryProps {
   title: CategoriesKeys;
   icons: string[];
-  theme: ThemeType;
   newIcons: string[];
   intl: any;
 }
@@ -45,7 +44,6 @@ class Category extends React.Component<CategoryProps, CategoryState> {
     const {
       icons,
       title,
-      theme,
       newIcons,
       intl: { messages },
     } = this.props;
@@ -53,8 +51,7 @@ class Category extends React.Component<CategoryProps, CategoryState> {
       return (
         <CopyableIcon
           key={name}
-          type={name}
-          theme={theme}
+          name={name}
           isNew={newIcons.indexOf(name) >= 0}
           justCopied={this.state.justCopied}
           onCopied={this.onCopied}

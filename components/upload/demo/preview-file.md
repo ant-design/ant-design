@@ -14,7 +14,8 @@ title:
 Customize local preview. Can handle with non-image format files such as video.
 
 ```jsx
-import { Upload, Button, Icon } from 'antd';
+import { Upload, Button } from 'antd';
+import { Upload as IconUpload } from '@ant-design/icons';
 
 const props = {
   action: '//jsonplaceholder.typicode.com/posts/',
@@ -35,7 +36,7 @@ ReactDOM.render(
   <div>
     <Upload {...props}>
       <Button>
-        <Icon type="upload" /> Upload
+        <IconUpload /> Upload
       </Button>
     </Upload>
   </div>,

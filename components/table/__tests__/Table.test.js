@@ -121,8 +121,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(errorSpy.mock.calls.length).toBe(1);
-    expect(errorSpy.mock.calls[0][0]).not.toContain(
+    expect(errorSpy).not.toHaveBeenCalledWith(
       '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 

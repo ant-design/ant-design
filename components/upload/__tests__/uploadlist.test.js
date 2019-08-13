@@ -211,12 +211,12 @@ describe('Upload List', () => {
       </Upload>,
     );
     wrapper
-      .find('.anticon-eye-o')
+      .find('.anticon-eye')
       .at(0)
       .simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[0]);
     wrapper
-      .find('.anticon-eye-o')
+      .find('.anticon-eye')
       .at(1)
       .simulate('click');
     expect(handlePreview).toHaveBeenCalledWith(fileList[1]);
@@ -438,7 +438,7 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
-    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(2);
+    expect(wrapper.find('.anticon.ant-upload-list-item-thumbnail').length).toBe(1);
   });
 
   it('when picture-card is loading, icon should render correctly', () => {

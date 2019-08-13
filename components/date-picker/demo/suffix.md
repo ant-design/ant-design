@@ -15,9 +15,10 @@ title:
 Basic use case. Users can select or input a date in panel.
 
 ```jsx
-import { DatePicker, Icon } from 'antd';
+import { DatePicker } from 'antd';
+import { Smile } from '@ant-design/icons';
 
-const smileIcon = <Icon type="smile" />;
+const smileIcon = <Smile />;
 const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
 
 function onChange(date, dateString) {

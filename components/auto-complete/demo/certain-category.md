@@ -14,7 +14,8 @@ title:
 Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set datasource of autocomplete with `dataSource` property.
 
 ```jsx
-import { Icon, Input, AutoComplete } from 'antd';
+import { Input, AutoComplete } from 'antd';
+import { Search } from '@ant-design/icons';
 
 const { Option, OptGroup } = AutoComplete;
 
@@ -105,7 +106,7 @@ function Complete() {
         placeholder="input here"
         optionLabelProp="value"
       >
-        <Input suffix={<Icon type="search" className="certain-category-icon" />} />
+        <Input suffix={<Search className="certain-category-icon" />} />
       </AutoComplete>
     </div>
   );

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Loading, CloseCircleFilled, CheckCircleFilled, ExclamationCircleFilled } from '@ant-design/icons';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
-import Icon from '../icon';
+
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext } from './context';
@@ -24,19 +25,11 @@ export interface FormItemInputProps {
   extra?: React.ReactNode;
 }
 
-function getIconType(validateStatus?: ValidateStatus) {
-  switch (validateStatus) {
-    case 'success':
-      return 'check-circle';
-    case 'warning':
-      return 'exclamation-circle';
-    case 'error':
-      return 'close-circle';
-    case 'validating':
-      return 'loading';
-    default:
-      return '';
-  }
+const iconMap: { [key: string]: any } = {
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  error: CloseCircleFilled,
+  validating: Loading,
 }
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
@@ -64,11 +57,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   });
 
   // Should provides additional icon if `hasFeedback`
-  const iconType = getIconType(validateStatus);
+  // const iconType = getIconType(validateStatus);
+  const iconNode = validateStatus && iconMap[validateStatus];
   const icon =
-    hasFeedback && iconType ? (
+    hasFeedback && iconNode ? (
       <span className={`${baseClassName}-children-icon`}>
-        <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
+        {iconNode}
       </span>
     ) : null;
 

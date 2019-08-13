@@ -14,7 +14,8 @@ title:
 Display statistic data in Card.
 
 ```jsx
-import { Statistic, Card, Row, Col, Icon } from 'antd';
+import { Statistic, Card, Row, Col } from 'antd';
+import { ArrowUp, ArrowDown } from '@ant-design/icons';
 
 ReactDOM.render(
   <div style={{ background: '#ECECEC', padding: '30px' }}>
@@ -26,7 +27,7 @@ ReactDOM.render(
             value={11.28}
             precision={2}
             valueStyle={{ color: '#3f8600' }}
-            prefix={<Icon type="arrow-up" />}
+            prefix={<ArrowUp />}
             suffix="%"
           />
         </Card>
@@ -38,7 +39,7 @@ ReactDOM.render(
             value={9.3}
             precision={2}
             valueStyle={{ color: '#cf1322' }}
-            prefix={<Icon type="arrow-down" />}
+            prefix={<ArrowDown />}
             suffix="%"
           />
         </Card>

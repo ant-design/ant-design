@@ -4,12 +4,13 @@ import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
+import { ClockCircle, CloseCircleFilled } from '@ant-design/icons';
+
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import enUS from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
-import Icon from '../icon';
 
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/
@@ -166,7 +167,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
       (React.isValidElement<{ className?: string }>(suffixIcon) &&
         React.cloneElement(suffixIcon, {
           className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
-        }))) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} />;
+        }))) || <ClockCircle className={`${prefixCls}-clock-icon`} />;
 
     return <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
   }
@@ -182,7 +183,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
       });
     }
 
-    return <Icon type="close-circle" className={clearIconPrefixCls} theme="filled" />;
+    return <CloseCircleFilled className={clearIconPrefixCls} />;
   }
 
   renderTimePicker = (locale: TimePickerLocale) => (

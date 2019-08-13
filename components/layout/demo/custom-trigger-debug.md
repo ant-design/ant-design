@@ -11,7 +11,8 @@ debug: true
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
 ```jsx
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
+import { Team, User, File, Desktop, PieChart, MenuUnfold, MenuFold } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -34,18 +35,18 @@ class SiderDemo extends React.Component {
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']} defaultOpenKeys={['sub1']}>
             <Menu.Item key="1">
-              <Icon type="pie-chart" />
+              <PieChart />
               <span>Option 1</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="desktop" />
+              <Desktop />
               <span>Option 2</span>
             </Menu.Item>
             <SubMenu
               key="sub1"
               title={
                 <span>
-                  <Icon type="user" />
+                  <User />
                   <span>User</span>
                 </span>
               }
@@ -58,7 +59,7 @@ class SiderDemo extends React.Component {
               key="sub2"
               title={
                 <span>
-                  <Icon type="team" />
+                  <Team />
                   <span>Team</span>
                 </span>
               }
@@ -67,18 +68,16 @@ class SiderDemo extends React.Component {
               <Menu.Item key="8">Team 2</Menu.Item>
             </SubMenu>
             <Menu.Item key="9">
-              <Icon type="file" />
-              <span>File</span>
+              <File />
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.toggle}
-            />
+            {React.createElement(this.state.collapsed ? MenuUnfold : MenuFold, {
+              className: 'trigger',
+              onClick: this.toggle,
+            })}
           </Header>
           <Content
             style={{

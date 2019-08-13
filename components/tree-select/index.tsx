@@ -2,10 +2,11 @@ import * as React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { Loading, CaretDown, Down, Close, CloseCircleFilled } from '@ant-design/icons';
+
 import { TreeSelectProps, TreeNodeValue } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
 
 export { TreeNode, TreeSelectProps } from './interface';
@@ -53,12 +54,12 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
 
   renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
     if (loading) {
-      return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
+      return <Loading className={`${prefixCls}-switcher-loading-icon`} />;
     }
     if (isLeaf) {
       return null;
     }
-    return <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />;
+    return <CaretDown className={`${prefixCls}-switcher-icon`} />;
   };
 
   renderTreeSelect = ({
@@ -102,13 +103,11 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
     const inputIcon = (suffixIcon &&
       (React.isValidElement<{ className?: string }>(suffixIcon)
         ? React.cloneElement(suffixIcon)
-        : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
+        : suffixIcon)) || <Down className={`${prefixCls}-arrow-icon`} />;
 
-    const removeIcon = <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+    const removeIcon = <Close className={`${prefixCls}-remove-icon`} />;
 
-    const clearIcon = (
-      <Icon type="close-circle" className={`${prefixCls}-clear-icon`} theme="filled" />
-    );
+    const clearIcon = <CloseCircleFilled className={`${prefixCls}-clear-icon`} />;
 
     return (
       <RcTreeSelect

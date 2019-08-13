@@ -18,7 +18,8 @@ Inline menu could be collapsed.
 Here is [a complete demo](/components/layout/#components-layout-demo-side) with sider layout.
 
 ```jsx
-import { Menu, Icon, Button } from 'antd';
+import { Menu, Button } from 'antd';
+import { Appstore, MenuUnfold, MenuFold, PieChart, Desktop, Inbox, Mail } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -37,7 +38,7 @@ class App extends React.Component {
     return (
       <div style={{ width: 256 }}>
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />
+          {React.createElement(this.state.collapsed ? MenuUnfold : MenuFold)}
         </Button>
         <Menu
           defaultSelectedKeys={['1']}
@@ -47,22 +48,22 @@ class App extends React.Component {
           inlineCollapsed={this.state.collapsed}
         >
           <Menu.Item key="1">
-            <Icon type="pie-chart" />
+            <PieChart />
             <span>Option 1</span>
           </Menu.Item>
           <Menu.Item key="2">
-            <Icon type="desktop" />
+            <Desktop />
             <span>Option 2</span>
           </Menu.Item>
           <Menu.Item key="3">
-            <Icon type="inbox" />
+            <Inbox />
             <span>Option 3</span>
           </Menu.Item>
           <SubMenu
             key="sub1"
             title={
               <span>
-                <Icon type="mail" />
+                <Mail />
                 <span>Navigation One</span>
               </span>
             }
@@ -76,7 +77,7 @@ class App extends React.Component {
             key="sub2"
             title={
               <span>
-                <Icon type="appstore" />
+                <Appstore />
                 <span>Navigation Two</span>
               </span>
             }

@@ -1,7 +1,9 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col, Icon } from 'antd';
+import { Modal, message, Row, Col } from 'antd';
 import { Link } from 'bisheng/router';
+
+import Icon from '../Icon';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 

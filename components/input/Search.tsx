@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Search as IconSearch } from '@ant-design/icons';
+
 import Input, { InputProps } from './Input';
-import Icon from '../icon';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -46,12 +47,7 @@ export default class Search extends React.Component<SearchProps, any> {
     if (enterButton) return suffix;
 
     const node = (
-      <Icon
-        className={`${prefixCls}-icon`}
-        type="search"
-        key="searchIcon"
-        onClick={this.onSearch}
-      />
+      <IconSearch className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
     );
 
     if (suffix) {
@@ -95,7 +91,7 @@ export default class Search extends React.Component<SearchProps, any> {
           key="enterButton"
           onClick={this.onSearch}
         >
-          {enterButton === true ? <Icon type="search" /> : enterButton}
+          {enterButton === true ? <IconSearch /> : enterButton}
         </Button>
       );
     }

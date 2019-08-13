@@ -110,9 +110,10 @@ exports[`Table.filter renders filter correctly 1`] = `
                         />
                       </div>
                     </span>
-                    <i
-                      aria-label="icon: filter"
+                    <span
+                      aria-label="filter"
                       class="anticon anticon-filter ant-dropdown-trigger"
+                      role="img"
                       tabindex="-1"
                       title="Filter menu"
                     >
@@ -130,7 +131,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                           d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
                         />
                       </svg>
-                    </i>
+                    </span>
                   </th>
                 </tr>
               </thead>
@@ -423,9 +424,10 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         />
                       </div>
                     </span>
-                    <i
-                      aria-label="icon: filter"
+                    <span
+                      aria-label="filter"
                       class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      role="img"
                       style=""
                       tabindex="-1"
                       title="Filter menu"
@@ -444,7 +446,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                           d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
                         />
                       </svg>
-                    </i>
+                    </span>
                     <div>
                       <div
                         class="ant-dropdown ant-dropdown-placement-bottomRight slide-up-appear"
@@ -642,9 +644,10 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         />
                       </div>
                     </span>
-                    <i
-                      aria-label="icon: filter"
+                    <span
+                      aria-label="filter"
                       class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      role="img"
                       style=""
                       tabindex="-1"
                       title="Filter menu"
@@ -663,7 +666,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                           d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
                         />
                       </svg>
-                    </i>
+                    </span>
                     <div>
                       <div
                         class="ant-dropdown ant-dropdown-placement-bottomRight slide-up-appear"

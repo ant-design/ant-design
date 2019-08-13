@@ -249,9 +249,10 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           style="margin-left:8px;font-size:12px"
         >
           Collapse 
-          <i
-            aria-label="icon: down"
+          <span
+            aria-label="down"
             class="anticon anticon-down"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -267,7 +268,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </a>
       </div>
     </div>
@@ -347,9 +348,10 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
           <span
             class="ant-input-suffix"
           >
-            <i
-              aria-label="icon: eye-invisible"
+            <span
+              aria-label="eye-invisible"
               class="anticon anticon-eye-invisible ant-input-password-icon"
+              role="img"
               tabindex="-1"
             >
               <svg
@@ -363,13 +365,13 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
                 />
                 <path
-                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </span>
       </div>
@@ -514,9 +516,10 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
               style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-select-arrow-icon"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -532,7 +535,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
         </div>
@@ -662,9 +665,10 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
               style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-select-arrow-icon"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -680,7 +684,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
         </div>
@@ -788,9 +792,10 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                 style="user-select:none;-webkit-user-select:none"
                 unselectable="on"
               >
-                <i
-                  aria-label="icon: down"
+                <span
+                  aria-label="down"
                   class="anticon anticon-down ant-select-arrow-icon"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -806,7 +811,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                       d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                     />
                   </svg>
-                </i>
+                </span>
               </span>
             </div>
           </div>
@@ -857,9 +862,10 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             style="width:60%"
             type="button"
           >
-            <i
-              aria-label="icon: plus"
+            <span
+              aria-label="plus"
               class="anticon anticon-plus"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -871,6 +877,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                 viewBox="64 64 896 896"
                 width="1em"
               >
+                <defs />
                 <path
                   d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
                 />
@@ -878,7 +885,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                   d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
                 />
               </svg>
-            </i>
+            </span>
             <span>
                Add field
             </span>
@@ -1086,9 +1093,10 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             class="ant-typography ant-form-text ant-typography-secondary"
           >
             ( 
-            <i
-              aria-label="icon: smile"
+            <span
+              aria-label="smile"
               class="anticon anticon-smile"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -1101,10 +1109,10 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
+                  d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
                 />
               </svg>
-            </i>
+            </span>
              No user yet. )
           </span>
         </div>
@@ -1227,9 +1235,10 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
           <span
             class="ant-input-prefix"
           >
-            <i
-              aria-label="icon: user"
+            <span
+              aria-label="user"
               class="anticon anticon-user"
+              role="img"
               style="color:rgba(0,0,0,.25)"
             >
               <svg
@@ -1243,10 +1252,10 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                  d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
           <input
             class="ant-input"
@@ -1274,9 +1283,10 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
           <span
             class="ant-input-prefix"
           >
-            <i
-              aria-label="icon: lock"
+            <span
+              aria-label="lock"
               class="anticon anticon-lock"
+              role="img"
               style="color:rgba(0,0,0,.25)"
             >
               <svg
@@ -1290,10 +1300,10 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"
+                  d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 10-56 0z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
           <input
             class="ant-input"
@@ -1594,9 +1604,10 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: up"
+              <span
+                aria-label="up"
                 class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -1609,10 +1620,10 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
             <span
               aria-disabled="false"
@@ -1621,9 +1632,10 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -1639,7 +1651,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
           <div
@@ -1759,9 +1771,10 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           <span
             class="ant-input-prefix"
           >
-            <i
-              aria-label="icon: user"
+            <span
+              aria-label="user"
               class="anticon anticon-user"
+              role="img"
               style="color:rgba(0,0,0,.25)"
             >
               <svg
@@ -1775,10 +1788,10 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+                  d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
           <input
             class="ant-input"
@@ -1806,9 +1819,10 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           <span
             class="ant-input-prefix"
           >
-            <i
-              aria-label="icon: lock"
+            <span
+              aria-label="lock"
               class="anticon anticon-lock"
+              role="img"
               style="color:rgba(0,0,0,.25)"
             >
               <svg
@@ -1822,10 +1836,10 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 1 0-56 0z"
+                  d="M832 464h-68V240c0-70.7-57.3-128-128-128H388c-70.7 0-128 57.3-128 128v224h-68c-17.7 0-32 14.3-32 32v384c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V496c0-17.7-14.3-32-32-32zM332 240c0-30.9 25.1-56 56-56h248c30.9 0 56 25.1 56 56v224H332V240zm460 600H232V536h560v304zM484 701v53c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8v-53a48.01 48.01 0 10-56 0z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
           <input
             class="ant-input"
@@ -1972,9 +1986,10 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           <span
             class="ant-input-suffix"
           >
-            <i
-              aria-label="icon: eye-invisible"
+            <span
+              aria-label="eye-invisible"
               class="anticon anticon-eye-invisible ant-input-password-icon"
+              role="img"
               tabindex="-1"
             >
               <svg
@@ -1988,13 +2003,13 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
                 />
                 <path
-                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </span>
       </div>
@@ -2033,9 +2048,10 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           <span
             class="ant-input-suffix"
           >
-            <i
-              aria-label="icon: eye-invisible"
+            <span
+              aria-label="eye-invisible"
               class="anticon anticon-eye-invisible ant-input-password-icon"
+              role="img"
               tabindex="-1"
             >
               <svg
@@ -2049,13 +2065,13 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
                 />
                 <path
-                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </span>
       </div>
@@ -2074,9 +2090,10 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       >
         <span>
           Nickname 
-          <i
-            aria-label="icon: question-circle-o"
-            class="anticon anticon-question-circle-o"
+          <span
+            aria-label="question-circle"
+            class="anticon anticon-question-circle"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -2092,10 +2109,10 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
               />
               <path
-                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0 1 30.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1 0 80 0 40 40 0 1 0-80 0z"
+                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
               />
             </svg>
-          </i>
+          </span>
         </span>
       </label>
     </div>
@@ -2152,9 +2169,10 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             type="text"
             value=""
           />
-          <i
-            aria-label="icon: close-circle"
+          <span
+            aria-label="close-circle"
             class="anticon anticon-close-circle ant-cascader-picker-clear"
+            role="img"
             tabindex="-1"
           >
             <svg
@@ -2168,13 +2186,14 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
               />
             </svg>
-          </i>
-          <i
-            aria-label="icon: down"
+          </span>
+          <span
+            aria-label="down"
             class="anticon anticon-down ant-cascader-picker-arrow"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -2190,7 +2209,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </span>
       </div>
     </div>
@@ -2256,9 +2275,10 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     style="user-select:none;-webkit-user-select:none"
                     unselectable="on"
                   >
-                    <i
-                      aria-label="icon: down"
+                    <span
+                      aria-label="down"
                       class="anticon anticon-down ant-select-arrow-icon"
+                      role="img"
                     >
                       <svg
                         aria-hidden="true"
@@ -2274,7 +2294,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                           d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                         />
                       </svg>
-                    </i>
+                    </span>
                   </span>
                 </div>
               </div>
@@ -2359,9 +2379,10 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-select-arrow-icon"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -2377,7 +2398,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
         </div>
@@ -2535,9 +2556,10 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               readonly=""
               value=""
             />
-            <i
-              aria-label="icon: calendar"
+            <span
+              aria-label="calendar"
               class="anticon anticon-calendar ant-calendar-picker-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -2553,7 +2575,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                 />
               </svg>
-            </i>
+            </span>
           </div>
         </span>
       </div>
@@ -2591,9 +2613,10 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               readonly=""
               value=""
             />
-            <i
-              aria-label="icon: calendar"
+            <span
+              aria-label="calendar"
               class="anticon anticon-calendar ant-calendar-picker-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -2609,7 +2632,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                 />
               </svg>
-            </i>
+            </span>
           </div>
         </span>
       </div>
@@ -2646,9 +2669,10 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               readonly=""
               value=""
             />
-            <i
-              aria-label="icon: calendar"
+            <span
+              aria-label="calendar"
               class="anticon anticon-calendar ant-calendar-picker-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -2664,7 +2688,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                 />
               </svg>
-            </i>
+            </span>
           </div>
         </span>
       </div>
@@ -2717,9 +2741,10 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               tabindex="-1"
               value=""
             />
-            <i
-              aria-label="icon: calendar"
+            <span
+              aria-label="calendar"
               class="anticon anticon-calendar ant-calendar-picker-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -2735,7 +2760,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </span>
       </div>
@@ -2789,9 +2814,10 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               tabindex="-1"
               value=""
             />
-            <i
-              aria-label="icon: calendar"
+            <span
+              aria-label="calendar"
               class="anticon anticon-calendar ant-calendar-picker-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -2807,7 +2833,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </span>
       </div>
@@ -2846,9 +2872,10 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <span
             class="ant-time-picker-icon"
           >
-            <i
-              aria-label="icon: clock-circle"
+            <span
+              aria-label="clock-circle"
               class="anticon anticon-clock-circle ant-time-picker-clock-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -2867,7 +2894,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </span>
       </div>
@@ -2978,9 +3005,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-select-arrow-icon"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -2996,7 +3024,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
         </div>
@@ -3105,9 +3133,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: up"
+              <span
+                aria-label="up"
                 class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -3120,10 +3149,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
             <span
               aria-disabled="false"
@@ -3132,9 +3161,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -3150,7 +3180,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
           <div
@@ -3684,9 +3714,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <div
                 class="ant-rate-star-first"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3699,17 +3730,18 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
               <div
                 class="ant-rate-star-second"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3722,10 +3754,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
             </div>
           </li>
@@ -3742,9 +3774,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <div
                 class="ant-rate-star-first"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3757,17 +3790,18 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
               <div
                 class="ant-rate-star-second"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3780,10 +3814,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
             </div>
           </li>
@@ -3800,9 +3834,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <div
                 class="ant-rate-star-first"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3815,17 +3850,18 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
               <div
                 class="ant-rate-star-second"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3838,10 +3874,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
             </div>
           </li>
@@ -3858,9 +3894,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <div
                 class="ant-rate-star-first"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3873,17 +3910,18 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
               <div
                 class="ant-rate-star-second"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3896,10 +3934,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
             </div>
           </li>
@@ -3916,9 +3954,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               <div
                 class="ant-rate-star-first"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3931,17 +3970,18 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
               <div
                 class="ant-rate-star-second"
               >
-                <i
-                  aria-label="icon: star"
+                <span
+                  aria-label="star"
                   class="anticon anticon-star"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -3954,10 +3994,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                      d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
                     />
                   </svg>
-                </i>
+                </span>
               </div>
             </div>
           </li>
@@ -4152,27 +4192,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         />
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: loading"
-            class="anticon anticon-loading"
-          >
-            <svg
-              aria-hidden="true"
-              class="anticon-spin"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4204,27 +4224,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         />
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: check-circle"
-            class="anticon anticon-check-circle"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="check-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4256,27 +4256,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         />
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: exclamation-circle"
-            class="anticon anticon-exclamation-circle"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="exclamation-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4308,27 +4288,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         />
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: close-circle"
-            class="anticon anticon-close-circle"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="close-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4362,9 +4322,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               readonly=""
               value=""
             />
-            <i
-              aria-label="icon: calendar"
+            <span
+              aria-label="calendar"
               class="anticon anticon-calendar ant-calendar-picker-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -4380,32 +4341,12 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                 />
               </svg>
-            </i>
+            </span>
           </div>
         </span>
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: check-circle"
-            class="anticon anticon-check-circle"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="check-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4442,9 +4383,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <span
             class="ant-time-picker-icon"
           >
-            <i
-              aria-label="icon: clock-circle"
+            <span
+              aria-label="clock-circle"
               class="anticon anticon-clock-circle ant-time-picker-clock-icon"
+              role="img"
             >
               <svg
                 aria-hidden="true"
@@ -4463,32 +4405,12 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
                 />
               </svg>
-            </i>
+            </span>
           </span>
         </span>
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: exclamation-circle"
-            class="anticon anticon-exclamation-circle"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="exclamation-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 0 1 0-96 48.01 48.01 0 0 1 0 96z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4540,9 +4462,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               style="user-select:none;-webkit-user-select:none"
               unselectable="on"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-select-arrow-icon"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -4558,33 +4481,13 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
         </div>
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: close-circle"
-            class="anticon anticon-close-circle"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="close-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4622,9 +4525,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             type="text"
             value=""
           />
-          <i
-            aria-label="icon: close-circle"
+          <span
+            aria-label="close-circle"
             class="anticon anticon-close-circle ant-cascader-picker-clear"
+            role="img"
             tabindex="-1"
           >
             <svg
@@ -4638,13 +4542,14 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
               />
             </svg>
-          </i>
-          <i
-            aria-label="icon: down"
+          </span>
+          <span
+            aria-label="down"
             class="anticon anticon-down ant-cascader-picker-arrow"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -4660,31 +4565,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </span>
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: loading"
-            class="anticon anticon-loading"
-          >
-            <svg
-              aria-hidden="true"
-              class="anticon-spin"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4728,9 +4613,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     readonly=""
                     value=""
                   />
-                  <i
-                    aria-label="icon: calendar"
+                  <span
+                    aria-label="calendar"
                     class="anticon anticon-calendar ant-calendar-picker-icon"
+                    role="img"
                   >
                     <svg
                       aria-hidden="true"
@@ -4746,7 +4632,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                       />
                     </svg>
-                  </i>
+                  </span>
                 </div>
               </span>
             </div>
@@ -4777,9 +4663,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     readonly=""
                     value=""
                   />
-                  <i
-                    aria-label="icon: calendar"
+                  <span
+                    aria-label="calendar"
                     class="anticon anticon-calendar ant-calendar-picker-icon"
+                    role="img"
                   >
                     <svg
                       aria-hidden="true"
@@ -4795,7 +4682,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
                       />
                     </svg>
-                  </i>
+                  </span>
                 </div>
               </span>
             </div>
@@ -4837,9 +4724,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: up"
+              <span
+                aria-label="up"
                 class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -4852,10 +4740,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
             <span
               aria-disabled="false"
@@ -4864,9 +4752,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -4882,7 +4771,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
           <div
@@ -4901,27 +4790,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         </div>
         <span
           class="ant-form-item-children-icon"
-        >
-          <i
-            aria-label="icon: check-circle"
-            class="anticon anticon-check-circle"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="check-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-              />
-            </svg>
-          </i>
-        </span>
+        />
       </div>
     </div>
   </div>
@@ -4964,9 +4833,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: up"
+              <span
+                aria-label="up"
                 class="anticon anticon-up ant-input-number-handler-up-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -4979,10 +4849,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
             <span
               aria-disabled="false"
@@ -4991,9 +4861,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               role="button"
               unselectable="unselectable"
             >
-              <i
-                aria-label="icon: down"
+              <span
+                aria-label="down"
                 class="anticon anticon-down ant-input-number-handler-down-inner"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -5009,7 +4880,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                     d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                   />
                 </svg>
-              </i>
+              </span>
             </span>
           </div>
           <div

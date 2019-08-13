@@ -18,7 +18,8 @@ Ant Design supports a default button size as well as a large and small size.
 If a large or small button is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a button with the default size.
 
 ```jsx
-import { Button, Radio, Icon } from 'antd';
+import { Button, Radio } from 'antd';
+import { Download, Left, Right } from '@ant-design/icons';
 
 class ButtonSize extends React.Component {
   state = {
@@ -54,22 +55,22 @@ class ButtonSize extends React.Component {
           Link
         </Button>
         <br />
-        <Button type="primary" shape="circle" icon="download" size={size} />
-        <Button type="primary" shape="round" icon="download" size={size}>
+        <Button type="primary" shape="circle" icon={<Download />} size={size} />
+        <Button type="primary" shape="round" icon={<Download />} size={size}>
           Download
         </Button>
-        <Button type="primary" icon="download" size={size}>
+        <Button type="primary" icon={<Download />} size={size}>
           Download
         </Button>
         <br />
         <Button.Group size={size}>
           <Button type="primary">
-            <Icon type="left" />
+            <Left />
             Backward
           </Button>
           <Button type="primary">
             Forward
-            <Icon type="right" />
+            <Right />
           </Button>
         </Button.Group>
       </div>

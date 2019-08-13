@@ -1,14 +1,20 @@
 import * as React from 'react';
-import manifest from '@ant-design/icons/lib/manifest';
-import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
-import { Radio, Icon, Input } from 'antd';
+import * as AntdIcons from '@ant-design/icons';
+import { Radio, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
+import Icon from '@ant-design/icons';
+
 import Category from './Category';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
-import { ThemeType } from 'antd/es/icon';
+
+type ThemeType = 'filled' | 'outlined' | 'twoTone';
+
+const allIcons: {
+  [key: string]: any;
+} = AntdIcons;
 
 interface IconDisplayProps {
   intl: any;
@@ -24,12 +30,6 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   static newIconNames: string[] = [];
 
-  static themeTypeMapper: { [key: string]: ThemeFolderType } = {
-    filled: 'fill',
-    outlined: 'outline',
-    twoTone: 'twotone',
-  };
-
   state: IconDisplayState = {
     theme: 'outlined',
     searchKey: '',
@@ -41,12 +41,10 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
   }
 
   getComputedDisplayList() {
-    return Object.keys(IconDisplay.categories)
+    return Object.keys(categories)
       .map((category: CategoriesKeys) => ({
         category,
-        icons: (IconDisplay.categories[category] || []).filter(
-          name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
-        ),
+        icons: (IconDisplay.categories[category] || []).filter(name => !!allIcons[name]),
       }))
       .filter(({ icons }) => Boolean(icons.length));
   }
@@ -66,20 +64,19 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
 
   renderCategories(list: Array<{ category: CategoriesKeys; icons: string[] }>) {
     const { searchKey, theme } = this.state;
-    const otherIcons = categories.all.filter(icon => {
-      return list
-        .filter(({ category }) => category !== 'all')
-        .every(item => !item.icons.includes(icon));
-    });
 
     return list
       .filter(({ category }) => category !== 'all')
-      .concat({ category: 'other', icons: otherIcons })
       .map(({ category, icons }) => ({
         category,
         icons: icons
-          .filter(name => name.includes(searchKey))
-          .filter(name => manifest[IconDisplay.themeTypeMapper[theme]].includes(name)),
+          .filter(name => {
+            if (theme === 'outlined') {
+              return ['filled', 'twotone'].every(theme => !name.toLowerCase().includes(theme));
+            }
+            return name.toLowerCase().includes(theme);
+          })
+          .filter(name => name.toLowerCase().includes(searchKey)),
       }))
       .filter(({ icons }) => !!icons.length)
       .map(({ category, icons }) => (
@@ -87,7 +84,6 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
           key={category}
           title={category}
           icons={icons}
-          theme={this.state.theme}
           newIcons={IconDisplay.newIconNames}
         />
       ));
@@ -113,7 +109,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             <Radio.Button value="filled">
               <Icon component={FilledIcon} /> {messages['app.docs.components.icon.filled']}
             </Radio.Button>
-            <Radio.Button value="twoTone">
+            <Radio.Button value="twotone">
               <Icon component={TwoToneIcon} /> {messages['app.docs.components.icon.two-tone']}
             </Radio.Button>
           </Radio.Group>

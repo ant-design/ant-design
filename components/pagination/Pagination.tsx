@@ -2,8 +2,9 @@ import * as React from 'react';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
+import { Left, Right, DoubleLeft, DoubleRight } from '@ant-design/icons';
+
 import MiniSelect from './MiniSelect';
-import Icon from '../icon';
 import Select from '../select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -48,19 +49,19 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
   getIconsProps = (prefixCls: string) => {
     const prevIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon type="left" />
+        <Left />
       </a>
     );
     const nextIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Icon type="right" />
+        <Right />
       </a>
     );
     const jumpPrevIcon = (
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <Icon className={`${prefixCls}-item-link-icon`} type="double-left" />
+          <DoubleLeft className={`${prefixCls}-item-link-icon`} />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
@@ -69,7 +70,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <Icon className={`${prefixCls}-item-link-icon`} type="double-right" />
+          <DoubleRight className={`${prefixCls}-item-link-icon`} />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>

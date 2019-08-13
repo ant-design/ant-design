@@ -14,7 +14,8 @@ title:
 Use a form in Drawer with a submit button.
 
 ```jsx
-import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker, Icon } from 'antd';
+import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
+import { Plus } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -37,7 +38,7 @@ class DrawerForm extends React.Component {
     return (
       <div>
         <Button type="primary" onClick={this.showDrawer}>
-          <Icon type="plus" /> New account
+          <Plus /> New account
         </Button>
         <Drawer
           title="Create a new account"

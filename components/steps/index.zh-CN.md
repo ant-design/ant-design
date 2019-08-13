@@ -45,6 +45,6 @@ title: Steps
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | description | 步骤的详情描述，可选 | string\|ReactNode | - |  |
-| icon | 步骤图标的类型，可选 | string\|ReactNode | - |  |
+| icon | 步骤图标的类型，可选 | ReactNode | - |  |
 | status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | wait |  |
 | title | 标题 | string\|ReactNode | - |  |

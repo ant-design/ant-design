@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import Icon from '../icon';
+
 import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
@@ -66,8 +66,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
-  const iconNode = typeof icon === 'string' ? <Icon type={icon} /> : icon;
-
   return (
     <Dialog
       prefixCls={prefixCls}
@@ -92,7 +90,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <div className={`${contentPrefixCls}-body`}>
-          {iconNode}
+          {icon}
           <span className={`${contentPrefixCls}-title`}>{props.title}</span>
           <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>

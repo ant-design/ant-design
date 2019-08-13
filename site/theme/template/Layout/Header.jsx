@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Button, Badge } from 'antd';
+import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
+
+import Icon from '../Icon';
 import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';

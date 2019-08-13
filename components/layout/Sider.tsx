@@ -4,9 +4,10 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { Bars, Right, Left } from '@ant-design/icons';
+
 import { LayoutContext, LayoutContextProps } from './layout';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Icon from '../icon';
 import isNumeric from '../_util/isNumeric';
 
 // matchMedia polyfill for
@@ -207,12 +208,12 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
             reverseArrow ? 'right' : 'left'
           }`}
         >
-          <Icon type="bars" />
+          <Bars />
         </span>
       ) : null;
     const iconObj = {
-      expanded: reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
-      collapsed: reverseArrow ? <Icon type="left" /> : <Icon type="right" />,
+      expanded: reverseArrow ? <Right /> : <Left />,
+      collapsed: reverseArrow ? <Left /> : <Right />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];

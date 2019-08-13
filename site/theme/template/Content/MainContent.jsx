@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon, Affix } from 'antd';
+import { Row, Col, Menu, Affix } from 'antd';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
+
+import Icon from '../Icon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';

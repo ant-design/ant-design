@@ -2,7 +2,8 @@ import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Icon from '../icon';
+import { Close, Check, CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import Line from './Line';
@@ -83,13 +84,13 @@ export default class Progress extends React.Component<ProgressProps> {
 
     let text;
     const textFormatter = format || (percentNumber => `${percentNumber}%`);
-    const iconType = type === 'circle' || type === 'dashboard' ? '' : '-circle';
+    const isLineType = type === 'line';
     if (format || (progressStatus !== 'exception' && progressStatus !== 'success')) {
       text = textFormatter(validProgress(percent), validProgress(successPercent));
     } else if (progressStatus === 'exception') {
-      text = <Icon type={`close${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
+      text = isLineType ? <CloseCircleFilled /> : <Close />;
     } else if (progressStatus === 'success') {
-      text = <Icon type={`check${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
+      text = isLineType ? <CheckCircleFilled /> : <Check />;
     }
     return (
       <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>

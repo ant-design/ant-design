@@ -63,8 +63,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | centered | Centered Modal | Boolean | `false` | 3.8.0 |
 | className | className of container | string | - | 3.1.1 |
 | content | Content | string\|ReactNode | - |  |
-| icon | custom icon (`Added in 3.12.0`) | string\|ReactNode | `<Icon type="question-circle">` | 3.12.0 |
-| iconType | Icon `type` of the Icon component (deperated after `3.12.0`) | string | `question-circle` |  |
+| icon | custom icon (`Added in 3.12.0`) | ReactNode | `<QuestionCircle />` | 3.12.0 |
 | keyboard | Whether support press esc to close | Boolean | true | 3.4.2 |
 | mask | Whether show mask or not. | Boolean | true | 3.13.0 |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |  |

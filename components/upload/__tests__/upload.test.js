@@ -391,7 +391,7 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item i.anticon-close').simulate('click');
+    wrapper.find('div.ant-upload-list-item .anticon-close').simulate('click');
 
     setImmediate(() => {
       wrapper.update();

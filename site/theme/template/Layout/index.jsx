@@ -29,6 +29,8 @@ if (typeof window !== 'undefined') {
   window['react-dom'] = ReactDOM;
   // eslint-disable-next-line global-require
   window.antd = require('antd');
+  // eslint-disable-next-line global-require
+  window['@ant-design/icons'] = require('@ant-design/icons');
 
   // Error log statistic
   window.addEventListener('error', function onError(e) {

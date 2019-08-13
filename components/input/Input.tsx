@@ -3,12 +3,14 @@ import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
+import { CloseCircleFilled } from '@ant-design/icons';
+
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Password from './Password';
-import Icon from '../icon';
+
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
 
@@ -186,9 +188,7 @@ class Input extends React.Component<InputProps, any> {
       return null;
     }
     return (
-      <Icon
-        type="close-circle"
-        theme="filled"
+      <CloseCircleFilled
         onClick={this.handleReset}
         className={`${prefixCls}-clear-icon`}
         role="button"

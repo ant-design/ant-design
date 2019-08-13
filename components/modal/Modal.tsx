@@ -3,8 +3,9 @@ import Dialog from 'rc-dialog';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import { Close } from '@ant-design/icons';
+
 import { getConfirmLocale } from './locale';
-import Icon from '../icon';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -98,8 +99,6 @@ export interface ModalFuncProps {
   okType?: ButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  /* Deprecated */
-  iconType?: string;
   mask?: boolean;
   maskClosable?: boolean;
   zIndex?: number;
@@ -222,7 +221,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIcon = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type="close" />
+        <Close className={`${prefixCls}-close-icon`} />
       </span>
     );
 
