@@ -42,7 +42,7 @@ export default class SelectionCheckboxAll<T> extends React.Component<
     this.subscribe();
   }
 
-  componentWillReceiveProps(nextProps: SelectionCheckboxAllProps<T>) {
+  UNSAFE_componentWillReceiveProps(nextProps: SelectionCheckboxAllProps<T>) {
     this.setCheckState(nextProps);
   }
 
