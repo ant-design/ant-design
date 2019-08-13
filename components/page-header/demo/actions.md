@@ -36,6 +36,7 @@ const extraContent = (
   <div
     style={{
       display: 'flex',
+      width: 320,
       justifyContent: 'flex-end',
     }}
   >
