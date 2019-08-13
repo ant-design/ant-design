@@ -42,6 +42,7 @@ export default class SelectionCheckboxAll<T> extends React.Component<
     this.subscribe();
   }
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps: SelectionCheckboxAllProps<T>) {
     this.setCheckState(nextProps);
   }
