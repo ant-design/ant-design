@@ -179,7 +179,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     });
   }
 
-  componentWillReceiveProps(nextProps: TableProps<T>) {
+  UNSAFE_componentWillReceiveProps(nextProps: TableProps<T>) {
     this.columns = nextProps.columns || normalizeColumns(nextProps.children as React.ReactChildren);
     if ('pagination' in nextProps || 'pagination' in this.props) {
       this.setState(previousState => {
