@@ -1,5 +1,5 @@
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import Affix from './';
+import Affix from '.';
 
 export type BindElement = HTMLElement | Window | null | undefined;
 export type Rect = ClientRect | DOMRect;
