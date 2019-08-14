@@ -11357,32 +11357,36 @@ exports[`ConfigProvider components Steps configProvider 1`] = `
   class="config-steps config-steps-horizontal config-steps-label-horizontal"
 >
   <div
-    class="config-steps-item config-steps-item-process"
+    class="config-steps-item config-steps-item-process config-steps-item-active"
   >
     <div
-      class="config-steps-item-tail"
-    />
-    <div
-      class="config-steps-item-icon"
-    >
-      <span
-        class="config-steps-icon"
-      >
-        1
-      </span>
-    </div>
-    <div
-      class="config-steps-item-content"
+      class="config-steps-item-container"
     >
       <div
-        class="config-steps-item-title"
+        class="config-steps-item-tail"
+      />
+      <div
+        class="config-steps-item-icon"
       >
-        Bamboo
+        <span
+          class="config-steps-icon"
+        >
+          1
+        </span>
       </div>
       <div
-        class="config-steps-item-description"
+        class="config-steps-item-content"
       >
-        Little Light
+        <div
+          class="config-steps-item-title"
+        >
+          Bamboo
+        </div>
+        <div
+          class="config-steps-item-description"
+        >
+          Little Light
+        </div>
       </div>
     </div>
   </div>
@@ -11394,32 +11398,36 @@ exports[`ConfigProvider components Steps normal 1`] = `
   class="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
 >
   <div
-    class="ant-steps-item ant-steps-item-process"
+    class="ant-steps-item ant-steps-item-process ant-steps-item-active"
   >
     <div
-      class="ant-steps-item-tail"
-    />
-    <div
-      class="ant-steps-item-icon"
-    >
-      <span
-        class="ant-steps-icon"
-      >
-        1
-      </span>
-    </div>
-    <div
-      class="ant-steps-item-content"
+      class="ant-steps-item-container"
     >
       <div
-        class="ant-steps-item-title"
+        class="ant-steps-item-tail"
+      />
+      <div
+        class="ant-steps-item-icon"
       >
-        Bamboo
+        <span
+          class="ant-steps-icon"
+        >
+          1
+        </span>
       </div>
       <div
-        class="ant-steps-item-description"
+        class="ant-steps-item-content"
       >
-        Little Light
+        <div
+          class="ant-steps-item-title"
+        >
+          Bamboo
+        </div>
+        <div
+          class="ant-steps-item-description"
+        >
+          Little Light
+        </div>
       </div>
     </div>
   </div>
@@ -11431,32 +11439,36 @@ exports[`ConfigProvider components Steps prefixCls 1`] = `
   class="prefix-Steps prefix-Steps-horizontal prefix-Steps-label-horizontal"
 >
   <div
-    class="prefix-Steps-item prefix-Steps-item-process"
+    class="prefix-Steps-item prefix-Steps-item-process prefix-Steps-item-active"
   >
     <div
-      class="prefix-Steps-item-tail"
-    />
-    <div
-      class="prefix-Steps-item-icon"
-    >
-      <span
-        class="prefix-Steps-icon"
-      >
-        1
-      </span>
-    </div>
-    <div
-      class="prefix-Steps-item-content"
+      class="prefix-Steps-item-container"
     >
       <div
-        class="prefix-Steps-item-title"
+        class="prefix-Steps-item-tail"
+      />
+      <div
+        class="prefix-Steps-item-icon"
       >
-        Bamboo
+        <span
+          class="prefix-Steps-icon"
+        >
+          1
+        </span>
       </div>
       <div
-        class="prefix-Steps-item-description"
+        class="prefix-Steps-item-content"
       >
-        Little Light
+        <div
+          class="prefix-Steps-item-title"
+        >
+          Bamboo
+        </div>
+        <div
+          class="prefix-Steps-item-description"
+        >
+          Little Light
+        </div>
       </div>
     </div>
   </div>
