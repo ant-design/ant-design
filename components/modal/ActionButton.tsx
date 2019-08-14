@@ -58,6 +58,7 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
           },
           (e: Error) => {
             // Emit error when catch promise reject
+            // eslint-disable-next-line no-console
             console.error(e);
             // See: https://github.com/ant-design/ant-design/issues/6183
             this.setState({ loading: false });

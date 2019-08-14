@@ -56,6 +56,8 @@ const eslintrc = {
     'jsx-a11y/anchor-is-valid': 0,
     'comma-dangle': ['error', 'always-multiline'],
     'react/jsx-filename-extension': 0,
+    'react/state-in-constructor': 0,
+    'react/jsx-props-no-spreading': 0,
     'prefer-destructuring': 0, // TODO: remove later
     'consistent-return': 0, // TODO: remove later
     'no-return-assign': 0, // TODO: remove later
@@ -78,6 +80,8 @@ const eslintrc = {
     'react/display-name': 0,
     // ban this for Number.isNaN needs polyfill
     'no-restricted-globals': 0,
+    'max-classes-per-file': 0,
+    'react/static-property-placement': 0,
   },
 };
 
@@ -100,6 +104,7 @@ if (process.env.RUN_ENV === 'DEMO') {
     'react/no-multi-comp': 0,
     'jsx-a11y/href-no-hash': 0,
     'import/no-extraneous-dependencies': 0,
+    'jsx-a11y/control-has-associated-label': 0,
   });
 }
 

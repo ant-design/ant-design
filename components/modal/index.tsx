@@ -16,7 +16,7 @@ function modalWarn(props: ModalFuncProps) {
   return confirm(config);
 }
 
-Modal.info = function(props: ModalFuncProps) {
+Modal.info = function infoFn(props: ModalFuncProps) {
   const config = {
     type: 'info',
     icon: <Icon type="info-circle" />,
@@ -26,7 +26,7 @@ Modal.info = function(props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.success = function(props: ModalFuncProps) {
+Modal.success = function successFn(props: ModalFuncProps) {
   const config = {
     type: 'success',
     icon: <Icon type="check-circle" />,
@@ -36,7 +36,7 @@ Modal.success = function(props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.error = function(props: ModalFuncProps) {
+Modal.error = function errorFn(props: ModalFuncProps) {
   const config = {
     type: 'error',
     icon: <Icon type="close-circle" />,
@@ -50,7 +50,7 @@ Modal.warning = modalWarn;
 
 Modal.warn = modalWarn;
 
-Modal.confirm = function(props: ModalFuncProps) {
+Modal.confirm = function confirmFn(props: ModalFuncProps) {
   const config = {
     type: 'confirm',
     okCancel: true,
@@ -59,7 +59,7 @@ Modal.confirm = function(props: ModalFuncProps) {
   return confirm(config);
 };
 
-Modal.destroyAll = function() {
+Modal.destroyAll = function destroyAllFn() {
   while (destroyFns.length) {
     const close = destroyFns.pop();
     if (close) {

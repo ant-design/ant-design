@@ -61,12 +61,12 @@ function getStyle() {
 // eslint-disable-next-line react/prefer-stateless-function
 class Home extends React.Component {
   static contextTypes = {
-    intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
   };
 
   render() {
-    const { isMobile, intl } = this.context;
+    const { intl } = this.props;
+    const { isMobile } = this.context;
     const childProps = { ...this.props, isMobile, locale: intl.locale };
     return (
       <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>

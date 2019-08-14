@@ -131,6 +131,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     className: PropTypes.string,
     icon: PropTypes.string,
     block: PropTypes.bool,
+    title: PropTypes.string,
   };
 
   static getDerivedStateFromProps(nextProps: ButtonProps, prevState: ButtonState) {
@@ -270,7 +271,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
         ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
         : null;
 
-    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType']);
+    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
     if (linkButtonRestProps.href !== undefined) {
       return (
         <a

@@ -496,7 +496,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     ]);
 
     let { options } = props;
-    if (options.length > 0) {
+    if (options && options.length > 0) {
       if (state.inputValue) {
         options = this.generateFilteredOptions(prefixCls, renderEmpty);
       }

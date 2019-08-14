@@ -22,6 +22,7 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   icon?: React.ReactNode;
   href?: string;
   children?: React.ReactNode;
+  title?: string;
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
@@ -51,6 +52,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       getPopupContainer,
       href,
       icon = <Icon type="ellipsis" />,
+      title,
       ...restProps
     } = this.props;
 
@@ -70,7 +72,14 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
 
     return (
       <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
-        <Button type={type} disabled={disabled} onClick={onClick} htmlType={htmlType} href={href}>
+        <Button
+          type={type}
+          disabled={disabled}
+          onClick={onClick}
+          htmlType={htmlType}
+          href={href}
+          title={title}
+        >
           {children}
         </Button>
         <Dropdown {...dropdownProps}>
