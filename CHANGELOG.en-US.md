@@ -985,7 +985,6 @@ timeline: true
 - 🐞 Fixed Table `Cannot read property 'children' of undefined` error when customize `column.title` as ReactNode. [#13542](https://github.com/ant-design/ant-design/issues/13542) [@geraldchen890806](https://github.com/geraldchen890806)
 - 🐞 Fixed another border problem of Button when customized less variable `@border-width-base`. [#13534](https://github.com/ant-design/ant-design/issues/13534) [@morenyang](https://github.com/morenyang)
 - 🐞 Fixed Upload don't support resolve `Blob` object when `beforeUpload` returns a Promise. [#13528](https://github.com/ant-design/ant-design/pull/13528/) [@huanz](https://github.com/huanz)
-- https://github.com/ant-design/ant-design/pull/13536
 - 🐞 Fixed two props of Dropdown TypeScript definitions. [#13536](https://github.com/ant-design/ant-design/pull/13536) [@wangxingkang](https://github.com/wangxingkang)
 
 ## 3.11.1
