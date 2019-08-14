@@ -213,8 +213,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
 
-    // this.createComponents(props.components);
-
     this.state = {
       ...this.getDefaultSortOrder(this.columns),
       // 减少状态
