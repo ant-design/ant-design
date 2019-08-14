@@ -554,7 +554,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           value={state.inputValue}
           disabled={disabled}
           readOnly={!showSearch}
-          autoComplete="off"
+          autoComplete={inputProps.autoComplete || "off"}
           onClick={showSearch ? this.handleInputClick : undefined}
           onBlur={showSearch ? this.handleInputBlur : undefined}
           onKeyDown={this.handleKeyDown}
