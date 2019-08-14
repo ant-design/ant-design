@@ -274,6 +274,13 @@ describe('Anchor Render', () => {
   });
 
   it('Anchor targetOffset prop', async () => {
+    jest.useFakeTimers();
+
+    const dateNowMock = jest
+      .spyOn(Date, 'now')
+      .mockImplementationOnce(() => 0)
+      .mockImplementationOnce(() => 1000);
+
     const scrollToSpy = jest.spyOn(window, 'scrollTo');
     let root = document.getElementById('root');
     if (!root) {
@@ -288,17 +295,20 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     wrapper.instance().handleScrollTo('#API');
-    await sleep(1000);
+    jest.runAllTimers();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
 
     wrapper.setProps({ offsetTop: 100 });
     wrapper.instance().handleScrollTo('#API');
-    await sleep(1000);
+    jest.runAllTimers();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
 
     wrapper.setProps({ targetOffset: 200 });
     wrapper.instance().handleScrollTo('#API');
-    await sleep(1000);
+    jest.runAllTimers();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    dateNowMock.mockRestore();
+    jest.useRealTimers();
   });
 });
