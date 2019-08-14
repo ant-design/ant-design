@@ -14,7 +14,7 @@ title:
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
 ```jsx
-import { ConfigProvider, Cascader, Radio, Button, Icon } from 'antd';
+import { ConfigProvider, Cascader, Radio, Icon } from 'antd';
 
 const cascaderOptions = [
   {
@@ -67,13 +67,13 @@ const cascaderOptions = [
   },
 ];
 
-function onCascaderChange(value) {
-  console.log(value);
-}
-function cascaderFilter(inputValue, path) {
-  return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
-}
 class Page extends React.Component {
+  onCascaderChange = value => {
+    console.log(value);
+  };
+  cascaderFilter = (inputValue, path) => {
+    return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+  };
   render() {
     return (
       <div className="direction-components">
@@ -81,7 +81,7 @@ class Page extends React.Component {
           <Cascader
             suffixIcon={<Icon type="smile" />}
             options={cascaderOptions}
-            onChange={onCascaderChange}
+            onChange={this.onCascaderChange}
             placeholder="یک مورد انتخاب کنید"
             popupPlacement={this.props.popupPlacement}
           />
@@ -89,10 +89,10 @@ class Page extends React.Component {
           <Cascader
             suffixIcon={<Icon type="search" />}
             options={cascaderOptions}
-            onChange={onCascaderChange}
+            onChange={this.onCascaderChange}
             placeholder="Select an item"
             popupPlacement={this.props.popupPlacement}
-            showSearch={{ cascaderFilter }}
+            showSearch={this.cascaderFilter}
           />
         </div>
       </div>
@@ -113,9 +113,9 @@ class App extends React.Component {
     const directionValue = e.target.value;
     this.setState({ direction: directionValue });
     if (directionValue === 'rtl') {
-      this.state.popupPlacement = 'bottomRight';
+      this.setState({ popupPlacement: 'bottomRight' });
     } else {
-      this.state.popupPlacement = 'bottomLeft';
+      this.setState({ popupPlacement: 'bottomLeft' });
     }
   };
 
@@ -135,10 +135,7 @@ class App extends React.Component {
           </Radio.Group>
         </div>
         <ConfigProvider direction={direction}>
-          <Page
-            popupPlacement={this.state.popupPlacement}
-            key={direction ? direction : 'ltr' /* Have to refresh for production environment */}
-          />
+          <Page popupPlacement={this.state.popupPlacement} />
         </ConfigProvider>
       </div>
     );
