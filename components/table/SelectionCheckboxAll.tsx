@@ -76,7 +76,8 @@ function getCheckState<T>(props: SelectionCheckboxAllProps<T>) {
   const { store, data } = props;
   if (!data.length) {
     return false;
-  } else if (store.getState().selectionDirty) {
+  }
+  if (store.getState().selectionDirty) {
     return checkSelection({
       ...props,
       data,
