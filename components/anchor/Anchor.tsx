@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import raf from 'raf';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -162,7 +161,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     if (this.scrollEvent) {
       this.scrollEvent.remove();
     }
-  };
+  }
 
   handleScrollTo = (link: string) => {
     const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
