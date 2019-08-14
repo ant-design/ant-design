@@ -194,7 +194,7 @@
     "check-commit": "node ./scripts/check-commit.js",
     "lint": "npm run lint:tsc && npm run lint:script && npm run lint:demo && npm run lint:style && npm run lint:deps",
     "lint:deps": "antd-tools run deps-lint",
-    "lint:tsc": "npm run tsc && antd-tools run ts-lint",
+    "lint:tsc": "npm run tsc",
     "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
     "lint:md": "remark components/",
     "lint:demo": "cross-env RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
