@@ -44,3 +44,4 @@ return (
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | Function(triggerNode) | () => document.body | 3.11.0 |
 | locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - | 3.21.0 |
 | prefixCls | 设置统一样式前缀 | string | ant | 3.12.0 |
+| direction | 要设置自身下方所有元素的方向，请将 `rtl` 设置为从右到左的样式下方查看 | string: 'ltr', 'rtl', 'auto' | ltr | 3.21.5 |
