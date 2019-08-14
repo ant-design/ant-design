@@ -71,9 +71,11 @@ class Page extends React.Component {
   onCascaderChange = value => {
     console.log(value);
   };
+
   cascaderFilter = (inputValue, path) => {
     return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
   };
+
   render() {
     return (
       <div className="direction-components">
