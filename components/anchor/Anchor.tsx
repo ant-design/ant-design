@@ -163,34 +163,6 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     }
   }
 
-  handleScrollTo = (link: string) => {
-    const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
-
-    this.setState({ activeLink: link });
-    const container = getContainer();
-    const scrollTop = getScroll(container, true);
-    const sharpLinkMatch = sharpMatcherRegx.exec(link);
-    if (!sharpLinkMatch) {
-      return;
-    }
-    const targetElement = document.getElementById(sharpLinkMatch[1]);
-    if (!targetElement) {
-      return;
-    }
-
-    const eleOffsetTop = getOffsetTop(targetElement, container);
-    let y = scrollTop + eleOffsetTop;
-    y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
-    this.animating = true;
-
-    scrollTo(y, {
-      callback: () => {
-        this.animating = false;
-      },
-      getContainer,
-    });
-  };
-
   getCurrentAnchor(offsetTop = 0, bounds = 5): string {
     const { getCurrentAnchor } = this.props;
 
@@ -229,6 +201,34 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     }
     return '';
   }
+
+  handleScrollTo = (link: string) => {
+    const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
+
+    this.setState({ activeLink: link });
+    const container = getContainer();
+    const scrollTop = getScroll(container, true);
+    const sharpLinkMatch = sharpMatcherRegx.exec(link);
+    if (!sharpLinkMatch) {
+      return;
+    }
+    const targetElement = document.getElementById(sharpLinkMatch[1]);
+    if (!targetElement) {
+      return;
+    }
+
+    const eleOffsetTop = getOffsetTop(targetElement, container);
+    let y = scrollTop + eleOffsetTop;
+    y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
+    this.animating = true;
+
+    scrollTo(y, {
+      callback: () => {
+        this.animating = false;
+      },
+      getContainer,
+    });
+  };
 
   saveInkNode = (node: HTMLSpanElement) => {
     this.inkNode = node;
