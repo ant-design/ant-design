@@ -10,7 +10,7 @@ import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import FormItem, { FormLabelAlign } from './FormItem';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
-import { FormContext } from './context';
+import FormContext from './context';
 import { FormWrappedProps } from './interface';
 
 type FormCreateOptionMessagesCallback = (...args: any[]) => string;
