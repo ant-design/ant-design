@@ -19,7 +19,7 @@ import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'antd';
 const { TabPane } = Tabs;
 
 const renderContent = (column = 2) => (
-  <Descriptions column={column}>
+  <Descriptions size="small" column={column}>
     <Descriptions.item label="Created">Lili Qu</Descriptions.item>
     <Descriptions.item label="Association">
       <a>421421</a>
@@ -44,7 +44,7 @@ const extraContent = (
       title="Status"
       value="Pending"
       style={{
-        marginRight: 16,
+        marginRight: 32,
       }}
     />
     <Statistic title="Price" prefix="$" value={568.08} />
@@ -91,7 +91,7 @@ ReactDOM.render(
           prefix="$"
           value={568.08}
           style={{
-            margin: '0 16px',
+            margin: '0 32px',
           }}
         />
         <Statistic title="Balance" prefix="$" value={3345.08} />

@@ -92,7 +92,7 @@ ReactDOM.render(
       <Button key="1" type="primary">
         Primary
       </Button>,
-      <Button type="link" ghost key="more">
+      <Button type="link" key="more">
         <Icon type="ellipsis" />
       </Button>,
     ]}

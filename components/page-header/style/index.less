@@ -8,6 +8,7 @@
 
   position: relative;
   padding: @page-header-padding;
+
   &.has-breadcrumb {
     padding-top: @page-header-padding-breadcrumb;
   }
@@ -84,8 +85,9 @@
   }
 
   &-content {
-    padding-top: 12px;
+    padding-top: 16px;
     overflow: hidden;
+    display: flex;
     &-main {
       float: left;
     }
@@ -109,7 +111,7 @@
     }
   }
 
-  @media (max-width: @screen-sm-max) {
+  @media (max-width: @screen-sm) {
     &-heading {
       &-extra {
         float: unset;
@@ -120,14 +122,24 @@
       }
     }
     &-content {
+      display: block;
       &-main {
         width: 100%;
-        margin-right: 0px;
         margin-bottom: 12px;
       }
 
       &-extra {
+        margin-left: 0px;
         width: 100%;
+        text-align: left;
+      }
+    }
+  }
+
+  @media (max-width: @screen-lg) {
+    &-content {
+      &-extra {
+        margin-left: 24px;
         text-align: left;
       }
     }
