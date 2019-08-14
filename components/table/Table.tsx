@@ -11,7 +11,7 @@ import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll from './SelectionCheckboxAll';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import createBodyRow from './createBodyRow';
+import createBodyRow, { BodyRowClass } from './createBodyRow';
 import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import scrollTo from '../_util/scrollTo';
 import {
@@ -87,6 +87,23 @@ const defaultPagination = {
  */
 const emptyObject = {};
 
+let row: BodyRowClass;
+
+const createComponents = (components: TableComponents = {}, prevComponents?: TableComponents) => {
+  const bodyRow = components && components.body && components.body.row;
+  const preBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
+  if (!row || bodyRow !== preBodyRow) {
+    row = createBodyRow(bodyRow);
+  }
+  return {
+    ...components,
+    body: {
+      ...components.body,
+      row,
+    },
+  };
+};
+
 export default class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   static Column = Column;
 
@@ -123,6 +140,41 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     sortDirections: ['ascend', 'descend'],
     childrenColumnName: 'children',
   };
+
+  static getDerivedStateFromProps(nextProps: TableProps<any>, prevState: TableState<any>) {
+    const { prevProps } = prevState;
+
+    let nextState: TableState<any> = {
+      ...prevState,
+      prevProps: nextProps,
+    };
+
+    if ('pagination' in nextProps || 'pagination' in prevProps) {
+      const newPagination = {
+        ...defaultPagination,
+        ...prevState.pagination,
+        ...nextProps.pagination,
+      };
+      newPagination.current = newPagination.current || 1;
+      newPagination.pageSize = newPagination.pageSize || 10;
+
+      nextState = {
+        ...nextState,
+        pagination: nextProps.pagination !== false ? newPagination : emptyObject,
+      };
+    }
+
+    if (nextProps.components !== prevProps.components) {
+      const components = createComponents(nextProps.components, prevProps.components);
+
+      nextState = {
+        ...nextState,
+        components,
+      };
+    }
+
+    return nextState;
+  }
 
   CheckboxPropsCache: {
     [key: string]: any;
@@ -161,7 +213,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
 
-    this.createComponents(props.components);
+    // this.createComponents(props.components);
 
     this.state = {
       ...this.getDefaultSortOrder(this.columns),
@@ -169,6 +221,8 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       filters: this.getFiltersFromColumns(),
       pagination: this.getDefaultPagination(props),
       pivot: undefined,
+      prevProps: props,
+      components: createComponents(props.components),
     };
 
     this.CheckboxPropsCache = {};
@@ -179,31 +233,21 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     });
   }
 
-  // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps: TableProps<T>) {
-    this.columns = nextProps.columns || normalizeColumns(nextProps.children as React.ReactChildren);
-    if ('pagination' in nextProps || 'pagination' in this.props) {
-      this.setState(previousState => {
-        const newPagination = {
-          ...defaultPagination,
-          ...previousState.pagination,
-          ...nextProps.pagination,
-        };
-        newPagination.current = newPagination.current || 1;
-        newPagination.pageSize = newPagination.pageSize || 10;
-        return { pagination: nextProps.pagination !== false ? newPagination : emptyObject };
-      });
-    }
-    if (nextProps.rowSelection && 'selectedRowKeys' in nextProps.rowSelection) {
+  componentDidUpdate(prevProps: Readonly<TableProps<T>>) {
+    const { props } = this;
+
+    this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
+
+    if (props.rowSelection && 'selectedRowKeys' in props.rowSelection) {
       this.store.setState({
-        selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
+        selectedRowKeys: props.rowSelection.selectedRowKeys || [],
       });
-    } else if (this.props.rowSelection && !nextProps.rowSelection) {
+    } else if (prevProps.rowSelection && !props.rowSelection) {
       this.store.setState({
         selectedRowKeys: [],
       });
     }
-    if ('dataSource' in nextProps && nextProps.dataSource !== this.props.dataSource) {
+    if ('dataSource' in props && props.dataSource !== prevProps.dataSource) {
       this.store.setState({
         selectionDirty: false,
       });
@@ -233,8 +277,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         this.setState({ filters: newFilters });
       }
     }
-
-    this.createComponents(nextProps.components, this.props.components);
   }
 
   getCheckboxPropsByItem = (item: T, index: number) => {
@@ -911,21 +953,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return column;
   }
 
-  createComponents(components: TableComponents = {}, prevComponents?: TableComponents) {
-    const bodyRow = components && components.body && components.body.row;
-    const preBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
-    if (!this.row || bodyRow !== preBodyRow) {
-      this.row = createBodyRow(bodyRow);
-    }
-    this.components = {
-      ...components,
-      body: {
-        ...components.body,
-        row: this.row,
-      },
-    };
-  }
-
   recursiveSort(data: T[], sorterFn: (a: any, b: any) => number): T[] {
     const { childrenColumnName = 'children' } = this.props;
     return data.sort(sorterFn).map((item: any) =>
@@ -1279,7 +1306,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         expandIcon={this.renderExpandIcon(prefixCls)}
         {...restProps}
         onRow={(record: T, index: number) => this.onRow(prefixCls, record, index)}
-        components={this.components}
+        components={this.state.components}
         prefixCls={prefixCls}
         data={data}
         columns={columns}
