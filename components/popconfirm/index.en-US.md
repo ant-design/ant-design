@@ -17,7 +17,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | cancelText | text of the Cancel button | string | `Cancel` |  |
-| okText | text of the Confirm button | string | `Confirm` |  |
+| okText | text of the Confirm button | string | `OK` |  |
 | okType | Button `type` of the Confirm button | string | `primary` |  |
 | title | title of the confirmation box | string\|ReactNode | - |  |
 | onCancel | callback of cancel | function(e) | - |  |
