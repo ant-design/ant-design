@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { cloneElement } from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
@@ -116,7 +115,7 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
       ...omitted,
       pointerEvents: 'none',
     };
-    const child = cloneElement(element, {
+    const child = React.cloneElement(element, {
       style: buttonStyle,
       className: null,
     });
@@ -264,7 +263,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
       >
-        {visible ? cloneElement(child, { className: childCls }) : child}
+        {visible ? React.cloneElement(child, { className: childCls }) : child}
       </RcTooltip>
     );
   };

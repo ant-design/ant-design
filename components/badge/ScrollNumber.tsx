@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { createElement, Component } from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
@@ -48,7 +47,7 @@ export interface ScrollNumberState {
   count?: string | number | null;
 }
 
-class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
+class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState> {
   static defaultProps = {
     count: null,
     onAnimated() {},
@@ -127,7 +126,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
       const position = this.getPositionByNum(num, i);
       const removeTransition =
         this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
-      return createElement(
+      return React.createElement(
         'span',
         {
           className: `${prefixCls}-only`,
@@ -201,7 +200,7 @@ class ScrollNumber extends Component<ScrollNumberProps, ScrollNumberState> {
         ),
       });
     }
-    return createElement(component as any, newProps, this.renderNumberElement(prefixCls));
+    return React.createElement(component as any, newProps, this.renderNumberElement(prefixCls));
   };
 
   render() {
