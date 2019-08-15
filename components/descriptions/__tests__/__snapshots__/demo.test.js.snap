@@ -579,6 +579,123 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
       </table>
     </div>
   </div>
+  <br />
+  <br />
+  <div
+    class="ant-descriptions"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      Custom Size
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Product
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Cloud Database
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Billing
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                Prepaid
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                time
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                18:00:00
+              </span>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Amount
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $80.00
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Discount
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $20.00
+              </span>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <span
+                class="ant-descriptions-item-label ant-descriptions-item-colon"
+              >
+                Official
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                $60.00
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
 `;
 
