@@ -17,6 +17,7 @@ interface ResizeObserverState {
 
 class ReactResizeObserver extends React.Component<ResizeObserverProps, ResizeObserverState> {
   resizeObserver: ResizeObserver | null = null;
+
   state = {
     width: 0,
     height: 0,
