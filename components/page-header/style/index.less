@@ -18,11 +18,11 @@
   }
 
   &-back {
-    line-height: 1;
-    font-size: 20px;
+    float: left;
     margin: 6px 0;
     margin-right: 16px;
-    float: left;
+    font-size: 20px;
+    line-height: 1;
     &-button {
       .operation-unit();
       color: #000;
@@ -46,8 +46,8 @@
     &-title {
       display: block;
       float: left;
-      padding-right: 12px;
       margin-bottom: 0;
+      padding-right: 12px;
       color: @heading-color;
       font-weight: 600;
       font-size: @heading-3-size;
@@ -85,16 +85,16 @@
   }
 
   &-content {
+    display: flex;
     padding-top: 16px;
     overflow: hidden;
-    display: flex;
     &-main {
       float: left;
     }
 
     &-extra {
-      margin-left: 80px;
       float: right;
+      margin-left: 80px;
       text-align: right;
     }
   }
@@ -105,8 +105,8 @@
       margin-bottom: 1px;
       border-bottom: 0;
       .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-        font-size: 16px;
         padding: 8px;
+        font-size: 16px;
       }
     }
   }
@@ -114,11 +114,11 @@
   @media (max-width: @screen-sm) {
     &-heading {
       &-extra {
+        display: block;
         float: unset;
         width: 100%;
-        display: block;
-        overflow: hidden;
         padding-top: 12px;
+        overflow: hidden;
       }
     }
     &-content {
@@ -129,8 +129,8 @@
       }
 
       &-extra {
-        margin-left: 0px;
         width: 100%;
+        margin-left: 0;
         text-align: left;
       }
     }
