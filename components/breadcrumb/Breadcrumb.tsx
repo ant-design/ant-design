@@ -52,12 +52,9 @@ function filterFragment(children: any) {
   const crumbs: any = [];
   const filter = (list = children) => {
     React.Children.forEach(list, element => {
-      if (
-        element &&
-        typeof element.type === 'symbol' &&
-        element.type.description === 'react.fragment'
-      ) {
-        filter(element.props.children);
+      if (React.isValidElement(element) && element.type === React.Fragment) {
+        const props: any = element.props;
+        filter(props.children);
         return;
       }
       crumbs.push(element);
