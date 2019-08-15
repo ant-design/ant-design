@@ -14,9 +14,50 @@ title:
 Show all props.
 
 ```jsx
-import { PageHeader, Icon, Button, Tag, Typography } from 'antd';
+import { PageHeader, Menu, Dropdown, Icon, Button, Tag, Typography } from 'antd';
 
 const { Paragraph } = Typography;
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        1st menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        2nd menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        3rd menu item
+      </a>
+    </Menu.Item>
+  </Menu>
+);
+
+const DropdownMenu = () => {
+  return (
+    <Dropdown key="more" overlay={menu}>
+      <Button
+        style={{
+          border: 'none',
+          padding: 0,
+        }}
+      >
+        <Icon
+          type="ellipsis"
+          style={{
+            fontSize: 20,
+            verticalAlign: 'top',
+          }}
+        />
+      </Button>
+    </Dropdown>
+  );
+};
 
 const routes = [
   {
@@ -92,9 +133,7 @@ ReactDOM.render(
       <Button key="1" type="primary">
         Primary
       </Button>,
-      <Button type="link" key="more">
-        <Icon type="ellipsis" />
-      </Button>,
+      <DropdownMenu key="more" />,
     ]}
     avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
     extraContent={

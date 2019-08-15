@@ -15,7 +15,7 @@ title:
 Under different screen sizes, there should be different performance
 
 ```jsx
-import { PageHeader, Tabs, Divider, Button, Statistic, Descriptions } from 'antd';
+import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'antd';
 
 const { TabPane } = Tabs;
 
