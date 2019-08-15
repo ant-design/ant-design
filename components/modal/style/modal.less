@@ -1,6 +1,6 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@modal-footer-padding-vertical: 10px;
+@modal-footer-padding-vertical: 8px;
 @modal-footer-padding-horizontal: 16px;
 
 .@{dialog-prefix-cls} {
@@ -45,7 +45,7 @@
   &-close {
     position: absolute;
     top: 30px;
-    right: 37px;
+    right: @modal-right-left-padding;
     z-index: @zindex-popup-close;
     padding: 0;
     color: @text-color-secondary;
@@ -75,7 +75,7 @@
   }
 
   &-header {
-    padding: 24px 32px;
+    padding: @modal-body-padding @modal-right-left-padding;
     color: @text-color;
     background: @modal-header-bg;
     border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -83,14 +83,14 @@
   }
 
   &-body {
-    padding: @modal-body-padding;
+    padding: @modal-body-padding @modal-right-left-padding;
     font-size: @font-size-base;
     line-height: @line-height-base;
     word-wrap: break-word;
   }
 
   &-footer {
-    padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
+    padding: @modal-right-left-padding;
     text-align: right;
     background: @modal-footer-bg;
     border-top: @border-width-base @border-style-base @border-color-split;
