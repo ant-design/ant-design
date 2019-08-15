@@ -153,7 +153,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
         return React.cloneElement(element, {
           separator,
-          key: index,
+          key: index, // eslint-disable-line react/no-array-index-key
         });
       });
     }
