@@ -62,6 +62,7 @@ More layouts with navigation: [layout](/components/layout).
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
+| popupClassName | sub menu class name | string |  | 3.21.5 |
 | children | sub menus or sub menu items | Array&lt;MenuItem\|SubMenu> |  |  |
 | disabled | whether sub menu is disabled or not | boolean | false |  |
 | key | unique id of the sub menu | string |  |  |
