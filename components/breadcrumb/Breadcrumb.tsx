@@ -1,4 +1,5 @@
-import React, { cloneElement } from 'react';
+import * as React from 'react';
+import { cloneElement } from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import BreadcrumbItem from './BreadcrumbItem';

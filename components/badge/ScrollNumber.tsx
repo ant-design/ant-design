@@ -1,4 +1,5 @@
-import React, { createElement, Component } from 'react';
+import * as React from 'react';
+import { createElement, Component } from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
