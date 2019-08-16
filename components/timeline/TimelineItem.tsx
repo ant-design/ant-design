@@ -43,9 +43,6 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
         [`${prefixCls}-item-head-${color}`]: true,
       });
 
-      const labelEle =
-        label.length > 0 ? <div className={`${prefixCls}-item-label`}>{label}</div> : null;
-
       return (
         <li {...omit(restProps, ['position'])} className={itemClassName}>
           <div className={`${prefixCls}-item-tail`} />
@@ -55,7 +52,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
           >
             {dot}
           </div>
-          {labelEle}
+          {!!label && <div className={`${prefixCls}-item-label`}>{label}</div>}
           <div className={`${prefixCls}-item-content`}>{children}</div>
         </li>
       );
@@ -65,7 +62,6 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
 
 TimelineItem.defaultProps = {
   color: 'blue',
-  label: '',
   pending: false,
   position: '',
 };
