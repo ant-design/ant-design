@@ -29,8 +29,8 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
     }
     if (time < duration) {
       raf(frameFunc);
-    } else {
-      if (typeof callback === 'function') callback();
+    } else if (typeof callback === 'function') {
+      callback();
     }
   };
   raf(frameFunc);
