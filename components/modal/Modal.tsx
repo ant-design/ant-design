@@ -76,6 +76,7 @@ export interface ModalProps {
   keyboard?: boolean;
   wrapProps?: any;
   prefixCls?: string;
+  closeIcon?: React.ReactNode;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -164,6 +165,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     footer: PropTypes.node,
     title: PropTypes.node,
     closable: PropTypes.bool,
+    closeIcon: PropTypes.node,
   };
 
   handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -210,6 +212,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
       wrapClassName,
       centered,
       getContainer,
+      closeIcon,
       ...restProps
     } = this.props;
 
@@ -220,7 +223,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
       </LocaleReceiver>
     );
 
-    const closeIcon = (
+    const closeIconToRender = closeIcon || (
       <span className={`${prefixCls}-close-x`}>
         <Icon className={`${prefixCls}-close-icon`} type="close" />
       </span>
@@ -236,7 +239,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
         visible={visible}
         mousePosition={mousePosition}
         onClose={this.handleCancel}
-        closeIcon={closeIcon}
+        closeIcon={closeIconToRender}
       />
     );
   };
