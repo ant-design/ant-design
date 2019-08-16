@@ -1,6 +1,7 @@
 import React, { cloneElement } from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import toArray from 'rc-util/lib/Children/toArray';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
@@ -49,19 +50,13 @@ function defaultItemRender(route: Route, params: any, routes: Route[], paths: st
 
 // filter React.Fragment tags
 function filterFragment(children: any) {
-  const crumbs: any = [];
-  const filter = (list = children) => {
-    React.Children.forEach(list, element => {
-      if (React.isValidElement(element) && element.type === React.Fragment) {
-        const props: any = element.props;
-        filter(props.children);
-        return;
-      }
-      crumbs.push(element);
-    });
-  };
-  filter();
-  return crumbs;
+  return React.Children.map(children, element => {
+    if (React.isValidElement(element) && element.type === React.Fragment) {
+      const props: any = element.props;
+      return toArray(props.children);
+    }
+    return element;
+  });
 }
 
 export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
