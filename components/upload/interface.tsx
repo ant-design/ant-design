@@ -56,6 +56,7 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (file: UploadFile) => string | Blob | File | PromiseLike<string | Blob | File>;
 
 export interface UploadProps {
+  children?: React.ReactNode;
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile>;
