@@ -100,8 +100,8 @@ When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re
 
 ```jsx
 <Form.Item shouldUpdate>
-  {() => {
-    return <pre>{JSON.stringify(form.getFieldsValue(), null, 2)}</pre>;
+  {({ getFieldsValue }) => {
+    return <pre>{JSON.stringify(getFieldsValue(), null, 2)}</pre>;
   }}
 </Form.Item>
 ```
