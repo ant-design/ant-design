@@ -198,9 +198,13 @@ exports[`Modal support closeIcon 1`] = `
           class="ant-modal-close"
           type="button"
         >
-          <a>
-            closeIcon
-          </a>
+          <span
+            class="ant-modal-close-x"
+          >
+            <a>
+              closeIcon
+            </a>
+          </span>
         </button>
         <div
           class="ant-modal-body"
