@@ -48,6 +48,7 @@ title: Mentions
 | onSearch | 搜索时触发 | (text: string, prefix: string) => void | - | 3.19.0 |
 | onFocus | 获得焦点时触发 | () => void | - | 3.19.0 |
 | onBlur | 失去焦点时触发 | () => void | - | 3.19.0 |
+| getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - | 3.22.0 |
 
 ### Mention 方法
 

@@ -31,3 +31,5 @@ cols: 1
 | ----- | ------------ | --------- | ------ | ------ |
 | label | 内容的描述   | ReactNode | -      | 3.19.0 |
 | span  | 包含列的数量 | number    | 1      | 3.19.0 |
+
+> span Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。

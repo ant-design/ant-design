@@ -59,6 +59,16 @@ class Demo extends React.Component {
             Region: East China 1<br />
           </Descriptions.Item>
         </Descriptions>
+        <br />
+        <br />
+        <Descriptions title="Custom Size" border size={this.state.size}>
+          <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+          <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+          <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+          <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+          <Descriptions.Item label="Discount">$20.00</Descriptions.Item>
+          <Descriptions.Item label="Official">$60.00</Descriptions.Item>
+        </Descriptions>
       </div>
     );
   }
