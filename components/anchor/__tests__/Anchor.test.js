@@ -1,12 +1,29 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
+import { spyElementPrototypes } from '../../__tests__/util/domHook';
+import { sleep } from '../../../tests/utils';
 
 const { Link } = Anchor;
 
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
-
 describe('Anchor Render', () => {
+  const getBoundingClientRectMock = jest.fn(() => ({
+    width: 100,
+    height: 100,
+    top: 1000,
+  }));
+  const getClientRectsMock = jest.fn(() => ({
+    length: 1,
+  }));
+  const headingSpy = spyElementPrototypes(HTMLHeadingElement, {
+    getBoundingClientRect: getBoundingClientRectMock,
+    getClientRects: getClientRectsMock,
+  });
+
+  afterAll(() => {
+    headingSpy.mockRestore();
+  });
+
   it('Anchor render perfectly', () => {
     const wrapper = mount(
       <Anchor>
@@ -64,7 +81,7 @@ describe('Anchor Render', () => {
     wrapper.instance().handleScrollTo('##API');
     expect(wrapper.instance().state.activeLink).toBe('##API');
     expect(scrollToSpy).not.toHaveBeenCalled();
-    await delay(1000);
+    await sleep(1000);
     expect(scrollToSpy).toHaveBeenCalled();
   });
 
@@ -154,7 +171,7 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
-    await delay(1000);
+    await sleep(1000);
     wrapper.setProps({ getContainer: getContainerB });
     expect(removeListenerSpy).not.toHaveBeenCalled();
   });
@@ -187,7 +204,7 @@ describe('Anchor Render', () => {
     );
     const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
-    await delay(1000);
+    await sleep(1000);
     wrapper.setProps({ getContainer: getContainerB });
     expect(removeListenerSpy).toHaveBeenCalled();
   });
@@ -239,7 +256,7 @@ describe('Anchor Render', () => {
     );
     const removeListenerSpy = jest.spyOn(wrapper.instance().scrollEvent, 'remove');
     expect(removeListenerSpy).not.toHaveBeenCalled();
-    await delay(1000);
+    await sleep(1000);
     holdContainer.container = document.getElementById('API2');
     wrapper.setProps({ 'data-only-trigger-re-render': true });
     expect(removeListenerSpy).toHaveBeenCalled();
@@ -254,5 +271,52 @@ describe('Anchor Render', () => {
       </Anchor>,
     );
     expect(wrapper.instance().state.activeLink).toBe('#API2');
+  });
+
+  it('Anchor targetOffset prop', async () => {
+    jest.useFakeTimers();
+
+    let dateNowMock;
+
+    function dataNowMockFn() {
+      return jest
+        .spyOn(Date, 'now')
+        .mockImplementationOnce(() => 0)
+        .mockImplementationOnce(() => 1000);
+    }
+
+    dateNowMock = dataNowMockFn();
+
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    let root = document.getElementById('root');
+    if (!root) {
+      root = document.createElement('div', { id: 'root' });
+      root.id = 'root';
+      document.body.appendChild(root);
+    }
+    mount(<h1 id="API">Hello</h1>, { attachTo: root });
+    const wrapper = mount(
+      <Anchor>
+        <Link href="#API" title="API" />
+      </Anchor>,
+    );
+    wrapper.instance().handleScrollTo('#API');
+    jest.runAllTimers();
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ offsetTop: 100 });
+    wrapper.instance().handleScrollTo('#API');
+    jest.runAllTimers();
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
+    dateNowMock = dataNowMockFn();
+
+    wrapper.setProps({ targetOffset: 200 });
+    wrapper.instance().handleScrollTo('#API');
+    jest.runAllTimers();
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
+
+    dateNowMock.mockRestore();
+    jest.useRealTimers();
   });
 });

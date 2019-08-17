@@ -3,20 +3,9 @@ import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import raf from 'raf';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getScroll from '../_util/getScroll';
-
-const easeInOutCubic = (t: number, b: number, c: number, d: number) => {
-  const cc = c - b;
-  t /= d / 2;
-  if (t < 1) {
-    return (cc / 2) * t * t * t + b;
-  }
-  return (cc / 2) * ((t -= 2) * t * t + 2) + b;
-};
-
-function noop() {}
+import scrollTo from '../_util/scrollTo';
 
 function getDefaultTarget() {
   return window;
@@ -79,20 +68,13 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   };
 
   scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
-    const scrollTop = this.getCurrentScrollTop();
-    const startTime = Date.now();
-    const frameFunc = () => {
-      const timestamp = Date.now();
-      const time = timestamp - startTime;
-      this.setScrollTop(easeInOutCubic(time, scrollTop, 0, 450));
-      if (time < 450) {
-        raf(frameFunc);
-      } else {
-        this.setScrollTop(0);
-      }
-    };
-    raf(frameFunc);
-    (this.props.onClick || noop)(e);
+    const { target = getDefaultTarget } = this.props;
+    scrollTo(0, {
+      getContainer: target,
+    });
+    if (typeof this.props.onClick === 'function') {
+      this.props.onClick(e);
+    }
   };
 
   handleScroll = () => {
