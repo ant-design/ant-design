@@ -223,9 +223,9 @@ export default class Modal extends React.Component<ModalProps, {}> {
       </LocaleReceiver>
     );
 
-    const closeIconToRender = closeIcon || (
+    const closeIconToRender = (
       <span className={`${prefixCls}-close-x`}>
-        <Icon className={`${prefixCls}-close-icon`} type="close" />
+        {closeIcon || <Icon className={`${prefixCls}-close-icon`} type="close" />}
       </span>
     );
 
