@@ -727,468 +727,459 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
 exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
 <div>
   <div
-    style="border:1px solid rgb(235, 237, 240);margin-bottom:24px"
+    class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
+    style="margin-bottom:60px;border-bottom:1px solid rgb(235, 237, 240)"
   >
     <div
-      class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
     >
       <div
-        class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            <i
+              aria-label="icon: check"
+              class="anticon anticon-check ant-steps-finish-icon"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="check"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
+            Step 1
+            <div
+              class="ant-steps-item-subtitle"
+              title="00:00:05"
             >
-              <i
-                aria-label="icon: check"
-                class="anticon anticon-check ant-steps-finish-icon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="check"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                  />
-                </svg>
-              </i>
-            </span>
+              00:00:05
+            </div>
           </div>
           <div
-            class="ant-steps-item-content"
+            class="ant-steps-item-description"
           >
-            <div
-              class="ant-steps-item-title"
-            >
-              Step 1
-              <div
-                class="ant-steps-item-subtitle"
-                title="00:00:05"
-              >
-                00:00:05
-              </div>
-            </div>
-            <div
-              class="ant-steps-item-description"
-            >
-              This is a description.
-            </div>
+            This is a description.
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-process"
+    >
       <div
-        class="ant-steps-item ant-steps-item-process"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
+            Step 2
+            <div
+              class="ant-steps-item-subtitle"
+              title="00:01:02"
             >
-              2
-            </span>
+              00:01:02
+            </div>
           </div>
           <div
-            class="ant-steps-item-content"
+            class="ant-steps-item-description"
           >
-            <div
-              class="ant-steps-item-title"
-            >
-              Step 2
-              <div
-                class="ant-steps-item-subtitle"
-                title="00:01:02"
-              >
-                00:01:02
-              </div>
-            </div>
-            <div
-              class="ant-steps-item-description"
-            >
-              This is a description.
-            </div>
+            This is a description.
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+    >
       <div
-        class="ant-steps-item ant-steps-item-wait"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
+            Step 3
+            <div
+              class="ant-steps-item-subtitle"
+              title="waiting for longlong time"
             >
-              3
-            </span>
+              waiting for longlong time
+            </div>
           </div>
           <div
-            class="ant-steps-item-content"
+            class="ant-steps-item-description"
           >
-            <div
-              class="ant-steps-item-title"
-            >
-              Step 3
-              <div
-                class="ant-steps-item-subtitle"
-                title="waiting for longlong time"
-              >
-                waiting for longlong time
-              </div>
-            </div>
-            <div
-              class="ant-steps-item-description"
-            >
-              This is a description.
-            </div>
+            This is a description.
           </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    style="border:1px solid rgb(235, 237, 240);margin-bottom:24px"
+    class="ant-steps ant-steps-horizontal ant-steps-label-horizontal ant-steps-navigation"
+    style="margin-bottom:60px;border-bottom:1px solid rgb(235, 237, 240)"
   >
     <div
-      class="ant-steps ant-steps-horizontal ant-steps-label-horizontal ant-steps-navigation"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
     >
       <div
-        class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
         >
-          <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+          <span
+            class="ant-steps-icon"
           >
-            <span
-              class="ant-steps-icon"
+            <i
+              aria-label="icon: check"
+              class="anticon anticon-check ant-steps-finish-icon"
             >
-              <i
-                aria-label="icon: check"
-                class="anticon anticon-check ant-steps-finish-icon"
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="check"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="check"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                  />
-                </svg>
-              </i>
-            </span>
-          </div>
+                <path
+                  d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
           <div
-            class="ant-steps-item-content"
+            class="ant-steps-item-title"
           >
-            <div
-              class="ant-steps-item-title"
-            >
-              Step 1
-            </div>
+            Step 1
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-process"
+    >
       <div
-        class="ant-steps-item ant-steps-item-process"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
-            >
-              2
-            </span>
-          </div>
-          <div
-            class="ant-steps-item-content"
-          >
-            <div
-              class="ant-steps-item-title"
-            >
-              Step 2
-            </div>
+            Step 2
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+    >
       <div
-        class="ant-steps-item ant-steps-item-wait"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
-            >
-              3
-            </span>
-          </div>
-          <div
-            class="ant-steps-item-content"
-          >
-            <div
-              class="ant-steps-item-title"
-            >
-              Step 3
-            </div>
+            Step 3
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+    >
       <div
-        class="ant-steps-item ant-steps-item-wait"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            4
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
-            >
-              4
-            </span>
-          </div>
-          <div
-            class="ant-steps-item-content"
-          >
-            <div
-              class="ant-steps-item-title"
-            >
-              Step 4
-            </div>
+            Step 4
           </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    style="border:1px solid rgb(235, 237, 240);margin-bottom:24px"
+    class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
+    style="margin-bottom:60px;border-bottom:1px solid rgb(235, 237, 240)"
   >
     <div
-      class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
     >
       <div
-        class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
         >
-          <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+          <span
+            class="ant-steps-icon"
           >
-            <span
-              class="ant-steps-icon"
+            <i
+              aria-label="icon: check"
+              class="anticon anticon-check ant-steps-finish-icon"
             >
-              <i
-                aria-label="icon: check"
-                class="anticon anticon-check ant-steps-finish-icon"
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="check"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="check"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                  />
-                </svg>
-              </i>
-            </span>
-          </div>
+                <path
+                  d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
           <div
-            class="ant-steps-item-content"
+            class="ant-steps-item-title"
           >
-            <div
-              class="ant-steps-item-title"
-            >
-              finish 1
-            </div>
+            finish 1
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-finish"
+    >
       <div
-        class="ant-steps-item ant-steps-item-finish"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
         >
-          <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+          <span
+            class="ant-steps-icon"
           >
-            <span
-              class="ant-steps-icon"
+            <i
+              aria-label="icon: check"
+              class="anticon anticon-check ant-steps-finish-icon"
             >
-              <i
-                aria-label="icon: check"
-                class="anticon anticon-check ant-steps-finish-icon"
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="check"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="check"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                  />
-                </svg>
-              </i>
-            </span>
-          </div>
+                <path
+                  d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+                />
+              </svg>
+            </i>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
           <div
-            class="ant-steps-item-content"
+            class="ant-steps-item-title"
           >
-            <div
-              class="ant-steps-item-title"
-            >
-              finish 2
-            </div>
+            finish 2
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-process"
+    >
       <div
-        class="ant-steps-item ant-steps-item-process"
+        class="ant-steps-item-container"
+        role="button"
+        tabindex="0"
       >
         <div
-          class="ant-steps-item-container"
-          role="button"
-          tabindex="0"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            3
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
-            >
-              3
-            </span>
-          </div>
-          <div
-            class="ant-steps-item-content"
-          >
-            <div
-              class="ant-steps-item-title"
-            >
-              current process
-            </div>
+            current process
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait ant-steps-item-disabled"
+    >
       <div
-        class="ant-steps-item ant-steps-item-wait ant-steps-item-disabled"
+        class="ant-steps-item-container"
       >
         <div
-          class="ant-steps-item-container"
+          class="ant-steps-item-tail"
+        />
+        <div
+          class="ant-steps-item-icon"
+        >
+          <span
+            class="ant-steps-icon"
+          >
+            4
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-content"
         >
           <div
-            class="ant-steps-item-tail"
-          />
-          <div
-            class="ant-steps-item-icon"
+            class="ant-steps-item-title"
           >
-            <span
-              class="ant-steps-icon"
-            >
-              4
-            </span>
-          </div>
-          <div
-            class="ant-steps-item-content"
-          >
-            <div
-              class="ant-steps-item-title"
-            >
-              wait
-            </div>
+            wait
           </div>
         </div>
       </div>
