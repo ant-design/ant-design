@@ -101,13 +101,13 @@ class Page extends React.Component {
 }
 
 class App extends React.Component {
+  state = {
+    direction: 'ltr',
+    popupPlacement: 'bottomLeft',
+  };
   constructor() {
     super();
-    state = {
-      direction: 'ltr',
-      popupPlacement: 'bottomLeft',
-    };
-
+  }
   changeDirection = e => {
     const directionValue = e.target.value;
     this.setState({ direction: directionValue });
