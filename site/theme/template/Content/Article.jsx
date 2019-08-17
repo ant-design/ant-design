@@ -64,11 +64,7 @@ class Article extends React.Component {
   }
 
   render() {
-    const {
-      content,
-      intl: { locale },
-      utils,
-    } = this.props;
+    const { content, intl: { locale }, utils } = this.props;
     const { meta, description } = content;
     const { title, subtitle, filename } = meta;
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
