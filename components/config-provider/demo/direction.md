@@ -109,7 +109,10 @@ class App extends React.Component {
       direction: 'ltr',
       popupPlacement: 'bottomLeft',
     };
-  }
+state = {
+  direction: 'ltr',
+  popupPlacement: 'bottomLeft',
+};
 
   changeDirection = e => {
     const directionValue = e.target.value;
