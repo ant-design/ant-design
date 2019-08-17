@@ -57,4 +57,9 @@ describe('Modal', () => {
     wrapper.handleOk();
     expect(onOk).toHaveBeenCalled();
   });
+
+  it('support closeIcon', () => {
+    const wrapper = mount(<Modal closeIcon={<a>closeIcon</a>} visible />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

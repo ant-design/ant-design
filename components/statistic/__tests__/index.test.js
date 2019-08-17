@@ -4,8 +4,7 @@ import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { sleep } from '../../../tests/utils';
 
 describe('Statistic', () => {
   beforeAll(() => {
@@ -70,7 +69,7 @@ describe('Statistic', () => {
       const instance = wrapper.instance();
       expect(instance.countdownId).not.toBe(undefined);
 
-      await delay(10);
+      await sleep(10);
 
       wrapper.unmount();
       expect(instance.countdownId).toBe(undefined);
