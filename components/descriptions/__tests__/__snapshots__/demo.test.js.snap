@@ -175,7 +175,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
           </th>
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="3"
           >
             2019-04-24 18:00:00
           </td>
