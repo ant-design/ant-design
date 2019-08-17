@@ -98,16 +98,8 @@ class Demo extends React.Component {
 
   render() {
     const {
-      meta,
-      src,
-      content,
-      preview,
-      highlightedCode,
-      style,
-      highlightedStyle,
-      expand,
-      utils,
-      intl: { locale },
+      meta, src, content, preview, highlightedCode, style,
+      highlightedStyle, expand, utils, intl: { locale },
     } = this.props;
     const { copied, copyTooltipVisible } = this.state;
     if (!this.liveDemo) {
