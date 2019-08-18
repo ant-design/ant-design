@@ -230,8 +230,8 @@ jobs:
     <<: *container_config
     steps:
       - checkout
-          - *attach_workspace
-          - run: node ./scripts/check-demo.js
+      - *attach_workspace
+      - run: node ./scripts/check-demo.js
 
 workflows:
   version: 2
