@@ -66,6 +66,9 @@ references:
       - test_node_15:
           requires:
             - setup
+      - check_metadata:
+          requires:
+            - setup
 
 jobs:
   setup:
@@ -222,6 +225,13 @@ jobs:
       - *attach_workspace
       - *install_react
       - run: npm run test-node -- -w 1 -u
+
+  check_metadata:
+    <<: *container_config
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: node ./scripts/check-demo.js
 
 workflows:
   version: 2
