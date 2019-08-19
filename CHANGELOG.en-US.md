@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 3.21.4
+
+`2019-08-09`
+
+- 🐞 Fix the problem that Dropdown.Button requires `title` props.
+
+## 3.21.3
+
+`2019-08-09`
+
+- Timeline
+  - 🐞 Fix the problem that `content` content does not wrap when it is too long. [#18092](https://github.com/ant-design/ant-design/pull/18092) [@xrkffgg](https://github.com/xrkffgg)
+  - 🐞 Fixed inconsistency in styles in `alternate` and `right` modes and width overflow of `content`. [#18093](https://github.com/ant-design/ant-design/pull/18093) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 Fix Tabs content with margin collapse with navigation. [#18112](https://github.com/ant-design/ant-design/pull/18112)
+- 🐞 Fix Textarea `autosize` shows scrollbar after resize. [#18114](https://github.com/ant-design/ant-design/pull/18114)
+- 🐞 Fix Tooltip not work correctly on `disabled` Checkbox. [#18138](https://github.com/ant-design/ant-design/pull/18138)
+- 🐞 Fix a Button line-height align issue. [#18139](https://github.com/ant-design/ant-design/pull/18139)
+- 🐞 Fix missing `blur` and `focus` methods on Mentions. [#18132](https://github.com/ant-design/ant-design/pull/18132) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix missing `title` on Button. [#18130](https://github.com/ant-design/ant-design/pull/18130) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Upload throw File not defined in IE9. [#18115](https://github.com/ant-design/ant-design/pull/18115)
+- 🐞 Fix Input clear icon not align correctly. [#18151](https://github.com/ant-design/ant-design/pull/18151)
+- 🐞 Fix Card broken style when using Button as `actions`. [#18179](https://github.com/ant-design/ant-design/pull/18179)
+- 🐞 Fix the problem that Modal.confirm can't set `getContainer`. [#18182](https://github.com/ant-design/ant-design/pull/18182)
+- ⌨️ Improve Divider accessibility by adding role="separator". [#18116](https://github.com/ant-design/ant-design/pull/18116)
+
 ## 3.21.2
 
 `2019-08-06`
@@ -960,7 +985,6 @@ timeline: true
 - 🐞 Fixed Table `Cannot read property 'children' of undefined` error when customize `column.title` as ReactNode. [#13542](https://github.com/ant-design/ant-design/issues/13542) [@geraldchen890806](https://github.com/geraldchen890806)
 - 🐞 Fixed another border problem of Button when customized less variable `@border-width-base`. [#13534](https://github.com/ant-design/ant-design/issues/13534) [@morenyang](https://github.com/morenyang)
 - 🐞 Fixed Upload don't support resolve `Blob` object when `beforeUpload` returns a Promise. [#13528](https://github.com/ant-design/ant-design/pull/13528/) [@huanz](https://github.com/huanz)
-- https://github.com/ant-design/ant-design/pull/13536
 - 🐞 Fixed two props of Dropdown TypeScript definitions. [#13536](https://github.com/ant-design/ant-design/pull/13536) [@wangxingkang](https://github.com/wangxingkang)
 
 ## 3.11.1

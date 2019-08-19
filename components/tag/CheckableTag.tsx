@@ -5,6 +5,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface CheckableTagProps {
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
   checked: boolean;
   onChange?: (checked: boolean) => void;
 }

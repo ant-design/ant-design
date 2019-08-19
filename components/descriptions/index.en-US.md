@@ -30,3 +30,5 @@ Commonly displayed on the details page.
 | -------- | ------------------------------ | --------- | ------- | ------- |
 | label    | description of the content     | ReactNode | -       | 3.19.0  |
 | span     | The number of columns included | number    | 1       | 3.19.0  |
+
+> The number of span Description.Item. Span={2} takes up the width of two DescriptionItems.

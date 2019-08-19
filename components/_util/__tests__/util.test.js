@@ -9,6 +9,8 @@ import triggerEvent from '../triggerEvent';
 import Wave from '../wave';
 import TransButton from '../transButton';
 import openAnimation from '../openAnimation';
+import ResizeObserver from '../resizeObserver';
+import { spyElementPrototype } from '../../__tests__/util/domHook';
 
 describe('Test utils function', () => {
   beforeAll(() => {
@@ -143,7 +145,9 @@ describe('Test utils function', () => {
     it('bindAnimationEvent should return when node is null', () => {
       const wrapper = mount(
         <Wave>
-          <button type="button" disabled />
+          <button type="button" disabled>
+            button
+          </button>
         </Wave>,
       ).instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
@@ -152,7 +156,9 @@ describe('Test utils function', () => {
     it('bindAnimationEvent.onClick should return when children is hidden', () => {
       const wrapper = mount(
         <Wave>
-          <button type="button" style={{ display: 'none' }} />
+          <button type="button" style={{ display: 'none' }}>
+            button
+          </button>
         </Wave>,
       ).instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
@@ -218,6 +224,49 @@ describe('Test utils function', () => {
       expect(typeof enter.stop).toBe('function');
       expect(typeof leave.stop).toBe('function');
       expect(done).toHaveBeenCalled();
+    });
+  });
+
+  describe('ResizeObserver', () => {
+    let domMock;
+
+    beforeAll(() => {
+      domMock = spyElementPrototype(HTMLDivElement, 'getBoundingClientRect', () => {
+        return {
+          width: 1128 + Math.random(),
+          height: 903 + Math.random(),
+        };
+      });
+    });
+
+    afterAll(() => {
+      domMock.mockRestore();
+    });
+
+    it('should not trigger `onResize` if size shaking', () => {
+      const onResize = jest.fn();
+      let divNode;
+
+      const wrapper = mount(
+        <ResizeObserver onResize={onResize}>
+          <div
+            ref={node => {
+              divNode = node;
+            }}
+          />
+        </ResizeObserver>,
+      );
+
+      // First trigger
+      wrapper.instance().onResize([{ target: divNode }]);
+      onResize.mockReset();
+
+      // Repeat trigger should not trigger outer `onResize` with shaking
+      for (let i = 0; i < 10; i += 1) {
+        wrapper.instance().onResize([{ target: divNode }]);
+      }
+
+      expect(onResize).not.toHaveBeenCalled();
     });
   });
 });

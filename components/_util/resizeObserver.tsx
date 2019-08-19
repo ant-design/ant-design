@@ -10,8 +10,18 @@ interface ResizeObserverProps {
   onResize?: () => void;
 }
 
-class ReactResizeObserver extends React.Component<ResizeObserverProps, {}> {
+interface ResizeObserverState {
+  height: number;
+  width: number;
+}
+
+class ReactResizeObserver extends React.Component<ResizeObserverProps, ResizeObserverState> {
   resizeObserver: ResizeObserver | null = null;
+
+  state = {
+    width: 0,
+    height: 0,
+  };
 
   componentDidMount() {
     this.onComponentUpdated();
@@ -38,10 +48,30 @@ class ReactResizeObserver extends React.Component<ResizeObserverProps, {}> {
     }
   }
 
-  onResize = () => {
+  onResize: ResizeObserverCallback = (entries: ResizeObserverEntry[]) => {
     const { onResize } = this.props;
-    if (onResize) {
-      onResize();
+
+    const { target } = entries[0];
+
+    const { width, height } = target.getBoundingClientRect();
+
+    /**
+     * Resize observer trigger when content size changed.
+     * In most case we just care about element size,
+     * let's use `boundary` instead of `contentRect` here to avoid shaking.
+     */
+    const fixedWidth = Math.floor(width);
+    const fixedHeight = Math.floor(height);
+
+    if (this.state.width !== fixedWidth || this.state.height !== fixedHeight) {
+      this.setState({
+        width: fixedWidth,
+        height: fixedHeight,
+      });
+
+      if (onResize) {
+        onResize();
+      }
     }
   };
 

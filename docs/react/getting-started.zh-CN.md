@@ -70,8 +70,8 @@ ReactDOM.render(<App />, document.getElementById('root'));
 然后依照演示代码的写法，在之前的 codesandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
 
 ```diff
-- import { LocaleProvider, DatePicker, message } from 'antd';
-+ import { LocaleProvider, DatePicker, message, Alert } from 'antd';
+- import { ConfigProvider, DatePicker, message } from 'antd';
++ import { ConfigProvider, DatePicker, message, Alert } from 'antd';
 ```
 
 然后在 `render` 内添加相应的 jsx 代码：

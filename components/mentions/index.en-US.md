@@ -38,6 +38,7 @@ When need to mention someone or something.
 | onSearch | Trigger when prefix hit | (text: string, prefix: string) => void | - | 3.19.0 |
 | onFocus | Trigger when mentions get focus | () => void | - | 3.19.0 |
 | onBlur | Trigger when mentions lose focus | () => void | - | 3.19.0 |
+| getPopupContainer | Set the mount HTML node for suggestions | () => HTMLElement | - | 3.22.0 |
 
 ### Mention methods
 
