@@ -2,7 +2,7 @@
 order: 11
 title:
   zh-CN: 导航步骤
-  en-US: Navgation Steps
+  en-US: Navigation Steps
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Navgation steps.
+Navigation steps.
 
 ```jsx
 import { Steps } from 'antd';
