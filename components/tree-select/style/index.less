@@ -104,8 +104,9 @@
         &.@{select-tree-prefix-cls}-switcher_open,
         &.@{select-tree-prefix-cls}-switcher_close {
           .@{select-prefix-cls}-switcher-loading-icon {
-            position: absolute;
+            position: fixed;
             left: 0;
+            z-index: 1000;
             display: inline-block;
             width: 24px;
             height: 24px;
