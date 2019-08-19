@@ -107,9 +107,7 @@ class App extends React.Component {
     direction: 'ltr',
     popupPlacement: 'bottomLeft',
   };
-  constructor() {
-    super();
-  }
+
   changeDirection = e => {
     const directionValue = e.target.value;
     this.setState({ direction: directionValue });
