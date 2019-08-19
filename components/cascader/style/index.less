@@ -3,6 +3,7 @@
 @import '../../input/style/mixin';
 
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
+@picker-rtl-cls: ~'@{cascader-prefix-cls}-picker.rtl';
 
 .@{cascader-prefix-cls} {
   .reset-component;
@@ -17,10 +18,12 @@
     // because input.less will compile after cascader.less
     background-color: transparent !important;
     cursor: pointer;
-    [dir='rtl'] &,
-    .rtl & {
+    text-align: left;
+
+    .@{picker-rtl-cls} & {
       padding-right: @input-padding-horizontal-base;
       padding-left: 24px;
+      text-align: right;
     }
   }
 
@@ -59,7 +62,6 @@
     &-show-search&-focused {
       color: @disabled-color;
     }
-
     &-label {
       position: absolute;
       top: 50%;
@@ -72,10 +74,11 @@
       line-height: 20px;
       white-space: nowrap;
       text-overflow: ellipsis;
+      text-align: left;
 
-      [dir='rtl'] &,
-      .rtl & {
+      .@{picker-rtl-cls} & {
         padding: 0 @control-padding-horizontal 0 20px;
+        text-align: right;
       }
     }
 
@@ -97,8 +100,8 @@
       &:hover {
         color: @text-color-secondary;
       }
-      [dir='rtl'] &,
-      .rtl & {
+
+      .@{picker-rtl-cls} & {
         right: auto;
         left: @control-padding-horizontal;
       }
@@ -124,8 +127,8 @@
       &&-expand {
         transform: rotate(180deg);
       }
-      [dir='rtl'] &,
-      .rtl & {
+
+      .@{picker-rtl-cls} & {
         right: auto;
         left: @control-padding-horizontal;
       }
@@ -140,8 +143,8 @@
   &-picker-small &-picker-clear,
   &-picker-small &-picker-arrow {
     right: @control-padding-horizontal-sm;
-    [dir='rtl'] &,
-    .rtl & {
+
+    .@{picker-rtl-cls} & {
       right: auto;
       left: @control-padding-horizontal;
     }
@@ -197,11 +200,6 @@
     border-right: @border-width-base @border-style-base @border-color-split;
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
-    [dir='rtl'] &,
-    .rtl & {
-      border-right: none;
-      border-left: @border-width-base @border-style-base @border-color-split;
-    }
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
@@ -209,16 +207,19 @@
       margin-right: -1px;
       border-right-color: transparent;
       border-radius: 0 @border-radius-base @border-radius-base 0;
-      [dir='rtl'] &,
-      .rtl & {
+    }
+    &:only-child {
+      border-radius: @border-radius-base;
+    }
+    &.rtl {
+      border-right: none;
+      border-left: @border-width-base @border-style-base @border-color-split;
+      &:last-child {
         margin-right: 0;
         margin-left: -1px;
         border-left-color: transparent;
         border-radius: 0 0 4px 4px;
       }
-    }
-    &:only-child {
-      border-radius: @border-radius-base;
     }
   }
   &-menu-item {
@@ -247,7 +248,7 @@
     &-expand {
       position: relative;
       padding-right: 24px;
-      [dir='rtl'] &,
+
       .rtl & {
         padding-right: @control-padding-horizontal;
         padding-left: 24px;
@@ -261,7 +262,7 @@
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;
-      [dir='rtl'] &,
+
       .rtl & {
         right: auto;
         left: @control-padding-horizontal;

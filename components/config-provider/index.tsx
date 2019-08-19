@@ -96,13 +96,11 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     }
 
     return (
-      <div dir={direction}>
-        <ConfigContext.Provider value={config}>
-          <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-            {children}
-          </LocaleProvider>
-        </ConfigContext.Provider>
-      </div>
+      <ConfigContext.Provider value={config}>
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {children}
+        </LocaleProvider>
+      </ConfigContext.Provider>
     );
   };
 

@@ -471,6 +471,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
     });
     const pickerCls = classNames(className, `${prefixCls}-picker`, {
+      [`rtl`]: isRtlLayout,
       [`${prefixCls}-picker-with-value`]: state.inputValue,
       [`${prefixCls}-picker-disabled`]: disabled,
       [`${prefixCls}-picker-${size}`]: !!size,
@@ -580,7 +581,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         <Icon type="redo" spin />
       </span>
     );
-
     const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
     const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
 
