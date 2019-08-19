@@ -8,3 +8,9 @@ components/*/__tests__/type.tsx
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
 typings
+es/**/*
+lib/**/*
+node_modules
+_site
+dist
+**/*.d.ts
