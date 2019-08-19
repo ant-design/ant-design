@@ -1,5 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Breadcrumb filter React.Fragment 1`] = `
+<div
+  class="ant-breadcrumb"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      Location
+    </span>
+  </span>
+  <span
+    class="ant-breadcrumb-separator"
+  >
+    :
+  </span>
+  <span>
+    <a
+      class="ant-breadcrumb-link"
+      href=""
+    >
+      Application Center
+    </a>
+  </span>
+  <span
+    class="ant-breadcrumb-separator"
+  >
+    /
+  </span>
+</div>
+`;
+
 exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 <div
   class="ant-breadcrumb"
