@@ -399,7 +399,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, style, className } = this.props;
+    const { prefixCls: customizePrefixCls, style, className, id } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const children = this.renderChildren(prefixCls);
     const itemClassName = {
@@ -409,7 +409,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     };
 
     return (
-      <Row className={classNames(itemClassName)} style={style} key="row">
+      <Row className={classNames(itemClassName)} id={id} style={style} key="row">
         {children}
       </Row>
     );
