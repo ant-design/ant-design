@@ -29,6 +29,7 @@ export interface InputNumberProps
   name?: string;
   id?: string;
   precision?: number;
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
