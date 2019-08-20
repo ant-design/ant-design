@@ -50,9 +50,12 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     ) : (
       <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
     );
+    const primordialClassName = (icon as any).props.className;
     return React.isValidElement(icon)
       ? React.cloneElement(icon as any, {
-          className: `${prefixCls}-arrow`,
+          className: classNames(`${prefixCls}-arrow`, {
+            [primordialClassName]: primordialClassName,
+          }),
         })
       : icon;
   };
