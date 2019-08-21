@@ -121,6 +121,27 @@ const content = (
   </div>
 );
 
+const Content = ({ children, extraContent }) => {
+  return (
+    <div
+      className="content"
+      style={{
+        display: 'flex',
+      }}
+    >
+      <div className="main">{children}</div>
+      <div
+        className="extra"
+        style={{
+          marginLeft: 80,
+        }}
+      >
+        {extraContent}
+      </div>
+    </div>
+  );
+};
+
 ReactDOM.render(
   <PageHeader
     onBack={() => null}
@@ -136,15 +157,18 @@ ReactDOM.render(
       <DropdownMenu key="more" />,
     ]}
     avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
-    extraContent={
-      <img
-        src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
-        alt="content"
-      />
-    }
     breadcrumb={{ routes }}
   >
-    {content}
+    <Content
+      extraContent={
+        <img
+          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          alt="content"
+        />
+      }
+    >
+      {content}
+    </Content>
   </PageHeader>,
   mountNode,
 );

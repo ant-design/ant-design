@@ -657,65 +657,71 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     class="ant-page-header-content"
   >
     <div
-      class="ant-page-header-content-main"
+      class="content"
+      style="display:flex"
     >
       <div
-        class="content"
+        class="main"
       >
         <div
-          class="ant-typography"
+          class="content"
         >
-          Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
+          <div
+            class="ant-typography"
+          >
+            Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
+          </div>
+          <div
+            class="ant-typography"
+          >
+            Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
+          </div>
+          <p
+            class="contentLink"
+            style="display:flex"
+          >
+            <a
+              style="margin-right:16px;display:flex;align-items:center"
+            >
+              <img
+                alt="start"
+                src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
+                style="margin-right:8px"
+              />
+              Quick Start
+            </a>
+            <a
+              style="margin-right:16px;display:flex;align-items:center"
+            >
+              <img
+                alt="start"
+                src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+                style="margin-right:8px"
+              />
+               Product Info
+            </a>
+            <a
+              style="margin-right:16px;display:flex;align-items:center"
+            >
+              <img
+                alt="start"
+                src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+                style="margin-right:8px"
+              />
+              Product Doc
+            </a>
+          </p>
         </div>
-        <div
-          class="ant-typography"
-        >
-          Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
-        </div>
-        <p
-          class="contentLink"
-          style="display:flex"
-        >
-          <a
-            style="margin-right:16px;display:flex;align-items:center"
-          >
-            <img
-              alt="start"
-              src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
-              style="margin-right:8px"
-            />
-            Quick Start
-          </a>
-          <a
-            style="margin-right:16px;display:flex;align-items:center"
-          >
-            <img
-              alt="start"
-              src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
-              style="margin-right:8px"
-            />
-             Product Info
-          </a>
-          <a
-            style="margin-right:16px;display:flex;align-items:center"
-          >
-            <img
-              alt="start"
-              src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
-              style="margin-right:8px"
-            />
-            Product Doc
-          </a>
-        </p>
       </div>
-    </div>
-    <div
-      class="ant-page-header-content-extra"
-    >
-      <img
-        alt="content"
-        src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
-      />
+      <div
+        class="extra"
+        style="margin-left:80px"
+      >
+        <img
+          alt="content"
+          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+        />
+      </div>
     </div>
   </div>
 </div>
@@ -803,165 +809,169 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
       class="ant-page-header-content"
     >
       <div
-        class="ant-page-header-content-main"
+        class="content"
       >
         <div
-          class="ant-descriptions ant-descriptions-small"
+          class="main"
         >
           <div
-            class="ant-descriptions-view"
+            class="ant-descriptions ant-descriptions-small"
           >
-            <table>
-              <tbody>
-                <tr
-                  class="ant-descriptions-row"
-                >
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
+            <div
+              class="ant-descriptions-view"
+            >
+              <table>
+                <tbody>
+                  <tr
+                    class="ant-descriptions-row"
                   >
-                    <span
-                      class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
                     >
-                      Created
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
+                      <span
+                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                      >
+                        Created
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        Lili Qu
+                      </span>
+                    </td>
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
                     >
-                      Lili Qu
-                    </span>
-                  </td>
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
+                      <span
+                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                      >
+                        Association
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        <a>
+                          421421
+                        </a>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-descriptions-row"
                   >
-                    <span
-                      class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
                     >
-                      Association
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
+                      <span
+                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                      >
+                        Creation Time
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        2017-01-10
+                      </span>
+                    </td>
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
                     >
-                      <a>
-                        421421
-                      </a>
-                    </span>
-                  </td>
-                </tr>
-                <tr
-                  class="ant-descriptions-row"
-                >
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
+                      <span
+                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                      >
+                        Effective Time
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        2017-10-10
+                      </span>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-descriptions-row"
                   >
-                    <span
-                      class="ant-descriptions-item-label ant-descriptions-item-colon"
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="2"
                     >
-                      Creation Time
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      2017-01-10
-                    </span>
-                  </td>
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
-                  >
-                    <span
-                      class="ant-descriptions-item-label ant-descriptions-item-colon"
-                    >
-                      Effective Time
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      2017-10-10
-                    </span>
-                  </td>
-                </tr>
-                <tr
-                  class="ant-descriptions-row"
-                >
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="2"
-                  >
-                    <span
-                      class="ant-descriptions-item-label ant-descriptions-item-colon"
-                    >
-                      Remarks
-                    </span>
-                    <span
-                      class="ant-descriptions-item-content"
-                    >
-                      Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-                    </span>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                      <span
+                        class="ant-descriptions-item-label ant-descriptions-item-colon"
+                      >
+                        Remarks
+                      </span>
+                      <span
+                        class="ant-descriptions-item-content"
+                      >
+                        Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="ant-page-header-content-extra"
-      >
         <div
-          style="display:flex;width:max-content;justify-content:flex-end"
+          class="extra"
         >
           <div
-            class="ant-statistic"
-            style="margin-right:32px"
+            style="display:flex;width:max-content;justify-content:flex-end"
           >
             <div
-              class="ant-statistic-title"
+              class="ant-statistic"
+              style="margin-right:32px"
             >
-              Status
-            </div>
-            <div
-              class="ant-statistic-content"
-            >
-              <span
-                class="ant-statistic-content-value"
+              <div
+                class="ant-statistic-title"
               >
-                Pending
-              </span>
-            </div>
-          </div>
-          <div
-            class="ant-statistic"
-          >
-            <div
-              class="ant-statistic-title"
-            >
-              Price
-            </div>
-            <div
-              class="ant-statistic-content"
-            >
-              <span
-                class="ant-statistic-content-prefix"
-              >
-                $
-              </span>
-              <span
-                class="ant-statistic-content-value"
+                Status
+              </div>
+              <div
+                class="ant-statistic-content"
               >
                 <span
-                  class="ant-statistic-content-value-int"
+                  class="ant-statistic-content-value"
                 >
-                  568
+                  Pending
+                </span>
+              </div>
+            </div>
+            <div
+              class="ant-statistic"
+            >
+              <div
+                class="ant-statistic-title"
+              >
+                Price
+              </div>
+              <div
+                class="ant-statistic-content"
+              >
+                <span
+                  class="ant-statistic-content-prefix"
+                >
+                  $
                 </span>
                 <span
-                  class="ant-statistic-content-value-decimal"
+                  class="ant-statistic-content-value"
                 >
-                  .08
+                  <span
+                    class="ant-statistic-content-value-int"
+                  >
+                    568
+                  </span>
+                  <span
+                    class="ant-statistic-content-value-decimal"
+                  >
+                    .08
+                  </span>
                 </span>
-              </span>
+              </div>
             </div>
           </div>
         </div>

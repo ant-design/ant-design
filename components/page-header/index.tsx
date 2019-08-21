@@ -20,7 +20,6 @@ export interface PageHeaderProps {
   footer?: React.ReactNode;
   extra?: React.ReactNode;
   avatar?: AvatarProps;
-  extraContent?: React.ReactNode;
   onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
 }
@@ -91,19 +90,7 @@ const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
   return null;
 };
 
-const renderChildren = (
-  prefixCls: string,
-  children: React.ReactNode,
-  { extraContent }: PageHeaderProps,
-) => {
-  if (extraContent) {
-    return (
-      <div className={`${prefixCls}-content`}>
-        <div className={`${prefixCls}-content-main`}>{children}</div>
-        <div className={`${prefixCls}-content-extra`}>{extraContent}</div>
-      </div>
-    );
-  }
+const renderChildren = (prefixCls: string, children: React.ReactNode) => {
   return <div className={`${prefixCls}-content`}>{children}</div>;
 };
 
@@ -129,7 +116,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         <div className={className} style={style}>
           {renderHeader(breadcrumb)}
           {renderTitle(prefixCls, props)}
-          {children && renderChildren(prefixCls, children, props)}
+          {children && renderChildren(prefixCls, children)}
           {renderFooter(prefixCls, footer)}
         </div>
       );

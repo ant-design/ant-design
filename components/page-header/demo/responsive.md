@@ -52,6 +52,15 @@ const extraContent = (
   </div>
 );
 
+const Content = ({ children, extra }) => {
+  return (
+    <div className="content">
+      <div className="main">{children}</div>
+      <div className="extra">{extra}</div>
+    </div>
+  );
+};
+
 ReactDOM.render(
   <div>
     <PageHeader
@@ -65,7 +74,6 @@ ReactDOM.render(
           Primary
         </Button>,
       ]}
-      extraContent={extraContent}
       footer={
         <Tabs defaultActiveKey="1">
           <TabPane tab="Details" key="1" />
@@ -73,7 +81,7 @@ ReactDOM.render(
         </Tabs>
       }
     >
-      {renderContent()}
+      <Content extra={extraContent}>{renderContent()}</Content>
     </PageHeader>
   </div>,
   mountNode,
@@ -83,5 +91,24 @@ ReactDOM.render(
 <style>
 tr:last-child td {
   padding-bottom: 0;
+}
+#components-page-header-demo-responsive .content {
+  display: flex;
+}
+@media (max-width: 576px) {
+  #components-page-header-demo-responsive .content {
+    display: block;
+  }
+
+  #components-page-header-demo-responsive .main {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  #components-page-header-demo-responsive .extra {
+    width: 100%;
+    margin-left: 0;
+    text-align: left;
+  }
 }
 </style>
