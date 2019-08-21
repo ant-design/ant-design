@@ -63,7 +63,7 @@ subtitle: 导航菜单
 
 | 参数           | 说明           | 类型                        | 默认值 | 版本   |
 | -------------- | -------------- | --------------------------- | ------ | ------ |
-| popupClassName | 子菜单样式     | string                      |        | 3.21.5 |
+| popupClassName | 子菜单样式     | string                      |        | 3.22.0 |
 | children       | 子菜单的菜单项 | Array&lt;MenuItem\|SubMenu> |        |        |
 | disabled       | 是否禁用       | boolean                     | false  |        |
 | key            | 唯一标志       | string                      |        |        |
