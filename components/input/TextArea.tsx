@@ -45,7 +45,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   componentDidUpdate(prevProps: TextAreaProps) {
     // Re-render with the new content then recalculate the height as required.
     if (prevProps.value !== this.props.value) {
-      this.resizeOnNextFrame();
+      this.resizeTextarea();
     }
   }
 
