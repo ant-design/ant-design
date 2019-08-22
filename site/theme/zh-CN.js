@@ -108,5 +108,7 @@ module.exports = {
     'app.docs.components.icon.category.data': '数据类图标',
     'app.docs.components.icon.category.other': '网站通用图标',
     'app.docs.components.icon.category.logo': '品牌和标识',
+    'app.docs.components.icon.pic-searcher.title': '按图片搜索',
+    'app.docs.components.icon.pic-searcher.placeholder': '点击/拖拽/粘贴上传',
   },
 };

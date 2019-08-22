@@ -1,14 +1,18 @@
 import React, { Component } from 'react';
-import { Upload, Tooltip, Icon, Modal, Progress, message } from 'antd';
+import { Upload, Popover, Icon, Modal, Progress, message, Spin } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { injectIntl } from 'react-intl';
 
 const { Dragger } = Upload;
 
-interface PicSearcherProps {}
+interface PicSearcherProps {
+  intl: any;
+}
 
 interface PicSearcherState {
   loading: Boolean;
   modalVisible: Boolean;
+  popoverVisible: Boolean;
   icons: Array<string>;
   fileList: Array<any>;
 }
@@ -24,6 +28,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   state = {
     loading: false,
     modalVisible: false,
+    popoverVisible: true,
     icons: [],
     fileList: [],
   };
@@ -36,14 +41,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     document.removeEventListener('paste', this.onPaste);
     window.clearTimeout(this.copyId);
   }
-
-  onCopied = (text: string) => {
-    message.success(
-      <span>
-        <code className="copied-code">{text}</code> copied 🎉
-      </span>,
-    );
-  };
 
   onPaste = (event: ClipboardEvent) => {
     const items = event.clipboardData && event.clipboardData.items;
@@ -89,52 +86,70 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   };
 
   toggleModal = () => {
-    this.setState(prev => ({ modalVisible: !prev.modalVisible }));
+    this.setState(prev => ({
+      modalVisible: !prev.modalVisible,
+      popoverVisible: false,
+      fileList: [],
+      icons: [],
+    }));
   };
 
-  customRequest = (options: any) => {
-    this.uploadFile(options.file);
+  onCopied = (text: string) => {
+    message.success(
+      <span>
+        <code className="copied-code">{text}</code> copied 🎉
+      </span>,
+    );
   };
 
   render() {
-    const { modalVisible, icons, fileList } = this.state;
+    const {
+      intl: { messages },
+    } = this.props;
+    const { popoverVisible, modalVisible, icons, fileList, loading } = this.state;
     return (
       <div className="icon-pic-searcher">
-        <Tooltip title="截图搜索，支持 CTL+V 粘贴图片" visible>
+        <Popover
+          content={messages[`app.docs.components.icon.pic-searcher.title`]}
+          visible={popoverVisible}
+        >
           <Icon type="camera" className="icon-pic-btn" onClick={this.toggleModal} />
-        </Tooltip>
+        </Popover>
         <Modal
-          title="截图搜索"
+          title={messages[`app.docs.components.icon.pic-searcher.title`]}
           visible={modalVisible}
           onOk={this.toggleModal}
           onCancel={this.toggleModal}
         >
           <Dragger
             listType="picture"
-            customRequest={this.customRequest}
+            customRequest={(o: any) => this.uploadFile(o.file)}
             fileList={fileList}
             showUploadList={{ showPreviewIcon: false, showRemoveIcon: false }}
           >
             <p className="ant-upload-drag-icon">
               <Icon type="inbox" />
             </p>
-            <p className="ant-upload-text">点击/拖拽/粘贴上传</p>
+            <p className="ant-upload-text">
+              {messages['app.docs.components.icon.pic-searcher.placeholder']}
+            </p>
           </Dragger>
-          <div className="icon-pic-search-result">
-            {icons.map((icon: iconObject) => (
-              <div key={icon.type}>
-                <CopyToClipboard text={`<Icon type="${icon.type}" />`} onCopy={this.onCopied}>
-                  <Icon type={icon.type} />
-                </CopyToClipboard>
-
-                <Progress percent={Math.ceil(icon.score * 100)} />
-              </div>
-            ))}
-          </div>
+          <Spin spinning={loading}>
+            <div className="icon-pic-search-result">
+              {icons.map((icon: iconObject) => (
+                <div key={icon.type}>
+                  <CopyToClipboard text={`<Icon type="${icon.type}" />`} onCopy={this.onCopied}>
+                    <Icon type={icon.type} />
+                  </CopyToClipboard>
+                  <Progress percent={Math.ceil(icon.score * 100)} />
+                </div>
+              ))}
+            </div>
+          </Spin>
         </Modal>
       </div>
     );
   }
 }
 
-export default PicSearcher;
+export default injectIntl(PicSearcher);
