@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import flatMapDeep from 'lodash/flatMapDeep';
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -70,19 +71,29 @@ export default class Timeline extends React.Component<TimelineProps, any> {
 
     // Remove falsy items
     const truthyItems = timeLineItems.filter(item => !!item);
-    const itemsCount = React.Children.count(truthyItems);
     const lastCls = `${prefixCls}-item-last`;
-    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
-      const pendingClass = idx === itemsCount - 2 ? lastCls : '';
-      const readyClass = idx === itemsCount - 1 ? lastCls : '';
-      return React.cloneElement(ele, {
-        className: classNames([
-          ele.props.className,
-          !reverse && !!pending ? pendingClass : readyClass,
-          getPositionCls(ele, idx),
-        ]),
-      });
+
+    const fragmentLessTruthyItems = flatMapDeep(truthyItems, (node: React.ReactElement<any>) => {
+      if (node.type === React.Fragment) {
+        return node.props.children;
+      }
+      return node;
     });
+    const itemsCount = React.Children.count(fragmentLessTruthyItems);
+    const items = React.Children.map(
+      fragmentLessTruthyItems,
+      (ele: React.ReactElement<any>, idx) => {
+        const pendingClass = idx === itemsCount - 2 ? lastCls : '';
+        const readyClass = idx === itemsCount - 1 ? lastCls : '';
+        return React.cloneElement(ele, {
+          className: classNames([
+            ele.props.className,
+            !reverse && !!pending ? pendingClass : readyClass,
+            getPositionCls(ele, idx),
+          ]),
+        });
+      },
+    );
 
     return (
       <ul {...restProps} className={classString}>
