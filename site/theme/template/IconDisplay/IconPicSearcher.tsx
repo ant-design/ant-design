@@ -23,8 +23,6 @@ interface iconObject {
 }
 
 class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
-  copyId?: number;
-
   state = {
     loading: false,
     modalVisible: false,
@@ -39,7 +37,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
 
   componentWillUnmount() {
     document.removeEventListener('paste', this.onPaste);
-    window.clearTimeout(this.copyId);
   }
 
   onPaste = (event: ClipboardEvent) => {
@@ -118,7 +115,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     return (
       <div className="icon-pic-searcher">
         <Popover
-          content={messages[`app.docs.components.icon.pic-searcher.title`]}
+          content={messages[`app.docs.components.icon.pic-searcher.intro`]}
           visible={popoverVisible}
         >
           <Icon type="camera" className="icon-pic-btn" onClick={this.toggleModal} />
@@ -130,6 +127,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
           onCancel={this.toggleModal}
         >
           <Dragger
+            accept="image/jpeg, image/png"
             listType="picture"
             customRequest={(o: any) => this.uploadFile(o.file)}
             fileList={fileList}

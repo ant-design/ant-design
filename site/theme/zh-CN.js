@@ -108,6 +108,7 @@ module.exports = {
     'app.docs.components.icon.category.data': '数据类图标',
     'app.docs.components.icon.category.other': '网站通用图标',
     'app.docs.components.icon.category.logo': '品牌和标识',
+    'app.docs.components.icon.pic-searcher.intro': 'AI 截图搜索上线了，快来体验吧！🎉',
     'app.docs.components.icon.pic-searcher.title': '按图片搜索',
     'app.docs.components.icon.pic-searcher.placeholder': '点击/拖拽/粘贴上传',
     'app.docs.components.icon.pic-searcher.server-error': '识别服务暂不可用',
