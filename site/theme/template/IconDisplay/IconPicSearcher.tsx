@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Upload, Tooltip, Icon, Modal, Progress, message } from 'antd';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 const { Dragger } = Upload;
 
@@ -9,12 +10,11 @@ interface PicSearcherState {
   loading: Boolean;
   modalVisible: Boolean;
   icons: Array<string>;
-  justCopied: string | null;
   fileList: Array<any>;
 }
 
 interface iconObject {
-  class_name: string;
+  type: string;
   score: number;
 }
 
@@ -25,7 +25,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     loading: false,
     modalVisible: false,
     icons: [],
-    justCopied: null,
     fileList: [],
   };
 
@@ -38,17 +37,12 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     window.clearTimeout(this.copyId);
   }
 
-  onCopied = (type: string, text: string) => {
+  onCopied = (text: string) => {
     message.success(
       <span>
         <code className="copied-code">{text}</code> copied 🎉
       </span>,
     );
-    this.setState({ justCopied: type }, () => {
-      this.copyId = window.setTimeout(() => {
-        this.setState({ justCopied: null });
-      }, 2000);
-    });
   };
 
   onPaste = (event: ClipboardEvent) => {
@@ -89,8 +83,8 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
         }),
       },
     );
-    const icons = await res.json();
-    console.log(icons);
+    let icons = await res.json();
+    icons = icons.map((i: any) => ({ score: i.score, type: i.class_name.replace(/\s/g, '-') }));
     this.setState(() => ({ icons, loading: false }));
   };
 
@@ -128,8 +122,11 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
           </Dragger>
           <div className="icon-pic-search-result">
             {icons.map((icon: iconObject) => (
-              <div key={icon.class_name}>
-                <Icon type={icon.class_name.replace(/\s/g, '-')} />
+              <div key={icon.type}>
+                <CopyToClipboard text={`<Icon type="${icon.type}" />`} onCopy={this.onCopied}>
+                  <Icon type={icon.type} />
+                </CopyToClipboard>
+
                 <Progress percent={Math.ceil(icon.score * 100)} />
               </div>
             ))}

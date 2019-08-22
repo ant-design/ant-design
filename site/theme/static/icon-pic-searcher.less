@@ -19,7 +19,7 @@
   padding: 8px;
   margin-top: 10px;
   text-align: center;
-  border: 1px solid #d9d9d9;
+  border: 1px solid @border-color-base;
   border-radius: 4px;
   > img {
     max-width: 50px;
@@ -37,6 +37,9 @@
     > i {
       margin: 10px 20px 10px 0;
       font-size: 30px;
+      :hover {
+        color: @link-hover-color;
+      }
     }
   }
 }
