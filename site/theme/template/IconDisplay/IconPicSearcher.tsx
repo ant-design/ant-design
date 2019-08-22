@@ -12,7 +12,6 @@ interface PicSearcherProps {
 interface PicSearcherState {
   loading: Boolean;
   modalVisible: Boolean;
-  popoverVisible: Boolean;
   icons: Array<string>;
   fileList: Array<any>;
 }
@@ -26,7 +25,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   state = {
     loading: false,
     modalVisible: false,
-    popoverVisible: true,
     icons: [],
     fileList: [],
   };
@@ -93,7 +91,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   toggleModal = () => {
     this.setState(prev => ({
       modalVisible: !prev.modalVisible,
-      popoverVisible: false,
       fileList: [],
       icons: [],
     }));
@@ -111,13 +108,10 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const {
       intl: { messages },
     } = this.props;
-    const { popoverVisible, modalVisible, icons, fileList, loading } = this.state;
+    const { modalVisible, icons, fileList, loading } = this.state;
     return (
       <div className="icon-pic-searcher">
-        <Popover
-          content={messages[`app.docs.components.icon.pic-searcher.intro`]}
-          visible={popoverVisible}
-        >
+        <Popover content={messages[`app.docs.components.icon.pic-searcher.intro`]} visible>
           <Icon type="camera" className="icon-pic-btn" onClick={this.toggleModal} />
         </Popover>
         <Modal
