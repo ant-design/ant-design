@@ -41,7 +41,7 @@ class Demo extends React.Component {
         <div style={{ margin: '24px 0' }} />
         <TextArea
           value={value}
-          onChange={e => setValue(e.target.value)}
+          onChange={this.onChange}
           placeholder="Controlled autosize"
           autosize={{ minRows: 3, maxRows: 5 }}
         />
