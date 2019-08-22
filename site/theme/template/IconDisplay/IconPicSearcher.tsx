@@ -68,21 +68,29 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   };
 
   predict = async (imageBase64: any) => {
+    const {
+      intl: { messages },
+    } = this.props;
     this.setState(() => ({ loading: true }));
-    const res = await fetch(
-      '//1647796581073291.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/cr-sh.cr-fc-predict__stable/cr-fc-predict/',
-      {
-        method: 'post',
-        body: JSON.stringify({
-          modelId: 'data_icon',
-          type: 'ic',
-          imageBase64,
-        }),
-      },
-    );
-    let icons = await res.json();
-    icons = icons.map((i: any) => ({ score: i.score, type: i.class_name.replace(/\s/g, '-') }));
-    this.setState(() => ({ icons, loading: false }));
+    try {
+      const res = await fetch(
+        '//1647796581073291.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/cr-sh.cr-fc-predict__stable/cr-fc-predict/',
+        {
+          method: 'post',
+          body: JSON.stringify({
+            modelId: 'data_icon',
+            type: 'ic',
+            imageBase64,
+          }),
+        },
+      );
+      let icons = await res.json();
+      icons = icons.map((i: any) => ({ score: i.score, type: i.class_name.replace(/\s/g, '-') }));
+      this.setState(() => ({ icons, loading: false }));
+    } catch (err) {
+      message.error(messages['app.docs.components.icon.pic-searcher.server-error']);
+      this.setState(() => ({ loading: false }));
+    }
   };
 
   toggleModal = () => {
