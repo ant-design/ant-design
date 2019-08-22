@@ -18,11 +18,17 @@ import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-const Demo = () => {
-  const [value, setValue] = React.useState('');
+class Demo extends React.Component {
+  state = {
+    value: '';
+  };
 
-  return (
-    <div>
+  onChange = ({ target: { value } }) => {
+    this.setState({ value });
+  };
+
+  render() {
+    return <div>
       <TextArea placeholder="Autosize height based on content lines" autosize />
       <div style={{ margin: '24px 0' }} />
       <TextArea
@@ -37,8 +43,9 @@ const Demo = () => {
         autosize={{ minRows: 3, maxRows: 5 }}
       />
     </div>
-  );
-};
+  }
+}
+
 
 ReactDOM.render(<Demo />, mountNode);
 ```
