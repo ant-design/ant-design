@@ -111,5 +111,8 @@ module.exports = {
     'app.docs.components.icon.category.data': 'Data Icons',
     'app.docs.components.icon.category.other': 'Application Icons',
     'app.docs.components.icon.category.logo': 'Brand and Logos',
+    'app.docs.components.icon.pic-searcher.title': 'Search by image',
+    'app.docs.components.icon.pic-searcher.placeholder':
+      'Click or drag or paste file to this area to upload',
   },
 };
