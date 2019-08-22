@@ -89,18 +89,6 @@ declare module '*.json' {
   export default value;
 }
 
-declare module 'lodash/debounce';
-
-declare module 'lodash/padStart';
-
-declare module 'lodash/padEnd';
-
-declare module 'lodash/repeat';
-
-declare module 'lodash/uniqBy';
-
-declare module 'lodash/findIndex';
-
 declare module 'raf';
 
 declare module 'react-lifecycles-compat';
