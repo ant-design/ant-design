@@ -73,12 +73,25 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     const truthyItems = timeLineItems.filter(item => !!item);
     const lastCls = `${prefixCls}-item-last`;
 
-    const fragmentLessTruthyItems = flatMapDeep(truthyItems, (node: React.ReactElement<any>) => {
-      if (node.type === React.Fragment) {
-        return node.props.children;
+    const flattenItems = (
+      reactNodes: Array<React.ReactElement<any>> & React.ReactElement<any>,
+    ): any => {
+      if (reactNodes.type === React.Fragment) {
+        return flattenItems(reactNodes.props.children);
       }
-      return node;
-    });
+      if (!Array.isArray(reactNodes)) {
+        return reactNodes;
+      }
+      return flatMapDeep(reactNodes, (node: React.ReactElement<any>) => {
+        if (node.type === React.Fragment) {
+          return flattenItems(node.props.children);
+        }
+        return node;
+      });
+    };
+
+    const fragmentLessTruthyItems = flattenItems(truthyItems as Array<React.ReactElement<any>> &
+      React.ReactElement<any>);
     const itemsCount = React.Children.count(fragmentLessTruthyItems);
     const items = React.Children.map(
       fragmentLessTruthyItems,

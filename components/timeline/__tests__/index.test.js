@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { mount } from 'enzyme';
 import TimeLine from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -131,6 +131,59 @@ describe('TimeLine', () => {
           .first()
           .hasClass('ant-timeline-item-pending'),
       ).toBe(true);
+    });
+    describe('renders items with fragment', () => {
+      it('wrapped in the Fragment', () => {
+        const wrapper = mount(
+          <TimeLine>
+            <Item key="1">foo</Item>
+            <Fragment>
+              <Item key="2">bar</Item>
+              <Item key="3">baz</Item>
+            </Fragment>
+          </TimeLine>,
+        );
+        expect(
+          wrapper
+            .find('li.ant-timeline-item')
+            .last()
+            .hasClass('ant-timeline-item-last'),
+        ).toBe(true);
+      });
+      it('wrapped in nested Fragments', () => {
+        const wrapper = mount(
+          <TimeLine>
+            <Item key="1">foo</Item>
+            <Fragment>
+              <Item key="2">bar</Item>
+              <Fragment>
+                <Item key="3">baz</Item>
+              </Fragment>
+            </Fragment>
+          </TimeLine>,
+        );
+        expect(
+          wrapper
+            .find('li.ant-timeline-item')
+            .last()
+            .hasClass('ant-timeline-item-last'),
+        ).toBe(true);
+      });
+      it('one item which wrapped in Fragment', () => {
+        const wrapper = mount(
+          <TimeLine>
+            <Fragment>
+              <Item key="1">foo</Item>
+            </Fragment>
+          </TimeLine>,
+        );
+        expect(
+          wrapper
+            .find('li.ant-timeline-item')
+            .last()
+            .hasClass('ant-timeline-item-last'),
+        ).toBe(true);
+      });
     });
   });
 });
