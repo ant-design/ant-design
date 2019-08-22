@@ -87,7 +87,7 @@ const columns = [
     key: 'operation',
     fixed: 'right',
     width: 100,
-    render: () => <a href="javascript:;">action</a>,
+    render: () => <a>action</a>,
   },
 ];
 

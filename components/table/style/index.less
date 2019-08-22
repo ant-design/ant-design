@@ -229,7 +229,7 @@
     transition: all 0.3s, height 0s;
     &.@{table-prefix-cls}-row-hover,
     &:hover {
-      &:not(.@{table-prefix-cls}-expanded-row) > td {
+      &:not(.@{table-prefix-cls}-expanded-row):not(.@{table-prefix-cls}-row-selected) > td {
         background: @table-row-hover-bg;
       }
     }
@@ -549,10 +549,11 @@
       width: 17px;
       height: 17px;
       color: inherit;
-      line-height: 14px;
+      line-height: 13px;
       text-align: center;
       background: @component-background;
       border: @border-width-base @border-style-base @border-color-split;
+      border-radius: @border-radius-sm;
       outline: none;
       transition: all 0.3s;
       user-select: none;

@@ -230,6 +230,13 @@ exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `
     class="ant-input"
     placeholder="Autosize height with minimum and maximum number of lines"
   />
+  <div
+    style="margin:24px 0"
+  />
+  <textarea
+    class="ant-input"
+    placeholder="Controlled autosize"
+  />
 </div>
 `;
 

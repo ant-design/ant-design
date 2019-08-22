@@ -10,7 +10,9 @@ export interface FormContextProps {
   wrapperCol?: ColProps;
 }
 
-export const FormContext = createReactContext<FormContextProps>({
+const FormContext = createReactContext<FormContextProps>({
   labelAlign: 'right',
   vertical: false,
 });
+
+export default FormContext;

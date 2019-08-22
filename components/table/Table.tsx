@@ -1305,7 +1305,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const {
       prefixCls: customizePrefixCls,
       dropdownPrefixCls: customizeDropdownPrefixCls,
-      style,
       className,
     } = this.props;
     const data = this.getCurrentPageData();
@@ -1341,7 +1340,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         : `${prefixCls}-without-pagination`;
 
     return (
-      <div className={classNames(`${prefixCls}-wrapper`, className)} style={style}>
+      <div className={classNames(`${prefixCls}-wrapper`, className)}>
         <Spin
           {...loading}
           className={loading.spinning ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}

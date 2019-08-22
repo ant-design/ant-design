@@ -466,7 +466,6 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
     </h3>
     <div
       class="ant-table-wrapper"
-      style="margin-top:8px"
     >
       <div
         class="ant-spin-nested-loading"
