@@ -28,6 +28,8 @@ class Demo extends React.Component {
   };
 
   render() {
+    const { value } = this.state;
+
     return (
       <div>
         <TextArea placeholder="Autosize height based on content lines" autosize />
