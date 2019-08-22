@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Upload, Popover, Icon, Modal, Progress, message, Spin } from 'antd';
+import { Upload, Tooltip, Popover, Icon, Modal, Progress, message, Spin } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
 
@@ -139,7 +139,9 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
               {icons.map((icon: iconObject) => (
                 <div key={icon.type}>
                   <CopyToClipboard text={`<Icon type="${icon.type}" />`} onCopy={this.onCopied}>
-                    <Icon type={icon.type} />
+                    <Tooltip title={icon.type} placement="right">
+                      <Icon type={icon.type} />
+                    </Tooltip>
                   </CopyToClipboard>
                   <Progress percent={Math.ceil(icon.score * 100)} />
                 </div>
