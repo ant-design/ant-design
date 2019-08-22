@@ -134,18 +134,37 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
               {messages['app.docs.components.icon.pic-searcher.placeholder']}
             </p>
           </Dragger>
-          <Spin spinning={loading}>
+          <Spin spinning={loading} tip={messages['app.docs.components.icon.pic-searcher.matching']}>
             <div className="icon-pic-search-result">
-              {icons.map((icon: iconObject) => (
-                <div key={icon.type}>
-                  <CopyToClipboard text={`<Icon type="${icon.type}" />`} onCopy={this.onCopied}>
-                    <Tooltip title={icon.type} placement="right">
-                      <Icon type={icon.type} />
-                    </Tooltip>
-                  </CopyToClipboard>
-                  <Progress percent={Math.ceil(icon.score * 100)} />
+              {icons.length > 0 && (
+                <div className="result-tip">
+                  {messages['app.docs.components.icon.pic-searcher.result-tip']}
                 </div>
-              ))}
+              )}
+              <table>
+                {icons.length > 0 && (
+                  <tr>
+                    <th className="col-icon">
+                      {messages['app.docs.components.icon.pic-searcher.th-icon']}
+                    </th>
+                    <th>{messages['app.docs.components.icon.pic-searcher.th-score']}</th>
+                  </tr>
+                )}
+                {icons.map((icon: iconObject) => (
+                  <tr key={icon.type}>
+                    <td className="col-icon">
+                      <CopyToClipboard text={`<Icon type="${icon.type}" />`} onCopy={this.onCopied}>
+                        <Tooltip title={icon.type} placement="right">
+                          <Icon type={icon.type} />
+                        </Tooltip>
+                      </CopyToClipboard>
+                    </td>
+                    <td>
+                      <Progress percent={Math.ceil(icon.score * 100)} />
+                    </td>
+                  </tr>
+                ))}
+              </table>
             </div>
           </Spin>
         </Modal>

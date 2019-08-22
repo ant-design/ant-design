@@ -112,5 +112,9 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.title': '按图片搜索',
     'app.docs.components.icon.pic-searcher.placeholder': '点击/拖拽/粘贴上传',
     'app.docs.components.icon.pic-searcher.server-error': '识别服务暂不可用',
+    'app.docs.components.icon.pic-searcher.matching': '匹配中...',
+    'app.docs.components.icon.pic-searcher.result-tip': '为您匹配到以下图标：',
+    'app.docs.components.icon.pic-searcher.th-icon': '图标',
+    'app.docs.components.icon.pic-searcher.th-score': '匹配度',
   },
 };

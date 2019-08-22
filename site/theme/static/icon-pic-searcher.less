@@ -29,18 +29,23 @@
 }
 
 .icon-pic-search-result {
-  margin-top: 10px;
+  margin-top: 20px;
+  padding: 0 10px;
+  > .result-tip {
+    padding: 10px 0;
+    color: @text-color-secondary;
+  }
+  > table {
+    width: 100%;
+    .col-icon {
+      width: 80px;
+      padding: 10px 0;
+      > i {
+        font-size: 30px;
 
-  > div {
-    display: flex;
-    align-items: center;
-
-    > i {
-      margin: 10px 20px 10px 0;
-      font-size: 30px;
-
-      :hover {
-        color: @link-hover-color;
+        :hover {
+          color: @link-hover-color;
+        }
       }
     }
   }
