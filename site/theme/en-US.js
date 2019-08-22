@@ -114,5 +114,7 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.title': 'Search by image',
     'app.docs.components.icon.pic-searcher.placeholder':
       'Click or drag or paste file to this area to upload',
+    'app.docs.components.icon.pic-searcher.server-error':
+      'Predict service is temporarily unavailable',
   },
 };
