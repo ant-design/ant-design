@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
 import TimeLine from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -137,10 +137,10 @@ describe('TimeLine', () => {
         const wrapper = mount(
           <TimeLine>
             <Item key="1">foo</Item>
-            <Fragment>
+            <>
               <Item key="2">bar</Item>
               <Item key="3">baz</Item>
-            </Fragment>
+            </>
           </TimeLine>,
         );
         expect(
@@ -154,12 +154,12 @@ describe('TimeLine', () => {
         const wrapper = mount(
           <TimeLine>
             <Item key="1">foo</Item>
-            <Fragment>
+            <>
               <Item key="2">bar</Item>
-              <Fragment>
+              <>
                 <Item key="3">baz</Item>
-              </Fragment>
-            </Fragment>
+              </>
+            </>
           </TimeLine>,
         );
         expect(
@@ -172,9 +172,9 @@ describe('TimeLine', () => {
       it('one item which wrapped in Fragment', () => {
         const wrapper = mount(
           <TimeLine>
-            <Fragment>
+            <>
               <Item key="1">foo</Item>
-            </Fragment>
+            </>
           </TimeLine>,
         );
         expect(
