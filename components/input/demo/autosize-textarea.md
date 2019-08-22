@@ -20,7 +20,7 @@ const { TextArea } = Input;
 
 class Demo extends React.Component {
   state = {
-    value: '';
+    value: '',
   };
 
   onChange = ({ target: { value } }) => {
@@ -28,24 +28,25 @@ class Demo extends React.Component {
   };
 
   render() {
-    return <div>
-      <TextArea placeholder="Autosize height based on content lines" autosize />
-      <div style={{ margin: '24px 0' }} />
-      <TextArea
-        placeholder="Autosize height with minimum and maximum number of lines"
-        autosize={{ minRows: 2, maxRows: 6 }}
-      />
-      <div style={{ margin: '24px 0' }} />
-      <TextArea
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        placeholder="Controlled autosize"
-        autosize={{ minRows: 3, maxRows: 5 }}
-      />
-    </div>
+    return (
+      <div>
+        <TextArea placeholder="Autosize height based on content lines" autosize />
+        <div style={{ margin: '24px 0' }} />
+        <TextArea
+          placeholder="Autosize height with minimum and maximum number of lines"
+          autosize={{ minRows: 2, maxRows: 6 }}
+        />
+        <div style={{ margin: '24px 0' }} />
+        <TextArea
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          placeholder="Controlled autosize"
+          autosize={{ minRows: 3, maxRows: 5 }}
+        />
+      </div>
+    );
   }
 }
-
 
 ReactDOM.render(<Demo />, mountNode);
 ```
