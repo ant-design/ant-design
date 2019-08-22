@@ -25,3 +25,5 @@ subtitle: 页头
 | breadcrumb | 面包屑的配置 | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - | 3.14.0 |
 | footer | PageHeader 的页脚，一般用于渲染 TabBar | ReactNode | - | 3.14.0 |
 | onBack | 返回按钮的点击事件 | `()=>void` | `()=>history.back()` | 3.14.0 |
+
+> 配置 breadcrumb 时，返回按钮会自动消失。
