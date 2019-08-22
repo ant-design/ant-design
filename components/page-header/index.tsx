@@ -65,10 +65,11 @@ const renderHeader = (breadcrumb: PageHeaderProps['breadcrumb']) => {
 };
 
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
-  const { title, avatar, subTitle, tags, extra, backIcon, onBack } = props;
+  const { title, avatar, subTitle, tags, extra, breadcrumb, backIcon, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
-    const backIconDom = renderBack(prefixCls, backIcon, onBack);
+    // by design,Bread crumbs and back icon can only have one
+    const backIconDom = !breadcrumb && renderBack(prefixCls, backIcon, onBack);
     return (
       <div className={headingPrefixCls}>
         {backIconDom}

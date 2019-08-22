@@ -1,17 +1,17 @@
 ---
 order: 3
 title:
-  zh-CN: 全都要
-  en-US: All have
+  zh-CN: 完整的例子
+  en-US: Complete example
 ---
 
 ## zh-CN
 
-使用了所有的 props。
+使用了 pageHeader 提供的所有能力。
 
 ## en-US
 
-Show all props.
+Show all props.Used all the capabilities provided by pageHeader.
 
 ```jsx
 import { PageHeader, Menu, Dropdown, Icon, Button, Tag, Typography } from 'antd';
