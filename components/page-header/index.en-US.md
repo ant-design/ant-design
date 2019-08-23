@@ -26,4 +26,4 @@ It can also be used as inter-page navigation when it is needed to make the user 
 | footer | PageHeader's footer, generally used to render TabBar | ReactNode | - | 3.14.0 |
 | onBack | back icon click event | `()=>void` | `()=>history.back()` | 3.14.0 |
 
-> back icon will automatically disappear when configuring breadcrumbs.
+> breadcrumbs will automatically disappear when configuring back icon.
