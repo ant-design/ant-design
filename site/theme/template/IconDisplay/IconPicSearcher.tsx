@@ -94,6 +94,9 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
       fileList: [],
       icons: [],
     }));
+    if (!localStorage.getItem('disableIconTip')) {
+      localStorage.setItem('disableIconTip', 'true');
+    }
   };
 
   onCopied = (text: string) => {
@@ -111,7 +114,10 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const { modalVisible, icons, fileList, loading } = this.state;
     return (
       <div className="icon-pic-searcher">
-        <Popover content={messages[`app.docs.components.icon.pic-searcher.intro`]} visible>
+        <Popover
+          content={messages[`app.docs.components.icon.pic-searcher.intro`]}
+          visible={!localStorage.getItem('disableIconTip')}
+        >
           <Icon type="camera" className="icon-pic-btn" onClick={this.toggleModal} />
         </Popover>
         <Modal
