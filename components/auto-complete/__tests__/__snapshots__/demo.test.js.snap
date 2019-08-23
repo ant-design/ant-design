@@ -1,75 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/auto-complete/demo/basic.md correctly 1`] = `
-<div
-  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
-  style="width:200px"
->
+<div>
   <div
-    aria-autocomplete="list"
-    aria-controls=""
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
-    role="combobox"
+    class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+    style="width:200px"
   >
     <div
-      class="ant-select-selection__rendered"
+      aria-autocomplete="list"
+      aria-controls=""
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
     >
       <div
-        class="ant-select-selection__placeholder"
-        style="display:block;user-select:none;-webkit-user-select:none"
+        class="ant-select-selection__rendered"
+      >
+        <div
+          class="ant-select-selection__placeholder"
+          style="display:block;user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          input here
+        </div>
+        <ul>
+          <li
+            class="ant-select-search ant-select-search--inline"
+          >
+            <div
+              class="ant-select-search__field__wrap"
+            >
+              <input
+                class="ant-input ant-select-search__field"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-select-search__field__mirror"
+              >
+                 
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
         unselectable="on"
       >
-        input here
-      </div>
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
+        <i
+          aria-label="icon: down"
+          class="anticon anticon-down ant-select-arrow-icon"
         >
-          <div
-            class="ant-select-search__field__wrap"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
           >
-            <input
-              class="ant-input ant-select-search__field"
-              type="text"
-              value=""
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
+          </svg>
+        </i>
+      </span>
     </div>
-    <span
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
+  </div>
+  <br />
+  <br />
+  <div
+    class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+    style="width:200px"
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls=""
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-select-selection
+            ant-select-selection--single"
+      role="combobox"
     >
-      <i
-        aria-label="icon: down"
-        class="anticon anticon-down ant-select-arrow-icon"
+      <div
+        class="ant-select-selection__rendered"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <div
+          class="ant-select-selection__placeholder"
+          style="display:block;user-select:none;-webkit-user-select:none"
+          unselectable="on"
         >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </i>
-    </span>
+          control mode
+        </div>
+        <ul>
+          <li
+            class="ant-select-search ant-select-search--inline"
+          >
+            <div
+              class="ant-select-search__field__wrap"
+            >
+              <input
+                class="ant-input ant-select-search__field"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-select-search__field__mirror"
+              >
+                 
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <span
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <i
+          aria-label="icon: down"
+          class="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
   </div>
 </div>
 `;
