@@ -8,6 +8,7 @@ import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
 import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import warning from '../_util/warning';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -57,7 +58,17 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
   return <Breadcrumb {...breadcrumb} />;
 };
 
-const renderHeader = (breadcrumb: PageHeaderProps['breadcrumb']) => {
+const renderHeader = (
+  breadcrumb: PageHeaderProps['breadcrumb'],
+  { backIcon, onBack }: PageHeaderProps,
+) => {
+  // by design,Bread crumbs and back icon can only have one
+  if (backIcon && onBack) {
+    if (breadcrumb && breadcrumb.routes) {
+      warning(false, 'page-header', 'breadcrumbs and back icon can only have one');
+    }
+    return null;
+  }
   if (breadcrumb && breadcrumb.routes) {
     return renderBreadcrumb(breadcrumb);
   }
@@ -65,11 +76,10 @@ const renderHeader = (breadcrumb: PageHeaderProps['breadcrumb']) => {
 };
 
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
-  const { title, avatar, subTitle, tags, extra, breadcrumb, backIcon, onBack } = props;
+  const { title, avatar, subTitle, tags, extra, backIcon, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
-    // by design,Bread crumbs and back icon can only have one
-    const backIconDom = !breadcrumb && renderBack(prefixCls, backIcon, onBack);
+    const backIconDom = renderBack(prefixCls, backIcon, onBack);
     return (
       <div className={headingPrefixCls}>
         {backIconDom}
@@ -108,14 +118,15 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
       } = props;
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
+      const breadcrumbDom = renderHeader(breadcrumb, props);
       const className = classnames(prefixCls, customizeClassName, {
-        'has-breadcrumb': breadcrumb,
+        'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
       });
 
       return (
         <div className={className} style={style}>
-          {renderHeader(breadcrumb)}
+          {breadcrumbDom}
           {renderTitle(prefixCls, props)}
           {children && renderChildren(prefixCls, children)}
           {renderFooter(prefixCls, footer)}

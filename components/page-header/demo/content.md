@@ -144,7 +144,6 @@ const Content = ({ children, extraContent }) => {
 
 ReactDOM.render(
   <PageHeader
-    onBack={() => null}
     title="Title"
     subTitle="This is a subtitle"
     tags={<Tag color="blue">Running</Tag>}
