@@ -24,7 +24,7 @@ export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
 export interface ResultProps {
   icon?: React.ReactNode;
-  status: ResultStatusType;
+  status?: ResultStatusType;
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   extra?: React.ReactNode;
