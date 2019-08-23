@@ -114,8 +114,10 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.intro':
       'AI Search by image is online, welcome to use! 🎉',
     'app.docs.components.icon.pic-searcher.title': 'Search by image',
-    'app.docs.components.icon.pic-searcher.placeholder':
+    'app.docs.components.icon.pic-searcher.upload-text':
       'Click or drag or paste file to this area to upload',
+    'app.docs.components.icon.pic-searcher.upload-hint':
+      'We will find the most matching icon based on the image',
     'app.docs.components.icon.pic-searcher.server-error':
       'Predict service is temporarily unavailable',
     'app.docs.components.icon.pic-searcher.matching': 'Matching...',

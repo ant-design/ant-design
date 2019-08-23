@@ -117,8 +117,8 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
         <Modal
           title={messages[`app.docs.components.icon.pic-searcher.title`]}
           visible={modalVisible}
-          onOk={this.toggleModal}
           onCancel={this.toggleModal}
+          footer={null}
         >
           <Dragger
             accept="image/jpeg, image/png"
@@ -131,7 +131,10 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
               <Icon type="inbox" />
             </p>
             <p className="ant-upload-text">
-              {messages['app.docs.components.icon.pic-searcher.placeholder']}
+              {messages['app.docs.components.icon.pic-searcher.upload-text']}
+            </p>
+            <p className="ant-upload-hint">
+              {messages['app.docs.components.icon.pic-searcher.upload-hint']}
             </p>
           </Dragger>
           <Spin spinning={loading} tip={messages['app.docs.components.icon.pic-searcher.matching']}>
