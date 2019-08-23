@@ -204,7 +204,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
               {error && (
                 <Result
                   status="500"
-                  title="500"
+                  title="503"
                   subTitle={messages['app.docs.components.icon.pic-searcher.server-error']}
                 />
               )}
