@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Upload, Tooltip, Popover, Icon, Modal, Progress, message, Spin } from 'antd';
+import { Upload, Tooltip, Popover, Icon, Modal, Progress, message, Spin, Result } from 'antd';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
 
@@ -10,11 +10,12 @@ interface PicSearcherProps {
 }
 
 interface PicSearcherState {
-  loading: Boolean;
-  modalVisible: Boolean;
-  popoverVisible: Boolean;
+  loading: boolean;
+  modalVisible: boolean;
+  popoverVisible: boolean;
   icons: Array<string>;
   fileList: Array<any>;
+  error: boolean;
 }
 
 interface iconObject {
@@ -29,6 +30,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     popoverVisible: false,
     icons: [],
     fileList: [],
+    error: false,
   };
 
   componentDidMount() {
@@ -84,9 +86,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   };
 
   predict = async (imageBase64: any) => {
-    const {
-      intl: { messages },
-    } = this.props;
     this.setState(() => ({ loading: true }));
     try {
       const res = await fetch(
@@ -102,10 +101,9 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
       );
       let icons = await res.json();
       icons = icons.map((i: any) => ({ score: i.score, type: i.class_name.replace(/\s/g, '-') }));
-      this.setState(() => ({ icons, loading: false }));
+      this.setState(() => ({ icons, loading: false, error: false }));
     } catch (err) {
-      message.error(messages['app.docs.components.icon.pic-searcher.server-error']);
-      this.setState(() => ({ loading: false }));
+      this.setState(() => ({ loading: false, error: true }));
     }
   };
 
@@ -133,7 +131,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const {
       intl: { messages },
     } = this.props;
-    const { modalVisible, popoverVisible, icons, fileList, loading } = this.state;
+    const { modalVisible, popoverVisible, icons, fileList, loading, error } = this.state;
     return (
       <div className="icon-pic-searcher">
         <Popover
@@ -203,6 +201,13 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
                   ))}
                 </tbody>
               </table>
+              {error && (
+                <Result
+                  status="500"
+                  title="500"
+                  subTitle={messages['app.docs.components.icon.pic-searcher.server-error']}
+                />
+              )}
             </div>
           </Spin>
         </Modal>
