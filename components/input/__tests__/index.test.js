@@ -217,55 +217,6 @@ describe('Input.Search', () => {
   });
 });
 
-describe('Input.Password', () => {
-  it('should change type when click', () => {
-    const wrapper = mount(<Input.Password />);
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
-    expect(wrapper).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('visibilityToggle should work', () => {
-    const wrapper = mount(<Input.Password visibilityToggle={false} />);
-    expect(wrapper.find('.anticon-eye').length).toBe(0);
-    wrapper.setProps({ visibilityToggle: true });
-    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
-  });
-
-  it('should keep focus state', () => {
-    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />);
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode(),
-    );
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('mousedown');
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode(),
-    );
-  });
-});
-
 describe('Input allowClear', () => {
   it('should change type when click', () => {
     const wrapper = mount(<Input allowClear />);
