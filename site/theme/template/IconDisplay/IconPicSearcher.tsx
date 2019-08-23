@@ -12,6 +12,7 @@ interface PicSearcherProps {
 interface PicSearcherState {
   loading: Boolean;
   modalVisible: Boolean;
+  popoverVisible: Boolean;
   icons: Array<string>;
   fileList: Array<any>;
 }
@@ -25,12 +26,14 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   state = {
     loading: false,
     modalVisible: false,
+    popoverVisible: false,
     icons: [],
     fileList: [],
   };
 
   componentDidMount() {
     document.addEventListener('paste', this.onPaste);
+    this.setState({ popoverVisible: !localStorage.getItem('disableIconTip') });
   }
 
   componentWillUnmount() {
@@ -91,10 +94,11 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   toggleModal = () => {
     this.setState(prev => ({
       modalVisible: !prev.modalVisible,
+      popoverVisible: false,
       fileList: [],
       icons: [],
     }));
-    if (localStorage && !localStorage.getItem('disableIconTip')) {
+    if (!localStorage.getItem('disableIconTip')) {
       localStorage.setItem('disableIconTip', 'true');
     }
   };
@@ -111,12 +115,12 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const {
       intl: { messages },
     } = this.props;
-    const { modalVisible, icons, fileList, loading } = this.state;
+    const { modalVisible, popoverVisible, icons, fileList, loading } = this.state;
     return (
       <div className="icon-pic-searcher">
         <Popover
           content={messages[`app.docs.components.icon.pic-searcher.intro`]}
-          visible={!(localStorage && localStorage.getItem('disableIconTip'))}
+          visible={popoverVisible}
         >
           <Icon type="camera" className="icon-pic-btn" onClick={this.toggleModal} />
         </Popover>
@@ -152,27 +156,34 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
               )}
               <table>
                 {icons.length > 0 && (
-                  <tr>
-                    <th className="col-icon">
-                      {messages['app.docs.components.icon.pic-searcher.th-icon']}
-                    </th>
-                    <th>{messages['app.docs.components.icon.pic-searcher.th-score']}</th>
-                  </tr>
+                  <thead>
+                    <tr>
+                      <th className="col-icon">
+                        {messages['app.docs.components.icon.pic-searcher.th-icon']}
+                      </th>
+                      <th>{messages['app.docs.components.icon.pic-searcher.th-score']}</th>
+                    </tr>
+                  </thead>
                 )}
-                {icons.map((icon: iconObject) => (
-                  <tr key={icon.type}>
-                    <td className="col-icon">
-                      <CopyToClipboard text={`<Icon type="${icon.type}" />`} onCopy={this.onCopied}>
-                        <Tooltip title={icon.type} placement="right">
-                          <Icon type={icon.type} />
-                        </Tooltip>
-                      </CopyToClipboard>
-                    </td>
-                    <td>
-                      <Progress percent={Math.ceil(icon.score * 100)} />
-                    </td>
-                  </tr>
-                ))}
+                <tbody>
+                  {icons.map((icon: iconObject) => (
+                    <tr key={icon.type}>
+                      <td className="col-icon">
+                        <CopyToClipboard
+                          text={`<Icon type="${icon.type}" />`}
+                          onCopy={this.onCopied}
+                        >
+                          <Tooltip title={icon.type} placement="right">
+                            <Icon type={icon.type} />
+                          </Tooltip>
+                        </CopyToClipboard>
+                      </td>
+                      <td>
+                        <Progress percent={Math.ceil(icon.score * 100)} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
               </table>
             </div>
           </Spin>
