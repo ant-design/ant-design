@@ -57,12 +57,30 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   uploadFile = (file: File) => {
     const reader: FileReader = new FileReader();
     reader.onload = () => {
-      this.predict(reader.result);
+      this.downscaleImage(reader.result).then(this.predict);
       this.setState(() => ({
         fileList: [{ uid: 1, name: file.name, status: 'done', url: reader.result }],
       }));
     };
     reader.readAsDataURL(file);
+  };
+
+  downscaleImage = (url: any) => {
+    return new Promise(resolve => {
+      const img = new Image();
+      img.setAttribute('crossOrigin', 'anonymous');
+      img.src = url;
+      img.onload = function() {
+        const scale = Math.min(1, 300 / Math.max(img.width, img.height));
+        const canvas = document.createElement('canvas');
+        canvas.width = img.width * scale;
+        canvas.height = img.height * scale;
+        const ctx = canvas.getContext('2d');
+        (ctx as CanvasRenderingContext2D).drawImage(img, 0, 0, canvas.width, canvas.height);
+        const newDataUrl = canvas.toDataURL('image/jpeg');
+        resolve(newDataUrl);
+      };
+    });
   };
 
   predict = async (imageBase64: any) => {
