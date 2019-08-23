@@ -37,7 +37,7 @@ class Complete extends React.Component {
   };
 
   render() {
-    const { dataSource } = this.state;
+    const { dataSource, value } = this.state;
     return (
       <div>
         <AutoComplete
@@ -50,10 +50,12 @@ class Complete extends React.Component {
         <br />
         <br />
         <AutoComplete
+          value={value}
           dataSource={dataSource}
           style={{ width: 200 }}
           onSelect={onSelect}
           onSearch={this.onSearch}
+          onChange={this.onChange}
           placeholder="control mode"
         />
       </div>
