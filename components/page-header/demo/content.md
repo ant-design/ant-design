@@ -1,7 +1,7 @@
 ---
 order: 3
 title:
-  zh-CN: 完整的例子
+  zh-CN: 组合示例
   en-US: Complete example
 ---
 
