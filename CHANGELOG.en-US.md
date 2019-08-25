@@ -25,6 +25,7 @@ timeline: true
 - 🐞 Fix prop `style` is getting duplicated on Table. [#18330](https://github.com/ant-design/ant-design/pull/18330) [@MrHeer](https://github.com/MrHeer)
 - 🐞 Fix Input line height style bug in IE11. [#17759](https://github.com/ant-design/ant-design/pull/17759)
 - 🐞 Fix Steps progressDot broken style. [#18356](https://github.com/ant-design/ant-design/pull/18356)
+- 🐞 Fixed an issue with plain icon button style errors. [#18425](https://github.com/ant-design/ant-design/pull/18425)
 
 ## 3.22.2
 
