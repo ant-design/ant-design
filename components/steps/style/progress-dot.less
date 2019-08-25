@@ -1,4 +1,5 @@
-.@{steps-prefix-cls}-dot {
+.@{steps-prefix-cls}-dot,
+.@{steps-prefix-cls}-dot.@{steps-prefix-cls}-small {
   .@{steps-prefix-cls}-item {
     &-title {
       line-height: @line-height-base;
@@ -63,7 +64,8 @@
     margin-top: 8px;
     margin-left: 0;
   }
-  .@{steps-prefix-cls}-item-tail {
+  // https://github.com/ant-design/ant-design/issues/18354
+  .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
     top: 2px;
     left: -9px;
     margin: 0;
