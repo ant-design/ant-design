@@ -3,11 +3,12 @@ import classnames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Icon from '../icon';
-import Divider from '../divider';
 import Tag from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
+import Avatar, { AvatarProps } from '../avatar';
 import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import warning from '../_util/warning';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -19,6 +20,7 @@ export interface PageHeaderProps {
   tags?: React.ReactElement<Tag> | React.ReactElement<Tag>[];
   footer?: React.ReactNode;
   extra?: React.ReactNode;
+  avatar?: AvatarProps;
   onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
 }
@@ -46,7 +48,6 @@ const renderBack = (
           >
             {backIcon}
           </TransButton>
-          <Divider type="vertical" />
         </div>
       )}
     </LocaleReceiver>
@@ -57,20 +58,32 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
   return <Breadcrumb {...breadcrumb} />;
 };
 
-const renderHeader = (prefixCls: string, props: PageHeaderProps) => {
-  const { breadcrumb, backIcon, onBack } = props;
+const renderHeader = (
+  breadcrumb: PageHeaderProps['breadcrumb'],
+  { backIcon, onBack }: PageHeaderProps,
+) => {
+  // by design,Bread crumbs and back icon can only have one
+  if (backIcon && onBack) {
+    if (breadcrumb && breadcrumb.routes) {
+      warning(false, 'page-header', 'breadcrumbs and back icon can only have one');
+    }
+    return null;
+  }
   if (breadcrumb && breadcrumb.routes) {
     return renderBreadcrumb(breadcrumb);
   }
-  return renderBack(prefixCls, backIcon, onBack);
+  return null;
 };
 
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
-  const { title, subTitle, tags, extra } = props;
+  const { title, avatar, subTitle, tags, extra, backIcon, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
+    const backIconDom = renderBack(prefixCls, backIcon, onBack);
     return (
       <div className={headingPrefixCls}>
+        {backIconDom}
+        {avatar && <Avatar {...avatar} />}
         {title && <span className={`${headingPrefixCls}-title`}>{title}</span>}
         {subTitle && <span className={`${headingPrefixCls}-sub-title`}>{subTitle}</span>}
         {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
@@ -88,6 +101,10 @@ const renderFooter = (prefixCls: string, footer: React.ReactNode) => {
   return null;
 };
 
+const renderChildren = (prefixCls: string, children: React.ReactNode) => {
+  return <div className={`${prefixCls}-content`}>{children}</div>;
+};
+
 const PageHeader: React.SFC<PageHeaderProps> = props => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
@@ -96,23 +113,22 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         style,
         footer,
         children,
+        breadcrumb,
         className: customizeClassName,
       } = props;
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-      const className = classnames(
-        prefixCls,
-        {
-          [`${prefixCls}-has-footer`]: footer,
-        },
-        customizeClassName,
-      );
+      const breadcrumbDom = renderHeader(breadcrumb, props);
+      const className = classnames(prefixCls, customizeClassName, {
+        'has-breadcrumb': breadcrumbDom,
+        'has-footer': footer,
+      });
 
       return (
         <div className={className} style={style}>
-          {renderHeader(prefixCls, props)}
+          {breadcrumbDom}
           {renderTitle(prefixCls, props)}
-          {children && <div className={`${prefixCls}-content`}>{children}</div>}
+          {children && renderChildren(prefixCls, children)}
           {renderFooter(prefixCls, footer)}
         </div>
       );
