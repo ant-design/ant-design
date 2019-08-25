@@ -237,17 +237,25 @@
     );
   }
 }
-// circle button: the content only contains icon
-.btn-circle(@btnClassName: btn) {
-  .square(@btn-circle-size);
-  .button-size(@btn-circle-size; 0; @font-size-base + 2px; 50%);
+// square button: the content only contains icon
+.btn-square(@btnClassName: btn) {
+  .square(@btn-square-size);
+  .button-size(@btn-square-size; 0; @font-size-base + 2px; @btn-border-radius-base);
   &.@{btnClassName}-lg {
-    .square(@btn-circle-size-lg);
-    .button-size(@btn-circle-size-lg; 0; @btn-font-size-lg + 2px; 50%);
+    .square(@btn-square-size-lg);
+    .button-size(@btn-square-size-lg; 0; @btn-font-size-lg + 2px; @btn-border-radius-base);
   }
   &.@{btnClassName}-sm {
-    .square(@btn-circle-size-sm);
-    .button-size(@btn-circle-size-sm; 0; @font-size-base; 50%);
+    .square(@btn-square-size-sm);
+    .button-size(@btn-square-size-sm; 0; @font-size-base; @btn-border-radius-base);
+  }
+}
+// circle button: the content only contains icon
+.btn-circle(@btnClassName: btn) {
+  border-radius: 50%;
+  &.@{btnClassName}-lg,
+  &.@{btnClassName}-sm {
+    border-radius: 50%;
   }
 }
 // Horizontal button groups style

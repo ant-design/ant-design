@@ -290,6 +290,61 @@ exports[`renders ./components/button/demo/button-group.md correctly 1`] = `
       </i>
     </button>
   </div>
+  <div
+    class="ant-btn-group"
+  >
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      type="button"
+    >
+      <i
+        aria-label="icon: cloud"
+        class="anticon anticon-cloud"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="cloud"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M811.4 418.7C765.6 297.9 648.9 212 512.2 212S258.8 297.8 213 418.6C127.3 441.1 64 519.1 64 612c0 110.5 89.5 200 199.9 200h496.2C870.5 812 960 722.5 960 612c0-92.7-63.1-170.7-148.6-193.3zm36.3 281a123.07 123.07 0 0 1-87.6 36.3H263.9c-33.1 0-64.2-12.9-87.6-36.3A123.3 123.3 0 0 1 140 612c0-28 9.1-54.3 26.2-76.3a125.7 125.7 0 0 1 66.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4a245.6 245.6 0 0 1 52.4-49.9c41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c19.9 14 37.5 30.8 52.4 49.9 15.1 19.3 27.1 40.7 35.7 63.4l13.8 36.5 37.8 10c54.3 14.5 92.1 63.8 92.1 120 0 33.1-12.9 64.3-36.3 87.7z"
+          />
+        </svg>
+      </i>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
+      type="button"
+    >
+      <i
+        aria-label="icon: cloud-download"
+        class="anticon anticon-cloud-download"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="cloud-download"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M624 706.3h-74.1V464c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v242.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.7a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9z"
+          />
+          <path
+            d="M811.4 366.7C765.6 245.9 648.9 160 512.2 160S258.8 245.8 213 366.6C127.3 389.1 64 467.2 64 560c0 110.5 89.5 200 199.9 200H304c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8h-40.1c-33.7 0-65.4-13.4-89-37.7-23.5-24.2-36-56.8-34.9-90.6.9-26.4 9.9-51.2 26.2-72.1 16.7-21.3 40.1-36.8 66.1-43.7l37.9-9.9 13.9-36.6c8.6-22.8 20.6-44.1 35.7-63.4a245.6 245.6 0 0 1 52.4-49.9c41.1-28.9 89.5-44.2 140-44.2s98.9 15.3 140 44.2c19.9 14 37.5 30.8 52.4 49.9 15.1 19.3 27.1 40.7 35.7 63.4l13.8 36.5 37.8 10C846.1 454.5 884 503.8 884 560c0 33.1-12.9 64.3-36.3 87.7a123.07 123.07 0 0 1-87.6 36.3H720c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h40.1C870.5 760 960 670.5 960 560c0-92.7-63.1-170.7-148.6-193.3z"
+          />
+        </svg>
+      </i>
+    </button>
+  </div>
 </div>
 `;
 
@@ -741,7 +796,7 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
   </button>
   <br />
   <button
-    class="ant-btn ant-btn-circle ant-btn-loading"
+    class="ant-btn ant-btn-primary ant-btn-icon-only ant-btn-loading"
     type="button"
   >
     <i
@@ -765,7 +820,31 @@ exports[`renders ./components/button/demo/loading.md correctly 1`] = `
     </i>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-loading"
+    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only ant-btn-loading"
+    type="button"
+  >
+    <i
+      aria-label="icon: loading"
+      class="anticon anticon-loading"
+    >
+      <svg
+        aria-hidden="true"
+        class="anticon-spin"
+        data-icon="loading"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="0 0 1024 1024"
+        width="1em"
+      >
+        <path
+          d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+        />
+      </svg>
+    </i>
+  </button>
+  <button
+    class="ant-btn ant-btn-danger ant-btn-round ant-btn-icon-only ant-btn-loading"
     type="button"
   >
     <i
@@ -947,7 +1026,55 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
   </button>
   <br />
   <button
+    class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
+    type="button"
+  >
+    <i
+      aria-label="icon: download"
+      class="anticon anticon-download"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="download"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </i>
+  </button>
+  <button
     class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    type="button"
+  >
+    <i
+      aria-label="icon: download"
+      class="anticon anticon-download"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="download"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+        />
+      </svg>
+    </i>
+  </button>
+  <button
+    class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <i
