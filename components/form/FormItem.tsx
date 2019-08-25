@@ -92,7 +92,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
               node = e.message;
             }
             // eslint-disable-next-line react/no-array-index-key
-            return node ? React.cloneElement(node, { key: index }) : e.message;
+            return node ? React.cloneElement(node, { key: index }) : (e.message || e);
           }),
         );
       }
