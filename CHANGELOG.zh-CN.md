@@ -25,6 +25,7 @@ timeline: true
 - 🐞 修复 Table 的 `style` 属性被应用了两次的问题。[#18330](https://github.com/ant-design/ant-design/pull/18330) [@MrHeer](https://github.com/MrHeer)
 - 🐞 修复 Input 在 IE11 下错位的问题。[#17759](https://github.com/ant-design/ant-design/pull/17759)
 - 🐞 修复 Steps `progressDot` 样式错位问题。[#18356](https://github.com/ant-design/ant-design/pull/18356)
+- 🐞 修复纯图标按钮样式错误的问题。 [#18425](https://github.com/ant-design/ant-design/pull/18425)
 
 ## 3.22.2
 
