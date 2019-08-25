@@ -19,7 +19,7 @@ timeline: true
 
 - 🔥 PageHeader 样式重写以适应更多的情况。[#18128](https://github.com/ant-design/ant-design/pull/18128)
 - 🔥 官方现在支持通过图片搜索图标啦！[#18425](https://github.com/ant-design/ant-design/pull/18425)
-- 💄 调整 Table `expand icon` 的样式。[c5344bd](https://github.com/ant-design/ant-design/commit/c5344bde529a2f2ec814f46e7ec5d249eac8d608)
+- 💄 调整 Table 展开按钮的样式。[c5344bd](https://github.com/ant-design/ant-design/commit/c5344bde529a2f2ec814f46e7ec5d249eac8d608)
 - 🌟 Card 组件新增了 `tabBarExtraContent` 属性。[#18433](https://github.com/ant-design/ant-design/pull/18433) [@lengthmin](https://github.com/lengthmin)
 - 🌟 Anchor.Link 增加 `target` 属性。[#18335](https://github.com/ant-design/ant-design/pull/18335) [@DiamondYuan](https://github.com/DiamondYuan)
 - 🐞 修复 Table 的 `style` 属性被应用了两次的问题。[#18330](https://github.com/ant-design/ant-design/pull/18330) [@MrHeer](https://github.com/MrHeer)
