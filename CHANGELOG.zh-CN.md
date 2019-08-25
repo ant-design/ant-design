@@ -17,13 +17,14 @@ timeline: true
 
 ## 3.23.0
 
-- 🔥 PageHeader 样式重写以适应更多的情况。 [#18128](https://github.com/ant-design/ant-design/pull/18128)
-- 💄 调整 Table `expand icon` 的样式。 [c5344bd](https://github.com/ant-design/ant-design/commit/c5344bde529a2f2ec814f46e7ec5d249eac8d608)
-- 🌟 Card 组件新增了 `tabBarExtraContent` props。 [#18433](https://github.com/ant-design/ant-design/pull/18433) [@lengthmin](https://github.com/lengthmin)
-- 🌟 Anchor.Link 增加 `target` 属性。 [#18335](https://github.com/ant-design/ant-design/pull/18335) [@DiamondYuan](https://github.com/DiamondYuan)
-- 🐞 修复 Table 的 `style` 属性被应用了两次的问题. [#18330](https://github.com/ant-design/ant-design/pull/18330) [@MrHeer](https://github.com/MrHeer)
-- 🐞 修复 Input 在 IE 下错位的问题。 [#17759](https://github.com/ant-design/ant-design/pull/17759)
-- 🐞 修复 Steps `progressDot` 样式错位问题。 [#18356](https://github.com/ant-design/ant-design/pull/18356)
+- 🔥 PageHeader 样式重写以适应更多的情况。[#18128](https://github.com/ant-design/ant-design/pull/18128)
+- 🔥 官方现在支持通过图片搜索图标啦！[#18425](https://github.com/ant-design/ant-design/pull/18425)
+- 💄 调整 Table `expand icon` 的样式。[c5344bd](https://github.com/ant-design/ant-design/commit/c5344bde529a2f2ec814f46e7ec5d249eac8d608)
+- 🌟 Card 组件新增了 `tabBarExtraContent` 属性。[#18433](https://github.com/ant-design/ant-design/pull/18433) [@lengthmin](https://github.com/lengthmin)
+- 🌟 Anchor.Link 增加 `target` 属性。[#18335](https://github.com/ant-design/ant-design/pull/18335) [@DiamondYuan](https://github.com/DiamondYuan)
+- 🐞 修复 Table 的 `style` 属性被应用了两次的问题。[#18330](https://github.com/ant-design/ant-design/pull/18330) [@MrHeer](https://github.com/MrHeer)
+- 🐞 修复 Input 在 IE11 下错位的问题。[#17759](https://github.com/ant-design/ant-design/pull/17759)
+- 🐞 修复 Steps `progressDot` 样式错位问题。[#18356](https://github.com/ant-design/ant-design/pull/18356)
 
 ## 3.22.2
 
