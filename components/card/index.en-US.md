@@ -40,10 +40,11 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card.Grid
 
-| Property  | Description               | Type   | Default | Version |
-| --------- | ------------------------- | ------ | ------- | ------- |
-| className | className of container    | string | -       |         |
-| style     | style object of container | object | -       |         |
+| Property  | Description                     | Type    | Default | Version |
+| --------- | ------------------------------- | ------- | ------- | ------- |
+| className | className of container          | string  | -       |         |
+| hoverable | Lift up when hovering card grid | boolean | true    | 3.23.0  |
+| style     | style object of container       | object  | -       |         |
 
 ### Card.Meta
 
