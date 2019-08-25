@@ -1,8 +1,8 @@
 ---
 order: 4
 title:
-  zh-CN: 组合起来的例子
-  en-US: Compose example
+  zh-CN: 多种形态的 PageHeader
+  en-US: Various forms of PageHeader
 ---
 
 ## zh-CN
@@ -14,7 +14,7 @@ title:
 Use the operating area and customize the sub-nodes, suitable for use in the need to display some complex information to help users quickly understand the information and operations of this page.
 
 ```jsx
-import { PageHeader, Tag, Button, Statistic, Descriptions } from 'antd';
+import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 
 ReactDOM.render(
   <div>
@@ -56,11 +56,7 @@ ReactDOM.render(
         </Button>,
       ]}
     >
-      <div
-        style={{
-          display: 'flex',
-        }}
-      >
+      <Row type="flex">
         <Statistic title="Status" value="Pending" />
         <Statistic
           title="Price"
@@ -71,7 +67,7 @@ ReactDOM.render(
           }}
         />
         <Statistic title="Balance" prefix="$" value={3345.08} />
-      </div>
+      </Row>
     </PageHeader>
   </div>,
   mountNode,

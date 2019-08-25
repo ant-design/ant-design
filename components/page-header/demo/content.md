@@ -14,7 +14,7 @@ title:
 Show all props.Used all the capabilities provided by pageHeader.
 
 ```jsx
-import { PageHeader, Menu, Dropdown, Icon, Button, Tag, Typography } from 'antd';
+import { PageHeader, Menu, Dropdown, Icon, Button, Tag, Typography, Row } from 'antd';
 
 const { Paragraph } = Typography;
 
@@ -104,7 +104,7 @@ const content = (
       easier for designers to have a clear psychological expectation of color when adjusting colors,
       as well as facilitate communication in teams.
     </Paragraph>
-    <p className="contentLink" style={{ display: 'flex' }}>
+    <Row className="contentLink" type="flex">
       <IconLink
         src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
         text="Quick Start"
@@ -117,19 +117,16 @@ const content = (
         src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
         text="Product Doc"
       />
-    </p>
+    </Row>
   </div>
 );
 
 const Content = ({ children, extraContent }) => {
   return (
-    <div
-      className="content"
-      style={{
-        display: 'flex',
-      }}
-    >
-      <div className="main">{children}</div>
+    <Row className="content" type="flex">
+      <div className="main" style={{ flex: 1 }}>
+        {children}
+      </div>
       <div
         className="extra"
         style={{
@@ -138,7 +135,7 @@ const Content = ({ children, extraContent }) => {
       >
         {extraContent}
       </div>
-    </div>
+    </Row>
   );
 };
 
