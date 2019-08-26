@@ -55,7 +55,9 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   }
 
   saveInput = (instance: Input) => {
-    this.input = instance.input;
+    if (instance && instance.input) {
+      this.input = instance.input;
+    }
   };
 
   focus() {
