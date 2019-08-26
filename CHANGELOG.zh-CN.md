@@ -22,7 +22,7 @@ timeline: true
 - 🐞 修复 Table 的 `style` 属性被应用了两次的问题。[#18330](https://github.com/ant-design/ant-design/pull/18330) [@MrHeer](https://github.com/MrHeer)
 - 🐞 修复 Input 在 IE11 下错位的问题。[#17759](https://github.com/ant-design/ant-design/pull/17759)
 - 🐞 修复 Steps `progressDot` 样式错位问题。[#18356](https://github.com/ant-design/ant-design/pull/18356)
-- 🐞 修复纯图标按钮样式错误的问题。 [#18458](https://github.com/ant-design/ant-design/pull/18458)
+- 🐞 修复纯图标按钮样式错误的问题。[#18458](https://github.com/ant-design/ant-design/pull/18458) [@qhanw](https://github.com/qhanw)
 - 🐞 修复 TextArea 受控模式下配置 `autosize` 时，输入会导致滚动条闪烁的问题。[#18401](https://github.com/ant-design/ant-design/pull/18401)
 - 🐞 修复 Input.Password `ref` 获取不到 input 元素且没有 `focus` 和 `blur` 方法的问题。。[#18441](https://github.com/ant-design/ant-design/pull/18441)
 - 🐞 修复 Upload 错误的换行问题。[#18423](https://github.com/ant-design/ant-design/pull/18423)
