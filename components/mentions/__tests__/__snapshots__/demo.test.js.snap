@@ -36,7 +36,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     >
       <label
         class=""
-        for="mention"
+        for="coders"
         title="Top coders"
       >
         Top coders
@@ -57,7 +57,45 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
             <textarea
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="mention"
+              id="coders"
+              rows="1"
+            />
+          </div>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-6 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="bio"
+        title="Bio"
+      >
+        Bio
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-16 ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <div
+            class="ant-mentions"
+          >
+            <textarea
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="bio"
+              placeholder="You can use @ to ref user here"
               rows="3"
             />
           </div>
