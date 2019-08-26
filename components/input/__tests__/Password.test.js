@@ -61,4 +61,12 @@ describe('Input.Password', () => {
         .getDOMNode(),
     );
   });
+
+  // https://github.com/ant-design/ant-design/pull/18441
+  it('should unmount without error', () => {
+    const wrapper = mount(<Input.Password />);
+    expect(() => {
+      wrapper.unmount();
+    }).not.toThrow();
+  });
 });
