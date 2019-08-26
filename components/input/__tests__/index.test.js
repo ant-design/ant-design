@@ -308,4 +308,9 @@ describe('Input allowClear', () => {
         .getDOMNode(),
     );
   });
+
+  it('should not support allowClear when it is disabled', () => {
+    const wrapper = mount(<Input allowClear defaultValue="111" disabled />);
+    expect(wrapper.find('.ant-input-clear-icon').length).toBe(0);
+  });
 });
