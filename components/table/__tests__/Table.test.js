@@ -1,10 +1,13 @@
 import React from 'react';
 import { render, shallow, mount } from 'enzyme';
 import Table from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { Column, ColumnGroup } = Table;
 
 describe('Table', () => {
+  mountTest(Table);
+
   const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterAll(() => {

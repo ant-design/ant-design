@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Switch from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Switch', () => {
   focusTest(Switch);
+  mountTest(Switch);
 
   it('should has click wave effect', async () => {
     const wrapper = mount(<Switch />);

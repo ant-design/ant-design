@@ -8,8 +8,11 @@ import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
 import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Tooltip', () => {
+  mountTest(Tooltip);
+
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();
 

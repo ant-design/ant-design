@@ -1,8 +1,11 @@
 import React from 'react';
 import { render } from 'enzyme';
 import Drawer from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Drawer', () => {
+  mountTest(Drawer);
+
   it('render correctly', () => {
     const wrapper = render(
       <Drawer visible width={400} getContainer={false}>

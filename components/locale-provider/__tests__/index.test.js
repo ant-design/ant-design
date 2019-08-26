@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
 import {
   LocaleProvider,
   Pagination,
@@ -159,6 +160,8 @@ const App = () => (
 );
 
 describe('Locale Provider', () => {
+  mountTest(() => <LocaleProvider><div /></LocaleProvider>);
+
   beforeAll(() => {
     MockDate.set(moment('2017-09-18T03:30:07.795'));
   });

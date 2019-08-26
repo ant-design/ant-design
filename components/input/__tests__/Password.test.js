@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Input.Password', () => {
   focusTest(Input.Password);
+  mountTest(Input.Password);
 
   it('should get input element from ref', () => {
     const wrapper = mount(<Input.Password />);
@@ -60,13 +62,5 @@ describe('Input.Password', () => {
         .at(0)
         .getDOMNode(),
     );
-  });
-
-  // https://github.com/ant-design/ant-design/pull/18441
-  it('should unmount without error', () => {
-    const wrapper = mount(<Input.Password />);
-    expect(() => {
-      wrapper.unmount();
-    }).not.toThrow();
   });
 });

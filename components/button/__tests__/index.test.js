@@ -3,8 +3,11 @@ import { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Button from '..';
 import Icon from '../../icon';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Button', () => {
+  mountTest(Button);
+
   it('renders correctly', () => {
     const wrapper = render(<Button>Follow</Button>);
     expect(wrapper).toMatchSnapshot();

@@ -5,8 +5,12 @@ import { mount } from 'enzyme';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
 import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Statistic', () => {
+  mountTest(Statistic);
+  mountTest(Statistic.Countdown);
+
   beforeAll(() => {
     MockDate.set(moment('2018-11-28 00:00:00'));
   });

@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Tag from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Tag', () => {
+  mountTest(Tag);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
