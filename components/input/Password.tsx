@@ -20,6 +20,8 @@ const ActionMap: Record<string, string> = {
 };
 
 export default class Password extends React.Component<PasswordProps, PasswordState> {
+  input: HTMLInputElement;
+
   static defaultProps = {
     inputPrefixCls: 'ant-input',
     prefixCls: 'ant-input-password',
@@ -52,6 +54,22 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     return <Icon {...iconProps} />;
   }
 
+  saveInput = (instance: Input) => {
+    this.input = instance.input;
+  };
+
+  focus() {
+    this.input.focus();
+  }
+
+  blur() {
+    this.input.blur();
+  }
+
+  select() {
+    this.input.select();
+  }
+
   render() {
     const {
       className,
@@ -73,6 +91,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         className={inputClassName}
         prefixCls={inputPrefixCls}
         suffix={suffixIcon}
+        ref={this.saveInput}
       />
     );
   }
