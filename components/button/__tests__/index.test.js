@@ -7,6 +7,7 @@ import mountTest from '../../../tests/shared/mountTest';
 
 describe('Button', () => {
   mountTest(Button);
+  mountTest(Button.Group);
 
   it('renders correctly', () => {
     const wrapper = render(<Button>Follow</Button>);

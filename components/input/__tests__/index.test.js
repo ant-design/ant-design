@@ -22,6 +22,7 @@ describe('Input', () => {
 
   focusTest(Input);
   mountTest(Input);
+  mountTest(Input.Group);
 
   it('should support maxLength', () => {
     const wrapper = mount(<Input maxLength={3} />);
