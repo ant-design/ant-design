@@ -125,7 +125,7 @@ class ComponentDoc extends React.Component {
               <Tooltip
                 title={
                   <FormattedMessage
-                    id={`app.component.examples.${expandAll ? 'collpse' : 'expand'}`}
+                    id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
                   />
                 }
               >
