@@ -101,6 +101,7 @@
     "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.4.0",
     "@types/classnames": "^2.2.8",
+    "@types/gtag.js": "^0.0.3",
     "@types/prop-types": "^15.7.1",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.8.4",
