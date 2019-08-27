@@ -1,6 +1,7 @@
 /* eslint-disable prefer-spread */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import omit from 'omit.js';
 import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -1214,7 +1215,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     contextLocale: TableLocale;
     getPopupContainer: TableProps<T>['getPopupContainer'];
   }) => {
-    const { showHeader, locale, getPopupContainer, ...restProps } = this.props;
+    const { showHeader, locale, getPopupContainer, ...restTableProps } = this.props;
+    // do not pass prop.style to rc-table, since already apply it to container div
+    const restProps = omit(restTableProps, ['style']);
     const data = this.getCurrentPageData();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
 
@@ -1279,6 +1282,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const {
       prefixCls: customizePrefixCls,
       dropdownPrefixCls: customizeDropdownPrefixCls,
+      style,
       className,
     } = this.props;
     const data = this.getCurrentPageData();
@@ -1314,7 +1318,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         : `${prefixCls}-without-pagination`;
 
     return (
-      <div className={classNames(`${prefixCls}-wrapper`, className)}>
+      <div className={classNames(`${prefixCls}-wrapper`, className)} style={style}>
         <Spin
           {...loading}
           className={loading.spinning ? `${paginationPatchClass} ${prefixCls}-spin-holder` : ''}
