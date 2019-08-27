@@ -5,6 +5,7 @@ import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
+import { resetWarned } from '../../_util/warning';
 
 describe('Upload', () => {
   beforeEach(() => setup());
@@ -214,7 +215,9 @@ describe('Upload', () => {
         return (
           <Form>
             <Form.Item label="Upload">
-              {getFieldDecorator('upload')(<Upload>{children}</Upload>)}
+              {getFieldDecorator('upload', { valuePropName: 'fileList' })(
+                <Upload>{children}</Upload>,
+              )}
             </Form.Item>
           </Form>
         );
@@ -243,7 +246,9 @@ describe('Upload', () => {
         return (
           <Form>
             <Form.Item label="Upload">
-              {getFieldDecorator('upload')(
+              {getFieldDecorator('upload', {
+                valuePropName: 'fileList',
+              })(
                 <Upload disabled={disabled}>
                   <div>upload</div>
                 </Upload>,
@@ -463,5 +468,16 @@ describe('Upload', () => {
     expect(wrapper.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
     expect(wrapper.onProgress('', { uid: 'fileItem' })).toBe(undefined);
     expect(wrapper.onError('', '', { uid: 'fileItem' })).toBe(undefined);
+  });
+
+  it('warning if set `value`', () => {
+    resetWarned();
+
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Upload value={[]} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Upload] `value` is not validate prop, do you mean `fileList`?',
+    );
+    errorSpy.mockRestore();
   });
 });
