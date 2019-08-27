@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.22.2
+
+`2019-08-27`
+
+- 🐞修复 Mentions 在 Form 中高度略高的问题。[#18478](https://github.com/ant-design/ant-design/pull/18478)
+- 🐞修复失效 Input 依然支持 allowClear 的问题。[#18482](https://github.com/ant-design/ant-design/pull/18482)
+- 🐞修复 Input.Password unmount 时报错 `Cannot read property 'input' of null`。[#18475](https://github.com/ant-design/ant-design/pull/18475)
+- 🐞修正 Table `style` 属性到最外层容器。[#18494](https://github.com/ant-design/ant-design/pull/18494)
+- 🐞修正 PageHeader 默认英文文案。[#18471](https://github.com/ant-design/ant-design/pull/18471) [@hjiawei](https://github.com/hjiawei)
+
 ## 3.22.1
 
 `2019-08-26`
