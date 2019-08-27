@@ -5,6 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 
 describe('Tag', () => {
   mountTest(Tag);
+  mountTest(Tag.CheckableTag);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -59,6 +60,15 @@ describe('Tag', () => {
       wrapper.setProps({ visible: false });
       jest.runAllTimers();
       expect(wrapper.render()).toMatchSnapshot();
+    });
+  });
+
+  describe('CheckableTag', () => {
+    it('support onChange', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(<Tag.CheckableTag onChange={onChange} />);
+      wrapper.find('.ant-tag').simulate('click');
+      expect(onChange).toHaveBeenCalledWith(true);
     });
   });
 });
