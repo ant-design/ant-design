@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Table from '..';
-import Select from '../../select';
 
 describe('Table.pagination', () => {
   const columns = [
@@ -214,6 +213,7 @@ describe('Table.pagination', () => {
   });
 
   it('select by checkbox to trigger stopPropagation', () => {
+    jest.useFakeTimers();
     const onShowSizeChange = jest.fn();
     const wrapper = mount(
       createTable({
@@ -224,9 +224,17 @@ describe('Table.pagination', () => {
         },
       }),
     );
-    wrapper.find(Select).simulate('click');
-    expect(wrapper.find('MenuItem').length).toBe(4);
-    wrapper.find('MenuItem').at(3).simulate('click');
+    wrapper.find('.ant-select').simulate('click');
+    jest.runAllTimers();
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(dropdownWrapper.find('MenuItem').length).toBe(4);
+    dropdownWrapper.find('MenuItem').at(3).simulate('click');
     expect(onShowSizeChange).toHaveBeenCalled();
+    jest.useRealTimers();
   });
 });
