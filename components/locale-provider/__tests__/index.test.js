@@ -63,6 +63,7 @@ import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
 import viVN from '../vi_VN';
 import idID from '../id_ID';
+import lvLV from '../lv_LV';
 import zhCN from '../zh_CN';
 import zhTW from '../zh_TW';
 
@@ -113,6 +114,7 @@ const locales = [
   ukUA,
   viVN,
   idID,
+  lvLV,
   zhCN,
   zhTW,
 ];
