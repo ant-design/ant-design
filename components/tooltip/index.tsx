@@ -64,10 +64,17 @@ export interface AbstractTooltipProps {
 
 export type RenderFunction = () => React.ReactNode;
 
-export interface TooltipProps extends AbstractTooltipProps {
+interface TooltipPropsWithOverlay extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
+  overlay: React.ReactNode | RenderFunction;
+}
+
+interface TooltipPropsWithTitle extends AbstractTooltipProps {
+  title: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
 }
+
+export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
 const splitObject = (obj: any, keys: string[]) => {
   const picked: any = {};
