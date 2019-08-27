@@ -1,6 +1,7 @@
 /* eslint-disable prefer-spread */
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import omit from 'omit.js';
 import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -1214,8 +1215,9 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     contextLocale: TableLocale;
     getPopupContainer: TableProps<T>['getPopupContainer'];
   }) => {
+    const { showHeader, locale, getPopupContainer, ...restTableProps } = this.props;
     // do not pass prop.style to rc-table, since already apply it to container div
-    const { showHeader, locale, getPopupContainer, style, ...restProps } = this.props;
+    const restProps = omit(restTableProps, ['style']);
     const data = this.getCurrentPageData();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
 
