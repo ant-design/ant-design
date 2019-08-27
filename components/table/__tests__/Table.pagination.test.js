@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Table from '..';
+import Select from '../../select';
 
 describe('Table.pagination', () => {
   const columns = [
@@ -210,5 +211,22 @@ describe('Table.pagination', () => {
     expect(onChange.mock.calls[0][0].current).toBe(2);
 
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
+  });
+
+  it('select by checkbox to trigger stopPropagation', () => {
+    const onShowSizeChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+          onShowSizeChange,
+        },
+      }),
+    );
+    wrapper.find(Select).simulate('click');
+    expect(wrapper.find('MenuItem').length).toBe(4);
+    wrapper.find('MenuItem').at(3).simulate('click');
+    expect(onShowSizeChange).toHaveBeenCalled();
   });
 });

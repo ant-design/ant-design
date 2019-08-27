@@ -96,4 +96,11 @@ describe('Table', () => {
       'Warning: [antd: Table] `expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
     );
   });
+
+  it('support onHeaderCell', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(<Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />);
+    wrapper.find('th').simulate('click');
+    expect(onClick).toHaveBeenCalled();
+  });
 });
