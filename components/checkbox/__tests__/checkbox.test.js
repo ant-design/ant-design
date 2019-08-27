@@ -4,7 +4,7 @@ import Checkbox from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { resetWarned } from '../../_util/warning';
 
-describe('Checkbox.2333', () => {
+describe('Checkbox', () => {
   focusTest(Checkbox);
 
   it('responses hover events', () => {
