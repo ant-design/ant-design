@@ -63,7 +63,7 @@ export function normalizeColumns(elements: React.ReactChildren) {
     if (element.key) {
       column.key = element.key;
     }
-    if (element.type && (element.type as any).__ANT_TABLE_COLUMN_GROUP) {
+    if (element.props && (element.props as any).children) {
       column.children = normalizeColumns(column.children);
     }
     columns.push(column);

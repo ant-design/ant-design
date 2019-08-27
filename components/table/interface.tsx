@@ -148,7 +148,17 @@ export interface TableEventListeners {
   [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
 }
 
-export interface TableProps<T> {
+export interface CheckboxPropsCache {
+  [key: string]: any;
+}
+
+export interface WithStore {
+  store: Store;
+  checkboxPropsCache: CheckboxPropsCache;
+  setCheckboxPropsCache: (cache: CheckboxPropsCache) => void;
+}
+
+export interface TableProps<T> extends WithStore {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
