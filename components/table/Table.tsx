@@ -32,6 +32,8 @@ import {
   PaginationConfig,
   PrepareParamsArgumentsReturn,
   ExpandIconProps,
+  WithStore,
+  CheckboxPropsCache,
 } from './interface';
 import Pagination from '../pagination';
 import Icon from '../icon';
@@ -103,7 +105,7 @@ const createComponents = (components: TableComponents = {}, prevComponents?: Tab
   };
 };
 
-export default class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
+class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   static Column = Column;
 
   static ColumnGroup = ColumnGroup;
@@ -163,6 +165,23 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       };
     }
 
+    if (nextProps.rowSelection && 'selectedRowKeys' in nextProps.rowSelection) {
+      nextProps.store.setState({
+        selectedRowKeys: nextProps.rowSelection.selectedRowKeys || [],
+      });
+    } else if (prevProps.rowSelection && !nextProps.rowSelection) {
+      nextProps.store.setState({
+        selectedRowKeys: [],
+      });
+    }
+    if ('dataSource' in nextProps && nextProps.dataSource !== prevProps.dataSource) {
+      nextProps.store.setState({
+        selectionDirty: false,
+      });
+    }
+    // https://github.com/ant-design/ant-design/issues/10133
+    nextProps.setCheckboxPropsCache({});
+
     if (nextProps.components !== prevProps.components) {
       const components = createComponents(nextProps.components, prevProps.components);
 
@@ -174,12 +193,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
     return nextState;
   }
-
-  CheckboxPropsCache: {
-    [key: string]: any;
-  };
-
-  store: Store;
 
   columns: ColumnProps<T>[];
 
@@ -218,37 +231,12 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       prevProps: props,
       components: createComponents(props.components),
     };
-
-    this.CheckboxPropsCache = {};
-
-    this.store = createStore({
-      selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
-      selectionDirty: false,
-    });
   }
 
-  componentDidUpdate(prevProps: Readonly<TableProps<T>>) {
+  componentDidUpdate() {
     const { props } = this;
 
     this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
-
-    if (props.rowSelection && 'selectedRowKeys' in props.rowSelection) {
-      this.store.setState({
-        selectedRowKeys: props.rowSelection.selectedRowKeys || [],
-      });
-    } else if (prevProps.rowSelection && !props.rowSelection) {
-      this.store.setState({
-        selectedRowKeys: [],
-      });
-    }
-    if ('dataSource' in props && props.dataSource !== prevProps.dataSource) {
-      this.store.setState({
-        selectionDirty: false,
-      });
-    }
-
-    // https://github.com/ant-design/ant-design/issues/10133
-    this.CheckboxPropsCache = {};
 
     if (this.getSortOrderColumns(this.columns).length > 0) {
       const sortState = this.getSortStateFromColumns(this.columns);
@@ -280,16 +268,16 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
     const key = this.getRecordKey(item, index);
     // Cache checkboxProps
-    if (!this.CheckboxPropsCache[key]) {
-      this.CheckboxPropsCache[key] = rowSelection.getCheckboxProps(item) || {};
-      const checkboxProps = this.CheckboxPropsCache[key];
+    if (!this.props.checkboxPropsCache[key]) {
+      this.props.checkboxPropsCache[key] = rowSelection.getCheckboxProps(item) || {};
+      const checkboxProps = this.props.checkboxPropsCache[key];
       warning(
         !('checked' in checkboxProps) && !('defaultChecked' in checkboxProps),
         'Table',
         'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
       );
     }
-    return this.CheckboxPropsCache[key];
+    return this.props.checkboxPropsCache[key];
   };
 
   getDefaultSelection() {
@@ -500,7 +488,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return {
       ...custom,
       prefixCls,
-      store: this.store,
+      store: this.props.store,
       rowKey: this.getRecordKey(record, index),
     };
   };
@@ -509,7 +497,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const { selectWay, record, checked, changeRowKeys, nativeEvent } = selectionInfo;
     const rowSelection = getRowSelection(this.props);
     if (rowSelection && !('selectedRowKeys' in rowSelection)) {
-      this.store.setState({ selectedRowKeys });
+      this.props.store.setState({ selectedRowKeys });
     }
     const data = this.getFlatData();
     if (!rowSelection.onChange && !rowSelection[selectWay]) {
@@ -598,7 +586,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
 
     this.setState(newState, () => {
-      this.store.setState({
+      this.props.store.setState({
         selectionDirty: false,
       });
       const { onChange } = this.props;
@@ -619,8 +607,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   handleSelect = (record: T, rowIndex: number, e: CheckboxChangeEvent) => {
     const checked = e.target.checked;
     const nativeEvent = e.nativeEvent;
-    const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
-    let selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
+    const defaultSelection = this.props.store.getState().selectionDirty
+      ? []
+      : this.getDefaultSelection();
+    let selectedRowKeys = this.props.store.getState().selectedRowKeys.concat(defaultSelection);
     const key = this.getRecordKey(record, rowIndex);
     const { pivot } = this.state;
     const rows = this.getFlatCurrentPageData();
@@ -654,7 +644,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       }
 
       this.setState({ pivot: realIndex });
-      this.store.setState({
+      this.props.store.setState({
         selectionDirty: true,
       });
       this.setSelectedRowKeys(selectedRowKeys, {
@@ -672,7 +662,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       }
 
       this.setState({ pivot: realIndex });
-      this.store.setState({
+      this.props.store.setState({
         selectionDirty: true,
       });
       this.setSelectedRowKeys(selectedRowKeys, {
@@ -690,7 +680,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     const nativeEvent = e.nativeEvent;
     const key = this.getRecordKey(record, rowIndex);
     const selectedRowKeys = [key];
-    this.store.setState({
+    this.props.store.setState({
       selectionDirty: true,
     });
     this.setSelectedRowKeys(selectedRowKeys, {
@@ -704,8 +694,10 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   handleSelectRow = (selectionKey: string, index: number, onSelectFunc: SelectionItemSelectFn) => {
     const data = this.getFlatCurrentPageData();
-    const defaultSelection = this.store.getState().selectionDirty ? [] : this.getDefaultSelection();
-    const selectedRowKeys = this.store.getState().selectedRowKeys.concat(defaultSelection);
+    const defaultSelection = this.props.store.getState().selectionDirty
+      ? []
+      : this.getDefaultSelection();
+    const selectedRowKeys = this.props.store.getState().selectedRowKeys.concat(defaultSelection);
     const changeableRowKeys = data
       .filter((item, i) => !this.getCheckboxPropsByItem(item, i).disabled)
       .map((item, i) => this.getRecordKey(item, i));
@@ -750,7 +742,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         break;
     }
 
-    this.store.setState({
+    this.props.store.setState({
       selectionDirty: true,
     });
     // when select custom selection, callback selections[n].onSelect
@@ -791,7 +783,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
     this.setState(newState);
 
-    this.store.setState({
+    this.props.store.setState({
       selectionDirty: false,
     });
 
@@ -1025,7 +1017,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         <span onClick={stopPropagation}>
           <SelectionBox
             type={type}
-            store={this.store}
+            store={this.props.store}
             rowIndex={rowKey}
             onChange={handleChange}
             defaultSelection={this.getDefaultSelection()}
@@ -1074,7 +1066,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         );
         selectionColumn.title = selectionColumn.title || (
           <SelectionCheckboxAll
-            store={this.store}
+            store={this.props.store}
             locale={locale}
             data={data}
             getCheckboxPropsByItem={this.getCheckboxPropsByItem}
@@ -1357,3 +1349,40 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
+
+function withStore(
+  WrappedComponent: typeof Table,
+): React.ComponentClass<Omit<TableProps<any>, keyof WithStore>> {
+  class Component<T> extends React.Component<TableProps<T>> {
+    store: Store;
+
+    CheckboxPropsCache: CheckboxPropsCache;
+
+    constructor(props: TableProps<T>) {
+      super(props);
+
+      this.CheckboxPropsCache = {};
+
+      this.store = createStore({
+        selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
+        selectionDirty: false,
+      });
+    }
+
+    setCheckboxPropsCache = (cache: CheckboxPropsCache) => (this.CheckboxPropsCache = cache);
+
+    render() {
+      return (
+        <WrappedComponent<T>
+          {...this.props}
+          store={this.store}
+          checkboxPropsCache={this.CheckboxPropsCache}
+          setCheckboxPropsCache={this.setCheckboxPropsCache}
+        />
+      );
+    }
+  }
+  return Component;
+}
+
+export default withStore(Table);
