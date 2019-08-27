@@ -17,6 +17,8 @@ timeline: true
 
 ## 3.23.0
 
+`2019-09-01`
+
 - 🔥 PageHeader 样式重新设计以适应更多的情况。[#18128](https://github.com/ant-design/ant-design/pull/18128)
 - 🌟 Card 组件新增了 `tabBarExtraContent` 属性。[#18433](https://github.com/ant-design/ant-design/pull/18433) [@lengthmin](https://github.com/lengthmin)
 - 🌟 Anchor.Link 增加 `target` 属性。[#18335](https://github.com/ant-design/ant-design/pull/18335) [@DiamondYuan](https://github.com/DiamondYuan)

@@ -17,6 +17,8 @@ timeline: true
 
 ## 3.23.0
 
+`2019-09-01`
+
 - 🔥 Pageheader has been redesigned to accommodate more situations. [#18128](https://github.com/ant-design/ant-design/pull/18128)
 - 🌟 Add `tabBarExtraContent` property to Card component. [#18433](https://github.com/ant-design/ant-design/pull/18433) [@lengthmin](https://github.com/lengthmin)
 - 🌟 Anchor.Link add add new property `target`. [#18335](https://github.com/ant-design/ant-design/pull/18335) [@DiamondYuan](https://github.com/DiamondYuan)
