@@ -2,6 +2,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('enquire.js', () => {
   let that;
@@ -22,6 +23,8 @@ jest.mock('enquire.js', () => {
 });
 
 describe('Descriptions', () => {
+  mountTest(Descriptions);
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {

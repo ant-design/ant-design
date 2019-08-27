@@ -2,8 +2,11 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Badge', () => {
+  mountTest(Badge);
+
   beforeEach(() => {
     jest.useFakeTimers();
   });

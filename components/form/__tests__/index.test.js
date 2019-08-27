@@ -2,8 +2,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Form from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Form', () => {
+  mountTest(Form);
+  mountTest(Form.Item);
+
   it('hideRequiredMark', () => {
     const wrapper = mount(<Form hideRequiredMark />);
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBe(true);

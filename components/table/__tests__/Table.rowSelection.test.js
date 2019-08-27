@@ -714,4 +714,11 @@ describe('Table.rowSelection', () => {
     wrapper.setProps({ rowSelection: null });
     expect(wrapper.find('.ant-table-row-selected').length).toBe(0);
   });
+
+  it('select by checkbox to trigger stopPropagation', () => {
+    const wrapper = mount(createTable());
+    expect(() => {
+      wrapper.find('span').at(10).simulate('click');
+    }).not.toThrow();
+  });
 });

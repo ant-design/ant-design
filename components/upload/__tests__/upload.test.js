@@ -6,8 +6,12 @@ import Form from '../../form';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Upload', () => {
+  mountTest(Upload);
+  mountTest(Upload.Dragger);
+
   beforeEach(() => setup());
   afterEach(() => teardown());
 

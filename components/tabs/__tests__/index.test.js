@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Tabs from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { TabPane } = Tabs;
 
 describe('Tabs', () => {
+  mountTest(() => <Tabs><TabPane tab="xx" key="xx" /></Tabs>);
+
   describe('editable-card', () => {
     let handleEdit;
     let wrapper;

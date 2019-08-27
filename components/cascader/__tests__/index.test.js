@@ -3,6 +3,7 @@ import { render, mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 const options = [
   {
@@ -45,6 +46,7 @@ function filter(inputValue, path) {
 
 describe('Cascader', () => {
   focusTest(Cascader);
+  mountTest(Cascader);
 
   it('popup correctly when panel is hidden', () => {
     const wrapper = mount(<Cascader options={options} />);
