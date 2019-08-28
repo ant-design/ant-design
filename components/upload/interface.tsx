@@ -81,6 +81,7 @@ export interface UploadProps {
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
+  itemRender?: (file: any) => React.PureComponent;
 }
 
 export interface UploadState {
@@ -99,4 +100,5 @@ export interface UploadListProps {
   showPreviewIcon?: boolean;
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
+  itemRender?: (file: any) => React.PureComponent;
 }

@@ -17,6 +17,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     },
     showRemoveIcon: true,
     showPreviewIcon: true,
+    itemRender: undefined,
     previewFile: previewImage,
   };
 
@@ -71,6 +72,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showPreviewIcon,
       showRemoveIcon,
       locale,
+      itemRender,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -166,15 +168,27 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const removeIconClose = showRemoveIcon ? (
         <Icon type="close" title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
-      const actions =
-        listType === 'picture-card' && file.status !== 'uploading' ? (
-          <span className={`${prefixCls}-list-item-actions`}>
-            {previewIcon}
-            {removeIcon}
-          </span>
-        ) : (
-          removeIconClose
-        );
+      let actions;
+      if (listType === 'picture-card' && file.status !== 'uploading') {
+        if (itemRender) {
+          actions = (
+            <span className={`${prefixCls}-list-item-actions`}>
+              {previewIcon}
+              {removeIcon}
+              {itemRender(file)}
+            </span>
+          );
+        } else {
+          actions = (
+            <span className={`${prefixCls}-list-item-actions`}>
+              {previewIcon}
+              {removeIcon}
+            </span>
+          );
+        }
+      } else {
+        actions = removeIconClose;
+      }
       let message;
       if (file.response && typeof file.response === 'string') {
         message = file.response;

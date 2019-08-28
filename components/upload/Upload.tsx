@@ -38,6 +38,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     className: '',
     disabled: false,
     supportServerRender: true,
+    itemRender: undefined,
   };
 
   static getDerivedStateFromProps(nextProps: UploadProps) {
@@ -238,7 +239,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
   };
 
   renderUploadList = (locale: UploadLocale) => {
-    const { showUploadList, listType, onPreview, previewFile } = this.props;
+    const { showUploadList, listType, onPreview, previewFile, itemRender } = this.props;
     const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
     return (
       <UploadList
@@ -250,6 +251,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
         showRemoveIcon={showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
         locale={{ ...locale, ...this.props.locale }}
+        itemRender={itemRender}
       />
     );
   };
