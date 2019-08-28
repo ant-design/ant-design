@@ -61,7 +61,7 @@ describe('Table', () => {
     ];
     wrapper.setProps({ columns: newColumns });
 
-    expect(wrapper.dive().instance().columns).toBe(newColumns);
+    expect(wrapper.dive().state('columns')).toBe(newColumns);
   });
 
   it('loading with Spin', async () => {
