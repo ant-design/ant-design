@@ -145,10 +145,13 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   static getDerivedStateFromProps(nextProps: TableProps<any>, prevState: TableState<any>) {
     const { prevProps } = prevState;
+    const columns =
+      nextProps.columns || normalizeColumns(nextProps.children as React.ReactChildren);
 
     let nextState: TableState<any> = {
       ...prevState,
       prevProps: nextProps,
+      columns,
     };
 
     if ('pagination' in nextProps || 'pagination' in prevProps) {
@@ -195,10 +198,6 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     return nextState;
   }
 
-  columns: ColumnProps<T>[];
-
-  components: TableComponents;
-
   row: React.ComponentType<any>;
 
   rcTable: React.RefObject<any>;
@@ -207,7 +206,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     super(props);
     this.rcTable = React.createRef();
 
-    const { expandedRowRender, columns = [] } = props;
+    const { expandedRowRender, columns: columnsProp = [] } = props;
 
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
@@ -216,7 +215,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
-    if (expandedRowRender && columns.some(({ fixed }) => !!fixed)) {
+    if (expandedRowRender && columnsProp.some(({ fixed }) => !!fixed)) {
       warning(
         false,
         'Table',
@@ -224,26 +223,27 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       );
     }
 
-    this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
+    const columns = columnsProp || normalizeColumns(props.children as React.ReactChildren);
 
     this.state = {
-      ...this.getDefaultSortOrder(this.columns),
+      ...this.getDefaultSortOrder(columns),
       // 减少状态
       filters: this.getFiltersFromColumns(),
       pagination: this.getDefaultPagination(props),
       pivot: undefined,
       prevProps: props,
       components: createComponents(props.components),
+      columns,
     };
   }
 
+  componentDidMount(): void {
+    this.updateFilters();
+  }
+
   componentDidUpdate() {
-    const { props } = this;
-
-    this.columns = props.columns || normalizeColumns(props.children as React.ReactChildren);
-
-    if (this.getSortOrderColumns(this.columns).length > 0) {
-      const sortState = this.getSortStateFromColumns(this.columns);
+    if (this.getSortOrderColumns(this.state.columns).length > 0) {
+      const sortState = this.getSortStateFromColumns(this.state.columns);
       if (
         sortState.sortColumn !== this.state.sortColumn ||
         sortState.sortOrder !== this.state.sortOrder
@@ -252,17 +252,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       }
     }
 
-    const filteredValueColumns = this.getFilteredValueColumns(this.columns);
-    if (filteredValueColumns.length > 0) {
-      const filtersFromColumns = this.getFiltersFromColumns(this.columns);
-      const newFilters = { ...this.state.filters };
-      Object.keys(filtersFromColumns).forEach(key => {
-        newFilters[key] = filtersFromColumns[key];
-      });
-      if (this.isFiltersChanged(newFilters)) {
-        this.setState({ filters: newFilters });
-      }
-    }
+    this.updateFilters();
   }
 
   getCheckboxPropsByItem = (item: T, index: number) => {
@@ -321,14 +311,14 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   getSortOrderColumns(columns?: ColumnProps<T>[]) {
     return flatFilter(
-      columns || this.columns || [],
+      columns || (this.state || {}).columns || [],
       (column: ColumnProps<T>) => 'sortOrder' in column,
     );
   }
 
   getFilteredValueColumns(columns?: ColumnProps<T>[]) {
     return flatFilter(
-      columns || this.columns || [],
+      columns || (this.state || {}).columns || [],
       (column: ColumnProps<T>) => typeof column.filteredValue !== 'undefined',
     );
   }
@@ -528,6 +518,20 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     }
   }
 
+  updateFilters = (): void => {
+    const filteredValueColumns = this.getFilteredValueColumns(this.state.columns);
+    if (filteredValueColumns.length > 0) {
+      const filtersFromColumns = this.getFiltersFromColumns(this.state.columns);
+      const newFilters = { ...this.state.filters };
+      Object.keys(filtersFromColumns).forEach(key => {
+        newFilters[key] = filtersFromColumns[key];
+      });
+      if (this.isFiltersChanged(newFilters)) {
+        this.setState({ filters: newFilters });
+      }
+    }
+  };
+
   generatePopupContainerFunc = (getPopupContainer: TableProps<T>['getPopupContainer']) => {
     const { scroll } = this.props;
     const table = this.rcTable.current;
@@ -556,7 +560,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     };
     // Remove filters not in current columns
     const currentColumnKeys: string[] = [];
-    treeMap(this.columns, c => {
+    treeMap(this.state.columns, c => {
       if (!c.children) {
         currentColumnKeys.push(getColumnKey(c) as string);
       }
@@ -935,7 +939,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   findColumn(myKey: string | number) {
     let column;
-    treeMap(this.columns, c => {
+    treeMap(this.state.columns, c => {
       if (getColumnKey(c) === myKey) {
         column = c;
       }
@@ -1051,7 +1055,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     getPopupContainer: TableProps<T>['getPopupContainer'];
   }) {
     const { rowSelection } = this.props;
-    const columns = this.columns.concat();
+    const columns = this.state.columns.concat();
     if (rowSelection) {
       const data = this.getFlatCurrentPageData().filter((item, index) => {
         if (rowSelection.getCheckboxProps) {
