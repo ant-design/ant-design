@@ -39,6 +39,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     className: '',
     disabled: false,
     supportServerRender: true,
+    itemRender: undefined,
   };
 
   static getDerivedStateFromProps(nextProps: UploadProps) {
@@ -256,6 +257,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       previewFile,
       disabled,
       locale: propLocale,
+      itemRender,
     } = this.props;
     const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
     const { fileList } = this.state;
@@ -269,6 +271,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
         showRemoveIcon={!disabled && showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
         locale={{ ...locale, ...propLocale }}
+        itemRender={itemRender}
       />
     );
   };
