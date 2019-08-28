@@ -217,6 +217,7 @@ export interface TableState<T> {
   pivot?: number;
   prevProps: TableProps<T>;
   components: TableComponents;
+  columns: ColumnProps<T>[];
 }
 
 export type SelectionItemSelectFn = (key: string[]) => void;
