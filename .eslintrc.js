@@ -16,7 +16,7 @@ const eslintrc = {
   },
   settings: {
     react: {
-      version: '16.8',
+      version: '16.9',
     },
   },
   parser: '@typescript-eslint/parser',
