@@ -72,7 +72,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
       const img = new Image();
       img.setAttribute('crossOrigin', 'anonymous');
       img.src = url;
-      img.onload = function() {
+      img.onload = function onload() {
         const scale = Math.min(1, 300 / Math.max(img.width, img.height));
         const canvas = document.createElement('canvas');
         canvas.width = img.width * scale;
