@@ -273,7 +273,7 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('#API2');
   });
 
-  it('Anchor targetOffset prop', async () => {
+  it('Anchor targetOffset prop', () => {
     jest.useFakeTimers();
 
     let dateNowMock;
