@@ -10,15 +10,15 @@
   }
 
   .@{steps-prefix-cls}-item {
-    text-align: center;
     overflow: visible;
+    text-align: center;
 
     &-container {
       display: inline-block;
-      text-align: left;
       height: 100%;
-      padding-bottom: 12px;
       margin-left: -16px;
+      padding-bottom: 12px;
+      text-align: left;
       transition: opacity 0.3s;
 
       .@{steps-prefix-cls}-item-content {
@@ -26,10 +26,10 @@
       }
 
       .@{steps-prefix-cls}-item-title {
-        padding-right: 0;
         max-width: 100%;
-        white-space: nowrap;
+        padding-right: 0;
         overflow: hidden;
+        white-space: nowrap;
         text-overflow: ellipsis;
 
         &::after {
@@ -55,32 +55,32 @@
     }
 
     &::after {
-      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
       display: inline-block;
       width: 12px;
       height: 12px;
+      margin-top: -14px;
+      margin-left: -2px;
       border: 1px solid @steps-nav-arrow-color;
       border-bottom: none;
       border-left: none;
       transform: rotate(45deg);
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      margin-top: -14px;
-      margin-left: -2px;
+      content: '';
     }
 
     &::before {
-      content: '';
-      display: inline-block;
       position: absolute;
-      left: 50%;
       bottom: 0;
-      height: 3px;
+      left: 50%;
+      display: inline-block;
       width: 0;
+      height: 3px;
       background-color: @steps-nav-active-color;
       transition: width 0.3s, left 0.3s;
       transition-timing-function: ease-out;
+      content: '';
     }
   }
 
