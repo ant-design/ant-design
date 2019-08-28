@@ -121,7 +121,7 @@ describe('Upload List', () => {
     wrapper
       .find('.ant-upload-list-item')
       .at(0)
-      .find('.anticon-close')
+      .find('.anticon-delete')
       .simulate('click');
     await sleep(400);
     wrapper.update();
