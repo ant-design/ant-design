@@ -396,7 +396,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
       class="ant-btn-group"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-icon-only"
         type="button"
       >
         <i
@@ -420,7 +420,7 @@ exports[`renders ./components/badge/demo/change.md correctly 1`] = `
         </i>
       </button>
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-icon-only"
         type="button"
       >
         <i

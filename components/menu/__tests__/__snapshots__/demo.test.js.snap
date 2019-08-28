@@ -395,7 +395,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
   style="width:256px"
 >
   <button
-    class="ant-btn ant-btn-primary"
+    class="ant-btn ant-btn-primary ant-btn-icon-only"
     style="margin-bottom:16px"
     type="button"
   >

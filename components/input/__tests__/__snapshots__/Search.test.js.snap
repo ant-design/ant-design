@@ -67,7 +67,7 @@ exports[`Input.Search should support addonAfter 2`] = `
       class="ant-input-group-addon"
     >
       <button
-        class="ant-btn ant-input-search-button ant-btn-primary"
+        class="ant-btn ant-input-search-button ant-btn-primary ant-btn-icon-only"
         type="button"
       >
         <i

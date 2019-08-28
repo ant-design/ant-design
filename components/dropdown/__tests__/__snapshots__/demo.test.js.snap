@@ -53,7 +53,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-dropdown-trigger ant-btn-default"
+      class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
       type="button"
     >
       <i
@@ -89,7 +89,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-dropdown-trigger ant-btn-default"
+      class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
       type="button"
     >
       <i
@@ -126,7 +126,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn ant-dropdown-trigger ant-btn-default"
+      class="ant-btn ant-dropdown-trigger ant-btn-default ant-btn-icon-only"
       disabled=""
       type="button"
     >
