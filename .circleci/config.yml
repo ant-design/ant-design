@@ -3,7 +3,7 @@ version: 2
 references:
   container_config: &container_config
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:10
     working_directory: ~/ant-design
 
   attach_workspace: &attach_workspace
@@ -97,6 +97,7 @@ jobs:
       - *attach_workspace
       - run: npm run dist
       - run: node ./tests/dekko/dist.test.js
+      - run: npm run bundlesize
       - persist_to_workspace:
           root: ~/ant-design
           paths:

@@ -117,6 +117,7 @@
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.0.0",
     "bisheng-plugin-toc": "^0.4.4",
+    "bundlesize": "^0.18.0",
     "chalk": "^2.4.2",
     "cross-env": "^5.2.0",
     "css-split-webpack-plugin": "^0.2.6",
@@ -211,6 +212,7 @@
     "sort-api": "antd-tools run sort-api-table",
     "api-collection": "antd-tools run api-collection",
     "dist": "antd-tools run dist",
+    "bundlesize": "bundlesize",
     "compile": "antd-tools run compile",
     "tsc": "tsc",
     "start": "rimraf _site && mkdir _site && node ./scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
@@ -242,5 +244,12 @@
     "Firefox ESR",
     "> 1%",
     "ie >= 9"
-  ]
+  ],
+  "bundlesize": [{
+    "path": "./dist/antd.min.js",
+    "maxSize": "540 kB"
+  }, {
+    "path": "./dist/antd.min.css",
+    "maxSize": "60 kB"
+  }]
 }
