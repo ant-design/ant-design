@@ -38,7 +38,7 @@ class Demo extends React.Component {
         </Radio.Group>
         <br />
         <br />
-        <Descriptions bordered title="Custom Size" border size={this.state.size}>
+        <Descriptions bordered title="Custom Size" size={this.state.size}>
           <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
           <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
           <Descriptions.Item label="time">18:00:00</Descriptions.Item>
@@ -61,7 +61,7 @@ class Demo extends React.Component {
         </Descriptions>
         <br />
         <br />
-        <Descriptions title="Custom Size" border size={this.state.size}>
+        <Descriptions title="Custom Size" size={this.state.size}>
           <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
           <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
           <Descriptions.Item label="time">18:00:00</Descriptions.Item>
