@@ -259,7 +259,11 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+      [`${prefixCls}-icon-only`]:
+        (!children && children !== 0 && iconType) ||
+        (React.Children.count(children) === 1 &&
+          React.isValidElement(children) &&
+          children.type === Icon),
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
