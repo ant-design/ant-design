@@ -205,6 +205,15 @@ class Upload extends React.Component<UploadProps, UploadState> {
     return true;
   };
 
+  handleDownload = (file: UploadFile) => {
+    const { onDownload } = this.props;
+    if (typeof onDownload === 'function') {
+      onDownload(file);
+    } else if (file.url) {
+      window.open(file.url);
+    }
+  };
+
   handleRemove(file: UploadFile) {
     const { onRemove } = this.props;
     const { fileList } = this.state;
@@ -257,7 +266,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       disabled,
       locale: propLocale,
     } = this.props;
-    const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
+    const { showRemoveIcon, showPreviewIcon, showDownloadIcon } = showUploadList as any;
     const { fileList } = this.state;
     return (
       <UploadList
@@ -265,9 +274,11 @@ class Upload extends React.Component<UploadProps, UploadState> {
         items={fileList}
         previewFile={previewFile}
         onPreview={onPreview}
+        onDownload={this.handleDownload}
         onRemove={this.handleManualRemove}
         showRemoveIcon={!disabled && showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
+        showDownloadIcon={showDownloadIcon}
         locale={{ ...locale, ...propLocale }}
       />
     );
