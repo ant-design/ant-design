@@ -106,6 +106,39 @@ const createComponents = (components: TableComponents = {}, prevComponents?: Tab
   };
 };
 
+function getFilteredValueColumns<T>(state: TableState<T>, columns?: ColumnProps<T>[]) {
+  return flatFilter(
+    columns || (state || {}).columns || [],
+    (column: ColumnProps<T>) => typeof column.filteredValue !== 'undefined',
+  );
+}
+
+function getFiltersFromColumns<T>(
+  state: TableState<T> = {} as TableState<T>,
+  columns?: ColumnProps<T>[],
+) {
+  const filters: any = {};
+  getFilteredValueColumns<T>(state, columns).forEach((col: ColumnProps<T>) => {
+    const colKey = getColumnKey(col) as string;
+    filters[colKey] = col.filteredValue;
+  });
+  return filters;
+}
+
+function isFiltersChanged<T>(state: TableState<T>, filters: TableStateFilters): boolean {
+  let filtersChanged = false;
+  if (Object.keys(filters).length !== Object.keys(state.filters).length) {
+    filtersChanged = true;
+  } else {
+    Object.keys(filters).forEach(columnKey => {
+      if (filters[columnKey] !== state.filters[columnKey]) {
+        filtersChanged = true;
+      }
+    });
+  }
+  return filtersChanged;
+}
+
 class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   static Column = Column;
 
@@ -186,6 +219,22 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     // https://github.com/ant-design/ant-design/issues/10133
     nextProps.setCheckboxPropsCache({});
 
+    // Update filters
+    const filteredValueColumns = getFilteredValueColumns(nextState, nextState.columns);
+    if (filteredValueColumns.length > 0) {
+      const filtersFromColumns = getFiltersFromColumns(nextState, nextState.columns);
+      const newFilters = { ...nextState.filters };
+      Object.keys(filtersFromColumns).forEach(key => {
+        newFilters[key] = filtersFromColumns[key];
+      });
+      if (isFiltersChanged(nextState, newFilters)) {
+        nextState = {
+          ...nextState,
+          filters: newFilters,
+        };
+      }
+    }
+
     if (nextProps.components !== prevProps.components) {
       const components = createComponents(nextProps.components, prevProps.components);
 
@@ -228,17 +277,13 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     this.state = {
       ...this.getDefaultSortOrder(columns),
       // 减少状态
-      filters: this.getFiltersFromColumns(),
+      filters: getFiltersFromColumns<T>(),
       pagination: this.getDefaultPagination(props),
       pivot: undefined,
       prevProps: props,
       components: createComponents(props.components),
       columns,
     };
-  }
-
-  componentDidMount(): void {
-    this.updateFilters();
   }
 
   componentDidUpdate() {
@@ -251,8 +296,6 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
         this.setState(sortState);
       }
     }
-
-    this.updateFilters();
   }
 
   getCheckboxPropsByItem = (item: T, index: number) => {
@@ -314,22 +357,6 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       columns || (this.state || {}).columns || [],
       (column: ColumnProps<T>) => 'sortOrder' in column,
     );
-  }
-
-  getFilteredValueColumns(columns?: ColumnProps<T>[]) {
-    return flatFilter(
-      columns || (this.state || {}).columns || [],
-      (column: ColumnProps<T>) => typeof column.filteredValue !== 'undefined',
-    );
-  }
-
-  getFiltersFromColumns(columns?: ColumnProps<T>[]) {
-    const filters: any = {};
-    this.getFilteredValueColumns(columns).forEach((col: ColumnProps<T>) => {
-      const colKey = getColumnKey(col) as string;
-      filters[colKey] = col.filteredValue;
-    });
-    return filters;
   }
 
   getDefaultSortOrder(columns?: ColumnProps<T>[]) {
@@ -518,20 +545,6 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     }
   }
 
-  updateFilters = (): void => {
-    const filteredValueColumns = this.getFilteredValueColumns(this.state.columns);
-    if (filteredValueColumns.length > 0) {
-      const filtersFromColumns = this.getFiltersFromColumns(this.state.columns);
-      const newFilters = { ...this.state.filters };
-      Object.keys(filtersFromColumns).forEach(key => {
-        newFilters[key] = filtersFromColumns[key];
-      });
-      if (this.isFiltersChanged(newFilters)) {
-        this.setState({ filters: newFilters });
-      }
-    }
-  };
-
   generatePopupContainerFunc = (getPopupContainer: TableProps<T>['getPopupContainer']) => {
     const { scroll } = this.props;
     const table = this.rcTable.current;
@@ -583,7 +596,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     };
     const filtersToSetState = { ...filters };
     // Remove filters which is controlled
-    this.getFilteredValueColumns().forEach((col: ColumnProps<T>) => {
+    getFilteredValueColumns<T>(this.state).forEach((col: ColumnProps<T>) => {
       const columnKey = getColumnKey(col);
       if (columnKey) {
         delete filtersToSetState[columnKey];
@@ -891,20 +904,6 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   hasPagination(props?: any) {
     return (props || this.props).pagination !== false;
-  }
-
-  isFiltersChanged(filters: TableStateFilters) {
-    let filtersChanged = false;
-    if (Object.keys(filters).length !== Object.keys(this.state.filters).length) {
-      filtersChanged = true;
-    } else {
-      Object.keys(filters).forEach(columnKey => {
-        if (filters[columnKey] !== this.state.filters[columnKey]) {
-          filtersChanged = true;
-        }
-      });
-    }
-    return filtersChanged;
   }
 
   isSortColumn(column: ColumnProps<T>) {
