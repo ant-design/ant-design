@@ -47,6 +47,7 @@
 
   &-container {
     outline: none;
+    pointer-events: none;
   }
 
   &:last-child {
@@ -62,6 +63,7 @@
   &-content {
     display: inline-block;
     vertical-align: top;
+    pointer-events: all;
   }
 
   &-icon {
@@ -115,6 +117,7 @@
       height: 1px;
       background: @wait-tail-color;
       content: '';
+      pointer-events: none;
     }
   }
   &-subtitle {
