@@ -46,7 +46,12 @@
 
   &-circle-path {
     animation: ~'@{ant-prefix}-progress-appear' 0.3s;
-    stroke: @progress-default-color;
+  }
+
+  &-inner:not(.@{ant-prefix}-progress-circle-gradient) {
+    .@{ant-prefix}-progress-circle-path {
+      stroke: @progress-default-color;
+    }
   }
 
   &-success-bg,
@@ -102,6 +107,9 @@
     .@{progress-prefix-cls}-text {
       color: @error-color;
     }
+  }
+
+  &-status-exception &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
       stroke: @error-color;
     }
@@ -114,6 +122,9 @@
     .@{progress-prefix-cls}-text {
       color: @success-color;
     }
+  }
+
+  &-status-success &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
       stroke: @success-color;
     }
@@ -151,12 +162,6 @@
   &-circle&-status-success {
     .@{progress-prefix-cls}-text {
       color: @success-color;
-    }
-  }
-
-  &-circle-gradient {
-    .@{progress-prefix-cls}-circle-path {
-      stroke: url(#gradient);
     }
   }
 }

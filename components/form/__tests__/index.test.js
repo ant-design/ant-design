@@ -4,6 +4,7 @@ import scrollIntoView from 'dom-scroll-into-view';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
+import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('dom-scroll-into-view');
 
@@ -13,6 +14,9 @@ const delay = () =>
   });
 
 describe('Form', () => {
+  mountTest(Form);
+  mountTest(Form.Item);
+
   scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -45,7 +49,7 @@ describe('Form', () => {
           <Form>
             <Form.List name="list">
               {(fields, { add, remove }) => (
-                <React.Fragment>
+                <>
                   {fields.map(field => renderField(field))}
                   <Button className="add" onClick={add}>
                     Add
@@ -58,7 +62,7 @@ describe('Form', () => {
                   >
                     Remove
                   </Button>
-                </React.Fragment>
+                </>
               )}
             </Form.List>
           </Form>,

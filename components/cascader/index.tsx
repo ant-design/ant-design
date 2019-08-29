@@ -492,12 +492,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     ]);
 
     let { options } = props;
+    const names: FilledFieldNamesType = getFilledFieldNames(this.props);
     if (options && options.length > 0) {
       if (state.inputValue) {
         options = this.generateFilteredOptions(prefixCls, renderEmpty);
       }
     } else {
-      const names: FilledFieldNamesType = getFilledFieldNames(this.props);
       options = [
         {
           [names.label]: notFoundContent || renderEmpty('Cascader'),
@@ -515,7 +515,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
     const dropdownMenuColumnStyle: { width?: number; height?: string } = {};
     const isNotFound =
-      (options || []).length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND';
+      (options || []).length === 1 && options[0][names.value] === 'ANT_CASCADER_NOT_FOUND';
     if (isNotFound) {
       dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
     }
@@ -550,7 +550,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           value={state.inputValue}
           disabled={disabled}
           readOnly={!showSearch}
-          autoComplete="off"
+          autoComplete={inputProps.autoComplete || 'off'}
           onClick={showSearch ? this.handleInputClick : undefined}
           onBlur={showSearch ? this.handleInputBlur : undefined}
           onKeyDown={this.handleKeyDown}

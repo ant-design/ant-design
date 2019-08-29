@@ -49,7 +49,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   private calenderHeaderNode: HTMLDivElement;
 
   getYearSelectElement(prefixCls: string, year: number) {
-    const { yearSelectOffset, yearSelectTotal, locale, fullscreen, validRange } = this.props;
+    const { yearSelectOffset, yearSelectTotal, locale = {}, fullscreen, validRange } = this.props;
     let start = year - (yearSelectOffset as number);
     let end = start + (yearSelectTotal as number);
     if (validRange) {
@@ -171,7 +171,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   getTypeSwitch = () => {
-    const { locale, type, fullscreen } = this.props;
+    const { locale = {}, type, fullscreen } = this.props;
     const size = fullscreen ? 'default' : 'small';
     return (
       <Group onChange={this.onInternalTypeChange} value={type} size={size}>

@@ -5,8 +5,13 @@ import Upload from '..';
 import Form from '../../form';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
+import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Upload', () => {
+  mountTest(Upload);
+  mountTest(Upload.Dragger);
+
   beforeEach(() => setup());
   afterEach(() => teardown());
 
@@ -207,7 +212,7 @@ describe('Upload', () => {
     // eslint-disable-next-line
     const Demo = ({ children }) => (
       <Form>
-        <Form.Item name="upload" label="Upload">
+        <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload>{children}</Upload>
         </Form.Item>
       </Form>
@@ -229,7 +234,7 @@ describe('Upload', () => {
     // eslint-disable-next-line
     const Demo = ({ disabled }) => (
       <Form>
-        <Form.Item name="upload" label="Upload">
+        <Form.Item name="upload" label="Upload" valuePropName="fileList">
           <Upload disabled={disabled}>
             <div>upload</div>
           </Upload>
@@ -446,5 +451,16 @@ describe('Upload', () => {
     expect(wrapper.onSuccess('', { uid: 'fileItem' })).toBe(undefined);
     expect(wrapper.onProgress('', { uid: 'fileItem' })).toBe(undefined);
     expect(wrapper.onError('', '', { uid: 'fileItem' })).toBe(undefined);
+  });
+
+  it('warning if set `value`', () => {
+    resetWarned();
+
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Upload value={[]} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Upload] `value` is not validate prop, do you mean `fileList`?',
+    );
+    errorSpy.mockRestore();
   });
 });

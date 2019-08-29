@@ -6,6 +6,7 @@ import { Check, Close } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface StepsProps {
+  type?: 'default' | 'navigation';
   className?: string;
   current?: number;
   direction?: 'horizontal' | 'vertical';
@@ -26,7 +27,9 @@ export interface StepProps {
   icon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLElement>;
   status?: 'wait' | 'process' | 'finish' | 'error';
+  disabled?: boolean;
   title?: React.ReactNode;
+  subTitle?: React.ReactNode;
   style?: React.CSSProperties;
 }
 

@@ -1,8 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Tag from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Tag', () => {
+  mountTest(Tag);
+  mountTest(Tag.CheckableTag);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -70,5 +74,14 @@ describe('Tag', () => {
 
     wrapper.find('.anticon-close').simulate('click');
     expect(afterClose).not.toHaveBeenCalled();
+  });
+
+  describe('CheckableTag', () => {
+    it('support onChange', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(<Tag.CheckableTag onChange={onChange} />);
+      wrapper.find('.ant-tag').simulate('click');
+      expect(onChange).toHaveBeenCalledWith(true);
+    });
   });
 });

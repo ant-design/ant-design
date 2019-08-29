@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
 import {
   LocaleProvider,
   Pagination,
@@ -50,6 +51,7 @@ import nlNL from '../nl_NL';
 import plPL from '../pl_PL';
 import ptBR from '../pt_BR';
 import ptPT from '../pt_PT';
+import roRO from '../ro_RO';
 import ruRU from '../ru_RU';
 import skSK from '../sk_SK';
 import slSI from '../sl_SI';
@@ -61,6 +63,7 @@ import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
 import viVN from '../vi_VN';
 import idID from '../id_ID';
+import lvLV from '../lv_LV';
 import zhCN from '../zh_CN';
 import zhTW from '../zh_TW';
 
@@ -99,6 +102,7 @@ const locales = [
   plPL,
   ptBR,
   ptPT,
+  roRO,
   ruRU,
   skSK,
   slSI,
@@ -110,6 +114,7 @@ const locales = [
   ukUA,
   viVN,
   idID,
+  lvLV,
   zhCN,
   zhTW,
 ];
@@ -157,6 +162,12 @@ const App = () => (
 );
 
 describe('Locale Provider', () => {
+  mountTest(() => (
+    <LocaleProvider>
+      <div />
+    </LocaleProvider>
+  ));
+
   beforeAll(() => {
     MockDate.set(moment('2017-09-18T03:30:07.795'));
   });

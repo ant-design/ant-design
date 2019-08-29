@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Popover from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Popover', () => {
+  mountTest(Popover);
+
   it('should show overlay when trigger is clicked', () => {
     const popover = mount(
       <Popover content="console.log('hello world')" title="code" trigger="click">

@@ -1,10 +1,13 @@
 import React from 'react';
 import { render, shallow, mount } from 'enzyme';
 import Table from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { Column, ColumnGroup } = Table;
 
 describe('Table', () => {
+  mountTest(Table);
+
   const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterAll(() => {
@@ -127,5 +130,14 @@ describe('Table', () => {
 
     expect(columnsPageRange).not.toHaveBeenCalled();
     expect(columnsPageSize).not.toHaveBeenCalled();
+  });
+
+  it('support onHeaderCell', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
+    );
+    wrapper.find('th').simulate('click');
+    expect(onClick).toHaveBeenCalled();
   });
 });

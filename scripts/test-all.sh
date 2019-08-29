@@ -2,6 +2,7 @@
 
 npm run lint && \
 npm run dist && \
+npm run bundlesize && \
 node ./tests/dekko/dist.test.js && \
 LIB_DIR=dist npm test && \
 npm run compile && \

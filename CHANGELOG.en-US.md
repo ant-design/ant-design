@@ -15,6 +15,63 @@ timeline: true
 
 ---
 
+## 3.22.2
+
+`2019-08-27`
+
+- 🐞 Fix Mentions has additional height in Form. [#18478](https://github.com/ant-design/ant-design/pull/18478)
+- 🐞 Fix disabled Input should not be allowed to clear. [#18482](https://github.com/ant-design/ant-design/pull/18482)
+- 🐞 Fix Input.Password crash with `Cannot read property 'input' of null` when unmount. [#18475](https://github.com/ant-design/ant-design/pull/18475)
+- 🐞 Fix Table `style` should applied to outside wrapper. [#18494](https://github.com/ant-design/ant-design/pull/18494)
+- 🐞 Fix PageHeader default english text. [#18471](https://github.com/ant-design/ant-design/pull/18471) [@hjiawei](https://github.com/hjiawei)
+
+## 3.22.1
+
+`2019-08-26`
+
+- 🔥 The official website now supports the search icon through the picture! [#18425](https://github.com/ant-design/ant-design/pull/18425)
+- 💄 Tweak Table expand icon style. [c5344bd](https://github.com/ant-design/ant-design/commit/c5344bde529a2f2ec814f46e7ec5d249eac8d608)
+- 🐞 Fix prop `style` is getting duplicated on Table. [#18330](https://github.com/ant-design/ant-design/pull/18330) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fix Input line height style bug in IE11. [#17759](https://github.com/ant-design/ant-design/pull/17759)
+- 🐞 Fix Steps progressDot broken style. [#18356](https://github.com/ant-design/ant-design/pull/18356)
+- 🐞 Fix an issue with plain icon button style errors. [#18458](https://github.com/ant-design/ant-design/pull/18458) [@qhanw](https://github.com/qhanw)
+- 🐞 Fix TextArea with `autosize` in controlled mode that scrollbar blink when typing. [#18401](https://github.com/ant-design/ant-design/pull/18401)
+- 🐞 Fixed an issue where Input.Password `ref` could not get the input element and had no `focus` and `blur` method. [#18441](https://github.com/ant-design/ant-design/pull/18441)
+- 🐞 Fix Upload wrong line break. [#18423](https://github.com/ant-design/ant-design/pull/18423)
+- 💄 Add less variables `@select-dropdown-bg` `@select-item-selected-bg` `@select-item-active-bg` `@anchor-border-colorr` `@descriptions-bg`. [#18444](https://github.com/ant-design/ant-design/pull/18444) [#18372](https://github.com/ant-design/ant-design/pull/18440) [@MrHeer](https://github.com/MrHeer)
+
+## 3.22.0
+
+`2019-08-17`
+
+- 🔥 New type `navigation` of Step. [#17994](https://github.com/ant-design/ant-design/pull/17994)
+  - <img width="600" class="markdown-inline-image" src="https://gw.alipayobjects.com/zos/antfincdn/oc7rRuPBbR/421d7885-a822-4375-9deb-92d607e0d9de.png" />
+- 🇷🇴 Add Romanian locale. [#18163](https://github.com/ant-design/ant-design/pull/18163) [@stefy](https://github.com/stefy)
+- Anchor
+  - 🌟 Add `getCurrentAnchor` property to specify current active anchor. [#17823](https://github.com/ant-design/ant-design/pull/17823) [@shaodahong](https://github.com/shaodahong)
+  - 🌟 Add `targetOffset` property to customize scroll position offset. [#17827](https://github.com/ant-design/ant-design/pull/17827) [@shaodahong](https://github.com/shaodahong)
+- 🌟 Drawer supports popup in custom dom node. [#18167](https://github.com/ant-design/ant-design/pull/18167)
+- 🌟 Mentions support `getPopupContainer` property. [#18298](https://github.com/ant-design/ant-design/pull/18298) [@vijayst](https://github.com/vijayst)
+- 🌟 Modal support custom `closeIcon`. [#18309](https://github.com/ant-design/ant-design/pull/18309)
+- 🌟 Upload support to preview `jfif` format images. [#18322](https://github.com/ant-design/ant-design/pull/18322)
+- 💄 Tweak Descriptions.Item padding bottom via size. [#18270](https://github.com/ant-design/ant-design/pull/18270)
+- Cascader
+  - 🌟 Allow input `autoComplete` to be overrided. [#18279](https://github.com/ant-design/ant-design/pull/18279) [@zomars](https://github.com/zomars)
+  - 🐞 Fix wrong `notFoundContent` width when using `fieldNames`.[#18325](https://github.com/ant-design/ant-design/pull/18325)
+  - 🐞 Fix missing `options` cause crash. [#18190](https://github.com/ant-design/ant-design/pull/18190) [@nnecec](https://github.com/nnecec)
+- 🐞 Fix Menu.SubMenu `className` applied to popup menu mistakenly. [#18290](https://github.com/ant-design/ant-design/pull/18290)
+- 🐞 Upgrade react-slick to fix Carousel lifecycle warning. [#18209](https://github.com/ant-design/ant-design/pull/18209)
+- 🐞 Fix Button `received false for a non-boolean attribute loading` warning. [#18208](https://github.com/ant-design/ant-design/pull/18208)
+- 🐞 Fix style problem when hovering Table selected row. [#18261](https://github.com/ant-design/ant-design/pull/18261)
+- 🐞 Fix Checkbox hovering border color when it is `disabled`. [#18168](https://github.com/ant-design/ant-design/pull/18168)
+- 🐞 Fix Progress missing or messed gradient color. [#18284](https://github.com/ant-design/ant-design/pull/18284)
+- 🐞 修复 TextArea scrollbar blinking problem when using `autosize` and `maxRows`. [#18289](https://github.com/ant-design/ant-design/pull/18289)
+- TypeScript
+  - 🐞 Fix some components (Tooltip, Breadcrumb, Badge) importing error. [#18282](https://github.com/ant-design/ant-design/pull/18282) [@lidianhao123](https://github.com/lidianhao123)
+  - 🐞 Fix MonthPicker `monthCellContentRender` property definition. [#18192](https://github.com/ant-design/ant-design/pull/18192) [@JonathanLee-LX](https://github.com/JonathanLee-LX)
+  - 🐞 Fix Upload.Dragger `children` error. [#18196](https://github.com/ant-design/ant-design/pull/18196)
+  - 🐞 Fix Tag.CheckableTag `style` property definition. [#18300](https://github.com/ant-design/ant-design/pull/18300)
+
 ## 3.21.4
 
 `2019-08-09`
@@ -985,7 +1042,6 @@ timeline: true
 - 🐞 Fixed Table `Cannot read property 'children' of undefined` error when customize `column.title` as ReactNode. [#13542](https://github.com/ant-design/ant-design/issues/13542) [@geraldchen890806](https://github.com/geraldchen890806)
 - 🐞 Fixed another border problem of Button when customized less variable `@border-width-base`. [#13534](https://github.com/ant-design/ant-design/issues/13534) [@morenyang](https://github.com/morenyang)
 - 🐞 Fixed Upload don't support resolve `Blob` object when `beforeUpload` returns a Promise. [#13528](https://github.com/ant-design/ant-design/pull/13528/) [@huanz](https://github.com/huanz)
-- https://github.com/ant-design/ant-design/pull/13536
 - 🐞 Fixed two props of Dropdown TypeScript definitions. [#13536](https://github.com/ant-design/ant-design/pull/13536) [@wangxingkang](https://github.com/wangxingkang)
 
 ## 3.11.1

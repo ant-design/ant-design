@@ -36,10 +36,32 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     >
       <label
         class=""
-        for="mention"
+        for="coders"
         title="Top coders"
       >
         Top coders
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-16 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      />
+    </div>
+  </div>
+  <div
+    class="ant-row-flex ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-6 ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        for="bio"
+        title="Bio"
+      >
+        Bio
       </label>
     </div>
     <div
@@ -52,7 +74,8 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
           class="ant-mentions"
         >
           <textarea
-            id="mention"
+            id="bio"
+            placeholder="You can use @ to ref user here"
             rows="3"
           />
         </div>

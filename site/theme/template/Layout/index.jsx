@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { IntlProvider } from 'react-intl';
+import { Helmet } from 'react-helmet';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import LogRocket from 'logrocket';
@@ -112,14 +113,19 @@ export default class Layout extends React.Component {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
     return (
-      <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
-        <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-          <div className="page-wrapper">
-            <Header {...restProps} />
-            {children}
-          </div>
-        </ConfigProvider>
-      </IntlProvider>
+      <>
+        <Helmet>
+          <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} />
+        </Helmet>
+        <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
+          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
+            <div className="page-wrapper">
+              <Header {...restProps} />
+              {children}
+            </div>
+          </ConfigProvider>
+        </IntlProvider>
+      </>
     );
   }
 }

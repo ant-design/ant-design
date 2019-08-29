@@ -214,6 +214,8 @@ export const categories = {
   other,
 };
 
+export default categories;
+
 export interface Categories {
   all: string[];
   direction: string[];

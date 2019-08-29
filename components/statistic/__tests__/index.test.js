@@ -4,10 +4,13 @@ import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Statistic', () => {
+  mountTest(Statistic);
+  mountTest(Statistic.Countdown);
+
   beforeAll(() => {
     MockDate.set(moment('2018-11-28 00:00:00'));
   });
@@ -70,7 +73,7 @@ describe('Statistic', () => {
       const instance = wrapper.instance();
       expect(instance.countdownId).not.toBe(undefined);
 
-      await delay(10);
+      await sleep(10);
 
       wrapper.unmount();
       expect(instance.countdownId).toBe(undefined);

@@ -45,13 +45,27 @@ const App = () => {
   return (
     <Form form={form} layout="horizontal" onFinish={onFinish}>
       <Form.Item
-        name="mention"
+        name="coders"
         label="Top coders"
         labelCol={{ span: 6 }}
         wrapperCol={{ span: 16 }}
         rules={[{ validator: checkMention }]}
       >
-        <Mentions rows="3">
+        <Mentions rows="1">
+          <Option value="afc163">afc163</Option>
+          <Option value="zombieJ">zombieJ</Option>
+          <Option value="yesmeck">yesmeck</Option>
+        </Mentions>
+        ,
+      </Form.Item>
+      <Form.Item
+        name="bio"
+        label="Bio"
+        labelCol={{ span: 6 }}
+        wrapperCol={{ span: 16 }}
+        rules={[{ required: true }]}
+      >
+        <Mentions rows="3" placeholder="You can use @ to ref user here">
           <Option value="afc163">afc163</Option>
           <Option value="zombieJ">zombieJ</Option>
           <Option value="yesmeck">yesmeck</Option>

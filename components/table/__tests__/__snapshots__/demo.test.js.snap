@@ -357,9 +357,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       John Brown
                     </a>
                   </td>
@@ -393,18 +391,14 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Invite John Brown
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
                         role="separator"
                       />
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </span>
@@ -417,9 +411,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Jim Green
                     </a>
                   </td>
@@ -448,18 +440,14 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Invite Jim Green
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
                         role="separator"
                       />
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </span>
@@ -472,9 +460,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Joe Black
                     </a>
                   </td>
@@ -508,18 +494,14 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Invite Joe Black
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
                         role="separator"
                       />
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </span>
@@ -711,9 +693,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       John Brown
                     </a>
                   </td>
@@ -735,9 +715,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Jim Green
                     </a>
                   </td>
@@ -759,9 +737,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Joe Black
                     </a>
                   </td>
@@ -983,9 +959,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       John Brown
                     </a>
                   </td>
@@ -1017,9 +991,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Jim Green
                     </a>
                   </td>
@@ -1051,9 +1023,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Joe Black
                     </a>
                   </td>
@@ -1086,9 +1056,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Jim Red
                     </a>
                   </td>
@@ -1116,9 +1084,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                     class=""
                     colspan="5"
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Jake White
                     </a>
                   </td>
@@ -2532,9 +2498,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -2552,18 +2516,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -2572,7 +2532,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -2637,9 +2596,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -2657,18 +2614,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -2677,7 +2630,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -2742,9 +2694,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -2762,18 +2712,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -2782,7 +2728,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -2847,9 +2792,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -2867,18 +2810,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -2887,7 +2826,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -2952,9 +2890,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -2972,18 +2908,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -2992,7 +2924,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -3057,9 +2988,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -3077,18 +3006,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -3097,7 +3022,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -3162,9 +3086,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -3182,18 +3104,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -3202,7 +3120,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -3267,9 +3184,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -3287,18 +3202,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -3307,7 +3218,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -3372,9 +3282,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -3392,18 +3300,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -3412,7 +3316,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -3477,9 +3380,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         John Brown
                       </a>
                     </td>
@@ -3497,18 +3398,14 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class=""
                     >
                       <span>
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Action 一 John Brown
                         </a>
                         <div
                           class="ant-divider ant-divider-vertical"
                           role="separator"
                         />
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           Delete
                         </a>
                         <div
@@ -3517,7 +3414,6 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                         />
                         <a
                           class="ant-dropdown-link"
-                          href="javascript:;"
                         >
                           More actions 
                           <span
@@ -3782,9 +3678,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </td>
@@ -3816,9 +3710,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     <td
                       class=""
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </td>
@@ -4611,9 +4503,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Delete
                     </a>
                   </td>
@@ -4650,9 +4540,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Delete
                     </a>
                   </td>
@@ -4689,9 +4577,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Delete
                     </a>
                   </td>
@@ -5407,9 +5293,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -5471,9 +5355,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -5635,9 +5517,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -5649,9 +5529,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -6109,9 +5987,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6173,9 +6049,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6237,9 +6111,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6301,9 +6173,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6365,9 +6235,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6429,9 +6297,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6493,9 +6359,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6557,9 +6421,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6621,9 +6483,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -6685,9 +6545,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     <td
                       class="ant-table-fixed-columns-in-body"
                     >
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         action
                       </a>
                     </td>
@@ -7000,9 +6858,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7014,9 +6870,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7028,9 +6882,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7042,9 +6894,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7056,9 +6906,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7070,9 +6918,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7084,9 +6930,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7098,9 +6942,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7112,9 +6954,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -7126,9 +6966,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       <td
                         class=""
                       >
-                        <a
-                          href="javascript:;"
-                        >
+                        <a>
                           action
                         </a>
                       </td>
@@ -10521,18 +10359,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Invite Brown
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
                         role="separator"
                       />
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </span>
@@ -10577,18 +10411,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Invite Green
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
                         role="separator"
                       />
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </span>
@@ -10638,18 +10468,14 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class=""
                   >
                     <span>
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Invite Black
                       </a>
                       <div
                         class="ant-divider ant-divider-vertical"
                         role="separator"
                       />
-                      <a
-                        href="javascript:;"
-                      >
+                      <a>
                         Delete
                       </a>
                     </span>
@@ -10960,9 +10786,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Publish
                     </a>
                   </td>
@@ -11014,9 +10838,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Publish
                     </a>
                   </td>
@@ -11068,9 +10890,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Publish
                     </a>
                   </td>
@@ -11810,9 +11630,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Delete
                     </a>
                   </td>
@@ -11844,9 +11662,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Delete
                     </a>
                   </td>
@@ -11878,9 +11694,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Delete
                     </a>
                   </td>
@@ -12127,9 +11941,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       John Brown
                     </a>
                   </td>
@@ -12173,9 +11985,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Jim Green
                     </a>
                   </td>
@@ -12219,9 +12029,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Joe Black
                     </a>
                   </td>
@@ -12266,9 +12074,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   <td
                     class=""
                   >
-                    <a
-                      href="javascript:;"
-                    >
+                    <a>
                       Disabled User
                     </a>
                   </td>

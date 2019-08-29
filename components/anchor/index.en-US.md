@@ -24,6 +24,8 @@ For displaying anchor hyperlinks on page and jumping between them.
 | offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 |  |
 | showInkInFixed | Whether show ink-balls in Fixed mode | boolean | false |  |
 | onClick | set the handler to handle `click` event | Function(e: Event, link: Object) | - | 3.9.0 |
+| getCurrentAnchor | Customize the anchor highlight | () => string | - | 3.22.0 |
+| targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#components-anchor-demo-targetOffset) | number | `offsetTop` | 3.22.0 |
 
 ### Link Props
 

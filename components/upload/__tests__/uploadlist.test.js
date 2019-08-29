@@ -6,8 +6,7 @@ import Form from '../../form';
 import { spyElementPrototypes } from '../../__tests__/util/domHook';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { sleep } from '../../../tests/utils';
 
 const fileList = [
   {
@@ -124,7 +123,7 @@ describe('Upload List', () => {
       .at(0)
       .find('.anticon-close')
       .simulate('click');
-    await delay(400);
+    await sleep(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
@@ -245,7 +244,7 @@ describe('Upload List', () => {
       .at(1)
       .simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
-    await delay(0);
+    await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
   });
 
@@ -274,7 +273,7 @@ describe('Upload List', () => {
           </Upload>,
         );
         wrapper.setState({});
-        await delay(0);
+        await sleep();
 
         expect(wrapper.state().fileList[2].thumbUrl).not.toBe(undefined);
         expect(onDrawImage).toHaveBeenCalled();
@@ -405,7 +404,7 @@ describe('Upload List', () => {
     const wrapper = mount(<TestForm />);
 
     wrapper.find(Form).simulate('submit');
-    await delay(0);
+    await sleep();
     expect(formRef.getFieldError(['file'])).toEqual(['file required']);
 
     wrapper.find('input').simulate('change', {
@@ -415,7 +414,7 @@ describe('Upload List', () => {
     });
 
     wrapper.find(Form).simulate('submit');
-    await delay(0);
+    await sleep();
     expect(formRef.getFieldError(['file'])).toEqual([]);
   });
 
@@ -513,11 +512,11 @@ describe('Upload List', () => {
 
         const wrapper = mount(
           <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
-            <button type="button" />
+            <button type="button">button</button>
           </Upload>,
         );
         wrapper.setState({});
-        await delay(0);
+        await sleep();
 
         expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
         wrapper.update();

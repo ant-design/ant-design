@@ -137,6 +137,12 @@
       color: @disabled-color;
       cursor: not-allowed;
     }
+
+    // Not show highlight border of checkbox when disabled
+    &:hover::after,
+    .@{checkbox-prefix-cls}-wrapper:hover &::after {
+      visibility: hidden;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper {

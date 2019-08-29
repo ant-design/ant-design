@@ -182,9 +182,9 @@ class Input extends React.Component<InputProps, any> {
   }
 
   renderClearIcon(prefixCls: string) {
-    const { allowClear } = this.props;
+    const { allowClear, disabled } = this.props;
     const { value } = this.state;
-    if (!allowClear || value === undefined || value === null || value === '') {
+    if (!allowClear || disabled || value === undefined || value === null || value === '') {
       return null;
     }
     return (

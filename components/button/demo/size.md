@@ -55,7 +55,9 @@ class ButtonSize extends React.Component {
           Link
         </Button>
         <br />
+        <Button type="primary" icon={<Download />} size={size} />
         <Button type="primary" shape="circle" icon={<Download />} size={size} />
+        <Button type="primary" shape="round" icon={<Download />} size={size} />
         <Button type="primary" shape="round" icon={<Download />} size={size}>
           Download
         </Button>
