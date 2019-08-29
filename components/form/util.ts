@@ -98,23 +98,21 @@ export interface FormInstance extends RcFormInstance {
 }
 
 export function useForm(form?: FormInstance): [FormInstance] {
-  const wrapForm: FormInstance = form
-    ? form
-    : {
-        ...useRcForm()[0],
-        __INTERNAL__: {},
-        scrollToField: name => {
-          const namePath = toArray(name);
-          const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
-          const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
+  const wrapForm: FormInstance = form || {
+    ...useRcForm()[0],
+    __INTERNAL__: {},
+    scrollToField: name => {
+      const namePath = toArray(name);
+      const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
+      const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
 
-          if (node) {
-            scrollIntoView(node, getScrollableContainer(node), {
-              onlyScrollIfNeeded: true,
-            });
-          }
-        },
-      };
+      if (node) {
+        scrollIntoView(node, getScrollableContainer(node), {
+          onlyScrollIfNeeded: true,
+        });
+      }
+    },
+  };
 
   return [wrapForm];
 }

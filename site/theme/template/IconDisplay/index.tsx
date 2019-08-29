@@ -1,10 +1,9 @@
 import * as React from 'react';
-import * as AntdIcons from '@ant-design/icons';
+import Icon, * as AntdIcons from '@ant-design/icons';
 import { Radio, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
-import Icon from '@ant-design/icons';
 import { ThemeType } from 'antd/es/icon';
 import Category from './Category';
 import IconPicSearcher from './IconPicSearcher';
@@ -39,14 +38,14 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     this.handleSearchIcon = debounce(this.handleSearchIcon, 300);
   }
 
-  getComputedDisplayList() {
+  getComputedDisplayList = () => {
     return Object.keys(categories)
       .map((category: CategoriesKeys) => ({
         category,
         icons: (IconDisplay.categories[category] || []).filter(name => !!allIcons[name]),
       }))
       .filter(({ icons }) => Boolean(icons.length));
-  }
+  };
 
   handleChangeTheme = (e: RadioChangeEvent) => {
     this.setState({
@@ -71,7 +70,9 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
         icons: icons
           .filter(name => {
             if (theme === 'outlined') {
-              return ['filled', 'twotone'].every(theme => !name.toLowerCase().includes(theme));
+              return ['filled', 'twotone'].every(
+                themeName => !name.toLowerCase().includes(themeName),
+              );
             }
             return name.toLowerCase().includes(theme);
           })
