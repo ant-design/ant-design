@@ -188,7 +188,7 @@
     "stylelint-config-standard": "^18.3.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^3.0.0",
-    "typescript": "~3.5.1",
+    "typescript": "~3.6.2",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",
     "yaml-front-matter": "^4.0.0"
