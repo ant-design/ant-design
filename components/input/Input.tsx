@@ -32,6 +32,7 @@ export interface InputProps
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
+  inputRef?: (node: HTMLInputElement) => void;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   allowClear?: boolean;
@@ -67,6 +68,7 @@ class Input extends React.Component<InputProps, any> {
     onKeyUp: PropTypes.func,
     onFocus: PropTypes.func,
     onBlur: PropTypes.func,
+    inputRef: PropTypes.func,
     prefix: PropTypes.node,
     suffix: PropTypes.node,
     allowClear: PropTypes.bool,
@@ -144,6 +146,9 @@ class Input extends React.Component<InputProps, any> {
   }
 
   saveInput = (node: HTMLInputElement) => {
+    if (this.props.inputRef) {
+      this.props.inputRef(node);
+    }
     this.input = node;
   };
 
