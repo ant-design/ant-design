@@ -22,6 +22,11 @@ export interface RenderResultObject {
   value: string;
 }
 
+type ListStyle = {
+  leftTransferListStyleObject: React.CSSProperties;
+  rightTransferListStyleObject: React.CSSProperties;
+};
+
 export type RenderResult = React.ReactElement | RenderResultObject | string | null;
 
 type TransferRender = (item: TransferItem) => RenderResult;
@@ -45,7 +50,7 @@ export interface TransferProps {
   onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
-  listStyle?: React.CSSProperties;
+  listStyle?: ListStyle | React.CSSProperties;
   operationStyle?: React.CSSProperties;
   titles?: string[];
   operations?: string[];
@@ -406,6 +411,16 @@ class Transfer extends React.Component<TransferProps, any> {
           [`${prefixCls}-customize-list`]: !!children,
         });
 
+        const rightListStyle =
+          listStyle && 'rightTransferListStyleObject' in listStyle
+            ? listStyle.rightTransferListStyleObject
+            : listStyle;
+
+        const leftListStyle =
+          listStyle && 'leftTransferListStyleObject' in listStyle
+            ? listStyle.leftTransferListStyleObject
+            : listStyle;
+
         const titles = this.getTitles(locale);
         return (
           <div className={cls} style={style}>
@@ -414,7 +429,7 @@ class Transfer extends React.Component<TransferProps, any> {
               titleText={titles[0]}
               dataSource={leftDataSource}
               filterOption={filterOption}
-              style={listStyle}
+              style={leftListStyle}
               checkedKeys={sourceSelectedKeys}
               handleFilter={this.handleLeftFilter}
               handleClear={this.handleLeftClear}
@@ -450,7 +465,7 @@ class Transfer extends React.Component<TransferProps, any> {
               titleText={titles[1]}
               dataSource={rightDataSource}
               filterOption={filterOption}
-              style={listStyle}
+              style={rightListStyle}
               checkedKeys={targetSelectedKeys}
               handleFilter={this.handleRightFilter}
               handleClear={this.handleRightClear}
