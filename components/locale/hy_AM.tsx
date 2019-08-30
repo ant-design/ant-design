@@ -1,4 +1,4 @@
-const datePickerLocale =  {
+const datePickerLocale = {
   lang: {
     placeholder: 'Ընտրեք ամսաթիվը',
     rangePlaceholder: ['Մեկնարկի ամսաթիվ', 'Ավարտի ամսաթիվը'],
@@ -30,7 +30,7 @@ const datePickerLocale =  {
     nextCentury: 'Մյուս դար',
   },
   timePickerLocale: {
-    placeholder: 'Ընտրեք ժամը'
+    placeholder: 'Ընտրեք ժամը',
   },
 };
 
@@ -51,9 +51,9 @@ export default {
     prev_3: 'Նախորդ 3 Էջերը',
     next_3: 'Հաջորդ 3 Էջերը',
   },
-  DatePicker:datePickerLocale,
+  DatePicker: datePickerLocale,
   TimePicker: {
-    placeholder: 'Ընտրեք ժամը'
+    placeholder: 'Ընտրեք ժամը',
   },
   Calendar: datePickerLocale,
   global: {
