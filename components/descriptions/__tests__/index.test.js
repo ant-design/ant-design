@@ -3,6 +3,7 @@ import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import { resetWarned } from '../../_util/warning';
 
 jest.mock('enquire.js', () => {
   let that;
@@ -100,6 +101,8 @@ describe('Descriptions', () => {
   });
 
   it('warning if ecceed the row span', () => {
+    resetWarned();
+
     mount(
       <Descriptions column={3}>
         <Descriptions.Item label="Product" span={2}>
