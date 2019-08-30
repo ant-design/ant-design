@@ -786,16 +786,6 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
         >
           <td
             class="ant-descriptions-item"
-            colspan="1"
-          >
-            <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon"
-            >
-              Remark
-            </span>
-          </td>
-          <td
-            class="ant-descriptions-item"
             colspan="2"
           >
             <span
@@ -804,20 +794,20 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
               Address
             </span>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-content"
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
             >
-              empty
+              Remark
             </span>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="2"
@@ -826,6 +816,16 @@ exports[`renders ./components/descriptions/demo/vertical.md correctly 1`] = `
               class="ant-descriptions-item-content"
             >
               No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
+            </span>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-content"
+            >
+              empty
             </span>
           </td>
         </tr>

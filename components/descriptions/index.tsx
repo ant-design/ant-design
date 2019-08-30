@@ -58,7 +58,10 @@ const generateChildrenRows = (
     }
 
     // Always set last span to align the end of Descriptions
-    if (index === itemNodes.length - 1) {
+    const lastItem = index === itemNodes.length - 1;
+    let lastSpanSame = true;
+    if (lastItem) {
+      lastSpanSame = (itemNode.props.span || 1) === leftSpans;
       itemNode = React.cloneElement(itemNode, {
         span: leftSpans,
       });
@@ -73,7 +76,7 @@ const generateChildrenRows = (
       columns = null;
 
       warning(
-        leftSpans === 0,
+        leftSpans === 0 && lastSpanSame,
         'Descriptions',
         'Sum of column `span` in a line exceeds `column` of Descriptions.',
       );
