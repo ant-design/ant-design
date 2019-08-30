@@ -175,4 +175,14 @@ describe('Descriptions', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('keep key', () => {
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item key="bamboo" />
+      </Descriptions>,
+    );
+
+    expect(wrapper.find('Col').key()).toBe('bamboo');
+  });
 });

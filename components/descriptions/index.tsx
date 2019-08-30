@@ -61,7 +61,7 @@ const generateChildrenRows = (
     const lastItem = index === itemNodes.length - 1;
     let lastSpanSame = true;
     if (lastItem) {
-      lastSpanSame = (itemNode.props.span || 1) === leftSpans;
+      lastSpanSame = !itemNode.props.span || itemNode.props.span === leftSpans;
       itemNode = React.cloneElement(itemNode, {
         span: leftSpans,
       });
@@ -95,24 +95,25 @@ const renderRow = (
   colon: boolean,
 ) => {
   const renderCol = (
-    childrenItem: React.ReactElement<DescriptionsItemProps>,
+    colItem: React.ReactElement<DescriptionsItemProps>,
     type: 'label' | 'content',
     idx: number,
-  ) => (
-    <Col
-      child={childrenItem}
-      bordered={bordered}
-      colon={colon}
-      type={type}
-      key={`${type}-${idx}`}
-      layout={layout}
-    />
-  );
+  ) => {
+    return (
+      <Col
+        child={colItem}
+        bordered={bordered}
+        colon={colon}
+        type={type}
+        key={colItem.key || idx}
+        layout={layout}
+      />
+    );
+  };
 
   const cloneChildren: JSX.Element[] = [];
   const cloneContentChildren: JSX.Element[] = [];
-  React.Children.forEach(
-    children,
+  toArray(children).forEach(
     (childrenItem: React.ReactElement<DescriptionsItemProps>, idx: number) => {
       cloneChildren.push(renderCol(childrenItem, 'label', idx));
       if (layout === 'vertical') {
@@ -224,17 +225,16 @@ class Descriptions extends React.Component<
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
           const column = this.getColumn();
-          const cloneChildren = React.Children.map(
-            children,
-            (child: React.ReactElement<DescriptionsItemProps>) => {
+          const cloneChildren = toArray(children)
+            .map((child: React.ReactElement<DescriptionsItemProps>) => {
               if (React.isValidElement(child)) {
                 return React.cloneElement(child, {
                   prefixCls,
                 });
               }
-              return child;
-            },
-          );
+              return null;
+            })
+            .filter((node: React.ReactElement) => node);
 
           const childrenArray: Array<
             React.ReactElement<DescriptionsItemProps>[]
