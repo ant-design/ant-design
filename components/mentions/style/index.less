@@ -13,7 +13,7 @@
   height: auto;
   padding: 0;
   overflow: hidden;
-  line-height: unset;
+  line-height: @line-height-base;
   white-space: pre-wrap;
   vertical-align: bottom;
 
@@ -31,6 +31,7 @@
   // ================= Input Area =================
   > textarea,
   &-measure {
+    min-height: @input-height-base - 2px;
     margin: 0;
     padding: @input-padding-vertical-base @input-padding-horizontal-base;
     overflow: inherit;

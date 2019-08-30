@@ -4,6 +4,7 @@ import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -17,6 +18,7 @@ describe('TimePicker', () => {
   });
 
   focusTest(TimePicker);
+  mountTest(TimePicker);
 
   it('renders addon correctly', () => {
     const addon = () => <button type="button">Ok</button>;

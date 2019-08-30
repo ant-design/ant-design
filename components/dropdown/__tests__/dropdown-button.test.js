@@ -2,8 +2,12 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Dropdown from '..';
 import Menu from '../../menu';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('DropdownButton', () => {
+  mountTest(() => <Dropdown menu={<Menu />}><span /></Dropdown>);
+  mountTest(Dropdown.Button);
+
   it('pass appropriate props to Dropdown', () => {
     const props = {
       align: {

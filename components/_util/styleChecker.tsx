@@ -1,4 +1,4 @@
-function isStyleSupport(styleName: string | Array<string>): boolean {
+const isStyleSupport = (styleName: string | Array<string>): boolean => {
   if (typeof window !== 'undefined' && window.document && window.document.documentElement) {
     const styleNameList = Array.isArray(styleName) ? styleName : [styleName];
     const { documentElement } = window.document;

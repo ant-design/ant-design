@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Breadcrumb from '../index';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Breadcrumb', () => {
+  mountTest(Breadcrumb);
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {

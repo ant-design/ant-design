@@ -1,10 +1,14 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import Radio from '../radio';
+import Radio, { Group, Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Radio', () => {
   focusTest(Radio);
+  mountTest(Radio);
+  mountTest(Group);
+  mountTest(Button);
 
   it('should render correctly', () => {
     const wrapper = render(<Radio className="customized">Test</Radio>);

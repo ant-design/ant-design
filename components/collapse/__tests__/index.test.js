@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Collapse from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Collapse', () => {
+  mountTest(Collapse);
+
   it('should support remove expandIcon', () => {
     const wrapper = mount(
       <Collapse expandIcon={() => null}>

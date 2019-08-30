@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Skeleton from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Skeleton', () => {
   const genSkeleton = props =>
@@ -9,6 +10,8 @@ describe('Skeleton', () => {
         Bamboo
       </Skeleton>,
     );
+
+  mountTest(Skeleton);
 
   describe('avatar', () => {
     it('size', () => {

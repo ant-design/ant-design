@@ -4,8 +4,11 @@ import ReactIcon from '@ant-design/icons-react';
 import Icon from '..';
 import Tooltip from '../../tooltip';
 import { getThemeFromTypeName, withThemeSuffix } from '../utils';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Icon', () => {
+  mountTest(Icon);
+
   it('should render to a <i class="xxx"><svg>...</svg></i>', () => {
     const wrapper = render(<Icon type="message" className="my-icon-classname" />);
     expect(wrapper).toMatchSnapshot();
