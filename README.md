@@ -122,7 +122,7 @@ If you are a collaborator, please follow our [Pull Request principle](https://gi
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
-## ❤️ Backers and Sponsors https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen ![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)
+## ❤️ Backers and Sponsors ![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen) ![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)
 
 [![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
 
