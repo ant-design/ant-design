@@ -55,10 +55,11 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     this.rcSwitch.blur();
   }
 
-  renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSwitch = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const classes = classNames(className, {
+      ['rtl']: direction === 'rtl',
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });

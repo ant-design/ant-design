@@ -16,7 +16,7 @@ Components which support rtl direction are listed here, you can toggle the direc
 **Note:** `ConfigProvider: direction` just affects direction of the ant-design componenents, you should wrap your elements or form with `.rtl | .ltr` class to change direction of other elements.
 
 ```jsx
-import { ConfigProvider, Cascader, Radio, Tree, Icon } from 'antd';
+import { ConfigProvider, Cascader, Radio, Switch, Tree, Icon } from 'antd';
 
 const { TreeNode } = Tree;
 const cascaderOptions = [
@@ -98,6 +98,12 @@ class Page extends React.Component {
           popupPlacement={this.props.popupPlacement}
           showSearch={this.cascaderFilter}
         />
+        &nbsp;&nbsp;
+        <Switch defaultChecked />
+        &nbsp;&nbsp;
+        <Switch loading defaultChecked />
+        &nbsp;&nbsp;
+        <Switch size="small" loading />
         <div>
           <Tree
             checkable
