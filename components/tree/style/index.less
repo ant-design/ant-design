@@ -108,6 +108,10 @@
     ul {
       margin: 0;
       padding: 0 0 0 @tree-child-padding;
+
+      .rtl& {
+        padding: 0 @tree-child-padding 0 0;
+      }
     }
     .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
@@ -163,6 +167,10 @@
           .@{tree-prefix-cls}-switcher-icon {
             svg {
               transform: rotate(-90deg);
+
+              .rtl& {
+                transform: rotate(90deg);
+              }
             }
           }
         }

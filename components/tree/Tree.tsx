@@ -221,7 +221,7 @@ export default class Tree extends React.Component<TreeProps, any> {
     this.tree = node;
   };
 
-  renderTree = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTree = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const {
       prefixCls: customizePrefixCls,
@@ -233,12 +233,14 @@ export default class Tree extends React.Component<TreeProps, any> {
     } = props;
     const { checkable } = props;
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
+    const isRtlLayout = direction === 'rtl';
     return (
       <RcTree
         ref={this.setTreeRef}
         {...props}
         prefixCls={prefixCls}
         className={classNames(className, {
+          [`rtl`]: isRtlLayout,
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
         })}
