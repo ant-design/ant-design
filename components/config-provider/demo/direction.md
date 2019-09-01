@@ -16,8 +16,22 @@ Components which support rtl direction are listed here, you can toggle the direc
 **Note:** `ConfigProvider: direction` just affects direction of the ant-design componenents, you should wrap your elements or form with `.rtl | .ltr` class to change direction of other elements.
 
 ```jsx
-import { ConfigProvider, Cascader, Radio, Switch, Tree, Icon } from 'antd';
+import {
+  Input,
+  Col,
+  Row,
+  Select,
+  InputNumber,
+  ConfigProvider,
+  Cascader,
+  Radio,
+  Switch,
+  Tree,
+  Icon,
+} from 'antd';
 
+const InputGroup = Input.Group;
+const { Option } = Select;
 const { TreeNode } = Tree;
 const cascaderOptions = [
   {
@@ -78,7 +92,20 @@ class Page extends React.Component {
   cascaderFilter = (inputValue, path) => {
     return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
   };
-
+  selectBefore = (
+    <Select defaultValue="Http://" style={{ width: 90 }}>
+      <Option value="Http://">Http://</Option>
+      <Option value="Https://">Https://</Option>
+    </Select>
+  );
+  selectAfter = (
+    <Select defaultValue=".com" style={{ width: 80 }}>
+      <Option value=".com">.com</Option>
+      <Option value=".jp">.jp</Option>
+      <Option value=".cn">.cn</Option>
+      <Option value=".org">.org</Option>
+    </Select>
+  );
   render() {
     return (
       <div className="direction-components example">
@@ -121,6 +148,42 @@ class Page extends React.Component {
               </TreeNode>
             </TreeNode>
           </Tree>
+        </div>
+        <br />
+        <div>
+          <InputGroup size="large">
+            <Row gutter={8}>
+              <Col span={5}>
+                <Input defaultValue="0571" />
+              </Col>
+              <Col span={8}>
+                <Input defaultValue="26888888" />
+              </Col>
+            </Row>
+          </InputGroup>
+          <br />
+          <InputGroup compact>
+            <Input style={{ width: '20%' }} defaultValue="0571" />
+            <Input style={{ width: '30%' }} defaultValue="26888888" />
+          </InputGroup>
+          <br />
+          <InputGroup compact>
+            <Select defaultValue="Option1">
+              <Option value="Option1">Option1</Option>
+              <Option value="Option2">Option2</Option>
+            </Select>
+            <Input style={{ width: '50%' }} defaultValue="input content" />
+            <InputNumber />
+          </InputGroup>
+          <br />
+
+          <div style={{ marginBottom: 16 }}>
+            <Input
+              addonBefore={this.selectBefore}
+              addonAfter={this.selectAfter}
+              defaultValue="mysite"
+            />
+          </div>
         </div>
       </div>
     );

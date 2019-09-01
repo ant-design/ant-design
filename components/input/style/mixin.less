@@ -27,12 +27,22 @@
   border-right-width: @border-width-base !important;
   outline: 0;
   box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
+
+  .rtl& {
+    border-left-width: @border-width-base !important;
+    border-right-width: 0;
+  }
 }
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
   border-right-width: @border-width-base !important;
+
+  .rtl& {
+    border-left-width: @border-width-base !important;
+    border-right-width: 0;
+  }
 }
 
 .disabled() {
@@ -211,6 +221,11 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
+    .@{inputClass}-group.rtl & {
+      border-radius: @border-radius-base;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
     // Reset Select's style in addon
     .@{ant-prefix}-select .@{ant-prefix}-select-selection {
       border-top-right-radius: 0;
@@ -232,10 +247,20 @@
 
   &-addon:first-child {
     border-right: 0;
+
+    .@{inputClass}-group.rtl & {
+      border-right: @border-width-base @border-style-base @input-border-color;
+      border-left: 0;
+    }
   }
 
   &-addon:last-child {
     border-left: 0;
+
+    .@{inputClass}-group.rtl & {
+      border-left: @border-width-base @border-style-base @input-border-color;
+      border-right: 0;
+    }
   }
 
   > .@{inputClass}:last-child,
@@ -243,6 +268,11 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 
+    .@{inputClass}-group.rtl & {
+      border-radius: @border-radius-base;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
     // Reset Select's style in addon
     .@{ant-prefix}-select .@{ant-prefix}-select-selection {
       border-top-left-radius: 0;
@@ -341,6 +371,12 @@
     & > .@{ant-prefix}-time-picker:first-child .@{ant-prefix}-time-picker-input {
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
+      .rtl& {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+      }
     }
 
     & > *:last-child,
@@ -354,6 +390,14 @@
       border-right-width: @border-width-base;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
+      .rtl& {
+        border-right-width: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-left-width: @border-width-base;
+        border-top-left-radius: @border-radius-base;
+        border-bottom-left-radius: @border-radius-base;
+      }
     }
 
     // https://github.com/ant-design/ant-design/issues/12493
@@ -400,21 +444,46 @@
 
   .@{inputClass}-prefix {
     left: @input-padding-horizontal-base + 1px;
+
+    .rtl& {
+      right: 0;
+      left: @input-padding-horizontal-base + 1px;
+    }
   }
 
   .@{inputClass}-suffix {
     right: @input-padding-horizontal-base + 1px;
+
+    .rtl& {
+      right: 0;
+      left: @input-padding-horizontal-base + 1px;
+    }
   }
 
   .@{inputClass}:not(:first-child) {
     padding-left: @input-padding-horizontal-base + @input-affix-width;
+
+    .rtl& {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: @input-padding-horizontal-base + @input-affix-width;
+    }
   }
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+
+    .rtl& {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: @input-padding-horizontal-base + @input-affix-width;
+    }
   }
 
   &.@{inputClass}-affix-wrapper-with-clear-btn .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
+
+    .rtl& {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
+    }
   }
 }

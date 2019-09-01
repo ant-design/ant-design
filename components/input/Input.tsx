@@ -82,6 +82,7 @@ class Input extends React.Component<InputProps, any> {
   }
 
   input: HTMLInputElement;
+  direction: any = 'ltr';
 
   constructor(props: InputProps) {
     super(props);
@@ -109,6 +110,7 @@ class Input extends React.Component<InputProps, any> {
   getInputClassName(prefixCls: string) {
     const { size, disabled } = this.props;
     return classNames(prefixCls, {
+      ['rtl']: this.direction === 'rtl',
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-disabled`]: disabled,
@@ -224,10 +226,12 @@ class Input extends React.Component<InputProps, any> {
     const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
+      ['rtl']: this.direction === 'rtl',
       [wrapperClassName]: addonBefore || addonAfter,
     });
 
     const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
+      ['rtl']: this.direction === 'rtl',
       [`${prefixCls}-group-wrapper-sm`]: size === 'small',
       [`${prefixCls}-group-wrapper-lg`]: size === 'large',
     });
@@ -307,9 +311,10 @@ class Input extends React.Component<InputProps, any> {
     );
   }
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+    this.direction = direction;
     return this.renderLabeledInput(prefixCls, this.renderInput(prefixCls));
   };
 
