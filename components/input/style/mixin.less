@@ -221,7 +221,7 @@
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 
-    .@{inputClass}-group.rtl & {
+    .rtl& {
       border-radius: @border-radius-base;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -446,8 +446,8 @@
     left: @input-padding-horizontal-base + 1px;
 
     .rtl& {
-      right: 0;
-      left: @input-padding-horizontal-base + 1px;
+      left: auto;
+      right: @input-padding-horizontal-base + 1px;
     }
   }
 
@@ -455,7 +455,7 @@
     right: @input-padding-horizontal-base + 1px;
 
     .rtl& {
-      right: 0;
+      right: auto;
       left: @input-padding-horizontal-base + 1px;
     }
   }
@@ -464,8 +464,8 @@
     padding-left: @input-padding-horizontal-base + @input-affix-width;
 
     .rtl& {
-      padding-right: @input-padding-horizontal-base;
-      padding-left: @input-padding-horizontal-base + @input-affix-width;
+      padding-left: @input-padding-horizontal-base;
+      padding-right: @input-padding-horizontal-base + @input-affix-width;
     }
   }
 

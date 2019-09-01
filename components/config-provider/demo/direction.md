@@ -33,6 +33,7 @@ import {
 const InputGroup = Input.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
+const { Search } = Input;
 const cascaderOptions = [
   {
     value: 'tehran',
@@ -176,7 +177,9 @@ class Page extends React.Component {
             <InputNumber />
           </InputGroup>
           <br />
-
+          <Search placeholder="input search text" enterButton="Search" size="large" />
+          <br />
+          <br />
           <div style={{ marginBottom: 16 }}>
             <Input
               addonBefore={this.selectBefore}

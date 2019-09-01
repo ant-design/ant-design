@@ -262,6 +262,7 @@ class Input extends React.Component<InputProps, any> {
     ) : null;
 
     const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
+      ['rtl']: this.direction === 'rtl',
       [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
       [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
       [`${prefixCls}-affix-wrapper-with-clear-btn`]:
