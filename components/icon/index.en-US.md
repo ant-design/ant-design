@@ -121,7 +121,7 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 The following properties are available for the component:
 
-| Property | Description | Type | Default | Version |
+| Property | Description | Type | Readonly | Version |
 | --- | --- | --- | --- | --- |
 | width | The width of the `svg` element | string \| number | '1em' | 3.10.0 |
 | height | The height of the `svg` element | string \| number | '1em' | 3.10.0 |
