@@ -149,7 +149,7 @@ const Icon: IconComponent<IconProps> = props => {
   const renderInnerNode = () => {
     // component > children > type
     if (Component) {
-      return <Component {...innerSvgProps}>{children}</Component>;
+      return <Component {...innerSvgProps} />;
     }
 
     if (children) {
