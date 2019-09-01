@@ -36,6 +36,7 @@ import heIL from '../he_IL';
 import hiIN from '../hi_IN';
 import hrHR from '../hr_HR';
 import huHU from '../hu_HU';
+import hyAM from '../hy_AM';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
@@ -87,6 +88,7 @@ const locales = [
   hiIN,
   hrHR,
   huHU,
+  hyAM,
   isIS,
   itIT,
   jaJP,
@@ -162,7 +164,11 @@ const App = () => (
 );
 
 describe('Locale Provider', () => {
-  mountTest(() => <LocaleProvider><div /></LocaleProvider>);
+  mountTest(() => (
+    <LocaleProvider>
+      <div />
+    </LocaleProvider>
+  ));
 
   beforeAll(() => {
     MockDate.set(moment('2017-09-18T03:30:07.795'));
