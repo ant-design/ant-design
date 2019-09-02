@@ -440,6 +440,20 @@ describe('Upload List', () => {
     return wrapper.props.previewFile(file);
   });
 
+  it('downloadFile should work correctly', async () => {
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList
+        listType="picture-card"
+        items={items}
+        onDownload={() => {}}
+        locale={{ downloadFile: '' }}
+      />,
+    ).instance();
+    return wrapper.props.onDownload(file);
+  });
+
   it('extname should work correctly when url not exists', () => {
     const items = [{ uid: 'upload-list-item', url: '' }];
     const wrapper = mount(

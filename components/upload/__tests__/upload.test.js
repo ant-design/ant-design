@@ -429,6 +429,33 @@ describe('Upload', () => {
     });
   });
 
+  it('should not stop download when return use onDownload', done => {
+    const mockRemove = jest.fn(() => false);
+    const props = {
+      onRemove: mockRemove,
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'done',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+    };
+
+    const wrapper = mount(<Upload {...props} onDownload={() => {}} />);
+
+    wrapper.find('div.ant-upload-list-item i.anticon-download').simulate('click');
+
+    setImmediate(() => {
+      wrapper.update();
+
+      expect(props.fileList).toHaveLength(1);
+      expect(props.fileList[0].status).toBe('done');
+      done();
+    });
+  });
+
   // https://github.com/ant-design/ant-design/issues/14439
   it('should allow call abort function through upload instance', () => {
     const wrapper = mount(
