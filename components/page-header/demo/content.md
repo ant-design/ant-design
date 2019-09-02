@@ -1,22 +1,63 @@
 ---
 order: 3
 title:
-  zh-CN: 带内容的例子
-  en-US: Example with content
+  zh-CN: 组合示例
+  en-US: Complete example
 ---
 
 ## zh-CN
 
-带内容的例子,可以优先展示页面的主要信息。
+使用了 pageHeader 提供的所有能力。
 
 ## en-US
 
-An example with content that gives priority to the main information of the page.
+Show all props.Used all the capabilities provided by pageHeader.
 
 ```jsx
-import { PageHeader, Typography } from 'antd';
+import { PageHeader, Menu, Dropdown, Icon, Button, Tag, Typography, Row } from 'antd';
 
 const { Paragraph } = Typography;
+
+const menu = (
+  <Menu>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+        1st menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+        2nd menu item
+      </a>
+    </Menu.Item>
+    <Menu.Item>
+      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+        3rd menu item
+      </a>
+    </Menu.Item>
+  </Menu>
+);
+
+const DropdownMenu = () => {
+  return (
+    <Dropdown key="more" overlay={menu}>
+      <Button
+        style={{
+          border: 'none',
+          padding: 0,
+        }}
+      >
+        <Icon
+          type="ellipsis"
+          style={{
+            fontSize: 20,
+            verticalAlign: 'top',
+          }}
+        />
+      </Button>
+    </Dropdown>
+  );
+};
 
 const routes = [
   {
@@ -33,6 +74,25 @@ const routes = [
   },
 ];
 
+const IconLink = ({ src, text }) => (
+  <a
+    style={{
+      marginRight: 16,
+      display: 'flex',
+      alignItems: 'center',
+    }}
+  >
+    <img
+      style={{
+        marginRight: 8,
+      }}
+      src={src}
+      alt="start"
+    />
+    {text}
+  </a>
+);
+
 const content = (
   <div className="content">
     <Paragraph>
@@ -44,64 +104,74 @@ const content = (
       easier for designers to have a clear psychological expectation of color when adjusting colors,
       as well as facilitate communication in teams.
     </Paragraph>
-    <p className="contentLink">
-      <a>
-        <img
-          src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
-          alt="start"
-        />
-        Quick Start
-      </a>
-      <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg" alt="info" />
-        Product Info
-      </a>
-      <a>
-        <img src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg" alt="doc" />
-        Product Doc
-      </a>
-    </p>
+    <Row className="contentLink" type="flex">
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
+        text="Quick Start"
+      />
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+        text=" Product Info"
+      />
+      <IconLink
+        src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+        text="Product Doc"
+      />
+    </Row>
   </div>
 );
 
-const extraContent = (
-  <img
-    src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
-    alt="content"
-  />
-);
+const Content = ({ children, extraContent }) => {
+  return (
+    <Row className="content" type="flex">
+      <div className="main" style={{ flex: 1 }}>
+        {children}
+      </div>
+      <div
+        className="extra"
+        style={{
+          marginLeft: 80,
+        }}
+      >
+        {extraContent}
+      </div>
+    </Row>
+  );
+};
 
 ReactDOM.render(
-  <PageHeader title="Title" breadcrumb={{ routes }}>
-    <div className="wrap">
-      <div className="content">{content}</div>
-      <div className="extraContent">{extraContent}</div>
-    </div>
+  <PageHeader
+    title="Title"
+    subTitle="This is a subtitle"
+    tags={<Tag color="blue">Running</Tag>}
+    extra={[
+      <Button key="3">Operation</Button>,
+      <Button key="2">Operation</Button>,
+      <Button key="1" type="primary">
+        Primary
+      </Button>,
+      <DropdownMenu key="more" />,
+    ]}
+    avatar={{ src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4' }}
+    breadcrumb={{ routes }}
+  >
+    <Content
+      extraContent={
+        <img
+          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          alt="content"
+        />
+      }
+    >
+      {content}
+    </Content>
   </PageHeader>,
   mountNode,
 );
 ```
 
 <style>
-#components-page-header-demo-content .wrap {
-  display: flex;
+.ant-page-header {
+  border: 1px solid rgb(235, 237, 240);
 }
-#components-page-header-demo-content .content {
-  flex: 1;
-}
-#components-page-header-demo-content .extraContent {
-  min-width: 240px;
-  text-align: right;
-}
-#components-page-header-demo-content .contentLink {
-  padding-top: 16px;
-}
-#components-page-header-demo-content .contentLink a {
-  display: inline-block;
-  vertical-align: text-top;
-  margin-right: 32px;
-}
-#components-page-header-demo-content .contentLink a img {
-  margin-right: 8px;
-}
-</style>
+<style>

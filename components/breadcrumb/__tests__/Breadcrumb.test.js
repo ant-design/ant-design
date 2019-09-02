@@ -55,6 +55,21 @@ describe('Breadcrumb', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  // https://github.com/ant-design/ant-design/issues/18260
+  it('filter React.Fragment', () => {
+    const wrapper = render(
+      <Breadcrumb separator="">
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
+        <Breadcrumb.Separator>:</Breadcrumb.Separator>
+        <>
+          <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
+          <Breadcrumb.Separator />
+        </>
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('should render a menu', () => {
     const routes = [
       {

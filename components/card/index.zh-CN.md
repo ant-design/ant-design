@@ -33,6 +33,7 @@ cols: 1
 | hoverable | 鼠标移过时可浮起 | boolean | false |  |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
 | tabList | 页签标题列表 | Array&lt;{key: string, tab: ReactNode}> | - |  |
+| tabBarExtraContent | tab bar 上额外的元素 | React.ReactNode | 无 |  |
 | size | card 的尺寸 | `default` \| `small` | `default` | 3.12.0 |
 | title | 卡片标题 | string\|ReactNode | - |  |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | string | - |  |
@@ -40,10 +41,11 @@ cols: 1
 
 ### Card.Grid
 
-| 参数      | 说明                   | 类型   | 默认值 | 版本 |
-| --------- | ---------------------- | ------ | ------ | ---- |
-| className | 网格容器类名           | string | -      |      |
-| style     | 定义网格容器类名的样式 | object | -      |      |
+| 参数      | 说明                   | 类型    | 默认值 | 版本   |
+| --------- | ---------------------- | ------- | ------ | ------ |
+| className | 网格容器类名           | string  | -      |        |
+| hoverable | 鼠标移过时可浮起       | boolean | true   | 3.23.0 |
+| style     | 定义网格容器类名的样式 | object  | -      |        |
 
 ### Card.Meta
 
