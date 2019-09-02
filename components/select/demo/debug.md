@@ -36,7 +36,7 @@ ReactDOM.render(
       <Option value="Yiminghe">yiminghe</Option>
     </Select>
     AntDesign
-    <Button>Confirm</Button>
+    <Button>Default</Button>
   </div>,
   mountNode,
 );

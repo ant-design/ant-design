@@ -12,6 +12,10 @@
   border-radius: @border-radius-base;
   transition: all 0.3s @ease-in-out;
   border: @border-width-base @border-style-base @select-border-color;
+
+  .@{select-prefix-cls}-focused& {
+    .active();
+  }
 }
 
 /* Reset search input style */
@@ -34,8 +38,23 @@
 
   // ========================== Arrow ==========================
   &-arrow {
+    .iconfont-mixin();
+
     position: absolute;
-    right: 0;
-    top: 0;
+    top: 50%;
+    right: @control-padding-horizontal - 1px;
+    margin-top: -@font-size-sm / 2;
+    color: @disabled-color;
+    font-size: @font-size-sm;
+    line-height: 1;
+    height: 1em;
+    width: 1em;
+    text-align: center;
+    transform-origin: 50% 50%;
+    transition: transform 0.3s;
+
+    .@{select-prefix-cls}-open & {
+      transform: rotate(180deg);
+    }
   }
 }
