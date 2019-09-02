@@ -29,7 +29,7 @@ timeline: true
 - 💄 增加 less 变量 `@input-number-handler-bg` `@input-number-handler-border-color`。[#18533](https://github.com/ant-design/ant-design/pull/18533)
 - 💄 增加 less 变量 `@card-backgroun` `@card-skeleton-bg`。[#18531](https://github.com/ant-design/ant-design/pull/18531)
 - 💄 增加 less 变量 `@typography-title-font-weight`。[#18456](https://github.com/ant-design/ant-design/pull/18456) [@MrHeer](https://github.com/MrHeer)
-- 🛎 Switch、Checkbox 和 Upload 使用 value 时会提示正确的属性名。[18497](https://github.com/ant-design/ant-design/pull/18497)
+- 🛎 Switch、Checkbox 和 Upload 使用 value 时会提示正确的属性名。[#18497](https://github.com/ant-design/ant-design/pull/18497)
 - 🐞 修复圆形 Button 有时候不是圆形的问题。[#18516](https://github.com/ant-design/ant-design/pull/18516)
 - 🐞 修复 Input 中 icon 位置不居中情况。[#18521](https://github.com/ant-design/ant-design/pull/18521) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 修复 RangePicker 多余的选中日期样式。[#18559](https://github.com/ant-design/ant-design/pull/18559)
@@ -40,6 +40,8 @@ timeline: true
 - 🐞 修复 Mentions 的 prefix 为空字符串时，弹窗位置不正确的问题。[#18576](https://github.com/ant-design/ant-design/pull/18576)
 - 🐞 修复 Upload.Dragger 在 multiple 为 false 时，仍然可以上传多份文件的问题。[#18580](https://github.com/ant-design/ant-design/pull/18580)
 - 🐞 修复 `Button[href]` 在 Card `actions` 中样式变形的问题。[#18588](https://github.com/ant-design/ant-design/pull/18588)
+- 🐞 修复 Chrome 中 Input 与 Button 不垂直对齐的问题。[#18603](https://github.com/ant-design/ant-design/pull/18603)
+- 🐞 修复网格 List 中内嵌 List 的边距问题。[#18589](https://github.com/ant-design/ant-design/pull/18589)
 - TypeScript
   - 🐞 修复 Steps.Step 组件 `subTitle` 属性类型。[#18525](https://github.com/ant-design/ant-design/pull/18525) [@wtzeng1](https://github.com/wtzeng1)
   - 🐞 确保 Tooltip props 定义中，`title` 或 `overlay` 至少有一个是必填的。[#18515](https://github.com/ant-design/ant-design/pull/18515) [@laysent](https://github.com/laysent)
