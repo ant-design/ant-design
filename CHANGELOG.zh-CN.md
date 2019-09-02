@@ -42,7 +42,7 @@ timeline: true
   - 🐞 修复 Descriptions.Item 最后个宽度计算不正确的问题。[#18568](https://github.com/ant-design/ant-design/pull/18568)
   - 🐞 Description.Item 在渲染时会复用用户提供的 key。[#18578](https://github.com/ant-design/ant-design/pull/18578)
 - 🐞 修复 Tab 内容宽度在 Safari 下不正确的问题。[#18574](https://github.com/ant-design/ant-design/pull/18574)
-- 🐞 修复 Mentions 的 prefix 为空字符串时，弹窗位置不正确的问题。[#18576](https://github.com/ant-design/ant-design/pull/18576)
+- 🐞 修复 Mentions 的 `prefix` 为空字符串时，弹窗位置不正确的问题。[#18576](https://github.com/ant-design/ant-design/pull/18576)
 - 🐞 修复 Upload.Dragger 在 `multiple` 为 false 时，仍然可以上传多份文件的问题。[#18580](https://github.com/ant-design/ant-design/pull/18580)
 - 🐞 修复 `Button[href]` 在 Card `actions` 中样式变形的问题。[#18588](https://github.com/ant-design/ant-design/pull/18588)
 - 🐞 修复 Chrome 中 Input 与 Button 不垂直对齐的问题。[#18603](https://github.com/ant-design/ant-design/pull/18603)
