@@ -9,27 +9,11 @@
   height: @input-height-lg;
   padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   font-size: @font-size-lg;
-  line-height: @input-height-lg;
-  // https://github.com/ant-design/ant-design/issues/17753
-  line-height: ~'@{line-height-base} \9';
-  // stylelint-disable-next-line
-  _:-ms-input-placeholder,
-  :root & {
-    line-height: @line-height-base;
-  }
 }
 
 .input-sm() {
   height: @input-height-sm;
   padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
-  line-height: @input-height-sm;
-  // https://github.com/ant-design/ant-design/issues/17753
-  line-height: ~'@{line-height-base} \9';
-  // stylelint-disable-next-line
-  _:-ms-input-placeholder,
-  :root & {
-    line-height: @line-height-base;
-  }
 }
 
 // input status
@@ -67,14 +51,7 @@
   padding: @input-padding-vertical-base @input-padding-horizontal-base;
   color: @input-color;
   font-size: @font-size-base;
-  line-height: @input-height-base;
-  // https://github.com/ant-design/ant-design/issues/17753
-  line-height: ~'@{line-height-base} \9';
-  // stylelint-disable-next-line
-  _:-ms-input-placeholder,
-  :root & {
-    line-height: @line-height-base;
-  }
+  line-height: @line-height-base;
   background-color: @input-bg;
   background-image: none;
   border: @border-width-base @border-style-base @input-border-color;
