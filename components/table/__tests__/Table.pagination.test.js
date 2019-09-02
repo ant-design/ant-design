@@ -233,7 +233,10 @@ describe('Table.pagination', () => {
         .getComponent(),
     );
     expect(dropdownWrapper.find('MenuItem').length).toBe(4);
-    dropdownWrapper.find('MenuItem').at(3).simulate('click');
+    dropdownWrapper
+      .find('MenuItem')
+      .at(3)
+      .simulate('click');
     expect(onShowSizeChange).toHaveBeenCalled();
     jest.useRealTimers();
   });

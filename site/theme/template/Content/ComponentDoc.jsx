@@ -52,7 +52,13 @@ class ComponentDoc extends React.Component {
   };
 
   render() {
-    const { doc, location, intl: { locale }, utils, demos } = this.props;
+    const {
+      doc,
+      location,
+      intl: { locale },
+      utils,
+      demos,
+    } = this.props;
     const { content, meta } = doc;
     const demoValues = Object.keys(demos).map(key => demos[key]);
     const { expandAll, showRiddleButton } = this.state;

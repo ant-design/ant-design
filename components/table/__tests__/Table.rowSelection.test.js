@@ -718,7 +718,10 @@ describe('Table.rowSelection', () => {
   it('select by checkbox to trigger stopPropagation', () => {
     const wrapper = mount(createTable());
     expect(() => {
-      wrapper.find('span').at(10).simulate('click');
+      wrapper
+        .find('span')
+        .at(10)
+        .simulate('click');
     }).not.toThrow();
   });
 });

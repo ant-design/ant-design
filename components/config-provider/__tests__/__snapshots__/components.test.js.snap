@@ -5363,7 +5363,7 @@ exports[`ConfigProvider components Card configProvider 1`] = `
     class="config-card-body"
   >
     <div
-      class="config-card-grid"
+      class="config-card-grid config-card-grid-hoverable"
     >
       <div
         class="config-card-meta"
@@ -5381,7 +5381,7 @@ exports[`ConfigProvider components Card normal 1`] = `
     class="ant-card-body"
   >
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
     >
       <div
         class="ant-card-meta"
@@ -5399,7 +5399,7 @@ exports[`ConfigProvider components Card prefixCls 1`] = `
     class="prefix-Card-body"
   >
     <div
-      class="prefix-Card-grid"
+      class="prefix-Card-grid prefix-Card-grid-hoverable"
     >
       <div
         class="prefix-Card-meta"

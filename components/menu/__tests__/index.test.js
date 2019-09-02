@@ -16,7 +16,13 @@ jest.mock('mutationobserver-shim', () => {
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
-  mountTest(() => <Menu><Menu.Item /><Menu.ItemGroup /><Menu.SubMenu /></Menu>);
+  mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <Menu.ItemGroup />
+      <Menu.SubMenu />
+    </Menu>
+  ));
 
   beforeEach(() => {
     jest.useFakeTimers();

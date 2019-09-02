@@ -66,4 +66,26 @@ describe('PageHeader', () => {
     const wrapper = render(<PageHeader title={false} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('breadcrumbs and back icon can only have one', () => {
+    const routes = [
+      {
+        path: 'index',
+        breadcrumbName: 'First-level Menu',
+      },
+      {
+        path: 'first',
+        breadcrumbName: 'Second-level Menu',
+      },
+      {
+        path: 'second',
+        breadcrumbName: 'Third-level Menu',
+      },
+    ];
+    const wrapper = mount(<PageHeader title="Title" onBack={() => true} breadcrumb={{ routes }} />);
+    expect(wrapper.find('.ant-breadcrumb')).toHaveLength(0);
+
+    wrapper.setProps({ onBack: undefined });
+    expect(wrapper.find('.ant-breadcrumb')).toHaveLength(1);
+  });
 });

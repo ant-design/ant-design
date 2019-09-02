@@ -6,7 +6,7 @@ const isStyleSupport = (styleName: string | Array<string>): boolean => {
     return styleNameList.some(name => name in documentElement.style);
   }
   return false;
-}
+};
 
 export const isFlexSupported = isStyleSupport(['flex', 'webkitFlex', 'Flex', 'msFlex']);
 

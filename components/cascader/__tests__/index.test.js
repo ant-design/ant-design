@@ -476,7 +476,13 @@ describe('Cascader', () => {
 
   // https://github.com/ant-design/ant-design/issues/18176
   it('have a notFoundContent that fit trigger input width', () => {
-    const wrapper = mount(<Cascader popupVisible options={[]} fieldNames={{ label: 'name', value: 'code', children: 'items' }} />);
+    const wrapper = mount(
+      <Cascader
+        popupVisible
+        options={[]}
+        fieldNames={{ label: 'name', value: 'code', children: 'items' }}
+      />,
+    );
     const popupWrapper = mount(
       wrapper
         .find('Trigger')

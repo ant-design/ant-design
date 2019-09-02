@@ -5,7 +5,11 @@ import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('ConfigProvider', () => {
-  mountTest(() => <ConfigProvider><div /></ConfigProvider>);
+  mountTest(() => (
+    <ConfigProvider>
+      <div />
+    </ConfigProvider>
+  ));
 
   it('Content Security Policy', () => {
     const csp = { nonce: 'test-antd' };

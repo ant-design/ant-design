@@ -87,7 +87,9 @@ describe('Badge', () => {
   it('should support offset when count is a ReactNode', () => {
     const wrapper = render(
       <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
-        <a href="#" className="head-example">head</a>
+        <a href="#" className="head-example">
+          head
+        </a>
       </Badge>,
     );
     expect(wrapper).toMatchSnapshot();

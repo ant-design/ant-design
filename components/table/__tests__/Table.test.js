@@ -99,7 +99,9 @@ describe('Table', () => {
 
   it('support onHeaderCell', () => {
     const onClick = jest.fn();
-    const wrapper = mount(<Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />);
+    const wrapper = mount(
+      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
+    );
     wrapper.find('th').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });
