@@ -25,10 +25,10 @@ timeline: true
 - 🌟 Breadcrumb support children use with `React.Fragment`. [#18340](https://github.com/ant-design/ant-design/pull/18340) [@long-zhuge](https://github.com/long-zhuge)
 - 🌟 Card.Grid add new prop `hoverable` for support disable hover state. [#18457](https://github.com/ant-design/ant-design/pull/18457) [@MrHeer](https://github.com/MrHeer)
 - 🇦🇲 Added locales for the Armenian language. [#18586](https://github.com/ant-design/ant-design/pull/18586) [@ashmna](https://github.com/ashmna)
-- 💄 Add variables `@modal-footer-border-color-split`. [#18522](https://github.com/ant-design/ant-design/pull/18522)
-- 💄 Add variables `@input-number-handler-bg` `@input-number-handler-border-color`. [#18533](https://github.com/ant-design/ant-design/pull/18533)
-- 💄 Add variables `@card-backgroun` `@card-skeleton-bg`. [#18531](https://github.com/ant-design/ant-design/pull/18531)
-- 💄 Add variables `@typography-title-font-weight`. [#18456](https://github.com/ant-design/ant-design/pull/18456) [@MrHeer](https://github.com/MrHeer)
+- 💄 Add less variables `@modal-footer-border-color-split`. [#18522](https://github.com/ant-design/ant-design/pull/18522)
+- 💄 Add less variables `@input-number-handler-bg` `@input-number-handler-border-color`. [#18533](https://github.com/ant-design/ant-design/pull/18533)
+- 💄 Add less variables `@card-backgroun` `@card-skeleton-bg`. [#18531](https://github.com/ant-design/ant-design/pull/18531)
+- 💄 Add less variables `@typography-title-font-weight`. [#18456](https://github.com/ant-design/ant-design/pull/18456) [@MrHeer](https://github.com/MrHeer)
 - 🛎 Add warning when use value of Switch, Checkbox, Upload. [#18497](https://github.com/ant-design/ant-design/pull/18497)
 - 🐞 Fix circle Button not circle in some situation. [#18516](https://github.com/ant-design/ant-design/pull/18516)
 - 🐞 Fix icon position in Input. [#18521](https://github.com/ant-design/ant-design/pull/18521) [@xrkffgg](https://github.com/xrkffgg)
@@ -44,7 +44,7 @@ timeline: true
 - 🐞 Fix nested List style in grid layout. [#18589](https://github.com/ant-design/ant-design/pull/18589)
 - TypeScript
   - 🐞 Fix Steps.Step component's `subTitle` prop types. [#18525](https://github.com/ant-design/ant-design/pull/18525) [@wtzeng1](https://github.com/wtzeng1)
-  - 🐞 ensure title or overlay is required in Tooltip props definition. [#18515](https://github.com/ant-design/ant-design/pull/18515) [@laysent](https://github.com/laysent)
+  - 🐞 Ensure title or overlay is required in Tooltip props definition. [#18515](https://github.com/ant-design/ant-design/pull/18515) [@laysent](https://github.com/laysent)
 
 ## 3.22.2
 
