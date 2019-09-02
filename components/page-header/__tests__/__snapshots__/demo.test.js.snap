@@ -12,7 +12,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         class="ant-page-header-back"
       >
         <div
-          aria-label="back"
+          aria-label="Back"
           class="ant-page-header-back-button"
           role="button"
           style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -191,7 +191,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
         class="ant-page-header-back"
       >
         <div
-          aria-label="back"
+          aria-label="Back"
           class="ant-page-header-back-button"
           role="button"
           style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -372,7 +372,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
       class="ant-page-header-back"
     >
       <div
-        aria-label="back"
+        aria-label="Back"
         class="ant-page-header-back-button"
         role="button"
         style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -707,7 +707,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         class="ant-page-header-back"
       >
         <div
-          aria-label="back"
+          aria-label="Back"
           class="ant-page-header-back-button"
           role="button"
           style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
