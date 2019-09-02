@@ -17,15 +17,18 @@ timeline: true
 
 ## 3.23.0
 
-`2019-09-01`
+`2019-09-02`
 
 - 🔥 Pageheader has been redesigned to accommodate more situations. [#18128](https://github.com/ant-design/ant-design/pull/18128)
 - 🌟 Add `tabBarExtraContent` property to Card component. [#18433](https://github.com/ant-design/ant-design/pull/18433) [@lengthmin](https://github.com/lengthmin)
 - 🌟 Anchor.Link add add new property `target`. [#18335](https://github.com/ant-design/ant-design/pull/18335) [@DiamondYuan](https://github.com/DiamondYuan)
+- 🌟 Breadcrumb support children use with `React.Fragment`. [#18340](https://github.com/ant-design/ant-design/pull/18340) [@long-zhuge](https://github.com/long-zhuge)
+- 🌟 Card.Grid add new prop `hoverable` for support disable hover state. [#18457](https://github.com/ant-design/ant-design/pull/18457) [@MrHeer](https://github.com/MrHeer)
 - 🇦🇲 Added locales for the Armenian language. [#18586](https://github.com/ant-design/ant-design/pull/18586) [@ashmna](https://github.com/ashmna)
 - 💄 Add variables `@modal-footer-border-color-split`. [#18522](https://github.com/ant-design/ant-design/pull/18522)
 - 💄 Add variables `@input-number-handler-bg` `@input-number-handler-border-color`. [#18533](https://github.com/ant-design/ant-design/pull/18533)
 - 💄 Add variables `@card-backgroun` `@card-skeleton-bg`. [#18531](https://github.com/ant-design/ant-design/pull/18531)
+- 💄 Add variables `@typography-title-font-weight`. [#18456](https://github.com/ant-design/ant-design/pull/18456) [@MrHeer](https://github.com/MrHeer)
 - 🛎 Add warning when use value of Switch, Checkbox, Upload. [18497](https://github.com/ant-design/ant-design/pull/18497)
 - 🐞 Fix circle Button not circle in some situation. [#18516](https://github.com/ant-design/ant-design/pull/18516)
 - 🐞 Fix icon position in Input. [#18521](https://github.com/ant-design/ant-design/pull/18521) [@xrkffgg](https://github.com/xrkffgg)
