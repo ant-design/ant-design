@@ -89,19 +89,21 @@ const defaultPagination = {
  */
 const emptyObject = {};
 
-let row: BodyRowClass;
+let row: BodyRowClass | undefined;
 
 const createComponents = (components: TableComponents = {}, prevComponents?: TableComponents) => {
   const bodyRow = components && components.body && components.body.row;
-  const preBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
-  if (!row || bodyRow !== preBodyRow) {
-    row = createBodyRow(bodyRow);
+  const prevBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
+  let Row = row;
+  row = undefined;
+  if (!Row || bodyRow !== prevBodyRow) {
+    Row = createBodyRow(bodyRow);
   }
   return {
     ...components,
     body: {
       ...components.body,
-      row,
+      row: Row,
     },
   };
 };
