@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Input.Password', () => {
   focusTest(Input.Password);
+  mountTest(Input.Password);
 
   it('should get input element from ref', () => {
     const wrapper = mount(<Input.Password />);

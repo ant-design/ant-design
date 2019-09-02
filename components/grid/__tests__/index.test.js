@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { Col, Row } from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('enquire.js', () => {
   let that;
@@ -21,6 +22,9 @@ jest.mock('enquire.js', () => {
 });
 
 describe('Grid', () => {
+  mountTest(Row);
+  mountTest(Col);
+
   it('should render Col', () => {
     const wrapper = render(<Col span={2} />);
     expect(wrapper).toMatchSnapshot();

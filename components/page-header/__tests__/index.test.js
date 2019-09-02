@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import PageHeader from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('PageHeader', () => {
+  mountTest(PageHeader);
+
   it('pageHeader should not contain back it back', () => {
     const routes = [
       {
