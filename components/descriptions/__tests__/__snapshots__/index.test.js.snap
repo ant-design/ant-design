@@ -39,7 +39,7 @@ exports[`Descriptions Descriptions support colon 1`] = `
                 </DescriptionsItem>
               }
               colon={false}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -116,7 +116,7 @@ exports[`Descriptions Descriptions support style 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -183,7 +183,7 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -241,7 +241,7 @@ exports[`Descriptions column is number 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -274,7 +274,7 @@ exports[`Descriptions column is number 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-1"
+              key="1"
               layout="horizontal"
               type="label"
             >
@@ -307,7 +307,7 @@ exports[`Descriptions column is number 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-2"
+              key="2"
               layout="horizontal"
               type="label"
             >
@@ -346,7 +346,7 @@ exports[`Descriptions column is number 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -414,7 +414,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="vertical"
               type="label"
             >
@@ -446,7 +446,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="content-0"
+              key="0"
               layout="vertical"
               type="content"
             >
@@ -478,7 +478,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="vertical"
               type="label"
             >
@@ -510,7 +510,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="content-0"
+              key="0"
               layout="vertical"
               type="content"
             >
@@ -542,7 +542,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="vertical"
               type="label"
             >
@@ -574,7 +574,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="content-0"
+              key="0"
               layout="vertical"
               type="content"
             >
@@ -607,7 +607,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="vertical"
               type="label"
             >
@@ -640,7 +640,7 @@ exports[`Descriptions vertical layout 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="content-0"
+              key="0"
               layout="vertical"
               type="content"
             >
@@ -701,7 +701,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -739,7 +739,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -777,7 +777,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >
@@ -816,7 +816,7 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
                 </DescriptionsItem>
               }
               colon={true}
-              key="label-0"
+              key="0"
               layout="horizontal"
               type="label"
             >

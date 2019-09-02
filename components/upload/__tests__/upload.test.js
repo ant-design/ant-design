@@ -463,4 +463,28 @@ describe('Upload', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('not allow multiple upload when multiple is false', done => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      <Upload
+        fileList={[{ uid: '903', file: 'bamboo.png' }]}
+        action="http://upload.com"
+        onChange={onChange}
+        multiple={false}
+      />,
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ file: 'light.png' }],
+      },
+    });
+
+    setTimeout(() => {
+      expect(onChange).not.toHaveBeenCalled();
+      done();
+    });
+  });
 });
