@@ -27,7 +27,7 @@ timeline: true
 - 🇦🇲 Added locales for the Armenian language. [#18586](https://github.com/ant-design/ant-design/pull/18586) [@ashmna](https://github.com/ashmna)
 - 💄 Add less variables `@modal-footer-border-color-split`. [#18522](https://github.com/ant-design/ant-design/pull/18522)
 - 💄 Add less variables `@input-number-handler-bg` `@input-number-handler-border-color`. [#18533](https://github.com/ant-design/ant-design/pull/18533)
-- 💄 Add less variables `@card-backgroun` `@card-skeleton-bg`. [#18531](https://github.com/ant-design/ant-design/pull/18531)
+- 💄 Add less variables `@card-background` `@card-skeleton-bg`. [#18531](https://github.com/ant-design/ant-design/pull/18531)
 - 💄 Add less variables `@typography-title-font-weight`. [#18456](https://github.com/ant-design/ant-design/pull/18456) [@MrHeer](https://github.com/MrHeer)
 - 🛎 Add warning when use value of Switch, Checkbox, Upload. [#18497](https://github.com/ant-design/ant-design/pull/18497)
 - 🐞 Fix circle Button not circle in some situation. [#18516](https://github.com/ant-design/ant-design/pull/18516)

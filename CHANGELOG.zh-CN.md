@@ -27,7 +27,7 @@ timeline: true
 - 🇦🇲 新增亚美尼亚语。[#18586](https://github.com/ant-design/ant-design/pull/18586) [@ashmna](https://github.com/ashmna)
 - 💄 增加 less 变量 `@modal-footer-border-color-split`。[#18522](https://github.com/ant-design/ant-design/pull/18522)
 - 💄 增加 less 变量 `@input-number-handler-bg` `@input-number-handler-border-color`。[#18533](https://github.com/ant-design/ant-design/pull/18533)
-- 💄 增加 less 变量 `@card-backgroun` `@card-skeleton-bg`。[#18531](https://github.com/ant-design/ant-design/pull/18531)
+- 💄 增加 less 变量 `@card-background` `@card-skeleton-bg`。[#18531](https://github.com/ant-design/ant-design/pull/18531)
 - 💄 增加 less 变量 `@typography-title-font-weight`。[#18456](https://github.com/ant-design/ant-design/pull/18456) [@MrHeer](https://github.com/MrHeer)
 - 🛎 Switch、Checkbox 和 Upload 使用 value 时会提示正确的属性名。[#18497](https://github.com/ant-design/ant-design/pull/18497)
 - 🐞 修复圆形 Button 有时候不是圆形的问题。[#18516](https://github.com/ant-design/ant-design/pull/18516)
