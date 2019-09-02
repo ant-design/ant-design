@@ -17,9 +17,19 @@
     .@{select-prefix-cls}-selection-item,
     .@{select-prefix-cls}-selection-placeholder {
       position: absolute;
-      top: 1px;
-      left: 3px;
+      top: 0px;
+      left: 0px;
+      height: @select-height-without-border;
+      line-height: @input-height-base;
+      padding: 0 @input-padding-horizontal-base;
       pointer-events: none;
+
+      // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
+      @supports (-moz-appearance: meterbar) {
+        & {
+          line-height: @select-height-without-border;
+        }
+      }
     }
   }
 

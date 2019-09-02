@@ -3,6 +3,7 @@ order: 999
 title:
   zh-CN: 4.0 Debug
   en-US: 4.0 Debug
+debug: true
 only: true
 ---
 
@@ -26,7 +27,7 @@ function handleChange(value) {
 ReactDOM.render(
   <div>
     <Input style={{ width: 100 }} />
-    <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
+    <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange} showSearch>
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>
@@ -34,6 +35,7 @@ ReactDOM.render(
       </Option>
       <Option value="Yiminghe">yiminghe</Option>
     </Select>
+    AntDesign
     <Button>Confirm</Button>
   </div>,
   mountNode,

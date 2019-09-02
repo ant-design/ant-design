@@ -6,6 +6,7 @@
 @import './multiple';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
+@select-height-without-border: @input-height-base - 2 * @border-width-base;
 
 .select-selector() {
   border-radius: @border-radius-base;
@@ -19,6 +20,9 @@
     border: none;
     outline: none;
     width: 100%;
+    height: @select-height-without-border;
+    background: transparent;
+    padding: 0 @input-padding-horizontal-base;
   }
 }
 
@@ -26,7 +30,12 @@
   .reset-component;
 
   position: relative;
-  display: inline-flex;
+  display: inline-block;
 
-  
+  // ========================== Arrow ==========================
+  &-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
