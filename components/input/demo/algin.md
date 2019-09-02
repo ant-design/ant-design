@@ -26,7 +26,6 @@ const { Text } = Typography;
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
 const Option = Select.Option;
-const InputGroup = Input.Group;
 const { MonthPicker, RangePicker } = DatePicker;
 
 const options = [
