@@ -40,7 +40,7 @@ timeline: true
 - 🐞 Fix RangePicker selected date style. [#18559](https://github.com/ant-design/ant-design/pull/18559)
 - Descriptions
   - 🐞 Fix Descriptions last Item has wrong calculated width issue. [#18568](https://github.com/ant-design/ant-design/pull/18568)
-  - 🐞 Description.Item will reuse key in render if user provided. [#18578](https://github.com/ant-design/ant-design/pull/18578)
+  - 🐞 Description.Item will reuse `key` in render if user provided. [#18578](https://github.com/ant-design/ant-design/pull/18578)
 - 🐞 Fix Tab content width not correct in Safari. [#18574](https://github.com/ant-design/ant-design/pull/18574)
 - 🐞 Fix Mentions popup position not correct when `prefix` is empty string. [#18576](https://github.com/ant-design/ant-design/pull/18576)
 - 🐞 Fix Upload.Dragger can upload multiple files when `multiple` is false. [#18580](https://github.com/ant-design/ant-design/pull/18580)

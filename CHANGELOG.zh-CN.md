@@ -39,8 +39,8 @@ timeline: true
 - 🐞 修复 Input 中图标位置不居中情况。[#18521](https://github.com/ant-design/ant-design/pull/18521) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 修复 RangePicker 多余的选中日期样式。[#18559](https://github.com/ant-design/ant-design/pull/18559)
 - Descriptions
-  - 🐞 修复 Descriptions.Item 最后个宽度计算不正确的问题。[#18568](https://github.com/ant-design/ant-design/pull/18568)
-  - 🐞 Description.Item 在渲染时会复用用户提供的 key。[#18578](https://github.com/ant-design/ant-design/pull/18578)
+  - 🐞 修复 Descriptions.Item 最后一个宽度计算不正确的问题。[#18568](https://github.com/ant-design/ant-design/pull/18568)
+  - 🐞 Description.Item 在渲染时会复用用户提供的 `key`。[#18578](https://github.com/ant-design/ant-design/pull/18578)
 - 🐞 修复 Tab 内容宽度在 Safari 下不正确的问题。[#18574](https://github.com/ant-design/ant-design/pull/18574)
 - 🐞 修复 Mentions 的 `prefix` 为空字符串时，弹窗位置不正确的问题。[#18576](https://github.com/ant-design/ant-design/pull/18576)
 - 🐞 修复 Upload.Dragger 在 `multiple` 为 false 时，仍然可以上传多份文件的问题。[#18580](https://github.com/ant-design/ant-design/pull/18580)
