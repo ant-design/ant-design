@@ -91,19 +91,25 @@ const emptyObject = {};
 
 let row: BodyRowClass | undefined;
 
-const createComponents = (components: TableComponents = {}, prevComponents?: TableComponents) => {
+const createComponents = (
+  components: TableComponents = {},
+  prevComponents?: TableComponents,
+  isCalledFromConstructor?: boolean,
+) => {
   const bodyRow = components && components.body && components.body.row;
   const prevBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
-  let Row = row;
-  row = undefined;
-  if (!Row || bodyRow !== prevBodyRow) {
-    Row = createBodyRow(bodyRow);
+  if (isCalledFromConstructor) {
+    // 'row' needs to act like a class property
+    row = undefined;
+  }
+  if (!row || bodyRow !== prevBodyRow) {
+    row = createBodyRow(bodyRow);
   }
   return {
     ...components,
     body: {
       ...components.body,
-      row: Row,
+      row,
     },
   };
 };
@@ -283,7 +289,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       pagination: this.getDefaultPagination(props),
       pivot: undefined,
       prevProps: props,
-      components: createComponents(props.components),
+      components: createComponents(props.components, undefined, true),
       columns,
     };
   }
