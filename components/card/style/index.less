@@ -6,14 +6,14 @@
 @card-hover-border: fade(@black, 9%);
 @card-action-icon-size: 16px;
 
-@gradient-min: fade(@card-background, 20%);
-@gradient-max: fade(@card-background, 40%);
+@gradient-min: fade(@card-skeleton-bg, 20%);
+@gradient-max: fade(@card-skeleton-bg, 40%);
 
 .@{card-prefix-cls} {
   .reset-component;
 
   position: relative;
-  background: @component-background;
+  background: @card-background;
   border-radius: @card-radius;
   transition: all 0.3s;
 
@@ -153,7 +153,7 @@
           transition: color 0.3s;
         }
 
-        a,
+        a:not(.@{ant-prefix}-btn),
         > .anticon {
           display: inline-block;
           width: 100%;

@@ -16,7 +16,7 @@ module.exports = {
     'app.content.edit-demo': 'Edit this demo on GitHub!',
     'app.component.examples': 'Examples',
     'app.component.examples.expand': 'Expand all code',
-    'app.component.examples.collpse': 'Collpse all code',
+    'app.component.examples.collapse': 'Collapse all code',
     'app.demo.debug': "Debug only, won't display at online",
     'app.demo.copy': 'Copy code',
     'app.demo.copied': 'Copied!',

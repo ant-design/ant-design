@@ -2,7 +2,7 @@
 order: 8
 title:
   zh-CN: 预设范围
-  en-US: Presetted Ranges
+  en-US: Preset Ranges
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-We can set presetted ranges to RangePicker to improve user experience.
+We can set preset ranges to RangePicker to improve user experience.
 
 ```jsx
 import { DatePicker } from 'antd';

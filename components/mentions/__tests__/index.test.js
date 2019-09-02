@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Mentions from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { getMentions } = Mentions;
 
@@ -73,6 +74,7 @@ describe('Mentions', () => {
   });
 
   focusTest(Mentions);
+  mountTest(Mentions);
 
   it('loading', () => {
     const wrapper = mount(<Mentions loading />);

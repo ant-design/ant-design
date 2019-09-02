@@ -97,6 +97,7 @@ jobs:
       - *attach_workspace
       - run: npm run dist
       - run: node ./tests/dekko/dist.test.js
+      - run: npm run bundlesize
       - persist_to_workspace:
           root: ~/ant-design
           paths:

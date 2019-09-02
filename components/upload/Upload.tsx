@@ -20,6 +20,7 @@ import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './u
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 export { UploadProps };
 
@@ -62,6 +63,12 @@ class Upload extends React.Component<UploadProps, UploadState> {
       fileList: props.fileList || props.defaultFileList || [],
       dragState: 'drop',
     };
+
+    warning(
+      'fileList' in props || !('value' in props),
+      'Upload',
+      '`value` is not validate prop, do you mean `fileList`?',
+    );
   }
 
   componentWillUnmount() {
@@ -74,6 +81,12 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
   onStart = (file: RcFile) => {
     const { fileList } = this.state;
+    const { multiple } = this.props;
+
+    if (!multiple && fileList.length > 0) {
+      return;
+    }
+
     const targetItem = fileToObject(file);
     targetItem.status = 'uploading';
 

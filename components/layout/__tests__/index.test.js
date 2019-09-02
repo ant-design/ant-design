@@ -3,10 +3,15 @@ import { mount, render } from 'enzyme';
 import Layout from '..';
 import Icon from '../../icon';
 import Menu from '../../menu';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { Sider, Content } = Layout;
 
 describe('Layout', () => {
+  mountTest(Layout);
+  mountTest(Content);
+  mountTest(Sider);
+
   it('detect the sider as children', async () => {
     const wrapper = mount(
       <Layout>
