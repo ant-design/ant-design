@@ -78,6 +78,18 @@
   }
   .button-disabled(@color; @background; @border);
 }
+.button-variant-secondary(@color; @background; @border) {
+  .button-color(@color; @background; @border);
+  &:hover,
+  &:focus {
+    .button-color(@color; @background; #999999);
+  }
+  &:active,
+  &.active {
+    .button-color(@color; #F3F3F3; #f3f3f3) !important;
+  }
+  .button-disabled(@color; @background; @border);
+}
 .button-variant-ghost(@color; @border: @color) {
   .button-color(@color; transparent; @border);
   text-shadow: none;
@@ -206,7 +218,7 @@
 }
 // secondary button style
 .btn-secondary() {
-  .button-variant-other(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+  .button-variant-secondary(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
   &:hover,
   &:focus,
   &:active,
