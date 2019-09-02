@@ -4,7 +4,6 @@ title:
   zh-CN: 文本对齐
   en-US: Text Align
 debug: true
-only: true
 ---
 
 ```jsx
@@ -67,7 +66,8 @@ const options = [
 
 ReactDOM.render(
   <div>
-    <Mentions style={{ width: 100 }} />
+    <Mentions style={{ width: 100 }} rows={1} />
+    <Input.TextArea rows={1} style={{ width: 100 }} />
     <Button type="primary">Button</Button>
     <Input style={{ width: 100 }} />
     <Text copiable>Ant Design</Text>
