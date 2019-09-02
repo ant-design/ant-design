@@ -89,7 +89,7 @@ const defaultPagination = {
  */
 const emptyObject = {};
 
-let row: BodyRowClass | undefined;
+let tableRow: BodyRowClass | undefined;
 
 const createComponents = (
   components: TableComponents = {},
@@ -99,17 +99,17 @@ const createComponents = (
   const bodyRow = components && components.body && components.body.row;
   const prevBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
   if (isCalledFromConstructor) {
-    // 'row' needs to act like a class property
-    row = undefined;
+    // 'tableRow' needs to act like a class property
+    tableRow = undefined;
   }
-  if (!row || bodyRow !== prevBodyRow) {
-    row = createBodyRow(bodyRow);
+  if (!tableRow || bodyRow !== prevBodyRow) {
+    tableRow = createBodyRow(bodyRow);
   }
   return {
     ...components,
     body: {
       ...components.body,
-      row,
+      row: tableRow,
     },
   };
 };
