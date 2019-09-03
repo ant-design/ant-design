@@ -1,6 +1,8 @@
 name: Deploy website
 on:
   release:
+    actions:
+      - published
     branches:
       - master
 jobs:
