@@ -99,6 +99,7 @@ class App extends React.Component {
         onFilter: (value, record) => record.name.includes(value),
         sorter: (a, b) => a.name.length - b.name.length,
         sortOrder: sortedInfo.columnKey === 'name' && sortedInfo.order,
+        ellipsis: true,
       },
       {
         title: 'Age',
@@ -106,6 +107,7 @@ class App extends React.Component {
         key: 'age',
         sorter: (a, b) => a.age - b.age,
         sortOrder: sortedInfo.columnKey === 'age' && sortedInfo.order,
+        ellipsis: true,
       },
       {
         title: 'Address',
@@ -116,6 +118,7 @@ class App extends React.Component {
         onFilter: (value, record) => record.address.includes(value),
         sorter: (a, b) => a.address.length - b.address.length,
         sortOrder: sortedInfo.columnKey === 'address' && sortedInfo.order,
+        ellipsis: true,
       },
     ];
     return (
