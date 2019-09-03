@@ -867,26 +867,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     return getColumnKey(sortColumn) === getColumnKey(column);
   }
 
-  isTableLayoutFixed() {
-    const { tableLayout, columns = [], rowSelection, useFixedHeader, scroll = {} } = this.props;
-    if (tableLayout === 'fixed') {
-      return true;
-    }
-    // if one column fixed, use fixed table layout to fix align issue
-    if (columns.some(({ fixed }) => !!fixed)) {
-      return true;
-    }
-    // if selection column fixed, use fixed table layout to fix align issue
-    if (rowSelection && rowSelection.fixed) {
-      return true;
-    }
-    // if header fixed, use fixed table layout to fix align issue
-    if (useFixedHeader || scroll.y) {
-      return true;
-    }
-    return false;
-  }
-
   // Get pagination, filters, sorter
   prepareParamsArguments(state: any): PrepareParamsArgumentsReturn<T> {
     const pagination = { ...state.pagination };
@@ -1238,7 +1218,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
   }) => {
     const { showHeader, locale, getPopupContainer, ...restTableProps } = this.props;
     // do not pass prop.style to rc-table, since already apply it to container div
-    const restProps = omit(restTableProps, ['style', 'tableLayout']);
+    const restProps = omit(restTableProps, ['style']);
     const data = this.getCurrentPageData();
     const expandIconAsCell = this.props.expandedRowRender && this.props.expandIconAsCell !== false;
 
@@ -1255,7 +1235,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       [`${prefixCls}-bordered`]: this.props.bordered,
       [`${prefixCls}-empty`]: !data.length,
       [`${prefixCls}-without-column-header`]: !showHeader,
-      [`${prefixCls}-layout-fixed`]: this.isTableLayoutFixed(),
     });
 
     const columnsWithRowSelection = this.renderRowSelection({
