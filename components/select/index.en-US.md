@@ -45,6 +45,7 @@ Select component to select value from options.
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `value` for `combobox`, `children` for other modes |  |
 | placeholder | Placeholder of select | string\|ReactNode | - |  |
+| searchValue | Search input value | string | - | 3.23.2 |
 | showArrow | Whether to show the drop-down arrow | boolean | true | 3.2.1 |
 | showSearch | Whether show search input in single mode. | boolean | false |  |
 | size | Size of Select input. `default` `large` `small` | string | default |  |
@@ -54,7 +55,6 @@ Select component to select value from options.
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - | 3.11.0 |
 | tokenSeparators | Separator used to tokenize on tag/multiple mode | string\[] |  |  |
 | value | Current selected option. | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |  |
-| inputValue | Current search text | string | - |  |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change, or value of input is changed in combobox mode | function(value, option:Option/Array&lt;Option>) | - |  |
 | onDeselect | Called when a option is deselected, param is the selected option's value. Only called for multiple or tags, effective in multiple or tags mode only. | function(string\|number\|LabeledValue) | - |  |
