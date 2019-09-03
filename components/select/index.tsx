@@ -1,4 +1,5 @@
 import * as React from 'react';
+import omit from 'omit.js';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
 import { Down, Check } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -32,34 +33,41 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
   };
 
   renderSelect = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      suffixIcon = <Down />,
-      mode,
-      menuItemSelectedIcon,
-      ...props
-    } = this.props as InternalSelectProps<ValueType>;
+    const { prefixCls: customizePrefixCls, suffixIcon, mode, menuItemSelectedIcon, loading } = this
+      .props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
 
     const isMultiple = mode === 'multiple' || mode === 'tags';
 
+    // ===================== Icons =====================
+    // Arrow item icon
+    let mergedSuffixIcon;
+    if (suffixIcon !== undefined) {
+      mergedSuffixIcon = suffixIcon;
+    } else if (loading) {
+      mergedSuffixIcon = <Down />;
+    } else {
+      mergedSuffixIcon = <Down />;
+    }
+
+    // Checked item icon
     let mergedItemIcon;
     if (menuItemSelectedIcon !== undefined) {
       mergedItemIcon = menuItemSelectedIcon;
-    } else if (isMultiple){
-      mergedItemIcon = <Check />
+    } else if (isMultiple) {
+      mergedItemIcon = <Check />;
     } else {
       mergedItemIcon = null;
     }
 
+    const selectProps = omit(this.props, ['prefixCls', 'suffixIcon']);
 
     return (
       <RcSelect<ValueType>
-        {...props}
-        mode={mode}
+        {...selectProps}
         prefixCls={prefixCls}
-        inputIcon={suffixIcon}
+        inputIcon={mergedSuffixIcon}
         menuItemSelectedIcon={mergedItemIcon}
       />
     );
