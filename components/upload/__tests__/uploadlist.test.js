@@ -248,6 +248,25 @@ describe('Upload List', () => {
     expect(handleChange.mock.calls.length).toBe(2);
   });
 
+  it('should support onDownload', async () => {
+    const handleDownload = jest.fn();
+    const wrapper = mount(
+      <Upload listType="picture-card" defaultFileList={fileList} onDownload={handleDownload}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper
+      .find('.anticon-download')
+      .at(0)
+      .simulate('click');
+    expect(handleDownload).toHaveBeenCalledWith(fileList[0]);
+    wrapper
+      .find('.anticon-download')
+      .at(1)
+      .simulate('click');
+    expect(handleDownload).toHaveBeenCalledWith(fileList[1]);
+  });
+
   describe('should generate thumbUrl from file', () => {
     [
       { width: 100, height: 200, name: 'height large than width' },
