@@ -1,6 +1,7 @@
 @import './index';
 
 .@{select-prefix-cls}-single {
+  // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
     display: flex;
     position: relative;
@@ -19,7 +20,8 @@
       position: absolute;
       top: 0px;
       left: 0px;
-      height: @select-height-without-border;
+      right: 0px;
+      bottom: 0px;
       line-height: @input-height-base;
       padding: 0 @input-padding-horizontal-base;
       pointer-events: none;
@@ -32,6 +34,20 @@
       }
     }
   }
+
+  // With arrow should provides `padding-right` to show the arrow
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selector,
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item {
+    padding-right: @control-padding-horizontal + @font-size-sm;
+  }
+
+  // Opacity selection if open
+  &.@{select-prefix-cls}-open .@{select-prefix-cls}-selection-item {
+    opacity: 0.4;
+  }
+
+  // ========================== Input ==========================
+  // We only change the style of non-customize input which is only support by `combobox` mode.
 
   // Not customize
   &:not(.@{select-prefix-cls}-customize-input) {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
-import { Down } from '@ant-design/icons';
+import { Down, Check } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 type RawValue = string | number;
@@ -26,12 +26,43 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
   static Option = Option;
   static OptGroup = OptGroup;
 
+  static defaultProps = {
+    transitionName: 'slide-up',
+    choiceTransitionName: 'zoom',
+  };
+
   renderSelect = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, suffixIcon = <Down />, ...props } = this
-      .props as InternalSelectProps<ValueType>;
+    const {
+      prefixCls: customizePrefixCls,
+      suffixIcon = <Down />,
+      mode,
+      menuItemSelectedIcon,
+      ...props
+    } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
-    return <RcSelect<ValueType> {...props} prefixCls={prefixCls} inputIcon={suffixIcon} />;
+
+    const isMultiple = mode === 'multiple' || mode === 'tags';
+
+    let mergedItemIcon;
+    if (menuItemSelectedIcon !== undefined) {
+      mergedItemIcon = menuItemSelectedIcon;
+    } else if (isMultiple){
+      mergedItemIcon = <Check />
+    } else {
+      mergedItemIcon = null;
+    }
+
+
+    return (
+      <RcSelect<ValueType>
+        {...props}
+        mode={mode}
+        prefixCls={prefixCls}
+        inputIcon={suffixIcon}
+        menuItemSelectedIcon={mergedItemIcon}
+      />
+    );
   };
 
   render() {

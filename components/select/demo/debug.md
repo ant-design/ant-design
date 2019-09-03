@@ -27,13 +27,14 @@ function handleChange(value) {
 ReactDOM.render(
   <div>
     <Input style={{ width: 100 }} />
-    <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange} showSearch>
+    <Select style={{ width: 120 }} onChange={handleChange} showSearch placeholder="233">
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>
         Disabled
       </Option>
       <Option value="Yiminghe">yiminghe</Option>
+      <Option value="long">I'm super super long!</Option>
     </Select>
     AntDesign
     <Button>Default</Button>

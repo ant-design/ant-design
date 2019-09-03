@@ -36,6 +36,18 @@
   position: relative;
   display: inline-block;
 
+  // ======================== Selection ========================
+  &-selection-item {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  // ======================= Placeholder =======================
+  &-selection-placeholder {
+    opacity: 0.4;
+  }
+
   // ========================== Arrow ==========================
   &-arrow {
     .iconfont-mixin();
@@ -47,14 +59,101 @@
     color: @disabled-color;
     font-size: @font-size-sm;
     line-height: 1;
-    height: 1em;
-    width: 1em;
+    height: @font-size-sm;
+    width: @font-size-sm;
     text-align: center;
     transform-origin: 50% 50%;
     transition: transform 0.3s;
 
     .@{select-prefix-cls}-open & {
       transform: rotate(180deg);
+    }
+  }
+
+  // ========================== Popup ==========================
+  &-dropdown {
+    .reset-component;
+
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: @zindex-dropdown;
+    box-sizing: border-box;
+    font-size: @font-size-base;
+    // Fix select render lag of long text in chrome
+    // https://github.com/ant-design/ant-design/issues/11456
+    // https://github.com/ant-design/ant-design/issues/11843
+    font-variant: initial;
+    background-color: @select-dropdown-bg;
+    border-radius: @border-radius-base;
+    outline: none;
+    box-shadow: @box-shadow-base;
+    overflow: hidden;
+
+    &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
+      animation-name: antSlideUpIn;
+    }
+
+    &.slide-up-enter.slide-up-enter-active&-placement-topLeft,
+    &.slide-up-appear.slide-up-appear-active&-placement-topLeft {
+      animation-name: antSlideDownIn;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-bottomLeft {
+      animation-name: antSlideUpOut;
+    }
+
+    &.slide-up-leave.slide-up-leave-active&-placement-topLeft {
+      animation-name: antSlideDownOut;
+    }
+
+    &-hidden {
+      // display: none;
+    }
+  }
+
+  // ========================= Options =========================
+  &-item {
+    position: relative;
+    display: block;
+    padding: 5px @control-padding-horizontal;
+    color: @text-color;
+    font-weight: normal;
+    line-height: 22px;
+    min-height: 32px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    // =========== Option ===========
+    &-option {
+      display: flex;
+
+      &-content {
+        flex: auto;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      &-state {
+        flex: none;
+      }
+
+      &-active:not(&-disabled) {
+        background-color: @item-hover-bg;
+      }
+
+      &-selected {
+        color: @text-color;
+        font-weight: @select-item-selected-font-weight;
+        background-color: @select-item-selected-bg;
+      }
+
+      &-disabled {
+        color: @disabled-color;
+        cursor: not-allowed;
+      }
     }
   }
 }
