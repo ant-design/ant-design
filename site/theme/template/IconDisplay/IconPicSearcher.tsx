@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { Upload, Tooltip, Popover, Icon, Modal, Progress, message, Spin, Result } from 'antd';
+import { Upload, Tooltip, Popover, Modal, Progress, message, Spin, Result } from 'antd';
+import { Camera, Inbox } from '@ant-design/icons';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
+import * as AntdIcons from '@ant-design/icons';
+
+const allIcons: {
+  [key: string]: any;
+} = AntdIcons;
 
 const { Dragger } = Upload;
 
@@ -144,7 +150,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
           content={messages[`app.docs.components.icon.pic-searcher.intro`]}
           visible={popoverVisible}
         >
-          <Icon type="camera" className="icon-pic-btn" onClick={this.toggleModal} />
+          <Camera className="icon-pic-btn" onClick={this.toggleModal} />
         </Popover>
         <Modal
           title={messages[`app.docs.components.icon.pic-searcher.title`]}
@@ -160,7 +166,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
             showUploadList={{ showPreviewIcon: false, showRemoveIcon: false }}
           >
             <p className="ant-upload-drag-icon">
-              <Icon type="inbox" />
+              <Inbox />
             </p>
             <p className="ant-upload-text">
               {messages['app.docs.components.icon.pic-searcher.upload-text']}
@@ -188,23 +194,28 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
                   </thead>
                 )}
                 <tbody>
-                  {icons.map((icon: iconObject) => (
-                    <tr key={icon.type}>
-                      <td className="col-icon">
-                        <CopyToClipboard
-                          text={`<Icon type="${icon.type}" />`}
-                          onCopy={this.onCopied}
-                        >
-                          <Tooltip title={icon.type} placement="right">
-                            <Icon type={icon.type} />
-                          </Tooltip>
-                        </CopyToClipboard>
-                      </td>
-                      <td>
-                        <Progress percent={Math.ceil(icon.score * 100)} />
-                      </td>
-                    </tr>
-                  ))}
+                  {icons.map((icon: iconObject) => {
+                    const { type } = icon;
+                    const iconName = type
+                      .split('-')
+                      .map(str => `${str[0].toUpperCase()}${str.slice(1)}`)
+                      .join('');
+
+                    return (
+                      <tr key={iconName}>
+                        <td className="col-icon">
+                          <CopyToClipboard text={`<${iconName} />`} onCopy={this.onCopied}>
+                            <Tooltip title={icon.type} placement="right">
+                              {React.createElement(allIcons[iconName])}
+                            </Tooltip>
+                          </CopyToClipboard>
+                        </td>
+                        <td>
+                          <Progress percent={Math.ceil(icon.score * 100)} />
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
               {error && (

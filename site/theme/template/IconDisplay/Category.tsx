@@ -57,6 +57,7 @@ class Category extends React.Component<CategoryProps, CategoryState> {
         />
       );
     });
+
     return (
       <div>
         <h3>{messages[`app.docs.components.icon.category.${title}`]}</h3>
