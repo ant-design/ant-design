@@ -11,7 +11,8 @@
   z-index: @zindex-modal;
   width: 0%;
   height: 100%;
-  transition: transform @animation-duration-slow @ease-base-out, height 0s ease @animation-duration-slow, width 0s ease @animation-duration-slow;
+  transition: transform @animation-duration-slow @ease-base-out,
+    height 0s ease @animation-duration-slow, width 0s ease @animation-duration-slow;
   > * {
     transition: transform @animation-duration-slow @ease-base-out,
       box-shadow @animation-duration-slow @ease-base-out;
@@ -62,6 +63,11 @@
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-left;
       }
+      // https://github.com/ant-design/ant-design/issues/18607, Avoid edge alignment bug.
+      &.no-mask {
+        right: 1px;
+        transform: translateX(1px);
+      }
     }
   }
 
@@ -104,6 +110,10 @@
     &.@{drawer-prefix-cls}-open {
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-up;
+      }
+      &.no-mask {
+        bottom: 1px;
+        transform: translateY(1px);
       }
     }
   }
