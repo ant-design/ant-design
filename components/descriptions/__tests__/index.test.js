@@ -183,6 +183,6 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    expect(wrapper.find('Col').key()).toBe('bamboo');
+    expect(wrapper.find('Col').key()).toBe('label-bamboo');
   });
 });
