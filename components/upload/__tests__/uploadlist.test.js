@@ -431,6 +431,13 @@ describe('Upload List', () => {
     expect(wrapper.handlePreview()).toBe(undefined);
   });
 
+  it('return when prop onDownload not exists', () => {
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(<UploadList items={items} locale={{ downloadFile: '' }} />).instance();
+    expect(wrapper.handleDownload(file)).toBe(undefined);
+  });
+
   it('previewFile should work correctly', async () => {
     const file = new File([''], 'test.txt', { type: 'text/plain' });
     const items = [{ uid: 'upload-list-item', url: '' }];

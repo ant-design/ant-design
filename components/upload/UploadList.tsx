@@ -59,10 +59,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
   handleDownload = (file: UploadFile) => {
     const { onDownload } = this.props;
-    if (!onDownload) {
-      return;
+    if (typeof onDownload === 'function') {
+      onDownload(file);
+    } else if (file.url) {
+      window.open(file.url);
     }
-    return onDownload(file);
   };
 
   handleClose = (file: UploadFile) => {
