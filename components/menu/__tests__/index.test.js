@@ -4,6 +4,7 @@ import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
 import raf from '../../_util/raf';
+import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -15,6 +16,14 @@ jest.mock('mutationobserver-shim', () => {
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
+  mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <Menu.ItemGroup />
+      <Menu.SubMenu />
+    </Menu>
+  ));
+
   beforeEach(() => {
     jest.useFakeTimers();
   });

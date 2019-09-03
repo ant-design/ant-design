@@ -253,25 +253,26 @@ class Button extends React.Component<ButtonProps, ButtonState> {
         break;
     }
 
+    const iconType = loading ? 'loading' : icon;
+
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && children !== 0 && icon,
+      [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
     });
 
-    const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
     const kids =
       children || children === 0
         ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
         : null;
 
-    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType']);
+    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
     if (linkButtonRestProps.href !== undefined) {
       return (
         <a
@@ -291,7 +292,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
     const buttonNode = (
       <button
-        {...omit(otherProps, ['loading']) as NativeButtonProps}
+        {...(omit(otherProps, ['loading']) as NativeButtonProps)}
         type={htmlType}
         className={classes}
         onClick={this.handleClick}

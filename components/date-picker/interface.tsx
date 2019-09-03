@@ -56,7 +56,7 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
 }
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
-  // - currently no own props -
+  monthCellContentRender?: (date: moment.Moment, locale: any) => React.ReactNode
 }
 
 export type RangePickerValue =

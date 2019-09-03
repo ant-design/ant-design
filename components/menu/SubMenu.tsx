@@ -20,6 +20,7 @@ export interface SubMenuProps {
   onTitleMouseEnter?: (e: TitleEventEntity) => void;
   onTitleMouseLeave?: (e: TitleEventEntity) => void;
   popupOffset?: [number, number];
+  popupClassName?: string;
 }
 
 class SubMenu extends React.Component<SubMenuProps, any> {
@@ -41,14 +42,14 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   };
 
   render() {
-    const { rootPrefixCls, className } = this.props;
+    const { rootPrefixCls, popupClassName } = this.props;
     return (
       <MenuContext.Consumer>
         {({ antdMenuTheme }: MenuContextProps) => (
           <RcSubMenu
             {...this.props}
             ref={this.saveSubMenu}
-            popupClassName={classNames(`${rootPrefixCls}-${antdMenuTheme}`, className)}
+            popupClassName={classNames(`${rootPrefixCls}-${antdMenuTheme}`, popupClassName)}
           />
         )}
       </MenuContext.Consumer>

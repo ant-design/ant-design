@@ -16,7 +16,7 @@ module.exports = {
     'app.content.edit-demo': 'Edit this demo on GitHub!',
     'app.component.examples': 'Examples',
     'app.component.examples.expand': 'Expand all code',
-    'app.component.examples.collpse': 'Collpse all code',
+    'app.component.examples.collapse': 'Collapse all code',
     'app.demo.debug': "Debug only, won't display at online",
     'app.demo.copy': 'Copy code',
     'app.demo.copied': 'Copied!',
@@ -111,5 +111,18 @@ module.exports = {
     'app.docs.components.icon.category.data': 'Data Icons',
     'app.docs.components.icon.category.other': 'Application Icons',
     'app.docs.components.icon.category.logo': 'Brand and Logos',
+    'app.docs.components.icon.pic-searcher.intro':
+      'AI Search by image is online, welcome to use! 🎉',
+    'app.docs.components.icon.pic-searcher.title': 'Search by image',
+    'app.docs.components.icon.pic-searcher.upload-text':
+      'Click or drag or paste file to this area to upload',
+    'app.docs.components.icon.pic-searcher.upload-hint':
+      'We will find the most matching icon based on the image',
+    'app.docs.components.icon.pic-searcher.server-error':
+      'Predict service is temporarily unavailable',
+    'app.docs.components.icon.pic-searcher.matching': 'Matching...',
+    'app.docs.components.icon.pic-searcher.result-tip': 'Match the following icons for you:',
+    'app.docs.components.icon.pic-searcher.th-icon': 'Icon',
+    'app.docs.components.icon.pic-searcher.th-score': 'Probability',
   },
 };

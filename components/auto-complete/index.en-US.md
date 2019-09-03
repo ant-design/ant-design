@@ -23,8 +23,8 @@ const dataSource = ['12345', '23456', '34567'];
 | allowClear | Show clear button, effective in multiple mode only. | boolean | false |  |
 | autoFocus | get focus when component mounted | boolean | false |  |
 | backfill | backfill selected item the input when using keyboard | boolean | false |  |
-| children (for customize input element) | customize input element | HTMLInputElement / HTMLTextAreaElement / React.ReactElement<InputProps> | `<Input />` |  |
-| children (for dataSource) | Data source for autocomplete | React.ReactElement<OptionProps> / Array&lt;React.ReactElement<OptionProps>> | - |  |
+| children (for customize input element) | customize input element | HTMLInputElement <br /><br /> HTMLTextAreaElement <br /><br /> `React.ReactElement<InputProps>` | `<Input />` |  |
+| children (for dataSource) | Data source to auto complete | `React.ReactElement<OptionProps>` <br /><br /> `Array<React.ReactElement<OptionProps>>` | - |  |
 | dataSource | Data source for autocomplete | [DataSourceItemType](https://git.io/vMMKF)\[] | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultValue | Initial selected option. | string\|string\[] | - |  |
@@ -48,3 +48,11 @@ const dataSource = ['12345', '23456', '34567'];
 | ------- | ------------ | ------- |
 | blur()  | remove focus |         |
 | focus() | get focus    |         |
+
+## FAQ
+
+### Why text composition system not works well with onSearch in controlled mode?
+
+Please use `onChange` to manage control state. `onSearch` is used for searching input which is not same as `onChange`. Besides, click on the option also not trigger the `onSearch` event.
+
+Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)

@@ -10,7 +10,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { tuple } from '../_util/type';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
-import { FormContext, FormContextProps } from './context';
+import FormContext, { FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 

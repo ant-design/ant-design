@@ -43,8 +43,8 @@ title: 设计资源
       <img width="50" src="https://gw.alipayobjects.com/zos/rmsportal/TXrKQUJBTuwSTGimGYYn.png">
     </div>
     <div class="resource-card-content">
-      <span class="resource-card-title">Ant Design Library</span>
-      <span class="resource-card-description">一套强大的 Ant Design 的 Axure 部件库</span>
+      <span class="resource-card-title">Ant Design Library @Axure</span>
+      <span class="resource-card-description">一套强大的 Axure 部件库</span>
     </div>
   </a>
   <a target="_blank" href="http://kitchen.alipay.com" class="resource-card">

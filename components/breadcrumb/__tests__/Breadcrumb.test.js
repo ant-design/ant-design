@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Breadcrumb from '../index';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Breadcrumb', () => {
+  mountTest(Breadcrumb);
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
@@ -47,6 +50,21 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Item />
         <Breadcrumb.Item>xxx</Breadcrumb.Item>
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18260
+  it('filter React.Fragment', () => {
+    const wrapper = render(
+      <Breadcrumb separator="">
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
+        <Breadcrumb.Separator>:</Breadcrumb.Separator>
+        <>
+          <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
+          <Breadcrumb.Separator />
+        </>
       </Breadcrumb>,
     );
     expect(wrapper).toMatchSnapshot();

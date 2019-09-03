@@ -7,21 +7,25 @@
   .reset-component;
 
   position: relative;
-  padding: @page-header-padding-vertical @page-header-padding-horizontal;
-  background: @component-background;
+  padding: @page-header-padding;
 
-  &.@{pageheader-prefix-cls}-has-footer {
-    padding-bottom: 0;
+  &.has-breadcrumb {
+    padding-top: @page-header-padding-breadcrumb;
+  }
+
+  &.has-footer {
+    padding-bottom: @page-header-padding-vertical;
   }
 
   &-back {
-    display: inline-block;
-    padding: 4px 0;
-    font-size: 16px;
-    line-height: 100%;
+    float: left;
+    margin: 6px 0;
+    margin-right: 16px;
+    font-size: 20px;
+    line-height: 1;
     &-button {
       .operation-unit();
-      color: @text-color;
+      color: #000;
       cursor: pointer;
     }
   }
@@ -29,40 +33,48 @@
   .@{ant-prefix}-divider-vertical {
     height: 14px;
     margin: 0 12px;
+    vertical-align: middle;
   }
 
   .@{ant-prefix}-breadcrumb + &-heading {
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   &-heading {
-    display: inline-block;
+    width: 100%;
+    overflow: hidden;
     &-title {
-      display: inline-block;
+      display: block;
+      float: left;
+      margin-bottom: 0;
       padding-right: 12px;
       color: @heading-color;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 1.4;
+      font-weight: 600;
+      font-size: @heading-3-size;
+      line-height: 32px;
+    }
+
+    .@{ant-prefix}-avatar {
+      float: left;
+      margin-right: 12px;
     }
 
     &-sub-title {
-      display: inline-block;
-      padding-right: 12px;
+      float: left;
+      margin: 5px 0;
+      margin-right: 12px;
       color: @text-color-secondary;
       font-size: 14px;
-      line-height: 1.8;
+      line-height: 22px;
     }
 
     &-tags {
-      display: inline-block;
-      vertical-align: top;
+      float: left;
+      margin: 4px 0;
     }
 
     &-extra {
-      position: absolute;
-      top: 16px;
-      right: @page-header-padding-horizontal;
+      float: right;
       > * {
         margin-left: 8px;
       }
@@ -73,18 +85,30 @@
   }
 
   &-content {
-    padding-top: 12px;
+    padding-top: 16px;
+    overflow: hidden;
   }
 
   &-footer {
-    margin: 0 -8px;
-    padding-top: 24px;
+    margin-top: 16px;
     .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
       .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-        padding: 12px 8px;
-        padding-top: 0;
+        padding: 8px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media (max-width: @screen-sm) {
+    &-heading {
+      &-extra {
+        display: block;
+        float: unset;
+        width: 100%;
+        padding-top: 12px;
+        overflow: hidden;
       }
     }
   }

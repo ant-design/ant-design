@@ -5,10 +5,11 @@ import { Radio, Icon, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
-import Category from './Category';
-import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
-import { categories, Categories, CategoriesKeys } from './fields';
 import { ThemeType } from 'antd/es/icon';
+import Category from './Category';
+import IconPicSearcher from './IconPicSearcher';
+import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
+import categories, { Categories, CategoriesKeys } from './fields';
 
 interface IconDisplayProps {
   intl: any;
@@ -124,6 +125,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
             autoFocus
+            suffix={<IconPicSearcher />}
           />
         </div>
         {this.renderCategories(list)}
