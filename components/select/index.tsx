@@ -1,7 +1,7 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
-import { Down, Check } from '@ant-design/icons';
+import { Down, Loading, Check } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 type RawValue = string | number;
@@ -42,17 +42,17 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
 
     // ===================== Icons =====================
     // Arrow item icon
-    let mergedSuffixIcon;
+    let mergedSuffixIcon = null;
     if (suffixIcon !== undefined) {
       mergedSuffixIcon = suffixIcon;
     } else if (loading) {
-      mergedSuffixIcon = <Down />;
+      mergedSuffixIcon = <Loading spin />;
     } else {
       mergedSuffixIcon = <Down />;
     }
 
     // Checked item icon
-    let mergedItemIcon;
+    let mergedItemIcon = null;
     if (menuItemSelectedIcon !== undefined) {
       mergedItemIcon = menuItemSelectedIcon;
     } else if (isMultiple) {

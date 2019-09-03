@@ -13,8 +13,24 @@
   transition: all 0.3s @ease-in-out;
   border: @border-width-base @border-style-base @select-border-color;
 
+  :not(.@{select-prefix-cls}-open)& {
+    input {
+      cursor: pointer;
+    }
+  }
+
   .@{select-prefix-cls}-focused& {
     .active();
+  }
+
+  .@{select-prefix-cls}-disabled& {
+    background: @input-disabled-bg;
+    cursor: not-allowed;
+    color: @disabled-color;
+
+    input {
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -64,6 +80,7 @@
     text-align: center;
     transform-origin: 50% 50%;
     transition: transform 0.3s;
+    pointer-events: none;
 
     .@{select-prefix-cls}-open & {
       transform: rotate(180deg);
