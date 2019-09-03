@@ -1,1 +1,54 @@
 @import './index';
+
+.@{select-prefix-cls}-multiple {
+  // ========================= Selector =========================
+  .@{select-prefix-cls}-selector {
+    .select-selector();
+    .select-search-input-without-border();
+
+    display: flex;
+  }
+
+  // ======================== Selections ========================
+  .@{select-prefix-cls}-selection-item {
+    box-sizing: border-box;
+    background-color: @component-background;
+    border: @border-width-base @border-style-base @select-border-color;
+    border-radius: @border-radius-base;
+    transition: all 0.3s @ease-in-out;
+    user-select: none;
+  }
+
+  .@{select-prefix-cls}-selection-placeholder {
+    height: @select-height-without-border;
+    line-height: @input-height-base;
+
+    // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
+    @supports (-moz-appearance: meterbar) {
+      & {
+        line-height: @select-height-without-border;
+      }
+    }
+  }
+
+  // ========================== Input ==========================
+  .@{select-prefix-cls}-selection-search {
+    position: relative;
+
+    &-input,
+    &-mirror {
+      padding: 1px;
+      font-family: system-ui;
+    }
+
+    &-mirror {
+      position: absolute;
+      z-index: 999;
+      white-space: nowrap;
+      position: none;
+      left: 0;
+      top: 0;
+      visibility: hidden;
+    }
+  }
+}

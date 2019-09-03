@@ -4,6 +4,7 @@ title:
   zh-CN: 4.0 Debug
   en-US: 4.0 Debug
 debug: true
+only: true
 ---
 
 ## zh-CN
@@ -27,6 +28,21 @@ ReactDOM.render(
   <div>
     <Input style={{ width: 100 }} />
     <Select style={{ width: 120 }} onChange={handleChange} showSearch placeholder="233">
+      <Option value="jack">Jack</Option>
+      <Option value="lucy">Lucy</Option>
+      <Option value="disabled" disabled>
+        Disabled
+      </Option>
+      <Option value="Yiminghe">yiminghe</Option>
+      <Option value="long">I'm super super long!</Option>
+    </Select>
+    <Select
+      mode="multiple"
+      style={{ width: 120 }}
+      onChange={handleChange}
+      showSearch
+      placeholder="233"
+    >
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
       <Option value="disabled" disabled>
