@@ -5000,7 +5000,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -5636,7 +5636,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -7155,7 +7155,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -8364,7 +8364,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-middle ant-table-bordered ant-table-fixed-header ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
