@@ -145,7 +145,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             listType === 'picture' ? 'picture' : ''
           }`}
         >
-          {file.status !== 'error' && (
+          {file.status === 'done' && (
             <a title={locale.downloadFile}>
               <Icon type="download" onClick={() => this.handleDownload(file)} />
             </a>
@@ -208,7 +208,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const actions = listType === 'picture-card' && file.status !== 'uploading' && (
         <span className={`${prefixCls}-list-item-actions`}>
           {previewIcon}
-          {downloadIcon}
+          {file.status === 'done' && downloadIcon}
           {removeIcon}
         </span>
       );

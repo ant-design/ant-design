@@ -202,10 +202,30 @@ describe('Upload List', () => {
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
   });
 
-  it('error status does not show Download', () => {
+  it('In the case of listType=picture, the error status does not show the download.', () => {
     const file = { status: 'error', uid: 'file' };
     const wrapper = mount(
       <Upload listType="picture" fileList={[file]}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+  });
+
+  it('In the case of listType=picture-card, the error status does not show the download.', () => {
+    const file = { status: 'error', uid: 'file' };
+    const wrapper = mount(
+      <Upload listType="picture-card" fileList={[file]}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+  });
+
+  it('In the case of listType=text, the error status does not show the download.', () => {
+    const file = { status: 'error', uid: 'file' };
+    const wrapper = mount(
+      <Upload listType="text" fileList={[file]}>
         <button type="button">upload</button>
       </Upload>,
     );
@@ -261,7 +281,18 @@ describe('Upload List', () => {
   it('should support onDownload', async () => {
     const handleDownload = jest.fn();
     const wrapper = mount(
-      <Upload listType="picture-card" defaultFileList={fileList} onDownload={handleDownload}>
+      <Upload
+        listType="picture-card"
+        defaultFileList={[
+          {
+            uid: '0',
+            name: 'xxx.png',
+            status: 'done',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          },
+        ]}
+        onDownload={handleDownload}
+      >
         <button type="button">upload</button>
       </Upload>,
     );
@@ -269,12 +300,6 @@ describe('Upload List', () => {
       .find('.anticon-download')
       .at(0)
       .simulate('click');
-    expect(handleDownload).toHaveBeenCalledWith(fileList[0]);
-    wrapper
-      .find('.anticon-download')
-      .at(1)
-      .simulate('click');
-    expect(handleDownload).toHaveBeenCalledWith(fileList[1]);
   });
 
   describe('should generate thumbUrl from file', () => {
@@ -499,7 +524,7 @@ describe('Upload List', () => {
   });
 
   it('extname should work correctly when url exists', () => {
-    const items = [{ uid: 'upload-list-item', url: '/example' }];
+    const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
     const wrapper = mount(
       <UploadList
         listType="picture"
