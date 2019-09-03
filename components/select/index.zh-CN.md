@@ -46,6 +46,7 @@ title: Select
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索。[示例](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | value |  |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |  |
 | placeholder | 选择框默认文字 | string | - |  |
+| searchValue | 搜索框文本 | string | - | 3.23.2 |
 | showArrow | 是否显示下拉小箭头 | boolean | true | 3.2.1 |
 | showSearch | 使单选模式可搜索 | boolean | false |  |
 | size | 选择框大小，可选 `large` `small` | string | default |  |
