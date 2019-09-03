@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Skeleton from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Skeleton', () => {
   const genSkeleton = props =>
@@ -10,6 +11,8 @@ describe('Skeleton', () => {
       </Skeleton>,
     );
 
+  mountTest(Skeleton);
+
   describe('avatar', () => {
     it('size', () => {
       const wrapperSmall = genSkeleton({ avatar: { size: 'small' } });
@@ -18,6 +21,8 @@ describe('Skeleton', () => {
       expect(wrapperDefault.render()).toMatchSnapshot();
       const wrapperLarge = genSkeleton({ avatar: { size: 'large' } });
       expect(wrapperLarge.render()).toMatchSnapshot();
+      const wrapperNumber = genSkeleton({ avatar: { size: 20 } });
+      expect(wrapperNumber.render()).toMatchSnapshot();
     });
 
     it('shape', () => {

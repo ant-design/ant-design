@@ -13,16 +13,25 @@ title:
 
 `block` property will make the button fit to its parent width.
 
-````jsx
+```jsx
 import { Button } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Button type="primary" block>Primary</Button>
+    <Button type="primary" block>
+      Primary
+    </Button>
     <Button block>Default</Button>
-    <Button type="dashed" block>Dashed</Button>
-    <Button type="danger" block>danger</Button>
+    <Button type="dashed" block>
+      Dashed
+    </Button>
+    <Button type="danger" block>
+      Danger
+    </Button>
+    <Button type="link" block>
+      Link
+    </Button>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

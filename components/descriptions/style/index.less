@@ -1,0 +1,145 @@
+@import '../../style/themes/default';
+@import '../../style/mixins/index';
+
+@descriptions-prefix-cls: ~'@{ant-prefix}-descriptions';
+
+@descriptions-default-padding: 16px 24px;
+@descriptions-middle-padding: 12px 24px;
+@descriptions-small-padding: 8px 16px;
+
+.@{descriptions-prefix-cls} {
+  &-title {
+    margin-bottom: 20px;
+    color: @heading-color;
+    font-weight: bold;
+    font-size: @font-size-lg;
+    line-height: @line-height-base;
+  }
+
+  &-view {
+    width: 100%;
+    overflow: hidden;
+    border-radius: @border-radius-base;
+    table {
+      width: 100%;
+      table-layout: fixed;
+    }
+  }
+
+  &-row {
+    > th,
+    > td {
+      padding-bottom: 16px;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &-item-label {
+    color: @heading-color;
+    font-weight: normal;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    white-space: nowrap;
+
+    &::after {
+      position: relative;
+      top: -0.5px;
+      margin: 0 8px 0 2px;
+      content: ' ';
+    }
+  }
+
+  &-item-colon {
+    &::after {
+      content: ':';
+    }
+  }
+
+  &-item-no-label {
+    &::after {
+      margin: 0;
+      content: '';
+    }
+  }
+
+  &-item-content {
+    display: table-cell;
+    color: @text-color;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+  }
+
+  &-item {
+    padding-bottom: 0;
+    > span {
+      display: inline-block;
+    }
+  }
+
+  &-middle {
+    .@{descriptions-prefix-cls}-row {
+      > th,
+      > td {
+        padding-bottom: 12px;
+      }
+    }
+  }
+
+  &-small {
+    .@{descriptions-prefix-cls}-row {
+      > th,
+      > td {
+        padding-bottom: 8px;
+      }
+    }
+  }
+
+  &-bordered {
+    .@{descriptions-prefix-cls}-view {
+      border: 1px solid @border-color-split;
+      > table {
+        table-layout: auto;
+      }
+    }
+
+    .@{descriptions-prefix-cls}-item-label,
+    .@{descriptions-prefix-cls}-item-content {
+      padding: @descriptions-default-padding;
+      border-right: 1px solid @border-color-split;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    .@{descriptions-prefix-cls}-item-label {
+      background-color: @descriptions-bg;
+      &::after {
+        display: none;
+      }
+    }
+
+    .@{descriptions-prefix-cls}-row {
+      border-bottom: 1px solid @border-color-split;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &.@{descriptions-prefix-cls}-middle {
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        padding: @descriptions-middle-padding;
+      }
+    }
+
+    &.@{descriptions-prefix-cls}-small {
+      .@{descriptions-prefix-cls}-item-label,
+      .@{descriptions-prefix-cls}-item-content {
+        padding: @descriptions-small-padding;
+      }
+    }
+  }
+}

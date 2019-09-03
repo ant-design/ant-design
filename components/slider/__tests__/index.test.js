@@ -1,8 +1,11 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Slider from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Slider', () => {
+  mountTest(Slider);
+
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
     wrapper

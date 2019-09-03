@@ -13,26 +13,20 @@ title:
 
 Use `react-dnd` to make tabs draggable.
 
-````jsx
+```jsx
 import { Tabs } from 'antd';
-import { DragDropContextProvider, DragSource, DropTarget } from 'react-dnd';
+import { DndProvider, DragSource, DropTarget } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 // Drag & Drop node
 class TabNode extends React.Component {
   render() {
-		const {
-			connectDragSource,
-      connectDropTarget,
-      children,
-		} = this.props
+    const { connectDragSource, connectDropTarget, children } = this.props;
 
-		return connectDragSource(
-			connectDropTarget(children),
-    );
-	}
+    return connectDragSource(connectDropTarget(children));
+  }
 }
 
 const cardTarget = {
@@ -50,29 +44,21 @@ const cardTarget = {
 };
 
 const cardSource = {
-	beginDrag(props) {
-		return {
-			id: props.id,
-			index: props.index,
-		}
-	},
+  beginDrag(props) {
+    return {
+      id: props.id,
+      index: props.index,
+    };
+  },
 };
 
-const WrapTabNode = DropTarget(
-	'DND_NODE',
-	cardTarget,
-	(connect) => ({
-		connectDropTarget: connect.dropTarget(),
-	}),
-)(
-	DragSource(
-		'DND_NODE',
-		cardSource,
-		(connect, monitor) => ({
-			connectDragSource: connect.dragSource(),
-			isDragging: monitor.isDragging(),
-		}),
-	)(TabNode),
+const WrapTabNode = DropTarget('DND_NODE', cardTarget, connect => ({
+  connectDropTarget: connect.dropTarget(),
+}))(
+  DragSource('DND_NODE', cardSource, (connect, monitor) => ({
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging(),
+  }))(TabNode),
 );
 
 class DraggableTabs extends React.Component {
@@ -84,7 +70,7 @@ class DraggableTabs extends React.Component {
     const newOrder = this.state.order.slice();
     const { children } = this.props;
 
-    React.Children.forEach(children, (c) => {
+    React.Children.forEach(children, c => {
       if (newOrder.indexOf(c.key) === -1) {
         newOrder.push(c.key);
       }
@@ -104,7 +90,9 @@ class DraggableTabs extends React.Component {
   renderTabBar = (props, DefaultTabBar) => (
     <DefaultTabBar {...props}>
       {node => (
-        <WrapTabNode key={node.key} index={node.key} moveTabNode={this.moveTabNode}>{node}</WrapTabNode>
+        <WrapTabNode key={node.key} index={node.key} moveTabNode={this.moveTabNode}>
+          {node}
+        </WrapTabNode>
       )}
     </DefaultTabBar>
   );
@@ -114,7 +102,7 @@ class DraggableTabs extends React.Component {
     const { children } = this.props;
 
     const tabs = [];
-    React.Children.forEach(children, (c) => {
+    React.Children.forEach(children, c => {
       tabs.push(c);
     });
 
@@ -139,14 +127,11 @@ class DraggableTabs extends React.Component {
     });
 
     return (
-      <DragDropContextProvider backend={HTML5Backend}>
-        <Tabs
-          renderTabBar={this.renderTabBar}
-          {...this.props}
-        >
+      <DndProvider backend={HTML5Backend}>
+        <Tabs renderTabBar={this.renderTabBar} {...this.props}>
           {orderTabs}
         </Tabs>
-      </DragDropContextProvider>
+      </DndProvider>
     );
   }
 }
@@ -162,6 +147,7 @@ ReactDOM.render(
     <TabPane tab="tab 3" key="3">
       Content of Tab Pane 3
     </TabPane>
-  </DraggableTabs>
-, mountNode);
-````
+  </DraggableTabs>,
+  mountNode,
+);
+```

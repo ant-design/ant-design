@@ -10,6 +10,16 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
 
+function getAction(actions: React.ReactNode[]) {
+  const actionList = actions.map((action, index) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
+      <span>{action}</span>
+    </li>
+  ));
+  return actionList;
+}
+
 export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
 
@@ -41,6 +51,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
   tabList?: CardTabListType[];
+  tabBarExtraContent?: React.ReactNode | null;
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
   defaultActiveTabKey?: string;
@@ -48,6 +59,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
 
 export default class Card extends React.Component<CardProps, {}> {
   static Grid: typeof Grid = Grid;
+
   static Meta: typeof Meta = Meta;
 
   componentDidMount() {
@@ -63,6 +75,15 @@ export default class Card extends React.Component<CardProps, {}> {
         '`noHovering={false}` is deprecated, use `hoverable` instead.',
       );
     }
+  }
+
+  // For 2.x compatible
+  getCompatibleHoverable() {
+    const { noHovering, hoverable } = this.props;
+    if ('noHovering' in this.props) {
+      return !noHovering || hoverable;
+    }
+    return !!hoverable;
   }
 
   onTabChange = (key: string) => {
@@ -81,24 +102,6 @@ export default class Card extends React.Component<CardProps, {}> {
     return containGrid;
   }
 
-  getAction(actions: React.ReactNode[]) {
-    const actionList = actions.map((action, index) => (
-      <li style={{ width: `${100 / actions.length}%` }} key={`action-${index}`}>
-        <span>{action}</span>
-      </li>
-    ));
-    return actionList;
-  }
-
-  // For 2.x compatible
-  getCompatibleHoverable() {
-    const { noHovering, hoverable } = this.props;
-    if ('noHovering' in this.props) {
-      return !noHovering || hoverable;
-    }
-    return !!hoverable;
-  }
-
   renderCard = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -106,8 +109,6 @@ export default class Card extends React.Component<CardProps, {}> {
       extra,
       headStyle = {},
       bodyStyle = {},
-      noHovering,
-      hoverable,
       title,
       loading,
       bordered = true,
@@ -119,6 +120,7 @@ export default class Card extends React.Component<CardProps, {}> {
       children,
       activeTabKey,
       defaultActiveTabKey,
+      tabBarExtraContent,
       ...others
     } = this.props;
 
@@ -186,6 +188,7 @@ export default class Card extends React.Component<CardProps, {}> {
       [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
         ? activeTabKey
         : defaultActiveTabKey,
+      tabBarExtraContent,
     };
 
     let head;
@@ -221,9 +224,9 @@ export default class Card extends React.Component<CardProps, {}> {
     );
     const actionDom =
       actions && actions.length ? (
-        <ul className={`${prefixCls}-actions`}>{this.getAction(actions)}</ul>
+        <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
       ) : null;
-    const divProps = omit(others, ['onTabChange']);
+    const divProps = omit(others, ['onTabChange', 'noHovering', 'hoverable']);
     return (
       <div {...divProps} className={classString}>
         {head}

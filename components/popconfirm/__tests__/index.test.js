@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Popconfirm from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Popconfirm', () => {
+  mountTest(Popconfirm);
+
   const eventObject = expect.objectContaining({
     target: expect.anything(),
     preventDefault: expect.any(Function),
@@ -133,5 +136,16 @@ describe('Popconfirm', () => {
       </Popconfirm>,
     );
     expect(popconfirm.instance().getPopupDomNode()).toBeTruthy();
+  });
+
+  it('should not open in disabled', () => {
+    const popconfirm = mount(
+      <Popconfirm title="code" disabled>
+        <span>click me</span>
+      </Popconfirm>,
+    );
+    const triggerNode = popconfirm.find('span').at(0);
+    triggerNode.simulate('click');
+    expect(popconfirm.instance().getPopupDomNode()).toBeFalsy();
   });
 });

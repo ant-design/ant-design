@@ -7,3 +7,10 @@ components/*/__tests__/type.tsx
 # Docs templates
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
+typings
+es/**/*
+lib/**/*
+node_modules
+_site
+dist
+**/*.d.ts

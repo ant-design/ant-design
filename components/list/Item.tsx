@@ -106,6 +106,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     const actionsContent = actions && actions.length > 0 && (
       <ul className={`${prefixCls}-item-action`} key="actions">
         {actions.map((action: React.ReactNode, i: number) => (
+          // eslint-disable-next-line react/no-array-index-key
           <li key={`${prefixCls}-item-action-${i}`}>
             {action}
             {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}
@@ -113,9 +114,10 @@ export default class Item extends React.Component<ListItemProps, any> {
         ))}
       </ul>
     );
+    const Tag = grid ? 'div' : 'li';
     const itemChildren = (
-      <div
-        {...others}
+      <Tag
+        {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
         className={classNames(`${prefixCls}-item`, className, {
           [`${prefixCls}-item-no-flex`]: !this.isFlexMode(),
         })}
@@ -131,7 +133,7 @@ export default class Item extends React.Component<ListItemProps, any> {
               </div>,
             ]
           : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
-      </div>
+      </Tag>
     );
 
     return grid ? (

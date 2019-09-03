@@ -110,7 +110,7 @@
     height: 40px;
     padding: 0 24px;
     font-size: 16px;
-    font-family: @font-family;
+    font-family: Avenir, @font-family, sans-serif;
     line-height: 38px;
     text-align: center;
     text-decoration: none;
@@ -401,5 +401,15 @@ svg {
 
   &:hover {
     transform: translateY(-16px) scale(1.01);
+  }
+}
+
+.github-btn {
+  font-family: Avenir, @font-family, sans-serif;
+  &-large {
+    .gh-btn,
+    .gh-count {
+      padding: 4px 8px 2px;
+    }
   }
 }

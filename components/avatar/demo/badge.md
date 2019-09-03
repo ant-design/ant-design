@@ -13,18 +13,22 @@ title:
 
 Usually used for reminders and notifications.
 
-````jsx
+```jsx
 import { Avatar, Badge } from 'antd';
 
 ReactDOM.render(
   <div>
     <span style={{ marginRight: 24 }}>
-      <Badge count={1}><Avatar shape="square" icon="user" /></Badge>
+      <Badge count={1}>
+        <Avatar shape="square" icon="user" />
+      </Badge>
     </span>
     <span>
-      <Badge dot><Avatar shape="square" icon="user" /></Badge>
+      <Badge dot>
+        <Avatar shape="square" icon="user" />
+      </Badge>
     </span>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

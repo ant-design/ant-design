@@ -169,9 +169,10 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
+    const title = ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>;
     const columns = [
       {
-        title: ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>,
+        title,
         key: 'group',
         sorter: true,
       },
@@ -586,5 +587,24 @@ describe('Table.sorter', () => {
     // cancel sort
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
+
+  it('pagination back', () => {
+    const onPageChange = jest.fn();
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          pageSize: 2,
+          onChange: onPageChange,
+        },
+        onChange,
+      }),
+    );
+
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(onChange.mock.calls[0][0].current).toBe(1);
+    expect(onPageChange.mock.calls[0][0]).toBe(1);
   });
 });

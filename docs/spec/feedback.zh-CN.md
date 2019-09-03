@@ -67,11 +67,11 @@ title: 反馈
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="当用户不必等待较长时间的加载时使用。">
 
-在操作需要一段时间（一般为超过2秒）完成时系统应即时给予提醒，明确告知加载的状态或加载进度条，保持与用户的沟通。
+在操作需要一段时间（一般为超过 2 秒）完成时系统应即时给予提醒，明确告知加载的状态或加载进度条，保持与用户的沟通。
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="在操作需要较长时间才能完成时使用，显示该操作的当前进度和状态。">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/j6XiEx6UUV/676a18a1-bf60-4d93-8f94-55f1882dd13e.png" description="在操作需要较长时间才能完成时使用，显示该操作的当前进度和状态。">
 
 > 注：若加载时间较长，应提供取消操作。
 

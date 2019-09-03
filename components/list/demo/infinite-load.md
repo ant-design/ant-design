@@ -13,10 +13,8 @@ title:
 
 The example of infinite load with [react-infinite-scroller](https://github.com/CassetteRocks/react-infinite-scroller).
 
-````jsx
-import {
-  List, message, Avatar, Spin,
-} from 'antd';
+```jsx
+import { List, message, Avatar, Spin } from 'antd';
 import reqwest from 'reqwest';
 
 import InfiniteScroll from 'react-infinite-scroller';
@@ -28,30 +26,30 @@ class InfiniteListExample extends React.Component {
     data: [],
     loading: false,
     hasMore: true,
-  }
+  };
 
   componentDidMount() {
-    this.fetchData((res) => {
+    this.fetchData(res => {
       this.setState({
         data: res.results,
       });
     });
   }
 
-  fetchData = (callback) => {
+  fetchData = callback => {
     reqwest({
       url: fakeDataUrl,
       type: 'json',
       method: 'get',
       contentType: 'application/json',
-      success: (res) => {
+      success: res => {
         callback(res);
       },
     });
-  }
+  };
 
   handleInfiniteOnLoad = () => {
-    let data = this.state.data;
+    let { data } = this.state;
     this.setState({
       loading: true,
     });
@@ -63,14 +61,14 @@ class InfiniteListExample extends React.Component {
       });
       return;
     }
-    this.fetchData((res) => {
+    this.fetchData(res => {
       data = data.concat(res.results);
       this.setState({
         data,
         loading: false,
       });
     });
-  }
+  };
 
   render() {
     return (
@@ -87,7 +85,9 @@ class InfiniteListExample extends React.Component {
             renderItem={item => (
               <List.Item key={item.id}>
                 <List.Item.Meta
-                  avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                  avatar={
+                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                  }
                   title={<a href="https://ant.design">{item.name.last}</a>}
                   description={item.email}
                 />
@@ -108,9 +108,9 @@ class InfiniteListExample extends React.Component {
 }
 
 ReactDOM.render(<InfiniteListExample />, mountNode);
-````
+```
 
-````css
+```css
 .demo-infinite-container {
   border: 1px solid #e8e8e8;
   border-radius: 4px;
@@ -124,4 +124,4 @@ ReactDOM.render(<InfiniteListExample />, mountNode);
   width: 100%;
   text-align: center;
 }
-````
+```

@@ -1,14 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`PageHeader pageHeader should not render blank dom 1`] = `
+<div
+  class="ant-page-header"
+/>
+`;
+
 exports[`PageHeader pageHeader should support className 1`] = `
 <div
   class="ant-page-header not-works"
 >
   <div
-    class="ant-page-header-title-view"
+    class="ant-page-header-heading"
   >
     <span
-      class="ant-page-header-title-view-title"
+      class="ant-page-header-heading-title"
     >
       Page Title
     </span>

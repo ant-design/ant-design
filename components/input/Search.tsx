@@ -10,7 +10,7 @@ export interface SearchProps extends InputProps {
   onSearch?: (
     value: string,
     event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
-  ) => any;
+  ) => void;
   enterButton?: boolean | React.ReactNode;
 }
 
@@ -20,6 +20,10 @@ export default class Search extends React.Component<SearchProps, any> {
   };
 
   private input: Input;
+
+  saveInput = (node: Input) => {
+    this.input = node;
+  };
 
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
     const { onSearch } = this.props;
@@ -36,10 +40,6 @@ export default class Search extends React.Component<SearchProps, any> {
   blur() {
     this.input.blur();
   }
-
-  saveInput = (node: Input) => {
-    this.input = node;
-  };
 
   renderSuffix = (prefixCls: string) => {
     const { suffix, enterButton } = this.props;

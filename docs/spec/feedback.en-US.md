@@ -49,7 +49,7 @@ The message prompt for the aggregate type, generally appearing in the upper righ
 
 When the target element has further description and related operations, it can be stored in the card and displayed according to the user's operation behavior.
 
-> Note: The difference between Tooltip and Tooltip is that Popover can carry more complex content, such as links or buttons.
+> Note: The difference between Tooltip and Popover is that Popover can carry more complex content, such as links or buttons.
 
 #### Tooltip
 
@@ -71,7 +71,7 @@ When the operation takes a while (usually more than 2 seconds) to complete, the 
 
 <br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/cHaaqZTvzgCZiYUnfNom.png" description="Used when the operation takes a long time to complete, showing the current progress and status of the operation.">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/antfincdn/j6XiEx6UUV/676a18a1-bf60-4d93-8f94-55f1882dd13e.png" description="Used when the operation takes a long time to complete, showing the current progress and status of the operation.">
 
 > Note: If the loading time is long, a cancel operation should be provided.
 

@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { message } from 'antd';
+import { injectIntl } from 'react-intl';
 import { ThemeType } from '../../../../components/icon';
 import CopyableIcon from './CopyableIcon';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
 import { CategoriesKeys } from './fields';
 
-interface CategoryProps extends InjectedIntlProps {
+interface CategoryProps {
   title: CategoriesKeys;
   icons: string[];
   theme: ThemeType;
   newIcons: string[];
+  intl: any;
 }
 
 interface CategoryState {
@@ -23,6 +24,10 @@ class Category extends React.Component<CategoryProps, CategoryState> {
     justCopied: null,
   };
 
+  componentWillUnmount() {
+    window.clearTimeout(this.copyId);
+  }
+
   onCopied = (type: string, text: string) => {
     message.success(
       <span>
@@ -35,10 +40,6 @@ class Category extends React.Component<CategoryProps, CategoryState> {
       }, 2000);
     });
   };
-
-  componentWillUnmount() {
-    window.clearTimeout(this.copyId);
-  }
 
   render() {
     const {
@@ -63,7 +64,7 @@ class Category extends React.Component<CategoryProps, CategoryState> {
     return (
       <div>
         <h3>{messages[`app.docs.components.icon.category.${title}`]}</h3>
-        <ul className={'anticons-list'}>{items}</ul>
+        <ul className="anticons-list">{items}</ul>
       </div>
     );
   }

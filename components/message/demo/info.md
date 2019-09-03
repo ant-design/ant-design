@@ -13,7 +13,7 @@ title:
 
 Normal message for information.
 
-````jsx
+```jsx
 import { message, Button } from 'antd';
 
 const info = () => {
@@ -21,7 +21,9 @@ const info = () => {
 };
 
 ReactDOM.render(
-  <Button type="primary" onClick={info}>Display normal message</Button>,
-  mountNode
+  <Button type="primary" onClick={info}>
+    Display normal message
+  </Button>,
+  mountNode,
 );
-````
+```

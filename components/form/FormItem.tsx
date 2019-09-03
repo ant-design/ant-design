@@ -10,7 +10,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { tuple } from '../_util/type';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
-import { FormContext, FormContextProps } from './context';
+import FormContext, { FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
@@ -20,6 +20,7 @@ export interface FormItemProps {
   prefixCls?: string;
   className?: string;
   id?: string;
+  htmlFor?: string;
   label?: React.ReactNode;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
@@ -60,13 +61,19 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   helpShow = false;
 
   componentDidMount() {
-    const { children, help, validateStatus } = this.props;
+    const { children, help, validateStatus, id } = this.props;
     warning(
       this.getControls(children, true).length <= 1 ||
         (help !== undefined || validateStatus !== undefined),
       'Form.Item',
       'Cannot generate `validateStatus` and `help` automatically, ' +
         'while there are more than one `getFieldDecorator` in it.',
+    );
+
+    warning(
+      !id,
+      'Form.Item',
+      '`id` is deprecated for its label `htmlFor`. Please use `htmlFor` directly.',
     );
   }
 
@@ -84,7 +91,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
             } else if (React.isValidElement(e.message)) {
               node = e.message;
             }
-
+            // eslint-disable-next-line react/no-array-index-key
             return node ? React.cloneElement(node, { key: index }) : e.message;
           }),
         );
@@ -144,12 +151,64 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return this.getChildProp(FIELD_DATA_PROP);
   }
 
+  getValidateStatus() {
+    const onlyControl = this.getOnlyControl();
+    if (!onlyControl) {
+      return '';
+    }
+    const field = this.getField();
+    if (field.validating) {
+      return 'validating';
+    }
+    if (field.errors) {
+      return 'error';
+    }
+    const fieldValue = 'value' in field ? field.value : this.getMeta().initialValue;
+    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
+      return 'success';
+    }
+    return '';
+  }
+
+  // Resolve duplicated ids bug between different forms
+  // https://github.com/ant-design/ant-design/issues/7351
+  onLabelClick = () => {
+    const id = this.props.id || this.getId();
+    if (!id) {
+      return;
+    }
+
+    const formItemNode = ReactDOM.findDOMNode(this) as Element;
+    const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
+    if (control && control.focus) {
+      control.focus();
+    }
+  };
+
   onHelpAnimEnd = (_key: string, helpShow: boolean) => {
     this.helpShow = helpShow;
     if (!helpShow) {
       this.setState({});
     }
   };
+
+  isRequired() {
+    const { required } = this.props;
+    if (required !== undefined) {
+      return required;
+    }
+    if (this.getOnlyControl()) {
+      const meta = this.getMeta() || {};
+      const validate = meta.validate || [];
+
+      return validate
+        .filter((item: any) => !!item.rules)
+        .some((item: any) => {
+          return item.rules.some((rule: any) => rule.required);
+        });
+    }
+    return false;
+  }
 
   renderHelp(prefixCls: string) {
     const help = this.getHelpMessage();
@@ -177,25 +236,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderExtra(prefixCls: string) {
     const { extra } = this.props;
     return extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
-  }
-
-  getValidateStatus() {
-    const onlyControl = this.getOnlyControl();
-    if (!onlyControl) {
-      return '';
-    }
-    const field = this.getField();
-    if (field.validating) {
-      return 'validating';
-    }
-    if (field.errors) {
-      return 'error';
-    }
-    const fieldValue = 'value' in field ? field.value : this.getMeta().initialValue;
-    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
-      return 'success';
-    }
-    return '';
   }
 
   renderValidateWrapper(
@@ -286,39 +326,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     );
   }
 
-  isRequired() {
-    const { required } = this.props;
-    if (required !== undefined) {
-      return required;
-    }
-    if (this.getOnlyControl()) {
-      const meta = this.getMeta() || {};
-      const validate = meta.validate || [];
-
-      return validate
-        .filter((item: any) => !!item.rules)
-        .some((item: any) => {
-          return item.rules.some((rule: any) => rule.required);
-        });
-    }
-    return false;
-  }
-
-  // Resolve duplicated ids bug between different forms
-  // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = () => {
-    const id = this.props.id || this.getId();
-    if (!id) {
-      return;
-    }
-
-    const formItemNode = ReactDOM.findDOMNode(this) as Element;
-    const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
-    if (control && control.focus) {
-      control.focus();
-    }
-  };
-
   renderLabel(prefixCls: string) {
     return (
       <FormContext.Consumer key="label">
@@ -328,7 +335,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           labelCol: contextLabelCol,
           colon: contextColon,
         }: FormContextProps) => {
-          const { label, labelCol, labelAlign, colon, id } = this.props;
+          const { label, labelCol, labelAlign, colon, id, htmlFor } = this.props;
           const required = this.isRequired();
 
           const mergedLabelCol: ColProps =
@@ -350,7 +357,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           const haveColon = computedColon && !vertical;
           // Remove duplicated user input colon
           if (haveColon && typeof label === 'string' && (label as string).trim() !== '') {
-            labelChildren = (label as string).replace(/[：|:]\s*$/, '');
+            labelChildren = (label as string).replace(/[：:]\s*$/, '');
           }
 
           const labelClassName = classNames({
@@ -361,7 +368,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
           return label ? (
             <Col {...mergedLabelCol} className={labelColClassName}>
               <label
-                htmlFor={id || this.getId()}
+                htmlFor={htmlFor || id || this.getId()}
                 className={labelClassName}
                 title={typeof label === 'string' ? label : ''}
                 onClick={this.onLabelClick}

@@ -4,6 +4,7 @@ import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -17,6 +18,7 @@ describe('TimePicker', () => {
   });
 
   focusTest(TimePicker);
+  mountTest(TimePicker);
 
   it('renders addon correctly', () => {
     const addon = () => <button type="button">Ok</button>;
@@ -73,7 +75,9 @@ describe('TimePicker', () => {
     const locale = {
       placeholder: 'Избери дата',
     };
-    const wrapper = mount(<TimePicker open locale={locale} />);
+    const wrapper = mount(
+      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} open locale={locale} />,
+    );
     expect(wrapper.render()).toMatchSnapshot();
   });
 });

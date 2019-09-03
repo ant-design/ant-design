@@ -5,7 +5,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface DividerProps {
   prefixCls?: string;
   type?: 'horizontal' | 'vertical';
-  orientation?: 'left' | 'right' | '';
+  orientation?: 'left' | 'right' | 'center';
   className?: string;
   children?: React.ReactNode;
   dashed?: boolean;
@@ -18,20 +18,20 @@ const Divider: React.SFC<DividerProps> = props => (
       const {
         prefixCls: customizePrefixCls,
         type = 'horizontal',
-        orientation = '',
+        orientation = 'center',
         className,
         children,
         dashed,
         ...restProps
       } = props;
       const prefixCls = getPrefixCls('divider', customizePrefixCls);
-      const orientationPrefix = orientation.length > 0 ? '-' + orientation : orientation;
+      const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
       const classString = classNames(className, prefixCls, `${prefixCls}-${type}`, {
         [`${prefixCls}-with-text${orientationPrefix}`]: children,
         [`${prefixCls}-dashed`]: !!dashed,
       });
       return (
-        <div className={classString} {...restProps}>
+        <div className={classString} {...restProps} role="separator">
           {children && <span className={`${prefixCls}-inner-text`}>{children}</span>}
         </div>
       );

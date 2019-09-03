@@ -1,22 +1,22 @@
 import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
-import createContext, { Context } from '@ant-design/create-react-context';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { polyfill } from 'react-lifecycles-compat';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
-import { polyfill } from 'react-lifecycles-compat';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
+import MenuContext, { MenuTheme } from './MenuContext';
 
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;
   item: any;
-  domEvent: any;
+  domEvent: Event;
   selectedKeys: Array<string>;
 }
 
@@ -24,12 +24,10 @@ export interface ClickParam {
   key: string;
   keyPath: Array<string>;
   item: any;
-  domEvent: any;
+  domEvent: Event;
 }
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
-
-export type MenuTheme = 'light' | 'dark';
 
 export interface MenuProps {
   id?: string;
@@ -58,6 +56,7 @@ export interface MenuProps {
   onMouseEnter?: (e: MouseEvent) => void;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   overflowedIndicator?: React.ReactNode;
+  forceSubMenuRender?: boolean;
 }
 
 type InternalMenuProps = MenuProps & SiderContextProps;
@@ -72,15 +71,6 @@ export interface MenuState {
   prevProps: InternalMenuProps;
   mounted: boolean;
 }
-
-export interface MenuContextProps {
-  inlineCollapsed: boolean;
-  antdMenuTheme?: MenuTheme;
-}
-
-export const MenuContext: Context<MenuContextProps> = createContext({
-  inlineCollapsed: false,
-});
 
 class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
   static defaultProps: Partial<MenuProps> = {
@@ -142,6 +132,12 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       '`inlineCollapsed` should only be used when `mode` is inline.',
     );
 
+    warning(
+      !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
+      'Menu',
+      '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
+    );
+
     let openKeys;
     if ('openKeys' in props) {
       openKeys = props.openKeys;
@@ -173,13 +169,44 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     raf.cancel(this.mountRafId);
   }
 
-  restoreModeVerticalFromInline() {
-    const { switchingModeFromInline } = this.state;
-    if (switchingModeFromInline) {
-      this.setState({
-        switchingModeFromInline: false,
-      });
+  setOpenKeys(openKeys: string[]) {
+    if (!('openKeys' in this.props)) {
+      this.setState({ openKeys });
     }
+  }
+
+  getRealMenuMode() {
+    const inlineCollapsed = this.getInlineCollapsed();
+    if (this.state.switchingModeFromInline && inlineCollapsed) {
+      return 'inline';
+    }
+    const { mode } = this.props;
+    return inlineCollapsed ? 'vertical' : mode;
+  }
+
+  getInlineCollapsed() {
+    const { inlineCollapsed } = this.props;
+    if (this.props.siderCollapsed !== undefined) {
+      return this.props.siderCollapsed;
+    }
+    return inlineCollapsed;
+  }
+
+  getMenuOpenAnimation(menuMode: MenuMode) {
+    const { openAnimation, openTransitionName } = this.props;
+    let menuOpenAnimation = openAnimation || openTransitionName;
+    if (openAnimation === undefined && openTransitionName === undefined) {
+      if (menuMode === 'horizontal') {
+        menuOpenAnimation = 'slide-up';
+      } else if (menuMode === 'inline') {
+        menuOpenAnimation = animation;
+      } else {
+        // When mode switch from inline
+        // submenu should hide without animation
+        menuOpenAnimation = this.state.switchingModeFromInline ? '' : 'zoom-big';
+      }
+    }
+    return menuOpenAnimation;
   }
 
   // Restore vertical mode when menu is collapsed responsively when mounted
@@ -233,52 +260,13 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
   };
 
-  setOpenKeys(openKeys: string[]) {
-    if (!('openKeys' in this.props)) {
-      this.setState({ openKeys });
+  restoreModeVerticalFromInline() {
+    const { switchingModeFromInline } = this.state;
+    if (switchingModeFromInline) {
+      this.setState({
+        switchingModeFromInline: false,
+      });
     }
-  }
-
-  getRealMenuMode() {
-    const inlineCollapsed = this.getInlineCollapsed();
-    if (this.state.switchingModeFromInline && inlineCollapsed) {
-      return 'inline';
-    }
-    const { mode } = this.props;
-    return inlineCollapsed ? 'vertical' : mode;
-  }
-
-  getInlineCollapsed() {
-    const { inlineCollapsed } = this.props;
-    if (this.props.siderCollapsed !== undefined) {
-      return this.props.siderCollapsed;
-    }
-    return inlineCollapsed;
-  }
-
-  getMenuOpenAnimation(menuMode: MenuMode) {
-    const { openAnimation, openTransitionName } = this.props;
-    let menuOpenAnimation = openAnimation || openTransitionName;
-    if (openAnimation === undefined && openTransitionName === undefined) {
-      if (menuMode === 'horizontal') {
-        menuOpenAnimation = 'slide-up';
-      } else if (menuMode === 'inline') {
-        menuOpenAnimation = animation;
-      } else {
-        // When mode switch from inline
-        // submenu should hide without animation
-        if (this.state.switchingModeFromInline) {
-          menuOpenAnimation = '';
-          this.setState({
-            switchingModeFromInline: false,
-          });
-          // this.switchingModeFromInline = false;
-        } else {
-          menuOpenAnimation = 'zoom-big';
-        }
-      }
-    }
-    return menuOpenAnimation;
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
@@ -347,8 +335,11 @@ polyfill(InternalMenu);
 // We should keep this as ref-able
 export default class Menu extends React.Component<MenuProps, {}> {
   static Divider = Divider;
+
   static Item = Item;
+
   static SubMenu = SubMenu;
+
   static ItemGroup = ItemGroup;
 
   render() {

@@ -1,16 +1,18 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcDrawer from 'rc-drawer';
-import createReactContext, { Context } from '@ant-design/create-react-context';
-import warning from '../_util/warning';
+import createReactContext from '@ant-design/create-react-context';
 import classNames from 'classnames';
+import omit from 'omit.js';
+import warning from '../_util/warning';
 import Icon from '../icon';
 import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 
-const DrawerContext: Context<Drawer | null> = createReactContext(null);
+const DrawerContext = createReactContext<Drawer | null>(null);
 
-type EventType = React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>;
+type EventType =
+  | React.KeyboardEvent<HTMLDivElement>
+  | React.MouseEvent<HTMLDivElement | HTMLButtonElement>;
 
 type getContainerFunc = () => HTMLElement;
 
@@ -19,7 +21,7 @@ type placementType = (typeof PlacementTypes)[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc;
+  getContainer?: string | HTMLElement | getContainerFunc | false;
   maskClosable?: boolean;
   mask?: boolean;
   maskStyle?: React.CSSProperties;
@@ -36,8 +38,10 @@ export interface DrawerProps {
   push?: boolean;
   placement?: placementType;
   onClose?: (e: EventType) => void;
+  afterVisibleChange?: (visible: boolean) => void;
   className?: string;
   handler?: React.ReactNode;
+  keyboard?: boolean;
 }
 
 export interface IDrawerState {
@@ -45,29 +49,6 @@ export interface IDrawerState {
 }
 
 class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerState> {
-  static propTypes = {
-    closable: PropTypes.bool,
-    destroyOnClose: PropTypes.bool,
-    getContainer: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object as PropTypes.Requireable<HTMLElement>,
-      PropTypes.func,
-      PropTypes.bool,
-    ]),
-    maskClosable: PropTypes.bool,
-    mask: PropTypes.bool,
-    maskStyle: PropTypes.object,
-    style: PropTypes.object,
-    title: PropTypes.node,
-    visible: PropTypes.bool,
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    zIndex: PropTypes.number,
-    prefixCls: PropTypes.string,
-    placement: PropTypes.oneOf(PlacementTypes),
-    onClose: PropTypes.func,
-    className: PropTypes.string,
-  };
-
   static defaultProps = {
     width: 256,
     height: 256,
@@ -76,18 +57,30 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     maskClosable: true,
     mask: true,
     level: null,
+    keyboard: true,
   };
 
   readonly state = {
     push: false,
   };
 
-  parentDrawer: Drawer;
+  parentDrawer: Drawer | null;
+
   destroyClose: boolean;
 
+  public componentDidMount() {
+    // fix: delete drawer in child and re-render, no push started.
+    // <Drawer>{show && <Drawer />}</Drawer>
+    const { visible } = this.props;
+    if (visible && this.parentDrawer) {
+      this.parentDrawer.push();
+    }
+  }
+
   public componentDidUpdate(preProps: DrawerProps) {
-    if (preProps.visible !== this.props.visible && this.parentDrawer) {
-      if (this.props.visible) {
+    const { visible } = this.props;
+    if (preProps.visible !== visible && this.parentDrawer) {
+      if (visible) {
         this.parentDrawer.push();
       } else {
         this.parentDrawer.pull();
@@ -95,21 +88,13 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     }
   }
 
-  close = (e: EventType) => {
-    if (this.props.visible !== undefined) {
-      if (this.props.onClose) {
-        this.props.onClose(e);
-      }
-      return;
+  public componentWillUnmount() {
+    // unmount drawer in child, clear push.
+    if (this.parentDrawer) {
+      this.parentDrawer.pull();
+      this.parentDrawer = null;
     }
-  };
-
-  onMaskClick = (e: EventType) => {
-    if (!this.props.maskClosable) {
-      return;
-    }
-    this.close(e);
-  };
+  }
 
   push = () => {
     this.setState({
@@ -136,7 +121,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   getDestroyOnClose = () => this.props.destroyOnClose && !this.props.visible;
 
-  // get drawar push width or height
+  // get drawer push width or height
   getPushTransform = (placement?: placementType) => {
     if (placement === 'left' || placement === 'right') {
       return `translateX(${placement === 'left' ? 180 : -180}px)`;
@@ -172,10 +157,11 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   }
 
   renderCloseIcon() {
-    const { closable, prefixCls } = this.props;
+    const { closable, prefixCls, onClose } = this.props;
     return (
       closable && (
-        <button onClick={this.close} aria-label="Close" className={`${prefixCls}-close`}>
+        // eslint-disable-next-line react/button-has-type
+        <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
           <Icon type="close" />
         </button>
       )
@@ -220,17 +206,16 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     );
   };
 
-  // render Provider for Multi-level drawe
+  // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
     const {
       prefixCls,
-      zIndex,
-      style,
       placement,
       className,
       wrapClassName,
       width,
       height,
+      mask,
       ...rest
     } = this.props;
     warning(
@@ -238,7 +223,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       'Drawer',
       'wrapClassName is deprecated, please use className instead.',
     );
-    const haveMask = rest.mask ? '' : 'no-mask';
+    const haveMask = mask ? '' : 'no-mask';
     this.parentDrawer = value;
     const offsetStyle: any = {};
     if (placement === 'left' || placement === 'right') {
@@ -250,12 +235,26 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       <DrawerContext.Provider value={this}>
         <RcDrawer
           handler={false}
-          {...rest}
+          {...omit(rest, [
+            'zIndex',
+            'style',
+            'closable',
+            'destroyOnClose',
+            'bodyStyle',
+            'title',
+            'push',
+            'visible',
+            'getPopupContainer',
+            'rootPrefixCls',
+            'getPrefixCls',
+            'renderEmpty',
+            'csp',
+            'autoInsertSpaceInButton',
+          ])}
           {...offsetStyle}
           prefixCls={prefixCls}
           open={this.props.visible}
-          onMaskClick={this.onMaskClick}
-          showMask={this.props.mask}
+          showMask={mask}
           placement={placement}
           style={this.getRcDrawerStyle()}
           className={classNames(wrapClassName, className, haveMask)}

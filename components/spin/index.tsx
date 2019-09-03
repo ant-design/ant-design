@@ -8,7 +8,7 @@ import { tuple } from '../_util/type';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = (typeof SpinSizes)[number];
-export type SpinIndicator = React.ReactElement<any>;
+export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
   prefixCls?: string;
@@ -34,8 +34,8 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
   const { indicator } = props;
   const dotClassName = `${prefixCls}-dot`;
   if (React.isValidElement(indicator)) {
-    return React.cloneElement(indicator as SpinIndicator, {
-      className: classNames((indicator as SpinIndicator).props.className, dotClassName),
+    return React.cloneElement(indicator, {
+      className: classNames(indicator.props.className, dotClassName),
     });
   }
 
@@ -93,21 +93,6 @@ class Spin extends React.Component<SpinProps, SpinState> {
     this.debouncifyUpdateSpinning(props);
   }
 
-  isNestedPattern() {
-    return !!(this.props && this.props.children);
-  }
-
-  componentWillUnmount() {
-    this.cancelExistingSpin();
-  }
-
-  cancelExistingSpin() {
-    const updateSpinning: any = this.updateSpinning;
-    if (updateSpinning && updateSpinning.cancel) {
-      updateSpinning.cancel();
-    }
-  }
-
   componentDidMount() {
     this.updateSpinning();
   }
@@ -115,6 +100,10 @@ class Spin extends React.Component<SpinProps, SpinState> {
   componentDidUpdate() {
     this.debouncifyUpdateSpinning();
     this.updateSpinning();
+  }
+
+  componentWillUnmount() {
+    this.cancelExistingSpin();
   }
 
   debouncifyUpdateSpinning = (props?: SpinProps) => {
@@ -132,6 +121,17 @@ class Spin extends React.Component<SpinProps, SpinState> {
       this.setState({ spinning });
     }
   };
+
+  cancelExistingSpin() {
+    const { updateSpinning } = this;
+    if (updateSpinning && (updateSpinning as any).cancel) {
+      (updateSpinning as any).cancel();
+    }
+  }
+
+  isNestedPattern() {
+    return !!(this.props && this.props.children);
+  }
 
   renderSpin = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {

@@ -3,11 +3,14 @@ import { mount } from 'enzyme';
 import Select from '..';
 import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
+import { resetWarned } from '../../_util/warning';
 
 const { Option } = Select;
 
 describe('Select', () => {
   focusTest(Select);
+  mountTest(Select);
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -129,5 +132,17 @@ describe('Select', () => {
       jest.runAllTimers();
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  it('warning if user use `inputValue`', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    mount(<Select inputValue="" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      'Warning: [antd: Select] `inputValue` is deprecated. Please use `searchValue` instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 });

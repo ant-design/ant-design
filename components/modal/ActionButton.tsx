@@ -56,7 +56,10 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
             // this.setState({ loading: false });
             closeModal(...args);
           },
-          () => {
+          (e: Error) => {
+            // Emit error when catch promise reject
+            // eslint-disable-next-line no-console
+            console.error(e);
             // See: https://github.com/ant-design/ant-design/issues/6183
             this.setState({ loading: false });
           },
@@ -69,7 +72,7 @@ export default class ActionButton extends React.Component<ActionButtonProps, Act
 
   render() {
     const { type, children, buttonProps } = this.props;
-    const loading = this.state.loading;
+    const { loading } = this.state;
     return (
       <Button type={type} onClick={this.onClick} loading={loading} {...buttonProps}>
         {children}

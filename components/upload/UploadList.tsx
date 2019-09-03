@@ -2,38 +2,11 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { previewImage, isImageUrl } from './utils';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-
-const extname = (url: string) => {
-  if (!url) {
-    return '';
-  }
-  const temp = url.split('/');
-  const filename = temp[temp.length - 1];
-  const filenameWithoutSuffix = filename.split(/#|\?/)[0];
-  return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
-};
-const isImageFileType = (type: string): boolean => !!type && type.indexOf('image/') === 0;
-const isImageUrl = (file: UploadFile): boolean => {
-  if (isImageFileType(file.type)) {
-    return true;
-  }
-  const url: string = (file.thumbUrl || file.url) as string;
-  const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp|dpg)$/i.test(extension)) {
-    return true;
-  } else if (/^data:/.test(url)) {
-    // other file types of base64
-    return false;
-  } else if (extension) {
-    // other file types which have extension
-    return false;
-  }
-  return true;
-};
 
 export default class UploadList extends React.Component<UploadListProps, any> {
   static defaultProps = {
@@ -44,14 +17,35 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     },
     showRemoveIcon: true,
     showPreviewIcon: true,
+    previewFile: previewImage,
   };
 
-  handleClose = (file: UploadFile) => {
-    const { onRemove } = this.props;
-    if (onRemove) {
-      onRemove(file);
+  componentDidUpdate() {
+    const { listType, items, previewFile } = this.props;
+    if (listType !== 'picture' && listType !== 'picture-card') {
+      return;
     }
-  };
+    (items || []).forEach(file => {
+      if (
+        typeof document === 'undefined' ||
+        typeof window === 'undefined' ||
+        !(window as any).FileReader ||
+        !(window as any).File ||
+        !(file.originFileObj instanceof File || file.originFileObj instanceof Blob) ||
+        file.thumbUrl !== undefined
+      ) {
+        return;
+      }
+      file.thumbUrl = '';
+      if (previewFile) {
+        previewFile(file.originFileObj as File).then((previewDataUrl: string) => {
+          // Need append '' to avoid dead loop
+          file.thumbUrl = previewDataUrl || '';
+          this.forceUpdate();
+        });
+      }
+    });
+  }
 
   handlePreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
     const { onPreview } = this.props;
@@ -62,38 +56,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return onPreview(file);
   };
 
-  // https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL
-  previewFile = (file: File | Blob, callback: Function) => {
-    if (!isImageFileType(file.type)) {
-      return callback('');
+  handleClose = (file: UploadFile) => {
+    const { onRemove } = this.props;
+    if (onRemove) {
+      onRemove(file);
     }
-    const reader = new FileReader();
-    reader.onloadend = () => callback(reader.result);
-    reader.readAsDataURL(file);
   };
-
-  componentDidUpdate() {
-    if (this.props.listType !== 'picture' && this.props.listType !== 'picture-card') {
-      return;
-    }
-    (this.props.items || []).forEach(file => {
-      if (
-        typeof document === 'undefined' ||
-        typeof window === 'undefined' ||
-        !(window as any).FileReader ||
-        !(window as any).File ||
-        !(file.originFileObj instanceof File) ||
-        file.thumbUrl !== undefined
-      ) {
-        return;
-      }
-      file.thumbUrl = '';
-      this.previewFile(file.originFileObj, (previewDataUrl: string) => {
-        file.thumbUrl = previewDataUrl;
-        this.forceUpdate();
-      });
-    });
-  }
 
   renderUploadList = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
@@ -103,6 +71,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showPreviewIcon,
       showRemoveIcon,
       locale,
+      progressAttr,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -118,7 +87,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           );
         } else {
           const thumbnail = isImageUrl(file) ? (
-            <img src={file.thumbUrl || file.url} alt={file.name} />
+            <img
+              src={file.thumbUrl || file.url}
+              alt={file.name}
+              className={`${prefixCls}-list-item-image`}
+            />
           ) : (
             <Icon type="file" className={`${prefixCls}-list-item-icon`} theme="twoTone" />
           );
@@ -140,7 +113,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         // show loading icon if upload progress listener is disabled
         const loadingProgress =
           'percent' in file ? (
-            <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
+            <Progress type="line" {...progressAttr} percent={file.percent} />
           ) : null;
 
         progress = (

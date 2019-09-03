@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Avatar from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Avatar Render', () => {
+  mountTest(Avatar);
+
   let originOffsetWidth;
   beforeAll(() => {
     // Mock offsetHeight

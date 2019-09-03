@@ -25,6 +25,7 @@ const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
           break;
         case 'small':
           sizeCls = 'sm';
+          break;
         default:
           break;
       }

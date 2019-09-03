@@ -82,6 +82,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-divider ant-divider-horizontal"
+    role="separator"
   />
   <h1
     class="ant-typography"
@@ -284,7 +285,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
   >
     This is an editable text.
     <div
-      aria-label="edit"
+      aria-label="Edit"
       class="ant-typography-edit"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -317,7 +318,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
   >
     This is a copyable text.
     <div
-      aria-label="copy"
+      aria-label="Copy"
       class="ant-typography-copy"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -350,7 +351,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
   >
     Replace copy text.
     <div
-      aria-label="copy"
+      aria-label="Copy"
       class="ant-typography-copy"
       role="button"
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"

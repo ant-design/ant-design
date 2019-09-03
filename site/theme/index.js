@@ -2,7 +2,6 @@ const path = require('path');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
-const redirectTmpl = './template/Redirect';
 const appShellTmpl = './template/AppShell';
 
 function pickerGenerator(module) {
@@ -43,9 +42,7 @@ module.exports = {
       }
       return null;
     },
-    'docs/pattern': pickerGenerator('pattern'),
     'docs/react': pickerGenerator('react'),
-    'docs/resource': pickerGenerator('resource'),
     'docs/spec': pickerGenerator('spec'),
   },
   plugins: [
@@ -68,10 +65,6 @@ module.exports = {
         component: homeTmpl,
       },
       {
-        path: 'docs/pattern/:children',
-        component: redirectTmpl,
-      },
-      {
         path: 'docs/react/:children',
         component: contentTmpl,
       },
@@ -88,20 +81,8 @@ module.exports = {
         component: contentTmpl,
       },
       {
-        path: 'docs/spec/feature',
-        component: redirectTmpl,
-      },
-      {
-        path: 'docs/spec/feature-cn',
-        component: redirectTmpl,
-      },
-      {
         path: 'docs/spec/:children',
         component: contentTmpl,
-      },
-      {
-        path: 'docs/resource/:children',
-        component: redirectTmpl,
       },
     ],
   },
