@@ -81,12 +81,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
   onStart = (file: RcFile) => {
     const { fileList } = this.state;
-    const { multiple } = this.props;
-
-    if (!multiple && fileList.length > 0) {
-      return;
-    }
-
     const targetItem = fileToObject(file);
     targetItem.status = 'uploading';
 
