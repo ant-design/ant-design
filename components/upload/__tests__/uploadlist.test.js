@@ -202,6 +202,16 @@ describe('Upload List', () => {
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
   });
 
+  it('error status does not show Download', () => {
+    const file = { status: 'error', uid: 'file' };
+    const wrapper = mount(
+      <Upload listType="picture" fileList={[file]}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+  });
+
   it('should support onPreview', () => {
     const handlePreview = jest.fn();
     const wrapper = mount(
@@ -486,6 +496,21 @@ describe('Upload List', () => {
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
     expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(2);
+  });
+
+  it('extname should work correctly when url exists', () => {
+    const items = [{ uid: 'upload-list-item', url: '/example' }];
+    const wrapper = mount(
+      <UploadList
+        listType="picture"
+        onDownload={file => {
+          expect(file.url).toBe('/example');
+        }}
+        items={items}
+        locale={{ downloadFile: '' }}
+      />,
+    );
+    wrapper.find('div.ant-upload-list-item i.anticon-download').simulate('click');
   });
 
   it('when picture-card is loading, icon should render correctly', () => {
