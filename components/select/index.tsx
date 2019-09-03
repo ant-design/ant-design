@@ -54,6 +54,7 @@ export type SelectValue = string | string[] | number | number[] | LabeledValue |
 
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
+  inputValue?: string;
   defaultValue?: T;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
