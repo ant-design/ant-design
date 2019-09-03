@@ -173,6 +173,7 @@
 
     .@{table-prefix-cls}-header-column {
       display: inline-block;
+      max-width: 100%;
       vertical-align: top;
 
       .@{table-prefix-cls}-column-sorters {
@@ -583,6 +584,17 @@
       &::after {
         content: '.';
       }
+    }
+
+    &-cell-ellipsis,
+    &-cell-ellipsis .@{table-prefix-cls}-column-title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-cell-ellipsis .@{table-prefix-cls}-column-title {
+      display: block;
     }
   }
 
