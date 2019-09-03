@@ -1,3 +1,5 @@
+// TODO: 4.0 - codemod should help to change `filterOption` to support node props.
+
 import * as React from 'react';
 import omit from 'omit.js';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
@@ -32,13 +34,29 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     choiceTransitionName: 'zoom',
   };
 
-  renderSelect = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, suffixIcon, mode, menuItemSelectedIcon, loading } = this
-      .props as InternalSelectProps<ValueType>;
+  renderSelect = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      suffixIcon,
+      mode,
+      menuItemSelectedIcon,
+      loading,
+      notFoundContent,
+    } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
 
     const isMultiple = mode === 'multiple' || mode === 'tags';
+
+    // ===================== Empty =====================
+    let mergedNotFound = undefined;
+    if (notFoundContent !== undefined) {
+      mergedNotFound = notFoundContent;
+    } else if (mode === 'combobox') {
+      mergedNotFound = null;
+    } else {
+      mergedNotFound = renderEmpty('Select');
+    }
 
     // ===================== Icons =====================
     // Arrow item icon
@@ -69,6 +87,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
         prefixCls={prefixCls}
         inputIcon={mergedSuffixIcon}
         menuItemSelectedIcon={mergedItemIcon}
+        notFoundContent={mergedNotFound}
       />
     );
   };

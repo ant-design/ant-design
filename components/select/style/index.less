@@ -13,9 +13,13 @@
   transition: all 0.3s @ease-in-out;
   border: @border-width-base @border-style-base @select-border-color;
 
-  :not(.@{select-prefix-cls}-open)& {
+  input {
+    cursor: pointer;
+  }
+
+  .@{select-prefix-cls}-show-search& {
     input {
-      cursor: pointer;
+      cursor: auto;
     }
   }
 
