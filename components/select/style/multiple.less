@@ -35,6 +35,14 @@
   .@{select-prefix-cls}-selection-search {
     position: relative;
 
+    // Fix firefox align
+    @supports (-moz-appearance: meterbar) {
+      & {
+        height: @select-height-without-border;
+        line-height: @select-height-without-border;
+      }
+    }
+
     &-input,
     &-mirror {
       padding: 1px;
