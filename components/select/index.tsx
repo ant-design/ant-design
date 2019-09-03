@@ -53,6 +53,7 @@ export type SelectValue = string | string[] | number | number[] | LabeledValue |
 
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
+  /** @deprecated Use `searchValue` instead. */
   inputValue?: string;
   searchValue?: string;
   defaultValue?: T;
