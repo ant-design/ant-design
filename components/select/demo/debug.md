@@ -4,7 +4,6 @@ title:
   zh-CN: 4.0 Debug
   en-US: 4.0 Debug
 debug: true
-only: true
 ---
 
 ## zh-CN
@@ -26,7 +25,7 @@ function handleChange(value) {
 
 ReactDOM.render(
   <div>
-    <Input style={{ width: 100 }} />
+    <Input style={{ width: 100 }} value="222" />
     <Select style={{ width: 120 }} onChange={handleChange} showSearch placeholder="233">
       <Option value="jack">Jack</Option>
       <Option value="lucy">Lucy</Option>
@@ -52,7 +51,7 @@ ReactDOM.render(
       <Option value="long">I'm super super long!</Option>
     </Select>
     AntDesign
-    <Button>Default</Button>
+    <Button>222</Button>
   </div>,
   mountNode,
 );

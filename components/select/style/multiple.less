@@ -7,6 +7,7 @@
     .select-search-input-without-border();
 
     display: flex;
+    padding: 0 @input-padding-horizontal-base;
   }
 
   // ======================== Selections ========================
@@ -22,6 +23,8 @@
   .@{select-prefix-cls}-selection-placeholder {
     height: @select-height-without-border;
     line-height: @input-height-base;
+    // leave word offset to cover input width
+    margin-left: -0.25em;
 
     // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
     @supports (-moz-appearance: meterbar) {
@@ -46,14 +49,17 @@
     &-input,
     &-mirror {
       padding: 1px;
-      font-family: system-ui;
+      font-family: @font-family;
+    }
+
+    &-input {
+      width: 100%;
     }
 
     &-mirror {
       position: absolute;
       z-index: 999;
       white-space: nowrap;
-      position: none;
       left: 0;
       top: 0;
       visibility: hidden;
