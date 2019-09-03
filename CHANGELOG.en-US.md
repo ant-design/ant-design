@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.23.1
+
+`2019-09-03`
+
+- 🐞 Fix Upload can not upload more than one file when `multiple` is `false`. [#18626](https://github.com/ant-design/ant-design/pull/18626)
+
 ## 3.23.0
 
 `2019-09-02`

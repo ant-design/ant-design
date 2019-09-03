@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.23.1
+
+`2019-09-03`
+
+- 🐞 修复 Upload 在 `multiple` 为 `false` 时无法上传多于一个文件的问题。[#18626](https://github.com/ant-design/ant-design/pull/18626)
+
 ## 3.23.0
 
 `2019-09-02`
