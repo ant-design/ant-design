@@ -4,6 +4,7 @@ title:
   zh-CN: 4.0 Debug
   en-US: 4.0 Debug
 debug: true
+only: true
 ---
 
 ## zh-CN
@@ -38,6 +39,7 @@ ReactDOM.render(
     <Select
       mode="multiple"
       style={{ width: 120 }}
+      defaultValue={['lucy']}
       onChange={handleChange}
       showSearch
       placeholder="233"
@@ -50,7 +52,7 @@ ReactDOM.render(
       <Option value="Yiminghe">yiminghe</Option>
       <Option value="long">I'm super super long!</Option>
     </Select>
-    AntDesign
+    <span>AntDesign</span>
     <Button>222</Button>
   </div>,
   mountNode,

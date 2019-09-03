@@ -1,5 +1,7 @@
 @import './index';
 
+@select-selection-height: @input-height-base - @input-padding-vertical-base * 2;
+
 .@{select-prefix-cls}-multiple {
   // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
@@ -7,17 +9,34 @@
     .select-search-input-without-border();
 
     display: flex;
-    padding: 0 @input-padding-horizontal-base;
+    align-items: center;
+    padding: 0 @input-padding-vertical-base;
   }
 
   // ======================== Selections ========================
   .@{select-prefix-cls}-selection-item {
+    position: relative;
     box-sizing: border-box;
-    background-color: @component-background;
-    border: @border-width-base @border-style-base @select-border-color;
-    border-radius: @border-radius-base;
+    background: @background-color-base;
+    border: 1px solid @border-color-split;
+    border-radius: @border-radius-sm;
+    cursor: default;
     transition: all 0.3s @ease-in-out;
     user-select: none;
+    display: flex;
+    padding: 0 @padding-xs;
+
+    // fontSize * lineHeight is odd which make 1px offset
+    // we should set it back
+    height: @select-selection-height;
+    line-height: @select-selection-height - 1px;
+    margin-top: -1px;
+
+    // It's ok not to do this, but 24px makes bottom narrow in view should adjust
+    &-content {
+      display: inline-block;
+      transform: translateY(-1px);
+    }
   }
 
   .@{select-prefix-cls}-selection-placeholder {
