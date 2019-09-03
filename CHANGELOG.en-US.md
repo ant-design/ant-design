@@ -20,6 +20,8 @@ timeline: true
 `2019-09-03`
 
 - 🐞 Fix Upload can not upload more than one file when `multiple` is `false`. [#18626](https://github.com/ant-design/ant-design/pull/18626)
+- 🐞 Fix MonthPicker switch handler overflow style. [#18624](https://github.com/ant-design/ant-design/pull/18624)
+- 💄 Tree add `@tree-node-hover-bg` and `@tree-node-selected-bg` less variable. [#18593](https://github.com/ant-design/ant-design/pull/18593) [@MrHeer](https://github.com/MrHeer)
 
 ## 3.23.0
 
