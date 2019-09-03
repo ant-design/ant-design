@@ -14,7 +14,7 @@ title:
 Ellipsize cell content via setting `column.ellipsis`.
 
 ```jsx
-import { Table, Divider, Tag } from 'antd';
+import { Table } from 'antd';
 
 const columns = [
   {

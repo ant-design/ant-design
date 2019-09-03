@@ -4365,6 +4365,350 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:80px;min-width:80px"
+                />
+                <col />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class=""
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Long Column Long Column Long Column
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Long Column Long Column
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Long Column
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class=""
+                  >
+                    <a>
+                      John Brown
+                    </a>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    New York No. 1 Lake Park, New York No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    New York No. 1 Lake Park, New York No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    New York No. 1 Lake Park, New York No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    New York No. 1 Lake Park, New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class=""
+                  >
+                    <a>
+                      Jim Green
+                    </a>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    London No. 2 Lake Park, London No. 2 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    London No. 2 Lake Park, London No. 2 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    London No. 2 Lake Park, London No. 2 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    London No. 2 Lake Park, London No. 2 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class=""
+                  >
+                    <a>
+                      Joe Black
+                    </a>
+                  </td>
+                  <td
+                    class=""
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-row-cell-ellipsis"
+                  >
+                    Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination"
+        unselectable="unselectable"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-disabled ant-pagination-prev"
+          title="Previous Page"
+        >
+          <a
+            class="ant-pagination-item-link"
+          >
+            <i
+              aria-label="icon: left"
+              class="anticon anticon-left"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </i>
+          </a>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a>
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-disabled ant-pagination-next"
+          title="Next Page"
+        >
+          <a
+            class="ant-pagination-item-link"
+          >
+            <i
+              aria-label="icon: right"
+              class="anticon anticon-right"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                />
+              </svg>
+            </i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/table/demo/expand.md correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -10999,7 +11343,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-default ant-table-scroll-position-left"
+          class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
         >
           <div
             class="ant-table-content"
@@ -11020,7 +11364,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       <span
                         class="ant-table-header-column"
@@ -11105,7 +11449,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       </i>
                     </th>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       <span
                         class="ant-table-header-column"
@@ -11169,7 +11513,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       <span
                         class="ant-table-header-column"
@@ -11263,17 +11607,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       New York No. 1 Lake Park
                     </td>
@@ -11283,17 +11627,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Jim Green
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       42
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       London No. 1 Lake Park
                     </td>
@@ -11303,17 +11647,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="3"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Joe Black
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Sidney No. 1 Lake Park
                     </td>
@@ -11323,17 +11667,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="4"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Jim Red
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       London No. 2 Lake Park
                     </td>
