@@ -302,6 +302,28 @@ describe('Upload List', () => {
       .simulate('click');
   });
 
+  it('should  support no onDownload', async () => {
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={[
+          {
+            uid: '0',
+            name: 'xxx.png',
+            status: 'done',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          },
+        ]}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper
+      .find('.anticon-download')
+      .at(0)
+      .simulate('click');
+  });
+
   describe('should generate thumbUrl from file', () => {
     [
       { width: 100, height: 200, name: 'height large than width' },
