@@ -18,6 +18,7 @@ timeline: true
 ## 3.22.2
 
 - 🔥 新增 Upload 添加下载图标。[#18664](https://github.com/ant-design/ant-design/pull/18664)
+- 🐞 修复 Upload 组件的 `close` 替换 `remove`。[#18664](https://github.com/ant-design/ant-design/issues/18664)
 
 ## 3.22.1
 

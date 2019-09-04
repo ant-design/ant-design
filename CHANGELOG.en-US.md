@@ -18,6 +18,7 @@ timeline: true
 ## 3.22.2
 
 - 🔥 add download icon of Upload。[#18664](https://github.com/ant-design/ant-design/pull/18664)
+- 🐞 Fix `close` replace `remove` on Upload。[#18664](https://github.com/ant-design/ant-design/issues/18664)
 
 ## 3.22.1
 
