@@ -59,7 +59,7 @@ const columns = [
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | 'auto' \| 'fixed' | 'auto'<br /><br />`fixed` when header/columns are fixed, or using `column.ellipsis` | 3.24.0 |
+| tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| 'auto' \| 'fixed' | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` | 3.24.0 |
 | bordered | Whether to show all table borders | boolean | `false` |  |
 | childrenColumnName | The column contains children to display | string\[] | children | 3.4.2 |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |  |
