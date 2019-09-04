@@ -231,7 +231,6 @@ class NameColumn extends Table.Column<User> {}
 <Table<User> dataSource={data}>
   <Table.Column<User> key="name" title="Name" dataIndex="name" />
 </Table>
-
 ```
 
 ## 注意
