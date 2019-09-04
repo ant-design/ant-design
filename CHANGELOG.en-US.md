@@ -24,8 +24,6 @@ timeline: true
 - 🐞 Fix Input.Password crash with `Cannot read property 'input' of null` when unmount. [#18475](https://github.com/ant-design/ant-design/pull/18475)
 - 🐞 Fix Table `style` should applied to outside wrapper. [#18494](https://github.com/ant-design/ant-design/pull/18494)
 - 🐞 Fix PageHeader default english text. [#18471](https://github.com/ant-design/ant-design/pull/18471) [@hjiawei](https://github.com/hjiawei)
-- 🔥 add download icon of Upload。[#18664](https://github.com/ant-design/ant-design/pull/18664)
-- 🐞 Fix `close` replace `remove` on Upload。[#18664](https://github.com/ant-design/ant-design/issues/18664)
 
 ## 3.22.1
 

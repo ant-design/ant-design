@@ -24,8 +24,6 @@ timeline: true
 - 🐞 修复 Input.Password unmount 时报错 `Cannot read property 'input' of null`。[#18475](https://github.com/ant-design/ant-design/pull/18475)
 - 🐞 修正 Table `style` 属性到最外层容器。[#18494](https://github.com/ant-design/ant-design/pull/18494)
 - 🐞 修正 PageHeader 默认英文文案。[#18471](https://github.com/ant-design/ant-design/pull/18471) [@hjiawei](https://github.com/hjiawei)
-- 🔥 新增 Upload 添加下载图标。[#18664](https://github.com/ant-design/ant-design/pull/18664)
-- 🐞 修复 Upload 组件的 `close` 替换 `remove`。[#18664](https://github.com/ant-design/ant-design/issues/18664)
 
 ## 3.22.1
 
