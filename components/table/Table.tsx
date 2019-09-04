@@ -122,7 +122,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     showHeader: true,
     sortDirections: ['ascend', 'descend'],
     childrenColumnName: 'children',
-    tableLayout: 'auto',
   };
 
   CheckboxPropsCache: {
