@@ -9,7 +9,9 @@
     .select-search-input-without-border();
 
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    // Multiple is little different that horizontal is follow the vertical
     padding: 0 @input-padding-vertical-base;
   }
 
@@ -24,7 +26,9 @@
     transition: all 0.3s @ease-in-out;
     user-select: none;
     display: flex;
-    padding: 0 @padding-xs;
+    padding: 0 (@padding-xs / 2) 0 @padding-xs;
+    margin-right: @input-padding-vertical-base;
+    flex: none;
 
     // fontSize * lineHeight is odd which make 1px offset
     // we should set it back
@@ -36,6 +40,23 @@
     &-content {
       display: inline-block;
       transform: translateY(-1px);
+      margin-right: @padding-xs / 2;
+    }
+
+    &-remove {
+      .iconfont-mixin();
+
+      display: inline-block;
+      color: @text-color-secondary;
+      font-weight: bold;
+      font-size: @font-size-sm;
+      line-height: inherit;
+      cursor: pointer;
+      transition: all 0.3s;
+      .iconfont-size-under-12px(10px);
+      &:hover {
+        color: @icon-color-hover;
+      }
     }
   }
 

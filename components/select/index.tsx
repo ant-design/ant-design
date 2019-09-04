@@ -3,7 +3,7 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
-import { Down, Loading, Check } from '@ant-design/icons';
+import { Down, Loading, Check, Close } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 type RawValue = string | number;
@@ -40,6 +40,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       suffixIcon,
       mode,
       menuItemSelectedIcon,
+      removeIcon,
       loading,
       notFoundContent,
     } = this.props as InternalSelectProps<ValueType>;
@@ -79,6 +80,13 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       mergedItemIcon = null;
     }
 
+    let mergedRemoveIcon = null;
+    if (removeIcon !== undefined) {
+      mergedRemoveIcon = removeIcon;
+    } else {
+      mergedRemoveIcon = <Close />;
+    }
+
     const selectProps = omit(this.props, ['prefixCls', 'suffixIcon']);
 
     return (
@@ -87,6 +95,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
         prefixCls={prefixCls}
         inputIcon={mergedSuffixIcon}
         menuItemSelectedIcon={mergedItemIcon}
+        removeIcon={mergedRemoveIcon}
         notFoundContent={mergedNotFound}
       />
     );
