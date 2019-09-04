@@ -104,4 +104,12 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
   );
 };
 
-export default React.forwardRef<Select, AutoCompleteProps>(AutoComplete);
+const RefAutoComplete = React.forwardRef<Select, AutoCompleteProps>(AutoComplete);
+
+type RefAutoComplete = typeof RefAutoComplete & {
+  Option: typeof Option;
+};
+
+(RefAutoComplete as RefAutoComplete).Option = Option;
+
+export default RefAutoComplete as RefAutoComplete;
