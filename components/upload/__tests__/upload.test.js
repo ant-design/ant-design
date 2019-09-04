@@ -367,7 +367,7 @@ describe('Upload', () => {
       },
     ];
     const wrapper = mount(<Upload fileList={fileList} />);
-    const linkNode = wrapper.find('span.ant-upload-list-item-name > a');
+    const linkNode = wrapper.find('a.ant-upload-list-item-name');
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');
   });
@@ -387,7 +387,7 @@ describe('Upload', () => {
       },
     ];
     const wrapper = mount(<Upload fileList={fileList} />);
-    const linkNode = wrapper.find('span.ant-upload-list-item-name > a');
+    const linkNode = wrapper.find('a.ant-upload-list-item-name');
     expect(linkNode.props().download).toBe('image');
     expect(linkNode.props().rel).toBe('noopener');
   });

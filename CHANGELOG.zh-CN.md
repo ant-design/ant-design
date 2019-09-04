@@ -15,6 +15,10 @@ timeline: true
 
 ---
 
+## 3.22.2
+
+- 🔥 新增 Upload 添加下载图标。[#18664](https://github.com/ant-design/ant-design/pull/18664)
+
 ## 3.22.1
 
 - 🔥 官网现在支持通过图片搜索图标啦！[#18425](https://github.com/ant-design/ant-design/pull/18425)

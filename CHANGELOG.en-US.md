@@ -15,6 +15,10 @@ timeline: true
 
 ---
 
+## 3.22.2
+
+- 🔥 add download icon of Upload。[#18664](https://github.com/ant-design/ant-design/pull/18664)
+
 ## 3.22.1
 
 - 🔥 The official website now supports the search icon through the picture! [#18425](https://github.com/ant-design/ant-design/pull/18425)

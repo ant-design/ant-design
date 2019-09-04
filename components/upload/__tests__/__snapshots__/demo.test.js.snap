@@ -59,69 +59,66 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               />
             </svg>
           </i>
-          <span
+          <a
             class="ant-upload-list-item-name"
+            href="http://www.baidu.com/xxx.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="xxx.png"
+          >
+            xxx.png
+          </a>
+          <span
+            class="ant-upload-list-item-card-actions "
           >
             <a
-              href="http://www.baidu.com/xxx.png"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="xxx.png"
+              title="Download file"
             >
-              xxx.png
+              <i
+                aria-label="icon: download"
+                class="anticon anticon-download"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="download"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </i>
             </a>
-            <span
-              class="ant-upload-list-item-card-actions "
+            <a
+              title="Remove file"
             >
-              <a
-                title="Download file"
+              <i
+                aria-label="icon: delete"
+                class="anticon anticon-delete"
+                tabindex="-1"
               >
-                <i
-                  aria-label="icon: download"
-                  class="anticon anticon-download"
-                  tabindex="-1"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="download"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                    />
-                  </svg>
-                </i>
-              </a>
-              <a
-                title="Remove file"
-              >
-                <i
-                  aria-label="icon: delete"
-                  class="anticon anticon-delete"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </i>
-              </a>
-            </span>
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </i>
+            </a>
           </span>
         </span>
       </div>
@@ -152,69 +149,66 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               />
             </svg>
           </i>
-          <span
+          <a
             class="ant-upload-list-item-name"
+            href="http://www.baidu.com/yyy.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="yyy.png"
+          >
+            yyy.png
+          </a>
+          <span
+            class="ant-upload-list-item-card-actions "
           >
             <a
-              href="http://www.baidu.com/yyy.png"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="yyy.png"
+              title="Download file"
             >
-              yyy.png
+              <i
+                aria-label="icon: download"
+                class="anticon anticon-download"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="download"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </i>
             </a>
-            <span
-              class="ant-upload-list-item-card-actions "
+            <a
+              title="Remove file"
             >
-              <a
-                title="Download file"
+              <i
+                aria-label="icon: delete"
+                class="anticon anticon-delete"
+                tabindex="-1"
               >
-                <i
-                  aria-label="icon: download"
-                  class="anticon anticon-download"
-                  tabindex="-1"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="download"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                    />
-                  </svg>
-                </i>
-              </a>
-              <a
-                title="Remove file"
-              >
-                <i
-                  aria-label="icon: delete"
-                  class="anticon anticon-delete"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </i>
-              </a>
-            </span>
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </i>
+            </a>
           </span>
         </span>
       </div>
@@ -245,45 +239,42 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               />
             </svg>
           </i>
-          <span
+          <a
             class="ant-upload-list-item-name"
+            href="http://www.baidu.com/zzz.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="zzz.png"
+          >
+            zzz.png
+          </a>
+          <span
+            class="ant-upload-list-item-card-actions "
           >
             <a
-              href="http://www.baidu.com/zzz.png"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="zzz.png"
+              title="Remove file"
             >
-              zzz.png
-            </a>
-            <span
-              class="ant-upload-list-item-card-actions "
-            >
-              <a
-                title="Remove file"
+              <i
+                aria-label="icon: delete"
+                class="anticon anticon-delete"
+                tabindex="-1"
               >
-                <i
-                  aria-label="icon: delete"
-                  class="anticon anticon-delete"
-                  tabindex="-1"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </i>
-              </a>
-            </span>
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </i>
+            </a>
           </span>
         </span>
       </div>
@@ -354,69 +345,66 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
               />
             </svg>
           </i>
-          <span
+          <a
             class="ant-upload-list-item-name"
+            href="http://www.baidu.com/xxx.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="xxx.png"
+          >
+            xxx.png
+          </a>
+          <span
+            class="ant-upload-list-item-card-actions "
           >
             <a
-              href="http://www.baidu.com/xxx.png"
-              rel="noopener noreferrer"
-              target="_blank"
-              title="xxx.png"
+              title="Download file"
             >
-              xxx.png
+              <i
+                aria-label="icon: download"
+                class="anticon anticon-download"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="download"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </i>
             </a>
-            <span
-              class="ant-upload-list-item-card-actions "
+            <a
+              title="Remove file"
             >
-              <a
-                title="Download file"
+              <i
+                aria-label="icon: delete"
+                class="anticon anticon-delete"
+                tabindex="-1"
               >
-                <i
-                  aria-label="icon: download"
-                  class="anticon anticon-download"
-                  tabindex="-1"
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="download"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                    />
-                  </svg>
-                </i>
-              </a>
-              <a
-                title="Remove file"
-              >
-                <i
-                  aria-label="icon: delete"
-                  class="anticon anticon-delete"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </i>
-              </a>
-            </span>
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </i>
+            </a>
           </span>
         </span>
       </div>
@@ -454,18 +442,15 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
             >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image.png"
-              >
-                image.png
-              </a>
-            </span>
+              image.png
+            </a>
           </span>
         </div>
         <span
@@ -560,18 +545,15 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
             >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image.png"
-              >
-                image.png
-              </a>
-            </span>
+              image.png
+            </a>
           </span>
         </div>
         <span
@@ -666,18 +648,15 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
             >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image.png"
-              >
-                image.png
-              </a>
-            </span>
+              image.png
+            </a>
           </span>
         </div>
         <span
@@ -772,18 +751,15 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
             >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image.png"
-              >
-                image.png
-              </a>
-            </span>
+              image.png
+            </a>
           </span>
         </div>
         <span
@@ -878,18 +854,15 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
             >
-              <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="image.png"
-              >
-                image.png
-              </a>
-            </span>
+              image.png
+            </a>
           </span>
         </div>
         <span
@@ -1003,69 +976,66 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="xxx.png"
+            >
+              xxx.png
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
             >
               <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="xxx.png"
+                title="Download file"
               >
-                xxx.png
+                <i
+                  aria-label="icon: download"
+                  class="anticon anticon-download"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="download"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                    />
+                  </svg>
+                </i>
               </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
+              <a
+                title="Remove file"
               >
-                <a
-                  title="Download file"
+                <i
+                  aria-label="icon: delete"
+                  class="anticon anticon-delete"
+                  tabindex="-1"
                 >
-                  <i
-                    aria-label="icon: download"
-                    class="anticon anticon-download"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-                <a
-                  title="Remove file"
-                >
-                  <i
-                    aria-label="icon: delete"
-                    class="anticon anticon-delete"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </i>
+              </a>
             </span>
           </span>
         </div>
@@ -1089,69 +1059,66 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="yyy.png"
+            >
+              yyy.png
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
             >
               <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="yyy.png"
+                title="Download file"
               >
-                yyy.png
+                <i
+                  aria-label="icon: download"
+                  class="anticon anticon-download"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="download"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                    />
+                  </svg>
+                </i>
               </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
+              <a
+                title="Remove file"
               >
-                <a
-                  title="Download file"
+                <i
+                  aria-label="icon: delete"
+                  class="anticon anticon-delete"
+                  tabindex="-1"
                 >
-                  <i
-                    aria-label="icon: download"
-                    class="anticon anticon-download"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-                <a
-                  title="Remove file"
-                >
-                  <i
-                    aria-label="icon: delete"
-                    class="anticon anticon-delete"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </i>
+              </a>
             </span>
           </span>
         </div>
@@ -1188,69 +1155,66 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="xxx.png"
+            >
+              xxx.png
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
             >
               <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="xxx.png"
+                title="Download file"
               >
-                xxx.png
+                <i
+                  aria-label="icon: download"
+                  class="anticon anticon-download"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="download"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                    />
+                  </svg>
+                </i>
               </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
+              <a
+                title="Remove file"
               >
-                <a
-                  title="Download file"
+                <i
+                  aria-label="icon: delete"
+                  class="anticon anticon-delete"
+                  tabindex="-1"
                 >
-                  <i
-                    aria-label="icon: download"
-                    class="anticon anticon-download"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-                <a
-                  title="Remove file"
-                >
-                  <i
-                    aria-label="icon: delete"
-                    class="anticon anticon-delete"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </i>
+              </a>
             </span>
           </span>
         </div>
@@ -1274,69 +1238,66 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
-            <span
+            <a
               class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="yyy.png"
+            >
+              yyy.png
+            </a>
+            <span
+              class="ant-upload-list-item-card-actions picture"
             >
               <a
-                href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                rel="noopener noreferrer"
-                target="_blank"
-                title="yyy.png"
+                title="Download file"
               >
-                yyy.png
+                <i
+                  aria-label="icon: download"
+                  class="anticon anticon-download"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="download"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                    />
+                  </svg>
+                </i>
               </a>
-              <span
-                class="ant-upload-list-item-card-actions picture"
+              <a
+                title="Remove file"
               >
-                <a
-                  title="Download file"
+                <i
+                  aria-label="icon: delete"
+                  class="anticon anticon-delete"
+                  tabindex="-1"
                 >
-                  <i
-                    aria-label="icon: download"
-                    class="anticon anticon-download"
-                    tabindex="-1"
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="delete"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
                   >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-                <a
-                  title="Remove file"
-                >
-                  <i
-                    aria-label="icon: delete"
-                    class="anticon anticon-delete"
-                    tabindex="-1"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="delete"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                      />
-                    </svg>
-                  </i>
-                </a>
-              </span>
+                    <path
+                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                    />
+                  </svg>
+                </i>
+              </a>
             </span>
           </span>
         </div>

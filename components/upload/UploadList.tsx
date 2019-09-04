@@ -156,10 +156,11 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         </span>
       );
       const preview = file.url ? (
-        <span className={`${prefixCls}-list-item-name`}>
+        <>
           <a
             target="_blank"
             rel="noopener noreferrer"
+            className={`${prefixCls}-list-item-name`}
             title={file.name}
             {...linkProps}
             href={file.url}
@@ -168,7 +169,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             {file.name}
           </a>
           {downloadOrDelete}
-        </span>
+        </>
       ) : (
         <span
           className={`${prefixCls}-list-item-name`}
