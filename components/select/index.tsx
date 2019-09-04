@@ -20,10 +20,11 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon: React.ReactNode;
   size?: 'large' | 'default' | 'small';
-  mode?: 'multiple' | 'tags' | 'INTERNAL_COMBOBOX';
+  mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 }
 
-export interface SelectProps<VT> extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode'> {
+export interface SelectProps<VT>
+  extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement'> {
   mode?: 'multiple' | 'tags';
 }
 
@@ -34,9 +35,24 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
   static Option = Option;
   static OptGroup = OptGroup;
 
+  static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+
   static defaultProps = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
+  };
+
+  selectRef = React.createRef<RcSelect<ValueType>>();
+
+  public focus = () => {
+    if (this.selectRef.current) {
+      this.selectRef.current.focus();
+    }
+  };
+  public blur = () => {
+    if (this.selectRef.current) {
+      this.selectRef.current.blur();
+    }
   };
 
   getMode = () => {
@@ -44,7 +60,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
 
     if ((mode as any) === 'combobox') {
       return undefined;
-    } else if (mode === 'INTERNAL_COMBOBOX') {
+    } else if (mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE) {
       return 'combobox';
     }
 
@@ -115,7 +131,9 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
 
     return (
       <RcSelect<ValueType>
+        ref={this.selectRef}
         {...selectProps}
+        mode={mode}
         prefixCls={prefixCls}
         inputIcon={mergedSuffixIcon}
         menuItemSelectedIcon={mergedItemIcon}
