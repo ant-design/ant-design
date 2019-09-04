@@ -28,7 +28,7 @@ ReactDOM.render(
         {menu}
         <Divider style={{ margin: '4px 0' }} />
         <a
-          style={{ padding: '8px', cursor: 'pointer' }}
+          style={{ padding: '8px', display: 'block', cursor: 'pointer' }}
           onClick={() => {
             message.info('Add an item!');
           }}
