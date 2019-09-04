@@ -17,12 +17,15 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-interface InternalSelectProps<VT> extends RcSelectProps<VT> {
+interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon: React.ReactNode;
   size?: 'large' | 'default' | 'small';
+  mode?: 'multiple' | 'tags' | 'INTERNAL_COMBOBOX';
 }
 
-export type SelectProps<VT> = Omit<InternalSelectProps<VT>, 'inputIcon'>;
+export interface SelectProps<VT> extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode'> {
+  mode?: 'multiple' | 'tags';
+}
 
 // We still use class here since `forwardRef` not support generic in typescript
 class Select<ValueType extends SelectValue = SelectValue> extends React.Component<
@@ -36,11 +39,22 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     choiceTransitionName: 'zoom',
   };
 
+  getMode = () => {
+    const { mode } = this.props as InternalSelectProps<ValueType>;
+
+    if ((mode as any) === 'combobox') {
+      return undefined;
+    } else if (mode === 'INTERNAL_COMBOBOX') {
+      return 'combobox';
+    }
+
+    return mode;
+  };
+
   renderSelect = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       suffixIcon,
-      mode,
       menuItemSelectedIcon,
       removeIcon,
       loading,
@@ -50,6 +64,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
+    const mode = this.getMode();
 
     const isMultiple = mode === 'multiple' || mode === 'tags';
 
