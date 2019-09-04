@@ -1,3 +1,5 @@
+// TODO: 4.0 remove `dataSource`
+
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import { SelectProps as RcSelectProps } from 'rc-select';

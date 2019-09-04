@@ -24,12 +24,14 @@ function onSelect(value) {
 
 class Complete extends React.Component {
   state = {
-    dataSource: [],
+    options: [],
   };
 
   handleSearch = value => {
     this.setState({
-      dataSource: !value ? [] : [value, value + value, value + value + value],
+      options: !value
+        ? []
+        : [{ value }, { value: value + value }, { value: value + value + value }],
     });
   };
 
@@ -38,10 +40,10 @@ class Complete extends React.Component {
   };
 
   render() {
-    const { dataSource } = this.state;
+    const { options } = this.state;
     return (
       <AutoComplete
-        dataSource={dataSource}
+        options={options}
         style={{ width: 200 }}
         onSelect={onSelect}
         onSearch={this.handleSearch}
