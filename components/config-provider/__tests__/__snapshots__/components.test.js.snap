@@ -17343,7 +17343,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
               class="config-upload-list-item-card-actions "
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -17444,7 +17444,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
               class="ant-upload-list-item-card-actions "
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -17545,7 +17545,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
               class="ant-upload-list-item-card-actions "
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"

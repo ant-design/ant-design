@@ -74,7 +74,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               class="ant-upload-list-item-card-actions "
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -167,7 +167,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
               class="ant-upload-list-item-card-actions "
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -369,7 +369,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
               class="ant-upload-list-item-card-actions "
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -501,7 +501,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             aria-label="icon: download"
             class="anticon anticon-download"
             tabindex="-1"
-            title="download file"
+            title="Download file"
           >
             <svg
               aria-hidden="true"
@@ -607,7 +607,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             aria-label="icon: download"
             class="anticon anticon-download"
             tabindex="-1"
-            title="download file"
+            title="Download file"
           >
             <svg
               aria-hidden="true"
@@ -713,7 +713,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             aria-label="icon: download"
             class="anticon anticon-download"
             tabindex="-1"
-            title="download file"
+            title="Download file"
           >
             <svg
               aria-hidden="true"
@@ -819,7 +819,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             aria-label="icon: download"
             class="anticon anticon-download"
             tabindex="-1"
-            title="download file"
+            title="Download file"
           >
             <svg
               aria-hidden="true"
@@ -925,7 +925,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
             aria-label="icon: download"
             class="anticon anticon-download"
             tabindex="-1"
-            title="download file"
+            title="Download file"
           >
             <svg
               aria-hidden="true"
@@ -1018,7 +1018,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 class="ant-upload-list-item-card-actions picture"
               >
                 <a
-                  title="download file"
+                  title="Download file"
                 >
                   <i
                     aria-label="icon: download"
@@ -1104,7 +1104,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 class="ant-upload-list-item-card-actions picture"
               >
                 <a
-                  title="download file"
+                  title="Download file"
                 >
                   <i
                     aria-label="icon: download"
@@ -1203,7 +1203,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 class="ant-upload-list-item-card-actions picture"
               >
                 <a
-                  title="download file"
+                  title="Download file"
                 >
                   <i
                     aria-label="icon: download"
@@ -1289,7 +1289,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                 class="ant-upload-list-item-card-actions picture"
               >
                 <a
-                  title="download file"
+                  title="Download file"
                 >
                   <i
                     aria-label="icon: download"

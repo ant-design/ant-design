@@ -294,7 +294,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
               class="ant-upload-list-item-card-actions "
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -452,7 +452,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -538,7 +538,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -643,7 +643,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -748,7 +748,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -834,7 +834,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -920,7 +920,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -1006,7 +1006,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -1092,7 +1092,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -1178,7 +1178,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
@@ -1264,7 +1264,7 @@ exports[`Upload List should non-image format file preview 1`] = `
               class="ant-upload-list-item-card-actions picture"
             >
               <a
-                title="download file"
+                title="Download file"
               >
                 <i
                   aria-label="icon: download"
