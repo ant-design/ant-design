@@ -147,11 +147,25 @@
     font-size: @font-size-base;
     &-name {
       display: inline-block;
-      width: 100%;
       padding-left: @font-size-base + 8px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    &-card-actions {
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      &.picture {
+        top: 25px;
+        line-height: 1;
+        opacity: 1;
+      }
+      .anticon {
+        padding-right: 5px;
+        color: rgba(0, 0, 0, 0.45);
+      }
     }
 
     &-info {
@@ -196,14 +210,21 @@
       opacity: 1;
     }
 
+    &:hover &-card-actions {
+      opacity: 1;
+    }
+
     &-error,
     &-error .@{iconfont-css-prefix}-paper-clip,
     &-error &-name {
       color: @error-color;
     }
 
-    &-error .@{iconfont-css-prefix}-close {
-      color: @error-color !important;
+    &-error &-card-actions {
+      .anticon {
+        padding-right: 5px;
+        color: @error-color;
+      }
       opacity: 1;
     }
 
@@ -281,7 +302,7 @@
       box-sizing: border-box;
       max-width: 100%;
       margin: 0 0 0 8px;
-      padding-right: 8px;
+      padding-right: 48px;
       padding-left: 48px;
       overflow: hidden;
       line-height: 44px;
@@ -353,6 +374,7 @@
       transition: all 0.3s;
 
       .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-download,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
         width: 16px;
