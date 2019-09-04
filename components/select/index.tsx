@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import omit from 'omit.js';
+import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
 import { Down, Loading, Check, Close } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -18,6 +19,7 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 interface InternalSelectProps<VT> extends RcSelectProps<VT> {
   suffixIcon: React.ReactNode;
+  size?: 'large' | 'default' | 'small';
 }
 
 export type SelectProps<VT> = Omit<InternalSelectProps<VT>, 'inputIcon'>;
@@ -43,6 +45,8 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       removeIcon,
       loading,
       notFoundContent,
+      className,
+      size,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -87,7 +91,12 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       mergedRemoveIcon = <Close />;
     }
 
-    const selectProps = omit(this.props, ['prefixCls', 'suffixIcon']);
+    const selectProps = omit(this.props, ['prefixCls', 'suffixIcon', 'size']);
+
+    const mergedClassName = classNames(className, {
+      [`${prefixCls}-lg`]: size === 'large',
+      [`${prefixCls}-sm`]: size === 'small',
+    });
 
     return (
       <RcSelect<ValueType>
@@ -97,6 +106,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
         menuItemSelectedIcon={mergedItemIcon}
         removeIcon={mergedRemoveIcon}
         notFoundContent={mergedNotFound}
+        className={mergedClassName}
       />
     );
   };
