@@ -1,6 +1,7 @@
 @import './index';
 
 @select-selection-height: @input-height-base - @input-padding-vertical-base * 2;
+@select-multiple-padding: @input-padding-vertical-base - @border-width-base;
 
 .@{select-prefix-cls}-multiple {
   // ========================= Selector =========================
@@ -12,7 +13,7 @@
     flex-wrap: wrap;
     align-items: center;
     // Multiple is little different that horizontal is follow the vertical
-    padding: 0 @input-padding-vertical-base;
+    padding: 0 @select-multiple-padding @select-multiple-padding;
   }
 
   // ======================== Selections ========================
@@ -28,19 +29,17 @@
     display: flex;
     padding: 0 (@padding-xs / 2) 0 @padding-xs;
     margin-right: @input-padding-vertical-base;
+    margin-top: @select-multiple-padding;
     flex: none;
 
-    // fontSize * lineHeight is odd which make 1px offset
-    // we should set it back
     height: @select-selection-height;
-    line-height: @select-selection-height - 1px;
-    margin-top: -1px;
+    line-height: @select-selection-height - 2px;
 
     // It's ok not to do this, but 24px makes bottom narrow in view should adjust
     &-content {
       display: inline-block;
-      transform: translateY(-1px);
       margin-right: @padding-xs / 2;
+      transform: translateY(-1px);
     }
 
     &-remove {
@@ -60,20 +59,6 @@
     }
   }
 
-  .@{select-prefix-cls}-selection-placeholder {
-    height: @select-height-without-border;
-    line-height: @input-height-base;
-    // leave word offset to cover input width
-    margin-left: -0.25em;
-
-    // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
-    @supports (-moz-appearance: meterbar) {
-      & {
-        line-height: @select-height-without-border;
-      }
-    }
-  }
-
   // ========================== Input ==========================
   .@{select-prefix-cls}-selection-search {
     position: relative;
@@ -88,11 +73,13 @@
 
     &-input,
     &-mirror {
-      padding: 1px;
+      height: @select-selection-height;
+      line-height: @select-selection-height;
       font-family: @font-family;
     }
 
     &-input {
+      margin-top: @select-multiple-padding;
       width: 100%;
     }
 
@@ -104,5 +91,21 @@
       top: 0;
       visibility: hidden;
     }
+  }
+
+  // ======================= Placeholder =======================
+  .@{select-prefix-cls}-selection-placeholder {
+    height: @select-height-without-border;
+    line-height: @select-height-without-border;
+    position: absolute;
+    left: @select-multiple-padding;
+    top: 0;
+
+    // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
+    // @supports (-moz-appearance: meterbar) {
+    //   & {
+    //     line-height: @select-height-without-border;
+    //   }
+    // }
   }
 }

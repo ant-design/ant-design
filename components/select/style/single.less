@@ -4,7 +4,6 @@
   // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
     display: flex;
-    position: relative;
     height: @input-height-base;
 
     .@{select-prefix-cls}-selection-search {
@@ -57,6 +56,10 @@
 
       width: 100%;
       padding: 0 @input-padding-horizontal-base;
+
+      .@{select-prefix-cls}-selection-search-input {
+        height: @select-height-without-border;
+      }
     }
   }
 }
