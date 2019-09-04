@@ -32,7 +32,7 @@
     border-top-width: @border-width-base + 0.4px;
     border-radius: @border-radius-sm;
     cursor: default;
-    transition: all 0.3s @ease-in-out;
+    transition: font-size 0.3s, line-height 0.3s, height 0.3s;
     user-select: none;
     display: flex;
     padding: 0 (@padding-xs / 2) 0 @padding-xs;
@@ -63,7 +63,6 @@
       font-size: @font-size-sm;
       line-height: inherit;
       cursor: pointer;
-      transition: all 0.3s;
       .iconfont-size-under-12px(10px);
       &:hover {
         color: @icon-color-hover;
