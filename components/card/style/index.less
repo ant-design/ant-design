@@ -6,14 +6,14 @@
 @card-hover-border: fade(@black, 9%);
 @card-action-icon-size: 16px;
 
-@gradient-min: fade(@card-background, 20%);
-@gradient-max: fade(@card-background, 40%);
+@gradient-min: fade(@card-skeleton-bg, 20%);
+@gradient-max: fade(@card-skeleton-bg, 40%);
 
 .@{card-prefix-cls} {
   .reset-component;
 
   position: relative;
-  background: @component-background;
+  background: @card-background;
   border-radius: @card-radius;
   transition: all 0.3s;
 
@@ -98,10 +98,12 @@
       1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
       0 1px 0 0 @border-color-split inset;
     transition: all 0.3s;
-    &:hover {
-      position: relative;
-      z-index: 1;
-      box-shadow: @box-shadow-base;
+    &-hoverable {
+      &:hover {
+        position: relative;
+        z-index: 1;
+        box-shadow: @box-shadow-base;
+      }
     }
   }
 
@@ -151,7 +153,7 @@
           transition: color 0.3s;
         }
 
-        a,
+        a:not(.@{ant-prefix}-btn),
         > .anticon {
           display: inline-block;
           width: 100%;

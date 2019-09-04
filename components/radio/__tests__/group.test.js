@@ -4,7 +4,7 @@ import Radio from '../radio';
 import RadioGroup from '../group';
 import RadioButton from '../radioButton';
 
-describe('Radio', () => {
+describe('Radio Group', () => {
   function createRadioGroup(props) {
     return (
       <RadioGroup {...props}>

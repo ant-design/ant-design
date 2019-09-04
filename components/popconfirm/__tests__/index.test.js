@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Popconfirm from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Popconfirm', () => {
+  mountTest(Popconfirm);
+
   const eventObject = expect.objectContaining({
     target: expect.anything(),
     preventDefault: expect.any(Function),

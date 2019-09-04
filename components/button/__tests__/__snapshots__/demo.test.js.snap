@@ -519,6 +519,14 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
     </i>
   </button>
   <button
+    class="ant-btn ant-btn-primary ant-btn-circle"
+    type="button"
+  >
+    <span>
+      A
+    </span>
+  </button>
+  <button
     class="ant-btn ant-btn-primary"
     type="button"
   >

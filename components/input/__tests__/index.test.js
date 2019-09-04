@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
 
 const { TextArea } = Input;
@@ -20,6 +21,8 @@ describe('Input', () => {
   });
 
   focusTest(Input);
+  mountTest(Input);
+  mountTest(Input.Group);
 
   it('should support maxLength', () => {
     const wrapper = mount(<Input maxLength={3} />);
@@ -307,5 +310,10 @@ describe('Input allowClear', () => {
         .at(0)
         .getDOMNode(),
     );
+  });
+
+  it('should not support allowClear when it is disabled', () => {
+    const wrapper = mount(<Input allowClear defaultValue="111" disabled />);
+    expect(wrapper.find('.ant-input-clear-icon').length).toBe(0);
   });
 });

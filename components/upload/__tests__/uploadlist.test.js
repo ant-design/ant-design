@@ -463,7 +463,7 @@ describe('Upload List', () => {
           <Form onSubmit={this.handleSubmit}>
             <Form.Item>
               {getFieldDecorator('file', {
-                valuePropname: 'fileList',
+                valuePropName: 'fileList',
                 getValueFromEvent: e => e.fileList,
                 rules: [
                   {

@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Checkbox from '../index';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('CheckboxGroup', () => {
+  mountTest(Checkbox.Group);
+
   it('should work basically', () => {
     const onChange = jest.fn();
     const wrapper = mount(

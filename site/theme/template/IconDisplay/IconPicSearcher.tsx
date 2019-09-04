@@ -72,7 +72,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
       const img = new Image();
       img.setAttribute('crossOrigin', 'anonymous');
       img.src = url;
-      img.onload = function() {
+      img.onload = function onload() {
         const scale = Math.min(1, 300 / Math.max(img.width, img.height));
         const canvas = document.createElement('canvas');
         canvas.width = img.width * scale;
@@ -100,6 +100,12 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
         },
       );
       let icons = await res.json();
+      if (gtag && icons.length >= 1) {
+        gtag('event', 'icon', {
+          event_category: 'search-by-image',
+          event_label: icons[0].class_name,
+        });
+      }
       icons = icons.map((i: any) => ({ score: i.score, type: i.class_name.replace(/\s/g, '-') }));
       this.setState(() => ({ icons, loading: false, error: false }));
     } catch (err) {
