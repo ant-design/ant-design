@@ -1795,538 +1795,639 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
 
 exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
 <div>
-  <div
-    class="components-table-demo-control-bar"
+  <form
+    class="ant-form ant-form-inline components-table-demo-control-bar"
+    style="margin-bottom:16px"
   >
-    <form
-      class="ant-form ant-form-inline"
+    <div
+      class="ant-row ant-form-item"
     >
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-label"
       >
-        <div
-          class="ant-col ant-form-item-label"
+        <label
+          class=""
+          title="Bordered"
         >
-          <label
-            class=""
-            title="Bordered"
-          >
-            Bordered
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
-            >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
-        </div>
+          Bordered
+        </label>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-form-item-control"
         >
-          <label
-            class=""
-            title="loading"
+          <span
+            class="ant-form-item-children"
           >
-            loading
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-label"
       >
-        <div
-          class="ant-col ant-form-item-label"
+        <label
+          class=""
+          title="loading"
         >
-          <label
-            class=""
-            title="Title"
-          >
-            Title
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
-            >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
-        </div>
+          loading
+        </label>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-form-item-control"
         >
-          <label
-            class=""
-            title="Column Header"
+          <span
+            class="ant-form-item-children"
           >
-            Column Header
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-label"
       >
-        <div
-          class="ant-col ant-form-item-label"
+        <label
+          class=""
+          title="Title"
         >
-          <label
-            class=""
-            title="Footer"
-          >
-            Footer
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
-            >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
-        </div>
+          Title
+        </label>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-form-item-control"
         >
-          <label
-            class=""
-            title="Expandable"
+          <span
+            class="ant-form-item-children"
           >
-            Expandable
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-label"
       >
-        <div
-          class="ant-col ant-form-item-label"
+        <label
+          class=""
+          title="Column Header"
         >
-          <label
-            class=""
-            title="Checkbox"
-          >
-            Checkbox
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
-            >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
-        </div>
+          Column Header
+        </label>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-form-item-control"
         >
-          <label
-            class=""
-            title="Fixed Header"
+          <span
+            class="ant-form-item-children"
           >
-            Fixed Header
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
             >
-              <button
-                aria-checked="false"
-                class="ant-switch"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-label"
       >
-        <div
-          class="ant-col ant-form-item-label"
+        <label
+          class=""
+          title="Footer"
         >
-          <label
-            class=""
-            title="Has Data"
-          >
-            Has Data
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
-            >
-              <button
-                aria-checked="true"
-                checked=""
-                class="ant-switch ant-switch-checked"
-                role="switch"
-                type="button"
-              >
-                <span
-                  class="ant-switch-inner"
-                />
-              </button>
-            </span>
-          </div>
-        </div>
+          Footer
+        </label>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-form-item-control"
         >
-          <label
-            class=""
-            title="Size"
+          <span
+            class="ant-form-item-children"
           >
-            Size
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
             >
-              <div
-                class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Expandable"
+        >
+          Expandable
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control"
+        >
+          <span
+            class="ant-form-item-children"
+          >
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
+            >
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Checkbox"
+        >
+          Checkbox
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control"
+        >
+          <span
+            class="ant-form-item-children"
+          >
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
+            >
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Fixed Header"
+        >
+          Fixed Header
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control"
+        >
+          <span
+            class="ant-form-item-children"
+          >
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
+            >
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Has Data"
+        >
+          Has Data
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control"
+        >
+          <span
+            class="ant-form-item-children"
+          >
+            <button
+              aria-checked="true"
+              checked=""
+              class="ant-switch ant-switch-checked"
+              role="switch"
+              type="button"
+            >
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Ellipsis"
+        >
+          Ellipsis
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control"
+        >
+          <span
+            class="ant-form-item-children"
+          >
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
+            >
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Size"
+        >
+          Size
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control"
+        >
+          <span
+            class="ant-form-item-children"
+          >
+            <div
+              class="ant-radio-group ant-radio-group-outline"
+            >
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
               >
-                <label
-                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
                 >
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="default"
+                  />
                   <span
-                    class="ant-radio-button ant-radio-button-checked"
-                  >
-                    <input
-                      checked=""
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="default"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Default
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Default
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="middle"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="middle"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Middle
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Middle
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="small"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="small"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Small
-                  </span>
-                </label>
-              </div>
-            </span>
-          </div>
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Small
+                </span>
+              </label>
+            </div>
+          </span>
         </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Table Layout"
+        >
+          Table Layout
+        </label>
       </div>
       <div
-        class="ant-row ant-form-item"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-form-item-control"
         >
-          <label
-            class=""
-            title="Pagination"
+          <span
+            class="ant-form-item-children"
           >
-            Pagination
-          </label>
-        </div>
-        <div
-          class="ant-col ant-form-item-control-wrapper"
-        >
-          <div
-            class="ant-form-item-control"
-          >
-            <span
-              class="ant-form-item-children"
+            <div
+              class="ant-radio-group ant-radio-group-outline"
             >
-              <div
-                class="ant-radio-group ant-radio-group-outline"
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
               >
-                <label
-                  class="ant-radio-button-wrapper"
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
                 >
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    type="radio"
+                  />
                   <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="top"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Top
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Unset
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
                 >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="fixed"
+                  />
                   <span
-                    class="ant-radio-button ant-radio-button-checked"
-                  >
-                    <input
-                      checked=""
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="bottom"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Bottom
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
-                >
-                  <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="both"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    Both
-                  </span>
-                </label>
-                <label
-                  class="ant-radio-button-wrapper"
-                >
-                  <span
-                    class="ant-radio-button"
-                  >
-                    <input
-                      class="ant-radio-button-input"
-                      type="radio"
-                      value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
-                  </span>
-                  <span>
-                    None
-                  </span>
-                </label>
-              </div>
-            </span>
-          </div>
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Fixed
+                </span>
+              </label>
+            </div>
+          </span>
         </div>
       </div>
-    </form>
-  </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Pagination"
+        >
+          Pagination
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control-wrapper"
+      >
+        <div
+          class="ant-form-item-control"
+        >
+          <span
+            class="ant-form-item-children"
+          >
+            <div
+              class="ant-radio-group ant-radio-group-outline"
+            >
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="top"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Top
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              >
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
+                >
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="bottom"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Bottom
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="both"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Both
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="none"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  None
+                </span>
+              </label>
+            </div>
+          </span>
+        </div>
+      </div>
+    </div>
+  </form>
   <div
     class="ant-table-wrapper"
   >
@@ -2355,16 +2456,10 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   <col
                     class="ant-table-selection-col"
                   />
-                  <col
-                    style="width:150px;min-width:150px"
-                  />
-                  <col
-                    style="width:70px;min-width:70px"
-                  />
                   <col />
-                  <col
-                    style="width:360px;min-width:360px"
-                  />
+                  <col />
+                  <col />
+                  <col />
                 </colgroup>
                 <thead
                   class="ant-table-thead"
