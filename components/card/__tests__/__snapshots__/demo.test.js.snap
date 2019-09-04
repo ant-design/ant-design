@@ -1003,6 +1003,16 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           tabindex="0"
         >
           <div
+            class="ant-tabs-extra-content"
+            style="float:right"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+          <div
             class="ant-tabs-nav-container"
           >
             <span
