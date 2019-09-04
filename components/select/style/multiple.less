@@ -22,6 +22,9 @@
     box-sizing: border-box;
     background: @background-color-base;
     border: 1px solid @border-color-split;
+    // strange align fix for chrome but works
+    // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
+    border-top-width: @border-width-base + 0.4px;
     border-radius: @border-radius-sm;
     cursor: default;
     transition: all 0.3s @ease-in-out;
@@ -31,15 +34,19 @@
     margin-right: @input-padding-vertical-base;
     margin-top: @select-multiple-padding;
     flex: none;
+    max-width: 100%;
 
     height: @select-selection-height;
-    line-height: @select-selection-height - 2px;
+    line-height: @select-selection-height - @border-width-base * 2;
 
     // It's ok not to do this, but 24px makes bottom narrow in view should adjust
     &-content {
       display: inline-block;
       margin-right: @padding-xs / 2;
       transform: translateY(-1px);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
     &-remove {
@@ -63,18 +70,10 @@
   .@{select-prefix-cls}-selection-search {
     position: relative;
 
-    // Fix firefox align
-    @supports (-moz-appearance: meterbar) {
-      & {
-        height: @select-height-without-border;
-        line-height: @select-height-without-border;
-      }
-    }
-
     &-input,
     &-mirror {
       height: @select-selection-height;
-      line-height: @select-selection-height;
+      line-height: @select-selection-height - @border-width-base * 2;
       font-family: @font-family;
     }
 
@@ -100,12 +99,5 @@
     position: absolute;
     left: @select-multiple-padding;
     top: 0;
-
-    // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
-    // @supports (-moz-appearance: meterbar) {
-    //   & {
-    //     line-height: @select-height-without-border;
-    //   }
-    // }
   }
 }
