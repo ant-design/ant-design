@@ -31,7 +31,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
 | twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - | 3.9.0 |
 
-> 注意：Icon 组件的渲染优先级为 component > children > type, 传入 props 时，优先级高的直接生效，优先级低的则失效
+> 注意：Icon 组件中图标渲染的优先级为 component > children > type, 传入 props 时，优先级高的直接生效，优先级低的则失效。
 
 ### SVG 图标
 
