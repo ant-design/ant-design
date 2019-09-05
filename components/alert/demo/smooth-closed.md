@@ -16,31 +16,22 @@ Smoothly unmount Alert upon close.
 ```jsx
 import { Alert } from 'antd';
 
-class App extends React.Component {
-  state = {
-    visible: true,
+const App = () => {
+  const [visible, setVisible] = React.useState(true);
+
+  const handleClose = () => {
+    setVisible(false);
   };
 
-  handleClose = () => {
-    this.setState({ visible: false });
-  };
-
-  render() {
-    return (
-      <div>
-        {this.state.visible ? (
-          <Alert
-            message="Alert Message Text"
-            type="success"
-            closable
-            afterClose={this.handleClose}
-          />
-        ) : null}
-        <p>placeholder text here</p>
-      </div>
-    );
-  }
-}
+  return (
+    <>
+      {visible && (
+        <Alert message="Alert Message Text" type="success" closable afterClose={handleClose} />
+      )}
+      <p>placeholder text here</p>
+    </>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```
