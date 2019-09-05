@@ -1,4 +1,9 @@
-// TODO: 4.0 remove `dataSource`
+/**
+ * TODO: 4.0
+ * - remove `dataSource`
+ * - `size` not work with customizeInput
+ * - customizeInput not feedback `ENTER` key since accessibility enhancement
+ */
 
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
