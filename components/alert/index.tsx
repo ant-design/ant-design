@@ -63,7 +63,7 @@ const iconMapOutlined = {
 };
 
 const Alert = (props: AlertProps) => {
-  let {
+  const {
     description,
     prefixCls: customizePrefixCls,
     message,
@@ -72,10 +72,8 @@ const Alert = (props: AlertProps) => {
     className = '',
     style,
     icon,
-    closable,
-    type,
-    showIcon,
   } = props;
+  let { closable, type, showIcon } = props;
   const { useState, useRef, isValidElement, cloneElement } = React;
   const [closing, setClosing] = useState(true);
   const [closed, setClosed] = useState(false);
