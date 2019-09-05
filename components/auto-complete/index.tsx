@@ -31,30 +31,22 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
   const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
-  React.useEffect(() => {
-    warning(
-      !('dataSource' in props),
-      'AutoComplete',
-      '`dataSource` is deprecated, please use `options` instead.',
-    );
-  }, []);
-
   const selectRef = React.useRef<Select>();
 
   React.useImperativeHandle<Select, Select>(ref, () => selectRef.current!);
 
   // ============================= Input =============================
-  const getInputElement = (): React.ReactElement => {
-    if (
-      childNodes.length === 1 &&
-      React.isValidElement(childNodes[0]) &&
-      !isSelectOptionOrSelectOptGroup(childNodes[0])
-    ) {
-      return childNodes[0];
-    }
+  let customizeInput: React.ReactElement;
 
-    return null as any;
-  };
+  if (
+    childNodes.length === 1 &&
+    React.isValidElement(childNodes[0]) &&
+    !isSelectOptionOrSelectOptGroup(childNodes[0])
+  ) {
+    customizeInput = childNodes[0];
+  }
+
+  const getInputElement = (): React.ReactElement => customizeInput;
 
   // ============================ Options ============================
   let optionChildren: React.ReactNode = undefined;
@@ -83,6 +75,21 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
         })
       : [];
   }
+
+  // ============================ Warning ============================
+  React.useEffect(() => {
+    warning(
+      !('dataSource' in props),
+      'AutoComplete',
+      '`dataSource` is deprecated, please use `options` instead.',
+    );
+
+    warning(
+      !customizeInput || !('size' in props),
+      'AutoComplete',
+      'You need to control style self instead of setting `size` when using customize input.',
+    );
+  }, []);
 
   return (
     <ConfigConsumer>

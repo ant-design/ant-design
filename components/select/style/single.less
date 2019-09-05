@@ -4,7 +4,6 @@
   // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
     display: flex;
-    height: @input-height-base;
 
     .@{select-prefix-cls}-selection-search {
       width: 100%;
@@ -55,6 +54,7 @@
       .select-selector();
       .select-search-input-without-border();
 
+      height: @input-height-base;
       width: 100%;
       padding: 0 @input-padding-horizontal-base;
 
@@ -70,7 +70,7 @@
   .select-size(@suffix, @input-height) {
     @merged-cls: ~'@{select-prefix-cls}-@{suffix}';
 
-    &.@{merged-cls} {
+    &.@{merged-cls}:not(.@{select-prefix-cls}-customize-input) {
       .@{select-prefix-cls}-selector {
         height: @input-height;
 

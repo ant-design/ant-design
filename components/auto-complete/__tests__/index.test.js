@@ -15,15 +15,9 @@ describe('AutoComplete with Custom Input Element Render', () => {
 
     expect(wrapper.find('textarea').length).toBe(1);
     wrapper.find('textarea').simulate('change', { target: { value: '123' } });
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
 
     // should not filter data source defaultly
-    expect(dropdownWrapper.find('MenuItem').length).toBe(3);
+    expect(wrapper.find('.ant-select-item-option').length).toBe(3);
   });
 
   it('AutoComplete should work when dataSource is object array', () => {
@@ -34,15 +28,9 @@ describe('AutoComplete with Custom Input Element Render', () => {
     );
     expect(wrapper.find('input').length).toBe(1);
     wrapper.find('input').simulate('change', { target: { value: 'a' } });
-    const dropdownWrapper = mount(
-      wrapper
-        .find('Trigger')
-        .instance()
-        .getComponent(),
-    );
 
     // should not filter data source defaultly
-    expect(dropdownWrapper.find('MenuItem').length).toBe(2);
+    expect(wrapper.find('.ant-select-item-option').length).toBe(2);
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {

@@ -71,12 +71,10 @@ class Complete extends React.Component {
       <div className="global-search-wrapper" style={{ width: 300 }}>
         <AutoComplete
           className="global-search"
-          size="large"
           style={{ width: '100%' }}
           options={options}
           onSelect={onSelect}
           onSearch={this.handleSearch}
-          placeholder="input here"
         >
           <Input
             suffix={
@@ -89,6 +87,8 @@ class Complete extends React.Component {
                 <Search />
               </Button>
             }
+            size="large"
+            placeholder="input here"
           />
         </AutoComplete>
       </div>

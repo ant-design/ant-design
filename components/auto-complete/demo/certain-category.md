@@ -71,12 +71,14 @@ function Complete() {
         className="certain-category-search"
         dropdownClassName="certain-category-search-dropdown"
         dropdownMatchSelectWidth={500}
-        size="large"
         style={{ width: '100%' }}
         options={options}
-        placeholder="input here"
       >
-        <Input suffix={<Search className="certain-category-icon" />} />
+        <Input
+          size="large"
+          suffix={<Search className="certain-category-icon" />}
+          placeholder="input here"
+        />
       </AutoComplete>
     </div>
   );
