@@ -27,6 +27,7 @@ This components provides some static methods, with usage and arguments as follow
 | --- | --- | --- | --- | --- |
 | content | content of the message | string\|ReactNode | - |  |
 | duration | time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |  |
+| key | The unique identifier of the Message | string | - |  |
 | onClose | Specify a function that will be called when the message is closed | Function | - |  |
 
 `afterClose` can be called in thenable interface:

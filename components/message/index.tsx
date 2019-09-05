@@ -53,6 +53,7 @@ export interface ArgsProps {
   type: NoticeType;
   onClose?: () => void;
   icon?: React.ReactNode;
+  key?: string;
 }
 
 function notice(args: ArgsProps): MessageType {
@@ -79,7 +80,7 @@ function notice(args: ArgsProps): MessageType {
       );
       const switchIconNode = iconType ? iconNode : '';
       instance.notice({
-        key: target,
+        key: args.key || target,
         duration,
         style: {},
         content: (
