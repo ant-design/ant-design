@@ -95,9 +95,6 @@ jobs:
     steps:
       - checkout
       - *attach_workspace
-      - run:
-          name: Check current version of node
-          command: node -v
       - run: npm run dist
       - run: node ./tests/dekko/dist.test.js
       - run: npm run bundlesize
