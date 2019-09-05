@@ -3,7 +3,7 @@ version: 2
 references:
   container_config: &container_config
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:lts
     working_directory: ~/ant-design
 
   attach_workspace: &attach_workspace
