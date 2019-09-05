@@ -17,8 +17,6 @@ import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 
-function noop() {}
-
 export interface AlertProps {
   /**
    * Type of Alert styles, options:`success`, `info`, `warning`, `error`
@@ -64,47 +62,50 @@ const iconMapOutlined = {
   warning: ExclamationCircle,
 };
 
-export default class Alert extends React.Component<AlertProps, AlertState> {
-  state = {
-    closing: true,
-    closed: false,
-  };
+const Alert = (props: AlertProps) => {
+  let {
+    description,
+    prefixCls: customizePrefixCls,
+    message,
+    closeText,
+    banner,
+    className = '',
+    style,
+    icon,
+    closable,
+    type,
+    showIcon,
+  } = props;
+  const { useState, useRef, isValidElement, cloneElement } = React;
+  const [closing, setClosing] = useState(true);
+  const [closed, setClosed] = useState(false);
+  const wrapperRef = useRef(null);
 
-  handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const dom = ReactDOM.findDOMNode(this) as HTMLElement;
+    const dom = ReactDOM.findDOMNode(wrapperRef.current) as HTMLElement;
     dom.style.height = `${dom.offsetHeight}px`;
     // Magic code
     // 重复一次后才能正确设置 height
     dom.style.height = `${dom.offsetHeight}px`;
 
-    this.setState({
-      closing: false,
-    });
-    (this.props.onClose || noop)(e);
+    setClosing(false);
+
+    if (props.onClose) {
+      props.onClose(e);
+    }
   };
 
-  animationEnd = () => {
-    this.setState({
-      closed: true,
-      closing: true,
-    });
-    (this.props.afterClose || noop)();
+  const animationEnd = () => {
+    setClosed(true);
+    setClosing(true);
+
+    if (props.afterClose) {
+      props.afterClose();
+    }
   };
 
-  renderAlert = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const {
-      description,
-      prefixCls: customizePrefixCls,
-      message,
-      closeText,
-      banner,
-      className = '',
-      style,
-      icon,
-    } = this.props;
-    let { closable, type, showIcon } = this.props;
-
+  const renderAlert = ({ getPrefixCls }: ConfigConsumerProps) => {
     const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
     // banner模式默认有 Icon
@@ -124,7 +125,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       prefixCls,
       `${prefixCls}-${type}`,
       {
-        [`${prefixCls}-close`]: !this.state.closing,
+        [`${prefixCls}-close`]: !closing,
         [`${prefixCls}-with-description`]: !!description,
         [`${prefixCls}-no-icon`]: !showIcon,
         [`${prefixCls}-banner`]: !!banner,
@@ -134,22 +135,16 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
 
     const closeIcon = closable ? (
-      <span
-        role="button"
-        onClick={this.handleClose}
-        className={`${prefixCls}-close-icon`}
-        tabIndex={0}
-      >
+      <span role="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
         {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : <Close />}
       </span>
     ) : null;
 
-    const dataOrAriaProps = getDataOrAriaProps(this.props);
-
+    const dataOrAriaProps = getDataOrAriaProps(props);
     const iconNode =
       (icon &&
-        (React.isValidElement<{ className?: string }>(icon) ? (
-          React.cloneElement(icon, {
+        (isValidElement<{ className?: string }>(icon) ? (
+          cloneElement(icon, {
             className: classNames({
               [icon.props.className as string]: icon.props.className,
               [`${prefixCls}-icon`]: true,
@@ -160,14 +155,15 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         ))) ||
       React.createElement(iconType, { className: `${prefixCls}-icon` });
 
-    return this.state.closed ? null : (
+    return closed ? null : (
       <Animate
         component=""
         showProp="data-show"
         transitionName={`${prefixCls}-slide-up`}
-        onEnd={this.animationEnd}
+        onEnd={animationEnd}
+        ref={wrapperRef}
       >
-        <div data-show={this.state.closing} className={alertCls} style={style} {...dataOrAriaProps}>
+        <div data-show={closing} className={alertCls} style={style} {...dataOrAriaProps}>
           {showIcon ? iconNode : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>
@@ -177,7 +173,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
   };
 
-  render() {
-    return <ConfigConsumer>{this.renderAlert}</ConfigConsumer>;
-  }
-}
+  return <ConfigConsumer>{renderAlert}</ConfigConsumer>;
+};
+
+export default Alert;
