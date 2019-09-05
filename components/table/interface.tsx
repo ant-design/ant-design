@@ -184,8 +184,8 @@ export interface TableProps<T> {
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
-  footer?: (currentPageData: Object[]) => React.ReactNode;
-  title?: (currentPageData: Object[]) => React.ReactNode;
+  footer?: (currentPageData: T[]) => React.ReactNode;
+  title?: (currentPageData: T[]) => React.ReactNode;
   scroll?: { x?: boolean | number | string; y?: boolean | number | string };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
