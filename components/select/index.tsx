@@ -9,6 +9,8 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 type RawValue = string | number;
 
+export type OptionType = typeof Option;
+
 export interface LabeledValue {
   key?: string;
   value: RawValue;
@@ -33,6 +35,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
   SelectProps<ValueType>
 > {
   static Option = Option;
+
   static OptGroup = OptGroup;
 
   static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -49,6 +52,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       this.selectRef.current.focus();
     }
   };
+
   public blur = () => {
     if (this.selectRef.current) {
       this.selectRef.current.blur();
@@ -60,7 +64,9 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
 
     if ((mode as any) === 'combobox') {
       return undefined;
-    } else if (mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE) {
+    }
+
+    if (mode === Select.SECRET_COMBOBOX_MODE_DO_NOT_USE) {
       return 'combobox';
     }
 
@@ -88,7 +94,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     const isMultiple = mode === 'multiple' || mode === 'tags';
 
     // ===================== Empty =====================
-    let mergedNotFound = undefined;
+    let mergedNotFound;
     if (notFoundContent !== undefined) {
       mergedNotFound = notFoundContent;
     } else if (mode === 'combobox') {
@@ -160,7 +166,5 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     return <ConfigConsumer>{this.renderSelect}</ConfigConsumer>;
   }
 }
-
-export { Option };
 
 export default Select;

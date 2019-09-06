@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Upload, Tooltip, Popover, Modal, Progress, message, Spin, Result } from 'antd';
-import { Camera, Inbox } from '@ant-design/icons';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
 import * as AntdIcons from '@ant-design/icons';
@@ -150,7 +149,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
           content={messages[`app.docs.components.icon.pic-searcher.intro`]}
           visible={popoverVisible}
         >
-          <Camera className="icon-pic-btn" onClick={this.toggleModal} />
+          <AntdIcons.Camera className="icon-pic-btn" onClick={this.toggleModal} />
         </Popover>
         <Modal
           title={messages[`app.docs.components.icon.pic-searcher.title`]}
@@ -166,7 +165,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
             showUploadList={{ showPreviewIcon: false, showRemoveIcon: false }}
           >
             <p className="ant-upload-drag-icon">
-              <Inbox />
+              <AntdIcons.Inbox />
             </p>
             <p className="ant-upload-text">
               {messages['app.docs.components.icon.pic-searcher.upload-text']}

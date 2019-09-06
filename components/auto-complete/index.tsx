@@ -10,9 +10,11 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { SelectProps as RcSelectProps } from 'rc-select';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Select, { Option, InternalSelectProps } from '../select';
+import Select, { InternalSelectProps, OptionType } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
+
+const { Option } = Select;
 
 const InternalSelect = Select as React.ComponentClass<RcSelectProps>;
 
@@ -53,7 +55,7 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
   const getInputElement = (): React.ReactElement => customizeInput;
 
   // ============================ Options ============================
-  let optionChildren: React.ReactNode = undefined;
+  let optionChildren: React.ReactNode;
 
   // [Legacy] convert `children` or `dataSource` into option children
   if (childNodes.length && isSelectOptionOrSelectOptGroup(childNodes[0])) {
@@ -120,7 +122,7 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
 const RefAutoComplete = React.forwardRef<Select, AutoCompleteProps>(AutoComplete);
 
 type RefAutoComplete = typeof RefAutoComplete & {
-  Option: typeof Option;
+  Option: OptionType;
 };
 
 (RefAutoComplete as RefAutoComplete).Option = Option;
