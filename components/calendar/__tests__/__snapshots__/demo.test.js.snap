@@ -2128,10 +2128,12 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         Custom header 
       </div>
       <div
-        class="ant-row-flex ant-row-flex-space-between"
+        class="ant-row-flex"
+        style="margin-left:-4px;margin-right:-4px;flex-wrap:nowrap"
       >
         <div
           class="ant-col"
+          style="padding-left:4px;padding-right:4px;flex:none"
         >
           <div
             class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
@@ -2179,6 +2181,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
+          style="padding-left:4px;padding-right:4px;flex:auto"
         >
           <div
             class="ant-select my-year-select ant-select-sm ant-select-single ant-select-show-arrow"
@@ -2239,6 +2242,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         </div>
         <div
           class="ant-col"
+          style="padding-left:4px;padding-right:4px;flex:auto"
         >
           <div
             class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"

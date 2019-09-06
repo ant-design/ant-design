@@ -18,7 +18,7 @@ export interface LabeledValue {
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
-  suffixIcon: React.ReactNode;
+  suffixIcon?: React.ReactNode;
   size?: 'large' | 'default' | 'small';
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 }

@@ -60,14 +60,14 @@ ReactDOM.render(
         return (
           <div style={{ padding: 10 }}>
             <div style={{ marginBottom: '10px' }}>Custom header </div>
-            <Row type="flex" justify="space-between">
-              <Col>
+            <Row type="flex" style={{ flexWrap: 'nowrap' }} gutter={8}>
+              <Col style={{ flex: 'none' }}>
                 <Group size="small" onChange={e => onTypeChange(e.target.value)} value={type}>
                   <Button value="month">Month</Button>
                   <Button value="year">Year</Button>
                 </Group>
               </Col>
-              <Col>
+              <Col style={{ flex: 'auto' }}>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
@@ -81,7 +81,7 @@ ReactDOM.render(
                   {options}
                 </Select>
               </Col>
-              <Col>
+              <Col style={{ flex: 'auto' }}>
                 <Select
                   size="small"
                   dropdownMatchSelectWidth={false}
