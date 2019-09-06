@@ -279,10 +279,13 @@ describe('Anchor Render', () => {
     let dateNowMock;
 
     function dataNowMockFn() {
-      return jest
-        .spyOn(Date, 'now')
-        .mockImplementationOnce(() => 0)
-        .mockImplementationOnce(() => 1000);
+      let start = 0;
+
+      const handler = () => {
+        return (start += 1000);
+      };
+
+      return jest.spyOn(Date, 'now').mockImplementation(handler);
     }
 
     dateNowMock = dataNowMockFn();

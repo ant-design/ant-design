@@ -44,16 +44,16 @@ ReactDOM.render(
       USA (美国)
     </Option>
     <Option value="japan" label="Japan">
-      <span role="img" aria-label="USA">
+      <span role="img" aria-label="Japan">
         🇯🇵{' '}
       </span>
       Japan (日本)
     </Option>
-    <Option value="koean" label="Koean">
-      <span role="img" aria-label="USA">
+    <Option value="korea" label="Korea">
+      <span role="img" aria-label="Korea">
         🇰🇷{' '}
       </span>
-      Koean (韩国)
+      Korea (韩国)
     </Option>
   </Select>,
   mountNode,

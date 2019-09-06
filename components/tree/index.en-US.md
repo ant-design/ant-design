@@ -54,7 +54,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - | 3.17.0 | 3.17.0 |
+| checkable | When Tree is checkable, set TreeNode display Checkbox or not | boolean | - | 3.17.0 |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |  |
 | disabled | Disables the treeNode | boolean | false |  |  |
 | icon | customize icon. When you pass component, whose render will receive full TreeNode props as component props | ReactNode/Function(props):ReactNode | - |  | 3.4.0 |
