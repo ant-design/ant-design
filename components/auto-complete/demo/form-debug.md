@@ -31,7 +31,7 @@ ReactDOM.render(
     </Form.Item>
     <Form.Item label="添加Input.Group正常" {...formItemLayout}>
       <Input.Group compact>
-        <TreeSelect style={{ width: '30%' }}></TreeSelect>
+        <TreeSelect style={{ width: '30%' }} />
         <AutoComplete />
       </Input.Group>
     </Form.Item>
@@ -42,7 +42,7 @@ ReactDOM.render(
     </Form.Item>
     <Form.Item label="同时有Input.Group和图标发生移位" {...formItemLayout}>
       <Input.Group compact>
-        <TreeSelect style={{ width: '30%' }}></TreeSelect>
+        <TreeSelect style={{ width: '30%' }} />
         <AutoComplete>
           <Input suffix={<Search />} />
         </AutoComplete>
@@ -50,7 +50,7 @@ ReactDOM.render(
     </Form.Item>
     <Form.Item label="同时有Input.Group和Search组件发生移位" {...formItemLayout}>
       <Input.Group compact>
-        <TreeSelect style={{ width: '30%' }}></TreeSelect>
+        <TreeSelect style={{ width: '30%' }} />
         <AutoComplete>
           <Input.Search />
         </AutoComplete>

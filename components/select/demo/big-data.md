@@ -17,7 +17,6 @@ Select use [virtual scroll](https://github.com/react-component/virtual-list) whi
 import { Select, Typography, Divider } from 'antd';
 
 const { Title } = Typography;
-const { Option } = Select;
 
 const options = [];
 for (let i = 0; i < 100000; i++) {
@@ -49,6 +48,7 @@ ReactDOM.render(
 
     <Title level={3}>Ant Design 3.0</Title>
     <iframe
+      title="Ant Design 3.0 Select demo"
       src="https://codesandbox.io/embed/beautiful-banzai-m72lv?view=preview"
       style={{ width: '100%', height: 300 }}
     />

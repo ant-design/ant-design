@@ -33,7 +33,7 @@ ReactDOM.render(
         Disabled
       </Option>
       <Option value="Yiminghe">yiminghe</Option>
-      <Option value="long">I'm super super long!</Option>
+      <Option value="long">I am super super long!</Option>
     </Select>
     <Select
       mode="multiple"
@@ -49,7 +49,7 @@ ReactDOM.render(
         Disabled
       </Option>
       <Option value="Yiminghe">yiminghe</Option>
-      <Option value="long">I'm super super long!</Option>
+      <Option value="long">I am super super long!</Option>
     </Select>
     <span>AntDesign</span>
     <Button>222</Button>
