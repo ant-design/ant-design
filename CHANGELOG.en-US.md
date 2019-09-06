@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 3.23.2
+
+`2019-09-06`
+
+- 🐞 Fix `round` Button font size too large. [#18701](https://github.com/ant-design/ant-design/pull/18701)
+- 🐞 Fix Descriptions warning with same key when bordered is true. [#18637](https://github.com/ant-design/ant-design/pull/18637)
+- 🐞 Fix Drawer animation when `placement` is right and `mask` is false. [#18636](https://github.com/ant-design/ant-design/pull/18636)
+- 🐞 Fix Icon that `component` and `children` prop should have priority over `type` prop. [#18592](https://github.com/ant-design/ant-design/pull/18592)
+- 🐞 Fix Layout.Sider boundary values for max-width. [#18553](https://github.com/ant-design/ant-design/pull/18553) [@Nikitenkova](https://github.com/Nikitenkova)
+- 🐞 Fix PageHeader that back icon can't coexist with breadcrumb. [#18691](https://github.com/ant-design/ant-design/pull/18691)
+- 🗑Deprecated Select `inputValue` prop and use `searchValue` instead. [#18629](https://github.com/ant-design/ant-design/pull/18629)
+- TypeScript
+  - 🐞 Fix type definition of `status` for Result. [#18445](https://github.com/ant-design/ant-design/pull/18445)
+  - 🐞 Fix type definition of `target` for Anchor.Link. [#18646](https://github.com/ant-design/ant-design/pull/18646)
+  - 🐞 Fix type definition of `transformFile` params for Upload. [#18671](https://github.com/ant-design/ant-design/pull/18671)
+  - 🐞 Fix type definition of `title` and `footer` for Table. [#18697](https://github.com/ant-design/ant-design/pull/18697) [@yoyo837](https://github.com/yoyo837)
+
 ## 3.23.1
 
 `2019-09-03`

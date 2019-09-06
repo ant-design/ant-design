@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 3.23.2
+
+`2019-09-06`
+
+- 🐞 修复圆形按钮的字体大一号的问题。[#18701](https://github.com/ant-design/ant-design/pull/18701)
+- 🐞 修复 Descriptions 带边框时控制台告警的问题。[#18637](https://github.com/ant-design/ant-design/pull/18637)
+- 🐞 修复 Drawer 无遮罩从右边展开时的动画问题。[#18636](https://github.com/ant-design/ant-design/pull/18636)
+- 🐞 修复 Icon 中 `component` 和 `children` 属性优先级低于 `type` 的问题。[#18592](https://github.com/ant-design/ant-design/pull/18592)
+- 🐞 修复 Layout.Sider 的最大宽度的响应式断点值。[#18553](https://github.com/ant-design/ant-design/pull/18553) [@Nikitenkova](https://github.com/Nikitenkova)
+- 🐞 修复 PageHeader 中返回图标与面包屑无法共存的问题。[#18691](https://github.com/ant-design/ant-design/pull/18691)
+- 🗑 废弃 Select 的 `inputValue` 属性，请使用 `searchValue` 代替。[#18629](https://github.com/ant-design/ant-design/pull/18629)
+- TypeScript
+  - 🐞 修复 Result 中 `status` 的类型定义。[#18445](https://github.com/ant-design/ant-design/pull/18445)
+  - 🐞 修复 Anchor.Link 中 `target` 的类型定义。[#18646](https://github.com/ant-design/ant-design/pull/18646)
+  - 🐞 修复 Upload 中 `transformFile` 函数的参数定义。[#18671](https://github.com/ant-design/ant-design/pull/18671)
+  - 🐞 修复 Table 中 `title` 和 `footer` 的类型定义。[#18697](https://github.com/ant-design/ant-design/pull/18697) [@yoyo837](https://github.com/yoyo837)
+
 ## 3.23.1
 
 `2019-09-03`
