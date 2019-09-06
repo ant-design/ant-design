@@ -23,7 +23,7 @@ for (let i = 10; i < 100000; i++) {
   const value = `${i.toString(36)}${i}`;
   options.push({
     value,
-    disabled: i === 0,
+    disabled: i === 10,
   });
 }
 
