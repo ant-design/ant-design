@@ -10,11 +10,9 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { SelectProps as RcSelectProps } from 'rc-select';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Select, { InternalSelectProps } from '../select';
+import Select, { Option, InternalSelectProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-
-const { Option } = Select;
 
 const InternalSelect = Select as React.ComponentClass<RcSelectProps>;
 

@@ -4,7 +4,7 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
-import { Down, Loading, Check, Close } from '@ant-design/icons';
+import { Down, Loading, Check, Close, CloseCircleFilled } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 type RawValue = string | number;
@@ -71,6 +71,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     const {
       prefixCls: customizePrefixCls,
       suffixIcon,
+      clearIcon,
       menuItemSelectedIcon,
       removeIcon,
       loading,
@@ -97,6 +98,12 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     }
 
     // ===================== Icons =====================
+    // Clear Icon
+    let mergedClearIcon = clearIcon;
+    if (!clearIcon) {
+      mergedClearIcon = <CloseCircleFilled />;
+    }
+
     // Arrow item icon
     let mergedSuffixIcon = null;
     if (suffixIcon !== undefined) {
@@ -142,6 +149,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
         inputIcon={mergedSuffixIcon}
         menuItemSelectedIcon={mergedItemIcon}
         removeIcon={mergedRemoveIcon}
+        clearIcon={mergedClearIcon}
         notFoundContent={mergedNotFound}
         className={mergedClassName}
       />
@@ -152,5 +160,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     return <ConfigConsumer>{this.renderSelect}</ConfigConsumer>;
   }
 }
+
+export { Option };
 
 export default Select;

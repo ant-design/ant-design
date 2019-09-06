@@ -89,6 +89,39 @@
     }
   }
 
+  // ========================== Clear ==========================
+  &-clear {
+    position: absolute;
+    top: 50%;
+    right: @control-padding-horizontal - 1px;
+    z-index: 1;
+    display: inline-block;
+    height: @font-size-sm;
+    width: @font-size-sm;
+    margin-top: -@font-size-sm / 2;
+    color: @disabled-color;
+    font-size: @font-size-sm;
+    font-style: normal;
+    line-height: 1;
+    text-align: center;
+    text-transform: none;
+    background: @component-background;
+    cursor: pointer;
+    opacity: 0;
+    transition: color 0.3s ease, opacity 0.15s ease;
+    text-rendering: auto;
+    &::before {
+      display: block;
+    }
+    &:hover {
+      color: @text-color-secondary;
+    }
+
+    .@{select-prefix-cls}:hover & {
+      opacity: 1;
+    }
+  }
+
   // ========================== Popup ==========================
   &-dropdown {
     .reset-component;
