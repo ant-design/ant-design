@@ -9,10 +9,10 @@
 @select-height-without-border: @input-height-base - 2 * @border-width-base;
 
 .select-selector() {
+  position: relative;
+  border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
   transition: all 0.3s @ease-in-out;
-  border: @border-width-base @border-style-base @select-border-color;
-  position: relative;
 
   input {
     cursor: pointer;
@@ -29,9 +29,9 @@
   }
 
   .@{select-prefix-cls}-disabled& {
+    color: @disabled-color;
     background: @input-disabled-bg;
     cursor: not-allowed;
-    color: @disabled-color;
 
     input {
       cursor: not-allowed;
@@ -42,9 +42,9 @@
 /* Reset search input style */
 .select-search-input-without-border() {
   .@{select-prefix-cls}-selection-search-input {
+    background: transparent;
     border: none;
     outline: none;
-    background: transparent;
   }
 }
 
@@ -73,12 +73,12 @@
     position: absolute;
     top: 55%;
     right: @control-padding-horizontal - 1px;
+    width: @font-size-sm;
+    height: @font-size-sm;
     margin-top: -@font-size-sm / 2;
     color: @disabled-color;
     font-size: @font-size-sm;
     line-height: 1;
-    height: @font-size-sm;
-    width: @font-size-sm;
     text-align: center;
     transform-origin: 50% 50%;
     transition: transform 0.3s;
@@ -96,8 +96,8 @@
     right: @control-padding-horizontal - 1px;
     z-index: 1;
     display: inline-block;
-    height: @font-size-sm;
     width: @font-size-sm;
+    height: @font-size-sm;
     margin-top: -@font-size-sm / 2;
     color: @disabled-color;
     font-size: @font-size-sm;
@@ -131,6 +131,7 @@
     left: -9999px;
     z-index: @zindex-dropdown;
     box-sizing: border-box;
+    overflow: hidden;
     font-size: @font-size-base;
     // Fix select render lag of long text in chrome
     // https://github.com/ant-design/ant-design/issues/11456
@@ -140,7 +141,6 @@
     border-radius: @border-radius-base;
     outline: none;
     box-shadow: @box-shadow-base;
-    overflow: hidden;
 
     &.slide-up-enter.slide-up-enter-active&-placement-bottomLeft,
     &.slide-up-appear.slide-up-appear-active&-placement-bottomLeft {
@@ -169,11 +169,11 @@
   &-item {
     position: relative;
     display: block;
+    min-height: 32px;
     padding: 5px @control-padding-horizontal;
     color: @text-color;
     font-weight: normal;
     line-height: 22px;
-    min-height: 32px;
     cursor: pointer;
     transition: background 0.3s ease;
 

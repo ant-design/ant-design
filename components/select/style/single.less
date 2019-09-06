@@ -16,14 +16,14 @@
     .@{select-prefix-cls}-selection-item,
     .@{select-prefix-cls}-selection-placeholder {
       position: absolute;
-      top: 0px;
-      left: 0px;
-      right: 0px;
-      bottom: 0px;
-      line-height: @input-height-base;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       padding: 0 @input-padding-horizontal-base;
-      pointer-events: none;
+      line-height: @input-height-base;
       transition: all 0.3s;
+      pointer-events: none;
 
       // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
       @supports (-moz-appearance: meterbar) {
@@ -53,9 +53,9 @@
     .@{select-prefix-cls}-selector {
       .select-selector();
       .select-search-input-without-border();
+      width: 100%;
 
       height: @input-height-base;
-      width: 100%;
       padding: 0 @input-padding-horizontal-base;
 
       .@{select-prefix-cls}-selection-search-input {
