@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AbstractSelectProps } from '../select';
+import { SelectProps } from '../select';
 
 export type TreeNode = TreeNodeNormal | TreeNodeSimpleMode;
 
@@ -31,15 +31,13 @@ export interface TreeDataSimpleMode {
   rootPId?: string;
 }
 
-export interface TreeSelectProps<T extends TreeNodeValue> extends AbstractSelectProps {
+export interface TreeSelectProps<T extends TreeNodeValue> extends Omit<SelectProps<T>, 'onChange'> {
   autoFocus?: boolean;
   defaultValue?: T;
   dropdownStyle?: React.CSSProperties;
   filterTreeNode?: (inputValue: string, treeNode: any) => boolean | boolean;
   labelInValue?: boolean;
   loadData?: (node: any) => void;
-  maxTagCount?: number;
-  maxTagPlaceholder?: React.ReactNode | ((omittedValues: any[]) => React.ReactNode);
   multiple?: boolean;
   notFoundContent?: React.ReactNode;
   onChange?: (value: T, label: any, extra: any) => void;
