@@ -10,7 +10,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { SelectProps as RcSelectProps } from 'rc-select';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Select, { SelectProps } from '../select';
+import Select, { InternalSelectProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
@@ -24,7 +24,8 @@ export interface DataSourceItemObject {
 }
 export type DataSourceItemType = string | DataSourceItemObject;
 
-export interface AutoCompleteProps extends Omit<SelectProps<string>, 'loading'> {
+export interface AutoCompleteProps
+  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp'> {
   dataSource?: DataSourceItemType[];
 }
 

@@ -10799,7 +10799,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         </div>
         <div
           class=""
-          style="height:200px"
+          style="height:256px"
         >
           <div>
             <div
@@ -10916,7 +10916,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         </div>
         <div
           class=""
-          style="height:200px"
+          style="height:256px"
         >
           <div>
             <div
@@ -11033,7 +11033,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         </div>
         <div
           class=""
-          style="height:200px"
+          style="height:256px"
         >
           <div>
             <div

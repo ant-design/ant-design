@@ -17,14 +17,14 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
+export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon: React.ReactNode;
   size?: 'large' | 'default' | 'small';
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 }
 
 export interface SelectProps<VT>
-  extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement'> {
+  extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'> {
   mode?: 'multiple' | 'tags';
 }
 
@@ -77,6 +77,8 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       notFoundContent,
       className,
       size,
+      listHeight = 256,
+      listItemHeight = 32,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -133,6 +135,8 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       <RcSelect<ValueType>
         ref={this.selectRef}
         {...selectProps}
+        listHeight={listHeight}
+        listItemHeight={listItemHeight}
         mode={mode}
         prefixCls={prefixCls}
         inputIcon={mergedSuffixIcon}
