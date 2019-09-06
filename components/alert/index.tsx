@@ -62,7 +62,7 @@ const iconMapOutlined = {
   warning: ExclamationCircle,
 };
 
-const Alert = (props: AlertProps) => {
+const Alert: React.FC<AlertProps> = (props) => {
   const {
     description,
     prefixCls: customizePrefixCls,
