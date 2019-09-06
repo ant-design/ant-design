@@ -201,14 +201,8 @@ describe('Calendar', () => {
         locale={{ year: '年' }}
       />,
     );
-    wrapper
-      .find('.ant-fullcalendar-year-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .at(0)
-      .simulate('click');
+    openSelect(wrapper, '.ant-fullcalendar-year-select');
+    clickSelectItem(wrapper);
   };
 
   it('if value.month > end.month, set value.month to end.month', () => {
