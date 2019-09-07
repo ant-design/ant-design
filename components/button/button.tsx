@@ -217,8 +217,8 @@ class Button extends React.Component<ButtonProps, ButtonState> {
   }
 
   isNeedInserted() {
-    const { icon, children } = this.props;
-    return React.Children.count(children) === 1 && !icon;
+    const { icon, children, type } = this.props;
+    return React.Children.count(children) === 1 && !icon && type !== 'link';
   }
 
   renderButton = ({ getPrefixCls, autoInsertSpaceInButton }: ConfigConsumerProps) => {
