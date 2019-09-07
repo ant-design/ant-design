@@ -239,7 +239,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left:0%;right:auto;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -251,7 +251,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
       aria-valuenow="1"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%"
+      style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
