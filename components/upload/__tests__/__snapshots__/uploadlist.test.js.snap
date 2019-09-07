@@ -54,7 +54,7 @@ exports[`Upload List handle error 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name"
             title="foo.png"
           >
             foo.png
@@ -171,7 +171,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name"
             title="foo.png"
           >
             foo.png

@@ -244,7 +244,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name"
             href="http://www.baidu.com/zzz.png"
             rel="noopener noreferrer"
             target="_blank"

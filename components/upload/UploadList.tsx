@@ -163,7 +163,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       );
       const listItemNameClass = classNames({
         [`${prefixCls}-list-item-name`]: true,
-        [`${prefixCls}-list-item-name-show-download`]: showDownloadIcon,
+        [`${prefixCls}-list-item-name-show-download`]: downloadIcon,
       });
       const preview = file.url ? (
         <>
