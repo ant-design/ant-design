@@ -303,13 +303,16 @@
       box-sizing: border-box;
       max-width: 100%;
       margin: 0 0 0 8px;
-      padding-right: 48px;
+      padding-right: 24px;
       padding-left: 48px;
       overflow: hidden;
       line-height: 44px;
       white-space: nowrap;
       text-overflow: ellipsis;
       transition: all 0.3s;
+      &-show-download {
+        padding-right: 48px;
+      }
     }
 
     .@{upload-item}-uploading .@{upload-item}-name {

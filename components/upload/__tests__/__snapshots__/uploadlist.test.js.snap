@@ -54,7 +54,7 @@ exports[`Upload List handle error 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             title="foo.png"
           >
             foo.png
@@ -68,6 +68,7 @@ exports[`Upload List handle error 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -170,7 +171,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             title="foo.png"
           >
             foo.png
@@ -184,6 +185,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -286,7 +288,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             title="foo.png"
           >
             foo.png
@@ -300,6 +302,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -324,6 +327,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -438,7 +442,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             </i>
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/aaa.zip"
             rel="noopener noreferrer"
             target="_blank"
@@ -456,6 +460,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -480,6 +485,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -521,7 +527,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/aaa"
             rel="noopener noreferrer"
             target="_blank"
@@ -539,6 +545,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -563,6 +570,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -623,7 +631,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             </i>
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/aaa.xx"
             rel="noopener noreferrer"
             target="_blank"
@@ -641,6 +649,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -665,6 +674,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -725,7 +735,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             </i>
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/aaa.png/xx.xx"
             rel="noopener noreferrer"
             target="_blank"
@@ -743,6 +753,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -767,6 +778,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -808,7 +820,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/xx.xx/aaa.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -826,6 +838,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -850,6 +863,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -891,7 +905,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/xx.xx/aaa.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -909,6 +923,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -933,6 +948,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -974,7 +990,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
             rel="noopener noreferrer"
             target="_blank"
@@ -992,6 +1008,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -1016,6 +1033,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -1057,7 +1075,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
             rel="noopener noreferrer"
             target="_blank"
@@ -1075,6 +1093,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -1099,6 +1118,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -1140,7 +1160,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
             rel="noopener noreferrer"
             target="_blank"
@@ -1158,6 +1178,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -1182,6 +1203,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -1223,7 +1245,7 @@ exports[`Upload List should non-image format file preview 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
             rel="noopener noreferrer"
             target="_blank"
@@ -1241,6 +1263,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -1265,6 +1288,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"

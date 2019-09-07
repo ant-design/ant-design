@@ -60,7 +60,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="http://www.baidu.com/xxx.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -78,6 +78,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -102,6 +103,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -150,7 +152,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="http://www.baidu.com/yyy.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -168,6 +170,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -192,6 +195,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -240,7 +244,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="http://www.baidu.com/zzz.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -258,6 +262,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -346,7 +351,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             href="http://www.baidu.com/xxx.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -364,6 +369,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
                 aria-label="icon: download"
                 class="anticon anticon-download"
                 tabindex="-1"
+                title="Download file"
               >
                 <svg
                   aria-hidden="true"
@@ -388,6 +394,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
                 aria-label="icon: delete"
                 class="anticon anticon-delete"
                 tabindex="-1"
+                title="Remove file"
               >
                 <svg
                   aria-hidden="true"
@@ -443,7 +450,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -546,7 +553,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -649,7 +656,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -752,7 +759,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -855,7 +862,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -977,7 +984,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -995,6 +1002,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -1019,6 +1027,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -1060,7 +1069,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -1078,6 +1087,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -1102,6 +1112,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -1156,7 +1167,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -1174,6 +1185,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -1198,6 +1210,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -1239,7 +1252,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name"
+              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -1257,6 +1270,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -1281,6 +1295,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"

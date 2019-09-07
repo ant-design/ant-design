@@ -139,28 +139,38 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       });
       const linkProps =
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
+
+      const removeIcon = showRemoveIcon ? (
+        <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
+      ) : null;
+      const downloadIcon =
+        showDownloadIcon && file.status === 'done' ? (
+          <Icon
+            type="download"
+            title={locale.downloadFile}
+            onClick={() => this.handleDownload(file)}
+          />
+        ) : null;
       const downloadOrDelete = listType !== 'picture-card' && (
         <span
           className={`${prefixCls}-list-item-card-actions ${
             listType === 'picture' ? 'picture' : ''
           }`}
         >
-          {file.status === 'done' && (
-            <a title={locale.downloadFile}>
-              <Icon type="download" onClick={() => this.handleDownload(file)} />
-            </a>
-          )}
-          <a title={locale.removeFile}>
-            <Icon type="delete" onClick={() => this.handleClose(file)} />
-          </a>
+          {downloadIcon && <a title={locale.downloadFile}>{downloadIcon}</a>}
+          {removeIcon && <a title={locale.removeFile}>{removeIcon}</a>}
         </span>
       );
+      const listItemNameClass = classNames({
+        [`${prefixCls}-list-item-name`]: true,
+        [`${prefixCls}-list-item-name-show-download`]: showDownloadIcon,
+      });
       const preview = file.url ? (
         <>
           <a
             target="_blank"
             rel="noopener noreferrer"
-            className={`${prefixCls}-list-item-name`}
+            className={listItemNameClass}
             title={file.name}
             {...linkProps}
             href={file.url}
@@ -172,7 +182,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         </>
       ) : (
         <span
-          className={`${prefixCls}-list-item-name`}
+          className={listItemNameClass}
           onClick={e => this.handlePreview(file, e)}
           title={file.name}
         >
@@ -196,16 +206,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           <Icon type="eye-o" />
         </a>
       ) : null;
-      const removeIcon = showRemoveIcon ? (
-        <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
-      ) : null;
-      const downloadIcon = showDownloadIcon ? (
-        <Icon
-          type="download"
-          title={locale.downloadFile}
-          onClick={() => this.handleDownload(file)}
-        />
-      ) : null;
+
       const actions = listType === 'picture-card' && file.status !== 'uploading' && (
         <span className={`${prefixCls}-list-item-actions`}>
           {previewIcon}
