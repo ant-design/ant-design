@@ -51,16 +51,6 @@ module.exports = {
     'bisheng-plugin-antd?injectProvider',
     'bisheng-plugin-react?lang=__react',
   ],
-  postProcessHtml: ($, pathname) => {
-    let description = '';
-    if (pathname !== '/') {
-      const desc = $('section.markdown p').text() || '';
-      description = desc.length > 50 ? `${desc.slice(0, 50)}...` : desc;
-    }
-    return {
-      description: description || '',
-    };
-  },
   routes: {
     path: '/',
     component: './template/Layout/index',
