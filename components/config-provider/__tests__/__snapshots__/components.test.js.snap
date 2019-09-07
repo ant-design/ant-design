@@ -6496,7 +6496,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       <span
         class="config-calendar-range-picker-separator"
       >
-         ~
+         ~ 
       </span>
       <input
         class="config-calendar-range-picker-input"
@@ -6548,7 +6548,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       <span
         class="ant-calendar-range-picker-separator"
       >
-         ~
+         ~ 
       </span>
       <input
         class="ant-calendar-range-picker-input"
@@ -6600,7 +6600,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       <span
         class="prefix-RangePicker-range-picker-separator"
       >
-         ~
+         ~ 
       </span>
       <input
         class="prefix-RangePicker-range-picker-input"
