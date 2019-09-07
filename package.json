@@ -165,7 +165,6 @@
     "react-copy-to-clipboard": "^5.0.1",
     "react-dnd": "^9.0.0",
     "react-dnd-html5-backend": "^9.0.0",
-    "react-document-title": "^2.0.3",
     "react-dom": "^16.5.2",
     "react-github-button": "^0.1.11",
     "react-helmet": "^6.0.0-beta",
