@@ -31,15 +31,15 @@ ReactDOM.render(
       ]}
     >
       <Descriptions size="small" column={3}>
-        <Descriptions.item label="Created">Lili Qu</Descriptions.item>
-        <Descriptions.item label="Association">
+        <Descriptions.Item label="Created">Lili Qu</Descriptions.Item>
+        <Descriptions.Item label="Association">
           <a>421421</a>
-        </Descriptions.item>
-        <Descriptions.item label="Creation Time">2017-01-10</Descriptions.item>
-        <Descriptions.item label="Effective Time">2017-10-10</Descriptions.item>
-        <Descriptions.item label="Remarks">
+        </Descriptions.Item>
+        <Descriptions.Item label="Creation Time">2017-01-10</Descriptions.Item>
+        <Descriptions.Item label="Effective Time">2017-10-10</Descriptions.Item>
+        <Descriptions.Item label="Remarks">
           Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
-        </Descriptions.item>
+        </Descriptions.Item>
       </Descriptions>
     </PageHeader>
     <br />

@@ -56,7 +56,7 @@ export type UploadListType = 'text' | 'picture' | 'picture-card';
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 type TransformFileHandler = (
-  file: UploadFile,
+  file: RcFile,
 ) => string | Blob | File | PromiseLike<string | Blob | File>;
 
 export interface UploadProps {

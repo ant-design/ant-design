@@ -11085,7 +11085,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div
     class="config-slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="config-slider-step"
@@ -11097,7 +11097,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -11134,7 +11134,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div
     class="ant-slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -11146,7 +11146,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -11183,7 +11183,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div
     class="prefix-Slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="prefix-Slider-step"
@@ -11195,7 +11195,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     aria-valuenow="0"
     class="prefix-Slider-handle prefix-Slider-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>

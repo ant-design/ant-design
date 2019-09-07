@@ -405,9 +405,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     // 当数据量少于等于每页数量时，直接设置数据
     // 否则进行读取分页数据
     if (data.length > pageSize || pageSize === Number.MAX_VALUE) {
-      data = data.filter((_, i) => {
-        return i >= (current - 1) * pageSize && i < current * pageSize;
-      });
+      data = data.slice((current - 1) * pageSize, current * pageSize);
     }
     return data;
   }

@@ -16,21 +16,12 @@ title: Mentions
 ## API
 
 ```jsx
-<Mention
-  onChange={onChange}
-  suggestions={['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai']}
-/>
-```
-
-## API
-
-```jsx
 <Mentions onChange={onChange}>
   <Mentions.Option value="sample">Sample</Mentions.Option>
 </Mentions>
 ```
 
-### Mention
+### Mentions
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -50,7 +41,7 @@ title: Mentions
 | onBlur | 失去焦点时触发 | () => void | - | 3.19.0 |
 | getPopupContainer | 指定建议框挂载的 HTML 节点 | () => HTMLElement | - | 3.22.0 |
 
-### Mention 方法
+### Mentions 方法
 
 | 名称    | 描述     | 版本   |
 | ------- | -------- | ------ |
