@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import Button from '..';
 import Icon from '../../icon';
 import mountTest from '../../../tests/shared/mountTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Button', () => {
   mountTest(Button);
@@ -54,7 +55,11 @@ describe('Button', () => {
     expect(wrapper5).toMatchSnapshot();
 
     // should insert space while only one nested element
-    const wrapper6 = render(<Button><span>按钮</span></Button>);
+    const wrapper6 = render(
+      <Button>
+        <span>按钮</span>
+      </Button>,
+    );
     expect(wrapper6).toMatchSnapshot();
   });
 
@@ -85,7 +90,12 @@ describe('Button', () => {
   });
 
   it('should render empty button without errors', () => {
-    const wrapper = mount(<Button />);
+    const wrapper = mount(
+      <Button>
+        {null}
+        {undefined}
+      </Button>,
+    );
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -203,20 +213,24 @@ describe('Button', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('should support to change loading', () => {
-    const wrapper = mount(
-      <Button>
-        Button
-      </Button>,
-    );
+  it('should support to change loading', async () => {
+    const wrapper = mount(<Button>Button</Button>);
     wrapper.setProps({ loading: true });
-    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
     wrapper.setProps({ loading: false });
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({ loading: { delay: 200 } });
-    expect(wrapper.render()).toMatchSnapshot();
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    wrapper.setProps({ loading: { delay: 50 } });
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    await sleep(50);
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
     wrapper.setProps({ loading: false });
-    expect(wrapper.render()).toMatchSnapshot();
+    await sleep(50);
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
     expect(() => {
       wrapper.unmount();
     }).not.toThrow();
