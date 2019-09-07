@@ -70,6 +70,12 @@ describe('Button', () => {
     expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
   });
 
+  // https://github.com/ant-design/ant-design/issues/18118
+  it('should not insert space to link button', () => {
+    const wrapper = render(<Button type="link">按钮</Button>);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('have static property for type detecting', () => {
     const wrapper = mount(<Button>Button Text</Button>);
     // eslint-disable-next-line

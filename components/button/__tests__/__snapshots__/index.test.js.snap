@@ -222,6 +222,17 @@ exports[`Button should merge text if children using variable 1`] = `
 </button>
 `;
 
+exports[`Button should not insert space to link button 1`] = `
+<button
+  class="ant-btn ant-btn-link"
+  type="button"
+>
+  <span>
+    按钮
+  </span>
+</button>
+`;
+
 exports[`Button should not render as link button when href is undefined 1`] = `
 <button
   class="ant-btn ant-btn-primary"
