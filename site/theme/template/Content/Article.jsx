@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert, Affix } from 'antd';
 import EditButton from './EditButton';
+import { getMetaDescription } from '../utils';
 
 class Article extends React.Component {
   shouldComponentUpdate(nextProps) {
@@ -73,17 +74,17 @@ class Article extends React.Component {
     const { title, subtitle, filename } = meta;
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     const helmetTitle = `${title[locale] || title} - Ant Design`;
-    const contentChild = getChildren(content.content).find(jml => {
-      const [tag] = jml;
-      return tag === 'p';
-    });
+    const helmetDesc = getMetaDescription(description);
+    const contentChild = getMetaDescription(getChildren(content.content));
+    const metaDesc = helmetDesc || contentChild;
+
     return (
       /* eslint-disable-next-line */
       <article className="markdown" onClick={this.onResourceClick}>
         <Helmet>
           {helmetTitle && <title>{helmetTitle}</title>}
           {helmetTitle && <meta property="og:title" content={helmetTitle} />}
-          {contentChild && contentChild[1] && <meta name="description" content={contentChild[1]} />}
+          {metaDesc && <meta name="description" content={metaDesc} />}
         </Helmet>
         {isNotTranslated && (
           <Alert
