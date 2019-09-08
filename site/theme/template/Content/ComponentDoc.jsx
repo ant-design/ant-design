@@ -107,7 +107,7 @@ class ComponentDoc extends React.Component {
       'show-riddle-button': showRiddleButton,
     });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
-    const contentChild = getChildren(content.content).find(jml => {
+    const contentChild = getChildren(content).find(jml => {
       const [tag] = jml;
       return tag === 'p';
     });
