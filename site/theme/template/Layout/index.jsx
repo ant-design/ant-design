@@ -122,9 +122,7 @@ export default class Layout extends React.Component {
       <>
         <Helmet>
           <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} />
-          {/* lack CN title */}
           <title>{title}</title>
-          {/* lack CN desc */}
           <meta name="description" content={description} />
           <meta property="og:title" content={title} />
           <meta property="og:type" content="website" />
