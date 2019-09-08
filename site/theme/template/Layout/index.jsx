@@ -110,18 +110,23 @@ export default class Layout extends React.Component {
   render() {
     const { children, ...restProps } = this.props;
     const { appLocale } = this.state;
+    const title =
+      appLocale.locale === 'zh-CN'
+        ? 'Ant Design - 一套企业级的 UI 设计语言和 React 组件'
+        : 'Ant Design - A UI Design Language';
+    const description =
+      appLocale.locale === 'zh-CN'
+        ? '一套企业级的 UI 设计语言和 React 组件。'
+        : 'An enterprise-class UI design language and React implementation with a set of high-quality React components, one of best React UI library for enterprises';
     return (
       <>
         <Helmet>
           <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} />
           {/* lack CN title */}
-          <title>Ant Design - A UI Design Language</title>
+          <title>{title}</title>
           {/* lack CN desc */}
-          <meta
-            name="description"
-            content="An enterprise-class UI design language and React implementation with a set of high-quality React components, one of best React UI library for enterprises"
-          />
-          <meta property="og:title" content="Ant Design - A UI Design Language" />
+          <meta name="description" content={description} />
+          <meta property="og:title" content={title} />
           <meta property="og:type" content="website" />
           <meta
             property="og:image"
