@@ -8,7 +8,7 @@
 
 <div align="center">
 
-An enterprise-class UI design language and React implementation.
+An enterprise-class UI design language and React UI library.
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design) [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master) [![](https://flat.badgen.net/npm/v/antd?icon=npm)](https://www.npmjs.com/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
 
