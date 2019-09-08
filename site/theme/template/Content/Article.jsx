@@ -76,6 +76,7 @@ class Article extends React.Component {
     const helmetTitle = `${title[locale] || title} - Ant Design`;
     const contentChild = flatten(getChildren(content.content));
     return (
+      /* eslint-disable-next-line */
       <article className="markdown" onClick={this.onResourceClick}>
         <Helmet>
           {helmetTitle && <title>{helmetTitle}</title>}
