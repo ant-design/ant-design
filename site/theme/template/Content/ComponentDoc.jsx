@@ -6,7 +6,7 @@ import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
-import { ping } from '../utils';
+import { ping, getMetaDescription } from '../utils';
 
 class ComponentDoc extends React.Component {
   state = {
@@ -107,17 +107,14 @@ class ComponentDoc extends React.Component {
       'show-riddle-button': showRiddleButton,
     });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
-    const contentChild = getChildren(content).find(jml => {
-      const [tag] = jml;
-      return tag === 'p';
-    });
+    const contentChild = getMetaDescription(getChildren(content));
 
     return (
       <article className={articleClassName}>
         <Helmet>
           {helmetTitle && <title>{helmetTitle}</title>}
           {helmetTitle && <meta property="og:title" content={helmetTitle} />}
-          {contentChild && contentChild[1] && <meta name="description" content={contentChild[1]} />}
+          {contentChild && <meta name="description" content={contentChild} />}
         </Helmet>
         <Affix className="toc-affix" offsetTop={16}>
           <ul id="demo-toc" className="toc">
