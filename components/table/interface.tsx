@@ -187,7 +187,11 @@ export interface TableProps<T> {
   showHeader?: boolean;
   footer?: (currentPageData: T[]) => React.ReactNode;
   title?: (currentPageData: T[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string; y?: boolean | number | string };
+  scroll?: {
+    x?: boolean | number | string;
+    y?: boolean | number | string;
+    scrollToFirstRowOnChange?: boolean;
+  };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;

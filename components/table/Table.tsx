@@ -1,6 +1,5 @@
 /* eslint-disable prefer-spread */
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import omit from 'omit.js';
 import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
@@ -14,6 +13,7 @@ import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import createBodyRow from './createBodyRow';
 import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
+import scrollTo from '../_util/scrollTo';
 import {
   TableProps,
   TableSize,
@@ -136,8 +136,11 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   row: React.ComponentType<any>;
 
+  rcTable: React.RefObject<any>;
+
   constructor(props: TableProps<T>) {
     super(props);
+    this.rcTable = React.createRef();
 
     const { expandedRowRender, columns = [] } = props;
 
@@ -498,11 +501,21 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
   generatePopupContainerFunc = (getPopupContainer: TableProps<T>['getPopupContainer']) => {
     const { scroll } = this.props;
+    const table = this.rcTable.current;
     if (getPopupContainer) {
       return getPopupContainer;
     }
     // Use undefined to let rc component use default logic.
-    return scroll ? () => ReactDOM.findDOMNode(this) as HTMLElement : undefined;
+    return scroll && table ? () => table.tableNode : undefined;
+  };
+
+  scrollToFirstRow = () => {
+    const { scroll } = this.props;
+    if (scroll && scroll.scrollToFirstRowOnChange !== false) {
+      scrollTo(0, {
+        getContainer: () => this.rcTable.current.bodyTable,
+      });
+    }
   };
 
   handleFilter = (column: ColumnProps<T>, nextFilters: string[]) => {
@@ -556,6 +569,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     }
 
     this.setState(newState, () => {
+      this.scrollToFirstRow();
       this.store.setState({
         selectionDirty: false,
       });
@@ -747,7 +761,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
         current: this.state.pagination.current,
       };
     }
-    this.setState(newState);
+    this.setState(newState, () => this.scrollToFirstRow());
 
     this.store.setState({
       selectionDirty: false,
@@ -823,7 +837,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
     // Controlled
     if (this.getSortOrderColumns().length === 0) {
-      this.setState(newState);
+      this.setState(newState, () => this.scrollToFirstRow());
     }
 
     const { onChange } = this.props;
@@ -1258,6 +1272,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
 
     return (
       <RcTable
+        ref={this.rcTable}
         key="table"
         expandIcon={this.renderExpandIcon(prefixCls)}
         {...restProps}
