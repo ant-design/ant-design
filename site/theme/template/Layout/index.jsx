@@ -114,7 +114,9 @@ export default class Layout extends React.Component {
       <>
         <Helmet>
           <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} />
+          {/* lack CN title */}
           <title>Ant Design - A UI Design Language</title>
+          {/* lack CN desc */}
           <meta
             name="description"
             content="An enterprise-class UI design language and React implementation with a set of high-quality React components, one of best React UI library for enterprises"
