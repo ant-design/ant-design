@@ -127,7 +127,9 @@ export function getMetaDescription(jml) {
       // ['p', ['code', 'aa'], 'bb'] => ['p', 'aabb']
       .map(item => {
         const [tag, ...others] = flatten(item);
-        const content = others.filter(other => !COMMON_TAGS.includes(other)).join('');
+        const content = others
+          .filter(other => typeof other === 'string' && !COMMON_TAGS.includes(other))
+          .join('');
         return [tag, content];
       }),
   ).find(p => p && typeof p === 'string' && !COMMON_TAGS.includes(p));
