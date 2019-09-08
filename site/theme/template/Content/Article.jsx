@@ -1,7 +1,6 @@
 import React, { Children, cloneElement } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Helmet } from 'react-helmet';
-import flatten from 'lodash/flatten';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { Timeline, Alert, Affix } from 'antd';
 import EditButton from './EditButton';
@@ -74,7 +73,10 @@ class Article extends React.Component {
     const { title, subtitle, filename } = meta;
     const isNotTranslated = locale === 'en-US' && typeof title === 'object';
     const helmetTitle = `${title[locale] || title} - Ant Design`;
-    const contentChild = flatten(getChildren(content.content));
+    const contentChild = getChildren(content.content).find(jml => {
+      const [tag] = jml;
+      return tag === 'p';
+    });
     return (
       /* eslint-disable-next-line */
       <article className="markdown" onClick={this.onResourceClick}>

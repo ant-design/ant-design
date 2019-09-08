@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { Row, Col, Icon, Affix, Tooltip } from 'antd';
-import flatten from 'lodash/flatten';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -108,7 +107,11 @@ class ComponentDoc extends React.Component {
       'show-riddle-button': showRiddleButton,
     });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
-    const contentChild = flatten(getChildren(content));
+    const contentChild = getChildren(content.content).find(jml => {
+      const [tag] = jml;
+      return tag === 'p';
+    });
+
     return (
       <article className={articleClassName}>
         <Helmet>
