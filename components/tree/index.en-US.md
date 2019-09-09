@@ -33,11 +33,11 @@ Almost anything can be represented in a tree structure. Examples include directo
 | loadData | Load data asynchronously | function(node) | - |  |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need work with `loadData` | string\[] | \[] | 3.7.0 |
 | multiple | Allows selecting multiple treeNodes | boolean | false |  |
+| selectable | whether can be selected | boolean | true |  |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes | string\[] | - |  |
 | showIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
 | switcherIcon | customize collapse/expand icon of tree node | React.ReactElement | - | 3.12.0 |
 | showLine | Shows a connecting line | boolean | false |  |
-| selectable | whether can be selected | boolean | true |  |  |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
 | onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |  |
