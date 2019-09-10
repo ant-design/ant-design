@@ -53,6 +53,9 @@ export type SelectValue = string | string[] | number | number[] | LabeledValue |
 
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
+  /** @deprecated Use `searchValue` instead. */
+  inputValue?: string;
+  searchValue?: string;
   defaultValue?: T;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
@@ -109,9 +112,6 @@ const SelectPropTypes = {
   id: PropTypes.string,
 };
 
-// => It is needless to export the declaration of below two inner components.
-// export { Option, OptGroup };
-
 export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
 
@@ -139,6 +139,12 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         'it will be removed in next major version, ' +
         'please use AutoComplete instead',
     );
+
+    warning(
+      !('inputValue' in props),
+      'Select',
+      '`inputValue` is deprecated. Please use `searchValue` instead.',
+    );
   }
 
   getNotFoundContent(renderEmpty: RenderEmptyHandler) {
@@ -152,14 +158,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     }
 
     return renderEmpty('Select');
-
-    // if (this.isCombobox()) {
-    //   // AutoComplete don't have notFoundContent defaultly
-    //   return notFoundContent === undefined ? null : notFoundContent;
-    // }
-
-    // return renderEmpty('Select');
-    // // return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
   }
 
   saveSelect = (node: any) => {
@@ -209,6 +207,8 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
       clearIcon,
       menuItemSelectedIcon,
       showArrow,
+      inputValue,
+      searchValue,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon']);
@@ -270,6 +270,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         showArrow={showArrow}
         {...rest}
         {...modeConfig}
+        inputValue={searchValue || inputValue}
         prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}

@@ -36,6 +36,7 @@ import heIL from '../he_IL';
 import hiIN from '../hi_IN';
 import hrHR from '../hr_HR';
 import huHU from '../hu_HU';
+import hyAM from '../hy_AM';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
@@ -87,6 +88,7 @@ const locales = [
   hiIN,
   hrHR,
   huHU,
+  hyAM,
   isIS,
   itIT,
   jaJP,

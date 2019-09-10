@@ -67,7 +67,7 @@ describe('PageHeader', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('breadcrumbs and back icon can only have one', () => {
+  it('breadcrumbs and back icon can coexist', () => {
     const routes = [
       {
         path: 'index',
@@ -82,10 +82,10 @@ describe('PageHeader', () => {
         breadcrumbName: 'Third-level Menu',
       },
     ];
-    const wrapper = mount(<PageHeader title="Title" onBack={() => true} breadcrumb={{ routes }} />);
-    expect(wrapper.find('.ant-breadcrumb')).toHaveLength(0);
+    const wrapper = mount(<PageHeader title="Title" breadcrumb={{ routes }} />);
+    expect(wrapper.find('.ant-breadcrumb')).toHaveLength(1);
 
-    wrapper.setProps({ onBack: undefined });
+    wrapper.setProps({ onBack: () => {} });
     expect(wrapper.find('.ant-breadcrumb')).toHaveLength(1);
   });
 });
