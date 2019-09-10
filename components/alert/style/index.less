@@ -74,7 +74,14 @@
     overflow: hidden;
     font-size: @font-size-sm;
     line-height: 22px;
+    border: none;
+    background-color: transparent;
     cursor: pointer;
+
+    &:focus {
+      outline-style: dotted;
+      outline-width: thin;
+    }
 
     .@{iconfont-css-prefix}-close {
       color: @alert-close-color;
