@@ -153,6 +153,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         ) : null;
       const downloadOrDelete = listType !== 'picture-card' && (
         <span
+          key="download-delete"
           className={`${prefixCls}-list-item-card-actions ${
             listType === 'picture' ? 'picture' : ''
           }`}
@@ -166,8 +167,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         [`${prefixCls}-list-item-name-show-download`]: downloadIcon,
       });
       const preview = file.url ? (
-        <span>
+        [
           <a
+            key="view"
             target="_blank"
             rel="noopener noreferrer"
             className={listItemNameClass}
@@ -177,9 +179,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             onClick={e => this.handlePreview(file, e)}
           >
             {file.name}
-          </a>
-          {downloadOrDelete}
-        </span>
+          </a>,
+          downloadOrDelete,
+        ]
       ) : (
         <span
           className={listItemNameClass}
