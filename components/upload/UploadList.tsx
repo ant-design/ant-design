@@ -166,7 +166,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         [`${prefixCls}-list-item-name-show-download`]: downloadIcon,
       });
       const preview = file.url ? (
-        <>
+        <span>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -179,7 +179,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
             {file.name}
           </a>
           {downloadOrDelete}
-        </>
+        </span>
       ) : (
         <span
           className={listItemNameClass}

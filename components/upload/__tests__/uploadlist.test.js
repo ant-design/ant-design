@@ -537,14 +537,6 @@ describe('Upload List', () => {
     return wrapper.props.onDownload(file);
   });
 
-  it('downloadFile is true should work correctly', async () => {
-    const items = [{ uid: 'upload-list-item', url: '' }];
-    const wrapper = mount(
-      <UploadList listType="picture-card" items={items} onDownload locale={{ downloadFile: '' }} />,
-    ).instance();
-    return expect(wrapper.props.onDownload).toBe(true);
-  });
-
   it('extname should work correctly when url not exists', () => {
     const items = [{ uid: 'upload-list-item', url: '' }];
     const wrapper = mount(
