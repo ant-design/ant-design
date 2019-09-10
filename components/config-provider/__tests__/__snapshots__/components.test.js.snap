@@ -17335,7 +17335,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
             </svg>
           </i>
           <span
-            class="config-upload-list-item-name"
+            class="config-upload-list-item-name config-upload-list-item-name-show-download"
             title="xxx.png"
           >
             xxx.png
@@ -17349,6 +17349,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -17373,6 +17374,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -17436,7 +17438,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             title="xxx.png"
           >
             xxx.png
@@ -17450,6 +17452,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -17474,6 +17477,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
@@ -17537,7 +17541,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
             title="xxx.png"
           >
             xxx.png
@@ -17551,6 +17555,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                   aria-label="icon: download"
                   class="anticon anticon-download"
                   tabindex="-1"
+                  title="Download file"
                 >
                   <svg
                     aria-hidden="true"
@@ -17575,6 +17580,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                   aria-label="icon: delete"
                   class="anticon anticon-delete"
                   tabindex="-1"
+                  title="Remove file"
                 >
                   <svg
                     aria-hidden="true"
