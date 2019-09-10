@@ -1,6 +1,6 @@
 import React from 'react';
 import { injectIntl } from 'react-intl';
-import DocumentTitle from 'react-document-title';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import Banner from './Banner';
 import Page1 from './Page1';
@@ -58,27 +58,28 @@ function getStyle() {
   `;
 }
 
-/* eslint-disable react/prefer-stateless-function */
+// eslint-disable-next-line react/prefer-stateless-function
 class Home extends React.Component {
   static contextTypes = {
-    intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
   };
 
   render() {
-    const { isMobile, intl } = this.context;
+    const { intl } = this.props;
+    const { isMobile } = this.context;
     const childProps = { ...this.props, isMobile, locale: intl.locale };
     return (
-      <DocumentTitle title={`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}>
-        <>
-          <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
-          <Banner {...childProps} />
-          <Page1 {...childProps} />
-          <Page2 {...childProps} />
-          <Page3 {...childProps} />
-          <Footer />
-        </>
-      </DocumentTitle>
+      <>
+        <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
+        <Helmet>
+          <title>{`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}</title>
+        </Helmet>
+        <Banner {...childProps} />
+        <Page1 {...childProps} />
+        <Page2 {...childProps} />
+        <Page3 {...childProps} />
+        <Footer />
+      </>
     );
   }
 }

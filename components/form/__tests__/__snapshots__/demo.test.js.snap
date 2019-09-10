@@ -1023,7 +1023,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
+exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
 >
@@ -4151,20 +4151,16 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <div
-            class="dropbox"
+          <span
+            class=""
           >
-            <span
-              class=""
-            >
-              <div
-                class="ant-upload ant-upload-drag"
-              />
-              <div
-                class="ant-upload-list ant-upload-list-text"
-              />
-            </span>
-          </div>
+            <div
+              class="ant-upload ant-upload-drag"
+            />
+            <div
+              class="ant-upload-list ant-upload-list-text"
+            />
+          </span>
         </span>
       </div>
     </div>

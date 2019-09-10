@@ -135,13 +135,13 @@ You are using a whole package of antd, please use https://www.npmjs.com/package/
 However, we can import individual components on demand:
 
 ```jsx
-import Button from 'antd/lib/button';
-import 'antd/lib/button/style'; // or antd/lib/button/style/css for css format file
+import Button from 'antd/es/button';
+import 'antd/es/button/style'; // or antd/es/button/style/css for css format file
 ```
 
-> `antd/es/button` to import es version module for tree shaking.
+> Note: antd support ES6 tree shaking, so `import { Button } from 'antd';` will drop the js code you don't use too.
 
-We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:
+We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/es/xxx' way:
 
 ```jsx
 import { Button } from 'antd';

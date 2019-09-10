@@ -1,3 +1,64 @@
+.calendarLeftArrow() {
+  height: 100%;
+
+  &::before,
+  &::after {
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    vertical-align: middle;
+    border: 0 solid #aaa;
+    border-width: 1.5px 0 0 1.5px;
+    border-radius: 1px;
+    transform: rotate(-45deg) scale(0.8);
+    transition: all 0.3s;
+    content: '';
+  }
+
+  &:hover::before,
+  &:hover::after {
+    border-color: @text-color;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+.calendarLeftDoubleArrow() {
+  .calendarLeftArrow;
+
+  &::after {
+    position: relative;
+    left: -3px;
+    display: inline-block;
+  }
+}
+
+.calendarRightArrow() {
+  .calendarLeftArrow;
+
+  &::before,
+  &::after {
+    transform: rotate(135deg) scale(0.8);
+  }
+}
+
+.calendarRightDoubleArrow() {
+  .calendarRightArrow;
+
+  &::before {
+    position: relative;
+    left: 3px;
+  }
+
+  &::after {
+    display: inline-block;
+  }
+}
+
 .calendarPanelHeader(@calendar-prefix-cls) {
   height: 40px;
   line-height: 40px;
@@ -49,35 +110,35 @@
   .@{calendar-prefix-cls}-prev-decade-btn,
   .@{calendar-prefix-cls}-prev-year-btn {
     left: 7px;
-
-    &::after {
-      content: '«';
-    }
+    .calendarLeftDoubleArrow;
   }
 
   .@{calendar-prefix-cls}-next-century-btn,
   .@{calendar-prefix-cls}-next-decade-btn,
   .@{calendar-prefix-cls}-next-year-btn {
     right: 7px;
-
-    &::after {
-      content: '»';
-    }
+    .calendarRightDoubleArrow;
   }
 
   .@{calendar-prefix-cls}-prev-month-btn {
     left: 29px;
-
-    &::after {
-      content: '‹';
-    }
+    .calendarLeftArrow;
   }
 
   .@{calendar-prefix-cls}-next-month-btn {
     right: 29px;
+    .calendarRightArrow;
+  }
+}
 
-    &::after {
-      content: '›';
+.calendar-selected-cell() {
+  .@{calendar-prefix-cls}-date {
+    color: @text-color-inverse;
+    background: @primary-color;
+    border: @border-width-base @border-style-base transparent;
+
+    &:hover {
+      background: @primary-color;
     }
   }
 }
@@ -206,26 +267,17 @@
     border-color: @primary-color;
   }
 
+  &-selected-day &-date {
+    background: @primary-2;
+  }
+
   &-last-month-cell &-date,
   &-next-month-btn-day &-date {
-    color: @disabled-color;
-  }
-
-  &-selected-day &-date {
-    background: tint(@primary-color, 80%);
-  }
-
-  &-selected-date,
-  &-selected-start-date,
-  &-selected-end-date {
-    .@{calendar-prefix-cls}-date {
-      color: @text-color-inverse;
-      background: @primary-color;
-      border: @border-width-base @border-style-base transparent;
-
-      &:hover {
-        background: @primary-color;
-      }
+    &,
+    &:hover {
+      color: @disabled-color;
+      background: transparent;
+      border-color: transparent;
     }
   }
 

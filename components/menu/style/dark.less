@@ -91,6 +91,9 @@
       }
     }
   }
+  &-dark &-item:hover {
+    background-color: @menu-dark-item-hover-bg;
+  }
 
   &-dark &-item-selected {
     color: @menu-dark-highlight-color;
@@ -101,6 +104,12 @@
     > a,
     > a:hover {
       color: @menu-dark-highlight-color;
+    }
+    .@{iconfont-css-prefix} {
+      color: @menu-dark-selected-item-icon-color;
+    }
+    span {
+      color: @menu-dark-selected-item-text-color;
     }
   }
 

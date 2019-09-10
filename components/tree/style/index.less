@@ -122,10 +122,10 @@
       cursor: pointer;
       transition: all 0.3s;
       &:hover {
-        background-color: @item-hover-bg;
+        background-color: @tree-node-hover-bg;
       }
       &.@{tree-prefix-cls}-node-selected {
-        background-color: @primary-2;
+        background-color: @tree-node-selected-bg;
       }
     }
     span {
@@ -244,7 +244,8 @@
       left: 12px;
       width: 1px;
       height: 100%;
-      margin: 22px 0;
+      height: calc(100% - 22px); // Remove additional height if support
+      margin: 22px 0 0;
       border-left: 1px solid @border-color-base;
       content: ' ';
     }

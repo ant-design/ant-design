@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-`ghost` property will make button's background transparent, it is common used in colored background.
+`ghost` property will make button's background transparent, it is commonly used in colored background.
 
 ```jsx
 import { Button } from 'antd';

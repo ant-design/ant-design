@@ -6,8 +6,7 @@ import Form from '../../form';
 import { spyElementPrototypes } from '../../__tests__/util/domHook';
 import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { sleep } from '../../../tests/utils';
 
 const fileList = [
   {
@@ -124,7 +123,7 @@ describe('Upload List', () => {
       .at(0)
       .find('.anticon-close')
       .simulate('click');
-    await delay(400);
+    await sleep(400);
     wrapper.update();
     expect(wrapper.find('.ant-upload-list-item').hostNodes().length).toBe(1);
   });
@@ -245,7 +244,7 @@ describe('Upload List', () => {
       .at(1)
       .simulate('click');
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
-    await delay(0);
+    await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
   });
 
@@ -274,7 +273,7 @@ describe('Upload List', () => {
           </Upload>,
         );
         wrapper.setState({});
-        await delay(0);
+        await sleep();
 
         expect(wrapper.state().fileList[2].thumbUrl).not.toBe(undefined);
         expect(onDrawImage).toHaveBeenCalled();
@@ -388,7 +387,7 @@ describe('Upload List', () => {
           <Form onSubmit={this.handleSubmit}>
             <Form.Item>
               {getFieldDecorator('file', {
-                valuePropname: 'fileList',
+                valuePropName: 'fileList',
                 getValueFromEvent: e => e.fileList,
                 rules: [
                   {
@@ -506,28 +505,60 @@ describe('Upload List', () => {
     });
   });
 
-  it('customize previewFile support', async () => {
-    const mockThumbnail = 'mock-image';
-    const previewFile = jest.fn(() => {
-      return Promise.resolve(mockThumbnail);
-    });
-    const file = {
-      ...fileList[0],
-      originFileObj: new File([], 'xxx.png'),
-    };
-    delete file.thumbUrl;
+  describe('customize previewFile support', () => {
+    function test(name, renderInstance) {
+      it(name, async () => {
+        const mockThumbnail = 'mock-image';
+        const previewFile = jest.fn(() => {
+          return Promise.resolve(mockThumbnail);
+        });
+        const file = {
+          ...fileList[0],
+          originFileObj: renderInstance(),
+        };
+        delete file.thumbUrl;
 
+        const wrapper = mount(
+          <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
+            <button type="button">button</button>
+          </Upload>,
+        );
+        wrapper.setState({});
+        await sleep();
+
+        expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
+        wrapper.update();
+
+        expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
+      });
+    }
+
+    test('File', () => new File([], 'xxx.png'));
+    test('Blob', () => new Blob());
+  });
+
+  it('should support transformFile', done => {
+    const handleTransformFile = jest.fn();
+    const onChange = ({ file }) => {
+      if (file.status === 'done') {
+        expect(handleTransformFile).toHaveBeenCalled();
+        done();
+      }
+    };
     const wrapper = mount(
-      <Upload listType="picture" defaultFileList={[file]} previewFile={previewFile}>
-        <button type="button" />
+      <Upload
+        action="http://jsonplaceholder.typicode.com/posts/"
+        transformFile={handleTransformFile}
+        onChange={onChange}
+        customRequest={successRequest}
+      >
+        <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.setState({});
-    await delay(0);
-
-    expect(previewFile).toHaveBeenCalledWith(file.originFileObj);
-    wrapper.update();
-
-    expect(wrapper.find('.ant-upload-list-item-thumbnail img').prop('src')).toBe(mockThumbnail);
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ name: 'foo.png' }],
+      },
+    });
   });
 });

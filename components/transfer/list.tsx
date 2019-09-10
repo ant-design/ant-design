@@ -83,6 +83,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   };
 
   timer: number;
+
   triggerScrollTimer: number;
 
   constructor(props: TransferListProps) {
@@ -92,19 +93,20 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     };
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.triggerScrollTimer);
-  }
-
   shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.triggerScrollTimer);
   }
 
   getCheckStatus(filteredItems: TransferItem[]) {
     const { checkedKeys } = this.props;
     if (checkedKeys.length === 0) {
       return 'none';
-    } else if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
+    }
+    if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
       return 'all';
     }
     return 'part';
@@ -159,26 +161,25 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       </div>
     ) : null;
 
-    const searchNotFound = !filteredItems.length && (
-      <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
-    );
-
     let listBody: React.ReactNode = bodyDom;
     if (!listBody) {
-      let bodyNode: React.ReactNode = searchNotFound;
-      if (!bodyNode) {
-        const { bodyContent, customize } = renderListNode(renderList, {
-          ...omit(this.props, OmitProps),
-          filteredItems,
-          filteredRenderItems,
-          selectedKeys: checkedKeys,
-        });
+      let bodyNode: React.ReactNode;
 
-        // We should wrap customize list body in a classNamed div to use flex layout.
-        bodyNode = customize ? (
-          <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>
-        ) : (
+      const { bodyContent, customize } = renderListNode(renderList, {
+        ...omit(this.props, OmitProps),
+        filteredItems,
+        filteredRenderItems,
+        selectedKeys: checkedKeys,
+      });
+
+      // We should wrap customize list body in a classNamed div to use flex layout.
+      if (customize) {
+        bodyNode = <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>;
+      } else {
+        bodyNode = filteredItems.length ? (
           bodyContent
+        ) : (
+          <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
         );
       }
 
@@ -223,11 +224,12 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   }
 
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { handleFilter } = this.props;
     const {
       target: { value: filterValue },
     } = e;
     this.setState({ filterValue });
-    this.props.handleFilter(e);
+    handleFilter(e);
     if (!filterValue) {
       return;
     }
@@ -243,8 +245,9 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   };
 
   handleClear = () => {
+    const { handleClear } = this.props;
     this.setState({ filterValue: '' });
-    this.props.handleClear();
+    handleClear();
   };
 
   matchFilter = (text: string, item: TransferItem) => {

@@ -2,7 +2,6 @@
 @import '../../style/mixins/index';
 
 @timeline-prefix-cls: ~'@{ant-prefix}-timeline';
-@timeline-color: @border-color-split;
 
 .@{timeline-prefix-cls} {
   .reset-component;
@@ -20,14 +19,15 @@
 
     &-tail {
       position: absolute;
-      top: 0.75em;
+      top: 10px;
       left: 4px;
-      height: 100%;
-      border-left: 2px solid @timeline-color;
+      height: calc(100% - 10px);
+      border-left: @timeline-width solid @timeline-color;
     }
 
     &-pending &-head {
       font-size: @font-size-sm;
+      background-color: transparent;
     }
 
     &-pending &-tail {
@@ -38,21 +38,28 @@
       position: absolute;
       width: 10px;
       height: 10px;
-      background-color: @component-background;
-      border: 2px solid transparent;
+      background-color: @timeline-dot-bg;
+      border: @timeline-dot-border-width solid transparent;
       border-radius: 100px;
 
       &-blue {
         color: @primary-color;
         border-color: @primary-color;
       }
+
       &-red {
         color: @error-color;
         border-color: @error-color;
       }
+
       &-green {
         color: @success-color;
         border-color: @success-color;
+      }
+
+      &-gray {
+        color: @disabled-color;
+        border-color: @disabled-color;
       }
     }
 
@@ -75,6 +82,7 @@
       position: relative;
       top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
       margin: 0 0 0 18px;
+      word-break: break-word;
     }
 
     &-last {
@@ -105,18 +113,16 @@
 
       &-left {
         .@{timeline-prefix-cls}-item-content {
-          left: 50%;
-          width: 50%;
+          left: calc(50% - 4px);
+          width: calc(50% - 14px);
           text-align: left;
         }
       }
 
       &-right {
         .@{timeline-prefix-cls}-item-content {
-          right: 50%;
-          left: -30px;
-          width: 50%;
-          margin-right: 18px;
+          width: calc(50% - 12px);
+          margin: 0;
           text-align: right;
         }
       }
@@ -128,18 +134,17 @@
       .@{timeline-prefix-cls}-item-tail,
       .@{timeline-prefix-cls}-item-head,
       .@{timeline-prefix-cls}-item-head-custom {
-        left: 100%;
+        left: calc(100% - 4px - @timeline-width);
       }
       .@{timeline-prefix-cls}-item-content {
-        right: 0;
-        left: -30px;
-        width: 100%;
+        width: calc(100% - 18px);
       }
     }
   }
 
   &&-pending &-item-last &-item-tail {
     display: block;
+    height: calc(100% - 14px);
     border-left: 2px dotted @timeline-color;
   }
 
@@ -149,7 +154,9 @@
 
   &&-reverse &-item-pending {
     .@{timeline-prefix-cls}-item-tail {
+      top: 15px;
       display: block;
+      height: calc(100% - 15px);
       border-left: 2px dotted @timeline-color;
     }
     .@{timeline-prefix-cls}-item-content {

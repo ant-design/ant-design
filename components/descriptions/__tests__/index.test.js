@@ -2,6 +2,8 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import { resetWarned } from '../../_util/warning';
 
 jest.mock('enquire.js', () => {
   let that;
@@ -22,6 +24,8 @@ jest.mock('enquire.js', () => {
 });
 
 describe('Descriptions', () => {
+  mountTest(Descriptions);
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
@@ -42,9 +46,11 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
         <Descriptions.Item label="time">18:00:00</Descriptions.Item>
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+        <Descriptions.Item>No-Label</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.find('tr')).toHaveLength(4);
+    expect(wrapper.find('tr')).toHaveLength(5);
+    expect(wrapper.find('.ant-descriptions-item-no-label')).toHaveLength(1);
 
     enquire.callunmatch();
     wrapper.unmount();
@@ -95,6 +101,8 @@ describe('Descriptions', () => {
   });
 
   it('warning if ecceed the row span', () => {
+    resetWarned();
+
     mount(
       <Descriptions column={3}>
         <Descriptions.Item label="Product" span={2}>
@@ -108,5 +116,73 @@ describe('Descriptions', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Descriptions] Sum of column `span` in a line exceeds `column` of Descriptions.',
     );
+  });
+
+  it('when item is rendered conditionally', () => {
+    const hasDiscount = false;
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+        {hasDiscount && <Descriptions.Item label="Discount">$20.00</Descriptions.Item>}
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
+  it('vertical layout', () => {
+    // eslint-disable-next-line global-require
+    const wrapper = mount(
+      <Descriptions layout="vertical">
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+        <Descriptions.Item label="Billing">Prepaid</Descriptions.Item>
+        <Descriptions.Item label="time">18:00:00</Descriptions.Item>
+        <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+    wrapper.unmount();
+  });
+
+  it('Descriptions.Item support className', () => {
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item label="Product" className="my-class">
+          Cloud Database
+        </Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('Descriptions support colon', () => {
+    const wrapper = mount(
+      <Descriptions colon={false}>
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('Descriptions support style', () => {
+    const wrapper = mount(
+      <Descriptions style={{ backgroundColor: '#e8e8e8' }}>
+        <Descriptions.Item>Cloud Database</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('keep key', () => {
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item key="bamboo" />
+      </Descriptions>,
+    );
+
+    expect(wrapper.find('Col').key()).toBe('label-bamboo');
   });
 });

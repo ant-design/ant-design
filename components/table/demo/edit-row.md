@@ -106,7 +106,6 @@ class EditableTable extends React.Component {
               <EditableContext.Consumer>
                 {form => (
                   <a
-                    href="javascript:;"
                     onClick={() => this.save(form, record.key)}
                     style={{ marginRight: 8 }}
                   >

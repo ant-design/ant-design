@@ -2,12 +2,16 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import debounce from 'lodash/debounce';
 import Tree from '../index';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { DirectoryTree, TreeNode } = Tree;
 
 jest.mock('lodash/debounce');
 
 describe('Directory Tree', () => {
+  mountTest(Tree);
+  mountTest(DirectoryTree);
+
   debounce.mockImplementation(fn => fn);
 
   beforeAll(() => {

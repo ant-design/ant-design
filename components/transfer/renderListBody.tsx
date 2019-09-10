@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 import Animate from 'rc-animate';
 import raf from '../_util/raf';
 import { Omit, tuple } from '../_util/type';
@@ -30,14 +31,33 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   private mountId: number;
 
+  private lazyId: number;
+
   componentDidMount() {
     this.mountId = raf(() => {
       this.setState({ mounted: true });
     });
   }
 
+  componentDidUpdate(prevProps: TransferListBodyProps) {
+    const { filteredRenderItems, lazy } = this.props;
+    if (prevProps.filteredRenderItems.length !== filteredRenderItems.length && lazy !== false) {
+      // TODO: Replace this with ref when react 15 support removed.
+      const container = findDOMNode(this);
+
+      raf.cancel(this.lazyId);
+      this.lazyId = raf(() => {
+        if (container) {
+          const scrollEvent = new Event('scroll', { bubbles: true });
+          container.dispatchEvent(scrollEvent);
+        }
+      });
+    }
+  }
+
   componentWillUnmount() {
     raf.cancel(this.mountId);
+    raf.cancel(this.lazyId);
   }
 
   onItemSelect = (item: TransferItem) => {
@@ -81,4 +101,6 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 }
 
-export default (props: TransferListBodyProps) => <ListBody {...props} />;
+const ListBodyWrapper = (props: TransferListBodyProps) => <ListBody {...props} />;
+
+export default ListBodyWrapper;

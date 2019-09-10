@@ -11,9 +11,10 @@
   position: relative;
   display: inline-block;
   height: auto;
-  white-space: pre-wrap;
   padding: 0;
   overflow: hidden;
+  line-height: @line-height-base;
+  white-space: pre-wrap;
   vertical-align: bottom;
 
   // =================== Status ===================
@@ -30,10 +31,11 @@
   // ================= Input Area =================
   > textarea,
   &-measure {
+    min-height: @input-height-base - 2px;
     margin: 0;
     padding: @input-padding-vertical-base @input-padding-horizontal-base;
     overflow: inherit;
-    overflow-x: initial;
+    overflow-x: hidden;
     overflow-y: auto;
     font-weight: inherit;
     font-size: inherit;
@@ -58,6 +60,7 @@
     border: none;
     outline: none;
     resize: none;
+    .placeholder();
 
     &:read-only {
       cursor: default;
@@ -73,6 +76,11 @@
     z-index: -1;
     color: transparent;
     pointer-events: none;
+
+    > span {
+      display: inline-block;
+      min-height: 1em;
+    }
   }
 
   // ================== Dropdown ==================
@@ -107,6 +115,7 @@
       &-item {
         position: relative;
         display: block;
+        min-width: 100px;
         padding: 5px @control-padding-horizontal;
         overflow: hidden;
         color: @text-color;
@@ -115,7 +124,6 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         cursor: pointer;
-        min-width: 100px;
         transition: background 0.3s ease;
 
         &:hover {

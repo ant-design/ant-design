@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Button } from 'antd';
+import { Select, Menu, Row, Col, Icon, Popover, Input, Button, Badge } from 'antd';
 import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
@@ -36,10 +36,9 @@ function initDocSearch(locale) {
   });
 }
 
-export default class Header extends React.Component {
+class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-    intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
   };
 
@@ -48,7 +47,8 @@ export default class Header extends React.Component {
   };
 
   componentDidMount() {
-    const { intl, router } = this.context;
+    const { intl } = this.props;
+    const { router } = this.context;
     router.listen(this.handleHideMenu);
     const { searchInput } = this;
     document.addEventListener('keyup', event => {
@@ -108,7 +108,7 @@ export default class Header extends React.Component {
     const { menuVisible } = this.state;
     const { isMobile } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
-    const { location, themeConfig } = this.props;
+    const { location, themeConfig, intl: { locale } } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions).map(version => (
       <Option value={docVersions[version]} key={version}>
@@ -124,9 +124,6 @@ export default class Header extends React.Component {
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
-    const {
-      intl: { locale },
-    } = this.context;
     const isZhCN = locale === 'zh-CN';
 
     const headerClassName = classNames({
@@ -179,7 +176,11 @@ export default class Header extends React.Component {
         <Menu.SubMenu
           key="ecosystem"
           className="hide-in-home-page"
-          title={<FormattedMessage id="app.header.menu.ecosystem" />}
+          title={
+            <Badge dot>
+              <FormattedMessage id="app.header.menu.ecosystem" />
+            </Badge>
+          }
         >
           <Menu.Item key="pro">
             <a
@@ -188,7 +189,9 @@ export default class Header extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FormattedMessage id="app.header.menu.pro" />
+              <Badge dot>
+                <FormattedMessage id="app.header.menu.pro.v4" />
+              </Badge>
             </a>
           </Menu.Item>
           <Menu.Item key="ng">
@@ -274,3 +277,5 @@ export default class Header extends React.Component {
     );
   }
 }
+
+export default injectIntl(Header);

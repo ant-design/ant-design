@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Another type Tabs, which doesn't support vertical mode.
+Another type of Tabs, which doesn't support vertical mode.
 
 ```jsx
 import { Tabs } from 'antd';

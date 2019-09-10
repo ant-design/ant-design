@@ -5,10 +5,11 @@ export interface SkeletonAvatarProps {
   prefixCls?: string;
   className?: string;
   style?: object;
-  size?: 'large' | 'small' | 'default';
+  size?: 'large' | 'small' | 'default' | number;
   shape?: 'circle' | 'square';
 }
 
+// eslint-disable-next-line react/prefer-stateless-function
 class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
   static defaultProps: Partial<SkeletonAvatarProps> = {
     size: 'large',

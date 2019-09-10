@@ -25,7 +25,7 @@ const isChecked = (selectedKeys, eventKey) => {
 
 const generateTree = (treeNodes = [], checkedKeys = []) => {
   return treeNodes.map(({ children, ...props }) => (
-    <TreeNode {...props} disabled={checkedKeys.includes(props.key)}>
+    <TreeNode {...props} disabled={checkedKeys.includes(props.key)} key={props.key}>
       {generateTree(children, checkedKeys)}
     </TreeNode>
   ));

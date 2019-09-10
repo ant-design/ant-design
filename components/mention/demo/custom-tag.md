@@ -18,7 +18,7 @@ Customize suggestions.
 ```jsx
 import { Mention } from 'antd';
 
-const Nav = Mention.Nav;
+const { Nav } = Mention;
 
 const webFrameworks = [
   { name: 'React', type: 'JavaScript' },
@@ -43,7 +43,7 @@ class CustomNavMention extends React.Component {
       item => item.name.toLowerCase().indexOf(searchValue) !== -1,
     );
     const suggestions = filtered.map(suggestion => (
-      <Nav value={suggestion.name} data={suggestion}>
+      <Nav value={suggestion.name} data={suggestion} key={suggestion.name}>
         <span>
           {suggestion.name} - {suggestion.type}
         </span>

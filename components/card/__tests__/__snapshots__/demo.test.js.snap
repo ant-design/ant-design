@@ -182,7 +182,7 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
     class="ant-card-body"
   >
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
@@ -194,31 +194,31 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
@@ -1002,6 +1002,16 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           role="tablist"
           tabindex="0"
         >
+          <div
+            class="ant-tabs-extra-content"
+            style="float:right"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
           <div
             class="ant-tabs-nav-container"
           >

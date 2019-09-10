@@ -16,7 +16,7 @@ A borderless style of Collapse.
 ```jsx
 import { Collapse } from 'antd';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 const text = (
   <p style={{ paddingLeft: 24 }}>

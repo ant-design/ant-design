@@ -12,6 +12,7 @@ if (typeof window !== 'undefined') {
     };
   };
   window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  // eslint-disable-next-line global-require
   enquire = require('enquire.js');
 }
 
@@ -57,8 +58,8 @@ const responsiveObserve = {
     }
     const token = (++subUid).toString();
     subscribers.push({
-      token: token,
-      func: func,
+      token,
+      func,
     });
     func(screens);
     return token;

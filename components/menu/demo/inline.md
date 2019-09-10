@@ -16,7 +16,7 @@ Vertical menu with inline submenus.
 ```jsx
 import { Menu, Icon } from 'antd';
 
-const { SubMenu }  = Menu;
+const { SubMenu } = Menu;
 
 class Sider extends React.Component {
   handleClick = e => {

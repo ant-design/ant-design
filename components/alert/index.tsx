@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
-import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
+import Icon, { ThemeType } from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import warning from '../_util/warning';
 
 function noop() {}
 
@@ -41,10 +42,20 @@ export interface AlertState {
 }
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
-  state: AlertState = {
-    closing: true,
-    closed: false,
-  };
+  constructor(props: AlertProps) {
+    super(props);
+
+    warning(
+      !('iconType' in props),
+      'Alert',
+      '`iconType` is deprecated. Please use `icon` instead.',
+    );
+
+    this.state = {
+      closing: true,
+      closed: false,
+    };
+  }
 
   handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -89,8 +100,6 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     type = banner && type === undefined ? 'warning' : type || 'info';
 
     let iconTheme: ThemeType = 'filled';
-    // should we give a warning?
-    // warning(!iconType, `The property 'iconType' is deprecated. Use the property 'icon' instead.`);
     if (!iconType) {
       switch (type) {
         case 'success':
@@ -110,7 +119,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       }
 
       // use outline icon in alert with description
-      if (!!description) {
+      if (description) {
         iconTheme = 'outlined';
       }
     }
@@ -134,9 +143,18 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
 
     const closeIcon = closable ? (
-      <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
-        {closeText || <Icon type="close" />}
-      </a>
+      <span
+        role="button"
+        onClick={this.handleClose}
+        className={`${prefixCls}-close-icon`}
+        tabIndex={0}
+      >
+        {closeText ? (
+          <span className={`${prefixCls}-close-text`}>{closeText}</span>
+        ) : (
+          <Icon type="close" />
+        )}
+      </span>
     ) : null;
 
     const dataOrAriaProps = getDataOrAriaProps(this.props);

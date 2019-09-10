@@ -6,9 +6,11 @@ Object.keys(manifest).forEach(theme => {
 });
 
 // Hide typo-name icons
-allIcons = allIcons.filter((name: string) => !['interation', 'canlendar'].includes(name));
+allIcons = allIcons.filter(
+  (name: string) => !['interation', 'canlendar', 'colum-height'].includes(name),
+);
 
-export const categories = {
+const categories = {
   all: [...new Set(allIcons)],
   direction: [
     'step-backward',
@@ -125,8 +127,6 @@ export const categories = {
     'font-colors',
     'font-size',
     'line-height',
-    'colum-height',
-    'colum-width',
     'dash',
     'small-dash',
     'sort-ascending',
@@ -136,6 +136,7 @@ export const categories = {
     'unordered-list',
     'radius-setting',
     'column-width',
+    'column-height',
   ],
   data: [
     'area-chart',
@@ -205,6 +206,8 @@ export const categories = {
     'sketch',
   ],
 };
+
+export default categories;
 
 export interface Categories {
   all: string[];

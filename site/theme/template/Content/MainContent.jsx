@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Icon, Affix } from 'antd';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
@@ -12,13 +13,6 @@ import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
 const { SubMenu } = Menu;
-
-function getActiveMenuItem(props) {
-  const { children } = props.params;
-  return (
-    (children && children.replace('-cn', '')) || props.location.pathname.replace(/(^\/|-cn$)/g, '')
-  );
-}
 
 function getModuleData(props) {
   const { pathname } = props.location;
@@ -56,9 +50,26 @@ const getSideBarOpenKeys = nextProps => {
   return shouldOpenKeys;
 };
 
-export default class MainContent extends Component {
+const getSubMenuTitle = menuItem => {
+  if (menuItem.title !== 'Components') {
+    return menuItem.title;
+  }
+  let count = 0;
+  menuItem.children.forEach(item => {
+    if (item.children) {
+      count += item.children.length;
+    }
+  });
+  return (
+    <h4>
+      <FormattedMessage id="app.header.menu.components" />
+      <span className="menu-antd-components-count">{count}</span>
+    </h4>
+  );
+};
+
+class MainContent extends Component {
   static contextTypes = {
-    intl: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
   };
 
@@ -103,10 +114,7 @@ export default class MainContent extends Component {
   }
 
   getMenuItems(footerNavIcons = {}) {
-    const { themeConfig } = this.props;
-    const {
-      intl: { locale },
-    } = this.context;
+    const { themeConfig, intl: { locale } } = this.props;
     const moduleData = getModuleData(this.props);
     const menuItems = utils.getMenuItems(
       moduleData,
@@ -117,7 +125,7 @@ export default class MainContent extends Component {
     return menuItems.map(menuItem => {
       if (menuItem.children) {
         return (
-          <SubMenu title={<h4>{menuItem.title}</h4>} key={menuItem.title}>
+          <SubMenu title={getSubMenuTitle(menuItem)} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
                 return (
@@ -150,6 +158,13 @@ export default class MainContent extends Component {
     return { prev, next };
   }
 
+  getActiveMenuItem() {
+    const { params: { children }, location } = this.props;
+    return (
+      (children && children.replace('-cn', '')) || location.pathname.replace(/(^\/|-cn$)/g, '')
+    );
+  }
+
   handleMenuOpenChange = openKeys => {
     this.setState({ openKeys });
   };
@@ -171,6 +186,9 @@ export default class MainContent extends Component {
   bindScroller() {
     if (this.scroller) {
       this.scroller.destroy();
+    }
+    if (!document.querySelector('.markdown > h2, .code-box')) {
+      return;
     }
     require('intersection-observer'); // eslint-disable-line
     const scrollama = require('scrollama'); // eslint-disable-line
@@ -194,7 +212,7 @@ export default class MainContent extends Component {
   generateMenuItem(isTop, item, { before = null, after = null }) {
     const {
       intl: { locale },
-    } = this.context;
+    } = this.props;
     const key = fileNameToPath(item.filename);
     if (!item.title) {
       return null;
@@ -257,19 +275,18 @@ export default class MainContent extends Component {
   }
 
   render() {
-    const { props } = this;
     const { isMobile } = this.context;
     const { openKeys } = this.state;
-    const activeMenuItem = getActiveMenuItem(props);
+    const { localizedPageData, demos } = this.props;
+    const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
       before: <Icon className="footer-nav-icon-before" type="left" />,
       after: <Icon className="footer-nav-icon-after" type="right" />,
     });
     const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
-    const { localizedPageData } = props;
     const mainContainerClass = classNames('main-container', {
-      'main-container-component': !!props.demos,
+      'main-container-component': !!demos,
     });
     const menuChild = (
       <Menu
@@ -288,7 +305,10 @@ export default class MainContent extends Component {
         <Row>
           {isMobile ? (
             <MobileMenu
-              iconChild={[<Icon type="menu-unfold" />, <Icon type="menu-fold" />]}
+              iconChild={[
+                <Icon key="menu-unfold" type="menu-unfold" />,
+                <Icon key="menu-fold" type="menu-fold" />,
+              ]}
               key="Mobile-menu"
               wrapperClassName="drawer-wrapper"
             >
@@ -303,10 +323,10 @@ export default class MainContent extends Component {
           )}
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
             <section className={mainContainerClass}>
-              {props.demos ? (
-                <ComponentDoc {...props} doc={localizedPageData} demos={props.demos} />
+              {demos ? (
+                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} />
               ) : (
-                <Article {...props} content={localizedPageData} />
+                <Article {...this.props} content={localizedPageData} />
               )}
             </section>
             <PrevAndNext prev={prev} next={next} />
@@ -317,3 +337,5 @@ export default class MainContent extends Component {
     );
   }
 }
+
+export default injectIntl(MainContent);

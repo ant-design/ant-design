@@ -52,8 +52,9 @@ class App extends React.Component {
           Click me!
         </Button>
         <br />
-        <Button shape="circle" loading />
+        <Button type="primary" loading />
         <Button type="primary" shape="circle" loading />
+        <Button type="danger" shape="round" loading />
       </div>
     );
   }

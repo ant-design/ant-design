@@ -16,7 +16,7 @@ Multiple and checkable.
 ```jsx
 import { TreeSelect } from 'antd';
 
-const SHOW_PARENT = TreeSelect.SHOW_PARENT;
+const { SHOW_PARENT } = TreeSelect;
 
 const treeData = [
   {

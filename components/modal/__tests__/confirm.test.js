@@ -84,8 +84,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     it('shows animation when close', () => {
       jest.useFakeTimers();
       open();
-      $$('.ant-btn')[0].click();
       expect($$('.ant-modal-confirm')).toHaveLength(1);
+      $$('.ant-btn')[0].click();
       jest.runAllTimers();
       expect($$('.ant-modal-confirm')).toHaveLength(0);
       jest.useRealTimers();

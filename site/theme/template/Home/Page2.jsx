@@ -41,6 +41,7 @@ const page2Data = [
 
 const svgBgChild = [
   <svg
+    key="svg-0"
     width="100%"
     height="100%"
     viewBox="0 0 1401 1109"
@@ -85,6 +86,7 @@ const svgBgChild = [
     </g>
   </svg>,
   <svg
+    key="svg-1"
     width="1311px"
     height="920px"
     viewBox="0 0 1311 920"

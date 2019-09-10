@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import Breadcrumb from '../index';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Breadcrumb', () => {
+  mountTest(Breadcrumb);
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
@@ -14,7 +17,7 @@ describe('Breadcrumb', () => {
   });
 
   // https://github.com/airbnb/enzyme/issues/875
-  it('warns on non-Breadcrumb.Item children', () => {
+  it('warns on non-Breadcrumb.Item and non-Breadcrumb.Separator children', () => {
     const MyCom = () => <div>foo</div>;
     mount(
       <Breadcrumb>
@@ -23,7 +26,7 @@ describe('Breadcrumb', () => {
     );
     expect(errorSpy.mock.calls).toHaveLength(1);
     expect(errorSpy.mock.calls[0][0]).toMatch(
-      "Warning: [antd: Breadcrumb] Only accepts Breadcrumb.Item as it's children",
+      "Warning: [antd: Breadcrumb] Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
     );
   });
 
@@ -47,6 +50,21 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Item />
         <Breadcrumb.Item>xxx</Breadcrumb.Item>
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18260
+  it('filter React.Fragment', () => {
+    const wrapper = render(
+      <Breadcrumb separator="">
+        <Breadcrumb.Item>Location</Breadcrumb.Item>
+        <Breadcrumb.Separator>:</Breadcrumb.Separator>
+        <>
+          <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
+          <Breadcrumb.Separator />
+        </>
       </Breadcrumb>,
     );
     expect(wrapper).toMatchSnapshot();

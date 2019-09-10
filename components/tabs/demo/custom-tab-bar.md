@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-use react-sticky.
+Use react-sticky.
 
 ```jsx
 import { Tabs } from 'antd';

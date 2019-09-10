@@ -2,7 +2,7 @@
 
 exports[`renders ./components/upload/demo/avatar.md correctly 1`] = `
 <span
-  class="avatar-uploader"
+  class="avatar-uploader ant-upload-picture-card-wrapper"
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-picture-card"
@@ -318,7 +318,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
   class="clearfix"
 >
   <span
-    class=""
+    class="ant-upload-picture-card-wrapper"
   >
     <div
       class="ant-upload-list ant-upload-list-picture-card"
@@ -337,7 +337,8 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               target="_blank"
             >
               <img
-                alt="xxx.png"
+                alt="image.png"
+                class="ant-upload-list-item-image"
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
@@ -346,9 +347,337 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
-              title="xxx.png"
+              title="image.png"
             >
-              xxx.png
+              image.png
+            </a>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Preview file"
+          >
+            <i
+              aria-label="icon: eye-o"
+              class="anticon anticon-eye-o"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </i>
+          </a>
+          <i
+            aria-label="icon: delete"
+            class="anticon anticon-delete"
+            tabindex="-1"
+            title="Remove file"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="delete"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+              />
+            </svg>
+          </i>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image.png"
+                class="ant-upload-list-item-image"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
+            >
+              image.png
+            </a>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Preview file"
+          >
+            <i
+              aria-label="icon: eye-o"
+              class="anticon anticon-eye-o"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </i>
+          </a>
+          <i
+            aria-label="icon: delete"
+            class="anticon anticon-delete"
+            tabindex="-1"
+            title="Remove file"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="delete"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+              />
+            </svg>
+          </i>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image.png"
+                class="ant-upload-list-item-image"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
+            >
+              image.png
+            </a>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Preview file"
+          >
+            <i
+              aria-label="icon: eye-o"
+              class="anticon anticon-eye-o"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </i>
+          </a>
+          <i
+            aria-label="icon: delete"
+            class="anticon anticon-delete"
+            tabindex="-1"
+            title="Remove file"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="delete"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+              />
+            </svg>
+          </i>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image.png"
+                class="ant-upload-list-item-image"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
+            >
+              image.png
+            </a>
+          </span>
+        </div>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <a
+            href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="Preview file"
+          >
+            <i
+              aria-label="icon: eye-o"
+              class="anticon anticon-eye-o"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="eye"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M942.2 486.2C847.4 286.5 704.1 186 512 186c-192.2 0-335.4 100.5-430.2 300.3a60.3 60.3 0 0 0 0 51.5C176.6 737.5 319.9 838 512 838c192.2 0 335.4-100.5 430.2-300.3 7.7-16.2 7.7-35 0-51.5zM512 766c-161.3 0-279.4-81.8-362.7-254C232.6 339.8 350.7 258 512 258c161.3 0 279.4 81.8 362.7 254C791.5 684.2 673.4 766 512 766zm-4-430c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm0 288c-61.9 0-112-50.1-112-112s50.1-112 112-112 112 50.1 112 112-50.1 112-112 112z"
+                />
+              </svg>
+            </i>
+          </a>
+          <i
+            aria-label="icon: delete"
+            class="anticon anticon-delete"
+            tabindex="-1"
+            title="Remove file"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="delete"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+              />
+            </svg>
+          </i>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list-item ant-upload-list-item-done"
+      >
+        <div
+          class="ant-upload-list-item-info"
+        >
+          <span>
+            <a
+              class="ant-upload-list-item-thumbnail"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="image.png"
+                class="ant-upload-list-item-image"
+                src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              />
+            </a>
+            <a
+              class="ant-upload-list-item-name"
+              href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+              rel="noopener noreferrer"
+              target="_blank"
+              title="image.png"
+            >
+              image.png
             </a>
           </span>
         </div>
@@ -438,6 +767,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             >
               <img
                 alt="xxx.png"
+                class="ant-upload-list-item-image"
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
@@ -489,6 +819,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             >
               <img
                 alt="yyy.png"
+                class="ant-upload-list-item-image"
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
@@ -553,6 +884,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             >
               <img
                 alt="xxx.png"
+                class="ant-upload-list-item-image"
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
@@ -604,6 +936,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
             >
               <img
                 alt="yyy.png"
+                class="ant-upload-list-item-image"
                 src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               />
             </a>
@@ -655,6 +988,21 @@ exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
     />
     <div
       class="ant-upload-list ant-upload-list-picture"
+    />
+  </span>
+</div>
+`;
+
+exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
+<div>
+  <span
+    class=""
+  >
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-text"
+    />
+    <div
+      class="ant-upload-list ant-upload-list-text"
     />
   </span>
 </div>

@@ -20,7 +20,7 @@ function destroyAll() {
   Modal.destroyAll();
 }
 
-const confirm = Modal.confirm;
+const { confirm } = Modal;
 
 function showConfirm() {
   for (let i = 0; i < 3; i += 1) {

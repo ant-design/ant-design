@@ -7,6 +7,7 @@ import KeyCode from 'rc-util/lib/KeyCode';
 
 interface TransButtonProps extends React.HTMLAttributes<HTMLDivElement> {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
+  noStyle?: boolean;
 }
 
 const inlineStyle: React.CSSProperties = {
@@ -19,6 +20,7 @@ const inlineStyle: React.CSSProperties = {
 
 class TransButton extends React.Component<TransButtonProps> {
   div?: HTMLDivElement;
+
   lastKeyCode?: number;
 
   onKeyDown: React.KeyboardEventHandler<HTMLDivElement> = event => {
@@ -53,16 +55,17 @@ class TransButton extends React.Component<TransButtonProps> {
   }
 
   render() {
-    const { style } = this.props;
+    const { style, noStyle, ...restProps } = this.props;
+
     return (
       <div
         role="button"
         tabIndex={0}
         ref={this.setRef}
-        {...this.props}
+        {...restProps}
         onKeyDown={this.onKeyDown}
         onKeyUp={this.onKeyUp}
-        style={{ ...inlineStyle, ...style }}
+        style={{ ...(!noStyle ? inlineStyle : null), ...style }}
       />
     );
   }

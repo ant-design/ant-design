@@ -76,9 +76,9 @@ ReactDOM.render(
       key="action"
       render={(text, record) => (
         <span>
-          <a href="javascript:;">Invite {record.lastName}</a>
+          <a>Invite {record.lastName}</a>
           <Divider type="vertical" />
-          <a href="javascript:;">Delete</a>
+          <a>Delete</a>
         </span>
       )}
     />

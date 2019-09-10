@@ -32,7 +32,7 @@ export interface SinglePickerProps {
   defaultPickerValue?: moment.Moment;
   placeholder?: string;
   renderExtraFooter?: (mode: DatePickerMode) => React.ReactNode;
-  onChange?: (date: moment.Moment, dateString: string) => void;
+  onChange?: (date: moment.Moment | null, dateString: string) => void;
 }
 
 const DatePickerModes = tuple('time', 'date', 'month', 'year', 'decade');
@@ -56,7 +56,7 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
 }
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
-  // - currently no own props -
+  monthCellContentRender?: (date: moment.Moment, locale: any) => React.ReactNode
 }
 
 export type RangePickerValue =

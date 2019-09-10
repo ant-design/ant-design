@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 import classNames from 'classnames';
 import * as allIcons from '@ant-design/icons/lib/dist';
@@ -18,7 +19,27 @@ import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 ReactIcon.add(...Object.keys(allIcons).map(key => (allIcons as any)[key]));
 setTwoToneColor('#1890ff');
 let defaultTheme: ThemeType = 'outlined';
-let dangerousTheme: ThemeType | undefined = undefined;
+let dangerousTheme: ThemeType | undefined;
+
+function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
+  warning(
+    false,
+    'Icon',
+    `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
+      `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  dangerousTheme = theme;
+}
+
+function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
+  warning(
+    false,
+    'Icon',
+    `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
+      `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  defaultTheme = theme;
+}
 
 export interface TransferLocale {
   icon: string;
@@ -107,8 +128,6 @@ const Icon: IconComponent<IconProps> = props => {
     [`anticon-spin`]: !!spin || type === 'loading',
   });
 
-  let innerNode: React.ReactNode;
-
   const svgStyle = rotate
     ? {
         msTransform: `rotate(${rotate}deg)`,
@@ -127,52 +146,54 @@ const Icon: IconComponent<IconProps> = props => {
     delete innerSvgProps.viewBox;
   }
 
-  // component > children > type
-  if (Component) {
-    innerNode = <Component {...innerSvgProps}>{children}</Component>;
-  }
+  const renderInnerNode = () => {
+    // component > children > type
+    if (Component) {
+      return <Component {...innerSvgProps}>{children}</Component>;
+    }
 
-  if (children) {
-    warning(
-      Boolean(viewBox) ||
-        (React.Children.count(children) === 1 &&
-          React.isValidElement(children) &&
-          React.Children.only(children).type === 'use'),
-      'Icon',
-      'Make sure that you provide correct `viewBox`' +
-        ' prop (default `0 0 1024 1024`) to the icon.',
-    );
-    innerNode = (
-      <svg {...innerSvgProps} viewBox={viewBox}>
-        {children}
-      </svg>
-    );
-  }
-
-  if (typeof type === 'string') {
-    let computedType = type;
-    if (theme) {
-      const themeInName = getThemeFromTypeName(type);
+    if (children) {
       warning(
-        !themeInName || theme === themeInName,
+        Boolean(viewBox) ||
+          (React.Children.count(children) === 1 &&
+            React.isValidElement(children) &&
+            React.Children.only(children).type === 'use'),
         'Icon',
-        `The icon name '${type}' already specify a theme '${themeInName}',` +
-          ` the 'theme' prop '${theme}' will be ignored.`,
+        'Make sure that you provide correct `viewBox`' +
+          ' prop (default `0 0 1024 1024`) to the icon.',
+      );
+      return (
+        <svg {...innerSvgProps} viewBox={viewBox}>
+          {children}
+        </svg>
       );
     }
-    computedType = withThemeSuffix(
-      removeTypeTheme(alias(computedType)),
-      dangerousTheme || theme || defaultTheme,
-    );
-    innerNode = (
-      <ReactIcon
-        className={svgClassString}
-        type={computedType}
-        primaryColor={twoToneColor}
-        style={svgStyle}
-      />
-    );
-  }
+
+    if (typeof type === 'string') {
+      let computedType = type;
+      if (theme) {
+        const themeInName = getThemeFromTypeName(type);
+        warning(
+          !themeInName || theme === themeInName,
+          'Icon',
+          `The icon name '${type}' already specify a theme '${themeInName}',` +
+            ` the 'theme' prop '${theme}' will be ignored.`,
+        );
+      }
+      computedType = withThemeSuffix(
+        removeTypeTheme(alias(computedType)),
+        dangerousTheme || theme || defaultTheme,
+      );
+      return (
+        <ReactIcon
+          className={svgClassString}
+          type={computedType}
+          primaryColor={twoToneColor}
+          style={svgStyle}
+        />
+      );
+    }
+  };
 
   let iconTabIndex = tabIndex;
   if (iconTabIndex === undefined && onClick) {
@@ -189,32 +210,12 @@ const Icon: IconComponent<IconProps> = props => {
           onClick={onClick}
           className={classString}
         >
-          {innerNode}
+          {renderInnerNode()}
         </i>
       )}
     </LocaleReceiver>
   );
 };
-
-function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
-  warning(
-    false,
-    'Icon',
-    `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
-      `make sure that all the icons with theme '${theme}' display correctly.`,
-  );
-  dangerousTheme = theme;
-}
-
-function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
-  warning(
-    false,
-    'Icon',
-    `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
-      `make sure that all the icons with theme '${theme}' display correctly.`,
-  );
-  defaultTheme = theme;
-}
 
 Icon.createFromIconfontCN = createFromIconfontCN;
 Icon.getTwoToneColor = getTwoToneColor;

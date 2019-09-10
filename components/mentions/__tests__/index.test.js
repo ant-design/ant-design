@@ -1,6 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Mentions from '..';
+import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { getMentions } = Mentions;
 
@@ -70,6 +72,9 @@ describe('Mentions', () => {
     expect(wrapper.find('.ant-mentions').hasClass('ant-mentions-focused')).toBeFalsy();
     expect(onBlur).toHaveBeenCalled();
   });
+
+  focusTest(Mentions);
+  mountTest(Mentions);
 
   it('loading', () => {
     const wrapper = mount(<Mentions loading />);

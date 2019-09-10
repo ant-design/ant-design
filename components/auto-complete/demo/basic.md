@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Basic Usage, set datasource of autocomplete with `dataSource` property.
+Basic Usage, set data source of autocomplete with `dataSource` property.
 
 ```jsx
 import { AutoComplete } from 'antd';
@@ -22,25 +22,43 @@ function onSelect(value) {
 
 class Complete extends React.Component {
   state = {
+    value: '',
     dataSource: [],
   };
 
-  handleSearch = value => {
+  onSearch = searchText => {
     this.setState({
-      dataSource: !value ? [] : [value, value + value, value + value + value],
+      dataSource: !searchText ? [] : [searchText, searchText.repeat(2), searchText.repeat(3)],
     });
   };
 
+  onChange = value => {
+    this.setState({ value });
+  };
+
   render() {
-    const { dataSource } = this.state;
+    const { dataSource, value } = this.state;
     return (
-      <AutoComplete
-        dataSource={dataSource}
-        style={{ width: 200 }}
-        onSelect={onSelect}
-        onSearch={this.handleSearch}
-        placeholder="input here"
-      />
+      <div>
+        <AutoComplete
+          dataSource={dataSource}
+          style={{ width: 200 }}
+          onSelect={onSelect}
+          onSearch={this.onSearch}
+          placeholder="input here"
+        />
+        <br />
+        <br />
+        <AutoComplete
+          value={value}
+          dataSource={dataSource}
+          style={{ width: 200 }}
+          onSelect={onSelect}
+          onSearch={this.onSearch}
+          onChange={this.onChange}
+          placeholder="control mode"
+        />
+      </div>
     );
   }
 }

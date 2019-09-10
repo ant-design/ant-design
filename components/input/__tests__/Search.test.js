@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Search from '../Search';
 import Button from '../../button';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Input.Search', () => {
   focusTest(Search);
+  mountTest(Search);
 
   it('should support custom button', () => {
     const wrapper = mount(<Search enterButton={<button type="button">ok</button>} />);

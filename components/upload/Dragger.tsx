@@ -4,9 +4,8 @@ import { UploadProps } from './interface';
 
 export type DraggerProps = UploadProps & { height?: number };
 
-export default class Dragger extends React.Component<DraggerProps, any> {
-  render() {
-    const { props } = this;
-    return <Upload {...props} type="drag" style={{ ...props.style, height: props.height }} />;
-  }
-}
+const Dragger: React.FC<DraggerProps> = props => (
+  <Upload {...props} type="drag" style={{ ...props.style, height: props.height }} />
+);
+
+export default Dragger;

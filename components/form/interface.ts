@@ -61,7 +61,7 @@ type NonReactStatics<
       : S extends React.ForwardRefExoticComponent<any>
       ? keyof FORWARD_REF_STATICS | keyof C
       : keyof REACT_STATICS | keyof KNOWN_STATICS | keyof C
-  >]: S[key]
+  >]: S[key];
 };
 
 // Copy from @types/react-redux https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-redux/index.d.ts
@@ -70,7 +70,7 @@ export type Matching<InjectedProps, DecorationTargetProps> = {
     ? InjectedProps[P] extends DecorationTargetProps[P]
       ? DecorationTargetProps[P]
       : InjectedProps[P]
-    : DecorationTargetProps[P]
+    : DecorationTargetProps[P];
 };
 
 export type GetProps<C> = C extends React.ComponentType<infer P> ? P : never;

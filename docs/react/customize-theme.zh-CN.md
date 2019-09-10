@@ -69,9 +69,9 @@ module.exports = {
 
 注意 less-loader 的处理范围不要过滤掉 `node_modules` 下的 antd 包。
 
-### 在 roadhog 或 Umi 里配置主题
+### 在 Umi 里配置主题
 
-如果你在使用 [roadhog](https://github.com/sorrycc/roadhog) 或者 [Umi](http://umijs.org/)，那么可以很方便地在项目根目录的 [.webpackrc](https://github.com/ant-design/ant-design-pro/blob/b7e7983661eb5e53dc807452e9653e93e74276d4/.webpackrc.js#L18)（roadhog）或 [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45)（Umi）文件中 `theme` 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
+如果你在使用 [Umi](http://umijs.org/zh/)，那么可以很方便地在项目根目录的 [config/config.js](https://github.com/ant-design/ant-design-pro/blob/56e648ec14bdb9f6724169fd64830447e224ccb1/config/config.js#L45)（Umi）文件中 [theme](https://umijs.org/zh/config/#theme) 字段进行主题配置。`theme` 可以配置为一个对象或文件路径。
 
 ```js
 "theme": {
@@ -106,6 +106,13 @@ module.exports = {
 
 - 如果你在使用 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 的 `style` 配置来引入样式，需要将配置值从 `'css'` 改为 `true`，这样会引入 less 文件。
 - 如果你是通过 `'antd/dist/antd.css'` 引入样式的，改为 `antd/dist/antd.less`。
+
+## 官方主题 🌈
+
+我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
+
+- [黑色主题（Beta）](https://github.com/ant-design/ant-design-dark-theme)
+- [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
 
 ## 社区教程
 
