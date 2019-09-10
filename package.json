@@ -1,46 +1,91 @@
 {
   "name": "antd",
   "version": "3.23.2",
-  "title": "Ant Design",
   "description": "An enterprise-class UI design language and React components implementation",
-  "homepage": "http://ant.design/",
   "keywords": [
     "ant",
-    "design",
-    "react",
-    "react-component",
     "component",
     "components",
-    "ui",
+    "design",
     "framework",
-    "frontend"
+    "frontend",
+    "react",
+    "react-component",
+    "ui"
   ],
-  "contributors": [
-    "ant"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+  "homepage": "http://ant.design/",
+  "bugs": {
+    "url": "https://github.com/ant-design/ant-design/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/ant-design/ant-design"
   },
-  "bugs": {
-    "url": "https://github.com/ant-design/ant-design/issues"
-  },
-  "main": "lib/index.js",
-  "module": "es/index.js",
+  "license": "MIT",
+  "contributors": [
+    "ant"
+  ],
   "files": [
     "dist",
     "lib",
     "es"
   ],
+  "sideEffects": [
+    "dist/*",
+    "es/**/style/*",
+    "lib/**/style/*",
+    "*.less"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "typings": "lib/index.d.ts",
-  "license": "MIT",
-  "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
+  "scripts": {
+    "api-collection": "antd-tools run api-collection",
+    "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
+    "bundlesize": "bundlesize",
+    "check-commit": "node ./scripts/check-commit.js",
+    "compile": "antd-tools run compile",
+    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp .circleci/config.yml _site",
+    "deploy": "bisheng gh-pages --push-only",
+    "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
+    "dist": "antd-tools run dist",
+    "lint": "npm run lint:tsc && npm run lint:script && npm run lint:demo && npm run lint:style && npm run lint:deps",
+    "lint-fix": "npm run lint-fix:script && npm run lint-fix:demo && npm run lint-fix:style",
+    "lint-fix:demo": "eslint-tinker ./components/*/demo/*.md",
+    "lint-fix:script": "npm run lint:script -- --fix",
+    "lint-fix:style": "npm run lint:style -- --fix",
+    "lint:demo": "cross-env RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
+    "lint:deps": "antd-tools run deps-lint",
+    "lint:md": "remark components/",
+    "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
+    "lint:style": "stylelint '{site,components}/**/*.less' --syntax less",
+    "lint:tsc": "npm run tsc",
+    "pre-publish": "npm run check-commit && npm run test-all",
+    "prettier": "prettier -c --write '**/*'",
+    "pretty-quick": "pretty-quick",
+    "pub": "antd-tools run pub",
+    "prepublish": "antd-tools run guard",
+    "site": "cross-env NODE_ICU_DATA=node_modules/full-icu bisheng build --ssr -c ./site/bisheng.config.js && node ./scripts/generateColorLess.js",
+    "sort": "npx sort-package-json",
+    "sort-api": "antd-tools run sort-api-table",
+    "start": "rimraf _site && mkdir _site && node ./scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
+    "start:preact": "node ./scripts/generateColorLess.js && cross-env NODE_ENV=development REACT_ENV=preact bisheng start -c ./site/bisheng.config.js",
+    "test": "jest --config .jest.js --no-cache",
+    "test-all": "./scripts/test-all.sh",
+    "test-node": "jest --config .jest.node.js --no-cache",
+    "tsc": "tsc"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "browserslist": [
+    "last 2 version",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 9"
+  ],
   "dependencies": {
     "@ant-design/create-react-context": "^0.2.4",
     "@ant-design/icons": "~2.1.1",
@@ -192,63 +237,22 @@
     "xhr2": "^0.2.0",
     "yaml-front-matter": "^4.0.0"
   },
-  "scripts": {
-    "test": "jest --config .jest.js --no-cache",
-    "test-node": "jest --config .jest.node.js --no-cache",
-    "test-all": "./scripts/test-all.sh",
-    "check-commit": "node ./scripts/check-commit.js",
-    "lint": "npm run lint:tsc && npm run lint:script && npm run lint:demo && npm run lint:style && npm run lint:deps",
-    "lint:deps": "antd-tools run deps-lint",
-    "lint:tsc": "npm run tsc",
-    "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
-    "lint:md": "remark components/",
-    "lint:demo": "cross-env RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
-    "lint:style": "stylelint '{site,components}/**/*.less' --syntax less",
-    "lint-fix": "npm run lint-fix:script && npm run lint-fix:demo && npm run lint-fix:style",
-    "lint-fix:script": "npm run lint:script -- --fix",
-    "lint-fix:demo": "eslint-tinker ./components/*/demo/*.md",
-    "lint-fix:style": "npm run lint:style -- --fix",
-    "sort-api": "antd-tools run sort-api-table",
-    "api-collection": "antd-tools run api-collection",
-    "dist": "antd-tools run dist",
-    "bundlesize": "bundlesize",
-    "compile": "antd-tools run compile",
-    "tsc": "tsc",
-    "start": "rimraf _site && mkdir _site && node ./scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
-    "start:preact": "node ./scripts/generateColorLess.js && cross-env NODE_ENV=development REACT_ENV=preact bisheng start -c ./site/bisheng.config.js",
-    "site": "cross-env NODE_ICU_DATA=node_modules/full-icu bisheng build --ssr -c ./site/bisheng.config.js && node ./scripts/generateColorLess.js",
-    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp .circleci/config.yml _site",
-    "deploy": "bisheng gh-pages --push-only",
-    "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
-    "pub": "antd-tools run pub",
-    "prepublish": "antd-tools run guard",
-    "pre-publish": "npm run check-commit && npm run test-all",
-    "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
-    "prettier": "prettier -c --write '**/*'",
-    "pretty-quick": "pretty-quick"
+  "peerDependencies": {
+    "react": ">=16.0.0",
+    "react-dom": ">=16.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/antd.min.js",
+      "maxSize": "540 kB"
+    },
+    {
+      "path": "./dist/antd.min.css",
+      "maxSize": "60 kB"
     }
-  },
-  "sideEffects": [
-    "dist/*",
-    "es/**/style/*",
-    "lib/**/style/*",
-    "*.less"
   ],
-  "browserslist": [
-    "last 2 version",
-    "Firefox ESR",
-    "> 1%",
-    "ie >= 9"
-  ],
-  "bundlesize": [{
-    "path": "./dist/antd.min.js",
-    "maxSize": "540 kB"
-  }, {
-    "path": "./dist/antd.min.css",
-    "maxSize": "60 kB"
-  }]
+  "title": "Ant Design"
 }
