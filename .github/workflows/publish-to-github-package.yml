@@ -5,25 +5,27 @@ on:
       - published
     branches:
       - master
+
 jobs:
   publish:
     runs-on: ubuntu-latest
-    steps:
-    - name: checkout
-      uses: actions/checkout@master
 
-    - uses: actions/setup-node@v1
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+
+      - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
 
-    - name: install
+      - name: install
         run: npm install
 
-    - name: compile
+      - name: compile
         run: npm run compile
 
-    - name: publish
+      - name: publish
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
