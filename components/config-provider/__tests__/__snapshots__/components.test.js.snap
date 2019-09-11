@@ -17309,7 +17309,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-item config-upload-list-item-done"
+      class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
     >
       <div
         class="config-upload-list-item-info"
@@ -17335,7 +17335,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
             </svg>
           </i>
           <span
-            class="config-upload-list-item-name config-upload-list-item-name-show-download"
+            class="config-upload-list-item-name config-upload-list-item-name-icon-count-2"
             title="xxx.png"
           >
             xxx.png
@@ -17412,7 +17412,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -17438,7 +17438,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
             title="xxx.png"
           >
             xxx.png
@@ -17515,7 +17515,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -17541,7 +17541,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
             title="xxx.png"
           >
             xxx.png
