@@ -8,7 +8,6 @@ import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
 import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import warning from '../_util/warning';
 
 export interface PageHeaderProps {
   backIcon?: React.ReactNode;
@@ -58,23 +57,6 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
   return <Breadcrumb {...breadcrumb} />;
 };
 
-const renderHeader = (
-  breadcrumb: PageHeaderProps['breadcrumb'],
-  { backIcon, onBack }: PageHeaderProps,
-) => {
-  // by design,Bread crumbs and back icon can only have one
-  if (backIcon && onBack) {
-    if (breadcrumb && breadcrumb.routes) {
-      warning(false, 'page-header', 'breadcrumbs and back icon can only have one');
-    }
-    return null;
-  }
-  if (breadcrumb && breadcrumb.routes) {
-    return renderBreadcrumb(breadcrumb);
-  }
-  return null;
-};
-
 const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
   const { title, avatar, subTitle, tags, extra, backIcon, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
@@ -118,7 +100,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
       } = props;
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
-      const breadcrumbDom = renderHeader(breadcrumb, props);
+      const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
       const className = classnames(prefixCls, customizeClassName, {
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
