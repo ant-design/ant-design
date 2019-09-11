@@ -34,7 +34,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -60,7 +60,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
             href="http://www.baidu.com/xxx.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -126,7 +126,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -152,7 +152,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
             href="http://www.baidu.com/yyy.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -218,7 +218,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-upload-list-item ant-upload-list-item-error"
+      class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -244,7 +244,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
             href="http://www.baidu.com/zzz.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -325,7 +325,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -351,7 +351,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
             </svg>
           </i>
           <a
-            class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
             href="http://www.baidu.com/xxx.png"
             rel="noopener noreferrer"
             target="_blank"
@@ -431,7 +431,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
       class="ant-upload-list ant-upload-list-picture-card"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
       >
         <div
           class="ant-upload-list-item-info"
@@ -450,7 +450,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -534,7 +534,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
       >
         <div
           class="ant-upload-list-item-info"
@@ -553,7 +553,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -637,7 +637,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
       >
         <div
           class="ant-upload-list-item-info"
@@ -656,7 +656,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -740,7 +740,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
       >
         <div
           class="ant-upload-list-item-info"
@@ -759,7 +759,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -843,7 +843,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
       >
         <div
           class="ant-upload-list-item-info"
@@ -862,7 +862,7 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -965,7 +965,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
       class="ant-upload-list ant-upload-list-picture"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
       >
         <div
           class="ant-upload-list-item-info"
@@ -984,7 +984,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -1050,7 +1050,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
       >
         <div
           class="ant-upload-list-item-info"
@@ -1069,7 +1069,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -1148,7 +1148,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
       class="ant-upload-list ant-upload-list-picture"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
       >
         <div
           class="ant-upload-list-item-info"
@@ -1167,7 +1167,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"
@@ -1233,7 +1233,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-upload-list-item ant-upload-list-item-done"
+        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
       >
         <div
           class="ant-upload-list-item-info"
@@ -1252,7 +1252,7 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
               />
             </a>
             <a
-              class="ant-upload-list-item-name ant-upload-list-item-name-show-download"
+              class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
               href="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
               rel="noopener noreferrer"
               target="_blank"

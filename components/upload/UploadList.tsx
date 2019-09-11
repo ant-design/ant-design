@@ -136,6 +136,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const infoUploadingClass = classNames({
         [`${prefixCls}-list-item`]: true,
         [`${prefixCls}-list-item-${file.status}`]: true,
+        [`${prefixCls}-list-item-list-type-${listType}`]: true,
       });
       const linkProps =
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
@@ -164,7 +165,9 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       );
       const listItemNameClass = classNames({
         [`${prefixCls}-list-item-name`]: true,
-        [`${prefixCls}-list-item-name-show-download`]: downloadIcon,
+        [`${prefixCls}-list-item-name-icon-count-${
+          [downloadIcon, removeIcon].filter(x => x).length
+        }`]: true,
       });
       const preview = file.url ? (
         [

@@ -140,6 +140,16 @@
 .@{upload-prefix-cls}-list {
   .reset-component;
   .clearfix;
+  &-item-list-type-text {
+    &:hover {
+      .@{upload-prefix-cls}-list-item-name-icon-count-1 {
+        padding-right: 14px;
+      }
+      .@{upload-prefix-cls}-list-item-name-icon-count-2 {
+        padding-right: 28px;
+      }
+    }
+  }
   &-item {
     position: relative;
     height: 22px;
@@ -148,10 +158,14 @@
     &-name {
       display: inline-block;
       width: 100%;
-      padding: 0 28px 0 @font-size-base + 8px;
+      padding-left: @font-size-base + 8px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    &-name-icon-count-1 {
+      padding-right: 14px;
     }
 
     &-card-actions {
@@ -303,16 +317,21 @@
       box-sizing: border-box;
       max-width: 100%;
       margin: 0 0 0 8px;
-      padding-right: 24px;
+      padding-right: 8px;
       padding-left: 48px;
       overflow: hidden;
       line-height: 44px;
       white-space: nowrap;
       text-overflow: ellipsis;
       transition: all 0.3s;
-      &-show-download {
-        padding-right: 48px;
-      }
+    }
+
+    .@{upload-item}-name-icon-count-1 {
+      padding-right: 18px;
+    }
+
+    .@{upload-item}-name-icon-count-2 {
+      padding-right: 36px;
     }
 
     .@{upload-item}-uploading .@{upload-item}-name {
