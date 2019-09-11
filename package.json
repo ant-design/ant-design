@@ -247,11 +247,14 @@
     "> 1%",
     "ie >= 9"
   ],
-  "bundlesize": [{
-    "path": "./dist/antd.min.js",
-    "maxSize": "540 kB"
-  }, {
-    "path": "./dist/antd.min.css",
-    "maxSize": "60 kB"
-  }]
+  "bundlesize": [
+    {
+      "path": "./dist/antd.min.js",
+      "maxSize": "540 kB"
+    },
+    {
+      "path": "./dist/antd.min.css",
+      "maxSize": "60 kB"
+    }
+  ]
 }
