@@ -24,6 +24,10 @@
   opacity: 0;
   transition: color 0.3s ease, opacity 0.15s ease;
   text-rendering: auto;
+  &.rtl {
+    left: @control-padding-horizontal - 1px;
+    right: initial;
+  }
   &::before {
     display: block;
   }
@@ -63,7 +67,10 @@
     font-size: @font-size-sm;
     line-height: 1;
     transform-origin: 50% 50%;
-
+    .@{select-prefix-cls}.rtl & {
+      left: @control-padding-horizontal - 1px;
+      right: initial;
+    }
     & &-icon svg {
       transition: transform 0.3s;
     }
@@ -106,6 +113,12 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+
+      .@{select-prefix-cls}.rtl & {
+        float: right;
+        padding-left: 20px;
+        padding-right: 0;
+      }
     }
   }
 
@@ -150,6 +163,11 @@
 
     .@{select-prefix-cls}-selection__rendered {
       margin-right: 24px;
+
+      .@{select-prefix-cls}.rtl & {
+        margin-right: @control-padding-horizontal - 1px;
+        margin-left: 24px;
+      }
     }
   }
 
@@ -222,6 +240,11 @@
     .@{select-prefix-cls}-selection__clear,
     .@{select-prefix-cls}-arrow {
       right: @control-padding-horizontal-sm;
+
+      .@{select-prefix-cls}.rtl & {
+        left: @control-padding-horizontal-sm;
+        right: initial;
+      }
     }
   }
 
@@ -254,6 +277,12 @@
     white-space: nowrap;
     text-align: left;
     text-overflow: ellipsis;
+
+    .@{select-prefix-cls}.rtl & {
+      right: 0;
+      left: 9px;
+      text-align: right;
+    }
   }
 
   &-search__field__placeholder {
@@ -317,6 +346,11 @@
       height: auto;
       margin-bottom: -3px;
       margin-left: 5px;
+
+      &.rtl {
+        margin-left: 0;
+        margin-right: 5px;
+      }
     }
 
     .@{select-prefix-cls}-selection__placeholder {
@@ -347,6 +381,12 @@
       &__disabled {
         padding: 0 10px;
       }
+      &.rtl {
+        float: right;
+        padding: 0 10px 0 20px;
+        margin-left: 4px;
+        margin-right: 0;
+      }
     }
 
     .@{select-prefix-cls}-selection__choice__content {
@@ -374,6 +414,10 @@
       &:hover {
         color: @icon-color-hover;
       }
+      &.rtl {
+        right: initial;
+        left: 4px;
+      }
     }
 
     .@{select-prefix-cls}-selection__clear,
@@ -384,11 +428,19 @@
 
   &-allow-clear &-selection--single &-selection-selected-value {
     padding-right: 16px;
+    &.rtl {
+      padding-left: 16px;
+      padding-right: 0;
+    }
   }
 
   &-allow-clear &-selection--multiple &-selection__rendered,
   &-show-arrow &-selection--multiple &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
+    &.rtl {
+      margin-left: 20px;
+      margin-right: 5px;
+    }
   }
 
   &-open {

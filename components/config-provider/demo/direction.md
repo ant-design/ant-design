@@ -187,6 +187,34 @@ class Page extends React.Component {
               defaultValue="mysite"
             />
           </div>
+          <br />
+          <Select defaultValue="lucy" style={{ width: 120 }}>
+            <Option value="jack">Jack</Option>
+            <Option value="lucy">Lucy</Option>
+            <Option value="disabled" disabled>
+              Disabled
+            </Option>
+            <Option value="Yiminghe">yiminghe</Option>
+          </Select>
+          <Select defaultValue="lucy" style={{ width: 120 }} disabled>
+            <Option value="lucy">Lucy</Option>
+          </Select>
+          <Select defaultValue="lucy" style={{ width: 120 }} loading>
+            <Option value="lucy">Lucy</Option>
+          </Select>
+          <Select
+            showSearch
+            style={{ width: 200 }}
+            placeholder="Select a person"
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+          >
+            <Option value="jack">Jack</Option>
+            <Option value="lucy">Lucy</Option>
+            <Option value="tom">Tom</Option>
+          </Select>
         </div>
       </div>
     );

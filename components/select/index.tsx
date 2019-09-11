@@ -198,6 +198,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -216,6 +217,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     const prefixCls = getPrefixCls('select', customizePrefixCls);
     const cls = classNames(
       {
+        ['rtl']: direction === 'rtl',
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-sm`]: size === 'small',
         [`${prefixCls}-show-arrow`]: showArrow,
@@ -272,6 +274,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         {...modeConfig}
         prefixCls={prefixCls}
         className={cls}
+        dropdownClassName={direction === 'rtl' ? 'rtl' : ''}
         optionLabelProp={optionLabelProp || 'children'}
         notFoundContent={this.getNotFoundContent(renderEmpty)}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
