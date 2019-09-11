@@ -31,6 +31,7 @@ export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> 
   value?: SelectValue;
   defaultValue?: SelectValue;
   dataSource?: DataSourceItemType[];
+  dropdownMenuStyle?: React.CSSProperties;
   autoFocus?: boolean;
   backfill?: boolean;
   optionLabelProp?: string;

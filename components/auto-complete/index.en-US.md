@@ -26,6 +26,7 @@ const dataSource = ['12345', '23456', '34567'];
 | children (for customize input element) | customize input element | HTMLInputElement <br /><br /> HTMLTextAreaElement <br /><br /> `React.ReactElement<InputProps>` | `<Input />` |  |
 | children (for dataSource) | Data source to auto complete | `React.ReactElement<OptionProps>` <br /><br /> `Array<React.ReactElement<OptionProps>>` | - |  |
 | dataSource | Data source for autocomplete | [DataSourceItemType](https://git.io/vMMKF)\[] | - |  |
+| dropdownMenuStyle | additional style applied to dropdown menu | object |  |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultValue | Initial selected option. | string\|string\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
