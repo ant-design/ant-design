@@ -287,9 +287,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     >
       <label
         class=""
-        title="添加Input.Group正常"
+        title="添加 Input.Group 正常"
       >
-        添加Input.Group正常
+        添加 Input.Group 正常
       </label>
     </div>
     <div
@@ -383,9 +383,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     >
       <label
         class=""
-        title="包含search图标正常"
+        title="包含 search 图标正常"
       >
-        包含search图标正常
+        包含 search 图标正常
       </label>
     </div>
     <div
@@ -460,9 +460,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     >
       <label
         class=""
-        title="同时有Input.Group和图标发生移位"
+        title="同时有 Input.Group 和图标发生移位"
       >
-        同时有Input.Group和图标发生移位
+        同时有 Input.Group 和图标发生移位
       </label>
     </div>
     <div
@@ -585,9 +585,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     >
       <label
         class=""
-        title="同时有Input.Group和Search组件发生移位"
+        title="同时有 Input.Group 和 Search 组件发生移位"
       >
-        同时有Input.Group和Search组件发生移位
+        同时有 Input.Group 和 Search 组件发生移位
       </label>
     </div>
     <div

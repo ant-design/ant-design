@@ -29,18 +29,18 @@ ReactDOM.render(
     <Form.Item label="单独 TreeSelect" {...formItemLayout}>
       <TreeSelect />
     </Form.Item>
-    <Form.Item label="添加Input.Group正常" {...formItemLayout}>
+    <Form.Item label="添加 Input.Group 正常" {...formItemLayout}>
       <Input.Group compact>
         <TreeSelect style={{ width: '30%' }} />
         <AutoComplete />
       </Input.Group>
     </Form.Item>
-    <Form.Item label="包含search图标正常" {...formItemLayout}>
+    <Form.Item label="包含 search 图标正常" {...formItemLayout}>
       <AutoComplete>
         <Input suffix={<Search />} />
       </AutoComplete>
     </Form.Item>
-    <Form.Item label="同时有Input.Group和图标发生移位" {...formItemLayout}>
+    <Form.Item label="同时有 Input.Group 和图标发生移位" {...formItemLayout}>
       <Input.Group compact>
         <TreeSelect style={{ width: '30%' }} />
         <AutoComplete>
@@ -48,7 +48,7 @@ ReactDOM.render(
         </AutoComplete>
       </Input.Group>
     </Form.Item>
-    <Form.Item label="同时有Input.Group和Search组件发生移位" {...formItemLayout}>
+    <Form.Item label="同时有 Input.Group 和 Search 组件发生移位" {...formItemLayout}>
       <Input.Group compact>
         <TreeSelect style={{ width: '30%' }} />
         <AutoComplete>
