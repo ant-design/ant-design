@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-搜索框 loading
+用于 `onSearch` 的时候展示 `loading`。
 
 ## en-US
 
-search loading when onSearch
+Search loading when onSearch.
 
 ```jsx
 import { Input } from 'antd';
@@ -19,45 +19,23 @@ import { Input } from 'antd';
 const { Search } = Input;
 
 class InputSearch extends React.Component {
-  state = {
-    loading: false,
-  };
-
-  onSearch = () => {
-    this.setState({
-      loading: true,
-    });
-    setTimeout(() => {
-      this.setState({
-        loading: false,
-      });
-    }, 2000);
-  };
-
   render() {
     return (
       <div>
-        <Search
-          placeholder="input search text"
-          onSearch={this.onSearch}
-          style={{ width: 200 }}
-          loading={this.state.loading}
-        />
+        <Search placeholder="input search loading deault" loading />
+        <br />
+        <br />
+        <Search placeholder="input search loading with suffix" loading suffix="suffix" />
+        <br />
+        <br />
+        <Search placeholder="input search loading with enterButton" loading enterButton />
         <br />
         <br />
         <Search
-          placeholder="input search text"
-          onSearch={this.onSearch}
-          loading={this.state.loading}
+          placeholder="input search loading with enterButton and addonAfter"
+          loading
           enterButton
-        />
-        <br />
-        <br />
-        <Search
-          placeholder="input search text"
-          onSearch={this.onSearch}
-          loading={this.state.loading}
-          enterButton="Search"
+          addonAfter="addonAfter"
         />
       </div>
     );

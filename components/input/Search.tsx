@@ -59,7 +59,7 @@ export default class Search extends React.Component<SearchProps, any> {
     const { suffix, enterButton, loading } = this.props;
 
     if (loading && !enterButton) {
-      return this.renderLoading(prefixCls);
+      return [suffix, this.renderLoading(prefixCls)];
     }
 
     if (enterButton) return suffix;
@@ -91,7 +91,7 @@ export default class Search extends React.Component<SearchProps, any> {
     const btnClassName = `${prefixCls}-button`;
 
     if (loading && enterButton) {
-      return this.renderLoading(prefixCls);
+      return [this.renderLoading(prefixCls), addonAfter];
     }
 
     if (!enterButton) return addonAfter;
