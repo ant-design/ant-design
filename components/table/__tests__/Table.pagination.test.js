@@ -224,7 +224,7 @@ describe('Table.pagination', () => {
         },
       }),
     );
-    wrapper.find('.ant-select').simulate('click');
+    wrapper.find('.ant-select-selector').simulate('mousedown');
     jest.runAllTimers();
     const dropdownWrapper = mount(
       wrapper
@@ -232,9 +232,9 @@ describe('Table.pagination', () => {
         .instance()
         .getComponent(),
     );
-    expect(dropdownWrapper.find('MenuItem').length).toBe(4);
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
     dropdownWrapper
-      .find('MenuItem')
+      .find('.ant-select-item-option')
       .at(3)
       .simulate('click');
     expect(onShowSizeChange).toHaveBeenCalled();

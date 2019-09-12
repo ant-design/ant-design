@@ -158,201 +158,87 @@ exports[`ConfigProvider components Anchor prefixCls 1`] = `
 
 exports[`ConfigProvider components AutoComplete configProvider 1`] = `
 <div
-  class="config-select-show-search config-select-auto-complete config-select config-select-combobox config-select-enabled"
+  class="config-select config-select-auto-complete config-select-single config-select-show-search"
 >
   <div
-    aria-autocomplete="list"
-    aria-controls=""
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="config-select-selection
-            config-select-selection--single"
-    role="combobox"
+    class="config-select-selector"
   >
-    <div
-      class="config-select-selection__rendered"
-    >
-      <ul>
-        <li
-          class="config-select-search config-select-search--inline"
-        >
-          <div
-            class="config-select-search__field__wrap"
-          >
-            <input
-              class="config-input config-select-search__field"
-              type="text"
-              value=""
-            />
-            <span
-              class="config-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
     <span
-      class="config-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
+      class="config-select-selection-search"
     >
-      <span
-        aria-label="down"
-        class="anticon anticon-down config-select-arrow-icon"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="config-select-selection-search-input"
+        role="combobox"
+        value=""
+      />
     </span>
+    <span
+      class="config-select-selection-placeholder"
+    />
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete normal 1`] = `
 <div
-  class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+  class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
 >
   <div
-    aria-autocomplete="list"
-    aria-controls=""
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="ant-select-selection
-            ant-select-selection--single"
-    role="combobox"
+    class="ant-select-selector"
   >
-    <div
-      class="ant-select-selection__rendered"
-    >
-      <ul>
-        <li
-          class="ant-select-search ant-select-search--inline"
-        >
-          <div
-            class="ant-select-search__field__wrap"
-          >
-            <input
-              class="ant-input ant-select-search__field"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-select-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
     <span
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
+      class="ant-select-selection-search"
     >
-      <span
-        aria-label="down"
-        class="anticon anticon-down ant-select-arrow-icon"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        role="combobox"
+        value=""
+      />
     </span>
+    <span
+      class="ant-select-selection-placeholder"
+    />
   </div>
 </div>
 `;
 
 exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
 <div
-  class="prefix-AutoComplete-show-search prefix-AutoComplete-auto-complete prefix-AutoComplete prefix-AutoComplete-combobox prefix-AutoComplete-enabled"
+  class="prefix-AutoComplete prefix-AutoComplete-auto-complete prefix-AutoComplete-single prefix-AutoComplete-show-search"
 >
   <div
-    aria-autocomplete="list"
-    aria-controls=""
-    aria-expanded="false"
-    aria-haspopup="true"
-    class="prefix-AutoComplete-selection
-            prefix-AutoComplete-selection--single"
-    role="combobox"
+    class="prefix-AutoComplete-selector"
   >
-    <div
-      class="prefix-AutoComplete-selection__rendered"
-    >
-      <ul>
-        <li
-          class="prefix-AutoComplete-search prefix-AutoComplete-search--inline"
-        >
-          <div
-            class="prefix-AutoComplete-search__field__wrap"
-          >
-            <input
-              class="ant-input prefix-AutoComplete-search__field"
-              type="text"
-              value=""
-            />
-            <span
-              class="prefix-AutoComplete-search__field__mirror"
-            >
-               
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
     <span
-      class="prefix-AutoComplete-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
+      class="prefix-AutoComplete-selection-search"
     >
-      <span
-        aria-label="down"
-        class="anticon anticon-down prefix-AutoComplete-arrow-icon"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="prefix-AutoComplete-selection-search-input"
+        role="combobox"
+        value=""
+      />
     </span>
+    <span
+      class="prefix-AutoComplete-selection-placeholder"
+    />
   </div>
 </div>
 `;
@@ -1170,108 +1056,116 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-fullcalendar-header"
     >
       <div
-        class="config-fullcalendar-year-select config-select config-select-enabled"
+        class="config-select config-fullcalendar-year-select config-select-single config-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="config-select-selection
-            config-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="config-select-selector"
         >
-          <div
-            class="config-select-selection__rendered"
-          >
-            <div
-              class="config-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="2000"
-            >
-              2000
-            </div>
-          </div>
           <span
-            class="config-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="config-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down config-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="config-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="config-select-selection-item"
+          >
+            2000
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="config-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
-        class="config-fullcalendar-month-select config-select config-select-enabled"
+        class="config-select config-fullcalendar-month-select config-select-single config-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="config-select-selection
-            config-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="config-select-selector"
         >
-          <div
-            class="config-select-selection__rendered"
-          >
-            <div
-              class="config-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="Sep"
-            >
-              Sep
-            </div>
-          </div>
           <span
-            class="config-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="config-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down config-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="config-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="config-select-selection-item"
+          >
+            Sep
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="config-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-default"
@@ -2213,56 +2107,60 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       class="config-fullcalendar-header"
     >
       <div
-        class="config-fullcalendar-year-select config-select config-select-enabled"
+        class="config-select config-fullcalendar-year-select config-select-single config-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="config-select-selection
-            config-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="config-select-selector"
         >
-          <div
-            class="config-select-selection__rendered"
-          >
-            <div
-              class="config-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="2000"
-            >
-              2000
-            </div>
-          </div>
           <span
-            class="config-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="config-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down config-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="config-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="config-select-selection-item"
+          >
+            2000
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="config-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-default"
@@ -2572,108 +2470,116 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       class="ant-fullcalendar-header"
     >
       <div
-        class="ant-fullcalendar-year-select ant-select ant-select-enabled"
+        class="ant-select ant-fullcalendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="2000"
-            >
-              2000
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            2000
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
-        class="ant-fullcalendar-month-select ant-select ant-select-enabled"
+        class="ant-select ant-fullcalendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="Sep"
-            >
-              Sep
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            Sep
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
@@ -3615,56 +3521,60 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       class="ant-fullcalendar-header"
     >
       <div
-        class="ant-fullcalendar-year-select ant-select ant-select-enabled"
+        class="ant-select ant-fullcalendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="2000"
-            >
-              2000
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            2000
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
@@ -3974,108 +3884,116 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       class="prefix-Calendar-header"
     >
       <div
-        class="prefix-Calendar-year-select ant-select ant-select-enabled"
+        class="ant-select prefix-Calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="2000"
-            >
-              2000
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            2000
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
-        class="prefix-Calendar-month-select ant-select ant-select-enabled"
+        class="ant-select prefix-Calendar-month-select ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="Sep"
-            >
-              Sep
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            Sep
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
@@ -5017,56 +4935,60 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       class="prefix-Calendar-header"
     >
       <div
-        class="prefix-Calendar-year-select ant-select ant-select-enabled"
+        class="ant-select prefix-Calendar-year-select ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="2000"
-            >
-              2000
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            2000
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
@@ -8527,56 +8449,60 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        class="config-pagination-options-size-changer config-select config-select-enabled"
+        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="config-select-selection
-            config-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="config-select-selector"
         >
-          <div
-            class="config-select-selection__rendered"
-          >
-            <div
-              class="config-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="10 / page"
-            >
-              10 / page
-            </div>
-          </div>
           <span
-            class="config-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="config-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down config-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="config-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="config-select-selection-item"
+          >
+            10 / page
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="config-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="config-pagination-options-quick-jumper"
@@ -8666,56 +8592,60 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        class="config-select-sm config-pagination-options-size-changer config-select config-select-enabled"
+        class="config-select config-pagination-options-size-changer config-select-sm config-select-single config-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="config-select-selection
-            config-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="config-select-selector"
         >
-          <div
-            class="config-select-selection__rendered"
-          >
-            <div
-              class="config-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="10 / page"
-            >
-              10 / page
-            </div>
-          </div>
           <span
-            class="config-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="config-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down config-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="config-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="config-select-selection-item"
+          >
+            10 / page
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="config-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="config-pagination-options-quick-jumper"
@@ -8810,56 +8740,60 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-pagination-options-size-changer ant-select ant-select-enabled"
+        class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="10 / page"
-            >
-              10 / page
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            10 / page
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -8949,56 +8883,60 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        class="ant-select-sm ant-pagination-options-size-changer ant-select ant-select-enabled"
+        class="ant-select ant-pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="10 / page"
-            >
-              10 / page
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            10 / page
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-pagination-options-quick-jumper"
@@ -9093,56 +9031,60 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        class="prefix-Pagination-options-size-changer ant-select ant-select-enabled"
+        class="ant-select prefix-Pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="10 / page"
-            >
-              10 / page
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            10 / page
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="prefix-Pagination-options-quick-jumper"
@@ -9232,56 +9174,60 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        class="ant-select-sm prefix-Pagination-options-size-changer ant-select ant-select-enabled"
+        class="ant-select prefix-Pagination-options-size-changer ant-select-sm ant-select-single ant-select-show-arrow"
       >
         <div
-          aria-autocomplete="list"
-          aria-controls=""
-          aria-expanded="false"
-          aria-haspopup="true"
-          class="ant-select-selection
-            ant-select-selection--single"
-          role="combobox"
-          tabindex="0"
+          class="ant-select-selector"
         >
-          <div
-            class="ant-select-selection__rendered"
-          >
-            <div
-              class="ant-select-selection-selected-value"
-              style="display:block;opacity:1"
-              title="10 / page"
-            >
-              10 / page
-            </div>
-          </div>
           <span
-            class="ant-select-arrow"
-            style="user-select:none;-webkit-user-select:none"
-            unselectable="on"
+            class="ant-select-selection-search"
           >
-            <span
-              aria-label="down"
-              class="anticon anticon-down ant-select-arrow-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                />
-              </svg>
-            </span>
+            <input
+              aria-activedescendant="undefined_list_0"
+              aria-autocomplete="list"
+              aria-controls="undefined_list"
+              aria-haspopup="listbox"
+              aria-owns="undefined_list"
+              autocomplete="off"
+              class="ant-select-selection-search-input"
+              role="combobox"
+              style="opacity:0"
+              value=""
+            />
+          </span>
+          <span
+            class="ant-select-selection-item"
+          >
+            10 / page
           </span>
         </div>
+        <span
+          aria-hidden="true"
+          class="ant-select-arrow"
+          style="user-select:none;-webkit-user-select:none"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="prefix-Pagination-options-quick-jumper"
@@ -10801,270 +10747,354 @@ exports[`ConfigProvider components Rate prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Select configProvider 1`] = `
-Array [
+<div
+  class="config-select config-select-single config-select-show-arrow config-select-open"
+>
   <div
-    class="config-select config-select-open config-select-focused config-select-enabled"
+    class="config-select-selector"
   >
-    <div
-      aria-autocomplete="list"
-      aria-controls=""
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="config-select-selection
-            config-select-selection--single"
-      role="combobox"
-      tabindex="0"
+    <span
+      class="config-select-selection-search"
     >
-      <div
-        class="config-select-selection__rendered"
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="config-select-selection-search-input"
+        role="combobox"
+        style="opacity:0"
+        value=""
       />
-      <span
-        class="config-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      >
-        <span
-          aria-label="down"
-          class="anticon anticon-down config-select-arrow-icon"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>,
+    </span>
+    <span
+      class="config-select-selection-placeholder"
+    />
+  </div>
   <div>
     <div
-      class="config-select-dropdown config-select-dropdown--single config-select-dropdown-placement-bottomLeft "
+      class="config-select-dropdown  config-select-dropdown-placement-bottomLeft "
     >
-      <div
-        id=""
-        style="overflow:auto;transform:translateZ(0)"
-      >
-        <ul
-          class="config-select-dropdown-menu  config-select-dropdown-menu-root config-select-dropdown-menu-vertical"
+      <div>
+        <div
+          id="undefined_list"
           role="listbox"
-          tabindex="0"
+          style="height:0;overflow:hidden"
         >
-          <li
-            class=" config-select-dropdown-menu-item-group"
+          <div
+            aria-selected="false"
+            id="undefined_list_0"
+            role="option"
+          />
+          <div
+            aria-selected="false"
+            id="undefined_list_1"
+            role="option"
           >
+            Bamboo
+          </div>
+        </div>
+        <div
+          class=""
+          style="height:256px"
+        >
+          <div>
             <div
-              class="config-select-dropdown-menu-item-group-title"
-              title="grp"
+              class=""
+              style="display:flex;flex-direction:column"
             >
-              grp
-            </div>
-            <ul
-              class="config-select-dropdown-menu-item-group-list"
-            >
-              <li
-                aria-selected="false"
-                class="config-select-dropdown-menu-item config-select-dropdown-menu-item-active"
-                role="option"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="config-select-item config-select-item-group"
               >
-                Light
-              </li>
-            </ul>
-          </li>
-        </ul>
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="config-select-item config-select-item-option config-select-item-option-grouped config-select-item-option-active"
+              >
+                <div
+                  class="config-select-item-option-content"
+                >
+                  Light
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="config-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+  <span
+    aria-hidden="true"
+    class="config-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
 `;
 
 exports[`ConfigProvider components Select normal 1`] = `
-Array [
+<div
+  class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+>
   <div
-    class="ant-select ant-select-open ant-select-focused ant-select-enabled"
+    class="ant-select-selector"
   >
-    <div
-      aria-autocomplete="list"
-      aria-controls=""
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="ant-select-selection
-            ant-select-selection--single"
-      role="combobox"
-      tabindex="0"
+    <span
+      class="ant-select-selection-search"
     >
-      <div
-        class="ant-select-selection__rendered"
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        role="combobox"
+        style="opacity:0"
+        value=""
       />
-      <span
-        class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      >
-        <span
-          aria-label="down"
-          class="anticon anticon-down ant-select-arrow-icon"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>,
+    </span>
+    <span
+      class="ant-select-selection-placeholder"
+    />
+  </div>
   <div>
     <div
-      class="ant-select-dropdown ant-select-dropdown--single ant-select-dropdown-placement-bottomLeft "
+      class="ant-select-dropdown  ant-select-dropdown-placement-bottomLeft "
     >
-      <div
-        id=""
-        style="overflow:auto;transform:translateZ(0)"
-      >
-        <ul
-          class="ant-select-dropdown-menu  ant-select-dropdown-menu-root ant-select-dropdown-menu-vertical"
+      <div>
+        <div
+          id="undefined_list"
           role="listbox"
-          tabindex="0"
+          style="height:0;overflow:hidden"
         >
-          <li
-            class=" ant-select-dropdown-menu-item-group"
+          <div
+            aria-selected="false"
+            id="undefined_list_0"
+            role="option"
+          />
+          <div
+            aria-selected="false"
+            id="undefined_list_1"
+            role="option"
           >
+            Bamboo
+          </div>
+        </div>
+        <div
+          class=""
+          style="height:256px"
+        >
+          <div>
             <div
-              class="ant-select-dropdown-menu-item-group-title"
-              title="grp"
+              class=""
+              style="display:flex;flex-direction:column"
             >
-              grp
-            </div>
-            <ul
-              class="ant-select-dropdown-menu-item-group-list"
-            >
-              <li
-                aria-selected="false"
-                class="ant-select-dropdown-menu-item ant-select-dropdown-menu-item-active"
-                role="option"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="ant-select-item ant-select-item-group"
               >
-                Light
-              </li>
-            </ul>
-          </li>
-        </ul>
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
+              >
+                <div
+                  class="ant-select-item-option-content"
+                >
+                  Light
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+  <span
+    aria-hidden="true"
+    class="ant-select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
 `;
 
 exports[`ConfigProvider components Select prefixCls 1`] = `
-Array [
+<div
+  class="prefix-Select prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
+>
   <div
-    class="prefix-Select prefix-Select-open prefix-Select-focused prefix-Select-enabled"
+    class="prefix-Select-selector"
   >
-    <div
-      aria-autocomplete="list"
-      aria-controls=""
-      aria-expanded="true"
-      aria-haspopup="true"
-      class="prefix-Select-selection
-            prefix-Select-selection--single"
-      role="combobox"
-      tabindex="0"
+    <span
+      class="prefix-Select-selection-search"
     >
-      <div
-        class="prefix-Select-selection__rendered"
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-expanded="true"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="prefix-Select-selection-search-input"
+        role="combobox"
+        style="opacity:0"
+        value=""
       />
-      <span
-        class="prefix-Select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      >
-        <span
-          aria-label="down"
-          class="anticon anticon-down prefix-Select-arrow-icon"
-          role="img"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </span>
-      </span>
-    </div>
-  </div>,
+    </span>
+    <span
+      class="prefix-Select-selection-placeholder"
+    />
+  </div>
   <div>
     <div
-      class="prefix-Select-dropdown prefix-Select-dropdown--single prefix-Select-dropdown-placement-bottomLeft "
+      class="prefix-Select-dropdown  prefix-Select-dropdown-placement-bottomLeft "
     >
-      <div
-        id=""
-        style="overflow:auto;transform:translateZ(0)"
-      >
-        <ul
-          class="prefix-Select-dropdown-menu  prefix-Select-dropdown-menu-root prefix-Select-dropdown-menu-vertical"
+      <div>
+        <div
+          id="undefined_list"
           role="listbox"
-          tabindex="0"
+          style="height:0;overflow:hidden"
         >
-          <li
-            class=" prefix-Select-dropdown-menu-item-group"
+          <div
+            aria-selected="false"
+            id="undefined_list_0"
+            role="option"
+          />
+          <div
+            aria-selected="false"
+            id="undefined_list_1"
+            role="option"
           >
+            Bamboo
+          </div>
+        </div>
+        <div
+          class=""
+          style="height:256px"
+        >
+          <div>
             <div
-              class="prefix-Select-dropdown-menu-item-group-title"
-              title="grp"
+              class=""
+              style="display:flex;flex-direction:column"
             >
-              grp
-            </div>
-            <ul
-              class="prefix-Select-dropdown-menu-item-group-list"
-            >
-              <li
-                aria-selected="false"
-                class="prefix-Select-dropdown-menu-item prefix-Select-dropdown-menu-item-active"
-                role="option"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+              <div
+                class="prefix-Select-item prefix-Select-item-group"
               >
-                Light
-              </li>
-            </ul>
-          </li>
-        </ul>
+                grp
+              </div>
+              <div
+                aria-selected="false"
+                class="prefix-Select-item prefix-Select-item-option prefix-Select-item-option-grouped prefix-Select-item-option-active"
+              >
+                <div
+                  class="prefix-Select-item-option-content"
+                >
+                  Light
+                </div>
+                <span
+                  aria-hidden="true"
+                  class="prefix-Select-item-option-state"
+                  style="user-select:none;-webkit-user-select:none"
+                  unselectable="on"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+  <span
+    aria-hidden="true"
+    class="prefix-Select-arrow"
+    style="user-select:none;-webkit-user-select:none"
+    unselectable="on"
+  >
+    <span
+      aria-label="down"
+      class="anticon anticon-down"
+      role="img"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="down"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+        />
+      </svg>
+    </span>
+  </span>
+</div>
 `;
 
 exports[`ConfigProvider components Skeleton configProvider 1`] = `

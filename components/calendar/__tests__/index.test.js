@@ -13,6 +13,23 @@ describe('Calendar', () => {
   mountTest(Calendar);
   mountTest(() => <Header value={Moment()} />);
 
+  function openSelect(wrapper, className) {
+    wrapper
+      .find(className)
+      .find('.ant-select-selector')
+      .simulate('mousedown');
+  }
+
+  function findSelectItem(wrapper) {
+    return wrapper.find('.ant-select-item-option');
+  }
+
+  function clickSelectItem(wrapper, index = 0) {
+    findSelectItem(wrapper)
+      .at(index)
+      .simulate('click');
+  }
+
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
     const wrapper = mount(<Calendar onSelect={onSelect} />);
@@ -102,20 +119,11 @@ describe('Calendar', () => {
   it('months other than in valid range should not be shown in header', () => {
     const validRange = [Moment('2017-02-02'), Moment('2018-05-18')];
     const wrapper = mount(<Calendar validRange={validRange} />);
-    wrapper
-      .find('.ant-fullcalendar-year-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .first()
-      .simulate('click');
-    wrapper
-      .find('.ant-fullcalendar-month-select')
-      .hostNodes()
-      .simulate('click');
+    openSelect(wrapper, '.ant-fullcalendar-year-select');
+    clickSelectItem(wrapper);
+    openSelect(wrapper, '.ant-fullcalendar-month-select');
     // 2 years and 11 months
-    expect(wrapper.find('.ant-select-dropdown-menu-item').length).toBe(13);
+    expect(wrapper.find('.ant-select-item-option').length).toBe(13);
   });
 
   it('getDateRange should returns a disabledDate function', () => {
@@ -193,14 +201,8 @@ describe('Calendar', () => {
         locale={{ year: '年' }}
       />,
     );
-    wrapper
-      .find('.ant-fullcalendar-year-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .at(0)
-      .simulate('click');
+    openSelect(wrapper, '.ant-fullcalendar-year-select');
+    clickSelectItem(wrapper);
   };
 
   it('if value.month > end.month, set value.month to end.month', () => {
@@ -235,14 +237,8 @@ describe('Calendar', () => {
         type="month"
       />,
     );
-    wrapper
-      .find('.ant-fullcalendar-month-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .at(0)
-      .simulate('click');
+    openSelect(wrapper, '.ant-fullcalendar-month-select');
+    clickSelectItem(wrapper);
     expect(onValueChange).toHaveBeenCalledWith(value.month(10));
   });
 
@@ -258,7 +254,7 @@ describe('Calendar', () => {
       />,
     );
     wrapper
-      .find('input')
+      .find('input[type="radio"]')
       .at(1)
       .simulate('change');
     expect(onTypeChange).toHaveBeenCalledWith('year');
@@ -293,11 +289,10 @@ describe('Calendar', () => {
     });
     const wrapperWithYear = mount(<Calendar fullscreen={false} headerRender={headerRender} />);
 
-    wrapperWithYear.find('.ant-select').simulate('click');
+    openSelect(wrapperWithYear, '.ant-select');
     wrapperWithYear.update();
 
-    wrapperWithYear
-      .find('.year-item')
+    findSelectItem(wrapperWithYear)
       .last()
       .simulate('click');
 
@@ -338,11 +333,10 @@ describe('Calendar', () => {
       <Calendar fullscreen={false} headerRender={headerRenderWithMonth} />,
     );
 
-    wrapperWithMonth.find('.ant-select').simulate('click');
+    openSelect(wrapperWithMonth, '.ant-select');
     wrapperWithMonth.update();
 
-    wrapperWithMonth
-      .find('.month-item')
+    findSelectItem(wrapperWithMonth)
       .last()
       .simulate('click');
     expect(onMonthChange).toHaveBeenCalled();

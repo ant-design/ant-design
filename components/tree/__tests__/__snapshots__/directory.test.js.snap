@@ -493,6 +493,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
 exports[`Directory Tree expand click 1`] = `
 <div
   class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+  disabled=""
   role="tree"
 >
   <div>
@@ -742,6 +743,7 @@ exports[`Directory Tree expand click 1`] = `
 exports[`Directory Tree expand click 2`] = `
 <div
   class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+  disabled=""
   role="tree"
 >
   <div>
@@ -885,6 +887,7 @@ exports[`Directory Tree expand click 2`] = `
 exports[`Directory Tree expand double click 1`] = `
 <div
   class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+  disabled=""
   role="tree"
 >
   <div>
@@ -1134,6 +1137,7 @@ exports[`Directory Tree expand double click 1`] = `
 exports[`Directory Tree expand double click 2`] = `
 <div
   class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+  disabled=""
   role="tree"
 >
   <div>
@@ -1277,6 +1281,7 @@ exports[`Directory Tree expand double click 2`] = `
 exports[`Directory Tree expand with state control click 1`] = `
 <div
   class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+  disabled=""
   role="tree"
 >
   <div>
@@ -1411,6 +1416,7 @@ exports[`Directory Tree expand with state control click 1`] = `
 exports[`Directory Tree expand with state control doubleClick 1`] = `
 <div
   class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+  disabled=""
   role="tree"
 >
   <div>
@@ -1545,6 +1551,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
 exports[`Directory Tree expandedKeys update 1`] = `
 <div
   class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+  disabled=""
   role="tree"
 >
   <div>

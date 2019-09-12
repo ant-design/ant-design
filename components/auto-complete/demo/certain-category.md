@@ -11,53 +11,15 @@ title:
 
 ## en-US
 
-Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set datasource of autocomplete with `dataSource` property.
+Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns). Basic Usage, set options of autocomplete with `options` property.
 
-```jsx
+```tsx
 import { Input, AutoComplete } from 'antd';
-import { Search } from '@ant-design/icons';
+import { Search, User } from '@ant-design/icons';
 
 const { Option, OptGroup } = AutoComplete;
 
-const dataSource = [
-  {
-    title: 'Libraries',
-    children: [
-      {
-        title: 'AntDesign',
-        count: 10000,
-      },
-      {
-        title: 'AntDesign UI',
-        count: 10600,
-      },
-    ],
-  },
-  {
-    title: 'Solutions',
-    children: [
-      {
-        title: 'AntDesign UI',
-        count: 60100,
-      },
-      {
-        title: 'AntDesign',
-        count: 30010,
-      },
-    ],
-  },
-  {
-    title: 'Articles',
-    children: [
-      {
-        title: 'AntDesign design language',
-        count: 100000,
-      },
-    ],
-  },
-];
-
-function renderTitle(title) {
+function renderTitle(title: string) {
   return (
     <span>
       {title}
@@ -73,24 +35,34 @@ function renderTitle(title) {
   );
 }
 
-const options = dataSource
-  .map(group => (
-    <OptGroup key={group.title} label={renderTitle(group.title)}>
-      {group.children.map(opt => (
-        <Option key={opt.title} value={opt.title}>
-          {opt.title}
-          <span className="certain-search-item-count">{opt.count} people</span>
-        </Option>
-      ))}
-    </OptGroup>
-  ))
-  .concat([
-    <Option disabled key="all" className="show-all">
-      <a href="https://www.google.com/search?q=antd" target="_blank" rel="noopener noreferrer">
-        View all results
-      </a>
-    </Option>,
-  ]);
+function renderItem(title: string, count: number) {
+  return {
+    value: title,
+    label: (
+      <>
+        {title}
+        <span className="certain-search-item-count">
+          <User /> {count}
+        </span>
+      </>
+    ),
+  };
+}
+
+const options = [
+  {
+    label: renderTitle('Libraries'),
+    options: [renderItem('AntDesign', 10000), renderItem('AntDesign UI', 10600)],
+  },
+  {
+    label: renderTitle('Solutions'),
+    options: [renderItem('AntDesign UI FAQ', 60100), renderItem('AntDesign FAQ', 30010)],
+  },
+  {
+    label: renderTitle('Articles'),
+    options: [renderItem('AntDesign design language', 100000)],
+  },
+];
 
 function Complete() {
   return (
@@ -98,15 +70,15 @@ function Complete() {
       <AutoComplete
         className="certain-category-search"
         dropdownClassName="certain-category-search-dropdown"
-        dropdownMatchSelectWidth={false}
-        dropdownStyle={{ width: 300 }}
-        size="large"
+        dropdownMatchSelectWidth={500}
         style={{ width: '100%' }}
-        dataSource={options}
-        placeholder="input here"
-        optionLabelProp="value"
+        options={options}
       >
-        <Input suffix={<Search className="certain-category-icon" />} />
+        <Input
+          size="large"
+          suffix={<Search className="certain-category-icon" />}
+          placeholder="input here"
+        />
       </AutoComplete>
     </div>
   );

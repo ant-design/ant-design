@@ -14,7 +14,7 @@ title:
 Customize the dropdown menu via `dropdownRender`.
 
 ```jsx
-import { Select, Divider } from 'antd';
+import { Select, Divider, message } from 'antd';
 import { Plus } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -27,9 +27,14 @@ ReactDOM.render(
       <div>
         {menu}
         <Divider style={{ margin: '4px 0' }} />
-        <div style={{ padding: '8px', cursor: 'pointer' }}>
+        <a
+          style={{ padding: '8px', display: 'block', cursor: 'pointer' }}
+          onClick={() => {
+            message.info('Add an item!');
+          }}
+        >
           <Plus /> Add item
-        </div>
+        </a>
       </div>
     )}
   >

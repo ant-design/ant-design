@@ -64,7 +64,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     return (
       <Select
         size={fullscreen ? 'default' : 'small'}
-        dropdownMatchSelectWidth={false}
+        dropdownMatchSelectWidth={100}
         className={`${prefixCls}-year-select`}
         onChange={this.onYearChange}
         value={String(year)}
@@ -97,7 +97,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     return (
       <Select
         size={fullscreen ? 'default' : 'small'}
-        dropdownMatchSelectWidth={false}
+        dropdownMatchSelectWidth={100}
         className={`${prefixCls}-month-select`}
         value={String(month)}
         onChange={this.onMonthChange}

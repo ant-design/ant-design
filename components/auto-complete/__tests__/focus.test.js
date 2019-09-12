@@ -1,11 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
-import focusTest from '../../../tests/shared/focusTest';
-
-describe('AutoComplete could be focus', () => {
-  focusTest(AutoComplete);
-});
 
 describe('AutoComplete children could be focus', () => {
   beforeAll(() => {

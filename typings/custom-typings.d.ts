@@ -16,8 +16,6 @@ declare module 'shallowequal';
 
 declare module 'css-animation*';
 
-declare module 'rc-select';
-
 declare module 'rc-cascader';
 
 declare module 'array-tree-filter';
