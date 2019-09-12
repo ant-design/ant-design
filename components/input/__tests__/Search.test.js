@@ -137,4 +137,11 @@ describe('Input.Search', () => {
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapperWithEnterButton.render()).toMatchSnapshot();
   });
+
+  it('should support loading', () => {
+    const wrapper = mount(<Search loading />);
+    const wrapperWithEnterButton = mount(<Search loading enterButton />);
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
 });
