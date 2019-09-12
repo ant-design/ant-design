@@ -18,29 +18,24 @@ import { Input } from 'antd';
 
 const { Search } = Input;
 
-class InputSearch extends React.Component {
-  render() {
-    return (
-      <div>
-        <Search placeholder="input search loading deault" loading />
-        <br />
-        <br />
-        <Search placeholder="input search loading with suffix" loading suffix="suffix" />
-        <br />
-        <br />
-        <Search placeholder="input search loading with enterButton" loading enterButton />
-        <br />
-        <br />
-        <Search
-          placeholder="input search loading with enterButton and addonAfter"
-          loading
-          enterButton
-          addonAfter="addonAfter"
-        />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<InputSearch />, mountNode);
+ReactDOM.render(
+  <div>
+    <Search placeholder="input search loading deault" loading />
+    <br />
+    <br />
+    <Search placeholder="input search loading with suffix" loading suffix="suffix" />
+    <br />
+    <br />
+    <Search placeholder="input search loading with enterButton" loading enterButton />
+    <br />
+    <br />
+    <Search
+      placeholder="input search loading with enterButton and addonAfter"
+      loading
+      enterButton
+      addonAfter="addonAfter"
+    />
+  </div>,
+  mountNode,
+);
 ```

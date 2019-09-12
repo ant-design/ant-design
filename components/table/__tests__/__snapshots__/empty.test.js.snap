@@ -491,7 +491,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -509,7 +509,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -671,7 +671,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -771,7 +771,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   >
                     <tr>
                       <th
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <span
                           class="ant-table-header-column"
@@ -789,7 +789,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                         </span>
                       </th>
                       <th
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <span
                           class="ant-table-header-column"
@@ -838,7 +838,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   >
                     <tr>
                       <th
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <span
                           class="ant-table-header-column"
