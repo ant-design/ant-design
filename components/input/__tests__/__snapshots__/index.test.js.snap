@@ -253,6 +253,7 @@ exports[`Input.Search should support suffix 1`] = `
 >
   <Input
     className="ant-input-search"
+    onChange={[Function]}
     onPressEnter={[Function]}
     prefixCls="ant-input"
     suffix={
