@@ -11,7 +11,7 @@ export interface SearchProps extends InputProps {
     value: string,
     event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
   ) => void;
-  enterButton?: boolean | React.ReactNode;
+  enterButton?: React.ReactNode;
   loading?: boolean;
 }
 
