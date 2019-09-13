@@ -154,6 +154,8 @@ export interface TreeProps {
   onDragOver?: (options: AntTreeNodeMouseEvent) => void;
   onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
   onDragEnd?: (options: AntTreeNodeMouseEvent) => void;
+  onMouseEnter?: (options: AntTreeNodeMouseEvent) => void;
+  onMouseLeave?: (options: AntTreeNodeMouseEvent) => void;
   onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
