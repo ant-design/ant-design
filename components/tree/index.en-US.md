@@ -46,6 +46,8 @@ Almost anything can be represented in a tree structure. Examples include directo
 | onDrop | Callback function for when the onDrop event occurs | function({event, node, dragNode, dragNodesKeys}) | - |  |
 | onExpand | Callback function for when a treeNode is expanded or collapsed | function(expandedKeys, {expanded: bool, node}) | - |  |
 | onLoad | Callback function for when a treeNode is loaded | function(loadedKeys, {event, node}) | - | 3.7.0 |
+| onMouseEnter | Callback function for when the onMouseEnter event occurs | function({event, node}) | - | 3.24.0 |
+| onMouseLeave | Callback function for when the onMouseLeave event occurs | function({event, node}) | - | 3.24.0 |
 | onRightClick | Callback function for when the user right clicks a treeNode | function({event, node}) | - |  |
 | onSelect | Callback function for when the user clicks a treeNode | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
 | treeData | treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array\<{ key, title, children, \[disabled, selectable] }> | - | 3.19.8 |

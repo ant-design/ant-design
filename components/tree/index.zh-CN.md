@@ -47,6 +47,8 @@ subtitle: 树形控件
 | onDrop | drop 触发时调用 | function({event, node, dragNode, dragNodesKeys}) | - |  |
 | onExpand | 展开/收起节点时触发 | function(expandedKeys, {expanded: bool, node}) | - |  |
 | onLoad | 节点加载完毕时触发 | function(loadedKeys, {event, node}) | - | 3.7.0 |
+| onMouseEnter | mouseenter 触发时调用 | function({event, node}) | - | 3.24.0 |
+| onMouseLeave | mouseleave 触发时调用 | function({event, node}) | - | 3.24.0 |
 | onRightClick | 响应右键点击 | function({event, node}) | - |  |
 | onSelect | 点击树节点触发 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - |  |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array\<{key, title, children, \[disabled, selectable]}> | - | 3.19.8 |
