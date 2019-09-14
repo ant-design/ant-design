@@ -33,13 +33,14 @@ title: Upload
 | multiple | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件 | boolean | false |  |
 | name | 发到后台的文件参数名 | string | 'file' |  |
 | previewFile | 自定义文件预览逻辑 | (file: File \| Blob) => Promise<dataURL: string> | 无 | 3.17.0 |
-| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon` 和 `showRemoveIcon` | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |  |
+| showUploadList | 是否展示文件列表, 可设为一个对象，用于单独设定 `showPreviewIcon`, `showRemoveIcon` 和 `showDownloadIcon` | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean, showDownloadIcon?: boolean } | true |  |
 | supportServerRender | 服务端渲染时需要打开这个 | boolean | false |  |
 | withCredentials | 上传请求时是否携带 cookie | boolean | false |  |
 | openFileDialogOnClick | 点击打开文件对话框 | boolean | true | 3.10.0 |
 | onChange | 上传文件改变时的状态，详见 [onChange](#onChange) | Function | 无 |  |
 | onPreview | 点击文件链接或预览图标时的回调 | Function(file) | 无 |  |
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。               | Function(file): `boolean | Promise` | 无   |  |
+| onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页。 | Function(file): void | 跳转新标签页 |  |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | Function(file): `string | Blob | File | Promise<string | Blob | File>` | 无   | 3.21.0 |
 
 ### onChange

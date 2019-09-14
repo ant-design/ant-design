@@ -59,6 +59,7 @@ const columns = [
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| 'auto' \| 'fixed' | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` | 3.24.0 |
 | bordered | Whether to show all table borders | boolean | `false` |  |
 | childrenColumnName | The column contains children to display | string\[] | children | 3.4.2 |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |  |
@@ -119,6 +120,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' | 3.3.2 |
+| ellipsis | ellipsize cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is true. | boolean | false | 3.24.0 |
 | className | className of this column | string | - |  |
 | colSpan | Span of this column's title | number |  |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |  |

@@ -417,12 +417,39 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item i.anticon-close').simulate('click');
+    wrapper.find('div.ant-upload-list-item i.anticon-delete').simulate('click');
 
     setImmediate(() => {
       wrapper.update();
 
       expect(mockRemove).toHaveBeenCalled();
+      expect(props.fileList).toHaveLength(1);
+      expect(props.fileList[0].status).toBe('done');
+      done();
+    });
+  });
+
+  it('should not stop download when return use onDownload', done => {
+    const mockRemove = jest.fn(() => false);
+    const props = {
+      onRemove: mockRemove,
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'done',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+    };
+
+    const wrapper = mount(<Upload {...props} onDownload={() => {}} />);
+
+    wrapper.find('div.ant-upload-list-item i.anticon-download').simulate('click');
+
+    setImmediate(() => {
+      wrapper.update();
+
       expect(props.fileList).toHaveLength(1);
       expect(props.fileList[0].status).toBe('done');
       done();
