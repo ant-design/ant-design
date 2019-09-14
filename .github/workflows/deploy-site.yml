@@ -2,8 +2,8 @@ name: Deploy website
 on:
   release:
     types: [published]
-  branches:
-    - master
+    branches:
+      - master
 
 jobs:
   build-and-deploy:
