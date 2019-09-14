@@ -66,10 +66,10 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <span
+    <button
       class="ant-alert-close-icon"
-      role="button"
       tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -90,7 +90,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
           />
         </svg>
       </i>
-    </span>
+    </button>
   </div>
   <br />
   <div
@@ -172,10 +172,10 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <span
+    <button
       class="ant-alert-close-icon"
-      role="button"
       tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -196,7 +196,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           />
         </svg>
       </i>
-    </span>
+    </button>
   </div>
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-closable"
@@ -212,10 +212,10 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     >
       Error Description Error Description Error Description Error Description Error Description Error Description
     </span>
-    <span
+    <button
       class="ant-alert-close-icon"
-      role="button"
       tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -236,7 +236,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           />
         </svg>
       </i>
-    </span>
+    </button>
   </div>
 </div>
 `;
@@ -254,17 +254,17 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
   <span
     class="ant-alert-description"
   />
-  <span
+  <button
     class="ant-alert-close-icon"
-    role="button"
     tabindex="0"
+    type="button"
   >
     <span
       class="ant-alert-close-text"
     >
       Close Now
     </span>
-  </span>
+  </button>
 </div>
 `;
 
@@ -910,10 +910,10 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <span
+    <button
       class="ant-alert-close-icon"
-      role="button"
       tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -934,7 +934,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
           />
         </svg>
       </i>
-    </span>
+    </button>
   </div>
   <p>
     placeholder text here

@@ -138,6 +138,21 @@ describe('Input.Search', () => {
     expect(wrapperWithEnterButton.render()).toMatchSnapshot();
   });
 
+  // https://github.com/ant-design/ant-design/issues/18729
+  it('should trigger onSearch when click clear icon', () => {
+    const onSearch = jest.fn();
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
+    );
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
+    expect(onChange).toHaveBeenCalled();
+  });
+
   it('should support loading', () => {
     const wrapper = mount(<Search loading />);
     const wrapperWithEnterButton = mount(<Search loading enterButton />);

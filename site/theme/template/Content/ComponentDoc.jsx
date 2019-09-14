@@ -1,12 +1,12 @@
 import React from 'react';
-import DocumentTitle from 'react-document-title';
+import { Helmet } from 'react-helmet';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { Row, Col, Icon, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
-import { ping } from '../utils';
+import { ping, getMetaDescription } from '../utils';
 
 class ComponentDoc extends React.Component {
   state = {
@@ -106,66 +106,72 @@ class ComponentDoc extends React.Component {
     const articleClassName = classNames({
       'show-riddle-button': showRiddleButton,
     });
+    const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
+    const contentChild = getMetaDescription(getChildren(content));
+
     return (
-      <DocumentTitle title={`${subtitle || ''} ${title[locale] || title} - Ant Design`}>
-        <article className={articleClassName}>
-          <Affix className="toc-affix" offsetTop={16}>
-            <ul id="demo-toc" className="toc">
-              {jumper}
-            </ul>
-          </Affix>
-          <section className="markdown">
-            <h1>
-              {title[locale] || title}
-              {!subtitle ? null : <span className="subtitle">{subtitle}</span>}
-              <EditButton
-                title={<FormattedMessage id="app.content.edit-page" />}
-                filename={filename}
-              />
-            </h1>
-            {utils.toReactComponent(
-              ['section', { className: 'markdown' }].concat(getChildren(content)),
-            )}
-            <h2>
-              <FormattedMessage id="app.component.examples" />
-              <Tooltip
-                title={
-                  <FormattedMessage
-                    id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
-                  />
-                }
-              >
-                <Icon
-                  type={`${expandAll ? 'appstore' : 'appstore-o'}`}
-                  className={expandTriggerClass}
-                  onClick={this.handleExpandToggle}
-                />
-              </Tooltip>
-            </h2>
-          </section>
-          <Row gutter={16}>
-            <Col
-              span={isSingleCol ? 24 : 12}
-              className={isSingleCol ? 'code-boxes-col-1-1' : 'code-boxes-col-2-1'}
-            >
-              {leftChildren}
-            </Col>
-            {isSingleCol ? null : (
-              <Col className="code-boxes-col-2-1" span={12}>
-                {rightChildren}
-              </Col>
-            )}
-          </Row>
+      <article className={articleClassName}>
+        <Helmet>
+          {helmetTitle && <title>{helmetTitle}</title>}
+          {helmetTitle && <meta property="og:title" content={helmetTitle} />}
+          {contentChild && <meta name="description" content={contentChild} />}
+        </Helmet>
+        <Affix className="toc-affix" offsetTop={16}>
+          <ul id="demo-toc" className="toc">
+            {jumper}
+          </ul>
+        </Affix>
+        <section className="markdown">
+          <h1>
+            {title[locale] || title}
+            {!subtitle ? null : <span className="subtitle">{subtitle}</span>}
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-page" />}
+              filename={filename}
+            />
+          </h1>
           {utils.toReactComponent(
-            [
-              'section',
-              {
-                className: 'markdown api-container',
-              },
-            ].concat(getChildren(doc.api || ['placeholder'])),
+            ['section', { className: 'markdown' }].concat(getChildren(content)),
           )}
-        </article>
-      </DocumentTitle>
+          <h2>
+            <FormattedMessage id="app.component.examples" />
+            <Tooltip
+              title={
+                <FormattedMessage
+                  id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
+                />
+              }
+            >
+              <Icon
+                type={`${expandAll ? 'appstore' : 'appstore-o'}`}
+                className={expandTriggerClass}
+                onClick={this.handleExpandToggle}
+              />
+            </Tooltip>
+          </h2>
+        </section>
+        <Row gutter={16}>
+          <Col
+            span={isSingleCol ? 24 : 12}
+            className={isSingleCol ? 'code-boxes-col-1-1' : 'code-boxes-col-2-1'}
+          >
+            {leftChildren}
+          </Col>
+          {isSingleCol ? null : (
+            <Col className="code-boxes-col-2-1" span={12}>
+              {rightChildren}
+            </Col>
+          )}
+        </Row>
+        {utils.toReactComponent(
+          [
+            'section',
+            {
+              className: 'markdown api-container',
+            },
+          ].concat(getChildren(doc.api || ['placeholder'])),
+        )}
+      </article>
     );
   }
 }

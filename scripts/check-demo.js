@@ -1,7 +1,7 @@
 const path = require('path');
 const yfm = require('yaml-front-matter');
 const glob = require('glob');
-const fs = require('fs-extra');
+const fs = require('fs');
 
 const demoFiles = glob.sync(path.join(process.cwd(), 'components/**/demo/*.md'));
 // eslint-disable-next-line no-restricted-syntax
