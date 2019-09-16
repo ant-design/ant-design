@@ -194,10 +194,20 @@ export default class Tree extends React.Component<TreeProps, any> {
     if (loading) {
       return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
     }
-    if (showLine) {
-      if (isLeaf) {
+    if (isLeaf) {
+      if (showLine) {
         return <Icon type="file" className={`${prefixCls}-switcher-line-icon`} />;
       }
+      return null;
+    }
+    const switcherCls = `${prefixCls}-switcher-icon`;
+    if (switcherIcon) {
+      const switcherOriginCls = switcherIcon.props.className || '';
+      return React.cloneElement(switcherIcon, {
+        className: classNames(switcherOriginCls, switcherCls),
+      });
+    }
+    if (showLine) {
       return (
         <Icon
           type={expanded ? 'minus-square' : 'plus-square'}
@@ -205,16 +215,6 @@ export default class Tree extends React.Component<TreeProps, any> {
           theme="outlined"
         />
       );
-    }
-    const switcherCls = `${prefixCls}-switcher-icon`;
-    if (isLeaf) {
-      return null;
-    }
-    if (switcherIcon) {
-      const switcherOriginCls = switcherIcon.props.className || '';
-      return React.cloneElement(switcherIcon, {
-        className: classNames(switcherOriginCls, switcherCls),
-      });
     }
     return <Icon type="caret-down" className={switcherCls} theme="filled" />;
   };
