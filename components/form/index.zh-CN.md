@@ -20,7 +20,7 @@ title: Form
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |
-| colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 | boolean | true |
+| colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true |
 | fields | 通过状态管理（如 redux）控制表单字段，如非强需求不推荐使用。查看[示例](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |

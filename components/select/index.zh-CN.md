@@ -34,6 +34,7 @@ title: Select
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |  |
 | dropdownRender | 自定义下拉框内容 | (menuNode: ReactNode, props) => ReactNode | - | 3.11.0 |
 | dropdownStyle | 下拉菜单的 style 属性 | object | - |  |
+| dropdownMenuStyle | dropdown 菜单自定义样式 | object | - |  |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true |  |
 | firstActiveValue | 默认高亮的选项 | string\|string\[] | - |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | Function(triggerNode) | () => document.body |  |

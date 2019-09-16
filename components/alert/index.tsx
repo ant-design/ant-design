@@ -33,7 +33,7 @@ export interface AlertProps {
   /** Additional content of Alert */
   description?: React.ReactNode;
   /** Callback when close Alert */
-  onClose?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClose?: React.MouseEventHandler<HTMLButtonElement>;
   /** Trigger when animation ending of Alert */
   afterClose?: () => void;
   /** Whether to show icon */
@@ -70,7 +70,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     closed: false,
   };
 
-  handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const dom = ReactDOM.findDOMNode(this) as HTMLElement;
     dom.style.height = `${dom.offsetHeight}px`;
@@ -134,14 +134,14 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
 
     const closeIcon = closable ? (
-      <span
-        role="button"
+      <button
+        type="button"
         onClick={this.handleClose}
         className={`${prefixCls}-close-icon`}
         tabIndex={0}
       >
         {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : <Close />}
-      </span>
+      </button>
     ) : null;
 
     const dataOrAriaProps = getDataOrAriaProps(this.props);
