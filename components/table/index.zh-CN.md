@@ -141,7 +141,7 @@ const columns = [
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |  |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` | 3.15.2 |
-| title | 列头显示文字 | ReactNode\|({ sortOrder, filters }) => ReactNode | - |  |
+| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, filters }) => ReactNode | - | |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string\|number | - |  |
 | onCell | 设置单元格属性 | Function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |  |

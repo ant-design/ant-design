@@ -10,7 +10,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import { SelectProps as RcSelectProps } from 'rc-select';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import Select, { InternalSelectProps, OptionType } from '../select';
+import Select, { InternalSelectProps, OptionType, SelectValue } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
@@ -22,11 +22,17 @@ export interface DataSourceItemObject {
   value: string;
   text: string;
 }
-export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface AutoCompleteProps
   extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp'> {
-  dataSource?: DataSourceItemType[];
+  dropdownMenuStyle?: React.CSSProperties;
+  autoFocus?: boolean;
+  backfill?: boolean;
+  optionLabelProp?: string;
+  onChange?: (value: SelectValue) => void;
+  onSelect?: (value: SelectValue, option: Object) => any;
+  onBlur?: (value: SelectValue) => void;
+  onFocus?: () => void;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {

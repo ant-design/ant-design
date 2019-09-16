@@ -195,10 +195,3 @@ const Demo = () => {
 
 ReactDOM.render(<Demo />, mountNode);
 ```
-
-```css
-#components-form-demo-validate-other .dropbox {
-  height: 180px;
-  line-height: 1.5;
-}
-```

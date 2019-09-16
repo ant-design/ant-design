@@ -25,5 +25,3 @@ It can also be used as inter-page navigation when it is needed to make the user 
 | breadcrumb | breadcrumb config | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - | 3.14.0 |
 | footer | PageHeader's footer, generally used to render TabBar | ReactNode | - | 3.14.0 |
 | onBack | back icon click event | `()=>void` | `()=>history.back()` | 3.14.0 |
-
-> breadcrumbs will automatically disappear when configuring back icon.
