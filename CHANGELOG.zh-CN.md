@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.23.3
+
+`2019-09-16`
+
+- 🐞 修复 ConfigProvider `locale` 国际化在某些场景下对 Modal 不生效的问题。[#18732](https://github.com/ant-design/ant-design/pull/18732)
+- 🐞 修复 Avatar 长图片时被挤压的样式问题。[#18768](https://github.com/ant-design/ant-design/pull/18768) [@Eusen](https://github.com/Eusen)
+- 🐞 修复 InputNumber 高亮边框的样式问题。[#18791](https://github.com/ant-design/ant-design/pull/18791) [@escorponox](https://github.com/escorponox)
+- 🐞 修复 Input.Search 点击清除图标时没有触发 `onSearch` 的问题。[#18783](https://github.com/ant-design/ant-design/pull/18783)
+- ⌨️ 增强 Alert 关闭按钮的可访问性。[#18750](https://github.com/ant-design/ant-design/pull/18750) [@MrHeer](https://github.com/MrHeer)
+- 💄 `link` 类型的 Button 文字之间不再插入空格。[#18724](https://github.com/ant-design/ant-design/pull/18724)
+
 ## 3.23.2
 
 `2019-09-06`

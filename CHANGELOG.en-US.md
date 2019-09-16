@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.23.3
+
+`2019-09-16`
+
+- 🐞 Fix ConfigProvider `locale` not working with Modal in some situation. [#18732](https://github.com/ant-design/ant-design/pull/18732)
+- 🐞 Fix Avatar extrusion style when using long pictures. [#18768](https://github.com/ant-design/ant-design/pull/18768) [@Eusen](https://github.com/Eusen)
+- 🐞 Fix InputNumber active border style. [#18791](https://github.com/ant-design/ant-design/pull/18791) [@escorponox](https://github.com/escorponox)
+- 🐞 Fix Input.Search not trigger `onSearch` when click clear icon. [#18783](https://github.com/ant-design/ant-design/pull/18783)
+- ⌨️ Enhance accessibility of Alert close button. [#18750](https://github.com/ant-design/ant-design/pull/18750) [@MrHeer](https://github.com/MrHeer)
+- 💄 Button `type="link"` should not insert space. [#18724](https://github.com/ant-design/ant-design/pull/18724)
+
 ## 3.23.2
 
 `2019-09-06`
