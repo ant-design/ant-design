@@ -19,7 +19,7 @@ High performance Form component with data scope management. Including data colle
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |
-| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed | boolean | true |
+| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |
 | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | Hide required mark for all form items | boolean | false |

@@ -171,17 +171,15 @@ const Demo = () => {
       </Form.Item>
 
       <Form.Item label="Dragger">
-        <div className="dropbox">
-          <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-            <Upload.Dragger name="files" action="/upload.do">
-              <p className="ant-upload-drag-icon">
-                <Inbox />
-              </p>
-              <p className="ant-upload-text">Click or drag file to this area to upload</p>
-              <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-            </Upload.Dragger>
-          </Form.Item>
-        </div>
+        <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+          <Upload.Dragger name="files" action="/upload.do">
+            <p className="ant-upload-drag-icon">
+              <Inbox />
+            </p>
+            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
+          </Upload.Dragger>
+        </Form.Item>
       </Form.Item>
 
       <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
@@ -194,11 +192,4 @@ const Demo = () => {
 };
 
 ReactDOM.render(<Demo />, mountNode);
-```
-
-```css
-#components-form-demo-validate-other .dropbox {
-  height: 180px;
-  line-height: 1.5;
-}
 ```
