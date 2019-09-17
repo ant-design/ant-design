@@ -1,5 +1,9 @@
 name: Publish to github-package
-on: push
+on:
+  release:
+    types: [published]
+    branches:
+      - master
 
 jobs:
   publish:
