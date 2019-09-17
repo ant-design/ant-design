@@ -1,20 +1,5 @@
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-let enquire: any;
-
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-  // eslint-disable-next-line global-require
-  enquire = require('enquire.js');
-}
+// eslint-disable-next-line global-require
+const enquire = require('enquire.js');
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;

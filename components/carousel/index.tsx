@@ -4,19 +4,6 @@ import { Settings } from 'react-slick';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
-}
 // Use require over import (will be lifted up)
 // make sure matchMedia polyfill run before require('react-slick')
 // Fix https://github.com/ant-design/ant-design/issues/6560
