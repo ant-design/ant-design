@@ -37,6 +37,7 @@ title: Tooltip
 | trigger | 触发行为，可选 `hover/focus/click/contextMenu` | string | hover |  |
 | visible | 用于手动控制浮层显隐 | boolean | false |  |
 | onVisibleChange | 显示隐藏的回调 | (visible) => void | 无 |  |
+| destroyTooltipOnHide | 是否在隐藏时销毁 Tooltip | boolean | false |  |
 | align | 该值将合并到 placement 的配置中，设置参考 [rc-tooltip](https://github.com/react-component/tooltip) | Object | 无 | 3.10.0 |
 
 ## 注意
