@@ -16827,8 +16827,15 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
 exports[`ConfigProvider components Tree configProvider 1`] = `
 <div>
   <div
-    class="config-tree-list config-tree config-tree-icon-hide"
     role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="config-tree-list config-tree config-tree-icon-hide"
   >
     <div>
       <div
@@ -16837,8 +16844,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
       >
         <div
           class="config-tree-treenode config-tree-treenode-switcher-close"
-          role="treeitem"
-          tabindex="0"
         >
           <span
             class="config-tree-switcher config-tree-switcher-noop"
@@ -16858,8 +16863,15 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     </div>
   </div>
   <div
-    class="config-tree-list config-tree config-tree-directory config-tree-block-node"
     role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="config-tree-list config-tree config-tree-directory config-tree-block-node"
   >
     <div>
       <div
@@ -16868,8 +16880,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
       >
         <div
           class="config-tree-treenode config-tree-treenode-switcher-close"
-          role="treeitem"
-          tabindex="0"
         >
           <span
             class="config-tree-switcher config-tree-switcher-noop"
@@ -16918,8 +16928,15 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
 exports[`ConfigProvider components Tree normal 1`] = `
 <div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
     role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="ant-tree-list ant-tree ant-tree-icon-hide"
   >
     <div>
       <div
@@ -16928,8 +16945,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
       >
         <div
           class="ant-tree-treenode ant-tree-treenode-switcher-close"
-          role="treeitem"
-          tabindex="0"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher-noop"
@@ -16949,8 +16964,15 @@ exports[`ConfigProvider components Tree normal 1`] = `
     </div>
   </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
     role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
   >
     <div>
       <div
@@ -16959,8 +16981,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
       >
         <div
           class="ant-tree-treenode ant-tree-treenode-switcher-close"
-          role="treeitem"
-          tabindex="0"
         >
           <span
             class="ant-tree-switcher ant-tree-switcher-noop"
@@ -17009,8 +17029,15 @@ exports[`ConfigProvider components Tree normal 1`] = `
 exports[`ConfigProvider components Tree prefixCls 1`] = `
 <div>
   <div
-    class="prefix-Tree-list prefix-Tree prefix-Tree-icon-hide"
     role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="prefix-Tree-list prefix-Tree prefix-Tree-icon-hide"
   >
     <div>
       <div
@@ -17019,8 +17046,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
       >
         <div
           class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
-          role="treeitem"
-          tabindex="0"
         >
           <span
             class="prefix-Tree-switcher prefix-Tree-switcher-noop"
@@ -17040,8 +17065,15 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     </div>
   </div>
   <div
-    class="prefix-Tree-list prefix-Tree prefix-Tree-directory prefix-Tree-block-node"
     role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="prefix-Tree-list prefix-Tree prefix-Tree-directory prefix-Tree-block-node"
   >
     <div>
       <div
@@ -17050,8 +17082,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
       >
         <div
           class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
-          role="treeitem"
-          tabindex="0"
         >
           <span
             class="prefix-Tree-switcher prefix-Tree-switcher-noop"

@@ -2340,8 +2340,15 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
           class="ant-transfer-list-body-customize-wrapper"
         >
           <div
-            class="ant-tree-list ant-tree ant-tree-icon-hide ant-tree-block-node"
             role="tree"
+          >
+            <input
+              style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+              tabindex="0"
+            />
+          </div>
+          <div
+            class="ant-tree-list ant-tree ant-tree-icon-hide ant-tree-block-node"
           >
             <div>
               <div
@@ -2350,8 +2357,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
               >
                 <div
                   class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                  role="treeitem"
-                  tabindex="0"
                 >
                   <span
                     class="ant-tree-switcher ant-tree-switcher-noop"
@@ -2376,8 +2381,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                 </div>
                 <div
                   class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                  role="treeitem"
-                  tabindex="0"
                 >
                   <span
                     class="ant-tree-switcher ant-tree-switcher_open"
@@ -2423,8 +2426,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                 </div>
                 <div
                   class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                  role="treeitem"
-                  tabindex="0"
                 >
                   <span
                     aria-hidden="true"
@@ -2457,8 +2458,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                 </div>
                 <div
                   class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                  role="treeitem"
-                  tabindex="0"
                 >
                   <span
                     aria-hidden="true"
@@ -2491,8 +2490,6 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                 </div>
                 <div
                   class="ant-tree-treenode ant-tree-treenode-switcher-open"
-                  role="treeitem"
-                  tabindex="0"
                 >
                   <span
                     class="ant-tree-switcher ant-tree-switcher-noop"
