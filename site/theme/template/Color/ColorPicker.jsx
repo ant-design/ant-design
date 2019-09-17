@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, message } from 'antd';
 import { ChromePicker, SketchPicker } from 'react-color';
 
 const noop = () => {};
@@ -49,6 +50,33 @@ export default class ColorPicker extends Component {
     onChangeComplete(color.hex);
   };
 
+  onThemeChange = checked => {
+    if (!checked) {
+      const dom = document.getElementById('theme-style');
+      if (dom) {
+        dom.remove();
+      }
+      return;
+    }
+    const hide = message.loading('loading theme！');
+    const style = document.createElement('link');
+    style.type = 'text/css';
+    style.rel = 'stylesheet';
+    style.id = 'theme-style';
+    style.href =
+      'https://ant-design-theme.azurewebsites.net/api/theme?code=aCmMSafQBJUuWZ4bWpNWWuectxOhaj9F4sak0hHu0vVLafNGOrYVLA%3D%3D&theme=dark';
+    style.addEventListener(
+      'load',
+      () => {
+        setTimeout(() => {
+          hide();
+        }, 1000);
+      },
+      false,
+    );
+    document.body.append(style);
+  };
+
   render() {
     const { small, type, position } = this.props;
     const { color, displayColorPicker } = this.state;
@@ -91,9 +119,13 @@ export default class ColorPicker extends Component {
     }
 
     const swatch = (
-      <div style={styles.swatch} onClick={this.handleClick}>
-        <div style={styles.color} />
-      </div>
+      <>
+        <div style={styles.swatch} onClick={this.handleClick}>
+          <div style={styles.color} />
+        </div>
+        <br />
+        <Switch onChange={this.onThemeChange} checkedChildren="黑" unCheckedChildren="白" />
+      </>
     );
     const picker = displayColorPicker ? (
       <div style={styles.popover}>
