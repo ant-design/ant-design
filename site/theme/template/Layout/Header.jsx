@@ -108,7 +108,11 @@ class Header extends React.Component {
     const { menuVisible } = this.state;
     const { isMobile } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
-    const { location, themeConfig, intl: { locale } } = this.props;
+    const {
+      location,
+      themeConfig,
+      intl: { locale },
+    } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions).map(version => (
       <Option value={docVersions[version]} key={version}>

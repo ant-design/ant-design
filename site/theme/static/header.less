@@ -5,10 +5,10 @@
   position: relative;
   z-index: 10;
   max-width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
+  background: @menu-bg;
+  box-shadow: @site-header-box-shadow;
   &.home-nav-bottom {
-    background: rgba(255, 255, 255, 0.9);
+    background: @component-background;
     border-bottom-color: #ebedee;
     .search {
       border-left-color: #ebedee;
@@ -16,6 +16,10 @@
     a {
       color: @site-text-color;
     }
+  }
+
+  .ant-menu {
+    box-shadow: none;
   }
 
   .header-link {

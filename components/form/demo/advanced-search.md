@@ -100,7 +100,6 @@ ReactDOM.render(
 ```css
 .ant-advanced-search-form {
   padding: 24px;
-  background: #fbfbfb;
   border: 1px solid #d9d9d9;
   border-radius: 6px;
 }

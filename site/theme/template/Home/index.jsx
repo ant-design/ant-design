@@ -14,31 +14,31 @@ function getStyle() {
     .main-wrapper {
       padding: 0;
     }
-    #header {
+    body #header {
       box-shadow: none;
       max-width: 1200px;
       width: 100%;
       margin: 20px auto 0;
       padding: 0 24px;
     }
-    #header,
-    #header .ant-select-selection,
-    #header .ant-menu {
+    body #header,
+    body #header .ant-select-selection,
+    body #header .ant-menu {
       background: transparent;
     }
-    #header #logo {
+    body #header #logo {
       padding: 0;
     }
-    #header #nav .ant-menu-item {
+    body #header #nav .ant-menu-item {
       border-color: transparent;
     }
-    #header #nav .ant-menu-submenu {
+    body #header #nav .ant-menu-submenu {
       border-color: transparent;
     }
-    #header #nav .ant-menu-item.hide-in-home-page {
+    body #header #nav .ant-menu-item.hide-in-home-page {
       display: none;
     }
-    #header .ant-row > div:last-child .header-lang-button {
+    body #header .ant-row > div:last-child .header-lang-button {
       margin-right: 0;
     }
     footer .footer-wrap {
