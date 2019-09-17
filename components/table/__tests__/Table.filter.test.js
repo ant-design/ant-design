@@ -664,6 +664,7 @@ describe('Table.filter', () => {
     const Test = ({ filters }) => (
       <Table
         onChange={onChange}
+        rowKey="name"
         columns={[
           {
             title: 'Name',
@@ -749,8 +750,87 @@ describe('Table.filter', () => {
             },
           ],
         })}
-      </ConfigProvider>
+      </ConfigProvider>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('pass visible prop to filterDropdown', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
+
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
+
+    mount(<Test />);
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
+  });
+
+  it('visible prop of filterDropdown changes on click', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
+
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
+
+    const wrapper = mount(<Test />);
+
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: true,
+      }),
+    );
+
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
   });
 });

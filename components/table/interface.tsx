@@ -23,6 +23,7 @@ export interface FilterDropdownProps {
   clearFilters?: (selectedKeys: string[]) => void;
   filters?: ColumnFilterItem[];
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  visible?: boolean;
 }
 
 export interface ColumnProps<T> {
