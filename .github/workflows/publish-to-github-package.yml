@@ -17,9 +17,6 @@ jobs:
       - name: install
         run: npm install
 
-      - name: compile
-        run: npm run compile
-
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
