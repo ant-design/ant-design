@@ -144,6 +144,18 @@ describe('Transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
   });
 
+  it('should not check checkbox when component disabled', () => {
+    const handleSelectChange = jest.fn();
+    const wrapper = mount(
+      <Transfer {...listCommonProps} disabled onSelectChange={handleSelectChange} />,
+    );
+    wrapper
+      .find(TransferItem)
+      .filterWhere(n => n.prop('item').key === 'a')
+      .simulate('click');
+    expect(handleSelectChange).not.toHaveBeenCalled();
+  });
+
   it('should not check checkbox when click on disabled item', () => {
     const handleSelectChange = jest.fn();
     const wrapper = mount(<Transfer {...listCommonProps} onSelectChange={handleSelectChange} />);
