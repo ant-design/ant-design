@@ -143,7 +143,6 @@
   "devDependencies": {
     "@ant-design/colors": "^3.1.0",
     "@ant-design/tools": "^8.0.4",
-    "@formatjs/intl-relativetimeformat": "^4.0.1",
     "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.4.0",
     "@types/classnames": "^2.2.8",
