@@ -16830,8 +16830,9 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>
   <div
@@ -16866,8 +16867,9 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>
   <div
@@ -16931,8 +16933,9 @@ exports[`ConfigProvider components Tree normal 1`] = `
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>
   <div
@@ -16967,8 +16970,9 @@ exports[`ConfigProvider components Tree normal 1`] = `
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>
   <div
@@ -17032,8 +17036,9 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>
   <div
@@ -17068,8 +17073,9 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>
   <div
