@@ -13,6 +13,12 @@
 .@{tree-prefix-cls} {
   .reset-component;
   background: @component-background;
+  border-radius: @border-radius-base;
+  transition: background-color 0.3s;
+
+  &-focused:not(:hover):not(&-active-focused) {
+    background: @primary-1;
+  }
 
   // =================== Virtual List ===================
   &-list-holder-inner {
@@ -48,6 +54,10 @@
           background: transparent;
         }
       }
+    }
+
+    &-active .@{tree-prefix-cls}-node-content-wrapper {
+      background: @tree-node-hover-bg;
     }
   }
 
