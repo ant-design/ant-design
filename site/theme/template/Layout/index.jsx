@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
-// https://github.com/formatjs/react-intl/issues/1487
-import '@formatjs/intl-relativetimeformat/polyfill';
-import '@formatjs/intl-relativetimeformat/dist/locale-data/zh';
-import '@formatjs/intl-relativetimeformat/dist/locale-data/en';
 import { IntlProvider } from 'react-intl';
 import { Helmet } from 'react-helmet';
 import 'moment/locale/zh-cn';
