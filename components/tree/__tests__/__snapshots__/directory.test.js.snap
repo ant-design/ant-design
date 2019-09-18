@@ -6,8 +6,9 @@ Array [
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -350,8 +351,9 @@ Array [
     role="tree"
   >
     <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -498,8 +500,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -749,8 +752,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -898,8 +902,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -1149,8 +1154,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -1298,8 +1304,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -1438,8 +1445,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -1578,8 +1586,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -1829,8 +1838,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -2173,8 +2183,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
@@ -2517,8 +2528,9 @@ Array [
     role="tree"
   >
     <input
-      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0;"
+      style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
       tabindex="0"
+      value=""
     />
   </div>,
   <div
