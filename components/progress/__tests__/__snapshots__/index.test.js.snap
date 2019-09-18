@@ -252,6 +252,7 @@ exports[`Progress render strokeColor 1`] = `
 exports[`Progress render strokeColor 2`] = `
 <Progress
   gapDegree={0}
+  orientation="default"
   percent={50}
   showInfo={true}
   size="default"
@@ -270,6 +271,7 @@ exports[`Progress render strokeColor 2`] = `
   >
     <Line
       gapDegree={0}
+      orientation="default"
       percent={50}
       prefixCls="ant-progress"
       showInfo={true}
@@ -319,6 +321,7 @@ exports[`Progress render strokeColor 2`] = `
 exports[`Progress render strokeColor 3`] = `
 <Progress
   gapDegree={0}
+  orientation="default"
   percent={50}
   showInfo={true}
   size="default"
@@ -337,6 +340,7 @@ exports[`Progress render strokeColor 3`] = `
   >
     <Line
       gapDegree={0}
+      orientation="default"
       percent={50}
       prefixCls="ant-progress"
       showInfo={true}

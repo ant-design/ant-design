@@ -34,6 +34,7 @@ export interface ProgressProps {
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
+  orientation?: 'default' | 'vertical';
 }
 
 export default class Progress extends React.Component<ProgressProps> {
@@ -45,6 +46,7 @@ export default class Progress extends React.Component<ProgressProps> {
     size: 'default',
     gapDegree: 0,
     strokeLinecap: 'round',
+    orientation: 'default',
   };
 
   static propTypes = {
@@ -58,6 +60,7 @@ export default class Progress extends React.Component<ProgressProps> {
     strokeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     trailColor: PropTypes.string,
     format: PropTypes.func,
+    orientation: PropTypes.oneOf(['default', 'vertical']),
     gapDegree: PropTypes.number,
   };
 
@@ -145,6 +148,7 @@ export default class Progress extends React.Component<ProgressProps> {
           'strokeColor',
           'strokeLinecap',
           'percent',
+          'orientation',
         ])}
         className={classString}
       >
