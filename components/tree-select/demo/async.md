@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-异步加载。
+异步加载树节点。
 
 ## en-US
 
-Asynchronous loading.
+Asynchronous loading tree node.
 
 ```jsx
 import { TreeSelect } from 'antd';
