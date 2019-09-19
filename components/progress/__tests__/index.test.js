@@ -114,11 +114,3 @@ describe('Progress', () => {
     errorSpy.mockRestore();
   });
 });
-
-it('render orientation vertical', () => {
-  const wrapper = mount(<Progress status="normal" orientation="vertical" />);
-  expect(wrapper.render()).toMatchSnapshot();
-  wrapper.setProps({
-    orientation: 'vertical',
-  });
-});
