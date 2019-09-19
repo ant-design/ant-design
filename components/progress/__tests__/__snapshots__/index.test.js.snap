@@ -421,7 +421,7 @@ exports[`Progress render strokeColor 3`] = `
 
 exports[`render orientation vertical 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-vertical"
 >
   <div>
     <div
@@ -438,6 +438,7 @@ exports[`render orientation vertical 1`] = `
     </div>
     <span
       class="ant-progress-text"
+      style="transform: rotate(90deg);"
       title="0%"
     >
       0%
