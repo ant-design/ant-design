@@ -394,6 +394,13 @@
     }
   }
 
+  .@{inputClass}-disabled ~ .@{inputClass}-suffix {
+    .anticon {
+      color: @disabled-color;
+      cursor: not-allowed;
+    }
+  }
+
   .@{inputClass}-prefix {
     left: @input-padding-horizontal-base + 1px;
   }
