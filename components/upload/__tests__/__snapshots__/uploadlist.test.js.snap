@@ -86,7 +86,7 @@ exports[`Upload List handle error 1`] = `
         class="ant-upload-list-item-progress fade-leave"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default ant-progress-orientation-default"
         >
           <div>
             <div
@@ -195,7 +195,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
         class="ant-upload-list-item-progress"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default ant-progress-orientation-default"
         >
           <div>
             <div
@@ -304,7 +304,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
         class="ant-upload-list-item-progress fade-leave"
       >
         <div
-          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
+          class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default ant-progress-orientation-default"
         >
           <div>
             <div

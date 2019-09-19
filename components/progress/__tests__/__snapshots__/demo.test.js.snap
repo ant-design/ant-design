@@ -3,7 +3,7 @@
 exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -45,7 +45,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -104,7 +104,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -168,7 +168,7 @@ exports[`renders ./components/progress/demo/circle.md correctly 1`] = `
 exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -270,7 +270,7 @@ exports[`renders ./components/progress/demo/circle-dynamic.md correctly 1`] = `
 exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -312,7 +312,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-exception ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -371,7 +371,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -434,7 +434,7 @@ exports[`renders ./components/progress/demo/circle-mini.md correctly 1`] = `
 
 exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
 <div
-  class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
 >
   <div
     class="ant-progress-inner"
@@ -480,7 +480,7 @@ exports[`renders ./components/progress/demo/dashboard.md correctly 1`] = `
 exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -564,7 +564,7 @@ exports[`renders ./components/progress/demo/dynamic.md correctly 1`] = `
 exports[`renders ./components/progress/demo/format.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -606,7 +606,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -653,7 +653,7 @@ exports[`renders ./components/progress/demo/format.md correctly 1`] = `
 exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -677,7 +677,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -701,7 +701,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner ant-progress-circle-gradient"
@@ -761,7 +761,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner ant-progress-circle-gradient"
@@ -843,7 +843,7 @@ exports[`renders ./components/progress/demo/gradient-line.md correctly 1`] = `
 exports[`renders ./components/progress/demo/line.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -867,7 +867,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -891,7 +891,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -932,7 +932,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -973,7 +973,7 @@ exports[`renders ./components/progress/demo/line.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -998,7 +998,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
   style="width:170px"
 >
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small ant-progress-orientation-default"
   >
     <div>
       <div
@@ -1022,7 +1022,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small ant-progress-orientation-default"
   >
     <div>
       <div
@@ -1046,7 +1046,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-line ant-progress-status-exception ant-progress-show-info ant-progress-small ant-progress-orientation-default"
   >
     <div>
       <div
@@ -1087,7 +1087,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small"
+    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small ant-progress-orientation-default"
   >
     <div>
       <div
@@ -1133,7 +1133,7 @@ exports[`renders ./components/progress/demo/line-mini.md correctly 1`] = `
 exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -1157,7 +1157,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -1199,7 +1199,7 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -1243,10 +1243,80 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/progress/demo/orientation.md correctly 1`] = `
+<div>
+  <div
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-vertical"
+  >
+    <div>
+      <div
+        class="ant-progress-outer"
+      >
+        <div
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg"
+            style="width:30%;height:8px;border-radius:"
+          />
+        </div>
+      </div>
+      <span
+        class="ant-progress-text"
+        title="30%"
+      >
+        30%
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-small ant-progress-orientation-vertical"
+  >
+    <div>
+      <div
+        class="ant-progress-outer"
+      >
+        <div
+          class="ant-progress-inner"
+        >
+          <div
+            class="ant-progress-bg"
+            style="width:100%;height:6px;border-radius:"
+          />
+        </div>
+      </div>
+      <span
+        class="ant-progress-text"
+      >
+        <i
+          aria-label="icon: check-circle"
+          class="anticon anticon-check-circle"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
 <div>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div>
       <div
@@ -1274,7 +1344,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"
@@ -1327,7 +1397,7 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
   >
     <div
       class="ant-progress-inner"

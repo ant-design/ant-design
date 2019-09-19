@@ -12,6 +12,7 @@ import { validProgress } from './utils';
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
+export type ProgressOrientation = 'default' | 'vertical';
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = { [percentage: string]: string };
 type FromToGradients = { from: string; to: string };
@@ -34,7 +35,7 @@ export interface ProgressProps {
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
-  orientation?: 'default' | 'vertical';
+  orientation?: ProgressOrientation;
 }
 
 export default class Progress extends React.Component<ProgressProps> {
@@ -60,7 +61,7 @@ export default class Progress extends React.Component<ProgressProps> {
     strokeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     trailColor: PropTypes.string,
     format: PropTypes.func,
-    orientation: PropTypes.oneOf(['default', 'vertical']),
+    orientation: PropTypes.string,
     gapDegree: PropTypes.number,
   };
 
@@ -103,7 +104,15 @@ export default class Progress extends React.Component<ProgressProps> {
 
   renderProgress = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props } = this;
-    const { prefixCls: customizePrefixCls, className, size, type, showInfo, ...restProps } = props;
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      size,
+      type,
+      showInfo,
+      orientation,
+      ...restProps
+    } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
     const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
@@ -130,6 +139,7 @@ export default class Progress extends React.Component<ProgressProps> {
         [`${prefixCls}-status-${progressStatus}`]: true,
         [`${prefixCls}-show-info`]: showInfo,
         [`${prefixCls}-${size}`]: size,
+        [`${prefixCls}-orientation-${orientation}`]: orientation,
       },
       className,
     );

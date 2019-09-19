@@ -18,6 +18,11 @@ describe('Progress', () => {
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(0);
   });
 
+  it('render orientation vertical', () => {
+    const wrapper = mount(<Progress percent={50} successPercent={10} orientation="vertical" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('render out-of-range progress', () => {
     const wrapper = mount(<Progress percent={120} />);
     expect(wrapper.render()).toMatchSnapshot();
@@ -107,13 +112,5 @@ describe('Progress', () => {
     const wrapper = mount(<Progress percent={100} status="invalid" />);
     expect(wrapper.find('.ant-progress-status-success')).toHaveLength(1);
     errorSpy.mockRestore();
-  });
-});
-
-it('render orientation vertical', () => {
-  const wrapper = mount(<Progress status="normal" orientation="vertical" />);
-  expect(wrapper.render()).toMatchSnapshot();
-  wrapper.setProps({
-    orientation: 'vertical',
   });
 });
