@@ -54,6 +54,7 @@ module.exports = {
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.course': 'Ant Design Practical Tutorial',
     'app.footer.chinamirror': 'China Mirror 🇨🇳',
+    'app.footer.primary-color-changing': 'Changing primary color...',
     'app.footer.primary-color-changed': 'Change primary color successfully!',
     'app.footer.scaffold': 'Scaffold',
     'app.footer.kitchen': 'Sketch Toolkit',

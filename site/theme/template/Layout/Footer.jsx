@@ -1,8 +1,9 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import { Modal, message, Row, Col, Icon } from 'antd';
+import { Modal, message, Icon } from 'antd';
 import { Link } from 'bisheng/router';
 import RcFooter from 'rc-footer';
+import { presetPalettes } from '@ant-design/colors';
 import { isLocalStorageNameSupported, loadScript, getLocalizedPathname } from '../utils';
 import ColorPicker from '../Color/ColorPicker';
 
@@ -10,7 +11,7 @@ class Footer extends React.Component {
   lessLoaded = false;
 
   state = {
-    color: '#1890ff',
+    color: presetPalettes.blue.primary,
   };
 
   componentDidMount() {
@@ -32,7 +33,6 @@ class Footer extends React.Component {
 
   getColumns() {
     const { intl = {} } = this.props;
-    const { color } = this.state;
     const isZhCN = intl.locale === 'zh-CN';
     return [
       {
@@ -171,7 +171,19 @@ class Footer extends React.Component {
             url: getLocalizedPathname('/docs/react/faq', isZhCN),
           },
           {
-            icon: <Icon type="code" />,
+            icon: <Icon type="bug" />,
+            title: <FormattedMessage id="app.footer.bug-report" />,
+            url: 'https://new-issue.ant.design/',
+            openExternal: true,
+          },
+          {
+            icon: <Icon type="issues-close" />,
+            title: <FormattedMessage id="app.footer.issues" />,
+            url: 'https://github.com/ant-design/ant-design/issues',
+            openExternal: true,
+          },
+          {
+            icon: <Icon type="book" />,
             title: <FormattedMessage id="app.footer.course" />,
             url: 'https://www.yuque.com/ant-design/course',
             openExternal: true,
@@ -186,18 +198,6 @@ class Footer extends React.Component {
             icon: <Icon type="message" />,
             title: <FormattedMessage id="app.footer.discuss-en" />,
             url: 'https://gitter.im/ant-design/ant-design-english',
-            openExternal: true,
-          },
-          {
-            icon: <Icon type="bug" />,
-            title: <FormattedMessage id="app.footer.bug-report" />,
-            url: 'https://new-issue.ant.design/',
-            openExternal: true,
-          },
-          {
-            icon: <Icon type="issues-close" />,
-            title: <FormattedMessage id="app.footer.issues" />,
-            url: 'https://github.com/ant-design/ant-design/issues',
             openExternal: true,
           },
           {
@@ -294,6 +294,9 @@ class Footer extends React.Component {
             url: 'https://xtech.antfin.com/',
             openExternal: true,
           },
+          {
+            title: this.renderThemeChanger(),
+          },
         ],
       },
     ];
@@ -304,11 +307,13 @@ class Footer extends React.Component {
       const {
         intl: { messages },
       } = this.props;
+      const hide = message.loading(messages['app.footer.primary-color-changing']);
       window.less
         .modifyVars({
           '@primary-color': color,
         })
         .then(() => {
+          hide();
           Icon.setTwoToneColor({ primaryColor: color });
           message.success(messages['app.footer.primary-color-changed']);
           this.setState({ color });
@@ -362,6 +367,27 @@ class Footer extends React.Component {
       className: 'new-version-info-modal',
       width: 470,
     });
+  }
+
+  renderThemeChanger() {
+    const { color } = this.state;
+    const colors = Object.keys(presetPalettes).filter(item => item !== 'grey');
+    return (
+      <div style={{ marginTop: 20 }}>
+        <ColorPicker
+          type="sketch"
+          small
+          color={color}
+          position="top"
+          presetColors={[
+            ...colors.map(c => presetPalettes[c][5]),
+            ...colors.map(c => presetPalettes[c][4]),
+            ...colors.map(c => presetPalettes[c][6]),
+          ]}
+          onChangeComplete={this.handleColorChange}
+        />
+      </div>
+    );
   }
 
   render() {
