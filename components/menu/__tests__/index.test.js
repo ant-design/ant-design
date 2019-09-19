@@ -643,4 +643,44 @@ describe('Menu', () => {
 
     jest.useRealTimers();
   });
+
+  // https://github.com/ant-design/ant-design/issues/18825
+  // https://github.com/ant-design/ant-design/issues/8587
+  it('should keep selectedKeys in state when collapsed to 0px', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Menu
+        mode="inline"
+        inlineCollapsed={false}
+        defaultSelectedKeys={['1']}
+        collapsedWidth={0}
+        openKeys={['3']}
+      >
+        <Menu.Item key="1">
+          Option 1
+        </Menu.Item>
+        <Menu.Item key="2">
+          Option 2
+        </Menu.Item>
+        <Menu.SubMenu key="3" title="Option 3">
+          <Menu.Item key="4">
+            Option 4
+          </Menu.Item>
+        </Menu.SubMenu>
+      </Menu>,
+    );
+    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 1');
+    wrapper
+      .find('.ant-menu-item')
+      .at(1)
+      .simulate('click');
+    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
+    wrapper.setProps({ inlineCollapsed: true });
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-submenu-popup:not(.ant-menu-submenu-hidden)').length).toBe(0);
+    wrapper.setProps({ inlineCollapsed: false });
+    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
+    jest.useRealTimers();
+  });
 });
