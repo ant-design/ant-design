@@ -18,8 +18,7 @@ import { Progress } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Progress percent={30} orientation="vertical" />
-    <Progress percent={100} size="small" orientation="vertical" />
+    <Progress percent={30} size="small" orientation="vertical" showInfo={false} />
   </div>,
   mountNode,
 );
