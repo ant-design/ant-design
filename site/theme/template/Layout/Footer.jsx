@@ -97,6 +97,7 @@ class Footer extends React.Component {
           {
             title: <FormattedMessage id="app.footer.design-resources" />,
             url: getLocalizedPathname('/docs/spec/download', isZhCN),
+            LinkComponent: Link,
           },
           {
             title: <FormattedMessage id="app.footer.chinamirror" />,
@@ -148,6 +149,7 @@ class Footer extends React.Component {
             icon: <Icon type="usergroup-add" />,
             title: <FormattedMessage id="app.footer.work_with_us" />,
             url: getLocalizedPathname('/docs/spec/work-with-us', isZhCN),
+            LinkComponent: Link,
           },
         ],
       },
@@ -164,11 +166,13 @@ class Footer extends React.Component {
             icon: <Icon type="history" />,
             title: <FormattedMessage id="app.footer.change-log" />,
             url: getLocalizedPathname('/changelog', isZhCN),
+            LinkComponent: Link,
           },
           {
             icon: <Icon type="profile" />,
             title: <FormattedMessage id="app.footer.faq" />,
             url: getLocalizedPathname('/docs/react/faq', isZhCN),
+            LinkComponent: Link,
           },
           {
             icon: <Icon type="bug" />,
@@ -296,6 +300,9 @@ class Footer extends React.Component {
           },
           {
             title: this.renderThemeChanger(),
+            style: {
+              marginTop: 20,
+            },
           },
         ],
       },
@@ -320,7 +327,7 @@ class Footer extends React.Component {
         });
     };
 
-    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less.js/3.8.1/less.min.js';
+    const lessUrl = 'https://gw.alipayobjects.com/os/lib/less/3.10.3/dist/less.min.js';
 
     if (this.lessLoaded) {
       changeColor();
@@ -373,20 +380,18 @@ class Footer extends React.Component {
     const { color } = this.state;
     const colors = Object.keys(presetPalettes).filter(item => item !== 'grey');
     return (
-      <div style={{ marginTop: 20 }}>
-        <ColorPicker
-          type="sketch"
-          small
-          color={color}
-          position="top"
-          presetColors={[
-            ...colors.map(c => presetPalettes[c][5]),
-            ...colors.map(c => presetPalettes[c][4]),
-            ...colors.map(c => presetPalettes[c][6]),
-          ]}
-          onChangeComplete={this.handleColorChange}
-        />
-      </div>
+      <ColorPicker
+        type="sketch"
+        small
+        color={color}
+        position="top"
+        presetColors={[
+          ...colors.map(c => presetPalettes[c][5]),
+          ...colors.map(c => presetPalettes[c][4]),
+          ...colors.map(c => presetPalettes[c][6]),
+        ]}
+        onChangeComplete={this.handleColorChange}
+      />
     );
   }
 
