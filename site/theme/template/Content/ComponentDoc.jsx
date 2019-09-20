@@ -111,7 +111,7 @@ class ComponentDoc extends React.Component {
 
     return (
       <article className={articleClassName}>
-        <Helmet>
+        <Helmet encodeSpecialCharacters={false}>
           {helmetTitle && <title>{helmetTitle}</title>}
           {helmetTitle && <meta property="og:title" content={helmetTitle} />}
           {contentChild && <meta name="description" content={contentChild} />}
