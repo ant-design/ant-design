@@ -1244,9 +1244,11 @@ exports[`renders ./components/progress/demo/linecap.md correctly 1`] = `
 `;
 
 exports[`renders ./components/progress/demo/orientation.md correctly 1`] = `
-<div>
+<div
+  style="width:170px;height:130px;padding-top:45px"
+>
   <div
-    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-small ant-progress-orientation-vertical"
+    class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small ant-progress-orientation-vertical"
   >
     <div>
       <div
@@ -1257,10 +1259,17 @@ exports[`renders ./components/progress/demo/orientation.md correctly 1`] = `
         >
           <div
             class="ant-progress-bg"
-            style="width:30%;height:6px;border-radius:"
+            style="width:70%;height:6px;border-radius:"
           />
         </div>
       </div>
+      <span
+        class="ant-progress-text"
+        style="transform:rotate(90deg)"
+        title="70%"
+      >
+        70%
+      </span>
     </div>
   </div>
 </div>

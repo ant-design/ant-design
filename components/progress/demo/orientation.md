@@ -17,8 +17,8 @@ By setting `orientaton="vertical"`, you can change the orientantion from horizon
 import { Progress } from 'antd';
 
 ReactDOM.render(
-  <div>
-    <Progress percent={30} size="small" orientation="vertical" showInfo={false} />
+  <div style={{ width: 170, height: 130, paddingTop: 45 }}>
+    <Progress percent={70} size="small" orientation="vertical" showInfo />
   </div>,
   mountNode,
 );

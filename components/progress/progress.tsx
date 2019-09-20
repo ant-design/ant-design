@@ -82,7 +82,7 @@ export default class Progress extends React.Component<ProgressProps> {
   }
 
   renderProcessInfo(prefixCls: string, progressStatus: (typeof ProgressStatuses)[number]) {
-    const { showInfo, format, type, percent, successPercent } = this.props;
+    const { showInfo, format, type, percent, successPercent, orientation } = this.props;
     if (!showInfo) return null;
 
     let text;
@@ -95,8 +95,13 @@ export default class Progress extends React.Component<ProgressProps> {
     } else if (progressStatus === 'success') {
       text = <Icon type={`check${iconType}`} theme={type === 'line' ? 'filled' : 'outlined'} />;
     }
+
     return (
-      <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
+      <span
+        className={`${prefixCls}-text`}
+        title={typeof text === 'string' ? text : undefined}
+        style={orientation === 'vertical' ? { transform: 'rotate(90deg)' } : undefined}
+      >
         {text}
       </span>
     );

@@ -139,6 +139,7 @@ exports[`Progress render orientation vertical 1`] = `
     </div>
     <span
       class="ant-progress-text"
+      style="transform: rotate(90deg);"
       title="50%"
     >
       50%
