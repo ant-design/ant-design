@@ -69,7 +69,7 @@ class Home extends React.Component {
     return (
       <>
         <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
-        <Helmet>
+        <Helmet encodeSpecialCharacters={false}>
           <title>{`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}</title>
         </Helmet>
         <Banner {...childProps} />

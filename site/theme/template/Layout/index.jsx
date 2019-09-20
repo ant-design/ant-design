@@ -120,7 +120,7 @@ export default class Layout extends React.Component {
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
       <>
-        <Helmet>
+        <Helmet encodeSpecialCharacters={false}>
           <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} />
           <title>{title}</title>
           <meta name="description" content={description} />
