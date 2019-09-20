@@ -39,6 +39,11 @@ export default class Search extends React.Component<SearchProps, any> {
   };
 
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+
     const { onSearch } = this.props;
     if (onSearch) {
       onSearch(this.input.input.value, e);
