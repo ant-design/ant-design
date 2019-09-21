@@ -71,10 +71,7 @@ jobs:
         with:
           name: dist
 
-      - name: debug
-        run: ls -l
-
       - name: publish
-        run: npm publish
+        run: npm publish --ignore-scripts
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
