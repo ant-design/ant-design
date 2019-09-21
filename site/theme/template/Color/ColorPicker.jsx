@@ -63,8 +63,7 @@ export default class ColorPicker extends Component {
     style.type = 'text/css';
     style.rel = 'stylesheet';
     style.id = 'theme-style';
-    style.href =
-      'https://ant-design-theme.azurewebsites.net/api/theme?code=aCmMSafQBJUuWZ4bWpNWWuectxOhaj9F4sak0hHu0vVLafNGOrYVLA%3D%3D&theme=dark';
+    style.href = '/dark.css';
     style.addEventListener(
       'load',
       () => {

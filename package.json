@@ -234,7 +234,8 @@
     "typescript": "~3.6.2",
     "xhr-mock": "^2.4.1",
     "xhr2": "^0.2.0",
-    "yaml-front-matter": "^4.0.0"
+    "yaml-front-matter": "^4.0.0",
+    "antd-pro-merge-less": "^2.0.10"
   },
   "peerDependencies": {
     "react": ">=16.0.0",
