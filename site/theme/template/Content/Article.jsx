@@ -81,7 +81,7 @@ class Article extends React.Component {
     return (
       /* eslint-disable-next-line */
       <article className="markdown" onClick={this.onResourceClick}>
-        <Helmet>
+        <Helmet encodeSpecialCharacters={false}>
           {helmetTitle && <title>{helmetTitle}</title>}
           {helmetTitle && <meta property="og:title" content={helmetTitle} />}
           {metaDesc && <meta name="description" content={metaDesc} />}
