@@ -23,57 +23,55 @@ jobs:
       - name: dist
         run: npm run dist
 
-      - uses: actions/upload-artifact@master
+      - name: upload es
+        uses: actions/upload-artifact@master
         with:
           name: esm
           path: es
 
-      - uses: actions/upload-artifact@master
+      - name: upload lib
+        uses: actions/upload-artifact@master
         with:
           name: cjs
           path: lib
 
-      - uses: actions/upload-artifact@master
+      - name: upload dist
+        uses: actions/upload-artifact@master
         with:
           name: dist
           path: dist
 
-      - uses: actions/upload-artifact@master
-        with:
-          name: package
-          path: package.json
-
   publish:
     runs-on: ubuntu-latest
+    needs: compile
 
     steps:
-      - uses: actions/download-artifact@master
-        with:
-          name: esm
-          path: es
-
-      - uses: actions/download-artifact@master
-        with:
-          name: cjs
-          path: lib
-
-      - uses: actions/download-artifact@master
-        with:
-          name: dist
-
-      - uses: actions/download-artifact@master
-        with:
-          name: package
-          path: package.json
+      - name: checkout
+        uses: actions/checkout@master
 
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
           registry-url: 'https://npm.pkg.github.com'
 
+      - name: download es
+        uses: actions/download-artifact@master
+        with:
+          name: esm
+          path: es
+
+      - name: download lib
+        uses: actions/download-artifact@master
+        with:
+          name: cjs
+          path: lib
+
+      - name: download dist
+        uses: actions/download-artifact@master
+        with:
+          name: dist
+
       - name: publish
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    needs: compile
