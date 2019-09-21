@@ -50,10 +50,12 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: esm
+          path: es
 
       - uses: actions/download-artifact@master
         with:
           name: cjs
+          path: lib
 
       - uses: actions/download-artifact@master
         with:
