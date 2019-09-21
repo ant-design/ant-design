@@ -64,6 +64,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: package
+          path: package.json
 
       - uses: actions/setup-node@v1
         with:
