@@ -1,7 +1,5 @@
 name: Publish to github-package
-on:
-  release:
-    types: [published]
+on: push
 
 jobs:
   compile:
