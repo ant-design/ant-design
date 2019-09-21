@@ -71,6 +71,9 @@ jobs:
         with:
           name: dist
 
+      - name: debug
+        run: ls -l
+
       - name: publish
         run: npm publish
         env:
