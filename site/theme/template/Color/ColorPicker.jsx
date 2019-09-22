@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, message } from 'antd';
+import { Switch } from 'antd';
 import { ChromePicker, SketchPicker } from 'react-color';
 
 const noop = () => {};
@@ -29,6 +29,13 @@ export default class ColorPicker extends Component {
     displayColorPicker: false,
   };
 
+  componentDidMount() {
+    const theme = localStorage.getItem('site-theme');
+    if (theme) {
+      this.onThemeChange(true);
+    }
+  }
+
   handleClick = () => {
     const { displayColorPicker } = this.state;
     this.setState({ displayColorPicker: !displayColorPicker });
@@ -56,27 +63,22 @@ export default class ColorPicker extends Component {
       if (dom) {
         dom.remove();
       }
-      return;
+      localStorage.removeItem('site-theme');
+    } else {
+      const style = document.createElement('link');
+      style.type = 'text/css';
+      style.rel = 'stylesheet';
+      style.id = 'theme-style';
+      style.href = '/dark.css';
+
+      localStorage.setItem('site-theme', 'dark');
+      document.body.append(style);
     }
-    const hide = message.loading('loading theme！');
-    const style = document.createElement('link');
-    style.type = 'text/css';
-    style.rel = 'stylesheet';
-    style.id = 'theme-style';
-    style.href = '/dark.css';
-    style.addEventListener(
-      'load',
-      () => {
-        setTimeout(() => {
-          hide();
-        }, 1000);
-      },
-      false,
-    );
-    document.body.append(style);
+    this.forceUpdate();
   };
 
   render() {
+    const dom = document.getElementById('theme-style');
     const { small, type, position } = this.props;
     const { color, displayColorPicker } = this.state;
     const Picker = pickers[type];
@@ -109,6 +111,7 @@ export default class ColorPicker extends Component {
       wrapper: {
         position: 'inherit',
         zIndex: '100',
+        background: color,
       },
     };
 
@@ -123,7 +126,12 @@ export default class ColorPicker extends Component {
           <div style={styles.color} />
         </div>
         <br />
-        <Switch onChange={this.onThemeChange} checkedChildren="黑" unCheckedChildren="白" />
+        <Switch
+          checked={!!dom}
+          onChange={this.onThemeChange}
+          checkedChildren="dark"
+          unCheckedChildren="light"
+        />
       </>
     );
     const picker = displayColorPicker ? (
