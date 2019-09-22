@@ -2,9 +2,12 @@
   .ds-dropdown-menu {
     border: none;
     box-shadow: @box-shadow-base;
-
     [class^='ds-dataset-'] {
       border: none;
+      background: @component-background;
+      .algolia-docsearch-suggestion {
+        background: @component-background;
+      }
     }
 
     &::before {
