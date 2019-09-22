@@ -7,6 +7,7 @@ import { Select, Menu, Row, Col, Icon, Popover, Input, Button, Badge } from 'ant
 import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
+import AntdText from './AntdText';
 
 const { Option } = Select;
 
@@ -257,10 +258,7 @@ class Header extends React.Component {
                 alt="logo"
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               />
-              <img
-                alt="Ant Design"
-                src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
-              />
+              <AntdText />
               <Santa />
             </Link>
           </Col>

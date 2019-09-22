@@ -31,7 +31,7 @@ export default class ColorPicker extends Component {
 
   componentDidMount() {
     const theme = localStorage.getItem('site-theme');
-    if (theme) {
+    if (theme && typeof window !== 'undefined') {
       this.onThemeChange(true);
     }
   }
