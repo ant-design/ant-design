@@ -58,6 +58,10 @@ export default class ColorPicker extends Component {
   };
 
   onThemeChange = checked => {
+    // ssr
+    if (typeof window === 'undefined') {
+      return;
+    }
     if (!checked) {
       const dom = document.getElementById('theme-style');
       if (dom) {
@@ -77,8 +81,16 @@ export default class ColorPicker extends Component {
     this.forceUpdate();
   };
 
+  getStyleDom = () => {
+    // ssr
+    if (typeof window === 'undefined') {
+      return;
+    }
+    return !!document.getElementById('theme-style');
+  };
+
   render() {
-    const dom = document.getElementById('theme-style');
+    const dom = this.getStyleDom();
     const { small, type, position } = this.props;
     const { color, displayColorPicker } = this.state;
     const Picker = pickers[type];
@@ -127,7 +139,7 @@ export default class ColorPicker extends Component {
         </div>
         <br />
         <Switch
-          checked={!!dom}
+          checked={dom}
           onChange={this.onThemeChange}
           checkedChildren="dark"
           unCheckedChildren="light"
