@@ -8,6 +8,7 @@ import Menu from '../menu';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
+import omit from 'omit.js';
 
 export interface Route {
   path: string;
@@ -144,6 +145,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       className,
       routes,
       children,
+      ...restProps
     } = this.props;
     const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
     if (routes && routes.length > 0) {
@@ -169,7 +171,11 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       });
     }
     return (
-      <div className={classNames(className, prefixCls)} style={style}>
+      <div
+        className={classNames(className, prefixCls)}
+        style={style}
+        {...omit(restProps, ['itemRender', 'params'])}
+      >
         {crumbs}
       </div>
     );
