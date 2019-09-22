@@ -2,13 +2,13 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import omit from 'omit.js';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { Omit } from '../_util/type';
-import omit from 'omit.js';
 
 export interface Route {
   path: string;
