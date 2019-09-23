@@ -106,7 +106,7 @@ describe('Breadcrumb', () => {
   it('should support custom attribute', () => {
     const wrapper = render(
       <Breadcrumb data-custom="custom">
-        <Breadcrumb.Item>xxx</Breadcrumb.Item>
+        <Breadcrumb.Item data-custom="custom-item">xxx</Breadcrumb.Item>
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
       </Breadcrumb>,
     );
