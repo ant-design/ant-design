@@ -35,6 +35,7 @@ title: 社区精选组件
 | 趋势线 | [react-sparklines](https://github.com/borisyankov/react-sparklines) |
 | 关键字高亮 | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
+| 自定义主题 | [webpack-variable-replacer-plugin](https://github.com/eaTong/webpack-variable-replacer-plugin) |
 
 <style>
 .markdown table td:first-child {
