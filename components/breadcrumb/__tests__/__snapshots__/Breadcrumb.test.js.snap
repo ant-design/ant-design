@@ -166,6 +166,7 @@ exports[`Breadcrumb should support custom attribute 1`] = `
   <span>
     <span
       class="ant-breadcrumb-link"
+      data-custom="custom-item"
     >
       xxx
     </span>
