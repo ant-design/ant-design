@@ -1228,8 +1228,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       mergedLocale.emptyText = renderEmpty('Table');
     }
 
-    const classString = classNames({
-      [`${prefixCls}-${this.props.size}`]: true,
+    const classString = classNames(`${prefixCls}-${this.props.size}`, {
       [`${prefixCls}-bordered`]: this.props.bordered,
       [`${prefixCls}-empty`]: !data.length,
       [`${prefixCls}-without-column-header`]: !showHeader,

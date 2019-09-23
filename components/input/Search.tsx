@@ -14,7 +14,8 @@ export interface SearchProps extends InputProps {
       | React.MouseEvent<HTMLElement>
       | React.KeyboardEvent<HTMLInputElement>,
   ) => void;
-  enterButton?: boolean | React.ReactNode;
+  enterButton?: React.ReactNode;
+  loading?: boolean;
 }
 
 export default class Search extends React.Component<SearchProps, any> {
@@ -39,12 +40,10 @@ export default class Search extends React.Component<SearchProps, any> {
   };
 
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
-    const { disabled } = this.props;
-    if (disabled) {
+    const { onSearch, loading, disabled } = this.props;
+    if (loading || disabled) {
       return;
     }
-
-    const { onSearch } = this.props;
     if (onSearch) {
       onSearch(this.input.input.value, e);
     }
@@ -59,8 +58,26 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.blur();
   }
 
+  renderLoading = (prefixCls: string) => {
+    const { enterButton, size } = this.props;
+
+    if (enterButton) {
+      return (
+        <Button className={`${prefixCls}-button`} type="primary" size={size} key="enterButton">
+          <Icon type="loading" />
+        </Button>
+      );
+    }
+    return <Icon className={`${prefixCls}-icon`} type="loading" />;
+  };
+
   renderSuffix = (prefixCls: string) => {
-    const { suffix, enterButton } = this.props;
+    const { suffix, enterButton, loading } = this.props;
+
+    if (loading && !enterButton) {
+      return [suffix, this.renderLoading(prefixCls)];
+    }
+
     if (enterButton) return suffix;
 
     const node = (
@@ -86,9 +103,14 @@ export default class Search extends React.Component<SearchProps, any> {
   };
 
   renderAddonAfter = (prefixCls: string) => {
-    const { enterButton, size, disabled, addonAfter } = this.props;
-    if (!enterButton) return addonAfter;
+    const { enterButton, size, disabled, addonAfter, loading } = this.props;
     const btnClassName = `${prefixCls}-button`;
+
+    if (loading && enterButton) {
+      return [this.renderLoading(prefixCls), addonAfter];
+    }
+
+    if (!enterButton) return addonAfter;
 
     let button: React.ReactNode;
     const enterButtonAsElement = enterButton as React.ReactElement<any>;
