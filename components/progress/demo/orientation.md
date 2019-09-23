@@ -1,7 +1,7 @@
 ---
 order: 0
 title:
-  zh-CN: 进度条
+  zh-CN: 取向
   en-US: Orientation
 ---
 
