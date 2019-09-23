@@ -27,6 +27,7 @@ title: 社区精选组件
 | Markdown 渲染 | [react-markdown](http://rexxars.github.io/react-markdown/) |
 | 无限滚动 | [react-virtualized](https://github.com/bvaughn/react-virtualized) [antd-table-infinity](https://github.com/Leonard-Li777/antd-table-infinity) |
 | 地图 | [react-google-maps](https://github.com/tomchentw/react-google-maps) [google-map-react](https://github.com/istarkov/google-map-react) [react-amap 高德](https://github.com/ElemeFE/react-amap) |
+| 视频播放 | [react-player](https://github.com/CookPete/react-player) [video-react](https://github.com/video-react/video-react) [video.js](http://docs.videojs.com/tutorial-react.html) |
 | 右键菜单 | [react-contextmenu](https://github.com/vkbansal/react-contextmenu/) [react-contexify](https://github.com/fkhadra/react-contexify) |
 | Emoji | [emoji-mart](https://github.com/missive/emoji-mart) |
 | 分割面板 | [react-split-pane](https://github.com/tomkp/react-split-pane) |
