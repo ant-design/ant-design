@@ -39,8 +39,6 @@ title: TreeSelect
 | showSearch | 是否支持搜索框 | boolean | 单选：`false` \| 多选：`true` |  |
 | size | 选择框大小，可选 `large` `small` | string | 'default' |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - | 3.10.0 |
-| removeIcon | 自定义的多选框清除图标 | ReactNode | - | 3.23.5 |
-| clearIcon | 自定义的多选框清空图标 | ReactNode | - | 3.23.5 |
 | treeCheckable | 显示 checkbox | boolean | false |  |
 | treeCheckStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联），会使得 `labelInValue` 强制为 true | boolean | false |  |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（value 在整个树范围内唯一） | array\<{value, title, children, \[disabled, disableCheckbox, selectable]}> | \[] |  |
