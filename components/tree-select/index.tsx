@@ -74,6 +74,8 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
       dropdownStyle,
       dropdownClassName,
       suffixIcon,
+      removeIcon,
+      clearIcon,
       getPopupContainer,
       ...restProps
     } = this.props;
@@ -104,10 +106,20 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
         ? React.cloneElement(suffixIcon)
         : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
 
-    const removeIcon = <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+    const finalRemoveIcon = (removeIcon &&
+      (React.isValidElement<{ className?: string }>(removeIcon)
+        ? React.cloneElement(removeIcon, {
+            className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
+          })
+        : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
 
-    const clearIcon = (
-      <Icon type="close-circle" className={`${prefixCls}-clear-icon`} theme="filled" />
+    const finalClearIcon = (clearIcon &&
+      (React.isValidElement<{ className?: string }>(clearIcon)
+        ? React.cloneElement(clearIcon, {
+            className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
+          })
+        : clearIcon)) || (
+      <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
     );
 
     return (
@@ -116,8 +128,8 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
           this.renderSwitcherIcon(prefixCls, nodeProps)
         }
         inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
+        removeIcon={finalRemoveIcon}
+        clearIcon={finalClearIcon}
         {...rest}
         showSearch={showSearch}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
