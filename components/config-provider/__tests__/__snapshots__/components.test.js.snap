@@ -9599,7 +9599,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
 
 exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
-  class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default config-progress-orientation-default"
+  class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default config-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -9626,7 +9626,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 
 exports[`ConfigProvider components Progress normal 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -9653,7 +9653,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
 
 exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
-  class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default prefix-Progress-orientation-default"
+  class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default prefix-Progress-orientation-horizontal"
 >
   <div>
     <div

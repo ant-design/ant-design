@@ -12,7 +12,7 @@ import { validProgress } from './utils';
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
-export type ProgressOrientation = 'default' | 'vertical';
+export type ProgressOrientation = 'horizontal' | 'vertical';
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = { [percentage: string]: string };
 type FromToGradients = { from: string; to: string };
@@ -47,7 +47,7 @@ export default class Progress extends React.Component<ProgressProps> {
     size: 'default',
     gapDegree: 0,
     strokeLinecap: 'round',
-    orientation: 'default',
+    orientation: 'horizontal',
   };
 
   static propTypes = {

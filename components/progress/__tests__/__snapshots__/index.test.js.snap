@@ -2,7 +2,7 @@
 
 exports[`Progress render format 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -33,7 +33,7 @@ exports[`Progress render format 1`] = `
 
 exports[`Progress render negative progress 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -60,7 +60,7 @@ exports[`Progress render negative progress 1`] = `
 
 exports[`Progress render negetive successPercent 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -91,7 +91,7 @@ exports[`Progress render negetive successPercent 1`] = `
 
 exports[`Progress render normal progress 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -150,7 +150,7 @@ exports[`Progress render orientation vertical 1`] = `
 
 exports[`Progress render out-of-range progress 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -194,7 +194,7 @@ exports[`Progress render out-of-range progress 1`] = `
 
 exports[`Progress render out-of-range progress with info 1`] = `
 <div
-  class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-line ant-progress-status-success ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div>
     <div
@@ -238,7 +238,7 @@ exports[`Progress render out-of-range progress with info 1`] = `
 
 exports[`Progress render strokeColor 1`] = `
 <div
-  class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+  class="ant-progress ant-progress-circle ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
 >
   <div
     class="ant-progress-inner"
@@ -284,7 +284,7 @@ exports[`Progress render strokeColor 1`] = `
 exports[`Progress render strokeColor 2`] = `
 <Progress
   gapDegree={0}
-  orientation="default"
+  orientation="horizontal"
   percent={50}
   showInfo={true}
   size="default"
@@ -299,11 +299,11 @@ exports[`Progress render strokeColor 2`] = `
   type="line"
 >
   <div
-    className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+    className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
   >
     <Line
       gapDegree={0}
-      orientation="default"
+      orientation="horizontal"
       percent={50}
       prefixCls="ant-progress"
       showInfo={true}
@@ -353,7 +353,7 @@ exports[`Progress render strokeColor 2`] = `
 exports[`Progress render strokeColor 3`] = `
 <Progress
   gapDegree={0}
-  orientation="default"
+  orientation="horizontal"
   percent={50}
   showInfo={true}
   size="default"
@@ -368,11 +368,11 @@ exports[`Progress render strokeColor 3`] = `
   type="line"
 >
   <div
-    className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-default"
+    className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-orientation-horizontal"
   >
     <Line
       gapDegree={0}
-      orientation="default"
+      orientation="horizontal"
       percent={50}
       prefixCls="ant-progress"
       showInfo={true}
