@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-标准的进度条。
+通过设置`orientaton =“ vertical”`，可以将方向从水平更改为垂直。
 
 ## en-US
 
