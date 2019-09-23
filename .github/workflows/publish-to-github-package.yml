@@ -12,21 +12,18 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '12.x'
-          registry-url: 'https://registry.npmjs.org'
 
       - name: install
         run: npm install
-
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
 
       - name: compile
         run: npm run compile
 
       - name: dist
         run: npm run dist
+
+      - name: set registry
+        run: npm config set registry=https://npm.pkg.github.com
 
       - name: publish
         run: npm publish --ignore-scripts
