@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.23.4
+
+`2019-09-21`
+
+- 🐞 修复 Transfer `disabled` 下勾选框不被禁用的问题。[#18849](https://github.com/ant-design/ant-design/pull/18849)
+- 🐞 回滚 Dragger 到 class component 以修复 ref 警告信息。[#18707](https://github.com/ant-design/ant-design/issues/18707)
+- 🐞 修复 Input `addonAfter` 里图标高度在 Chrome 下偏大的问题。[#18858](https://github.com/ant-design/ant-design/pull/18858)
+- 🐞 修复 Menu 在 `collapsedWidth={0}` 时，折叠后丢失 `selectedKeys` 状态的问题。[#18907](https://github.com/ant-design/ant-design/pull/18907)
+- 🐞 修复 Input 在禁用状态时，后缀图标可点击的问题。[#18900](https://github.com/ant-design/ant-design/pull/18900)
+- 🐞 修复 Alert 标题和内容过长不换行的问题。[#18929](https://github.com/ant-design/ant-design/pull/18929)
+- 💄 增加 `@page-header-back-color` less 变量。[#18887](https://github.com/ant-design/ant-design/pull/18887)
+- TypeScript
+  - 🐞 修复 Table 事件的类型定义。[#18910](https://github.com/ant-design/ant-design/pull/18910)
+
 ## 3.23.3
 
 `2019-09-16`

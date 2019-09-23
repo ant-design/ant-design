@@ -24,7 +24,7 @@ title: Upload
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false | 3.7.0 |
 | beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传（ resolve 传入 `File` 或 `Blob` 对象则上传 resolve 传入对象）。**注意：IE9 不支持该方法**。 | (file, fileList) => `boolean | Promise` | 无 |  |
 | customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | Function | 无 |  |
-| data | 上传所需参数或返回上传参数的方法 | object\|(file) => object | 无 |  |
+| data | 上传所需额外参数或返回上传额外参数的方法 | object\|(file) => object | 无 |  |
 | defaultFileList | 默认已经上传的文件列表 | object\[] | 无 |  |
 | disabled | 是否禁用 | boolean | false |  |
 | fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object\[] | 无 |  |

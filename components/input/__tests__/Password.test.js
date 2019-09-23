@@ -40,6 +40,13 @@ describe('Input.Password', () => {
     expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
   });
 
+  it('should not toggle visibility when disabled prop is true', () => {
+    const wrapper = mount(<Input.Password disabled />);
+    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
+    wrapper.find('.anticon-eye-invisible').simulate('click');
+    expect(wrapper.find('.anticon-eye').length).toBe(0);
+  });
+
   it('should keep focus state', () => {
     const wrapper = mount(<Input.Password defaultValue="111" autoFocus />);
     expect(document.activeElement).toBe(
