@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import omit from 'omit.js';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
@@ -144,6 +145,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       className,
       routes,
       children,
+      ...restProps
     } = this.props;
     const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
     if (routes && routes.length > 0) {
@@ -169,7 +171,11 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       });
     }
     return (
-      <div className={classNames(className, prefixCls)} style={style}>
+      <div
+        className={classNames(className, prefixCls)}
+        style={style}
+        {...omit(restProps, ['itemRender', 'params'])}
+      >
         {crumbs}
       </div>
     );

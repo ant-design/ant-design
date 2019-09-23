@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.23.3",
+  "version": "3.23.4",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -141,7 +141,7 @@
     "warning": "~4.0.3"
   },
   "devDependencies": {
-    "@ant-design/colors": "^3.1.0",
+    "@ant-design/colors": "^3.2.2",
     "@ant-design/tools": "^8.0.4",
     "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.4.0",
@@ -164,7 +164,7 @@
     "bisheng-plugin-toc": "^0.4.4",
     "bundlesize": "^0.18.0",
     "chalk": "^2.4.2",
-    "cross-env": "^5.2.0",
+    "cross-env": "^6.0.0",
     "css-split-webpack-plugin": "^0.2.6",
     "dekko": "^0.2.1",
     "docsearch.js": "^2.6.3",
@@ -201,6 +201,7 @@
     "prettier": "^1.17.1",
     "pretty-quick": "^1.11.0",
     "querystring": "^0.2.0",
+    "rc-footer": "^0.5.0",
     "rc-queue-anim": "^1.6.12",
     "rc-scroll-anim": "^2.5.8",
     "rc-tween-one": "^2.4.1",

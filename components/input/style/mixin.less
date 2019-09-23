@@ -162,7 +162,6 @@
     color: @input-color;
     font-weight: normal;
     font-size: @font-size-base;
-    line-height: 1;
     text-align: center;
     background-color: @input-addon-bg;
     border: @border-width-base @border-style-base @input-border-color;
@@ -392,6 +391,13 @@
 
     :not(.anticon) {
       line-height: @line-height-base;
+    }
+  }
+
+  .@{inputClass}-disabled ~ .@{inputClass}-suffix {
+    .anticon {
+      color: @disabled-color;
+      cursor: not-allowed;
     }
   }
 

@@ -59,6 +59,7 @@ export interface AbstractTooltipProps {
   children?: React.ReactNode;
   // align is a more higher api
   align?: TooltipAlignConfig;
+  /** Internal. Hide tooltip when hidden. This will be renamed in future. */
   destroyTooltipOnHide?: boolean;
 }
 
