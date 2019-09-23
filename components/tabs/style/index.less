@@ -193,6 +193,16 @@
         pointer-events: none;
       }
 
+      &&::after {
+        display: block;
+        content: attr(data-tab);
+        font-weight: 500;
+        height: 0;
+        color: transparent;
+        overflow: hidden;
+        visibility: hidden;
+      }
+
       &:last-child {
         margin-right: 0;
       }
@@ -212,7 +222,6 @@
       &-active {
         color: @tabs-highlight-color;
         font-size: 500;
-        letter-spacing: -0.013678em;
       }
 
       &-disabled {
