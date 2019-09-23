@@ -23,7 +23,7 @@ jobs:
         run: npm run dist
 
       - name: set registry
-        run: npm config set registry=https://npm.pkg.github.com
+        run: node scripts/set-registry.js
 
       - name: publish
         run: npm publish --ignore-scripts
