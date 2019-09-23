@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] = `
+<span
+  aria-haspopup="listbox"
+  class="ant-select ant-select-enabled ant-select-allow-clear"
+  role="combobox"
+  tabindex="-1"
+>
+  <span
+    class="ant-select-selection ant-select-selection--multiple"
+  >
+    <ul
+      class="ant-select-selection__rendered"
+      role="menubar"
+    >
+      <li
+        class="ant-select-selection__choice"
+        role="menuitem"
+        style="user-select: none;"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-select-selection__choice__remove"
+        >
+          <span>
+            remove
+          </span>
+        </span>
+        <span
+          class="ant-select-selection__choice__content"
+        >
+          leaf1
+        </span>
+      </li>
+      <li
+        class="ant-select-selection__choice"
+        role="menuitem"
+        style="user-select: none;"
+        unselectable="unselectable"
+      >
+        <span
+          class="ant-select-selection__choice__remove"
+        >
+          <span>
+            remove
+          </span>
+        </span>
+        <span
+          class="ant-select-selection__choice__content"
+        >
+          leaf2
+        </span>
+      </li>
+      <li
+        class="ant-select-search ant-select-search--inline"
+      >
+        <span
+          class="ant-select-search__field__wrap"
+        >
+          <input
+            aria-autocomplete="list"
+            aria-label="filter select"
+            aria-multiline="false"
+            class="ant-select-search__field"
+            style="width: 0px;"
+            type="text"
+            value=""
+          />
+          <span
+            class="ant-select-search__field__mirror"
+          >
+             
+          </span>
+        </span>
+      </li>
+    </ul>
+    <span
+      class="ant-select-selection__clear"
+    >
+      <span>
+        clear
+      </span>
+    </span>
+    <span
+      class="ant-select-search__field__placeholder"
+      style="display: none;"
+    >
+      Please select
+    </span>
+  </span>
+</span>
+`;
