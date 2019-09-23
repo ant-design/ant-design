@@ -5,6 +5,7 @@ import omit from 'omit.js';
 import { TreeSelectProps, TreeNodeValue } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
+import { cloneElement } from '../_util/reactNode';
 import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
 
@@ -101,24 +102,21 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
       checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
 
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon)
-        : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
+    const inputIcon = suffixIcon ? (
+      cloneElement(suffixIcon)
+    ) : (
+      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+    );
 
-    const finalRemoveIcon = (removeIcon &&
-      (React.isValidElement<{ className?: string }>(removeIcon)
-        ? React.cloneElement(removeIcon, {
-            className: classNames(removeIcon.props.className, `${prefixCls}-remove-icon`),
-          })
-        : removeIcon)) || <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+    const finalRemoveIcon = removeIcon ? (
+      cloneElement(removeIcon)
+    ) : (
+      <Icon type="close" className={`${prefixCls}-remove-icon`} />
+    );
 
-    const finalClearIcon = (clearIcon &&
-      (React.isValidElement<{ className?: string }>(clearIcon)
-        ? React.cloneElement(clearIcon, {
-            className: classNames(clearIcon.props.className, `${prefixCls}-clear-icon`),
-          })
-        : clearIcon)) || (
+    const finalClearIcon = clearIcon ? (
+      cloneElement(clearIcon)
+    ) : (
       <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
     );
 
