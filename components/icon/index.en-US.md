@@ -26,6 +26,8 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
 | twoToneColor | Only supports the two-tone icon. Specify the primary color. | string (hex color) | - | 3.9.0 |
 
+> Note: icon rendering priority of the Icon component is component > children > type. When props is passed, higher priority item will works, and lower priority item would be invalid.
+
 ### SVG icons
 
 We introduced SVG icons in `3.9.0` version replacing font icons which brings benefits below:
@@ -121,7 +123,7 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 The following properties are available for the component:
 
-| Property | Description | Type | Default | Version |
+| Property | Description | Type | Readonly | Version |
 | --- | --- | --- | --- | --- |
 | width | The width of the `svg` element | string \| number | '1em' | 3.10.0 |
 | height | The height of the `svg` element | string \| number | '1em' | 3.10.0 |

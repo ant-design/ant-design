@@ -4,10 +4,15 @@ import renderer from 'react-test-renderer';
 import Button from '..';
 import Icon from '../../icon';
 import mountTest from '../../../tests/shared/mountTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Button', () => {
   mountTest(Button);
+  mountTest(() => <Button size="large" />);
+  mountTest(() => <Button size="small" />);
   mountTest(Button.Group);
+  mountTest(() => <Button.Group size="large" />);
+  mountTest(() => <Button.Group size="small" />);
 
   it('renders correctly', () => {
     const wrapper = render(<Button>Follow</Button>);
@@ -48,6 +53,14 @@ describe('Button', () => {
     // should insert space while loading
     const wrapper5 = render(<Button loading>按钮</Button>);
     expect(wrapper5).toMatchSnapshot();
+
+    // should insert space while only one nested element
+    const wrapper6 = render(
+      <Button>
+        <span>按钮</span>
+      </Button>,
+    );
+    expect(wrapper6).toMatchSnapshot();
   });
 
   it('renders Chinese characters correctly in HOC', () => {
@@ -68,6 +81,22 @@ describe('Button', () => {
     });
     wrapper.update();
     expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18118
+  it('should not insert space to link button', () => {
+    const wrapper = render(<Button type="link">按钮</Button>);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render empty button without errors', () => {
+    const wrapper = mount(
+      <Button>
+        {null}
+        {undefined}
+      </Button>,
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('have static property for type detecting', () => {
@@ -125,6 +154,17 @@ describe('Button', () => {
     expect(wrapper.hasClass('ant-btn-loading')).toBe(false);
   });
 
+  it('should not clickable when button is loading', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Button loading onClick={onClick}>
+        button
+      </Button>,
+    );
+    wrapper.simulate('click');
+    expect(onClick).not.toHaveBeenCalledWith();
+  });
+
   it('should support link button', () => {
     const wrapper = mount(
       <Button target="_blank" href="http://ant.design">
@@ -171,5 +211,28 @@ describe('Button', () => {
     );
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support to change loading', async () => {
+    const wrapper = mount(<Button>Button</Button>);
+    wrapper.setProps({ loading: true });
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
+    wrapper.setProps({ loading: false });
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    wrapper.setProps({ loading: { delay: 50 } });
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    await sleep(50);
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
+    wrapper.setProps({ loading: false });
+    await sleep(50);
+    wrapper.update();
+    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    expect(() => {
+      wrapper.unmount();
+    }).not.toThrow();
   });
 });

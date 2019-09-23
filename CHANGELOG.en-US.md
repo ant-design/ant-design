@@ -15,6 +15,52 @@ timeline: true
 
 ---
 
+## 3.23.4
+
+`2019-09-21`
+
+- 🐞 Fix item not disabled when Transfer is `disabled`. [#18849](https://github.com/ant-design/ant-design/pull/18849)
+- 🐞 Revert Dragger to class component to fix ref warning. [#18707](https://github.com/ant-design/ant-design/issues/18707)
+- 🐞 Fix Input `addonAfter` icon height bug in Chrome. [#18858](https://github.com/ant-design/ant-design/pull/18858)
+- 🐞 Fix Menu lost state when being collapsed to `0px`. [#18907](https://github.com/ant-design/ant-design/pull/18907)
+- 🐞 Disabled input should not trigger the action of suffix part. [#18900](https://github.com/ant-design/ant-design/pull/18900)
+- 🐞 Fix title and content of Alert not break line when long text exist. [#18929](https://github.com/ant-design/ant-design/pull/18929)
+- 💄 Add `@page-header-back-color` less variable. [#18887](https://github.com/ant-design/ant-design/pull/18887)
+- TypeScript
+  - 🐞 Fix Table event type definition. [#18910](https://github.com/ant-design/ant-design/pull/18910)
+
+## 3.23.3
+
+`2019-09-16`
+
+- 🐞 Fix ConfigProvider `locale` not working with Modal in some situation. [#18732](https://github.com/ant-design/ant-design/pull/18732)
+- 🐞 Fix Avatar extrusion style when using long pictures. [#18768](https://github.com/ant-design/ant-design/pull/18768) [@Eusen](https://github.com/Eusen)
+- 🐞 Fix InputNumber active border style. [#18791](https://github.com/ant-design/ant-design/pull/18791) [@escorponox](https://github.com/escorponox)
+- 🐞 Fix Input.Search not trigger `onSearch` when click clear icon. [#18783](https://github.com/ant-design/ant-design/pull/18783)
+- 🐞 Fix text color of Button inside Menu. [#18820](https://github.com/ant-design/ant-design/pull/18820)
+- 🐞 Fix `size="small"` Table header missing right border. [#18821](https://github.com/ant-design/ant-design/pull/18821)
+- ⌨️ Enhance accessibility of Alert close button. [#18750](https://github.com/ant-design/ant-design/pull/18750) [@MrHeer](https://github.com/MrHeer)
+- 💄 Tweak Button `type="link"` should not insert space. [#18724](https://github.com/ant-design/ant-design/pull/18724)
+- TypeScript
+  - 🐞 Fix type definition of `onMouseEnter` and `onMouseLeave` for Tree. [#18796](https://github.com/ant-design/ant-design/pull/18796) [@MrHeer](https://github.com/MrHeer)
+
+## 3.23.2
+
+`2019-09-06`
+
+- 🐞 Fix `round` Button font size too large. [#18701](https://github.com/ant-design/ant-design/pull/18701)
+- 🐞 Fix Descriptions warning with same key when bordered is true. [#18637](https://github.com/ant-design/ant-design/pull/18637)
+- 🐞 Fix Drawer animation when `placement` is right and `mask` is false. [#18636](https://github.com/ant-design/ant-design/pull/18636)
+- 🐞 Fix Icon that `component` and `children` prop should have priority over `type` prop. [#18592](https://github.com/ant-design/ant-design/pull/18592)
+- 🐞 Fix Layout.Sider boundary values for max-width. [#18553](https://github.com/ant-design/ant-design/pull/18553) [@Nikitenkova](https://github.com/Nikitenkova)
+- 🐞 Fix PageHeader that back icon can't coexist with breadcrumb. [#18691](https://github.com/ant-design/ant-design/pull/18691)
+- 🗑 Deprecated Select `inputValue` prop and use `searchValue` instead. [#18629](https://github.com/ant-design/ant-design/pull/18629)
+- TypeScript
+  - 🐞 Fix type definition of `status` for Result. [#18445](https://github.com/ant-design/ant-design/pull/18445)
+  - 🐞 Fix type definition of `target` for Anchor.Link. [#18646](https://github.com/ant-design/ant-design/pull/18646)
+  - 🐞 Fix type definition of `transformFile` params for Upload. [#18671](https://github.com/ant-design/ant-design/pull/18671)
+  - 🐞 Fix type definition of `title` and `footer` for Table. [#18697](https://github.com/ant-design/ant-design/pull/18697) [@yoyo837](https://github.com/yoyo837)
+
 ## 3.23.1
 
 `2019-09-03`

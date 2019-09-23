@@ -43,7 +43,7 @@ A form consists of one or more form fields whose type includes input, textarea, 
 | layout | Define form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |  |
 | onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |  |
 | wrapperCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  | 3.14.0 |
-| colon | change default props colon value of Form.Item | boolean | true | 3.15.0 |
+| colon | change default props colon value of Form.Item (only effective when prop layout is horizontal) | boolean | true | 3.15.0 |
 
 ### Form.create(options)
 

@@ -102,4 +102,14 @@ describe('Breadcrumb', () => {
     const wrapper = render(<Breadcrumb routes={routes} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should support custom attribute', () => {
+    const wrapper = render(
+      <Breadcrumb data-custom="custom">
+        <Breadcrumb.Item data-custom="custom-item">xxx</Breadcrumb.Item>
+        <Breadcrumb.Item>yyy</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

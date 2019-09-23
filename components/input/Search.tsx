@@ -9,7 +9,10 @@ export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
   onSearch?: (
     value: string,
-    event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
+    event?:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.MouseEvent<HTMLElement>
+      | React.KeyboardEvent<HTMLInputElement>,
   ) => void;
   enterButton?: boolean | React.ReactNode;
 }
@@ -25,7 +28,22 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input = node;
   };
 
+  onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { onChange, onSearch } = this.props;
+    if (e && e.target && e.type === 'click' && onSearch) {
+      onSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
+    }
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+
     const { onSearch } = this.props;
     if (onSearch) {
       onSearch(this.input.input.value, e);
@@ -141,6 +159,7 @@ export default class Search extends React.Component<SearchProps, any> {
         prefixCls={inputPrefixCls}
         addonAfter={this.renderAddonAfter(prefixCls)}
         suffix={this.renderSuffix(prefixCls)}
+        onChange={this.onChange}
         ref={this.saveInput}
         className={inputClassName}
       />

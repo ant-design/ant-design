@@ -105,7 +105,7 @@ const renderRow = (
         bordered={bordered}
         colon={colon}
         type={type}
-        key={colItem.key || idx}
+        key={`${type}-${colItem.key || idx}`}
         layout={layout}
       />
     );

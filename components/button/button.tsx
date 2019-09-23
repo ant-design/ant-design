@@ -134,16 +134,6 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     title: PropTypes.string,
   };
 
-  static getDerivedStateFromProps(nextProps: ButtonProps, prevState: ButtonState) {
-    if (nextProps.loading instanceof Boolean) {
-      return {
-        ...prevState,
-        loading: nextProps.loading,
-      };
-    }
-    return null;
-  }
-
   private delayTimeout: number;
 
   private buttonNode: HTMLElement | null;
@@ -169,8 +159,10 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
     const { loading } = this.props;
     if (loading && typeof loading !== 'boolean' && loading.delay) {
-      this.delayTimeout = window.setTimeout(() => this.setState({ loading }), loading.delay);
-    } else if (prevProps.loading !== this.props.loading) {
+      this.delayTimeout = window.setTimeout(() => {
+        this.setState({ loading });
+      }, loading.delay);
+    } else if (prevProps.loading !== loading) {
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ loading });
     }
@@ -217,8 +209,8 @@ class Button extends React.Component<ButtonProps, ButtonState> {
   }
 
   isNeedInserted() {
-    const { icon, children } = this.props;
-    return React.Children.count(children) === 1 && !icon;
+    const { icon, children, type } = this.props;
+    return React.Children.count(children) === 1 && !icon && type !== 'link';
   }
 
   renderButton = ({ getPrefixCls, autoInsertSpaceInButton }: ConfigConsumerProps) => {
@@ -260,7 +252,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
-      [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-loading`]: !!loading,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,

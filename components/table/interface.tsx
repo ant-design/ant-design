@@ -134,11 +134,11 @@ export interface TableCurrentDataSource<T> {
 }
 
 export interface TableEventListeners {
-  onClick?: (arg: React.SyntheticEvent) => void;
-  onDoubleClick?: (arg: React.SyntheticEvent) => void;
-  onContextMenu?: (arg: React.SyntheticEvent) => void;
-  onMouseEnter?: (arg: React.SyntheticEvent) => void;
-  onMouseLeave?: (arg: React.SyntheticEvent) => void;
+  onClick?: (arg: React.MouseEvent) => void;
+  onDoubleClick?: (arg: React.MouseEvent) => void;
+  onContextMenu?: (arg: React.MouseEvent) => void;
+  onMouseEnter?: (arg: React.MouseEvent) => void;
+  onMouseLeave?: (arg: React.MouseEvent) => void;
   [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
 }
 
@@ -183,8 +183,8 @@ export interface TableProps<T> {
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
-  footer?: (currentPageData: Object[]) => React.ReactNode;
-  title?: (currentPageData: Object[]) => React.ReactNode;
+  footer?: (currentPageData: T[]) => React.ReactNode;
+  title?: (currentPageData: T[]) => React.ReactNode;
   scroll?: { x?: boolean | number | string; y?: boolean | number | string };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;

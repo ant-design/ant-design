@@ -8,7 +8,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface AnchorLinkProps {
   prefixCls?: string;
   href: string;
-  target: string;
+  target?: string;
   title: React.ReactNode;
   children?: React.ReactNode;
   className?: string;

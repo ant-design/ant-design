@@ -31,7 +31,7 @@ module.exports = {
     'app.home.design-language': 'Design Language',
     'app.home.solution': 'Solution',
     'app.home.components-explain':
-      'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications, including the official React implementation and Angular, Vue implementations',
+      'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications, including the official React UI library and Angular, Vue implementations',
     'app.home.product-pro-slogan': 'Out-of-the-box front-end / Design solution',
     'app.home.product-mobile-slogan':
       "antd-mobile is the implementation of Ant Design's mobile specification",
@@ -54,6 +54,7 @@ module.exports = {
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.course': 'Ant Design Practical Tutorial',
     'app.footer.chinamirror': 'China Mirror 🇨🇳',
+    'app.footer.primary-color-changing': 'Changing primary color...',
     'app.footer.primary-color-changed': 'Change primary color successfully!',
     'app.footer.scaffold': 'Scaffold',
     'app.footer.kitchen': 'Sketch Toolkit',
@@ -76,8 +77,8 @@ module.exports = {
     'app.footer.feedback': 'Feedback',
     'app.footer.stackoverflow': 'StackOverflow',
     'app.footer.segmentfault': 'SegmentFault',
-    'app.footer.discuss-en': 'Chat Room (English)',
-    'app.footer.discuss-cn': 'Chat Room (中文)',
+    'app.footer.discuss-en': 'Chat Room 🇺🇸',
+    'app.footer.discuss-cn': 'Chat Room 🇨🇳',
     'app.footer.bug-report': 'Bug Report',
     'app.footer.issues': 'Issues',
     'app.footer.version': 'Version: ',
