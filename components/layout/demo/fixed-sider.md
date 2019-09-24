@@ -15,7 +15,17 @@ title:
 When dealing with long content, a fixed sider can provide a better user experience.
 
 ```jsx
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
+import {
+  Appstore,
+  BarChart,
+  Cloud,
+  Shop,
+  Team,
+  User,
+  Upload as IconUpload,
+  VideoCamera,
+} from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -32,35 +42,35 @@ ReactDOM.render(
       <div className="logo" />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
         <Menu.Item key="1">
-          <Icon type="user" />
+          <User />
           <span className="nav-text">nav 1</span>
         </Menu.Item>
         <Menu.Item key="2">
-          <Icon type="video-camera" />
+          <VideoCamera />
           <span className="nav-text">nav 2</span>
         </Menu.Item>
         <Menu.Item key="3">
-          <Icon type="upload" />
+          <IconUpload />
           <span className="nav-text">nav 3</span>
         </Menu.Item>
         <Menu.Item key="4">
-          <Icon type="bar-chart" />
+          <BarChart />
           <span className="nav-text">nav 4</span>
         </Menu.Item>
         <Menu.Item key="5">
-          <Icon type="cloud-o" />
+          <Cloud />
           <span className="nav-text">nav 5</span>
         </Menu.Item>
         <Menu.Item key="6">
-          <Icon type="appstore-o" />
+          <Appstore />
           <span className="nav-text">nav 6</span>
         </Menu.Item>
         <Menu.Item key="7">
-          <Icon type="team" />
+          <Team />
           <span className="nav-text">nav 7</span>
         </Menu.Item>
         <Menu.Item key="8">
-          <Icon type="shop" />
+          <Shop />
           <span className="nav-text">nav 8</span>
         </Menu.Item>
       </Menu>

@@ -13,26 +13,30 @@ title:
 
 ## en-US
 
-`Button` components can contain an `Icon`. This is done by setting the `icon` property or placing an `Icon` component within the `Button`
+`Button` components can contain an `Icon`. This is done by setting the `icon` property or placing an `Icon` component within the `Button`.
 
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
 ```jsx
 import { Button } from 'antd';
+import { Search as IconSearch } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
-    <Button type="primary" shape="circle" icon="search" />
-    <Button type="primary" icon="search">
+    <Button type="primary" shape="circle" icon={<IconSearch />} />
+    <Button type="primary" shape="circle">
+      A
+    </Button>
+    <Button type="primary" icon={<IconSearch />}>
       Search
     </Button>
-    <Button shape="circle" icon="search" />
-    <Button icon="search">Search</Button>
+    <Button shape="circle" icon={<IconSearch />} />
+    <Button icon={<IconSearch />}>Search</Button>
     <br />
-    <Button shape="circle" icon="search" />
-    <Button icon="search">Search</Button>
-    <Button type="dashed" shape="circle" icon="search" />
-    <Button type="dashed" icon="search">
+    <Button shape="circle" icon={<IconSearch />} />
+    <Button icon={<IconSearch />}>Search</Button>
+    <Button type="dashed" shape="circle" icon={<IconSearch />} />
+    <Button type="dashed" icon={<IconSearch />}>
       Search
     </Button>
   </div>,

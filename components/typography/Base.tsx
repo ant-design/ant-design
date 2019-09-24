@@ -4,6 +4,8 @@ import { polyfill } from 'react-lifecycles-compat';
 import toArray from 'rc-util/lib/Children/toArray';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
+import { Edit, Check, Copy } from '@ant-design/icons';
+
 import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
@@ -11,11 +13,10 @@ import TransButton from '../_util/transButton';
 import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
-import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
-import { measure } from './util';
+import measure from './util';
 
 export type BaseType = 'secondary' | 'danger' | 'warning';
 
@@ -63,9 +64,7 @@ function wrapperDecorations(
   function wrap(needed: boolean | undefined, tag: string) {
     if (!needed) return;
 
-    currentContent = React.createElement(tag, {
-      children: currentContent,
-    });
+    currentContent = React.createElement(tag, {}, currentContent);
   }
 
   wrap(strong, 'strong');
@@ -118,14 +117,20 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   editIcon?: TransButton;
+
   content?: HTMLElement;
+
   copyId?: number;
+
   rafId?: number;
 
   // Locale
   expandStr?: string;
+
   copyStr?: string;
+
   copiedStr?: string;
+
   editStr?: string;
 
   state: BaseState = {
@@ -144,9 +149,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   componentDidUpdate(prevProps: BlockProps) {
+    const { children } = this.props;
     const ellipsis = this.getEllipsis();
     const prevEllipsis = this.getEllipsis(prevProps);
-    if (this.props.children !== prevProps.children || ellipsis.rows !== prevEllipsis.rows) {
+    if (children !== prevProps.children || ellipsis.rows !== prevEllipsis.rows) {
       this.resizeOnNextFrame();
     }
   }
@@ -337,7 +343,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onEditClick}
           aria-label={this.editStr}
         >
-          <Icon role="button" type="edit" />
+          <Edit role="button" />
         </TransButton>
       </Tooltip>
     );
@@ -356,7 +362,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onCopyClick}
           aria-label={title}
         >
-          <Icon role="button" type={copied ? 'check' : 'copy'} />
+          {copied ? <Check /> : <Copy />}
         </TransButton>
       </Tooltip>
     );

@@ -14,10 +14,10 @@ title:
 Submenus open as pop-ups.
 
 ```jsx
-import { Menu, Icon } from 'antd';
+import { Menu } from 'antd';
+import { Mail, Appstore, Setting } from '@ant-design/icons';
 
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+const { SubMenu } = Menu;
 
 function handleClick(e) {
   console.log('click', e);
@@ -29,25 +29,25 @@ ReactDOM.render(
       key="sub1"
       title={
         <span>
-          <Icon type="mail" />
+          <Mail />
           <span>Navigation One</span>
         </span>
       }
     >
-      <MenuItemGroup title="Item 1">
+      <Menu.ItemGroup title="Item 1">
         <Menu.Item key="1">Option 1</Menu.Item>
         <Menu.Item key="2">Option 2</Menu.Item>
-      </MenuItemGroup>
-      <MenuItemGroup title="Iteom 2">
+      </Menu.ItemGroup>
+      <Menu.ItemGroup title="Iteom 2">
         <Menu.Item key="3">Option 3</Menu.Item>
         <Menu.Item key="4">Option 4</Menu.Item>
-      </MenuItemGroup>
+      </Menu.ItemGroup>
     </SubMenu>
     <SubMenu
       key="sub2"
       title={
         <span>
-          <Icon type="appstore" />
+          <Appstore />
           <span>Navigation Two</span>
         </span>
       }
@@ -63,7 +63,7 @@ ReactDOM.render(
       key="sub4"
       title={
         <span>
-          <Icon type="setting" />
+          <Setting />
           <span>Navigation Three</span>
         </span>
       }

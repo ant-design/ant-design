@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Loading } from '@ant-design/icons';
+
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface TimelineProps {
@@ -17,6 +18,7 @@ export interface TimelineProps {
 
 export default class Timeline extends React.Component<TimelineProps, any> {
   static Item: React.SFC<TimeLineItemProps> = TimelineItem;
+
   static defaultProps = {
     reverse: false,
     mode: '',
@@ -45,13 +47,13 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       className,
     );
 
-    const pendingItem = !!pending ? (
-      <TimelineItem pending={!!pending} dot={pendingDot || <Icon type="loading" />}>
+    const pendingItem = pending ? (
+      <TimelineItem pending={!!pending} dot={pendingDot || <Loading />}>
         {pendingNode}
       </TimelineItem>
     ) : null;
 
-    const timeLineItems = !!reverse
+    const timeLineItems = reverse
       ? [pendingItem, ...React.Children.toArray(children).reverse()]
       : [...React.Children.toArray(children), pendingItem];
 
@@ -71,21 +73,17 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     const truthyItems = timeLineItems.filter(item => !!item);
     const itemsCount = React.Children.count(truthyItems);
     const lastCls = `${prefixCls}-item-last`;
-    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) =>
-      React.cloneElement(ele, {
+    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
+      const pendingClass = idx === itemsCount - 2 ? lastCls : '';
+      const readyClass = idx === itemsCount - 1 ? lastCls : '';
+      return React.cloneElement(ele, {
         className: classNames([
           ele.props.className,
-          !reverse && !!pending
-            ? idx === itemsCount - 2
-              ? lastCls
-              : ''
-            : idx === itemsCount - 1
-            ? lastCls
-            : '',
+          !reverse && !!pending ? pendingClass : readyClass,
           getPositionCls(ele, idx),
         ]),
-      }),
-    );
+      });
+    });
 
     return (
       <ul {...restProps} className={classString}>

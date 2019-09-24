@@ -16,7 +16,7 @@ title: 介绍
 
 ## 设计资源
 
-我们提供完善的设计原则、最佳实践和设计资源文件（Sketch 和 Axure），来帮助业务快速设计出高质量的产品原型。
+我们提供完善的设计原则、最佳实践和设计资源文件（[Sketch](https://ant.design/docs/spec/download-cn) 和 [Axure](https://ant.design/docs/spec/download-cn)），来帮助业务快速设计出高质量的产品原型。
 
 - [设计原则](/docs/spec/proximity)
 - [设计模式](/docs/spec/overview)
@@ -28,10 +28,12 @@ title: 介绍
 我们采用 [React](http://facebook.github.io/react/) 封装了一套 Ant Design 的组件库，也欢迎社区其他框架的实现版本。
 
 ```__react
-import { Icon } from 'antd';
+import {
+  Export as ExportIcon,
+} from '@ant-design/icons';
 
 const LinkIcon = () => (
-  <Icon type="export" className="outside-link-icon" />
+  <ExportIcon className="outside-link-icon" />
 );
 
 const LinksList = () => (

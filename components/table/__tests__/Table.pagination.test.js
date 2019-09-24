@@ -211,4 +211,33 @@ describe('Table.pagination', () => {
 
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
   });
+
+  it('select by checkbox to trigger stopPropagation', () => {
+    jest.useFakeTimers();
+    const onShowSizeChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+          onShowSizeChange,
+        },
+      }),
+    );
+    wrapper.find('.ant-select-selector').simulate('mousedown');
+    jest.runAllTimers();
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
+    dropdownWrapper
+      .find('.ant-select-item-option')
+      .at(3)
+      .simulate('click');
+    expect(onShowSizeChange).toHaveBeenCalled();
+    jest.useRealTimers();
+  });
 });

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { SpinProps } from '../spin';
+import omit from 'omit.js';
+import Spin, { SpinProps } from '../spin';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
-import Spin from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 
@@ -36,7 +36,7 @@ export interface ListProps<T> {
   className?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  dataSource: T[];
+  dataSource?: T[];
   extra?: React.ReactNode;
   grid?: ListGridType;
   id?: string;
@@ -45,8 +45,8 @@ export interface ListProps<T> {
   loadMore?: React.ReactNode;
   pagination?: PaginationConfig | false;
   prefixCls?: string;
-  rowKey?: any;
-  renderItem: (item: T, index: number) => React.ReactNode;
+  rowKey?: ((item: T) => string) | string;
+  renderItem?: (item: T, index: number) => React.ReactNode;
   size?: ListSize;
   split?: boolean;
   header?: React.ReactNode;
@@ -124,6 +124,8 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
 
   renderItem = (item: any, index: number) => {
     const { renderItem, rowKey } = this.props;
+    if (!renderItem) return null;
+
     let key;
 
     if (typeof rowKey === 'function') {
@@ -170,14 +172,11 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
       loadMore,
       pagination,
       grid,
-      dataSource,
+      dataSource = [],
       size,
-      rowKey,
-      renderItem,
       header,
       footer,
       loading,
-      locale,
       ...rest
     } = this.props;
 
@@ -199,6 +198,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
         break;
       case 'small':
         sizeCls = 'sm';
+        break;
       default:
         break;
     }
@@ -271,7 +271,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     const paginationPosition = paginationProps.position || 'bottom';
 
     return (
-      <div className={classString} {...rest}>
+      <div className={classString} {...omit(rest, ['rowKey', 'renderItem', 'locale'])}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
         {header && <div className={`${prefixCls}-header`}>{header}</div>}
         <Spin {...loadingProp}>

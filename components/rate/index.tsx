@@ -2,7 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
-import Icon from '../icon';
+import { StarFilled } from '@ant-design/icons';
+
 import Tooltip from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -15,8 +16,8 @@ export interface RateProps {
   allowClear?: boolean;
   disabled?: boolean;
   tooltips?: Array<string>;
-  onChange?: (value: number) => any;
-  onHoverChange?: (value: number) => any;
+  onChange?: (value: number) => void;
+  onHoverChange?: (value: number) => void;
   character?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -33,18 +34,10 @@ export default class Rate extends React.Component<RateProps, any> {
   };
 
   static defaultProps = {
-    character: <Icon type="star" theme="filled" />,
+    character: <StarFilled />,
   };
 
   private rcRate: any;
-
-  focus() {
-    this.rcRate.focus();
-  }
-
-  blur() {
-    this.rcRate.blur();
-  }
 
   saveRate = (node: any) => {
     this.rcRate = node;
@@ -56,6 +49,14 @@ export default class Rate extends React.Component<RateProps, any> {
 
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
+
+  focus() {
+    this.rcRate.focus();
+  }
+
+  blur() {
+    this.rcRate.blur();
+  }
 
   renderRate = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls, ...restProps } = this.props;

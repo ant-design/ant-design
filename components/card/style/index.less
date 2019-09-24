@@ -4,15 +4,16 @@
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
 @card-hover-border: fade(@black, 9%);
+@card-action-icon-size: 16px;
 
-@gradient-min: fade(@card-background, 20%);
-@gradient-max: fade(@card-background, 40%);
+@gradient-min: fade(@card-skeleton-bg, 20%);
+@gradient-max: fade(@card-skeleton-bg, 40%);
 
 .@{card-prefix-cls} {
   .reset-component;
 
   position: relative;
-  background: @component-background;
+  background: @card-background;
   border-radius: @card-radius;
   transition: all 0.3s;
 
@@ -97,10 +98,12 @@
       1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
       0 1px 0 0 @border-color-split inset;
     transition: all 0.3s;
-    &:hover {
-      position: relative;
-      z-index: 1;
-      box-shadow: @box-shadow-base;
+    &-hoverable {
+      &:hover {
+        position: relative;
+        z-index: 1;
+        box-shadow: @box-shadow-base;
+      }
     }
   }
 
@@ -109,7 +112,7 @@
     padding-bottom: 0;
   }
 
-  &-contain-tabs &-extra {
+  &-contain-tabs > &-head &-extra {
     padding-bottom: 0;
   }
 
@@ -137,9 +140,9 @@
       color: @text-color-secondary;
       text-align: center;
 
-      & > span {
+      > span {
         position: relative;
-        display: inline-block;
+        display: block;
         min-width: 32px;
         font-size: 14px;
         line-height: 22px;
@@ -150,20 +153,22 @@
           transition: color 0.3s;
         }
 
-        & > .anticon {
-          font-size: 16px;
-          line-height: 22px;
-        }
-
-        a {
+        a:not(.@{ant-prefix}-btn),
+        > .anticon {
           display: inline-block;
           width: 100%;
           color: @text-color-secondary;
           line-height: 22px;
+          transition: color 0.3s;
 
           &:hover {
             color: @primary-color;
           }
+        }
+
+        > .anticon {
+          font-size: @card-action-icon-size;
+          line-height: 22px;
         }
       }
 

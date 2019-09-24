@@ -4,12 +4,13 @@ import omit from 'omit.js';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
+import { ClockCircle, CloseCircleFilled } from '@ant-design/icons';
+
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import enUS from './locale/en_US';
 import interopDefault from '../_util/interopDefault';
-import Icon from '../icon';
 
 export function generateShowHourMinuteSecond(format: string) {
   // Ref: http://momentjs.com/docs/#/parsing/string-format/
@@ -66,7 +67,6 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     align: {
       offset: [0, -2],
     },
-    disabled: false,
     disabledHours: undefined,
     disabledMinutes: undefined,
     disabledSeconds: undefined,
@@ -105,40 +105,12 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     );
   }
 
-  handleChange = (value: moment.Moment) => {
-    if (!('value' in this.props)) {
-      this.setState({ value });
-    }
-    const { onChange, format = 'HH:mm:ss' } = this.props;
-    if (onChange) {
-      onChange(value, (value && value.format(format)) || '');
-    }
-  };
-
-  handleOpenClose = ({ open }: { open: boolean }) => {
-    const { onOpenChange } = this.props;
-    if (onOpenChange) {
-      onOpenChange(open);
-    }
-  };
-
-  saveTimePicker = (timePickerRef: typeof RcTimePicker) => {
-    this.timePickerRef = timePickerRef;
-  };
-
-  focus() {
-    this.timePickerRef.focus();
-  }
-
-  blur() {
-    this.timePickerRef.blur();
-  }
-
   getDefaultFormat() {
     const { format, use12Hours } = this.props;
     if (format) {
       return format;
-    } else if (use12Hours) {
+    }
+    if (use12Hours) {
       return 'h:mm:ss a';
     }
     return 'HH:mm:ss';
@@ -152,13 +124,50 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     return allowEmpty;
   }
 
+  getDefaultLocale = () => {
+    const defaultLocale = {
+      ...enUS,
+      ...this.props.locale,
+    };
+    return defaultLocale;
+  };
+
+  handleOpenClose = ({ open }: { open: boolean }) => {
+    const { onOpenChange } = this.props;
+    if (onOpenChange) {
+      onOpenChange(open);
+    }
+  };
+
+  saveTimePicker = (timePickerRef: typeof RcTimePicker) => {
+    this.timePickerRef = timePickerRef;
+  };
+
+  handleChange = (value: moment.Moment) => {
+    if (!('value' in this.props)) {
+      this.setState({ value });
+    }
+    const { onChange, format = 'HH:mm:ss' } = this.props;
+    if (onChange) {
+      onChange(value, (value && value.format(format)) || '');
+    }
+  };
+
+  focus() {
+    this.timePickerRef.focus();
+  }
+
+  blur() {
+    this.timePickerRef.blur();
+  }
+
   renderInputIcon(prefixCls: string) {
     const { suffixIcon } = this.props;
     const clockIcon = (suffixIcon &&
       (React.isValidElement<{ className?: string }>(suffixIcon) &&
         React.cloneElement(suffixIcon, {
           className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
-        }))) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} />;
+        }))) || <ClockCircle className={`${prefixCls}-clock-icon`} />;
 
     return <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
   }
@@ -174,16 +183,8 @@ class TimePicker extends React.Component<TimePickerProps, any> {
       });
     }
 
-    return <Icon type="close-circle" className={clearIconPrefixCls} theme="filled" />;
+    return <CloseCircleFilled className={clearIconPrefixCls} />;
   }
-
-  getDefaultLocale = () => {
-    const defaultLocale = {
-      ...enUS,
-      ...this.props.locale,
-    };
-    return defaultLocale;
-  };
 
   renderTimePicker = (locale: TimePickerLocale) => (
     <ConfigConsumer>

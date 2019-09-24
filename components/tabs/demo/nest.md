@@ -2,7 +2,7 @@
 order: 99
 debug: true
 title:
-  zh-CN: 基本
+  zh-CN: 嵌套
   en-US: Nest
 ---
 
@@ -17,8 +17,8 @@ Default activate first tab.
 ```jsx
 import { Tabs, Select } from 'antd';
 
-const TabPane = Tabs.TabPane;
-const Option = Select.Option;
+const { TabPane } = Tabs;
+const { Option } = Select;
 
 const positionList = ['left', 'right', 'top', 'bottom'];
 

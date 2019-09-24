@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { findDOMNode } from 'react-dom';
 import Animate from 'rc-animate';
 import raf from '../_util/raf';
 import { Omit, tuple } from '../_util/type';
@@ -6,14 +7,7 @@ import { TransferItem } from '.';
 import { TransferListProps, RenderedItem } from './list';
 import ListItem from './ListItem';
 
-export const OmitProps = tuple(
-  'handleFilter',
-  'handleSelect',
-  'handleSelectAll',
-  'handleClear',
-  'body',
-  'checkedKeys',
-);
+export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
 export type OmitProp = (typeof OmitProps)[number];
 type PartialTransferListProps = Omit<TransferListProps, OmitProp>;
 
@@ -30,14 +24,33 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   private mountId: number;
 
+  private lazyId: number;
+
   componentDidMount() {
     this.mountId = raf(() => {
       this.setState({ mounted: true });
     });
   }
 
-  componentWillMount() {
+  componentDidUpdate(prevProps: TransferListBodyProps) {
+    const { filteredRenderItems, lazy } = this.props;
+    if (prevProps.filteredRenderItems.length !== filteredRenderItems.length && lazy !== false) {
+      // TODO: Replace this with ref when react 15 support removed.
+      const container = findDOMNode(this);
+
+      raf.cancel(this.lazyId);
+      this.lazyId = raf(() => {
+        if (container) {
+          const scrollEvent = new Event('scroll', { bubbles: true });
+          container.dispatchEvent(scrollEvent);
+        }
+      });
+    }
+  }
+
+  componentWillUnmount() {
     raf.cancel(this.mountId);
+    raf.cancel(this.lazyId);
   }
 
   onItemSelect = (item: TransferItem) => {
@@ -48,7 +61,14 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   render() {
     const { mounted } = this.state;
-    const { prefixCls, onScroll, filteredRenderItems, lazy, selectedKeys } = this.props;
+    const {
+      prefixCls,
+      onScroll,
+      filteredRenderItems,
+      lazy,
+      selectedKeys,
+      disabled: globalDisabled,
+    } = this.props;
 
     return (
       <Animate
@@ -64,7 +84,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
           return (
             <ListItem
-              disabled={disabled}
+              disabled={globalDisabled || disabled}
               key={item.key}
               item={item}
               lazy={lazy}
@@ -81,4 +101,6 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 }
 
-export default (props: TransferListBodyProps) => <ListBody {...props} />;
+const ListBodyWrapper = (props: TransferListBodyProps) => <ListBody {...props} />;
+
+export default ListBodyWrapper;

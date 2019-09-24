@@ -2,8 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultEmptyImg from './empty.svg';
-import simpleEmptyImg from './simple.svg';
+import DefaultEmptyImg from './empty';
+import SimpleEmptyImg from './simple';
+
+const defaultEmptyImg = <DefaultEmptyImg />;
+const simpleEmptyImg = <SimpleEmptyImg />;
 
 export interface TransferLocale {
   description: string;
@@ -22,7 +25,12 @@ export interface EmptyProps {
   children?: React.ReactNode;
 }
 
-const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
+interface EmptyType extends React.FC<EmptyProps> {
+  PRESENTED_IMAGE_DEFAULT: React.ReactNode;
+  PRESENTED_IMAGE_SIMPLE: React.ReactNode;
+}
+
+const Empty: EmptyType = (props: EmptyProps) => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const {
@@ -39,7 +47,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
         <LocaleReceiver componentName="Empty">
           {(locale: TransferLocale) => {
             const prefixCls = getPrefixCls('empty', customizePrefixCls);
-            const des = description || locale.description;
+            const des = typeof description !== 'undefined' ? description : locale.description;
             const alt = typeof des === 'string' ? des : 'empty';
 
             let imageNode: React.ReactNode = null;
@@ -64,7 +72,7 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
                 <div className={`${prefixCls}-image`} style={imageStyle}>
                   {imageNode}
                 </div>
-                <p className={`${prefixCls}-description`}>{des}</p>
+                {des && <p className={`${prefixCls}-description`}>{des}</p>}
                 {children && <div className={`${prefixCls}-footer`}>{children}</div>}
               </div>
             );
@@ -75,12 +83,6 @@ const OriginEmpty: React.SFC<EmptyProps> = (props: EmptyProps) => (
   </ConfigConsumer>
 );
 
-type EmptyType = typeof OriginEmpty & {
-  PRESENTED_IMAGE_DEFAULT: string;
-  PRESENTED_IMAGE_SIMPLE: string;
-};
-
-const Empty: EmptyType = OriginEmpty as EmptyType;
 Empty.PRESENTED_IMAGE_DEFAULT = defaultEmptyImg;
 Empty.PRESENTED_IMAGE_SIMPLE = simpleEmptyImg;
 

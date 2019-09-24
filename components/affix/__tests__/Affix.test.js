@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Affix from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
+import { spyElementPrototype } from '../../__tests__/util/domHook';
 
 const events = {};
 
@@ -40,6 +41,7 @@ class AffixMounter extends React.Component {
 
 describe('Affix Render', () => {
   let wrapper;
+  let domMock;
 
   const classRect = {
     container: {
@@ -48,23 +50,21 @@ describe('Affix Render', () => {
     },
   };
 
-  const originGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
-  HTMLElement.prototype.getBoundingClientRect = function getBoundingClientRect() {
-    return (
-      classRect[this.className] || {
-        top: 0,
-        bottom: 0,
-      }
-    );
-  };
-
   beforeAll(() => {
     jest.useFakeTimers();
+    domMock = spyElementPrototype(HTMLElement, 'getBoundingClientRect', function mockBounding() {
+      return (
+        classRect[this.className] || {
+          top: 0,
+          bottom: 0,
+        }
+      );
+    });
   });
 
   afterAll(() => {
     jest.useRealTimers();
-    HTMLElement.prototype.getBoundingClientRect = originGetBoundingClientRect;
+    domMock.mockRestore();
   });
   const movePlaceholder = top => {
     classRect.fixed = {
@@ -162,29 +162,37 @@ describe('Affix Render', () => {
     });
   });
 
-  it('updatePosition when size changed', () => {
-    document.body.innerHTML = '<div id="mounter" />';
+  describe('updatePosition when size changed', () => {
+    function test(name, index) {
+      it(name, () => {
+        document.body.innerHTML = '<div id="mounter" />';
 
-    const updateCalled = jest.fn();
-    wrapper = mount(<AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />, {
-      attachTo: document.getElementById('mounter'),
-    });
+        const updateCalled = jest.fn();
+        wrapper = mount(<AffixMounter offsetBottom={0} onTestUpdatePosition={updateCalled} />, {
+          attachTo: document.getElementById('mounter'),
+        });
 
-    jest.runAllTimers();
+        jest.runAllTimers();
 
-    movePlaceholder(300);
-    expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
-    jest.runAllTimers();
-    wrapper.update();
+        movePlaceholder(300);
+        expect(wrapper.instance().affix.state.affixStyle).toBeTruthy();
+        jest.runAllTimers();
+        wrapper.update();
 
-    // Mock trigger resize
-    updateCalled.mockReset();
-    wrapper
-      .find('ReactResizeObserver')
-      .instance()
-      .onResize();
-    jest.runAllTimers();
+        // Mock trigger resize
+        updateCalled.mockReset();
+        wrapper
+          .find('ReactResizeObserver')
+          .at(index)
+          .instance()
+          .onResize([{ target: { getBoundingClientRect: () => ({ width: 99, height: 99 }) } }]);
+        jest.runAllTimers();
 
-    expect(updateCalled).toHaveBeenCalled();
+        expect(updateCalled).toHaveBeenCalled();
+      });
+    }
+
+    test('inner', 0);
+    test('outer', 1);
   });
 });

@@ -1,11 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import classNames from 'classnames';
-import Icon from '../icon';
+
 import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
-import warning from '../_util/warning';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -17,6 +16,7 @@ const IS_REACT_16 = !!ReactDOM.createPortal;
 
 const ConfirmDialog = (props: ConfirmDialogProps) => {
   const {
+    icon,
     onCancel,
     onOk,
     close,
@@ -29,16 +29,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     maskStyle,
     okButtonProps,
     cancelButtonProps,
-    iconType = 'question-circle',
   } = props;
-  warning(
-    !('iconType' in props),
-    'Modal',
-    `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
-  );
 
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
-  const icon = props.icon === undefined ? iconType : props.icon;
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
@@ -73,14 +66,12 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     </ActionButton>
   );
 
-  const iconNode = typeof icon === 'string' ? <Icon type={icon} /> : icon;
-
   return (
     <Dialog
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={close.bind(this, { triggerCancel: true })}
+      onCancel={() => close({ triggerCancel: true })}
       visible={visible}
       title=""
       transitionName={transitionName}
@@ -99,7 +90,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     >
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <div className={`${contentPrefixCls}-body`}>
-          {iconNode}
+          {icon}
           <span className={`${contentPrefixCls}-title`}>{props.title}</span>
           <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>
@@ -123,7 +114,31 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
+  // eslint-disable-next-line no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
+
+  function destroy(...args: any[]) {
+    const unmountResult = ReactDOM.unmountComponentAtNode(div);
+    if (unmountResult && div.parentNode) {
+      div.parentNode.removeChild(div);
+    }
+    const triggerCancel = args.some(param => param && param.triggerCancel);
+    if (config.onCancel && triggerCancel) {
+      config.onCancel(...args);
+    }
+    for (let i = 0; i < destroyFns.length; i++) {
+      const fn = destroyFns[i];
+      // eslint-disable-next-line no-use-before-define
+      if (fn === close) {
+        destroyFns.splice(i, 1);
+        break;
+      }
+    }
+  }
+
+  function render(props: any) {
+    ReactDOM.render(<ConfirmDialog getContainer={false} {...props} />, div);
+  }
 
   function close(...args: any[]) {
     currentConfig = {
@@ -144,28 +159,6 @@ export default function confirm(config: ModalFuncProps) {
       ...newConfig,
     };
     render(currentConfig);
-  }
-
-  function destroy(...args: any[]) {
-    const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    if (unmountResult && div.parentNode) {
-      div.parentNode.removeChild(div);
-    }
-    const triggerCancel = args.some(param => param && param.triggerCancel);
-    if (config.onCancel && triggerCancel) {
-      config.onCancel(...args);
-    }
-    for (let i = 0; i < destroyFns.length; i++) {
-      const fn = destroyFns[i];
-      if (fn === close) {
-        destroyFns.splice(i, 1);
-        break;
-      }
-    }
-  }
-
-  function render(props: any) {
-    ReactDOM.render(<ConfirmDialog {...props} />, div);
   }
 
   render(currentConfig);

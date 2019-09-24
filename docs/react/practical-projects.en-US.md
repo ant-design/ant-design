@@ -24,7 +24,7 @@ $ cd myapp
 
 It is recommended to use yarn to create an application and execute the following command.
 
-> If you insist on using npm, execute `npm install -g create-umi && create-umi` and the effect will be the same.
+> If you are using npm, execute `npm create umi` and the effect will be the same.
 
 ```bash
 $ yarn create umi

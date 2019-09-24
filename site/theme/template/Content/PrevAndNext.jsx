@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ prev, next }) => (
+const PrevAndNext = ({ prev, next }) => (
   <section className="prev-next-nav">
     {prev
       ? React.cloneElement(prev.props.children || prev.children[0], {
@@ -14,3 +14,5 @@ export default ({ prev, next }) => (
       : null}
   </section>
 );
+
+export default PrevAndNext;

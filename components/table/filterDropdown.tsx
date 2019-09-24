@@ -5,8 +5,9 @@ import Menu, { SubMenu, Item as MenuItem } from 'rc-menu';
 import closest from 'dom-closest';
 import classNames from 'classnames';
 import shallowequal from 'shallowequal';
+import { FilterFilled } from '@ant-design/icons';
+
 import Dropdown from '../dropdown';
-import Icon from '../icon';
 import Checkbox from '../checkbox';
 import Radio from '../radio';
 import FilterDropdownMenuWrapper from './FilterDropdownMenuWrapper';
@@ -132,22 +133,98 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
 
   onVisibleChange = (visible: boolean) => {
     this.setVisible(visible);
-    if (!visible) {
+    const { column } = this.props;
+    // https://github.com/ant-design/ant-design/issues/17833
+    if (!visible && !(column.filterDropdown instanceof Function)) {
       this.confirmFilter();
     }
   };
 
-  confirmFilter() {
-    const { selectedKeys, valueKeys } = this.state;
-    const { filterDropdown } = this.props.column;
+  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
+    const { selectedKeys } = this.state;
+    if (!info.keyPath || info.keyPath.length <= 1) {
+      return;
+    }
+    const { keyPathOfSelectedItem } = this.state;
+    if (selectedKeys && selectedKeys.indexOf(info.key) >= 0) {
+      // deselect SubMenu child
+      delete keyPathOfSelectedItem[info.key];
+    } else {
+      // select SubMenu child
+      keyPathOfSelectedItem[info.key] = info.keyPath;
+    }
+    this.setState({ keyPathOfSelectedItem });
+  };
 
-    if (!shallowequal(selectedKeys, this.props.selectedKeys)) {
-      this.props.confirmFilter(
-        this.props.column,
-        filterDropdown ? selectedKeys : selectedKeys.map(key => valueKeys[key]),
+  hasSubMenu() {
+    const {
+      column: { filters = [] },
+    } = this.props;
+    return filters.some(item => !!(item.children && item.children.length > 0));
+  }
+
+  confirmFilter() {
+    const { column, selectedKeys: propSelectedKeys, confirmFilter } = this.props;
+    const { selectedKeys, valueKeys } = this.state;
+    const { filterDropdown } = column;
+
+    if (!shallowequal(selectedKeys, propSelectedKeys)) {
+      confirmFilter(
+        column,
+        filterDropdown
+          ? selectedKeys
+          : selectedKeys.map(key => valueKeys[key]).filter(key => key !== undefined),
       );
     }
   }
+
+  renderMenus(items: ColumnFilterItem[]): React.ReactElement<any>[] {
+    return items.map(item => {
+      if (item.children && item.children.length > 0) {
+        const { keyPathOfSelectedItem } = this.state;
+        const containSelected = Object.keys(keyPathOfSelectedItem).some(
+          key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0,
+        );
+        const subMenuCls = containSelected
+          ? `${this.props.dropdownPrefixCls}-submenu-contain-selected`
+          : '';
+        return (
+          <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
+            {this.renderMenus(item.children)}
+          </SubMenu>
+        );
+      }
+      return this.renderMenuItem(item);
+    });
+  }
+
+  renderFilterIcon = () => {
+    const { column, locale, prefixCls, selectedKeys } = this.props;
+    const filtered = selectedKeys && selectedKeys.length > 0;
+    let filterIcon = column.filterIcon as any;
+    if (typeof filterIcon === 'function') {
+      filterIcon = filterIcon(filtered);
+    }
+
+    const dropdownIconClass = classNames({
+      [`${prefixCls}-selected`]: filtered,
+      [`${prefixCls}-open`]: this.getDropdownVisible(),
+    });
+
+    return filterIcon ? (
+      React.cloneElement(filterIcon as any, {
+        title: locale.filterTitle,
+        className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
+        onClick: stopPropagation,
+      })
+    ) : (
+      <FilterFilled
+        title={locale.filterTitle}
+        className={dropdownIconClass}
+        onClick={stopPropagation}
+      />
+    );
+  };
 
   renderMenuItem(item: ColumnFilterItem) {
     const { column } = this.props;
@@ -171,79 +248,6 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     );
   }
 
-  hasSubMenu() {
-    const {
-      column: { filters = [] },
-    } = this.props;
-    return filters.some(item => !!(item.children && item.children.length > 0));
-  }
-
-  renderMenus(items: ColumnFilterItem[]): React.ReactElement<any>[] {
-    return items.map(item => {
-      if (item.children && item.children.length > 0) {
-        const { keyPathOfSelectedItem } = this.state;
-        const containSelected = Object.keys(keyPathOfSelectedItem).some(
-          key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0,
-        );
-        const subMenuCls = containSelected
-          ? `${this.props.dropdownPrefixCls}-submenu-contain-selected`
-          : '';
-        return (
-          <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
-            {this.renderMenus(item.children)}
-          </SubMenu>
-        );
-      }
-      return this.renderMenuItem(item);
-    });
-  }
-
-  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
-    const { selectedKeys } = this.state;
-    if (!info.keyPath || info.keyPath.length <= 1) {
-      return;
-    }
-    const keyPathOfSelectedItem = this.state.keyPathOfSelectedItem;
-    if (selectedKeys && selectedKeys.indexOf(info.key) >= 0) {
-      // deselect SubMenu child
-      delete keyPathOfSelectedItem[info.key];
-    } else {
-      // select SubMenu child
-      keyPathOfSelectedItem[info.key] = info.keyPath;
-    }
-    this.setState({ keyPathOfSelectedItem });
-  };
-
-  renderFilterIcon = () => {
-    const { column, locale, prefixCls, selectedKeys } = this.props;
-    const filtered = selectedKeys && selectedKeys.length > 0;
-    let filterIcon = column.filterIcon as any;
-    if (typeof filterIcon === 'function') {
-      filterIcon = filterIcon(filtered);
-    }
-
-    const dropdownIconClass = classNames({
-      [`${prefixCls}-selected`]: filtered,
-      [`${prefixCls}-open`]: this.getDropdownVisible(),
-    });
-
-    return filterIcon ? (
-      React.cloneElement(filterIcon as any, {
-        title: locale.filterTitle,
-        className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
-        onClick: stopPropagation,
-      })
-    ) : (
-      <Icon
-        title={locale.filterTitle}
-        type="filter"
-        theme="filled"
-        className={dropdownIconClass}
-        onClick={stopPropagation}
-      />
-    );
-  };
-
   render() {
     const { selectedKeys: originSelectedKeys } = this.state;
     const { column, locale, prefixCls, dropdownPrefixCls, getPopupContainer } = this.props;
@@ -261,7 +265,6 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
-        getPopupContainer: (triggerNode: HTMLElement) => triggerNode.parentNode as HTMLElement,
       });
     }
 
@@ -279,7 +282,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
           onSelect={this.setSelectedKeys}
           onDeselect={this.setSelectedKeys}
           selectedKeys={originSelectedKeys && originSelectedKeys.map(val => val.toString())}
-          getPopupContainer={(triggerNode: HTMLElement) => triggerNode.parentNode}
+          getPopupContainer={getPopupContainer}
         >
           {this.renderMenus(column.filters!)}
         </Menu>

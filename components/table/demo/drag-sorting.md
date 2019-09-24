@@ -15,7 +15,7 @@ By using custom components, we can integrate table with react-dnd to implement d
 
 ```jsx
 import { Table } from 'antd';
-import { DragDropContext, DragSource, DropTarget } from 'react-dnd';
+import { DndProvider, DragSource, DropTarget } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
@@ -26,7 +26,7 @@ class BodyRow extends React.Component {
     const { isOver, connectDragSource, connectDropTarget, moveRow, ...restProps } = this.props;
     const style = { ...restProps.style, cursor: 'move' };
 
-    let className = restProps.className;
+    let { className } = restProps;
     if (isOver) {
       if (restProps.index > dragingIndex) {
         className += ' drop-over-downward';
@@ -144,22 +144,22 @@ class DragSortingTable extends React.Component {
 
   render() {
     return (
-      <Table
-        columns={columns}
-        dataSource={this.state.data}
-        components={this.components}
-        onRow={(record, index) => ({
-          index,
-          moveRow: this.moveRow,
-        })}
-      />
+      <DndProvider backend={HTML5Backend}>
+        <Table
+          columns={columns}
+          dataSource={this.state.data}
+          components={this.components}
+          onRow={(record, index) => ({
+            index,
+            moveRow: this.moveRow,
+          })}
+        />
+      </DndProvider>
     );
   }
 }
 
-const Demo = DragDropContext(HTML5Backend)(DragSortingTable);
-
-ReactDOM.render(<Demo />, mountNode);
+ReactDOM.render(<DragSortingTable />, mountNode);
 ```
 
 ```css

@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 垂直分割线
   en-US: Vertical

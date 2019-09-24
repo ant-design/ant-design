@@ -16,7 +16,7 @@ Select with tags, transform input to tag (scroll the menu)
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const children = [];
 for (let i = 10; i < 36; i++) {

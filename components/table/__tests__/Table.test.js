@@ -1,10 +1,13 @@
 import React from 'react';
 import { render, shallow, mount } from 'enzyme';
 import Table from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { Column, ColumnGroup } = Table;
 
 describe('Table', () => {
+  mountTest(Table);
+
   const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterAll(() => {
@@ -92,5 +95,49 @@ describe('Table', () => {
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
     );
+  });
+
+  it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {
+    const data = [
+      {
+        key: '1',
+        age: 32,
+      },
+      {
+        key: '2',
+        age: 42,
+      },
+    ];
+
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const columnsPageRange = jest.fn();
+    const columnsPageSize = jest.fn();
+    mount(
+      <Table
+        dataSource={data}
+        rowkey="key"
+        columnsPageRange={columnsPageRange}
+        columnsPageSize={columnsPageSize}
+      >
+        <Column title="Age" dataIndex="age" key="age" />
+      </Table>,
+    );
+
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      '`columnsPageRange` and `columnsPageSize` are removed, please use fixed columns instead, see: https://u.ant.design/fixed-columns.',
+    );
+
+    expect(columnsPageRange).not.toHaveBeenCalled();
+    expect(columnsPageSize).not.toHaveBeenCalled();
+  });
+
+  it('support onHeaderCell', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
+    );
+    wrapper.find('th').simulate('click');
+    expect(onClick).toHaveBeenCalled();
   });
 });

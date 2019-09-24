@@ -14,7 +14,8 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Icon, Switch, Radio, Form, Divider } from 'antd';
+import { Table, Switch, Radio, Form, Divider } from 'antd';
+import { Down } from '@ant-design/icons';
 
 const FormItem = Form.Item;
 
@@ -24,7 +25,7 @@ const columns = [
     dataIndex: 'name',
     key: 'name',
     width: 150,
-    render: text => <a href="javascript:;">{text}</a>,
+    render: text => <a>{text}</a>,
   },
   {
     title: 'Age',
@@ -43,12 +44,12 @@ const columns = [
     width: 360,
     render: (text, record) => (
       <span>
-        <a href="javascript:;">Action 一 {record.name}</a>
+        <a>Action 一 {record.name}</a>
         <Divider type="vertical" />
-        <a href="javascript:;">Delete</a>
+        <a>Delete</a>
         <Divider type="vertical" />
-        <a href="javascript:;" className="ant-dropdown-link">
-          More actions <Icon type="down" />
+        <a className="ant-dropdown-link">
+          More actions <Down />
         </a>
       </span>
     ),
@@ -132,7 +133,7 @@ class Demo extends React.Component {
   };
 
   render() {
-    const state = this.state;
+    const { state } = this;
     return (
       <div>
         <div className="components-table-demo-control-bar">

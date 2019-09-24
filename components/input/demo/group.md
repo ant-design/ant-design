@@ -21,7 +21,7 @@ Note: You don't need `Col` to control the width in the `compact` mode.
 import { Input, Col, Row, Select, InputNumber, DatePicker, AutoComplete, Cascader } from 'antd';
 
 const InputGroup = Input.Group;
-const Option = Select.Option;
+const { Option } = Select;
 
 const options = [
   {

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
+import { Right } from '@ant-design/icons';
+
 import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import Icon from '../icon';
 import { tuple } from '../_util/type';
 
 const Placements = tuple(
@@ -54,6 +55,7 @@ export interface DropDownProps {
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
   static Button: typeof DropdownButton;
+
   static defaultProps = {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
@@ -90,7 +92,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     warning(
       !overlayProps.mode || overlayProps.mode === 'vertical',
       'Dropdown',
-      `mode="${overlayProps.mode}" is not supported for Dropdown\'s Menu.`,
+      `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
     );
 
     // menu cannot be selectable in dropdown defaultly
@@ -99,7 +101,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
 
     const expandIcon = (
       <span className={`${prefixCls}-menu-submenu-arrow`}>
-        <Icon type="right" className={`${prefixCls}-menu-submenu-arrow-icon`} />
+        <Right className={`${prefixCls}-menu-submenu-arrow-icon`} />
       </span>
     );
 

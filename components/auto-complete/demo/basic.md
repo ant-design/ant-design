@@ -7,40 +7,67 @@ title:
 
 ## zh-CN
 
-基本使用。通过 dataSource 设置自动完成的数据源
+基本使用。通过 options 设置自动完成的数据源
 
 ## en-US
 
-Basic Usage, set datasource of autocomplete with `dataSource` property.
+Basic Usage, set data source of autocomplete with `options` property.
 
-```jsx
+```tsx
 import { AutoComplete } from 'antd';
 
 function onSelect(value) {
   console.log('onSelect', value);
 }
 
+function mockVal(str: string, repeat: number = 1) {
+  return {
+    value: str.repeat(repeat),
+  };
+}
+
 class Complete extends React.Component {
   state = {
-    dataSource: [],
+    value: '',
+    options: [],
   };
 
-  handleSearch = value => {
+  onSearch = searchText => {
     this.setState({
-      dataSource: !value ? [] : [value, value + value, value + value + value],
+      options: !searchText
+        ? []
+        : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)],
     });
   };
 
+  onChange = value => {
+    this.setState({ value });
+  };
+
   render() {
-    const { dataSource } = this.state;
+    const { options, value } = this.state;
+
     return (
-      <AutoComplete
-        dataSource={dataSource}
-        style={{ width: 200 }}
-        onSelect={onSelect}
-        onSearch={this.handleSearch}
-        placeholder="input here"
-      />
+      <div>
+        <AutoComplete
+          options={[]}
+          style={{ width: 200 }}
+          onSelect={onSelect}
+          onSearch={this.onSearch}
+          placeholder="input here"
+        />
+        <br />
+        <br />
+        <AutoComplete
+          value={value}
+          options={options}
+          style={{ width: 200 }}
+          onSelect={onSelect}
+          onSearch={this.onSearch}
+          onChange={this.onChange}
+          placeholder="control mode"
+        />
+      </div>
     );
   }
 }

@@ -34,6 +34,37 @@ exports[`renders ./components/affix/demo/basic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/affix/demo/debug.md correctly 1`] = `
+<div
+  style="height:10000px"
+>
+  <div>
+    Top
+  </div>
+  <div>
+    <div
+      class=""
+    >
+      <div
+        style="background:red"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Affix top
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    Bottom
+  </div>
+</div>
+`;
+
 exports[`renders ./components/affix/demo/on-change.md correctly 1`] = `
 <div>
   <div

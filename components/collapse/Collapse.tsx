@@ -1,16 +1,17 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
+import { Right } from '@ant-design/icons';
+
 import CollapsePanel from './CollapsePanel';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import animation from '../_util/openAnimation';
 
 export type ExpandIconPosition = 'left' | 'right';
 
 export interface CollapseProps {
-  activeKey?: Array<string> | string;
-  defaultActiveKey?: Array<string>;
+  activeKey?: Array<string | number> | string | number;
+  defaultActiveKey?: Array<string | number> | string | number;
   /** 手风琴效果 */
   accordion?: boolean;
   destroyInactivePanel?: boolean;
@@ -19,7 +20,7 @@ export interface CollapseProps {
   className?: string;
   bordered?: boolean;
   prefixCls?: string;
-  expandIcon?: (panelProps: any) => React.ReactNode;
+  expandIcon?: (panelProps: PanelProps) => React.ReactNode;
   expandIconPosition?: ExpandIconPosition;
 }
 
@@ -48,7 +49,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     const icon = expandIcon ? (
       expandIcon(panelProps)
     ) : (
-      <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
+      <Right rotate={panelProps.isActive ? 90 : undefined} />
     );
     return React.isValidElement(icon)
       ? React.cloneElement(icon as any, {

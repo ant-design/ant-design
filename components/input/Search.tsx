@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Search as IconSearch } from '@ant-design/icons';
+
 import Input, { InputProps } from './Input';
-import Icon from '../icon';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -9,8 +10,11 @@ export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
   onSearch?: (
     value: string,
-    event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
-  ) => any;
+    event?:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.MouseEvent<HTMLElement>
+      | React.KeyboardEvent<HTMLInputElement>,
+  ) => void;
   enterButton?: boolean | React.ReactNode;
 }
 
@@ -21,7 +25,26 @@ export default class Search extends React.Component<SearchProps, any> {
 
   private input: Input;
 
+  saveInput = (node: Input) => {
+    this.input = node;
+  };
+
+  onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { onChange, onSearch } = this.props;
+    if (e && e.target && e.type === 'click' && onSearch) {
+      onSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
+    }
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+
     const { onSearch } = this.props;
     if (onSearch) {
       onSearch(this.input.input.value, e);
@@ -37,21 +60,12 @@ export default class Search extends React.Component<SearchProps, any> {
     this.input.blur();
   }
 
-  saveInput = (node: Input) => {
-    this.input = node;
-  };
-
   renderSuffix = (prefixCls: string) => {
     const { suffix, enterButton } = this.props;
     if (enterButton) return suffix;
 
     const node = (
-      <Icon
-        className={`${prefixCls}-icon`}
-        type="search"
-        key="searchIcon"
-        onClick={this.onSearch}
-      />
+      <IconSearch className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
     );
 
     if (suffix) {
@@ -95,7 +109,7 @@ export default class Search extends React.Component<SearchProps, any> {
           key="enterButton"
           onClick={this.onSearch}
         >
-          {enterButton === true ? <Icon type="search" /> : enterButton}
+          {enterButton === true ? <IconSearch /> : enterButton}
         </Button>
       );
     }
@@ -141,6 +155,7 @@ export default class Search extends React.Component<SearchProps, any> {
         prefixCls={inputPrefixCls}
         addonAfter={this.renderAddonAfter(prefixCls)}
         suffix={this.renderSuffix(prefixCls)}
+        onChange={this.onChange}
         ref={this.saveInput}
         className={inputClassName}
       />

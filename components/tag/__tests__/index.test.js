@@ -1,8 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Tag from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Tag', () => {
+  mountTest(Tag);
+  mountTest(Tag.CheckableTag);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -15,12 +19,12 @@ describe('Tag', () => {
     const onClose = jest.fn();
     const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
     expect(onClose).toHaveBeenCalled();
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
+    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(0);
   });
 
   it('should not be closed when prevent default', () => {
@@ -29,10 +33,10 @@ describe('Tag', () => {
     };
     const wrapper = mount(<Tag closable onClose={onClose} />);
     expect(wrapper.find('.anticon-close').length).toBe(1);
-    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
     wrapper.find('.anticon-close').simulate('click');
     jest.runAllTimers();
-    expect(wrapper.find('div.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+    expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
   describe('visibility', () => {
@@ -56,6 +60,28 @@ describe('Tag', () => {
       wrapper.setProps({ visible: false });
       jest.runAllTimers();
       expect(wrapper.render()).toMatchSnapshot();
+    });
+  });
+
+  it('props#afterClose do not warn anymore', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const afterClose = jest.fn();
+    const wrapper = mount(<Tag closable afterClose={afterClose} />);
+
+    expect(errorSpy.mock.calls.length).toBe(1);
+    expect(errorSpy.mock.calls[0][0].includes('React does not recognize')).toBeTruthy();
+
+    wrapper.find('.anticon-close').simulate('click');
+    expect(afterClose).not.toHaveBeenCalled();
+  });
+
+  describe('CheckableTag', () => {
+    it('support onChange', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(<Tag.CheckableTag onChange={onChange} />);
+      wrapper.find('.ant-tag').simulate('click');
+      expect(onChange).toHaveBeenCalledWith(true);
     });
   });
 });

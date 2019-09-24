@@ -8,15 +8,13 @@ declare module 'rc-pagination*';
 
 declare module 'omit.js';
 
-declare module 'rc-animate';
+declare module 'rc-animate*';
 
 declare module 'rc-util*';
 
 declare module 'shallowequal';
 
 declare module 'css-animation*';
-
-declare module 'rc-select';
 
 declare module 'rc-cascader';
 
@@ -83,11 +81,15 @@ declare module 'react-lazy-load';
 
 declare module 'dom-closest';
 
+declare module 'dom-scroll-into-view';
+
 declare module '*.json' {
   const value: any;
   export const version: string;
   export default value;
 }
+
+declare module 'lodash/isEqual';
 
 declare module 'lodash/debounce';
 

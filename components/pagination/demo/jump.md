@@ -21,7 +21,11 @@ function onChange(pageNumber) {
 }
 
 ReactDOM.render(
-  <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />,
+  <div>
+    <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
+    <br />
+    <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} disabled />
+  </div>,
   mountNode,
 );
 ```

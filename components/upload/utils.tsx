@@ -28,14 +28,14 @@ export function genPercentAdd() {
   let k = 0.1;
   const i = 0.01;
   const end = 0.98;
-  return function(s: number) {
+  return (s: number) => {
     let start = s;
     if (start >= end) {
       return start;
     }
 
     start += k;
-    k = k - i;
+    k -= i;
     if (k < 0.001) {
       k = 0.001;
     }
@@ -74,12 +74,14 @@ export const isImageUrl = (file: UploadFile): boolean => {
   }
   const url: string = (file.thumbUrl || file.url) as string;
   const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|bmp|dpg)$/i.test(extension)) {
+  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg)$/i.test(extension)) {
     return true;
-  } else if (/^data:/.test(url)) {
+  }
+  if (/^data:/.test(url)) {
     // other file types of base64
     return false;
-  } else if (extension) {
+  }
+  if (extension) {
     // other file types which have extension
     return false;
   }
@@ -101,7 +103,7 @@ export function previewImage(file: File | Blob): Promise<string> {
     document.body.appendChild(canvas);
     const ctx = canvas.getContext('2d');
     const img = new Image();
-    img.onload = function() {
+    img.onload = () => {
       const { width, height } = img;
 
       let drawWidth = MEASURE_SIZE;

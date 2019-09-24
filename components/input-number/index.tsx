@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
-import Icon from '../icon';
+import { Up, Down } from '@ant-design/icons';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
 
@@ -21,7 +22,7 @@ export interface InputNumberProps
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
   formatter?: (value: number | string | undefined) => string;
-  parser?: (displayValue: string | undefined) => number;
+  parser?: (displayValue: string | undefined) => number | string;
   decimalSeparator?: string;
   placeholder?: string;
   style?: React.CSSProperties;
@@ -29,6 +30,7 @@ export interface InputNumberProps
   name?: string;
   id?: string;
   precision?: number;
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
@@ -60,8 +62,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
       },
       className,
     );
-    const upIcon = <Icon type="up" className={`${prefixCls}-handler-up-inner`} />;
-    const downIcon = <Icon type="down" className={`${prefixCls}-handler-down-inner`} />;
+    const upIcon = <Up className={`${prefixCls}-handler-up-inner`} />;
+    const downIcon = <Down className={`${prefixCls}-handler-down-inner`} />;
 
     return (
       <RcInputNumber

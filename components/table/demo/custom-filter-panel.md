@@ -14,8 +14,9 @@ title:
 Implement a customized column search example via `filterDropdown`.
 
 ```jsx
-import { Table, Input, Button, Icon } from 'antd';
+import { Table, Input, Button } from 'antd';
 import Highlighter from 'react-highlight-words';
+import { Search } from '@ant-design/icons';
 
 const data = [
   {
@@ -76,9 +77,7 @@ class App extends React.Component {
         </Button>
       </div>
     ),
-    filterIcon: filtered => (
-      <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />
-    ),
+    filterIcon: filtered => <Search style={{ color: filtered ? '#1890ff' : undefined }} />,
     onFilter: (value, record) =>
       record[dataIndex]
         .toString()

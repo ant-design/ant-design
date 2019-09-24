@@ -28,14 +28,14 @@ import {
   Transfer,
   Radio,
 } from 'antd';
-import zhCN from 'antd/lib/locale-provider/zh_CN';
+import zhCN from 'antd/es/locale-provider/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 
 moment.locale('en');
 
-const Option = Select.Option;
-const RangePicker = DatePicker.RangePicker;
+const { Option } = Select;
+const { RangePicker } = DatePicker;
 
 const columns = [
   {

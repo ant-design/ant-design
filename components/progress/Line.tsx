@@ -18,6 +18,7 @@ interface LineProps extends ProgressProps {
  */
 export const sortGradient = (gradients: ProgressGradient) => {
   let tempArr = [];
+  // eslint-disable-next-line no-restricted-syntax
   for (const [key, value] of Object.entries(gradients)) {
     const formatKey = parseFloat(key.replace(/%/g, ''));
     if (isNaN(formatKey)) {
@@ -78,13 +79,13 @@ const Line: React.SFC<LineProps> = props => {
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
     ...backgroundProps,
   };
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '100px',
+    borderRadius: strokeLinecap === 'square' ? 0 : '',
   };
   const successSegment =
     successPercent !== undefined ? (

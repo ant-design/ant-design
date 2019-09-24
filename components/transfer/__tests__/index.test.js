@@ -8,6 +8,7 @@ import TransferSearch from '../search';
 import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
+import mountTest from '../../../tests/shared/mountTest';
 
 const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -94,6 +95,8 @@ const searchTransferProps = {
 };
 
 describe('Transfer', () => {
+  mountTest(Transfer);
+
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
     expect(wrapper).toMatchSnapshot();
@@ -139,6 +142,18 @@ describe('Transfer', () => {
       .filterWhere(n => n.prop('item').key === 'b')
       .simulate('click');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
+  });
+
+  it('should not check checkbox when component disabled', () => {
+    const handleSelectChange = jest.fn();
+    const wrapper = mount(
+      <Transfer {...listCommonProps} disabled onSelectChange={handleSelectChange} />,
+    );
+    wrapper
+      .find(TransferItem)
+      .filterWhere(n => n.prop('item').key === 'a')
+      .simulate('click');
+    expect(handleSelectChange).not.toHaveBeenCalled();
   });
 
   it('should not check checkbox when click on disabled item', () => {
@@ -245,10 +260,19 @@ describe('Transfer', () => {
     ).toEqual('Nothing');
   });
 
-  it('should display the correct locale using old API', () => {
+  it('should display the correct locale and ignore old API', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] };
     const locale = { notFoundContent: 'old1', searchPlaceholder: 'old2' };
-    const wrapper = mount(<Transfer {...listCommonProps} {...emptyProps} {...locale} showSearch />);
+    const newLocalProp = { notFoundContent: 'new1', searchPlaceholder: 'new2' };
+    const wrapper = mount(
+      <Transfer
+        {...listCommonProps}
+        {...emptyProps}
+        {...locale}
+        locale={newLocalProp}
+        showSearch
+      />,
+    );
 
     expect(
       wrapper
@@ -257,7 +281,7 @@ describe('Transfer', () => {
         .find('.ant-transfer-list-search')
         .at(0)
         .prop('placeholder'),
-    ).toEqual('old2');
+    ).toEqual('new2');
 
     expect(
       wrapper
@@ -266,9 +290,9 @@ describe('Transfer', () => {
         .find('.ant-transfer-list-body-not-found')
         .at(0)
         .text(),
-    ).toEqual('old1');
+    ).toEqual('new1');
 
-    expect(consoleErrorSpy).toHaveBeenCalledWith(
+    expect(consoleErrorSpy).not.toHaveBeenCalledWith(
       'Warning: [antd: Transfer] `notFoundContent` and `searchPlaceholder` will be removed, please use `locale` instead.',
     );
     consoleErrorSpy.mockRestore();

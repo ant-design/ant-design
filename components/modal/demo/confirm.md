@@ -16,7 +16,7 @@ Use `confirm()` to show a confirmation modal dialog.
 ```jsx
 import { Modal, Button } from 'antd';
 
-const confirm = Modal.confirm;
+const { confirm } = Modal;
 
 function showConfirm() {
   confirm({

@@ -14,7 +14,8 @@ title:
 The count will be animated as it changes.
 
 ```jsx
-import { Badge, Button, Icon, Switch } from 'antd';
+import { Badge, Button, Switch } from 'antd';
+import { Minus, Plus } from '@ant-design/icons';
 
 const ButtonGroup = Button.Group;
 
@@ -50,10 +51,10 @@ class Demo extends React.Component {
           </Badge>
           <ButtonGroup>
             <Button onClick={this.decline}>
-              <Icon type="minus" />
+              <Minus />
             </Button>
             <Button onClick={this.increase}>
-              <Icon type="plus" />
+              <Plus />
             </Button>
           </ButtonGroup>
         </div>

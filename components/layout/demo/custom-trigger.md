@@ -14,7 +14,8 @@ title:
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
 ```jsx
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu } from 'antd';
+import { MenuUnfold, MenuFold, User, VideoCamera, Upload as IconUpload } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
 
@@ -36,26 +37,25 @@ class SiderDemo extends React.Component {
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1">
-              <Icon type="user" />
+              <User />
               <span>nav 1</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Icon type="video-camera" />
+              <VideoCamera />
               <span>nav 2</span>
             </Menu.Item>
             <Menu.Item key="3">
-              <Icon type="upload" />
+              <IconUpload />
               <span>nav 3</span>
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.toggle}
-            />
+            {React.createElement(this.state.collapsed ? MenuUnfold : MenuFold, {
+              className: 'trigger',
+              onClick: this.toggle,
+            })}
           </Header>
           <Content
             style={{

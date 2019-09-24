@@ -20,12 +20,15 @@
 @error-description-color: @error-color;
 @error-tail-color: @wait-tail-color;
 @steps-background: @component-background;
+@steps-nav-arrow-color: fade(@black, 25%);
+@steps-nav-active-color: @primary-color;
 
 @steps-icon-size: 32px;
 @steps-small-icon-size: 24px;
 @steps-dot-size: 8px;
 @steps-current-dot-size: 10px;
 @steps-desciption-max-width: 140px;
+@steps-nav-content-max-width: @steps-desciption-max-width;
 
 .@{steps-prefix-cls} {
   .reset-component;
@@ -42,12 +45,16 @@
   overflow: hidden;
   vertical-align: top;
 
+  &-container {
+    outline: none;
+  }
+
   &:last-child {
     flex: none;
   }
 
-  &:last-child > &-tail,
-  &:last-child > &-content > &-title::after {
+  &:last-child > &-container > &-tail,
+  &:last-child > &-container > &-content > &-title::after {
     display: none;
   }
 
@@ -110,6 +117,13 @@
       content: '';
     }
   }
+  &-subtitle {
+    display: inline;
+    margin-left: 8px;
+    color: @text-color-secondary;
+    font-weight: normal;
+    font-size: @font-size-base;
+  }
   &-description {
     color: @text-color-secondary;
     font-size: @font-size-base;
@@ -130,6 +144,47 @@
 
   &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title::after {
     background: @error-icon-color;
+  }
+}
+
+// ===================== Clickable =====================
+.@{steps-prefix-cls} .@{steps-prefix-cls}-item {
+  &:not(.@{steps-prefix-cls}-item-active) {
+    & > .@{steps-prefix-cls}-item-container[role='button'] {
+      cursor: pointer;
+
+      .@{steps-prefix-cls}-item {
+        &-title,
+        &-description,
+        &-icon .@{steps-prefix-cls}-icon {
+          transition: color 0.3s;
+        }
+      }
+
+      &:hover {
+        .@{steps-prefix-cls}-item {
+          &-title,
+          &-subtitle,
+          &-description {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+
+    &:not(.@{steps-prefix-cls}-item-process) {
+      & > .@{steps-prefix-cls}-item-container[role='button']:hover {
+        .@{steps-prefix-cls}-item {
+          &-icon {
+            border-color: @primary-color;
+
+            .@{steps-prefix-cls}-icon {
+              color: @primary-color;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -168,16 +223,16 @@
       }
     }
   }
-  &-@{status} > &-content > &-title {
+  &-@{status} > &-container > &-content > &-title {
     color: @@title-color;
     &::after {
       background-color: @@tail-color;
     }
   }
-  &-@{status} > &-content > &-description {
+  &-@{status} > &-container > &-content > &-description {
     color: @@description-color;
   }
-  &-@{status} > &-tail::after {
+  &-@{status} > &-container > &-tail::after {
     background-color: @@tail-color;
   }
 }
@@ -187,4 +242,5 @@
 @import 'vertical';
 @import 'label-placement';
 @import 'progress-dot';
+@import 'nav';
 @import 'compatibility';

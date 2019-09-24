@@ -1,5 +1,6 @@
 import { tuple } from './type';
 
+// eslint-disable-next-line import/prefer-default-export
 export const PresetColorTypes = tuple(
   'pink',
   'red',

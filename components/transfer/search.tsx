@@ -1,13 +1,14 @@
 import * as React from 'react';
-import Icon from '../icon';
+import { CloseCircleFilled, Search as IconSearch } from '@ant-design/icons';
+
 import Input from '../input';
 
 export interface TransferSearchProps {
   prefixCls?: string;
   placeholder?: string;
-  onChange?: (e: React.FormEvent<any>) => void;
-  handleClear?: (e: React.MouseEvent<any>) => void;
-  value?: any;
+  onChange?: (e: React.FormEvent<HTMLElement>) => void;
+  handleClear?: (e: React.MouseEvent<HTMLElement>) => void;
+  value?: string;
   disabled?: boolean;
 }
 
@@ -36,11 +37,11 @@ export default class Search extends React.Component<TransferSearchProps, any> {
     const icon =
       value && value.length > 0 ? (
         <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
-          <Icon type="close-circle" theme="filled" />
+          <CloseCircleFilled />
         </a>
       ) : (
         <span className={`${prefixCls}-action`}>
-          <Icon type="search" />
+          <IconSearch />
         </span>
       );
 

@@ -29,8 +29,13 @@
     display: inline-block;
   }
 
+  &&-disabled {
+    cursor: not-allowed;
+  }
+
   &&-select-picture-card {
     display: table;
+    float: left;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
     margin-right: 8px;
@@ -122,6 +127,13 @@
     &:hover .@{iconfont-css-prefix}-plus {
       color: @text-color-secondary;
     }
+  }
+
+  &-picture-card-wrapper {
+    .clearfix;
+
+    display: inline-block;
+    width: 100%;
   }
 }
 
@@ -253,6 +265,10 @@
       transform: translate(-50%, -50%);
     }
 
+    .@{upload-item}-image {
+      max-width: 100%;
+    }
+
     .@{upload-item}-thumbnail img {
       display: block;
       width: 48px;
@@ -295,9 +311,6 @@
   }
 
   &-picture-card {
-    // https://github.com/ant-design/ant-design/issues/11183
-    float: left;
-
     &.@{upload-prefix-cls}-list::after {
       display: none;
     }

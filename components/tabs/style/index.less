@@ -181,6 +181,18 @@
       cursor: pointer;
       transition: color 0.3s @ease-in-out;
 
+      &::before {
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 100%;
+        border-top: 2px solid transparent;
+        border-radius: @border-radius-base @border-radius-base 0 0;
+        transition: all 0.3s;
+        content: '';
+        pointer-events: none;
+      }
+
       &:last-child {
         margin-right: 0;
       }
@@ -197,17 +209,17 @@
         margin-right: 8px;
       }
 
+      &-active {
+        color: @tabs-highlight-color;
+        font-weight: 500;
+      }
+
       &-disabled {
         &,
         &:hover {
           color: @disabled-color;
           cursor: not-allowed;
         }
-      }
-
-      &-active {
-        color: @tabs-highlight-color;
-        font-weight: 500;
       }
     }
   }
@@ -228,6 +240,14 @@
     .@{tab-prefix-cls}-tab {
       padding: @tabs-horizontal-padding-sm;
     }
+  }
+
+  // Create an empty element to avoid margin collapsing
+  // https://github.com/ant-design/ant-design/issues/18103
+  &-content::before {
+    display: block;
+    overflow: hidden;
+    content: '';
   }
 
   // Horizontal Content
@@ -259,14 +279,8 @@
   .@{tab-prefix-cls}-right-bar {
     height: 100%;
     border-bottom: 0;
-    &-tab-prev,
-    &-tab-next {
-      width: @tabs-scrolling-size;
-      height: 0;
-      transition: height 0.3s @ease-in-out, opacity 0.3s @ease-in-out, color 0.3s @ease-in-out;
-    }
-    &-tab-prev.@{tab-prefix-cls}-tab-arrow-show,
-    &-tab-next.@{tab-prefix-cls}-tab-arrow-show {
+
+    .@{tab-prefix-cls}-tab-arrow-show {
       width: 100%;
       height: @tabs-scrolling-size;
     }
@@ -320,6 +334,7 @@
     }
 
     .@{tab-prefix-cls}-tab-next {
+      right: 0;
       bottom: 0;
       width: 100%;
       height: @tabs-scrolling-size;

@@ -1,9 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-/* eslint-disable import/no-unresolved */
+// eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
 
 const { TextArea } = Input;
@@ -20,6 +21,8 @@ describe('Input', () => {
   });
 
   focusTest(Input);
+  mountTest(Input);
+  mountTest(Input.Group);
 
   it('should support maxLength', () => {
     const wrapper = mount(<Input maxLength={3} />);
@@ -79,6 +82,8 @@ describe('TextArea', () => {
     wrapper.setProps({ value: '1111' });
     jest.runAllTimers();
     expect(mockFunc).toHaveBeenCalledTimes(2);
+    wrapper.update();
+    expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
   });
 
   it('should support onPressEnter and onKeyDown', () => {
@@ -175,29 +180,28 @@ describe('TextArea', () => {
 
 describe('As Form Control', () => {
   it('should be reset when wrapped in form.getFieldDecorator without initialValue', () => {
-    class Demo extends React.Component {
-      reset = () => {
-        const { form } = this.props;
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const reset = () => {
         form.resetFields();
       };
 
-      render() {
-        const {
-          form: { getFieldDecorator },
-        } = this.props;
-        return (
-          <Form>
-            <Form.Item>{getFieldDecorator('input')(<Input />)}</Form.Item>
-            <Form.Item>{getFieldDecorator('textarea')(<Input.TextArea />)}</Form.Item>
-            <button type="button" onClick={this.reset}>
-              reset
-            </button>
-          </Form>
-        );
-      }
-    }
-    const DemoForm = Form.create()(Demo);
-    const wrapper = mount(<DemoForm />);
+      return (
+        <Form form={form}>
+          <Form.Item name="input">
+            <Input />
+          </Form.Item>
+          <Form.Item name="textarea">
+            <Input.TextArea />
+          </Form.Item>
+          <button type="button" onClick={reset}>
+            reset
+          </button>
+        </Form>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     wrapper.find('textarea').simulate('change', { target: { value: '222' } });
     expect(wrapper.find('input').prop('value')).toBe('111');
@@ -212,55 +216,6 @@ describe('Input.Search', () => {
   it('should support suffix', () => {
     const wrapper = mount(<Input.Search suffix="suffix" />);
     expect(wrapper).toMatchSnapshot();
-  });
-});
-
-describe('Input.Password', () => {
-  it('should change type when click', () => {
-    const wrapper = mount(<Input.Password />);
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
-    expect(wrapper).toMatchSnapshot();
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
-    expect(wrapper).toMatchSnapshot();
-  });
-
-  it('visibilityToggle should work', () => {
-    const wrapper = mount(<Input.Password visibilityToggle={false} />);
-    expect(wrapper.find('.anticon-eye').length).toBe(0);
-    wrapper.setProps({ visibilityToggle: true });
-    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
-  });
-
-  it('should keep focus state', () => {
-    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />);
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode(),
-    );
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('mousedown');
-    wrapper
-      .find('.ant-input-password-icon')
-      .at(0)
-      .simulate('click');
-    expect(document.activeElement).toBe(
-      wrapper
-        .find('input')
-        .at(0)
-        .getDOMNode(),
-    );
   });
 });
 
@@ -354,5 +309,10 @@ describe('Input allowClear', () => {
         .at(0)
         .getDOMNode(),
     );
+  });
+
+  it('should not support allowClear when it is disabled', () => {
+    const wrapper = mount(<Input allowClear defaultValue="111" disabled />);
+    expect(wrapper.find('.ant-input-clear-icon').length).toBe(0);
   });
 });

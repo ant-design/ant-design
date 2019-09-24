@@ -14,7 +14,8 @@ title:
 With text and icon.
 
 ```jsx
-import { Switch, Icon } from 'antd';
+import { Switch } from 'antd';
+import { Close, Check } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
@@ -22,11 +23,7 @@ ReactDOM.render(
     <br />
     <Switch checkedChildren="1" unCheckedChildren="0" />
     <br />
-    <Switch
-      checkedChildren={<Icon type="check" />}
-      unCheckedChildren={<Icon type="close" />}
-      defaultChecked
-    />
+    <Switch checkedChildren={<Check />} unCheckedChildren={<Close />} defaultChecked />
   </div>,
   mountNode,
 );

@@ -16,7 +16,7 @@ Basic Usage.
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 function handleChange(value) {
   console.log(`selected ${value}`);
@@ -36,6 +36,9 @@ ReactDOM.render(
       <Option value="lucy">Lucy</Option>
     </Select>
     <Select defaultValue="lucy" style={{ width: 120 }} loading>
+      <Option value="lucy">Lucy</Option>
+    </Select>
+    <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
       <Option value="lucy">Lucy</Option>
     </Select>
   </div>,

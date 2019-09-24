@@ -1,7 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
+import { Eye, EyeInvisible } from '@ant-design/icons';
+
 import Input, { InputProps } from './Input';
-import Icon from '../icon';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
@@ -19,6 +21,8 @@ const ActionMap: Record<string, string> = {
 };
 
 export default class Password extends React.Component<PasswordProps, PasswordState> {
+  input: HTMLInputElement;
+
   static defaultProps = {
     inputPrefixCls: 'ant-input',
     prefixCls: 'ant-input-password',
@@ -31,18 +35,21 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   };
 
   onChange = () => {
-    this.setState({
-      visible: !this.state.visible,
-    });
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+
+    this.setState(({ visible }) => ({ visible: !visible }));
   };
 
   getIcon() {
     const { prefixCls, action } = this.props;
     const iconTrigger = ActionMap[action!] || '';
+    const icon = this.state.visible ? Eye : EyeInvisible;
     const iconProps = {
       [iconTrigger]: this.onChange,
       className: `${prefixCls}-icon`,
-      type: this.state.visible ? 'eye' : 'eye-invisible',
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
         // Prevent focused state lost
@@ -50,7 +57,25 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
         e.preventDefault();
       },
     };
-    return <Icon {...iconProps} />;
+    return React.createElement(icon, iconProps);
+  }
+
+  saveInput = (instance: Input) => {
+    if (instance && instance.input) {
+      this.input = instance.input;
+    }
+  };
+
+  focus() {
+    this.input.focus();
+  }
+
+  blur() {
+    this.input.blur();
+  }
+
+  select() {
+    this.input.select();
   }
 
   render() {
@@ -59,7 +84,6 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
       prefixCls,
       inputPrefixCls,
       size,
-      suffix,
       visibilityToggle,
       ...restProps
     } = this.props;
@@ -69,12 +93,13 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     });
     return (
       <Input
-        {...restProps}
+        {...omit(restProps, ['suffix'])}
         type={this.state.visible ? 'text' : 'password'}
         size={size}
         className={inputClassName}
         prefixCls={inputPrefixCls}
         suffix={suffixIcon}
+        ref={this.saveInput}
       />
     );
   }

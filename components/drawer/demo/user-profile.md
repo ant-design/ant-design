@@ -75,7 +75,14 @@ class App extends React.Component {
           ]}
           bordered
           renderItem={item => (
-            <List.Item key={item.id} actions={[<a onClick={this.showDrawer}>View Profile</a>]}>
+            <List.Item
+              key={item.id}
+              actions={[
+                <a onClick={this.showDrawer} key={`a-${item.id}`}>
+                  View Profile
+                </a>,
+              ]}
+            >
               <List.Item.Meta
                 avatar={
                   <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />

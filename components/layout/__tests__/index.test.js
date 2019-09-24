@@ -3,10 +3,15 @@ import { mount, render } from 'enzyme';
 import Layout from '..';
 import Icon from '../../icon';
 import Menu from '../../menu';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { Sider, Content } = Layout;
 
 describe('Layout', () => {
+  mountTest(Layout);
+  mountTest(Content);
+  mountTest(Sider);
+
   it('detect the sider as children', async () => {
     const wrapper = mount(
       <Layout>
@@ -138,7 +143,17 @@ describe('Layout', () => {
   });
 });
 
-describe('Sider onBreakpoint', () => {
+describe('Sider', () => {
+  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  afterEach(() => {
+    errorSpy.mockReset();
+  });
+
+  afterAll(() => {
+    errorSpy.mockRestore();
+  });
+
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
       value: jest.fn(() => ({
@@ -158,5 +173,16 @@ describe('Sider onBreakpoint', () => {
       </Sider>,
     );
     expect(onBreakpoint).toHaveBeenCalledWith(true);
+  });
+
+  it('should warning if use `inlineCollapsed` with menu', () => {
+    mount(
+      <Sider collapsible>
+        <Menu mode="inline" inlineCollapsed />
+      </Sider>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Menu] `inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
+    );
   });
 });

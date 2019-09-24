@@ -16,8 +16,6 @@ Generate a group of checkboxes from an array.
 ```jsx
 import { Checkbox } from 'antd';
 
-const CheckboxGroup = Checkbox.Group;
-
 function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
 }
@@ -36,13 +34,13 @@ const optionsWithDisabled = [
 
 ReactDOM.render(
   <div>
-    <CheckboxGroup options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
+    <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
     <br />
     <br />
-    <CheckboxGroup options={options} defaultValue={['Pear']} onChange={onChange} />
+    <Checkbox.Group options={options} defaultValue={['Pear']} onChange={onChange} />
     <br />
     <br />
-    <CheckboxGroup
+    <Checkbox.Group
       options={optionsWithDisabled}
       disabled
       defaultValue={['Apple']}

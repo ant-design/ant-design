@@ -15,10 +15,11 @@ title:
 The most basic usage.
 
 ```jsx
-import { TreeSelect, Icon } from 'antd';
+import { TreeSelect } from 'antd';
+import { Smile } from '@ant-design/icons';
 
-const TreeNode = TreeSelect.TreeNode;
-const icon = <Icon type="smile" />;
+const { TreeNode } = TreeSelect;
+const icon = <Smile />;
 
 class Demo extends React.Component {
   state = {

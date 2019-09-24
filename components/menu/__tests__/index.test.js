@@ -4,6 +4,7 @@ import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
 import raf from '../../_util/raf';
+import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -15,6 +16,14 @@ jest.mock('mutationobserver-shim', () => {
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
+  mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <Menu.ItemGroup />
+      <Menu.SubMenu />
+    </Menu>
+  ));
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -569,7 +578,6 @@ describe('Menu', () => {
         .instance()
         .getMenuOpenAnimation(''),
     ).toBe('');
-    expect(wrapper.find('InternalMenu').state().switchingModeFromInline).toBe(false);
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
@@ -633,6 +641,63 @@ describe('Menu', () => {
 
     expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
 
+    jest.useRealTimers();
+  });
+
+  it('props#onOpen and props#onClose do not warn anymore', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const onOpen = jest.fn();
+    const onClose = jest.fn();
+    mount(
+      <Menu defaultOpenKeys={['1']} mode="inline" onOpen={onOpen} onClose={onClose}>
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="submenu1">Option 1</Menu.Item>
+          <Menu.Item key="submenu2">Option 2</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="2">menu2</Menu.Item>
+      </Menu>,
+    );
+
+    expect(errorSpy.mock.calls.length).toBe(1);
+    expect(errorSpy.mock.calls[0][0]).not.toContain(
+      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, see: https://u.ant.design/menu-on-open-change.',
+    );
+    expect(onOpen).not.toHaveBeenCalled();
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18825
+  // https://github.com/ant-design/ant-design/issues/8587
+  it('should keep selectedKeys in state when collapsed to 0px', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Menu
+        mode="inline"
+        inlineCollapsed={false}
+        defaultSelectedKeys={['1']}
+        collapsedWidth={0}
+        openKeys={['3']}
+      >
+        <Menu.Item key="1">Option 1</Menu.Item>
+        <Menu.Item key="2">Option 2</Menu.Item>
+        <Menu.SubMenu key="3" title="Option 3">
+          <Menu.Item key="4">Option 4</Menu.Item>
+        </Menu.SubMenu>
+      </Menu>,
+    );
+    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 1');
+    wrapper
+      .find('.ant-menu-item')
+      .at(1)
+      .simulate('click');
+    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
+    wrapper.setProps({ inlineCollapsed: true });
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-submenu-popup:not(.ant-menu-submenu-hidden)').length).toBe(0);
+    wrapper.setProps({ inlineCollapsed: false });
+    expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();
   });
 });

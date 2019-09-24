@@ -1,7 +1,12 @@
-/* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon';
+import {
+  Loading,
+  ExclamationCircleFilled,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  InfoCircleFilled,
+} from '@ant-design/icons';
 
 let defaultDuration = 3;
 let defaultTop: number;
@@ -39,13 +44,13 @@ function getMessageInstance(callback: (i: any) => void) {
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 export interface ThenableArgument {
-  (_: any): any;
+  (val: any): void;
 }
 
 export interface MessageType {
   (): void;
-  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<any>;
-  promise: Promise<any>;
+  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<void>;
+  promise: Promise<void>;
 }
 
 export interface ArgsProps {
@@ -56,15 +61,17 @@ export interface ArgsProps {
   icon?: React.ReactNode;
 }
 
+const iconMap = {
+  info: InfoCircleFilled,
+  success: CheckCircleFilled,
+  error: CloseCircleFilled,
+  warning: ExclamationCircleFilled,
+  loading: Loading,
+};
+
 function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const iconType = {
-    info: 'info-circle',
-    success: 'check-circle',
-    error: 'close-circle',
-    warning: 'exclamation-circle',
-    loading: 'loading',
-  }[args.type];
+  const IconComponent = iconMap[args.type];
 
   const target = key++;
   const closePromise = new Promise(resolve => {
@@ -75,9 +82,6 @@ function notice(args: ArgsProps): MessageType {
       return resolve(true);
     };
     getMessageInstance(instance => {
-      const iconNode = (
-        <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
-      );
       instance.notice({
         key: target,
         duration,
@@ -88,7 +92,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : iconType ? iconNode : ''}
+            {args.icon ? args.icon : <IconComponent />}
             <span>{args.content}</span>
           </div>
         ),
@@ -159,7 +163,7 @@ const api: any = {
       onClose = duration;
       duration = undefined;
     }
-    return api.open({ content, duration: duration, type, onClose });
+    return api.open({ content, duration, type, onClose });
   };
 });
 

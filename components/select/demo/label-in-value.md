@@ -20,7 +20,7 @@ The label of the selected item will be packed as an object for passing to the on
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 function handleChange(value) {
   console.log(value); // { key: "lucy", label: "Lucy (101)" }

@@ -15,17 +15,18 @@ Usually used for reminders and notifications.
 
 ```jsx
 import { Avatar, Badge } from 'antd';
+import { User } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
     <span style={{ marginRight: 24 }}>
       <Badge count={1}>
-        <Avatar shape="square" icon="user" />
+        <Avatar shape="square" icon={<User />} />
       </Badge>
     </span>
     <span>
       <Badge dot>
-        <Avatar shape="square" icon="user" />
+        <Avatar shape="square" icon={<User />} />
       </Badge>
     </span>
   </div>,

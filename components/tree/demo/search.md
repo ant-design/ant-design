@@ -16,8 +16,7 @@ Searchable Tree.
 ```jsx
 import { Tree, Input } from 'antd';
 
-const { TreeNode } = Tree;
-const Search = Input.Search;
+const { Search } = Input;
 
 const x = 3;
 const y = 2;
@@ -51,7 +50,7 @@ const dataList = [];
 const generateList = data => {
   for (let i = 0; i < data.length; i++) {
     const node = data[i];
-    const key = node.key;
+    const { key } = node;
     dataList.push({ key, title: key });
     if (node.children) {
       generateList(node.children);
@@ -90,7 +89,7 @@ class SearchTree extends React.Component {
   };
 
   onChange = e => {
-    const value = e.target.value;
+    const { value } = e.target;
     const expandedKeys = dataList
       .map(item => {
         if (item.title.indexOf(value) > -1) {
@@ -124,13 +123,13 @@ class SearchTree extends React.Component {
             <span>{item.title}</span>
           );
         if (item.children) {
-          return (
-            <TreeNode key={item.key} title={title}>
-              {loop(item.children)}
-            </TreeNode>
-          );
+          return { title, key: item.key, children: loop(item.children) };
         }
-        return <TreeNode key={item.key} title={title} />;
+
+        return {
+          title,
+          key: item.key,
+        };
       });
     return (
       <div>
@@ -139,9 +138,8 @@ class SearchTree extends React.Component {
           onExpand={this.onExpand}
           expandedKeys={expandedKeys}
           autoExpandParent={autoExpandParent}
-        >
-          {loop(gData)}
-        </Tree>
+          treeData={loop(gData)}
+        />
       </div>
     );
   }

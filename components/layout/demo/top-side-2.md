@@ -14,7 +14,8 @@ title:
 Both the top navigation and the sidebar, commonly used in application site.
 
 ```jsx
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
+import { User, Laptop, Notification } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -46,7 +47,7 @@ ReactDOM.render(
             key="sub1"
             title={
               <span>
-                <Icon type="user" />
+                <User />
                 subnav 1
               </span>
             }
@@ -60,7 +61,7 @@ ReactDOM.render(
             key="sub2"
             title={
               <span>
-                <Icon type="laptop" />
+                <Laptop />
                 subnav 2
               </span>
             }
@@ -74,7 +75,7 @@ ReactDOM.render(
             key="sub3"
             title={
               <span>
-                <Icon type="notification" />
+                <Notification />
                 subnav 3
               </span>
             }

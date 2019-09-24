@@ -1,9 +1,11 @@
 import React from 'react';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
+
+import Icon from '../Icon';
 import * as utils from '../utils';
 
 import svgBgToParallax from './util';
@@ -41,6 +43,7 @@ const page2Data = [
 
 const svgBgChild = [
   <svg
+    key="svg-0"
     width="100%"
     height="100%"
     viewBox="0 0 1401 1109"
@@ -85,6 +88,7 @@ const svgBgChild = [
     </g>
   </svg>,
   <svg
+    key="svg-1"
     width="1311px"
     height="920px"
     viewBox="0 0 1311 920"

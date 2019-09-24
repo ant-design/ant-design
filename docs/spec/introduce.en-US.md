@@ -27,10 +27,12 @@ We supply a series of design principles, practical patterns and high quality des
 [React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](https://ant.design/docs/spec/introduce) in other front-end frameworks of their choice.
 
 ```__react
-import { Icon } from 'antd';
+import {
+  Export as ExportIcon,
+} from '@ant-design/icons';
 
 const LinkIcon = () => (
-  <Icon type="export" className="outside-link-icon" />
+  <ExportIcon className="outside-link-icon" />
 );
 
 const LinksList = () => (

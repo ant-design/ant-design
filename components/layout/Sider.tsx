@@ -1,9 +1,18 @@
 import createContext, { Context } from '@ant-design/create-react-context';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
+import * as React from 'react';
+import { polyfill } from 'react-lifecycles-compat';
+import classNames from 'classnames';
+import omit from 'omit.js';
+import { Bars, Right, Left } from '@ant-design/icons';
+
 import { LayoutContext, LayoutContextProps } from './layout';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import isNumeric from '../_util/isNumeric';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
+// TODO: Will be removed in antd 4.0 because we will no longer support ie9
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string) => {
     return {
@@ -13,23 +22,17 @@ if (typeof window !== 'undefined') {
       removeListener() {},
     };
   };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  // ref: https://github.com/ant-design/ant-design/issues/18774
+  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill as any;
 }
 
-import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
-import classNames from 'classnames';
-import omit from 'omit.js';
-import Icon from '../icon';
-import isNumeric from '../_util/isNumeric';
-
-const dimensionMap = {
-  xs: '480px',
-  sm: '576px',
-  md: '768px',
-  lg: '992px',
-  xl: '1200px',
-  xxl: '1600px',
+const dimensionMaxMap = {
+  xs: '479.98px',
+  sm: '575.98px',
+  md: '767.98px',
+  lg: '991.98px',
+  xl: '1199.98px',
+  xxl: '1599.98px',
 };
 
 export interface SiderContextProps {
@@ -95,6 +98,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
   }
 
   private mql: MediaQueryList;
+
   private uniqueId: string;
 
   constructor(props: InternalSideProps) {
@@ -104,8 +108,8 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     if (typeof window !== 'undefined') {
       matchMedia = window.matchMedia;
     }
-    if (matchMedia && props.breakpoint && props.breakpoint in dimensionMap) {
-      this.mql = matchMedia(`(max-width: ${dimensionMap[props.breakpoint]})`);
+    if (matchMedia && props.breakpoint && props.breakpoint in dimensionMaxMap) {
+      this.mql = matchMedia(`(max-width: ${dimensionMaxMap[props.breakpoint]})`);
     }
     let collapsed;
     if ('collapsed' in props) {
@@ -169,7 +173,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
   };
 
   belowShowChange = () => {
-    this.setState({ belowShow: !this.state.belowShow });
+    this.setState(({ belowShow }) => ({ belowShow: !belowShow }));
   };
 
   renderSider = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -206,12 +210,12 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
             reverseArrow ? 'right' : 'left'
           }`}
         >
-          <Icon type="bars" />
+          <Bars />
         </span>
       ) : null;
     const iconObj = {
-      expanded: reverseArrow ? <Icon type="right" /> : <Icon type="left" />,
-      collapsed: reverseArrow ? <Icon type="left" /> : <Icon type="right" />,
+      expanded: reverseArrow ? <Right /> : <Left />,
+      collapsed: reverseArrow ? <Left /> : <Right />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];
@@ -266,6 +270,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
 
 polyfill(InternalSider);
 
+// eslint-disable-next-line react/prefer-stateless-function
 export default class Sider extends React.Component {
   render() {
     return (

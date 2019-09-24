@@ -24,14 +24,7 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, Sel
     }
   }
 
-  subscribe() {
-    const { store } = this.props;
-    this.unsubscribe = store.subscribe(() => {
-      const checked = this.getCheckState(this.props);
-      this.setState({ checked });
-    });
-  }
-
+  // eslint-disable-next-line class-methods-use-this
   getCheckState(props: SelectionBoxProps) {
     const { store, defaultSelection, rowIndex } = props;
     let checked = false;
@@ -45,14 +38,21 @@ export default class SelectionBox extends React.Component<SelectionBoxProps, Sel
     return checked;
   }
 
+  subscribe() {
+    const { store } = this.props;
+    this.unsubscribe = store.subscribe(() => {
+      const checked = this.getCheckState(this.props);
+      this.setState({ checked });
+    });
+  }
+
   render() {
     const { type, rowIndex, ...rest } = this.props;
     const { checked } = this.state;
 
     if (type === 'radio') {
       return <Radio checked={checked} value={rowIndex} {...rest} />;
-    } else {
-      return <Checkbox checked={checked} {...rest} />;
     }
+    return <Checkbox checked={checked} {...rest} />;
   }
 }

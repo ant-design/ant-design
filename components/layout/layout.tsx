@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import createContext, { Context } from '@ant-design/create-react-context';
+import createContext from '@ant-design/create-react-context';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -19,7 +19,7 @@ export interface LayoutContextProps {
     removeSider: (id: string) => void;
   };
 }
-export const LayoutContext: Context<LayoutContextProps> = createContext({
+export const LayoutContext = createContext<LayoutContextProps>({
   siderHook: {
     addSider: () => null,
     removeSider: () => null,
@@ -31,11 +31,14 @@ interface BasicPropsWithTagName extends BasicProps {
 }
 
 function generator({ suffixCls, tagName }: GeneratorProps) {
-  return (BasicComponent: React.ComponentClass<BasicPropsWithTagName>): any => {
+  return (BasicComponent: any) => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
+
       static Footer: any;
+
       static Content: any;
+
       static Sider: any;
 
       renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -52,13 +55,11 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
   };
 }
 
-class Basic extends React.Component<BasicPropsWithTagName, any> {
-  render() {
-    const { prefixCls, className, children, tagName, ...others } = this.props;
-    const classString = classNames(className, prefixCls);
-    return React.createElement(tagName, { className: classString, ...others }, children);
-  }
-}
+const Basic = (props: BasicPropsWithTagName) => {
+  const { prefixCls, className, children, tagName, ...others } = props;
+  const classString = classNames(className, prefixCls);
+  return React.createElement(tagName, { className: classString, ...others }, children);
+};
 
 interface BasicLayoutState {
   siders: string[];

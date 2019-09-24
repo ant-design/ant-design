@@ -25,7 +25,12 @@ const ResizeableTitle = props => {
   }
 
   return (
-    <Resizable width={width} height={0} onResize={onResize}>
+    <Resizable
+      width={width}
+      height={0}
+      onResize={onResize}
+      draggableOpts={{ enableUserSelectHack: false }}
+    >
       <th {...restProps} />
     </Resizable>
   );
@@ -57,7 +62,7 @@ class Demo extends React.Component {
       {
         title: 'Action',
         key: 'action',
-        render: () => <a href="javascript:;">Delete</a>,
+        render: () => <a>Delete</a>,
       },
     ],
   };
@@ -122,6 +127,7 @@ ReactDOM.render(<Demo />, mountNode);
 ```css
 #components-table-demo-resizable-column .react-resizable {
   position: relative;
+  background-clip: padding-box;
 }
 
 #components-table-demo-resizable-column .react-resizable-handle {
@@ -131,5 +137,6 @@ ReactDOM.render(<Demo />, mountNode);
   bottom: 0;
   right: -5px;
   cursor: col-resize;
+  z-index: 1;
 }
 ```

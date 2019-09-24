@@ -11,13 +11,13 @@ title:
 
 ## en-US
 
-use react-sticky.
+Use react-sticky.
 
 ```jsx
 import { Tabs } from 'antd';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 const renderTabBar = (props, DefaultTabBar) => (
   <Sticky bottomOffset={80}>

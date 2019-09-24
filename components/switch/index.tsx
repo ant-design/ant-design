@@ -3,18 +3,24 @@ import * as PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { Loading } from '@ant-design/icons';
+
 import Wave from '../_util/wave';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
+
+export type SwitchSize = 'small' | 'default';
+export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
+export type SwitchClickEventHandler = SwitchChangeEventHandler;
 
 export interface SwitchProps {
   prefixCls?: string;
-  size?: 'small' | 'default';
+  size?: SwitchSize;
   className?: string;
   checked?: boolean;
   defaultChecked?: boolean;
-  onChange?: (checked: boolean, event: MouseEvent) => any;
-  onClick?: (checked: boolean, event: MouseEvent) => any;
+  onChange?: SwitchChangeEventHandler;
+  onClick?: SwitchClickEventHandler;
   checkedChildren?: React.ReactNode;
   unCheckedChildren?: React.ReactNode;
   disabled?: boolean;
@@ -25,6 +31,8 @@ export interface SwitchProps {
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
+  static __ANT_SWITCH = true;
+
   static propTypes = {
     prefixCls: PropTypes.string,
     // HACK: https://github.com/ant-design/ant-design/issues/5368
@@ -37,6 +45,20 @@ export default class Switch extends React.Component<SwitchProps, {}> {
 
   private rcSwitch: typeof RcSwitch;
 
+  constructor(props: SwitchProps) {
+    super(props);
+
+    warning(
+      'checked' in props || !('value' in props),
+      'Switch',
+      '`value` is not validate prop, do you mean `checked`?',
+    );
+  }
+
+  saveSwitch = (node: typeof RcSwitch) => {
+    this.rcSwitch = node;
+  };
+
   focus() {
     this.rcSwitch.focus();
   }
@@ -45,10 +67,6 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     this.rcSwitch.blur();
   }
 
-  saveSwitch = (node: typeof RcSwitch) => {
-    this.rcSwitch = node;
-  };
-
   renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
@@ -56,9 +74,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
-    const loadingIcon = loading ? (
-      <Icon type="loading" className={`${prefixCls}-loading-icon`} />
-    ) : null;
+    const loadingIcon = loading ? <Loading className={`${prefixCls}-loading-icon`} /> : null;
     return (
       <Wave insertExtraNode>
         <RcSwitch

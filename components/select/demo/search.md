@@ -16,7 +16,7 @@ Search the options while expanded.
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 function onChange(value) {
   console.log(`selected ${value}`);
@@ -45,7 +45,7 @@ ReactDOM.render(
     onBlur={onBlur}
     onSearch={onSearch}
     filterOption={(input, option) =>
-      option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
     }
   >
     <Option value="jack">Jack</Option>

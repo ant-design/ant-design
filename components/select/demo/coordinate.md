@@ -20,7 +20,7 @@ Using the [Cascader](/components/cascader) component is strongly recommended ins
 ```jsx
 import { Select } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 const provinceData = ['Zhejiang', 'Jiangsu'];
 const cityData = {
   Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],

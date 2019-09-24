@@ -14,7 +14,8 @@ title:
 A Card that supports `cover`, `avatar`, `title` and `description`.
 
 ```jsx
-import { Card, Icon, Avatar } from 'antd';
+import { Card, Avatar } from 'antd';
+import { Edit, Ellipsis, Setting } from '@ant-design/icons';
 
 const { Meta } = Card;
 
@@ -27,7 +28,7 @@ ReactDOM.render(
         src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
       />
     }
-    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+    actions={[<Setting key="setting" />, <Edit key="edit" />, <Ellipsis key="ellipsis" />]}
   >
     <Meta
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
