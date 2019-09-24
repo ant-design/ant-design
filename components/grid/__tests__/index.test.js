@@ -37,10 +37,7 @@ describe('Grid', () => {
 
   it('when typeof getGutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(wrapper.instance().getGutters()).toEqual({
-      gutter: 8,
-      vgutter: 0,
-    });
+    expect(wrapper.instance().getGutters()).toEqual([8, 0]);
     wrapper.unmount();
   });
 

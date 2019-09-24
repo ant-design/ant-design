@@ -26,10 +26,7 @@ export interface RowState {
   screens: BreakpointMap;
 }
 
-export interface Gutters {
-  gutter: number;
-  vgutter: number;
-}
+export type Gutters = [number, number];
 
 export default class Row extends React.Component<RowProps, RowState> {
   static defaultProps = {
@@ -69,26 +66,19 @@ export default class Row extends React.Component<RowProps, RowState> {
   }
 
   getGutters(): Gutters {
-    const gutters: Gutters = { gutter: 0, vgutter: 0 };
-    const { gutter: gutter_setting } = this.props;
-    let gutter: Gutter = 0;
-    let vgutter: Gutter = 0;
+    const gutters: Gutters = [0, 0];
+    const { gutter } = this.props;
 
-    if (Array.isArray(gutter_setting)) {
-      [gutter = 0, vgutter = 0] = gutter_setting;
-    } else {
-      gutter = gutter_setting as number;
-    }
-    Object.entries({ gutter, vgutter }).forEach(([key, v]: ['gutter' | 'vgutter', any]) => {
-      if (typeof v === 'object') {
+    (Array.isArray(gutter) ? gutter : [gutter, 0]).forEach((g, index) => {
+      if (typeof g === 'object') {
         for (let i = 0; i < responsiveArray.length; i++) {
           const breakpoint: Breakpoint = responsiveArray[i];
-          if (this.state.screens[breakpoint] && v[breakpoint] !== undefined) {
-            gutters[key] = v[breakpoint];
+          if (this.state.screens[breakpoint] && g[breakpoint] !== undefined) {
+            gutters[index] = g[breakpoint] as number;
           }
         }
       } else {
-        gutters[key] = v;
+        gutters[index] = g as number;
       }
     });
 
@@ -107,7 +97,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       ...others
     } = this.props;
     const prefixCls = getPrefixCls('row', customizePrefixCls);
-    const { gutter, vgutter } = this.getGutters();
+    const gutters = this.getGutters();
     const classes = classNames(
       {
         [prefixCls]: !type,
@@ -118,24 +108,25 @@ export default class Row extends React.Component<RowProps, RowState> {
       className,
     );
     const rowStyle = {
-      ...(gutter! > 0
+      ...(gutters[0]! > 0
         ? {
-            marginLeft: gutter! / -2,
-            marginRight: gutter! / -2,
+            marginLeft: gutters[0]! / -2,
+            marginRight: gutters[0]! / -2,
           }
         : {}),
-      ...(vgutter! > 0
+      ...(gutters[1]! > 0
         ? {
-            marginTop: vgutter! / -2,
-            marginBottom: vgutter! / -2,
+            marginTop: gutters[1]! / -2,
+            marginBottom: gutters[1]! / -2,
           }
         : {}),
       ...style,
     };
     const otherProps = { ...others };
     delete otherProps.gutter;
+
     return (
-      <RowContext.Provider value={{ gutter, vgutter }}>
+      <RowContext.Provider value={{ gutters }}>
         <div {...otherProps} className={classes} style={rowStyle}>
           {children}
         </div>
