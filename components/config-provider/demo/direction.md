@@ -86,19 +86,13 @@ const cascaderOptions = [
 ];
 
 class Page extends React.Component {
-  onCascaderChange = value => {
-    console.log(value);
-  };
-
-  cascaderFilter = (inputValue, path) => {
-    return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
-  };
   selectBefore = (
     <Select defaultValue="Http://" style={{ width: 90 }}>
       <Option value="Http://">Http://</Option>
       <Option value="Https://">Https://</Option>
     </Select>
   );
+
   selectAfter = (
     <Select defaultValue=".com" style={{ width: 80 }}>
       <Option value=".com">.com</Option>
@@ -107,6 +101,15 @@ class Page extends React.Component {
       <Option value=".org">.org</Option>
     </Select>
   );
+
+  cascaderFilter = (inputValue, path) => {
+    return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+  };
+
+  onCascaderChange = value => {
+    console.log(value);
+  };
+
   render() {
     return (
       <div className="direction-components example">

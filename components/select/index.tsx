@@ -217,7 +217,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     const prefixCls = getPrefixCls('select', customizePrefixCls);
     const cls = classNames(
       {
-        ['rtl']: direction === 'rtl',
+        rtl: direction === 'rtl',
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-sm`]: size === 'small',
         [`${prefixCls}-show-arrow`]: showArrow,

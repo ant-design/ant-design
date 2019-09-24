@@ -59,7 +59,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const classes = classNames(className, {
-      ['rtl']: direction === 'rtl',
+      rtl: direction === 'rtl',
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
