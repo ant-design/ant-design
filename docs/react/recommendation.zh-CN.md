@@ -7,6 +7,7 @@ title: 社区精选组件
 
 | 类型 | 推荐组件 |
 | --- | --- |
+| 可视化图表 | [🔥 AntV 数据可视化解决方案](https://antv.alipay.com) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](https://github.com/whoisandy/react-blocks) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
@@ -19,7 +20,6 @@ title: 社区精选组件
 | 页面 meta 属性 | [react-helmet](https://github.com/nfl/react-helmet) [react-document-title](https://github.com/gaearon/react-document-title) |
 | 图标 | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons) |
 | 二维码 | [qrcode.react](https://github.com/zpao/qrcode.react) |
-| 可视化图表 | [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [victory](https://github.com/FormidableLabs/victory) |
 | 可视化图编辑器 | [GGEditor](https://github.com/gaoli/GGEditor) |
 | 顶部进度条 | [nprogress](https://github.com/rstacruz/nprogress) |
 | 应用国际化 | [react-intl](https://github.com/yahoo/react-intl) |
