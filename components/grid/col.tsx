@@ -100,15 +100,24 @@ export default class Col extends React.Component<ColProps, {}> {
 
     return (
       <RowContext.Consumer>
-        {({ gutter }) => {
+        {({ gutter, vgutter }) => {
           let { style } = others;
-          if (gutter! > 0) {
-            style = {
-              paddingLeft: gutter! / 2,
-              paddingRight: gutter! / 2,
-              ...style,
-            };
-          }
+          style = {
+            ...(gutter! > 0
+              ? {
+                  paddingLeft: gutter! / 2,
+                  paddingRight: gutter! / 2,
+                }
+              : {}),
+            ...(vgutter! > 0
+              ? {
+                  paddingTop: vgutter! / 2,
+                  paddingBottom: vgutter! / 2,
+                }
+              : {}),
+            ...style,
+          };
+
           return (
             <div {...others} style={style} className={classes}>
               {children}

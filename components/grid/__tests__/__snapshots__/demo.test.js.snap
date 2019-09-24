@@ -414,6 +414,51 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-row"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-6px;margin-bottom:-6px"
+  >
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+    >
+      <div
+        class="gutter-box"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+    >
+      <div
+        class="gutter-box"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+    >
+      <div
+        class="gutter-box"
+      >
+        col-6
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6 gutter-row"
+      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+    >
+      <div
+        class="gutter-box"
+      >
+        col-6
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

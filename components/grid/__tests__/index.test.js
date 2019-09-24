@@ -37,7 +37,10 @@ describe('Grid', () => {
 
   it('when typeof getGutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(wrapper.instance().getGutter()).toBe(8);
+    expect(wrapper.instance().getGutters()).toEqual({
+      gutter: 8,
+      vgutter: 0,
+    });
     wrapper.unmount();
   });
 
@@ -64,10 +67,12 @@ describe('Grid', () => {
   it('should work correct when gutter is object', () => {
     // eslint-disable-next-line global-require
     const enquire = require('enquire.js');
-    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
+    const wrapper = mount(<Row gutter={{ xs: 20 }} vgutter={{ xs: 10 }} />);
     expect(wrapper.find('div').prop('style')).toEqual({
       marginLeft: -10,
       marginRight: -10,
+      marginTop: -5,
+      marginBottom: -5,
     });
     enquire.callunmatch();
     expect(
@@ -75,7 +80,7 @@ describe('Grid', () => {
         .update()
         .find('div')
         .prop('style'),
-    ).toEqual(undefined);
+    ).toEqual({});
     wrapper.unmount();
     expect(enquire.unregister).toHaveBeenCalled();
   });

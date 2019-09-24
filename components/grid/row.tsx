@@ -14,6 +14,7 @@ const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: number | Partial<Record<Breakpoint, number>>;
+  vgutter?: number | Partial<Record<Breakpoint, number>>;
   type?: 'flex';
   align?: (typeof RowAligns)[number];
   justify?: (typeof RowJustify)[number];
@@ -24,9 +25,15 @@ export interface RowState {
   screens: BreakpointMap;
 }
 
+export interface Gutters {
+  gutter: number;
+  vgutter: number;
+}
+
 export default class Row extends React.Component<RowProps, RowState> {
   static defaultProps = {
     gutter: 0,
+    vgutter: 0,
   };
 
   static propTypes = {
@@ -36,6 +43,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     className: PropTypes.string,
     children: PropTypes.node,
     gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
+    vgutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number]),
     prefixCls: PropTypes.string,
   };
 
@@ -47,7 +55,7 @@ export default class Row extends React.Component<RowProps, RowState> {
 
   componentDidMount() {
     this.token = ResponsiveObserve.subscribe(screens => {
-      if (typeof this.props.gutter === 'object') {
+      if (typeof this.props.gutter === 'object' || typeof this.props.vgutter === 'object') {
         this.setState({ screens });
       }
     });
@@ -57,17 +65,23 @@ export default class Row extends React.Component<RowProps, RowState> {
     ResponsiveObserve.unsubscribe(this.token);
   }
 
-  getGutter(): number | undefined {
-    const { gutter } = this.props;
-    if (typeof gutter === 'object') {
-      for (let i = 0; i < responsiveArray.length; i++) {
-        const breakpoint: Breakpoint = responsiveArray[i];
-        if (this.state.screens[breakpoint] && gutter[breakpoint] !== undefined) {
-          return gutter[breakpoint];
+  getGutters(): Gutters {
+    const gutters: Gutters = { gutter: 0, vgutter: 0 };
+    const { gutter, vgutter } = this.props;
+    Object.entries({ gutter, vgutter }).forEach(([key, v]: ['gutter' | 'vgutter', number]) => {
+      if (typeof v === 'object') {
+        for (let i = 0; i < responsiveArray.length; i++) {
+          const breakpoint: Breakpoint = responsiveArray[i];
+          if (this.state.screens[breakpoint] && v[breakpoint] !== undefined) {
+            gutters[key] = v[breakpoint];
+          }
         }
+      } else {
+        gutters[key] = v;
       }
-    }
-    return gutter as number;
+    });
+
+    return gutters;
   }
 
   renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -82,7 +96,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       ...others
     } = this.props;
     const prefixCls = getPrefixCls('row', customizePrefixCls);
-    const gutter = this.getGutter();
+    const { gutter, vgutter } = this.getGutters();
     const classes = classNames(
       {
         [prefixCls]: !type,
@@ -92,18 +106,26 @@ export default class Row extends React.Component<RowProps, RowState> {
       },
       className,
     );
-    const rowStyle =
-      gutter! > 0
+    const rowStyle = {
+      ...(gutter! > 0
         ? {
             marginLeft: gutter! / -2,
             marginRight: gutter! / -2,
-            ...style,
           }
-        : style;
+        : {}),
+      ...(vgutter! > 0
+        ? {
+            marginTop: vgutter! / -2,
+            marginBottom: vgutter! / -2,
+          }
+        : {}),
+      ...style,
+    };
     const otherProps = { ...others };
     delete otherProps.gutter;
+    delete otherProps.vgutter;
     return (
-      <RowContext.Provider value={{ gutter }}>
+      <RowContext.Provider value={{ gutter, vgutter }}>
         <div {...otherProps} className={classes} style={rowStyle}>
           {children}
         </div>
