@@ -610,6 +610,104 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     <span
       style="margin-right:6px"
     >
+      Vertical Gutter (px): 
+    </span>
+    <div
+      style="width:50%"
+    >
+      <div
+        class="ant-slider ant-slider-with-marks"
+      >
+        <div
+          class="ant-slider-rail"
+        />
+        <div
+          class="ant-slider-track"
+          style="left:0%;width:20%"
+        />
+        <div
+          class="ant-slider-step"
+        >
+          <span
+            class="ant-slider-dot ant-slider-dot-active"
+            style="left:0%"
+          />
+          <span
+            class="ant-slider-dot ant-slider-dot-active"
+            style="left:20%"
+          />
+          <span
+            class="ant-slider-dot"
+            style="left:40%"
+          />
+          <span
+            class="ant-slider-dot"
+            style="left:60%"
+          />
+          <span
+            class="ant-slider-dot"
+            style="left:80%"
+          />
+          <span
+            class="ant-slider-dot"
+            style="left:100%"
+          />
+        </div>
+        <div
+          aria-disabled="false"
+          aria-valuemax="5"
+          aria-valuemin="0"
+          aria-valuenow="1"
+          class="ant-slider-handle"
+          role="slider"
+          style="left:20%"
+          tabindex="0"
+        />
+        <div
+          class="ant-slider-mark"
+        >
+          <span
+            class="ant-slider-mark-text ant-slider-mark-text-active"
+            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+          >
+            8
+          </span>
+          <span
+            class="ant-slider-mark-text ant-slider-mark-text-active"
+            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+          >
+            16
+          </span>
+          <span
+            class="ant-slider-mark-text"
+            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+          >
+            24
+          </span>
+          <span
+            class="ant-slider-mark-text"
+            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+          >
+            32
+          </span>
+          <span
+            class="ant-slider-mark-text"
+            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+          >
+            40
+          </span>
+          <span
+            class="ant-slider-mark-text"
+            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+          >
+            48
+          </span>
+        </div>
+      </div>
+    </div>
+    <span
+      style="margin-right:6px"
+    >
       Column Count:
     </span>
     <div
@@ -708,11 +806,11 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
   </div>
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -720,7 +818,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -728,7 +826,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -736,7 +834,44 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
+  >
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
+    >
+      <div>
+        Column
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-6"
+      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -744,7 +879,15 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
   </div>
   <pre>
-    &lt;Row gutter={16}&gt;
+    &lt;Row gutter={16} vgutter={16}&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+  &lt;Col span={6} /&gt;
+&lt;/Row&gt;
+  </pre>
+  <pre>
+    &lt;Row gutter={16} vgutter={16}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
