@@ -67,12 +67,10 @@ describe('Grid', () => {
   it('should work correct when gutter is object', () => {
     // eslint-disable-next-line global-require
     const enquire = require('enquire.js');
-    const wrapper = mount(<Row gutter={{ xs: 20 }} vgutter={{ xs: 10 }} />);
+    const wrapper = mount(<Row gutter={{ xs: 20 }} />);
     expect(wrapper.find('div').prop('style')).toEqual({
       marginLeft: -10,
       marginRight: -10,
-      marginTop: -5,
-      marginBottom: -5,
     });
     enquire.callunmatch();
     expect(
@@ -83,5 +81,15 @@ describe('Grid', () => {
     ).toEqual({});
     wrapper.unmount();
     expect(enquire.unregister).toHaveBeenCalled();
+  });
+
+  it('should work currect when gutter is array', () => {
+    const wrapper = mount(<Row gutter={[16, 20]} />);
+    expect(wrapper.find('div').prop('style')).toEqual({
+      marginLeft: -8,
+      marginRight: -8,
+      marginTop: -10,
+      marginBottom: -10,
+    });
   });
 });

@@ -416,11 +416,11 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
   </div>
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-6px;margin-bottom:-6px"
+    style="margin-top:-10px;margin-bottom:-10px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+      style="padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"
@@ -430,7 +430,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+      style="padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"
@@ -440,7 +440,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+      style="padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"
@@ -450,7 +450,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:6px;padding-bottom:6px"
+      style="padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"
@@ -512,7 +512,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     <span
       style="margin-right:6px"
     >
-      Gutter (px): 
+      Horizontal Gutter (px): 
     </span>
     <div
       style="width:50%"
@@ -879,7 +879,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
     </div>
   </div>
   <pre>
-    &lt;Row gutter={16} vgutter={16}&gt;
+    &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
@@ -887,7 +887,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
 &lt;/Row&gt;
   </pre>
   <pre>
-    &lt;Row gutter={16} vgutter={16}&gt;
+    &lt;Row gutter={[16, 16]}&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;
   &lt;Col span={6} /&gt;

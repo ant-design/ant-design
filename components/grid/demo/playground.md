@@ -69,7 +69,7 @@ class App extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          <span style={{ marginRight: 6 }}>Gutter (px): </span>
+          <span style={{ marginRight: 6 }}>Horizontal Gutter (px): </span>
           <div style={{ width: '50%' }}>
             <Slider
               min={0}
@@ -103,14 +103,10 @@ class App extends React.Component {
             />
           </div>
         </div>
-        <Row gutter={this.gutters[gutterKey]} vgutter={this.vgutters[vgutterKey]}>
-          {cols}
-        </Row>
-        <Row gutter={this.gutters[gutterKey]} vgutter={this.vgutters[vgutterKey]}>
-          {cols}
-        </Row>
-        <pre>{`<Row gutter={${this.gutters[gutterKey]}} vgutter={${this.vgutters[vgutterKey]}}>\n${colCode}</Row>`}</pre>
-        <pre>{`<Row gutter={${this.gutters[gutterKey]}} vgutter={${this.vgutters[vgutterKey]}}>\n${colCode}</Row>`}</pre>
+        <Row gutter={[this.gutters[gutterKey], this.vgutters[vgutterKey]]}>{cols}</Row>
+        <Row gutter={[this.gutters[gutterKey], this.vgutters[vgutterKey]]}>{cols}</Row>
+        <pre>{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+        <pre>{`<Row gutter={[${this.gutters[gutterKey]}, ${this.vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
       </div>
     );
   }
