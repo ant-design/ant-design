@@ -31,7 +31,7 @@ export interface ColumnProps<T> {
     | ((options: {
         filters: TableStateFilters;
         sortOrder?: SortOrder;
-        sortColumn?: ColumnProps<T>;
+        sortColumn?: ColumnProps<T> | null;
       }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
