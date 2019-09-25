@@ -1195,7 +1195,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
       return title({
         filters,
         sortOrder,
-        sortColumn
+        sortColumn,
       });
     }
     return title;
