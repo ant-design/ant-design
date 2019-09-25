@@ -157,3 +157,36 @@ exports[`Breadcrumb should render a menu 1`] = `
   </span>
 </div>
 `;
+
+exports[`Breadcrumb should support custom attribute 1`] = `
+<div
+  class="ant-breadcrumb"
+  data-custom="custom"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+      data-custom="custom-item"
+    >
+      xxx
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;

@@ -10,7 +10,7 @@ import ResponsiveObserve, {
   responsiveArray,
 } from '../_util/responsiveObserve';
 
-const RowAligns = tuple('top', 'middle', 'bottom');
+const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: number | Partial<Record<Breakpoint, number>>;

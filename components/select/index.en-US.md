@@ -94,3 +94,9 @@ Select component to select value from options.
 | -------- | ----------- | --------------------- | ------- | ------- |
 | key      |             | string                | -       |         |
 | label    | Group label | string\|React.Element | -       |         |
+
+## FAQ
+
+### The dropdown is closed when click `dropdownRender` area?
+
+See the [dropdownRender example](/components/select/#components-select-demo-custom-dropdown-menu).

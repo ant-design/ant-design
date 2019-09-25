@@ -97,3 +97,9 @@ title: Select
 | ----- | ---- | --------------------- | ------ | ---- |
 | key   |      | string                | -      |      |
 | label | 组名 | string\|React.Element | 无     |      |
+
+## FAQ
+
+### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
+
+看下 [dropdownRender 例子](/components/select-cn/#components-select-demo-custom-dropdown-menu) 里的说明。

@@ -22,37 +22,6 @@ const breadcrumbNameMap = {
   '/apps/2/detail': 'Detail',
 };
 
-const Home = withRouter(props => {
-  const { location, history } = props;
-  const pathSnippets = location.pathname.split('/').filter(i => i);
-  const extraBreadcrumbItems = pathSnippets.map((_, index) => {
-    const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
-    return (
-      <Breadcrumb.Item key={url}>
-        <Link to={url}>{breadcrumbNameMap[url]}</Link>
-      </Breadcrumb.Item>
-    );
-  });
-  const breadcrumbItems = [
-    <Breadcrumb.Item key="home">
-      <Link to="/">Home</Link>
-    </Breadcrumb.Item>,
-  ].concat(extraBreadcrumbItems);
-  return (
-    <div className="demo">
-      <div className="demo-nav">
-        <a onClick={() => history.push('/')}>Home</a>
-        <a onClick={() => history.push('/apps')}>Application List</a>
-      </div>
-      <Switch>
-        <Route path="/apps" component={Apps} />
-        <Route render={() => <span>Home Page</span>} />
-      </Switch>
-      <Breadcrumb>{breadcrumbItems}</Breadcrumb>
-    </div>
-  );
-});
-
 describe('react router', () => {
   beforeAll(() => {
     jest.useFakeTimers();
@@ -62,7 +31,37 @@ describe('react router', () => {
     jest.useRealTimers();
   });
   // https://github.com/airbnb/enzyme/issues/875
-  it('react router 4', () => {
+  (process.env.REACT === '15' ? it.skip : it)('react router 4', () => {
+    const Home = withRouter(props => {
+      const { location, history } = props;
+      const pathSnippets = location.pathname.split('/').filter(i => i);
+      const extraBreadcrumbItems = pathSnippets.map((_, index) => {
+        const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+        return (
+          <Breadcrumb.Item key={url}>
+            <Link to={url}>{breadcrumbNameMap[url]}</Link>
+          </Breadcrumb.Item>
+        );
+      });
+      const breadcrumbItems = [
+        <Breadcrumb.Item key="home">
+          <Link to="/">Home</Link>
+        </Breadcrumb.Item>,
+      ].concat(extraBreadcrumbItems);
+      return (
+        <div className="demo">
+          <div className="demo-nav">
+            <a onClick={() => history.push('/')}>Home</a>
+            <a onClick={() => history.push('/apps')}>Application List</a>
+          </div>
+          <Switch>
+            <Route path="/apps" component={Apps} />
+            <Route render={() => <span>Home Page</span>} />
+          </Switch>
+          <Breadcrumb>{breadcrumbItems}</Breadcrumb>
+        </div>
+      );
+    });
     const wrapper = mount(
       <MemoryRouter initialEntries={['/']} initialIndex={0}>
         <Home />
