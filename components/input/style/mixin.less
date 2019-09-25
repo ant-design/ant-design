@@ -1,7 +1,8 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @input-affix-width: 19px;
+@input-affix-with-clear-btn-width: 38px;
 
 // size mixins for input
 .input-lg() {
@@ -26,7 +27,7 @@
 
 // == when hoverd
 .hover(@color: @input-hover-border-color) {
-  border-color: ~`colorPalette('@{color}', 5) `;
+  border-color: @color;
   border-right-width: @border-width-base !important;
 }
 
@@ -35,6 +36,7 @@
   background-color: @input-disabled-bg;
   cursor: not-allowed;
   opacity: 1;
+
   &:hover {
     .hover(@input-border-color);
   }
@@ -78,6 +80,7 @@
     max-width: 100%; // prevent textearea resize from coming out of its container
     height: auto;
     min-height: @input-height-base;
+    line-height: @line-height-base;
     vertical-align: bottom;
     transition: all 0.3s, height 0s;
   }
@@ -109,6 +112,7 @@
 
   > [class*='col-'] {
     padding-right: 8px;
+
     &:last-child {
       padding-right: 0;
     }
@@ -140,10 +144,12 @@
     width: 100%;
     margin-bottom: 0;
     text-align: inherit;
+
     &:focus {
       z-index: 1; // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
       border-right-width: 1px;
     }
+
     &:hover {
       z-index: 1;
       border-right-width: 1px;
@@ -156,7 +162,6 @@
     color: @input-color;
     font-weight: normal;
     font-size: @font-size-base;
-    line-height: 1;
     text-align: center;
     background-color: @input-addon-bg;
     border: @border-width-base @border-style-base @input-border-color;
@@ -222,6 +227,7 @@
   &-addon:first-child {
     border-right: 0;
   }
+
   &-addon:last-child {
     border-left: 0;
   }
@@ -273,9 +279,11 @@
     > .@{inputClass} {
       &:not(:first-child):not(:last-child) {
         border-right-width: @border-width-base;
+
         &:hover {
           z-index: 1;
         }
+
         &:focus {
           z-index: 1;
         }
@@ -308,9 +316,11 @@
     & > .@{ant-prefix}-time-picker .@{ant-prefix}-time-picker-input {
       border-right-width: @border-width-base;
       border-radius: 0;
+
       &:hover {
         z-index: 1;
       }
+
       &:focus {
         z-index: 1;
       }
@@ -362,16 +372,32 @@
     text-align: inherit;
   }
 
+  // Should not break align of icon & text
+  // https://github.com/ant-design/ant-design/issues/18087
+  // https://github.com/ant-design/ant-design/issues/17414
+  // https://github.com/ant-design/ant-design/pull/17684
+  // https://codesandbox.io/embed/pensive-paper-di2wk
+  // https://codesandbox.io/embed/nifty-benz-gb7ml
   .@{inputClass}-prefix,
   .@{inputClass}-suffix {
     position: absolute;
     top: 50%;
     z-index: 2;
+    display: flex;
+    align-items: center;
     color: @input-color;
     line-height: 0;
     transform: translateY(-50%);
+
     :not(.anticon) {
       line-height: @line-height-base;
+    }
+  }
+
+  .@{inputClass}-disabled ~ .@{inputClass}-suffix {
+    .anticon {
+      color: @disabled-color;
+      cursor: not-allowed;
     }
   }
 
@@ -389,5 +415,9 @@
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+  }
+
+  &.@{inputClass}-affix-wrapper-with-clear-btn .@{inputClass}:not(:last-child) {
+    padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
   }
 }

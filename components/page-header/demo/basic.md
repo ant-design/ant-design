@@ -17,14 +17,9 @@ Standard header, suitable for use in scenarios that require a brief description.
 import { PageHeader } from 'antd';
 
 ReactDOM.render(
-  <PageHeader
-    onBack={() => null}
-    title="Title"
-    subTitle="This is a subtitle"
-  />,
-  mountNode
+  <PageHeader onBack={() => null} title="Title" subTitle="This is a subtitle" />,
+  mountNode,
 );
-
 ```
 
 <style>

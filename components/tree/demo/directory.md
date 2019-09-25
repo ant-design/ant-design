@@ -13,11 +13,10 @@ title:
 
 Built-in directory tree. `multiple` support `ctrl(Windows)` / `command(Mac)` selection.
 
-````jsx
+```jsx
 import { Tree } from 'antd';
 
-const DirectoryTree = Tree.DirectoryTree;
-const { TreeNode } = Tree;
+const { TreeNode, DirectoryTree } = Tree;
 
 class Demo extends React.Component {
   onSelect = (keys, event) => {
@@ -30,12 +29,7 @@ class Demo extends React.Component {
 
   render() {
     return (
-      <DirectoryTree
-        multiple
-        defaultExpandAll
-        onSelect={this.onSelect}
-        onExpand={this.onExpand}
-      >
+      <DirectoryTree multiple defaultExpandAll onSelect={this.onSelect} onExpand={this.onExpand}>
         <TreeNode title="parent 0" key="0-0">
           <TreeNode title="leaf 0-0" key="0-0-0" isLeaf />
           <TreeNode title="leaf 0-1" key="0-0-1" isLeaf />
@@ -50,4 +44,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

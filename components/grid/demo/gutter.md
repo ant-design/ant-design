@@ -17,7 +17,7 @@ You can use the `gutter` property of `Row` as grid spacing, we recommend set it 
 
 You can set it to a object like `{ xs: 8, sm: 16, md: 24, lg: 32 }` for responsive design.
 
-````jsx
+```jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(
@@ -37,17 +37,17 @@ ReactDOM.render(
       </Col>
     </Row>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
-````css
+```css
 .gutter-example .ant-row > div {
   background: transparent;
   border: 0;
 }
 .gutter-box {
-  background: #00A0E9;
+  background: #00a0e9;
   padding: 5px 0;
 }
-````
+```

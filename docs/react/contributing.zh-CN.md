@@ -28,6 +28,8 @@ toc: false
 
 如果你有改进我们的 API 或者新增功能的想法，我们同样推荐你使用我们提供的 [issue 小助手](http://new-issue.ant.design) 来新建一个添加新功能的 issue。
 
+如果你希望协助开发新的 API，请参考 [API 规范](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) 进行命名。
+
 ## 第一次贡献
 
 如果你还不清楚怎么在 GitHub 上提 Pull Request ，可以阅读下面这篇文章来学习：
@@ -59,7 +61,7 @@ Ant Design 团队会关注所有的 pull request，我们会 review 以及合并
 
 ## 开发流程
 
-在你 clone 了 antd  的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
+在你 clone 了 antd 的代码并且使用 `npm install` 安装完依赖后，你还可以运行下面几个常用的命令：
 
 1. `npm start` 在本地运行 Ant Design 的网站。
 2. `npm run lint` 检查代码风格。

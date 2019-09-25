@@ -4,6 +4,7 @@ import { render, mount } from 'enzyme';
 import Table from '..';
 import Input from '../../input';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 
 function getDropdownWrapper(wrapper) {
   return mount(
@@ -528,12 +529,13 @@ describe('Table.filter', () => {
   });
 
   it('renders custom filter icon correctly', () => {
+    const filterIcon = filtered => <span>{filtered ? 'filtered' : 'unfiltered'}</span>;
     const wrapper = mount(
       createTable({
         columns: [
           {
             ...column,
-            filterIcon: filtered => <span>{filtered ? 'filtered' : 'unfiltered'}</span>,
+            filterIcon,
           },
         ],
       }),
@@ -619,5 +621,136 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
     expect(wrapper.find('.ant-input').instance().value).toBe('');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/17833
+  it('should not trigger onChange when bluring custom filterDropdown', () => {
+    const onChange = jest.fn();
+    const filterDropdown = ({ setSelectedKeys }) => (
+      <input onChange={e => setSelectedKeys([e.target.value])} />
+    );
+    const wrapper = mount(
+      createTable({
+        onChange,
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filterDropdown,
+          },
+        ],
+      }),
+    );
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('input')
+      .first()
+      .simulate('change', { target: { value: 'whatevervalue' } });
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/17089
+  it('not crash when dynamic change filter', () => {
+    const onChange = jest.fn();
+
+    const Test = ({ filters }) => (
+      <Table
+        onChange={onChange}
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filters,
+            onFilter: (value, record) => {
+              return record.name.indexOf(value) === 0;
+            },
+            sorter: (a, b) => a.name.length - b.name.length,
+            sortDirections: ['descend'],
+          },
+        ]}
+        dataSource={[
+          {
+            name: 'Jack',
+          },
+        ]}
+      />
+    );
+
+    const wrapper = mount(
+      <Test
+        filters={[
+          {
+            text: 'Bill',
+            value: 'Bill',
+          },
+        ]}
+      />,
+    );
+
+    const dropdownWrapper = getDropdownWrapper(wrapper);
+    dropdownWrapper
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    dropdownWrapper.find('.confirm').simulate('click');
+    expect(onChange).toHaveBeenCalled();
+    onChange.mockReset();
+    expect(onChange).not.toHaveBeenCalled();
+
+    wrapper.setProps({
+      filters: [
+        {
+          text: 'Jim',
+          value: 'Jim',
+        },
+      ],
+    });
+
+    const dropdownWrapper2 = getDropdownWrapper(wrapper);
+    dropdownWrapper2
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    dropdownWrapper2.find('.confirm').simulate('click');
+    expect(onChange).toHaveBeenCalled();
+  });
+
+  it('should support getPopupContainer', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdownVisible: true,
+          },
+        ],
+        getPopupContainer: node => node.parentNode,
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support getPopupContainer from ConfigProvider', () => {
+    const wrapper = mount(
+      <ConfigProvider getPopupContainer={node => node.parentNode}>
+        {createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownVisible: true,
+            },
+          ],
+        })}
+      </ConfigProvider>
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -4,7 +4,7 @@ order: 9
 title: Data Entry
 ---
 
-Data Entry is an important interactive way to retrieve information of objects since users will frequently add, change or delete information. Diverse ways for text input entry and selection entry help users finish interactions more clearly and efficiently. Designers should pay attention to things as follows: 
+Data Entry is an important interactive way to retrieve information of objects since users will frequently add, change or delete information. Diverse ways for text input entry and selection entry help users finish interactions more clearly and efficiently. Designers should pay attention to things as follows:
 
 - Straightforward text should be provided as "Label" for novice users and users that access occasionally, while terminology should be provided as "Label" for domain experts. When sensitive information should be provided by users, hints can be used to specify why the system need to do so. For example, when it's necessary to retrieve a user's identity (ID) or phone number.
 - Allow users to get information via context to help completing their input. It avoids users to have wild guesses from the empty input through approaches like "good default values", "structured formats", "hints", "input tips" etc.
@@ -67,7 +67,8 @@ Radio button allows a user to select only one value from several options. Radio 
 
 Checkbox is used to select multiple values from several options.
 
-> Note: 
+> Note:
+>
 > 1. Checkbox often works together with submit action for state.
 > 2. A single checkbox can represent the switch of two states.
 
@@ -91,6 +92,7 @@ It's used to switch the state of a single option. The inline label of "Switch" s
 Dropdown provides more flexibility for the number of options, allowing a user to select one or multiple values from a list of options.
 
 > Note:
+>
 > 1. Used when there are more than five options.
 > 2. Options is listed with logical sorting and content should be fully displayed.
 
@@ -142,4 +144,4 @@ Normally used to upload images. Users can upload images and display thumbnails i
 
 Drag files into a specific area to upload, while it supports upload by clicking as well.
 
-> Note: Specific file size and format is required for file upload, e.g.: Please select text files (support PDF,  ZIP, EXL) with size no more than 5M. Progress of uploading should be displayed.
+> Note: Specific file size and format is required for file upload, e.g.: Please select text files (support PDF, ZIP, EXL) with size no more than 5M. Progress of uploading should be displayed.

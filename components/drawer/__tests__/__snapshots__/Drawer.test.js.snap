@@ -6,6 +6,7 @@ exports[`Drawer className is test_drawer 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-right test_drawer"
+    tabindex="-1"
   >
     <div
       class="ant-drawer-mask"
@@ -67,6 +68,7 @@ exports[`Drawer closable is false 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-right"
+    tabindex="-1"
   >
     <div
       class="ant-drawer-mask"
@@ -100,6 +102,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-right"
+    tabindex="-1"
   >
     <div
       class="ant-drawer-mask"
@@ -161,6 +164,7 @@ exports[`Drawer have a title 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-right"
+    tabindex="-1"
   >
     <div
       class="ant-drawer-mask"
@@ -227,6 +231,7 @@ exports[`Drawer render correctly 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-right"
+    tabindex="-1"
   >
     <div
       class="ant-drawer-mask"
@@ -288,6 +293,7 @@ exports[`Drawer render top drawer 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-top"
+    tabindex="-1"
   >
     <div
       class="ant-drawer-mask"

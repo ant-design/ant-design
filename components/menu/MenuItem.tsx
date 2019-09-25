@@ -1,11 +1,15 @@
 import * as React from 'react';
 import { Item } from 'rc-menu';
 import { ClickParam } from '.';
-import { MenuContext, MenuContextProps } from './';
-import Tooltip from '../tooltip';
+import MenuContext, { MenuContextProps } from './MenuContext';
+import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 
-export interface MenuItemProps {
+export interface MenuItemProps
+  extends Omit<
+    React.HTMLAttributes<HTMLLIElement>,
+    'title' | 'onClick' | 'onMouseEnter' | 'onMouseLeave'
+  > {
   rootPrefixCls?: string;
   disabled?: boolean;
   level?: number;
@@ -20,6 +24,7 @@ export interface MenuItemProps {
 
 export default class MenuItem extends React.Component<MenuItemProps> {
   static isMenuItem = true;
+
   private menuItem: this;
 
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
@@ -37,14 +42,20 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     return (
       <MenuContext.Consumer>
         {({ inlineCollapsed }: MenuContextProps) => {
-          let titleNode = title || (level === 1 ? children : '');
+          const tooltipProps: TooltipProps = {
+            title: title || (level === 1 ? children : ''),
+          };
+
           if (!siderCollapsed && !inlineCollapsed) {
-            titleNode = null;
+            tooltipProps.title = null;
+            // Reset `visible` to fix control mode tooltip display not correct
+            // ref: https://github.com/ant-design/ant-design/issues/16742
+            tooltipProps.visible = false;
           }
 
           return (
             <Tooltip
-              title={titleNode}
+              {...tooltipProps}
               placement="right"
               overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
             >

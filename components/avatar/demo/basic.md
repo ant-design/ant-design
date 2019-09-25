@@ -13,7 +13,7 @@ title:
 
 Three sizes and two shapes are available.
 
-````jsx
+```jsx
 import { Avatar } from 'antd';
 
 ReactDOM.render(
@@ -31,9 +31,9 @@ ReactDOM.render(
       <Avatar shape="square" size="small" icon="user" />
     </div>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 #components-avatar-demo-basic .ant-avatar {

@@ -10,16 +10,20 @@ exports[`List.pagination renders pagination correctly 1`] = `
     <div
       class="ant-spin-container"
     >
-      <div
-        class="ant-list-item ant-list-item-no-flex"
+      <ul
+        class="ant-list-items"
       >
-        Jack
-      </div>
-      <div
-        class="ant-list-item ant-list-item-no-flex"
-      >
-        Lucy
-      </div>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          Jack
+        </li>
+        <li
+          class="ant-list-item ant-list-item-no-flex"
+        >
+          Lucy
+        </li>
+      </ul>
     </div>
   </div>
   <div
@@ -113,7 +117,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
 
 exports[`List.pagination should change page size work 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -243,7 +247,7 @@ exports[`List.pagination should change page size work 1`] = `
 
 exports[`List.pagination should change page size work 2`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li
@@ -428,7 +432,7 @@ exports[`List.pagination should change page size work 2`] = `
 
 exports[`List.pagination should default work 1`] = `
 <ul
-  class="ant-pagination "
+  class="ant-pagination"
   unselectable="unselectable"
 >
   <li

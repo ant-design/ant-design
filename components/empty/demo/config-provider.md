@@ -15,10 +15,16 @@ Use ConfigProvider set global Empty style.
 
 ```jsx
 import {
-  ConfigProvider, Switch, Divider, Icon,
-  TreeSelect, Select, Cascader,
+  ConfigProvider,
+  Switch,
+  Divider,
+  Icon,
+  TreeSelect,
+  Select,
+  Cascader,
   Transfer,
-  Table, List,
+  Table,
+  List,
 } from 'antd';
 
 const customizeRenderEmpty = () => (
@@ -43,7 +49,7 @@ class Demo extends React.Component {
           unCheckedChildren="default"
           checkedChildren="customize"
           checked={customize}
-          onChange={(val) => {
+          onChange={val => {
             this.setState({ customize: val });
           }}
         />

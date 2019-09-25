@@ -140,6 +140,35 @@ exports[`Skeleton avatar size 3`] = `
 </div>
 `;
 
+exports[`Skeleton avatar size 4`] = `
+<div
+  class="ant-skeleton ant-skeleton-with-avatar"
+>
+  <div
+    class="ant-skeleton-header"
+  >
+    <span
+      class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+      style="width: 20px; height: 20px; line-height: 20px;"
+    />
+  </div>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width: 50%;"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`Skeleton paragraph rows 1`] = `
 <div
   class="ant-skeleton"

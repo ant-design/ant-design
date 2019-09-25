@@ -13,10 +13,10 @@ title:
 
 The height of the input field for the select defaults to 32px. If size is set to large, the height will be 40px, and if set to small, 24px.
 
-````jsx
+```jsx
 import { Select, Radio } from 'antd';
 
-const Option = Select.Option;
+const { Option } = Select;
 
 const children = [];
 for (let i = 10; i < 36; i++) {
@@ -32,9 +32,9 @@ class SelectSizesDemo extends React.Component {
     size: 'default',
   };
 
-  handleSizeChange = (e) => {
+  handleSizeChange = e => {
     this.setState({ size: e.target.value });
-  }
+  };
 
   render() {
     const { size } = this.state;
@@ -45,13 +45,9 @@ class SelectSizesDemo extends React.Component {
           <Radio.Button value="default">Default</Radio.Button>
           <Radio.Button value="small">Small</Radio.Button>
         </Radio.Group>
-        <br /><br />
-        <Select
-          size={size}
-          defaultValue="a1"
-          onChange={handleChange}
-          style={{ width: 200 }}
-        >
+        <br />
+        <br />
+        <Select size={size} defaultValue="a1" onChange={handleChange} style={{ width: 200 }}>
           {children}
         </Select>
         <br />
@@ -82,9 +78,9 @@ class SelectSizesDemo extends React.Component {
 }
 
 ReactDOM.render(<SelectSizesDemo />, mountNode);
-````
+```
 
-````css
+```css
 .code-box-demo .ant-select {
   margin: 0 8px 10px 0;
 }
@@ -92,4 +88,4 @@ ReactDOM.render(<SelectSizesDemo />, mountNode);
 #components-select-demo-search-box .code-box-demo .ant-select {
   margin: 0;
 }
-````
+```

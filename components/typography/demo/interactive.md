@@ -23,7 +23,7 @@ class Demo extends React.Component {
     str: 'This is an editable text.',
   };
 
-  onChange = (str) => {
+  onChange = str => {
     console.log('Content change:', str);
     this.setState({ str });
   };

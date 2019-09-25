@@ -32,11 +32,7 @@ const routes = [
 ];
 
 ReactDOM.render(
-  <PageHeader
-    title="Title"
-    breadcrumb={{ routes }}
-  />,
-  mountNode
+  <PageHeader title="Title" breadcrumb={{ routes }} subTitle="This is a subtitle" />,
+  mountNode,
 );
-
 ```

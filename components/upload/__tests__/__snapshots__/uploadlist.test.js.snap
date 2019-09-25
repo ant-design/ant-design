@@ -97,7 +97,7 @@ exports[`Upload List handle error 1`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px; border-radius: 100px;"
+                  style="width: 0%; height: 2px;"
                 />
               </div>
             </div>
@@ -206,7 +206,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px; border-radius: 100px;"
+                  style="width: 0%; height: 2px;"
                 />
               </div>
             </div>
@@ -315,7 +315,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px; border-radius: 100px;"
+                  style="width: 0%; height: 2px;"
                 />
               </div>
             </div>
@@ -440,6 +440,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/aaa"
             />
           </a>
@@ -633,6 +634,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png"
             />
           </a>
@@ -684,6 +686,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk"
             />
           </a>
@@ -735,6 +738,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
             />
           </a>
@@ -786,6 +790,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
             />
           </a>
@@ -837,6 +842,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
             />
           </a>
@@ -888,6 +894,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
             />
           </a>

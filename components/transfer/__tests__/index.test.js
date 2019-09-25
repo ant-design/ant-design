@@ -5,9 +5,10 @@ import Transfer from '..';
 import TransferList from '../list';
 import TransferOperation from '../operation';
 import TransferSearch from '../search';
-import TransferItem from '../item';
+import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
+import mountTest from '../../../tests/shared/mountTest';
 
 const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -94,6 +95,8 @@ const searchTransferProps = {
 };
 
 describe('Transfer', () => {
+  mountTest(Transfer);
+
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
     expect(wrapper).toMatchSnapshot();
@@ -139,6 +142,18 @@ describe('Transfer', () => {
       .filterWhere(n => n.prop('item').key === 'b')
       .simulate('click');
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b']);
+  });
+
+  it('should not check checkbox when component disabled', () => {
+    const handleSelectChange = jest.fn();
+    const wrapper = mount(
+      <Transfer {...listCommonProps} disabled onSelectChange={handleSelectChange} />,
+    );
+    wrapper
+      .find(TransferItem)
+      .filterWhere(n => n.prop('item').key === 'a')
+      .simulate('click');
+    expect(handleSelectChange).not.toHaveBeenCalled();
   });
 
   it('should not check checkbox when click on disabled item', () => {

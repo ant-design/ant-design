@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 .@{ant-prefix}-carousel {
@@ -146,7 +146,6 @@
   // Dots
   .slick-dots {
     position: absolute;
-    bottom: 12px;
     display: block;
     width: 100%;
     height: @carousel-dot-height;
@@ -154,6 +153,12 @@
     padding: 0;
     text-align: center;
     list-style: none;
+    &-bottom {
+      bottom: 12px;
+    }
+    &-top {
+      top: 12px;
+    }
     li {
       position: relative;
       display: inline-block;
@@ -196,11 +201,16 @@
 .@{ant-prefix}-carousel-vertical {
   .slick-dots {
     top: 50%;
-    right: 12px;
     bottom: auto;
     width: @carousel-dot-height;
     height: auto;
     transform: translateY(-50%);
+    &-left {
+      left: 12px;
+    }
+    &-right {
+      right: 12px;
+    }
     li {
       margin: 0 2px;
       vertical-align: baseline;

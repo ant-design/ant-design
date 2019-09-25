@@ -59,3 +59,33 @@ const formOptions: FormCreateOption<WithCreateOptionsProps> = { mapPropsToFields
 const WithCreateOptionsForm = Form.create(formOptions)(WithCreateOptions);
 
 <WithCreateOptionsForm username="foo" />;
+
+// Should work with forwardRef & wrappedComponentRef
+// https://github.com/ant-design/ant-design/issues/16229
+if (React.forwardRef) {
+  interface ForwardProps extends FormComponentProps {
+    str: string;
+  }
+
+  const ForwardDemo = React.forwardRef(({ str }: ForwardProps, ref: React.Ref<HTMLDivElement>) => {
+    return <div ref={ref}>{str || ''}</div>;
+  });
+  const WrappedForwardDemo = Form.create<ForwardProps>()(ForwardDemo);
+  <WrappedForwardDemo str="" />;
+}
+
+interface WrappedRefProps extends FormComponentProps {
+  str: string;
+  test?: () => void;
+}
+class WrapRefDemo extends React.Component<WrappedRefProps> {
+  public getForm() {
+    return this.props.form;
+  }
+  public render() {
+    return <div>{this.props.str || ''}</div>;
+  }
+}
+
+const WrappedWrapRefDemo = Form.create<WrappedRefProps>()(WrapRefDemo);
+<WrappedWrapRefDemo str="" wrappedComponentRef={() => null} />;

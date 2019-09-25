@@ -15,14 +15,14 @@ Advanced Usage of Transfer.
 
 You can customize the labels of the transfer buttons, the width and height of the columns, and what should be displayed in the footer.
 
-````jsx
+```jsx
 import { Transfer, Button } from 'antd';
 
 class App extends React.Component {
   state = {
     mockData: [],
     targetKeys: [],
-  }
+  };
 
   componentDidMount() {
     this.getMock();
@@ -44,21 +44,17 @@ class App extends React.Component {
       mockData.push(data);
     }
     this.setState({ mockData, targetKeys });
-  }
+  };
 
-  handleChange = (targetKeys) => {
+  handleChange = targetKeys => {
     this.setState({ targetKeys });
-  }
+  };
 
   renderFooter = () => (
-    <Button
-      size="small"
-      style={{ float: 'right', margin: 5 }}
-      onClick={this.getMock}
-    >
-        reload
+    <Button size="small" style={{ float: 'right', margin: 5 }} onClick={this.getMock}>
+      reload
     </Button>
-  )
+  );
 
   render() {
     return (
@@ -80,4 +76,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

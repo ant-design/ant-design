@@ -13,7 +13,7 @@ title:
 
 A disabled state of the `DatePicker`.
 
-````jsx
+```jsx
 import { DatePicker } from 'antd';
 import moment from 'moment';
 
@@ -31,6 +31,6 @@ ReactDOM.render(
       disabled
     />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

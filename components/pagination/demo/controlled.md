@@ -13,20 +13,20 @@ title:
 
 Controlled page number.
 
-````jsx
+```jsx
 import { Pagination } from 'antd';
 
 class App extends React.Component {
   state = {
     current: 3,
-  }
+  };
 
-  onChange = (page) => {
+  onChange = page => {
     console.log(page);
     this.setState({
       current: page,
     });
-  }
+  };
 
   render() {
     return <Pagination current={this.state.current} onChange={this.onChange} total={50} />;
@@ -34,4 +34,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

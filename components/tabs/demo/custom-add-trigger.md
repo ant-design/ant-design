@@ -4,6 +4,7 @@ title:
   zh-CN: 自定义新增页签触发器
   en-US: Customized trigger of new tab
 ---
+
 ## zh-CN
 
 隐藏默认的页签增加图标，给自定义触发器绑定事件。
@@ -12,10 +13,10 @@ title:
 
 Hide default plus icon, and bind event for customized trigger.
 
-````jsx
+```jsx
 import { Tabs, Button } from 'antd';
 
-const TabPane = Tabs.TabPane;
+const { TabPane } = Tabs;
 
 class Demo extends React.Component {
   constructor(props) {
@@ -31,23 +32,23 @@ class Demo extends React.Component {
     };
   }
 
-  onChange = (activeKey) => {
+  onChange = activeKey => {
     this.setState({ activeKey });
-  }
+  };
 
   onEdit = (targetKey, action) => {
     this[action](targetKey);
-  }
+  };
 
   add = () => {
-    const panes = this.state.panes;
+    const { panes } = this.state;
     const activeKey = `newTab${this.newTabIndex++}`;
     panes.push({ title: 'New Tab', content: 'New Tab Pane', key: activeKey });
     this.setState({ panes, activeKey });
-  }
+  };
 
-  remove = (targetKey) => {
-    let activeKey = this.state.activeKey;
+  remove = targetKey => {
+    let { activeKey } = this.state;
     let lastIndex;
     this.state.panes.forEach((pane, i) => {
       if (pane.key === targetKey) {
@@ -63,7 +64,7 @@ class Demo extends React.Component {
       }
     }
     this.setState({ panes, activeKey });
-  }
+  };
 
   render() {
     return (
@@ -78,7 +79,11 @@ class Demo extends React.Component {
           type="editable-card"
           onEdit={this.onEdit}
         >
-          {this.state.panes.map(pane => <TabPane tab={pane.title} key={pane.key}>{pane.content}</TabPane>)}
+          {this.state.panes.map(pane => (
+            <TabPane tab={pane.title} key={pane.key}>
+              {pane.content}
+            </TabPane>
+          ))}
         </Tabs>
       </div>
     );
@@ -86,4 +91,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

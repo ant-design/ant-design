@@ -3043,11 +3043,11 @@ exports[`RangePicker switch to corresponding month panel when click presetted ra
             <div
               class="ant-calendar-footer-extra ant-calendar-range-quick-selector"
             >
-              <div
+              <span
                 class="ant-tag ant-tag-blue"
               >
                 My Birthday
-              </div>
+              </span>
             </div>
             <a
               class="ant-calendar-time-picker-btn"

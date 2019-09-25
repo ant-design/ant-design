@@ -11,7 +11,7 @@ import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
 
-export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
   color?: string;
@@ -30,6 +30,7 @@ const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?
 
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
+
   static defaultProps = {
     closable: false,
   };
@@ -56,6 +57,31 @@ class Tag extends React.Component<TagProps, TagState> {
     );
   }
 
+  getTagStyle() {
+    const { color, style } = this.props;
+    const isPresetColor = this.isPresetColor();
+    return {
+      backgroundColor: color && !isPresetColor ? color : undefined,
+      ...style,
+    };
+  }
+
+  getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
+    const { prefixCls: customizePrefixCls, className, color } = this.props;
+    const { visible } = this.state;
+    const isPresetColor = this.isPresetColor();
+    const prefixCls = getPrefixCls('tag', customizePrefixCls);
+    return classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-${color}`]: isPresetColor,
+        [`${prefixCls}-has-color`]: color && !isPresetColor,
+        [`${prefixCls}-hidden`]: !visible,
+      },
+      className,
+    );
+  }
+
   setVisible(visible: boolean, e: React.MouseEvent<HTMLElement>) {
     const { onClose, afterClose } = this.props;
     if (onClose) {
@@ -77,36 +103,12 @@ class Tag extends React.Component<TagProps, TagState> {
     this.setVisible(false, e);
   };
 
-  isPresetColor(color?: string): boolean {
+  isPresetColor(): boolean {
+    const { color } = this.props;
     if (!color) {
       return false;
     }
     return PresetColorRegex.test(color);
-  }
-
-  getTagStyle() {
-    const { color, style } = this.props;
-    const isPresetColor = this.isPresetColor(color);
-    return {
-      backgroundColor: color && !isPresetColor ? color : undefined,
-      ...style,
-    };
-  }
-
-  getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
-    const { prefixCls: customizePrefixCls, className, color } = this.props;
-    const { visible } = this.state;
-    const isPresetColor = this.isPresetColor(color);
-    const prefixCls = getPrefixCls('tag', customizePrefixCls);
-    return classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-${color}`]: isPresetColor,
-        [`${prefixCls}-has-color`]: color && !isPresetColor,
-        [`${prefixCls}-hidden`]: !visible,
-      },
-      className,
-    );
   }
 
   renderCloseIcon() {
@@ -115,22 +117,33 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   renderTag = (configProps: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, children, ...otherProps } = this.props;
+    const { children, ...otherProps } = this.props;
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const divProps = omit(otherProps, ['onClose', 'afterClose', 'color', 'visible', 'closable']);
+    const tagProps = omit(otherProps, [
+      'onClose',
+      'afterClose',
+      'color',
+      'visible',
+      'closable',
+      'prefixCls',
+    ]);
     return isNeedWave ? (
       <Wave>
-        <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
+        <span
+          {...tagProps}
+          className={this.getTagClassName(configProps)}
+          style={this.getTagStyle()}
+        >
           {children}
           {this.renderCloseIcon()}
-        </div>
+        </span>
       </Wave>
     ) : (
-      <div {...divProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
+      <span {...tagProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
         {children}
         {this.renderCloseIcon()}
-      </div>
+      </span>
     );
   };
 

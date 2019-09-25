@@ -2996,11 +2996,19 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
               <div>
                 <div
                   aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-0
+                </div>
+                <div
+                  aria-disabled="false"
                   aria-selected="true"
                   class="ant-tabs-tab-active ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 1
+                  Tab-1
                 </div>
                 <div
                   aria-disabled="false"
@@ -3008,7 +3016,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 2
+                  Tab-2
                 </div>
                 <div
                   aria-disabled="false"
@@ -3016,7 +3024,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 3
+                  Tab-3
                 </div>
                 <div
                   aria-disabled="false"
@@ -3024,7 +3032,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 4
+                  Tab-4
                 </div>
                 <div
                   aria-disabled="false"
@@ -3032,7 +3040,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 5
+                  Tab-5
                 </div>
                 <div
                   aria-disabled="false"
@@ -3040,7 +3048,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 6
+                  Tab-6
                 </div>
                 <div
                   aria-disabled="false"
@@ -3048,7 +3056,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 7
+                  Tab-7
                 </div>
                 <div
                   aria-disabled="false"
@@ -3056,7 +3064,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 8
+                  Tab-8
                 </div>
                 <div
                   aria-disabled="false"
@@ -3064,7 +3072,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 9
+                  Tab-9
                 </div>
                 <div
                   aria-disabled="false"
@@ -3072,7 +3080,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 10
+                  Tab-10
                 </div>
                 <div
                   aria-disabled="false"
@@ -3080,7 +3088,151 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                   class=" ant-tabs-tab"
                   role="tab"
                 >
-                  Tab 11
+                  Tab-11
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-12
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-13
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-14
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-15
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-16
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-17
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-18
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-19
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-20
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-21
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-22
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-23
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-24
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-25
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-26
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-27
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-28
+                </div>
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class=" ant-tabs-tab"
+                  role="tab"
+                >
+                  Tab-29
                 </div>
               </div>
               <div
@@ -3098,8 +3250,13 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     />
     <div
       class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-      style="margin-left:0%"
+      style="margin-left:-100%"
     >
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
       <div
         aria-hidden="false"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
@@ -3117,6 +3274,96 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
           tabindex="0"
         />
       </div>
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
+        role="tabpanel"
+      />
       <div
         aria-hidden="true"
         class="ant-tabs-tabpane ant-tabs-tabpane-inactive"
