@@ -3,17 +3,20 @@ import RcMention, { Nav, toString, toEditorState, getMentions } from 'rc-editor-
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import Icon from '../icon';
+import warning from '../_util/warning';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export type MentionPlacement = 'top' | 'bottom';
 
+type SuggestionItme = React.ReactElement<{ value?: string }> | string;
+
 export interface MentionProps {
   prefixCls?: string;
   suggestionStyle?: React.CSSProperties;
-  defaultSuggestions?: Array<any>;
-  suggestions?: Array<any>;
+  defaultSuggestions?: Array<SuggestionItme>;
+  suggestions?: Array<React.ReactElement<any>>;
   onSearchChange?: (value: string, trigger: string) => any;
-  onChange?: (contentState: any) => any;
+  onChange?: (contentState: any) => void;
   notFoundContent?: any;
   loading?: boolean;
   style?: React.CSSProperties;
@@ -26,7 +29,7 @@ export interface MentionProps {
   getSuggestionContainer?: (triggerNode: Element) => HTMLElement;
   onFocus?: React.FocusEventHandler<HTMLElement>;
   onBlur?: React.FocusEventHandler<HTMLElement>;
-  onSelect?: (suggestion: string, data?: any) => any;
+  onSelect?: (suggestion: string, data?: any) => void;
   readOnly?: boolean;
   disabled?: boolean;
   placement?: MentionPlacement;
@@ -39,24 +42,39 @@ export interface MentionState {
 
 class Mention extends React.Component<MentionProps, MentionState> {
   static getMentions = getMentions;
+
   static defaultProps = {
     notFoundContent: 'No matches found',
     loading: false,
     multiLines: false,
     placement: 'bottom' as MentionPlacement,
   };
+
   static Nav = Nav;
+
   static toString = toString;
+
   static toContentState = toEditorState;
 
   private mentionEle: any;
+
   constructor(props: MentionProps) {
     super(props);
     this.state = {
       filteredSuggestions: props.defaultSuggestions,
       focus: false,
     };
+
+    warning(
+      false,
+      'Mention',
+      'Mention component is deprecated. Please use Mentions component instead.',
+    );
   }
+
+  mentionRef = (ele: any) => {
+    this.mentionEle = ele;
+  };
 
   onSearchChange = (value: string, prefix: string) => {
     if (this.props.onSearchChange) {
@@ -70,21 +88,6 @@ class Mention extends React.Component<MentionProps, MentionState> {
       this.props.onChange(editorState);
     }
   };
-
-  defaultSearchChange(value: string): void {
-    const searchValue = value.toLowerCase();
-    const filteredSuggestions = (this.props.defaultSuggestions || []).filter(suggestion => {
-      if (suggestion.type && suggestion.type === Nav) {
-        return suggestion.props.value
-          ? suggestion.props.value.toLowerCase().indexOf(searchValue) !== -1
-          : true;
-      }
-      return suggestion.toLowerCase().indexOf(searchValue) !== -1;
-    });
-    this.setState({
-      filteredSuggestions,
-    });
-  }
 
   onFocus = (ev: React.FocusEvent<HTMLElement>) => {
     this.setState({
@@ -108,9 +111,24 @@ class Mention extends React.Component<MentionProps, MentionState> {
     this.mentionEle._editor.focusEditor();
   };
 
-  mentionRef = (ele: any) => {
-    this.mentionEle = ele;
-  };
+  defaultSearchChange(value: string): void {
+    const searchValue = value.toLowerCase();
+    const filteredSuggestions = (this.props.defaultSuggestions || []).filter(suggestion => {
+      if (typeof suggestion === 'string') {
+        return suggestion.toLowerCase().indexOf(searchValue) !== -1;
+      }
+      if (suggestion.type && suggestion.type === Nav) {
+        return suggestion.props.value
+          ? suggestion.props.value.toLowerCase().indexOf(searchValue) !== -1
+          : true;
+      }
+      return false;
+    });
+    this.setState({
+      filteredSuggestions,
+    });
+  }
+
   renderMention = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,

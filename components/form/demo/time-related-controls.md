@@ -13,15 +13,13 @@ title:
 
 The `value` of time-related components is a `moment` object, which we need to pre-process it before we submit to server.
 
-````jsx
-import {
-  Form, DatePicker, TimePicker, Button,
-} from 'antd';
+```jsx
+import { Form, DatePicker, TimePicker, Button } from 'antd';
 
 const { MonthPicker, RangePicker } = DatePicker;
 
 class TimeRelatedForm extends React.Component {
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
 
     this.props.form.validateFields((err, fieldsValue) => {
@@ -46,7 +44,7 @@ class TimeRelatedForm extends React.Component {
       };
       console.log('Received values of form: ', values);
     });
-  }
+  };
 
   render() {
     const { getFieldDecorator } = this.props.form;
@@ -68,47 +66,27 @@ class TimeRelatedForm extends React.Component {
     };
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item
-          label="DatePicker"
-        >
-          {getFieldDecorator('date-picker', config)(
-            <DatePicker />
-          )}
+        <Form.Item label="DatePicker">
+          {getFieldDecorator('date-picker', config)(<DatePicker />)}
         </Form.Item>
-        <Form.Item
-          label="DatePicker[showTime]"
-        >
+        <Form.Item label="DatePicker[showTime]">
           {getFieldDecorator('date-time-picker', config)(
-            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            <DatePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
           )}
         </Form.Item>
-        <Form.Item
-          label="MonthPicker"
-        >
-          {getFieldDecorator('month-picker', config)(
-            <MonthPicker />
-          )}
+        <Form.Item label="MonthPicker">
+          {getFieldDecorator('month-picker', config)(<MonthPicker />)}
         </Form.Item>
-        <Form.Item
-          label="RangePicker"
-        >
-          {getFieldDecorator('range-picker', rangeConfig)(
-            <RangePicker />
-          )}
+        <Form.Item label="RangePicker">
+          {getFieldDecorator('range-picker', rangeConfig)(<RangePicker />)}
         </Form.Item>
-        <Form.Item
-          label="RangePicker[showTime]"
-        >
+        <Form.Item label="RangePicker[showTime]">
           {getFieldDecorator('range-time-picker', rangeConfig)(
-            <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />
+            <RangePicker showTime format="YYYY-MM-DD HH:mm:ss" />,
           )}
         </Form.Item>
-        <Form.Item
-          label="TimePicker"
-        >
-          {getFieldDecorator('time-picker', config)(
-            <TimePicker />
-          )}
+        <Form.Item label="TimePicker">
+          {getFieldDecorator('time-picker', config)(<TimePicker />)}
         </Form.Item>
         <Form.Item
           wrapperCol={{
@@ -116,7 +94,9 @@ class TimeRelatedForm extends React.Component {
             sm: { span: 16, offset: 8 },
           }}
         >
-          <Button type="primary" htmlType="submit">Submit</Button>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
         </Form.Item>
       </Form>
     );
@@ -126,4 +106,4 @@ class TimeRelatedForm extends React.Component {
 const WrappedTimeRelatedForm = Form.create({ name: 'time_related_controls' })(TimeRelatedForm);
 
 ReactDOM.render(<WrappedTimeRelatedForm />, mountNode);
-````
+```

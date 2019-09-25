@@ -14,7 +14,7 @@ debug: true
 
 The badge will display `title` when hovered over, instead of `count`.
 
-````jsx
+```jsx
 import { Badge } from 'antd';
 
 ReactDOM.render(
@@ -23,9 +23,9 @@ ReactDOM.render(
       <a href="#" className="head-example" />
     </Badge>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 .ant-badge:not(.ant-badge-not-a-wrapper) {

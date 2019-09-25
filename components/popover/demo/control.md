@@ -13,23 +13,23 @@ title:
 
 Use `visible` prop to control the display of the card.
 
-````jsx
+```jsx
 import { Popover, Button } from 'antd';
 
 class App extends React.Component {
   state = {
     visible: false,
-  }
+  };
 
   hide = () => {
     this.setState({
       visible: false,
     });
-  }
+  };
 
-  handleVisibleChange = (visible) => {
+  handleVisibleChange = visible => {
     this.setState({ visible });
-  }
+  };
 
   render() {
     return (
@@ -47,4 +47,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

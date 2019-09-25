@@ -1,6 +1,6 @@
 const path = require('path');
 const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
-const replaceLib = require('antd-tools/lib/replaceLib');
+const replaceLib = require('@ant-design/tools/lib/replaceLib');
 
 const isDev = process.env.NODE_ENV === 'development';
 const usePreact = process.env.REACT_ENV === 'preact';
@@ -45,6 +45,7 @@ module.exports = {
       其他: 6,
       Other: 6,
       Components: 100,
+      组件: 100,
     },
     typeOrder: {
       General: 0,
@@ -54,6 +55,7 @@ module.exports = {
       'Data Display': 4,
       Feedback: 5,
       Other: 6,
+      Deprecated: 7,
       通用: 0,
       布局: 1,
       导航: 2,
@@ -61,6 +63,7 @@ module.exports = {
       数据展示: 4,
       反馈: 5,
       其他: 6,
+      废弃: 7,
     },
     docVersions: {
       '0.9.x': 'http://09x.ant.design',
@@ -120,6 +123,12 @@ module.exports = {
     }
 
     alertBabelConfig(config.module.rules);
+
+    config.module.rules.push({
+      test: /\.mjs$/,
+      include: /node_modules/,
+      type: 'javascript/auto',
+    });
 
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 

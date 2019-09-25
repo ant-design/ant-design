@@ -34,9 +34,9 @@ Following the Ant Design specification, we developed a React UI library `antd` t
 
 ## Environment Support
 
-* Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
-* Server-side Rendering
-* [Electron](http://electron.atom.io/)
+- Modern browsers and Internet Explorer 9+ (with [polyfills](https://ant.design/docs/react/getting-started#Compatibility))
+- Server-side Rendering
+- [Electron](http://electron.atom.io/)
 
 ## Version
 
@@ -80,38 +80,38 @@ ReactDOM.render(<DatePicker />, mountNode);
 And import stylesheets manually:
 
 ```jsx
-import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
 ### Use modularized antd
 
+> Note: antd support ES6 tree shaking by default even without the below plugin.
+
 - Use [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) (Recommended)
 
-   ```js
-   // .babelrc or babel-loader option
-   {
-     "plugins": [
-       ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
-     ]
-   }
-   ```
+  ```js
+  // .babelrc or babel-loader option
+  {
+    "plugins": [
+      ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }] // `style: true` for less
+    ]
+  }
+  ```
 
-   > Note: Don't set `libraryDirectory` if you are using webpack 1.
+  This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
 
-   This allows you to import components from antd without having to manually import the corresponding stylesheet. The antd babel plugin will automatically import stylesheets.
-
-   ```jsx
-   // import js and css modularly, parsed by babel-plugin-import
-   import { DatePicker } from 'antd';
-   ```
+  ```jsx
+  // import js and css modularly, parsed by babel-plugin-import
+  import { DatePicker } from 'antd';
+  ```
 
 - Manually import
 
-   ```jsx
-   import DatePicker from 'antd/lib/date-picker';  // for js
-   import 'antd/lib/date-picker/style/css';        // for css
-   // import 'antd/lib/date-picker/style';         // that will import less
-   ```
+  ```jsx
+  import DatePicker from 'antd/es/date-picker'; // for js
+  import 'antd/es/date-picker/style/css'; // for css
+  // import 'antd/es/date-picker/style';         // that will import less
+  ```
 
 ### TypeScript
 
@@ -119,18 +119,24 @@ import 'antd/dist/antd.css';  // or 'antd/dist/antd.less'
 
 ## Links
 
-- [Home Page](http://ant.design/)
+- [Home page](https://ant.design/)
 - [Components](/docs/react/introduce)
-- [Ant Design Pro](http://pro.ant.design/)
+- [Ant Design Pro](https://pro.ant.design/)
 - [Change Log](/changelog)
-- [Scaffold Market](http://scaffold.ant.design)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
+- [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
+- [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
+- [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
+- [Ant Design Pro Blocks](https://github.com/ant-design/pro-blocks)
+- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
+- [Landing Pages](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
+- [Scaffold Market](http://scaffold.ant.design)
 - [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
 - [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](/docs/react/faq)
-- [CodeSandbox template](https://u.ant.design/codesandbox-repro) for bug reports
+- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
 - [Awesome Ant Design](https://github.com/websemantics/awesome-ant-design)
 - [Customize Theme](/docs/react/customize-theme)
 
@@ -153,7 +159,7 @@ Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/
 
 If you'd like to help us improve antd, just create a [Pull Request](https://github.com/ant-design/ant-design/pulls). Feel free to report bugs and issues [here](http://new-issue.ant.design/).
 
-> If you're new to posting issues, we ask that you read [*How To Ask Questions The Smart Way*](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) prior to posting. Well written bug reports help us help you!
+> If you're new to posting issues, we ask that you read [_How To Ask Questions The Smart Way_](http://www.catb.org/~esr/faqs/smart-questions.html) and [How to Ask a Question in Open Source Community](https://github.com/seajs/seajs/issues/545) and [How to Report Bugs Effectively](http://www.chiark.greenend.org.uk/~sgtatham/bugs.html) prior to posting. Well written bug reports help us help you!
 
 ## Need Help?
 

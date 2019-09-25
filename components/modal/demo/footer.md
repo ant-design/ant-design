@@ -13,37 +13,35 @@ title:
 
 ## en-US
 
-A more complex example which define a customized footer button bar,
-the dialog will change to loading state after clicking submit button, when the loading is over,
-the modal dialog will be closed.
+A more complex example which define a customized footer button bar. The dialog will change to loading state after clicking the submit button, and when the loading is done, the modal dialog will be closed.
 
 You could set `footer` to `null` if you don't need default footer buttons.
 
-````jsx
+```jsx
 import { Modal, Button } from 'antd';
 
 class App extends React.Component {
   state = {
     loading: false,
     visible: false,
-  }
+  };
 
   showModal = () => {
     this.setState({
       visible: true,
     });
-  }
+  };
 
   handleOk = () => {
     this.setState({ loading: true });
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
-  }
+  };
 
   handleCancel = () => {
     this.setState({ visible: false });
-  }
+  };
 
   render() {
     const { visible, loading } = this.state;
@@ -58,7 +56,9 @@ class App extends React.Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[
-            <Button key="back" onClick={this.handleCancel}>Return</Button>,
+            <Button key="back" onClick={this.handleCancel}>
+              Return
+            </Button>,
             <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
               Submit
             </Button>,
@@ -76,4 +76,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

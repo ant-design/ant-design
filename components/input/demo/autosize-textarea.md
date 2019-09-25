@@ -1,8 +1,8 @@
 ---
 order: 6
 title:
-    zh-CN: 适应文本高度的文本域
-    en-US: Autosizing the height to fit the content
+  zh-CN: 适应文本高度的文本域
+  en-US: Autosizing the height to fit the content
 ---
 
 ## zh-CN
@@ -11,20 +11,44 @@ title:
 
 ## en-US
 
-`autosize` prop for a `textarea` type of `Input` makes the height to automatically adjust based on the content.
-An options object can be provided to `autosize` to specify the minimum and maximum number of lines the textarea will automatically adjust.
+`autosize` prop for a `textarea` type of `Input` makes the height to automatically adjust based on the content. An options object can be provided to `autosize` to specify the minimum and maximum number of lines the textarea will automatically adjust.
 
-````jsx
+```jsx
 import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-ReactDOM.render(
-  <div>
-    <TextArea placeholder="Autosize height based on content lines" autosize />
-    <div style={{ margin: '24px 0' }} />
-    <TextArea placeholder="Autosize height with minimum and maximum number of lines" autosize={{ minRows: 2, maxRows: 6 }} />
-  </div>,
-  mountNode
-);
-````
+class Demo extends React.Component {
+  state = {
+    value: '',
+  };
+
+  onChange = ({ target: { value } }) => {
+    this.setState({ value });
+  };
+
+  render() {
+    const { value } = this.state;
+
+    return (
+      <div>
+        <TextArea placeholder="Autosize height based on content lines" autosize />
+        <div style={{ margin: '24px 0' }} />
+        <TextArea
+          placeholder="Autosize height with minimum and maximum number of lines"
+          autosize={{ minRows: 2, maxRows: 6 }}
+        />
+        <div style={{ margin: '24px 0' }} />
+        <TextArea
+          value={value}
+          onChange={this.onChange}
+          placeholder="Controlled autosize"
+          autosize={{ minRows: 3, maxRows: 5 }}
+        />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<Demo />, mountNode);
+```

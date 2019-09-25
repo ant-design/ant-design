@@ -1,30 +1,36 @@
 import * as React from 'react';
 import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
-import { TreeSelectProps } from './interface';
+import omit from 'omit.js';
+import { TreeSelectProps, TreeNodeValue } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
+import { cloneElement } from '../_util/reactNode';
 import Icon from '../icon';
 import { AntTreeNodeProps } from '../tree';
-import omit from 'omit.js';
 
 export { TreeNode, TreeSelectProps } from './interface';
 
-export default class TreeSelect extends React.Component<TreeSelectProps, any> {
+export default class TreeSelect<T extends TreeNodeValue> extends React.Component<
+  TreeSelectProps<T>,
+  any
+> {
   static TreeNode = TreeNode;
+
   static SHOW_ALL = SHOW_ALL;
+
   static SHOW_PARENT = SHOW_PARENT;
+
   static SHOW_CHILD = SHOW_CHILD;
 
   static defaultProps = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
-    showSearch: false,
   };
 
   private rcTreeSelect: any;
 
-  constructor(props: TreeSelectProps) {
+  constructor(props: TreeSelectProps<T>) {
     super(props);
 
     warning(
@@ -34,6 +40,10 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
     );
   }
 
+  saveTreeSelect = (node: typeof RcTreeSelect) => {
+    this.rcTreeSelect = node;
+  };
+
   focus() {
     this.rcTreeSelect.focus();
   }
@@ -41,10 +51,6 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
   blur() {
     this.rcTreeSelect.blur();
   }
-
-  saveTreeSelect = (node: typeof RcTreeSelect) => {
-    this.rcTreeSelect = node;
-  };
 
   renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
     if (loading) {
@@ -69,6 +75,8 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       dropdownStyle,
       dropdownClassName,
       suffixIcon,
+      removeIcon,
+      clearIcon,
       getPopupContainer,
       ...restProps
     } = this.props;
@@ -83,20 +91,33 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
       className,
     );
 
+    // showSearch: single - false, multiple - true
+    let { showSearch } = restProps;
+    if (!('showSearch' in restProps)) {
+      showSearch = !!(restProps.multiple || restProps.treeCheckable);
+    }
+
     let checkable = rest.treeCheckable;
     if (checkable) {
       checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
 
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon)
-        : suffixIcon)) || <Icon type="down" className={`${prefixCls}-arrow-icon`} />;
+    const inputIcon = suffixIcon ? (
+      cloneElement(suffixIcon)
+    ) : (
+      <Icon type="down" className={`${prefixCls}-arrow-icon`} />
+    );
 
-    const removeIcon = <Icon type="close" className={`${prefixCls}-remove-icon`} />;
+    const finalRemoveIcon = removeIcon ? (
+      cloneElement(removeIcon)
+    ) : (
+      <Icon type="close" className={`${prefixCls}-remove-icon`} />
+    );
 
-    const clearIcon = (
-      <Icon type="close-circle" className={`${prefixCls}-clear-icon`} theme="filled" />
+    const finalClearIcon = clearIcon ? (
+      cloneElement(clearIcon)
+    ) : (
+      <Icon type="close-circle" theme="filled" className={`${prefixCls}-clear-icon`} />
     );
 
     return (
@@ -105,9 +126,10 @@ export default class TreeSelect extends React.Component<TreeSelectProps, any> {
           this.renderSwitcherIcon(prefixCls, nodeProps)
         }
         inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
+        removeIcon={finalRemoveIcon}
+        clearIcon={finalClearIcon}
         {...rest}
+        showSearch={showSearch}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
         dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
         prefixCls={prefixCls}

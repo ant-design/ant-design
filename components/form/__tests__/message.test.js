@@ -81,7 +81,7 @@ describe('Form', () => {
 
     myForm.setFields({
       account: {
-        errors: [<div>Error 1</div>, <div>Error 2</div>],
+        errors: [<div key="error-1">Error 1</div>, <div key="error-2">Error 2</div>],
       },
     });
 
@@ -94,8 +94,8 @@ describe('Form', () => {
       return (
         <Form>
           <Form.Item label="Account">
-            {form.getFieldDecorator('account')(<input />)}
-            {form.getFieldDecorator('account')(<input />)}
+            {form.getFieldDecorator('field_1')(<input />)}
+            {form.getFieldDecorator('field_2')(<input />)}
           </Form.Item>
         </Form>
       );
@@ -115,8 +115,8 @@ describe('Form', () => {
       return (
         <Form>
           <Form.Item label="Account" help="custom help information">
-            {form.getFieldDecorator('account')(<input />)}
-            {form.getFieldDecorator('account')(<input />)}
+            {form.getFieldDecorator('field_1')(<input />)}
+            {form.getFieldDecorator('field_2')(<input />)}
           </Form.Item>
         </Form>
       );

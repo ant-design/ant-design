@@ -13,7 +13,7 @@ title:
 
 By specifying `arrowPointAtCenter` prop, the arrow will point to the center of the target element.
 
-````jsx
+```jsx
 import { Tooltip, Button } from 'antd';
 
 ReactDOM.render(
@@ -25,9 +25,9 @@ ReactDOM.render(
       <Button>Arrow points to center / 箭头指向中心</Button>
     </Tooltip>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 .code-box-demo .ant-btn {

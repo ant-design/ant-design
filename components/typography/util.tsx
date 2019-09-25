@@ -51,13 +51,13 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
   return childList;
 }
 
-export function measure(
+export default (
   originEle: HTMLElement,
   rows: number,
   content: React.ReactNode,
   fixedContent: React.ReactNode[],
   ellipsisStr: string,
-): { content: React.ReactNode; text: string; ellipsis: boolean } {
+): { content: React.ReactNode; text: string; ellipsis: boolean } => {
   if (!ellipsisContainer) {
     ellipsisContainer = document.createElement('div');
     ellipsisContainer.setAttribute('aria-hidden', 'true');
@@ -171,9 +171,8 @@ export function measure(
 
     if (inRange()) {
       return measureText(textNode, fullText, midLoc, endLoc, midLoc);
-    } else {
-      return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
     }
+    return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
   }
 
   function measureNode(childNode: ChildNode, index: number): MeasureResult {
@@ -195,7 +194,8 @@ export function measure(
         finished: true,
         reactNode: null,
       };
-    } else if (type === TEXT_NODE) {
+    }
+    if (type === TEXT_NODE) {
       const fullText = childNode.textContent || '';
       const textNode = document.createTextNode(fullText);
       appendChildNode(textNode);
@@ -223,4 +223,4 @@ export function measure(
     text: ellipsisContainer.innerHTML,
     ellipsis: true,
   };
-}
+};

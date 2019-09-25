@@ -12,11 +12,26 @@ exports[`Icon \`component\` prop can access to svg defs if has children 1`] = `
     height="1em"
     width="1em"
   >
+    <defs>
+      <linearGradient
+        id="gradient"
+      >
+        <stop
+          offset="20%"
+          stop-color="#39F"
+        />
+        <stop
+          offset="90%"
+          stop-color="#F3F"
+        />
+      </linearGradient>
+    </defs>
     <title>
       Cool Home
     </title>
     <path
       d="'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'"
+      fill="scriptUrl(#gradient)"
     />
   </svg>
 </i>
@@ -298,13 +313,14 @@ exports[`Icon should support svg react component 1`] = `
     fill="currentColor"
     focusable="false"
     height="1em"
+    viewBox="0 0 24 24"
     width="1em"
   >
     <title>
-      Cool Home
+      Custom Svg
     </title>
     <path
-      d="'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'"
+      d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
     />
   </svg>
 </i>

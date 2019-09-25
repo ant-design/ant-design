@@ -1,0 +1,164 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+
+@mention-prefix-cls: ~'@{ant-prefix}-mentions';
+
+.@{mention-prefix-cls} {
+  .reset-component;
+  .input;
+
+  position: relative;
+  display: inline-block;
+  height: auto;
+  padding: 0;
+  overflow: hidden;
+  line-height: @line-height-base;
+  white-space: pre-wrap;
+  vertical-align: bottom;
+
+  // =================== Status ===================
+  &-disabled {
+    > textarea {
+      .disabled();
+    }
+  }
+
+  &-focused {
+    .active();
+  }
+
+  // ================= Input Area =================
+  > textarea,
+  &-measure {
+    min-height: @input-height-base - 2px;
+    margin: 0;
+    padding: @input-padding-vertical-base @input-padding-horizontal-base;
+    overflow: inherit;
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-weight: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    font-variant: inherit;
+    font-size-adjust: inherit;
+    font-stretch: inherit;
+    line-height: inherit;
+    direction: inherit;
+    letter-spacing: inherit;
+    white-space: inherit;
+    text-align: inherit;
+    vertical-align: top;
+    word-wrap: break-word;
+    word-break: inherit;
+    tab-size: inherit;
+  }
+
+  > textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    resize: none;
+    .placeholder();
+
+    &:read-only {
+      cursor: default;
+    }
+  }
+
+  &-measure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    color: transparent;
+    pointer-events: none;
+
+    > span {
+      display: inline-block;
+      min-height: 1em;
+    }
+  }
+
+  // ================== Dropdown ==================
+  &-dropdown {
+    // Ref select dropdown style
+    .reset-component;
+
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    z-index: @zindex-dropdown;
+    box-sizing: border-box;
+    font-size: @font-size-base;
+    font-variant: initial;
+    background-color: @component-background;
+    border-radius: @border-radius-base;
+    outline: none;
+    box-shadow: @box-shadow-base;
+
+    &-hidden {
+      display: none;
+    }
+
+    &-menu {
+      max-height: 250px;
+      margin-bottom: 0;
+      padding-left: 0; // Override default ul/ol
+      overflow: auto;
+      list-style: none;
+      outline: none;
+
+      &-item {
+        position: relative;
+        display: block;
+        min-width: 100px;
+        padding: 5px @control-padding-horizontal;
+        overflow: hidden;
+        color: @text-color;
+        font-weight: normal;
+        line-height: 22px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background-color: @item-hover-bg;
+        }
+
+        &:first-child {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
+
+        &:last-child {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
+
+        &-disabled {
+          color: @disabled-color;
+          cursor: not-allowed;
+
+          &:hover {
+            color: @disabled-color;
+            background-color: @component-background;
+            cursor: not-allowed;
+          }
+        }
+
+        &-selected {
+          color: @text-color;
+          font-weight: @select-item-selected-font-weight;
+          background-color: @background-color-light;
+        }
+
+        &-active {
+          background-color: @item-active-bg;
+        }
+      }
+    }
+  }
+}

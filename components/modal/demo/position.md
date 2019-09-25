@@ -11,17 +11,16 @@ title:
 
 ## en-US
 
-You can use `centered`,`style.top` or other styles to
-set position of modal dialog.
+You can use `centered`,`style.top` or other styles to set position of modal dialog.
 
-````jsx
+```jsx
 import { Modal, Button } from 'antd';
 
 class App extends React.Component {
   state = {
     modal1Visible: false,
     modal2Visible: false,
-  }
+  };
 
   setModal1Visible(modal1Visible) {
     this.setState({ modal1Visible });
@@ -34,7 +33,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={() => this.setModal1Visible(true)}>Display a modal dialog at 20px to Top</Button>
+        <Button type="primary" onClick={() => this.setModal1Visible(true)}>
+          Display a modal dialog at 20px to Top
+        </Button>
         <Modal
           title="20px to Top"
           style={{ top: 20 }}
@@ -46,8 +47,11 @@ class App extends React.Component {
           <p>some contents...</p>
           <p>some contents...</p>
         </Modal>
-        <br /><br />
-        <Button type="primary" onClick={() => this.setModal2Visible(true)}>Vertically centered modal dialog</Button>
+        <br />
+        <br />
+        <Button type="primary" onClick={() => this.setModal2Visible(true)}>
+          Vertically centered modal dialog
+        </Button>
         <Modal
           title="Vertically centered modal dialog"
           centered
@@ -65,4 +69,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

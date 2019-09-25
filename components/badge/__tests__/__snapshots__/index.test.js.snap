@@ -2907,7 +2907,9 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
   <a
     class="head-example"
     href="#"
-  />
+  >
+    head
+  </a>
   <span
     class="ant-scroll-number-custom-component custom"
     style="right:-10px;margin-top:20px;color:#f5222d"

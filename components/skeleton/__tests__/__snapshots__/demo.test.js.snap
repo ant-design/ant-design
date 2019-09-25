@@ -122,93 +122,97 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
       <div
         class="ant-spin-container"
       >
-        <div
-          class="ant-list-item ant-list-item-no-flex"
+        <ul
+          class="ant-list-items"
         >
-          <div
-            class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             <div
-              class="ant-skeleton-header"
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
             >
-              <span
-                class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-              />
-            </div>
-            <div
-              class="ant-skeleton-content"
-            >
-              <h3
-                class="ant-skeleton-title"
-                style="width:50%"
-              />
-              <ul
-                class="ant-skeleton-paragraph"
+              <div
+                class="ant-skeleton-header"
               >
-                <li />
-                <li />
-              </ul>
+                <span
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                />
+              </div>
+              <div
+                class="ant-skeleton-content"
+              >
+                <h3
+                  class="ant-skeleton-title"
+                  style="width:50%"
+                />
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="ant-list-item ant-list-item-no-flex"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             <div
-              class="ant-skeleton-header"
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
             >
-              <span
-                class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-              />
-            </div>
-            <div
-              class="ant-skeleton-content"
-            >
-              <h3
-                class="ant-skeleton-title"
-                style="width:50%"
-              />
-              <ul
-                class="ant-skeleton-paragraph"
+              <div
+                class="ant-skeleton-header"
               >
-                <li />
-                <li />
-              </ul>
+                <span
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                />
+              </div>
+              <div
+                class="ant-skeleton-content"
+              >
+                <h3
+                  class="ant-skeleton-title"
+                  style="width:50%"
+                />
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
-        <div
-          class="ant-list-item ant-list-item-no-flex"
-        >
-          <div
-            class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             <div
-              class="ant-skeleton-header"
+              class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
             >
-              <span
-                class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-              />
-            </div>
-            <div
-              class="ant-skeleton-content"
-            >
-              <h3
-                class="ant-skeleton-title"
-                style="width:50%"
-              />
-              <ul
-                class="ant-skeleton-paragraph"
+              <div
+                class="ant-skeleton-header"
               >
-                <li />
-                <li />
-              </ul>
+                <span
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                />
+              </div>
+              <div
+                class="ant-skeleton-content"
+              >
+                <h3
+                  class="ant-skeleton-title"
+                  style="width:50%"
+                />
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                </ul>
+              </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

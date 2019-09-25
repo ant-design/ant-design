@@ -13,8 +13,8 @@ title:
 
 Simplest Skeleton usage.
 
-````jsx
+```jsx
 import { Skeleton } from 'antd';
 
 ReactDOM.render(<Skeleton />, mountNode);
-````
+```

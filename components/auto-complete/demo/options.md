@@ -13,17 +13,17 @@ title:
 
 You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of using `dataSource`。
 
-````jsx
+```jsx
 import { AutoComplete } from 'antd';
 
-const Option = AutoComplete.Option;
+const { Option } = AutoComplete;
 
 class Complete extends React.Component {
   state = {
     result: [],
-  }
+  };
 
-  handleSearch = (value) => {
+  handleSearch = value => {
     let result;
     if (!value || value.indexOf('@') >= 0) {
       result = [];
@@ -31,17 +31,13 @@ class Complete extends React.Component {
       result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
     }
     this.setState({ result });
-  }
+  };
 
   render() {
     const { result } = this.state;
     const children = result.map(email => <Option key={email}>{email}</Option>);
     return (
-      <AutoComplete
-        style={{ width: 200 }}
-        onSearch={this.handleSearch}
-        placeholder="input here"
-      >
+      <AutoComplete style={{ width: 200 }} onSearch={this.handleSearch} placeholder="input here">
         {children}
       </AutoComplete>
     );
@@ -49,4 +45,4 @@ class Complete extends React.Component {
 }
 
 ReactDOM.render(<Complete />, mountNode);
-````
+```

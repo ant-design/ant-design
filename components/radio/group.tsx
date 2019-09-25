@@ -26,7 +26,6 @@ function getCheckedValue(children: React.ReactNode) {
 
 class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
-    disabled: false,
     buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
 
@@ -39,14 +38,14 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
       return {
         value: nextProps.value,
       };
-    } else {
-      const checkedValue = getCheckedValue(nextProps.children);
-      if (checkedValue) {
-        return {
-          value: checkedValue.value,
-        };
-      }
     }
+    const checkedValue = getCheckedValue(nextProps.children);
+    if (checkedValue) {
+      return {
+        value: checkedValue.value,
+      };
+    }
+
     return null;
   }
 
@@ -90,14 +89,14 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
       });
     }
 
-    const onChange = this.props.onChange;
+    const { onChange } = this.props;
     if (onChange && value !== lastValue) {
       onChange(ev);
     }
   };
 
   renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const props = this.props;
+    const { props } = this;
     const { prefixCls: customizePrefixCls, className = '', options, buttonStyle } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
@@ -110,17 +109,16 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
       className,
     );
 
-    let children: React.ReactChildren[] | React.ReactElement<any>[] | React.ReactNode =
-      props.children;
+    let { children } = props;
 
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
-      children = options.map((option, index) => {
+      children = options.map(option => {
         if (typeof option === 'string') {
           // 此处类型自动推导为 string
           return (
             <Radio
-              key={index}
+              key={option}
               prefixCls={prefixCls}
               disabled={this.props.disabled}
               value={option}
@@ -129,20 +127,19 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
               {option}
             </Radio>
           );
-        } else {
-          // 此处类型自动推导为 { label: string value: string }
-          return (
-            <Radio
-              key={index}
-              prefixCls={prefixCls}
-              disabled={option.disabled || this.props.disabled}
-              value={option.value}
-              checked={this.state.value === option.value}
-            >
-              {option.label}
-            </Radio>
-          );
         }
+        // 此处类型自动推导为 { label: string value: string }
+        return (
+          <Radio
+            key={`radio-group-value-options-${option.value}`}
+            prefixCls={prefixCls}
+            disabled={option.disabled || this.props.disabled}
+            value={option.value}
+            checked={this.state.value === option.value}
+          >
+            {option.label}
+          </Radio>
+        );
       });
     }
 

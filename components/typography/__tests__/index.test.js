@@ -5,10 +5,15 @@ import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Paragraph from '../Paragraph';
 import Base from '../Base'; // eslint-disable-line import/no-named-as-default
+import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('copy-to-clipboard');
 
 describe('Typography', () => {
+  mountTest(Paragraph);
+  mountTest(Base);
+  mountTest(Title);
+
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -168,7 +173,14 @@ describe('Typography', () => {
           const onStart = jest.fn();
           const onChange = jest.fn();
 
-          const wrapper = mount(<Paragraph editable={{ onChange, onStart }}>Bamboo</Paragraph>);
+          const className = 'test';
+          const style = {};
+
+          const wrapper = mount(
+            <Paragraph editable={{ onChange, onStart }} className={className} style={style}>
+              Bamboo
+            </Paragraph>,
+          );
 
           wrapper
             .find('.ant-typography-edit')
@@ -176,6 +188,11 @@ describe('Typography', () => {
             .simulate('click');
 
           expect(onStart).toHaveBeenCalled();
+
+          // Should have className
+          const props = wrapper.find('div').props();
+          expect(props.style).toEqual(style);
+          expect(props.className.includes(className)).toBeTruthy();
 
           wrapper.find('TextArea').simulate('change', {
             target: { value: 'Bamboo' },

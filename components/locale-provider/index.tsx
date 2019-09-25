@@ -3,6 +3,9 @@ import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import interopDefault from '../_util/interopDefault';
 import { ModalLocale, changeConfirmLocale } from '../modal/locale';
+import warning from '../_util/warning';
+
+export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
@@ -21,6 +24,7 @@ export interface Locale {
 export interface LocaleProviderProps {
   locale: Locale;
   children?: React.ReactNode;
+  _ANT_MARK__?: string;
 }
 
 function setMomentLocale(locale: Locale) {
@@ -48,6 +52,12 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     super(props);
     setMomentLocale(props.locale);
     changeConfirmLocale(props.locale && props.locale.Modal);
+
+    warning(
+      props._ANT_MARK__ === ANT_MARK,
+      'LocaleProvider',
+      '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
+    );
   }
 
   getChildContext() {
@@ -63,8 +73,8 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     const { locale } = this.props;
     if (prevProps.locale !== locale) {
       setMomentLocale(locale);
+      changeConfirmLocale(locale && locale.Modal);
     }
-    changeConfirmLocale(locale && locale.Modal);
   }
 
   componentWillUnmount() {
@@ -72,6 +82,6 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
   }
 
   render() {
-    return React.Children.only(this.props.children);
+    return this.props.children;
   }
 }

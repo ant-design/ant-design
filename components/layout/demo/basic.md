@@ -13,12 +13,10 @@ title:
 
 Classic page layouts.
 
-````jsx
+```jsx
 import { Layout } from 'antd';
 
-const {
-  Header, Footer, Sider, Content,
-} = Layout;
+const { Header, Footer, Sider, Content } = Layout;
 
 ReactDOM.render(
   <div>
@@ -55,9 +53,9 @@ ReactDOM.render(
       </Layout>
     </Layout>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
 <style>
 #components-layout-demo-basic .code-box-demo {

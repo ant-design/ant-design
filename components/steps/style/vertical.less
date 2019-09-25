@@ -20,7 +20,9 @@
     }
   }
 
-  > .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-tail {
+  > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
     position: absolute;
     top: 0;
     left: 16px;
@@ -33,11 +35,14 @@
     }
   }
 
-  > .@{steps-prefix-cls}-item:not(:last-child) > .@{steps-prefix-cls}-item-tail {
+  > .@{steps-prefix-cls}-item:not(:last-child)
+    > .@{steps-prefix-cls}-item-container
+    > .@{steps-prefix-cls}-item-tail {
     display: block;
   }
 
   > .@{steps-prefix-cls}-item
+    > .@{steps-prefix-cls}-item-container
     > .@{steps-prefix-cls}-item-content
     > .@{steps-prefix-cls}-item-title {
     &::after {
@@ -45,7 +50,7 @@
     }
   }
 
-  &.@{steps-prefix-cls}-small {
+  &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item-container {
     .@{steps-prefix-cls}-item-tail {
       position: absolute;
       top: 0;
