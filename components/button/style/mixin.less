@@ -130,6 +130,11 @@
     .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
     line-height: @btn-height-lg - 2px;
   }
+  &-lg > .@{btnClassName}.@{btnClassName}-icon-only {
+    .square(@btn-height-lg);
+    padding-right: 0;
+    padding-left: 0;
+  }
   &-sm > .@{btnClassName},
   &-sm > span > .@{btnClassName} {
     .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; 0);
@@ -137,6 +142,11 @@
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
+  }
+  &-sm > .@{btnClassName}.@{btnClassName}-icon-only {
+    .square(@btn-height-sm);
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 // Base styles of buttons
