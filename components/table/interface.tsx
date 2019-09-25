@@ -29,7 +29,11 @@ export interface FilterDropdownProps {
 export interface ColumnProps<T> {
   title?:
     | React.ReactNode
-    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
+    | ((options: {
+        filters: TableStateFilters;
+        sortOrder?: SortOrder;
+        sortColumn?: ColumnProps<T> | null;
+      }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
