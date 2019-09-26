@@ -14,33 +14,52 @@ title:
 Customize the dropdown menu via `dropdownRender`.
 
 ```jsx
-import { Select, Divider, message } from 'antd';
+import { Select, Divider } from 'antd';
 import { Plus } from '@ant-design/icons';
 
 const { Option } = Select;
 
-ReactDOM.render(
-  <Select
-    defaultValue="lucy"
-    style={{ width: 120 }}
-    dropdownRender={menu => (
-      <div>
-        {menu}
-        <Divider style={{ margin: '4px 0' }} />
-        <a
-          style={{ padding: '8px', display: 'block', cursor: 'pointer' }}
-          onClick={() => {
-            message.info('Add an item!');
-          }}
-        >
-          <Plus /> Add item
-        </a>
-      </div>
-    )}
-  >
-    <Option value="jack">Jack</Option>
-    <Option value="lucy">Lucy</Option>
-  </Select>,
-  mountNode,
-);
+let index = 0;
+
+class App extends React.Component {
+  state = {
+    items: ['jack', 'lucy'],
+  };
+
+  addItem = () => {
+    console.log('addItem');
+    const { items } = this.state;
+    this.setState({
+      items: [...items, `New item ${index++}`],
+    });
+  };
+
+  render() {
+    const { items } = this.state;
+    return (
+      <Select
+        style={{ width: 240 }}
+        placeholder="custom dropdown render"
+        dropdownRender={menu => (
+          <div>
+            {menu}
+            <Divider style={{ margin: '4px 0' }} />
+            <a
+              style={{ padding: '8px', display: 'block', cursor: 'pointer' }}
+              onClick={this.addItem}
+            >
+              <Plus /> Add item
+            </a>
+          </div>
+        )}
+      >
+        {items.map(item => (
+          <Option key={item}>{item}</Option>
+        ))}
+      </Select>
+    );
+  }
+}
+
+ReactDOM.render(<App />, mountNode);
 ```

@@ -526,7 +526,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:120px"
+  style="width:240px"
 >
   <div
     class="ant-select-selector"
@@ -548,9 +548,9 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
       />
     </span>
     <span
-      class="ant-select-selection-item"
+      class="ant-select-selection-placeholder"
     >
-      Lucy
+      custom dropdown render
     </span>
   </div>
   <span

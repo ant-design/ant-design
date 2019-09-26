@@ -212,7 +212,7 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/input/demo/algin.md correctly 1`] = `
+exports[`renders ./components/input/demo/align.md correctly 1`] = `
 <div>
   <div
     class="ant-mentions"

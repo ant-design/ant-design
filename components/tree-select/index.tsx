@@ -7,6 +7,7 @@ import { Loading, CaretDown, Down, Close, CloseCircleFilled } from '@ant-design/
 import { TreeSelectProps, TreeNodeValue } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
+import { cloneElement } from '../_util/reactNode';
 import { AntTreeNodeProps } from '../tree';
 
 export { TreeNode, TreeSelectProps } from './interface';
@@ -75,6 +76,8 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
       dropdownStyle,
       dropdownClassName,
       suffixIcon,
+      removeIcon,
+      clearIcon,
       getPopupContainer,
       ...restProps
     } = this.props;
@@ -100,14 +103,23 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
       checkable = <span className={`${prefixCls}-tree-checkbox-inner`} />;
     }
 
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon)
-        ? React.cloneElement(suffixIcon)
-        : suffixIcon)) || <Down className={`${prefixCls}-arrow-icon`} />;
+    const inputIcon = suffixIcon ? (
+      cloneElement(suffixIcon)
+    ) : (
+      <Down className={`${prefixCls}-arrow-icon`} />
+    );
 
-    const removeIcon = <Close className={`${prefixCls}-remove-icon`} />;
+    const finalRemoveIcon = removeIcon ? (
+      cloneElement(removeIcon)
+    ) : (
+      <Close className={`${prefixCls}-remove-icon`} />
+    );
 
-    const clearIcon = <CloseCircleFilled className={`${prefixCls}-clear-icon`} />;
+    const finalClearIcon = clearIcon ? (
+      cloneElement(clearIcon)
+    ) : (
+      <CloseCircleFilled className={`${prefixCls}-clear-icon`} />
+    );
 
     return (
       <RcTreeSelect
@@ -115,8 +127,8 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
           this.renderSwitcherIcon(prefixCls, nodeProps)
         }
         inputIcon={inputIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
+        removeIcon={finalRemoveIcon}
+        clearIcon={finalClearIcon}
         {...rest}
         showSearch={showSearch}
         getPopupContainer={getPopupContainer || getContextPopupContainer}

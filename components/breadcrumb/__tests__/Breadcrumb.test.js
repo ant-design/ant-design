@@ -117,4 +117,14 @@ describe('Breadcrumb', () => {
     expect(linkRender).not.toHaveBeenCalled();
     expect(nameRender).not.toHaveBeenCalled();
   });
+
+  it('should support custom attribute', () => {
+    const wrapper = render(
+      <Breadcrumb data-custom="custom">
+        <Breadcrumb.Item data-custom="custom-item">xxx</Breadcrumb.Item>
+        <Breadcrumb.Item>yyy</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -50,6 +50,8 @@ export interface TreeSelectProps<T extends TreeNodeValue> extends Omit<SelectPro
   searchValue?: string;
   showCheckedStrategy?: 'SHOW_ALL' | 'SHOW_PARENT' | 'SHOW_CHILD';
   suffixIcon?: React.ReactNode;
+  removeIcon?: React.ReactNode;
+  clearIcon?: React.ReactNode;
   treeCheckable?: boolean | React.ReactNode;
   treeCheckStrictly?: boolean;
   treeData?: Array<TreeNode>;
