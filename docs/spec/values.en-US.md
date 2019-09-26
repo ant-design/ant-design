@@ -26,7 +26,7 @@ As a part of nature, it will have deep influence on user behavior, and designers
 ## Certainty
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png" alt="Determine" />
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png" alt="Certainty" />
 </div>
 
 The designers needs to make better design decisions and create a high-definition and low-entropy atmosphere for developer team. Meanwhile, different designers could produce the same design output which fit business needs based on the same understanding of business requirements and design system.
