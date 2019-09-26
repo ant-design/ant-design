@@ -70,6 +70,16 @@ describe('Table.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 
+  // TODO
+  it('should scroll to first row when page change', () => {
+    const wrapper = mount(createTable({ scroll: { y: 20 } }));
+
+    wrapper
+      .find('Pager')
+      .last()
+      .simulate('click');
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const handlePaginationChange = jest.fn();
