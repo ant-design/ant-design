@@ -113,6 +113,24 @@ describe('Transfer', () => {
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
+  it('should move selected keys to left list', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      <Transfer
+        {...listCommonProps}
+        selectedKeys={['a']}
+        targetKeys={['a']}
+        onChange={handleChange}
+      />
+    );
+    wrapper
+      .find(TransferOperation)
+      .find(Button)
+      .at(1)
+      .simulate('click'); // move selected keys to left list
+    expect(handleChange).toHaveBeenCalledWith([], 'left', ['a']);
+  });
+
   it('should move selected keys expect disabled to corresponding list', () => {
     const handleChange = jest.fn();
     const wrapper = mount(<Transfer {...listDisabledProps} onChange={handleChange} />);
@@ -449,5 +467,45 @@ describe('Transfer', () => {
     expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
     expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
     expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
+  });
+
+  it('should support onScroll', () => {
+    const onScroll = jest.fn();
+    const component = mount(
+      <Transfer
+        {...listCommonProps}
+        onScroll={onScroll}
+      />,
+    );
+    component.find('.ant-transfer-list').at(0).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    expect(onScroll).toHaveBeenLastCalledWith('left', expect.anything());
+    component.find('.ant-transfer-list').at(1).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
+  });
+
+  it('should support rowKey is function', () => {
+    expect(() => {
+      mount(
+        <Transfer
+          {...listCommonProps}
+          rowKey={record => record.key}
+        />,
+      );
+    }).not.toThrow();
+  });
+
+  it('should support render value and label in item', () => {
+    const component = mount(
+      <Transfer
+        dataSource={[
+          {
+            key: 'a',
+            title: 'title',
+          },
+        ]}
+        render={record => ({ value: `${record.title} value`, label: 'label' })}
+      />,
+    );
+    expect(component).toMatchSnapshot();
   });
 });
