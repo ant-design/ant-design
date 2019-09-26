@@ -79,7 +79,7 @@ const columns = [
 | rowClassName | Row's className | Function(record, index):string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |  |
 | rowSelection | Row selection [config](#rowSelection) | object | null |  |
-| scroll | Set horizontal or vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, `true` and ['max-content'](https://developer.mozilla.org/en-US/docs/Web/CSS/width) | { x: number \| true, y: number, scrollToFirstRowOnChange: boolean } | - |  |
+| scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | `true` |  |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |  |
 | title | Table title renderer | Function(currentPageData) |  |  |
@@ -179,6 +179,14 @@ Properties for row selection.
 | onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |  |
+
+### scroll
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| x | Set horizontal scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| y | Set vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - | 3.24.0 |
 
 ### selection
 

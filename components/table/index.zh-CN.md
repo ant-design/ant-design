@@ -84,7 +84,7 @@ const columns = [
 | rowClassName | 表格行的类名 | Function(record, index):string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |  |
-| scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，`true` 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | { x: number \| true, y: number, scrollToFirstRowOnChange: boolean } | - |  |
+| scroll | 表格是否可滚动，[配置项](#scroll) | object | - |  |
 | showHeader | 是否显示表头 | boolean | true |  |
 | size | 表格大小 | default \| middle \| small | default |  |
 | title | 表格标题 | Function(currentPageData) |  |  |
@@ -184,6 +184,14 @@ const columns = [
 | onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |  |
+
+### scroll
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| x | 设置横向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| y | 设置纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - | 3.24.0 |
 
 ### selection
 
