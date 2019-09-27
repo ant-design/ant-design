@@ -26,9 +26,9 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 ```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { LocaleProvider, DatePicker, message } from 'antd';
+import { ConfigProvider, DatePicker, message } from 'antd';
 // 由于 antd 组件的默认文案是英文，所以需要修改为中文
-import zhCN from 'antd/es/locale-provider/zh_CN';
+import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import 'antd/dist/antd.css';
@@ -42,20 +42,20 @@ class App extends React.Component {
   };
 
   handleChange = date => {
-    message.info(`您选择的日期是: ${date.format('YYYY-MM-DD')}`);
+    message.info(`您选择的日期是: ${date ? date.format('YYYY-MM-DD') : '未选择'}`);
     this.setState({ date });
   };
   render() {
     const { date } = this.state;
     return (
-      <LocaleProvider locale={zhCN}>
+      <ConfigProvider locale={zhCN}>
         <div style={{ width: 400, margin: '100px auto' }}>
           <DatePicker onChange={this.handleChange} />
           <div style={{ marginTop: 20 }}>
             当前日期：{date ? date.format('YYYY-MM-DD') : '未选择'}
           </div>
         </div>
-      </LocaleProvider>
+      </ConfigProvider>
     );
   }
 }
@@ -70,8 +70,8 @@ ReactDOM.render(<App />, document.getElementById('root'));
 然后依照演示代码的写法，在之前的 codesandbox 里修改 `index.js`，首先在 `import` 内引入 Alert 组件：
 
 ```diff
-- import { LocaleProvider, DatePicker, message } from 'antd';
-+ import { LocaleProvider, DatePicker, message, Alert } from 'antd';
+- import { ConfigProvider, DatePicker, message } from 'antd';
++ import { ConfigProvider, DatePicker, message, Alert } from 'antd';
 ```
 
 然后在 `render` 内添加相应的 jsx 代码：

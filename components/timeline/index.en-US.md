@@ -39,6 +39,6 @@ Node of timeline
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| color | Set the circle's color to `blue`, `red`, `green` or other custom colors | string | `blue` |  |
+| color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |  |
 | dot | Customize timeline dot | string\|ReactNode | - |  |
 | position | Customize node position | `left` \| `right` | - | 3.17.0 |

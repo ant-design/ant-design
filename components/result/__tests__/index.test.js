@@ -2,8 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Result from '..';
 import Button from '../../button';
+import mountTest from '../../../tests/shared/mountTest';
 
-describe('Progress', () => {
+describe('Result', () => {
+  mountTest(Result);
+
   it('🙂  successPercent should decide the progress status when it exists', () => {
     const wrapper = mount(
       <Result

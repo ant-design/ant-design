@@ -61,9 +61,9 @@ class App extends React.Component {
               key={item.title}
               actions={
                 !loading && [
-                  <IconText type="star-o" text="156" />,
-                  <IconText type="like-o" text="156" />,
-                  <IconText type="message" text="2" />,
+                  <IconText type="star-o" text="156" key="skeleton-star-o" />,
+                  <IconText type="like-o" text="156" key="skeleton-like-o" />,
+                  <IconText type="message" text="2" key="skeleton-message" />,
                 ]
               }
               extra={

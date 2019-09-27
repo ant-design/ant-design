@@ -31,6 +31,7 @@ export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> 
   value?: SelectValue;
   defaultValue?: SelectValue;
   dataSource?: DataSourceItemType[];
+  dropdownMenuStyle?: React.CSSProperties;
   autoFocus?: boolean;
   backfill?: boolean;
   optionLabelProp?: string;
@@ -51,6 +52,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
 
 export default class AutoComplete extends React.Component<AutoCompleteProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
+
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
   static defaultProps = {
@@ -62,6 +64,10 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
   };
 
   private select: any;
+
+  saveSelect = (node: any) => {
+    this.select = node;
+  };
 
   getInputElement = () => {
     const { children } = this.props;
@@ -84,10 +90,6 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
   blur() {
     this.select.blur();
   }
-
-  saveSelect = (node: any) => {
-    this.select = node;
-  };
 
   renderAutoComplete = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {

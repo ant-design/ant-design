@@ -2,6 +2,7 @@
 // https://github.com/WickyNilliams/enquire.js/issues/82
 let enquire: any;
 
+// TODO: Will be removed in antd 4.0 because we will no longer support ie9
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string) => {
     return {
@@ -11,7 +12,9 @@ if (typeof window !== 'undefined') {
       removeListener() {},
     };
   };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  // ref: https://github.com/ant-design/ant-design/issues/18774
+  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill as any;
+  // eslint-disable-next-line global-require
   enquire = require('enquire.js');
 }
 
@@ -57,8 +60,8 @@ const responsiveObserve = {
     }
     const token = (++subUid).toString();
     subscribers.push({
-      token: token,
-      func: func,
+      token,
+      func,
     });
     func(screens);
     return token;

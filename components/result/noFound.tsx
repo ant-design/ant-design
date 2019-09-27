@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default () => (
+const NoFound = () => (
   <svg width="252" height="294">
     <defs>
       <path d="M0 .387h251.772v251.772H0z" />
@@ -282,3 +282,5 @@ export default () => (
     </g>
   </svg>
 );
+
+export default NoFound;

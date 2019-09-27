@@ -4,11 +4,10 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
-import { OptionProps as RcOptionProps } from 'rc-mentions/lib/Option';
 import Spin from '../spin';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 
-const Option: React.FunctionComponent<RcOptionProps> = RcMentions.Option;
+const { Option } = RcMentions;
 
 function loadingFilterOption() {
   return true;
@@ -49,32 +48,36 @@ class Mentions extends React.Component<MentionProps, MentionState> {
 
     return value
       .split(split)
-      .map((str = ''): MentionsEntity | null => {
-        let hitPrefix: string | null = null;
+      .map(
+        (str = ''): MentionsEntity | null => {
+          let hitPrefix: string | null = null;
 
-        prefixList.some(prefixStr => {
-          const startStr = str.slice(0, prefixStr.length);
-          if (startStr === prefixStr) {
-            hitPrefix = prefixStr;
-            return true;
+          prefixList.some(prefixStr => {
+            const startStr = str.slice(0, prefixStr.length);
+            if (startStr === prefixStr) {
+              hitPrefix = prefixStr;
+              return true;
+            }
+            return false;
+          });
+
+          if (hitPrefix !== null) {
+            return {
+              prefix: hitPrefix,
+              value: str.slice(hitPrefix!.length),
+            };
           }
-          return false;
-        });
-
-        if (hitPrefix !== null) {
-          return {
-            prefix: hitPrefix,
-            value: str.slice(hitPrefix!.length),
-          };
-        }
-        return null;
-      })
+          return null;
+        },
+      )
       .filter((entity): entity is MentionsEntity => !!entity && !!entity.value);
   };
 
   state = {
     focused: false,
   };
+
+  private rcMentions: any;
 
   onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     const { onFocus } = this.props;
@@ -109,7 +112,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     const { children, loading } = this.props;
     if (loading) {
       return (
-        <Option value={'ANTD_SEARCHING'} disabled>
+        <Option value="ANTD_SEARCHING" disabled>
           <Spin size="small" />
         </Option>
       );
@@ -125,6 +128,18 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     }
     return filterOption;
   };
+
+  saveMentions = (node: typeof RcMentions) => {
+    this.rcMentions = node;
+  };
+
+  focus() {
+    this.rcMentions.focus();
+  }
+
+  blur() {
+    this.rcMentions.blur();
+  }
 
   renderMentions = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
     const { focused } = this.state;
@@ -147,6 +162,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
         filterOption={this.getFilterOption()}
         onFocus={this.onFocus}
         onBlur={this.onBlur}
+        ref={this.saveMentions}
       >
         {this.getOptions()}
       </RcMentions>

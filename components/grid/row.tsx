@@ -1,7 +1,7 @@
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import * as React from 'react';
 import classNames from 'classnames';
 import * as PropTypes from 'prop-types';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
 import ResponsiveObserve, {
@@ -10,7 +10,7 @@ import ResponsiveObserve, {
   responsiveArray,
 } from '../_util/responsiveObserve';
 
-const RowAligns = tuple('top', 'middle', 'bottom');
+const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: number | Partial<Record<Breakpoint, number>>;
@@ -42,7 +42,9 @@ export default class Row extends React.Component<RowProps, RowState> {
   state: RowState = {
     screens: {},
   };
+
   token: string;
+
   componentDidMount() {
     this.token = ResponsiveObserve.subscribe(screens => {
       if (typeof this.props.gutter === 'object') {
@@ -50,9 +52,11 @@ export default class Row extends React.Component<RowProps, RowState> {
       }
     });
   }
+
   componentWillUnmount() {
     ResponsiveObserve.unsubscribe(this.token);
   }
+
   getGutter(): number | undefined {
     const { gutter } = this.props;
     if (typeof gutter === 'object') {
@@ -65,6 +69,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     }
     return gutter as number;
   }
+
   renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,

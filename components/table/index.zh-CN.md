@@ -92,6 +92,7 @@ const columns = [
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |  |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |  |
 | onRow | 设置行属性 | Function(record, index) | - |  |
+| getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
 
 #### onRow 用法
 
@@ -140,7 +141,7 @@ const columns = [
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |  |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` | 3.15.2 |
-| title | 列头显示文字 | ReactNode\|({ sortOrder, filters }) => ReactNode | - |  |
+| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, filters }) => ReactNode | - | |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string\|number | - |  |
 | onCell | 设置单元格属性 | Function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |  |
@@ -174,7 +175,7 @@ const columns = [
 | fixed | 把选择框列固定在左边 | boolean | - |  |
 | getCheckboxProps | 选择框的默认属性配置 | Function(record) | - |  |
 | hideDefaultSelections | [自定义选择项](#components-table-demo-row-selection-custom)时去掉『全选』『反选』两个默认选项 | boolean | false |  |
-| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] | \[] |  |
+| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[]\|number[] | \[] |  |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[]\|boolean | true |  |
 | type | 多选/单选，`checkbox` or `radio` | string | `checkbox` |  |
 | onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |  |
@@ -194,7 +195,7 @@ const columns = [
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnProps } from 'antd/lib/table';
+import { ColumnProps } from 'antd/es/table';
 
 interface User {
   key: number;
@@ -228,7 +229,6 @@ class NameColumn extends Table.Column<User> {}
 <Table<User> dataSource={data}>
   <Table.Column<User> key="name" title="Name" dataIndex="name" />
 </Table>
-
 ```
 
 ## 注意

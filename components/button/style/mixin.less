@@ -130,6 +130,11 @@
     .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
     line-height: @btn-height-lg - 2px;
   }
+  &-lg > .@{btnClassName}.@{btnClassName}-icon-only {
+    .square(@btn-height-lg);
+    padding-right: 0;
+    padding-left: 0;
+  }
   &-sm > .@{btnClassName},
   &-sm > span > .@{btnClassName} {
     .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; 0);
@@ -137,6 +142,11 @@
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
     }
+  }
+  &-sm > .@{btnClassName}.@{btnClassName}-icon-only {
+    .square(@btn-height-sm);
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 // Base styles of buttons
@@ -225,10 +235,10 @@
 }
 // round button
 .btn-round(@btnClassName: btn) {
-  .button-size(@btn-circle-size; 0 @btn-circle-size / 2; @font-size-base + 2px; @btn-circle-size);
+  .button-size(@btn-circle-size; 0 @btn-circle-size / 2; @font-size-base; @btn-circle-size);
   &.@{btnClassName}-lg {
     .button-size(
-      @btn-circle-size-lg; 0 @btn-circle-size-lg / 2; @btn-font-size-lg + 2px; @btn-circle-size-lg
+      @btn-circle-size-lg; 0 @btn-circle-size-lg / 2; @btn-font-size-lg; @btn-circle-size-lg
     );
   }
   &.@{btnClassName}-sm {
@@ -237,17 +247,33 @@
     );
   }
 }
-// circle button: the content only contains icon
-.btn-circle(@btnClassName: btn) {
-  .square(@btn-circle-size);
-  .button-size(@btn-circle-size; 0; @font-size-base + 2px; 50%);
+// square button: the content only contains icon
+.btn-square(@btnClassName: btn) {
+  .square(@btn-square-size);
+  .button-size(@btn-square-size; 0; @font-size-base + 2px; @btn-border-radius-base);
   &.@{btnClassName}-lg {
-    .square(@btn-circle-size-lg);
-    .button-size(@btn-circle-size-lg; 0; @btn-font-size-lg + 2px; 50%);
+    .square(@btn-square-size-lg);
+    .button-size(@btn-square-size-lg; 0; @btn-font-size-lg + 2px; @btn-border-radius-base);
   }
   &.@{btnClassName}-sm {
-    .square(@btn-circle-size-sm);
-    .button-size(@btn-circle-size-sm; 0; @font-size-base; 50%);
+    .square(@btn-square-size-sm);
+    .button-size(@btn-square-size-sm; 0; @font-size-base; @btn-border-radius-base);
+  }
+}
+// circle button: the content only contains icon
+.btn-circle(@btnClassName: btn) {
+  min-width: @btn-height-base;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  border-radius: 50%;
+  &.@{btnClassName}-lg {
+    min-width: @btn-height-lg;
+    border-radius: 50%;
+  }
+  &.@{btnClassName}-sm {
+    min-width: @btn-height-sm;
+    border-radius: 50%;
   }
 }
 // Horizontal button groups style

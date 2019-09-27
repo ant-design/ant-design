@@ -8,6 +8,7 @@ export default class ListItem extends React.Component<any, any> {
   shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
+
   render() {
     const {
       renderedText,
@@ -25,7 +26,7 @@ export default class ListItem extends React.Component<any, any> {
       [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
     });
 
-    let title: string | undefined = undefined;
+    let title: string | undefined;
     if (typeof renderedText === 'string' || typeof renderedText === 'number') {
       title = String(renderedText);
     }

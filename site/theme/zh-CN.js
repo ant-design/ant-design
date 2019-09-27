@@ -1,8 +1,5 @@
-const appLocaleData = require('react-intl/locale-data/zh');
-
 module.exports = {
   locale: 'zh-CN',
-  data: appLocaleData,
   messages: {
     'app.header.search': '全文本搜索...',
     'app.header.menu.home': '首页',
@@ -19,7 +16,7 @@ module.exports = {
     'app.content.edit-demo': '在 GitHub 上编辑此示例！',
     'app.component.examples': '代码演示',
     'app.component.examples.expand': '展开全部代码',
-    'app.component.examples.collpse': '收起全部代码',
+    'app.component.examples.collapse': '收起全部代码',
     'app.demo.debug': '此演示仅供调试，线上不会展示',
     'app.demo.copy': '复制代码',
     'app.demo.copied': '复制成功',
@@ -54,6 +51,7 @@ module.exports = {
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.course': 'Ant Design 实战教程',
     'app.footer.chinamirror': '国内镜像站点 🇨🇳',
+    'app.footer.primary-color-changing': '正在修改主题色...',
     'app.footer.primary-color-changed': '修改主题色成功！',
     'app.footer.kitchen': 'Sketch 工具集',
     'app.footer.landing': '首页模板集',
@@ -76,8 +74,8 @@ module.exports = {
     'app.footer.feedback': '反馈和建议',
     'app.footer.stackoverflow': 'StackOverflow',
     'app.footer.segmentfault': 'SegmentFault',
-    'app.footer.discuss-en': '在线讨论 (English)',
-    'app.footer.discuss-cn': '在线讨论 (中文)',
+    'app.footer.discuss-en': '在线讨论 🇺🇸',
+    'app.footer.discuss-cn': '在线讨论 🇨🇳',
     'app.footer.bug-report': '报告 Bug',
     'app.footer.issues': '讨论列表',
     'app.footer.version': '文档版本：',
@@ -111,5 +109,15 @@ module.exports = {
     'app.docs.components.icon.category.data': '数据类图标',
     'app.docs.components.icon.category.other': '网站通用图标',
     'app.docs.components.icon.category.logo': '品牌和标识',
+    'app.docs.components.icon.pic-searcher.intro': 'AI 截图搜索上线了，快来体验吧！🎉',
+    'app.docs.components.icon.pic-searcher.title': '上传图片搜索图标',
+    'app.docs.components.icon.pic-searcher.upload-text': '点击/拖拽/粘贴上传图片',
+    'app.docs.components.icon.pic-searcher.upload-hint':
+      '我们会通过上传的图片进行匹配，得到最相似的图标',
+    'app.docs.components.icon.pic-searcher.server-error': '识别服务暂不可用',
+    'app.docs.components.icon.pic-searcher.matching': '匹配中...',
+    'app.docs.components.icon.pic-searcher.result-tip': '为您匹配到以下图标：',
+    'app.docs.components.icon.pic-searcher.th-icon': '图标',
+    'app.docs.components.icon.pic-searcher.th-score': '匹配度',
   },
 };

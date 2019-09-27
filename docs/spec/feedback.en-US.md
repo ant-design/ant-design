@@ -49,7 +49,7 @@ The message prompt for the aggregate type, generally appearing in the upper righ
 
 When the target element has further description and related operations, it can be stored in the card and displayed according to the user's operation behavior.
 
-> Note: The difference between Tooltip and Tooltip is that Popover can carry more complex content, such as links or buttons.
+> Note: The difference between Tooltip and Popover is that Popover can carry more complex content, such as links or buttons.
 
 #### Tooltip
 

@@ -4,6 +4,8 @@ import { Store } from './createStore';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
+
+// eslint-disable-next-line import/prefer-default-export
 export { PaginationConfig } from '../pagination';
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
@@ -80,6 +82,8 @@ export interface TableLocale {
   selectAll?: React.ReactNode;
   selectInvert?: React.ReactNode;
   sortTitle?: string;
+  expand?: string;
+  collapse?: string;
 }
 
 export type RowSelectionType = 'checkbox' | 'radio';
@@ -122,7 +126,7 @@ export interface ExpandIconProps<T> {
   record: T;
   needIndentSpaced: boolean;
   expandable: boolean;
-  onExpand: (record: T, event: MouseEvent) => void;
+  onExpand: (record: T, event?: React.MouseEvent) => void;
 }
 
 export interface TableCurrentDataSource<T> {
@@ -130,11 +134,11 @@ export interface TableCurrentDataSource<T> {
 }
 
 export interface TableEventListeners {
-  onClick?: (arg: React.SyntheticEvent) => void;
-  onDoubleClick?: (arg: React.SyntheticEvent) => void;
-  onContextMenu?: (arg: React.SyntheticEvent) => void;
-  onMouseEnter?: (arg: React.SyntheticEvent) => void;
-  onMouseLeave?: (arg: React.SyntheticEvent) => void;
+  onClick?: (arg: React.MouseEvent) => void;
+  onDoubleClick?: (arg: React.MouseEvent) => void;
+  onContextMenu?: (arg: React.MouseEvent) => void;
+  onMouseEnter?: (arg: React.MouseEvent) => void;
+  onMouseLeave?: (arg: React.MouseEvent) => void;
   [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
 }
 
@@ -179,8 +183,8 @@ export interface TableProps<T> {
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
-  footer?: (currentPageData: Object[]) => React.ReactNode;
-  title?: (currentPageData: Object[]) => React.ReactNode;
+  footer?: (currentPageData: T[]) => React.ReactNode;
+  title?: (currentPageData: T[]) => React.ReactNode;
   scroll?: { x?: boolean | number | string; y?: boolean | number | string };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
@@ -188,6 +192,7 @@ export interface TableProps<T> {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   sortDirections?: SortOrder[];
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
 export interface TableStateFilters {

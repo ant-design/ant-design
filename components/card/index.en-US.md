@@ -32,6 +32,7 @@ A card can be used to display content related to a single subject. The content c
 | hoverable | Lift up when hovering card | boolean | false |  |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
 | tabList | List of TabPane's head. | Array&lt;{key: string, tab: ReactNode}> | - |  |
+| tabBarExtraContent | Extra content in tab bar | React.ReactNode | - |  |
 | size | Size of card | `default` \| `small` | `default` | 3.12.0 |
 | title | Card title | string\|ReactNode | - |  |
 | type | Card style type, can be set to `inner` or not set | string | - |  |
@@ -39,10 +40,11 @@ A card can be used to display content related to a single subject. The content c
 
 ### Card.Grid
 
-| Property  | Description               | Type   | Default | Version |
-| --------- | ------------------------- | ------ | ------- | ------- |
-| className | className of container    | string | -       |         |
-| style     | style object of container | object | -       |         |
+| Property  | Description                     | Type    | Default | Version |
+| --------- | ------------------------------- | ------- | ------- | ------- |
+| className | className of container          | string  | -       |         |
+| hoverable | Lift up when hovering card grid | boolean | true    | 3.23.0  |
+| style     | style object of container       | object  | -       |         |
 
 ### Card.Meta
 

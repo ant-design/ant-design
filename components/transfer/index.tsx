@@ -1,14 +1,14 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { polyfill } from 'react-lifecycles-compat';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import { polyfill } from 'react-lifecycles-compat';
 import { TransferListBodyProps } from './renderListBody';
 
 export { TransferListProps } from './list';
@@ -76,7 +76,9 @@ export interface TransferLocale {
 class Transfer extends React.Component<TransferProps, any> {
   // For high-level customized Transfer @dqaria
   static List = List;
+
   static Operation = Operation;
+
   static Search = Search;
 
   static defaultProps = {
@@ -149,31 +151,33 @@ class Transfer extends React.Component<TransferProps, any> {
     };
   }
 
-  separateDataSource(props: TransferProps) {
-    const { dataSource, rowKey, targetKeys = [] } = props;
-
-    const leftDataSource: TransferItem[] = [];
-    const rightDataSource: TransferItem[] = new Array(targetKeys.length);
-    dataSource.forEach(record => {
-      if (rowKey) {
-        record.key = rowKey(record);
-      }
-
-      // rightDataSource should be ordered by targetKeys
-      // leftDataSource should be ordered by dataSource
-      const indexOfKey = targetKeys.indexOf(record.key);
-      if (indexOfKey !== -1) {
-        rightDataSource[indexOfKey] = record;
-      } else {
-        leftDataSource.push(record);
-      }
-    });
-
-    return {
-      leftDataSource,
-      rightDataSource,
-    };
+  // eslint-disable-next-line
+  getSelectedKeysName(direction: TransferDirection) {
+    return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
   }
+
+  getTitles(transferLocale: TransferLocale): string[] {
+    const { props } = this;
+    if (props.titles) {
+      return props.titles;
+    }
+    return transferLocale.titles;
+  }
+
+  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
+    // Keep old locale props still working.
+    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {
+      notFoundContent: renderEmpty('Transfer'),
+    };
+    if ('notFoundContent' in this.props) {
+      oldLocale.notFoundContent = this.props.notFoundContent;
+    }
+    if ('searchPlaceholder' in this.props) {
+      oldLocale.searchPlaceholder = this.props.searchPlaceholder;
+    }
+
+    return { ...transferLocale, ...oldLocale, ...this.props.locale };
+  };
 
   moveTo = (direction: TransferDirection) => {
     const { targetKeys = [], dataSource = [], onChange } = this.props;
@@ -202,21 +206,8 @@ class Transfer extends React.Component<TransferProps, any> {
   };
 
   moveToLeft = () => this.moveTo('left');
+
   moveToRight = () => this.moveTo('right');
-
-  handleSelectChange(direction: TransferDirection, holder: string[]) {
-    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
-    const onSelectChange = this.props.onSelectChange;
-    if (!onSelectChange) {
-      return;
-    }
-
-    if (direction === 'left') {
-      onSelectChange(holder, targetSelectedKeys);
-    } else {
-      onSelectChange(sourceSelectedKeys, holder);
-    }
-  }
 
   onItemSelectAll = (direction: TransferDirection, selectedKeys: string[], checkAll: boolean) => {
     const originalSelectedKeys = this.state[this.getSelectedKeysName(direction)] || [];
@@ -258,17 +249,19 @@ class Transfer extends React.Component<TransferProps, any> {
   // TODO: Remove this in next version.
   handleLeftSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
     this.handleSelectAll('left', filteredDataSource, !checkAll);
+
   handleRightSelectAll = (filteredDataSource: TransferItem[], checkAll: boolean) =>
     this.handleSelectAll('right', filteredDataSource, !checkAll);
 
   onLeftItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
     this.onItemSelectAll('left', selectedKeys, checkAll);
+
   onRightItemSelectAll = (selectedKeys: string[], checkAll: boolean) =>
     this.onItemSelectAll('right', selectedKeys, checkAll);
 
   handleFilter = (direction: TransferDirection, e: React.ChangeEvent<HTMLInputElement>) => {
     const { onSearchChange, onSearch } = this.props;
-    const value = e.target.value;
+    const { value } = e.target;
     if (onSearchChange) {
       warning(false, 'Transfer', '`onSearchChange` is deprecated. Please use `onSearch` instead.');
       onSearchChange(direction, e);
@@ -279,6 +272,7 @@ class Transfer extends React.Component<TransferProps, any> {
   };
 
   handleLeftFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('left', e);
+
   handleRightFilter = (e: React.ChangeEvent<HTMLInputElement>) => this.handleFilter('right', e);
 
   handleClear = (direction: TransferDirection) => {
@@ -289,6 +283,7 @@ class Transfer extends React.Component<TransferProps, any> {
   };
 
   handleLeftClear = () => this.handleClear('left');
+
   handleRightClear = () => this.handleClear('right');
 
   onItemSelect = (direction: TransferDirection, selectedKey: string, checked: boolean) => {
@@ -314,13 +309,16 @@ class Transfer extends React.Component<TransferProps, any> {
     warning(false, 'Transfer', '`handleSelect` will be removed, please use `onSelect` instead.');
     this.onItemSelect(direction, selectedItem.key, checked);
   };
+
   handleLeftSelect = (selectedItem: TransferItem, checked: boolean) =>
     this.handleSelect('left', selectedItem, checked);
+
   handleRightSelect = (selectedItem: TransferItem, checked: boolean) =>
     this.handleSelect('right', selectedItem, checked);
 
   onLeftItemSelect = (selectedKey: string, checked: boolean) =>
     this.onItemSelect('left', selectedKey, checked);
+
   onRightItemSelect = (selectedKey: string, checked: boolean) =>
     this.onItemSelect('right', selectedKey, checked);
 
@@ -332,34 +330,48 @@ class Transfer extends React.Component<TransferProps, any> {
   };
 
   handleLeftScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('left', e);
+
   handleRightScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('right', e);
 
-  getTitles(transferLocale: TransferLocale): string[] {
-    const { props } = this;
-    if (props.titles) {
-      return props.titles;
+  handleSelectChange(direction: TransferDirection, holder: string[]) {
+    const { sourceSelectedKeys, targetSelectedKeys } = this.state;
+    const { onSelectChange } = this.props;
+    if (!onSelectChange) {
+      return;
     }
-    return transferLocale.titles;
+
+    if (direction === 'left') {
+      onSelectChange(holder, targetSelectedKeys);
+    } else {
+      onSelectChange(sourceSelectedKeys, holder);
+    }
   }
 
-  getSelectedKeysName(direction: TransferDirection) {
-    return direction === 'left' ? 'sourceSelectedKeys' : 'targetSelectedKeys';
-  }
+  separateDataSource() {
+    const { dataSource, rowKey, targetKeys = [] } = this.props;
 
-  getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => {
-    // Keep old locale props still working.
-    const oldLocale: { notFoundContent?: any; searchPlaceholder?: string } = {
-      notFoundContent: renderEmpty('Transfer'),
+    const leftDataSource: TransferItem[] = [];
+    const rightDataSource: TransferItem[] = new Array(targetKeys.length);
+    dataSource.forEach(record => {
+      if (rowKey) {
+        record.key = rowKey(record);
+      }
+
+      // rightDataSource should be ordered by targetKeys
+      // leftDataSource should be ordered by dataSource
+      const indexOfKey = targetKeys.indexOf(record.key);
+      if (indexOfKey !== -1) {
+        rightDataSource[indexOfKey] = record;
+      } else {
+        leftDataSource.push(record);
+      }
+    });
+
+    return {
+      leftDataSource,
+      rightDataSource,
     };
-    if ('notFoundContent' in this.props) {
-      oldLocale.notFoundContent = this.props.notFoundContent;
-    }
-    if ('searchPlaceholder' in this.props) {
-      oldLocale.searchPlaceholder = this.props.searchPlaceholder;
-    }
-
-    return { ...transferLocale, ...oldLocale, ...this.props.locale };
-  };
+  }
 
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
@@ -385,7 +397,7 @@ class Transfer extends React.Component<TransferProps, any> {
         const locale = this.getLocale(transferLocale, renderEmpty);
         const { sourceSelectedKeys, targetSelectedKeys } = this.state;
 
-        const { leftDataSource, rightDataSource } = this.separateDataSource(this.props);
+        const { leftDataSource, rightDataSource } = this.separateDataSource();
         const leftActive = targetSelectedKeys.length > 0;
         const rightActive = sourceSelectedKeys.length > 0;
 

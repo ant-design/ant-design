@@ -20,37 +20,18 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     previewFile: previewImage,
   };
 
-  handleClose = (file: UploadFile) => {
-    const { onRemove } = this.props;
-    if (onRemove) {
-      onRemove(file);
-    }
-  };
-
-  handlePreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
-    const { onPreview } = this.props;
-    if (!onPreview) {
-      return;
-    }
-    e.preventDefault();
-    return onPreview(file);
-  };
-
   componentDidUpdate() {
     const { listType, items, previewFile } = this.props;
     if (listType !== 'picture' && listType !== 'picture-card') {
       return;
     }
     (items || []).forEach(file => {
-      const isValidateFile =
-        file.originFileObj instanceof File || file.originFileObj instanceof Blob;
-
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !isValidateFile ||
+        !(file.originFileObj instanceof File || file.originFileObj instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;
@@ -66,6 +47,22 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     });
   }
 
+  handlePreview = (file: UploadFile, e: React.SyntheticEvent<HTMLElement>) => {
+    const { onPreview } = this.props;
+    if (!onPreview) {
+      return;
+    }
+    e.preventDefault();
+    return onPreview(file);
+  };
+
+  handleClose = (file: UploadFile) => {
+    const { onRemove } = this.props;
+    if (onRemove) {
+      onRemove(file);
+    }
+  };
+
   renderUploadList = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -74,6 +71,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showPreviewIcon,
       showRemoveIcon,
       locale,
+      progressAttr,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
@@ -115,7 +113,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         // show loading icon if upload progress listener is disabled
         const loadingProgress =
           'percent' in file ? (
-            <Progress type="line" {...this.props.progressAttr} percent={file.percent} />
+            <Progress type="line" {...progressAttr} percent={file.percent} />
           ) : null;
 
         progress = (

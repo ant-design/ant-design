@@ -4,18 +4,22 @@ exports[`renders ./components/divider/demo/customize-style.md correctly 1`] = `
 <div>
   <div
     class="ant-divider ant-divider-horizontal"
+    role="separator"
     style="height:2px;background-color:#7cb305"
   />
   <div
     class="ant-divider ant-divider-horizontal ant-divider-dashed"
+    role="separator"
     style="border-color:#7cb305"
   />
   <div
     class="ant-divider ant-divider-vertical"
+    role="separator"
     style="height:60px;background-color:#7cb305"
   />
   <div
     class="ant-divider ant-divider-vertical ant-divider-dashed"
+    role="separator"
     style="height:60px;border-color:#7cb305"
   />
 </div>
@@ -28,12 +32,14 @@ exports[`renders ./components/divider/demo/horizontal.md correctly 1`] = `
   </p>
   <div
     class="ant-divider ant-divider-horizontal"
+    role="separator"
   />
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>
   <div
     class="ant-divider ant-divider-horizontal ant-divider-dashed"
+    role="separator"
   />
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista probare, quae sunt a te dicta? Refert tamen, quo modo.
@@ -46,6 +52,7 @@ exports[`renders ./components/divider/demo/vertical.md correctly 1`] = `
   Text
   <div
     class="ant-divider ant-divider-vertical"
+    role="separator"
   />
   <a
     href="#"
@@ -54,6 +61,7 @@ exports[`renders ./components/divider/demo/vertical.md correctly 1`] = `
   </a>
   <div
     class="ant-divider ant-divider-vertical"
+    role="separator"
   />
   <a
     href="#"
@@ -70,6 +78,7 @@ exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
   </p>
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text-center"
+    role="separator"
   >
     <span
       class="ant-divider-inner-text"
@@ -82,6 +91,7 @@ exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
   </p>
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text-left"
+    role="separator"
   >
     <span
       class="ant-divider-inner-text"
@@ -94,6 +104,7 @@ exports[`renders ./components/divider/demo/with-text.md correctly 1`] = `
   </p>
   <div
     class="ant-divider ant-divider-horizontal ant-divider-with-text-right"
+    role="separator"
   >
     <span
       class="ant-divider-inner-text"

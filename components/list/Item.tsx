@@ -106,6 +106,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     const actionsContent = actions && actions.length > 0 && (
       <ul className={`${prefixCls}-item-action`} key="actions">
         {actions.map((action: React.ReactNode, i: number) => (
+          // eslint-disable-next-line react/no-array-index-key
           <li key={`${prefixCls}-item-action-${i}`}>
             {action}
             {i !== actions.length - 1 && <em className={`${prefixCls}-item-action-split`} />}

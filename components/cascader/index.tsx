@@ -72,13 +72,13 @@ export interface CascaderProps {
   popupClassName?: string;
   /** 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` */
   popupPlacement?: string;
-  /** 输入框占位文本*/
+  /** 输入框占位文本 */
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
   size?: string;
-  /** 禁用*/
+  /** 禁用 */
   disabled?: boolean;
-  /** 是否支持清除*/
+  /** 是否支持清除 */
   allowClear?: boolean;
   showSearch?: boolean | ShowSearchType;
   notFoundContent?: React.ReactNode;
@@ -262,6 +262,34 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     };
   }
 
+  setValue = (value: string[], selectedOptions: CascaderOptionType[] = []) => {
+    if (!('value' in this.props)) {
+      this.setState({ value });
+    }
+    const { onChange } = this.props;
+    if (onChange) {
+      onChange(value, selectedOptions);
+    }
+  };
+
+  getLabel() {
+    const { options, displayRender = defaultDisplayRender as Function } = this.props;
+    const names = getFilledFieldNames(this.props);
+    const { value } = this.state;
+    const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
+    const selectedOptions: CascaderOptionType[] = arrayTreeFilter(
+      options,
+      (o: CascaderOptionType, level: number) => o[names.value] === unwrappedValue[level],
+      { childrenKeyName: names.children },
+    );
+    const label = selectedOptions.map(o => o[names.label]);
+    return displayRender(label, selectedOptions);
+  }
+
+  saveInput = (node: Input) => {
+    this.input = node;
+  };
+
   handleChange = (value: any, selectedOptions: CascaderOptionType[]) => {
     this.setState({ inputValue: '' });
     if (selectedOptions[0].__IS_FILTERED_OPTION) {
@@ -282,7 +310,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       }));
     }
 
-    const onPopupVisibleChange = this.props.onPopupVisibleChange;
+    const { onPopupVisibleChange } = this.props;
     if (onPopupVisibleChange) {
       onPopupVisibleChange(popupVisible);
     }
@@ -316,30 +344,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     const inputValue = e.target.value;
     this.setState({ inputValue });
   };
-
-  setValue = (value: string[], selectedOptions: CascaderOptionType[] = []) => {
-    if (!('value' in this.props)) {
-      this.setState({ value });
-    }
-    const onChange = this.props.onChange;
-    if (onChange) {
-      onChange(value, selectedOptions);
-    }
-  };
-
-  getLabel() {
-    const { options, displayRender = defaultDisplayRender as Function } = this.props;
-    const names = getFilledFieldNames(this.props);
-    const value = this.state.value;
-    const unwrappedValue = Array.isArray(value[0]) ? value[0] : value;
-    const selectedOptions: CascaderOptionType[] = arrayTreeFilter(
-      options,
-      (o: CascaderOptionType, level: number) => o[names.value] === unwrappedValue[level],
-      { childrenKeyName: names.children },
-    );
-    const label = selectedOptions.map(o => o[names.label]);
-    return displayRender(label, selectedOptions);
-  }
 
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -417,10 +421,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     this.input.blur();
   }
 
-  saveInput = (node: Input) => {
-    this.input = node;
-  };
-
   renderCascader = (
     { getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty }: ConfigConsumerProps,
     locale: CascaderLocale,
@@ -495,13 +495,13 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       'filedNames', // For old compatibility
     ]);
 
-    let options = props.options;
-    if (options.length > 0) {
+    let { options } = props;
+    const names: FilledFieldNamesType = getFilledFieldNames(this.props);
+    if (options && options.length > 0) {
       if (state.inputValue) {
         options = this.generateFilteredOptions(prefixCls, renderEmpty);
       }
     } else {
-      const names: FilledFieldNamesType = getFilledFieldNames(this.props);
       options = [
         {
           [names.label]: notFoundContent || renderEmpty('Cascader'),
@@ -519,13 +519,12 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
     const dropdownMenuColumnStyle: { width?: number; height?: string } = {};
     const isNotFound =
-      (options || []).length === 1 && options[0].value === 'ANT_CASCADER_NOT_FOUND';
+      (options || []).length === 1 && options[0][names.value] === 'ANT_CASCADER_NOT_FOUND';
     if (isNotFound) {
       dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
     }
     // The default value of `matchInputWidth` is `true`
-    const resultListMatchInputWidth =
-      (showSearch as ShowSearchType).matchInputWidth === false ? false : true;
+    const resultListMatchInputWidth = (showSearch as ShowSearchType).matchInputWidth !== false;
     if (resultListMatchInputWidth && (state.inputValue || isNotFound) && this.input) {
       dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
     }
@@ -555,7 +554,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           value={state.inputValue}
           disabled={disabled}
           readOnly={!showSearch}
-          autoComplete="off"
+          autoComplete={inputProps.autoComplete || 'off'}
           onClick={showSearch ? this.handleInputClick : undefined}
           onBlur={showSearch ? this.handleInputBlur : undefined}
           onKeyDown={this.handleKeyDown}

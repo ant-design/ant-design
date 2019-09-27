@@ -1,5 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Descriptions Descriptions support colon 1`] = `
+<Descriptions
+  colon={false}
+  column={
+    Object {
+      "lg": 3,
+      "md": 3,
+      "sm": 2,
+      "xl": 3,
+      "xs": 1,
+      "xxl": 3,
+    }
+  }
+  size="default"
+>
+  <div
+    className="ant-descriptions"
+  >
+    <div
+      className="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            className="ant-descriptions-row"
+            key="0"
+          >
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Product"
+                  prefixCls="ant-descriptions"
+                  span={1}
+                >
+                  Cloud Database
+                </DescriptionsItem>
+              }
+              colon={false}
+              key="label-0"
+              layout="horizontal"
+              type="label"
+            >
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
+              >
+                <span
+                  className="ant-descriptions-item-label"
+                  key="label"
+                >
+                  Product
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Cloud Database
+                </span>
+              </td>
+            </Col>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</Descriptions>
+`;
+
 exports[`Descriptions Descriptions support style 1`] = `
 <Descriptions
   column={
@@ -36,21 +105,37 @@ exports[`Descriptions Descriptions support style 1`] = `
             className="ant-descriptions-row"
             key="0"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  prefixCls="ant-descriptions"
+                  span={1}
+                >
+                  Cloud Database
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label ant-descriptions-item-no-label"
-                key="label"
-              />
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Cloud Database
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon ant-descriptions-item-no-label"
+                  key="label"
+                />
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Cloud Database
+                </span>
+              </td>
+            </Col>
           </tr>
         </tbody>
       </table>
@@ -85,23 +170,41 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
             className="ant-descriptions-row"
             key="0"
           >
-            <td
-              className="ant-descriptions-item my-class"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  className="my-class"
+                  label="Product"
+                  prefixCls="ant-descriptions"
+                  span={1}
+                >
+                  Cloud Database
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item my-class"
+                colSpan={1}
               >
-                Product
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Cloud Database
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label my-class ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Product
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Cloud Database
+                </span>
+              </td>
+            </Col>
           </tr>
         </tbody>
       </table>
@@ -127,81 +230,144 @@ exports[`Descriptions column is number 1`] = `
             className="ant-descriptions-row"
             key="0"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
-              key=".$.0"
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Product"
+                  prefixCls="ant-descriptions"
+                >
+                  Cloud Database
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Product
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Cloud Database
-              </span>
-            </td>
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
-              key=".$.1"
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Product
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Cloud Database
+                </span>
+              </td>
+            </Col>
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Billing"
+                  prefixCls="ant-descriptions"
+                >
+                  Prepaid
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-1"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Billing
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Prepaid
-              </span>
-            </td>
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Billing
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Prepaid
+                </span>
+              </td>
+            </Col>
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="time"
+                  prefixCls="ant-descriptions"
+                >
+                  18:00:00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-2"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                time
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                18:00:00
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  time
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  18:00:00
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={3}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Amount"
+                  prefixCls="ant-descriptions"
+                  span={3}
+                >
+                  $80.00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={3}
               >
-                Amount
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                $80.00
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Amount
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  $80.00
+                </span>
+              </td>
+            </Col>
           </tr>
         </tbody>
       </table>
@@ -237,129 +403,259 @@ exports[`Descriptions vertical layout 1`] = `
             className="ant-descriptions-row"
             key="label-0"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Product"
+                  prefixCls="ant-descriptions"
+                >
+                  Cloud Database
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="vertical"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Product
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Product
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="content-0"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Product"
+                  prefixCls="ant-descriptions"
+                >
+                  Cloud Database
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="content-0"
+              layout="vertical"
+              type="content"
             >
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Cloud Database
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Cloud Database
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="label-1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Billing"
+                  prefixCls="ant-descriptions"
+                >
+                  Prepaid
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="vertical"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Billing
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Billing
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="content-1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Billing"
+                  prefixCls="ant-descriptions"
+                >
+                  Prepaid
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="content-0"
+              layout="vertical"
+              type="content"
             >
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Prepaid
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Prepaid
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="label-2"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="time"
+                  prefixCls="ant-descriptions"
+                >
+                  18:00:00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="vertical"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                time
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  time
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="content-2"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="time"
+                  prefixCls="ant-descriptions"
+                >
+                  18:00:00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="content-0"
+              layout="vertical"
+              type="content"
             >
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                18:00:00
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  18:00:00
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="label-3"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Amount"
+                  prefixCls="ant-descriptions"
+                  span={1}
+                >
+                  $80.00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="vertical"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Amount
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Amount
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="content-3"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Amount"
+                  prefixCls="ant-descriptions"
+                  span={1}
+                >
+                  $80.00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="content-0"
+              layout="vertical"
+              type="content"
             >
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                $80.00
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  $80.00
+                </span>
+              </td>
+            </Col>
           </tr>
         </tbody>
       </table>
@@ -394,89 +690,154 @@ exports[`Descriptions when item is rendered conditionally 1`] = `
             className="ant-descriptions-row"
             key="0"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Product"
+                  prefixCls="ant-descriptions"
+                >
+                  Cloud Database
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Product
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Cloud Database
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Product
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Cloud Database
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="1"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Billing"
+                  prefixCls="ant-descriptions"
+                >
+                  Prepaid
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Billing
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                Prepaid
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Billing
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  Prepaid
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="2"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="time"
+                  prefixCls="ant-descriptions"
+                >
+                  18:00:00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                time
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                18:00:00
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  time
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  18:00:00
+                </span>
+              </td>
+            </Col>
           </tr>
           <tr
             className="ant-descriptions-row"
             key="3"
           >
-            <td
-              className="ant-descriptions-item"
-              colSpan={1}
+            <Col
+              bordered={false}
+              child={
+                <DescriptionsItem
+                  label="Amount"
+                  prefixCls="ant-descriptions"
+                  span={1}
+                >
+                  $80.00
+                </DescriptionsItem>
+              }
+              colon={true}
+              key="label-0"
+              layout="horizontal"
+              type="label"
             >
-              <span
-                className="ant-descriptions-item-label"
-                key="label"
+              <td
+                className="ant-descriptions-item"
+                colSpan={1}
               >
-                Amount
-              </span>
-              <span
-                className="ant-descriptions-item-content"
-                key="content"
-              >
-                $80.00
-              </span>
-            </td>
+                <span
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
+                  key="label"
+                >
+                  Amount
+                </span>
+                <span
+                  className="ant-descriptions-item-content"
+                  key="content"
+                >
+                  $80.00
+                </span>
+              </td>
+            </Col>
           </tr>
         </tbody>
       </table>

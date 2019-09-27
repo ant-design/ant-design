@@ -144,10 +144,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jack
                   </td>
                 </tr>
@@ -158,10 +154,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Lucy
                   </td>
                 </tr>
@@ -172,10 +164,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Tom
                   </td>
                 </tr>
@@ -186,10 +174,6 @@ exports[`Table.filter renders filter correctly 1`] = `
                   <td
                     class="ant-table-column-has-actions ant-table-column-has-filters"
                   >
-                    <span
-                      class="ant-table-row-indent indent-level-0"
-                      style="padding-left:0px"
-                    />
                     Jerry
                   </td>
                 </tr>
@@ -387,6 +371,444 @@ exports[`Table.filter renders radio filter correctly 1`] = `
         >
           Reset
         </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter should support getPopupContainer 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-default ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                    <i
+                      aria-label="icon: filter"
+                      class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      style=""
+                      tabindex="-1"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
+                    <div>
+                      <div
+                        class="ant-dropdown ant-dropdown-placement-bottomRight slide-up-appear"
+                        style="left: -999px; top: -995px;"
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <ul
+                            class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                    value=""
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                              <span>
+                                Boy
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                    value=""
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                              <span>
+                                Girl
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                              role="menuitem"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="ant-dropdown-menu-submenu-title"
+                                title="Title"
+                              >
+                                Title
+                                <i
+                                  class="ant-dropdown-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                          <div
+                            class="ant-table-filter-dropdown-btns"
+                          >
+                            <a
+                              class="ant-table-filter-dropdown-link confirm"
+                            >
+                              OK
+                            </a>
+                            <a
+                              class="ant-table-filter-dropdown-link clear"
+                            >
+                              Reset
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-default ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                    <i
+                      aria-label="icon: filter"
+                      class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      style=""
+                      tabindex="-1"
+                      title="Filter menu"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="filter"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                        />
+                      </svg>
+                    </i>
+                    <div>
+                      <div
+                        class="ant-dropdown ant-dropdown-placement-bottomRight slide-up-appear"
+                        style="left: -999px; top: -995px;"
+                      >
+                        <div
+                          class="ant-table-filter-dropdown"
+                        >
+                          <ul
+                            class="ant-dropdown-menu  ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                            role="menu"
+                            tabindex="0"
+                          >
+                            <li
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                    value=""
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                              <span>
+                                Boy
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-item"
+                              role="menuitem"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                    value=""
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
+                              <span>
+                                Girl
+                              </span>
+                            </li>
+                            <li
+                              class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                              role="menuitem"
+                            >
+                              <div
+                                aria-expanded="false"
+                                aria-haspopup="true"
+                                class="ant-dropdown-menu-submenu-title"
+                                title="Title"
+                              >
+                                Title
+                                <i
+                                  class="ant-dropdown-menu-submenu-arrow"
+                                />
+                              </div>
+                            </li>
+                          </ul>
+                          <div
+                            class="ant-table-filter-dropdown-btns"
+                          >
+                            <a
+                              class="ant-table-filter-dropdown-link confirm"
+                            >
+                              OK
+                            </a>
+                            <a
+                              class="ant-table-filter-dropdown-link clear"
+                            >
+                              Reset
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

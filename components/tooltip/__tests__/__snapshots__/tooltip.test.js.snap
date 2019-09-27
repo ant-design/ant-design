@@ -13,6 +13,31 @@ exports[`Tooltip should hide when mouse leave antd disabled component Button 1`]
 </span>
 `;
 
+exports[`Tooltip should hide when mouse leave antd disabled component Checkbox 1`] = `
+<span
+  style="display: inline-block; cursor: not-allowed;"
+>
+  <label
+    class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+    style="pointer-events: none;"
+  >
+    <span
+      class="ant-checkbox ant-checkbox-disabled"
+    >
+      <input
+        class="ant-checkbox-input"
+        disabled=""
+        type="checkbox"
+        value=""
+      />
+      <span
+        class="ant-checkbox-inner"
+      />
+    </span>
+  </label>
+</span>
+`;
+
 exports[`Tooltip should hide when mouse leave antd disabled component Switch 1`] = `
 <span
   style="display: inline-block; cursor: not-allowed;"

@@ -24,13 +24,15 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | spin | Rotate icon with animation | boolean | false |  |
 | rotate | Rotate degrees (added in 3.13.0, not working in IE9) | number | - | 3.13.0 |
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
-| twoToneColor | Only support the two-tone icon. Specific the primary color. | string (hex color) | - | 3.9.0 |
+| twoToneColor | Only supports the two-tone icon. Specify the primary color. | string (hex color) | - | 3.9.0 |
+
+> Note: icon rendering priority of the Icon component is component > children > type. When props is passed, higher priority item will works, and lower priority item would be invalid.
 
 ### SVG icons
 
 We introduced SVG icons in `3.9.0` version replacing font icons which brings benefits below:
 
-- Complete offline usage of icon, no dependency of CDN font icon file and no more empty square during downloading than no need to deploy icon font files locally either.
+- Complete offline usage of icon, no dependency of CDN font icon file. No more empty square during downloading and no need to deploy icon font files locally either.
 - Much more display accuracy in lower-level screens.
 - Support multiple colors for icon.
 - No need to change built-in icons with overriding styles by providing more props in component.
@@ -64,7 +66,7 @@ Icon.getTwoToneColor(); // #eb2f96
 
 ### Custom Font Icon
 
-We added a `createFromIconfontCN` function to help developer using their own icons deployed at [iconfont.cn](http://iconfont.cn/) in a convenient way.
+We added a `createFromIconfontCN` function to help developer use their own icons deployed at [iconfont.cn](http://iconfont.cn/) in a convenient way.
 
 > This method is specified for [iconfont.cn](http://iconfont.cn/).
 
@@ -76,7 +78,7 @@ const MyIcon = Icon.createFromIconfontCN({
 ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 ```
 
-It create a component that uses SVG sprites in essence.
+It creates a component that uses SVG sprites in essence.
 
 The following options are available:
 
@@ -91,7 +93,7 @@ See [iconfont.cn documents](http://iconfont.cn/help/detail?spm=a313x.7781069.199
 
 ### Custom SVG Icon
 
-You can import SVG icon as an react component by using `webpack` and [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
+You can import SVG icon as a react component by using `webpack` and [`@svgr/webpack`](https://www.npmjs.com/package/@svgr/webpack). `@svgr/webpack`'s `options` [reference](https://github.com/smooth-code/svgr#options).
 
 ```js
 // webpack.config.js
@@ -121,7 +123,7 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 The following properties are available for the component:
 
-| Property | Description | Type | Default | Version |
+| Property | Description | Type | Readonly | Version |
 | --- | --- | --- | --- | --- |
 | width | The width of the `svg` element | string \| number | '1em' | 3.10.0 |
 | height | The height of the `svg` element | string \| number | '1em' | 3.10.0 |

@@ -79,7 +79,9 @@
     }
 
     ul {
-      width: 100%;
+      // use fixed width instead of 100%
+      // to fix strange render bug in safari: https://github.com/ant-design/ant-design/issues/17842
+      width: @time-picker-panel-column-width;
       margin: 0;
       padding: 0 0 @timepicker-item-height * 5;
       list-style: none;

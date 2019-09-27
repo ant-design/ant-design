@@ -993,6 +993,21 @@ exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
+<div>
+  <span
+    class=""
+  >
+    <div
+      class="ant-upload ant-upload-select ant-upload-select-text"
+    />
+    <div
+      class="ant-upload-list ant-upload-list-text"
+    />
+  </span>
+</div>
+`;
+
 exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
 <div>
   <span

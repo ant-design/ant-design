@@ -2,8 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Card from '../index';
 import Button from '../../button/index';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Card', () => {
+  mountTest(Card);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });

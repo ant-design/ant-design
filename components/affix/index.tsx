@@ -63,7 +63,9 @@ class Affix extends React.Component<AffixProps, AffixState> {
   };
 
   placeholderNode: HTMLDivElement;
+
   fixedNode: HTMLDivElement;
+
   private timeout: number;
 
   // Event handler
@@ -75,7 +77,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
       this.timeout = setTimeout(() => {
         addObserveTarget(target(), this);
         // Mock Event object.
-        this.updatePosition({} as Event);
+        this.updatePosition();
       });
     }
   }
@@ -93,7 +95,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
       if (newTarget) {
         addObserveTarget(newTarget, this);
         // Mock Event object.
-        this.updatePosition({} as Event);
+        this.updatePosition();
       }
 
       this.setState({ prevTarget: newTarget });
@@ -103,7 +105,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
       prevProps.offsetTop !== this.props.offsetTop ||
       prevProps.offsetBottom !== this.props.offsetBottom
     ) {
-      this.updatePosition({} as Event);
+      this.updatePosition();
     }
 
     this.measure();
@@ -132,6 +134,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
     }
     return offsetTop;
   };
+
   getOffsetBottom = () => {
     return this.props.offsetBottom;
   };
@@ -145,60 +148,6 @@ class Affix extends React.Component<AffixProps, AffixState> {
   };
 
   // =================== Measure ===================
-  // Handle realign logic
-  @throttleByAnimationFrameDecorator()
-  updatePosition(event?: Event | null) {
-    this.prepareMeasure(event);
-  }
-
-  @throttleByAnimationFrameDecorator()
-  lazyUpdatePosition(event: Event) {
-    const { target } = this.props;
-    const { affixStyle } = this.state;
-
-    // Check position change before measure to make Safari smooth
-    if (target && affixStyle) {
-      const offsetTop = this.getOffsetTop();
-      const offsetBottom = this.getOffsetBottom();
-
-      const targetNode = target();
-      if (targetNode) {
-        const targetRect = getTargetRect(targetNode);
-        const placeholderReact = getTargetRect(this.placeholderNode);
-        const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
-        const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
-
-        if (
-          (fixedTop !== undefined && affixStyle.top === fixedTop) ||
-          (fixedBottom !== undefined && affixStyle.bottom === fixedBottom)
-        ) {
-          return;
-        }
-      }
-    }
-
-    // Directly call prepare measure since it's already throttled.
-    this.prepareMeasure(event);
-  }
-
-  // @ts-ignore TS6133
-  prepareMeasure = (event?: Event | null) => {
-    // event param is used before. Keep compatible ts define here.
-    this.setState({
-      status: AffixStatus.Prepare,
-      affixStyle: undefined,
-      placeholderStyle: undefined,
-    });
-
-    // Test if `updatePosition` called
-    if (process.env.NODE_ENV === 'test') {
-      const { onTestUpdatePosition } = this.props as any;
-      if (onTestUpdatePosition) {
-        onTestUpdatePosition();
-      }
-    }
-  };
-
   measure = () => {
     const { status, lastAffix } = this.state;
     const { target, onChange } = this.props;
@@ -253,6 +202,60 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
     this.setState(newState as AffixState);
   };
+
+  // @ts-ignore TS6133
+  prepareMeasure = () => {
+    // event param is used before. Keep compatible ts define here.
+    this.setState({
+      status: AffixStatus.Prepare,
+      affixStyle: undefined,
+      placeholderStyle: undefined,
+    });
+
+    // Test if `updatePosition` called
+    if (process.env.NODE_ENV === 'test') {
+      const { onTestUpdatePosition } = this.props as any;
+      if (onTestUpdatePosition) {
+        onTestUpdatePosition();
+      }
+    }
+  };
+
+  // Handle realign logic
+  @throttleByAnimationFrameDecorator()
+  updatePosition() {
+    this.prepareMeasure();
+  }
+
+  @throttleByAnimationFrameDecorator()
+  lazyUpdatePosition() {
+    const { target } = this.props;
+    const { affixStyle } = this.state;
+
+    // Check position change before measure to make Safari smooth
+    if (target && affixStyle) {
+      const offsetTop = this.getOffsetTop();
+      const offsetBottom = this.getOffsetBottom();
+
+      const targetNode = target();
+      if (targetNode) {
+        const targetRect = getTargetRect(targetNode);
+        const placeholderReact = getTargetRect(this.placeholderNode);
+        const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);
+        const fixedBottom = getFixedBottom(placeholderReact, targetRect, offsetBottom);
+
+        if (
+          (fixedTop !== undefined && affixStyle.top === fixedTop) ||
+          (fixedBottom !== undefined && affixStyle.bottom === fixedBottom)
+        ) {
+          return;
+        }
+      }
+    }
+
+    // Directly call prepare measure since it's already throttled.
+    this.prepareMeasure();
+  }
 
   // =================== Render ===================
   renderAffix = ({ getPrefixCls }: ConfigConsumerProps) => {

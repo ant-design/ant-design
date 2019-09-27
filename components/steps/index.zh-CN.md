@@ -29,6 +29,7 @@ title: Steps
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | className | 步骤条类名 | string | - | 3.11.3 |
+| type | 步骤条类型，有 `default` 和 `navigation` 两种 | string | `default` | 3.22.0 |
 | current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 |  |
 | direction | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | horizontal |  |
 | labelPlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` | 3.7.3 |
@@ -48,3 +49,5 @@ title: Steps
 | icon | 步骤图标的类型，可选 | string\|ReactNode | - |  |
 | status | 指定状态。当不配置该属性时，会使用 Steps 的 `current` 来自动指定状态。可选：`wait` `process` `finish` `error` | string | wait |  |
 | title | 标题 | string\|ReactNode | - |  |
+| subTitle | 子标题 | string\|ReactNode | - | 3.22.0 |
+| disabled | 禁用点击 | boolean | false | 3.22.0 |

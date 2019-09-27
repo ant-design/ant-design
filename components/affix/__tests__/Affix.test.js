@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Affix from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
+import { spyElementPrototype } from '../../__tests__/util/domHook';
 
 const events = {};
 
@@ -40,6 +41,7 @@ class AffixMounter extends React.Component {
 
 describe('Affix Render', () => {
   let wrapper;
+  let domMock;
 
   const classRect = {
     container: {
@@ -48,23 +50,21 @@ describe('Affix Render', () => {
     },
   };
 
-  const originGetBoundingClientRect = HTMLElement.prototype.getBoundingClientRect;
-  HTMLElement.prototype.getBoundingClientRect = function getBoundingClientRect() {
-    return (
-      classRect[this.className] || {
-        top: 0,
-        bottom: 0,
-      }
-    );
-  };
-
   beforeAll(() => {
     jest.useFakeTimers();
+    domMock = spyElementPrototype(HTMLElement, 'getBoundingClientRect', function mockBounding() {
+      return (
+        classRect[this.className] || {
+          top: 0,
+          bottom: 0,
+        }
+      );
+    });
   });
 
   afterAll(() => {
     jest.useRealTimers();
-    HTMLElement.prototype.getBoundingClientRect = originGetBoundingClientRect;
+    domMock.mockRestore();
   });
   const movePlaceholder = top => {
     classRect.fixed = {
@@ -185,7 +185,7 @@ describe('Affix Render', () => {
           .find('ReactResizeObserver')
           .at(index)
           .instance()
-          .onResize();
+          .onResize([{ target: { getBoundingClientRect: () => ({ width: 99, height: 99 }) } }]);
         jest.runAllTimers();
 
         expect(updateCalled).toHaveBeenCalled();

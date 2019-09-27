@@ -10,7 +10,7 @@ allIcons = allIcons.filter(
   (name: string) => !['interation', 'canlendar', 'colum-height'].includes(name),
 );
 
-export const categories = {
+const categories = {
   all: [...new Set(allIcons)],
   direction: [
     'step-backward',
@@ -206,6 +206,8 @@ export const categories = {
     'sketch',
   ],
 };
+
+export default categories;
 
 export interface Categories {
   all: string[];

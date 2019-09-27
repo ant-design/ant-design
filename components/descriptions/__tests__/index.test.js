@@ -2,6 +2,8 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { mount } from 'enzyme';
 import Descriptions from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import { resetWarned } from '../../_util/warning';
 
 jest.mock('enquire.js', () => {
   let that;
@@ -22,6 +24,8 @@ jest.mock('enquire.js', () => {
 });
 
 describe('Descriptions', () => {
+  mountTest(Descriptions);
+
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterEach(() => {
@@ -97,6 +101,8 @@ describe('Descriptions', () => {
   });
 
   it('warning if ecceed the row span', () => {
+    resetWarned();
+
     mount(
       <Descriptions column={3}>
         <Descriptions.Item label="Product" span={2}>
@@ -152,6 +158,15 @@ describe('Descriptions', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('Descriptions support colon', () => {
+    const wrapper = mount(
+      <Descriptions colon={false}>
+        <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
+      </Descriptions>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('Descriptions support style', () => {
     const wrapper = mount(
       <Descriptions style={{ backgroundColor: '#e8e8e8' }}>
@@ -159,5 +174,15 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('keep key', () => {
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item key="bamboo" />
+      </Descriptions>,
+    );
+
+    expect(wrapper.find('Col').key()).toBe('label-bamboo');
   });
 });

@@ -169,9 +169,10 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
+    const title = ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>;
     const columns = [
       {
-        title: ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>,
+        title,
         key: 'group',
         sorter: true,
       },

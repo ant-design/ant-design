@@ -17,12 +17,12 @@ subtitle: 导航菜单
 ## API
 
 ```html
-<Menu>
+<menu>
   <Menu.Item>菜单项</Menu.Item>
   <SubMenu title="子菜单">
     <Menu.Item>子菜单项</Menu.Item>
   </SubMenu>
-</Menu>
+</menu>
 ```
 
 ### Menu
@@ -61,13 +61,14 @@ subtitle: 导航菜单
 
 ### Menu.SubMenu
 
-| 参数         | 说明           | 类型                        | 默认值 | 版本 |
-| ------------ | -------------- | --------------------------- | ------ | ---- |
-| children     | 子菜单的菜单项 | Array&lt;MenuItem\|SubMenu> |        |      |
-| disabled     | 是否禁用       | boolean                     | false  |      |
-| key          | 唯一标志       | string                      |        |      |
-| title        | 子菜单项值     | string\|ReactNode           |        |      |
-| onTitleClick | 点击子菜单标题 | function({ key, domEvent }) |        |      |
+| 参数           | 说明           | 类型                        | 默认值 | 版本   |
+| -------------- | -------------- | --------------------------- | ------ | ------ |
+| popupClassName | 子菜单样式     | string                      |        | 3.22.0 |
+| children       | 子菜单的菜单项 | Array&lt;MenuItem\|SubMenu> |        |        |
+| disabled       | 是否禁用       | boolean                     | false  |        |
+| key            | 唯一标志       | string                      |        |        |
+| title          | 子菜单项值     | string\|ReactNode           |        |        |
+| onTitleClick   | 点击子菜单标题 | function({ key, domEvent }) |        |        |
 
 ### Menu.ItemGroup
 

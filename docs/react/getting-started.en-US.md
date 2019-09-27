@@ -139,7 +139,7 @@ import Button from 'antd/es/button';
 import 'antd/es/button/style'; // or antd/es/button/style/css for css format file
 ```
 
-> Note: antd support ES6 tree shaking, so `import { Button } from 'antd';` will drop the js code you don't use too.
+> Note: antd supports ES6 tree shaking, so `import { Button } from 'antd';` will drop the js code you don't use too.
 
 We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/es/xxx' way:
 

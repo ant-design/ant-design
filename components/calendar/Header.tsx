@@ -3,7 +3,19 @@ import * as moment from 'moment';
 import Select from '../select';
 import { Group, Button, RadioChangeEvent } from '../radio';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+
 const { Option } = Select;
+
+function getMonthsLocale(value: moment.Moment) {
+  const current = value.clone();
+  const localeData = value.localeData();
+  const months: any[] = [];
+  for (let i = 0; i < 12; i++) {
+    current.month(i);
+    months.push(localeData.monthsShort(current));
+  }
+  return months;
+}
 
 export interface RenderHeader {
   value: moment.Moment;
@@ -37,7 +49,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   private calenderHeaderNode: HTMLDivElement;
 
   getYearSelectElement(prefixCls: string, year: number) {
-    const { yearSelectOffset, yearSelectTotal, locale, fullscreen, validRange } = this.props;
+    const { yearSelectOffset, yearSelectTotal, locale = {}, fullscreen, validRange } = this.props;
     let start = year - (yearSelectOffset as number);
     let end = start + (yearSelectTotal as number);
     if (validRange) {
@@ -61,17 +73,6 @@ export default class Header extends React.Component<HeaderProps, any> {
         {options}
       </Select>
     );
-  }
-
-  getMonthsLocale(value: moment.Moment) {
-    const current = value.clone();
-    const localeData = value.localeData();
-    const months: any[] = [];
-    for (let i = 0; i < 12; i++) {
-      current.month(i);
-      months.push(localeData.monthsShort(current));
-    }
-    return months;
   }
 
   getMonthSelectElement(prefixCls: string, month: number, months: number[]) {
@@ -124,7 +125,7 @@ export default class Header extends React.Component<HeaderProps, any> {
       }
     }
 
-    const onValueChange = this.props.onValueChange;
+    const { onValueChange } = this.props;
     if (onValueChange) {
       onValueChange(newValue);
     }
@@ -133,7 +134,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   onMonthChange = (month: string) => {
     const newValue = this.props.value.clone();
     newValue.month(parseInt(month, 10));
-    const onValueChange = this.props.onValueChange;
+    const { onValueChange } = this.props;
     if (onValueChange) {
       onValueChange(newValue);
     }
@@ -144,7 +145,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   onTypeChange = (type: string) => {
-    const onTypeChange = this.props.onTypeChange;
+    const { onTypeChange } = this.props;
     if (onTypeChange) {
       onTypeChange(type);
     }
@@ -161,7 +162,7 @@ export default class Header extends React.Component<HeaderProps, any> {
     const yearReactNode = this.getYearSelectElement(prefixCls, value.year());
     const monthReactNode =
       type === 'month'
-        ? this.getMonthSelectElement(prefixCls, value.month(), this.getMonthsLocale(value))
+        ? this.getMonthSelectElement(prefixCls, value.month(), getMonthsLocale(value))
         : null;
     return {
       yearReactNode,
@@ -170,7 +171,7 @@ export default class Header extends React.Component<HeaderProps, any> {
   };
 
   getTypeSwitch = () => {
-    const { locale, type, fullscreen } = this.props;
+    const { locale = {}, type, fullscreen } = this.props;
     const size = fullscreen ? 'default' : 'small';
     return (
       <Group onChange={this.onInternalTypeChange} value={type} size={size}>

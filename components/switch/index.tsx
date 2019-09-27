@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import Wave from '../_util/wave';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
@@ -43,6 +44,20 @@ export default class Switch extends React.Component<SwitchProps, {}> {
 
   private rcSwitch: typeof RcSwitch;
 
+  constructor(props: SwitchProps) {
+    super(props);
+
+    warning(
+      'checked' in props || !('value' in props),
+      'Switch',
+      '`value` is not validate prop, do you mean `checked`?',
+    );
+  }
+
+  saveSwitch = (node: typeof RcSwitch) => {
+    this.rcSwitch = node;
+  };
+
   focus() {
     this.rcSwitch.focus();
   }
@@ -50,10 +65,6 @@ export default class Switch extends React.Component<SwitchProps, {}> {
   blur() {
     this.rcSwitch.blur();
   }
-
-  saveSwitch = (node: typeof RcSwitch) => {
-    this.rcSwitch = node;
-  };
 
   renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;

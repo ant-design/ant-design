@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Large size tabs are usally used in page header, and small size could be used in Modal.
+Large size tabs are usually used in page header, and small size could be used in Modal.
 
 ```jsx
 import { Tabs, Radio } from 'antd';

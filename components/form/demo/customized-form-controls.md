@@ -53,7 +53,7 @@ class PriceInput extends React.Component {
 
   handleNumberChange = e => {
     const number = parseInt(e.target.value || 0, 10);
-    if (Number.isNaN(number)) {
+    if (isNaN(number)) {
       return;
     }
     if (!('value' in this.props)) {
@@ -73,24 +73,27 @@ class PriceInput extends React.Component {
     // Should provide an event to pass value to Form.
     const { onChange } = this.props;
     if (onChange) {
-      onChange(Object.assign({}, this.state, changedValue));
+      onChange({
+        ...this.state,
+        ...changedValue,
+      });
     }
   };
 
   render() {
     const { size } = this.props;
-    const { state } = this;
+    const { currency, number } = this.state;
     return (
       <span>
         <Input
           type="text"
           size={size}
-          value={state.number}
+          value={number}
           onChange={this.handleNumberChange}
           style={{ width: '65%', marginRight: '3%' }}
         />
         <Select
-          value={state.currency}
+          value={currency}
           size={size}
           style={{ width: '32%' }}
           onChange={this.handleCurrencyChange}

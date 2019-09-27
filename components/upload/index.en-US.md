@@ -23,7 +23,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | directory | support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false | 3.7.0 |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. **Warning：this function is not supported in IE9**。 | (file, fileList) => `boolean | Promise` | - |  |
 | customRequest | override for the default xhr behavior allowing for additional customization and ability to implement your own XMLHttpRequest | Function | - |  |
-| data | Uploading params or function which can return uploading params. | object\|function(file) | - |  |
+| data | Uploading extra params or function which can return uploading extra params. | object\|function(file) | - |  |
 | defaultFileList | Default list of files that have been uploaded. | object\[] | - |  |
 | disabled | disable upload button | boolean | false |  |
 | fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it | object\[] | - |  |
@@ -39,6 +39,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | Function | - |  |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked | Function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject | Function(file): `boolean | Promise` | - |  |
+| transformFile   | Customize transform file before request | Function(file): `string | Blob | File | Promise<string | Blob | File>` | - | 3.21.0 |
 
 ### onChange
 

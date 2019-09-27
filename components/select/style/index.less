@@ -103,7 +103,6 @@
     &-selected-value {
       float: left;
       max-width: 100%;
-      padding-right: 20px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -148,6 +147,16 @@
     position: relative;
     height: @input-height-base;
     cursor: pointer;
+
+    .@{select-prefix-cls}-selection__rendered {
+      margin-right: 24px;
+    }
+  }
+
+  &-no-arrow {
+    .@{select-prefix-cls}-selection__rendered {
+      margin-right: @control-padding-horizontal - 1px;
+    }
   }
 
   &-selection__rendered {
@@ -194,7 +203,7 @@
       height: @input-height-sm;
     }
     .@{select-prefix-cls}-selection__rendered {
-      margin: 0 @control-padding-horizontal-sm - 1px;
+      margin-left: @control-padding-horizontal-sm - 1px;
       line-height: @input-height-sm - 2px;
     }
     .@{select-prefix-cls}-selection--multiple {
@@ -434,7 +443,7 @@
   // https://github.com/ant-design/ant-design/issues/11456
   // https://github.com/ant-design/ant-design/issues/11843
   font-variant: initial;
-  background-color: @component-background;
+  background-color: @select-dropdown-bg;
   border-radius: @border-radius-base;
   outline: none;
   box-shadow: @box-shadow-base;
@@ -519,7 +528,7 @@
       &-selected {
         color: @text-color;
         font-weight: @select-item-selected-font-weight;
-        background-color: @background-color-light;
+        background-color: @select-item-selected-bg;
       }
 
       &-disabled {
@@ -533,7 +542,7 @@
       }
 
       &-active:not(&-disabled) {
-        background-color: @item-active-bg;
+        background-color: @select-item-active-bg;
       }
 
       &-divider {

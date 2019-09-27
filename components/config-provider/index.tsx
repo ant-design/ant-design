@@ -1,7 +1,12 @@
+// TODO: remove this lint
+// SFC has specified a displayName, but not worked.
+/* eslint-disable react/display-name */
 import * as React from 'react';
 import createReactContext from '@ant-design/create-react-context';
 
 import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
+import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
 export { RenderEmptyHandler };
 
@@ -16,6 +21,7 @@ export interface ConfigConsumerProps {
   renderEmpty: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  locale?: Locale;
 }
 
 export const configConsumerProps = [
@@ -25,6 +31,7 @@ export const configConsumerProps = [
   'renderEmpty',
   'csp',
   'autoInsertSpaceInButton',
+  'locale',
 ];
 
 export interface ConfigProviderProps {
@@ -34,6 +41,7 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  locale?: Locale;
 }
 
 const ConfigContext = createReactContext<ConfigConsumerProps>({
@@ -58,8 +66,15 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
   };
 
-  renderProvider = (context: ConfigConsumerProps) => {
-    const { children, getPopupContainer, renderEmpty, csp, autoInsertSpaceInButton } = this.props;
+  renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
+    const {
+      children,
+      getPopupContainer,
+      renderEmpty,
+      csp,
+      autoInsertSpaceInButton,
+      locale,
+    } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
@@ -75,11 +90,25 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       config.renderEmpty = renderEmpty;
     }
 
-    return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+    return (
+      <ConfigContext.Provider value={config}>
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {children}
+        </LocaleProvider>
+      </ConfigContext.Provider>
+    );
   };
 
   render() {
-    return <ConfigConsumer>{this.renderProvider}</ConfigConsumer>;
+    return (
+      <LocaleReceiver>
+        {(_, __, legacyLocale) => (
+          <ConfigConsumer>
+            {context => this.renderProvider(context, legacyLocale as Locale)}
+          </ConfigConsumer>
+        )}
+      </LocaleReceiver>
+    );
   }
 }
 
@@ -103,7 +132,9 @@ interface ConstructorProps {
 }
 
 export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
-  return function<ComponentDef>(Component: IReactComponent): React.SFC<ExportProps> & ComponentDef {
+  return function withConfigConsumerFunc<ComponentDef>(
+    Component: IReactComponent,
+  ): React.SFC<ExportProps> & ComponentDef {
     // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
     const SFC = ((props: ExportProps) => (
       <ConfigConsumer>

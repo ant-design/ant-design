@@ -80,6 +80,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
       },
     }));
   };
+
   handleWithTooltip: HandleGeneratorFn = (
     tooltipPrefixCls: string,
     { value, dragging, index, ...restProps },
@@ -96,9 +97,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         placement={tooltipPlacement || 'top'}
         transitionName="zoom-down"
         key={index}
-        getPopupContainer={
-          getTooltipPopupContainer ? getTooltipPopupContainer : () => document.body
-        }
+        getPopupContainer={getTooltipPopupContainer || (() => document.body)}
       >
         <RcHandle
           {...restProps}
@@ -110,6 +109,10 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     );
   };
 
+  saveSlider = (node: any) => {
+    this.rcSlider = node;
+  };
+
   focus() {
     this.rcSlider.focus();
   }
@@ -117,10 +120,6 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
   blur() {
     this.rcSlider.blur();
   }
-
-  saveSlider = (node: any) => {
-    this.rcSlider = node;
-  };
 
   renderSlider = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {

@@ -104,14 +104,31 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     );
   }
 
-  handleChange = (value: moment.Moment) => {
-    if (!('value' in this.props)) {
-      this.setState({ value });
+  getDefaultFormat() {
+    const { format, use12Hours } = this.props;
+    if (format) {
+      return format;
     }
-    const { onChange, format = 'HH:mm:ss' } = this.props;
-    if (onChange) {
-      onChange(value, (value && value.format(format)) || '');
+    if (use12Hours) {
+      return 'h:mm:ss a';
     }
+    return 'HH:mm:ss';
+  }
+
+  getAllowClear() {
+    const { allowClear, allowEmpty } = this.props;
+    if ('allowClear' in this.props) {
+      return allowClear;
+    }
+    return allowEmpty;
+  }
+
+  getDefaultLocale = () => {
+    const defaultLocale = {
+      ...enUS,
+      ...this.props.locale,
+    };
+    return defaultLocale;
   };
 
   handleOpenClose = ({ open }: { open: boolean }) => {
@@ -125,30 +142,22 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     this.timePickerRef = timePickerRef;
   };
 
+  handleChange = (value: moment.Moment) => {
+    if (!('value' in this.props)) {
+      this.setState({ value });
+    }
+    const { onChange, format = 'HH:mm:ss' } = this.props;
+    if (onChange) {
+      onChange(value, (value && value.format(format)) || '');
+    }
+  };
+
   focus() {
     this.timePickerRef.focus();
   }
 
   blur() {
     this.timePickerRef.blur();
-  }
-
-  getDefaultFormat() {
-    const { format, use12Hours } = this.props;
-    if (format) {
-      return format;
-    } else if (use12Hours) {
-      return 'h:mm:ss a';
-    }
-    return 'HH:mm:ss';
-  }
-
-  getAllowClear() {
-    const { allowClear, allowEmpty } = this.props;
-    if ('allowClear' in this.props) {
-      return allowClear;
-    }
-    return allowEmpty;
   }
 
   renderInputIcon(prefixCls: string) {
@@ -175,14 +184,6 @@ class TimePicker extends React.Component<TimePickerProps, any> {
 
     return <Icon type="close-circle" className={clearIconPrefixCls} theme="filled" />;
   }
-
-  getDefaultLocale = () => {
-    const defaultLocale = {
-      ...enUS,
-      ...this.props.locale,
-    };
-    return defaultLocale;
-  };
 
   renderTimePicker = (locale: TimePickerLocale) => (
     <ConfigConsumer>

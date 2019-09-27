@@ -19,6 +19,7 @@ When requiring users to interact with the application, but without jumping to a 
 | cancelText | Text of the Cancel button | string\|ReactNode | `Cancel` |  |
 | centered | Centered Modal | Boolean | `false` | 3.8.0 |
 | closable | Whether a close (x) button is visible on top right of the modal dialog or not | boolean | true |  |
+| closeIcon | custom close icon | ReactNode | - | 3.22.0 |
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | destroyOnClose | Whether to unmount child components on onClose | boolean | false | 3.1.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | string\|ReactNode | OK and Cancel buttons |  |
@@ -64,7 +65,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | className | className of container | string | - | 3.1.1 |
 | content | Content | string\|ReactNode | - |  |
 | icon | custom icon (`Added in 3.12.0`) | string\|ReactNode | `<Icon type="question-circle">` | 3.12.0 |
-| iconType | Icon `type` of the Icon component (deperated after `3.12.0`) | string | `question-circle` |  |
+| iconType | Icon `type` of the Icon component (deprecated after `3.12.0`) | string | `question-circle` |  |
 | keyboard | Whether support press esc to close | Boolean | true | 3.4.2 |
 | mask | Whether show mask or not. | Boolean | true | 3.13.0 |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | Boolean | `false` |  |

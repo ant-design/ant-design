@@ -81,7 +81,7 @@ describe('Form', () => {
 
     myForm.setFields({
       account: {
-        errors: [<div>Error 1</div>, <div>Error 2</div>],
+        errors: [<div key="error-1">Error 1</div>, <div key="error-2">Error 2</div>],
       },
     });
 

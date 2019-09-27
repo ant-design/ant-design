@@ -2,8 +2,8 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcSelect, { Option, OptGroup } from 'rc-select';
 import classNames from 'classnames';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import omit from 'omit.js';
+import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import warning from '../_util/warning';
 import Icon from '../icon';
 import { tuple } from '../_util/type';
@@ -57,10 +57,7 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
-  onChange?: (
-    value: T,
-    option: React.ReactElement<any> | React.ReactElement<any>[],
-  ) => void;
+  onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
   onSelect?: (value: T extends (infer I)[] ? I : T, option: React.ReactElement<any>) => void;
   onDeselect?: (value: T extends (infer I)[] ? I : T) => void;
   onBlur?: (value: T) => void;
@@ -112,11 +109,9 @@ const SelectPropTypes = {
   id: PropTypes.string,
 };
 
-// => It is needless to export the declaration of below two inner components.
-// export { Option, OptGroup };
-
 export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
+
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
   static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -143,18 +138,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     );
   }
 
-  focus() {
-    this.rcSelect.focus();
-  }
-
-  blur() {
-    this.rcSelect.blur();
-  }
-
-  saveSelect = (node: any) => {
-    this.rcSelect = node;
-  };
-
   getNotFoundContent(renderEmpty: RenderEmptyHandler) {
     const { notFoundContent } = this.props;
     if (notFoundContent !== undefined) {
@@ -166,14 +149,18 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     }
 
     return renderEmpty('Select');
+  }
 
-    // if (this.isCombobox()) {
-    //   // AutoComplete don't have notFoundContent defaultly
-    //   return notFoundContent === undefined ? null : notFoundContent;
-    // }
+  saveSelect = (node: any) => {
+    this.rcSelect = node;
+  };
 
-    // return renderEmpty('Select');
-    // // return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
+  focus() {
+    this.rcSelect.focus();
+  }
+
+  blur() {
+    this.rcSelect.blur();
   }
 
   isCombobox() {

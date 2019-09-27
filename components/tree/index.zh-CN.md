@@ -5,9 +5,11 @@ title: Tree
 subtitle: 树形控件
 ---
 
+多层次的结构列表。
+
 ## 何时使用
 
-文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用`树控件`可以完整展现其中的层级关系，并具有展开收起选择等交互功能。
+文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。使用 `树控件` 可以完整展现其中的层级关系，并具有展开收起选择等交互功能。
 
 ## API
 
@@ -32,6 +34,7 @@ subtitle: 树形控件
 | loadData | 异步加载数据 | function(node) | - |  |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string\[] | \[] | 3.7.0 |
 | multiple | 支持点选多个节点（节点本身） | boolean | false |  |
+| selectable | 是否可选中 | boolean | true |  |
 | selectedKeys | （受控）设置选中的树节点 | string\[] | - |  |
 | showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
 | switcherIcon | 自定义树节点的展开/折叠图标 | React.ReactElement | - | 3.12.0 |

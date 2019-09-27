@@ -30,6 +30,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
   };
 
   private mountId: number;
+
   private lazyId: number;
 
   componentDidMount() {
@@ -39,10 +40,8 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 
   componentDidUpdate(prevProps: TransferListBodyProps) {
-    if (
-      prevProps.filteredRenderItems.length !== this.props.filteredRenderItems.length &&
-      this.props.lazy !== false
-    ) {
+    const { filteredRenderItems, lazy } = this.props;
+    if (prevProps.filteredRenderItems.length !== filteredRenderItems.length && lazy !== false) {
       // TODO: Replace this with ref when react 15 support removed.
       const container = findDOMNode(this);
 
@@ -69,7 +68,14 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
   render() {
     const { mounted } = this.state;
-    const { prefixCls, onScroll, filteredRenderItems, lazy, selectedKeys } = this.props;
+    const {
+      prefixCls,
+      onScroll,
+      filteredRenderItems,
+      lazy,
+      selectedKeys,
+      disabled: globalDisabled,
+    } = this.props;
 
     return (
       <Animate
@@ -85,7 +91,7 @@ class ListBody extends React.Component<TransferListBodyProps> {
 
           return (
             <ListItem
-              disabled={disabled}
+              disabled={globalDisabled || disabled}
               key={item.key}
               item={item}
               lazy={lazy}
@@ -102,4 +108,6 @@ class ListBody extends React.Component<TransferListBodyProps> {
   }
 }
 
-export default (props: TransferListBodyProps) => <ListBody {...props} />;
+const ListBodyWrapper = (props: TransferListBodyProps) => <ListBody {...props} />;
+
+export default ListBodyWrapper;

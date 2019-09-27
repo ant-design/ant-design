@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export default () => (
+const Unauthorized = () => (
   <svg width="251" height="294">
     <g fill="none" fillRule="evenodd">
       <path
@@ -276,3 +276,5 @@ export default () => (
     </g>
   </svg>
 );
+
+export default Unauthorized;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import TransitionEvents from 'css-animation/lib/Event';
-import raf from '../_util/raf';
+import raf from './raf';
 import { ConfigConsumer, ConfigConsumerProps, CSPConfig } from '../config-provider';
 
 let styleForPesudo: HTMLStyleElement | null;
@@ -14,24 +14,49 @@ function isHidden(element: HTMLElement) {
   return !element || element.offsetParent === null;
 }
 
+function isNotGrey(color: string) {
+  // eslint-disable-next-line no-useless-escape
+  const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
+  if (match && match[1] && match[2] && match[3]) {
+    return !(match[1] === match[2] && match[2] === match[3]);
+  }
+  return true;
+}
+
 export default class Wave extends React.Component<{ insertExtraNode?: boolean }> {
   private instance?: {
     cancel: () => void;
   };
 
   private extraNode: HTMLDivElement;
+
   private clickWaveTimeoutId: number;
+
   private animationStartId: number;
+
   private animationStart: boolean = false;
+
   private destroy: boolean = false;
+
   private csp?: CSPConfig;
 
-  isNotGrey(color: string) {
-    const match = (color || '').match(/rgba?\((\d*), (\d*), (\d*)(, [\.\d]*)?\)/);
-    if (match && match[1] && match[2] && match[3]) {
-      return !(match[1] === match[2] && match[2] === match[3]);
+  componentDidMount() {
+    const node = findDOMNode(this) as HTMLElement;
+    if (!node || node.nodeType !== 1) {
+      return;
     }
-    return true;
+    this.instance = this.bindAnimationEvent(node);
+  }
+
+  componentWillUnmount() {
+    if (this.instance) {
+      this.instance.cancel();
+    }
+    if (this.clickWaveTimeoutId) {
+      clearTimeout(this.clickWaveTimeoutId);
+    }
+
+    this.destroy = true;
   }
 
   onClick = (node: HTMLElement, waveColor: string) => {
@@ -40,7 +65,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     }
     const { insertExtraNode } = this.props;
     this.extraNode = document.createElement('div');
-    const extraNode = this.extraNode;
+    const { extraNode } = this;
     extraNode.className = 'ant-click-animating-node';
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'true');
@@ -50,7 +75,7 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       waveColor &&
       waveColor !== '#ffffff' &&
       waveColor !== 'rgb(255, 255, 255)' &&
-      this.isNotGrey(waveColor) &&
+      isNotGrey(waveColor) &&
       !/rgba\(\d*, \d*, \d*, 0\)/.test(waveColor) && // any transparent rgba color
       waveColor !== 'transparent'
     ) {
@@ -60,7 +85,10 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
       }
 
       extraNode.style.borderColor = waveColor;
-      styleForPesudo.innerHTML = `html body { --antd-wave-shadow-color: ${waveColor}; }`;
+      styleForPesudo.innerHTML = `
+      [ant-click-animating-without-extra-node='true']::after, .ant-click-animating-node {
+        --antd-wave-shadow-color: ${waveColor};
+      }`;
       if (!document.body.contains(styleForPesudo)) {
         document.body.appendChild(styleForPesudo);
       }
@@ -71,6 +99,31 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     TransitionEvents.addStartEventListener(node, this.onTransitionStart);
     TransitionEvents.addEndEventListener(node, this.onTransitionEnd);
   };
+
+  onTransitionStart = (e: AnimationEvent) => {
+    if (this.destroy) return;
+
+    const node = findDOMNode(this) as HTMLElement;
+    if (!e || e.target !== node) {
+      return;
+    }
+
+    if (!this.animationStart) {
+      this.resetEffect(node);
+    }
+  };
+
+  onTransitionEnd = (e: AnimationEvent) => {
+    if (!e || e.animationName !== 'fadeEffect') {
+      return;
+    }
+    this.resetEffect(e.target as HTMLElement);
+  };
+
+  getAttributeName() {
+    const { insertExtraNode } = this.props;
+    return insertExtraNode ? 'ant-click-animating' : 'ant-click-animating-without-extra-node';
+  }
 
   bindAnimationEvent = (node: HTMLElement) => {
     if (
@@ -110,11 +163,6 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     };
   };
 
-  getAttributeName() {
-    const { insertExtraNode } = this.props;
-    return insertExtraNode ? 'ant-click-animating' : 'ant-click-animating-without-extra-node';
-  }
-
   resetEffect(node: HTMLElement) {
     if (!node || node === this.extraNode || !(node instanceof Element)) {
       return;
@@ -122,57 +170,16 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
     const { insertExtraNode } = this.props;
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'false'); // edge has bug on `removeAttribute` #14466
-    this.removeExtraStyleNode();
+
+    if (styleForPesudo) {
+      styleForPesudo.innerHTML = '';
+    }
+
     if (insertExtraNode && this.extraNode && node.contains(this.extraNode)) {
       node.removeChild(this.extraNode);
     }
     TransitionEvents.removeStartEventListener(node, this.onTransitionStart);
     TransitionEvents.removeEndEventListener(node, this.onTransitionEnd);
-  }
-
-  onTransitionStart = (e: AnimationEvent) => {
-    if (this.destroy) return;
-
-    const node = findDOMNode(this) as HTMLElement;
-    if (!e || e.target !== node) {
-      return;
-    }
-
-    if (!this.animationStart) {
-      this.resetEffect(node);
-    }
-  };
-
-  onTransitionEnd = (e: AnimationEvent) => {
-    if (!e || e.animationName !== 'fadeEffect') {
-      return;
-    }
-    this.resetEffect(e.target as HTMLElement);
-  };
-
-  removeExtraStyleNode() {
-    if (styleForPesudo) {
-      styleForPesudo.innerHTML = '';
-    }
-  }
-
-  componentDidMount() {
-    const node = findDOMNode(this) as HTMLElement;
-    if (!node || node.nodeType !== 1) {
-      return;
-    }
-    this.instance = this.bindAnimationEvent(node);
-  }
-
-  componentWillUnmount() {
-    if (this.instance) {
-      this.instance.cancel();
-    }
-    if (this.clickWaveTimeoutId) {
-      clearTimeout(this.clickWaveTimeoutId);
-    }
-
-    this.destroy = true;
   }
 
   renderWave = ({ csp }: ConfigConsumerProps) => {

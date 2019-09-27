@@ -35,6 +35,6 @@ cols: 1
 | disabled    | 禁用后的面板展开与否将无法通过用户交互改变 | boolean           | false  |        |
 | forceRender | 被隐藏时是否渲染 DOM 结构                  | boolean           | false  | 3.2.0  |
 | header      | 面板头内容                                 | string\|ReactNode | 无     |        |
-| key         | 对应 activeKey                             | string\|number            | 无     |        |
+| key         | 对应 activeKey                             | string\|number    | 无     |        |
 | showArrow   | 是否展示当前面板上的箭头                   | boolean           | `true` | 3.13.0 |
 | extra       | 自定义渲染每个面板右上角的内容             | ReactNode         | -      | 3.14.0 |
