@@ -1,9 +1,21 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Collapse from '..';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('Collapse', () => {
+  // Fix css-animation deps on these
+  // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
+  window.AnimationEvent = window.AnimationEvent || (() => {});
+  window.TransitionEvent = window.TransitionEvent || (() => {});
+
+  afterAll(() => {
+    // restore it
+    delete window.AnimationEvent;
+    delete window.TransitionEvent;
+  });
+
+  // eslint-disable-next-line global-require
+  const Collapse = require('..').default;
   mountTest(Collapse);
 
   it('should support remove expandIcon', () => {
@@ -23,5 +35,25 @@ describe('Collapse', () => {
       </Collapse>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('could be expand and collapse', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(
+      <Collapse>
+        <Collapse.Panel header="This is panel header 1" key="1">
+          content
+        </Collapse.Panel>
+      </Collapse>,
+    );
+    expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(false);
+    wrapper
+      .find('.ant-collapse-header')
+      .at(0)
+      .simulate('click');
+    expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
+    jest.runAllTimers();
+    expect(wrapper.find('.ant-collapse-item').hasClass('ant-collapse-item-active')).toBe(true);
+    jest.useRealTimers();
   });
 });
