@@ -3,7 +3,6 @@ order: 3
 title:
   zh-CN: 可勾选
   en-US: Checkable
-only: true
 ---
 
 ## zh-CN

@@ -27,11 +27,14 @@ export interface LabeledValue {
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 export interface TreeSelectProps<T>
-  extends Omit<RcTreeSelectProps<T>, 'showTreeIcon' | 'treeMotion'> {
+  extends Omit<
+    RcTreeSelectProps<T>,
+    'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
+  > {
   size?: Size;
 }
 
-class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
+class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
   static TreeNode = TreeNode;
 
   static SHOW_ALL = SHOW_ALL;
@@ -86,18 +89,25 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
       switcherIcon,
       treeLine,
       getPopupContainer,
+      dropdownClassName,
     } = this.props;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
     const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
+    const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
 
     const mergedClassName = classNames(
-      !customizePrefixCls && getPrefixCls('tree-select', customizePrefixCls),
+      !customizePrefixCls && treeSelectPrefixCls,
       {
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-sm`]: size === 'small',
       },
       className,
+    );
+
+    const mergedDropdownClassName = classNames(
+      dropdownClassName,
+      `${treeSelectPrefixCls}-dropdown`,
     );
 
     const isMultiple = !!(treeCheckable || multiple);
@@ -149,6 +159,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
         notFoundContent={mergedNotFound}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
         treeMotion={collapseMotion}
+        dropdownClassName={mergedDropdownClassName}
       />
     );
   };

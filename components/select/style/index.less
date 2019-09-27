@@ -71,7 +71,7 @@
     .iconfont-mixin();
 
     position: absolute;
-    top: 55%;
+    top: 53%;
     right: @control-padding-horizontal - 1px;
     width: @font-size-sm;
     height: @font-size-sm;
@@ -80,12 +80,15 @@
     font-size: @font-size-sm;
     line-height: 1;
     text-align: center;
-    transform-origin: 50% 50%;
-    transition: transform 0.3s;
+    // transform-origin: 50% 50%;
     pointer-events: none;
 
-    .@{select-prefix-cls}-open & {
-      transform: rotate(180deg);
+    .anticon {
+      transition: transform 0.3s;
+
+      .@{select-prefix-cls}-open &.anticon-down {
+        transform: rotate(180deg);
+      }
     }
   }
 

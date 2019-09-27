@@ -1,5 +1,5 @@
 import React from 'react';
-import { Down, Loading, Check, Close, CloseCircleFilled } from '@ant-design/icons';
+import { Down, Loading, Check, Close, CloseCircleFilled, Search } from '@ant-design/icons';
 
 export function getIcons({
   suffixIcon,
@@ -29,7 +29,12 @@ export function getIcons({
   } else if (loading) {
     mergedSuffixIcon = <Loading spin />;
   } else {
-    mergedSuffixIcon = <Down />;
+    mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
+      if (open && showSearch) {
+        return <Search />;
+      }
+      return <Down />;
+    };
   }
 
   // Checked item icon

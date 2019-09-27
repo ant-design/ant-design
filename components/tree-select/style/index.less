@@ -3,12 +3,12 @@
 @import '../../tree/style/index';
 @import '../../checkbox/style/mixin';
 
-@select-prefix-cls: ~'@{ant-prefix}-select';
+@tree-select-prefix-cls: ~'@{ant-prefix}-tree-select';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{select-tree-prefix-cls}-checkbox');
 
-.@{select-prefix-cls} {
+.@{tree-select-prefix-cls} {
   // ======================= Dropdown =======================
   &-dropdown {
     padding: @padding-xs (@padding-xs / 2) 0;
