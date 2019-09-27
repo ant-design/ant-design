@@ -17163,7 +17163,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   </div>
   <div>
     <div
-      class="config-select-dropdown  config-select-dropdown-placement-bottomLeft "
+      class="config-select-dropdown config-tree-select-dropdown config-select-dropdown-placement-bottomLeft "
     >
       <div>
         <div>
@@ -17269,7 +17269,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   </div>
   <div>
     <div
-      class="ant-select-dropdown  ant-select-dropdown-placement-bottomLeft "
+      class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft "
     >
       <div>
         <div>
@@ -17375,7 +17375,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   </div>
   <div>
     <div
-      class="prefix-TreeSelect-dropdown  prefix-TreeSelect-dropdown-placement-bottomLeft "
+      class="prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown-placement-bottomLeft "
     >
       <div>
         <div>

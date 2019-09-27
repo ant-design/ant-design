@@ -13,7 +13,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
       <span
         class="ant-select-selection-item-content"
       >
-        leaf1
+        my leaf
       </span>
       <span
         aria-hidden="true"
@@ -32,7 +32,7 @@ exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] 
       <span
         class="ant-select-selection-item-content"
       >
-        leaf2
+        your leaf
       </span>
       <span
         aria-hidden="true"

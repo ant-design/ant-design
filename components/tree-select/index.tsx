@@ -169,4 +169,6 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
   }
 }
 
+export { TreeNode };
+
 export default TreeSelect;

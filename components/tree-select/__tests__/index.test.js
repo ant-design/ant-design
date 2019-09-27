@@ -8,16 +8,6 @@ describe('TreeSelect', () => {
   focusTest(TreeSelect);
   mountTest(TreeSelect);
 
-  describe('showSearch', () => {
-    it('keep default logic', () => {
-      const single = mount(<TreeSelect open />);
-      expect(single.find('.ant-select-search__field').length).toBeFalsy();
-
-      const multiple = mount(<TreeSelect multiple open />);
-      expect(multiple.find('.ant-select-search__field').length).toBeTruthy();
-    });
-  });
-
   describe('TreeSelect Custom Icons', () => {
     it('should support customized icons', () => {
       const wrapper = mount(
