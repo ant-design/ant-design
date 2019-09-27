@@ -47,7 +47,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     const value = props.value || props.defaultValue;
     if (value && !interopDefault(moment).isMoment(value)) {
       throw new Error(
-        'The value/defaultValue of DatePicker or MonthPicker must be ' +
+        'The value/defaultValue of WeekPicker must be ' +
           'a moment object after `antd@2.0`, see: https://u.ant.design/date-picker-value',
       );
     }
