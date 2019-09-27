@@ -3,7 +3,6 @@ order: 0
 title:
   zh-CN: 基本
   en-US: Basic
-only: true
 ---
 
 ## zh-CN
@@ -32,7 +31,6 @@ class Demo extends React.Component {
   render() {
     return (
       <TreeSelect
-        open
         showSearch
         style={{ width: 300 }}
         value={this.state.value}

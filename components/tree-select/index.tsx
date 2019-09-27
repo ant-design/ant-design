@@ -40,6 +40,11 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
 
   static SHOW_CHILD = SHOW_CHILD;
 
+  static defaultProps = {
+    transitionName: 'slide-up',
+    choiceTransitionName: 'zoom',
+  };
+
   selectRef = React.createRef<RcTreeSelect>();
 
   constructor(props: TreeSelectProps<T>) {
@@ -53,11 +58,15 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
   }
 
   focus() {
-    this.rcTreeSelect.focus();
+    if (this.selectRef.current) {
+      this.selectRef.current.focus();
+    }
   }
 
   blur() {
-    this.rcTreeSelect.blur();
+    if (this.selectRef.current) {
+      this.selectRef.current.blur();
+    }
   }
 
   renderTreeSelect = ({
