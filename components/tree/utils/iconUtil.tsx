@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Loading, File, MinusSquare, PlusSquare, CaretDownFilled } from '@ant-design/icons';
 import { AntTreeNodeProps } from '../Tree';
 
-export function renderSwitcherIcon(
+export default function renderSwitcherIcon(
   prefixCls: string,
   switcherIcon: React.ReactNode | null | undefined,
   showLine: boolean | undefined,
@@ -24,9 +24,12 @@ export function renderSwitcherIcon(
     return React.cloneElement(switcherIcon, {
       className: classNames(switcherOriginCls, switcherCls),
     });
-  } else if (switcherIcon) {
+  }
+
+  if (switcherIcon) {
     return switcherIcon;
   }
+
   if (showLine) {
     return expanded ? (
       <MinusSquare className={`${prefixCls}-switcher-line-icon`} />

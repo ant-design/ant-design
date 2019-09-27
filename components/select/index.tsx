@@ -5,7 +5,7 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { getIcons } from './utils/iconUtil';
+import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
 

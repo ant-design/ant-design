@@ -13,8 +13,8 @@ import collapseMotion from '../_util/motion';
 import warning from '../_util/warning';
 import { AntTreeNodeProps } from '../tree';
 import { Size } from '../select';
-import { getIcons } from '../select/utils/iconUtil';
-import { renderSwitcherIcon } from '../tree/utils/iconUtil';
+import getIcons from '../select/utils/iconUtil';
+import renderSwitcherIcon from '../tree/utils/iconUtil';
 
 type RawValue = string | number;
 

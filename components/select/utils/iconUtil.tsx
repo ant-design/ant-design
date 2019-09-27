@@ -1,7 +1,7 @@
 import React from 'react';
 import { Down, Loading, Check, Close, CloseCircleFilled, Search } from '@ant-design/icons';
 
-export function getIcons({
+export default function getIcons({
   suffixIcon,
   clearIcon,
   menuItemSelectedIcon,
