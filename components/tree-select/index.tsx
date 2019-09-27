@@ -50,12 +50,15 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
       size,
       className,
       treeCheckable,
-      treeCheckStrictly,
       multiple,
+      listHeight = 256,
+      listItemHeight = 32,
+      notFoundContent,
     } = this.props;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
     const cls = classNames(
+      !customizePrefixCls && getPrefixCls('tree-select', customizePrefixCls),
       {
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-sm`]: size === 'small',
@@ -70,6 +73,14 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
       ...this.props,
       multiple: isMultiple,
     });
+
+    // ===================== Empty =====================
+    let mergedNotFound;
+    if (notFoundContent !== undefined) {
+      mergedNotFound = notFoundContent;
+    } else {
+      mergedNotFound = renderEmpty('Select');
+    }
 
     // ==================== Render =====================
     const selectProps = omit(this.props, [
@@ -86,6 +97,8 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
         {...selectProps}
         prefixCls={prefixCls}
         className={cls}
+        listHeight={listHeight}
+        listItemHeight={listItemHeight}
         treeCheckable={
           treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
         }
@@ -93,6 +106,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
         menuItemSelectedIcon={itemIcon}
         removeIcon={removeIcon}
         clearIcon={clearIcon}
+        notFoundContent={mergedNotFound}
       />
     );
   };
