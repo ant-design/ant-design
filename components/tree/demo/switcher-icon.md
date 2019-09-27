@@ -14,7 +14,8 @@ title:
 customize collapse/expand icon of tree node
 
 ```jsx
-import { Tree, Icon } from 'antd';
+import { Tree } from 'antd';
+import { Down } from '@ant-design/icons';
 
 const { TreeNode } = Tree;
 
@@ -27,7 +28,7 @@ class Demo extends React.Component {
     return (
       <Tree
         showLine
-        switcherIcon={<Icon type="down" />}
+        switcherIcon={<Down />}
         defaultExpandedKeys={['0-0-0']}
         onSelect={this.onSelect}
       >
