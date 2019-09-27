@@ -1,11 +1,11 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
-@import '../../tree/style/mixin';
+@import '../../tree/style/index';
 @import '../../checkbox/style/mixin';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 @select-tree-prefix-cls: ~'@{ant-prefix}-select-tree';
 
-.@{select-tree-prefix-cls} {
+.antCheckboxFn(@checkbox-prefix-cls: ~'@{select-tree-prefix-cls}-checkbox');
 
-}
+.antTreeFn(@select-tree-prefix-cls);

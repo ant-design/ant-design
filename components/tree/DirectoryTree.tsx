@@ -15,7 +15,7 @@ import Tree, {
   AntTreeNodeSelectedEvent,
   AntTreeNode,
 } from './Tree';
-import { calcRangeKeys, convertDirectoryKeysToNodes } from './util';
+import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 

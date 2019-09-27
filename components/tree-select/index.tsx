@@ -16,6 +16,7 @@ import { cloneElement } from '../_util/reactNode';
 import { AntTreeNodeProps } from '../tree';
 import { Size } from '../select';
 import { getIcons } from '../select/utils/iconUtil';
+import { renderSwitcherIcon } from '../tree/utils/iconUtil';
 
 type RawValue = string | number;
 
@@ -54,10 +55,14 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
       listHeight = 256,
       listItemHeight = 32,
       notFoundContent,
+      switcherIcon,
+      treeLine,
     } = this.props;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
-    const cls = classNames(
+    const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
+
+    const mergedClassName = classNames(
       !customizePrefixCls && getPrefixCls('tree-select', customizePrefixCls),
       {
         [`${prefixCls}-lg`]: size === 'large',
@@ -89,6 +94,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
       'itemIcon',
       'removeIcon',
       'clearIcon',
+      'switcherIcon',
       'size',
     ]);
 
@@ -96,7 +102,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
       <RcTreeSelect
         {...selectProps}
         prefixCls={prefixCls}
-        className={cls}
+        className={mergedClassName}
         listHeight={listHeight}
         listItemHeight={listItemHeight}
         treeCheckable={
@@ -106,6 +112,9 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
         menuItemSelectedIcon={itemIcon}
         removeIcon={removeIcon}
         clearIcon={clearIcon}
+        switcherIcon={(nodeProps: AntTreeNodeProps) =>
+          renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
+        }
         notFoundContent={mergedNotFound}
       />
     );
