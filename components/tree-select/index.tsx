@@ -8,11 +8,9 @@ import RcTreeSelect, {
 } from 'rc-tree-select';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { Loading, CaretDown, Down, Close, CloseCircleFilled } from '@ant-design/icons';
-
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import collapseMotion from '../_util/motion';
 import warning from '../_util/warning';
-import { cloneElement } from '../_util/reactNode';
 import { AntTreeNodeProps } from '../tree';
 import { Size } from '../select';
 import { getIcons } from '../select/utils/iconUtil';
@@ -28,7 +26,8 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-export interface TreeSelectProps<T> extends RcTreeSelectProps<T> {
+export interface TreeSelectProps<T>
+  extends Omit<RcTreeSelectProps<T>, 'showTreeIcon' | 'treeMotion'> {
   size?: Size;
 }
 
@@ -40,6 +39,26 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
   static SHOW_PARENT = SHOW_PARENT;
 
   static SHOW_CHILD = SHOW_CHILD;
+
+  selectRef = React.createRef<RcTreeSelect>();
+
+  constructor(props: TreeSelectProps<T>) {
+    super(props);
+
+    warning(
+      props.multiple !== false || !props.treeCheckable,
+      'TreeSelect',
+      '`multiple` will alway be `true` when `treeCheckable` is true',
+    );
+  }
+
+  focus() {
+    this.rcTreeSelect.focus();
+  }
+
+  blur() {
+    this.rcTreeSelect.blur();
+  }
 
   renderTreeSelect = ({
     getPopupContainer: getContextPopupContainer,
@@ -57,6 +76,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
       notFoundContent,
       switcherIcon,
       treeLine,
+      getPopupContainer,
     } = this.props;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -101,6 +121,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
     return (
       <RcTreeSelect
         {...selectProps}
+        ref={this.selectRef}
         prefixCls={prefixCls}
         className={mergedClassName}
         listHeight={listHeight}
@@ -115,7 +136,10 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>> {
         switcherIcon={(nodeProps: AntTreeNodeProps) =>
           renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
         }
+        showTreeIcon={false}
         notFoundContent={mergedNotFound}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
+        treeMotion={collapseMotion}
       />
     );
   };

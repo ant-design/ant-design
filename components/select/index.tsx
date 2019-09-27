@@ -75,7 +75,11 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     return mode;
   };
 
-  renderSelect = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  renderSelect = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    renderEmpty,
+  }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       notFoundContent,
@@ -83,6 +87,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       size,
       listHeight = 256,
       listItemHeight = 32,
+      getPopupContainer,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -134,6 +139,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
         clearIcon={clearIcon}
         notFoundContent={mergedNotFound}
         className={mergedClassName}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
       />
     );
   };

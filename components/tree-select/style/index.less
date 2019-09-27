@@ -8,4 +8,29 @@
 
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{select-tree-prefix-cls}-checkbox');
 
+.@{select-prefix-cls} {
+  // ======================= Dropdown =======================
+  &-dropdown {
+    padding: @padding-xs (@padding-xs / 2) 0;
+
+    // ======================== Tree ========================
+    .@{select-tree-prefix-cls} {
+      border-radius: 0;
+
+      &-list-holder-inner {
+        align-items: stretch;
+
+        .@{select-tree-prefix-cls}-treenode {
+          padding-bottom: @padding-xs;
+
+          .@{select-tree-prefix-cls}-node-content-wrapper {
+            flex: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ========================== Tree ==========================
 .antTreeFn(@select-tree-prefix-cls);
