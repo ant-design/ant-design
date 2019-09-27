@@ -131,7 +131,7 @@
     "rc-time-picker": "~3.7.1",
     "rc-tooltip": "~3.7.3",
     "rc-tree": "~3.0.0-alpha.22",
-    "rc-tree-select": "~2.9.1",
+    "rc-tree-select": "~3.0.0-alpha.1",
     "rc-trigger": "^2.6.2",
     "rc-upload": "~2.7.0",
     "rc-util": "^4.10.0",

@@ -65,8 +65,6 @@ declare module 'rc-switch';
 
 declare module 'rc-table';
 
-declare module 'rc-tree-select';
-
 declare module 'rc-upload';
 
 declare module 'rc-form*';
