@@ -477,10 +477,6 @@
       overflow: hidden;
     }
 
-    .@{ant-prefix}-checkbox-wrapper + span {
-      padding-left: 8px;
-    }
-
     > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
     > .@{ant-prefix}-dropdown-menu
       > .@{ant-prefix}-dropdown-menu-submenu:last-child
@@ -774,6 +770,15 @@
 
   &-row[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
     display: inline-block;
+  }
+}
+
+.@{table-prefix-cls}-filter-dropdown {
+  &,
+  &-submenu {
+    .@{ant-prefix}-checkbox-wrapper + span {
+      padding-left: 8px;
+    }
   }
 }
 
