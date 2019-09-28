@@ -1,4 +1,4 @@
-import { calcRangeKeys } from '../util';
+import { calcRangeKeys } from '../utils/dictUtil';
 
 describe('Tree util', () => {
   it('calc range keys', () => {

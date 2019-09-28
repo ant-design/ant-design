@@ -1,12 +1,12 @@
 import * as React from 'react';
 import RcTree, { TreeNode } from 'rc-tree';
-import { Loading, File, MinusSquare, PlusSquare, CaretDownFilled } from '@ant-design/icons';
 import classNames from 'classnames';
 import { DataNode } from 'rc-tree/lib/interface';
 
 import DirectoryTree from './DirectoryTree';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import collapseMotion from '../_util/motion';
+import renderSwitcherIcon from './utils/iconUtil';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -187,38 +187,6 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   tree: any;
 
-  renderSwitcherIcon = (
-    prefixCls: string,
-    switcherIcon: React.ReactElement<any> | undefined,
-    { isLeaf, expanded, loading }: AntTreeNodeProps,
-  ) => {
-    const { showLine } = this.props;
-    if (loading) {
-      return <Loading className={`${prefixCls}-switcher-loading-icon`} />;
-    }
-    if (isLeaf) {
-      if (showLine) {
-        return <File className={`${prefixCls}-switcher-line-icon`} />;
-      }
-      return null;
-    }
-    const switcherCls = `${prefixCls}-switcher-icon`;
-    if (switcherIcon) {
-      const switcherOriginCls = switcherIcon.props.className || '';
-      return React.cloneElement(switcherIcon, {
-        className: classNames(switcherOriginCls, switcherCls),
-      });
-    }
-    if (showLine) {
-      return expanded ? (
-        <MinusSquare className={`${prefixCls}-switcher-line-icon`} />
-      ) : (
-        <PlusSquare className={`${prefixCls}-switcher-line-icon`} />
-      );
-    }
-    return <CaretDownFilled className={switcherCls} />;
-  };
-
   setTreeRef = (node: any) => {
     this.tree = node;
   };
@@ -229,6 +197,7 @@ export default class Tree extends React.Component<TreeProps, any> {
       prefixCls: customizePrefixCls,
       className,
       showIcon,
+      showLine,
       switcherIcon,
       blockNode,
       children,
@@ -246,7 +215,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         })}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
         switcherIcon={(nodeProps: AntTreeNodeProps) =>
-          this.renderSwitcherIcon(prefixCls, switcherIcon, nodeProps)
+          renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
         }
       >
         {children}

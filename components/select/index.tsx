@@ -4,10 +4,12 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
-import { Down, Loading, Check, Close, CloseCircleFilled } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;
+
+export type Size = 'large' | 'default' | 'small';
 
 export type OptionType = typeof Option;
 
@@ -21,7 +23,7 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon?: React.ReactNode;
-  size?: 'large' | 'default' | 'small';
+  size?: Size;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 }
 
@@ -73,19 +75,19 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     return mode;
   };
 
-  renderSelect = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  renderSelect = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    renderEmpty,
+  }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      suffixIcon,
-      clearIcon,
-      menuItemSelectedIcon,
-      removeIcon,
-      loading,
       notFoundContent,
       className,
       size,
       listHeight = 256,
       listItemHeight = 32,
+      getPopupContainer,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -104,40 +106,19 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     }
 
     // ===================== Icons =====================
-    // Clear Icon
-    let mergedClearIcon = clearIcon;
-    if (!clearIcon) {
-      mergedClearIcon = <CloseCircleFilled />;
-    }
+    const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+      ...this.props,
+      multiple: isMultiple,
+    });
 
-    // Arrow item icon
-    let mergedSuffixIcon = null;
-    if (suffixIcon !== undefined) {
-      mergedSuffixIcon = suffixIcon;
-    } else if (loading) {
-      mergedSuffixIcon = <Loading spin />;
-    } else {
-      mergedSuffixIcon = <Down />;
-    }
-
-    // Checked item icon
-    let mergedItemIcon = null;
-    if (menuItemSelectedIcon !== undefined) {
-      mergedItemIcon = menuItemSelectedIcon;
-    } else if (isMultiple) {
-      mergedItemIcon = <Check />;
-    } else {
-      mergedItemIcon = null;
-    }
-
-    let mergedRemoveIcon = null;
-    if (removeIcon !== undefined) {
-      mergedRemoveIcon = removeIcon;
-    } else {
-      mergedRemoveIcon = <Close />;
-    }
-
-    const selectProps = omit(this.props, ['prefixCls', 'suffixIcon', 'size']);
+    const selectProps = omit(this.props, [
+      'prefixCls',
+      'suffixIcon',
+      'itemIcon',
+      'removeIcon',
+      'clearIcon',
+      'size',
+    ]);
 
     const mergedClassName = classNames(className, {
       [`${prefixCls}-lg`]: size === 'large',
@@ -152,12 +133,13 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
         listItemHeight={listItemHeight}
         mode={mode}
         prefixCls={prefixCls}
-        inputIcon={mergedSuffixIcon}
-        menuItemSelectedIcon={mergedItemIcon}
-        removeIcon={mergedRemoveIcon}
-        clearIcon={mergedClearIcon}
+        inputIcon={suffixIcon}
+        menuItemSelectedIcon={itemIcon}
+        removeIcon={removeIcon}
+        clearIcon={clearIcon}
         notFoundContent={mergedNotFound}
         className={mergedClassName}
+        getPopupContainer={getPopupContainer || getContextPopupContainer}
       />
     );
   };
