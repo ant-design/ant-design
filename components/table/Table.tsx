@@ -12,7 +12,7 @@ import SelectionBox from './SelectionBox';
 import SelectionCheckboxAll from './SelectionCheckboxAll';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import createBodyRow, { BodyRowClass } from './createBodyRow';
+import createBodyRow from './createBodyRow';
 import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import scrollTo from '../_util/scrollTo';
 import {
@@ -90,30 +90,25 @@ const defaultPagination = {
  */
 const emptyObject = {};
 
-let tableRow: BodyRowClass | undefined;
-
-const createComponents = (
-  components: TableComponents = {},
-  prevComponents?: TableComponents,
-  isCalledFromConstructor?: boolean,
-) => {
+const createComponents = (components: TableComponents = {}) => {
   const bodyRow = components && components.body && components.body.row;
-  const prevBodyRow = prevComponents && prevComponents.body && prevComponents.body.row;
-  if (isCalledFromConstructor) {
-    // 'tableRow' needs to act like a class property
-    tableRow = undefined;
-  }
-  if (!tableRow || bodyRow !== prevBodyRow) {
-    tableRow = createBodyRow(bodyRow);
-  }
   return {
     ...components,
     body: {
       ...components.body,
-      row: tableRow,
+      row: createBodyRow(bodyRow),
     },
   };
 };
+
+function isTheSameComponents(components1: TableComponents = {}, components2: TableComponents = {}) {
+  return (
+    components1 === components2 ||
+    ['table', 'header', 'body'].every((key: keyof TableComponents) =>
+      shallowEqual(components1[key], components2[key]),
+    )
+  );
+}
 
 function getFilteredValueColumns<T>(state: TableState<T>, columns?: ColumnProps<T>[]) {
   return flatFilter(
@@ -237,8 +232,8 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       }
     }
 
-    if (nextProps.components !== prevProps.components) {
-      const components = createComponents(nextProps.components, prevProps.components);
+    if (!isTheSameComponents(nextProps.components, prevProps.components)) {
+      const components = createComponents(nextProps.components);
 
       nextState = {
         ...nextState,
@@ -283,7 +278,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       pagination: this.getDefaultPagination(props),
       pivot: undefined,
       prevProps: props,
-      components: createComponents(props.components, undefined, true),
+      components: createComponents(props.components),
       columns,
     };
   }
