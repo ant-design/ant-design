@@ -351,6 +351,9 @@ describe('Table.filter', () => {
     );
     jest.useFakeTimers();
     const dropdownWrapper = getDropdownWrapper(wrapper);
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    // select
     dropdownWrapper
       .find('.ant-dropdown-menu-submenu-title')
       .at(0)
@@ -370,6 +373,10 @@ describe('Table.filter', () => {
     dropdownWrapper.find('.confirm').simulate('click');
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+    dropdownWrapper
+      .find('MenuItem')
+      .last()
+      .simulate('click');
     jest.useRealTimers();
   });
 

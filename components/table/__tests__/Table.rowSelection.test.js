@@ -758,4 +758,13 @@ describe('Table.rowSelection', () => {
         .simulate('click');
     }).not.toThrow();
   });
+
+  it('could hide all selections', () => {
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    expect(wrapper.find('Trigger')).toHaveLength(0);
+  });
 });

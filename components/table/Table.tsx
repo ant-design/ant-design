@@ -841,12 +841,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   };
 
   toggleSortOrder(column: ColumnProps<T>) {
-    if (!column.sorter) {
-      return;
-    }
-
     const pagination = { ...this.state.pagination };
-
     const sortDirections = column.sortDirections || (this.props.sortDirections as SortOrder[]);
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题

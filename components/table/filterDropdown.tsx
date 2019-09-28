@@ -22,7 +22,6 @@ function stopPropagation(e: React.SyntheticEvent<any>) {
 
 class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<T>> {
   static defaultProps = {
-    handleFilter() {},
     column: {},
   };
 
@@ -147,6 +146,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     const { keyPathOfSelectedItem } = this.state;
     if (selectedKeys && selectedKeys.indexOf(info.key) >= 0) {
       // deselect SubMenu child
+      console.log('delete keyPathOfSelectedItem[info.key]');
       delete keyPathOfSelectedItem[info.key];
     } else {
       // select SubMenu child
