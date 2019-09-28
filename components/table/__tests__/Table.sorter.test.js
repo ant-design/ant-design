@@ -630,4 +630,48 @@ describe('Table.sorter', () => {
     wrapper.find('th').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('could sort data with children', () => {
+    const wrapper = mount(
+      createTable(
+        {
+          dataSource: [
+            {
+              key: '1',
+              name: 'Brown',
+              children: [
+                {
+                  key: '2',
+                  name: 'Zoe',
+                },
+                {
+                  key: '3',
+                  name: 'Mike',
+                  children: [
+                    {
+                      key: '3-1',
+                      name: 'Petter',
+                    },
+                    {
+                      key: '3-2',
+                      name: 'Alex',
+                    },
+                  ],
+                },
+                {
+                  key: '4',
+                  name: 'Green',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          defaultSortOrder: 'ascend',
+        },
+      ),
+    );
+
+    expect(renderedNames(wrapper)).toEqual(['Brown', 'Green', 'Mike', 'Alex', 'Petter', 'Zoe']);
+  });
 });
