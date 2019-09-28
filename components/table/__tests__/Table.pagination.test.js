@@ -70,6 +70,15 @@ describe('Table.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 
+  it('should accept pagination size', () => {
+    const wrapper = mount(
+      createTable({
+        pagination: { size: 'small' },
+      }),
+    );
+    expect(wrapper.find('.ant-pagination.mini')).toHaveLength(1);
+  });
+
   // TODO
   it('should scroll to first row when page change', () => {
     const wrapper = mount(createTable({ scroll: { y: 20 } }));
