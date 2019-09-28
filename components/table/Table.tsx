@@ -5,6 +5,7 @@ import RcTable, { INTERNAL_COL_DEFINE } from 'rc-table';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
+import { polyfill } from 'react-lifecycles-compat';
 import FilterDropdown from './filterDropdown';
 import createStore, { Store } from './createStore';
 import SelectionBox from './SelectionBox';
@@ -1403,5 +1404,7 @@ function withStore(
   }
   return Component;
 }
+
+polyfill(Table);
 
 export default withStore(Table);
