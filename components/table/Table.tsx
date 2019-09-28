@@ -134,17 +134,10 @@ function getFiltersFromColumns<T>(
 }
 
 function isFiltersChanged<T>(state: TableState<T>, filters: TableStateFilters): boolean {
-  let filtersChanged = false;
   if (Object.keys(filters).length !== Object.keys(state.filters).length) {
-    filtersChanged = true;
-  } else {
-    Object.keys(filters).forEach(columnKey => {
-      if (filters[columnKey] !== state.filters[columnKey]) {
-        filtersChanged = true;
-      }
-    });
+    return true;
   }
-  return filtersChanged;
+  return Object.keys(filters).some(columnKey => filters[columnKey] !== state.filters[columnKey]);
 }
 
 class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
@@ -295,12 +288,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   }
 
   componentDidUpdate() {
-    if (this.getSortOrderColumns(this.state.columns).length > 0) {
-      const sortState = this.getSortStateFromColumns(this.state.columns);
-      if (
-        sortState.sortColumn !== this.state.sortColumn ||
-        sortState.sortOrder !== this.state.sortOrder
-      ) {
+    const { columns, sortColumn, sortOrder } = this.state;
+    if (this.getSortOrderColumns(columns).length > 0) {
+      const sortState = this.getSortStateFromColumns(columns);
+      if (sortState.sortColumn !== sortColumn || sortState.sortOrder !== sortOrder) {
         this.setState(sortState);
       }
     }
