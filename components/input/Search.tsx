@@ -99,7 +99,7 @@ export default class Search extends React.Component<SearchProps, any> {
       button = React.cloneElement(enterButtonAsElement, {
         onClick: this.onSearch,
         key: 'enterButton',
-        ...(enterButtonAsElement.type === Button
+        ...(isAntdButton
           ? {
               className: btnClassName,
               size,
