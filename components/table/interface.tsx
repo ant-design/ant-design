@@ -237,7 +237,7 @@ type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 export interface SelectionItem {
   key: string;
   text: React.ReactNode;
-  onSelect: SelectionItemSelectFn;
+  onSelect?: SelectionItemSelectFn;
 }
 
 export interface SelectionCheckboxAllProps<T> {

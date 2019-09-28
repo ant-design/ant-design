@@ -159,6 +159,17 @@ describe('Table.pagination', () => {
     );
   });
 
+  it('should not change page when pagination current is specified', () => {
+    const wrapper = mount(createTable({ pagination: { current: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
+    wrapper.find('.ant-pagination-item-3').simulate('click');
+    expect(wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
+  });
+
   it('specify the position of pagination', () => {
     const wrapper = mount(createTable({ pagination: { position: 'top' } }));
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
