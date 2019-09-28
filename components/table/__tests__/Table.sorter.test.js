@@ -108,6 +108,20 @@ describe('Table.sorter', () => {
     expect(actualSortOrder).toEqual('ascend');
   });
 
+  it('can update column sortOrder', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [column],
+      }),
+    );
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    wrapper.setProps({
+      columns: [{ ...column, sortOrder: 'ascend' }],
+    });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
@@ -606,5 +620,14 @@ describe('Table.sorter', () => {
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(onChange.mock.calls[0][0].current).toBe(1);
     expect(onPageChange.mock.calls[0][0]).toBe(1);
+  });
+
+  it('should support onHeaderCell in sort column', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }), sorter: true }]} />,
+    );
+    wrapper.find('th').simulate('click');
+    expect(onClick).toHaveBeenCalled();
   });
 });

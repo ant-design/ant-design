@@ -225,6 +225,7 @@ describe('Table.pagination', () => {
   it('select by checkbox to trigger stopPropagation', () => {
     jest.useFakeTimers();
     const onShowSizeChange = jest.fn();
+    const onChange = jest.fn();
     const wrapper = mount(
       createTable({
         pagination: {
@@ -232,6 +233,7 @@ describe('Table.pagination', () => {
           showSizeChanger: true,
           onShowSizeChange,
         },
+        onChange,
       }),
     );
     wrapper.find('.ant-select').simulate('click');
@@ -248,6 +250,22 @@ describe('Table.pagination', () => {
       .at(3)
       .simulate('click');
     expect(onShowSizeChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenCalled();
     jest.useRealTimers();
+  });
+
+  it('should support current in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { current: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('2');
+  });
+
+  it('should support defaultCurrent in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { defaultCurrent: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('2');
+  });
+
+  it('should support defaultPageSize in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { defaultPageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(4);
   });
 });

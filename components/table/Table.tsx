@@ -52,9 +52,6 @@ function noop() {}
 
 function stopPropagation(e: React.SyntheticEvent<any>) {
   e.stopPropagation();
-  if (e.nativeEvent.stopImmediatePropagation) {
-    e.nativeEvent.stopImmediatePropagation();
-  }
 }
 
 function getRowSelection<T>(props: TableProps<T>): TableRowSelection<T> {
