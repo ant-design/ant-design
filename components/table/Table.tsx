@@ -137,10 +137,6 @@ function isFiltersChanged<T>(state: TableState<T>, filters: TableStateFilters): 
 }
 
 class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
-  static Column = Column;
-
-  static ColumnGroup = ColumnGroup;
-
   static propTypes = {
     dataSource: PropTypes.array,
     columns: PropTypes.array,
@@ -1369,6 +1365,10 @@ function withStore(
   WrappedComponent: typeof Table,
 ): React.ComponentClass<Omit<TableProps<any>, keyof WithStore>> {
   class Component<T> extends React.Component<TableProps<T>> {
+    static Column = Column;
+
+    static ColumnGroup = ColumnGroup;
+
     store: Store;
 
     CheckboxPropsCache: CheckboxPropsCache;
