@@ -23,10 +23,10 @@ As a part of nature, it will have deep influence on user behavior, and designers
 - The visual system plays the most important role in human perception and cognition. By refining the objective laws in nature and applying it to the interface design, a more layered product experience is created. In addition, hearing systems or tactile systems could be added in future to bring more dimensions and more real product experience. See visual language.
 - In the real product design, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, so as to save users' mental and physical resources and make human-computer interaction more natural.
 
-## Determinacy
+## Certainty
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png" alt="Determine" />
+  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png" alt="Certainty" />
 </div>
 
 The designers needs to make better design decisions and create a high-definition and low-entropy atmosphere for developer team. Meanwhile, different designers could produce the same design output which fit business needs based on the same understanding of business requirements and design system.

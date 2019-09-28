@@ -360,6 +360,7 @@ exports[`ConfigProvider components Avatar configProvider 1`] = `
 >
   <span
     class="config-avatar-string"
+    style="opacity:0"
   />
 </span>
 `;
@@ -370,6 +371,7 @@ exports[`ConfigProvider components Avatar normal 1`] = `
 >
   <span
     class="ant-avatar-string"
+    style="opacity:0"
   />
 </span>
 `;
@@ -380,6 +382,7 @@ exports[`ConfigProvider components Avatar prefixCls 1`] = `
 >
   <span
     class="prefix-Avatar-string"
+    style="opacity:0"
   />
 </span>
 `;

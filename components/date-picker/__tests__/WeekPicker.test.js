@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
+import moment from 'moment';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -70,5 +71,17 @@ describe('WeekPicker', () => {
           .getComponent(),
       ),
     ).toMatchSnapshot();
+  });
+
+  it('should support allowClear', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <WeekPicker defaultValue={moment()} onChange={onChange} />,
+    );
+    wrapper
+      .find('.ant-calendar-picker-clear')
+      .hostNodes()
+      .simulate('click');
+    expect(onChange).toHaveBeenCalledWith(null, '');
   });
 });
