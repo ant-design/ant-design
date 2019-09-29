@@ -48,6 +48,7 @@ class UploadCom extends React.Component {
 
   onChange = ({ fileList }) => {
     const { onChange } = this.props;
+    console.log('Aliyun OSS:', values);
     onChange([...fileList]);
   };
 
@@ -102,25 +103,11 @@ class UploadCom extends React.Component {
 }
 
 class FormPage extends React.Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Aliyun OSS:', values);
-      }
-    });
-  };
-
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit} labelCol={{ span: 4 }}>
         <Form.Item label="Photos">{getFieldDecorator('name')(<UploadCom />)}</Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">
-            Submit
-          </Button>
-        </Form.Item>
       </Form>
     );
   }
