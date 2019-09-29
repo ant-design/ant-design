@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.23.5
+
+`2019-09-29`
+
+- 🐞 Fix Upload preview image cannot fill the picture card box. [#18990](https://github.com/ant-design/ant-design/pull/18990)
+- 🐞 Fix Breadcrumb not support `data-*` and `aria-*` attributes. [#18941](https://github.com/ant-design/ant-design/pull/18941) [@sosohime](https://github.com/sosohime)
+- 🐞 Fix TreeSelect `removeIcon` and `clearIcon` not working. [#18949](https://github.com/ant-design/ant-design/issues/18949) [@sosohime](https://github.com/sosohime)
+- 🐞 Fix Tree `switcherIcon` prop not working when `showLine` is true. [#18829](https://github.com/ant-design/ant-design/pull/18829) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fix style bug of Button with icon only when in Button.Group. [#18994](https://github.com/ant-design/ant-design/pull/18994)
+- 🐞 Remove Select useless prop `searchValue` which is a total misunderstanding. [#19003](https://github.com/ant-design/ant-design/pull/19003)
+- 🐞 Fix Avatar string blink when ssr render at first time. [#19029](https://github.com/ant-design/ant-design/pull/19029)
+- TypeScript
+  - 🐞 Fix Grid type definition. [#18946](https://github.com/ant-design/ant-design/pull/18946) [@handycode](https://github.com/handycode)
+
 ## 3.23.4
 
 `2019-09-21`
