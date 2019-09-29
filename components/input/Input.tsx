@@ -290,6 +290,7 @@ class Input extends React.Component<InputProps, any> {
       // Input elements must be either controlled or uncontrolled,
       // specify either the value prop, or the defaultValue prop, but not both.
       'defaultValue',
+      'size',
     ]);
 
     return this.renderLabeledIcon(

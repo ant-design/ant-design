@@ -443,6 +443,7 @@ exports[`renders ./components/avatar/demo/dynamic.md correctly 1`] = `
   >
     <span
       class="ant-avatar-string"
+      style="opacity:0"
     >
       U
     </span>
@@ -496,6 +497,7 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
     >
       <span
         class="ant-avatar-string"
+        style="opacity:0"
       >
         Avatar
       </span>
@@ -517,6 +519,7 @@ exports[`renders ./components/avatar/demo/toggle-debug.md correctly 1`] = `
       >
         <span
           class="ant-avatar-string"
+          style="opacity:0"
         >
           Avatar
         </span>
@@ -565,6 +568,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
   >
     <span
       class="ant-avatar-string"
+      style="opacity:0"
     >
       U
     </span>
@@ -574,6 +578,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
   >
     <span
       class="ant-avatar-string"
+      style="opacity:0"
     >
       USER
     </span>
@@ -591,6 +596,7 @@ exports[`renders ./components/avatar/demo/type.md correctly 1`] = `
   >
     <span
       class="ant-avatar-string"
+      style="opacity:0"
     >
       U
     </span>
