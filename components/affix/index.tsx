@@ -2,9 +2,9 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
-import ResizeObserver from '../_util/resizeObserver';
 
 import warning from '../_util/warning';
 import {
@@ -35,6 +35,7 @@ export interface AffixProps {
   target?: () => Window | HTMLElement | null;
   prefixCls?: string;
   className?: string;
+  children: React.ReactElement;
 }
 
 enum AffixStatus {
