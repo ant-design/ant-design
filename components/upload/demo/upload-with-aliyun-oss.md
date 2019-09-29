@@ -48,7 +48,7 @@ class UploadCom extends React.Component {
 
   onChange = ({ fileList }) => {
     const { onChange } = this.props;
-    console.log('Aliyun OSS:', values);
+    console.log('Aliyun OSS:', fileList);
     onChange([...fileList]);
   };
 
