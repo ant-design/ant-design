@@ -25,8 +25,8 @@
   transition: color 0.3s ease, opacity 0.15s ease;
   text-rendering: auto;
   &.rtl {
-    left: @control-padding-horizontal - 1px;
     right: initial;
+    left: @control-padding-horizontal - 1px;
   }
   &::before {
     display: block;
@@ -68,8 +68,8 @@
     line-height: 1;
     transform-origin: 50% 50%;
     .@{select-prefix-cls}.rtl & {
-      left: @control-padding-horizontal - 1px;
       right: initial;
+      left: @control-padding-horizontal - 1px;
     }
     & &-icon svg {
       transition: transform 0.3s;
@@ -240,8 +240,8 @@
       right: @control-padding-horizontal-sm;
 
       .@{select-prefix-cls}.rtl & {
-        left: @control-padding-horizontal-sm;
         right: initial;
+        left: @control-padding-horizontal-sm;
       }
     }
   }
@@ -346,8 +346,8 @@
       margin-left: 5px;
 
       &.rtl {
-        margin-left: 0;
         margin-right: 5px;
+        margin-left: 0;
       }
     }
 
@@ -381,9 +381,9 @@
       }
       &.rtl {
         float: right;
-        padding: 0 10px 0 20px;
-        margin-left: 4px;
         margin-right: 0;
+        margin-left: 4px;
+        padding: 0 10px 0 20px;
       }
     }
 
@@ -427,8 +427,8 @@
   &-allow-clear &-selection--single &-selection-selected-value {
     padding-right: 16px;
     &.rtl {
-      padding-left: 16px;
       padding-right: 0;
+      padding-left: 16px;
     }
   }
 
@@ -436,8 +436,8 @@
   &-show-arrow &-selection--multiple &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
     &.rtl {
-      margin-left: 20px;
       margin-right: 5px;
+      margin-left: 20px;
     }
   }
 
