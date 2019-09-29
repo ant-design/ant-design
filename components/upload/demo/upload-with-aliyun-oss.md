@@ -14,20 +14,16 @@ title:
 Use Aliyun OSS upload example.
 
 ```jsx
-import { Form, Upload, message } from 'antd';
-
-function getOSSData() {
-  return {};
-}
+import { Form, Upload, message, Input, Button, Icon } from 'antd';
 
 class UploadCom extends React.Component {
   state = {
     OSSData: {},
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     try {
-      const OSSData = getOSSData();
+      const OSSData = await this.getOSSData();
 
       this.setState({
         OSSData,
@@ -37,10 +33,63 @@ class UploadCom extends React.Component {
     }
   }
 
+  // Mock get OSS api
+  // https://help.aliyun.com/document_detail/31988.html
+  getOSSData = () => {
+    return {
+      dir: 'user-dir/',
+      expire: '1577811661',
+      host: '//www.mocky.io/v2/5cc8019d300000980a055e76',
+      accessId: 'c2hhb2RhaG9uZw==',
+      policy: 'eGl4aWhhaGFrdWt1ZGFkYQ==',
+      signature: 'ZGFob25nc2hhbw==',
+    };
+  };
+
+  onChange = ({ file, fileList }) => {
+    const { onChange } = this.props;
+    onChange([...fileList]);
+  };
+
+  onRemove = file => {
+    const { value, onChange } = this.props;
+
+    const files = value.filter(v => v.url !== file.url);
+
+    onChange(files);
+  };
+
+  transformFile = file => {
+    const { OSSData } = this.state;
+
+    const suffix = file.name.slice(file.name.lastIndexOf('.'));
+    const filename = Date.now() + suffix;
+    file.url = OSSData.dir + filename;
+
+    return file;
+  };
+
+  getExtraData = file => {
+    const { OSSData } = this.state;
+
+    return {
+      key: file.url,
+      OSSAccessKeyId: OSSData.accessId,
+      policy: OSSData.policy,
+      Signature: OSSData.signature,
+    };
+  };
+
   render() {
+    const { value } = this.props;
     const props = {
       name: 'file',
-      action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+      fileList: value,
+      action: this.state.OSSData.host,
+      onChange: this.onChange,
+      onRemove: this.onRemove,
+      transformFile: this.transformFile,
+      data: this.getExtraData,
     };
     return (
       <Upload {...props}>
@@ -53,18 +102,31 @@ class UploadCom extends React.Component {
 }
 
 class FormPage extends React.Component {
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.form.validateFields((err, values) => {
+      if (!err) {
+        console.log('Aliyun OSS:', values);
+      }
+    });
+  };
+
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <Form.Item>{getFieldDecorator('name')(<Input placeholder="Username" />)}</Form.Item>
-        <Form.Item>{getFieldDecorator('name')(<UploadCom />)}</Form.Item>
+      <Form onSubmit={this.handleSubmit} labelCol={{ span: 4 }}>
+        <Form.Item label="Photos">{getFieldDecorator('name')(<UploadCom />)}</Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
       </Form>
     );
   }
 }
 
-const WrappedFormPage = Form.create({ name: 'normal_login' })(NormalLoginForm);
+const WrappedFormPage = Form.create()(FormPage);
 
 ReactDOM.render(<WrappedFormPage />, mountNode);
 ```
