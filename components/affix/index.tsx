@@ -35,6 +35,7 @@ export interface AffixProps {
   target?: () => Window | HTMLElement | null;
   prefixCls?: string;
   className?: string;
+  children: React.ReactElement;
 }
 
 enum AffixStatus {
