@@ -14,7 +14,7 @@ title:
 Use Aliyun OSS upload example.
 
 ```jsx
-import { Form, Upload, message, Input, Button, Icon } from 'antd';
+import { Form, Upload, message, Button, Icon } from 'antd';
 
 class UploadCom extends React.Component {
   state = {
@@ -46,7 +46,7 @@ class UploadCom extends React.Component {
     };
   };
 
-  onChange = ({ file, fileList }) => {
+  onChange = ({ fileList }) => {
     const { onChange } = this.props;
     onChange([...fileList]);
   };
