@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
 import calculateNodeHeight from './calculateNodeHeight';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import ResizeObserver from '../_util/resizeObserver';
+import ResizeObserver from 'rc-resize-observer';
 import raf from '../_util/raf';
 
 export interface AutoSizeType {

@@ -8,7 +8,7 @@ import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '..
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 import TransButton from '../_util/transButton';
-import ResizeObserver from '../_util/resizeObserver';
+import ResizeObserver from 'rc-resize-observer';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
 import Icon from '../icon';

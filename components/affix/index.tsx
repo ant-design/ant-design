@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
-import ResizeObserver from '../_util/resizeObserver';
+import ResizeObserver from 'rc-resize-observer';
 
 import warning from '../_util/warning';
 import {
