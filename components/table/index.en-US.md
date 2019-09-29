@@ -79,7 +79,7 @@ const columns = [
 | rowClassName | Row's className | Function(record, index):string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |  |
 | rowSelection | Row selection [config](#rowSelection) | object | null |  |
-| scroll | Set horizontal or vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, `true` and ['max-content'](https://developer.mozilla.org/en-US/docs/Web/CSS/width) | { x: number \| true, y: number } | - |  |
+| scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | `true` |  |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |  |
 | title | Table title renderer | Function(currentPageData) |  |  |
@@ -138,7 +138,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |  |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |  |
 | sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` | 3.15.2 |
-| title | Title of this column | ReactNode\|({ sortOrder, filters }) => ReactNode | - |  |
+| title | Title of this column | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string\|number | - |  |
 | onCell | Set props on per cell | Function(record, rowIndex) | - |  |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |  |
@@ -179,6 +179,14 @@ Properties for row selection.
 | onSelect | Callback executed when select/deselect one row | Function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |  |
+
+### scroll
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| x | Set horizontal scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| y | Set vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - | 3.24.0 |
 
 ### selection
 

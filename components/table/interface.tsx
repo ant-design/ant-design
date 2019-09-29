@@ -29,7 +29,11 @@ export interface FilterDropdownProps {
 export interface ColumnProps<T> {
   title?:
     | React.ReactNode
-    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
+    | ((options: {
+        filters: TableStateFilters;
+        sortOrder?: SortOrder;
+        sortColumn?: ColumnProps<T> | null;
+      }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
@@ -144,7 +148,17 @@ export interface TableEventListeners {
   [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
 }
 
-export interface TableProps<T> {
+export interface CheckboxPropsCache {
+  [key: string]: any;
+}
+
+export interface WithStore {
+  store: Store;
+  checkboxPropsCache: CheckboxPropsCache;
+  setCheckboxPropsCache: (cache: CheckboxPropsCache) => void;
+}
+
+export interface TableProps<T> extends WithStore {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
@@ -187,7 +201,11 @@ export interface TableProps<T> {
   showHeader?: boolean;
   footer?: (currentPageData: T[]) => React.ReactNode;
   title?: (currentPageData: T[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string; y?: boolean | number | string };
+  scroll?: {
+    x?: boolean | number | string;
+    y?: boolean | number | string;
+    scrollToFirstRowOnChange?: boolean;
+  };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
@@ -208,6 +226,9 @@ export interface TableState<T> {
   sortColumn: ColumnProps<T> | null;
   sortOrder?: SortOrder;
   pivot?: number;
+  prevProps: TableProps<T>;
+  components: TableComponents;
+  columns: ColumnProps<T>[];
 }
 
 export type SelectionItemSelectFn = (key: string[]) => void;
@@ -216,7 +237,7 @@ type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 export interface SelectionItem {
   key: string;
   text: React.ReactNode;
-  onSelect: SelectionItemSelectFn;
+  onSelect?: SelectionItemSelectFn;
 }
 
 export interface SelectionCheckboxAllProps<T> {

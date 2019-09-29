@@ -46,7 +46,6 @@ Select component to select value from options.
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `value` for `combobox`, `children` for other modes |  |
 | placeholder | Placeholder of select | string\|ReactNode | - |  |
-| searchValue | Search input value | string | - | 3.23.2 |
 | showArrow | Whether to show the drop-down arrow | boolean | true | 3.2.1 |
 | showSearch | Whether show search input in single mode. | boolean | false |  |
 | size | Size of Select input. `default` `large` `small` | string | default |  |
@@ -94,3 +93,9 @@ Select component to select value from options.
 | -------- | ----------- | --------------------- | ------- | ------- |
 | key      |             | string                | -       |         |
 | label    | Group label | string\|React.Element | -       |         |
+
+## FAQ
+
+### The dropdown is closed when click `dropdownRender` area?
+
+See the [dropdownRender example](/components/select/#components-select-demo-custom-dropdown-menu).

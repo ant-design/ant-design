@@ -53,9 +53,6 @@ export type SelectValue = string | string[] | number | number[] | LabeledValue |
 
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
-  /** @deprecated Use `searchValue` instead. */
-  inputValue?: string;
-  searchValue?: string;
   defaultValue?: T;
   mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
   optionLabelProp?: string;
@@ -139,12 +136,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         'it will be removed in next major version, ' +
         'please use AutoComplete instead',
     );
-
-    warning(
-      !('inputValue' in props),
-      'Select',
-      '`inputValue` is deprecated. Please use `searchValue` instead.',
-    );
   }
 
   getNotFoundContent(renderEmpty: RenderEmptyHandler) {
@@ -207,8 +198,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
       clearIcon,
       menuItemSelectedIcon,
       showArrow,
-      inputValue,
-      searchValue,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon']);
@@ -270,7 +259,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         showArrow={showArrow}
         {...rest}
         {...modeConfig}
-        inputValue={searchValue || inputValue}
         prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}

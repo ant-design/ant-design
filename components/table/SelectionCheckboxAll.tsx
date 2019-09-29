@@ -19,18 +19,14 @@ function checkSelection<T>({
   getCheckboxPropsByItem: SelectionCheckboxAllProps<T>['getCheckboxPropsByItem'];
   getRecordKey: SelectionCheckboxAllProps<T>['getRecordKey'];
   data: T[];
-  type: string;
+  type: 'every' | 'some';
   byDefaultChecked: boolean;
 }) {
-  // type should be 'every' | 'some'
-  if (type === 'every' || type === 'some') {
-    return byDefaultChecked
-      ? data[type]((item, i) => getCheckboxPropsByItem(item, i).defaultChecked)
-      : data[type](
-          (item, i) => store.getState().selectedRowKeys.indexOf(getRecordKey(item, i)) >= 0,
-        );
-  }
-  return false;
+  return byDefaultChecked
+    ? data[type]((item, i) => getCheckboxPropsByItem(item, i).defaultChecked)
+    : data[type](
+        (item, i) => store.getState().selectedRowKeys.indexOf(getRecordKey(item, i)) >= 0,
+      );
 }
 
 function getIndeterminateState<T>(props: SelectionCheckboxAllProps<T>) {
@@ -122,12 +118,10 @@ class SelectionCheckboxAll<T> extends React.Component<
           {
             key: 'all',
             text: props.locale.selectAll,
-            onSelect: () => {},
           },
           {
             key: 'invert',
             text: props.locale.selectInvert,
-            onSelect: () => {},
           },
         ];
   }

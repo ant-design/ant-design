@@ -84,7 +84,7 @@ const columns = [
 | rowClassName | 表格行的类名 | Function(record, index):string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |  |
-| scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，`true` 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | { x: number \| true, y: number } | - |  |
+| scroll | 表格是否可滚动，[配置项](#scroll) | object | - |  |
 | showHeader | 是否显示表头 | boolean | true |  |
 | size | 表格大小 | default \| middle \| small | default |  |
 | title | 表格标题 | Function(currentPageData) |  |  |
@@ -143,7 +143,7 @@ const columns = [
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |  |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` | 3.15.2 |
-| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, filters }) => ReactNode | - | |
+| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string\|number | - |  |
 | onCell | 设置单元格属性 | Function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |  |
@@ -184,6 +184,14 @@ const columns = [
 | onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |  |
+
+### scroll
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| x | 设置横向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| y | 设置纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - | 3.24.0 |
 
 ### selection
 

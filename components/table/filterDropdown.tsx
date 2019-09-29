@@ -22,7 +22,6 @@ function stopPropagation(e: React.SyntheticEvent<any>) {
 
 class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<T>> {
   static defaultProps = {
-    handleFilter() {},
     column: {},
   };
 
@@ -178,17 +177,18 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
   }
 
   renderMenus(items: ColumnFilterItem[]): React.ReactElement<any>[] {
+    const { dropdownPrefixCls, prefixCls } = this.props;
     return items.map(item => {
       if (item.children && item.children.length > 0) {
         const { keyPathOfSelectedItem } = this.state;
         const containSelected = Object.keys(keyPathOfSelectedItem).some(
           key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0,
         );
-        const subMenuCls = containSelected
-          ? `${this.props.dropdownPrefixCls}-submenu-contain-selected`
-          : '';
+        const subMenuCls = classNames(`${prefixCls}-dropdown-submenu`, {
+          [`${dropdownPrefixCls}-submenu-contain-selected`]: containSelected,
+        });
         return (
-          <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
+          <SubMenu title={item.text} popupClassName={subMenuCls} key={item.value.toString()}>
             {this.renderMenus(item.children)}
           </SubMenu>
         );
