@@ -273,16 +273,19 @@ describe('Anchor Render', () => {
     expect(wrapper.instance().state.activeLink).toBe('#API2');
   });
 
-  it('Anchor targetOffset prop', async () => {
+  it('Anchor targetOffset prop', () => {
     jest.useFakeTimers();
 
     let dateNowMock;
 
     function dataNowMockFn() {
-      return jest
-        .spyOn(Date, 'now')
-        .mockImplementationOnce(() => 0)
-        .mockImplementationOnce(() => 1000);
+      let start = 0;
+
+      const handler = () => {
+        return (start += 1000);
+      };
+
+      return jest.spyOn(Date, 'now').mockImplementation(handler);
     }
 
     dateNowMock = dataNowMockFn();
@@ -318,5 +321,19 @@ describe('Anchor Render', () => {
 
     dateNowMock.mockRestore();
     jest.useRealTimers();
+  });
+
+  it('Anchor onChange prop', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Anchor onChange={onChange}>
+        <Link href="#API1" title="API1" />
+        <Link href="#API2" title="API2" />
+      </Anchor>,
+    );
+    expect(onChange).toHaveBeenCalledTimes(1);
+    wrapper.instance().handleScrollTo('#API2');
+    expect(onChange).toHaveBeenCalledTimes(2);
+    expect(onChange).toHaveBeenCalledWith('#API2');
   });
 });

@@ -24,7 +24,7 @@ export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
 export interface ResultProps {
   icon?: React.ReactNode;
-  status: ResultStatusType;
+  status?: ResultStatusType;
   title?: React.ReactNode;
   subTitle?: React.ReactNode;
   extra?: React.ReactNode;
@@ -46,7 +46,7 @@ const ExceptionStatus = Object.keys(ExceptionMap);
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
 
-  if (ExceptionStatus.includes(status)) {
+  if (ExceptionStatus.includes(status as ResultStatusType)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
       <div className={`${className} ${prefixCls}-image`}>

@@ -71,8 +71,15 @@
     .btn-link;
   }
 
+  &-icon-only {
+    .btn-square(@btn-prefix-cls);
+  }
+
   &-round {
     .btn-round(@btn-prefix-cls);
+    &.@{btn-prefix-cls}-icon-only {
+      width: auto;
+    }
   }
 
   &-circle,
@@ -134,11 +141,6 @@
 
   &-group {
     .btn-group(@btn-prefix-cls);
-  }
-
-  &:not(&-circle):not(&-circle-outline)&-icon-only {
-    padding-right: 8px;
-    padding-left: 8px;
   }
 
   // http://stackoverflow.com/a/21281554/3040605

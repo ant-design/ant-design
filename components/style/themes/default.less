@@ -178,6 +178,10 @@
 @btn-circle-size-lg: @btn-height-lg;
 @btn-circle-size-sm: @btn-height-sm;
 
+@btn-square-size: @btn-height-base;
+@btn-square-size-lg: @btn-height-lg;
+@btn-square-size-sm: @btn-height-sm;
+
 @btn-group-border: @primary-5;
 
 // Checkbox
@@ -186,8 +190,10 @@
 @checkbox-check-color: #fff;
 @checkbox-border-width: @border-width-base;
 
-// Dropdown
+// Descriptions
+@descriptions-bg: #fafafa;
 
+// Dropdown
 @dropdown-selected-color: @primary-color;
 
 // Empty
@@ -315,6 +321,9 @@
 @input-border-color: @border-color-base;
 @input-bg: @component-background;
 @input-number-handler-active-bg: #f4f4f4;
+@input-number-handler-hover-bg: @primary-5;
+@input-number-handler-bg: @component-background;
+@input-number-handler-border-color: @border-color-base;
 @input-addon-bg: @background-color-light;
 @input-hover-border-color: @primary-5;
 @input-disabled-bg: @disabled-bg;
@@ -324,6 +333,13 @@
 // ---
 @select-border-color: @border-color-base;
 @select-item-selected-font-weight: 600;
+@select-dropdown-bg: @component-background;
+@select-item-selected-bg: @background-color-light;
+@select-item-active-bg: @item-active-bg;
+
+// Anchor
+// ---
+@anchor-border-color: @border-color-split;
 
 // Tooltip
 // ---
@@ -363,6 +379,7 @@
 @modal-body-padding: 24px;
 @modal-header-bg: @component-background;
 @modal-footer-bg: transparent;
+@modal-footer-border-color-split: @border-color-split;
 @modal-mask-bg: fade(@black, 45%);
 
 // Progress
@@ -470,7 +487,8 @@
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
 @card-actions-background: @background-color-light;
-@card-background: #cfd8dc;
+@card-skeleton-bg: #cfd8dc;
+@card-background: @component-background;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-sm;
 
@@ -545,8 +563,10 @@
 
 // PageHeader
 // ---
-@page-header-padding-horizontal: 24px;
+@page-header-padding: 24px;
 @page-header-padding-vertical: 16px;
+@page-header-padding-breadcrumb: 12px;
+@page-header-back-color: #000;
 
 // Breadcrumb
 // ---
@@ -585,6 +605,8 @@
 @tree-child-padding: 18px;
 @tree-directory-selected-color: #fff;
 @tree-directory-selected-bg: @primary-color;
+@tree-node-hover-bg: @item-hover-bg;
+@tree-node-selected-bg: @primary-2;
 
 // Collapse
 // ---
@@ -656,3 +678,7 @@
 @timeline-dot-border-width: 2px;
 @timeline-dot-color: @primary-color;
 @timeline-dot-bg: @component-background;
+
+// Typography
+// ---
+@typography-title-font-weight: 600;

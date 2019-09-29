@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Carousel from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Carousel', () => {
+  mountTest(Carousel);
+
   beforeEach(() => {
     jest.useFakeTimers();
   });

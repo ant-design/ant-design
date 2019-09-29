@@ -47,33 +47,13 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     }
   }
 
-  setScrollTop(value: number) {
-    const getTarget = this.props.target || getDefaultTarget;
-    const targetNode = getTarget();
-    if (targetNode === window) {
-      document.body.scrollTop = value;
-      document.documentElement!.scrollTop = value;
-    } else {
-      (targetNode as HTMLElement).scrollTop = value;
-    }
-  }
-
-  getCurrentScrollTop = () => {
-    const getTarget = this.props.target || getDefaultTarget;
-    const targetNode = getTarget();
-    if (targetNode === window) {
-      return window.pageYOffset || document.body.scrollTop || document.documentElement!.scrollTop;
-    }
-    return (targetNode as HTMLElement).scrollTop;
-  };
-
   scrollToTop = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { target = getDefaultTarget } = this.props;
+    const { target = getDefaultTarget, onClick } = this.props;
     scrollTo(0, {
       getContainer: target,
     });
-    if (typeof this.props.onClick === 'function') {
-      this.props.onClick(e);
+    if (typeof onClick === 'function') {
+      onClick(e);
     }
   };
 

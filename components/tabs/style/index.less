@@ -245,7 +245,8 @@
   // Create an empty element to avoid margin collapsing
   // https://github.com/ant-design/ant-design/issues/18103
   &-content::before {
-    display: table;
+    display: block;
+    overflow: hidden;
     content: '';
   }
 
@@ -279,7 +280,6 @@
     height: 100%;
     border-bottom: 0;
 
-    .@{tab-prefix-cls}-tab-arrow-show,
     .@{tab-prefix-cls}-tab-arrow-show {
       width: 100%;
       height: @tabs-scrolling-size;

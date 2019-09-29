@@ -42,6 +42,7 @@ export default {
     removeFile: 'Remove file',
     uploadError: 'Upload error',
     previewFile: 'Preview file',
+    downloadFile: 'Download file',
   },
   Empty: {
     description: 'No Data',
@@ -50,12 +51,12 @@ export default {
     icon: 'icon',
   },
   Text: {
-    edit: 'edit',
-    copy: 'copy',
-    copied: 'copy success',
-    expand: 'expand',
+    edit: 'Edit',
+    copy: 'Copy',
+    copied: 'Copied',
+    expand: 'Expand',
   },
   PageHeader: {
-    back: 'back',
+    back: 'Back',
   },
 };

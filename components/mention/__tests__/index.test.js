@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Mention from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { toContentState } = Mention;
 
 describe('Mention', () => {
+  mountTest(Mention);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });

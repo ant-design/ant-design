@@ -1,10 +1,13 @@
 import React from 'react';
 import { render, shallow, mount } from 'enzyme';
 import Table from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { Column, ColumnGroup } = Table;
 
 describe('Table', () => {
+  mountTest(Table);
+
   const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   afterAll(() => {
@@ -34,6 +37,7 @@ describe('Table', () => {
           <Column title="Last Name" dataIndex="lastName" key="lastName" />
         </ColumnGroup>
         <Column title="Age" dataIndex="age" key="age" />
+        {'invalid child'}
       </Table>,
     );
 
@@ -58,7 +62,7 @@ describe('Table', () => {
     ];
     wrapper.setProps({ columns: newColumns });
 
-    expect(wrapper.instance().columns).toBe(newColumns);
+    expect(wrapper.dive().state('columns')).toBe(newColumns);
   });
 
   it('loading with Spin', async () => {
@@ -92,5 +96,14 @@ describe('Table', () => {
     expect(warnSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] `expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
     );
+  });
+
+  it('support onHeaderCell', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }) }]} />,
+    );
+    wrapper.find('th').simulate('click');
+    expect(onClick).toHaveBeenCalled();
   });
 });

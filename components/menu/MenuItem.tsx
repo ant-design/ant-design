@@ -42,11 +42,12 @@ export default class MenuItem extends React.Component<MenuItemProps> {
     return (
       <MenuContext.Consumer>
         {({ inlineCollapsed }: MenuContextProps) => {
-          const tooltipProps: TooltipProps = {};
+          const tooltipProps: TooltipProps = {
+            title: title || (level === 1 ? children : ''),
+          };
 
-          let titleNode = title || (level === 1 ? children : '');
           if (!siderCollapsed && !inlineCollapsed) {
-            titleNode = null;
+            tooltipProps.title = null;
             // Reset `visible` to fix control mode tooltip display not correct
             // ref: https://github.com/ant-design/ant-design/issues/16742
             tooltipProps.visible = false;
@@ -55,7 +56,6 @@ export default class MenuItem extends React.Component<MenuItemProps> {
           return (
             <Tooltip
               {...tooltipProps}
-              title={titleNode}
               placement="right"
               overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
             >

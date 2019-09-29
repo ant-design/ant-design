@@ -3,11 +3,13 @@ import { mount } from 'enzyme';
 import Select from '..';
 import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { Option } = Select;
 
 describe('Select', () => {
   focusTest(Select);
+  mountTest(Select);
 
   beforeEach(() => {
     jest.useFakeTimers();

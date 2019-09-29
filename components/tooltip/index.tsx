@@ -59,15 +59,23 @@ export interface AbstractTooltipProps {
   children?: React.ReactNode;
   // align is a more higher api
   align?: TooltipAlignConfig;
+  /** Internal. Hide tooltip when hidden. This will be renamed in future. */
   destroyTooltipOnHide?: boolean;
 }
 
 export type RenderFunction = () => React.ReactNode;
 
-export interface TooltipProps extends AbstractTooltipProps {
+interface TooltipPropsWithOverlay extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
+  overlay: React.ReactNode | RenderFunction;
+}
+
+interface TooltipPropsWithTitle extends AbstractTooltipProps {
+  title: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
 }
+
+export declare type TooltipProps = TooltipPropsWithTitle | TooltipPropsWithOverlay;
 
 const splitObject = (obj: any, keys: string[]) => {
   const picked: any = {};

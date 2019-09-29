@@ -16,7 +16,7 @@ const eslintrc = {
   },
   settings: {
     react: {
-      version: '16.8',
+      version: '16.9',
     },
   },
   parser: '@typescript-eslint/parser',
@@ -84,14 +84,17 @@ const eslintrc = {
     'max-classes-per-file': 0,
     'react/static-property-placement': 0,
   },
+  globals: {
+    gtag: true,
+  },
 };
 
 if (process.env.RUN_ENV === 'DEMO') {
-  eslintrc.globals = {
+  eslintrc.globals = Object.assign(eslintrc.globals, {
     React: true,
     ReactDOM: true,
     mountNode: true,
-  };
+  });
 
   Object.assign(eslintrc.rules, {
     indent: 0,

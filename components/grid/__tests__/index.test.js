@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import { Col, Row } from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('enquire.js', () => {
   let that;
@@ -21,6 +22,9 @@ jest.mock('enquire.js', () => {
 });
 
 describe('Grid', () => {
+  mountTest(Row);
+  mountTest(Col);
+
   it('should render Col', () => {
     const wrapper = render(<Col span={2} />);
     expect(wrapper).toMatchSnapshot();
@@ -33,7 +37,7 @@ describe('Grid', () => {
 
   it('when typeof getGutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
-    expect(wrapper.instance().getGutter()).toBe(8);
+    expect(wrapper.instance().getGutter()).toEqual([8, 0]);
     wrapper.unmount();
   });
 
@@ -71,8 +75,18 @@ describe('Grid', () => {
         .update()
         .find('div')
         .prop('style'),
-    ).toEqual(undefined);
+    ).toEqual({});
     wrapper.unmount();
     expect(enquire.unregister).toHaveBeenCalled();
+  });
+
+  it('should work currect when gutter is array', () => {
+    const wrapper = mount(<Row gutter={[16, 20]} />);
+    expect(wrapper.find('div').prop('style')).toEqual({
+      marginLeft: -8,
+      marginRight: -8,
+      marginTop: -10,
+      marginBottom: -10,
+    });
   });
 });

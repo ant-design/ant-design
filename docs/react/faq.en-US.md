@@ -13,7 +13,7 @@ No, but you can convert Less to Sass/Stylus(etc.) with tools that you can find o
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
-This has been fixed since `3.11.x`. If you're using an older version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render a component inside Popover. (Or other getXxxxContainer props)
+This has been fixed since `3.11.x`. If you're using an older version, you can use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render a component inside Popover. (Or other `getXxxxContainer` props)
 
 https://ant.design/components/select/#Select-props
 
@@ -21,9 +21,7 @@ related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` scrolls with the page?
 
-Use `<Select getPopupContainer={trigger => trigger.parentNode}>` to render a component inside the scroll area. (Or other getXxxxContainer props).
-
-https://ant.design/components/select/#Select-props
+Use `<Select getPopupContainer={trigger => trigger.parentNode}>` ([API reference](https://ant.design/components/select-cn/#Select-props)) to render a component inside the scroll area. If you need to config this globally in your application, try `<ConfigProvider getPopupContainer={trigger => trigger.parentNode}>` ([API reference](https://ant.design/components/config-provider-cn/#API))
 
 related issue: [#3487](https://github.com/ant-design/ant-design/issues/3487) [#3438](https://github.com/ant-design/ant-design/issues/3438)
 

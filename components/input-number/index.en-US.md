@@ -27,6 +27,7 @@ When a numeric value needs to be provided.
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal. | number\|string | 1 |  |
 | value | current value | number |  |  |
 | onChange | The callback triggered when the value is changed. | function(value: number \| string) |  |  |
+| onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |  |
 
 ## Methods
 

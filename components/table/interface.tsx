@@ -23,16 +23,22 @@ export interface FilterDropdownProps {
   clearFilters?: (selectedKeys: string[]) => void;
   filters?: ColumnFilterItem[];
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  visible?: boolean;
 }
 
 export interface ColumnProps<T> {
   title?:
     | React.ReactNode
-    | ((options: { filters: TableStateFilters; sortOrder?: SortOrder }) => React.ReactNode);
+    | ((options: {
+        filters: TableStateFilters;
+        sortOrder?: SortOrder;
+        sortColumn?: ColumnProps<T> | null;
+      }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
   render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
+  ellipsis?: boolean;
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
@@ -134,15 +140,25 @@ export interface TableCurrentDataSource<T> {
 }
 
 export interface TableEventListeners {
-  onClick?: (arg: React.SyntheticEvent) => void;
-  onDoubleClick?: (arg: React.SyntheticEvent) => void;
-  onContextMenu?: (arg: React.SyntheticEvent) => void;
-  onMouseEnter?: (arg: React.SyntheticEvent) => void;
-  onMouseLeave?: (arg: React.SyntheticEvent) => void;
+  onClick?: (arg: React.MouseEvent) => void;
+  onDoubleClick?: (arg: React.MouseEvent) => void;
+  onContextMenu?: (arg: React.MouseEvent) => void;
+  onMouseEnter?: (arg: React.MouseEvent) => void;
+  onMouseLeave?: (arg: React.MouseEvent) => void;
   [name: string]: any; // https://github.com/ant-design/ant-design/issues/17245#issuecomment-504807714
 }
 
-export interface TableProps<T> {
+export interface CheckboxPropsCache {
+  [key: string]: any;
+}
+
+export interface WithStore {
+  store: Store;
+  checkboxPropsCache: CheckboxPropsCache;
+  setCheckboxPropsCache: (cache: CheckboxPropsCache) => void;
+}
+
+export interface TableProps<T> extends WithStore {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
@@ -183,13 +199,18 @@ export interface TableProps<T> {
   useFixedHeader?: boolean;
   bordered?: boolean;
   showHeader?: boolean;
-  footer?: (currentPageData: Object[]) => React.ReactNode;
-  title?: (currentPageData: Object[]) => React.ReactNode;
-  scroll?: { x?: boolean | number | string; y?: boolean | number | string };
+  footer?: (currentPageData: T[]) => React.ReactNode;
+  title?: (currentPageData: T[]) => React.ReactNode;
+  scroll?: {
+    x?: boolean | number | string;
+    y?: boolean | number | string;
+    scrollToFirstRowOnChange?: boolean;
+  };
   childrenColumnName?: string;
   bodyStyle?: React.CSSProperties;
   className?: string;
   style?: React.CSSProperties;
+  tableLayout?: React.CSSProperties['tableLayout'];
   children?: React.ReactNode;
   sortDirections?: SortOrder[];
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
@@ -205,6 +226,9 @@ export interface TableState<T> {
   sortColumn: ColumnProps<T> | null;
   sortOrder?: SortOrder;
   pivot?: number;
+  prevProps: TableProps<T>;
+  components: TableComponents;
+  columns: ColumnProps<T>[];
 }
 
 export type SelectionItemSelectFn = (key: string[]) => void;
@@ -213,7 +237,7 @@ type GetPopupContainer = (triggerNode?: HTMLElement) => HTMLElement;
 export interface SelectionItem {
   key: string;
   text: React.ReactNode;
-  onSelect: SelectionItemSelectFn;
+  onSelect?: SelectionItemSelectFn;
 }
 
 export interface SelectionCheckboxAllProps<T> {

@@ -109,9 +109,6 @@ const SelectPropTypes = {
   id: PropTypes.string,
 };
 
-// => It is needless to export the declaration of below two inner components.
-// export { Option, OptGroup };
-
 export default class Select<T = SelectValue> extends React.Component<SelectProps<T>, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
 
@@ -152,14 +149,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     }
 
     return renderEmpty('Select');
-
-    // if (this.isCombobox()) {
-    //   // AutoComplete don't have notFoundContent defaultly
-    //   return notFoundContent === undefined ? null : notFoundContent;
-    // }
-
-    // return renderEmpty('Select');
-    // // return notFoundContent === undefined ? locale.notFoundContent : notFoundContent;
   }
 
   saveSelect = (node: any) => {

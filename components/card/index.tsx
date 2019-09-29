@@ -51,6 +51,7 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
   tabList?: CardTabListType[];
+  tabBarExtraContent?: React.ReactNode | null;
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
   defaultActiveTabKey?: string;
@@ -119,6 +120,7 @@ export default class Card extends React.Component<CardProps, {}> {
       children,
       activeTabKey,
       defaultActiveTabKey,
+      tabBarExtraContent,
       ...others
     } = this.props;
 
@@ -186,6 +188,7 @@ export default class Card extends React.Component<CardProps, {}> {
       [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
         ? activeTabKey
         : defaultActiveTabKey,
+      tabBarExtraContent,
     };
 
     let head;

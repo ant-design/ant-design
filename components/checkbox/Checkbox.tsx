@@ -6,6 +6,7 @@ import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
 import CheckboxGroup, { CheckboxGroupContext } from './Group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -66,6 +67,12 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
     if (checkboxGroup.registerValue) {
       checkboxGroup.registerValue(value);
     }
+
+    warning(
+      'checked' in this.props || (this.context || {}).checkboxGroup || !('value' in this.props),
+      'Checkbox',
+      '`value` is not validate prop, do you mean `checked`?',
+    );
   }
 
   shouldComponentUpdate(
