@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
+import SwipeableTabContent from 'rc-tabs/lib/SwipeableTabContent';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import TabBar from './TabBar';
@@ -31,6 +32,7 @@ export interface TabsProps {
   prefixCls?: string;
   className?: string;
   animated?: boolean | { inkBar: boolean; tabPane: boolean };
+  slide?: boolean | { pageSize: number; speed: number };
   tabBarGutter?: number;
   renderTabBar?: (
     props: TabsProps,
@@ -103,6 +105,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       children,
       animated = true,
       hideAdd,
+      slide,
     } = this.props;
     let { tabBarExtraContent } = this.props;
 
@@ -183,9 +186,13 @@ export default class Tabs extends React.Component<TabsProps, any> {
         renderTabBar={() => (
           <TabBar {...omit(tabBarProps, ['className'])} tabBarExtraContent={tabBarExtraContent} />
         )}
-        renderTabContent={() => (
-          <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />
-        )}
+        renderTabContent={() =>
+          slide ? (
+            <SwipeableTabContent className={contentCls} animated={tabPaneAnimated} />
+          ) : (
+            <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />
+          )
+        }
         onChange={this.handleChange}
       >
         {childrenWithClose.length > 0 ? childrenWithClose : children}

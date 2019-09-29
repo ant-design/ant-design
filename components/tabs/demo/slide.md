@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 98
 title:
   zh-CN: 滑动
   en-US: Slide
@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-可以左右、上下滑动，容纳更多标签。
+可以左右滑动 容纳更多标签。
 
 ## en-US
 
-In order to fit in more tabs, they can slide left and right (or up and down).
+In order to fit in more tabs, they can slide left and right.
 
 ```jsx
 import { Tabs, Radio } from 'antd';
@@ -35,14 +35,25 @@ class SlidingTabsDemo extends React.Component {
     const { mode } = this.state;
     return (
       <div>
-        <Radio.Group onChange={this.handleModeChange} value={mode} style={{ marginBottom: 8 }}>
-          <Radio.Button value="top">Horizontal</Radio.Button>
-          <Radio.Button value="left">Vertical</Radio.Button>
-        </Radio.Group>
-        <Tabs defaultActiveKey="1" tabPosition={mode} style={{ height: 220 }}>
+        <Tabs
+          defaultActiveKey="1"
+          tabPosition={mode}
+          style={{ height: 220 }}
+          slide={{ pageSize: 5, speed: 5 }}
+        >
           {[...Array(30).keys()].map(i => (
             <TabPane tab={`Tab-${i}`} key={i}>
-              Content of tab {i}
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  height: 120,
+                  backgroundColor: '#fff',
+                }}
+              >
+                Content of tab {i}
+              </div>
             </TabPane>
           ))}
         </Tabs>

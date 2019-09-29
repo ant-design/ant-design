@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
+import SwipeableInkTabBar from 'rc-tabs/lib/SwipeableInkTabBar';
 import classNames from 'classnames';
 import { TabsProps } from './index';
 import Icon from '../icon';
@@ -21,6 +22,7 @@ export default class TabBar extends React.Component<TabsProps> {
       className,
       size,
       type,
+      slide,
     } = this.props;
     const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
@@ -63,6 +65,8 @@ export default class TabBar extends React.Component<TabsProps> {
 
     if (renderTabBar) {
       RenderTabBar = renderTabBar(renderProps, ScrollableInkTabBar);
+    } else if (slide) {
+      RenderTabBar = <SwipeableInkTabBar {...renderProps} {...slide} />;
     } else {
       RenderTabBar = <ScrollableInkTabBar {...renderProps} />;
     }

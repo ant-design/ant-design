@@ -399,6 +399,19 @@
     padding-right: 24px;
     border-right: @border-width-base @border-style-base @border-color-split;
   }
+
+  &-nav-swipe {
+    .@{tab-prefix-cls}-nav {
+      display: flex;
+      flex: 1;
+    }
+    .@{tab-prefix-cls}-tab {
+      display: flex;
+      flex-shrink: 0;
+      margin-right: 0;
+      justify-content: center;
+    }
+  }
 }
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
