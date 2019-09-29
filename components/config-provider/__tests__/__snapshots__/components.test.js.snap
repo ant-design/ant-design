@@ -16830,99 +16830,107 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
 exports[`ConfigProvider components Tree configProvider 1`] = `
 <div>
   <div
-    role="tree"
+    class="config-tree config-tree-icon-hide"
   >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="config-tree-list config-tree config-tree-icon-hide"
-  >
-    <div>
-      <div
-        class="config-tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="config-tree-list"
+    >
+      <div>
         <div
-          class="config-tree-treenode config-tree-treenode-switcher-close"
+          class="config-tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
         >
-          <span
-            class="config-tree-switcher config-tree-switcher-noop"
-          />
-          <span
-            class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
-            title="bamboo"
+          <div
+            class="config-tree-treenode config-tree-treenode-switcher-close"
           >
             <span
-              class="config-tree-title"
+              class="config-tree-switcher config-tree-switcher-noop"
+            />
+            <span
+              class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
+              title="bamboo"
             >
-              bamboo
+              <span
+                class="config-tree-title"
+              >
+                bamboo
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    role="tree"
+    class="config-tree config-tree-directory config-tree-block-node"
   >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="config-tree-list config-tree config-tree-directory config-tree-block-node"
-  >
-    <div>
-      <div
-        class="config-tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="config-tree-list"
+    >
+      <div>
         <div
-          class="config-tree-treenode config-tree-treenode-switcher-close"
+          class="config-tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
         >
-          <span
-            class="config-tree-switcher config-tree-switcher-noop"
-          />
-          <span
-            class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
-            title="bamboo"
+          <div
+            class="config-tree-treenode config-tree-treenode-switcher-close"
           >
             <span
-              class="config-tree-iconEle config-tree-icon__customize"
+              class="config-tree-switcher config-tree-switcher-noop"
+            />
+            <span
+              class="config-tree-node-content-wrapper config-tree-node-content-wrapper-normal"
+              title="bamboo"
             >
               <span
-                aria-label="folder"
-                class="anticon anticon-folder"
-                role="img"
+                class="config-tree-iconEle config-tree-icon__customize"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="folder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="folder"
+                  class="anticon anticon-folder"
+                  role="img"
                 >
-                  <path
-                    d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="folder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="config-tree-title"
+              >
+                bamboo
               </span>
             </span>
-            <span
-              class="config-tree-title"
-            >
-              bamboo
-            </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -16933,99 +16941,107 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
 exports[`ConfigProvider components Tree normal 1`] = `
 <div>
   <div
-    role="tree"
+    class="ant-tree ant-tree-icon-hide"
   >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
-  >
-    <div>
-      <div
-        class="ant-tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-tree-list"
+    >
+      <div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
         >
-          <span
-            class="ant-tree-switcher ant-tree-switcher-noop"
-          />
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-            title="bamboo"
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
-              class="ant-tree-title"
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="bamboo"
             >
-              bamboo
+              <span
+                class="ant-tree-title"
+              >
+                bamboo
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    role="tree"
+    class="ant-tree ant-tree-directory ant-tree-block-node"
   >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
-  >
-    <div>
-      <div
-        class="ant-tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-tree-list"
+    >
+      <div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
         >
-          <span
-            class="ant-tree-switcher ant-tree-switcher-noop"
-          />
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-            title="bamboo"
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
-              class="ant-tree-iconEle ant-tree-icon__customize"
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="bamboo"
             >
               <span
-                aria-label="folder"
-                class="anticon anticon-folder"
-                role="img"
+                class="ant-tree-iconEle ant-tree-icon__customize"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="folder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="folder"
+                  class="anticon anticon-folder"
+                  role="img"
                 >
-                  <path
-                    d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="folder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="ant-tree-title"
+              >
+                bamboo
               </span>
             </span>
-            <span
-              class="ant-tree-title"
-            >
-              bamboo
-            </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -17036,99 +17052,107 @@ exports[`ConfigProvider components Tree normal 1`] = `
 exports[`ConfigProvider components Tree prefixCls 1`] = `
 <div>
   <div
-    role="tree"
+    class="prefix-Tree prefix-Tree-icon-hide"
   >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="prefix-Tree-list prefix-Tree prefix-Tree-icon-hide"
-  >
-    <div>
-      <div
-        class="prefix-Tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="prefix-Tree-list"
+    >
+      <div>
         <div
-          class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
+          class="prefix-Tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
         >
-          <span
-            class="prefix-Tree-switcher prefix-Tree-switcher-noop"
-          />
-          <span
-            class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
-            title="bamboo"
+          <div
+            class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
           >
             <span
-              class="prefix-Tree-title"
+              class="prefix-Tree-switcher prefix-Tree-switcher-noop"
+            />
+            <span
+              class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
+              title="bamboo"
             >
-              bamboo
+              <span
+                class="prefix-Tree-title"
+              >
+                bamboo
+              </span>
             </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    role="tree"
+    class="prefix-Tree prefix-Tree-directory prefix-Tree-block-node"
   >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="prefix-Tree-list prefix-Tree prefix-Tree-directory prefix-Tree-block-node"
-  >
-    <div>
-      <div
-        class="prefix-Tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="prefix-Tree-list"
+    >
+      <div>
         <div
-          class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
+          class="prefix-Tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
         >
-          <span
-            class="prefix-Tree-switcher prefix-Tree-switcher-noop"
-          />
-          <span
-            class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
-            title="bamboo"
+          <div
+            class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close"
           >
             <span
-              class="prefix-Tree-iconEle prefix-Tree-icon__customize"
+              class="prefix-Tree-switcher prefix-Tree-switcher-noop"
+            />
+            <span
+              class="prefix-Tree-node-content-wrapper prefix-Tree-node-content-wrapper-normal"
+              title="bamboo"
             >
               <span
-                aria-label="folder"
-                class="anticon anticon-folder"
-                role="img"
+                class="prefix-Tree-iconEle prefix-Tree-icon__customize"
               >
-                <svg
-                  aria-hidden="true"
-                  class=""
-                  data-icon="folder"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="folder"
+                  class="anticon anticon-folder"
+                  role="img"
                 >
-                  <path
-                    d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    class=""
+                    data-icon="folder"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M880 298.4H521L403.7 186.2a8.15 8.15 0 00-5.5-2.2H144c-17.7 0-32 14.3-32 32v592c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V330.4c0-17.7-14.3-32-32-32zM840 768H184V256h188.5l119.6 114.4H840V768z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="prefix-Tree-title"
+              >
+                bamboo
               </span>
             </span>
-            <span
-              class="prefix-Tree-title"
-            >
-              bamboo
-            </span>
-          </span>
+          </div>
         </div>
       </div>
     </div>
@@ -17171,39 +17195,43 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
       <div>
         <div>
           <div
-            role="tree"
+            class="config-select-tree"
           >
-            <input
-              disabled=""
-              style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-              value=""
-            />
-          </div>
-          <div
-            class="config-select-tree-list config-select-tree"
-            style="height:256px"
-          >
-            <div>
-              <div
-                class="config-select-tree-list-holder-inner"
-                style="display:flex;flex-direction:column"
-              >
+            <div
+              role="tree"
+            >
+              <input
+                disabled=""
+                style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                value=""
+              />
+            </div>
+            <div
+              class="config-select-tree-list"
+              style="height:256px"
+            >
+              <div>
                 <div
-                  class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
+                  class="config-select-tree-list-holder-inner"
+                  style="display:flex;flex-direction:column"
                 >
-                  <span
-                    class="config-select-tree-switcher config-select-tree-switcher-noop"
-                  />
-                  <span
-                    class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
-                    title="bamboo"
+                  <div
+                    class="config-select-tree-treenode config-select-tree-treenode-switcher-close"
                   >
                     <span
-                      class="config-select-tree-title"
+                      class="config-select-tree-switcher config-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="config-select-tree-node-content-wrapper config-select-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
-                      bamboo
+                      <span
+                        class="config-select-tree-title"
+                      >
+                        bamboo
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -17277,39 +17305,43 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
       <div>
         <div>
           <div
-            role="tree"
+            class="ant-select-tree"
           >
-            <input
-              disabled=""
-              style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-              value=""
-            />
-          </div>
-          <div
-            class="ant-select-tree-list ant-select-tree"
-            style="height:256px"
-          >
-            <div>
-              <div
-                class="ant-select-tree-list-holder-inner"
-                style="display:flex;flex-direction:column"
-              >
+            <div
+              role="tree"
+            >
+              <input
+                disabled=""
+                style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                value=""
+              />
+            </div>
+            <div
+              class="ant-select-tree-list"
+              style="height:256px"
+            >
+              <div>
                 <div
-                  class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
+                  class="ant-select-tree-list-holder-inner"
+                  style="display:flex;flex-direction:column"
                 >
-                  <span
-                    class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                  />
-                  <span
-                    class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                    title="bamboo"
+                  <div
+                    class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                   >
                     <span
-                      class="ant-select-tree-title"
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
-                      bamboo
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        bamboo
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -17383,39 +17415,43 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
       <div>
         <div>
           <div
-            role="tree"
+            class="prefix-TreeSelect-tree"
           >
-            <input
-              disabled=""
-              style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-              value=""
-            />
-          </div>
-          <div
-            class="prefix-TreeSelect-tree-list prefix-TreeSelect-tree"
-            style="height:256px"
-          >
-            <div>
-              <div
-                class="prefix-TreeSelect-tree-list-holder-inner"
-                style="display:flex;flex-direction:column"
-              >
+            <div
+              role="tree"
+            >
+              <input
+                disabled=""
+                style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                value=""
+              />
+            </div>
+            <div
+              class="prefix-TreeSelect-tree-list"
+              style="height:256px"
+            >
+              <div>
                 <div
-                  class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close"
+                  class="prefix-TreeSelect-tree-list-holder-inner"
+                  style="display:flex;flex-direction:column"
                 >
-                  <span
-                    class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
-                  />
-                  <span
-                    class="prefix-TreeSelect-tree-node-content-wrapper prefix-TreeSelect-tree-node-content-wrapper-normal"
-                    title="bamboo"
+                  <div
+                    class="prefix-TreeSelect-tree-treenode prefix-TreeSelect-tree-treenode-switcher-close"
                   >
                     <span
-                      class="prefix-TreeSelect-tree-title"
+                      class="prefix-TreeSelect-tree-switcher prefix-TreeSelect-tree-switcher-noop"
+                    />
+                    <span
+                      class="prefix-TreeSelect-tree-node-content-wrapper prefix-TreeSelect-tree-node-content-wrapper-normal"
+                      title="bamboo"
                     >
-                      bamboo
+                      <span
+                        class="prefix-TreeSelect-tree-title"
+                      >
+                        bamboo
+                      </span>
                     </span>
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>

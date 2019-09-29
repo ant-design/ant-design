@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Directory Tree defaultExpandAll 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -10,9 +12,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -341,12 +343,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree defaultExpandParent 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -355,9 +359,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -490,12 +494,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree expand click 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -504,9 +510,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
     disabled=""
   >
     <div>
@@ -742,12 +748,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree expand click 2`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -756,9 +764,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
     disabled=""
   >
     <div>
@@ -892,12 +900,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree expand double click 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -906,9 +916,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
     disabled=""
   >
     <div>
@@ -1144,12 +1154,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree expand double click 2`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -1158,9 +1170,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
     disabled=""
   >
     <div>
@@ -1294,12 +1306,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree expand with state control click 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -1308,9 +1322,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
     disabled=""
   >
     <div>
@@ -1435,12 +1449,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree expand with state control doubleClick 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -1449,9 +1465,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
     disabled=""
   >
     <div>
@@ -1576,12 +1592,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree expandedKeys update 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -1590,9 +1608,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
     disabled=""
   >
     <div>
@@ -1828,12 +1846,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree group select 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -1842,9 +1862,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -2173,12 +2193,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree group select 2`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -2187,9 +2209,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -2518,12 +2540,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`Directory Tree selectedKeys update 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -2532,9 +2556,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -2863,6 +2887,6 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;

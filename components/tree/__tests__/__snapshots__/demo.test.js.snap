@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
   <div
     role="tree"
   >
@@ -10,9 +12,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -281,12 +283,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
   <div
     role="tree"
   >
@@ -295,9 +299,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -768,12 +772,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree"
+>
   <div
     role="tree"
   >
@@ -782,9 +788,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -953,12 +959,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -967,9 +975,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -1298,12 +1306,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree draggable-tree ant-tree-icon-hide ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -1312,9 +1322,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree draggable-tree ant-tree-icon-hide ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -1635,12 +1645,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
   <div
     role="tree"
   >
@@ -1649,9 +1661,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -1753,12 +1765,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/line.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+>
   <div
     role="tree"
   >
@@ -1767,9 +1781,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide ant-tree-show-line"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -2113,8 +2127,8 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/search.md correctly 1`] = `
@@ -2156,129 +2170,133 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
     </span>
   </span>
   <div
-    role="tree"
+    class="ant-tree ant-tree-icon-hide"
   >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
-  >
-    <div>
-      <div
-        class="ant-tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-tree-list"
+    >
+      <div>
         <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          class="ant-tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
         >
-          <span
-            class="ant-tree-switcher ant-tree-switcher_close"
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
-              aria-label="caret-down"
-              class="anticon anticon-caret-down ant-tree-switcher-icon"
-              role="img"
+              class="ant-tree-switcher ant-tree-switcher_close"
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
               >
-                <path
-                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
-            title=""
-          >
-            <span
-              class="ant-tree-title"
-            >
-              <span>
-                <span
-                  style="color:#f50"
-                />
-                0-0
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
               </span>
             </span>
-          </span>
-        </div>
-        <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
-        >
-          <span
-            class="ant-tree-switcher ant-tree-switcher_close"
-          >
             <span
-              aria-label="caret-down"
-              class="anticon anticon-caret-down ant-tree-switcher-icon"
-              role="img"
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title=""
             >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
+              <span
+                class="ant-tree-title"
               >
-                <path
-                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
-            title=""
-          >
-            <span
-              class="ant-tree-title"
-            >
-              <span>
-                <span
-                  style="color:#f50"
-                />
-                0-1
+                <span>
+                  <span
+                    style="color:#f50"
+                  />
+                  0-0
+                </span>
               </span>
             </span>
-          </span>
-        </div>
-        <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
-        >
-          <span
-            class="ant-tree-switcher ant-tree-switcher-noop"
-          />
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-            title=""
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
           >
             <span
-              class="ant-tree-title"
+              class="ant-tree-switcher ant-tree-switcher_close"
             >
-              <span>
-                <span
-                  style="color:#f50"
-                />
-                0-2
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
               </span>
             </span>
-          </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title=""
+            >
+              <span
+                class="ant-tree-title"
+              >
+                <span>
+                  <span
+                    style="color:#f50"
+                  />
+                  0-1
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title=""
+            >
+              <span
+                class="ant-tree-title"
+              >
+                <span>
+                  <span
+                    style="color:#f50"
+                  />
+                  0-2
+                </span>
+              </span>
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -2287,7 +2305,9 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
 `;
 
 exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+>
   <div
     role="tree"
   >
@@ -2296,9 +2316,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide ant-tree-show-line"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -2630,6 +2650,6 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
