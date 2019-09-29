@@ -414,7 +414,7 @@ exports[`TextArea should support disabled 1`] = `
 <TextArea
   disabled={true}
 >
-  <ReactResizeObserver
+  <ResizeObserver
     disabled={true}
     onResize={[Function]}
   >
@@ -425,7 +425,7 @@ exports[`TextArea should support disabled 1`] = `
       onKeyDown={[Function]}
       style={Object {}}
     />
-  </ReactResizeObserver>
+  </ResizeObserver>
 </TextArea>
 `;
 
@@ -433,7 +433,7 @@ exports[`TextArea should support maxLength 1`] = `
 <TextArea
   maxLength={10}
 >
-  <ReactResizeObserver
+  <ResizeObserver
     disabled={true}
     onResize={[Function]}
   >
@@ -444,6 +444,6 @@ exports[`TextArea should support maxLength 1`] = `
       onKeyDown={[Function]}
       style={Object {}}
     />
-  </ReactResizeObserver>
+  </ResizeObserver>
 </TextArea>
 `;

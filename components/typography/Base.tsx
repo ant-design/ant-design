@@ -5,12 +5,11 @@ import toArray from 'rc-util/lib/Children/toArray';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
 import { Edit, Check, Copy } from '@ant-design/icons';
-
+import ResizeObserver from 'rc-resize-observer';
 import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 import TransButton from '../_util/transButton';
-import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
 import Tooltip from '../tooltip';
