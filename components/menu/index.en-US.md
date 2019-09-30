@@ -52,11 +52,12 @@ More layouts with navigation: [layout](/components/layout).
 
 ### Menu.Item
 
-| Param    | Description                          | Type    | Default value | Version |
-| -------- | ------------------------------------ | ------- | ------------- | ------- |
-| disabled | whether menu item is disabled or not | boolean | false         |         |
-| key      | unique id of the menu item           | string  |               |         |
-| title    | set display title for collapsed item | string  |               | 3.11.0  |
+| Param | Description | Type | Default value | Version |
+| --- | --- | --- | --- | --- |
+| disabled | whether menu item is disabled or not | boolean | false |  |
+| key | unique id of the menu item | string |  |  |
+| title | set display title for collapsed item | string |  | 3.11.0 |
+| tooltipProps | The tooltip props | [TooltipProps](/components/tooltip) | - |  |
 
 ### Menu.SubMenu
 
