@@ -61,6 +61,7 @@ More layouts with navigation: [Layout](/components/layout).
 | icon | The icon of the menu item | ReactNode | - | 4.2.0 |
 | key | Unique ID of the menu item | string | - |  |
 | title | Set display title for collapsed item | string | - |  |
+| tooltipProps | The tooltip props | [TooltipProps](/components/tooltip) | - |  |
 
 > Note: `icon` is a newly added prop in`4.2.0`. For previous versions, please use the following method to define the icon.
 >
