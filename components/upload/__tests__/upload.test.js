@@ -10,7 +10,6 @@ import mountTest from '../../../tests/shared/mountTest';
 
 describe('Upload', () => {
   mountTest(Upload);
-  mountTest(Upload.Dragger);
 
   beforeEach(() => setup());
   afterEach(() => teardown());
@@ -44,6 +43,61 @@ describe('Upload', () => {
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
           expect(data).toHaveBeenCalled();
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+  });
+
+  it('should update progress in IE', done => {
+    const originSetInterval = window.setInterval;
+    process.env.TEST_IE = true;
+    Object.defineProperty(window, 'setInterval', {
+      value: fn => fn(),
+    });
+    const props = {
+      action: 'http://upload.com',
+      onChange: ({ file }) => {
+        if (file.status !== 'uploading') {
+          process.env.TEST_IE = undefined;
+          Object.defineProperty(window, 'setInterval', {
+            value: originSetInterval,
+          });
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+  });
+
+  it('beforeUpload can be falsy', done => {
+    const props = {
+      action: 'http://upload.com',
+      beforeUpload: false,
+      onChange: ({ file }) => {
+        if (file.status !== 'uploading') {
           done();
         }
       },

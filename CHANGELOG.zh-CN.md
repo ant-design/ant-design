@@ -15,6 +15,20 @@ timeline: true
 
 ---
 
+## 3.23.5
+
+`2019-09-29`
+
+- 🐞 修复 Upload 预览图片无法填充满图片框的问题。[#18990](https://github.com/ant-design/ant-design/pull/18990)
+- 🐞 修复 Breadcrumb 不支持 `data-*` 和 `aria-*` 的问题。[#18941](https://github.com/ant-design/ant-design/pull/18941) [@sosohime](https://github.com/sosohime)
+- 🐞 修复 TreeSelect `removeIcon` 和 `clearIcon` 不工作的问题。[#18949](https://github.com/ant-design/ant-design/issues/18949) [@sosohime](https://github.com/sosohime)
+- 🐞 修复 Tree 组件当 `showLine` 设置后 `switcherIcon` 没有正常工作的问题。[#18829](https://github.com/ant-design/ant-design/pull/18829) [@MrHeer](https://github.com/MrHeer)
+- 🐞 修复按钮图标在 Button.Group 中的错位问题。[#18994](https://github.com/ant-design/ant-design/pull/18994)
+- 🐞 移除 Select 中无效属性 `searchValue` 的定义及文档。[#19003](https://github.com/ant-design/ant-design/pull/19003)
+- 🐞 修复 Avatar 文本头像在 ssr 时会闪烁的问题。[#19029](https://github.com/ant-design/ant-design/pull/19029)
+- TypeScript
+  - 🐞 修复 Grid 组件的类型定义。[#18946](https://github.com/ant-design/ant-design/pull/18946) [@handycode](https://github.com/handycode)
+
 ## 3.23.4
 
 `2019-09-21`

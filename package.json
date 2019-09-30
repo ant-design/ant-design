@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.23.4",
+  "version": "3.23.5",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -120,6 +120,7 @@
     "rc-pagination": "~1.20.5",
     "rc-progress": "~2.5.0",
     "rc-rate": "~2.5.0",
+    "rc-resize-observer": "^0.1.0",
     "rc-select": "~9.2.0",
     "rc-slider": "~8.7.1",
     "rc-steps": "~3.5.0",

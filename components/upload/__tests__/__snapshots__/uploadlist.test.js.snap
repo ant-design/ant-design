@@ -1313,3 +1313,99 @@ exports[`Upload List should non-image format file preview 1`] = `
   </div>
 </span>
 `;
+
+exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  >
+    <div
+      class="ant-upload-list-item ant-upload-list-item-uploading"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              class="ant-upload-list-item-image"
+              src="https://cdn.xxx.com/aaa"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list-item-progress"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              class="ant-upload-list-item-image"
+              src="https://cdn.xxx.com/aaa"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</span>
+`;
