@@ -87,7 +87,7 @@ class UploadCom extends React.Component {
 
   beforeUpload = async () => {
     const { OSSData } = this.state;
-    const expire = ~~OSSData.expire * 1000;
+    const expire = OSSData.expire * 1000;
 
     if (expire < Date.now()) {
       await this.init();
