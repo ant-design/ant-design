@@ -366,6 +366,37 @@ describe('Upload List', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should support showRemoveIcon and showPreviewIcon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: false,
+          showPreviewIcon: false,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   // https://github.com/ant-design/ant-design/issues/7762
   it('work with form validation', () => {
     let errors;

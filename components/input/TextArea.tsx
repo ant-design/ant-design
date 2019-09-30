@@ -2,9 +2,9 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
+import ResizeObserver from 'rc-resize-observer';
 import calculateNodeHeight from './calculateNodeHeight';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 
 export interface AutoSizeType {

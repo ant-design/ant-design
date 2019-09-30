@@ -182,7 +182,7 @@ describe('Affix Render', () => {
         // Mock trigger resize
         updateCalled.mockReset();
         wrapper
-          .find('ReactResizeObserver')
+          .find('ResizeObserver')
           .at(index)
           .instance()
           .onResize([{ target: { getBoundingClientRect: () => ({ width: 99, height: 99 }) } }]);

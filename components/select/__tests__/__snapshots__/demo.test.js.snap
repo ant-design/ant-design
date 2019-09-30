@@ -315,7 +315,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
 <div
   class="ant-select ant-select-enabled"
-  style="width:120px"
+  style="width:240px"
 >
   <div
     aria-autocomplete="list"
@@ -331,11 +331,11 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
       class="ant-select-selection__rendered"
     >
       <div
-        class="ant-select-selection-selected-value"
-        style="display:block;opacity:1"
-        title="Lucy"
+        class="ant-select-selection__placeholder"
+        style="display:block;user-select:none;-webkit-user-select:none"
+        unselectable="on"
       >
-        Lucy
+        custom dropdown render
       </div>
     </div>
     <span
