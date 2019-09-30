@@ -14,6 +14,7 @@ export interface MenuItemProps
   disabled?: boolean;
   level?: number;
   title?: React.ReactNode;
+  tooltipProps?: TooltipProps;
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -37,28 +38,26 @@ export default class MenuItem extends React.Component<MenuItemProps> {
 
   renderItem = ({ siderCollapsed }: SiderContextProps) => {
     const { level, children, rootPrefixCls } = this.props;
-    const { title, ...rest } = this.props;
+    const { title, tooltipProps = {}, ...rest } = this.props;
 
     return (
       <MenuContext.Consumer>
         {({ inlineCollapsed }: MenuContextProps) => {
-          const tooltipProps: TooltipProps = {
+          const defaultTooltipProps: TooltipProps = {
             title: title || (level === 1 ? children : ''),
+            placement: 'right',
+            overlayClassName: `${rootPrefixCls}-inline-collapsed-tooltip`,
           };
 
           if (!siderCollapsed && !inlineCollapsed) {
-            tooltipProps.title = null;
+            defaultTooltipProps.title = null;
             // Reset `visible` to fix control mode tooltip display not correct
             // ref: https://github.com/ant-design/ant-design/issues/16742
-            tooltipProps.visible = false;
+            defaultTooltipProps.visible = false;
           }
 
           return (
-            <Tooltip
-              {...tooltipProps}
-              placement="right"
-              overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
-            >
+            <Tooltip {...defaultTooltipProps} {...tooltipProps}>
               <Item {...rest} title={title} ref={this.saveMenuItem} />
             </Tooltip>
           );
