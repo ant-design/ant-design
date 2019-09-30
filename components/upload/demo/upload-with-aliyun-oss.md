@@ -22,6 +22,10 @@ class UploadCom extends React.Component {
   };
 
   async componentDidMount() {
+    await this.init();
+  }
+
+  init = async () => {
     try {
       const OSSData = await this.getOSSData();
 
@@ -31,7 +35,7 @@ class UploadCom extends React.Component {
     } catch (error) {
       message.error(error);
     }
-  }
+  };
 
   // Mock get OSS api
   // https://help.aliyun.com/document_detail/31988.html
@@ -81,6 +85,16 @@ class UploadCom extends React.Component {
     };
   };
 
+  beforeUpload = async () => {
+    const { OSSData } = this.state;
+    const expire = ~~OSSData.expire * 1000;
+
+    if (expire < Date.now()) {
+      await this.init();
+    }
+    return true;
+  };
+
   render() {
     const { value } = this.props;
     const props = {
@@ -91,6 +105,7 @@ class UploadCom extends React.Component {
       onRemove: this.onRemove,
       transformFile: this.transformFile,
       data: this.getExtraData,
+      beforeUpload: this.beforeUpload,
     };
     return (
       <Upload {...props}>
