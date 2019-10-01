@@ -59,7 +59,24 @@ const Typography: React.RefForwardingComponent<{}, InternalTypographyProps> = (
   );
 };
 
-const RefTypography = React.forwardRef(Typography);
-RefTypography.displayName = 'Typography';
+let RefTypography;
 
-export default RefTypography;
+if (React.forwardRef) {
+  RefTypography = React.forwardRef(Typography);
+  RefTypography.displayName = 'Typography';
+} else {
+  class TypographyWrapper extends React.Component<TypographyProps, {}> {
+    state = {};
+
+    render() {
+      return <Typography {...this.props} />;
+    }
+  }
+
+  RefTypography = TypographyWrapper;
+}
+
+// es default export should use const instead of let
+const ExportTypography = RefTypography;
+
+export default ExportTypography;
