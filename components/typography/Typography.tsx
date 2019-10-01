@@ -77,6 +77,6 @@ if (React.forwardRef) {
 }
 
 // es default export should use const instead of let
-const ExportTypography = RefTypography;
+const ExportTypography = (RefTypography as unknown) as React.FC<TypographyProps>;
 
 export default ExportTypography;
