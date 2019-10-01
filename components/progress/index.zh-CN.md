@@ -25,7 +25,7 @@ title: Progress
 | percent | 百分比 | number | 0 |  |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true |  |
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - |  |
-| orientation | 将方向从水平设置为垂直, 可选: `default` `vertical` | string | - |  |
+| orientation | 将方向从水平设置为垂直, 可选: `horizontal` `vertical` | string | - |  |
 | strokeLinecap |  | Enum{ 'round', 'square' } | `round` | 3.8.0 |
 | strokeColor | 进度条的色彩 | string | - | 3.7.0 |
 | successPercent | 已完成的分段百分比 | number | 0 | 3.2.0 |

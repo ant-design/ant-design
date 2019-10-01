@@ -1,17 +1,17 @@
 ---
-order: 0
+order: 11
 title:
-  zh-CN: 取向
+  zh-CN: 方向
   en-US: Orientation
 ---
 
 ## zh-CN
 
-通过设置`orientaton =“ vertical”`，可以将方向从水平更改为垂直。
+通过设置`orientaton=“vertical”`，可以将方向从水平更改为垂直。
 
 ## en-US
 
-By setting `orientaton="vertical"`, you can change the orientantion from horizontal to vertical.
+By setting `orientation="vertical"`, you can change the orientation from horizontal to vertical.
 
 ```jsx
 import { Progress } from 'antd';
