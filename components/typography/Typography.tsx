@@ -15,7 +15,7 @@ export interface TypographyProps {
 
 interface InternalTypographyProps extends TypographyProps {
   component?: string;
-  /** @deprecated Use `ref` directly */
+  /** @deprecated Use `ref` directly if using React 16 */
   setContentRef?: (node: HTMLElement) => void;
 }
 
