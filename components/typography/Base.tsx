@@ -459,7 +459,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
                   WebkitLineClamp: cssLineClamp ? rows : null,
                 }}
                 component={component}
-                setContentRef={this.setContentRef}
+                ref={this.setContentRef}
                 aria-label={ariaLabel}
                 {...textProps}
               >
