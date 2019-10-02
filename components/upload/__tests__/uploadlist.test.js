@@ -463,8 +463,8 @@ describe('Upload List', () => {
         listType="picture"
         defaultFileList={list}
         showUploadList={{
-          showRemoveIcon: false,
-          showPreviewIcon: false,
+          showRemoveIcon: true,
+          showPreviewIcon: true,
         }}
       >
         <button type="button">upload</button>
