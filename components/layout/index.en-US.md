@@ -95,6 +95,7 @@ The sidebar.
 | defaultCollapsed | to set the initial status | boolean | false |  |
 | reverseArrow | reverse direction of arrow, for a sider that expands from the right | boolean | false |  |
 | style | to customize the styles | object | - |  |
+| specialTriggerStyle | to customize the styles of the special trigger that appears when collapsedWidth is 0 | object | - | 3.24.0 |
 | theme | color theme of the sidebar | string: `light` `dark` | `dark` | 3.6.0 |
 | trigger | specify the customized trigger, set to null to hide the trigger | string\|ReactNode | - |  |
 | width | width of the sidebar | number\|string | 200 |  |
