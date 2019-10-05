@@ -401,7 +401,9 @@ class Footer extends React.Component {
         columns={this.getColumns()}
         bottom={
           <>
-            Made with <span style={{ color: '#fff' }}>❤</span> by{' '}
+            Made with <span style={{ color: '#fff' }}>❤</span> by
+            {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
+            {' '}
             <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
               <FormattedMessage id="app.footer.company" />
             </a>
