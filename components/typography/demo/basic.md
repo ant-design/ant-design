@@ -28,7 +28,7 @@ ReactDOM.render(
     </Paragraph>
     <Paragraph>
       After massive project practice and summaries, Ant Design, a design language for background
-      applications, is refined by Ant UED Team, which aims to{' '}
+      applications, is refined by Ant UED Team, which aims to 
       <Text strong>
         uniform the user interface specs for internal background projects, lower the unnecessary
         cost of design differences and implementation and liberate the resources of design and
@@ -71,7 +71,7 @@ ReactDOM.render(
     </Paragraph>
     <Title level={2}>设计资源</Title>
     <Paragraph>
-      我们提供完善的设计原则、最佳实践和设计资源文件（<Text code>Sketch</Text> 和{' '}
+      我们提供完善的设计原则、最佳实践和设计资源文件（<Text code>Sketch</Text> 和
       <Text code>Axure</Text>），来帮助业务快速设计出高质量的产品原型。
     </Paragraph>
 

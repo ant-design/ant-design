@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
 import toArray from 'rc-util/lib/Children/toArray';
+import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
 import ResizeObserver from 'rc-resize-observer';
@@ -297,7 +298,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     );
 
     const { content, text, ellipsis } = measure(
-      this.content,
+      findDOMNode(this.content),
       rows,
       children,
       this.renderOperations(true),
@@ -459,7 +460,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
                   WebkitLineClamp: cssLineClamp ? rows : null,
                 }}
                 component={component}
-                setContentRef={this.setContentRef}
+                ref={this.setContentRef}
                 aria-label={ariaLabel}
                 {...textProps}
               >
