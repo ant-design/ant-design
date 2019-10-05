@@ -42,7 +42,7 @@ ReactDOM.render(
         </Text>
       </Paragraph>
       <Paragraph>
-        <Icon style={{ color: 'red' }} type="close-circle" /> Your account has been frozen{' '}
+        <Icon style={{ color: 'red' }} type="close-circle" /> Your account has been frozen 
         <a>Thaw immediately &gt;</a>
       </Paragraph>
       <Paragraph>
