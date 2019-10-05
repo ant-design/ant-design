@@ -1342,7 +1342,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
     class="ant-upload-list ant-upload-list-picture"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-uploading"
+      class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
     >
       <div
         class="ant-upload-list-item-info"
@@ -1361,7 +1361,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-0"
             href="https://cdn.xxx.com/aaa"
             rel="noopener noreferrer"
             target="_blank"
@@ -1369,6 +1369,9 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
           >
             image
           </a>
+          <span
+            class="ant-upload-list-item-card-actions picture"
+          />
         </span>
       </div>
       <div
@@ -1376,7 +1379,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
       />
     </div>
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
     >
       <div
         class="ant-upload-list-item-info"
@@ -1395,7 +1398,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
             />
           </a>
           <a
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
             href="https://cdn.xxx.com/aaa"
             rel="noopener noreferrer"
             target="_blank"
@@ -1403,102 +1406,35 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
           >
             image
           </a>
-        </span>
-      </div>
-    </div>
-  </div>
-</span>
-`;
-
-exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
-<span
-  class=""
->
-  <div
-    class="ant-upload ant-upload-select ant-upload-select-picture"
-  >
-    <span
-      class="ant-upload"
-      role="button"
-      tabindex="0"
-    >
-      <input
-        accept=""
-        style="display: none;"
-        type="file"
-      />
-      <button
-        type="button"
-      >
-        upload
-      </button>
-    </span>
-  </div>
-  <div
-    class="ant-upload-list ant-upload-list-picture"
-  >
-    <div
-      class="ant-upload-list-item ant-upload-list-item-uploading"
-    >
-      <div
-        class="ant-upload-list-item-info"
-      >
-        <span>
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://cdn.xxx.com/aaa"
-            rel="noopener noreferrer"
-            target="_blank"
+          <span
+            class="ant-upload-list-item-card-actions picture"
           >
-            <img
-              alt="image"
-              class="ant-upload-list-item-image"
-              src="https://cdn.xxx.com/aaa"
-            />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://cdn.xxx.com/aaa"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="image"
-          >
-            image
-          </a>
-        </span>
-      </div>
-      <div
-        class="ant-upload-list-item-progress"
-      />
-    </div>
-    <div
-      class="ant-upload-list-item ant-upload-list-item-done"
-    >
-      <div
-        class="ant-upload-list-item-info"
-      >
-        <span>
-          <a
-            class="ant-upload-list-item-thumbnail"
-            href="https://cdn.xxx.com/aaa"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <img
-              alt="image"
-              class="ant-upload-list-item-image"
-              src="https://cdn.xxx.com/aaa"
-            />
-          </a>
-          <a
-            class="ant-upload-list-item-name"
-            href="https://cdn.xxx.com/aaa"
-            rel="noopener noreferrer"
-            target="_blank"
-            title="image"
-          >
-            image
-          </a>
+            <a
+              title="Download file"
+            >
+              <i
+                aria-label="icon: download"
+                class="anticon anticon-download"
+                tabindex="-1"
+                title="Download file"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="download"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </i>
+            </a>
+          </span>
         </span>
       </div>
     </div>
