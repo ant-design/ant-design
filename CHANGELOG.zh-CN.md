@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.23.6
+
+`2019-10-05`
+
+- 🐞 修复 Typography 提示获取不到 `ref` 的错误信息。[#19074](https://github.com/ant-design/ant-design/pull/19074)
+
 ## 3.23.5
 
 `2019-09-29`
