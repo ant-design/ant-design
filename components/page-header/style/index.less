@@ -7,21 +7,21 @@
   .reset-component;
 
   position: relative;
-  padding: @page-header-padding;
+  padding: @page-header-padding-vertical @page-header-padding;
 
   &.has-breadcrumb {
     padding-top: @page-header-padding-breadcrumb;
   }
 
   &.has-footer {
-    padding-bottom: @page-header-padding-vertical;
+    padding-bottom: 0;
   }
 
   &-back {
     float: left;
-    margin: 6px 0;
+    margin: 8px 0;
     margin-right: 16px;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1;
     &-button {
       .operation-unit();
@@ -50,7 +50,7 @@
       padding-right: 12px;
       color: @heading-color;
       font-weight: 600;
-      font-size: @heading-3-size;
+      font-size: @heading-4-size;
       line-height: 32px;
     }
 
@@ -85,7 +85,7 @@
   }
 
   &-content {
-    padding-top: 16px;
+    padding-top: 12px;
     overflow: hidden;
   }
 
