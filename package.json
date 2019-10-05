@@ -200,7 +200,7 @@
     "lz-string": "^1.4.4",
     "mockdate": "^2.0.2",
     "node-fetch": "^2.6.0",
-    "preact": "^8.4.2",
+    "preact": "^10.0.0",
     "preact-compat": "^3.18.5",
     "prettier": "^1.17.1",
     "pretty-quick": "^1.11.0",
