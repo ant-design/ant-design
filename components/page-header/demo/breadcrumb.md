@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 带面包屑页头
   en-US: Use with breadcrumbs

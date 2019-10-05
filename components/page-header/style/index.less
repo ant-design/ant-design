@@ -5,9 +5,13 @@
 
 .@{pageheader-prefix-cls} {
   .reset-component;
-
+  background-color: @component-background;
   position: relative;
   padding: @page-header-padding-vertical @page-header-padding;
+
+  &.pure {
+    background-color: inherit;
+  }
 
   &.has-breadcrumb {
     padding-top: @page-header-padding-breadcrumb;

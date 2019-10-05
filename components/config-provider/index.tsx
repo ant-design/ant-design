@@ -8,7 +8,11 @@ import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 
-export { RenderEmptyHandler, ConfigConsumer, CSPConfig, ConfigConsumerProps };
+export { RenderEmptyHandler };
+
+export interface CSPConfig {
+  nonce?: string;
+}
 
 export const configConsumerProps = [
   'getPopupContainer',
@@ -18,6 +22,7 @@ export const configConsumerProps = [
   'csp',
   'autoInsertSpaceInButton',
   'locale',
+  'pageHeaderType',
 ];
 
 export interface ConfigProviderProps {
@@ -28,6 +33,9 @@ export interface ConfigProviderProps {
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
+  pageHeader?: {
+    type: 'ghost' | 'default';
+  };
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
@@ -47,6 +55,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       locale,
+      pageHeader,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -61,6 +70,11 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     }
     if (renderEmpty) {
       config.renderEmpty = renderEmpty;
+    }
+
+    // set pageHeader type
+    if (pageHeader && pageHeader.type) {
+      config.pageHeader = pageHeader;
     }
 
     return (

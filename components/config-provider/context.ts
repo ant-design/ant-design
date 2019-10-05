@@ -14,6 +14,9 @@ export interface ConfigConsumerProps {
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
+  pageHeader?: {
+    type: 'ghost' | 'default';
+  };
 }
 
 export const ConfigContext = createReactContext<ConfigConsumerProps>({
