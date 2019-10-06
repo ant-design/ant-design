@@ -1159,7 +1159,7 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
             />
           </svg>
         </i>
-         Your account has been frozen 
+         Your account has been frozen
         <a>
           Thaw immediately &gt;
         </a>

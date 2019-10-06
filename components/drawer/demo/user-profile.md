@@ -104,7 +104,7 @@ class App extends React.Component {
           <p style={pStyle}>Personal</p>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Full Name" content="Lily" />{' '}
+              <DescriptionItem title="Full Name" content="Lily" />
             </Col>
             <Col span={12}>
               <DescriptionItem title="Account" content="AntDesign@example.com" />
