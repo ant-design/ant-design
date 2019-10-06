@@ -638,7 +638,9 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
     </div>
   </div>
   <br />
-  Expand Icon Position: 
+  <span>
+    Expand Icon Position: 
+  </span>
   <div
     class="ant-select ant-select-enabled"
   >

@@ -70,6 +70,7 @@ const eslintrc = {
     'import/no-cycle': 0,
     'react/no-find-dom-node': 0,
     'no-underscore-dangle': 0,
+    'react/sort-comp': 0,
     // label-has-for has been deprecated
     // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
     'jsx-a11y/label-has-for': 0,

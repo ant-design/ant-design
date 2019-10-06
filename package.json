@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.23.5",
+  "version": "3.23.6",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -196,11 +196,11 @@
     "jsdom": "^15.1.1",
     "jsonml.js": "^0.1.0",
     "logrocket": "^1.0.0",
-    "logrocket-react": "^3.0.0",
+    "logrocket-react": "^4.0.0",
     "lz-string": "^1.4.4",
     "mockdate": "^2.0.2",
     "node-fetch": "^2.6.0",
-    "preact": "^8.4.2",
+    "preact": "^10.0.0",
     "preact-compat": "^3.18.5",
     "prettier": "^1.17.1",
     "pretty-quick": "^1.11.0",
