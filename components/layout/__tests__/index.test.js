@@ -186,9 +186,9 @@ describe('Sider', () => {
     );
   });
 
-  it('specialTriggerStyle should work', () => {
+  it('zeroWidthTriggerStyle should work', () => {
     const wrapper = mount(
-      <Sider collapsedWidth={0} collapsible specialTriggerStyle={{ background: '#F96' }}>
+      <Sider collapsedWidth={0} collapsible zeroWidthTriggerStyle={{ background: '#F96' }}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
             <Icon type="user" />
