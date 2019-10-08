@@ -52,6 +52,7 @@ Tree selection control.
 | onSearch | A callback function, can be executed when the search input changes. | function(value: string) | - |  |
 | onSelect | A callback function, can be executed when you select a treeNode. | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - | 3.10.0 |
+| switcherIcon | customize collapse/expand icon of tree node | React.ReactElement | - |  |
 
 ### Tree Methods
 

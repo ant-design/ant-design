@@ -53,6 +53,7 @@ title: TreeSelect
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
 | onTreeExpand | 展示节点时调用 | function(expandedKeys) | - | 3.10.0 |
+| switcherIcon | 自定义树节点的展开/折叠图标 | React.ReactElement | - |  |
 
 ### Tree 方法
 

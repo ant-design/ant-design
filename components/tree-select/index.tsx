@@ -52,14 +52,26 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
     this.rcTreeSelect.blur();
   }
 
-  renderSwitcherIcon = (prefixCls: string, { isLeaf, loading }: AntTreeNodeProps) => {
+  renderSwitcherIcon = (
+    prefixCls: string,
+    switcherIcon: React.ReactElement<any> | undefined,
+    { isLeaf, loading }: AntTreeNodeProps,
+  ) => {
     if (loading) {
       return <Icon type="loading" className={`${prefixCls}-switcher-loading-icon`} />;
     }
     if (isLeaf) {
       return null;
     }
-    return <Icon type="caret-down" className={`${prefixCls}-switcher-icon`} />;
+    const switcherCls = `${prefixCls}-switcher-icon`;
+    if (switcherIcon) {
+      const switcherOriginCls = switcherIcon.props.className || '';
+      return React.cloneElement(switcherIcon, {
+        className: classNames(switcherOriginCls, switcherCls),
+      });
+    }
+
+    return <Icon type="caret-down" className={switcherCls} />;
   };
 
   renderTreeSelect = ({
@@ -78,6 +90,7 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
       removeIcon,
       clearIcon,
       getPopupContainer,
+      switcherIcon,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
@@ -123,7 +136,7 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
     return (
       <RcTreeSelect
         switcherIcon={(nodeProps: AntTreeNodeProps) =>
-          this.renderSwitcherIcon(prefixCls, nodeProps)
+          this.renderSwitcherIcon(prefixCls, switcherIcon, nodeProps)
         }
         inputIcon={inputIcon}
         removeIcon={finalRemoveIcon}

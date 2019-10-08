@@ -1,9 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import TreeSelect, { TreeNode } from '..';
+import TreeSelect from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 
+const { TreeNode } = TreeSelect;
 describe('TreeSelect', () => {
   focusTest(TreeSelect);
   mountTest(TreeSelect);
@@ -30,6 +31,7 @@ describe('TreeSelect', () => {
           multiple
           allowClear
           treeDefaultExpandAll
+          switcherIcon={<span>switcher</span>}
         >
           <TreeNode value="parent 1" title="parent 1" key="0-1">
             <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
@@ -39,6 +41,8 @@ describe('TreeSelect', () => {
           </TreeNode>
         </TreeSelect>,
       );
+
+      wrapper.simulate('click');
 
       expect(wrapper.render()).toMatchSnapshot();
     });

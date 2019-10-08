@@ -1,93 +1,217 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TreeSelect TreeSelect Custom Icons should support customized icons 1`] = `
-<span
-  aria-haspopup="listbox"
-  class="ant-select ant-select-enabled ant-select-allow-clear"
-  role="combobox"
-  tabindex="-1"
->
+Array [
   <span
-    class="ant-select-selection ant-select-selection--multiple"
+    aria-controls="rc-tree-select-list_7"
+    aria-expanded="true"
+    aria-haspopup="listbox"
+    aria-owns="rc-tree-select-list_7"
+    class="ant-select ant-select-open ant-select-focused ant-select-enabled ant-select-allow-clear"
+    role="combobox"
+    style=""
+    tabindex="-1"
   >
-    <ul
-      class="ant-select-selection__rendered"
-      role="menubar"
-    >
-      <li
-        class="ant-select-selection__choice"
-        role="menuitem"
-        style="user-select: none;"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-select-selection__choice__remove"
-        >
-          <span>
-            remove
-          </span>
-        </span>
-        <span
-          class="ant-select-selection__choice__content"
-        >
-          leaf1
-        </span>
-      </li>
-      <li
-        class="ant-select-selection__choice"
-        role="menuitem"
-        style="user-select: none;"
-        unselectable="unselectable"
-      >
-        <span
-          class="ant-select-selection__choice__remove"
-        >
-          <span>
-            remove
-          </span>
-        </span>
-        <span
-          class="ant-select-selection__choice__content"
-        >
-          leaf2
-        </span>
-      </li>
-      <li
-        class="ant-select-search ant-select-search--inline"
-      >
-        <span
-          class="ant-select-search__field__wrap"
-        >
-          <input
-            aria-autocomplete="list"
-            aria-label="filter select"
-            aria-multiline="false"
-            class="ant-select-search__field"
-            style="width: 0px;"
-            type="text"
-            value=""
-          />
-          <span
-            class="ant-select-search__field__mirror"
-          >
-             
-          </span>
-        </span>
-      </li>
-    </ul>
     <span
-      class="ant-select-selection__clear"
+      class="ant-select-selection ant-select-selection--multiple"
     >
-      <span>
-        clear
+      <ul
+        class="ant-select-selection__rendered"
+        role="menubar"
+      >
+        <li
+          class="ant-select-selection__choice"
+          role="menuitem"
+          style="user-select: none;"
+          title="my leaf"
+          unselectable="unselectable"
+        >
+          <span
+            class="ant-select-selection__choice__remove"
+          >
+            <span>
+              remove
+            </span>
+          </span>
+          <span
+            class="ant-select-selection__choice__content"
+          >
+            my leaf
+          </span>
+        </li>
+        <li
+          class="ant-select-selection__choice"
+          role="menuitem"
+          style="user-select: none;"
+          title="your leaf"
+          unselectable="unselectable"
+        >
+          <span
+            class="ant-select-selection__choice__remove"
+          >
+            <span>
+              remove
+            </span>
+          </span>
+          <span
+            class="ant-select-selection__choice__content"
+          >
+            your leaf
+          </span>
+        </li>
+        <li
+          class="ant-select-search ant-select-search--inline"
+        >
+          <span
+            class="ant-select-search__field__wrap"
+          >
+            <input
+              aria-autocomplete="list"
+              aria-controls="rc-tree-select-list_7"
+              aria-label="filter select"
+              aria-multiline="false"
+              class="ant-select-search__field"
+              style="width: 0px;"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-select-search__field__mirror"
+            >
+               
+            </span>
+          </span>
+        </li>
+      </ul>
+      <span
+        class="ant-select-selection__clear"
+      >
+        <span>
+          clear
+        </span>
+      </span>
+      <span
+        class="ant-select-search__field__placeholder"
+        style="display: none;"
+      >
+        Please select
       </span>
     </span>
-    <span
-      class="ant-select-search__field__placeholder"
-      style="display: none;"
+  </span>,
+  <div>
+    <div
+      class="ant-select-dropdown ant-select-tree-dropdown ant-select-dropdown--multiple ant-select-dropdown-placement-bottomLeft"
+      style="max-height: 100vh; overflow: auto; left: -999px; top: -995px; min-width: 0;"
     >
-      Please select
-    </span>
-  </span>
-</span>
+      <div
+        id="rc-tree-select-list_7"
+        role="listbox"
+        tabindex="-1"
+      >
+        <ul
+          class="ant-select-tree"
+          role="tree"
+          unselectable="on"
+        >
+          <li
+            class="ant-select-tree-treenode-switcher-open"
+            role="treeitem"
+          >
+            <span
+              class="ant-select-tree-switcher ant-select-tree-switcher_open"
+            >
+              <span
+                class="ant-select-switcher-icon"
+              >
+                switcher
+              </span>
+            </span>
+            <span
+              class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-open"
+              title="parent 1"
+            >
+              <span
+                class="ant-select-tree-title"
+              >
+                parent 1
+              </span>
+            </span>
+            <ul
+              class="ant-select-tree-child-tree ant-select-tree-child-tree-open"
+              data-expanded="true"
+              role="group"
+            >
+              <li
+                class="ant-select-tree-treenode-switcher-open"
+                role="treeitem"
+              >
+                <span
+                  class="ant-select-tree-switcher ant-select-tree-switcher_open"
+                >
+                  <span
+                    class="ant-select-switcher-icon"
+                  >
+                    switcher
+                  </span>
+                </span>
+                <span
+                  class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-open"
+                  title="parent 1-0"
+                >
+                  <span
+                    class="ant-select-tree-title"
+                  >
+                    parent 1-0
+                  </span>
+                </span>
+                <ul
+                  class="ant-select-tree-child-tree ant-select-tree-child-tree-open"
+                  data-expanded="true"
+                  role="group"
+                >
+                  <li
+                    class="ant-select-tree-treenode-switcher-open ant-select-tree-treenode-selected"
+                    role="treeitem"
+                  >
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal ant-select-tree-node-selected"
+                      title="my leaf"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        my leaf
+                      </span>
+                    </span>
+                  </li>
+                  <li
+                    class="ant-select-tree-treenode-switcher-open ant-select-tree-treenode-selected"
+                    role="treeitem"
+                  >
+                    <span
+                      class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                    />
+                    <span
+                      class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal ant-select-tree-node-selected"
+                      title="your leaf"
+                    >
+                      <span
+                        class="ant-select-tree-title"
+                      >
+                        your leaf
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+]
 `;
