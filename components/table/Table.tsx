@@ -170,6 +170,7 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     });
   }
 
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps: TableProps<T>) {
     this.columns = nextProps.columns || normalizeColumns(nextProps.children as React.ReactChildren);
     if ('pagination' in nextProps || 'pagination' in this.props) {

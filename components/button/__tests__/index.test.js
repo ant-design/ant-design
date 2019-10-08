@@ -203,6 +203,7 @@ describe('Button', () => {
   it('should merge text if children using variable', () => {
     const wrapper = mount(
       <Button>
+        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         This {'is'} a test {1}
       </Button>,
     );
