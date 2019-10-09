@@ -30,7 +30,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | title | The title for Drawer. | string\|ReactNode | - | 3.7.0 |
 | visible | Whether the Drawer dialog is visible or not. | boolean | false | 3.7.0 |
 | width | Width of the Drawer dialog. | string\|number | 256 | 3.7.0 |
-| height | placement is `top` or `bottom`, height of the Drawer dialog. | string\|number | - | 3.9.0 |
+| height | placement is `top` or `bottom`, height of the Drawer dialog. | string\|number | 256 | 3.9.0 |
 | className | The class name of the container of the Drawer dialog. | string | - | 3.8.0 |
 | zIndex | The `z-index` of the Drawer. | Number | 1000 | 3.7.0 |
 | placement | The placement of the Drawer. | 'top' \| 'right' \| 'bottom' \| 'left' | 'right' | 3.7.0 |
