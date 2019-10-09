@@ -95,7 +95,7 @@ Now we need to customize the default webpack config. We can achieve that by usin
 Import react-app-rewired and modify the `scripts` field in package.json. Due to new [react-app-rewired@2.x](https://github.com/timarney/react-app-rewired#alternatives) issue, you shall need [customize-cra](https://github.com/arackaf/customize-cra) along with react-app-rewired.
 
 ```
-$ yarn add react-app-rewired customize-cra
+$ yarn add react-app-rewired customize-cra --dev
 ```
 
 ```diff
