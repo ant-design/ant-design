@@ -103,10 +103,10 @@ export function convertDirectoryKeysToNodes(
 }
 
 export function getFullKeyListByTreeData(treeData: any[]): any {
-  for (const item of treeData) {
-    if (item.children) {
-      return getFullKeyListByTreeData(item.children).concat([item.key]);
+  for (let i = 0; i < treeData.length; i++) {
+    if (treeData[i].children) {
+      return getFullKeyListByTreeData(treeData[i].children).concat([treeData[i].key]);
     }
-    return [item.key];
+    return [treeData[i].key];
   }
 }
