@@ -45,14 +45,15 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
     const { expandIcon } = this.props;
-    const icon = expandIcon ? (
+    const icon = (expandIcon ? (
       expandIcon(panelProps)
     ) : (
       <Icon type="right" rotate={panelProps.isActive ? 90 : undefined} />
-    );
+    )) as React.ReactNode;
+
     return React.isValidElement(icon)
       ? React.cloneElement(icon as any, {
-          className: `${prefixCls}-arrow`,
+          className: classNames(icon.props.className, `${prefixCls}-arrow`),
         })
       : icon;
   };
