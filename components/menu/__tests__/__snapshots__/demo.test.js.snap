@@ -1124,7 +1124,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
             </svg>
           </i>
           <span>
-            Navigtion Two
+            Navigation Two
           </span>
         </span>
         <i
