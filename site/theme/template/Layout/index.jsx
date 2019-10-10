@@ -126,7 +126,7 @@ export default class Layout extends React.Component {
           <link
             rel="apple-touch-icon-precomposed"
             sizes="144x144"
-            href="https://gw.alipayobjects.com/zos/antfincdn/Hf50mWhbKV/antd.png"
+            href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
           />
           <meta name="description" content={description} />
           <meta property="og:title" content={title} />
