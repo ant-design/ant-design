@@ -27,6 +27,22 @@ describe('Collapse', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should keep the className of the expandIcon', () => {
+    const wrapper = mount(
+      <Collapse
+        expandIcon={() => (
+          <button type="button" className="custom-expandicon-classname">
+            action
+          </button>
+        )}
+      >
+        <Collapse.Panel header="header" />
+      </Collapse>,
+    );
+
+    expect(wrapper.find('.custom-expandicon-classname').exists()).toBe(true);
+  });
+
   it('should render extra node of panel', () => {
     const wrapper = mount(
       <Collapse>
