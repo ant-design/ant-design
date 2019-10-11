@@ -74,7 +74,7 @@ describe('TextArea', () => {
   });
 
   it('should auto calculate height according to content length', () => {
-    const wrapper = mount(<TextArea value="" readOnly autosize />);
+    const wrapper = mount(<TextArea value="" readOnly autoSize />);
     const mockFunc = jest.spyOn(wrapper.instance(), 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
     jest.runAllTimers();

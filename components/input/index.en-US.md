@@ -41,7 +41,7 @@ The rest of the props of Input are exactly the same as the original [input](http
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| autosize | Height autosize feature, can be set to `true|false` or an object `{ minRows: 2, maxRows: 6 }` | boolean\|object | false |  |
+| autoSize | Height autosize feature, can be set to `true|false` or an object `{ minRows: 2, maxRows: 6 }` | boolean\|object | false |  |
 | defaultValue | The initial input content | string |  |  |
 | value | The input content value | string |  |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |  |
