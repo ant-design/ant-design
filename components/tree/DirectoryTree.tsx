@@ -87,14 +87,11 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
     // Expanded keys
     if (defaultExpandAll) {
-      const expandedKeysByChildren = getFullKeyList(props.children);
-      this.state.expandedKeys = expandedKeysByChildren;
-      if (
-        !!props.treeData &&
-        Array.isArray(expandedKeysByChildren) &&
-        expandedKeysByChildren.length === 0
-      ) {
+      if (props.treeData) {
+        console.log(getFullKeyListByTreeData(props.treeData));
         this.state.expandedKeys = getFullKeyListByTreeData(props.treeData);
+      } else {
+        this.state.expandedKeys = getFullKeyList(props.children);
       }
     } else if (defaultExpandParent) {
       this.state.expandedKeys = conductExpandParent(
