@@ -14,7 +14,7 @@ title:
 In some cases, pageHeader does not require its own background color.
 
 ```jsx
-import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
+import { PageHeader, Button, Descriptions } from 'antd';
 
 ReactDOM.render(
   <div
