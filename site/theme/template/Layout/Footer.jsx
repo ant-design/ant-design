@@ -143,7 +143,7 @@ class Footer extends React.Component {
             icon: <Icon type="zhihu" style={{ color: '#0084ff' }} />,
             title: 'SEE Conf',
             description: <FormattedMessage id="app.footer.seeconf" />,
-            url: 'http://zhuanlan.zhihu.com/xtech',
+            url: 'https://seeconf.antfin.com/',
             openExternal: true,
           },
           {

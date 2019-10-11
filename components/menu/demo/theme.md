@@ -76,7 +76,7 @@ class Sider extends React.Component {
             title={
               <span>
                 <Appstore />
-                <span>Navigtion Two</span>
+                <span>Navigation Two</span>
               </span>
             }
           >
