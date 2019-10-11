@@ -18,7 +18,7 @@ The local R&D workbench for Umi projects, code based, visualization function as 
 
 [More](https://umijs.org/guide/umi-ui.html#%E2%9C%A8-%E7%89%B9%E6%80%A7)
 
-![Umi UI](https://gw.alipayobjects.com/zos/antfincdn/xKamcZ2HPE/75aa218c-8b52-4d1c-980f-b7ec4c29d0c6.png)
+![Umi UI](https://gw.alipayobjects.com/zos/antfincdn/Xyns37N5nY/6591859e-7c16-48f5-852f-7817803425e9.png)
 
 ### Ant Financial Technology
 
