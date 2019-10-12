@@ -18,6 +18,12 @@
   &-enter-button {
     input {
       border-right: 0;
+      .rtlSupportReset(
+        border-right,
+        border-left,
+        none,
+        @border-width-base @border-style-base @input-border-color
+      );
     }
 
     & + .@{ant-prefix}-input-group-addon,
@@ -28,6 +34,13 @@
       .@{search-prefix}-button {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
+        .rtlSupportReset(border-top-left-radius, border-top-right-radius, 0, @border-radius-base);
+        .rtlSupportReset(
+          border-bottom-left-radius,
+          border-bottom-right-radius,
+          0,
+          @border-radius-base
+        );
       }
     }
   }
