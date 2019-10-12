@@ -1,0 +1,23 @@
+// rtl support that doesn't need reset
+.rtlSupport(@prop, @ltr-value, @rtl-value) {
+  [dir='rtl'] & {
+    @{prop}: @rtl-value;
+  }
+
+  [dir='ltr'] & {
+    @{prop}: @ltr-value;
+  }
+}
+
+// rtl support that does need reset
+.rtlSupportReset(@ltr-prop, @rtl-prop, @value, @reset-value) {
+  [dir='rtl'] & {
+    @{ltr-prop}: @reset-value;
+    @{rtl-prop}: @value;
+  }
+
+  [dir='ltr'] & {
+    @{ltr-prop}: @value;
+    @{rtl-prop}: @reset-value;
+  }
+}

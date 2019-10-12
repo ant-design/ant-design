@@ -403,21 +403,41 @@
 
   .@{inputClass}-prefix {
     left: @input-padding-horizontal-base + 1px;
+    .rtlSupportReset(left, right, @input-padding-horizontal-base + 1px, initial);
   }
 
   .@{inputClass}-suffix {
     right: @input-padding-horizontal-base + 1px;
+    .rtlSupportReset(right, left, @input-padding-horizontal-base + 1px, initial);
   }
 
   .@{inputClass}:not(:first-child) {
     padding-left: @input-padding-horizontal-base + @input-affix-width;
+    .rtlSupportReset(
+      padding-left,
+      padding-right,
+      @input-padding-horizontal-base + @input-affix-width,
+      @input-padding-horizontal-base
+    );
   }
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+    .rtlSupportReset(
+      padding-right,
+      padding-left,
+      @input-padding-horizontal-base + @input-affix-width,
+      @input-padding-horizontal-base
+    );
   }
 
   &.@{inputClass}-affix-wrapper-with-clear-btn .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
+    .rtlSupportReset(
+      padding-right,
+      padding-left,
+      @input-padding-horizontal-base + @input-affix-with-clear-btn-width,
+      @input-padding-horizontal-base
+    );
   }
 }
