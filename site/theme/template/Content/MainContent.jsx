@@ -290,7 +290,7 @@ class MainContent extends Component {
     });
     const menuChild = (
       <Menu
-        inlineIndent="40"
+        inlineIndent={40}
         className="aside-container menu-site"
         mode="inline"
         openKeys={openKeys}
