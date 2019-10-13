@@ -83,4 +83,14 @@ describe('Card', () => {
     );
     expect(wrapper.find('.ant-card-actions').length).toBe(0);
   });
+
+  it('should add extra head css class when added', () => {
+    const wrapper = mount(<Card title='head content' headClassName="myHeadClass" />);
+    expect(wrapper.find('.ant-card-head').hasClass('myHeadClass')).toBe(true);
+  });
+
+  it('should add body head css class when added', () => {
+    const wrapper = mount(<Card bodyClassName="myBodyClass">Body content</Card>);
+    expect(wrapper.find('.ant-card-body').hasClass('myBodyClass')).toBe(true);
+  });
 });
