@@ -35,6 +35,8 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   hoverable?: boolean;
   children?: React.ReactNode;
   id?: string;
+  headClassName?: string;
+  bodyClassName?: string;
   className?: string;
   size?: CardSize;
   type?: CardType;
@@ -103,6 +105,8 @@ export default class Card extends React.Component<CardProps, {}> {
     const {
       prefixCls: customizePrefixCls,
       className,
+      headClassName,
+      bodyClassName,
       extra,
       headStyle = {},
       bodyStyle = {},
@@ -204,7 +208,7 @@ export default class Card extends React.Component<CardProps, {}> {
       ) : null;
     if (title || extra || tabs) {
       head = (
-        <div className={`${prefixCls}-head`} style={headStyle}>
+        <div className={classNames(`${prefixCls}-head`, headClassName)} style={headStyle}>
           <div className={`${prefixCls}-head-wrapper`}>
             {title && <div className={`${prefixCls}-head-title`}>{title}</div>}
             {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
@@ -215,7 +219,7 @@ export default class Card extends React.Component<CardProps, {}> {
     }
     const coverDom = cover ? <div className={`${prefixCls}-cover`}>{cover}</div> : null;
     const body = (
-      <div className={`${prefixCls}-body`} style={bodyStyle}>
+      <div className={classNames(`${prefixCls}-body`, bodyClassName)} style={bodyStyle}>
         {loading ? loadingBlock : children}
       </div>
     );
