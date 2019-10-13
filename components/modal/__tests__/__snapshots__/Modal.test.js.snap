@@ -28,6 +28,7 @@ exports[`Modal render correctly 1`] = `
           <button
             aria-label="Close"
             class="ant-modal-close"
+            type="button"
           >
             <span
               class="ant-modal-close-x"
@@ -120,6 +121,7 @@ exports[`Modal render without footer 1`] = `
           <button
             aria-label="Close"
             class="ant-modal-close"
+            type="button"
           >
             <span
               class="ant-modal-close-x"
