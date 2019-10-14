@@ -2,27 +2,13 @@
 // SFC has specified a displayName, but not worked.
 /* eslint-disable react/display-name */
 import * as React from 'react';
-import createReactContext from '@ant-design/create-react-context';
 
-import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
+import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 
-export { RenderEmptyHandler };
-
-export interface CSPConfig {
-  nonce?: string;
-}
-
-export interface ConfigConsumerProps {
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  rootPrefixCls?: string;
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
-  renderEmpty: RenderEmptyHandler;
-  csp?: CSPConfig;
-  autoInsertSpaceInButton?: boolean;
-  locale?: Locale;
-}
+export { RenderEmptyHandler, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
   'getPopupContainer',
@@ -43,19 +29,6 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
 }
-
-const ConfigContext = createReactContext<ConfigConsumerProps>({
-  // We provide a default function for Context without provider
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
-
-    return `ant-${suffixCls}`;
-  },
-
-  renderEmpty: defaultRenderEmpty,
-});
-
-export const ConfigConsumer = ConfigContext.Consumer;
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
   getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
