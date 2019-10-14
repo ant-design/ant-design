@@ -74,7 +74,7 @@ class Footer extends React.Component {
           {
             title: 'Scaffolds',
             description: <FormattedMessage id="app.footer.scaffolds" />,
-            url: 'https://scaffolds.ant.design',
+            url: 'https://scaffold.ant.design',
             openExternal: true,
           },
           {
