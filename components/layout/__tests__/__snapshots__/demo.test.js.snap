@@ -1624,7 +1624,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 />
               </div>
               <ul
-                class="ant-menu  ant-menu-sub ant-menu-inline"
+                class="ant-menu ant-menu-sub ant-menu-inline"
                 id="sub1$Menu"
                 role="menu"
               >
@@ -1914,7 +1914,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               />
             </div>
             <ul
-              class="ant-menu  ant-menu-sub ant-menu-inline"
+              class="ant-menu ant-menu-sub ant-menu-inline"
               id="sub1$Menu"
               role="menu"
             >

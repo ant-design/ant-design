@@ -8018,7 +8018,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       />
     </div>
     <ul
-      class="config-menu  config-menu-sub config-menu-inline"
+      class="config-menu config-menu-sub config-menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -8071,7 +8071,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
       />
     </div>
     <ul
-      class="ant-menu  ant-menu-sub ant-menu-inline"
+      class="ant-menu ant-menu-sub ant-menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -8124,7 +8124,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       />
     </div>
     <ul
-      class="prefix-Menu  prefix-Menu-sub prefix-Menu-inline"
+      class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
       id="bamboo$Menu"
       role="menu"
     >

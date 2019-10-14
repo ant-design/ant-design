@@ -18,7 +18,7 @@ export type ColumnFilterItem = {
 export interface FilterDropdownProps {
   prefixCls?: string;
   setSelectedKeys?: (selectedKeys: string[]) => void;
-  selectedKeys?: string[];
+  selectedKeys?: React.Key[];
   confirm?: () => void;
   clearFilters?: (selectedKeys: string[]) => void;
   filters?: ColumnFilterItem[];
@@ -285,16 +285,16 @@ export interface FilterMenuProps<T> {
   locale: TableLocale;
   selectedKeys: string[];
   column: ColumnProps<T>;
-  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
+  confirmFilter: (column: ColumnProps<T>, selectedKeys: React.Key[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
   getPopupContainer?: GetPopupContainer;
 }
 
 export interface FilterMenuState<T> {
-  selectedKeys: string[];
+  selectedKeys: React.Key[];
   valueKeys: { [name: string]: string };
-  keyPathOfSelectedItem: { [key: string]: string };
+  keyPathOfSelectedItem: { [key: string]: React.Key[] };
   visible?: boolean;
   prevProps: FilterMenuProps<T>;
 }
