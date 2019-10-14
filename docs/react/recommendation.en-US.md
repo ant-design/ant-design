@@ -36,6 +36,19 @@ title: Third-Party Libraries
 | Keywords highlight | [react-highlight-words](https://github.com/bvaughn/react-highlight-words) |
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 
+## Products we are using ✨
+
+There are some products to recommend for developer/designer/product manager.
+
+| Category | Recommended Products |
+| --- | --- |
+| Documentation | [🐦 Yuque](https://www.yuque.com/?chInfo=ch_antd) |
+| Icon | [Iconfont](https://www.iconfont.cn/) |
+| Sketch plugin | [Kitchen](https://kichen.alipay.com) |
+| Online Playground | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
+| Image Compressor | [tinypng](https://tinypng.com/) |
+| Charts Dictionary | [G2](https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html) [图之典](http://tuzhidian.com/) |
+
 <style>
 .markdown table td:first-child {
   font-weight: 500;

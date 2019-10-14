@@ -47,6 +47,8 @@ module.exports = {
     'app.home.tool-kitchen-title': 'Kitchen',
     'app.home.tool-kitchen-content': 'A Sketch tools for designers',
     'app.home.getting-started': 'Getting Started',
+    'app.home.recommend': 'Recommend',
+    'app.home.recommend.yuque': 'Yuque, our favorite documentation tool',
     'app.home.more': 'Learn more',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',

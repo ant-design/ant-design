@@ -44,6 +44,8 @@ module.exports = {
     'app.home.tool-kitchen-title': 'Kitchen',
     'app.home.tool-kitchen-content': '一个为设计师提效的 Sketch 工具集',
     'app.home.getting-started': '开始使用',
+    'app.home.recommend': '推荐',
+    'app.home.recommend.yuque': '语雀，我们都喜欢的文档工具',
     'app.home.more': '查看更多',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',
