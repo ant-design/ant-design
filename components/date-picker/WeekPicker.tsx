@@ -143,6 +143,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
       onBlur,
       id,
       suffixIcon,
+      name,
     } = this.props;
 
     const prefixCls = getPrefixCls('calendar', customizePrefixCls);
@@ -187,6 +188,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
     const input = ({ value }: { value: moment.Moment | undefined }) => (
       <span style={{ display: 'inline-block', width: '100%' }}>
         <input
+          name={name}
           ref={this.saveInput}
           disabled={disabled}
           readOnly

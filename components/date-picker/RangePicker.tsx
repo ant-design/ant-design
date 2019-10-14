@@ -286,6 +286,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       onCalendarChange,
       suffixIcon,
       separator,
+      name,
     } = props;
 
     const prefixCls = getPrefixCls('calendar', customizePrefixCls);
@@ -380,6 +381,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       return (
         <span className={props.pickerInputClass}>
           <input
+            name={name}
             disabled={props.disabled}
             readOnly
             value={formatDate(start, props.format)}
@@ -389,6 +391,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
           />
           <span className={`${prefixCls}-range-picker-separator`}> {separator} </span>
           <input
+            name={name}
             disabled={props.disabled}
             readOnly
             value={formatDate(end, props.format)}
