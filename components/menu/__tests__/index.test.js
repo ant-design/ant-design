@@ -4,6 +4,7 @@ import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
 import mountTest from '../../../tests/shared/mountTest';
+import { resetWarned } from 'rc-util/lib/warning';
 
 jest.mock('mutationobserver-shim', () => {
   global.MutationObserver = function MutationObserver() {
@@ -564,15 +565,49 @@ describe('Menu', () => {
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
-  it('get correct animation type when switched from inline', () => {
-    const wrapper = mount(<Menu mode="inline" />);
-    wrapper.setProps({ mode: 'horizontal' });
-    expect(
-      wrapper
-        .find('InternalMenu')
-        .instance()
-        .getOpenMotionProps(''),
-    ).toEqual({ motion: { motionName: '' } });
+  describe('motion', () => {
+    it('get correct animation type when switched from inline', () => {
+      const wrapper = mount(<Menu mode="inline" />);
+      wrapper.setProps({ mode: 'horizontal' });
+      expect(
+        wrapper
+          .find('InternalMenu')
+          .instance()
+          .getOpenMotionProps(''),
+      ).toEqual({ motion: { motionName: '' } });
+    });
+
+    it('warning if use `openAnimation` as object', () => {
+      resetWarned();
+
+      const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      mount(<Menu openAnimation={{}} />);
+      expect(warnSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Menu] `openAnimation` do not support object. Please use `motion` instead.',
+      );
+      warnSpy.mockRestore();
+    });
+
+    it('motion object', () => {
+      const motion = { test: true };
+      const wrapper = mount(<Menu motion={motion} />);
+      expect(
+        wrapper
+          .find('InternalMenu')
+          .instance()
+          .getOpenMotionProps(''),
+      ).toEqual({ motion });
+    });
+
+    it('legacy openTransitionName', () => {
+      const wrapper = mount(<Menu openTransitionName="legacy" />);
+      expect(
+        wrapper
+          .find('InternalMenu')
+          .instance()
+          .getOpenMotionProps(''),
+      ).toEqual({ openTransitionName: 'legacy' });
+    });
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
