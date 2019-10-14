@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { render, mount } from 'enzyme';
+import { render, mount, shallow } from 'enzyme';
 import renderer from 'react-test-renderer';
 import Button from '..';
 import Icon from '../../icon';
 import mountTest from '../../../tests/shared/mountTest';
 import { sleep } from '../../../tests/utils';
+
+jest.useFakeTimers();
 
 describe('Button', () => {
   mountTest(Button);
@@ -129,7 +131,7 @@ describe('Button', () => {
     expect(wrapper.find('.ant-btn-loading').length).toBe(1);
   });
 
-  it('should change loading state with delay', () => {
+  fit('should change loading state with delay', () => {
     // eslint-disable-next-line
     class DefaultButton extends Component {
       state = {
@@ -142,6 +144,7 @@ describe('Button', () => {
 
       render() {
         const { loading } = this.state;
+        console.log(loading);
         return (
           <Button loading={loading} onClick={this.enterLoading}>
             Button
@@ -150,8 +153,11 @@ describe('Button', () => {
       }
     }
     const wrapper = mount(<DefaultButton />);
+    expect(wrapper.render().hasClass('ant-btn-loading')).toBe(false);
     wrapper.simulate('click');
-    expect(wrapper.hasClass('ant-btn-loading')).toBe(false);
+    expect(wrapper.render().hasClass('ant-btn-loading')).toBe(true);
+    jest.runOnlyPendingTimers();
+    expect(wrapper.render().hasClass('ant-btn-loading')).toBe(false);
   });
 
   it('should not clickable when button is loading', () => {
