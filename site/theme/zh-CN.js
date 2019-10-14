@@ -62,6 +62,7 @@ module.exports = {
     'app.footer.dev-tools': '开发工具',
     'app.footer.umi': 'React 应用开发框架',
     'app.footer.dva': '数据流前端框架',
+    'app.footer.remax': '全新的小程序开发体验',
     'app.footer.resources': '相关资源',
     'app.footer.data-vis': '数据可视化',
     'app.footer.eggjs': '企业级 Node 开发框架',

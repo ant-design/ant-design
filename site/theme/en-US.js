@@ -65,6 +65,7 @@ module.exports = {
     'app.footer.dev-tools': 'Developer Tools',
     'app.footer.umi': 'React Application Framework',
     'app.footer.dva': 'Data Flow Framework',
+    'app.footer.remax': 'Mini Program Framework',
     'app.footer.resources': 'Resources',
     'app.footer.data-vis': 'Data Visualization',
     'app.footer.eggjs': 'Enterprise Node Framework',
