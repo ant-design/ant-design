@@ -22,7 +22,7 @@ export interface PageHeaderProps {
   avatar?: AvatarProps;
   onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
-  type?: 'ghost' | 'default';
+  ghost?: boolean;
 }
 
 const renderBack = (
@@ -90,13 +90,13 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
 
 const PageHeader: React.SFC<PageHeaderProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls, pageHeader = { type: 'default' } }: ConfigConsumerProps) => {
+    {({ getPrefixCls, pageHeader = { ghost: true } }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         style,
         footer,
         children,
-        type,
+        ghost = true,
         breadcrumb,
         className: customizeClassName,
       } = props;
@@ -107,7 +107,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
         // 防止设置为 null 报错
-        ghost: type === 'ghost' || (pageHeader && pageHeader.type === 'ghost'),
+        ghost: ghost || (pageHeader && ghost === undefined && pageHeader.ghost),
       });
 
       return (

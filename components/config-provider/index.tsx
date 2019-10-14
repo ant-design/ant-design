@@ -30,7 +30,7 @@ export interface ConfigProviderProps {
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
   pageHeader?: {
-    type: 'ghost' | 'default';
+    ghost: boolean;
   };
 }
 
@@ -51,7 +51,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       locale,
-      pageHeader,
+      pageHeader = { ghost: true },
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -70,7 +70,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     // set pageHeader type
     // 防止设置为 null 报错
-    if (pageHeader && pageHeader.type) {
+    if (pageHeader && pageHeader.ghost) {
       config.pageHeader = pageHeader;
     }
 

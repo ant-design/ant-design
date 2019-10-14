@@ -1,17 +1,17 @@
 ---
 order: 2
 title:
-  zh-CN: 纯净模式，没有白底
-  en-US: Pure mode, no white background
+  zh-CN: 白底模式
+  en-US: white background mode
 ---
 
 ## zh-CN
 
-在某些情况下，pageHeader 不需要自己的背景颜色。
+在某些情况下，pageHeader 需要自己的背景颜色。
 
 ## en-US
 
-In some cases, pageHeader does not require its own background color.
+In some cases, pageHeader require its own background color.
 
 ```jsx
 import { PageHeader, Button, Descriptions } from 'antd';
@@ -24,7 +24,7 @@ ReactDOM.render(
     }}
   >
     <PageHeader
-      type="ghost"
+      ghost={false}
       onBack={() => window.history.back()}
       title="Title"
       subTitle="This is a subtitle"

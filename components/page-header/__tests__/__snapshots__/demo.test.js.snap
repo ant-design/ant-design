@@ -3,7 +3,7 @@
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header"
+    class="ant-page-header ghost"
   >
     <div
       class="ant-page-header-heading"
@@ -182,7 +182,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
   </div>
   <br />
   <div
-    class="ant-page-header"
+    class="ant-page-header ghost"
   >
     <div
       class="ant-page-header-heading"
@@ -363,7 +363,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 <div
-  class="ant-page-header"
+  class="ant-page-header ghost"
 >
   <div
     class="ant-page-header-heading"
@@ -415,7 +415,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb"
+  class="ant-page-header has-breadcrumb ghost"
 >
   <div
     class="ant-breadcrumb"
@@ -486,7 +486,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb"
+  class="ant-page-header has-breadcrumb ghost"
 >
   <div
     class="ant-breadcrumb"
@@ -700,7 +700,7 @@ exports[`renders ./components/page-header/demo/pure.md correctly 1`] = `
   style="background-color:#F5F5F5;padding:24px"
 >
   <div
-    class="ant-page-header ghost"
+    class="ant-page-header"
   >
     <div
       class="ant-page-header-heading"
@@ -883,7 +883,7 @@ exports[`renders ./components/page-header/demo/pure.md correctly 1`] = `
 exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header has-footer"
+    class="ant-page-header has-footer ghost"
   >
     <div
       class="ant-page-header-heading"

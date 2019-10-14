@@ -92,6 +92,9 @@ ReactDOM.render(
 tr:last-child td {
   padding-bottom: 0;
 }
+.ant-statistic-content-value{
+  font-size: 20px;
+}
 #components-page-header-demo-responsive .content {
   display: flex;
 }

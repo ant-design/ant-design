@@ -15,7 +15,7 @@ export interface ConfigConsumerProps {
   autoInsertSpaceInButton?: boolean;
   locale?: Locale;
   pageHeader?: {
-    type: 'ghost' | 'default';
+    ghost: boolean;
   };
 }
 
