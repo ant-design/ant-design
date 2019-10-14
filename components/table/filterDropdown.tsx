@@ -98,8 +98,8 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     }
   };
 
-  setSelectedKeys = ({ selectedKeys }: { selectedKeys: string[] }) => {
-    this.setState({ selectedKeys });
+  setSelectedKeys = ({ selectedKeys }: { selectedKeys?: React.Key[] }) => {
+    this.setState({ selectedKeys: selectedKeys! });
   };
 
   setVisible(visible: boolean) {
@@ -138,7 +138,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     }
   };
 
-  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
+  handleMenuItemClick = (info: { keyPath: React.Key[]; key: React.Key }) => {
     const { selectedKeys } = this.state;
     if (!info.keyPath || info.keyPath.length <= 1) {
       return;
