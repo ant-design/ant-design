@@ -73,6 +73,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     }
 
     // set pageHeader type
+    // 防止设置为 null 报错
     if (pageHeader && pageHeader.type) {
       config.pageHeader = pageHeader;
     }

@@ -697,10 +697,10 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/pure.md correctly 1`] = `
 <div
-  style="background-color:#eee;padding:24px"
+  style="background-color:#F5F5F5;padding:24px"
 >
   <div
-    class="ant-page-header pure"
+    class="ant-page-header ghost"
   >
     <div
       class="ant-page-header-heading"

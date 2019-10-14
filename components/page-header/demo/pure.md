@@ -19,12 +19,12 @@ import { PageHeader, Button, Descriptions } from 'antd';
 ReactDOM.render(
   <div
     style={{
-      backgroundColor: '#eee',
+      backgroundColor: '#F5F5F5',
       padding: 24,
     }}
   >
     <PageHeader
-      type="pure"
+      type="ghost"
       onBack={() => window.history.back()}
       title="Title"
       subTitle="This is a subtitle"
@@ -55,6 +55,6 @@ ReactDOM.render(
 
 <style>
 #components-page-header-demo-pure .code-box-demo .ant-page-header {
-  border: 1px solid #1890ff;
+  border: 1px solid #ebedf0;
 }
 </style>
