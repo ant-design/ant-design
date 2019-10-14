@@ -4,6 +4,9 @@ import { Store } from './createStore';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
+import { tuple } from '../_util/type';
+
+const ColumnFixedPlacements = tuple('left', 'right');
 
 // eslint-disable-next-line import/prefer-default-export
 export { PaginationConfig } from '../pagination';
@@ -44,7 +47,7 @@ export interface ColumnProps<T> {
   colSpan?: number;
   width?: string | number;
   className?: string;
-  fixed?: boolean | ('left' | 'right');
+  fixed?: boolean | (typeof ColumnFixedPlacements)[number];
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filteredValue?: any[];
   sortOrder?: SortOrder | boolean;
