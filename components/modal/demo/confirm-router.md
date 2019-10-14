@@ -1,7 +1,7 @@
 ---
 order: 8
 title:
-  zh-CN:   销毁确认对话框
+  zh-CN: 销毁确认对话框
   en-US: destroy confirmation modal dialog
 ---
 
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-`Modal.destroyAll()` could destroy all confirmation modal dialogs. Usually, you can use it in router change event to destroy confirm modal dialog automatically
+`Modal.destroyAll()` will destroy all confirmation modal dialogs. Usually, you can use it in router change event to destroy confirm modal dialog automatically.
 
 ```jsx
 import { Modal, Button } from 'antd';
@@ -20,17 +20,13 @@ function destroyAll() {
   Modal.destroyAll();
 }
 
-const confirm = Modal.confirm;
+const { confirm } = Modal;
 
 function showConfirm() {
   for (let i = 0; i < 3; i += 1) {
     setTimeout(() => {
       confirm({
-        content: (
-          <Button onClick={destroyAll}>
-            Click to destroy all
-          </Button>
-        ),
+        content: <Button onClick={destroyAll}>Click to destroy all</Button>,
         onOk() {
           console.log('OK');
         },
@@ -45,6 +41,7 @@ function showConfirm() {
 ReactDOM.render(
   <div>
     <Button onClick={showConfirm}>Confirm</Button>
-  </div>, mountNode
+  </div>,
+  mountNode,
 );
 ```

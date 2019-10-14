@@ -1,8 +1,7 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
@@ -18,11 +17,7 @@ function compress(string) {
     .replace(/=+$/, ''); // Remove ending '='
 }
 
-export default class Demo extends React.Component {
-  static contextTypes = {
-    intl: PropTypes.object,
-  };
-
+class Demo extends React.Component {
   state = {
     codeExpand: false,
     copied: false,
@@ -56,17 +51,25 @@ export default class Demo extends React.Component {
     return '';
   }
 
-  handleCodeExpand = () => {
+  handleCodeExpand = demo => {
     const { codeExpand } = this.state;
     this.setState({ codeExpand: !codeExpand });
+    this.track({
+      type: 'expand',
+      demo,
+    });
   };
 
   saveAnchor = anchor => {
     this.anchor = anchor;
   };
 
-  handleCodeCopied = () => {
+  handleCodeCopied = demo => {
     this.setState({ copied: true });
+    this.track({
+      type: 'copy',
+      demo,
+    });
   };
 
   onCopyTooltipVisibleChange = visible => {
@@ -82,11 +85,23 @@ export default class Demo extends React.Component {
     });
   };
 
+  // eslint-disable-next-line
+  track({ type, demo }) {
+    if (!window.gtag) {
+      return;
+    }
+    window.gtag('event', 'demo', {
+      event_category: type,
+      event_label: demo,
+    });
+  }
+
   render() {
-    const { state } = this;
-    const { props } = this;
-    const { meta, src, content, preview, highlightedCode, style, highlightedStyle, expand } = props;
-    const { copied } = state;
+    const {
+      meta, src, content, preview, highlightedCode, style,
+      highlightedStyle, expand, utils, intl: { locale },
+    } = this.props;
+    const { copied, copyTooltipVisible } = this.state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
@@ -96,17 +111,14 @@ export default class Demo extends React.Component {
         preview(React, ReactDOM)
       );
     }
-    const codeExpand = state.codeExpand || expand;
+    const codeExpand = this.state.codeExpand || expand;
     const codeBoxClass = classNames('code-box', {
       expand: codeExpand,
       'code-box-debug': meta.debug,
     });
-    const {
-      intl: { locale },
-    } = this.context;
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = props.utils.toReactComponent(['div'].concat(localizeIntro));
+    const introChildren = utils.toReactComponent(['div'].concat(localizeIntro));
 
     const highlightClass = classNames({
       'highlight-wrapper': true,
@@ -160,7 +172,10 @@ export default class Demo extends React.Component {
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
         if (matches && matches[1] && !line.includes('antd')) {
-          acc[matches[1]] = 'latest';
+          const [dep] = matches[1].split('/');
+          if (dep) {
+            acc[dep] = 'latest';
+          }
         }
         return acc;
       },
@@ -206,15 +221,18 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               </a>
             </Tooltip>
             <EditButton
-              title={<FormattedMessage id="app.content.edit" />}
+              title={<FormattedMessage id="app.content.edit-demo" />}
               filename={meta.filename}
             />
           </div>
-          <div className="code-box-description">
-            {introChildren}
-          </div>
+          <div className="code-box-description">{introChildren}</div>
           <div className="code-box-actions">
-            <form action="//riddle.alibaba-inc.com/riddles/define" method="POST" target="_blank">
+            <form
+              action="//riddle.alibaba-inc.com/riddles/define"
+              method="POST"
+              target="_blank"
+              onClick={() => this.track({ type: 'riddle', demo: meta.id })}
+            >
               <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
               <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
                 <input
@@ -224,7 +242,12 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <form action="https://codepen.io/pen/define" method="POST" target="_blank">
+            <form
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+            >
               <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
               <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
                 <input
@@ -238,6 +261,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
               target="_blank"
+              onClick={() => this.track({ type: 'codesandbox', demo: meta.id })}
             >
               <input
                 type="hidden"
@@ -252,38 +276,40 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <CopyToClipboard text={sourceCode} onCopy={this.handleCodeCopied}>
+            <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
-                visible={state.copyTooltipVisible}
+                visible={copyTooltipVisible}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
                 <Icon
-                  type={state.copied && state.copyTooltipVisible ? 'check' : 'snippets'}
+                  type={copied && copyTooltipVisible ? 'check' : 'snippets'}
                   className="code-box-code-copy"
                 />
               </Tooltip>
             </CopyToClipboard>
-            <Tooltip title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}>
+            <Tooltip
+              title={<FormattedMessage id={`app.demo.code.${codeExpand ? 'hide' : 'show'}`} />}
+            >
               <span className="code-expand-icon">
                 <img
                   alt="expand code"
                   src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
                   className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
-                  onClick={this.handleCodeExpand}
+                  onClick={() => this.handleCodeExpand(meta.id)}
                 />
                 <img
                   alt="expand code"
                   src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
-                  onClick={this.handleCodeExpand}
+                  onClick={() => this.handleCodeExpand(meta.id)}
                 />
               </span>
             </Tooltip>
           </div>
         </section>
         <section className={highlightClass} key="code">
-          <div className="highlight">{props.utils.toReactComponent(highlightedCode)}</div>
+          <div className="highlight">{utils.toReactComponent(highlightedCode)}</div>
           {highlightedStyle ? (
             <div key="style" className="highlight">
               <pre>
@@ -296,3 +322,5 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
     );
   }
 }
+
+export default injectIntl(Demo);

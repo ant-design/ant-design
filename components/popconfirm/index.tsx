@@ -5,20 +5,21 @@ import Icon from '../icon';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale-provider/default';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode;
-  onConfirm?: (e?: React.MouseEvent<any>) => void;
-  onCancel?: (e?: React.MouseEvent<any>) => void;
+  disabled?: boolean;
+  onConfirm?: (e?: React.MouseEvent<HTMLElement>) => void;
+  onCancel?: (e?: React.MouseEvent<HTMLElement>) => void;
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
   okButtonProps?: NativeButtonProps;
   cancelButtonProps?: NativeButtonProps;
   icon?: React.ReactNode;
-  onVisibleChange?: (visible: boolean, e?: React.MouseEvent<any>) => void;
+  onVisibleChange?: (visible: boolean, e?: React.MouseEvent<HTMLElement>) => void;
 }
 
 export interface PopconfirmState {
@@ -37,12 +38,14 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     trigger: 'click' as PopconfirmProps['trigger'],
     okType: 'primary' as PopconfirmProps['okType'],
     icon: <Icon type="exclamation-circle" theme="filled" />,
+    disabled: false,
   };
 
   static getDerivedStateFromProps(nextProps: PopconfirmProps) {
     if ('visible' in nextProps) {
       return { visible: nextProps.visible };
-    } else if ('defaultVisible' in nextProps) {
+    }
+    if ('defaultVisible' in nextProps) {
       return { visible: nextProps.defaultVisible };
     }
     return null;
@@ -81,11 +84,15 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
   };
 
   onVisibleChange = (visible: boolean) => {
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
     this.setVisible(visible);
   };
 
   setVisible(visible: boolean, e?: React.MouseEvent<HTMLButtonElement>) {
-    const props = this.props;
+    const { props } = this;
     if (!('visible' in props)) {
       this.setState({ visible });
     }

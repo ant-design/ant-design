@@ -3,10 +3,14 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { formatTimeStr } from '../utils';
+import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Statistic', () => {
+  mountTest(Statistic);
+  mountTest(Statistic.Countdown);
+
   beforeAll(() => {
     MockDate.set(moment('2018-11-28 00:00:00'));
   });
@@ -18,7 +22,7 @@ describe('Statistic', () => {
   it('customize formatter', () => {
     const formatter = jest.fn(() => 93);
     const wrapper = mount(<Statistic value={1128} formatter={formatter} />);
-    expect(formatter).toBeCalledWith(1128);
+    expect(formatter).toHaveBeenCalledWith(1128);
     expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('93');
   });
 
@@ -69,11 +73,11 @@ describe('Statistic', () => {
       const instance = wrapper.instance();
       expect(instance.countdownId).not.toBe(undefined);
 
-      await delay(10);
+      await sleep(10);
 
       wrapper.unmount();
       expect(instance.countdownId).toBe(undefined);
-      expect(onFinish).not.toBeCalled();
+      expect(onFinish).not.toHaveBeenCalled();
     });
 
     describe('time finished', () => {
@@ -86,7 +90,7 @@ describe('Statistic', () => {
 
         const instance = wrapper.instance();
         expect(instance.countdownId).toBe(undefined);
-        expect(onFinish).not.toBeCalled();
+        expect(onFinish).not.toHaveBeenCalled();
       });
 
       it('called if finished', async () => {
@@ -99,9 +103,15 @@ describe('Statistic', () => {
         MockDate.set(moment('2019-11-28 00:00:00'));
         jest.runAllTimers();
 
-        expect(onFinish).toBeCalled();
+        expect(onFinish).toHaveBeenCalled();
         jest.useFakeTimers();
       });
+    });
+  });
+
+  describe('utils', () => {
+    it('format should support escape', () => {
+      expect(formatTimeStr(1000 * 60 * 60 * 24, 'D [Day]')).toBe('1 Day');
     });
   });
 });

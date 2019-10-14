@@ -15,10 +15,6 @@ body {
 
 a {
   transition: color 0.3s ease;
-  &:focus {
-    text-decoration: underline;
-    text-decoration-skip-ink: auto;
-  }
 }
 
 .main-wrapper {
@@ -104,13 +100,21 @@ a {
 }
 
 // reset menu text color
-.menu-site .ant-menu-item > a {
-  color: @site-text-color;
-}
+.menu-site {
+  .ant-menu-item > a {
+    color: @site-text-color;
+  }
 
-.menu-site .ant-menu-item-selected > a,
-.menu-site .ant-menu-item > a:hover {
-  color: @primary-color;
+  .ant-menu-item-selected > a,
+  .ant-menu-item > a:hover {
+    color: @primary-color;
+  }
+
+  .menu-antd-components-count {
+    margin-left: .5em;
+    color: @disabled-color;
+    font-size: 12px;
+  }
 }
 
 #react-content {
@@ -121,9 +125,6 @@ a {
   width: 100%;
   padding: 0;
   overflow: hidden;
-  a {
-    text-decoration: none;
-  }
 }
 
 .drawer-content {

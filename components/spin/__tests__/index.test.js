@@ -1,8 +1,11 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import Spin from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Spin', () => {
+  mountTest(Spin);
+
   it('should only affect the spin element when set style to a nested <Spin>xx</Spin>', () => {
     const wrapper = mount(
       <Spin style={{ background: 'red' }}>

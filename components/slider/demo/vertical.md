@@ -13,7 +13,7 @@ title:
 
 The vertical Slider.
 
-````jsx
+```jsx
 import { Slider } from 'antd';
 
 const style = {
@@ -46,6 +46,6 @@ ReactDOM.render(
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

@@ -1,4 +1,4 @@
-import createReactContext from 'create-react-context/lib/implementation';
+import createReactContext from '@ant-design/create-react-context/lib/implementation';
 
 const React = require.requireActual('react');
 

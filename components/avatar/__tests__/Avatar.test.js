@@ -1,8 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Avatar from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Avatar Render', () => {
+  mountTest(Avatar);
+
   let originOffsetWidth;
   beforeAll(() => {
     // Mock offsetHeight
@@ -46,7 +49,7 @@ describe('Avatar Render', () => {
     const children = wrapper.find('.ant-avatar-string');
     expect(children.length).toBe(1);
     expect(children.text()).toBe('Fallback');
-    expect(wrapper.instance().setScale).toBeCalled();
+    expect(wrapper.instance().setScale).toHaveBeenCalled();
     expect(div.querySelector('.ant-avatar-string').style.transform).toContain('scale(0.5)');
 
     wrapper.detach();

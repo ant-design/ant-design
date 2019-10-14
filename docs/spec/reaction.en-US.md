@@ -20,8 +20,7 @@ While there is a possibility of too much feedback (or, more accurately, too much
 
 <img class="preview-img" align="right" alt="example of Uncertain Category" description="The number of categories the keyword of the user query belongs to is uncertain." src="https://gw.alipayobjects.com/zos/rmsportal/czfJRLltwXcsTLlTpytV.png">
 
-Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed.
-Depending on the categories of search results, it can be divided into two types, Certain Category and Uncertain Category.
+Auto Complete: As the user types input into a field, a drop-down menu of matching values is displayed. Depending on the categories of search results, it can be divided into two types, Certain Category and Uncertain Category.
 
 <br>
 
@@ -39,7 +38,7 @@ Live Suggest: Live Suggest provides real-time search term suggestions for creati
 
 Live Preview: A Live Preview gives the users a glimpse beforehand of how the application will interpret their input once submitted.
 
->Note: An ounce of prevention is worth a pound of cure. Use Live Previews to prevent errors.
+> Note: An ounce of prevention is worth a pound of cure. Use Live Previews to prevent errors.
 
 <br>
 
@@ -54,7 +53,6 @@ Progressive Disclosure: When users are faced with a series of steps, it is often
 <img class="preview-img" align="right" alt="example of Loading List" src="https://gw.alipayobjects.com/zos/rmsportal/tVzqUunjctTxvSMmhSVv.png">
 
 <img class="preview-img" align="right" alt="example of Loading Page" src="https://gw.alipayobjects.com/zos/rmsportal/igxFnUdRHWaBXtTePuFf.png">
-
 
 Progress Indicator: Progress Indicators keep a conversation going with the user when the rest of the interface is currently unavailable. Common Progress Indicators, such as Loading Button, Loading Table, Loading List and Loading Page, can be displayed respectively according to the frequency and importance of operation.
 

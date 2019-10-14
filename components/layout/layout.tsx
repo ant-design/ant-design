@@ -1,6 +1,6 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
+import createContext from '@ant-design/create-react-context';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -13,16 +13,32 @@ export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   hasSider?: boolean;
 }
 
+export interface LayoutContextProps {
+  siderHook: {
+    addSider: (id: string) => void;
+    removeSider: (id: string) => void;
+  };
+}
+export const LayoutContext = createContext<LayoutContextProps>({
+  siderHook: {
+    addSider: () => null,
+    removeSider: () => null,
+  },
+});
+
 interface BasicPropsWithTagName extends BasicProps {
   tagName: 'header' | 'footer' | 'main' | 'section';
 }
 
 function generator({ suffixCls, tagName }: GeneratorProps) {
-  return (BasicComponent: React.ComponentClass<BasicPropsWithTagName>): any => {
+  return (BasicComponent: any) => {
     return class Adapter extends React.Component<BasicProps, any> {
       static Header: any;
+
       static Footer: any;
+
       static Content: any;
+
       static Sider: any;
 
       renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
@@ -39,48 +55,48 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
   };
 }
 
-class Basic extends React.Component<BasicPropsWithTagName, any> {
-  render() {
-    const { prefixCls, className, children, tagName, ...others } = this.props;
-    const classString = classNames(className, prefixCls);
-    return React.createElement(tagName, { className: classString, ...others }, children);
-  }
-}
+const Basic = (props: BasicPropsWithTagName) => {
+  const { prefixCls, className, children, tagName, ...others } = props;
+  const classString = classNames(className, prefixCls);
+  return React.createElement(tagName, { className: classString, ...others }, children);
+};
 
 interface BasicLayoutState {
   siders: string[];
 }
 
 class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutState> {
-  static childContextTypes = {
-    siderHook: PropTypes.object,
-  };
   state = { siders: [] };
 
-  getChildContext() {
+  getSiderHook() {
     return {
-      siderHook: {
-        addSider: (id: string) => {
-          this.setState(state => ({
-            siders: [...state.siders, id],
-          }));
-        },
-        removeSider: (id: string) => {
-          this.setState(state => ({
-            siders: state.siders.filter(currentId => currentId !== id),
-          }));
-        },
+      addSider: (id: string) => {
+        this.setState(state => ({
+          siders: [...state.siders, id],
+        }));
+      },
+      removeSider: (id: string) => {
+        this.setState(state => ({
+          siders: state.siders.filter(currentId => currentId !== id),
+        }));
       },
     };
   }
 
   render() {
-    const { prefixCls, className, children, hasSider, tagName, ...others } = this.props;
+    const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
     const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]:
         typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
     });
-    return React.createElement(tagName, { className: classString, ...others }, children);
+
+    return (
+      <LayoutContext.Provider value={{ siderHook: this.getSiderHook() }}>
+        <Tag className={classString} {...others}>
+          {children}
+        </Tag>
+      </LayoutContext.Provider>
+    );
   }
 }
 

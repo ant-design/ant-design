@@ -84,7 +84,7 @@ describe('List.pagination', () => {
       .last()
       .simulate('click');
 
-    expect(handlePaginationChange).toBeCalledWith(2, 2);
+    expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532
@@ -105,8 +105,9 @@ describe('List.pagination', () => {
     expect(wrapper.find('.ant-pagination')).toHaveLength(0);
     wrapper.setProps({ pagination: true });
     expect(wrapper.find('.ant-pagination')).toHaveLength(1);
-    expect(wrapper.find('.ant-pagination-item')).toHaveLength(1); // pageSize will be 10
-    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    // Legacy code will make pageSize ping with 10, here we fixed to keep sync by current one
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
   // https://github.com/ant-design/ant-design/issues/5259
@@ -150,5 +151,56 @@ describe('List.pagination', () => {
         .last()
         .find('.ant-pagination'),
     ).toHaveLength(1);
+  });
+
+  it('should change page size work', () => {
+    const wrapper = mount(createList({ pagination: { showSizeChanger: true } }));
+    expect(
+      wrapper
+        .find('Pagination')
+        .first()
+        .render(),
+    ).toMatchSnapshot();
+
+    wrapper.find('.ant-select-selection-selected-value').simulate('click');
+    wrapper
+      .find('.ant-select-dropdown-menu .ant-select-dropdown-menu-item')
+      .at(2)
+      .simulate('click');
+
+    expect(
+      wrapper
+        .find('Pagination')
+        .first()
+        .render(),
+    ).toMatchSnapshot();
+  });
+
+  it('should default work', () => {
+    const wrapper = mount(
+      createList({
+        pagination: {
+          defaultPageSize: 3,
+          defaultCurrent: 2,
+          pageSizeOptions: ['1', '3'],
+          showSizeChanger: true,
+        },
+      }),
+    );
+
+    expect(
+      wrapper
+        .find('Pagination')
+        .first()
+        .render(),
+    ).toMatchSnapshot();
+  });
+
+  it('should not crash when pagination is null', () => {
+    mount(
+      createList({
+        pagination: null,
+      }),
+    );
   });
 });

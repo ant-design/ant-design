@@ -16,13 +16,12 @@ title: 介绍
 
 ## 设计资源
 
-我们提供完善的设计原则、最佳实践和设计资源文件（Sketch 和 Axure），来帮助业务快速设计出高质量的产品原型。
+我们提供完善的设计原则、最佳实践和设计资源文件（[Sketch](https://ant.design/docs/spec/download-cn) 和 [Axure](https://ant.design/docs/spec/download-cn)），来帮助业务快速设计出高质量的产品原型。
 
 - [设计原则](/docs/spec/proximity)
 - [设计模式](/docs/spec/overview)
 - [设计资源](/docs/spec/download)
 - [Sketch 工具集](http://kitchen.alipay.com/)
-
 
 ## 前端实现
 

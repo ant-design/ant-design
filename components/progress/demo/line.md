@@ -13,7 +13,7 @@ title:
 
 A standard progress bar.
 
-````jsx
+```jsx
 import { Progress } from 'antd';
 
 ReactDOM.render(
@@ -24,6 +24,6 @@ ReactDOM.render(
     <Progress percent={100} />
     <Progress percent={50} showInfo={false} />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

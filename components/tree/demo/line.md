@@ -13,7 +13,7 @@ title:
 
 Tree With Line
 
-````jsx
+```jsx
 import { Tree } from 'antd';
 
 const { TreeNode } = Tree;
@@ -21,15 +21,11 @@ const { TreeNode } = Tree;
 class Demo extends React.Component {
   onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
-  }
+  };
 
   render() {
     return (
-      <Tree
-        showLine
-        defaultExpandedKeys={['0-0-0']}
-        onSelect={this.onSelect}
-      >
+      <Tree showLine defaultExpandedKeys={['0-0-0']} onSelect={this.onSelect}>
         <TreeNode title="parent 1" key="0-0">
           <TreeNode title="parent 1-0" key="0-0-0">
             <TreeNode title="leaf" key="0-0-0-0" />
@@ -50,4 +46,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

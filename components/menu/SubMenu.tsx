@@ -3,6 +3,8 @@ import * as PropTypes from 'prop-types';
 import { SubMenu as RcSubMenu } from 'rc-menu';
 import classNames from 'classnames';
 
+import MenuContext, { MenuContextProps } from './MenuContext';
+
 interface TitleEventEntity {
   key: string;
   domEvent: Event;
@@ -17,15 +19,18 @@ export interface SubMenuProps {
   onTitleClick?: (e: TitleEventEntity) => void;
   onTitleMouseEnter?: (e: TitleEventEntity) => void;
   onTitleMouseLeave?: (e: TitleEventEntity) => void;
+  popupOffset?: [number, number];
+  popupClassName?: string;
 }
 
 class SubMenu extends React.Component<SubMenuProps, any> {
   static contextTypes = {
     antdMenuTheme: PropTypes.string,
   };
+
   // fix issue:https://github.com/ant-design/ant-design/issues/8666
   static isSubMenu = 1;
-  context: any;
+
   private subMenu: any;
 
   onKeyDown = (e: React.MouseEvent<HTMLElement>) => {
@@ -37,14 +42,17 @@ class SubMenu extends React.Component<SubMenuProps, any> {
   };
 
   render() {
-    const { rootPrefixCls, className } = this.props;
-    const theme = this.context.antdMenuTheme;
+    const { rootPrefixCls, popupClassName } = this.props;
     return (
-      <RcSubMenu
-        {...this.props}
-        ref={this.saveSubMenu}
-        popupClassName={classNames(`${rootPrefixCls}-${theme}`, className)}
-      />
+      <MenuContext.Consumer>
+        {({ antdMenuTheme }: MenuContextProps) => (
+          <RcSubMenu
+            {...this.props}
+            ref={this.saveSubMenu}
+            popupClassName={classNames(`${rootPrefixCls}-${antdMenuTheme}`, popupClassName)}
+          />
+        )}
+      </MenuContext.Consumer>
     );
   }
 }

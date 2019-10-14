@@ -13,7 +13,7 @@ title:
 
 Update content with unique key.
 
-````jsx
+```jsx
 import { Button, notification } from 'antd';
 
 const key = 'updatable';
@@ -34,7 +34,9 @@ const openNotification = () => {
 };
 
 ReactDOM.render(
-  <Button type="primary" onClick={openNotification}>Open the notification box</Button>,
-  mountNode
+  <Button type="primary" onClick={openNotification}>
+    Open the notification box
+  </Button>,
+  mountNode,
 );
-````
+```

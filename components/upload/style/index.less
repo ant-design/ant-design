@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @upload-prefix-cls: ~'@{ant-prefix}-upload';
@@ -8,6 +8,7 @@
 
 .@{upload-prefix-cls} {
   .reset-component;
+
   outline: 0;
 
   p {
@@ -28,8 +29,13 @@
     display: inline-block;
   }
 
+  &&-disabled {
+    cursor: not-allowed;
+  }
+
   &&-select-picture-card {
     display: table;
+    float: left;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
     margin-right: 8px;
@@ -98,6 +104,7 @@
         color: @primary-5;
         font-size: 48px;
       }
+
       margin-bottom: 20px;
     }
     p.@{upload-prefix-cls}-text {
@@ -120,6 +127,13 @@
     &:hover .@{iconfont-css-prefix}-plus {
       color: @text-color-secondary;
     }
+  }
+
+  &-picture-card-wrapper {
+    .clearfix;
+
+    display: inline-block;
+    width: 100%;
   }
 }
 
@@ -147,6 +161,8 @@
 
       > span {
         display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .@{iconfont-css-prefix}-loading,
@@ -160,6 +176,7 @@
 
     .@{iconfont-css-prefix}-close {
       .iconfont-size-under-12px(10px);
+
       position: absolute;
       top: 6px;
       right: 4px;
@@ -250,6 +267,10 @@
       transform: translate(-50%, -50%);
     }
 
+    .@{upload-item}-image {
+      max-width: 100%;
+    }
+
     .@{upload-item}-thumbnail img {
       display: block;
       width: 48px;
@@ -292,9 +313,6 @@
   }
 
   &-picture-card {
-    // https://github.com/ant-design/ant-design/issues/11183
-    float: left;
-
     &.@{upload-prefix-cls}-list::after {
       display: none;
     }
@@ -362,6 +380,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
 
     .@{upload-item}-name {

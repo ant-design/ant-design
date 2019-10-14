@@ -7,9 +7,14 @@
 @import 'motion/zoom';
 
 // For common/openAnimation
-.ant-motion-collapse {
+.ant-motion-collapse-legacy {
   overflow: hidden;
   &-active {
     transition: height 0.15s @ease-in-out, opacity 0.15s @ease-in-out !important;
   }
+}
+
+.ant-motion-collapse {
+  overflow: hidden;
+  transition: height 0.15s @ease-in-out, opacity 0.15s @ease-in-out !important;
 }

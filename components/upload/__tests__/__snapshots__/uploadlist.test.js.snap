@@ -43,6 +43,7 @@ exports[`Upload List handle error 1`] = `
               class=""
               data-icon="paper-clip"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -71,6 +72,7 @@ exports[`Upload List handle error 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -95,7 +97,7 @@ exports[`Upload List handle error 1`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px; border-radius: 100px;"
+                  style="width: 0%; height: 2px;"
                 />
               </div>
             </div>
@@ -150,6 +152,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
               class="anticon-spin"
               data-icon="loading"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="0 0 1024 1024"
               width="1em"
@@ -178,6 +181,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -202,7 +206,7 @@ exports[`Upload List should be uploading when upload a file 1`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px; border-radius: 100px;"
+                  style="width: 0%; height: 2px;"
                 />
               </div>
             </div>
@@ -257,6 +261,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
               class=""
               data-icon="paper-clip"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -285,6 +290,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -309,7 +315,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
               >
                 <div
                   class="ant-progress-bg"
-                  style="width: 0%; height: 2px; border-radius: 100px;"
+                  style="width: 0%; height: 2px;"
                 />
               </div>
             </div>
@@ -370,6 +376,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 class=""
                 data-icon="file"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -407,6 +414,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -432,6 +440,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/aaa"
             />
           </a>
@@ -457,6 +466,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -489,6 +499,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 class=""
                 data-icon="file"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -526,6 +537,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -558,6 +570,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 class=""
                 data-icon="file"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -595,6 +608,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -620,6 +634,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png"
             />
           </a>
@@ -645,6 +660,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -670,6 +686,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="data:image/png;base64,UEsDBAoAAAAAADYZYkwAAAAAAAAAAAAAAAAdAAk"
             />
           </a>
@@ -695,6 +712,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -720,6 +738,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
             />
           </a>
@@ -745,6 +764,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -770,6 +790,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
             />
           </a>
@@ -795,6 +816,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -820,6 +842,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
             />
           </a>
@@ -845,6 +868,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -870,6 +894,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           >
             <img
               alt="image"
+              class="ant-upload-list-item-image"
               src="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
             />
           </a>
@@ -895,6 +920,7 @@ exports[`Upload List should non-image format file preview 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -904,6 +930,102 @@ exports[`Upload List should non-image format file preview 1`] = `
           />
         </svg>
       </i>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  >
+    <div
+      class="ant-upload-list-item ant-upload-list-item-uploading"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              class="ant-upload-list-item-image"
+              src="https://cdn.xxx.com/aaa"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
+      <div
+        class="ant-upload-list-item-progress"
+      />
+    </div>
+    <div
+      class="ant-upload-list-item ant-upload-list-item-done"
+    >
+      <div
+        class="ant-upload-list-item-info"
+      >
+        <span>
+          <a
+            class="ant-upload-list-item-thumbnail"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="image"
+              class="ant-upload-list-item-image"
+              src="https://cdn.xxx.com/aaa"
+            />
+          </a>
+          <a
+            class="ant-upload-list-item-name"
+            href="https://cdn.xxx.com/aaa"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="image"
+          >
+            image
+          </a>
+        </span>
+      </div>
     </div>
   </div>
 </span>

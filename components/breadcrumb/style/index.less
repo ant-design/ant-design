@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @breadcrumb-prefix-cls: ~'@{ant-prefix}-breadcrumb';
 
 .@{breadcrumb-prefix-cls} {
   .reset-component;
+
   color: @breadcrumb-base-color;
   font-size: @breadcrumb-font-size;
 
@@ -22,6 +23,9 @@
 
   & > span:last-child {
     color: @breadcrumb-last-item-color;
+    a {
+      color: @breadcrumb-last-item-color;
+    }
   }
 
   & > span:last-child &-separator {
@@ -35,6 +39,12 @@
 
   &-link {
     > .@{iconfont-css-prefix} + span {
+      margin-left: 4px;
+    }
+  }
+
+  &-overlay-link {
+    > .@{iconfont-css-prefix} {
       margin-left: 4px;
     }
   }

@@ -60,7 +60,7 @@ jest.mock('rc-util/lib/Portal');
 describe('ConfigProvider', () => {
   describe('components', () => {
     function testPair(name, renderComponent) {
-      describe(name, () => {
+      describe(`${name}`, () => {
         // normal
         it('normal', () => {
           expect(render(renderComponent({}))).toMatchSnapshot();
@@ -354,7 +354,7 @@ describe('ConfigProvider', () => {
     // Modal
     testPair('Modal', props => (
       <div>
-        <Modal {...props} visible>
+        <Modal {...props} visible getContainer={false}>
           Bamboo is Little Light
         </Modal>
       </div>

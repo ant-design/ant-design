@@ -1,6 +1,7 @@
 import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -12,7 +13,9 @@ const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
 export type ProgressSize = 'default' | 'small';
-
+export type StringGradients = { [percentage: string]: string };
+type FromToGradients = { from: string; to: string };
+export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
 export interface ProgressProps {
   prefixCls?: string;
   className?: string;
@@ -23,8 +26,8 @@ export interface ProgressProps {
   status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
   strokeWidth?: number;
-  strokeLinecap?: string;
-  strokeColor?: string;
+  strokeLinecap?: 'butt' | 'square' | 'round';
+  strokeColor?: string | ProgressGradient;
   trailColor?: string;
   width?: number;
   style?: React.CSSProperties;
@@ -33,7 +36,7 @@ export interface ProgressProps {
   size?: ProgressSize;
 }
 
-export default class Progress extends React.Component<ProgressProps, {}> {
+export default class Progress extends React.Component<ProgressProps> {
   static defaultProps = {
     type: 'line',
     percent: 0,
@@ -52,12 +55,27 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     width: PropTypes.number,
     strokeWidth: PropTypes.number,
     strokeLinecap: PropTypes.oneOf(['round', 'square']),
-    strokeColor: PropTypes.string,
+    strokeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,
-    default: PropTypes.oneOf(['default', 'small']),
   };
+
+  getPercentNumber() {
+    const { successPercent, percent = 0 } = this.props;
+    return parseInt(
+      successPercent !== undefined ? successPercent.toString() : percent.toString(),
+      10,
+    );
+  }
+
+  getProgressStatus() {
+    const { status } = this.props;
+    if (ProgressStatuses.indexOf(status!) < 0 && this.getPercentNumber() >= 100) {
+      return 'success';
+    }
+    return status || 'normal';
+  }
 
   renderProcessInfo(prefixCls: string, progressStatus: (typeof ProgressStatuses)[number]) {
     const { showInfo, format, type, percent, successPercent } = this.props;
@@ -81,36 +99,12 @@ export default class Progress extends React.Component<ProgressProps, {}> {
   }
 
   renderProgress = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const props = this.props;
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      percent = 0,
-      status,
-      format,
-      trailColor,
-      size,
-      successPercent,
-      type,
-      strokeWidth,
-      width,
-      showInfo,
-      gapDegree = 0,
-      gapPosition,
-      strokeColor,
-      strokeLinecap = 'round',
-      ...restProps
-    } = props;
+    const { props } = this;
+    const { prefixCls: customizePrefixCls, className, size, type, showInfo, ...restProps } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
-    const progressStatus =
-      parseInt(successPercent !== undefined ? successPercent.toString() : percent.toString(), 10) >=
-        100 && !('status' in props)
-        ? 'success'
-        : status || 'normal';
-    let progress;
-
+    const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
-
+    let progress;
     // Render progress shape
     if (type === 'line') {
       progress = (
@@ -138,7 +132,22 @@ export default class Progress extends React.Component<ProgressProps, {}> {
     );
 
     return (
-      <div {...restProps} className={classString}>
+      <div
+        {...omit(restProps, [
+          'status',
+          'format',
+          'trailColor',
+          'successPercent',
+          'strokeWidth',
+          'width',
+          'gapDegree',
+          'gapPosition',
+          'strokeColor',
+          'strokeLinecap',
+          'percent',
+        ])}
+        className={classString}
+      >
         {progress}
       </div>
     );

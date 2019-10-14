@@ -13,7 +13,7 @@ title:
 
 async
 
-````jsx
+```jsx
 import { Mention } from 'antd';
 
 const users = ['afc163', 'benjycui', 'yiminghe', 'jljsj33', 'dqaria', 'RaoHai'];
@@ -22,16 +22,16 @@ class AsyncMention extends React.Component {
   state = {
     suggestions: [],
     loading: false,
-  }
+  };
 
   fetchSuggestions = (value, callback) => {
     setTimeout(() => {
       callback(users.filter(item => item.indexOf(value) !== -1));
     }, 500);
-  }
+  };
 
-  onSearchChange = (value) => {
-    this.fetchSuggestions(value, (suggestions) => {
+  onSearchChange = value => {
+    this.fetchSuggestions(value, suggestions => {
       this.setState({
         suggestions,
         loading: false,
@@ -40,7 +40,7 @@ class AsyncMention extends React.Component {
     this.setState({
       loading: true,
     });
-  }
+  };
 
   render() {
     const { suggestions, loading } = this.state;
@@ -56,4 +56,4 @@ class AsyncMention extends React.Component {
 }
 
 ReactDOM.render(<AsyncMention />, mountNode);
-````
+```

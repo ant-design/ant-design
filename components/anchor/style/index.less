@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @anchor-border-width: 2px;
 
 .@{ant-prefix}-anchor {
   .reset-component;
+
   position: relative;
   padding-left: @anchor-border-width;
 
@@ -26,7 +27,7 @@
       width: @anchor-border-width;
       height: 100%;
       margin: 0 auto;
-      background-color: @border-color-split;
+      background-color: @anchor-border-color;
       content: ' ';
     }
     &-ball {

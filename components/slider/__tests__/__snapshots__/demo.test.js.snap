@@ -163,6 +163,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       class=""
       data-icon="frown"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -209,6 +210,7 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       class=""
       data-icon="smile"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -227,7 +229,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-12"
+      class="ant-col ant-col-12"
     >
       <div
         class="ant-slider"
@@ -258,7 +260,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <div
         class="ant-input-number"
@@ -283,6 +285,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
                 class=""
                 data-icon="up"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -309,6 +312,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -343,7 +347,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col-12"
+      class="ant-col ant-col-12"
     >
       <div
         class="ant-slider"
@@ -374,7 +378,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col-4"
+      class="ant-col ant-col-4"
     >
       <div
         class="ant-input-number"
@@ -399,6 +403,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
                 class=""
                 data-icon="up"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -425,6 +430,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"

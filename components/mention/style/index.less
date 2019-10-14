@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
@@ -6,6 +6,7 @@
 
 .@{mention-prefix-cls}-wrapper {
   .reset-component;
+
   position: relative;
   display: inline-block;
   width: 100%;
@@ -13,6 +14,7 @@
 
   .@{mention-prefix-cls}-editor {
     .input;
+
     display: block;
     height: auto; // To override height in .input mixin
     min-height: @input-height-base;
@@ -50,6 +52,7 @@
 
 .@{mention-prefix-cls}-dropdown {
   .reset-component;
+
   position: absolute;
   top: -9999px;
   left: -9999px;

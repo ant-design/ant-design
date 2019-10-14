@@ -15,6 +15,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
         class=""
         data-icon="exclamation-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -47,6 +48,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
         class=""
         data-icon="exclamation-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -64,8 +66,10 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <a
+    <button
       class="ant-alert-close-icon"
+      tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -76,6 +80,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -85,7 +90,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </button>
   </div>
   <br />
   <div
@@ -115,6 +120,7 @@ exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
         class=""
         data-icon="close-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -166,8 +172,10 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <a
+    <button
       class="ant-alert-close-icon"
+      tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -178,6 +186,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -187,7 +196,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </button>
   </div>
   <div
     class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon ant-alert-closable"
@@ -203,8 +212,10 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
     >
       Error Description Error Description Error Description Error Description Error Description Error Description
     </span>
-    <a
+    <button
       class="ant-alert-close-icon"
+      tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -215,6 +226,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -224,7 +236,7 @@ exports[`renders ./components/alert/demo/closable.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </button>
   </div>
 </div>
 `;
@@ -242,11 +254,17 @@ exports[`renders ./components/alert/demo/close-text.md correctly 1`] = `
   <span
     class="ant-alert-description"
   />
-  <a
+  <button
     class="ant-alert-close-icon"
+    tabindex="0"
+    type="button"
   >
-    Close Now
-  </a>
+    <span
+      class="ant-alert-close-text"
+    >
+      Close Now
+    </span>
+  </button>
 </div>
 `;
 
@@ -278,6 +296,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -309,6 +328,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -340,6 +360,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -371,6 +392,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -402,6 +424,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -435,6 +458,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -468,6 +492,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -501,6 +526,7 @@ exports[`renders ./components/alert/demo/custom-icon.md correctly 1`] = `
         class=""
         data-icon="smile"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -604,6 +630,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="check-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -635,6 +662,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="info-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -666,6 +694,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="exclamation-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -697,6 +726,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="close-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -728,6 +758,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="check-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -748,7 +779,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     >
-      Detailed description and advices about successful copywriting.
+      Detailed description and advice about successful copywriting.
     </span>
   </div>
   <div
@@ -764,6 +795,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="info-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -784,7 +816,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
     <span
       class="ant-alert-description"
     >
-      Additional description and informations about copywriting.
+      Additional description and information about copywriting.
     </span>
   </div>
   <div
@@ -800,6 +832,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="exclamation-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -836,6 +869,7 @@ exports[`renders ./components/alert/demo/icon.md correctly 1`] = `
         class=""
         data-icon="close-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -876,8 +910,10 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
     <span
       class="ant-alert-description"
     />
-    <a
+    <button
       class="ant-alert-close-icon"
+      tabindex="0"
+      type="button"
     >
       <i
         aria-label="icon: close"
@@ -888,6 +924,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
           class=""
           data-icon="close"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -897,7 +934,7 @@ exports[`renders ./components/alert/demo/smooth-closed.md correctly 1`] = `
           />
         </svg>
       </i>
-    </a>
+    </button>
   </div>
   <p>
     placeholder text here

@@ -1,8 +1,5 @@
-const appLocaleData = require('react-intl/locale-data/en');
-
 module.exports = {
   locale: 'en-US',
-  data: appLocaleData,
   messages: {
     'app.header.search': 'Search...',
     'app.header.menu.home': 'Home',
@@ -12,14 +9,14 @@ module.exports = {
     'app.header.menu.spec': 'Guidelines',
     'app.header.menu.resource': 'Resources',
     'app.header.menu.mobile': 'Mobile',
-    'app.header.menu.pro': 'Ant Design Pro',
+    'app.header.menu.pro.v4': 'Ant Design Pro v4',
     'app.header.menu.ecosystem': 'Ecosystem',
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
     'app.content.edit-demo': 'Edit this demo on GitHub!',
     'app.component.examples': 'Examples',
     'app.component.examples.expand': 'Expand all code',
-    'app.component.examples.collpse': 'Collpse all code',
+    'app.component.examples.collapse': 'Collapse all code',
     'app.demo.debug': "Debug only, won't display at online",
     'app.demo.copy': 'Copy code',
     'app.demo.copied': 'Copied!',
@@ -34,7 +31,7 @@ module.exports = {
     'app.home.design-language': 'Design Language',
     'app.home.solution': 'Solution',
     'app.home.components-explain':
-      'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications, including the official React implementation and Angular, Vue implementations',
+      'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications, including the official React UI library and Angular, Vue implementations',
     'app.home.product-pro-slogan': 'Out-of-the-box front-end / Design solution',
     'app.home.product-mobile-slogan':
       "antd-mobile is the implementation of Ant Design's mobile specification",
@@ -57,6 +54,7 @@ module.exports = {
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.course': 'Ant Design Practical Tutorial',
     'app.footer.chinamirror': 'China Mirror 🇨🇳',
+    'app.footer.primary-color-changing': 'Changing primary color...',
     'app.footer.primary-color-changed': 'Change primary color successfully!',
     'app.footer.scaffold': 'Scaffold',
     'app.footer.kitchen': 'Sketch Toolkit',
@@ -79,8 +77,8 @@ module.exports = {
     'app.footer.feedback': 'Feedback',
     'app.footer.stackoverflow': 'StackOverflow',
     'app.footer.segmentfault': 'SegmentFault',
-    'app.footer.discuss-en': 'Chat Room (English)',
-    'app.footer.discuss-cn': 'Chat Room (中文)',
+    'app.footer.discuss-en': 'Chat Room 🇺🇸',
+    'app.footer.discuss-cn': 'Chat Room 🇨🇳',
     'app.footer.bug-report': 'Bug Report',
     'app.footer.issues': 'Issues',
     'app.footer.version': 'Version: ',
@@ -95,7 +93,7 @@ module.exports = {
     'app.footer.fengdie.slogan': 'Mobile web app builder',
     'app.footer.zhihu': 'Ant Design Blog',
     'app.footer.zhihu.xtech': 'Experience Cloud Blog',
-    'app.footer.seeconf': 'Seeking Experience & Engineering Conference',
+    'app.footer.seeconf': 'Experience Tech Conference',
     'app.footer.xtech': 'Ant Financial Experience Tech',
     'app.footer.xtech.slogan': 'Experience The Beauty',
     'app.publish.title': 'antd@3.0.0 has been released! 🎉 🎉 🎉',
@@ -104,15 +102,28 @@ module.exports = {
     'app.publish.old-version-guide': 'If you need documentation of older version, please visit ',
     'app.publish.old-version-tips': ', or switch version with the select at header navigation.',
     'app.docs.color.pick-primary': 'Pick your primary color',
-    'app.docs.components.icon.pick-theme': 'Select the Icon Theme',
+    'app.docs.components.icon.search.placeholder': 'Search icon here, click icon to copy code',
     'app.docs.components.icon.outlined': 'Outlined',
     'app.docs.components.icon.filled': 'Filled',
     'app.docs.components.icon.two-tone': 'Two Tone',
     'app.docs.components.icon.category.direction': 'Directional Icons',
     'app.docs.components.icon.category.suggestion': 'Suggested Icons',
-    'app.docs.components.icon.category.edit': 'Editor Icons',
+    'app.docs.components.icon.category.editor': 'Editor Icons',
     'app.docs.components.icon.category.data': 'Data Icons',
     'app.docs.components.icon.category.other': 'Application Icons',
     'app.docs.components.icon.category.logo': 'Brand and Logos',
+    'app.docs.components.icon.pic-searcher.intro':
+      'AI Search by image is online, welcome to use! 🎉',
+    'app.docs.components.icon.pic-searcher.title': 'Search by image',
+    'app.docs.components.icon.pic-searcher.upload-text':
+      'Click or drag or paste file to this area to upload',
+    'app.docs.components.icon.pic-searcher.upload-hint':
+      'We will find the most matching icon based on the image',
+    'app.docs.components.icon.pic-searcher.server-error':
+      'Predict service is temporarily unavailable',
+    'app.docs.components.icon.pic-searcher.matching': 'Matching...',
+    'app.docs.components.icon.pic-searcher.result-tip': 'Match the following icons for you:',
+    'app.docs.components.icon.pic-searcher.th-icon': 'Icon',
+    'app.docs.components.icon.pic-searcher.th-score': 'Probability',
   },
 };

@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
 
@@ -12,10 +12,7 @@
 // Button styles
 // -----------------------------
 .@{btn-prefix-cls} {
-  // Fixing https://github.com/ant-design/ant-design/issues/12978
-  // It is a render problem of chrome, which is only happened in the codesandbox demo
-  // 0.001px solution works and I don't why
-  line-height: @line-height-base - 0.001;
+  line-height: @line-height-base;
   .btn;
   .btn-default;
 
@@ -24,6 +21,7 @@
   > i,
   > span {
     display: inline-block;
+    transition: margin-left 0.3s @ease-in-out;
     pointer-events: none;
   }
 
@@ -69,8 +67,19 @@
     .btn-danger;
   }
 
+  &-link {
+    .btn-link;
+  }
+
+  &-icon-only {
+    .btn-square(@btn-prefix-cls);
+  }
+
   &-round {
     .btn-round(@btn-prefix-cls);
+    &.@{btn-prefix-cls}-icon-only {
+      width: auto;
+    }
   }
 
   &-circle,
@@ -90,8 +99,8 @@
     border-radius: inherit;
     opacity: 0.35;
     transition: opacity 0.2s;
-    pointer-events: none;
     content: '';
+    pointer-events: none;
   }
 
   .@{iconfont-css-prefix} {
@@ -107,14 +116,17 @@
     }
   }
 
+  &&-loading {
+    position: relative;
+    pointer-events: none;
+  }
+
   &&-loading::before {
     display: block;
   }
 
   &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
-    position: relative;
     padding-left: 29px;
-    pointer-events: none;
     .@{iconfont-css-prefix}:not(:last-child) {
       margin-left: -14px;
     }
@@ -129,11 +141,6 @@
 
   &-group {
     .btn-group(@btn-prefix-cls);
-  }
-
-  &:not(&-circle):not(&-circle-outline)&-icon-only {
-    padding-right: 8px;
-    padding-left: 8px;
   }
 
   // http://stackoverflow.com/a/21281554/3040605
@@ -159,7 +166,13 @@
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-color);
+    .button-variant-ghost(@btn-danger-border);
+  }
+
+  &-background-ghost&-link {
+    .button-variant-ghost(@link-color; transparent);
+
+    color: @component-background;
   }
 
   &-two-chinese-chars::first-letter {
@@ -182,7 +195,12 @@
 }
 
 a.@{btn-prefix-cls} {
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // It is a render problem of chrome, which is only happened in the codesandbox demo
+  // 0.1px for padding-top solution works and I don't why
+  padding-top: 0.1px;
   line-height: @btn-height-base - 2px;
+
   &-lg {
     line-height: @btn-height-lg - 2px;
   }

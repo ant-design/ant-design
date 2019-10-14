@@ -24,7 +24,7 @@ $ cd myapp
 
 推荐使用 yarn 创建应用，执行以下命令，
 
-> 如果你坚持用 npm，可执行 `npm install -g create-umi && create-umi`，效果一致。
+> 如果你使用 npm，可执行 `npm create umi`，效果一致。
 
 ```bash
 $ yarn create umi
@@ -44,12 +44,12 @@ yarn 会先安装最新版的 [create-umi](https://github.com/umijs/create-umi)�
 选择 `app`, 然后回车确认。
 
 ```
-? Select the boilerplate type 
-  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block. 
-❯ app             - Create project with a simple boilerplate, support typescript. 
-  block           - Create a umi block. 
-  library         - Create a library with umi. 
-  plugin          - Create a umi plugin. 
+? Select the boilerplate type
+  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
+❯ app             - Create project with a simple boilerplate, support typescript.
+  block           - Create a umi block.
+  library         - Create a library with umi.
+  plugin          - Create a umi plugin.
 ```
 
 选上 `antd` 和 `dva`，然后回车确认。
@@ -111,12 +111,15 @@ $ yarn start
 export default {
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
-    ['umi-plugin-react', {
-      antd: true,
-      dva: true,
-    }],
+    [
+      'umi-plugin-react',
+      {
+        antd: true,
+        dva: true,
+      },
+    ],
   ],
-}
+};
 ```
 
 > 而如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，package.json 里声明的 antd 依赖会被优先使用。
@@ -155,25 +158,23 @@ $ npx umi g page products
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
-  const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
-  }, {
-    title: 'Actions',
-    render: (text, record) => {
-      return (
-        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
-    <Button>Delete</Button>
-      </Popconfirm>
-    );
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
     },
-  }];
-  return (
-    <Table
-      dataSource={products}
-      columns={columns}
-    />
-  );
+    {
+      title: 'Actions',
+      render: (text, record) => {
+        return (
+          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+            <Button>Delete</Button>
+          </Popconfirm>
+        );
+      },
+    },
+  ];
+  return <Table dataSource={products} columns={columns} />;
 };
 
 export default ProductList;
@@ -192,7 +193,7 @@ export default {
   namespace: 'products',
   state: [],
   reducers: {
-    'delete'(state, { payload: id }) {
+    delete(state, { payload: id }) {
       return state.filter(item => item.id !== id);
     },
   },
@@ -201,9 +202,9 @@ export default {
 
 这个 model 里：
 
-* `namespace` 表示在全局 state 上的 key
-* `state` 是初始值，在这里是空数组
-* `reducers` 等同于 redux 里的 reducer，接收 action，同步更新 state
+- `namespace` 表示在全局 state 上的 key
+- `state` 是初始值，在这里是空数组
+- `reducers` 等同于 redux 里的 reducer，接收 action，同步更新 state
 
 umi 里约定 `src/models` 下的 model 会被自动注入，你无需手动注入。
 
@@ -249,10 +250,7 @@ export const dva = {
       console.error(err.message);
     },
     initialState: {
-      products: [
-        { name: 'dva', id: 1 },
-        { name: 'antd', id: 2 },
-      ],
+      products: [{ name: 'dva', id: 1 }, { name: 'antd', id: 2 }],
     },
   },
 };
@@ -293,16 +291,16 @@ build 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images
 
 我们已经完成了一个简单应用，你可能还有很多疑问，比如：
 
-* 如何统一处理出错？
-* 如何处理更多路由，比如动态路由，嵌套路由，权限路由等？
-* 如何 mock 数据？
-* 如何部署？
-* 等等
+- 如何统一处理出错？
+- 如何处理更多路由，比如动态路由，嵌套路由，权限路由等？
+- 如何 mock 数据？
+- 如何部署？
+- 等等
 
 你可以：
 
-* 访问 [umi 官网](https://umijs.org/)和 [dva 官网](https://dvajs.com/)
-* 理解 [umi 的路由](https://umijs.org/zh/guide/router.html)
-* 理解 [如何部署 umi 应用](https://umijs.org/zh/guide/deploy.html)
-* 查看 [dva 知识地图](https://dvajs.com/knowledgemap/)，包含 ES6, React, dva 等所有基础知识
-* 理解 [dva 的 8 个概念](https://dvajs.com/guide/concepts.html)，以及他们是如何串起来的
+- 访问 [umi 官网](https://umijs.org/)和 [dva 官网](https://dvajs.com/)
+- 理解 [umi 的路由](https://umijs.org/zh/guide/router.html)
+- 理解 [如何部署 umi 应用](https://umijs.org/zh/guide/deploy.html)
+- 查看 [dva 知识地图](https://dvajs.com/knowledgemap/)，包含 ES6, React, dva 等所有基础知识
+- 理解 [dva 的 8 个概念](https://dvajs.com/guide/concepts.html)，以及他们是如何串起来的

@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 import Tree, {
   TreeProps,
@@ -13,7 +13,12 @@ import Tree, {
   AntTreeNodeSelectedEvent,
   AntTreeNode,
 } from './Tree';
-import { calcRangeKeys, getFullKeyList } from './util';
+import {
+  calcRangeKeys,
+  getFullKeyList,
+  convertDirectoryKeysToNodes,
+  getFullKeyListByTreeData,
+} from './util';
 import Icon from '../icon';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -53,11 +58,14 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   }
 
   state: DirectoryTreeState;
+
   tree: Tree;
+
   onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
 
   // Shift click usage
   lastSelectedKey?: string;
+
   cachedSelectedKeys?: string[];
 
   constructor(props: DirectoryTreeProps) {
@@ -79,7 +87,11 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
     // Expanded keys
     if (defaultExpandAll) {
-      this.state.expandedKeys = getFullKeyList(props.children);
+      if (props.treeData) {
+        this.state.expandedKeys = getFullKeyListByTreeData(props.treeData);
+      } else {
+        this.state.expandedKeys = getFullKeyList(props.children);
+      }
     } else if (defaultExpandParent) {
       this.state.expandedKeys = conductExpandParent(
         expandedKeys || defaultExpandedKeys,
@@ -141,6 +153,12 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
     const newState: DirectoryTreeState = {};
 
+    // We need wrap this event since some value is not same
+    const newEvent: AntTreeNodeSelectedEvent = {
+      ...event,
+      selected: true, // Directory selected always true
+    };
+
     // Windows / Mac single pick
     const ctrlPick: boolean = nativeEvent.ctrlKey || nativeEvent.metaKey;
     const shiftPick: boolean = nativeEvent.shiftKey;
@@ -152,6 +170,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
       newSelectedKeys = keys;
       this.lastSelectedKey = eventKey;
       this.cachedSelectedKeys = newSelectedKeys;
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(children, newSelectedKeys);
     } else if (multiple && shiftPick) {
       // Shift click
       newSelectedKeys = Array.from(
@@ -160,16 +179,18 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
           ...calcRangeKeys(children, expandedKeys, eventKey, this.lastSelectedKey),
         ]),
       );
+      newEvent.selectedNodes = convertDirectoryKeysToNodes(children, newSelectedKeys);
     } else {
       // Single click
       newSelectedKeys = [eventKey];
       this.lastSelectedKey = eventKey;
       this.cachedSelectedKeys = newSelectedKeys;
+      newEvent.selectedNodes = [event.node];
     }
     newState.selectedKeys = newSelectedKeys;
 
     if (onSelect) {
-      onSelect(newSelectedKeys, event);
+      onSelect(newSelectedKeys, newEvent);
     }
 
     this.setUncontrolledState(newState);

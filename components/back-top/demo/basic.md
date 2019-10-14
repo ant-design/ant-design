@@ -13,7 +13,7 @@ title:
 
 The most basic usage.
 
-````jsx
+```jsx
 import { BackTop } from 'antd';
 
 ReactDOM.render(
@@ -23,6 +23,6 @@ ReactDOM.render(
     <strong style={{ color: 'rgba(64, 64, 64, 0.6)' }}> gray </strong>
     button.
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

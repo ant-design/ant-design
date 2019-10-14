@@ -21,7 +21,7 @@ export interface InputNumberProps
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
   formatter?: (value: number | string | undefined) => string;
-  parser?: (displayValue: string | undefined) => number;
+  parser?: (displayValue: string | undefined) => number | string;
   decimalSeparator?: string;
   placeholder?: string;
   style?: React.CSSProperties;
@@ -29,6 +29,7 @@ export interface InputNumberProps
   name?: string;
   id?: string;
   precision?: number;
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {

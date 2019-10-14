@@ -36,7 +36,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     'Modal',
     `The property 'iconType' is deprecated. Use the property 'icon' instead.`,
   );
-  const icon = props.icon ? props.icon : iconType;
+
+  // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
+  const icon = props.icon === undefined ? iconType : props.icon;
   const okType = props.okType || 'primary';
   const prefixCls = props.prefixCls || 'ant-modal';
   const contentPrefixCls = `${prefixCls}-confirm`;
@@ -78,7 +80,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       prefixCls={prefixCls}
       className={classString}
       wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
-      onCancel={close.bind(this, { triggerCancel: true })}
+      onCancel={() => close({ triggerCancel: true })}
       visible={visible}
       title=""
       transitionName={transitionName}
@@ -121,7 +123,31 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
 export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
+  // eslint-disable-next-line no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
+
+  function destroy(...args: any[]) {
+    const unmountResult = ReactDOM.unmountComponentAtNode(div);
+    if (unmountResult && div.parentNode) {
+      div.parentNode.removeChild(div);
+    }
+    const triggerCancel = args.some(param => param && param.triggerCancel);
+    if (config.onCancel && triggerCancel) {
+      config.onCancel(...args);
+    }
+    for (let i = 0; i < destroyFns.length; i++) {
+      const fn = destroyFns[i];
+      // eslint-disable-next-line no-use-before-define
+      if (fn === close) {
+        destroyFns.splice(i, 1);
+        break;
+      }
+    }
+  }
+
+  function render(props: any) {
+    ReactDOM.render(<ConfirmDialog getContainer={false} {...props} />, div);
+  }
 
   function close(...args: any[]) {
     currentConfig = {
@@ -142,28 +168,6 @@ export default function confirm(config: ModalFuncProps) {
       ...newConfig,
     };
     render(currentConfig);
-  }
-
-  function destroy(...args: any[]) {
-    const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    if (unmountResult && div.parentNode) {
-      div.parentNode.removeChild(div);
-    }
-    const triggerCancel = args.some(param => param && param.triggerCancel);
-    if (config.onCancel && triggerCancel) {
-      config.onCancel(...args);
-    }
-    for (let i = 0; i < destroyFns.length; i++) {
-      const fn = destroyFns[i];
-      if (fn === close) {
-        destroyFns.splice(i, 1);
-        break;
-      }
-    }
-  }
-
-  function render(props: any) {
-    ReactDOM.render(<ConfirmDialog {...props} />, div);
   }
 
   render(currentConfig);

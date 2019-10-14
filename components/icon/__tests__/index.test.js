@@ -1,11 +1,14 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import Icon from '..';
 import ReactIcon from '@ant-design/icons-react';
+import Icon from '..';
 import Tooltip from '../../tooltip';
 import { getThemeFromTypeName, withThemeSuffix } from '../utils';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Icon', () => {
+  mountTest(Icon);
+
   it('should render to a <i class="xxx"><svg>...</svg></i>', () => {
     const wrapper = render(<Icon type="message" className="my-icon-classname" />);
     expect(wrapper).toMatchSnapshot();
@@ -80,11 +83,11 @@ describe('Icon', () => {
     expect(wrapper.find('i')).toHaveLength(1);
     const icon = wrapper.find('i').at(0);
     icon.simulate('mouseenter');
-    expect(onVisibleChange).toBeCalledWith(true);
+    expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(wrapper.instance().tooltip.props.visible).toBe(true);
 
     icon.simulate('mouseleave');
-    expect(onVisibleChange).toBeCalledWith(false);
+    expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
 
@@ -115,12 +118,12 @@ describe('Icon', () => {
 
     it('does not warn', () => {
       mount(<Icon type="clock-circle-o" theme="outlined" />);
-      expect(errorSpy).not.toBeCalled();
+      expect(errorSpy).not.toHaveBeenCalled();
     });
 
     it('warns', () => {
       mount(<Icon type="clock-circle-o" theme="filled" />);
-      expect(errorSpy).toBeCalledWith(
+      expect(errorSpy).toHaveBeenCalledWith(
         "Warning: [antd: Icon] The icon name 'clock-circle-o' already specify a theme 'outlined', the 'theme' prop 'filled' will be ignored.",
       );
     });
@@ -159,7 +162,7 @@ describe('Icon', () => {
   it('should support svg react component', () => {
     const SvgComponent = props => (
       <svg viewBox="0 0 24 24" {...props}>
-        <title>Cool Home</title>
+        <title>Custom Svg</title>
         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
       </svg>
     );
@@ -225,5 +228,27 @@ describe('utils', () => {
       'home-o-twotone',
       'home-o',
     ]);
+  });
+
+  it('should report an error when there are deprecated typos in icon names', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(<Icon type="interation" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'interation' was a typo and is now deprecated, please use 'interaction' instead.",
+    );
+    render(<Icon type="cross" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'cross' was a typo and is now deprecated, please use 'close' instead.",
+    );
+    render(<Icon type="canlendar" theme="twoTone" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'canlendar' was a typo and is now deprecated, please use 'calendar' instead.",
+    );
+    render(<Icon type="colum-height" />);
+    expect(errorSpy).toHaveBeenLastCalledWith(
+      "Warning: [antd: Icon] Icon 'colum-height' was a typo and is now deprecated, please use 'column-height' instead.",
+    );
+    expect(errorSpy).toHaveBeenCalledTimes(4);
+    errorSpy.mockRestore();
   });
 });

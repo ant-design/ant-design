@@ -1,10 +1,14 @@
+/**
+ * Deprecated. We should replace the animation with pure react motion instead of modify style directly.
+ * If you are creating new component with animation, please use `./motion`.
+ */
 import cssAnimation from 'css-animation';
 import raf from 'raf';
 
 function animate(node: HTMLElement, show: boolean, done: () => void) {
   let height: number;
   let requestAnimationFrameId: number;
-  return cssAnimation(node, 'ant-motion-collapse', {
+  return cssAnimation(node, 'ant-motion-collapse-legacy', {
     start() {
       if (!show) {
         node.style.height = `${node.offsetHeight}px`;

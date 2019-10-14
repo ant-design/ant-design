@@ -13,6 +13,7 @@ import warning from '../_util/warning';
 import interopDefault from '../_util/interopDefault';
 import { RangePickerValue, RangePickerPresetRange } from './interface';
 import { formatDate } from './utils';
+import InputIcon from './InputIcon';
 
 export interface RangePickerState {
   value?: RangePickerValue;
@@ -21,11 +22,14 @@ export interface RangePickerState {
   hoverValue?: RangePickerValue;
 }
 
-function getShowDateFromValue(value: RangePickerValue) {
+function getShowDateFromValue(value: RangePickerValue, mode?: string | string[]) {
   const [start, end] = value;
   // value could be an empty array, then we should not reset showDate
   if (!start && !end) {
     return;
+  }
+  if (mode && mode[0] === 'month') {
+    return [start, end] as RangePickerValue;
   }
   const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
   return [start, newEnd] as RangePickerValue;
@@ -83,7 +87,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
       if (!shallowequal(nextProps.value, prevState.value)) {
         state = {
           ...state,
-          showDate: getShowDateFromValue(value) || prevState.showDate,
+          showDate: getShowDateFromValue(value, nextProps.mode) || prevState.showDate,
         };
       }
     }
@@ -97,7 +101,9 @@ class RangePicker extends React.Component<any, RangePickerState> {
   }
 
   private picker: HTMLSpanElement;
+
   private prefixCls?: string;
+
   private tagPrefixCls?: string;
 
   constructor(props: any) {
@@ -128,6 +134,17 @@ class RangePicker extends React.Component<any, RangePickerState> {
     }
   }
 
+  setValue(value: RangePickerValue, hidePanel?: boolean) {
+    this.handleChange(value);
+    if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
+      this.setState({ open: false });
+    }
+  }
+
+  savePicker = (node: HTMLSpanElement) => {
+    this.picker = node;
+  };
+
   clearSelection = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -138,12 +155,15 @@ class RangePicker extends React.Component<any, RangePickerState> {
   clearHoverValue = () => this.setState({ hoverValue: [] });
 
   handleChange = (value: RangePickerValue) => {
-    const props = this.props;
+    const { props } = this;
     if (!('value' in props)) {
       this.setState(({ showDate }) => ({
         value,
         showDate: getShowDateFromValue(value) || showDate,
       }));
+    }
+    if (value[0] && value[0].diff(value[1]) > 0) {
+      value[1] = undefined;
     }
     const [start, end] = value;
     props.onChange(value, [formatDate(start, props.format), formatDate(end, props.format)]);
@@ -202,13 +222,6 @@ class RangePicker extends React.Component<any, RangePickerState> {
     }
   };
 
-  setValue(value: RangePickerValue, hidePanel?: boolean) {
-    this.handleChange(value);
-    if ((hidePanel || !this.props.showTime) && !('open' in this.props)) {
-      this.setState({ open: false });
-    }
-  }
-
   focus() {
     this.picker.focus();
   }
@@ -217,11 +230,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     this.picker.blur();
   }
 
-  savePicker = (node: HTMLSpanElement) => {
-    this.picker = node;
-  };
-
-  renderFooter = (...args: any[]) => {
+  renderFooter = () => {
     const { ranges, renderExtraFooter } = this.props;
     const { prefixCls, tagPrefixCls } = this;
     if (!ranges && !renderExtraFooter) {
@@ -229,7 +238,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
     }
     const customFooter = renderExtraFooter ? (
       <div className={`${prefixCls}-footer-extra`} key="extra">
-        {renderExtraFooter(...args)}
+        {renderExtraFooter()}
       </div>
     ) : null;
     const operations = Object.keys(ranges || {}).map(range => {
@@ -364,17 +373,7 @@ class RangePicker extends React.Component<any, RangePickerState> {
         />
       ) : null;
 
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-        React.cloneElement(suffixIcon, {
-          className: classNames({
-            [suffixIcon.props.className!]: suffixIcon.props.className,
-            [`${prefixCls}-picker-icon`]: true,
-          }),
-        })
-      ) : (
-        <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-      ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
+    const inputIcon = <InputIcon suffixIcon={suffixIcon} prefixCls={prefixCls} />;
 
     const input = ({ value: inputValue }: { value: any }) => {
       const [start, end] = inputValue;

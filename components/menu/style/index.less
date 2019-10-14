@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @menu-prefix-cls: ~'@{ant-prefix}-menu';
@@ -6,6 +6,7 @@
 // default theme
 .@{menu-prefix-cls} {
   .reset-component;
+
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   color: @menu-item-color;
@@ -42,6 +43,10 @@
       padding 0.15s @ease-in-out;
   }
 
+  &-submenu-selected {
+    color: @menu-highlight-color;
+  }
+
   &-item:active,
   &-submenu-title:active {
     background: @menu-item-active-bg;
@@ -57,9 +62,6 @@
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
-    }
-    &:focus {
-      text-decoration: none;
     }
     &::before {
       position: absolute;
@@ -221,8 +223,13 @@
           position: absolute;
           width: 6px;
           height: 1.5px;
+          // background + background-image to makes before & after cross have same color.
+          // Since `linear-gradient` not work on IE9, we should hack it.
+          // ref: https://github.com/ant-design/ant-design/issues/15910
           background: @menu-bg;
+          background: ~'@{menu-item-color} \9';
           background-image: linear-gradient(to right, @menu-item-color, @menu-item-color);
+          background-image: ~'none \9';
           border-radius: 2px;
           transition: background 0.3s @ease-in-out, transform 0.3s @ease-in-out,
             top 0.3s @ease-in-out;
@@ -346,11 +353,11 @@
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
       height: @menu-item-height;
-      margin-top: 4px;
-      margin-bottom: 4px;
+      margin-top: @menu-item-vertical-margin;
+      margin-bottom: @menu-item-vertical-margin;
       padding: 0 16px;
       overflow: hidden;
-      font-size: @font-size-base;
+      font-size: @menu-item-font-size;
       line-height: @menu-item-height;
       text-overflow: ellipsis;
     }
@@ -361,7 +368,7 @@
     }
 
     .@{menu-prefix-cls}-item:not(:last-child) {
-      margin-bottom: 8px;
+      margin-bottom: @menu-item-boundary-margin;
     }
 
     > .@{menu-prefix-cls}-item,

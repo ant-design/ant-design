@@ -4,4 +4,6 @@
  */
 import React from 'react';
 
-export default () => <div />;
+const AppShell = () => <div />;
+
+export default AppShell;

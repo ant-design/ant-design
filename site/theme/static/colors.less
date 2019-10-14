@@ -1,6 +1,7 @@
 .make-palette(@color, @index: 1) when (@index <= 10) {
   .palette-@{color}-@{index} {
     @background: '@{color}-@{index}';
+
     background: @@background;
   }
   .make-palette(@color, (@index + 1)); // next iteration
@@ -63,6 +64,7 @@
   .make-palette(lime);
   .make-palette(geekblue);
   .make-palette(gray);
+
   text-align: left;
 
   &-item {

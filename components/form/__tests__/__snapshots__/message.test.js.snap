@@ -8,7 +8,7 @@ exports[`Form should display custom message 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -19,7 +19,7 @@ exports[`Form should display custom message 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-error"
@@ -62,7 +62,7 @@ exports[`Form should display two message 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -73,7 +73,7 @@ exports[`Form should display two message 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-error"
@@ -107,7 +107,7 @@ exports[`Form support error message with reactNode 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -118,7 +118,7 @@ exports[`Form support error message with reactNode 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-error"

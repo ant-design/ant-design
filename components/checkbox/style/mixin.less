@@ -5,6 +5,7 @@
   // 一般状态
   .@{checkbox-prefix-cls} {
     .reset-component;
+
     position: relative;
     top: -0.09em;
     display: inline-block;
@@ -30,7 +31,7 @@
       border-radius: @border-radius-sm;
       visibility: hidden;
       animation: antCheckboxEffect 0.36s ease-in-out;
-      animation-fill-mode: both;
+      animation-fill-mode: backwards;
       content: '';
     }
 
@@ -57,6 +58,7 @@
       &::after {
         @check-width: (@checkbox-size / 14) * 5px;
         @check-height: (@checkbox-size / 14) * 8px;
+
         position: absolute;
         top: 50%;
         left: 21%;
@@ -135,10 +137,17 @@
       color: @disabled-color;
       cursor: not-allowed;
     }
+
+    // Not show highlight border of checkbox when disabled
+    &:hover::after,
+    .@{checkbox-prefix-cls}-wrapper:hover &::after {
+      visibility: hidden;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper {
     .reset-component;
+
     display: inline-block;
     line-height: unset;
     cursor: pointer;
@@ -147,7 +156,6 @@
     }
   }
 
-  .@{checkbox-prefix-cls}-wrapper + span,
   .@{checkbox-prefix-cls} + span {
     padding-right: 8px;
     padding-left: 8px;
@@ -155,6 +163,7 @@
 
   .@{checkbox-prefix-cls}-group {
     .reset-component;
+
     display: inline-block;
     &-item {
       display: inline-block;
@@ -171,12 +180,13 @@
   // 半选状态
   .@{checkbox-prefix-cls}-indeterminate {
     .@{checkbox-inner-prefix-cls} {
-      background-color: #fff;
+      background-color: @component-background;
       border-color: @border-color-base;
     }
     .@{checkbox-inner-prefix-cls}::after {
       @indeterminate-width: @checkbox-size - 8px;
       @indeterminate-height: @checkbox-size - 8px;
+
       top: 50%;
       left: 50%;
       width: @indeterminate-width;

@@ -4,6 +4,7 @@ import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -17,6 +18,7 @@ describe('TimePicker', () => {
   });
 
   focusTest(TimePicker);
+  mountTest(TimePicker);
 
   it('renders addon correctly', () => {
     const addon = () => <button type="button">Ok</button>;
@@ -29,7 +31,7 @@ describe('TimePicker', () => {
 
   it('allowEmpty deprecated', () => {
     mount(<TimePicker allowEmpty />);
-    expect(errorSpy).toBeCalledWith(
+    expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: TimePicker] `allowEmpty` is deprecated. Please use `allowClear` instead.',
     );
   });
@@ -67,5 +69,15 @@ describe('TimePicker', () => {
     expect(wrapper.find('Picker').prop('clearIcon')).toEqual(
       <div className="test-clear-icon ant-time-picker-clear">test</div>,
     );
+  });
+
+  it('prop locale should works', () => {
+    const locale = {
+      placeholder: 'Избери дата',
+    };
+    const wrapper = mount(
+      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} open locale={locale} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

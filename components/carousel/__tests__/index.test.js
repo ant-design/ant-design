@@ -1,13 +1,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Carousel from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Carousel', () => {
-  beforeAll(() => {
+  mountTest(Carousel);
+
+  beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.useRealTimers();
   });
 
@@ -58,9 +61,9 @@ describe('Carousel', () => {
     );
     const spy = jest.spyOn(wrapper.instance().slick.innerSlider, 'autoPlay');
     window.resizeTo(1000);
-    expect(spy).not.toBeCalled();
+    expect(spy).not.toHaveBeenCalled();
     await new Promise(resolve => setTimeout(resolve, 500));
-    expect(spy).toBeCalled();
+    expect(spy).toHaveBeenCalled();
   });
 
   it('cancel resize listener when unmount', async () => {
@@ -75,7 +78,63 @@ describe('Carousel', () => {
     const spy = jest.spyOn(wrapper.instance().onWindowResized, 'cancel');
     const spy2 = jest.spyOn(window, 'removeEventListener');
     wrapper.unmount();
-    expect(spy).toBeCalled();
-    expect(spy2).toBeCalledWith('resize', onWindowResized);
+    expect(spy).toHaveBeenCalled();
+    expect(spy2).toHaveBeenCalledWith('resize', onWindowResized);
+  });
+
+  describe('should works for dotPosition', () => {
+    ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
+      it(dotPosition, () => {
+        const wrapper = mount(
+          <Carousel dotPosition={dotPosition}>
+            <div />
+          </Carousel>,
+        );
+        expect(wrapper.render()).toMatchSnapshot();
+      });
+    });
+  });
+
+  it('warning', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Carousel vertical>
+        <div />
+      </Carousel>,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
+    );
+    warnSpy.mockRestore();
+  });
+
+  describe('should active when children change', () => {
+    it('should active', () => {
+      const wrapper = mount(<Carousel />);
+      wrapper.setProps({
+        children: <div />,
+      });
+      wrapper.update();
+      expect(wrapper.find('.slick-active').length).toBeTruthy();
+    });
+
+    it('should keep initialSlide', () => {
+      // react unsafe lifecycle don't works in React 15
+      // https://github.com/akiran/react-slick/commit/97988e897750e1d8f7b10a86b655f50d75d38298
+      if (process.env.REACT === '15') {
+        return;
+      }
+      const wrapper = mount(<Carousel initialSlide={1} />);
+      wrapper.setProps({
+        children: [<div key="1" />, <div key="2" />, <div key="3" />],
+      });
+      wrapper.update();
+      expect(
+        wrapper
+          .find('.slick-dots li')
+          .at(1)
+          .hasClass('slick-active'),
+      ).toBeTruthy();
+    });
   });
 });

@@ -9,7 +9,7 @@ Dva is a lightweight data flow solution based on Redux. The concept comes from e
 
 And [umi](http://umijs.org/) is a routing-based framework that supports [next.js-like conventional routing](https://umijs.org/guide/router.html) and various advanced routing functions, such as [routing-level on-demand loading](https://umijs.org/en/plugin/umi-plugin-react.html#dynamicimport). With a complete [plugin system](https://umijs.org/plugin/) that covers every life cycle from source code to build product, umi is able to support various functional extensions and business needs.
 
-> You may also be interested in [Ant Design Pro] (https://pro.ant.design/), an Out-of-box UI solution for enterprise applications based on umi, dva and ant design.
+> You may also be interested in [Ant Design Pro](https://pro.ant.design/), an Out-of-box UI solution for enterprise applications based on umi, dva and ant design.
 
 This article will guide you to create a simple application from zero using umi, dva and antd.
 
@@ -24,7 +24,7 @@ $ cd myapp
 
 It is recommended to use yarn to create an application and execute the following command.
 
-> If you insist on using npm, execute `npm install -g create-umi && create-umi` and the effect will be the same.
+> If you are using npm, execute `npm create umi` and the effect will be the same.
 
 ```bash
 $ yarn create umi
@@ -44,12 +44,12 @@ Yarn will install the latest version of [create-umi](https://github.com/umijs/cr
 Select `app` and press Enter to confirm.
 
 ```
-? Select the boilerplate type 
-  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block. 
-❯ app             - Create project with a simple boilerplate, support typescript. 
-  block           - Create a umi block. 
-  library         - Create a library with umi. 
-  plugin          - Create a umi plugin. 
+? Select the boilerplate type
+  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
+❯ app             - Create project with a simple boilerplate, support typescript.
+  block           - Create a umi block.
+  library         - Create a library with umi.
+  plugin          - Create a umi plugin.
 ```
 
 Select `antd` and `dva` and press Enter to confirm.
@@ -111,12 +111,15 @@ After selecting `antd` earlier, antd's dependencies are automatically handled an
 export default {
   plugins: [
     // ref: https://umijs.org/plugin/umi-plugin-react.html
-    ['umi-plugin-react', {
-      antd: true,
-      dva: true,
-    }],
+    [
+      'umi-plugin-react',
+      {
+        antd: true,
+        dva: true,
+      },
+    ],
   ],
-}
+};
 ```
 
 > And if you want to use a fixed version of antd, you can install additional antd dependency in your project, and the antd dependencies declared in package.json will be used first.
@@ -155,25 +158,23 @@ Create `src/components/ProductList.js` by typing:
 import { Table, Popconfirm, Button } from 'antd';
 
 const ProductList = ({ onDelete, products }) => {
-  const columns = [{
-    title: 'Name',
-    dataIndex: 'name',
-  }, {
-    title: 'Actions',
-    render: (text, record) => {
-      return (
-        <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
-    <Button>Delete</Button>
-      </Popconfirm>
-    );
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
     },
-  }];
-  return (
-    <Table
-      dataSource={products}
-      columns={columns}
-    />
-  );
+    {
+      title: 'Actions',
+      render: (text, record) => {
+        return (
+          <Popconfirm title="Delete?" onConfirm={() => onDelete(record.id)}>
+            <Button>Delete</Button>
+          </Popconfirm>
+        );
+      },
+    },
+  ];
+  return <Table dataSource={products} columns={columns} />;
 };
 
 export default ProductList;
@@ -192,7 +193,7 @@ export default {
   namespace: 'products',
   state: [],
   reducers: {
-    'delete'(state, { payload: id }) {
+    delete(state, { payload: id }) {
       return state.filter(item => item.id !== id);
     },
   },
@@ -201,9 +202,9 @@ export default {
 
 In this model:
 
-* `namespace` represents the key on global state
-* `state` is the initial value, here it is an empty array
-* `reducers` is equivalent to a reducer in redux, accepting an action, and update state simultaneously
+- `namespace` represents the key on global state
+- `state` is the initial value, here it is an empty array
+- `reducers` is equivalent to a reducer in redux, accepting an action, and update state simultaneously
 
 In umi, the model files under `src/models` will be automatically injected, you don't need to inject manually.
 
@@ -249,10 +250,7 @@ export const dva = {
       console.error(err.message);
     },
     initialState: {
-      products: [
-        { name: 'dva', id: 1 },
-        { name: 'antd', id: 2 },
-      ],
+      products: [{ name: 'dva', id: 1 }, { name: 'antd', id: 2 }],
     },
   },
 };
@@ -293,16 +291,16 @@ The `build` command packages up all of the assets that make up your application 
 
 We have completed a simple application, but you may still have lots of questions, such as:
 
-* How to handle onError globally and locally?
-* How to handle routes?
-* How to mock data?
-* How to deploy?
-* ant so on...
+- How to handle onError globally and locally?
+- How to handle routes?
+- How to mock data?
+- How to deploy?
+- ant so on...
 
 You can:
 
-* Visit [umi official website](https://umijs.org/) and [dva official website](https://dvajs.com/)
-* Know [the umi routes](https://umijs.org/zh/guide/router.html)
-* Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
-* Checkout [dva knowledge](https://dvajs.com/knowledgemap/), including all the basic knowledge with ES6, React, dva
-* Be familiar with the [8 Concepts of dva](https://dvajs.com/guide/concepts.html), and understand how they are connected together
+- Visit [umi official website](https://umijs.org/) and [dva official website](https://dvajs.com/)
+- Know [the umi routes](https://umijs.org/zh/guide/router.html)
+- Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
+- Checkout [dva knowledge](https://dvajs.com/knowledgemap/), including all the basic knowledge with ES6, React, dva
+- Be familiar with the [8 Concepts of dva](https://dvajs.com/guide/concepts.html), and understand how they are connected together

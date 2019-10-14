@@ -22,6 +22,7 @@
   white-space: nowrap;
   text-align: center;
   vertical-align: top;
+  pointer-events: none;
 }
 
 .@{calendar-prefix-cls}-range {
@@ -71,6 +72,7 @@
     line-height: @input-box-height;
     text-align: center;
     transform: translateX(-50%);
+    pointer-events: none;
   }
 
   &-right .@{calendar-prefix-cls}-date-input-wrap {
@@ -80,6 +82,22 @@
   &.@{calendar-prefix-cls}-time &-middle {
     padding: 0 10px 0 0;
     transform: translateX(-50%);
+  }
+
+  .@{calendar-prefix-cls}-today
+    :not(.@{calendar-prefix-cls}-disabled-cell)
+    :not(.@{calendar-prefix-cls}-last-month-cell)
+    :not(.@{calendar-prefix-cls}-next-month-btn-day) {
+    .@{calendar-prefix-cls}-date {
+      color: @primary-color;
+      background: @primary-2;
+      border-color: @primary-color;
+    }
+  }
+
+  .@{calendar-prefix-cls}-selected-start-date,
+  .@{calendar-prefix-cls}-selected-end-date {
+    .calendar-selected-cell;
   }
 
   &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-date-input-wrap {
@@ -97,6 +115,7 @@
     height: @input-height-sm;
     padding-right: 0;
     padding-left: 0;
+    line-height: @input-height-sm;
     border: 0;
     box-shadow: none;
 
@@ -167,7 +186,8 @@
 
   .@{calendar-prefix-cls},
   .@{calendar-prefix-cls}-month-panel,
-  .@{calendar-prefix-cls}-year-panel {
+  .@{calendar-prefix-cls}-year-panel,
+  .@{calendar-prefix-cls}-decade-panel {
     &-header {
       border-bottom: 0;
     }

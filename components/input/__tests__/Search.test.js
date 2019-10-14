@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Search from '../Search';
 import Button from '../../button';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Input.Search', () => {
   focusTest(Search);
+  mountTest(Search);
 
   it('should support custom button', () => {
     const wrapper = mount(<Search enterButton={<button type="button">ok</button>} />);
@@ -29,12 +31,19 @@ describe('Input.Search', () => {
     expect(wrapper.find('.ant-btn-primary[disabled]')).toHaveLength(1);
   });
 
+  it('should disable search icon when disabled prop is true', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} disabled />);
+    wrapper.find('.anticon-search').simulate('click');
+    expect(onSearch).toHaveBeenCalledTimes(0);
+  });
+
   it('should trigger onSearch when click search icon', () => {
     const onSearch = jest.fn();
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
     wrapper.find('.anticon-search').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -48,7 +57,7 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" enterButton onSearch={onSearch} />);
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -64,7 +73,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -84,7 +93,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('Button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -104,7 +113,7 @@ describe('Input.Search', () => {
     );
     wrapper.find('button').simulate('click');
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'click',
@@ -118,7 +127,7 @@ describe('Input.Search', () => {
     const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
     wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
-    expect(onSearch).toBeCalledWith(
+    expect(onSearch).toHaveBeenCalledWith(
       'search text',
       expect.objectContaining({
         type: 'keydown',
@@ -134,5 +143,20 @@ describe('Input.Search', () => {
     const wrapperWithEnterButton = mount(<Search enterButton addonAfter={addonAfter} />);
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18729
+  it('should trigger onSearch when click clear icon', () => {
+    const onSearch = jest.fn();
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Search allowClear defaultValue="value" onSearch={onSearch} onChange={onChange} />,
+    );
+    wrapper
+      .find('.ant-input-clear-icon')
+      .at(0)
+      .simulate('click');
+    expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
+    expect(onChange).toHaveBeenCalled();
   });
 });

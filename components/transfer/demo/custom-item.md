@@ -13,14 +13,14 @@ title:
 
 Custom each Transfer Item, and in this way you can render a complex datasource.
 
-````jsx
+```jsx
 import { Transfer } from 'antd';
 
 class App extends React.Component {
   state = {
     mockData: [],
     targetKeys: [],
-  }
+  };
 
   componentDidMount() {
     this.getMock();
@@ -42,14 +42,14 @@ class App extends React.Component {
       mockData.push(data);
     }
     this.setState({ mockData, targetKeys });
-  }
+  };
 
   handleChange = (targetKeys, direction, moveKeys) => {
     console.log(targetKeys, direction, moveKeys);
     this.setState({ targetKeys });
-  }
+  };
 
-  renderItem = (item) => {
+  renderItem = item => {
     const customLabel = (
       <span className="custom-item">
         {item.title} - {item.description}
@@ -60,7 +60,7 @@ class App extends React.Component {
       label: customLabel, // for displayed item
       value: item.title, // for title and filter matching
     };
-  }
+  };
 
   render() {
     return (
@@ -79,4 +79,4 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-````
+```

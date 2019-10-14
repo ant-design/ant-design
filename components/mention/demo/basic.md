@@ -13,7 +13,7 @@ title:
 
 Basic usage.
 
-````jsx
+```jsx
 import { Mention } from 'antd';
 
 const { toString, toContentState } = Mention;
@@ -34,6 +34,6 @@ ReactDOM.render(
     defaultSuggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
     onSelect={onSelect}
   />,
-  mountNode
+  mountNode,
 );
-````
+```

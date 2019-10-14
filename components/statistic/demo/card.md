@@ -45,6 +45,6 @@ ReactDOM.render(
       </Col>
     </Row>
   </div>,
-  mountNode
+  mountNode,
 );
 ```

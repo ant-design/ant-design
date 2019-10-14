@@ -2,8 +2,11 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Badge', () => {
+  mountTest(Badge);
+
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -84,7 +87,9 @@ describe('Badge', () => {
   it('should support offset when count is a ReactNode', () => {
     const wrapper = render(
       <Badge count={<span className="custom" style={{ color: '#f5222d' }} />} offset={[10, 20]}>
-        <a href="#" className="head-example" />
+        <a href="#" className="head-example">
+          head
+        </a>
       </Badge>,
     );
     expect(wrapper).toMatchSnapshot();
@@ -94,5 +99,16 @@ describe('Badge', () => {
   it('should color style  works on Badge', () => {
     const wrapper = mount(<Badge style={{ color: 'red' }} status="success" text="Success" />);
     expect(wrapper.find('.ant-badge-status-text').props().style.color).toBe('red');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/15799
+  it('render correct with negative number', () => {
+    const wrapper = render(
+      <div>
+        <Badge count="-10" />
+        <Badge count={-10} />
+      </div>,
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 });

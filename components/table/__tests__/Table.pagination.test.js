@@ -86,7 +86,7 @@ describe('Table.pagination', () => {
       .last()
       .simulate('click');
 
-    expect(handleChange).toBeCalledWith(
+    expect(handleChange).toHaveBeenCalledWith(
       {
         className: 'my-page',
         current: 2,
@@ -104,7 +104,7 @@ describe('Table.pagination', () => {
       },
     );
 
-    expect(handlePaginationChange).toBeCalledWith(2, 2);
+    expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
 
   // https://github.com/ant-design/ant-design/issues/4532
@@ -210,5 +210,34 @@ describe('Table.pagination', () => {
     expect(onChange.mock.calls[0][0].current).toBe(2);
 
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
+  });
+
+  it('select by checkbox to trigger stopPropagation', () => {
+    jest.useFakeTimers();
+    const onShowSizeChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+          onShowSizeChange,
+        },
+      }),
+    );
+    wrapper.find('.ant-select').simulate('click');
+    jest.runAllTimers();
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(dropdownWrapper.find('MenuItem').length).toBe(4);
+    dropdownWrapper
+      .find('MenuItem')
+      .at(3)
+      .simulate('click');
+    expect(onShowSizeChange).toHaveBeenCalled();
+    jest.useRealTimers();
   });
 });

@@ -9,8 +9,11 @@ export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
   onSearch?: (
     value: string,
-    event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>,
-  ) => any;
+    event?:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.MouseEvent<HTMLElement>
+      | React.KeyboardEvent<HTMLInputElement>,
+  ) => void;
   enterButton?: boolean | React.ReactNode;
 }
 
@@ -21,7 +24,26 @@ export default class Search extends React.Component<SearchProps, any> {
 
   private input: Input;
 
+  saveInput = (node: Input) => {
+    this.input = node;
+  };
+
+  onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { onChange, onSearch } = this.props;
+    if (e && e.target && e.type === 'click' && onSearch) {
+      onSearch((e as React.ChangeEvent<HTMLInputElement>).target.value, e);
+    }
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+
     const { onSearch } = this.props;
     if (onSearch) {
       onSearch(this.input.input.value, e);
@@ -36,10 +58,6 @@ export default class Search extends React.Component<SearchProps, any> {
   blur() {
     this.input.blur();
   }
-
-  saveInput = (node: Input) => {
-    this.input = node;
-  };
 
   renderSuffix = (prefixCls: string) => {
     const { suffix, enterButton } = this.props;
@@ -74,11 +92,14 @@ export default class Search extends React.Component<SearchProps, any> {
 
     let button: React.ReactNode;
     const enterButtonAsElement = enterButton as React.ReactElement<any>;
-    if (enterButtonAsElement.type === Button || enterButtonAsElement.type === 'button') {
+    const isAntdButton =
+      enterButtonAsElement.type &&
+      (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
+    if (isAntdButton || enterButtonAsElement.type === 'button') {
       button = React.cloneElement(enterButtonAsElement, {
         onClick: this.onSearch,
         key: 'enterButton',
-        ...(enterButtonAsElement.type === Button
+        ...(isAntdButton
           ? {
               className: btnClassName,
               size,
@@ -141,6 +162,7 @@ export default class Search extends React.Component<SearchProps, any> {
         prefixCls={inputPrefixCls}
         addonAfter={this.renderAddonAfter(prefixCls)}
         suffix={this.renderSuffix(prefixCls)}
+        onChange={this.onChange}
         ref={this.saveInput}
         className={inputClassName}
       />

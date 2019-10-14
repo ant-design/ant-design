@@ -151,31 +151,6 @@
     border-radius: 0;
   }
 
-  #footer {
-    text-align: center;
-    .footer-wrap {
-      padding: 40px;
-      .ant-row {
-        padding: 0;
-        > div {
-          &:nth-child(2),
-          &:nth-child(4) {
-            display: none;
-          }
-          a {
-            font-weight: 300;
-          }
-        }
-      }
-    }
-    .footer-center {
-      text-align: center;
-    }
-    h2 {
-      margin-top: 16px;
-    }
-  }
-
   .prev-next-nav {
     width: ~'calc(100% - 32px)';
     margin-left: 16px;
@@ -232,7 +207,7 @@
     .text-wrapper {
       min-height: 200px;
       margin-top: 48px;
-      padding: 0 16px;
+      padding: 0;
       h1 {
         display: none;
       }
@@ -246,6 +221,11 @@
         min-width: 100%;
         white-space: nowrap;
         text-align: center;
+
+        .banner-btn {
+          padding: 0 20px;
+          font-size: 14px;
+        }
       }
     }
   }
