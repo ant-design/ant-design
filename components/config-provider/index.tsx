@@ -8,11 +8,7 @@ import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 
-export { RenderEmptyHandler };
-
-export interface CSPConfig {
-  nonce?: string;
-}
+export { RenderEmptyHandler, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
   'getPopupContainer',
@@ -22,7 +18,7 @@ export const configConsumerProps = [
   'csp',
   'autoInsertSpaceInButton',
   'locale',
-  'pageHeaderType',
+  'pageHeader',
 ];
 
 export interface ConfigProviderProps {
