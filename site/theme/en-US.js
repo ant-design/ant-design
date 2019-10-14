@@ -93,7 +93,7 @@ module.exports = {
     'app.footer.fengdie.slogan': 'Mobile web app builder',
     'app.footer.zhihu': 'Ant Design Blog',
     'app.footer.zhihu.xtech': 'Experience Cloud Blog',
-    'app.footer.seeconf': 'Seeking Experience & Engineering Conference',
+    'app.footer.seeconf': 'Experience Tech Conference',
     'app.footer.xtech': 'Ant Financial Experience Tech',
     'app.footer.xtech.slogan': 'Experience The Beauty',
     'app.publish.title': 'antd@3.0.0 has been released! 🎉 🎉 🎉',

@@ -125,7 +125,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
           onCompositionEnd={this.onCompositionEnd}
           onBlur={this.onBlur}
           aria-label={ariaLabel}
-          autosize
+          autoSize
         />
         <Icon type="enter" className={`${prefixCls}-edit-content-confirm`} />
       </div>
