@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-在某些情况下，pageHeader 需要自己的背景颜色。
+默认 PageHeader 是透明底色的。在某些情况下，PageHeader 需要自己的背景颜色。
 
 ## en-US
 
-In some cases, pageHeader require its own background color.
+The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color.
 
 ```jsx
 import { PageHeader, Button, Descriptions } from 'antd';
@@ -56,5 +56,6 @@ ReactDOM.render(
 <style>
 #components-page-header-demo-pure .code-box-demo .ant-page-header {
   border: none;
+
 }
 </style>

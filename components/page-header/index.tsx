@@ -107,7 +107,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
         // 防止设置为 null 报错
-        ghost: ghost || (pageHeader && ghost === undefined && pageHeader.ghost),
+        [`${prefixCls}-ghost`]: ghost || (pageHeader && ghost === undefined && pageHeader.ghost),
       });
 
       return (
