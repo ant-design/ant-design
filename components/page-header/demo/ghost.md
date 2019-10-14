@@ -52,10 +52,3 @@ ReactDOM.render(
   mountNode,
 );
 ```
-
-<style>
-#components-page-header-demo-pure .code-box-demo .ant-page-header {
-  border: none;
-
-}
-</style>

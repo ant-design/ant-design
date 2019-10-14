@@ -19,6 +19,9 @@ import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 ReactDOM.render(
   <div>
     <PageHeader
+      style={{
+        border: '1px solid rgb(235, 237, 240)',
+      }}
       onBack={() => window.history.back()}
       title="Title"
       subTitle="This is a subtitle"
