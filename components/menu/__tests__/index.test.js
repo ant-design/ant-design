@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
-import raf from '../../_util/raf';
 import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('mutationobserver-shim', () => {
