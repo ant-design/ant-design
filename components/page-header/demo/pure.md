@@ -55,6 +55,6 @@ ReactDOM.render(
 
 <style>
 #components-page-header-demo-pure .code-box-demo .ant-page-header {
-  border: 1px solid #ebedf0;
+  border: none;
 }
 </style>
