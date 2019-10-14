@@ -285,7 +285,6 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
-    // const menuOpenAnimation = this.getMenuOpenAnimation(menuMode!);
     const menuOpenMotion = this.getOpenMotionProps(menuMode!);
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);

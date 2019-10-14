@@ -83,10 +83,6 @@ describe('Menu', () => {
         .at(0)
         .hasClass('ant-menu-hidden'),
     ).not.toBe(true);
-
-    const rafCount = Object.keys(raf.ids).length;
-    wrapper.unmount();
-    expect(Object.keys(raf.ids).length).toBe(rafCount - 1);
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
@@ -576,8 +572,8 @@ describe('Menu', () => {
       wrapper
         .find('InternalMenu')
         .instance()
-        .getMenuOpenAnimation(''),
-    ).toBe('');
+        .getOpenMotionProps(''),
+    ).toEqual({ motion: { motionName: '' } });
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
