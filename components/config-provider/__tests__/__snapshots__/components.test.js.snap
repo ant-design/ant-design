@@ -8430,6 +8430,60 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
 </div>
 `;
 
+exports[`ConfigProvider components PageHeader configProvider 1`] = `
+<div>
+  <div
+    class="config-page-header"
+  >
+    <div
+      class="config-page-header-heading"
+    >
+      <span
+        class="config-page-header-heading-title"
+      >
+        pageHeader
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components PageHeader normal 1`] = `
+<div>
+  <div
+    class="ant-page-header ant-page-header-ghost"
+  >
+    <div
+      class="ant-page-header-heading"
+    >
+      <span
+        class="ant-page-header-heading-title"
+      >
+        pageHeader
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components PageHeader prefixCls 1`] = `
+<div>
+  <div
+    class="prefix-PageHeader prefix-PageHeader-ghost"
+  >
+    <div
+      class="prefix-PageHeader-heading"
+    >
+      <span
+        class="prefix-PageHeader-heading-title"
+      >
+        pageHeader
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
