@@ -3,10 +3,8 @@
   margin-bottom: 1em;
 }
 
-.typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @headingMarginRight; @headingMarginBottom; @headingMarginLeft) {
-  margin-right: @headingMarginRight;
+.typography-title(@fontSize; @fontWeight; @lineHeight; @headingColor; @headingMarginBottom;) {
   margin-bottom: @headingMarginBottom;
-  margin-left: @headingMarginLeft;
   color: @headingColor;
   font-weight: @fontWeight;
   font-size: @fontSize;
@@ -19,9 +17,7 @@
     @typography-title-font-weight,
     1.23,
     @heading-color,
-    @typography-title-margin-right,
-    @typography-title-margin-bottom,
-    @typography-title-margin-left
+    @typography-title-margin-bottom
   );
 }
 .typography-title-2() {
@@ -30,9 +26,7 @@
     @typography-title-font-weight,
     1.35,
     @heading-color,
-    @typography-title-margin-right,
-    @typography-title-margin-bottom,
-    @typography-title-margin-left
+    @typography-title-margin-bottom
   );
 }
 .typography-title-3() {
@@ -41,9 +35,7 @@
     @typography-title-font-weight,
     1.35,
     @heading-color,
-    @typography-title-margin-right,
-    @typography-title-margin-bottom,
-    @typography-title-margin-left
+    @typography-title-margin-bottom
   );
 }
 .typography-title-4() {
@@ -52,8 +44,6 @@
     @typography-title-font-weight,
     1.4,
     @heading-color,
-    @typography-title-margin-right,
-    @typography-title-margin-bottom,
-    @typography-title-margin-left
+    @typography-title-margin-bottom
   );
 }
