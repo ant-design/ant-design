@@ -36,7 +36,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-sorters"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -100,7 +100,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -1200,7 +1200,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -1239,7 +1239,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </i>
                   </th>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -1326,7 +1326,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -1337,7 +1337,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </span>
                   </td>
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -1364,7 +1364,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -1375,7 +1375,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </span>
                   </td>
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -1402,7 +1402,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -1413,7 +1413,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </span>
                   </td>
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -1440,7 +1440,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   data-row-key="4"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -1451,7 +1451,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </span>
                   </td>
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                   >
                     <span>
                       <span
@@ -3686,7 +3686,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -3767,7 +3767,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     data-row-key="0"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <div
                         class="editable-cell-value-wrap"
@@ -3799,7 +3799,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <div
                         class="editable-cell-value-wrap"
@@ -3948,7 +3948,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -3966,7 +3966,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -3984,7 +3984,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4029,17 +4029,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="0"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 0
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 0
                   </td>
@@ -4056,17 +4056,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 1
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 1
                   </td>
@@ -4083,17 +4083,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 2
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 2
                   </td>
@@ -4110,17 +4110,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="3"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 3
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 3
                   </td>
@@ -4137,17 +4137,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="4"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 4
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 4
                   </td>
@@ -4164,17 +4164,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="5"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 5
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 5
                   </td>
@@ -4191,17 +4191,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="6"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 6
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 6
                   </td>
@@ -4218,17 +4218,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="7"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 7
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 7
                   </td>
@@ -4245,17 +4245,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="8"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 8
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 8
                   </td>
@@ -4272,17 +4272,17 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   data-row-key="9"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Edrward 9
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     London Park no. 9
                   </td>
@@ -4471,7 +4471,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -4499,7 +4499,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4517,7 +4517,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4535,7 +4535,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4553,7 +4553,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4571,7 +4571,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4589,7 +4589,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4616,34 +4616,34 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <a>
                       John Brown
                     </a>
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
@@ -4653,34 +4653,34 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <a>
                       Jim Green
                     </a>
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     42
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
@@ -4690,34 +4690,34 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                   data-row-key="3"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <a>
                       Joe Black
                     </a>
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-ellipsis"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
@@ -5207,7 +5207,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -5225,7 +5225,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     <span
                       class="ant-table-header-column"
@@ -5288,12 +5288,12 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     John Brown sr.
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     60
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     New York No. 1 Lake Park
                   </td>
@@ -5336,12 +5336,12 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     Joe Black
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     32
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     Sidney No. 1 Lake Park
                   </td>
@@ -5439,7 +5439,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -5480,7 +5480,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -5498,7 +5498,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -5660,7 +5660,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -5687,12 +5687,12 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -5737,7 +5737,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       New York Park
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -5749,12 +5749,12 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Jim Green
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       40
                     </td>
@@ -5799,7 +5799,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       London Park
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -5836,7 +5836,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   >
                     <tr>
                       <th
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <span
                           class="ant-table-header-column"
@@ -5854,7 +5854,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                         </span>
                       </th>
                       <th
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <span
                           class="ant-table-header-column"
@@ -5881,12 +5881,12 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       data-row-key="1"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -5896,12 +5896,12 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       data-row-key="2"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Jim Green
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         40
                       </td>
@@ -5934,7 +5934,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   >
                     <tr>
                       <th
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <span
                           class="ant-table-header-column"
@@ -5961,7 +5961,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       data-row-key="1"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -5973,7 +5973,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       data-row-key="2"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -6075,7 +6075,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -6128,7 +6128,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6146,7 +6146,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6164,7 +6164,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6182,7 +6182,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6200,7 +6200,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6218,7 +6218,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6236,7 +6236,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6254,7 +6254,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6272,7 +6272,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6308,7 +6308,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6379,17 +6379,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 0
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 0
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 0
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 0
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 0
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 0
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 0
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 0
                     </td>
@@ -6399,37 +6429,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 0
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 0
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 0
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 0
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 0
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 0
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 0
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6441,17 +6441,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 1
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 1
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 1
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 1
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 1
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 1
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 1
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 1
                     </td>
@@ -6461,37 +6491,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 1
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 1
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 1
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 1
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 1
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 1
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 1
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6503,17 +6503,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 2
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 2
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 2
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 2
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 2
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 2
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 2
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 2
                     </td>
@@ -6523,37 +6553,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 2
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 2
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 2
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 2
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 2
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 2
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 2
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6565,17 +6565,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="3"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 3
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 3
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 3
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 3
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 3
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 3
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 3
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 3
                     </td>
@@ -6585,37 +6615,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 3
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 3
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 3
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 3
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 3
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 3
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 3
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6627,17 +6627,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="4"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 4
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 4
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 4
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 4
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 4
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 4
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 4
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 4
                     </td>
@@ -6647,37 +6677,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 4
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 4
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 4
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 4
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 4
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 4
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 4
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6689,17 +6689,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="5"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 5
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 5
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 5
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 5
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 5
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 5
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 5
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 5
                     </td>
@@ -6709,37 +6739,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 5
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 5
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 5
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 5
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 5
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 5
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 5
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6751,17 +6751,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="6"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 6
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 6
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 6
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 6
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 6
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 6
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 6
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 6
                     </td>
@@ -6771,37 +6801,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 6
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 6
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 6
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 6
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 6
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 6
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 6
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6813,17 +6813,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="7"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 7
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 7
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 7
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 7
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 7
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 7
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 7
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 7
                     </td>
@@ -6833,37 +6863,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 7
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 7
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 7
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 7
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 7
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 7
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 7
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6875,17 +6875,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="8"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 8
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 8
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 8
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 8
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 8
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 8
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 8
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 8
                     </td>
@@ -6895,37 +6925,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 8
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 8
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 8
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 8
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 8
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 8
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 8
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -6937,17 +6937,47 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     data-row-key="9"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       Edrward 9
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
                     >
                       London Park no. 9
                     </td>
@@ -6957,37 +6987,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       London Park no. 9
                     </td>
                     <td
-                      class=""
-                    >
-                      London Park no. 9
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 9
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 9
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 9
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 9
-                    </td>
-                    <td
-                      class=""
-                    >
-                      London Park no. 9
-                    </td>
-                    <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       <a>
                         action
@@ -7020,7 +7020,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -7038,7 +7038,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -7086,12 +7086,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="0"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 0
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7101,12 +7101,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="1"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 1
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7116,12 +7116,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="2"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 2
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7131,12 +7131,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="3"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 3
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7146,12 +7146,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="4"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 4
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7161,12 +7161,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="5"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 5
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7176,12 +7176,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="6"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 6
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7191,12 +7191,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="7"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 7
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7206,12 +7206,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="8"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 8
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7221,12 +7221,12 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="9"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         Edrward 9
                       </td>
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         32
                       </td>
@@ -7255,7 +7255,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -7300,7 +7300,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="0"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7312,7 +7312,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="1"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7324,7 +7324,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="2"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7336,7 +7336,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="3"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7348,7 +7348,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="4"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7360,7 +7360,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="5"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7372,7 +7372,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="6"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7384,7 +7384,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="7"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7396,7 +7396,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="8"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7408,7 +7408,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       data-row-key="9"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         <a>
                           action
@@ -7594,7 +7594,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-default ant-table-fixed-header ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -7622,7 +7622,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -7640,7 +7640,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -7704,12 +7704,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="0"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 0
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7724,12 +7724,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 1
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7744,12 +7744,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 2
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7764,12 +7764,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="3"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 3
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7784,12 +7784,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="4"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 4
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7804,12 +7804,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="5"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 5
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7824,12 +7824,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="6"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 6
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7844,12 +7844,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="7"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 7
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7864,12 +7864,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="8"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 8
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7884,12 +7884,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="9"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 9
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7904,12 +7904,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="10"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 10
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7924,12 +7924,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="11"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 11
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7944,12 +7944,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="12"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 12
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7964,12 +7964,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="13"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 13
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -7984,12 +7984,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="14"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 14
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8004,12 +8004,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="15"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 15
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8024,12 +8024,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="16"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 16
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8044,12 +8044,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="17"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 17
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8064,12 +8064,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="18"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 18
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8084,12 +8084,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="19"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 19
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8104,12 +8104,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="20"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 20
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8124,12 +8124,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="21"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 21
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8144,12 +8144,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="22"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 22
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8164,12 +8164,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="23"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 23
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8184,12 +8184,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="24"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 24
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8204,12 +8204,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="25"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 25
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8224,12 +8224,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="26"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 26
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8244,12 +8244,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="27"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 27
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8264,12 +8264,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="28"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 28
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8284,12 +8284,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="29"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 29
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8304,12 +8304,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="30"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 30
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8324,12 +8324,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="31"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 31
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8344,12 +8344,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="32"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 32
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8364,12 +8364,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="33"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 33
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8384,12 +8384,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="34"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 34
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8404,12 +8404,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="35"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 35
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8424,12 +8424,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="36"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 36
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8444,12 +8444,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="37"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 37
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8464,12 +8464,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="38"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 38
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8484,12 +8484,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="39"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 39
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8504,12 +8504,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="40"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 40
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8524,12 +8524,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="41"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 41
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8544,12 +8544,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="42"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 42
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8564,12 +8564,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="43"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 43
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8584,12 +8584,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="44"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 44
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8604,12 +8604,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="45"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 45
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8624,12 +8624,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="46"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 46
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8644,12 +8644,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="47"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 47
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8664,12 +8664,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="48"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 48
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8684,12 +8684,12 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     data-row-key="49"
                   >
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Edward King 49
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       32
                     </td>
@@ -8803,7 +8803,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered ant-table-fixed-header ant-table-scroll-position-left"
+        class="ant-table ant-table-middle ant-table-bordered ant-table-fixed-header ant-table-scroll-position-left ant-table-layout-fixed"
       >
         <div
           class="ant-table-content"
@@ -8847,7 +8847,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       rowspan="4"
                     >
                       <span
@@ -8925,7 +8925,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                       rowspan="4"
                     >
                       <span
@@ -8946,7 +8946,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </tr>
                   <tr>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                       rowspan="3"
                     >
                       <span
@@ -9030,7 +9030,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                       rowspan="3"
                     >
                       <span
@@ -9070,7 +9070,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </tr>
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                       rowspan="2"
                     >
                       <span
@@ -9110,7 +9110,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   </tr>
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -9128,7 +9128,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       <span
                         class="ant-table-header-column"
@@ -9190,32 +9190,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="0"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       1
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9225,7 +9225,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9235,32 +9235,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       2
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9270,7 +9270,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9280,32 +9280,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       3
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9315,7 +9315,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9325,32 +9325,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="3"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       4
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9360,7 +9360,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9370,32 +9370,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="4"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       5
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9405,7 +9405,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9415,32 +9415,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="5"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       6
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9450,7 +9450,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9460,32 +9460,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="6"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       7
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9495,7 +9495,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9505,32 +9505,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="7"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       8
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9540,7 +9540,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9550,32 +9550,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="8"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       9
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9585,7 +9585,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9595,32 +9595,32 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                     data-row-key="9"
                   >
                     <td
-                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-break-word"
                     >
                       10
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Park
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       C
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       2035
                     </td>
                     <td
-                      class=""
+                      class="ant-table-row-cell-break-word"
                     >
                       Lake Street 42
                     </td>
@@ -9630,7 +9630,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       SoftLake Co
                     </td>
                     <td
-                      class="ant-table-fixed-columns-in-body"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
                     >
                       M
                     </td>
@@ -9658,7 +9658,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-filters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       rowspan="4"
                     >
                       <span
@@ -9725,7 +9725,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="0"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9735,7 +9735,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="1"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9745,7 +9745,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="2"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9755,7 +9755,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="3"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9765,7 +9765,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="4"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9775,7 +9775,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="5"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9785,7 +9785,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="6"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9795,7 +9795,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="7"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9805,7 +9805,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="8"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9815,7 +9815,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="9"
                     >
                       <td
-                        class="ant-table-column-has-actions ant-table-column-has-filters"
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
                       >
                         John Brown
                       </td>
@@ -9844,7 +9844,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class=""
+                      class="ant-table-row-cell-break-word"
                       rowspan="4"
                     >
                       <span
@@ -9890,7 +9890,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="0"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9900,7 +9900,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="1"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9910,7 +9910,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="2"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9920,7 +9920,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="3"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9930,7 +9930,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="4"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9940,7 +9940,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="5"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9950,7 +9950,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="6"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9960,7 +9960,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="7"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9970,7 +9970,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="8"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -9980,7 +9980,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       data-row-key="9"
                     >
                       <td
-                        class=""
+                        class="ant-table-row-cell-break-word"
                       >
                         M
                       </td>
@@ -11438,7 +11438,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-default ant-table-scroll-position-left"
+          class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
         >
           <div
             class="ant-table-content"
@@ -11459,7 +11459,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       <span
                         class="ant-table-header-column"
@@ -11544,7 +11544,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       </i>
                     </th>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       <span
                         class="ant-table-header-column"
@@ -11608,7 +11608,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       <span
                         class="ant-table-header-column"
@@ -11702,17 +11702,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="1"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       John Brown
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       New York No. 1 Lake Park
                     </td>
@@ -11722,17 +11722,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="2"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Jim Green
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       42
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       London No. 1 Lake Park
                     </td>
@@ -11742,17 +11742,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="3"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Joe Black
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Sidney No. 1 Lake Park
                     </td>
@@ -11762,17 +11762,17 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     data-row-key="4"
                   >
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       Jim Red
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       32
                     </td>
                     <td
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
                     >
                       London No. 2 Lake Park
                     </td>
@@ -11902,7 +11902,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="react-resizable"
+                    class="ant-table-row-cell-break-word react-resizable"
                   >
                     <span
                       class="ant-table-header-column"
@@ -11924,7 +11924,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     />
                   </th>
                   <th
-                    class="react-resizable"
+                    class="ant-table-row-cell-break-word react-resizable"
                   >
                     <span
                       class="ant-table-header-column"
@@ -11946,7 +11946,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     />
                   </th>
                   <th
-                    class="react-resizable"
+                    class="ant-table-row-cell-break-word react-resizable"
                   >
                     <span
                       class="ant-table-header-column"
@@ -11968,7 +11968,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     />
                   </th>
                   <th
-                    class="react-resizable"
+                    class="ant-table-row-cell-break-word react-resizable"
                   >
                     <span
                       class="ant-table-header-column"
@@ -12017,22 +12017,22 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   data-row-key="0"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     2018-02-11
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     120
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     income
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     transfer
                   </td>
@@ -12049,22 +12049,22 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     2018-03-11
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     243
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     income
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     transfer
                   </td>
@@ -12081,22 +12081,22 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   data-row-key="2"
                 >
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     2018-04-11
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     98
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     income
                   </td>
                   <td
-                    class=""
+                    class="ant-table-row-cell-break-word"
                   >
                     transfer
                   </td>

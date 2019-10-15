@@ -3,7 +3,6 @@
 exports[`Menu should controlled collapse work 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
-  motion="[object Object]"
   role="menu"
 >
   <li
@@ -40,7 +39,6 @@ exports[`Menu should controlled collapse work 1`] = `
 exports[`Menu should controlled collapse work 2`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-inline-collapsed ant-menu-root ant-menu-inline"
-  motion="[object Object]"
   role="menu"
 >
   <li
