@@ -15,6 +15,45 @@ timeline: true
 
 ---
 
+## 3.24.0
+
+`2019-10-16`
+
+- 🎉 Promote [Yuque](https://www.yuque.com/?chInfo=ch_antd) on home page.
+- Table
+  - 🌟 Added `tableLayout` property for `table-layout` attribute. And using `tableLayout="fixed"` by default in scroll table to resolve align issue caused by cell content. [#17284](https://github.com/ant-design/ant-design/pull/17284)
+  - 🌟 Added `column.ellipsis` to ellipsize cell content.
+  - 🌟 Added the `scroll.scrollToFirstRowOnChange` property to set whether to scroll to the top of the table after page changing. [#18726](https://github.com/ant-design/ant-design/pull/18726)
+  - 🌟 `filterDropdown` added a `visible` parameter to get the display state of the dropdown box. [#17614](https://github.com/ant-design/ant-design/pull/17614) [@sedx](https://github.com/ant-design/ant-design/pull/17614)
+  - 🌟 `title` added a `sortColumn` parameter to get the currently sorted column. [#19012](https://github.com/ant-design/ant-design/pull/19012) [@swillis12](https://github.com/swillis12)
+  - 🌟 The `sorter` parameter of `onChange` will always contain `column` information when sorting. [#19226](https://github.com/ant-design/ant-design/pull/19226)
+- 🌟 Anchor added a `onChange` attribute to listen for changes to anchor links. [#18715](https://github.com/ant-design/ant-design/pull/18715)
+- Upload
+  - 🌟 Added `showDownloadIcon` attribute to display download icon. [#18664](https://github.com/ant-design/ant-design/pull/18664) [@qq645381995](https://github.com/qq645381995)
+  - 🌟 Support for `onRemove` control of upload interrupts. [#18937](https://github.com/ant-design/ant-design/pull/18937) [@ladjzero](https://github.com/ladjzero)
+- 🌟 Input.Search added a `loading` property to show the state in the load. [#18771](https://github.com/ant-design/ant-design/pull/18771)
+- 🌟 Grid's `gutter` property added support for vertical spacing. Now you can set an array for `gutter` and the second value of the array for vertical spacing. [#18979](https://github.com/ant-design/ant-design/pull/18979)
+- 🌟 message added support for updating content with a unique key. [#18678](https://github.com/ant-design/ant-design/pull/18678)
+- 🌟 Layout added a `specialTriggerStyle` property to control the style of the special `trigger` that appears when `collapsedWidth` is `0`. [#19079](https://github.com/ant-design/ant-design/pull/19079)
+- 🌟 Drawer added the `drawerStyle` and `headerStyle` properties. [#19109](https://github.com/ant-design/ant-design/pull/19109)
+- PageHeader
+  - 💄 Redesigned. [#19100](https://github.com/ant-design/ant-design/pull/19100)
+  - 🌟 Added `ghost` property. [#19100](https://github.com/ant-design/ant-design/pull/19100)
+- ConfigProvider
+  - 🌟 Added `pageHeader` to globally control the style of PageHeader. [#19100](https://github.com/ant-design/ant-design/pull/19100)
+  - 🐞 Fixed the issue that `moment` can't be tree-shark. [#19115](https://github.com/ant-design/ant-design/pull/19115)
+- 🐞 Fixed the issue that the `removeIcon` and `clearIcon` properties of TreeSelect didn't work. [#18949](https://github.com/ant-design/ant-design/pull/18949)
+- 🐞 Fixed the issue that the `switcherIcon` does not take effect after the Tree setting `showLine`. [#18829](https://github.com/ant-design/ant-design/pull/18829) [@MrHeer](https://github.com/MrHeer)
+- 🐞 Fixed the issue that the Slider component set the handle size and positioned incorrectly. [#19120](https://github.com/ant-design/ant-design/pull/19120)
+- Collapse
+  - 🐞 Fix icon styles under IE 11. [#19135](https://github.com/ant-design/ant-design/pull/19135) [@GBcrimson](https://github.com/GBcrimson)
+  - 🐞 Keep `className` given to `expandIcon`. [#19160](https://github.com/ant-design/ant-design/pull/19160) [@gpetrioli](https://github.com/gpetrioli)
+- 🐞 Fixed the issue that `defaultExpandAll` does not take effect when Tree.DirectoryTree component passed `treeData`. [#19148](https://github.com/ant-design/ant-design/pull/19148)
+- 🐞 Fixed the issue with some of the Menu styles under Dropdown. [#19150](https://github.com/ant-design/ant-design/pull/19150)
+- 🐞 Fixed Cascader's `placeholder` internationalization error. [#19227](https://github.com/ant-design/ant-design/pull/19227) [@kagawagao](https://github.com/kagawagao)
+- 🌟 Added less variables `@typography-title-margin-top`, `@typography-title-margin-bottom`. [#18746](https://github.com/ant-design/ant-design/pull/18746)
+- 🗑 Discard the `autosize` property of Input.TextArea, use `autoSize` instead. [#19177](https://github.com/ant-design/ant-design/pull/19177)
+
 ## 3.23.6
 
 `2019-10-05`
