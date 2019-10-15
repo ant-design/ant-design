@@ -2385,14 +2385,14 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                     </span>
                   </div>
                   <div
-                    aria-valuemin="-9007199254740991"
                     class="ant-input-number-input-wrap"
-                    role="spinbutton"
                   >
                     <input
+                      aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
                       min="-9007199254740991"
+                      role="spinbutton"
                       step="1"
                       value=""
                     />
@@ -3244,13 +3244,12 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-valuemax="10"
-              aria-valuemin="1"
-              aria-valuenow="3"
               class="ant-input-number-input-wrap"
-              role="spinbutton"
             >
               <input
+                aria-valuemax="10"
+                aria-valuemin="1"
+                aria-valuenow="3"
                 autocomplete="off"
                 class="ant-input-number-input"
                 data-__field="[object Object]"
@@ -3258,6 +3257,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 id="validate_other_input-number"
                 max="10"
                 min="1"
+                role="spinbutton"
                 step="1"
                 value="3"
               />
@@ -3343,7 +3343,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             />
             <div
               class="ant-slider-track"
-              style="left:0%;width:0%"
+              style="left:0%;right:auto;width:0%"
             />
             <div
               class="ant-slider-step"
@@ -3380,7 +3380,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               aria-valuenow="0"
               class="ant-slider-handle"
               role="slider"
-              style="left:0%"
+              style="left:0%;right:auto;transform:translateX(-50%)"
               tabindex="0"
             />
             <div
@@ -3388,37 +3388,37 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             >
               <span
                 class="ant-slider-mark-text ant-slider-mark-text-active"
-                style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
               >
                 A
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
               >
                 B
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
               >
                 C
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
               >
                 D
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
               >
                 E
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
               >
                 F
               </span>
@@ -5096,14 +5096,14 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-valuemin="-9007199254740991"
               class="ant-input-number-input-wrap"
-              role="spinbutton"
             >
               <input
+                aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
                 min="-9007199254740991"
+                role="spinbutton"
                 step="1"
                 value=""
               />
@@ -5227,17 +5227,17 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-valuemax="12"
-              aria-valuemin="8"
-              aria-valuenow="11"
               class="ant-input-number-input-wrap"
-              role="spinbutton"
             >
               <input
+                aria-valuemax="12"
+                aria-valuemin="8"
+                aria-valuenow="11"
                 autocomplete="off"
                 class="ant-input-number-input"
                 max="12"
                 min="8"
+                role="spinbutton"
                 step="1"
                 value="11"
               />

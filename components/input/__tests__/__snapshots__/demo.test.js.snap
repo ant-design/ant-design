@@ -342,14 +342,14 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemin="-9007199254740991"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemin="-9007199254740991"
         autocomplete="off"
         class="ant-input-number-input"
         min="-9007199254740991"
+        role="spinbutton"
         step="1"
         value=""
       />
@@ -1105,14 +1105,14 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         </span>
       </div>
       <div
-        aria-valuemin="-9007199254740991"
         class="ant-input-number-input-wrap"
-        role="spinbutton"
       >
         <input
+          aria-valuemin="-9007199254740991"
           autocomplete="off"
           class="ant-input-number-input"
           min="-9007199254740991"
+          role="spinbutton"
           step="1"
           value=""
         />

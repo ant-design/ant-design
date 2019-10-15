@@ -7410,14 +7410,14 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     </span>
   </div>
   <div
-    aria-valuemin="-9007199254740991"
     class="config-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
       min="-9007199254740991"
+      role="spinbutton"
       step="1"
       value=""
     />
@@ -7488,14 +7488,14 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     </span>
   </div>
   <div
-    aria-valuemin="-9007199254740991"
     class="ant-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
       min="-9007199254740991"
+      role="spinbutton"
       step="1"
       value=""
     />
@@ -7566,14 +7566,14 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     </span>
   </div>
   <div
-    aria-valuemin="-9007199254740991"
     class="prefix-InputNumber-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="prefix-InputNumber-input"
       min="-9007199254740991"
+      role="spinbutton"
       step="1"
       value=""
     />
@@ -7998,7 +7998,6 @@ exports[`ConfigProvider components Mention prefixCls 1`] = `
 exports[`ConfigProvider components Menu configProvider 1`] = `
 <ul
   class="config-menu config-menu-light config-menu-root config-menu-inline"
-  motion="[object Object]"
   role="menu"
 >
   <li
@@ -8019,7 +8018,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       />
     </div>
     <ul
-      class="config-menu  config-menu-sub config-menu-inline"
+      class="config-menu config-menu-sub config-menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -8052,7 +8051,6 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
 exports[`ConfigProvider components Menu normal 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
-  motion="[object Object]"
   role="menu"
 >
   <li
@@ -8073,7 +8071,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
       />
     </div>
     <ul
-      class="ant-menu  ant-menu-sub ant-menu-inline"
+      class="ant-menu ant-menu-sub ant-menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -8106,7 +8104,6 @@ exports[`ConfigProvider components Menu normal 1`] = `
 exports[`ConfigProvider components Menu prefixCls 1`] = `
 <ul
   class="prefix-Menu prefix-Menu-light prefix-Menu-root prefix-Menu-inline"
-  motion="[object Object]"
   role="menu"
 >
   <li
@@ -8127,7 +8124,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       />
     </div>
     <ul
-      class="prefix-Menu  prefix-Menu-sub prefix-Menu-inline"
+      class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -11145,7 +11142,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div
     class="config-slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="config-slider-step"
@@ -11157,7 +11154,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -11194,7 +11191,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div
     class="ant-slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -11206,7 +11203,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -11243,7 +11240,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div
     class="prefix-Slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="prefix-Slider-step"
@@ -11255,7 +11252,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     aria-valuenow="0"
     class="prefix-Slider-handle prefix-Slider-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>

@@ -525,7 +525,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="left:0%;width:20%"
+          style="left:0%;right:auto;width:20%"
         />
         <div
           class="ant-slider-step"
@@ -562,7 +562,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           aria-valuenow="1"
           class="ant-slider-handle"
           role="slider"
-          style="left:20%"
+          style="left:20%;right:auto;transform:translateX(-50%)"
           tabindex="0"
         />
         <div
@@ -570,37 +570,37 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         >
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
           >
             8
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
           >
             16
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
           >
             24
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
           >
             32
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
           >
             40
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
           >
             48
           </span>
@@ -623,7 +623,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="left:0%;width:20%"
+          style="left:0%;right:auto;width:20%"
         />
         <div
           class="ant-slider-step"
@@ -660,7 +660,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           aria-valuenow="1"
           class="ant-slider-handle"
           role="slider"
-          style="left:20%"
+          style="left:20%;right:auto;transform:translateX(-50%)"
           tabindex="0"
         />
         <div
@@ -668,37 +668,37 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         >
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
           >
             8
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
           >
             16
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
           >
             24
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
           >
             32
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
           >
             40
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
           >
             48
           </span>
@@ -721,7 +721,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         />
         <div
           class="ant-slider-track"
-          style="left:0%;width:40%"
+          style="left:0%;right:auto;width:40%"
         />
         <div
           class="ant-slider-step"
@@ -758,7 +758,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
           aria-valuenow="2"
           class="ant-slider-handle"
           role="slider"
-          style="left:40%"
+          style="left:40%;right:auto;transform:translateX(-50%)"
           tabindex="0"
         />
         <div
@@ -766,37 +766,37 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
         >
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:0%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
           >
             2
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:20%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
           >
             3
           </span>
           <span
             class="ant-slider-mark-text ant-slider-mark-text-active"
-            style="left:40%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
           >
             4
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:60%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
           >
             6
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:80%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
           >
             8
           </span>
           <span
             class="ant-slider-mark-text"
-            style="left:100%;transform:translateX(-50%);-ms-transform:translateX(-50%)"
+            style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
           >
             12
           </span>
