@@ -429,7 +429,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
       children,
-      placeholder = locale.placeholder,
+      placeholder = locale.placeholder || 'Please select',
       size,
       disabled,
       className,
