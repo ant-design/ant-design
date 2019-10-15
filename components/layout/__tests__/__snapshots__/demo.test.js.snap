@@ -139,6 +139,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        motion="[object Object]"
         role="menu"
       >
         <li
@@ -279,6 +280,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      motion="[object Object]"
       role="menu"
       style="line-height:64px"
     >
@@ -450,6 +452,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        motion="[object Object]"
         role="menu"
       >
         <li
@@ -833,6 +836,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        motion="[object Object]"
         role="menu"
       >
         <li
@@ -1002,6 +1006,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       />
       <ul
         class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        motion="[object Object]"
         role="menu"
       >
         <li
@@ -1263,6 +1268,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      motion="[object Object]"
       role="menu"
       style="line-height:64px"
     >
@@ -1430,6 +1436,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      motion="[object Object]"
       role="menu"
       style="line-height:64px"
     >
@@ -1583,6 +1590,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         >
           <ul
             class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+            motion="[object Object]"
             role="menu"
             style="height:100%"
           >
@@ -1624,7 +1632,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 />
               </div>
               <ul
-                class="ant-menu ant-menu-sub ant-menu-inline"
+                class="ant-menu  ant-menu-sub ant-menu-inline"
                 id="sub1$Menu"
                 role="menu"
               >
@@ -1766,6 +1774,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     />
     <ul
       class="ant-menu ant-menu-dark ant-menu-root ant-menu-horizontal"
+      motion="[object Object]"
       role="menu"
       style="line-height:64px"
     >
@@ -1873,6 +1882,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       >
         <ul
           class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+          motion="[object Object]"
           role="menu"
           style="height:100%;border-right:0"
         >
@@ -1914,7 +1924,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               />
             </div>
             <ul
-              class="ant-menu ant-menu-sub ant-menu-inline"
+              class="ant-menu  ant-menu-sub ant-menu-inline"
               id="sub1$Menu"
               role="menu"
             >

@@ -11,7 +11,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -484,7 +484,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left ant-table-layout-fixed"
+        class="ant-table ant-table-default ant-table-scroll-position-left"
       >
         <div
           class="ant-table-content"
@@ -992,6 +992,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
   >
     <ul
       class="ant-dropdown-menu ant-table-selection-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+      motion="[object Object]"
       role="menu"
       tabindex="0"
     >

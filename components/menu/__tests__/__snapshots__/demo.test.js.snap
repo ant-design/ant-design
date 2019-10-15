@@ -3,6 +3,7 @@
 exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-horizontal"
+  motion="[object Object]"
   role="menu"
 >
   <li
@@ -202,6 +203,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
 exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  motion="[object Object]"
   role="menu"
   style="width:256px"
 >
@@ -245,7 +247,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       />
     </div>
     <ul
-      class="ant-menu ant-menu-sub ant-menu-inline"
+      class="ant-menu  ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
@@ -421,6 +423,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
   </button>
   <ul
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    motion="[object Object]"
     role="menu"
   >
     <li
@@ -547,7 +550,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         />
       </div>
       <ul
-        class="ant-menu ant-menu-sub ant-menu-inline"
+        class="ant-menu  ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -628,6 +631,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
 exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+  motion="[object Object]"
   role="menu"
   style="width:256px"
 >
@@ -671,7 +675,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       />
     </div>
     <ul
-      class="ant-menu ant-menu-sub ant-menu-inline"
+      class="ant-menu  ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
@@ -820,6 +824,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
   <br />
   <ul
     class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+    motion="[object Object]"
     role="menu"
     style="width:256px"
   >
@@ -915,7 +920,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
         />
       </div>
       <ul
-        class="ant-menu ant-menu-sub ant-menu-inline"
+        class="ant-menu  ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -1016,6 +1021,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
   <br />
   <ul
     class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+    motion="[object Object]"
     role="menu"
     style="width:256px"
   >
@@ -1059,7 +1065,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
         />
       </div>
       <ul
-        class="ant-menu ant-menu-sub ant-menu-inline"
+        class="ant-menu  ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -1180,6 +1186,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
 exports[`renders ./components/menu/demo/vertical.md correctly 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-vertical"
+  motion="[object Object]"
   role="menu"
   style="width:256px"
 >
