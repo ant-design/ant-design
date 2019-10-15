@@ -51,7 +51,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       locale,
-      pageHeader = { ghost: true },
+      pageHeader,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -64,13 +64,12 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
     }
+
     if (renderEmpty) {
       config.renderEmpty = renderEmpty;
     }
 
-    // set pageHeader type
-    // 防止设置为 null 报错
-    if (pageHeader && pageHeader.ghost) {
+    if (pageHeader) {
       config.pageHeader = pageHeader;
     }
 

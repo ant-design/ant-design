@@ -90,24 +90,30 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
 
 const PageHeader: React.SFC<PageHeaderProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls, pageHeader = { ghost: true } }: ConfigConsumerProps) => {
+    {({ getPrefixCls, pageHeader }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         style,
         footer,
         children,
-        ghost = true,
         breadcrumb,
         className: customizeClassName,
       } = props;
+      let ghost: undefined | boolean = true;
+
+      // Use `ghost` from `props` or from `ConfigProvider` instead.
+      if ('ghost' in props) {
+        ghost = props.ghost;
+      } else if (pageHeader && 'ghost' in pageHeader) {
+        ghost = pageHeader.ghost;
+      }
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
       const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
       const className = classnames(prefixCls, customizeClassName, {
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
-        // 防止设置为 null 报错
-        [`${prefixCls}-ghost`]: ghost || (pageHeader && ghost === undefined && pageHeader.ghost),
+        [`${prefixCls}-ghost`]: ghost,
       });
 
       return (
