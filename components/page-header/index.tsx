@@ -22,6 +22,7 @@ export interface PageHeaderProps {
   avatar?: AvatarProps;
   onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
+  ghost?: boolean;
 }
 
 const renderBack = (
@@ -89,7 +90,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
 
 const PageHeader: React.SFC<PageHeaderProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, pageHeader }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         style,
@@ -98,12 +99,21 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         breadcrumb,
         className: customizeClassName,
       } = props;
+      let ghost: undefined | boolean = true;
+
+      // Use `ghost` from `props` or from `ConfigProvider` instead.
+      if ('ghost' in props) {
+        ghost = props.ghost;
+      } else if (pageHeader && 'ghost' in pageHeader) {
+        ghost = pageHeader.ghost;
+      }
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
       const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
       const className = classnames(prefixCls, customizeClassName, {
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
+        [`${prefixCls}-ghost`]: ghost,
       });
 
       return (

@@ -114,7 +114,10 @@ class MainContent extends Component {
   }
 
   getMenuItems(footerNavIcons = {}) {
-    const { themeConfig, intl: { locale } } = this.props;
+    const {
+      themeConfig,
+      intl: { locale },
+    } = this.props;
     const moduleData = getModuleData(this.props);
     const menuItems = utils.getMenuItems(
       moduleData,
@@ -159,7 +162,10 @@ class MainContent extends Component {
   }
 
   getActiveMenuItem() {
-    const { params: { children }, location } = this.props;
+    const {
+      params: { children },
+      location,
+    } = this.props;
     return (
       (children && children.replace('-cn', '')) || location.pathname.replace(/(^\/|-cn$)/g, '')
     );

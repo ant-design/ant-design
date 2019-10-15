@@ -108,6 +108,20 @@ describe('Table.sorter', () => {
     expect(actualSortOrder).toEqual('ascend');
   });
 
+  it('can update column sortOrder', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [column],
+      }),
+    );
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    wrapper.setProps({
+      columns: [{ ...column, sortOrder: 'ascend' }],
+    });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
@@ -606,5 +620,58 @@ describe('Table.sorter', () => {
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(onChange.mock.calls[0][0].current).toBe(1);
     expect(onPageChange.mock.calls[0][0]).toBe(1);
+  });
+
+  it('should support onHeaderCell in sort column', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }), sorter: true }]} />,
+    );
+    wrapper.find('th').simulate('click');
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('could sort data with children', () => {
+    const wrapper = mount(
+      createTable(
+        {
+          dataSource: [
+            {
+              key: '1',
+              name: 'Brown',
+              children: [
+                {
+                  key: '2',
+                  name: 'Zoe',
+                },
+                {
+                  key: '3',
+                  name: 'Mike',
+                  children: [
+                    {
+                      key: '3-1',
+                      name: 'Petter',
+                    },
+                    {
+                      key: '3-2',
+                      name: 'Alex',
+                    },
+                  ],
+                },
+                {
+                  key: '4',
+                  name: 'Green',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          defaultSortOrder: 'ascend',
+        },
+      ),
+    );
+
+    expect(renderedNames(wrapper)).toEqual(['Brown', 'Green', 'Mike', 'Alex', 'Petter', 'Zoe']);
   });
 });

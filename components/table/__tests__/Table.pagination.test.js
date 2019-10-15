@@ -70,6 +70,25 @@ describe('Table.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 
+  it('should accept pagination size', () => {
+    const wrapper = mount(
+      createTable({
+        pagination: { size: 'small' },
+      }),
+    );
+    expect(wrapper.find('.ant-pagination.mini')).toHaveLength(1);
+  });
+
+  // TODO
+  it('should scroll to first row when page change', () => {
+    const wrapper = mount(createTable({ scroll: { y: 20 } }));
+
+    wrapper
+      .find('Pager')
+      .last()
+      .simulate('click');
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const handlePaginationChange = jest.fn();
@@ -149,6 +168,17 @@ describe('Table.pagination', () => {
     );
   });
 
+  it('should not change page when pagination current is specified', () => {
+    const wrapper = mount(createTable({ pagination: { current: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
+    wrapper.find('.ant-pagination-item-3').simulate('click');
+    expect(wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
+  });
+
   it('specify the position of pagination', () => {
     const wrapper = mount(createTable({ pagination: { position: 'top' } }));
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
@@ -215,6 +245,7 @@ describe('Table.pagination', () => {
   it('select by checkbox to trigger stopPropagation', () => {
     jest.useFakeTimers();
     const onShowSizeChange = jest.fn();
+    const onChange = jest.fn();
     const wrapper = mount(
       createTable({
         pagination: {
@@ -222,6 +253,7 @@ describe('Table.pagination', () => {
           showSizeChanger: true,
           onShowSizeChange,
         },
+        onChange,
       }),
     );
     wrapper.find('.ant-select').simulate('click');
@@ -238,6 +270,22 @@ describe('Table.pagination', () => {
       .at(3)
       .simulate('click');
     expect(onShowSizeChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenCalled();
     jest.useRealTimers();
+  });
+
+  it('should support current in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { current: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('2');
+  });
+
+  it('should support defaultCurrent in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { defaultCurrent: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('2');
+  });
+
+  it('should support defaultPageSize in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { defaultPageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(4);
   });
 });

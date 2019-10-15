@@ -62,6 +62,8 @@ export interface AnchorProps {
   ) => void;
   /** Scroll to target offset value, if none, it's offsetTop prop value or 0. */
   targetOffset?: number;
+  /** Listening event when scrolling change active link */
+  onChange?: (currentActiveLink: string) => void;
 }
 
 export interface AnchorState {
@@ -205,7 +207,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   handleScrollTo = (link: string) => {
     const { offsetTop, getContainer, targetOffset } = this.props as AnchorDefaultProps;
 
-    this.setState({ activeLink: link });
+    this.setCurrentActiveLink(link);
     const container = getContainer();
     const scrollTop = getScroll(container, true);
     const sharpLinkMatch = sharpMatcherRegx.exec(link);
@@ -234,21 +236,30 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     this.inkNode = node;
   };
 
+  setCurrentActiveLink = (link: string) => {
+    const { activeLink } = this.state;
+    const { onChange } = this.props;
+
+    if (activeLink !== link) {
+      this.setState({
+        activeLink: link,
+      });
+      if (onChange) {
+        onChange(link);
+      }
+    }
+  };
+
   handleScroll = () => {
     if (this.animating) {
       return;
     }
-    const { activeLink } = this.state;
     const { offsetTop, bounds, targetOffset } = this.props;
     const currentActiveLink = this.getCurrentAnchor(
       targetOffset !== undefined ? targetOffset : offsetTop || 0,
       bounds,
     );
-    if (activeLink !== currentActiveLink) {
-      this.setState({
-        activeLink: currentActiveLink,
-      });
-    }
+    this.setCurrentActiveLink(currentActiveLink);
   };
 
   updateInk = () => {

@@ -508,6 +508,40 @@ describe('Table.rowSelection', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('fix selection column on the left when any other column is fixed', () => {
+    const wrapper = render(
+      createTable({
+        rowSelection: {},
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            fixed: 'left',
+          },
+        ],
+      }),
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('use column as selection column when key is `selection-column`', () => {
+    const wrapper = render(
+      createTable({
+        rowSelection: {},
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'selection-column',
+          },
+        ],
+      }),
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   // https://github.com/ant-design/ant-design/issues/10629
   it('should keep all checked state when remove item from dataSource', () => {
     const wrapper = mount(
@@ -705,7 +739,7 @@ describe('Table.rowSelection', () => {
   it('clear selection className when remove `rowSelection`', () => {
     const dataSource = [{ id: 1, name: 'Hello', age: 10 }, { id: 2, name: 'World', age: 30 }];
 
-    const wrapper = mount(<Table columns={columns} dataSource={dataSource} rowSelection={{}} />);
+    const wrapper = mount(<Table columns={columns} dataSource={dataSource} rowSelection={{}} expandedRowRender={() => null} />);
     const checkboxes = wrapper.find('input');
     checkboxes.at(1).simulate('change', { target: { checked: true } });
 
@@ -723,5 +757,14 @@ describe('Table.rowSelection', () => {
         .at(10)
         .simulate('click');
     }).not.toThrow();
+  });
+
+  it('could hide all selections', () => {
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    expect(wrapper.find('Trigger')).toHaveLength(0);
   });
 });

@@ -101,6 +101,7 @@ title: Layout
 | width | 宽度 | number\|string | 200 |  |
 | onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |  |
 | onBreakpoint | 触发响应式布局[断点](/components/grid#api)时的回调 | (broken) => {} | - | 3.7.0 |
+| zeroWidthTriggerStyle | 指定当 `collapsedWidth` 为 0 时出现的特殊 trigger 的样式 | object | - | 3.24.0 |
 
 #### breakpoint width
 

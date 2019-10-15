@@ -24,8 +24,10 @@ title: Drawer
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true | 3.7.0 |
 | mask | 是否展示遮罩 | Boolean | true | 3.7.0 |
 | maskStyle | 遮罩样式 | object | {} | 3.7.0 |
-| style | 可用于设置 Drawer 最外层容器的样式 | object | - | 3.7.0 |
-| bodyStyle | 可用于设置 Drawer 的样式，调整浮层位置等 | object | - | 3.12.0 |
+| style | 可用于设置 Drawer 最外层容器的样式，和 `drawerStyle` 的区别是作用节点包括 `mask` | object | - | 3.7.0 |
+| drawerStyle | 用于设置 Drawer 弹出层的样式 | object | - | 3.24.0 |
+| headerStyle | 用于设置 Drawer 头部的样式 | object | - | 3.24.0 |
+| bodyStyle | 可用于设置 Drawer 内容部分的样式 | object | - | 3.12.0 |
 | title | 标题 | string \| ReactNode | - | 3.7.0 |
 | visible | Drawer 是否可见 | boolean | - | 3.7.0 |
 | width | 宽度 | string \| number | 256 | 3.7.0 |
