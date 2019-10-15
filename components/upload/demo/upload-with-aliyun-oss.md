@@ -16,7 +16,7 @@ Use Aliyun OSS upload example.
 ```jsx
 import { Form, Upload, message, Button, Icon } from 'antd';
 
-class UploadCom extends React.Component {
+class AliyunOSSUpload extends React.Component {
   state = {
     OSSData: {},
   };
@@ -27,7 +27,7 @@ class UploadCom extends React.Component {
 
   init = async () => {
     try {
-      const OSSData = await this.getOSSData();
+      const OSSData = await this.mockGetOSSData();
 
       this.setState({
         OSSData,
@@ -39,7 +39,7 @@ class UploadCom extends React.Component {
 
   // Mock get OSS api
   // https://help.aliyun.com/document_detail/31988.html
-  getOSSData = () => {
+  mockGetOSSData = () => {
     return {
       dir: 'user-dir/',
       expire: '1577811661',
@@ -53,7 +53,7 @@ class UploadCom extends React.Component {
   onChange = ({ fileList }) => {
     const { onChange } = this.props;
     console.log('Aliyun OSS:', fileList);
-    onChange([...fileList]);
+    onChange && onChange([...fileList]);
   };
 
   onRemove = file => {
@@ -61,7 +61,7 @@ class UploadCom extends React.Component {
 
     const files = value.filter(v => v.url !== file.url);
 
-    onChange(files);
+    onChange && onChange(files);
   };
 
   transformFile = file => {
@@ -122,7 +122,7 @@ class FormPage extends React.Component {
     const { getFieldDecorator } = this.props.form;
     return (
       <Form onSubmit={this.handleSubmit} labelCol={{ span: 4 }}>
-        <Form.Item label="Photos">{getFieldDecorator('name')(<UploadCom />)}</Form.Item>
+        <Form.Item label="Photos">{getFieldDecorator('photos')(<AliyunOSSUpload />)}</Form.Item>
       </Form>
     );
   }
