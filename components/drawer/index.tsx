@@ -257,6 +257,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
             'getPrefixCls',
             'renderEmpty',
             'csp',
+            'pageHeader',
             'autoInsertSpaceInButton',
           ])}
           {...offsetStyle}
