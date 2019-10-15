@@ -2385,14 +2385,14 @@ exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
                     </span>
                   </div>
                   <div
+                    aria-valuemin="-9007199254740991"
                     class="ant-input-number-input-wrap"
+                    role="spinbutton"
                   >
                     <input
-                      aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
                       min="-9007199254740991"
-                      role="spinbutton"
                       step="1"
                       value=""
                     />
@@ -3244,12 +3244,13 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
               class="ant-input-number-input-wrap"
+              role="spinbutton"
             >
               <input
-                aria-valuemax="10"
-                aria-valuemin="1"
-                aria-valuenow="3"
                 autocomplete="off"
                 class="ant-input-number-input"
                 data-__field="[object Object]"
@@ -3257,7 +3258,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 id="validate_other_input-number"
                 max="10"
                 min="1"
-                role="spinbutton"
                 step="1"
                 value="3"
               />
@@ -5096,14 +5096,14 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemin="-9007199254740991"
               class="ant-input-number-input-wrap"
+              role="spinbutton"
             >
               <input
-                aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
                 min="-9007199254740991"
-                role="spinbutton"
                 step="1"
                 value=""
               />
@@ -5227,17 +5227,17 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               </span>
             </div>
             <div
+              aria-valuemax="12"
+              aria-valuemin="8"
+              aria-valuenow="11"
               class="ant-input-number-input-wrap"
+              role="spinbutton"
             >
               <input
-                aria-valuemax="12"
-                aria-valuemin="8"
-                aria-valuenow="11"
                 autocomplete="off"
                 class="ant-input-number-input"
                 max="12"
                 min="8"
-                role="spinbutton"
                 step="1"
                 value="11"
               />
