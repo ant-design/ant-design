@@ -245,7 +245,7 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
       />
     </div>
     <ul
-      class="ant-menu  ant-menu-sub ant-menu-inline"
+      class="ant-menu ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
@@ -547,7 +547,7 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         />
       </div>
       <ul
-        class="ant-menu  ant-menu-sub ant-menu-inline"
+        class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -671,7 +671,7 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       />
     </div>
     <ul
-      class="ant-menu  ant-menu-sub ant-menu-inline"
+      class="ant-menu ant-menu-sub ant-menu-inline"
       id="sub1$Menu"
       role="menu"
     >
@@ -915,7 +915,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
         />
       </div>
       <ul
-        class="ant-menu  ant-menu-sub ant-menu-inline"
+        class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -1059,7 +1059,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
         />
       </div>
       <ul
-        class="ant-menu  ant-menu-sub ant-menu-inline"
+        class="ant-menu ant-menu-sub ant-menu-inline"
         id="sub1$Menu"
         role="menu"
       >
@@ -1124,7 +1124,7 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
             </svg>
           </i>
           <span>
-            Navigtion Two
+            Navigation Two
           </span>
         </span>
         <i

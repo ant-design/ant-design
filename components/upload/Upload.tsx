@@ -98,7 +98,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       fileList: nextFileList,
     });
     // fix ie progress
-    if (!(window as any).FormData) {
+    if (!(window as any).File || process.env.TEST_IE) {
       this.autoUpdateProgress(0, targetItem);
     }
   };

@@ -13,7 +13,12 @@ import Tree, {
   AntTreeNodeSelectedEvent,
   AntTreeNode,
 } from './Tree';
-import { calcRangeKeys, getFullKeyList, convertDirectoryKeysToNodes } from './util';
+import {
+  calcRangeKeys,
+  getFullKeyList,
+  convertDirectoryKeysToNodes,
+  getFullKeyListByTreeData,
+} from './util';
 import Icon from '../icon';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -82,7 +87,11 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
     // Expanded keys
     if (defaultExpandAll) {
-      this.state.expandedKeys = getFullKeyList(props.children);
+      if (props.treeData) {
+        this.state.expandedKeys = getFullKeyListByTreeData(props.treeData);
+      } else {
+        this.state.expandedKeys = getFullKeyList(props.children);
+      }
     } else if (defaultExpandParent) {
       this.state.expandedKeys = conductExpandParent(
         expandedKeys || defaultExpandedKeys,

@@ -3,7 +3,8 @@
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header"
+    class="ant-page-header ant-page-header-ghost"
+    style="border:1px solid rgb(235, 237, 240)"
   >
     <div
       class="ant-page-header-heading"
@@ -182,7 +183,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
   </div>
   <br />
   <div
-    class="ant-page-header"
+    class="ant-page-header ant-page-header-ghost"
   >
     <div
       class="ant-page-header-heading"
@@ -363,7 +364,8 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 <div
-  class="ant-page-header"
+  class="ant-page-header ant-page-header-ghost"
+  style="border:1px solid rgb(235, 237, 240)"
 >
   <div
     class="ant-page-header-heading"
@@ -415,7 +417,8 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb"
+  class="ant-page-header has-breadcrumb ant-page-header-ghost"
+  style="border:1px solid rgb(235, 237, 240)"
 >
   <div
     class="ant-breadcrumb"
@@ -486,7 +489,8 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb"
+  class="ant-page-header has-breadcrumb ant-page-header-ghost"
+  style="border:1px solid rgb(235, 237, 240)"
 >
   <div
     class="ant-breadcrumb"
@@ -695,10 +699,196 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
+<div
+  style="background-color:#F5F5F5;padding:24px"
+>
+  <div
+    class="ant-page-header"
+  >
+    <div
+      class="ant-page-header-heading"
+    >
+      <div
+        class="ant-page-header-back"
+      >
+        <div
+          aria-label="Back"
+          class="ant-page-header-back-button"
+          role="button"
+          style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+          tabindex="0"
+        >
+          <i
+            aria-label="icon: arrow-left"
+            class="anticon anticon-arrow-left"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="arrow-left"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </i>
+        </div>
+      </div>
+      <span
+        class="ant-page-header-heading-title"
+      >
+        Title
+      </span>
+      <span
+        class="ant-page-header-heading-sub-title"
+      >
+        This is a subtitle
+      </span>
+      <span
+        class="ant-page-header-heading-extra"
+      >
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Operation
+          </span>
+        </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Operation
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Primary
+          </span>
+        </button>
+      </span>
+    </div>
+    <div
+      class="ant-page-header-content"
+    >
+      <div
+        class="ant-descriptions ant-descriptions-small"
+      >
+        <div
+          class="ant-descriptions-view"
+        >
+          <table>
+            <tbody>
+              <tr
+                class="ant-descriptions-row"
+              >
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <span
+                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  >
+                    Created
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    Lili Qu
+                  </span>
+                </td>
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <span
+                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  >
+                    Association
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    <a>
+                      421421
+                    </a>
+                  </span>
+                </td>
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <span
+                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  >
+                    Creation Time
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    2017-01-10
+                  </span>
+                </td>
+              </tr>
+              <tr
+                class="ant-descriptions-row"
+              >
+                <td
+                  class="ant-descriptions-item"
+                  colspan="1"
+                >
+                  <span
+                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  >
+                    Effective Time
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    2017-10-10
+                  </span>
+                </td>
+                <td
+                  class="ant-descriptions-item"
+                  colspan="2"
+                >
+                  <span
+                    class="ant-descriptions-item-label ant-descriptions-item-colon"
+                  >
+                    Remarks
+                  </span>
+                  <span
+                    class="ant-descriptions-item-content"
+                  >
+                    Gonghu Road, Xihu District, Hangzhou, Zhejiang, China
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header has-footer"
+    class="ant-page-header has-footer ant-page-header-ghost"
+    style="border:1px solid rgb(235, 237, 240)"
   >
     <div
       class="ant-page-header-heading"

@@ -904,7 +904,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           </th>
           <th
             class="ant-descriptions-item-label ant-descriptions-item-colon"
-            colspan="5"
+            colspan="3"
           >
             Usage Time
           </th>
@@ -920,7 +920,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
           </td>
           <td
             class="ant-descriptions-item-content"
-            colspan="5"
+            colspan="3"
           >
             2019-04-24 18:00:00
           </td>
