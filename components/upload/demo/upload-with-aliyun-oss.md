@@ -53,7 +53,9 @@ class AliyunOSSUpload extends React.Component {
   onChange = ({ fileList }) => {
     const { onChange } = this.props;
     console.log('Aliyun OSS:', fileList);
-    onChange && onChange([...fileList]);
+    if (onChange) {
+      onChange([...fileList]);
+    }
   };
 
   onRemove = file => {
@@ -61,7 +63,9 @@ class AliyunOSSUpload extends React.Component {
 
     const files = value.filter(v => v.url !== file.url);
 
-    onChange && onChange(files);
+    if (onChange) {
+      onChange(files);
+    }
   };
 
   transformFile = file => {
