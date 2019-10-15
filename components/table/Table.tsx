@@ -877,10 +877,13 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     if (onChange) {
       onChange.apply(
         null,
-        this.prepareParamsArguments({
-          ...this.state,
-          ...newState,
-        }),
+        this.prepareParamsArguments(
+          {
+            ...this.state,
+            ...newState,
+          },
+          column,
+        ),
       );
     }
   }
@@ -898,18 +901,23 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   }
 
   // Get pagination, filters, sorter
-  prepareParamsArguments(state: any): PrepareParamsArgumentsReturn<T> {
+  prepareParamsArguments(state: any, column?: ColumnProps<T>): PrepareParamsArgumentsReturn<T> {
     const pagination = { ...state.pagination };
     // remove useless handle function in Table.onChange
     delete pagination.onChange;
     delete pagination.onShowSizeChange;
     const filters = state.filters;
     const sorter: any = {};
+    let currentColumn = column;
     if (state.sortColumn && state.sortOrder) {
+      currentColumn = state.sortColumn;
       sorter.column = state.sortColumn;
       sorter.order = state.sortOrder;
-      sorter.field = state.sortColumn.dataIndex;
-      sorter.columnKey = getColumnKey(state.sortColumn);
+    }
+
+    if (currentColumn) {
+      sorter.field = currentColumn.dataIndex;
+      sorter.columnKey = getColumnKey(currentColumn);
     }
 
     const extra = {
