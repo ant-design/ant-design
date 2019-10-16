@@ -27,7 +27,7 @@ timeline: true
   - 🌟 `filterDropdown` added a `visible` parameter to get the display state of the dropdown box. [#17614](https://github.com/ant-design/ant-design/pull/17614) [@sedx](https://github.com/ant-design/ant-design/pull/17614)
   - 🌟 `title` added a `sortColumn` parameter to get the currently sorted column. [#19012](https://github.com/ant-design/ant-design/pull/19012) [@swillis12](https://github.com/swillis12)
   - 🌟 The `sorter` parameter of `onChange` will always contain `column` information when sorting. [#19226](https://github.com/ant-design/ant-design/pull/19226)
-  - 🐞 Fix Table filter submenu checkbox margin. [#e1a4f28](https://github.com/ant-design/ant-design/commit/e1a4f2891e3c35ae26495432bd2d288d4d81064a)
+  - 🐞 Fix Table filter submenu checkbox margin. [#e1a4f28](https://github.com/ant-design/ant-design/commit/e1a4f2891e3c35ae26495432bd2d288d4d81064a)
 - 🌟 Anchor added a `onChange` attribute to listen for changes to anchor links. [#18715](https://github.com/ant-design/ant-design/pull/18715)
 - Upload
   - 🌟 Added `showDownloadIcon` attribute to display download icon. [#18664](https://github.com/ant-design/ant-design/pull/18664) [@qq645381995](https://github.com/qq645381995)
