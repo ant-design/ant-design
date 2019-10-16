@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const path = require('path');
 const glob = require('glob');
 const chalk = require('chalk');
@@ -13,14 +14,11 @@ const throwError = keyfile => {
 };
 
 const removeNameHash = filename => {
-  return (
-    filename
-      .replace(/(?<=\.).*?(?:\.)/g, '')
-      // eslint-disable-next-line no-useless-escape
-      .replace(/(?<=\-).*?(?:\-)/g, '')
-      // eslint-disable-next-line no-useless-escape
-      .replace(/(?<=\-).*?(?:\.)/g, '')
-  );
+  return filename
+    .replace(/(?<=\.)\w{6}(?:\.)/g, '')
+    .replace(/(?<=demo\-0\.).*?(?:\.)/g, '')
+    .replace(/(?<=\-)\w{8}(?:-)/g, '')
+    .replace(/(?<=\-)\w{8}(?:\.)/g, '');
 };
 
 const getPrevfiles = async () => {
@@ -52,6 +50,7 @@ const startCheck = async () => {
       .map(file => removeNameHash(file.replace(`${sitePath}/`, ''))),
   );
   const diff = difference(prevFiles, nextFiles);
+  console.log('diff', diff);
   // create files
   if (prevFiles.length >= nextFiles.length && diff.length > 0) {
     throwError(JSON.stringify(diff));
