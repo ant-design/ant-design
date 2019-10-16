@@ -161,7 +161,7 @@ export interface WithStore {
   setCheckboxPropsCache: (cache: CheckboxPropsCache) => void;
 }
 
-export interface TableProps<T> extends WithStore {
+export interface TablePropsWithoutStore<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
@@ -218,6 +218,8 @@ export interface TableProps<T> extends WithStore {
   sortDirections?: SortOrder[];
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
+
+export type TableProps<T> =<WithStore & TablePropsWithoutStore;
 
 export interface TableStateFilters {
   [key: string]: string[];
