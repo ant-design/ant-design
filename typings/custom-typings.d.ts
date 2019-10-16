@@ -20,8 +20,6 @@ declare module 'rc-cascader';
 
 declare module 'rc-checkbox';
 
-declare module 'rc-radio';
-
 declare module 'rc-dropdown';
 
 declare module 'rc-editor-mention';
@@ -80,7 +78,5 @@ declare module '*.json' {
   export const version: string;
   export default value;
 }
-
-declare module 'react-lifecycles-compat';
 
 declare module 'react-copy-to-clipboard';

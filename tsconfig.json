@@ -11,5 +11,5 @@
     "target": "es6",
     "lib": ["dom", "es2017"]
   },
-  "exclude": ["node_modules", "lib", "es"]
+  "exclude": ["node_modules", "lib", "es", "site"]
 }
