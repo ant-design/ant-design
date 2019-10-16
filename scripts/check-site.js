@@ -51,10 +51,9 @@ const startCheck = async () => {
       .sync(path.join(process.cwd(), '_site', '**'), globOpts)
       .map(file => removeNameHash(file.replace(`${sitePath}/`, ''))),
   );
-
   const diff = difference(prevFiles, nextFiles);
   // create files
-  if (nextFiles.length >= prevFiles.length && diff.length > 0) {
+  if (prevFiles.length >= nextFiles.length && diff.length > 0) {
     throwError(JSON.stringify(diff));
   }
   console.log(chalk.green('✅ Check site files success'));
