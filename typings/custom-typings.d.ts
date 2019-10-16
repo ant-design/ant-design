@@ -26,8 +26,6 @@ declare module 'rc-editor-mention';
 
 declare module 'rc-progress';
 
-declare module 'rc-menu';
-
 declare module 'rc-drawer';
 
 declare module 'rc-tabs*';

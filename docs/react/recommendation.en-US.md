@@ -44,7 +44,7 @@ There are some products to recommend for developer/designer/product manager.
 | --- | --- |
 | Documentation | [🐦 Yuque](https://www.yuque.com/?chInfo=ch_antd) |
 | Icon | [Iconfont](https://www.iconfont.cn/) |
-| Sketch plugin | [Kitchen](https://kichen.alipay.com) |
+| Sketch plugin | [Kitchen](https://kitchen.alipay.com) |
 | Online Playground | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | Image Compressor | [tinypng](https://tinypng.com/) |
 | Charts Dictionary | [G2](https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html) [图之典](http://tuzhidian.com/) |

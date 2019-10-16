@@ -37,6 +37,10 @@
     border-spacing: 0;
   }
 
+  &-layout-fixed table {
+    table-layout: fixed;
+  }
+
   &-thead > tr > th {
     color: @table-header-color;
     font-weight: 500;
@@ -169,6 +173,7 @@
 
     .@{table-prefix-cls}-header-column {
       display: inline-block;
+      max-width: 100%;
       vertical-align: top;
 
       .@{table-prefix-cls}-column-sorters {
@@ -328,6 +333,7 @@
   &-thead > tr > th,
   &-tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
+    overflow-wrap: break-word;
   }
 
   &-expand-icon-th,
@@ -471,10 +477,6 @@
       overflow: hidden;
     }
 
-    .@{ant-prefix}-checkbox-wrapper + span {
-      padding-left: 8px;
-    }
-
     > .@{ant-prefix}-dropdown-menu > .@{ant-prefix}-dropdown-menu-item:last-child,
     > .@{ant-prefix}-dropdown-menu
       > .@{ant-prefix}-dropdown-menu-submenu:last-child
@@ -579,6 +581,22 @@
         content: '.';
       }
     }
+
+    &-cell-ellipsis,
+    &-cell-ellipsis .@{table-prefix-cls}-column-title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    &-cell-ellipsis .@{table-prefix-cls}-column-title {
+      display: block;
+    }
+
+    &-cell-break-word {
+      word-wrap: break-word;
+      word-break: break-word;
+    }
   }
 
   tr&-expanded-row {
@@ -600,7 +618,6 @@
     overflow: auto;
     overflow-x: hidden;
     table {
-      width: auto;
       min-width: 100%;
 
       // https://github.com/ant-design/ant-design/issues/14545
@@ -753,6 +770,13 @@
 
   &-row[class*='@{table-prefix-cls}-row-level-0'] .@{table-prefix-cls}-selection-column > span {
     display: inline-block;
+  }
+}
+
+.@{table-prefix-cls}-filter-dropdown,
+.@{table-prefix-cls}-filter-dropdown-submenu {
+  .@{ant-prefix}-checkbox-wrapper + span {
+    padding-left: 8px;
   }
 }
 

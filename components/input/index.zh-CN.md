@@ -42,7 +42,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoSize | 自适应内容高度，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean\|object | false |  |
+| autoSize | 自适应内容高度，可设置为 `true|false` 或对象：`{ minRows: 2, maxRows: 6 }`。`3.24.0` 后 `autosize` 被废弃，请使用 `autoSize`。 | boolean\|object | false | 3.24.0 |
 | defaultValue | 输入框默认内容 | string |  |  |
 | value | 输入框内容 | string |  |  |
 | onPressEnter | 按下回车的回调 | function(e) |  |  |
@@ -55,6 +55,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | --- | --- | --- | --- | --- |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 addon 冲突。 | boolean\|ReactNode | false |  |
 | onSearch | 点击搜索或按下回车键时的回调 | function(value, event) |  |  |
+| loading | 搜索 loading | boolean |  |  |
 
 其余属性和 Input 一致。
 

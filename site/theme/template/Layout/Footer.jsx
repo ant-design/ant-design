@@ -90,6 +90,12 @@ class Footer extends React.Component {
             openExternal: true,
           },
           {
+            title: 'Remax',
+            description: <FormattedMessage id="app.footer.remax" />,
+            url: 'https://remaxjs.org/',
+            openExternal: true,
+          },
+          {
             title: 'Ant Motion',
             description: <FormattedMessage id="app.footer.motion" />,
             url: 'https://motion.ant.design',

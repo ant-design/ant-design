@@ -8,7 +8,7 @@ import {
   FileTwoTone,
   Eye,
   Delete,
-  Close,
+  Download,
 } from '@ant-design/icons';
 
 import { UploadListProps, UploadFile, UploadListType } from './interface';
@@ -25,6 +25,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showInfo: false,
     },
     showRemoveIcon: true,
+    showDownloadIcon: true,
     showPreviewIcon: true,
     previewFile: previewImage,
   };
@@ -65,6 +66,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return onPreview(file);
   };
 
+  handleDownload = (file: UploadFile) => {
+    const { onDownload } = this.props;
+    if (typeof onDownload === 'function') {
+      onDownload(file);
+    } else if (file.url) {
+      window.open(file.url);
+    }
+  };
+
   handleClose = (file: UploadFile) => {
     const { onRemove } = this.props;
     if (onRemove) {
@@ -79,6 +89,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       listType,
       showPreviewIcon,
       showRemoveIcon,
+      showDownloadIcon,
       locale,
       progressAttr,
     } = this.props;
@@ -132,28 +143,60 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const infoUploadingClass = classNames({
         [`${prefixCls}-list-item`]: true,
         [`${prefixCls}-list-item-${file.status}`]: true,
+        [`${prefixCls}-list-item-list-type-${listType}`]: true,
       });
       const linkProps =
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
-      const preview = file.url ? (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${prefixCls}-list-item-name`}
-          title={file.name}
-          {...linkProps}
-          href={file.url}
-          onClick={e => this.handlePreview(file, e)}
+
+      const removeIcon = showRemoveIcon ? (
+        <Delete title={locale.removeFile} onClick={() => this.handleClose(file)} />
+      ) : null;
+
+      const downloadIcon =
+        showDownloadIcon && file.status === 'done' ? (
+          <Download title={locale.downloadFile} onClick={() => this.handleDownload(file)} />
+        ) : null;
+      const downloadOrDelete = listType !== 'picture-card' && (
+        <span
+          key="download-delete"
+          className={`${prefixCls}-list-item-card-actions ${
+            listType === 'picture' ? 'picture' : ''
+          }`}
         >
-          {file.name}
-        </a>
+          {downloadIcon && <a title={locale.downloadFile}>{downloadIcon}</a>}
+          {removeIcon && <a title={locale.removeFile}>{removeIcon}</a>}
+        </span>
+      );
+      const listItemNameClass = classNames({
+        [`${prefixCls}-list-item-name`]: true,
+        [`${prefixCls}-list-item-name-icon-count-${
+          [downloadIcon, removeIcon].filter(x => x).length
+        }`]: true,
+      });
+      const preview = file.url ? (
+        [
+          <a
+            key="view"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={listItemNameClass}
+            title={file.name}
+            {...linkProps}
+            href={file.url}
+            onClick={e => this.handlePreview(file, e)}
+          >
+            {file.name}
+          </a>,
+          downloadOrDelete,
+        ]
       ) : (
         <span
-          className={`${prefixCls}-list-item-name`}
+          className={listItemNameClass}
           onClick={e => this.handlePreview(file, e)}
           title={file.name}
         >
           {file.name}
+          {downloadOrDelete}
         </span>
       );
       const style: React.CSSProperties = {
@@ -172,21 +215,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           <Eye />
         </a>
       ) : null;
-      const removeIcon = showRemoveIcon ? (
-        <Delete title={locale.removeFile} onClick={() => this.handleClose(file)} />
-      ) : null;
-      const removeIconClose = showRemoveIcon ? (
-        <Close title={locale.removeFile} onClick={() => this.handleClose(file)} />
-      ) : null;
-      const actions =
-        listType === 'picture-card' && file.status !== 'uploading' ? (
-          <span className={`${prefixCls}-list-item-actions`}>
-            {previewIcon}
-            {removeIcon}
-          </span>
-        ) : (
-          removeIconClose
-        );
+
+      const actions = listType === 'picture-card' && file.status !== 'uploading' && (
+        <span className={`${prefixCls}-list-item-actions`}>
+          {previewIcon}
+          {file.status === 'done' && downloadIcon}
+          {removeIcon}
+        </span>
+      );
+
       let message;
       if (file.response && typeof file.response === 'string') {
         message = file.response;

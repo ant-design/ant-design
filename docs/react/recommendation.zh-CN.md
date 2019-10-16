@@ -44,7 +44,7 @@ title: 社区精选组件
 | --- | --- |
 | 文档管理 | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd) |
 | 图标 | [阿里巴巴矢量图标库](https://www.iconfont.cn/) |
-| Sketch 插件 | [Kitchen](https://kichen.alipay.com) |
+| Sketch 插件 | [Kitchen](https://kitchen.alipay.com) |
 | 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
 | 图片压缩 | [tinypng](https://tinypng.com/) |
 | 图表分类查询 | [G2](https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html) [图之典](http://tuzhidian.com/) |

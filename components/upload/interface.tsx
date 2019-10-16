@@ -40,11 +40,13 @@ export interface UploadChangeParam<T extends object = UploadFile> {
 export interface ShowUploadListInterface {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
+  showDownloadIcon?: boolean;
 }
 
 export interface UploadLocale {
   uploading?: string;
   removeFile?: string;
+  downloadFile?: string;
   uploadError?: string;
   previewFile?: string;
 }
@@ -74,6 +76,7 @@ export interface UploadProps {
   listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile) => void;
+  onDownload?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean | Promise<void | boolean>;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
@@ -96,11 +99,13 @@ export interface UploadState {
 export interface UploadListProps {
   listType?: UploadListType;
   onPreview?: (file: UploadFile) => void;
+  onDownload?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
   items?: Array<UploadFile>;
   progressAttr?: Object;
   prefixCls?: string;
   showRemoveIcon?: boolean;
+  showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;

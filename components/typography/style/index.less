@@ -2,33 +2,6 @@
 @import '../../style/mixins/index';
 
 @typography-prefix-cls: ~'@{ant-prefix}-typography';
-@typography-title-margin-top: 1.2em;
-
-// =============== Common ===============
-.typography-paragraph() {
-  margin-bottom: 1em;
-}
-
-.typography-title(@fontSize; @lineHeight) {
-  margin-bottom: 0.5em;
-  color: @heading-color;
-  font-weight: @typography-title-font-weight;
-  font-size: @fontSize;
-  line-height: @lineHeight;
-}
-
-.typography-title-1() {
-  .typography-title(@heading-1-size, 1.23);
-}
-.typography-title-2() {
-  .typography-title(@heading-2-size, 1.35);
-}
-.typography-title-3() {
-  .typography-title(@heading-3-size, 1.35);
-}
-.typography-title-4() {
-  .typography-title(@heading-4-size, 1.4);
-}
 
 // =============== Basic ===============
 .@{typography-prefix-cls} {

@@ -244,6 +244,15 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 </a>
 `;
 
+exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
+<a
+  class="ant-dropdown-link ant-dropdown-trigger"
+  href="#"
+>
+  Hover to check menu style 
+</a>
+`;
+
 exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
