@@ -15,7 +15,8 @@ debug: true
 This demo was created for debugging Menu styles inside Dropdown. [#19150](https://github.com/ant-design/ant-design/pull/19150)
 
 ```jsx
-import { Menu, Dropdown, Icon } from 'antd';
+import { Menu, Dropdown } from 'antd';
+import { Mail, Appstore, Setting, Down } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -25,7 +26,7 @@ const menu = (
       key="sub1"
       title={
         <span>
-          <Icon type="mail" />
+          <Mail />
           <span>Navigation One</span>
         </span>
       }
@@ -43,7 +44,7 @@ const menu = (
       key="sub2"
       title={
         <span>
-          <Icon type="appstore" />
+          <Appstore />
           <span>Navigation Two</span>
         </span>
       }
@@ -59,7 +60,7 @@ const menu = (
       key="sub4"
       title={
         <span>
-          <Icon type="setting" />
+          <Setting />
           <span>Navigation Three</span>
         </span>
       }
@@ -75,7 +76,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" href="#">
-      Hover to check menu style <Icon type="down" />
+      Hover to check menu style <Down />
     </a>
   </Dropdown>,
   mountNode,
