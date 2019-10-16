@@ -11,7 +11,7 @@ title: 项目实战
 
 > 你可能也会对 [Ant Design Pro](https://pro.ant.design/) 感兴趣，这是一个基于 umi、dva 和 ant design 的开箱即用的中台前端/设计解决方案。
 
-本文会引导你使用 Umi UI 和 antd 从 0 开始创建一个简单应用。
+本文会引导你使用 Umi UI、dva 和 antd 从 0 开始创建一个简单应用。
 
 ## 安装 Umi UI
 
@@ -26,7 +26,7 @@ $ umi -v
 2.10.4
 ```
 
-确保 Umi 版本在 2.9.0 以上。
+确保 umi 版本在 2.9.0 以上。
 
 ## 创建新应用
 
