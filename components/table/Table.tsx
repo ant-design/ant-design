@@ -1361,48 +1361,42 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   }
 }
 
-function withStore(
-  WrappedComponent: typeof Table,
-): React.ComponentClass<Omit<TableProps<any>, keyof WithStore>> & {
-  Column: typeof Column;
-  ColumnGroup: typeof ColumnGroup;
-} {
-  class Component<T> extends React.Component<TableProps<T>> {
-    static Column = Column;
-
-    static ColumnGroup = ColumnGroup;
-
-    store: Store;
-
-    CheckboxPropsCache: CheckboxPropsCache;
-
-    constructor(props: TableProps<T>) {
-      super(props);
-
-      this.CheckboxPropsCache = {};
-
-      this.store = createStore({
-        selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
-        selectionDirty: false,
-      });
-    }
-
-    setCheckboxPropsCache = (cache: CheckboxPropsCache) => (this.CheckboxPropsCache = cache);
-
-    render() {
-      return (
-        <WrappedComponent<T>
-          {...this.props}
-          store={this.store}
-          checkboxPropsCache={this.CheckboxPropsCache}
-          setCheckboxPropsCache={this.setCheckboxPropsCache}
-        />
-      );
-    }
-  }
-  return Component;
-}
-
 polyfill(Table);
 
-export default withStore(Table);
+class StoreTable<T> extends React.Component<TableProps<T>> {
+  static displayName = 'withStore(Table)';
+
+  static Column = Column;
+
+  static ColumnGroup = ColumnGroup;
+
+  store: Store;
+
+  CheckboxPropsCache: CheckboxPropsCache;
+
+  constructor(props: TableProps<T>) {
+    super(props);
+
+    this.CheckboxPropsCache = {};
+
+    this.store = createStore({
+      selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
+      selectionDirty: false,
+    });
+  }
+
+  setCheckboxPropsCache = (cache: CheckboxPropsCache) => (this.CheckboxPropsCache = cache);
+
+  render() {
+    return (
+      <Table<T>
+        {...this.props}
+        store={this.store}
+        checkboxPropsCache={this.CheckboxPropsCache}
+        setCheckboxPropsCache={this.setCheckboxPropsCache}
+      />
+    );
+  }
+}
+
+export default StoreTable;
