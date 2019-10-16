@@ -1363,7 +1363,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
 function withStore(
   WrappedComponent: typeof Table,
-): React.ComponentClass<Omit<TableProps<any>, keyof WithStore>> {
+): React.ComponentClass<Omit<TableProps<any>, keyof WithStore>> & {
+  Column: typeof Column;
+  ColumnGroup: typeof ColumnGroup;
+} {
   class Component<T> extends React.Component<TableProps<T>> {
     static Column = Column;
 
