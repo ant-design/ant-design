@@ -22,7 +22,6 @@ It is recommended to use yarn to create an application and execute the following
 ```bash
 $ yarn global add umi
 $ umi -v
-
 2.10.4
 ```
 
@@ -39,39 +38,35 @@ $ umi ui
 🧨  Ready on http://localhost:3000/
 ```
 
-After starting, Umi UI will automatically open the browser. The first time you start, you will see the following image.
+After starting, Umi UI will automatically open the browser, then click `Create Project`, select the path and enter `App name`, as shown below.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/VszC5SEW94/7178bef3-5650-4743-affc-7a4b6bf3e477.png" width="718" />
-
-Click `Create Project`, select the path and enter `AppName`, as shown below.
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/C0GgHMeC1O/7237c94b-e0b6-4eef-b1c8-7a15745e42b1.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/kQSR2zWDQ6/26543f59-07de-44b7-8b1d-b34e1266de8b.png" width="718" />
 
 Click `Next`, select `Basic Template`, select `antd` and `dva` on the technology stack, then click `Finish`.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/2hFiL%24U0VC/94072de8-8cdc-4392-a481-60af4e6ff19b.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/Pz9ayQpkWw/3c8a0190-ac32-444f-812e-3d1eff422507.png" width="718" />
 
 In the project creation process, wait a few minutes.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/zljnw%24E7Gb/c7aa2f00-7173-4c52-a9b1-ff086cd17e96.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/UtFy3fYg9n/bb7ef7c0-2fdb-403e-9b5a-d4ba02390483.png" width="718" />
 
-After creating, go to `Overview` and click on the shortcut entry `Local Start`.
+After creating, go to `Overview` and click on the shortcut entry `Run Dev`.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/SFGnG60OAw/f25dce16-f5d9-451c-b1cd-b70030a7cafe.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/sZj2WeXiqc/44ddbc70-386c-4c8a-8deb-6a4a93a3afb2.png" width="718" />
 
 In the task page, click `Start`,
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/uz1mwgQWCq/f1083edc-9f26-4222-8509-a264df15d49f.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/%24ot6F6Bj2L/a4c49cda-4ff8-409f-8054-9281199b6270.png" width="718" />
 
 When prompted, open [http://localhost:8000](http://localhost:8000) in your browser, you will see the welcome page of umi.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/qEHQ0lN4Ii/d230fd3a-4fb9-4793-a43e-423a49f750a6.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/2Bm%24zoeBpz/ba708131-c7ac-41f0-92a0-c86007291b6a.png" width="718" />
 
 ## Integrate antd
 
 After selecting `antd` earlier, antd's dependencies are automatically handled and loaded on demand. You can check the `Configuration` to make sure antd is turned on.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/eZAegydPBF/893b6694-c8fb-46fb-9276-5b681b5ad125.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/0EFiWipONe/7aea9287-09ff-4396-bb20-d8da28483c2c.png" width="718" />
 
 > And if you want to use a fixed version of antd, you can install additional antd dependency in your project, and the antd dependencies declared in package.json will be used first.
 
@@ -102,6 +97,10 @@ Then open [http://localhost:8000/products](http://localhost:8000/products) in yo
 As your application grows and you notice you are sharing UI elements between multiple pages (or using them multiple times on the same page), in umi it's called reusable components.
 
 Let's create a `ProductList` component that we can use in multiple places to show a list of products.
+
+Click `Open in editor`,
+
+<img src="https://gw.alipayobjects.com/zos/antfincdn/yXRYDK88RS/2252c0f6-747f-422c-aeb6-dc518d74c8ea.png" width="718" />
 
 Create `src/components/ProductList.js` by typing:
 
@@ -215,7 +214,7 @@ Refresh your browser, you should see the following result:
 
 Now that we've written our application and verified that it works in development, it's time to get it ready for deployment to our users. To do so, click `build` in Task page.
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/jodoj%24Lz1G/05cdbda7-64b8-46fe-956d-ffbe76c6eeac.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/P31ZGMwzGe/d5365860-f7c6-4abe-98c0-36d6b1b3a65a.png" width="718" />
 
 The `build` command packages up all of the assets that make up your application —— JavaScript, templates, CSS, web fonts, images, and more. Then you can find these files in the `dist/` directory.
 

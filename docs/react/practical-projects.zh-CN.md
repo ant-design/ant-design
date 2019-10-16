@@ -22,7 +22,6 @@ title: 项目实战
 ```bash
 $ yarn global add umi
 $ umi -v
-
 2.10.4
 ```
 
@@ -39,45 +38,35 @@ $ umi ui
 🧨  Ready on http://localhost:3000/
 ```
 
-启动后 Umi UI 会自动打开浏览器，第一次启动看到如下图：
+启动后， Umi UI 会自动打开浏览器，点击 `创建项目`，选择路径并输入 `应用名`，如下图：
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/PXPVdRJI3i/fe414be1-d65c-4ef9-8da0-cea85e7c63b7.png" width="718" />
-<!-- https://gw.alipayobjects.com/zos/antfincdn/VszC5SEW94/7178bef3-5650-4743-affc-7a4b6bf3e477.png -->
-
-点击 `创建项目`，选择路径并输入 `应用名`，如下图：
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/cFtAnWBXUC/dd201437-5984-4cc5-aa96-b4995619249e.png" width="718" />
-<!-- https://gw.alipayobjects.com/zos/antfincdn/C0GgHMeC1O/7237c94b-e0b6-4eef-b1c8-7a15745e42b1.png -->
+<img src="https://gw.alipayobjects.com/zos/antfincdn/1%24I%24KuXNop/60f0bae2-d803-4339-bc09-8df618ebd916.png" width="718" />
 
 点击 `下一步`，选择 `基础模板`，技术栈选上 `antd` 和 `dva`，然后点击 `完成`。
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/ptpvw9sTvQ/e99d86ea-228c-4d45-97e3-f54b3c36b84a.png" width="718" />
-<!-- https://gw.alipayobjects.com/zos/antfincdn/2hFiL%24U0VC/94072de8-8cdc-4392-a481-60af4e6ff19b.png -->
+<img src="https://gw.alipayobjects.com/zos/antfincdn/9gmy78Evsp/7978f0b2-8b8c-44fa-84df-bfe9dc6065f4.png" width="718" />
 
 进入到项目创建流程，等待几分钟，
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/fV%246ng%26jDi/5930c1ba-9e2e-4f66-ba7c-a4da18324e3f.png" width="718" />
-<!-- https://gw.alipayobjects.com/zos/antfincdn/zljnw%24E7Gb/c7aa2f00-7173-4c52-a9b1-ff086cd17e96.png -->
+<img src="https://gw.alipayobjects.com/zos/antfincdn/cT35jkUl4j/8381545c-7f89-48ef-9e93-8adcdd6a3bb4.png" width="718" />
 
 创建完成后，进入到 `总览`，点击快捷入口 `本地启动`，
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/cZNCDMWkvb/457758da-956b-4df5-b485-78b17f1098aa.png" width="718" />
-<!-- https://gw.alipayobjects.com/zos/antfincdn/SFGnG60OAw/f25dce16-f5d9-451c-b1cd-b70030a7cafe.png -->
+<img src="https://gw.alipayobjects.com/zos/antfincdn/vGsor%24iku8/531acbd7-f48e-4246-bc77-152117ef56db.png" width="718" />
 
 在任务页中，点击 `启动`，
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/rx2doouF2p/599fe71c-a6ea-4fe5-91bb-7f93c686e1db.png" width="718" />
-<!-- https://gw.alipayobjects.com/zos/antfincdn/uz1mwgQWCq/f1083edc-9f26-4222-8509-a264df15d49f.png -->
+<img src="https://gw.alipayobjects.com/zos/antfincdn/RRYNqxBs9g/72ec5739-ac1f-40a6-8f7a-204c7faba0a7.png" width="718" />
 
 按提示，点击 [http://localhost:8000](http://localhost:8000)，你会看到 umi 的欢迎界面。
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/qEHQ0lN4Ii/d230fd3a-4fb9-4793-a43e-423a49f750a6.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/2Bm%24zoeBpz/ba708131-c7ac-41f0-92a0-c86007291b6a.png" width="718" />
 
 ## 使用 antd
 
 前面选择 antd 之后，会自动处理 antd 的依赖以及按需加载。你可以检查 `配置`，确保 antd 已开启。
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/eZAegydPBF/893b6694-c8fb-46fb-9276-5b681b5ad125.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/0EFiWipONe/7aea9287-09ff-4396-bb20-d8da28483c2c.png" width="718" />
 
 > 而如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，package.json 里声明的 antd 依赖会被优先使用。
 
@@ -105,7 +94,7 @@ $ umi g page products
 
 点击 `在编辑器中打开`，
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/uvhjdSD6Nv/cffa1d51-0c79-4c23-8b72-f85cb8a92ba9.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/ffPr49NZ%26p/64fa0ad5-9a7a-43c0-b308-ffe28e680a8b.png" width="718" />
 
 然后新建 `src/components/ProductList.js` 文件：
 
@@ -219,8 +208,7 @@ export const dva = {
 
 完成开发并且在开发环境验证之后，就需要部署给我们的用户了。点击 `构建`，
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/KJKWOTIOCB/7174e4a1-2f1e-4a6f-9f46-2bf1756430dd.png" width="718" />
-<!-- https://gw.alipayobjects.com/zos/antfincdn/jodoj%24Lz1G/05cdbda7-64b8-46fe-956d-ffbe76c6eeac.png -->
+<img src="https://gw.alipayobjects.com/zos/antfincdn/D%2671c0zDk%26/a6c69c76-28e1-4001-9228-3affe8468e2f.png" width="718" />
 
 构建会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 `dist/` 目录下找到这些文件。
 
