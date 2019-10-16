@@ -26,7 +26,7 @@ When need to mention someone or something.
 | --- | --- | --- | --- | --- |
 | autoFocus | Auto get focus when component mounted | boolean | `false` | 3.19.0 |
 | defaultValue | Default value | string | - | 3.19.0 |
-| filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | - | 3.19.0 |
+| filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean | `(input, { value }) => value.toLowerCase().indexOf(input.toLowerCase()) !== -1` | 3.19.0 |
 | notFoundContent | Set mentions content when not match | ReactNode | 'Not Found' | 3.19.0 |
 | placement | Set popup placement | 'top' \| 'bottom' | 'bottom' | 3.19.0 |
 | prefix | Set trigger prefix keyword | string \| string[] | '@' | 3.19.0 |

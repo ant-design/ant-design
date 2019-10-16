@@ -120,7 +120,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
   };
 
   getFilterOption = (): any => {
-    const { filterOption = false, loading } = this.props;
+    const { filterOption, loading } = this.props;
     if (loading) {
       return loadingFilterOption;
     }

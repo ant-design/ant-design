@@ -27,7 +27,7 @@ title: Mentions
 | --- | --- | --- | --- | --- |
 | autoFocus | 自动获得焦点 | boolean | `false` | 3.19.0 |
 | defaultValue | 默认值 | string | - | 3.19.0 |
-| filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | - | 3.19.0 |
+| filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) => boolean | `(input, { value }) => value.toLowerCase().indexOf(input.toLowerCase()) !== -1` | 3.19.0 |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | 'Not Found' | 3.19.0 |
 | placement | 弹出层展示位置 | 'top' \| 'bottom' | 'bottom' | 3.19.0 |
 | prefix | 设置触发关键字 | string \| string[] | '@' | 3.19.0 |
