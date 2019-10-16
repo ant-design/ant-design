@@ -1363,7 +1363,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
 polyfill(Table);
 
-class StoreTable<T> extends React.Component<TableProps<T>> {
+class StoreTable<T> extends React.Component<Omit<TableProps<T>, keyof WithStore>> {
   static displayName = 'withStore(Table)';
 
   static Column = Column;
