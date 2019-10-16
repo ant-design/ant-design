@@ -24,7 +24,7 @@ declare module 'rc-dropdown';
 
 declare module 'rc-editor-mention';
 
-declare module 'rc-progress';
+// declare module 'rc-progress';
 
 declare module 'rc-drawer';
 
