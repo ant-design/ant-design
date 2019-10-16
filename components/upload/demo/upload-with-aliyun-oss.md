@@ -122,17 +122,13 @@ class AliyunOSSUpload extends React.Component {
   }
 }
 
-class FormPage extends React.Component {
-  render() {
-    return (
-      <Form labelCol={{ span: 4 }}>
-        <Form.Item label="Photos" name="photos">
-          <AliyunOSSUpload />
-        </Form.Item>
-      </Form>
-    );
-  }
-}
+const FormPage = () => (
+  <Form labelCol={{ span: 4 }}>
+    <Form.Item label="Photos" name="photos">
+      <AliyunOSSUpload />
+    </Form.Item>
+  </Form>
+);
 
 ReactDOM.render(<FormPage />, mountNode);
 ```
