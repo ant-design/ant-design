@@ -52,7 +52,7 @@ timeline: true
 - 🐞 修复 Tree.DirectoryTree 组件传入 `treeData` 时 `defaultExpandAll` 不生效的问题。[#19148](https://github.com/ant-design/ant-design/pull/19148)
 - 🐞 修复 Dropdown 下部分 Menu 样式错乱的问题。[#19150](https://github.com/ant-design/ant-design/pull/19150)
 - 🐞 修复 Cascader 的 `placeholder` 国际化错误。[#19227](https://github.com/ant-design/ant-design/pull/19227) [@kagawagao](https://github.com/kagawagao)
-- 🌟 新增 less 变量 `@typography-title-margin-top` 和 `@typography-title-margin-bottom。[#18746](https://github.com/ant-design/ant-design/pull/18746)
+- 🌟 新增 less 变量 `@typography-title-margin-top` 和 `@typography-title-margin-bottom`。[#18746](https://github.com/ant-design/ant-design/pull/18746)
 - 🗑 废弃 Input.TextArea 的 `autosize` 属性，请使用 `autoSize` 代替。[#19177](https://github.com/ant-design/ant-design/pull/19177)
 
 ## 3.23.6
