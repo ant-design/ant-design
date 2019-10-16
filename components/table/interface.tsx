@@ -219,7 +219,7 @@ export interface TablePropsWithoutStore<T> {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
 
-export type TableProps<T> =<WithStore & TablePropsWithoutStore;
+export type TableProps<T> = WithStore & TablePropsWithoutStore<T>;
 
 export interface TableStateFilters {
   [key: string]: string[];
