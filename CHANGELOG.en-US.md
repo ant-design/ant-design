@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.24.1
+
+`2019-10-17`
+
+- 🐞 Fix Table throw `React.createRef is not a function error` in old version of React . [#19262](https://github.com/ant-design/ant-design/pull/19262)
+- 🐞 Fix Table TypeScript definition missing Column and ColumnGroup. [#19251](https://github.com/ant-design/ant-design/pull/19251)
+
 ## 3.24.0
 
 `2019-10-16`

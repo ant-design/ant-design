@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.24.1
+
+`2019-10-17`
+
+- 🐞 修复 Table 在旧版 React 会报 `React.createRef is not a function` 的错误信息。[#19262](https://github.com/ant-design/ant-design/pull/19262)
+- 🐞 修复 Table TypeScript 定义丢失 Column 和 ColumnGroup 的问题。[#19251](https://github.com/ant-design/ant-design/pull/19251)
+
 ## 3.24.0
 
 `2019-10-16`
