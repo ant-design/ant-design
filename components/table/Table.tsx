@@ -239,11 +239,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   row: React.ComponentType<any>;
 
-  rcTable: React.RefObject<any>;
+  rcTable: any;
 
   constructor(props: TableProps<T>) {
     super(props);
-    this.rcTable = React.createRef();
 
     const { expandedRowRender, columns: columnsProp = [] } = props;
 
@@ -285,6 +284,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       }
     }
   }
+
+  setTableRef = (table: any) => {
+    this.rcTable = table;
+  };
 
   getCheckboxPropsByItem = (item: T, index: number) => {
     const rowSelection = getRowSelection(this.props);
@@ -535,7 +538,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   generatePopupContainerFunc = (getPopupContainer: TableProps<T>['getPopupContainer']) => {
     const { scroll } = this.props;
-    const table = this.rcTable.current;
+    const table = this.rcTable;
     if (getPopupContainer) {
       return getPopupContainer;
     }
@@ -547,7 +550,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     const { scroll } = this.props;
     if (scroll && scroll.scrollToFirstRowOnChange !== false) {
       scrollTo(0, {
-        getContainer: () => this.rcTable.current.bodyTable,
+        getContainer: () => this.rcTable.bodyTable,
       });
     }
   };
@@ -1285,7 +1288,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
     return (
       <RcTable
-        ref={this.rcTable}
+        ref={this.setTableRef}
         key="table"
         expandIcon={this.renderExpandIcon(prefixCls)}
         {...restProps}
