@@ -1,61 +1,42 @@
-/* eslint-disable no-useless-escape */
-const path = require('path');
-const glob = require('glob');
-const chalk = require('chalk');
-const uniq = require('lodash/uniq');
-const difference = require('lodash/difference');
 const fetch = require('node-fetch');
+const { join } = require('path');
+const cheerio = require('cheerio');
+const { createServer } = require('http-server');
+const zhCN = require('../site/theme/zh-CN');
+const enUS = require('../site/theme/en-US');
 
-const sitePath = path.join(process.cwd(), '_site');
-
-const throwError = keyfile => {
-  console.log(chalk.red(`❌ Check site file ${keyfile} failed`));
-  process.exit(1);
-};
-
-const removeNameHash = filename => {
-  return filename
-    .replace(/(?<=\.)\w{6}(?:\.)/g, '')
-    .replace(/(?<=demo\-0\.).*?(?:\.)/g, '')
-    .replace(/(?<=\-)\w{8}(?:-)/g, '')
-    .replace(/(?<=\-)\w{8}(?:\.)/g, '');
-};
-
-const getPrevfiles = async () => {
-  const { tree } = await fetch(
-    'https://api.github.com/repos/ant-design/ant-design/git/trees/gh-pages?recursive=1',
-  )
-    .then(res => res.json())
-    .catch(e => {
-      console.log(chalk.red('❌ fetch api github failed', e));
+describe('site test', () => {
+  let server;
+  const host = 3000;
+  const render = async path => {
+    const resp = await fetch(`http://localhost:${host}${path}`).then(async res => {
+      const html = await res.text();
+      const $ = cheerio.load(html, { decodeEntities: false, recognizeSelfClosing: true });
+      return {
+        html,
+        status: res.status,
+        $,
+      };
     });
-  const files = uniq(
-    tree
-      .filter(item => item && Number(item.mode) === 100644)
-      .map(item => removeNameHash(item.path)),
-  );
-  return files;
-};
-
-const startCheck = async () => {
-  const globOpts = {
-    nodir: true,
+    return resp;
   };
-  console.log(chalk.cyan('Checking site file...'));
-  const prevFiles = await getPrevfiles();
+  beforeAll(() => {
+    server = createServer({
+      root: join(process.cwd(), '_site'),
+    });
+    server.listen(host);
+    console.log('site static server run: http://localhost:3000');
+  });
 
-  const nextFiles = uniq(
-    glob
-      .sync(path.join(process.cwd(), '_site', '**'), globOpts)
-      .map(file => removeNameHash(file.replace(`${sitePath}/`, ''))),
-  );
-  const diff = difference(prevFiles, nextFiles);
-  console.log('diff', diff);
-  // create files
-  if (prevFiles.length >= nextFiles.length && diff.length > 0) {
-    throwError(JSON.stringify(diff));
-  }
-  console.log(chalk.green('✅ Check site files success'));
-};
+  afterAll(() => {
+    if (server) {
+      server.close();
+    }
+  });
 
-startCheck();
+  it('Home Page', async () => {
+    const { status, $ } = await render('/');
+    expect($('title').text()).toEqual(`Ant Design - ${enUS.messages['app.home.slogan']}`);
+    expect(status).toBe(200);
+  });
+});
