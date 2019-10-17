@@ -36,7 +36,7 @@ describe('site test', () => {
 
   it('Home Page', async () => {
     const { status, $ } = await render('/');
-    expect($('title').text()).toEqual(`Ant Design - ${enUS.messages['app.home.sloga1n']}`);
+    expect($('title').text()).toEqual(`Ant Design - ${enUS.messages['app.home.slogan']}`);
     expect(status).toBe(200);
   });
 });
