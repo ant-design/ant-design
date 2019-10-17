@@ -543,7 +543,9 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       return getPopupContainer;
     }
     // Use undefined to let rc component use default logic.
-    return scroll && table ? () => table.tableNode : undefined;
+    return scroll && table
+      ? (defaultNode: React.ReactNode) => table.tableNode || defaultNode
+      : undefined;
   };
 
   scrollToFirstRow = () => {
