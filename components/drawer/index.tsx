@@ -46,6 +46,7 @@ export interface DrawerProps {
   className?: string;
   handler?: React.ReactNode;
   keyboard?: boolean;
+  closeIcon?: React.ReactElement<any>;
 }
 
 export interface IDrawerState {
@@ -161,12 +162,12 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
   }
 
   renderCloseIcon() {
-    const { closable, prefixCls, onClose } = this.props;
+    const { closable, prefixCls, onClose, closeIcon } = this.props;
     return (
       closable && (
         // eslint-disable-next-line react/button-has-type
         <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-          <Icon type="close" />
+          {closeIcon ? closeIcon : <Icon type="close" />}
         </button>
       )
     );
@@ -260,6 +261,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
             'csp',
             'pageHeader',
             'autoInsertSpaceInButton',
+            'closeIcon',
           ])}
           {...offsetStyle}
           prefixCls={prefixCls}

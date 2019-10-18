@@ -37,6 +37,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | zIndex | The `z-index` of the Drawer. | Number | 1000 | 3.7.0 |
 | placement | The placement of the Drawer. | 'top' \| 'right' \| 'bottom' \| 'left' | 'right' | 3.7.0 |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button. | function(e) | - | 3.7.0 |
+| closeIcon | Custom close icon | React.ReactElement | - |  |
 | afterVisibleChange | Callback after the animation ends when switching drawers. | function(visible) | - | 3.17.0 |
 | keyboard | Whether support press esc to close | Boolean | true | 3.19.8 |
 

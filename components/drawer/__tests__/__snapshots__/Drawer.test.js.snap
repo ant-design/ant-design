@@ -348,13 +348,20 @@ exports[`Drawer render top drawer 1`] = `
 </div>
 `;
 
+<<<<<<< HEAD
 exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
+=======
+exports[`Drawer renders a custom close icon 1`] = `
+>>>>>>> feat(Drawer): add closeIcon prop
 <div
   class=""
 >
   <div
     class="ant-drawer ant-drawer-right"
+<<<<<<< HEAD
     style="background-color:#08c"
+=======
+>>>>>>> feat(Drawer): add closeIcon prop
     tabindex="-1"
   >
     <div
@@ -369,16 +376,24 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
+<<<<<<< HEAD
           style="overflow:auto;height:100%;background-color:#08c"
         >
           <div
             class="ant-drawer-header-no-title"
             style="background-color:#08c"
+=======
+          style="overflow:auto;height:100%"
+        >
+          <div
+            class="ant-drawer-header-no-title"
+>>>>>>> feat(Drawer): add closeIcon prop
           >
             <button
               aria-label="Close"
               class="ant-drawer-close"
             >
+<<<<<<< HEAD
               <i
                 aria-label="icon: close"
                 class="anticon anticon-close"
@@ -398,13 +413,23 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
                   />
                 </svg>
               </i>
+=======
+              <span>
+                X
+              </span>
+>>>>>>> feat(Drawer): add closeIcon prop
             </button>
           </div>
           <div
             class="ant-drawer-body"
+<<<<<<< HEAD
             style="background-color:#08c"
           >
             Here is content of Drawer
+=======
+          >
+            Content
+>>>>>>> feat(Drawer): add closeIcon prop
           </div>
         </div>
       </div>

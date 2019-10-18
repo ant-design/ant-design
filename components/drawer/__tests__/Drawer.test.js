@@ -78,4 +78,14 @@ describe('Drawer', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+  
+  it('renders a custom close icon', () => {
+    const wrapper = render(
+      <Drawer visible closeIcon={<span>X</span>} getContainer={false}>
+        Content
+      </Drawer>,
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

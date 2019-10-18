@@ -36,6 +36,7 @@ title: Drawer
 | zIndex | 设置 Drawer 的 `z-index` | Number | 1000 | 3.7.0 |
 | placement | 抽屉的方向 | 'top' \| 'right' \| 'bottom' \| 'left' | 'right' | 3.7.0 |
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 | 3.7.0 |
+| closeIcon |  | React.ReactElement | - |  |
 | afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | 无 | 3.17.0 |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | 3.19.8 |
 

@@ -13,6 +13,19 @@ exports[`renders ./components/drawer/demo/basic-right.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/drawer/demo/custom-close-icon.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Open
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
 <div>
   <button
