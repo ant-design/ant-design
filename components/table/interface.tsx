@@ -18,6 +18,13 @@ export type ColumnFilterItem = {
   children?: ColumnFilterItem[];
 };
 
+export type TableColumnRenderFn = (text: any, record: T, index: number) => 
+  | React.ReactNode 
+  | {
+      children: React.ReactNode;
+      props: { rowSpan: number; colSpan: number };
+    };
+
 export interface FilterDropdownProps {
   prefixCls?: string;
   setSelectedKeys?: (selectedKeys: string[]) => void;
@@ -39,7 +46,7 @@ export interface ColumnProps<T> {
       }) => React.ReactNode);
   key?: React.Key;
   dataIndex?: string; // Note: We can not use generic type here, since we need to support nested key, see #9393
-  render?: (text: any, record: T, index: number) => React.ReactNode;
+  render?: TableColumnRenderFn;
   align?: 'left' | 'right' | 'center';
   ellipsis?: boolean;
   filters?: ColumnFilterItem[];
