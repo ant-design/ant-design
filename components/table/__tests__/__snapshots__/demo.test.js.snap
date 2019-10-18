@@ -8816,17 +8816,17 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <table
                 class="ant-table-fixed"
-                style="width:130%"
+                style="width:calc(700px + 50%)"
               >
                 <colgroup>
                   <col
                     style="width:100px;min-width:100px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
                     style="width:100px;min-width:100px"
@@ -9156,17 +9156,17 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <table
                 class="ant-table-fixed"
-                style="width:130%"
+                style="width:calc(700px + 50%)"
               >
                 <colgroup>
                   <col
                     style="width:100px;min-width:100px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
                     style="width:100px;min-width:100px"
