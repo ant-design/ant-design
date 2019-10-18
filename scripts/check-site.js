@@ -38,6 +38,7 @@ describe('site test', () => {
     const componentMap = {
       descriptions: 'description list',
     };
+    // eslint-disable-next-line no-unused-vars
     const [_, componentName] = name.split('/');
     const compName = componentName.toLowerCase().replace('-', '');
     return componentMap[compName] || compName;
