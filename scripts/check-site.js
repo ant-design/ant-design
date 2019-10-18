@@ -9,10 +9,6 @@ const { createServer } = require('http-server');
 const zhCN = require('../site/theme/zh-CN');
 const enUS = require('../site/theme/en-US');
 
-// const componentRouteMap = {
-//   '/components/col':
-// }
-
 const components = uniq(
   glob
     .sync('components/*/*.md', {
