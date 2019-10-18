@@ -6,10 +6,10 @@ import { polyfill } from 'react-lifecycles-compat';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import animation from '../_util/openAnimation';
 import warning from '../_util/warning';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
+import collapseMotion from '../_util/motion';
 import MenuContext, { MenuTheme } from './MenuContext';
 
 export interface SelectParam {
@@ -43,8 +43,9 @@ export interface MenuProps {
   onDeselect?: (param: SelectParam) => void;
   onClick?: (param: ClickParam) => void;
   style?: React.CSSProperties;
-  openAnimation?: string | Object;
-  openTransitionName?: string | Object;
+  openAnimation?: string;
+  openTransitionName?: string;
+  motion?: Object;
   className?: string;
   prefixCls?: string;
   multiple?: boolean;
@@ -69,7 +70,6 @@ export interface MenuState {
   switchingModeFromInline: boolean;
   inlineOpenKeys: string[];
   prevProps: InternalMenuProps;
-  mounted: boolean;
 }
 
 class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
@@ -150,19 +150,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       switchingModeFromInline: false,
       inlineOpenKeys: [],
       prevProps: props,
-      mounted: false,
     };
-  }
-
-  // [Legacy] Origin code can render full defaultOpenKeys is caused by `rc-animate` bug.
-  // We have to workaround this to prevent animation on first render.
-  // https://github.com/ant-design/ant-design/issues/15966
-  componentDidMount() {
-    this.mountRafId = raf(() => {
-      this.setState({
-        mounted: true,
-      });
-    }, 10);
   }
 
   componentWillUnmount() {
@@ -192,21 +180,45 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     return inlineCollapsed;
   }
 
-  getMenuOpenAnimation(menuMode: MenuMode) {
-    const { openAnimation, openTransitionName } = this.props;
-    let menuOpenAnimation = openAnimation || openTransitionName;
-    if (openAnimation === undefined && openTransitionName === undefined) {
-      if (menuMode === 'horizontal') {
-        menuOpenAnimation = 'slide-up';
-      } else if (menuMode === 'inline') {
-        menuOpenAnimation = animation;
-      } else {
-        // When mode switch from inline
-        // submenu should hide without animation
-        menuOpenAnimation = this.state.switchingModeFromInline ? '' : 'zoom-big';
-      }
+  getOpenMotionProps(
+    menuMode: MenuMode,
+  ): { openTransitionName?: any; openAnimation?: any; motion?: Object } {
+    const { openTransitionName, openAnimation, motion } = this.props;
+
+    // Provides by user
+    if (motion) {
+      return { motion };
     }
-    return menuOpenAnimation;
+
+    if (openAnimation) {
+      warning(
+        typeof openAnimation === 'string',
+        'Menu',
+        '`openAnimation` do not support object. Please use `motion` instead.',
+      );
+      return { openAnimation };
+    }
+
+    if (openTransitionName) {
+      return { openTransitionName };
+    }
+
+    // Default logic
+    if (menuMode === 'horizontal') {
+      return { motion: { motionName: 'slide-up' } };
+    }
+
+    if (menuMode === 'inline') {
+      return { motion: collapseMotion };
+    }
+
+    // When mode switch from inline
+    // submenu should hide without animation
+    return {
+      motion: {
+        motionName: this.state.switchingModeFromInline ? '' : 'zoom-big',
+      },
+    };
   }
 
   // Restore vertical mode when menu is collapsed responsively when mounted
@@ -270,11 +282,10 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
   }
 
   renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
-    const { mounted } = this.state;
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
-    const menuOpenAnimation = this.getMenuOpenAnimation(menuMode!);
+    const menuOpenMotion = this.getOpenMotionProps(menuMode!);
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
@@ -286,14 +297,14 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       onOpenChange: this.handleOpenChange,
       className: menuClassName,
       mode: menuMode,
+
+      // Motion
+      ...menuOpenMotion,
     };
 
     if (menuMode !== 'inline') {
       // closing vertical popup submenu after click it
       menuProps.onClick = this.handleClick;
-      menuProps.openTransitionName = mounted ? menuOpenAnimation : '';
-    } else {
-      menuProps.openAnimation = mounted ? menuOpenAnimation : {};
     }
 
     // https://github.com/ant-design/ant-design/issues/8587

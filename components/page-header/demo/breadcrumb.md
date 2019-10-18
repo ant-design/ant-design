@@ -1,5 +1,5 @@
 ---
-order: 2
+order: 3
 title:
   zh-CN: 带面包屑页头
   en-US: Use with breadcrumbs
@@ -32,7 +32,14 @@ const routes = [
 ];
 
 ReactDOM.render(
-  <PageHeader title="Title" breadcrumb={{ routes }} subTitle="This is a subtitle" />,
+  <PageHeader
+    style={{
+      border: '1px solid rgb(235, 237, 240)',
+    }}
+    title="Title"
+    breadcrumb={{ routes }}
+    subTitle="This is a subtitle"
+  />,
   mountNode,
 );
 ```

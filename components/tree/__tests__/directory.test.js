@@ -119,6 +119,30 @@ describe('Directory Tree', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
+    const treeData = [
+      {
+        key: '0-0-0',
+        title: 'Folder',
+        children: [
+          {
+            title: 'Folder2',
+            key: '0-0-1',
+            children: [
+              {
+                title: 'File',
+                key: '0-0-2',
+                isLeaf: true,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const wrapper = render(createTree({ defaultExpandAll: true, treeData }));
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('defaultExpandParent', () => {
     const wrapper = render(createTree({ defaultExpandParent: true }));
     expect(wrapper).toMatchSnapshot();
