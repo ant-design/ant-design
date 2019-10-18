@@ -51,17 +51,18 @@ export interface LabeledValue {
 
 export type SelectValue = string | string[] | number | number[] | LabeledValue | LabeledValue[];
 
-export type ModeOptions =
-  | 'SECRET_COMBOBOX_MODE_DO_NOT_USE'
-  | 'default'
-  | 'multiple'
-  | 'tags'
-  | 'combobox'
-  | undefined;
+const ModeOptions = tuple(
+  'default',
+  'multiple',
+  'tags',
+  'combobox',
+  'SECRET_COMBOBOX_MODE_DO_NOT_USE',
+);
+export type ModeOption = (typeof ModeOptions)[number];
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
   defaultValue?: T;
-  mode?: ModeOptions;
+  mode?: ModeOption;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
   onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
@@ -121,7 +122,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
-  static SECRET_COMBOBOX_MODE_DO_NOT_USE: ModeOptions = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  static SECRET_COMBOBOX_MODE_DO_NOT_USE: ModeOption = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
   static defaultProps = {
     showSearch: false,
