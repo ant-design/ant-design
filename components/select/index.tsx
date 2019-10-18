@@ -54,7 +54,7 @@ export type SelectValue = string | string[] | number | number[] | LabeledValue |
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
   defaultValue?: T;
-  mode?: 'default' | 'multiple' | 'tags' | 'combobox' | string;
+  mode?: 'default' | 'multiple' | 'tags' | 'combobox' | undefined;
   optionLabelProp?: string;
   firstActiveValue?: string | string[];
   onChange?: (value: T, option: React.ReactElement<any> | React.ReactElement<any>[]) => void;
