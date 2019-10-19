@@ -19,14 +19,14 @@ timeline: true
 
 `2019-10-19`
 
-- 🐞 Fix Table scroll={{ x: 'max-content' }} rendered without scrollbar problem in Chrome. [#19284](https://github.com/ant-design/ant-design/pull/19284)
-- 🐞 Fix Table crash when passing `column.filterDropdown` as new prop. [#19302](https://github.com/ant-design/ant-design/pull/19302)
-- 🐞 Fix Upload `download` button trigger preview unexpectedly. [#19268](https://github.com/ant-design/ant-design/pull/19268) [@qq645381995](https://github.com/qq645381995)
-- 🐞 Fix Comment long author name breaks on small screen. [#19272](https://github.com/ant-design/ant-design/pull/19272) [@rayronvictor](https://github.com/rayronvictor)
+- 🐞 修复 Table `scroll.x` 设置 `max-content` 无效导致横向滚动消失的问题。[#19284](https://github.com/ant-design/ant-design/pull/19284)
+- 🐞 修复 Table 将 `column.filterDropdown` 作为新属性设置时报错的问题。[#19302](https://github.com/ant-design/ant-design/pull/19302)
+- 🐞 Fix Upload 点击下载按钮会触发预览的问题。[#19268](https://github.com/ant-design/ant-design/pull/19268) [@qq645381995](https://github.com/qq645381995)
+- 🐞 修复 Comment 长作者名在小屏幕上破坏布局的问题。[#19272](https://github.com/ant-design/ant-design/pull/19272) [@rayronvictor](https://github.com/rayronvictor)
 - Typescript
-  - 🐞 Improve RangePicker `value` types. [#19300](https://github.com/ant-design/ant-design/pull/19300) [@neung123](https://github.com/neung123)
-  - 🐞 Improve Select `mode` types. [#19286](https://github.com/ant-design/ant-design/pull/19286) [@wleven](https://github.com/wleven)
-  - 🐞 Improve Upload `customRequest` types. [#19278](https://github.com/ant-design/ant-design/pull/19278) [@broder](https://github.com/broder)
+  - 🐞 优化 RangePicker `value` 属性定义。[#19300](https://github.com/ant-design/ant-design/pull/19300) [@neung123](https://github.com/neung123)
+  - 🐞 优化 Select `mode` 属性定义。[#19286](https://github.com/ant-design/ant-design/pull/19286) [@wleven](https://github.com/wleven)
+  - 🐞 优化 Upload `customRequest` 属性定义。[#19278](https://github.com/ant-design/ant-design/pull/19278) [@broder](https://github.com/broder)
 
 ## 3.24.1
 
