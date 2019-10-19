@@ -19,7 +19,7 @@ timeline: true
 
 `2019-10-19`
 
-- 🐞 Fix Table scroll={{ x: 'max-content' }} rendered without scrollbar problem in Chrome. [#19284](https://github.com/ant-design/ant-design/pull/19284)
+- 🐞 Fix Table `scroll={{ x: 'max-content' }}` rendered without scrollbar problem in Chrome. [#19284](https://github.com/ant-design/ant-design/pull/19284)
 - 🐞 Fix Table crash when passing `column.filterDropdown` as new prop. [#19302](https://github.com/ant-design/ant-design/pull/19302)
 - 🐞 Fix Upload `download` button trigger preview unexpectedly. [#19268](https://github.com/ant-design/ant-design/pull/19268) [@qq645381995](https://github.com/qq645381995)
 - 🐞 Fix Comment long author name breaks on small screen. [#19272](https://github.com/ant-design/ant-design/pull/19272) [@rayronvictor](https://github.com/rayronvictor)
