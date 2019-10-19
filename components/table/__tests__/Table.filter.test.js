@@ -919,24 +919,21 @@ describe('Table.filter', () => {
 
   // https://github.com/ant-design/ant-design/issues/19274
   it('should not crash', () => {
-    jest.useFakeTimers();
     class TestTable extends React.Component {
       state = {
         cols: [],
       };
 
       componentDidMount = () => {
-        const cols = [
-          {
-            title: 'test',
-            itemKey: 'test',
-            filterDropdown: 123,
-          },
-        ];
-
-        setTimeout(() => {
-          this.setState({ cols });
-        }, 1000);
+        this.setState({
+          cols: [
+            {
+              title: 'test',
+              itemKey: 'test',
+              filterDropdown: 123,
+            },
+          ],
+        });
       };
 
       render = () => {
@@ -946,8 +943,5 @@ describe('Table.filter', () => {
     }
 
     mount(<TestTable />);
-
-    jest.runAllTimers();
-    jest.useRealTimers();
   });
 });
