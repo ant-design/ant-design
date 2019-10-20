@@ -67,7 +67,6 @@ const Banner = ({ isMobile }) => {
             {!isMobile && (
               <GitHubButton
                 style={{ marginLeft: 16 }}
-                key="github-button"
                 size="large"
                 type="stargazers"
                 namespace="ant-design"
