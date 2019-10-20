@@ -64,23 +64,23 @@ export default class Row extends React.Component<RowProps, RowState> {
   }
 
   getGutter(): [number, number] {
-    const gutter: [number, number] = [0, 0];
-    const { gutter: gutter_setting } = this.props;
-
-    (Array.isArray(gutter_setting) ? gutter_setting : [gutter_setting, 0]).forEach((g, index) => {
+    const results: [number, number] = [0, 0];
+    const { gutter } = this.props;
+    const { screens } = this.state;
+    const normalizedGutter = Array.isArray(gutter) ? gutter : [gutter, 0];
+    normalizedGutter.forEach((g, index) => {
       if (typeof g === 'object') {
         for (let i = 0; i < responsiveArray.length; i++) {
           const breakpoint: Breakpoint = responsiveArray[i];
-          if (this.state.screens[breakpoint] && g[breakpoint] !== undefined) {
-            gutter[index] = g[breakpoint] as number;
+          if (screens[breakpoint] && g[breakpoint] !== undefined) {
+            results[index] = g[breakpoint] as number;
           }
         }
       } else {
-        gutter[index] = g as number;
+        results[index] = g || 0;
       }
     });
-
-    return gutter;
+    return results;
   }
 
   renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
