@@ -35,10 +35,36 @@ describe('Grid', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('when typeof getGutter is object', () => {
+  it('when typeof gutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
     expect(wrapper.instance().getGutter()).toEqual([8, 0]);
-    wrapper.unmount();
+  });
+
+  it('when typeof gutter is object array', () => {
+    const wrapper = mount(
+      <Row
+        gutter={[
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+        ]}
+      />,
+    );
+    expect(wrapper.instance().getGutter()).toEqual([8, 8]);
+  });
+
+  it('when typeof gutter is object array in large screen', () => {
+    const wrapper = mount(
+      <Row
+        gutter={[
+          { xs: 8, sm: 16, md: 24, lg: 32, xl: 40 },
+          { xs: 8, sm: 16, md: 24, lg: 100, xl: 400 },
+        ]}
+      />,
+    );
+    wrapper.setState({
+      screens: { md: true, lg: true, xl: true },
+    });
+    expect(wrapper.instance().getGutter()).toEqual([40, 400]);
   });
 
   it('renders wrapped Col correctly', () => {
