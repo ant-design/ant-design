@@ -74,6 +74,7 @@ export default class Row extends React.Component<RowProps, RowState> {
           const breakpoint: Breakpoint = responsiveArray[i];
           if (screens[breakpoint] && g[breakpoint] !== undefined) {
             results[index] = g[breakpoint] as number;
+            break;
           }
         }
       } else {
