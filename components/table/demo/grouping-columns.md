@@ -42,7 +42,7 @@ const columns = [
         title: 'Age',
         dataIndex: 'age',
         key: 'age',
-        width: 200,
+        width: 150,
         sorter: (a, b) => a.age - b.age,
       },
       {
@@ -52,7 +52,7 @@ const columns = [
             title: 'Street',
             dataIndex: 'street',
             key: 'street',
-            width: 200,
+            width: 150,
           },
           {
             title: 'Block',
@@ -121,7 +121,7 @@ ReactDOM.render(
     dataSource={data}
     bordered
     size="middle"
-    scroll={{ x: '130%', y: 240 }}
+    scroll={{ x: 'calc(700px + 50%)', y: 240 }}
   />,
   mountNode,
 );

@@ -1376,3 +1376,47 @@ exports[`renders ./components/upload/demo/upload-manually.md correctly 1`] = `
   </button>
 </div>
 `;
+
+exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-4 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="photos"
+        title="Photos"
+      >
+        Photos
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          <span
+            class=""
+          >
+            <div
+              class="ant-upload ant-upload-select ant-upload-select-text"
+            />
+            <div
+              class="ant-upload-list ant-upload-list-text"
+            />
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
