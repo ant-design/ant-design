@@ -26,7 +26,7 @@ One or more elements can be selected from either column, one click on the proper
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean |  |  |
 | footer | A function used for rendering the footer. | (props) => ReactNode |  |  |
 | lazy | property of [react-lazy-load](https://github.com/loktar00/react-lazy-load) for lazy rendering items. Turn off it by set to `false`. | object\|boolean | `{ height: 32, offset: 32 }` |  |
-| listStyle | A custom CSS style used for rendering the transfer columns. | object |  |  |
+| listStyle | A custom CSS style used for rendering the transfer columns. | object\|({direction: 'left'\|'right'}) => object |  |  |
 | locale | i18n text including filter, empty text, item unit, etc | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | `{ itemUnit: 'item', itemsUnit: 'items', notFoundContent: 'The list is empty', searchPlaceholder: 'Search here' }` | 3.9.0 |
 | operations | A set of operations that are sorted from top to bottom. | string\[] | \['>', '<'] |  |
 | operationStyle | A custom CSS style used for rendering the operations column. | object |  | 3.6.0 |
