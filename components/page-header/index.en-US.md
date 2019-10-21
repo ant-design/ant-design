@@ -18,7 +18,7 @@ It can also be used as inter-page navigation when it is needed to make the user 
 | --- | --- | --- | --- | --- |
 | title | custom title text | ReactNode | - | 3.14.0 |
 | subTitle | custom subTitle text | ReactNode | - | 3.14.0 |
-| type | pageHeader type, will change background color | boolean | true | 3.24.0 |
+| ghost | pageHeader type, will change background color | boolean | true | 3.24.0 |
 | avatar | Avatar next to the title bar | [avatar props](/components/avatar/) | - | 3.22.0 |
 | backIcon | custom back icon, if false the back icon will not be displayed | ReactNode | `<Icon type="arrow-left" />` | 3.14.0 |
 | tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - | 3.14.0 |

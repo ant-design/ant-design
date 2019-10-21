@@ -239,11 +239,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   row: React.ComponentType<any>;
 
-  rcTable: React.RefObject<any>;
+  rcTable: any;
 
   constructor(props: TableProps<T>) {
     super(props);
-    this.rcTable = React.createRef();
 
     const { expandedRowRender, columns: columnsProp = [] } = props;
 
@@ -285,6 +284,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       }
     }
   }
+
+  setTableRef = (table: any) => {
+    this.rcTable = table;
+  };
 
   getCheckboxPropsByItem = (item: T, index: number) => {
     const rowSelection = getRowSelection(this.props);
@@ -535,7 +538,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   generatePopupContainerFunc = (getPopupContainer: TableProps<T>['getPopupContainer']) => {
     const { scroll } = this.props;
-    const table = this.rcTable.current;
+    const table = this.rcTable;
     if (getPopupContainer) {
       return getPopupContainer;
     }
@@ -547,7 +550,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     const { scroll } = this.props;
     if (scroll && scroll.scrollToFirstRowOnChange !== false) {
       scrollTo(0, {
-        getContainer: () => this.rcTable.current.bodyTable,
+        getContainer: () => this.rcTable.bodyTable,
       });
     }
   };
@@ -877,10 +880,13 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     if (onChange) {
       onChange.apply(
         null,
-        this.prepareParamsArguments({
-          ...this.state,
-          ...newState,
-        }),
+        this.prepareParamsArguments(
+          {
+            ...this.state,
+            ...newState,
+          },
+          column,
+        ),
       );
     }
   }
@@ -898,18 +904,23 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   }
 
   // Get pagination, filters, sorter
-  prepareParamsArguments(state: any): PrepareParamsArgumentsReturn<T> {
+  prepareParamsArguments(state: any, column?: ColumnProps<T>): PrepareParamsArgumentsReturn<T> {
     const pagination = { ...state.pagination };
     // remove useless handle function in Table.onChange
     delete pagination.onChange;
     delete pagination.onShowSizeChange;
     const filters = state.filters;
     const sorter: any = {};
+    let currentColumn = column;
     if (state.sortColumn && state.sortOrder) {
+      currentColumn = state.sortColumn;
       sorter.column = state.sortColumn;
       sorter.order = state.sortOrder;
-      sorter.field = state.sortColumn.dataIndex;
-      sorter.columnKey = getColumnKey(state.sortColumn);
+    }
+
+    if (currentColumn) {
+      sorter.field = currentColumn.dataIndex;
+      sorter.columnKey = getColumnKey(currentColumn);
     }
 
     const extra = {
@@ -1277,7 +1288,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
     return (
       <RcTable
-        ref={this.rcTable}
+        ref={this.setTableRef}
         key="table"
         expandIcon={this.renderExpandIcon(prefixCls)}
         {...restProps}
@@ -1353,45 +1364,42 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   }
 }
 
-function withStore(
-  WrappedComponent: typeof Table,
-): React.ComponentClass<Omit<TableProps<any>, keyof WithStore>> {
-  class Component<T> extends React.Component<TableProps<T>> {
-    static Column = Column;
-
-    static ColumnGroup = ColumnGroup;
-
-    store: Store;
-
-    CheckboxPropsCache: CheckboxPropsCache;
-
-    constructor(props: TableProps<T>) {
-      super(props);
-
-      this.CheckboxPropsCache = {};
-
-      this.store = createStore({
-        selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
-        selectionDirty: false,
-      });
-    }
-
-    setCheckboxPropsCache = (cache: CheckboxPropsCache) => (this.CheckboxPropsCache = cache);
-
-    render() {
-      return (
-        <WrappedComponent<T>
-          {...this.props}
-          store={this.store}
-          checkboxPropsCache={this.CheckboxPropsCache}
-          setCheckboxPropsCache={this.setCheckboxPropsCache}
-        />
-      );
-    }
-  }
-  return Component;
-}
-
 polyfill(Table);
 
-export default withStore(Table);
+class StoreTable<T> extends React.Component<Omit<TableProps<T>, keyof WithStore>> {
+  static displayName = 'withStore(Table)';
+
+  static Column = Column;
+
+  static ColumnGroup = ColumnGroup;
+
+  store: Store;
+
+  CheckboxPropsCache: CheckboxPropsCache;
+
+  constructor(props: TableProps<T>) {
+    super(props);
+
+    this.CheckboxPropsCache = {};
+
+    this.store = createStore({
+      selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
+      selectionDirty: false,
+    });
+  }
+
+  setCheckboxPropsCache = (cache: CheckboxPropsCache) => (this.CheckboxPropsCache = cache);
+
+  render() {
+    return (
+      <Table<T>
+        {...this.props}
+        store={this.store}
+        checkboxPropsCache={this.CheckboxPropsCache}
+        setCheckboxPropsCache={this.setCheckboxPropsCache}
+      />
+    );
+  }
+}
+
+export default StoreTable;

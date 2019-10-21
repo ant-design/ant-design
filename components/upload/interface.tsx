@@ -12,6 +12,18 @@ export interface RcFile extends File {
   readonly webkitRelativePath: string;
 }
 
+export interface RcCustomRequestOptions {
+  onProgress: (event: { percent: number }, file: File) => void;
+  onError: (error: Error) => void;
+  onSuccess: (response: object, file: File) => void;
+  data: object;
+  filename: string;
+  file: File;
+  withCredentials: boolean;
+  action: string;
+  headers: object;
+}
+
 export interface UploadFile {
   uid: string;
   size: number;
@@ -82,7 +94,7 @@ export interface UploadProps {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (option: object) => void;
+  customRequest?: (options: RcCustomRequestOptions) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
