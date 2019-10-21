@@ -1,8 +1,8 @@
 import React from 'react';
-import { render, mount, shallow } from 'enzyme';
+import { render, mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
-import ConfigProvider from '..';
+import ConfigProvider from '../../config-provider';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 
@@ -519,7 +519,6 @@ describe('Cascader', () => {
         wrapper
           .find('Cascader')
           .find('Trigger')
-          .at(1)
           .instance()
           .getComponent(),
       ),
@@ -580,7 +579,6 @@ describe('Cascader', () => {
       wrapper
         .find('Cascader')
         .find('Trigger')
-        .at(1)
         .instance()
         .getComponent(),
     );
@@ -595,7 +593,6 @@ describe('Cascader', () => {
         wrapper
           .find('Cascader')
           .find('Trigger')
-          .at(1)
           .instance()
           .getComponent(),
       ),
@@ -604,7 +601,6 @@ describe('Cascader', () => {
       wrapper
         .find('Cascader')
         .find('Trigger')
-        .at(1)
         .instance()
         .getComponent(),
     );
@@ -619,7 +615,6 @@ describe('Cascader', () => {
         wrapper
           .find('Cascader')
           .find('Trigger')
-          .at(1)
           .instance()
           .getComponent(),
       ),
@@ -628,7 +623,6 @@ describe('Cascader', () => {
       wrapper
         .find('Cascader')
         .find('Trigger')
-        .at(1)
         .instance()
         .getComponent(),
     );
