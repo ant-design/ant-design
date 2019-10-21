@@ -1720,7 +1720,7 @@ timeline: true
 - Upload 组件升级 `rc-upload` 到 `2.5.0`
   - 🌟 新增 `directory` 属性，支持上传一个文件夹。[#7315](https://github.com/ant-design/ant-design/issues/7315)
   - 🌟 `action` 属性支持作为一个返回 `Promise` 对象的函数，使用更加灵活。[fd96967](https://github.com/ant-design/ant-design/commit/fd96967c872600b79bb608e9ddf9f8c38814a704)
-- Dropdown 增加新特性， 可以做为右键菜单来使用。
+- Dropdown 增加新特性，可以做为右键菜单来使用。
   - 🌟 给菜单项的 icon 提供默认的外间距样式。[8e60a59](https://github.com/ant-design/ant-design/commit/8e60a591fd24f644de4f67d69c2210e9270be9cc)
   - 🌟 触发方式为 `contextMenu` 时自动调整菜单的位置。[16e4260](https://github.com/ant-design/ant-design/commit/16e42601d6772fc0830ee237a1e751a38a118676)
 - Table 组件升级 `rc-table` 到 `6.2.2`。[f2fddff](https://github.com/ant-design/ant-design/commit/f2fddff3fd0d6b36e8e6d8ee06bfcbcc85ead4f0)
@@ -1851,7 +1851,7 @@ timeline: true
 - 💄 统一 less 的变量命名 [12d3046](https://github.com/ant-design/ant-design/commit/12d3046687a0dcdb51fece08dd2bea64f185cc40)
 - 💄 微调了 `Dropdown` 的样式 [8e2f72f](https://github.com/ant-design/ant-design/commit/8e2f72ffe0eb300f5997296726b02246bf990c8f)
 - 💄 现在中文文档的组件会用中文语言包进行演示。[9b17a94](https://github.com/ant-design/ant-design/commit/9b17a943f5d57d40d65041b7b0c247add09d2851)
-- 💄 主站主题切换 修改为 `antd-theme-generato` ，感谢 [@mzohaibqc](https://github.com/mzohaibqc) 的工作.
+- 💄 主站主题切换 修改为 `antd-theme-generator` ，感谢 [@mzohaibqc](https://github.com/mzohaibqc) 的工作.
 - TypeScript
   - 🐞 修复了 `Row` 中 gutter 属性的类型问题 [b7d508e](https://github.com/ant-design/ant-design/commit/b7d508e1662bf20a0cacbe6440a2ce31a65a8a59)
   - 💄 改进了 `Form` 组件类型 [#10564](https://github.com/ant-design/ant-design/pull/10564)
