@@ -167,7 +167,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       closable && (
         // eslint-disable-next-line react/button-has-type
         <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-          {closeIcon ? closeIcon : <Icon type="close" />}
+          {closeIcon || <Icon type="close" />}
         </button>
       )
     );
