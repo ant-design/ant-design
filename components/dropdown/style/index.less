@@ -175,6 +175,11 @@
         cursor: not-allowed;
       }
     }
+
+    // https://github.com/ant-design/ant-design/issues/19264
+    &-submenu-selected &-submenu-title {
+      color: @primary-color;
+    }
   }
 
   &.slide-down-enter.slide-down-enter-active&-placement-bottomLeft,
