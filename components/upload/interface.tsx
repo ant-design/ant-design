@@ -24,7 +24,7 @@ export interface RcCustomRequestOptions {
   headers: object;
 }
 
-export interface UploadFile {
+export interface UploadFile<T = any> {
   uid: string;
   size: number;
   name: string;
@@ -36,7 +36,7 @@ export interface UploadFile {
   percent?: number;
   thumbUrl?: string;
   originFileObj?: File | Blob;
-  response?: any;
+  response?: T;
   error?: any;
   linkProps?: any;
   type: string;
