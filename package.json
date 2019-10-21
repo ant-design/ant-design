@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "3.23.6",
+  "version": "3.24.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -45,7 +45,7 @@
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit.js",
     "compile": "antd-tools run compile",
-    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp .circleci/config.yml _site",
+    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp .circleci/config.yml _site && npm run site:test",
     "deploy": "bisheng gh-pages --push-only",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "dist": "antd-tools run dist",
@@ -73,7 +73,8 @@
     "test": "jest --config .jest.js --no-cache",
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "site:test": "jest --config .jest.site.js --cache=false"
   },
   "husky": {
     "hooks": {
@@ -125,7 +126,7 @@
     "rc-slider": "~8.7.1",
     "rc-steps": "~3.5.0",
     "rc-switch": "~1.9.0",
-    "rc-table": "~6.8.6",
+    "rc-table": "~6.9.4",
     "rc-tabs": "~9.6.4",
     "rc-time-picker": "~3.7.1",
     "rc-tooltip": "~3.7.3",
@@ -168,6 +169,7 @@
     "bisheng-plugin-toc": "^0.4.4",
     "bundlesize": "^0.18.0",
     "chalk": "^2.4.2",
+    "cheerio": "^1.0.0-rc.3",
     "cross-env": "^6.0.0",
     "css-split-webpack-plugin": "^0.2.6",
     "dekko": "^0.2.1",
@@ -189,6 +191,7 @@
     "fetch-jsonp": "^1.1.3",
     "full-icu": "^1.3.0",
     "glob": "^7.1.4",
+    "http-server": "^0.11.1",
     "husky": "^3.0.2",
     "immutability-helper": "^3.0.0",
     "intersection-observer": "^0.7.0",
@@ -203,7 +206,7 @@
     "preact": "^10.0.0",
     "preact-compat": "^3.18.5",
     "prettier": "^1.17.1",
-    "pretty-quick": "^1.11.0",
+    "pretty-quick": "^2.0.0",
     "querystring": "^0.2.0",
     "rc-footer": "^0.5.0",
     "rc-queue-anim": "^1.6.12",
