@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import warning from '../_util/warning';
 import Icon from '../icon';
-import { withConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps } from '../config-provider';
+import { withConfigConsumer } from '../config-provider/context';
 import { tuple } from '../_util/type';
 
 const DrawerContext = createReactContext<Drawer | null>(null);
