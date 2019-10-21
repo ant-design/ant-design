@@ -156,9 +156,9 @@ export interface CheckboxPropsCache {
 }
 
 export interface WithStore {
-  store: Store;
-  checkboxPropsCache: CheckboxPropsCache;
-  setCheckboxPropsCache: (cache: CheckboxPropsCache) => void;
+  store?: Store;
+  checkboxPropsCache?: CheckboxPropsCache;
+  setCheckboxPropsCache?: (cache: CheckboxPropsCache) => void;
 }
 
 export interface TableProps<T> extends WithStore {
