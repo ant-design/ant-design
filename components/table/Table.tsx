@@ -17,6 +17,7 @@ import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import scrollTo from '../_util/scrollTo';
 import {
   TableProps,
+  InternalTableProps,
   TableSize,
   TableState,
   TableComponents,
@@ -34,7 +35,6 @@ import {
   PaginationConfig,
   PrepareParamsArgumentsReturn,
   ExpandIconProps,
-  WithStore,
   CheckboxPropsCache,
 } from './interface';
 import Pagination from '../pagination';
@@ -133,7 +133,7 @@ function isFiltersChanged<T>(state: TableState<T>, filters: TableStateFilters): 
   return Object.keys(filters).some(columnKey => filters[columnKey] !== state.filters[columnKey]);
 }
 
-class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
+class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
   static propTypes = {
     dataSource: PropTypes.array,
     columns: PropTypes.array,
@@ -166,7 +166,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     childrenColumnName: 'children',
   };
 
-  static getDerivedStateFromProps(nextProps: TableProps<any>, prevState: TableState<any>) {
+  static getDerivedStateFromProps(nextProps: InternalTableProps<any>, prevState: TableState<any>) {
     const { prevProps } = prevState;
     const columns =
       nextProps.columns || normalizeColumns(nextProps.children as React.ReactChildren);
@@ -241,7 +241,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   rcTable: any;
 
-  constructor(props: TableProps<T>) {
+  constructor(props: InternalTableProps<T>) {
     super(props);
 
     const { expandedRowRender, columns: columnsProp = [] } = props;
@@ -1366,7 +1366,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
 polyfill(Table);
 
-class StoreTable<T> extends React.Component<Omit<TableProps<T>, keyof WithStore>> {
+class StoreTable<T> extends React.Component<TableProps<T>> {
   static displayName = 'withStore(Table)';
 
   static Column = Column;
