@@ -242,7 +242,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         {...props}
         prefixCls={prefixCls}
         className={classNames(className, {
-          [`rtl`]: isRtlLayout,
+          [`${prefixCls}-rtl`]: isRtlLayout,
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
         })}

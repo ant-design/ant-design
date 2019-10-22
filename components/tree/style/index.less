@@ -31,7 +31,9 @@
     padding: 0;
     list-style: none;
   }
-
+  &-rtl {
+    direction: rtl;
+  }
   li {
     margin: 0;
     padding: @tree-node-padding 0;
@@ -109,7 +111,7 @@
       margin: 0;
       padding: 0 0 0 @tree-child-padding;
 
-      .rtl& {
+      .@{tree-prefix-cls}-rtl& {
         padding: 0 @tree-child-padding 0 0;
       }
     }
@@ -168,7 +170,7 @@
             svg {
               transform: rotate(-90deg);
 
-              .rtl& {
+              .@{tree-prefix-cls}-rtl& {
                 transform: rotate(90deg);
               }
             }
