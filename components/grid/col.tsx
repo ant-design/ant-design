@@ -49,7 +49,7 @@ export default class Col extends React.Component<ColProps, {}> {
     xxl: objectOrNumber,
   };
 
-  renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const {
       prefixCls: customizePrefixCls,
@@ -83,6 +83,7 @@ export default class Col extends React.Component<ColProps, {}> {
           sizeProps.offset || sizeProps.offset === 0,
         [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
         [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       };
     });
     const classes = classNames(

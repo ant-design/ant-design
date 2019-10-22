@@ -219,6 +219,43 @@ class Page extends React.Component {
             <Option value="tom">Tom</Option>
           </Select>
         </div>
+        <br />
+        <hr />
+        <div class="grid-demo">
+          <div class="code-box-demo">
+            <p>
+              <strong>* Note:</strong> Every calculation in RTL grid system is from right side
+              (offset, push, etc.)
+            </p>
+            <Row>
+              <Col span={8}>col-8</Col>
+              <Col span={8} offset={8}>
+                col-8
+              </Col>
+            </Row>
+            <Row>
+              <Col span={6} offset={6}>
+                col-6 col-offset-6
+              </Col>
+              <Col span={6} offset={6}>
+                col-6 col-offset-6
+              </Col>
+            </Row>
+            <Row>
+              <Col span={12} offset={6}>
+                col-12 col-offset-6
+              </Col>
+            </Row>
+            <Row>
+              <Col span={18} push={6}>
+                col-18 col-push-6
+              </Col>
+              <Col span={6} pull={18}>
+                col-6 col-pull-18
+              </Col>
+            </Row>
+          </div>
+        </div>
       </div>
     );
   }
