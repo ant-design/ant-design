@@ -32,13 +32,14 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |  |
 | name | The name of uploading file | string | 'file' |  |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise<dataURL: string> | - | 3.17.0 |
-| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon` and `showRemoveIcon` individually | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |  |
+| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon` and `showDownloadIcon` individually | Boolean or { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean } | true |  |
 | supportServerRender | Need to be turned on while the server side is rendering | boolean | false |  |
 | withCredentials | ajax upload with cookie sent | boolean | false |  |
 | openFileDialogOnClick | click open file dialog | boolean | true | 3.10.0 |
 | onChange | A callback function, can be executed when uploading state is changing, see [onChange](#onChange) | Function | - |  |
 | onPreview | A callback function, will be executed when file link or preview icon is clicked | Function(file) | - |  |
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject | Function(file): `boolean | Promise` | - |  |
+| onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB. | Function(file): void | Jump to new TAB |  |
 | transformFile   | Customize transform file before request | Function(file): `string | Blob | File | Promise<string | Blob | File>` | - | 3.21.0 |
 
 ### onChange

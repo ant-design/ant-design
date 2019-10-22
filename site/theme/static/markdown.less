@@ -252,10 +252,14 @@
         word-break: break-all;
       }
       &:nth-child(4) {
-        width: 13%;
+        width: 16%;
         font-size: @font-size-base - 1px;
       }
     }
+  }
+
+  hr {
+    margin: 12px 0;
   }
 }
 
@@ -385,6 +389,14 @@
   .code-box-demo .height-80 {
     height: 80px;
     line-height: 80px;
+  }
+}
+
+[id='components-grid-demo-playground'],
+[id='components-grid-demo-gutter'] {
+  > .code-box-demo .ant-row > div {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 

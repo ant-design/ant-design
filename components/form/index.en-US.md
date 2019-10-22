@@ -177,7 +177,7 @@ If you use `react@<15.3.0`, then, you can't use `getFieldDecorator` in stateless
 | id | The unique identifier is required. support [nested fields format](https://github.com/react-component/form/pull/48). | string |  |  |
 | options.getValueFromEvent | Specify how to get value from event or other onChange arguments | function(..args) | [reference](https://github.com/react-component/form#option-object) |  |
 | options.getValueProps | Get the component props according to field value. | function(value): any | [reference](https://github.com/react-component/form#option-object) | 3.9.0 |
-| options.initialValue | You can specify initial value, type, optional value of children node. (Note: Because `Form` will test equality with `===` internally, we recommend to use variable as `initialValue`, instead of literal) |  | n/a |  |
+| options.initialValue | You can specify initial value, type, optional value of children node. ([Note: Because `Form` will test equality with `===` internally, we recommend to use variable as `initialValue`, instead of literal](https://github.com/ant-design/ant-design/issues/4093)) |  | n/a |  |
 | options.normalize | Normalize value to form component, [a select-all example](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |  |
 | options.preserve | Keep the field even if field removed | boolean | - | 3.12.0 |
 | options.rules | Includes validation rules. Please refer to "Validation Rules" part for details. | object\[] | n/a |  |

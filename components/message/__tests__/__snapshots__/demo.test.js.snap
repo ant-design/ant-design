@@ -72,3 +72,14 @@ exports[`renders ./components/message/demo/thenable.md correctly 1`] = `
   </span>
 </button>
 `;
+
+exports[`renders ./components/message/demo/update.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the message box
+  </span>
+</button>
+`;

@@ -159,4 +159,11 @@ describe('Input.Search', () => {
     expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
     expect(onChange).toHaveBeenCalled();
   });
+
+  it('should support loading', () => {
+    const wrapper = mount(<Search loading />);
+    const wrapperWithEnterButton = mount(<Search loading enterButton />);
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
 });

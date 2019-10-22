@@ -121,7 +121,7 @@ describe('Upload List', () => {
     wrapper
       .find('.ant-upload-list-item')
       .at(0)
-      .find('.anticon-close')
+      .find('.anticon-delete')
       .simulate('click');
     await sleep(400);
     wrapper.update();
@@ -202,6 +202,36 @@ describe('Upload List', () => {
     expect(handleChange.mock.calls[0][0].fileList).toHaveLength(3);
   });
 
+  it('In the case of listType=picture, the error status does not show the download.', () => {
+    const file = { status: 'error', uid: 'file' };
+    const wrapper = mount(
+      <Upload listType="picture" fileList={[file]}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+  });
+
+  it('In the case of listType=picture-card, the error status does not show the download.', () => {
+    const file = { status: 'error', uid: 'file' };
+    const wrapper = mount(
+      <Upload listType="picture-card" fileList={[file]}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+  });
+
+  it('In the case of listType=text, the error status does not show the download.', () => {
+    const file = { status: 'error', uid: 'file' };
+    const wrapper = mount(
+      <Upload listType="text" fileList={[file]}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.find('div.ant-upload-list-item i.anticon-download').length).toBe(0);
+  });
+
   it('should support onPreview', () => {
     const handlePreview = jest.fn();
     const wrapper = mount(
@@ -246,6 +276,52 @@ describe('Upload List', () => {
     expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
     await sleep();
     expect(handleChange.mock.calls.length).toBe(2);
+  });
+
+  it('should support onDownload', async () => {
+    const handleDownload = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={[
+          {
+            uid: '0',
+            name: 'xxx.png',
+            status: 'done',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          },
+        ]}
+        onDownload={handleDownload}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper
+      .find('.anticon-download')
+      .at(0)
+      .simulate('click');
+  });
+
+  it('should  support no onDownload', async () => {
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={[
+          {
+            uid: '0',
+            name: 'xxx.png',
+            status: 'done',
+            url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          },
+        ]}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper
+      .find('.anticon-download')
+      .at(0)
+      .simulate('click');
   });
 
   describe('should generate thumbUrl from file', () => {
@@ -366,6 +442,37 @@ describe('Upload List', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('should support showRemoveIcon and showPreviewIcon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: false,
+          showPreviewIcon: false,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   // https://github.com/ant-design/ant-design/issues/7762
   it('work with form validation', () => {
     let errors;
@@ -431,6 +538,13 @@ describe('Upload List', () => {
     expect(wrapper.handlePreview()).toBe(undefined);
   });
 
+  it('return when prop onDownload not exists', () => {
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(<UploadList items={items} locale={{ downloadFile: '' }} />).instance();
+    expect(wrapper.handleDownload(file)).toBe(undefined);
+  });
+
   it('previewFile should work correctly', async () => {
     const file = new File([''], 'test.txt', { type: 'text/plain' });
     const items = [{ uid: 'upload-list-item', url: '' }];
@@ -440,12 +554,41 @@ describe('Upload List', () => {
     return wrapper.props.previewFile(file);
   });
 
+  it('downloadFile should work correctly', async () => {
+    const file = new File([''], 'test.txt', { type: 'text/plain' });
+    const items = [{ uid: 'upload-list-item', url: '' }];
+    const wrapper = mount(
+      <UploadList
+        listType="picture-card"
+        items={items}
+        onDownload={() => {}}
+        locale={{ downloadFile: '' }}
+      />,
+    ).instance();
+    return wrapper.props.onDownload(file);
+  });
+
   it('extname should work correctly when url not exists', () => {
     const items = [{ uid: 'upload-list-item', url: '' }];
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
     expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(2);
+  });
+
+  it('extname should work correctly when url exists', () => {
+    const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
+    const wrapper = mount(
+      <UploadList
+        listType="picture"
+        onDownload={file => {
+          expect(file.url).toBe('/example');
+        }}
+        items={items}
+        locale={{ downloadFile: '' }}
+      />,
+    );
+    wrapper.find('div.ant-upload-list-item i.anticon-download').simulate('click');
   });
 
   it('when picture-card is loading, icon should render correctly', () => {

@@ -98,7 +98,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       fileList: nextFileList,
     });
     // fix ie progress
-    if (!(window as any).FormData) {
+    if (!(window as any).File || process.env.TEST_IE) {
       this.autoUpdateProgress(0, targetItem);
     }
   };
@@ -158,11 +158,31 @@ class Upload extends React.Component<UploadProps, UploadState> {
     });
   };
 
-  handleManualRemove = (file: UploadFile) => {
-    if (this.upload) {
-      this.upload.abort(file);
-    }
-    this.handleRemove(file);
+  handleRemove = (file: UploadFile) => {
+    const { onRemove } = this.props;
+    const { fileList } = this.state;
+
+    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
+      // Prevent removing file
+      if (ret === false) {
+        return;
+      }
+
+      const removedFileList = removeFileItem(file, fileList);
+
+      if (removedFileList) {
+        file.status = 'removed'; // eslint-disable-line
+
+        if (this.upload) {
+          this.upload.abort(file);
+        }
+
+        this.onChange({
+          file,
+          fileList: removedFileList,
+        });
+      }
+    });
   };
 
   onChange = (info: UploadChangeParam) => {
@@ -205,30 +225,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
     return true;
   };
 
-  handleRemove(file: UploadFile) {
-    const { onRemove } = this.props;
-    const { fileList } = this.state;
-    const { status } = file;
-
-    file.status = 'removed'; // eslint-disable-line
-
-    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then(ret => {
-      // Prevent removing file
-      if (ret === false) {
-        file.status = status;
-        return;
-      }
-
-      const removedFileList = removeFileItem(file, fileList);
-      if (removedFileList) {
-        this.onChange({
-          file,
-          fileList: removedFileList,
-        });
-      }
-    });
-  }
-
   clearProgressTimer() {
     clearInterval(this.progressTimer);
   }
@@ -253,11 +249,12 @@ class Upload extends React.Component<UploadProps, UploadState> {
       showUploadList,
       listType,
       onPreview,
+      onDownload,
       previewFile,
       disabled,
       locale: propLocale,
     } = this.props;
-    const { showRemoveIcon, showPreviewIcon } = showUploadList as any;
+    const { showRemoveIcon, showPreviewIcon, showDownloadIcon } = showUploadList as any;
     const { fileList } = this.state;
     return (
       <UploadList
@@ -265,9 +262,11 @@ class Upload extends React.Component<UploadProps, UploadState> {
         items={fileList}
         previewFile={previewFile}
         onPreview={onPreview}
-        onRemove={this.handleManualRemove}
+        onDownload={onDownload}
+        onRemove={this.handleRemove}
         showRemoveIcon={!disabled && showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
+        showDownloadIcon={showDownloadIcon}
         locale={{ ...locale, ...propLocale }}
       />
     );

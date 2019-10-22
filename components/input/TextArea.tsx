@@ -2,10 +2,11 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
+import ResizeObserver from 'rc-resize-observer';
 import calculateNodeHeight from './calculateNodeHeight';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
+import warning from '../_util/warning';
 
 export interface AutoSizeType {
   minRows?: number;
@@ -16,7 +17,9 @@ export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement
 
 export interface TextAreaProps extends HTMLTextareaProps {
   prefixCls?: string;
+  /* deprecated, use autoSize instead */
   autosize?: boolean | AutoSizeType;
+  autoSize?: boolean | AutoSizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
 }
 
@@ -84,11 +87,11 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   resizeTextarea = () => {
-    const { autosize } = this.props;
-    if (!autosize || !this.textAreaRef) {
+    const autoSize = this.props.autoSize || this.props.autosize;
+    if (!autoSize || !this.textAreaRef) {
       return;
     }
-    const { minRows, maxRows } = autosize as AutoSizeType;
+    const { minRows, maxRows } = autoSize as AutoSizeType;
     const textareaStyles = calculateNodeHeight(this.textAreaRef, false, minRows, maxRows);
     this.setState({ textareaStyles, resizing: true }, () => {
       raf.cancel(this.resizeFrameId);
@@ -108,13 +111,19 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
 
   renderTextArea = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { textareaStyles, resizing } = this.state;
-    const { prefixCls: customizePrefixCls, className, disabled, autosize } = this.props;
+    const { prefixCls: customizePrefixCls, className, disabled, autoSize, autosize } = this.props;
     const { ...props } = this.props;
-    const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autosize']);
+    const otherProps = omit(props, ['prefixCls', 'onPressEnter', 'autoSize', 'autosize']);
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     const cls = classNames(prefixCls, className, {
       [`${prefixCls}-disabled`]: disabled,
     });
+
+    warning(
+      autosize === undefined,
+      'Input.TextArea',
+      'autosize is deprecated, please use autoSize instead.',
+    );
 
     const style = {
       ...props.style,
@@ -127,7 +136,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
       otherProps.value = otherProps.value || '';
     }
     return (
-      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!autosize}>
+      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!(autoSize || autosize)}>
         <textarea
           {...otherProps}
           className={cls}

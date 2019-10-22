@@ -146,4 +146,27 @@ describe('message', () => {
     jest.runAllTimers();
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
+
+  it('should support update message content with a unique key', () => {
+    const key = 'updatable';
+    class Test extends React.Component {
+      componentDidMount() {
+        message.loading({ content: 'Loading...', key });
+        // Testing that content of the message should be updated.
+        setTimeout(() => message.success({ content: 'Loaded', key }), 1000);
+        setTimeout(() => message.destroy(), 3000);
+      }
+
+      render() {
+        return <div>test</div>;
+      }
+    }
+
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    jest.advanceTimersByTime(1500);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
 });

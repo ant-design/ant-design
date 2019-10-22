@@ -63,17 +63,17 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
     </span>
   </div>
   <div
-    aria-valuemax="10"
-    aria-valuemin="1"
-    aria-valuenow="3"
     class="ant-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemax="10"
+      aria-valuemin="1"
+      aria-valuenow="3"
       autocomplete="off"
       class="ant-input-number-input"
       max="10"
       min="1"
+      role="spinbutton"
       step="1"
       value="3"
     />
@@ -144,16 +144,16 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     </span>
   </div>
   <div
-    aria-valuemax="10"
-    aria-valuemin="0"
     class="ant-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemax="10"
+      aria-valuemin="0"
       autocomplete="off"
       class="ant-input-number-input"
       max="10"
       min="0"
+      role="spinbutton"
       step="0.1"
       value=""
     />
@@ -225,18 +225,18 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemax="10"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="10"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         disabled=""
         max="10"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />
@@ -321,15 +321,15 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemin="-9007199254740991"
-      aria-valuenow="1000"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemin="-9007199254740991"
+        aria-valuenow="1000"
         autocomplete="off"
         class="ant-input-number-input"
         min="-9007199254740991"
+        role="spinbutton"
         step="1"
         value="$ 1,000"
       />
@@ -397,17 +397,17 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemax="100"
-      aria-valuemin="0"
-      aria-valuenow="100"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="100"
         autocomplete="off"
         class="ant-input-number-input"
         max="100"
         min="0"
+        role="spinbutton"
         step="1"
         value="100%"
       />
@@ -480,17 +480,17 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemax="100000"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100000"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         max="100000"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />
@@ -558,17 +558,17 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemax="100000"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100000"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         max="100000"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />
@@ -636,17 +636,17 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
       </span>
     </div>
     <div
-      aria-valuemax="100000"
-      aria-valuemin="1"
-      aria-valuenow="3"
       class="ant-input-number-input-wrap"
-      role="spinbutton"
     >
       <input
+        aria-valuemax="100000"
+        aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         max="100000"
         min="1"
+        role="spinbutton"
         step="1"
         value="3"
       />

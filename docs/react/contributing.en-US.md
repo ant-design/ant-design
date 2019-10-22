@@ -4,7 +4,7 @@ title: Contributing
 toc: false
 ---
 
-The following is a set of guidelines for contributing to Ant Design. Please spend several minutes in reading these guidelines before you create an issue or pull request.
+The following is a set of guidelines for contributing to Ant Design. Please spend several minutes reading these guidelines before you create an issue or pull request.
 
 ## Code of Conduct
 
@@ -20,15 +20,15 @@ According to our [release schedule](changelog#Release-Schedule), we maintain two
 
 ## Bugs
 
-We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracing. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide a reproduction with this [template](https://u.ant.design/codesandbox-repro).
+We are using [GitHub Issues](https://github.com/ant-design/ant-design/issues) for bug tracking. The best way to get your bug fixed is using our [issue helper](http://new-issue.ant.design) and provide reproduction steps with this [template](https://u.ant.design/codesandbox-repro).
 
-Before you reporting a bug, please make sure you've searched exists issues, and read our [FAQ](/docs/react/faq).
+Before you report a bug, please make sure you've searched exists issues, and read our [FAQ](/docs/react/faq).
 
 ## Proposing a Change
 
-If you intend to change the public API or introduce new feature, we also recommend use our [issue helper](http://new-issue.ant.design) to create a feature request issue.
+If you intend to change the public API or introduce new feature, we also recommend you use our [issue helper](http://new-issue.ant.design) to create a feature request issue.
 
-If you want to help on new API, please ref [API Naming Rules](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) to name it.
+If you want to help on new API, please reference [API Naming Rules](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) to name it.
 
 ## Your First Pull Request
 
@@ -48,16 +48,17 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 **Before submitting a pull request**, please make sure the following is done:
 
-1. Fork the repository and create your branch from [proper branch](#Branch-Organization).
+1. Fork the repository and create your branch from the [correct branch](#Branch-Organization).
 1. Run `npm install` in the repository root.
 1. If you've fixed a bug or added code that should be tested, add tests!
 1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
-1. Run `npm test -- -u` to update [jest snapshot](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and commit these changes as well (if has).
-1. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit`.
+1. Run `npm test -- -u` to update the [jest snapshots](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and commit these changes as well (if there are any updates).
+1. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit` (Use [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)).
+
 
 Sending a Pull Request to [react-component](https://github.com/react-component/):
 
-Since antd's components are based on react-component, sometimes you may need to send pull request to the corresponding react-component repository. If it's a bugfix pull request, after it's merged, the core team will release a patch release for that component as soon as possible, then you only need to do is reinstalling antd in your project to get the latest patch release. If it's a feature pull request, after it's merged, the core team will release a minor release, then you need raise another pull request to [Ant Design](https://github.com/ant-design/ant-design/) to update dependencies, document and TypeScript interfaces (if needed).
+Since antd's components are based on react-component, sometimes you may need to send pull request to the corresponding react-component repository. If it's a bugfix pull request, after it's merged, the core team will release a patch release for that component as soon as possible, then you only need to reinstall antd in your project to get the latest patch release. If it's a feature pull request, after it's merged, the core team will release a minor release, then you need raise another pull request to [Ant Design](https://github.com/ant-design/ant-design/) to update dependencies, document and TypeScript interfaces (if needed).
 
 ## Development Workflow
 

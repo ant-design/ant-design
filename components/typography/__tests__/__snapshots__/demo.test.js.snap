@@ -17,7 +17,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography"
     >
@@ -131,7 +131,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         Sketch
       </code>
     </span>
-     和 
+     和
     <span
       class="ant-typography"
     >
@@ -239,7 +239,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left:0%;right:auto;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -251,7 +251,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
       aria-valuenow="1"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%"
+      style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -273,7 +273,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
         </del>
       </code>
     </span>
-     case.Bnt Design, a design language for background applications, is refined by Ant UED Team.Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
+     case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
   </div>
 </div>
 `;
@@ -397,7 +397,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography"
     >
@@ -508,7 +508,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         Sketch
       </code>
     </span>
-     和 
+     和
     <span
       class="ant-typography"
     >

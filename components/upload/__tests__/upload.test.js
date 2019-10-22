@@ -10,7 +10,6 @@ import mountTest from '../../../tests/shared/mountTest';
 
 describe('Upload', () => {
   mountTest(Upload);
-  mountTest(Upload.Dragger);
 
   beforeEach(() => setup());
   afterEach(() => teardown());
@@ -44,6 +43,61 @@ describe('Upload', () => {
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
           expect(data).toHaveBeenCalled();
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+  });
+
+  it('should update progress in IE', done => {
+    const originSetInterval = window.setInterval;
+    process.env.TEST_IE = true;
+    Object.defineProperty(window, 'setInterval', {
+      value: fn => fn(),
+    });
+    const props = {
+      action: 'http://upload.com',
+      onChange: ({ file }) => {
+        if (file.status !== 'uploading') {
+          process.env.TEST_IE = undefined;
+          Object.defineProperty(window, 'setInterval', {
+            value: originSetInterval,
+          });
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+  });
+
+  it('beforeUpload can be falsy', done => {
+    const props = {
+      action: 'http://upload.com',
+      beforeUpload: false,
+      onChange: ({ file }) => {
+        if (file.status !== 'uploading') {
           done();
         }
       },
@@ -417,12 +471,75 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item i.anticon-close').simulate('click');
+    wrapper.find('div.ant-upload-list-item i.anticon-delete').simulate('click');
 
     setImmediate(() => {
       wrapper.update();
 
       expect(mockRemove).toHaveBeenCalled();
+      expect(props.fileList).toHaveLength(1);
+      expect(props.fileList[0].status).toBe('done');
+      done();
+    });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18902
+  it('should not abort uploading until return value of onRemove is resolved as true', done => {
+    let wrapper;
+
+    const props = {
+      onRemove: () =>
+        new Promise(
+          resolve =>
+            setTimeout(() => {
+              wrapper.update();
+              expect(props.fileList).toHaveLength(1);
+              expect(props.fileList[0].status).toBe('uploading');
+              resolve(true);
+            }),
+          100,
+        ),
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'uploading',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+      onChange: () => {
+        expect(props.fileList).toHaveLength(1);
+        expect(props.fileList[0].status).toBe('removed');
+        done();
+      },
+    };
+
+    wrapper = mount(<Upload {...props} />);
+
+    wrapper.find('div.ant-upload-list-item i.anticon-delete').simulate('click');
+  });
+
+  it('should not stop download when return use onDownload', done => {
+    const mockRemove = jest.fn(() => false);
+    const props = {
+      onRemove: mockRemove,
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'done',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+    };
+
+    const wrapper = mount(<Upload {...props} onDownload={() => {}} />);
+
+    wrapper.find('div.ant-upload-list-item i.anticon-download').simulate('click');
+
+    setImmediate(() => {
+      wrapper.update();
+
       expect(props.fileList).toHaveLength(1);
       expect(props.fileList[0].status).toBe('done');
       done();

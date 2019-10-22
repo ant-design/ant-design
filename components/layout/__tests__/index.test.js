@@ -185,4 +185,20 @@ describe('Sider', () => {
       'Warning: [antd: Menu] `inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
   });
+
+  it('zeroWidthTriggerStyle should work', () => {
+    const wrapper = mount(
+      <Sider collapsedWidth={0} collapsible zeroWidthTriggerStyle={{ background: '#F96' }}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span>nav 1</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').props().style).toEqual({
+      background: '#F96',
+    });
+  });
 });

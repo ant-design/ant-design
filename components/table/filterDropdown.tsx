@@ -22,7 +22,6 @@ function stopPropagation(e: React.SyntheticEvent<any>) {
 
 class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<T>> {
   static defaultProps = {
-    handleFilter() {},
     column: {},
   };
 
@@ -99,8 +98,8 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     }
   };
 
-  setSelectedKeys = ({ selectedKeys }: { selectedKeys: string[] }) => {
-    this.setState({ selectedKeys });
+  setSelectedKeys = ({ selectedKeys }: { selectedKeys?: React.Key[] }) => {
+    this.setState({ selectedKeys: selectedKeys! });
   };
 
   setVisible(visible: boolean) {
@@ -139,7 +138,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
     }
   };
 
-  handleMenuItemClick = (info: { keyPath: string; key: string }) => {
+  handleMenuItemClick = (info: { keyPath: React.Key[]; key: React.Key }) => {
     const { selectedKeys } = this.state;
     if (!info.keyPath || info.keyPath.length <= 1) {
       return;
@@ -178,17 +177,18 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
   }
 
   renderMenus(items: ColumnFilterItem[]): React.ReactElement<any>[] {
+    const { dropdownPrefixCls, prefixCls } = this.props;
     return items.map(item => {
       if (item.children && item.children.length > 0) {
         const { keyPathOfSelectedItem } = this.state;
         const containSelected = Object.keys(keyPathOfSelectedItem).some(
           key => keyPathOfSelectedItem[key].indexOf(item.value) >= 0,
         );
-        const subMenuCls = containSelected
-          ? `${this.props.dropdownPrefixCls}-submenu-contain-selected`
-          : '';
+        const subMenuCls = classNames(`${prefixCls}-dropdown-submenu`, {
+          [`${dropdownPrefixCls}-submenu-contain-selected`]: containSelected,
+        });
         return (
-          <SubMenu title={item.text} className={subMenuCls} key={item.value.toString()}>
+          <SubMenu title={item.text} popupClassName={subMenuCls} key={item.value.toString()}>
             {this.renderMenus(item.children)}
           </SubMenu>
         );
@@ -266,6 +266,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
         confirm: this.handleConfirm,
         clearFilters: this.handleClearFilters,
         filters: column.filters,
+        visible: this.getDropdownVisible(),
       });
     }
 

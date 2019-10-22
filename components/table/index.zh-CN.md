@@ -64,6 +64,7 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| 'auto' \| 'fixed' | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` | 3.24.0 |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | childrenColumnName | 指定树形结构的列名 | string\[] | children | 3.4.2 |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)\[] | - |  |
@@ -83,7 +84,7 @@ const columns = [
 | rowClassName | 表格行的类名 | Function(record, index):string | - |  |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |  |
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |  |
-| scroll | 设置横向或纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，`true` 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | { x: number \| true, y: number } | - |  |
+| scroll | 表格是否可滚动，[配置项](#scroll) | object | - |  |
 | showHeader | 是否显示表头 | boolean | true |  |
 | size | 表格大小 | default \| middle \| small | default |  |
 | title | 表格标题 | Function(currentPageData) |  |  |
@@ -124,11 +125,12 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | align | 设置列的对齐方式 | 'left' \| 'right' \| 'center' | 'left' | 3.3.2 |
+| ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean | false | 3.24.0 |
 | className | 列样式类名 | string | - |  |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |  |
 | dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c`、`a[0].b.c[1]` 的嵌套写法 | string | - |  |
 | defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - | 3.9.3 |
-| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode | - |  |
+| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |  |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - |  |
@@ -141,7 +143,7 @@ const columns = [
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |  |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean\|string | - |  |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` | 3.15.2 |
-| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, filters }) => ReactNode | - | |
+| title | 列头显示文字（函数用法 `3.10.0` 后支持） | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | 列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)） | string\|number | - |  |
 | onCell | 设置单元格属性 | Function(record, rowIndex) | - |  |
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |  |
@@ -182,6 +184,14 @@ const columns = [
 | onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |  |
+
+### scroll
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| x | 设置横向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| y | 设置纵向滚动，也可用于指定滚动区域的宽和高，可以设置为像素值，百分比，true 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| scrollToFirstRowOnChange | 当分页、排序、筛选变化后是否滚动到表格顶部 | boolean | - | 3.24.0 |
 
 ### selection
 
@@ -233,11 +243,11 @@ class NameColumn extends Table.Column<User> {}
 
 ## 注意
 
-按照 [React 的规范](https://facebook.github.io/react/docs/lists-and-keys.html#keys)，所有的组件数组必须绑定 key。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
-
-如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
+按照 [React 的规范](https://zh-hans.reactjs.org/docs/lists-and-keys.html#keys)，所有的数组组件必须绑定 `key`。在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
 ![控制台警告](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
+
+如果 `dataSource[i].key` 没有提供，你应该使用 `rowKey` 来指定 `dataSource` 的主键，如下所示。若没有指定，控制台会出现以上的提示，表格组件也会出现各类奇怪的错误。
 
 ```jsx
 // 比如你的数据主键是 uid

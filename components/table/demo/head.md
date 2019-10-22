@@ -117,8 +117,8 @@ const data = [
   },
 ];
 
-function onChange(pagination, filters, sorter) {
-  console.log('params', pagination, filters, sorter);
+function onChange(pagination, filters, sorter, extra) {
+  console.log('params', pagination, filters, sorter, extra);
 }
 
 ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />, mountNode);
