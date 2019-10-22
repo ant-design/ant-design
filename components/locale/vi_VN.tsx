@@ -35,6 +35,7 @@ export default {
     removeFile: 'Gỡ bỏ tập tin',
     uploadError: 'Lỗi tải lên',
     previewFile: 'Xem thử tập tin',
+    downloadFile: 'Tải tập tin',
   },
   Empty: {
     description: 'Trống',

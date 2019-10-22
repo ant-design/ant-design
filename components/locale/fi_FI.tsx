@@ -36,6 +36,7 @@ export default {
     removeFile: 'Poista tiedosto',
     uploadError: 'Virhe lähetyksessä',
     previewFile: 'Esikatsele tiedostoa',
+    downloadFile: 'Lataa tiedosto',
   },
   Empty: {
     description: 'Ei kohteita',
