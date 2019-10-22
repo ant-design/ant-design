@@ -470,7 +470,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
     });
     const pickerCls = classNames(className, `${prefixCls}-picker`, {
-      [`rtl`]: isRtlLayout,
+      [`${prefixCls}-rtl`]: isRtlLayout,
       [`${prefixCls}-picker-with-value`]: state.inputValue,
       [`${prefixCls}-picker-disabled`]: disabled,
       [`${prefixCls}-picker-${size}`]: !!size,
@@ -596,7 +596,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
         expandIcon={expandIcon}
         loadingIcon={loadingIcon}
-        popupClassName={direction}
+        popupClassName={`${prefixCls}-menu-${direction}`}
       >
         {input}
       </RcCascader>

@@ -3,7 +3,8 @@
 @import '../../input/style/mixin';
 
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
-@picker-rtl-cls: ~'@{cascader-prefix-cls}-picker.rtl';
+@picker-rtl-cls: ~'@{cascader-prefix-cls}-picker-rtl';
+@menu-rtl-cls: ~'@{cascader-prefix-cls}-menu-rtl';
 
 .@{cascader-prefix-cls} {
   .reset-component;
@@ -23,6 +24,7 @@
     .@{picker-rtl-cls} & {
       padding-right: @input-padding-horizontal-base;
       padding-left: 24px;
+      direction: rtl;
       text-align: right;
     }
   }
@@ -211,7 +213,8 @@
     &:only-child {
       border-radius: @border-radius-base;
     }
-    &.rtl {
+    &-rtl {
+      direction: rtl;
       border-right: none;
       border-left: @border-width-base @border-style-base @border-color-split;
       &:last-child {
@@ -249,7 +252,7 @@
       position: relative;
       padding-right: 24px;
 
-      .rtl & {
+      .@{menu-rtl-cls} & {
         padding-right: @control-padding-horizontal;
         padding-left: 24px;
       }
@@ -263,7 +266,7 @@
       right: @control-padding-horizontal;
       color: @text-color-secondary;
 
-      .rtl & {
+      .@{menu-rtl-cls} & {
         right: auto;
         left: @control-padding-horizontal;
       }
