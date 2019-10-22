@@ -150,7 +150,7 @@ export default class Search extends React.Component<SearchProps, any> {
     return button;
   };
 
-  renderSearch = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSearch = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       inputPrefixCls: customizeInputPrefixCls,
@@ -169,11 +169,14 @@ export default class Search extends React.Component<SearchProps, any> {
 
     if (enterButton) {
       inputClassName = classNames(prefixCls, className, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-enter-button`]: !!enterButton,
         [`${prefixCls}-${size}`]: !!size,
       });
     } else {
-      inputClassName = classNames(prefixCls, className);
+      inputClassName = classNames(prefixCls, className, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      });
     }
 
     return (

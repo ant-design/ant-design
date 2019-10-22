@@ -23,7 +23,7 @@ const Group: React.StatelessComponent<GroupProps> = props => (
       const cls = classNames(
         prefixCls,
         {
-          rtl: direction === 'rtl',
+          [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-lg`]: props.size === 'large',
           [`${prefixCls}-sm`]: props.size === 'small',
           [`${prefixCls}-compact`]: props.compact,

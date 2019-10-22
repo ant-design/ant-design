@@ -111,7 +111,7 @@ class Input extends React.Component<InputProps, any> {
   getInputClassName(prefixCls: string) {
     const { size, disabled } = this.props;
     return classNames(prefixCls, {
-      rtl: this.direction === 'rtl',
+      [`${prefixCls}-rtl`]: this.direction === 'rtl',
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-disabled`]: disabled,
@@ -227,12 +227,12 @@ class Input extends React.Component<InputProps, any> {
     const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
-      rtl: this.direction === 'rtl',
       [wrapperClassName]: addonBefore || addonAfter,
+      [`${wrapperClassName}-rtl`]: this.direction === 'rtl',
     });
 
     const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
-      rtl: this.direction === 'rtl',
+      [`${prefixCls}-group-wrapper-rtl`]: this.direction === 'rtl',
       [`${prefixCls}-group-wrapper-sm`]: size === 'small',
       [`${prefixCls}-group-wrapper-lg`]: size === 'large',
     });
@@ -263,7 +263,7 @@ class Input extends React.Component<InputProps, any> {
     ) : null;
 
     const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
-      rtl: this.direction === 'rtl',
+      [`${prefixCls}-affix-wrapper-rtl`]: this.direction === 'rtl',
       [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
       [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
       [`${prefixCls}-affix-wrapper-with-clear-btn`]:
