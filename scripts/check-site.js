@@ -59,6 +59,7 @@ describe('site test', () => {
       root: join(process.cwd(), '_site'),
     });
     server.listen(host);
+    // eslint-disable-next-line no-console
     console.log('site static server run: http://localhost:3000');
   });
 
