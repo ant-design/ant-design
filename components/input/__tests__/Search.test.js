@@ -166,4 +166,16 @@ describe('Input.Search', () => {
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapperWithEnterButton.render()).toMatchSnapshot();
   });
+
+  it('should support addonAfter and suffix for loading', () => {
+    const wrapper = mount(<Search loading suffix="suffix" addonAfter="addonAfter" />);
+    const wrapperWithEnterButton = mount(<Search loading enterButton suffix="suffix" addonAfter="addonAfter" />);
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  })
+
+  it('should support invalid addonAfter and suffix', () => {
+    const wrapper = mount(<Search suffix={[]} addonAfter={[]} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  })
 });
