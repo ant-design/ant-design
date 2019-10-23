@@ -470,7 +470,7 @@
   .@{inputClass}-prefix {
     left: @input-padding-horizontal-base + 1px;
 
-    .@{inputClass}-affix-wrapper-rtl& {
+    .@{inputClass}-rtl & {
       right: @input-padding-horizontal-base + 1px;
       left: auto;
     }
@@ -479,7 +479,7 @@
   .@{inputClass}-suffix {
     right: @input-padding-horizontal-base + 1px;
 
-    .@{inputClass}-affix-wrapper-rtl& {
+    .@{inputClass}-rtl & {
       right: auto;
       left: @input-padding-horizontal-base + 1px;
     }
@@ -487,10 +487,20 @@
 
   .@{inputClass}:not(:first-child) {
     padding-left: @input-padding-horizontal-base + @input-affix-width;
+
+    .@{inputClass}-rtl & {
+      padding-right: @input-padding-horizontal-base + @input-affix-width;
+      padding-left: @input-padding-horizontal-base;
+    }
   }
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+
+    .@{inputClass}-rtl & {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: @input-padding-horizontal-base + @input-affix-width;
+    }
   }
 
   // Needed to change priority of classes in rtl direction (last-child comes before first-child)
@@ -507,7 +517,7 @@
   &.@{inputClass}-affix-wrapper-input-with-clear-btn .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
 
-    .@{inputClass}-affix-wrapper-rtl& {
+    .@{inputClass}-rtl & {
       padding-right: @input-padding-horizontal-base;
       padding-left: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
     }

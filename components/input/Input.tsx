@@ -91,6 +91,8 @@ class Input extends React.Component<InputProps, InputState> {
   clearableInput: ClearableLabeledInput;
   direction: any = 'ltr';
 
+  direction: any = 'ltr';
+
   constructor(props: InputProps) {
     super(props);
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
@@ -201,10 +203,11 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { value } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+    this.direction = direction;
     return (
       <ClearableLabeledInput
         {...this.props}
