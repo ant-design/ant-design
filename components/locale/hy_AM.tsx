@@ -89,6 +89,7 @@ export default {
     removeFile: 'Հեռացնել ֆայլը',
     uploadError: 'Ներբեռնման սխալ',
     previewFile: 'Դիտել ֆայլը',
+    downloadFile: 'Ներբեռնել ֆայլը',
   },
   Empty: {
     description: 'Տվյալներ չկան',

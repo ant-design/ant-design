@@ -35,6 +35,7 @@ export default {
     removeFile: 'ファイルを削除',
     uploadError: 'アップロードエラー',
     previewFile: 'ファイルをプレビュー',
+    downloadFile: 'ダウンロードファイル',
   },
   Empty: {
     description: 'データがありません',
