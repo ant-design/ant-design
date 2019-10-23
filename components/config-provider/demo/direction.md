@@ -601,5 +601,5 @@ ReactDOM.render(<App />, mountNode);
 .ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
   margin-right: 0;
   margin-left: 20px;
-}
+s}
 ```
