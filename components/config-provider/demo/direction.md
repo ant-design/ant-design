@@ -174,7 +174,7 @@ class Page extends React.Component {
   onChangeBadge = showBadge => {
     this.setState({ showBadge });
   };
-  // ==== End  Badge ====
+  // ==== End Badge ====
 
   render() {
     const { currentStep } = this.state;
