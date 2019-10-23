@@ -157,7 +157,7 @@
     "@types/shallowequal": "^1.1.1",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
-    "@typescript-eslint/parser": "^2.0.0",
+    "@typescript-eslint/parser": "~2.4.0",
     "@yesmeck/offline-plugin": "^5.0.5",
     "antd-theme-generator": "^1.1.6",
     "babel-eslint": "^10.0.1",

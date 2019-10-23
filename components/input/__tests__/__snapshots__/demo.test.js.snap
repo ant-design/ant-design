@@ -234,6 +234,34 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     class="ant-typography"
   >
     Ant Design
+    <div
+      aria-label="Copy"
+      class="ant-typography-copy"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
+    >
+      <i
+        aria-label="icon: copy"
+        class="anticon anticon-copy"
+        role="button"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="copy"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          />
+        </svg>
+      </i>
+    </div>
   </span>
   <span
     class="ant-input-affix-wrapper"
@@ -1849,42 +1877,6 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
   <br />
   <br />
   <span
-    class="ant-input-search ant-input-affix-wrapper"
-  >
-    <input
-      class="ant-input"
-      placeholder="input search loading with suffix"
-      type="text"
-      value=""
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      suffix
-      <i
-        aria-label="icon: loading"
-        class="anticon anticon-loading ant-input-search-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class="anticon-spin"
-          data-icon="loading"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="0 0 1024 1024"
-          width="1em"
-        >
-          <path
-            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-          />
-        </svg>
-      </i>
-    </span>
-  </span>
-  <br />
-  <br />
-  <span
     class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
   >
     <span
@@ -1923,51 +1915,6 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
             </svg>
           </i>
         </button>
-      </span>
-    </span>
-  </span>
-  <br />
-  <br />
-  <span
-    class="ant-input-search ant-input-search-enter-button ant-input-group-wrapper"
-  >
-    <span
-      class="ant-input-wrapper ant-input-group"
-    >
-      <input
-        class="ant-input"
-        placeholder="input search loading with enterButton and addonAfter"
-        type="text"
-        value=""
-      />
-      <span
-        class="ant-input-group-addon"
-      >
-        <button
-          class="ant-btn ant-input-search-button ant-btn-primary"
-          type="button"
-        >
-          <i
-            aria-label="icon: loading"
-            class="anticon anticon-loading"
-          >
-            <svg
-              aria-hidden="true"
-              class="anticon-spin"
-              data-icon="loading"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="0 0 1024 1024"
-              width="1em"
-            >
-              <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-              />
-            </svg>
-          </i>
-        </button>
-        addonAfter
       </span>
     </span>
   </span>
