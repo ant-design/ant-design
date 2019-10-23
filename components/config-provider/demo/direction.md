@@ -144,6 +144,7 @@ class Page extends React.Component {
         <Row>
           <Col span={24}>
             <Tree
+              showLine
               checkable
               defaultExpandedKeys={['0-0-0', '0-0-1']}
               defaultSelectedKeys={['0-0-0', '0-0-1']}
@@ -318,8 +319,8 @@ ReactDOM.render(<App />, mountNode);
 
 ```css
 .direction-components {
-  border-top: 1px solid #d9d9d9;
   padding-top: 16px;
+  border-top: 1px solid #d9d9d9;
 }
 
 .example {
