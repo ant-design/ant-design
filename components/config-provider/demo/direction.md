@@ -13,6 +13,8 @@ title:
 
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
+**Note:** `ConfigProvider: direction` just affects direction of the ant-design componenents, you should wrap your elements or form with `.rtl | .ltr` class to change direction of other elements.
+
 ```jsx
 import {
   Input,
@@ -25,36 +27,14 @@ import {
   Radio,
   Switch,
   Tree,
-  TreeSelect,
-  Modal,
-  Button,
-  Table,
-  Form,
-  Divider,
-  Pagination,
-  Steps,
-  Rate,
-  Badge,
 } from 'antd';
 
-import {
-  Search as SearchIcon,
-  Smile,
-  Down,
-  Download,
-  Left,
-  Right,
-  Minus,
-  Plus,
-} from '@ant-design/icons';
+import { Search as SearchIcon, Smile } from '@ant-design/icons';
 
 const InputGroup = Input.Group;
-const ButtonGroup = Button.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
-const { Step } = Steps;
-
 const cascaderOptions = [
   {
     value: 'tehran',
@@ -106,79 +86,7 @@ const cascaderOptions = [
   },
 ];
 
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    render: text => <a>{text}</a>,
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (text, record) => (
-      <span>
-        <a>Action 一 {record.name}</a>
-        <Divider type="vertical" />
-        <a>Delete</a>
-        <Divider type="vertical" />
-        <a className="ant-dropdown-link">
-          More actions <Down />
-        </a>
-      </span>
-    ),
-  },
-];
-
-const data = [];
-for (let i = 1; i <= 10; i++) {
-  data.push({
-    key: i,
-    name: 'هوشنگ ابتهاج',
-    age: `${i}2`,
-    address: `Rasht No. ${i} Shahrdari sq.`,
-    description: `Hushang Ebtehaj is an Iranian poet of the ${i}th century, whose life and work spans many of Iran's political, cultural and literary upheavals`,
-  });
-}
-
-const expandedRowRender = record => <p>{record.description}</p>;
-const title = () => 'Here is title';
-const showHeader = true;
-const footer = () => 'Here is footer';
-const scroll = { y: 240 };
-const pagination = { position: 'bottom' };
-
 class Page extends React.Component {
-  state = {
-    bordered: false,
-    loading: false,
-    pagination,
-    size: 'default',
-    expandedRowRender,
-    title: undefined,
-    showHeader,
-    footer,
-    rowSelection: {},
-    scroll: undefined,
-    hasData: true,
-    tableLayout: undefined,
-    currentStep: 0,
-    modalVisible: false,
-
-    badgeCount: 5,
-    showBadge: true,
-  };
-
   selectBefore = (
     <Select defaultValue="Http://" style={{ width: 90 }}>
       <Option value="Http://">Http://</Option>
@@ -195,7 +103,6 @@ class Page extends React.Component {
     </Select>
   );
 
-  // ==== Cascader ====
   cascaderFilter = (inputValue, path) => {
     return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
   };
@@ -203,194 +110,35 @@ class Page extends React.Component {
   onCascaderChange = value => {
     console.log(value);
   };
-  // ==== End Cascader ====
-
-  // ==== Modal ====
-  showModal = () => {
-    this.setState({
-      modalVisible: true,
-    });
-  };
-
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      modalVisible: false,
-    });
-  };
-
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      modalVisible: false,
-    });
-  };
-  // ==== End Modal ====
-  // ==== Table ====
-
-  handleToggle = prop => enable => {
-    this.setState({ [prop]: enable });
-  };
-
-  handleSizeChange = e => {
-    this.setState({ size: e.target.value });
-  };
-
-  handleTableLayoutChange = e => {
-    this.setState({ tableLayout: e.target.value });
-  };
-
-  handleExpandChange = enable => {
-    this.setState({ expandedRowRender: enable ? expandedRowRender : undefined });
-  };
-
-  handleEllipsisChange = enable => {
-    this.setState({ ellipsis: enable });
-  };
-
-  handleTitleChange = enable => {
-    this.setState({ title: enable ? title : undefined });
-  };
-
-  handleHeaderChange = enable => {
-    this.setState({ showHeader: enable ? showHeader : false });
-  };
-
-  handleFooterChange = enable => {
-    this.setState({ footer: enable ? footer : undefined });
-  };
-
-  handleRowSelectionChange = enable => {
-    this.setState({ rowSelection: enable ? {} : undefined });
-  };
-
-  handleScollChange = enable => {
-    this.setState({ scroll: enable ? scroll : undefined });
-  };
-
-  handleDataChange = hasData => {
-    this.setState({ hasData });
-  };
-
-  handlePaginationChange = e => {
-    const { value } = e.target;
-    this.setState({
-      pagination: value === 'none' ? false : { position: value },
-    });
-  };
-  // ==== End Table ====
-
-  onStepsChange = currentStep => {
-    console.log('onChange:', currentStep);
-    this.setState({ currentStep });
-  };
-
-  // ==== Badge ====
-
-  increaseBadge = () => {
-    const badgeCount = this.state.badgeCount + 1;
-    this.setState({ badgeCount });
-  };
-
-  declineBadge = () => {
-    let badgeCount = this.state.badgeCount - 1;
-    if (badgeCount < 0) {
-      badgeCount = 0;
-    }
-    this.setState({ badgeCount });
-  };
-
-  onChangeBadge = showBadge => {
-    this.setState({ showBadge });
-  };
-  // ==== End Badge ====
 
   render() {
-    const { currentStep } = this.state;
     return (
       <div className="direction-components example">
+        <Cascader
+          suffixIcon={<SearchIcon />}
+          options={cascaderOptions}
+          onChange={this.onCascaderChange}
+          placeholder="یک مورد انتخاب کنید"
+          popupPlacement={this.props.popupPlacement}
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp; With search:
+        <Cascader
+          suffixIcon={<Smile />}
+          options={cascaderOptions}
+          onChange={this.onCascaderChange}
+          placeholder="Select an item"
+          popupPlacement={this.props.popupPlacement}
+          showSearch={this.cascaderFilter}
+        />
+        &nbsp;&nbsp;
+        <Switch defaultChecked />
+        &nbsp;&nbsp;
+        <Switch loading defaultChecked />
+        &nbsp;&nbsp;
+        <Switch size="small" loading />
         <Row>
           <Col span={24}>
-            <h3 className="demo-block-title">Cascader example:</h3>
-            <Cascader
-              suffixIcon={<SearchIcon />}
-              options={cascaderOptions}
-              onChange={this.onCascaderChange}
-              placeholder="یک مورد انتخاب کنید"
-              popupPlacement={this.props.popupPlacement}
-            />
-            &nbsp;&nbsp;&nbsp;&nbsp; With search:
-            <Cascader
-              suffixIcon={<Smile />}
-              options={cascaderOptions}
-              onChange={this.onCascaderChange}
-              placeholder="Select an item"
-              popupPlacement={this.props.popupPlacement}
-              showSearch={this.cascaderFilter}
-            />
-          </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col span={12}>
-            <h3 className="demo-block-title">Switch example:</h3>
-            &nbsp;&nbsp;
-            <Switch defaultChecked />
-            &nbsp;&nbsp;
-            <Switch loading defaultChecked />
-            &nbsp;&nbsp;
-            <Switch size="small" loading />
-          </Col>
-          <Col span={12}>
-            <h3 className="demo-block-title">Radio Group example:</h3>
-
-            <Radio.Group defaultValue="c" buttonStyle="solid">
-              <Radio.Button value="a">تهران</Radio.Button>
-              <Radio.Button value="b" disabled>
-                اصفهان
-              </Radio.Button>
-              <Radio.Button value="c">فارس</Radio.Button>
-              <Radio.Button value="d">خوزستان</Radio.Button>
-            </Radio.Group>
-          </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col span={12}>
-            <h3 className="demo-block-title">Button example:</h3>
-            <div className="button-demo">
-              <Button type="primary" icon={<Download />} />
-              <Button type="primary" shape="circle" icon={<Download />} />
-              <Button type="primary" shape="round" icon={<Download />} />
-              <Button type="primary" shape="round" icon={<Download />}>
-                Download
-              </Button>
-              <Button type="primary" icon={<Download />}>
-                Download
-              </Button>
-              <br />
-              <Button.Group>
-                <Button type="primary">
-                  <Left />
-                  Backward
-                </Button>
-                <Button type="primary">
-                  Forward
-                  <Right />
-                </Button>
-              </Button.Group>
-              <Button type="primary" loading>
-                Loading
-              </Button>
-              <Button type="primary" size="small" loading>
-                Loading
-              </Button>
-            </div>
-          </Col>
-          <Col span={12}>
-            <h3 className="demo-block-title">Tree example:</h3>
             <Tree
-              showLine
               checkable
               defaultExpandedKeys={['0-0-0', '0-0-1']}
               defaultSelectedKeys={['0-0-0', '0-0-1']}
@@ -409,317 +157,113 @@ class Page extends React.Component {
           </Col>
         </Row>
         <br />
-        <Row>
-          <Col span={24}>
-            <h3 className="demo-block-title">Input (Input Group) example:</h3>
-            <InputGroup size="large">
-              <Row gutter={8}>
-                <Col span={5}>
-                  <Input defaultValue="0571" />
-                </Col>
-                <Col span={8}>
-                  <Input defaultValue="26888888" />
-                </Col>
-              </Row>
-            </InputGroup>
-            <br />
-            <InputGroup compact>
-              <Input style={{ width: '20%' }} defaultValue="0571" />
-              <Input style={{ width: '30%' }} defaultValue="26888888" />
-            </InputGroup>
-            <br />
-            <InputGroup compact>
-              <Select defaultValue="Option1">
-                <Option value="Option1">Option1</Option>
-                <Option value="Option2">Option2</Option>
+        <div>
+          <InputGroup size="large">
+            <Row gutter={8}>
+              <Col span={5}>
+                <Input defaultValue="0571" />
+              </Col>
+              <Col span={8}>
+                <Input defaultValue="26888888" />
+              </Col>
+            </Row>
+          </InputGroup>
+          <br />
+          <InputGroup compact>
+            <Input style={{ width: '20%' }} defaultValue="0571" />
+            <Input style={{ width: '30%' }} defaultValue="26888888" />
+          </InputGroup>
+          <br />
+          <InputGroup compact>
+            <Select defaultValue="Option1">
+              <Option value="Option1">Option1</Option>
+              <Option value="Option2">Option2</Option>
+            </Select>
+            <Input style={{ width: '50%' }} defaultValue="input content" />
+            <InputNumber />
+          </InputGroup>
+          <br />
+          <Search placeholder="input search text" enterButton="Search" size="large" />
+          <br />
+          <br />
+          <div style={{ marginBottom: 16 }}>
+            <Input
+              addonBefore={this.selectBefore}
+              addonAfter={this.selectAfter}
+              defaultValue="mysite"
+            />
+          </div>
+          <br />
+
+          <Row>
+            <Col span={24}>
+              <Select mode="multiple" defaultValue="lucy" style={{ width: 120 }}>
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+                <Option value="Yiminghe">yiminghe</Option>
               </Select>
-              <Input style={{ width: '50%' }} defaultValue="input content" />
-              <InputNumber />
-            </InputGroup>
-            <br />
-            <Search placeholder="input search text" enterButton="Search" size="large" />
-            <br />
-            <br />
-            <div style={{ marginBottom: 16 }}>
-              <Input
-                addonBefore={this.selectBefore}
-                addonAfter={this.selectAfter}
-                defaultValue="mysite"
-              />
-            </div>
-            <br />
-
-            <Row>
-              <Col span={12}>
-                <h3 className="demo-block-title">Select example:</h3>
-                <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
-                  <Option value="jack">Jack</Option>
-                  <Option value="مورچه">مورچه</Option>
-                  <Option value="disabled" disabled>
-                    Disabled
-                  </Option>
-                  <Option value="Yiminghe">yiminghe</Option>
-                </Select>
-                <Select defaultValue="مورچه" style={{ width: 120 }} disabled>
-                  <Option value="مورچه">مورچه</Option>
-                </Select>
-                <Select defaultValue="مورچه" style={{ width: 120 }} loading>
-                  <Option value="مورچه">مورچه</Option>
-                </Select>
-                <Select
-                  showSearch
-                  style={{ width: 200 }}
-                  placeholder="Select a person"
-                  optionFilterProp="children"
-                  filterOption={(input, option) =>
-                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                  }
-                >
-                  <Option value="jack">Jack</Option>
-                  <Option value="سعید">سعید</Option>
-                  <Option value="tom">Tom</Option>
-                </Select>
-              </Col>
-              <Col span={12}>
-                <h3 className="demo-block-title">TreeSelect example:</h3>
-                <div>
-                  <TreeSelect
-                    showSearch
-                    style={{ width: '100%' }}
-                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-                    placeholder="Please select"
-                    allowClear
-                    treeDefaultExpandAll
-                  >
-                    <TreeSelect.TreeNode value="parent 1" title="parent 1" key="0-1">
-                      <TreeSelect.TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
-                        <TreeSelect.TreeNode value="leaf1" title="my leaf" key="random" />
-                        <TreeSelect.TreeNode value="leaf2" title="your leaf" key="random1" />
-                      </TreeSelect.TreeNode>
-                      <TreeSelect.TreeNode value="parent 1-1" title="parent 1-1" key="random2">
-                        <TreeSelect.TreeNode
-                          value="sss"
-                          title={<b style={{ color: '#08c' }}>sss</b>}
-                          key="random3"
-                        />
-                      </TreeSelect.TreeNode>
-                    </TreeSelect.TreeNode>
-                  </TreeSelect>
-                </div>
-              </Col>
-            </Row>
-            <br />
-            <Row>
-              <Col span={24}>
-                <h3 className="demo-block-title">Modal example:</h3>
-                <div>
-                  <Button type="primary" onClick={this.showModal}>
-                    Open Modal
-                  </Button>
-                  <Modal
-                    title="پنچره ساده"
-                    visible={this.state.modalVisible}
-                    onOk={this.handleOk}
-                    onCancel={this.handleCancel}
-                  >
-                    <p>نگاشته‌های خود را اینجا قراردهید</p>
-                    <p>نگاشته‌های خود را اینجا قراردهید</p>
-                    <p>نگاشته‌های خود را اینجا قراردهید</p>
-                  </Modal>
-                </div>
-              </Col>
-            </Row>
-            <br />
-            <Row>
-              <Col span={24}>
-                <h3 className="demo-block-title">Steps example:</h3>
-                <div>
-                  <Steps progressDot current={currentStep}>
-                    <Step title="Finished" description="This is a description." />
-                    <Step title="In Progress" description="This is a description." />
-                    <Step title="Waiting" description="This is a description." />
-                  </Steps>
-                  <br />
-                  <Steps current={currentStep} onChange={this.onStepsChange}>
-                    <Step title="Step 1" description="This is a description." />
-                    <Step title="Step 2" description="This is a description." />
-                    <Step title="Step 3" description="This is a description." />
-                  </Steps>
-                </div>
-              </Col>
-            </Row>
-            <br />
-            <Row>
-              <Col span={12}>
-                <h3 className="demo-block-title">Rate example:</h3>
-                <div>
-                  <Rate defaultValue={2.5} />
-                  <br />
-                  <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
-                  supported after <a href="https://github.com/react-component/rate">rc-rate</a>{' '}
-                  implement rtl support.
-                </div>
-              </Col>
-              <Col span={12}>
-                <h3 className="demo-block-title">Badge example:</h3>
-                <div>
-                  <div>
-                    <Badge count={this.state.badgeCount}>
-                      <a href="#" className="head-example" />
-                    </Badge>
-                    <ButtonGroup>
-                      <Button onClick={this.declineBadge}>
-                        <Minus />
-                      </Button>
-                      <Button onClick={this.increaseBadge}>
-                        <Plus />
-                      </Button>
-                    </ButtonGroup>
-                  </div>
-                  <div style={{ marginTop: 10 }}>
-                    <Badge dot={this.state.showBadge}>
-                      <a href="#" className="head-example" />
-                    </Badge>
-                    <Switch onChange={this.onChangeBadge} checked={this.state.showBadge} />
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-
-        <br />
-        <br />
-        <br />
-        <Row>
-          <Col span={24}>
-            <h3 className="demo-block-title">Table example:</h3>
-            <div>
-              <Form
-                layout="inline"
-                className="components-table-demo-control-bar"
-                style={{ marginBottom: 16 }}
+              <Select defaultValue="lucy" style={{ width: 120 }} disabled>
+                <Option value="lucy">Lucy</Option>
+              </Select>
+              <Select defaultValue="lucy" style={{ width: 120 }} loading>
+                <Option value="lucy">Lucy</Option>
+              </Select>
+              <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a person"
+                optionFilterProp="children"
+                filterOption={(input, option) =>
+                  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
               >
-                <Form.Item label="Bordered">
-                  <Switch checked={this.state.bordered} onChange={this.handleToggle('bordered')} />
-                </Form.Item>
-                <Form.Item label="loading">
-                  <Switch checked={this.state.loading} onChange={this.handleToggle('loading')} />
-                </Form.Item>
-                <Form.Item label="Title">
-                  <Switch checked={!!this.state.title} onChange={this.handleTitleChange} />
-                </Form.Item>
-                <Form.Item label="Column Header">
-                  <Switch checked={!!this.state.showHeader} onChange={this.handleHeaderChange} />
-                </Form.Item>
-                <Form.Item label="Footer">
-                  <Switch checked={!!this.state.footer} onChange={this.handleFooterChange} />
-                </Form.Item>
-                <Form.Item label="Expandable">
-                  <Switch
-                    checked={!!this.state.expandedRowRender}
-                    onChange={this.handleExpandChange}
-                  />
-                </Form.Item>
-                <Form.Item label="Checkbox">
-                  <Switch
-                    checked={!!this.state.rowSelection}
-                    onChange={this.handleRowSelectionChange}
-                  />
-                </Form.Item>
-                <Form.Item label="Fixed Header">
-                  <Switch checked={!!this.state.scroll} onChange={this.handleScollChange} />
-                </Form.Item>
-                <Form.Item label="Has Data">
-                  <Switch checked={!!this.state.hasData} onChange={this.handleDataChange} />
-                </Form.Item>
-                <Form.Item label="Ellipsis">
-                  <Switch checked={!!this.state.ellipsis} onChange={this.handleEllipsisChange} />
-                </Form.Item>
-                <Form.Item label="Size">
-                  <Radio.Group value={this.state.size} onChange={this.handleSizeChange}>
-                    <Radio.Button value="default">Default</Radio.Button>
-                    <Radio.Button value="middle">Middle</Radio.Button>
-                    <Radio.Button value="small">Small</Radio.Button>
-                  </Radio.Group>
-                </Form.Item>
-                <Form.Item label="Table Layout">
-                  <Radio.Group
-                    value={this.state.tableLayout}
-                    onChange={this.handleTableLayoutChange}
-                  >
-                    <Radio.Button value={undefined}>Unset</Radio.Button>
-                    <Radio.Button value="fixed">Fixed</Radio.Button>
-                  </Radio.Group>
-                </Form.Item>
-                <Form.Item label="Pagination">
-                  <Radio.Group
-                    value={this.state.pagination ? this.state.pagination.position : 'none'}
-                    onChange={this.handlePaginationChange}
-                  >
-                    <Radio.Button value="top">Top</Radio.Button>
-                    <Radio.Button value="bottom">Bottom</Radio.Button>
-                    <Radio.Button value="both">Both</Radio.Button>
-                    <Radio.Button value="none">None</Radio.Button>
-                  </Radio.Group>
-                </Form.Item>
-              </Form>
-              <Table
-                {...this.state}
-                columns={columns.map(item => ({ ...item, ellipsis: this.state.ellipsis }))}
-                dataSource={this.state.hasData ? data : null}
-              />
-            </div>
-          </Col>
-        </Row>
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Col>
+          </Row>
+        </div>
         <br />
-        <Row>
-          <Col span={24}>
-            <h3 className="demo-block-title">Pagination example:</h3>
-            <Pagination showSizeChanger defaultCurrent={3} total={500} />
-          </Col>
-        </Row>
-        <br />
-        <Row>
-          <Col span={24}>
-            <h3 className="demo-block-title">Grid System example:</h3>
-            <div className="grid-demo">
-              <div className="code-box-demo">
-                <p>
-                  <strong>* Note:</strong> Every calculation in RTL grid system is from right side
-                  (offset, push, etc.)
-                </p>
-                <Row>
-                  <Col span={8}>col-8</Col>
-                  <Col span={8} offset={8}>
-                    col-8
-                  </Col>
-                </Row>
-                <Row>
-                  <Col span={6} offset={6}>
-                    col-6 col-offset-6
-                  </Col>
-                  <Col span={6} offset={6}>
-                    col-6 col-offset-6
-                  </Col>
-                </Row>
-                <Row>
-                  <Col span={12} offset={6}>
-                    col-12 col-offset-6
-                  </Col>
-                </Row>
-                <Row>
-                  <Col span={18} push={6}>
-                    col-18 col-push-6
-                  </Col>
-                  <Col span={6} pull={18}>
-                    col-6 col-pull-18
-                  </Col>
-                </Row>
-              </div>
-            </div>
-          </Col>
-        </Row>
+        <hr />
+        <div class="grid-demo">
+          <div class="code-box-demo">
+            <p>
+              <strong>* Note:</strong> Every calculation in RTL grid system is from right side
+              (offset, push, etc.)
+            </p>
+            <Row>
+              <Col span={8}>col-8</Col>
+              <Col span={8} offset={8}>
+                col-8
+              </Col>
+            </Row>
+            <Row>
+              <Col span={6} offset={6}>
+                col-6 col-offset-6
+              </Col>
+              <Col span={6} offset={6}>
+                col-6 col-offset-6
+              </Col>
+            </Row>
+            <Row>
+              <Col span={12} offset={6}>
+                col-12 col-offset-6
+              </Col>
+            </Row>
+            <Row>
+              <Col span={18} push={6}>
+                col-18 col-push-6
+              </Col>
+              <Col span={6} pull={18}>
+                col-6 col-pull-18
+              </Col>
+            </Row>
+          </div>
+        </div>
       </div>
     );
   }
@@ -769,8 +313,8 @@ ReactDOM.render(<App />, mountNode);
 
 ```css
 .direction-components {
-  padding-top: 16px;
   border-top: 1px solid #d9d9d9;
+  padding-top: 16px;
 }
 
 .example {
@@ -781,37 +325,12 @@ ReactDOM.render(<App />, mountNode);
   margin-right: 8px;
 }
 
-.change-direction {
-  margin-bottom: 16px;
-}
-.demo-block-title {
-  margin: 0 8px 18px 8px;
-  border-bottom: 1px solid #d9d9d9;
-}
-.button-demo .ant-btn,
-.button-demo .ant-btn-group {
-  margin-right: 8px;
-  margin-bottom: 12px;
-}
-.button-demo .ant-btn-group > .ant-btn,
-.button-demo .ant-btn-group > span > .ant-btn {
-  margin-right: 0;
-  margin-left: 0;
-}
-.head-example {
-  display: inline-block;
-  width: 42px;
-  height: 42px;
-  vertical-align: middle;
-  background: #eee;
-  border-radius: 4px;
+[dir='rtl'] .example > * {
+  margin-right: auto;
+  margin-left: 8px;
 }
 
-.ant-badge:not(.ant-badge-not-a-wrapper) {
-  margin-right: 20px;
-}
-.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
-  margin-right: 0;
-  margin-left: 20px;
+.change-direction {
+  margin-bottom: 16px;
 }
 ```
