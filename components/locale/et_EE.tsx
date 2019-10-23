@@ -35,6 +35,7 @@ export default {
     removeFile: 'Eemalda fail',
     uploadError: 'Üleslaadimise tõrge',
     previewFile: 'Faili eelvaade',
+    downloadFile: 'Laadige fail alla',
   },
   Empty: {
     description: 'Andmed puuduvad',

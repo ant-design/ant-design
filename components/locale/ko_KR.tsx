@@ -35,6 +35,7 @@ export default {
     removeFile: '파일 삭제',
     uploadError: '업로드 실패',
     previewFile: '파일 미리보기',
+    downloadFile: '파일 다운로드',
   },
   Empty: {
     description: '데이터 없음',

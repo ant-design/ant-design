@@ -35,6 +35,7 @@ export default {
     removeFile: 'Файл устгах',
     uploadError: 'Хуулахад алдаа гарлаа',
     previewFile: 'Файлыг түргэн үзэх',
+    downloadFile: 'Файлыг татах',
   },
   Empty: {
     description: 'Мэдээлэл байхгүй байна',

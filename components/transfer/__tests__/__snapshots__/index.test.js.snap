@@ -439,6 +439,7 @@ exports[`Transfer should support render value and label in item 1`] = `
       },
     ]
   }
+  listStyle={[Function]}
   locale={Object {}}
   render={[Function]}
   showSearch={false}

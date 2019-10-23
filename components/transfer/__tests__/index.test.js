@@ -121,7 +121,7 @@ describe('Transfer', () => {
         selectedKeys={['a']}
         targetKeys={['a']}
         onChange={handleChange}
-      />
+      />,
     );
     wrapper
       .find(TransferOperation)
@@ -442,8 +442,11 @@ describe('Transfer', () => {
     const style = {
       backgroundColor: 'red',
     };
-    const listStyle = {
+    const leftStyle = {
       backgroundColor: 'blue',
+    };
+    const rightStyle = {
+      backgroundColor: 'red',
     };
     const operationStyle = {
       backgroundColor: 'yellow',
@@ -453,7 +456,7 @@ describe('Transfer', () => {
       <Transfer
         {...listCommonProps}
         style={style}
-        listStyle={listStyle}
+        listStyle={({ direction }) => (direction === 'left' ? leftStyle : rightStyle)}
         operationStyle={operationStyle}
       />,
     );
@@ -465,32 +468,32 @@ describe('Transfer', () => {
 
     expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
-    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
   });
 
   it('should support onScroll', () => {
     const onScroll = jest.fn();
-    const component = mount(
-      <Transfer
-        {...listCommonProps}
-        onScroll={onScroll}
-      />,
-    );
-    component.find('.ant-transfer-list').at(0).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    const component = mount(<Transfer {...listCommonProps} onScroll={onScroll} />);
+    component
+      .find('.ant-transfer-list')
+      .at(0)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('left', expect.anything());
-    component.find('.ant-transfer-list').at(1).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    component
+      .find('.ant-transfer-list')
+      .at(1)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
   });
 
   it('should support rowKey is function', () => {
     expect(() => {
-      mount(
-        <Transfer
-          {...listCommonProps}
-          rowKey={record => record.key}
-        />,
-      );
+      mount(<Transfer {...listCommonProps} rowKey={record => record.key} />);
     }).not.toThrow();
   });
 
