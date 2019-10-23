@@ -91,6 +91,7 @@ class Input extends React.Component<InputProps, InputState> {
   input: HTMLInputElement;
 
   clearableInput: ClearableLabeledInput;
+  direction: any = 'ltr';
 
   direction: any = 'ltr';
 
