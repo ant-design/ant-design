@@ -45,7 +45,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | locale | language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object |  |
 | prefixCls | set prefix class | string | ant |  |
 | pageHeader | Unify the ghost of pageHeader ,Ref [pageHeader](<(/components/page-header)> | { ghost:boolean } | 'true' |  |
-| direction | set direction of text. See [demo](#components-config-provider-demo-direction) | string: 'ltr', 'rtl', 'auto' | ltr |  |
+| direction | set direction of text. See [demo](#components-config-provider-demo-direction) | string: 'ltr', 'rtl' | ltr |  |
 
 ## FAQ
 
