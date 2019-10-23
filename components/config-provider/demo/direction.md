@@ -13,8 +13,6 @@ title:
 
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
-**Note:** `ConfigProvider: direction` just affects direction of the ant-design componenents, you should wrap your elements or form with `.rtl | .ltr` class to change direction of other elements.
-
 ```jsx
 import {
   Input,
