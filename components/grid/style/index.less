@@ -7,6 +7,10 @@
   display: flex;
   flex-flow: row wrap;
 
+  .@{ant-prefix}-row-rtl {
+    direction: rtl;
+  }
+
   &::before,
   &::after {
     display: flex;
@@ -59,6 +63,10 @@
   max-width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
+
+  &&-rtl {
+    float: right;
+  }
 }
 
 .make-grid();
