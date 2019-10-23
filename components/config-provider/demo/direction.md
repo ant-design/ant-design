@@ -235,8 +235,8 @@ class Page extends React.Component {
         </div>
         <br />
         <hr />
-        <div class="grid-demo">
-          <div class="code-box-demo">
+        <div className="grid-demo">
+          <div className="code-box-demo">
             <p>
               <strong>* Note:</strong> Every calculation in RTL grid system is from right side
               (offset, push, etc.)
