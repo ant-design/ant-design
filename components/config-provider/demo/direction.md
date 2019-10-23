@@ -136,24 +136,26 @@ class Page extends React.Component {
         <Switch loading defaultChecked />
         &nbsp;&nbsp;
         <Switch size="small" loading />
-        <div>
-          <Tree
-            checkable
-            defaultExpandedKeys={['0-0-0', '0-0-1']}
-            defaultSelectedKeys={['0-0-0', '0-0-1']}
-            defaultCheckedKeys={['0-0-0', '0-0-1']}
-          >
-            <TreeNode title="parent 1" key="0-0">
-              <TreeNode title="parent 1-0" key="0-0-0" disabled>
-                <TreeNode title="leaf" key="0-0-0-0" disableCheckbox />
-                <TreeNode title="leaf" key="0-0-0-1" />
+        <Row>
+          <Col span={24}>
+            <Tree
+              checkable
+              defaultExpandedKeys={['0-0-0', '0-0-1']}
+              defaultSelectedKeys={['0-0-0', '0-0-1']}
+              defaultCheckedKeys={['0-0-0', '0-0-1']}
+            >
+              <TreeNode title="parent 1" key="0-0">
+                <TreeNode title="parent 1-0" key="0-0-0" disabled>
+                  <TreeNode title="leaf" key="0-0-0-0" disableCheckbox />
+                  <TreeNode title="leaf" key="0-0-0-1" />
+                </TreeNode>
+                <TreeNode title="parent 1-1" key="0-0-1">
+                  <TreeNode title={<span style={{ color: '#1890ff' }}>sss</span>} key="0-0-1-0" />
+                </TreeNode>
               </TreeNode>
-              <TreeNode title="parent 1-1" key="0-0-1">
-                <TreeNode title={<span style={{ color: '#1890ff' }}>sss</span>} key="0-0-1-0" />
-              </TreeNode>
-            </TreeNode>
-          </Tree>
-        </div>
+            </Tree>
+          </Col>
+        </Row>
         <br />
         <div>
           <InputGroup size="large">
@@ -192,33 +194,38 @@ class Page extends React.Component {
             />
           </div>
           <br />
-          <Select defaultValue="lucy" style={{ width: 120 }}>
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="disabled" disabled>
-              Disabled
-            </Option>
-            <Option value="Yiminghe">yiminghe</Option>
-          </Select>
-          <Select defaultValue="lucy" style={{ width: 120 }} disabled>
-            <Option value="lucy">Lucy</Option>
-          </Select>
-          <Select defaultValue="lucy" style={{ width: 120 }} loading>
-            <Option value="lucy">Lucy</Option>
-          </Select>
-          <Select
-            showSearch
-            style={{ width: 200 }}
-            placeholder="Select a person"
-            optionFilterProp="children"
-            filterOption={(input, option) =>
-              option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-            }
-          >
-            <Option value="jack">Jack</Option>
-            <Option value="lucy">Lucy</Option>
-            <Option value="tom">Tom</Option>
-          </Select>
+
+          <Row>
+            <Col span={24}>
+              <Select mode="multiple" defaultValue="lucy" style={{ width: 120 }}>
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+                <Option value="Yiminghe">yiminghe</Option>
+              </Select>
+              <Select defaultValue="lucy" style={{ width: 120 }} disabled>
+                <Option value="lucy">Lucy</Option>
+              </Select>
+              <Select defaultValue="lucy" style={{ width: 120 }} loading>
+                <Option value="lucy">Lucy</Option>
+              </Select>
+              <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a person"
+                optionFilterProp="children"
+                filterOption={(input, option) =>
+                  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="lucy">Lucy</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Col>
+          </Row>
         </div>
         <br />
         <hr />

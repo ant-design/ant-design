@@ -48,6 +48,11 @@
     transition: font-size 0.3s, line-height 0.3s, height 0.3s;
     user-select: none;
 
+    .@{select-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: @input-padding-vertical-base;
+      text-align: right;
+    }
     // It's ok not to do this, but 24px makes bottom narrow in view should adjust
     &-content {
       display: inline-block;
@@ -56,6 +61,12 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       transform: translateY(-1px);
+
+      .@{select-prefix-cls}-rtl& {
+        margin-right: 0;
+        margin-left: @padding-xs / 2;
+        text-align: right;
+      }
     }
 
     &-remove {
@@ -79,6 +90,11 @@
     position: relative;
     margin-left: @select-multiple-padding / 2;
 
+    .@{select-prefix-cls}-rtl& {
+      margin-right: @select-multiple-padding / 2;
+      margin-left: @input-padding-vertical-base;
+    }
+
     &-input,
     &-mirror {
       height: @select-selection-height;
@@ -99,6 +115,11 @@
       z-index: 999;
       white-space: nowrap;
       visibility: hidden;
+
+      .@{select-prefix-cls}-rtl& {
+        right: 0;
+        left: auto;
+      }
     }
   }
 
@@ -110,6 +131,11 @@
     height: @select-height-without-border;
     line-height: @select-height-without-border;
     transition: all 0.3s;
+
+    .@{select-prefix-cls}-rtl& {
+      right: @control-padding-horizontal;
+      left: auto;
+    }
   }
 
   // ============================================================
