@@ -25,7 +25,7 @@ $ umi -v
 2.10.4
 ```
 
-Make sure the umi version is above 2.9.0.
+Make sure the umi version is above 2.10.0.
 
 ## Create New App
 
