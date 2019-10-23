@@ -172,8 +172,8 @@
     .@{ant-prefix}-select {
       margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
 
-      .@{ant-prefix}-select-selection {
-        margin: -1px;
+      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+        .@{ant-prefix}-select-selector {
         background-color: inherit;
         border: @border-width-base @border-style-base transparent;
         box-shadow: none;
@@ -181,7 +181,7 @@
 
       &-open,
       &-focused {
-        .@{ant-prefix}-select-selection {
+        .@{ant-prefix}-select-selector {
           color: @primary-color;
         }
       }
@@ -206,7 +206,7 @@
     border-bottom-right-radius: 0;
 
     // Reset Select's style in addon
-    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -238,7 +238,7 @@
     border-bottom-left-radius: 0;
 
     // Reset Select's style in addon
-    .@{ant-prefix}-select .@{ant-prefix}-select-selection {
+    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
@@ -256,11 +256,11 @@
   }
 
   // Fix https://github.com/ant-design/ant-design/issues/5754
-  &-lg .@{ant-prefix}-select-selection--single {
+  &-lg .@{ant-prefix}-select-single .ant-select-selector {
     height: @input-height-lg;
   }
 
-  &-sm .@{ant-prefix}-select-selection--single {
+  &-sm .@{ant-prefix}-select-single .ant-select-selector {
     height: @input-height-sm;
   }
 
@@ -308,7 +308,7 @@
     }
 
     // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker
-    & > .@{ant-prefix}-select > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-select > .@{ant-prefix}-select-selector,
     & > .@{ant-prefix}-calendar-picker .@{ant-prefix}-input,
     & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker .@{ant-prefix}-input,
@@ -327,7 +327,7 @@
     }
 
     & > *:first-child,
-    & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
     & > .@{ant-prefix}-calendar-picker:first-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input,
@@ -338,7 +338,7 @@
     }
 
     & > *:last-child,
-    & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selection,
+    & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selector,
     & > .@{ant-prefix}-calendar-picker:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-select-auto-complete:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
