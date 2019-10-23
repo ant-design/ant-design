@@ -114,28 +114,33 @@ class Page extends React.Component {
   render() {
     return (
       <div className="direction-components example">
-        <Cascader
-          suffixIcon={<SearchIcon />}
-          options={cascaderOptions}
-          onChange={this.onCascaderChange}
-          placeholder="یک مورد انتخاب کنید"
-          popupPlacement={this.props.popupPlacement}
-        />
-        &nbsp;&nbsp;&nbsp;&nbsp; With search:
-        <Cascader
-          suffixIcon={<Smile />}
-          options={cascaderOptions}
-          onChange={this.onCascaderChange}
-          placeholder="Select an item"
-          popupPlacement={this.props.popupPlacement}
-          showSearch={this.cascaderFilter}
-        />
-        &nbsp;&nbsp;
-        <Switch defaultChecked />
-        &nbsp;&nbsp;
-        <Switch loading defaultChecked />
-        &nbsp;&nbsp;
-        <Switch size="small" loading />
+        <Row>
+          <Col span={24}>
+            <Cascader
+              suffixIcon={<SearchIcon />}
+              options={cascaderOptions}
+              onChange={this.onCascaderChange}
+              placeholder="یک مورد انتخاب کنید"
+              popupPlacement={this.props.popupPlacement}
+            />
+            &nbsp;&nbsp;&nbsp;&nbsp; With search:
+            <Cascader
+              suffixIcon={<Smile />}
+              options={cascaderOptions}
+              onChange={this.onCascaderChange}
+              placeholder="Select an item"
+              popupPlacement={this.props.popupPlacement}
+              showSearch={this.cascaderFilter}
+            />
+            &nbsp;&nbsp;
+            <Switch defaultChecked />
+            &nbsp;&nbsp;
+            <Switch loading defaultChecked />
+            &nbsp;&nbsp;
+            <Switch size="small" loading />
+          </Col>
+        </Row>
+        <br />
         <Row>
           <Col span={24}>
             <Tree
