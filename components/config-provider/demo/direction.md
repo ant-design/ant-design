@@ -30,6 +30,7 @@ import {
   Table,
   Form,
   Divider,
+  Pagination,
 } from 'antd';
 
 import { Search as SearchIcon, Smile, Down } from '@ant-design/icons';
@@ -159,6 +160,7 @@ class Page extends React.Component {
 
     modalVisible: false,
   };
+
   selectBefore = (
     <Select defaultValue="Http://" style={{ width: 90 }}>
       <Option value="Http://">Http://</Option>
@@ -265,6 +267,7 @@ class Page extends React.Component {
       <div className="direction-components example">
         <Row>
           <Col span={24}>
+            <h3 className="demo-block-title">Cascader example:</h3>
             <Cascader
               suffixIcon={<SearchIcon />}
               options={cascaderOptions}
@@ -281,6 +284,12 @@ class Page extends React.Component {
               popupPlacement={this.props.popupPlacement}
               showSearch={this.cascaderFilter}
             />
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col span={24}>
+            <h3 className="demo-block-title">Switch example:</h3>
             &nbsp;&nbsp;
             <Switch defaultChecked />
             &nbsp;&nbsp;
@@ -292,6 +301,7 @@ class Page extends React.Component {
         <br />
         <Row>
           <Col span={24}>
+            <h3 className="demo-block-title">Tree example:</h3>
             <Tree
               showLine
               checkable
@@ -312,217 +322,232 @@ class Page extends React.Component {
           </Col>
         </Row>
         <br />
-        <div>
-          <InputGroup size="large">
-            <Row gutter={8}>
-              <Col span={5}>
-                <Input defaultValue="0571" />
-              </Col>
-              <Col span={8}>
-                <Input defaultValue="26888888" />
-              </Col>
-            </Row>
-          </InputGroup>
-          <br />
-          <InputGroup compact>
-            <Input style={{ width: '20%' }} defaultValue="0571" />
-            <Input style={{ width: '30%' }} defaultValue="26888888" />
-          </InputGroup>
-          <br />
-          <InputGroup compact>
-            <Select defaultValue="Option1">
-              <Option value="Option1">Option1</Option>
-              <Option value="Option2">Option2</Option>
-            </Select>
-            <Input style={{ width: '50%' }} defaultValue="input content" />
-            <InputNumber />
-          </InputGroup>
-          <br />
-          <Search placeholder="input search text" enterButton="Search" size="large" />
-          <br />
-          <br />
-          <div style={{ marginBottom: 16 }}>
-            <Input
-              addonBefore={this.selectBefore}
-              addonAfter={this.selectAfter}
-              defaultValue="mysite"
-            />
-          </div>
-          <br />
+        <Row>
+          <Col span={24}>
+            <h3 className="demo-block-title">Input (Input Group) example:</h3>
+            <InputGroup size="large">
+              <Row gutter={8}>
+                <Col span={5}>
+                  <Input defaultValue="0571" />
+                </Col>
+                <Col span={8}>
+                  <Input defaultValue="26888888" />
+                </Col>
+              </Row>
+            </InputGroup>
+            <br />
+            <InputGroup compact>
+              <Input style={{ width: '20%' }} defaultValue="0571" />
+              <Input style={{ width: '30%' }} defaultValue="26888888" />
+            </InputGroup>
+            <br />
+            <InputGroup compact>
+              <Select defaultValue="Option1">
+                <Option value="Option1">Option1</Option>
+                <Option value="Option2">Option2</Option>
+              </Select>
+              <Input style={{ width: '50%' }} defaultValue="input content" />
+              <InputNumber />
+            </InputGroup>
+            <br />
+            <Search placeholder="input search text" enterButton="Search" size="large" />
+            <br />
+            <br />
+            <div style={{ marginBottom: 16 }}>
+              <Input
+                addonBefore={this.selectBefore}
+                addonAfter={this.selectAfter}
+                defaultValue="mysite"
+              />
+            </div>
+            <br />
 
-          <Row>
-            <Col span={24}>
-              <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
-                <Option value="jack">Jack</Option>
-                <Option value="مورچه">مورچه</Option>
-                <Option value="disabled" disabled>
-                  Disabled
-                </Option>
-                <Option value="Yiminghe">yiminghe</Option>
-              </Select>
-              <Select defaultValue="مورچه" style={{ width: 120 }} disabled>
-                <Option value="مورچه">مورچه</Option>
-              </Select>
-              <Select defaultValue="مورچه" style={{ width: 120 }} loading>
-                <Option value="مورچه">مورچه</Option>
-              </Select>
-              <Select
-                showSearch
-                style={{ width: 200 }}
-                placeholder="Select a person"
-                optionFilterProp="children"
-                filterOption={(input, option) =>
-                  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                }
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="سعید">سعید</Option>
-                <Option value="tom">Tom</Option>
-              </Select>
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col span={24}>
-              <div>
-                <Button type="primary" onClick={this.showModal}>
-                  Open Modal
-                </Button>
-                <Modal
-                  title="پنچره ساده"
-                  visible={this.state.modalVisible}
-                  onOk={this.handleOk}
-                  onCancel={this.handleCancel}
+            <Row>
+              <Col span={24}>
+                <h3 className="demo-block-title">Select example:</h3>
+                <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
+                  <Option value="jack">Jack</Option>
+                  <Option value="مورچه">مورچه</Option>
+                  <Option value="disabled" disabled>
+                    Disabled
+                  </Option>
+                  <Option value="Yiminghe">yiminghe</Option>
+                </Select>
+                <Select defaultValue="مورچه" style={{ width: 120 }} disabled>
+                  <Option value="مورچه">مورچه</Option>
+                </Select>
+                <Select defaultValue="مورچه" style={{ width: 120 }} loading>
+                  <Option value="مورچه">مورچه</Option>
+                </Select>
+                <Select
+                  showSearch
+                  style={{ width: 200 }}
+                  placeholder="Select a person"
+                  optionFilterProp="children"
+                  filterOption={(input, option) =>
+                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                  }
                 >
-                  <p>نگاشته‌های خود را اینجا قراردهید</p>
-                  <p>نگاشته‌های خود را اینجا قراردهید</p>
-                  <p>نگاشته‌های خود را اینجا قراردهید</p>
-                </Modal>
-              </div>
-            </Col>
-          </Row>
-          <br />
-          <Row>
-            <Col span={24}>
-              <div>
-                <Form
-                  layout="inline"
-                  className="components-table-demo-control-bar"
-                  style={{ marginBottom: 16 }}
-                >
-                  <Form.Item label="Bordered">
-                    <Switch
-                      checked={this.state.bordered}
-                      onChange={this.handleToggle('bordered')}
-                    />
-                  </Form.Item>
-                  <Form.Item label="loading">
-                    <Switch checked={this.state.loading} onChange={this.handleToggle('loading')} />
-                  </Form.Item>
-                  <Form.Item label="Title">
-                    <Switch checked={!!this.state.title} onChange={this.handleTitleChange} />
-                  </Form.Item>
-                  <Form.Item label="Column Header">
-                    <Switch checked={!!this.state.showHeader} onChange={this.handleHeaderChange} />
-                  </Form.Item>
-                  <Form.Item label="Footer">
-                    <Switch checked={!!this.state.footer} onChange={this.handleFooterChange} />
-                  </Form.Item>
-                  <Form.Item label="Expandable">
-                    <Switch
-                      checked={!!this.state.expandedRowRender}
-                      onChange={this.handleExpandChange}
-                    />
-                  </Form.Item>
-                  <Form.Item label="Checkbox">
-                    <Switch
-                      checked={!!this.state.rowSelection}
-                      onChange={this.handleRowSelectionChange}
-                    />
-                  </Form.Item>
-                  <Form.Item label="Fixed Header">
-                    <Switch checked={!!this.state.scroll} onChange={this.handleScollChange} />
-                  </Form.Item>
-                  <Form.Item label="Has Data">
-                    <Switch checked={!!this.state.hasData} onChange={this.handleDataChange} />
-                  </Form.Item>
-                  <Form.Item label="Ellipsis">
-                    <Switch checked={!!this.state.ellipsis} onChange={this.handleEllipsisChange} />
-                  </Form.Item>
-                  <Form.Item label="Size">
-                    <Radio.Group value={this.state.size} onChange={this.handleSizeChange}>
-                      <Radio.Button value="default">Default</Radio.Button>
-                      <Radio.Button value="middle">Middle</Radio.Button>
-                      <Radio.Button value="small">Small</Radio.Button>
-                    </Radio.Group>
-                  </Form.Item>
-                  <Form.Item label="Table Layout">
-                    <Radio.Group
-                      value={this.state.tableLayout}
-                      onChange={this.handleTableLayoutChange}
-                    >
-                      <Radio.Button value={undefined}>Unset</Radio.Button>
-                      <Radio.Button value="fixed">Fixed</Radio.Button>
-                    </Radio.Group>
-                  </Form.Item>
-                  <Form.Item label="Pagination">
-                    <Radio.Group
-                      value={this.state.pagination ? this.state.pagination.position : 'none'}
-                      onChange={this.handlePaginationChange}
-                    >
-                      <Radio.Button value="top">Top</Radio.Button>
-                      <Radio.Button value="bottom">Bottom</Radio.Button>
-                      <Radio.Button value="both">Both</Radio.Button>
-                      <Radio.Button value="none">None</Radio.Button>
-                    </Radio.Group>
-                  </Form.Item>
-                </Form>
-                <Table
-                  {...this.state}
-                  columns={columns.map(item => ({ ...item, ellipsis: this.state.ellipsis }))}
-                  dataSource={this.state.hasData ? data : null}
-                />
-              </div>
-            </Col>
-          </Row>
-        </div>
+                  <Option value="jack">Jack</Option>
+                  <Option value="سعید">سعید</Option>
+                  <Option value="tom">Tom</Option>
+                </Select>
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col span={24}>
+                <h3 className="demo-block-title">Modal example:</h3>
+                <div>
+                  <Button type="primary" onClick={this.showModal}>
+                    Open Modal
+                  </Button>
+                  <Modal
+                    title="پنچره ساده"
+                    visible={this.state.modalVisible}
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                  >
+                    <p>نگاشته‌های خود را اینجا قراردهید</p>
+                    <p>نگاشته‌های خود را اینجا قراردهید</p>
+                    <p>نگاشته‌های خود را اینجا قراردهید</p>
+                  </Modal>
+                </div>
+              </Col>
+            </Row>
+          </Col>
+        </Row>
+
         <br />
-        <hr />
-        <div className="grid-demo">
-          <div className="code-box-demo">
-            <p>
-              <strong>* Note:</strong> Every calculation in RTL grid system is from right side
-              (offset, push, etc.)
-            </p>
-            <Row>
-              <Col span={8}>col-8</Col>
-              <Col span={8} offset={8}>
-                col-8
-              </Col>
-            </Row>
-            <Row>
-              <Col span={6} offset={6}>
-                col-6 col-offset-6
-              </Col>
-              <Col span={6} offset={6}>
-                col-6 col-offset-6
-              </Col>
-            </Row>
-            <Row>
-              <Col span={12} offset={6}>
-                col-12 col-offset-6
-              </Col>
-            </Row>
-            <Row>
-              <Col span={18} push={6}>
-                col-18 col-push-6
-              </Col>
-              <Col span={6} pull={18}>
-                col-6 col-pull-18
-              </Col>
-            </Row>
-          </div>
-        </div>
+        <Row>
+          <Col span={24}>
+            <h3 className="demo-block-title">Table example:</h3>
+            <div>
+              <Form
+                layout="inline"
+                className="components-table-demo-control-bar"
+                style={{ marginBottom: 16 }}
+              >
+                <Form.Item label="Bordered">
+                  <Switch checked={this.state.bordered} onChange={this.handleToggle('bordered')} />
+                </Form.Item>
+                <Form.Item label="loading">
+                  <Switch checked={this.state.loading} onChange={this.handleToggle('loading')} />
+                </Form.Item>
+                <Form.Item label="Title">
+                  <Switch checked={!!this.state.title} onChange={this.handleTitleChange} />
+                </Form.Item>
+                <Form.Item label="Column Header">
+                  <Switch checked={!!this.state.showHeader} onChange={this.handleHeaderChange} />
+                </Form.Item>
+                <Form.Item label="Footer">
+                  <Switch checked={!!this.state.footer} onChange={this.handleFooterChange} />
+                </Form.Item>
+                <Form.Item label="Expandable">
+                  <Switch
+                    checked={!!this.state.expandedRowRender}
+                    onChange={this.handleExpandChange}
+                  />
+                </Form.Item>
+                <Form.Item label="Checkbox">
+                  <Switch
+                    checked={!!this.state.rowSelection}
+                    onChange={this.handleRowSelectionChange}
+                  />
+                </Form.Item>
+                <Form.Item label="Fixed Header">
+                  <Switch checked={!!this.state.scroll} onChange={this.handleScollChange} />
+                </Form.Item>
+                <Form.Item label="Has Data">
+                  <Switch checked={!!this.state.hasData} onChange={this.handleDataChange} />
+                </Form.Item>
+                <Form.Item label="Ellipsis">
+                  <Switch checked={!!this.state.ellipsis} onChange={this.handleEllipsisChange} />
+                </Form.Item>
+                <Form.Item label="Size">
+                  <Radio.Group value={this.state.size} onChange={this.handleSizeChange}>
+                    <Radio.Button value="default">Default</Radio.Button>
+                    <Radio.Button value="middle">Middle</Radio.Button>
+                    <Radio.Button value="small">Small</Radio.Button>
+                  </Radio.Group>
+                </Form.Item>
+                <Form.Item label="Table Layout">
+                  <Radio.Group
+                    value={this.state.tableLayout}
+                    onChange={this.handleTableLayoutChange}
+                  >
+                    <Radio.Button value={undefined}>Unset</Radio.Button>
+                    <Radio.Button value="fixed">Fixed</Radio.Button>
+                  </Radio.Group>
+                </Form.Item>
+                <Form.Item label="Pagination">
+                  <Radio.Group
+                    value={this.state.pagination ? this.state.pagination.position : 'none'}
+                    onChange={this.handlePaginationChange}
+                  >
+                    <Radio.Button value="top">Top</Radio.Button>
+                    <Radio.Button value="bottom">Bottom</Radio.Button>
+                    <Radio.Button value="both">Both</Radio.Button>
+                    <Radio.Button value="none">None</Radio.Button>
+                  </Radio.Group>
+                </Form.Item>
+              </Form>
+              <Table
+                {...this.state}
+                columns={columns.map(item => ({ ...item, ellipsis: this.state.ellipsis }))}
+                dataSource={this.state.hasData ? data : null}
+              />
+            </div>
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col span={24}>
+            <h3 className="demo-block-title">Pagination example:</h3>
+            <Pagination showSizeChanger defaultCurrent={3} total={500} />
+          </Col>
+        </Row>
+        <br />
+        <Row>
+          <Col span={24}>
+            <h3 className="demo-block-title">Grid System example:</h3>
+            <div className="grid-demo">
+              <div className="code-box-demo">
+                <p>
+                  <strong>* Note:</strong> Every calculation in RTL grid system is from right side
+                  (offset, push, etc.)
+                </p>
+                <Row>
+                  <Col span={8}>col-8</Col>
+                  <Col span={8} offset={8}>
+                    col-8
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={6} offset={6}>
+                    col-6 col-offset-6
+                  </Col>
+                  <Col span={6} offset={6}>
+                    col-6 col-offset-6
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={12} offset={6}>
+                    col-12 col-offset-6
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={18} push={6}>
+                    col-18 col-push-6
+                  </Col>
+                  <Col span={6} pull={18}>
+                    col-6 col-pull-18
+                  </Col>
+                </Row>
+              </div>
+            </div>
+          </Col>
+        </Row>
       </div>
     );
   }
@@ -591,5 +616,9 @@ ReactDOM.render(<App />, mountNode);
 
 .change-direction {
   margin-bottom: 16px;
+}
+.demo-block-title {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #d9d9d9;
 }
 ```
