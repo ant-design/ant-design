@@ -25,6 +25,8 @@ import {
   Radio,
   Switch,
   Tree,
+  Modal,
+  Button,
 } from 'antd';
 
 import { Search as SearchIcon, Smile } from '@ant-design/icons';
@@ -33,6 +35,7 @@ const InputGroup = Input.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
+
 const cascaderOptions = [
   {
     value: 'tehran',
@@ -85,6 +88,7 @@ const cascaderOptions = [
 ];
 
 class Page extends React.Component {
+  state = { modalVisible: false };
   selectBefore = (
     <Select defaultValue="Http://" style={{ width: 90 }}>
       <Option value="Http://">Http://</Option>
@@ -101,6 +105,7 @@ class Page extends React.Component {
     </Select>
   );
 
+  // ==== Cascader ====
   cascaderFilter = (inputValue, path) => {
     return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
   };
@@ -108,7 +113,29 @@ class Page extends React.Component {
   onCascaderChange = value => {
     console.log(value);
   };
+  // ==== End Cascader ====
 
+  // ==== Modal ====
+  showModal = () => {
+    this.setState({
+      modalVisible: true,
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      modalVisible: false,
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      modalVisible: false,
+    });
+  };
+  // ==== End Modal ====
   render() {
     return (
       <div className="direction-components example">
@@ -201,19 +228,19 @@ class Page extends React.Component {
 
           <Row>
             <Col span={24}>
-              <Select mode="multiple" defaultValue="lucy" style={{ width: 120 }}>
+              <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
                 <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
+                <Option value="مورچه">مورچه</Option>
                 <Option value="disabled" disabled>
                   Disabled
                 </Option>
                 <Option value="Yiminghe">yiminghe</Option>
               </Select>
-              <Select defaultValue="lucy" style={{ width: 120 }} disabled>
-                <Option value="lucy">Lucy</Option>
+              <Select defaultValue="مورچه" style={{ width: 120 }} disabled>
+                <Option value="مورچه">مورچه</Option>
               </Select>
-              <Select defaultValue="lucy" style={{ width: 120 }} loading>
-                <Option value="lucy">Lucy</Option>
+              <Select defaultValue="مورچه" style={{ width: 120 }} loading>
+                <Option value="مورچه">مورچه</Option>
               </Select>
               <Select
                 showSearch
@@ -225,9 +252,29 @@ class Page extends React.Component {
                 }
               >
                 <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
+                <Option value="سعید">سعید</Option>
                 <Option value="tom">Tom</Option>
               </Select>
+            </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col span={24}>
+              <div>
+                <Button type="primary" onClick={this.showModal}>
+                  Open Modal
+                </Button>
+                <Modal
+                  title="پنچره ساده"
+                  visible={this.state.modalVisible}
+                  onOk={this.handleOk}
+                  onCancel={this.handleCancel}
+                >
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                </Modal>
+              </div>
             </Col>
           </Row>
         </div>
