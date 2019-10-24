@@ -18,32 +18,32 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| type | Type of the ant design icon | string | - |  |
+| type | Type of the icon | string | - |  |
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
-| theme | Theme of the ant design icon | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' | 3.9.0 |
+| theme | Theme variant of the icon | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' | 3.9.0 |
 | spin | Rotate icon with animation | boolean | false |  |
-| rotate | Rotate degrees (added in 3.13.0, not working in IE9) | number | - | 3.13.0 |
+| rotate | Rotate by n degrees (added in 3.13.0, not working in IE9) | number | - | 3.13.0 |
 | component | The component used for the root node. This will override the **`type`** property. | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
 | twoToneColor | Only supports the two-tone icon. Specify the primary color. | string (hex color) | - | 3.9.0 |
 
-> Note: icon rendering priority of the Icon component is component > children > type. When props is passed, higher priority item will works, and lower priority item would be invalid.
+> Note: icon rendering priority of the Icon component is component > children > type. When props is passed, the higher priority item will work, and the lower priority item will be invalid.
 
 ### SVG icons
 
-We introduced SVG icons in `3.9.0` version replacing font icons which brings benefits below:
+We introduced SVG icons in version `3.9.0`, replacing font icons. This has the following benefits:
 
-- Complete offline usage of icon, no dependency of CDN font icon file. No more empty square during downloading and no need to deploy icon font files locally either.
-- Much more display accuracy in lower-level screens.
-- Support multiple colors for icon.
-- No need to change built-in icons with overriding styles by providing more props in component.
+- Complete offline usage of icons, without dependency on a CDN-hosted font icon file (No more empty square during downloading and no need to deploy icon font files locally either!)
+- Much more display accuracy on lower-resolution screens
+- The ability to choose icon color
+- No need to change built-in icons with overriding styles by providing more props in component
 
-More discussion of SVG icon reference to [#10353](https://github.com/ant-design/ant-design/issues/10353).
+More discussion of SVG icon reference at [#10353](https://github.com/ant-design/ant-design/issues/10353).
 
-> ⚠️ About the extra bundle size brought by all SVG icons we imported in 3.9.0, we will provide new API to allow developers importing icons as your need, you can trace [#12011](https://github.com/ant-design/ant-design/issues/12011) for further progress.
+> ⚠️ Given the extra bundle size caused by all SVG icons imported in 3.9.0, we will provide a new API to allow developers to import icons as needed, you can track [#12011](https://github.com/ant-design/ant-design/issues/12011) for updates.
 >
-> Before this, you can use [webpack plugin](https://github.com/Beven91/webpack-ant-icon-loader) from community to chunk the icon file.
+> While you wait, you can use [webpack plugin](https://github.com/Beven91/webpack-ant-icon-loader) from the community to chunk the icon file.
 
-The properties `theme`, `component` and `twoToneColor` are added in `3.9.0`. The best practice is to pass the property `theme` to every `<Icon />` components.
+The properties `theme`, `component` and `twoToneColor` were added in `3.9.0`. The best practice is to pass the property `theme` to every `<Icon />` component.
 
 ```jsx
 <Icon type="star" theme="filled" />
@@ -57,7 +57,7 @@ All the icons will render to `<svg>`. You can still set `style` and `className` 
 
 ### Set TwoTone Color
 
-When using the two-tone icons, you can use the static methods `Icon.getTwoToneColor()` and `Icon.setTwoToneColor(colorString)` to spicify the primary color.
+When using the two-tone icons, you can use the static methods `Icon.getTwoToneColor()` and `Icon.setTwoToneColor(colorString)` to specify the primary color.
 
 ```jsx
 Icon.setTwoToneColor('#eb2f96');
