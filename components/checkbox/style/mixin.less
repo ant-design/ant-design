@@ -143,10 +143,6 @@
     .@{checkbox-prefix-cls}-wrapper:hover &::after {
       visibility: hidden;
     }
-
-    .@{checkbox-prefix-cls}-wrapper {
-      cursor: not-allowed;
-    }
   }
 
   .@{checkbox-prefix-cls}-wrapper {
@@ -155,6 +151,9 @@
     display: inline-block;
     line-height: unset;
     cursor: pointer;
+    &.@{checkbox-prefix-cls}-wrapper-disabled {
+      cursor: not-allowed;
+    }
     & + & {
       margin-left: 8px;
     }
