@@ -34,8 +34,6 @@ interface iconObject {
 }
 
 class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
-  _isMounted = false;
-
   state = {
     loading: false,
     modalVisible: false,
@@ -47,13 +45,11 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   };
 
   componentDidMount() {
-    this._isMounted = true;
     this.loadModel();
     this.setState({ popoverVisible: !localStorage.getItem('disableIconTip') });
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
     document.removeEventListener('paste', this.onPaste);
   }
 
@@ -61,10 +57,8 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const script = document.createElement('script');
     script.onload = async () => {
       await window.antdIconClassifier.load();
-      if (this._isMounted) {
-        this.setState({ modelLoaded: true });
-        document.addEventListener('paste', this.onPaste);
-      }
+      this.setState({ modelLoaded: true });
+      document.addEventListener('paste', this.onPaste);
     };
     script.src = 'https://cdn.jsdelivr.net/gh/lewis617/antd-icon-classifier@0.0.x/dist/main.js';
     document.head.appendChild(script);
