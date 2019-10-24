@@ -100,7 +100,9 @@
     .@{descriptions-prefix-cls}-view {
       border: 1px solid @border-color-split;
       > table {
-        table-layout: auto;
+        td {
+          word-break: break-word;
+        }
       }
     }
 
