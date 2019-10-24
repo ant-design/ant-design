@@ -5,6 +5,7 @@
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
+@table-wrapepr-rtl-cls: ~'@{table-prefix-cls}-wrapper-rtl';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 @table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
@@ -13,6 +14,9 @@
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 .@{table-prefix-cls} {
@@ -28,6 +32,10 @@
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
     border-collapse: separate;
     border-spacing: 0;
+
+    .@{table-wrapepr-rtl-cls} & {
+      text-align: right;
+    }
   }
 
   // ============================= Cell =============================
