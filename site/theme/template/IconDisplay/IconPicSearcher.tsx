@@ -35,6 +35,7 @@ interface iconObject {
 
 class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   _isMounted = false;
+
   state = {
     loading: false,
     modalVisible: false,
@@ -107,8 +108,6 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   };
 
   predict = (imgEl: any) => {
-    if (document.readyState === 'interactive') {
-    }
     try {
       let icons = window.antdIconClassifier.predict(imgEl);
       if (gtag && icons.length >= 1) {
