@@ -17,6 +17,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: string;
   closable?: boolean;
   visible?: boolean;
+  status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
   onClose?: Function;
   style?: React.CSSProperties;
 }
@@ -57,7 +58,7 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
-    const { prefixCls: customizePrefixCls, className, color } = this.props;
+    const { prefixCls: customizePrefixCls, className, color, status } = this.props;
     const { visible } = this.state;
     const isPresetColor = this.isPresetColor();
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
@@ -67,6 +68,7 @@ class Tag extends React.Component<TagProps, TagState> {
         [`${prefixCls}-${color}`]: isPresetColor,
         [`${prefixCls}-has-color`]: color && !isPresetColor,
         [`${prefixCls}-hidden`]: !visible,
+        [`${prefixCls}-status-${status}`]: !!status,
       },
       className,
     );
