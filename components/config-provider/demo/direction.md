@@ -25,13 +25,8 @@ import {
   Radio,
   Switch,
   Tree,
-  TreeSelect,
   Modal,
   Button,
-  Pagination,
-  Steps,
-  Rate,
-  Badge,
 } from 'antd';
 
 import { Search as SearchIcon, Smile, Download, Left, Right, Minus, Plus } from '@ant-design/icons';
@@ -41,7 +36,6 @@ const ButtonGroup = Button.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
-const { Step } = Steps;
 
 const cascaderOptions = [
   {
@@ -95,14 +89,7 @@ const cascaderOptions = [
 ];
 
 class Page extends React.Component {
-  state = {
-    currentStep: 0,
-    modalVisible: false,
-
-    badgeCount: 5,
-    showBadge: true,
-  };
-
+  state = { modalVisible: false };
   selectBefore = (
     <Select defaultValue="Http://" style={{ width: 90 }}>
       <Option value="Http://">Http://</Option>
@@ -150,32 +137,6 @@ class Page extends React.Component {
     });
   };
   // ==== End Modal ====
-
-  onStepsChange = currentStep => {
-    console.log('onChange:', currentStep);
-    this.setState({ currentStep });
-  };
-
-  // ==== Badge ====
-
-  increaseBadge = () => {
-    const badgeCount = this.state.badgeCount + 1;
-    this.setState({ badgeCount });
-  };
-
-  declineBadge = () => {
-    let badgeCount = this.state.badgeCount - 1;
-    if (badgeCount < 0) {
-      badgeCount = 0;
-    }
-    this.setState({ badgeCount });
-  };
-
-  onChangeBadge = showBadge => {
-    this.setState({ showBadge });
-  };
-  // ==== End Badge ====
-
   render() {
     const { currentStep } = this.state;
     return (
@@ -280,46 +241,104 @@ class Page extends React.Component {
           </Col>
         </Row>
         <br />
-        <Row>
-          <Col span={24}>
-            <h3 className="demo-block-title">Input (Input Group) example:</h3>
-            <InputGroup size="large">
-              <Row gutter={8}>
-                <Col span={5}>
-                  <Input defaultValue="0571" />
-                </Col>
-                <Col span={8}>
-                  <Input defaultValue="26888888" />
-                </Col>
-              </Row>
-            </InputGroup>
-            <br />
-            <InputGroup compact>
-              <Input style={{ width: '20%' }} defaultValue="0571" />
-              <Input style={{ width: '30%' }} defaultValue="26888888" />
-            </InputGroup>
-            <br />
-            <InputGroup compact>
-              <Select defaultValue="Option1">
-                <Option value="Option1">Option1</Option>
-                <Option value="Option2">Option2</Option>
-              </Select>
-              <Input style={{ width: '50%' }} defaultValue="input content" />
-              <InputNumber />
-            </InputGroup>
-            <br />
-            <Search placeholder="input search text" enterButton="Search" size="large" />
-            <br />
-            <br />
-            <div style={{ marginBottom: 16 }}>
-              <Input
-                addonBefore={this.selectBefore}
-                addonAfter={this.selectAfter}
-                defaultValue="mysite"
-              />
-            </div>
-            <br />
+        <div>
+          <InputGroup size="large">
+            <Row gutter={8}>
+              <Col span={5}>
+                <Input defaultValue="0571" />
+              </Col>
+              <Col span={8}>
+                <Input defaultValue="26888888" />
+              </Col>
+            </Row>
+          </InputGroup>
+          <br />
+          <InputGroup compact>
+            <Input style={{ width: '20%' }} defaultValue="0571" />
+            <Input style={{ width: '30%' }} defaultValue="26888888" />
+          </InputGroup>
+          <br />
+          <InputGroup compact>
+            <Select defaultValue="Option1">
+              <Option value="Option1">Option1</Option>
+              <Option value="Option2">Option2</Option>
+            </Select>
+            <Input style={{ width: '50%' }} defaultValue="input content" />
+            <InputNumber />
+          </InputGroup>
+          <br />
+          <Search placeholder="input search text" enterButton="Search" size="large" />
+          <br />
+          <br />
+          <div style={{ marginBottom: 16 }}>
+            <Input
+              addonBefore={this.selectBefore}
+              addonAfter={this.selectAfter}
+              defaultValue="mysite"
+            />
+          </div>
+          <br />
 
+          <Row>
+            <Col span={24}>
+              <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
+                <Option value="jack">Jack</Option>
+                <Option value="مورچه">مورچه</Option>
+                <Option value="disabled" disabled>
+                  Disabled
+                </Option>
+                <Option value="Yiminghe">yiminghe</Option>
+              </Select>
+              <Select defaultValue="مورچه" style={{ width: 120 }} disabled>
+                <Option value="مورچه">مورچه</Option>
+              </Select>
+              <Select defaultValue="مورچه" style={{ width: 120 }} loading>
+                <Option value="مورچه">مورچه</Option>
+              </Select>
+              <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a person"
+                optionFilterProp="children"
+                filterOption={(input, option) =>
+                  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                <Option value="jack">Jack</Option>
+                <Option value="سعید">سعید</Option>
+                <Option value="tom">Tom</Option>
+              </Select>
+            </Col>
+          </Row>
+          <br />
+          <Row>
+            <Col span={24}>
+              <div>
+                <Button type="primary" onClick={this.showModal}>
+                  Open Modal
+                </Button>
+                <Modal
+                  title="پنچره ساده"
+                  visible={this.state.modalVisible}
+                  onOk={this.handleOk}
+                  onCancel={this.handleCancel}
+                >
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                  <p>نگاشته‌های خود را اینجا قراردهید</p>
+                </Modal>
+              </div>
+            </Col>
+          </Row>
+        </div>
+        <br />
+        <hr />
+        <div className="grid-demo">
+          <div className="code-box-demo">
+            <p>
+              <strong>* Note:</strong> Every calculation in RTL grid system is from right side
+              (offset, push, etc.)
+            </p>
             <Row>
               <Col span={12}>
                 <h3 className="demo-block-title">Select example:</h3>
