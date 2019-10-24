@@ -119,6 +119,7 @@ module.exports = {
       '我们会通过上传的图片进行匹配，得到最相似的图标',
     'app.docs.components.icon.pic-searcher.server-error': '识别服务暂不可用',
     'app.docs.components.icon.pic-searcher.matching': '匹配中...',
+    'app.docs.components.icon.pic-searcher.modelloading': '神经网络模型加载中...',
     'app.docs.components.icon.pic-searcher.result-tip': '为您匹配到以下图标：',
     'app.docs.components.icon.pic-searcher.th-icon': '图标',
     'app.docs.components.icon.pic-searcher.th-score': '匹配度',

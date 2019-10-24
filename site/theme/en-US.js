@@ -125,6 +125,7 @@ module.exports = {
     'app.docs.components.icon.pic-searcher.server-error':
       'Predict service is temporarily unavailable',
     'app.docs.components.icon.pic-searcher.matching': 'Matching...',
+    'app.docs.components.icon.pic-searcher.modelloading': 'Model is loading...',
     'app.docs.components.icon.pic-searcher.result-tip': 'Match the following icons for you:',
     'app.docs.components.icon.pic-searcher.th-icon': 'Icon',
     'app.docs.components.icon.pic-searcher.th-score': 'Probability',
