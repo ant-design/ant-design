@@ -253,11 +253,12 @@ exports[`Input.Search should support suffix 1`] = `
 >
   <Input
     className="ant-input-search"
+    onChange={[Function]}
     onPressEnter={[Function]}
     prefixCls="ant-input"
     suffix={
       Array [
-        "suffix",
+        null,
         <Icon
           className="ant-input-search-icon"
           onClick={[Function]}
@@ -281,7 +282,6 @@ exports[`Input.Search should support suffix 1`] = `
       <span
         className="ant-input-suffix"
       >
-        suffix
         <Icon
           className="ant-input-search-icon"
           key="searchIcon"
@@ -331,7 +331,7 @@ exports[`TextArea should support disabled 1`] = `
 <TextArea
   disabled={true}
 >
-  <ReactResizeObserver
+  <ResizeObserver
     disabled={true}
     onResize={[Function]}
   >
@@ -342,7 +342,7 @@ exports[`TextArea should support disabled 1`] = `
       onKeyDown={[Function]}
       style={Object {}}
     />
-  </ReactResizeObserver>
+  </ResizeObserver>
 </TextArea>
 `;
 
@@ -350,7 +350,7 @@ exports[`TextArea should support maxLength 1`] = `
 <TextArea
   maxLength={10}
 >
-  <ReactResizeObserver
+  <ResizeObserver
     disabled={true}
     onResize={[Function]}
   >
@@ -361,6 +361,6 @@ exports[`TextArea should support maxLength 1`] = `
       onKeyDown={[Function]}
       style={Object {}}
     />
-  </ReactResizeObserver>
+  </ResizeObserver>
 </TextArea>
 `;

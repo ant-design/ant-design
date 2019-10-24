@@ -360,6 +360,7 @@ exports[`ConfigProvider components Avatar configProvider 1`] = `
 >
   <span
     class="config-avatar-string"
+    style="opacity:0"
   />
 </span>
 `;
@@ -370,6 +371,7 @@ exports[`ConfigProvider components Avatar normal 1`] = `
 >
   <span
     class="ant-avatar-string"
+    style="opacity:0"
   />
 </span>
 `;
@@ -380,6 +382,7 @@ exports[`ConfigProvider components Avatar prefixCls 1`] = `
 >
   <span
     class="prefix-Avatar-string"
+    style="opacity:0"
   />
 </span>
 `;
@@ -7407,14 +7410,14 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     </span>
   </div>
   <div
-    aria-valuemin="-9007199254740991"
     class="config-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
       min="-9007199254740991"
+      role="spinbutton"
       step="1"
       value=""
     />
@@ -7485,14 +7488,14 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     </span>
   </div>
   <div
-    aria-valuemin="-9007199254740991"
     class="ant-input-number-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
       min="-9007199254740991"
+      role="spinbutton"
       step="1"
       value=""
     />
@@ -7563,14 +7566,14 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     </span>
   </div>
   <div
-    aria-valuemin="-9007199254740991"
     class="prefix-InputNumber-input-wrap"
-    role="spinbutton"
   >
     <input
+      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="prefix-InputNumber-input"
       min="-9007199254740991"
+      role="spinbutton"
       step="1"
       value=""
     />
@@ -8015,7 +8018,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       />
     </div>
     <ul
-      class="config-menu  config-menu-sub config-menu-inline"
+      class="config-menu config-menu-sub config-menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -8068,7 +8071,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
       />
     </div>
     <ul
-      class="ant-menu  ant-menu-sub ant-menu-inline"
+      class="ant-menu ant-menu-sub ant-menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -8121,7 +8124,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       />
     </div>
     <ul
-      class="prefix-Menu  prefix-Menu-sub prefix-Menu-inline"
+      class="prefix-Menu prefix-Menu-sub prefix-Menu-inline"
       id="bamboo$Menu"
       role="menu"
     >
@@ -8422,6 +8425,60 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
           tabindex="0"
         />
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components PageHeader configProvider 1`] = `
+<div>
+  <div
+    class="config-page-header"
+  >
+    <div
+      class="config-page-header-heading"
+    >
+      <span
+        class="config-page-header-heading-title"
+      >
+        pageHeader
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components PageHeader normal 1`] = `
+<div>
+  <div
+    class="ant-page-header ant-page-header-ghost"
+  >
+    <div
+      class="ant-page-header-heading"
+    >
+      <span
+        class="ant-page-header-heading-title"
+      >
+        pageHeader
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ConfigProvider components PageHeader prefixCls 1`] = `
+<div>
+  <div
+    class="prefix-PageHeader prefix-PageHeader-ghost"
+  >
+    <div
+      class="prefix-PageHeader-heading"
+    >
+      <span
+        class="prefix-PageHeader-heading-title"
+      >
+        pageHeader
+      </span>
     </div>
   </div>
 </div>
@@ -11085,7 +11142,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div
     class="config-slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="config-slider-step"
@@ -11097,7 +11154,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -11134,7 +11191,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div
     class="ant-slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -11146,7 +11203,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -11183,7 +11240,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div
     class="prefix-Slider-track"
-    style="left:0%;width:0%"
+    style="left:0%;right:auto;width:0%"
   />
   <div
     class="prefix-Slider-step"
@@ -11195,7 +11252,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     aria-valuenow="0"
     class="prefix-Slider-handle prefix-Slider-tooltip-open"
     role="slider"
-    style="left:0%"
+    style="left:0%;right:auto;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -17309,7 +17366,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-item config-upload-list-item-done"
+      class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
     >
       <div
         class="config-upload-list-item-info"
@@ -17335,34 +17392,67 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
             </svg>
           </i>
           <span
-            class="config-upload-list-item-name"
+            class="config-upload-list-item-name config-upload-list-item-name-icon-count-2"
             title="xxx.png"
           >
             xxx.png
           </span>
+          <span
+            class="config-upload-list-item-card-actions "
+          >
+            <a
+              title="Download file"
+            >
+              <i
+                aria-label="icon: download"
+                class="anticon anticon-download"
+                tabindex="-1"
+                title="Download file"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="download"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </i>
+            </a>
+            <a
+              title="Remove file"
+            >
+              <i
+                aria-label="icon: delete"
+                class="anticon anticon-delete"
+                tabindex="-1"
+                title="Remove file"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </i>
+            </a>
+          </span>
         </span>
       </div>
-      <i
-        aria-label="icon: close"
-        class="anticon anticon-close"
-        tabindex="-1"
-        title="Remove file"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-          />
-        </svg>
-      </i>
     </div>
   </div>
 </span>
@@ -17379,7 +17469,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -17405,34 +17495,67 @@ exports[`ConfigProvider components Upload normal 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
             title="xxx.png"
           >
             xxx.png
           </span>
+          <span
+            class="ant-upload-list-item-card-actions "
+          >
+            <a
+              title="Download file"
+            >
+              <i
+                aria-label="icon: download"
+                class="anticon anticon-download"
+                tabindex="-1"
+                title="Download file"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="download"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </i>
+            </a>
+            <a
+              title="Remove file"
+            >
+              <i
+                aria-label="icon: delete"
+                class="anticon anticon-delete"
+                tabindex="-1"
+                title="Remove file"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </i>
+            </a>
+          </span>
         </span>
       </div>
-      <i
-        aria-label="icon: close"
-        class="anticon anticon-close"
-        tabindex="-1"
-        title="Remove file"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-          />
-        </svg>
-      </i>
     </div>
   </div>
 </span>
@@ -17449,7 +17572,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-item ant-upload-list-item-done"
+      class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
     >
       <div
         class="ant-upload-list-item-info"
@@ -17475,34 +17598,67 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
             </svg>
           </i>
           <span
-            class="ant-upload-list-item-name"
+            class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
             title="xxx.png"
           >
             xxx.png
           </span>
+          <span
+            class="ant-upload-list-item-card-actions "
+          >
+            <a
+              title="Download file"
+            >
+              <i
+                aria-label="icon: download"
+                class="anticon anticon-download"
+                tabindex="-1"
+                title="Download file"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="download"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M505.7 661a8 8 0 0 0 12.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+                  />
+                </svg>
+              </i>
+            </a>
+            <a
+              title="Remove file"
+            >
+              <i
+                aria-label="icon: delete"
+                class="anticon anticon-delete"
+                tabindex="-1"
+                title="Remove file"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="delete"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                  />
+                </svg>
+              </i>
+            </a>
+          </span>
         </span>
       </div>
-      <i
-        aria-label="icon: close"
-        class="anticon anticon-close"
-        tabindex="-1"
-        title="Remove file"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-          />
-        </svg>
-      </i>
     </div>
   </div>
 </span>

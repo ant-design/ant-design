@@ -120,9 +120,14 @@ export default class Layout extends React.Component {
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
       <>
-        <Helmet>
+        <Helmet encodeSpecialCharacters={false}>
           <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} />
           <title>{title}</title>
+          <link
+            rel="apple-touch-icon-precomposed"
+            sizes="144x144"
+            href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+          />
           <meta name="description" content={description} />
           <meta property="og:title" content={title} />
           <meta property="og:type" content="website" />

@@ -34,6 +34,11 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   };
 
   onChange = () => {
+    const { disabled } = this.props;
+    if (disabled) {
+      return;
+    }
+
     this.setState(({ visible }) => ({ visible: !visible }));
   };
 

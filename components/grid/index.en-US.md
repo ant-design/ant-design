@@ -70,7 +70,7 @@ Following is a brief look at how it works:
 
 - Establish a set of `column` in the horizontal space defined by `row` (abbreviated col)
 - Your content elements should be placed directly in the `col`, and only `col` should be placed directly in `row`
-- The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `.col-8` (`span=8`).
+- The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `<Col span={8} />`.
 - If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
 
 ## Flex layout
@@ -91,7 +91,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top` |  |
-| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}` | number/object | 0 |  |
+| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` (supported after `3.24.0`) | number/object/array | 0 |  |
 | justify | horizontal arrangement of the flex layout: `start` `end` `center` `space-around` `space-between` | string | `start` |  |
 | type | layout mode, optional `flex`, [browser support](http://caniuse.com/#search=flex) | string |  |  |
 

@@ -66,8 +66,8 @@
     width: 54%;
     min-width: 420px;
     max-width: 560px;
-    min-height: 336px;
-    color: #0d1a26;
+    min-height: 400px;
+    color: @home-text-color;
     > * {
       will-change: transform;
     }
@@ -103,28 +103,68 @@
     align-items: center;
     min-width: 520px;
     margin-top: 24px;
+
+    .banner-btn {
+      display: inline-block;
+      height: 40px;
+      padding: 0 24px;
+      font-size: 16px;
+      font-family: Avenir, @font-family, sans-serif;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      border: 1px solid @home-bg-color;
+      border-radius: 6px;
+    }
+
+    .banner-btn.components {
+      color: #fff;
+      background: @home-bg-color;
+    }
+
+    .banner-btn.language {
+      color: @home-bg-color;
+    }
   }
 
-  .banner-btn {
-    display: inline-block;
-    height: 40px;
-    padding: 0 24px;
-    font-size: 16px;
-    font-family: Avenir, @font-family, sans-serif;
-    line-height: 38px;
-    text-align: center;
-    text-decoration: none;
-    border: 1px solid #2f54eb;
-    border-radius: 100px;
-  }
+  .banner-promote {
+    max-width: 100%;
+    margin: 48px 0 24px 0;
 
-  .banner-btn.components {
-    color: #fff;
-    background: #2f54eb;
-  }
+    .ant-divider-inner-text {
+      padding: 0 12px;
+      color: rgba(0, 0, 0, 0.25);
+      font-weight: normal;
+      font-size: 12px;
+    }
 
-  .banner-btn.language {
-    color: #2f54eb;
+    a {
+      color: @home-text-color;
+      font-size: 16px;
+      transition: all 0.3s;
+
+      .anticon {
+        position: relative;
+        left: 0;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        color: @home-bg-color;
+
+        .anticon {
+          left: 4px;
+        }
+      }
+
+      img {
+        position: relative;
+        top: -1px;
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+    }
   }
 }
 
@@ -404,12 +444,23 @@ svg {
   }
 }
 
-.github-btn {
+.github-btn-large {
+  height: 40px;
   font-family: Avenir, @font-family, sans-serif;
-  &-large {
-    .gh-btn,
-    .gh-count {
-      padding: 4px 8px 2px;
+  line-height: 40px;
+
+  .gh-btn,
+  .gh-count {
+    height: 40px;
+    padding: 9px;
+    background: transparent;
+  }
+
+  .gh-count {
+    margin-left: 10px;
+
+    &::after {
+      border-width: 7px 6px 7px 0;
     }
   }
 }

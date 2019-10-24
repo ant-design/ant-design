@@ -41,19 +41,17 @@ function getStyle() {
     #header .ant-row > div:last-child .header-lang-button {
       margin-right: 0;
     }
-    footer .footer-wrap {
-      width: 100%;
+    .rc-footer-container {
       max-width: 1200px;
-      padding: 86px 24px 93px 24px;
-      margin: auto;
+      padding: 80px 0;
     }
-    @media only screen and (max-width: 767.99px) {
-      #footer .footer-wrap {
-        padding: 40px 24px;
-      }
-      footer .footer-wrap .ant-row {
-        padding: 0;
-      }
+
+    .rc-footer-bottom-container {
+      max-width: 1200px;
+    }
+
+    .rc-footer-columns {
+      justify-content: space-around;
     }
   `;
 }
@@ -71,7 +69,7 @@ class Home extends React.Component {
     return (
       <>
         <style dangerouslySetInnerHTML={{ __html: getStyle() }} /> {/* eslint-disable-line */}
-        <Helmet>
+        <Helmet encodeSpecialCharacters={false}>
           <title>{`Ant Design - ${intl.formatMessage({ id: 'app.home.slogan' })}`}</title>
         </Helmet>
         <Banner {...childProps} />

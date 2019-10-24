@@ -27,6 +27,7 @@ const dataSource = ['12345', '23456', '34567'];
 | children (自定义输入框) | 自定义输入框 | HTMLInputElement <br /><br /> HTMLTextAreaElement <br /><br /> `React.ReactElement<InputProps>` | `<Input />` |  |
 | children (自动完成的数据源) | 自动完成的数据源 | `React.ReactElement<OptionProps>` <br /><br /> `Array<React.ReactElement<OptionProps>>` | - |  |
 | dataSource | 自动完成的数据源 | [DataSourceItemType](https://git.io/vMMKF)\[] |  |  |
+| dropdownMenuStyle | dropdown 菜单自定义样式 | object |  |  |
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |  |
 | defaultValue | 指定默认选中的条目 | string\|string\[]\| 无 |  |
 | disabled | 是否禁用 | boolean | false |  |

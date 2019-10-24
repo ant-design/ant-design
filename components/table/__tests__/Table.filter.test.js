@@ -15,6 +15,9 @@ function getDropdownWrapper(wrapper) {
   );
 }
 
+// https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
+const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
+
 describe('Table.filter', () => {
   const filterFn = (value, record) => record.name.indexOf(value) !== -1;
   const column = {
@@ -38,6 +41,14 @@ describe('Table.filter', () => {
     { key: 2, name: 'Tom' },
     { key: 3, name: 'Jerry' },
   ];
+
+  const longData = [];
+  for (let i = 0; i < 100; i += 1) {
+    longData.push({
+      key: i.toString(),
+      name: 'name',
+    });
+  }
 
   function createTable(props) {
     return <Table columns={[column]} dataSource={data} pagination={false} {...props} />;
@@ -135,7 +146,7 @@ describe('Table.filter', () => {
     const filterMenu = wrapper.find('FilterMenu').instance();
 
     // check if renderer well
-    wrapper.find('i.ant-dropdown-trigger').simulate('click');
+    wrapper.find('i.ant-dropdown-trigger').simulate('click', nativeEvent);
     expect(wrapper.find('#customFilter')).toMatchSnapshot();
 
     // try to use reset btn
@@ -146,7 +157,7 @@ describe('Table.filter', () => {
     expect(filterMenu.state.selectedKeys).toEqual([]);
 
     // try to use confirm btn
-    wrapper.find('i.ant-dropdown-trigger').simulate('click');
+    wrapper.find('i.ant-dropdown-trigger').simulate('click', nativeEvent);
     wrapper.find('#setSelectedKeys').simulate('click');
     expect(filterMenu.state.visible).toBe(true);
     wrapper.find('#confirm').simulate('click');
@@ -340,6 +351,9 @@ describe('Table.filter', () => {
     );
     jest.useFakeTimers();
     const dropdownWrapper = getDropdownWrapper(wrapper);
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    // select
     dropdownWrapper
       .find('.ant-dropdown-menu-submenu-title')
       .at(0)
@@ -359,6 +373,10 @@ describe('Table.filter', () => {
     dropdownWrapper.find('.confirm').simulate('click');
     wrapper.update();
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+    dropdownWrapper
+      .find('MenuItem')
+      .last()
+      .simulate('click');
     jest.useRealTimers();
   });
 
@@ -664,6 +682,7 @@ describe('Table.filter', () => {
     const Test = ({ filters }) => (
       <Table
         onChange={onChange}
+        rowKey="name"
         columns={[
           {
             title: 'Name',
@@ -749,8 +768,180 @@ describe('Table.filter', () => {
             },
           ],
         })}
-      </ConfigProvider>
+      </ConfigProvider>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('pass visible prop to filterDropdown', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
+
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
+
+    mount(<Test />);
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
+  });
+
+  it('visible prop of filterDropdown changes on click', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
+
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
+
+    const wrapper = mount(<Test />);
+
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: true,
+      }),
+    );
+
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
+  });
+
+  it('should reset pagination after filter', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange: handleChange,
+        dataSource: longData,
+        pagination: true,
+      }),
+    );
+    const dropdownWrapper = getDropdownWrapper(wrapper);
+
+    dropdownWrapper
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    dropdownWrapper.find('.confirm').simulate('click');
+
+    expect(handleChange).toHaveBeenCalledWith(
+      {
+        current: 1,
+        pageSize: 10,
+      },
+      { name: ['boy'] },
+      {},
+      {
+        currentDataSource: [],
+      },
+    );
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('1');
+  });
+
+  it('should keep pagination current after filter', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange: handleChange,
+        dataSource: longData,
+        pagination: {
+          current: 3,
+        },
+      }),
+    );
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('3');
+    const dropdownWrapper = getDropdownWrapper(wrapper);
+
+    dropdownWrapper
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    dropdownWrapper.find('.confirm').simulate('click');
+
+    expect(handleChange).toHaveBeenCalledWith(
+      {
+        current: 1,
+        pageSize: 10,
+      },
+      { name: ['boy'] },
+      {},
+      {
+        currentDataSource: [],
+      },
+    );
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('3');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/19274
+  it('should not crash', () => {
+    class TestTable extends React.Component {
+      state = {
+        cols: [],
+      };
+
+      componentDidMount = () => {
+        this.setState({
+          cols: [
+            {
+              title: 'test',
+              itemKey: 'test',
+              filterDropdown: 123,
+            },
+          ],
+        });
+      };
+
+      render = () => {
+        const { cols } = this.state;
+        return <Table columns={cols} dataSource={[]} scroll={{ x: 1000 }} />;
+      };
+    }
+
+    mount(<TestTable />);
   });
 });

@@ -1,10 +1,10 @@
 name: Deploy website
 on:
   release:
-    actions:
-      - published
+    types: [published]
     branches:
       - master
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest

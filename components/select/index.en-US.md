@@ -33,6 +33,7 @@ Select component to select value from options.
 | dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean | true |  |
 | dropdownRender | Customize dropdown content | (menuNode: ReactNode, props) => ReactNode | - | 3.11.0 |
 | dropdownStyle | style of dropdown menu | object | - |  |
+| dropdownMenuStyle | additional style applied to dropdown menu | object | - |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |  |
 | firstActiveValue | Value of action option by default | string\|string\[] | - |  |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
@@ -45,7 +46,6 @@ Select component to select value from options.
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |  |
 | optionLabelProp | Which prop value of option will render as content of select. [Example](https://codesandbox.io/s/antd-reproduction-template-tk678) | string | `value` for `combobox`, `children` for other modes |  |
 | placeholder | Placeholder of select | string\|ReactNode | - |  |
-| searchValue | Search input value | string | - | 3.23.2 |
 | showArrow | Whether to show the drop-down arrow | boolean | true | 3.2.1 |
 | showSearch | Whether show search input in single mode. | boolean | false |  |
 | size | Size of Select input. `default` `large` `small` | string | default |  |
@@ -93,3 +93,9 @@ Select component to select value from options.
 | -------- | ----------- | --------------------- | ------- | ------- |
 | key      |             | string                | -       |         |
 | label    | Group label | string\|React.Element | -       |         |
+
+## FAQ
+
+### The dropdown is closed when click `dropdownRender` area?
+
+See the [dropdownRender example](/components/select/#components-select-demo-custom-dropdown-menu).
