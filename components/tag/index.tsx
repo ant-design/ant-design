@@ -6,7 +6,7 @@ import { Close } from '@ant-design/icons';
 
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { PresetColorTypes } from '../_util/colors';
+import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -17,7 +17,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   color?: string;
   closable?: boolean;
   visible?: boolean;
-  status?: 'success' | 'processing' | 'default' | 'error' | 'warning';
   onClose?: Function;
   style?: React.CSSProperties;
 }
@@ -27,6 +26,7 @@ interface TagState {
 }
 
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
+const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
@@ -58,7 +58,7 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
-    const { prefixCls: customizePrefixCls, className, color, status } = this.props;
+    const { prefixCls: customizePrefixCls, className, color } = this.props;
     const { visible } = this.state;
     const isPresetColor = this.isPresetColor();
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
@@ -68,7 +68,6 @@ class Tag extends React.Component<TagProps, TagState> {
         [`${prefixCls}-${color}`]: isPresetColor,
         [`${prefixCls}-has-color`]: color && !isPresetColor,
         [`${prefixCls}-hidden`]: !visible,
-        [`${prefixCls}-status-${status}`]: !!status,
       },
       className,
     );
@@ -97,7 +96,7 @@ class Tag extends React.Component<TagProps, TagState> {
     if (!color) {
       return false;
     }
-    return PresetColorRegex.test(color);
+    return PresetColorRegex.test(color) || PresetStatusColorRegex.test(color);
   }
 
   renderCloseIcon() {
