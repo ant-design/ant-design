@@ -6,7 +6,7 @@ import { Close } from '@ant-design/icons';
 
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { PresetColorTypes } from '../_util/colors';
+import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -26,6 +26,7 @@ interface TagState {
 }
 
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
+const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
@@ -95,7 +96,7 @@ class Tag extends React.Component<TagProps, TagState> {
     if (!color) {
       return false;
     }
-    return PresetColorRegex.test(color);
+    return PresetColorRegex.test(color) || PresetStatusColorRegex.test(color);
   }
 
   renderCloseIcon() {
