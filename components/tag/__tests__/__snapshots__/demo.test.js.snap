@@ -502,7 +502,7 @@ exports[`renders ./components/tag/demo/status.md correctly 1`] = `
   <span
     class="ant-tag ant-tag-default"
   >
-    not start
+    default
   </span>
   <span
     class="ant-tag ant-tag-warning"
