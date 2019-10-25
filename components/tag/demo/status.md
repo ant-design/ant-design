@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-预设五种状态颜色，可以通过设置 `color` 为`success`、 `processing`、`error`、`default`、`warning`来代表不同的状态。
+预设五种状态颜色，可以通过设置 `color` 为 `success`、 `processing`、`error`、`default`、`warning` 来代表不同的状态。
 
 ## en-US
 
@@ -18,11 +18,11 @@ import { Tag } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Tag color="success">成功</Tag>
-    <Tag color="processing">进行中</Tag>
-    <Tag color="error">失败</Tag>
-    <Tag color="default">未开始</Tag>
-    <Tag color="warning">警告</Tag>
+    <Tag color="success">success</Tag>
+    <Tag color="processing">processing</Tag>
+    <Tag color="error">error</Tag>
+    <Tag color="default">not start</Tag>
+    <Tag color="warning">warning</Tag>
   </div>,
   mountNode,
 );
