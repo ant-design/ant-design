@@ -22,6 +22,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | defaultValue | The initial input content | string |  |  |
 | disabled | Whether the input is disabled. | boolean | false |  |
 | id | The ID for input | string |  |  |
+| maxLength | max length | number |  |  |
 | prefix | The prefix icon for the Input. | string\|ReactNode |  |  |
 | size | The size of the input box. Note: in the context of a form, the `large` size is used. Available: `large` `default` `small` | string | `default` |  |
 | suffix | The suffix icon for the Input. | string\|ReactNode |  |  |
