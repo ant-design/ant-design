@@ -53,8 +53,6 @@ declare module 'rc-switch';
 
 declare module 'rc-upload';
 
-declare module 'rc-form*';
-
 declare module 'react-lazy-load';
 
 declare module 'dom-closest';
