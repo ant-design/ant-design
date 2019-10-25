@@ -60,7 +60,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
       this.setState({ modelLoaded: true });
       document.addEventListener('paste', this.onPaste);
     };
-    script.src = 'https://cdn.jsdelivr.net/gh/lewis617/antd-icon-classifier@0.0.x/dist/main.js';
+    script.src = 'https://cdn.jsdelivr.net/gh/lewis617/antd-icon-classifier@0.0/dist/main.js';
     document.head.appendChild(script);
   };
 
