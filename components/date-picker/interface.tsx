@@ -12,6 +12,8 @@ export interface PickerProps {
   disabled?: boolean;
   allowClear?: boolean;
   className?: string;
+  pickerClass?: string;
+  pickerInputClass?: string;
   suffixIcon?: React.ReactNode;
   style?: React.CSSProperties;
   popupStyle?: React.CSSProperties;
@@ -24,6 +26,8 @@ export interface PickerProps {
   disabledDate?: (current: moment.Moment | undefined) => boolean;
   dateRender?: (current: moment.Moment, today: moment.Moment) => React.ReactNode;
   autoFocus?: boolean;
+  onFocus?: React.FocusEventHandler;
+  onBlur?: (e: React.SyntheticEvent) => void;
 }
 
 export interface SinglePickerProps {
@@ -56,7 +60,7 @@ export interface DatePickerProps extends PickerProps, SinglePickerProps {
 }
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
-  monthCellContentRender?: (date: moment.Moment, locale: any) => React.ReactNode
+  monthCellContentRender?: (date: moment.Moment, locale: any) => React.ReactNode;
 }
 
 export type RangePickerValue =
@@ -69,9 +73,11 @@ export type RangePickerPresetRange = RangePickerValue | (() => RangePickerValue)
 
 export interface RangePickerProps extends PickerProps {
   className?: string;
+  tagPrefixCls?: string;
   value?: RangePickerValue;
   defaultValue?: RangePickerValue;
   defaultPickerValue?: RangePickerValue;
+  timePicker?: React.ReactNode;
   onChange?: (dates: RangePickerValue, dateStrings: [string, string]) => void;
   onCalendarChange?: (dates: RangePickerValue, dateStrings: [string, string]) => void;
   onOk?: (selectedTime: RangePickerPresetRange) => void;
@@ -93,6 +99,8 @@ export interface RangePickerProps extends PickerProps {
   };
   onPanelChange?: (value?: RangePickerValue, mode?: string | string[]) => void;
   renderExtraFooter?: () => React.ReactNode;
+  onMouseEnter?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
 export interface WeekPickerProps extends PickerProps, SinglePickerProps {
