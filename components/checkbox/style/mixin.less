@@ -151,6 +151,9 @@
     display: inline-block;
     line-height: unset;
     cursor: pointer;
+    &.@{checkbox-prefix-cls}-wrapper-disabled {
+      cursor: not-allowed;
+    }
     & + & {
       margin-left: 8px;
     }
