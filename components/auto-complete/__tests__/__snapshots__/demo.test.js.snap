@@ -167,7 +167,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
   style="margin:0 auto"
 >
   <div
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -215,7 +215,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -291,7 +291,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -398,7 +398,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -475,7 +475,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
@@ -611,7 +611,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"

@@ -18,7 +18,7 @@ import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Row type="flex">
+    <Row>
       <Col span={6} order={4}>
         1 col-order-4
       </Col>

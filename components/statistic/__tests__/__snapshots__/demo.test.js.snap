@@ -281,7 +281,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-24"
-    style="margin-top:32px;padding-left:8px;padding-right:8px"
+    style="padding-left:8px;padding-right:8px;margin-top:32px"
   >
     <div
       class="ant-statistic"

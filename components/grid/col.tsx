@@ -1,10 +1,7 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-
-const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -48,22 +45,6 @@ function parseFlex(flex: FlexType): string {
 }
 
 export default class Col extends React.Component<ColProps, {}> {
-  static propTypes = {
-    span: PropTypes.number,
-    order: PropTypes.number,
-    offset: PropTypes.number,
-    push: PropTypes.number,
-    pull: PropTypes.number,
-    className: PropTypes.string,
-    children: PropTypes.node,
-    xs: objectOrNumber,
-    sm: objectOrNumber,
-    md: objectOrNumber,
-    lg: objectOrNumber,
-    xl: objectOrNumber,
-    xxl: objectOrNumber,
-  };
-
   renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props } = this;
     const {

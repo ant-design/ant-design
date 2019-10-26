@@ -196,7 +196,6 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
 
         return (
           <Row
-            type="flex"
             className={classNames(itemClassName)}
             style={style}
             key="row"

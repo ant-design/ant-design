@@ -75,9 +75,9 @@ Following is a brief look at how it works:
 
 ## Flex layout
 
-Our grid systems support Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
+Our grid systems support set up the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
 
-Flex layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
+layout base on a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
 
 ## API
 
@@ -90,10 +90,9 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top` |  |
-| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` (supported after `3.24.0`) | number/object/array | 0 |  |
-| justify | horizontal arrangement of the flex layout: `start` `end` `center` `space-around` `space-between` | string | `start` |  |
-| type | layout mode, optional `flex`, [browser support](http://caniuse.com/#search=flex) | string |  |  |
+| align | the vertical alignment of the flex layout | `top` `middle` `bottom` | `top` |  |
+| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` (supported after `3.24.0`) | number/object/array | 0 |  ||
+| justify | horizontal arrangement of the flex layout | `start` `end` `center` `space-around` `space-between` | `start` |  |
 
 ### Col
 

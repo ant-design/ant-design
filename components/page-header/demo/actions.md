@@ -59,7 +59,7 @@ ReactDOM.render(
         </Button>,
       ]}
     >
-      <Row type="flex">
+      <Row>
         <Statistic title="Status" value="Pending" />
         <Statistic
           title="Price"

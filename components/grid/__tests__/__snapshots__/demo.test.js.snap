@@ -68,7 +68,7 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     sub-element align left
   </p>
   <div
-    class="ant-row-flex ant-row-flex-start"
+    class="ant-row ant-row-start"
   >
     <div
       class="ant-col ant-col-4"
@@ -95,7 +95,7 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     sub-element align center
   </p>
   <div
-    class="ant-row-flex ant-row-flex-center"
+    class="ant-row ant-row-center"
   >
     <div
       class="ant-col ant-col-4"
@@ -122,7 +122,7 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     sub-element align right
   </p>
   <div
-    class="ant-row-flex ant-row-flex-end"
+    class="ant-row ant-row-end"
   >
     <div
       class="ant-col ant-col-4"
@@ -149,7 +149,7 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     sub-element monospaced arrangement
   </p>
   <div
-    class="ant-row-flex ant-row-flex-space-between"
+    class="ant-row ant-row-space-between"
   >
     <div
       class="ant-col ant-col-4"
@@ -176,7 +176,7 @@ exports[`renders ./components/grid/demo/flex.md correctly 1`] = `
     sub-element align full
   </p>
   <div
-    class="ant-row-flex ant-row-flex-space-around"
+    class="ant-row ant-row-space-around"
   >
     <div
       class="ant-col ant-col-4"
@@ -208,7 +208,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
     Align Top
   </p>
   <div
-    class="ant-row-flex ant-row-flex-center ant-row-flex-top"
+    class="ant-row ant-row-center ant-row-top"
   >
     <div
       class="ant-col ant-col-4"
@@ -251,7 +251,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
     Align Center
   </p>
   <div
-    class="ant-row-flex ant-row-flex-space-around ant-row-flex-middle"
+    class="ant-row ant-row-space-around ant-row-middle"
   >
     <div
       class="ant-col ant-col-4"
@@ -294,7 +294,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
     Align Bottom
   </p>
   <div
-    class="ant-row-flex ant-row-flex-space-between ant-row-flex-bottom"
+    class="ant-row ant-row-space-between ant-row-bottom"
   >
     <div
       class="ant-col ant-col-4"
@@ -339,7 +339,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
 exports[`renders ./components/grid/demo/flex-order.md correctly 1`] = `
 <div>
   <div
-    class="ant-row-flex"
+    class="ant-row"
   >
     <div
       class="ant-col ant-col-6 ant-col-order-4"
@@ -371,7 +371,7 @@ exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
     Percentage columns
   </p>
   <div
-    class="ant-row-flex"
+    class="ant-row"
   >
     <div
       class="ant-col"
@@ -390,7 +390,7 @@ exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
     Fill rest
   </p>
   <div
-    class="ant-row-flex"
+    class="ant-row"
   >
     <div
       class="ant-col"
@@ -409,7 +409,7 @@ exports[`renders ./components/grid/demo/flex-stretch.md correctly 1`] = `
     Raw flex style
   </p>
   <div
-    class="ant-row-flex"
+    class="ant-row"
   >
     <div
       class="ant-col"
