@@ -121,7 +121,7 @@ describe('Transfer', () => {
         selectedKeys={['a']}
         targetKeys={['a']}
         onChange={handleChange}
-      />
+      />,
     );
     wrapper
       .find(TransferOperation)
@@ -471,26 +471,26 @@ describe('Transfer', () => {
 
   it('should support onScroll', () => {
     const onScroll = jest.fn();
-    const component = mount(
-      <Transfer
-        {...listCommonProps}
-        onScroll={onScroll}
-      />,
-    );
-    component.find('.ant-transfer-list').at(0).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    const component = mount(<Transfer {...listCommonProps} onScroll={onScroll} />);
+    component
+      .find('.ant-transfer-list')
+      .at(0)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('left', expect.anything());
-    component.find('.ant-transfer-list').at(1).find('.ant-transfer-list-content').at(0).simulate('scroll');
+    component
+      .find('.ant-transfer-list')
+      .at(1)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
     expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
   });
 
   it('should support rowKey is function', () => {
     expect(() => {
-      mount(
-        <Transfer
-          {...listCommonProps}
-          rowKey={record => record.key}
-        />,
-      );
+      mount(<Transfer {...listCommonProps} rowKey={record => record.key} />);
     }).not.toThrow();
   });
 
