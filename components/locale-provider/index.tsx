@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import interopDefault from '../_util/interopDefault';
-import { ModalLocale, changeConfirmLocale } from '../modal/locale';
+import { ModalLocale, changeConfirmLocale } from '../Modal/locale';
 import warning from '../_util/warning';
 
 export const ANT_MARK = 'internalMark';
