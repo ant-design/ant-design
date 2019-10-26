@@ -21,12 +21,12 @@ timeline: true
 
 - 🐞 修复 Grid 响应式 `gutter` 失效的问题。 [#19308](https://github.com/ant-design/ant-design/pull/19308)
 - 🐞 修复小号 Table 边框样式问题。 [#19312](https://github.com/ant-design/ant-design/pull/19312) [#19342](https://github.com/ant-design/ant-design/pull/19342)
-- 🐞 修复 Dropdown 父级菜单 SubMenu 的选中样式。 [#19313](https://github.com/ant-design/ant-design/pull/19313)
-- 🐞 修复 Typography & Drawer & Statistic 不能被 webpack 去除 moment.js 依赖的问题。[#19317](https://github.com/ant-design/ant-design/pull/19317)
-- 🐞 修复 Input.Search 出现 non-boolean attribute 和 unique key 警告信息。[#19357](https://github.com/ant-design/ant-design/pull/19357)
-- 🐞 修复当没有标题时 Modal 中图标没对齐的问题。[#19419](https://github.com/ant-design/ant-design/pull/19419)
-- 💄 修复 checkbox 禁用时 cursor 错误显示错误的问题。[#19403](https://github.com/ant-design/ant-design/pull/19403)
-- 💄 新增 @modal-header-color 变量。[#19385](https://github.com/ant-design/ant-design/pull/19385)
+- 🐞 修复 Dropdown 中的 Menu 在 SubMenu 选中后父级菜单未高亮的问题。 [#19313](https://github.com/ant-design/ant-design/pull/19313)
+- 🐞 修复 Typography & Drawer & Statistic 中的 moment.js 无法被 tree-shaking 的问题。[#19317](https://github.com/ant-design/ant-design/pull/19317)
+- 🐞 修复 Input.Search 出现 `non-boolean attribute` 和 `unique key` 警告信息。[#19357](https://github.com/ant-design/ant-design/pull/19357)
+- 🐞 修复 Modal 没有标题时，图标没能对齐的问题。。[#19419](https://github.com/ant-design/ant-design/pull/19419)
+- 💄 修复 Checkbox 在被禁用时，光标仍为可选状态的问题。[#19403](https://github.com/ant-design/ant-design/pull/19403)
+- 💄 新增 `@modal-header-color` 变量。[#19385](https://github.com/ant-design/ant-design/pull/19385)
 - 🛠 多处 TypeScript 的定义更新。[#19377](https://github.com/ant-design/ant-design/pull/19377) [#19343](https://github.com/ant-design/ant-design/pull/19343) [#19333](https://github.com/ant-design/ant-design/pull/19333)
 
 ## 3.24.2

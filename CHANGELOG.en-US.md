@@ -21,13 +21,13 @@ timeline: true
 
 - 🐞 Fix Grid responsive `gutter` not working. [#19308](https://github.com/ant-design/ant-design/pull/19308)
 - 🐞 Fix small Table border style. [#19312](https://github.com/ant-design/ant-design/pull/19312) [#19342](https://github.com/ant-design/ant-design/pull/19342)
-- 🐞 Fix Menu in Dropdown SubMenu selected style. [#19313](https://github.com/ant-design/ant-design/pull/19313)
-- 🐞 Fix Typography & Drawer & Statistic not shaking moment.js by webpack. [#19317](https://github.com/ant-design/ant-design/pull/19317)
-- 🐞 Fix Input.Search react warnings of non-boolean attribute and unique key. [#19357](https://github.com/ant-design/ant-design/pull/19357)
+- 🐞 Fix the problem that the Menu in Dropdown is not highlighted when the SubMenu is selected. [#19313](https://github.com/ant-design/ant-design/pull/19313)
+- 🐞 Fix the problem that moment.js in Typography & Drawer & Statistic can't be tree-shaking. [#19317](https://github.com/ant-design/ant-design/pull/19317)
+- 🐞 Fix Input.Search react warnings of `non-boolean attribute` and `unique key`. [#19357](https://github.com/ant-design/ant-design/pull/19357)
 - 🐞 Fix Modal icon position when not use title. [#19419](https://github.com/ant-design/ant-design/pull/19419)
-- 💄 Fix the error cursor of the checkbox. [#19403](https://github.com/ant-design/ant-design/pull/19403)
+- 💄 Fix a problem with the mouse pointer error when Checkbox is disabled. [#19403](https://github.com/ant-design/ant-design/pull/19403)
 - 💄 Add `@modal-header-color` variable. [#19385](https://github.com/ant-design/ant-design/pull/19385)
-- 🛠 Multiple definitions of TypeScript. [#19377](https://github.com/ant-design/ant-design/pull/19377) [#19343](https://github.com/ant-design/ant-design/pull/19343) [#19333](https://github.com/ant-design/ant-design/pull/19333)
+- 🛠 Improved some TypeScript definitions. [#19377](https://github.com/ant-design/ant-design/pull/19377) [#19343](https://github.com/ant-design/ant-design/pull/19343) [#19333](https://github.com/ant-design/ant-design/pull/19333)
 
 ## 3.24.2
 
