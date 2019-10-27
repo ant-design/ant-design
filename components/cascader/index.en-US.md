@@ -72,9 +72,3 @@ interface Option {
 | ------- | ------------ | ------- |
 | blur()  | remove focus |         |
 | focus() | get focus    |         |
-
-<style>
-.ant-cascader-picker {
-  width: 300px;
-}
-</style>
