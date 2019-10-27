@@ -45,7 +45,7 @@ ReactDOM.render(
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
-    <div className="clearfix"></div>
+    <div className="clearfix" />
   </div>,
   mountNode,
 );

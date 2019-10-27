@@ -5,7 +5,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
   aria-haspopup="listbox"
   class="ant-select ant-select-enabled"
   role="combobox"
-  style="width:300px"
+  style="width:100%"
   tabindex="0"
 >
   <span
@@ -53,7 +53,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
   aria-haspopup="listbox"
   class="ant-select ant-select-enabled ant-select-allow-clear"
   role="combobox"
-  style="width:300px"
+  style="width:100%"
   tabindex="0"
 >
   <span
@@ -101,7 +101,7 @@ exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
   aria-haspopup="listbox"
   class="ant-select ant-select-enabled"
   role="combobox"
-  style="width:300px"
+  style="width:100%"
   tabindex="-1"
 >
   <span
@@ -184,7 +184,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
   aria-haspopup="listbox"
   class="ant-select ant-select-enabled ant-select-allow-clear"
   role="combobox"
-  style="width:300px"
+  style="width:100%"
   tabindex="-1"
 >
   <span
@@ -231,7 +231,7 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
   aria-haspopup="listbox"
   class="ant-select ant-select-enabled ant-select-allow-clear"
   role="combobox"
-  style="width:300px"
+  style="width:100%"
   tabindex="0"
 >
   <span
@@ -279,7 +279,7 @@ exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
   aria-haspopup="listbox"
   class="ant-select ant-select-enabled"
   role="combobox"
-  style="width:300px"
+  style="width:100%"
   tabindex="0"
 >
   <span

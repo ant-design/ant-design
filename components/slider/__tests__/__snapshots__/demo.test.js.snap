@@ -1032,9 +1032,7 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
 `;
 
 exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
-<div
-  style="height:300px"
->
+<div>
   <div
     style="float:left;height:300px;margin-left:70px"
   >
@@ -1192,5 +1190,8 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="clearfix"
+  />
 </div>
 `;
