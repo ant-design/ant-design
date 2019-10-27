@@ -44,7 +44,7 @@ export interface TreeSelectProps<T extends TreeNodeValue> extends AbstractSelect
   notFoundContent?: React.ReactNode;
   onChange?: (value: T, label: any, extra: any) => void;
   onSearch?: (value: any) => void;
-  onSelect?: (value: any) => void;
+  onSelect?: (value: any, node: any, extra: any) => void;
   onTreeExpand?: (keys: Array<string>) => void;
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;

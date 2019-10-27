@@ -69,8 +69,13 @@ function isSameColumn<T>(a: ColumnProps<T> | null, b: ColumnProps<T> | null) {
   return (
     a === b ||
     shallowEqual(a, b, (value: any, other: any) => {
+      // https://github.com/ant-design/ant-design/issues/12737
       if (typeof value === 'function' && typeof other === 'function') {
         return value === other || value.toString() === other.toString();
+      }
+      // https://github.com/ant-design/ant-design/issues/19398
+      if (Array.isArray(value) && Array.isArray(other)) {
+        return value === other || shallowEqual(value, other);
       }
     })
   );

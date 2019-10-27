@@ -23,6 +23,7 @@ title: Input
 | defaultValue | 输入框默认内容 | string |  |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string |  |  |
+| maxLength | 最大长度 | number |  |  |
 | prefix | 带有前缀图标的 input | string\|ReactNode |  |  |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `large`。可选 `large` `default` `small` | string | `default` |  |
 | suffix | 带有后缀图标的 input | string\|ReactNode |  |  |
