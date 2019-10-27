@@ -54,7 +54,7 @@ class Demo extends React.Component {
   render() {
     return (
       <TreeSelect
-        style={{ width: 300 }}
+        style={{ width: '100%' }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         treeData={treeData}
