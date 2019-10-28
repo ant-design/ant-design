@@ -807,7 +807,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
         current: this.state.pagination.current,
       };
     }
-    this.setState(newState, () => this.scrollToFirstRow());
+    this.setState(newState, this.scrollToFirstRow);
 
     this.props.store.setState({
       selectionDirty: false,
@@ -834,7 +834,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
       pageSize,
       current,
     };
-    this.setState({ pagination: nextPagination });
+    this.setState({ pagination: nextPagination }, this.scrollToFirstRow);
 
     const { onChange } = this.props;
     if (onChange) {
@@ -878,7 +878,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
 
     // Controlled
     if (this.getSortOrderColumns().length === 0) {
-      this.setState(newState, () => this.scrollToFirstRow());
+      this.setState(newState, this.scrollToFirstRow);
     }
 
     const { onChange } = this.props;
