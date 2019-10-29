@@ -56,10 +56,6 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     this.resizableTextArea.textArea.blur();
   }
 
-  resizeTextarea() {
-    this.resizableTextArea.resizeTextarea();
-  }
-
   saveTextArea = (resizableTextArea: ResizableTextArea) => {
     this.resizableTextArea = resizableTextArea;
   };
