@@ -51,7 +51,7 @@ export interface PaginationConfig extends PaginationProps {
 export type PaginationLocale = any;
 
 export default class Pagination extends React.Component<PaginationProps, {}> {
-  getIconsProps = (prefixCls: string, direction: string) => {
+  getIconsProps = (prefixCls: string, direction: 'auto' | 'ltr' | 'rtl' | undefined) => {
     let prevIcon = (
       <a className={`${prefixCls}-item-link`}>
         <LeftOutlined />
