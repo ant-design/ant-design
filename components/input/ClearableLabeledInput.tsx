@@ -149,7 +149,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     }
     const affixWrapperCls = classNames(
       className,
-      `${prefixCls}-affix-wrapper ${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
+      `${prefixCls}-affix-wrapper`,
+      `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
     );
     return (
       <span className={affixWrapperCls} style={style}>
