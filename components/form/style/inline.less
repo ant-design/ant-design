@@ -4,11 +4,20 @@
   display: flex;
   flex-wrap: wrap;
 
+  .@{form-prefix-cls}-rtl& {
+    flex-direction: row-reverse;
+  }
+
   .@{form-prefix-cls}-item {
     flex: none;
     flex-wrap: nowrap;
     margin-right: 16px;
     margin-bottom: 0;
+
+    .@{form-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: 16px;
+    }
 
     &-with-help {
       margin-bottom: @form-item-margin-bottom;
