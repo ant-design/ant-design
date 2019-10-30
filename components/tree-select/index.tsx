@@ -76,6 +76,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -101,6 +102,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
       {
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-sm`]: size === 'small',
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
@@ -108,6 +110,9 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
     const mergedDropdownClassName = classNames(
       dropdownClassName,
       `${treeSelectPrefixCls}-dropdown`,
+      {
+        [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
+      },
     );
 
     const isMultiple = !!(treeCheckable || multiple);

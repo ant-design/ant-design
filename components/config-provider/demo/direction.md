@@ -25,6 +25,7 @@ import {
   Radio,
   Switch,
   Tree,
+  TreeSelect,
   Modal,
   Button,
   Table,
@@ -415,7 +416,7 @@ class Page extends React.Component {
             <br />
 
             <Row>
-              <Col span={24}>
+              <Col span={12}>
                 <h3 className="demo-block-title">Select example:</h3>
                 <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
                   <Option value="jack">Jack</Option>
@@ -444,6 +445,33 @@ class Page extends React.Component {
                   <Option value="سعید">سعید</Option>
                   <Option value="tom">Tom</Option>
                 </Select>
+              </Col>
+              <Col span={12}>
+                <h3 className="demo-block-title">TreeSelect example:</h3>
+                <div>
+                  <TreeSelect
+                    showSearch
+                    style={{ width: '100%' }}
+                    dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                    placeholder="Please select"
+                    allowClear
+                    treeDefaultExpandAll
+                  >
+                    <TreeSelect.TreeNode value="parent 1" title="parent 1" key="0-1">
+                      <TreeSelect.TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
+                        <TreeSelect.TreeNode value="leaf1" title="my leaf" key="random" />
+                        <TreeSelect.TreeNode value="leaf2" title="your leaf" key="random1" />
+                      </TreeSelect.TreeNode>
+                      <TreeSelect.TreeNode value="parent 1-1" title="parent 1-1" key="random2">
+                        <TreeSelect.TreeNode
+                          value="sss"
+                          title={<b style={{ color: '#08c' }}>sss</b>}
+                          key="random3"
+                        />
+                      </TreeSelect.TreeNode>
+                    </TreeSelect.TreeNode>
+                  </TreeSelect>
+                </div>
               </Col>
             </Row>
             <br />
