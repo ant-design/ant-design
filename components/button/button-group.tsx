@@ -12,7 +12,7 @@ export interface ButtonGroupProps {
 
 const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, size, className, ...others } = props;
       const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
 
@@ -34,6 +34,7 @@ const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
         prefixCls,
         {
           [`${prefixCls}-${sizeCls}`]: sizeCls,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
       );
