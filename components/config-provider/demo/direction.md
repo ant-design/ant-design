@@ -676,7 +676,7 @@ ReactDOM.render(<App />, mountNode);
   margin-bottom: 16px;
 }
 .demo-block-title {
-  margin-bottom: 10px;
+  margin-bottom: 18px;
   border-bottom: 1px solid #d9d9d9;
 }
 .button-demo .ant-btn {
