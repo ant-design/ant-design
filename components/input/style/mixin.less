@@ -470,7 +470,7 @@
   .@{inputClass}-prefix {
     left: @input-padding-horizontal-base + 1px;
 
-    .@{inputClass}-rtl & {
+    .@{inputClass}-affix-wrapper-rtl& {
       right: @input-padding-horizontal-base + 1px;
       left: auto;
     }
@@ -479,7 +479,7 @@
   .@{inputClass}-suffix {
     right: @input-padding-horizontal-base + 1px;
 
-    .@{inputClass}-rtl & {
+    .@{inputClass}-affix-wrapper-rtl& {
       right: auto;
       left: @input-padding-horizontal-base + 1px;
     }
@@ -488,7 +488,7 @@
   .@{inputClass}:not(:first-child) {
     padding-left: @input-padding-horizontal-base + @input-affix-width;
 
-    .@{inputClass}-rtl & {
+    .@{inputClass}-affix-wrapper-rtl& {
       padding-right: @input-padding-horizontal-base + @input-affix-width;
       padding-left: @input-padding-horizontal-base;
     }
@@ -497,7 +497,7 @@
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
 
-    .@{inputClass}-rtl & {
+    .@{inputClass}-affix-wrapper-rtl& {
       padding-right: @input-padding-horizontal-base;
       padding-left: @input-padding-horizontal-base + @input-affix-width;
     }
@@ -539,7 +539,7 @@
   &.@{inputClass}-affix-wrapper-input-with-clear-btn .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
 
-    .@{inputClass}-rtl & {
+    .@{inputClass}-affix-wrapper-rtl& {
       padding-right: @input-padding-horizontal-base;
       padding-left: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
     }
