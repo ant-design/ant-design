@@ -2,6 +2,7 @@ import * as React from 'react';
 import RcSteps from 'rc-steps';
 import classNames from 'classnames';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
