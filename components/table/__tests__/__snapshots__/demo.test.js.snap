@@ -4610,21 +4610,25 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="New York No. 1 Lake Park, New York No. 1 Lake Park"
                   >
                     New York No. 1 Lake Park, New York No. 1 Lake Park
                   </td>
@@ -4647,21 +4651,25 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="London No. 2 Lake Park, London No. 2 Lake Park"
                   >
                     London No. 2 Lake Park, London No. 2 Lake Park
                   </td>
@@ -4684,21 +4692,25 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
                   <td
                     class="ant-table-row-cell-ellipsis"
+                    title="Sidney No. 1 Lake Park, Sidney No. 1 Lake Park"
                   >
                     Sidney No. 1 Lake Park, Sidney No. 1 Lake Park
                   </td>
@@ -8810,17 +8822,17 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <table
                 class="ant-table-fixed"
-                style="width:130%"
+                style="width:calc(700px + 50%)"
               >
                 <colgroup>
                   <col
                     style="width:100px;min-width:100px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
                     style="width:100px;min-width:100px"
@@ -9153,17 +9165,17 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             >
               <table
                 class="ant-table-fixed"
-                style="width:130%"
+                style="width:calc(700px + 50%)"
               >
                 <colgroup>
                   <col
                     style="width:100px;min-width:100px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
-                    style="width:200px;min-width:200px"
+                    style="width:150px;min-width:150px"
                   />
                   <col
                     style="width:100px;min-width:100px"
@@ -11725,6 +11737,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   >
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="John Brown"
                     >
                       John Brown
                     </td>
@@ -11735,6 +11748,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </td>
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="New York No. 1 Lake Park"
                     >
                       New York No. 1 Lake Park
                     </td>
@@ -11745,6 +11759,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   >
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="Jim Green"
                     >
                       Jim Green
                     </td>
@@ -11755,6 +11770,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </td>
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="London No. 1 Lake Park"
                     >
                       London No. 1 Lake Park
                     </td>
@@ -11765,6 +11781,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   >
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="Joe Black"
                     >
                       Joe Black
                     </td>
@@ -11775,6 +11792,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </td>
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="Sidney No. 1 Lake Park"
                     >
                       Sidney No. 1 Lake Park
                     </td>
@@ -11785,6 +11803,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   >
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="Jim Red"
                     >
                       Jim Red
                     </td>
@@ -11795,6 +11814,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </td>
                     <td
                       class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      title="London No. 2 Lake Park"
                     >
                       London No. 2 Lake Park
                     </td>

@@ -299,7 +299,7 @@ exports[`Input.Search should support suffix 1`] = `
     prefixCls="ant-input"
     suffix={
       Array [
-        "suffix",
+        null,
         <Search
           className="ant-input-search-icon"
           onClick={[Function]}
@@ -322,7 +322,6 @@ exports[`Input.Search should support suffix 1`] = `
       <span
         className="ant-input-suffix"
       >
-        suffix
         <Search
           className="ant-input-search-icon"
           key="searchIcon"

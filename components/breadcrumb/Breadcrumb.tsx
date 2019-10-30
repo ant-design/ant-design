@@ -149,7 +149,8 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
         warning(
           element.type &&
-            (element.type.__ANT_BREADCRUMB_ITEM || element.type.__ANT_BREADCRUMB_SEPARATOR),
+            (element.type.__ANT_BREADCRUMB_ITEM === true ||
+              element.type.__ANT_BREADCRUMB_SEPARATOR === true),
           'Breadcrumb',
           "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
         );

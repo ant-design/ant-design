@@ -18,15 +18,9 @@ declare module 'rc-cascader';
 
 declare module 'rc-checkbox';
 
-declare module 'rc-radio';
-
 declare module 'rc-dropdown';
 
 declare module 'rc-editor-mention';
-
-declare module 'rc-progress';
-
-declare module 'rc-drawer';
 
 declare module 'rc-tabs*';
 
@@ -79,6 +73,7 @@ declare module '*.json' {
   export default value;
 }
 
-declare module 'react-lifecycles-compat';
-
 declare module 'react-copy-to-clipboard';
+
+// https://github.com/ant-design/ant-design/pull/19254
+declare module 'react-lifecycles-compat';

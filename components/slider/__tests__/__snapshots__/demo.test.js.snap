@@ -1038,11 +1038,9 @@ exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
 `;
 
 exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
-<div
-  style="height:300px"
->
+<div>
   <div
-    style="float:left;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-left:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -1073,7 +1071,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="float:left;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-left:70px"
   >
     <div
       class="ant-slider ant-slider-vertical"
@@ -1114,7 +1112,7 @@ exports[`renders ./components/slider/demo/vertical.md correctly 1`] = `
     </div>
   </div>
   <div
-    style="float:left;height:300px;margin-left:70px"
+    style="display:inline-block;height:300px;margin-left:70px"
   >
     <div
       class="ant-slider ant-slider-with-marks ant-slider-vertical"

@@ -354,6 +354,7 @@ describe('Table.sorter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
+  // https://github.com/ant-design/ant-design/issues/19398
   it('should toggle sort state when columns with non primitive properties are put in render', () => {
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
@@ -377,6 +378,7 @@ describe('Table.sorter', () => {
             dataIndex: 'name',
             sorter: true,
             render: text => text,
+            array: ['1', '2', 3],
           },
         ];
         const { pagination } = this.state;

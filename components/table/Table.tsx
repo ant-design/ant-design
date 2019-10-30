@@ -17,6 +17,7 @@ import { flatArray, treeMap, flatFilter, normalizeColumns } from './util';
 import scrollTo from '../_util/scrollTo';
 import {
   TableProps,
+  InternalTableProps,
   TableSize,
   TableState,
   TableComponents,
@@ -34,7 +35,6 @@ import {
   PaginationConfig,
   PrepareParamsArgumentsReturn,
   ExpandIconProps,
-  WithStore,
   CheckboxPropsCache,
 } from './interface';
 import Pagination from '../pagination';
@@ -68,8 +68,13 @@ function isSameColumn<T>(a: ColumnProps<T> | null, b: ColumnProps<T> | null) {
   return (
     a === b ||
     shallowEqual(a, b, (value: any, other: any) => {
+      // https://github.com/ant-design/ant-design/issues/12737
       if (typeof value === 'function' && typeof other === 'function') {
         return value === other || value.toString() === other.toString();
+      }
+      // https://github.com/ant-design/ant-design/issues/19398
+      if (Array.isArray(value) && Array.isArray(other)) {
+        return value === other || shallowEqual(value, other);
       }
     })
   );
@@ -132,7 +137,7 @@ function isFiltersChanged<T>(state: TableState<T>, filters: TableStateFilters): 
   return Object.keys(filters).some(columnKey => filters[columnKey] !== state.filters[columnKey]);
 }
 
-class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
+class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
   static propTypes = {
     dataSource: PropTypes.array,
     columns: PropTypes.array,
@@ -165,7 +170,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     childrenColumnName: 'children',
   };
 
-  static getDerivedStateFromProps(nextProps: TableProps<any>, prevState: TableState<any>) {
+  static getDerivedStateFromProps(nextProps: InternalTableProps<any>, prevState: TableState<any>) {
     const { prevProps } = prevState;
     const columns =
       nextProps.columns || normalizeColumns(nextProps.children as React.ReactChildren);
@@ -238,11 +243,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   row: React.ComponentType<any>;
 
-  rcTable: React.RefObject<any>;
+  rcTable: any;
 
-  constructor(props: TableProps<T>) {
+  constructor(props: InternalTableProps<T>) {
     super(props);
-    this.rcTable = React.createRef();
 
     const { expandedRowRender, columns: columnsProp = [] } = props;
 
@@ -277,6 +281,10 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
       }
     }
   }
+
+  setTableRef = (table: any) => {
+    this.rcTable = table;
+  };
 
   getCheckboxPropsByItem = (item: T, index: number) => {
     const rowSelection = getRowSelection(this.props);
@@ -527,7 +535,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
   generatePopupContainerFunc = (getPopupContainer: TableProps<T>['getPopupContainer']) => {
     const { scroll } = this.props;
-    const table = this.rcTable.current;
+    const table = this.rcTable;
     if (getPopupContainer) {
       return getPopupContainer;
     }
@@ -539,7 +547,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     const { scroll } = this.props;
     if (scroll && scroll.scrollToFirstRowOnChange !== false) {
       scrollTo(0, {
-        getContainer: () => this.rcTable.current.bodyTable,
+        getContainer: () => this.rcTable.bodyTable,
       });
     }
   };
@@ -1271,7 +1279,7 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
 
     return (
       <RcTable
-        ref={this.rcTable}
+        ref={this.setTableRef}
         key="table"
         expandIcon={this.renderExpandIcon(prefixCls)}
         {...restProps}
@@ -1347,43 +1355,40 @@ class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
   }
 }
 
-function withStore(
-  WrappedComponent: typeof Table,
-): React.ComponentClass<Omit<TableProps<any>, keyof WithStore>> {
-  class Component<T> extends React.Component<TableProps<T>> {
-    static Column = Column;
+class StoreTable<T> extends React.Component<TableProps<T>> {
+  static displayName = 'withStore(Table)';
 
-    static ColumnGroup = ColumnGroup;
+  static Column = Column;
 
-    store: Store;
+  static ColumnGroup = ColumnGroup;
 
-    CheckboxPropsCache: CheckboxPropsCache;
+  store: Store;
 
-    constructor(props: TableProps<T>) {
-      super(props);
+  CheckboxPropsCache: CheckboxPropsCache;
 
-      this.CheckboxPropsCache = {};
+  constructor(props: TableProps<T>) {
+    super(props);
 
-      this.store = createStore({
-        selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
-        selectionDirty: false,
-      });
-    }
+    this.CheckboxPropsCache = {};
 
-    setCheckboxPropsCache = (cache: CheckboxPropsCache) => (this.CheckboxPropsCache = cache);
-
-    render() {
-      return (
-        <WrappedComponent<T>
-          {...this.props}
-          store={this.store}
-          checkboxPropsCache={this.CheckboxPropsCache}
-          setCheckboxPropsCache={this.setCheckboxPropsCache}
-        />
-      );
-    }
+    this.store = createStore({
+      selectedRowKeys: getRowSelection(props).selectedRowKeys || [],
+      selectionDirty: false,
+    });
   }
-  return Component;
+
+  setCheckboxPropsCache = (cache: CheckboxPropsCache) => (this.CheckboxPropsCache = cache);
+
+  render() {
+    return (
+      <Table<T>
+        {...this.props}
+        store={this.store}
+        checkboxPropsCache={this.CheckboxPropsCache}
+        setCheckboxPropsCache={this.setCheckboxPropsCache}
+      />
+    );
+  }
 }
 
-export default withStore(Table);
+export default StoreTable;
