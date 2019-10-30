@@ -32,6 +32,7 @@ import {
   Divider,
   Pagination,
   Steps,
+  Rate,
 } from 'antd';
 
 import { Search as SearchIcon, Smile, Down, Download, Left, Right } from '@ant-design/icons';
@@ -486,6 +487,19 @@ class Page extends React.Component {
                     <Step title="Step 2" description="This is a description." />
                     <Step title="Step 3" description="This is a description." />
                   </Steps>
+                </div>
+              </Col>
+            </Row>
+            <br />
+            <Row>
+              <Col span={24}>
+                <h3 className="demo-block-title">Rate example:</h3>
+                <div>
+                  <Rate defaultValue={2.5} />
+                  <br />
+                  <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
+                  supported after <a href="https://github.com/react-component/rate">rc-rate</a>{' '}
+                  implement rtl support.
                 </div>
               </Col>
             </Row>
