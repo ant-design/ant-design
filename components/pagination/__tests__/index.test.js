@@ -1,6 +1,6 @@
 import React from 'react';
-import Pagination from '..';
 import { render, mount } from 'enzyme';
+import Pagination from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 
