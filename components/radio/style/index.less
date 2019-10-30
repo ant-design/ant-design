@@ -202,10 +202,19 @@ span.@{radio-prefix-cls} + * {
   &:first-child {
     border-left: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base 0 0 @border-radius-base;
+
+    .@{radio-prefix-cls}-button-wrapper-rtl& {
+      border-right: @border-width-base @border-style-base @border-color-base;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
   }
 
   &:last-child {
     border-radius: 0 @border-radius-base @border-radius-base 0;
+
+    .@{radio-prefix-cls}-button-wrapper-rtl& {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
   }
 
   &:first-child:last-child {
@@ -297,6 +306,10 @@ span.@{radio-prefix-cls} + * {
     }
     &:first-child {
       border-left-color: @border-color-base;
+
+      .@{radio-prefix-cls}-button-wrapper-rtl& {
+        border-right-color: @border-color-base;
+      }
     }
   }
 
