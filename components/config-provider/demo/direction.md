@@ -298,7 +298,7 @@ class Page extends React.Component {
         </Row>
         <br />
         <Row>
-          <Col span={24}>
+          <Col span={12}>
             <h3 className="demo-block-title">Switch example:</h3>
             &nbsp;&nbsp;
             <Switch defaultChecked />
@@ -322,7 +322,38 @@ class Page extends React.Component {
         </Row>
         <br />
         <Row>
-          <Col span={24}>
+          <Col span={12}>
+            <h3 className="demo-block-title">Button example:</h3>
+            <div className="button-demo">
+              <Button type="primary" icon={<Download />} />
+              <Button type="primary" shape="circle" icon={<Download />} />
+              <Button type="primary" shape="round" icon={<Download />} />
+              <Button type="primary" shape="round" icon={<Download />}>
+                Download
+              </Button>
+              <Button type="primary" icon={<Download />}>
+                Download
+              </Button>
+              <br />
+              <Button.Group>
+                <Button type="primary">
+                  <Left />
+                  Backward
+                </Button>
+                <Button type="primary">
+                  Forward
+                  <Right />
+                </Button>
+              </Button.Group>
+              <Button type="primary" loading>
+                Loading
+              </Button>
+              <Button type="primary" size="small" loading>
+                Loading
+              </Button>
+            </div>
+          </Col>
+          <Col span={12}>
             <h3 className="demo-block-title">Tree example:</h3>
             <Tree
               showLine
@@ -434,40 +465,6 @@ class Page extends React.Component {
                     <p>نگاشته‌های خود را اینجا قراردهید</p>
                     <p>نگاشته‌های خود را اینجا قراردهید</p>
                   </Modal>
-                </div>
-              </Col>
-            </Row>
-            <br />
-            <Row>
-              <Col span={24}>
-                <h3 className="demo-block-title">Button example:</h3>
-                <div className="button-demo">
-                  <Button type="primary" icon={<Download />} />
-                  <Button type="primary" shape="circle" icon={<Download />} />
-                  <Button type="primary" shape="round" icon={<Download />} />
-                  <Button type="primary" shape="round" icon={<Download />}>
-                    Download
-                  </Button>
-                  <Button type="primary" icon={<Download />}>
-                    Download
-                  </Button>
-                  <br />
-                  <Button.Group>
-                    <Button type="primary">
-                      <Left />
-                      Backward
-                    </Button>
-                    <Button type="primary">
-                      Forward
-                      <Right />
-                    </Button>
-                  </Button.Group>
-                  <Button type="primary" loading>
-                    Loading
-                  </Button>
-                  <Button type="primary" size="small" loading>
-                    Loading
-                  </Button>
                 </div>
               </Col>
             </Row>
@@ -703,7 +700,7 @@ ReactDOM.render(<App />, mountNode);
   margin-bottom: 16px;
 }
 .demo-block-title {
-  margin-bottom: 18px;
+  margin: 0 8px 18px 8px;
   border-bottom: 1px solid #d9d9d9;
 }
 .button-demo .ant-btn {
