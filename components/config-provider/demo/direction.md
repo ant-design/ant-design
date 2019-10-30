@@ -33,7 +33,7 @@ import {
   Pagination,
 } from 'antd';
 
-import { Search as SearchIcon, Smile, Down } from '@ant-design/icons';
+import { Search as SearchIcon, Smile, Down, Download, Left, Right } from '@ant-design/icons';
 
 const InputGroup = Input.Group;
 const { Option } = Select;
@@ -415,6 +415,40 @@ class Page extends React.Component {
                 </div>
               </Col>
             </Row>
+            <br />
+            <Row>
+              <Col span={24}>
+                <h3 className="demo-block-title">Button example:</h3>
+                <div className="button-demo">
+                  <Button type="primary" icon={<Download />} />
+                  <Button type="primary" shape="circle" icon={<Download />} />
+                  <Button type="primary" shape="round" icon={<Download />} />
+                  <Button type="primary" shape="round" icon={<Download />}>
+                    Download
+                  </Button>
+                  <Button type="primary" icon={<Download />}>
+                    Download
+                  </Button>
+                  <br />
+                  <Button.Group>
+                    <Button type="primary">
+                      <Left />
+                      Backward
+                    </Button>
+                    <Button type="primary">
+                      Forward
+                      <Right />
+                    </Button>
+                  </Button.Group>
+                  <Button type="primary" loading>
+                    Loading
+                  </Button>
+                  <Button type="primary" size="small" loading>
+                    Loading
+                  </Button>
+                </div>
+              </Col>
+            </Row>
           </Col>
         </Row>
 
@@ -609,16 +643,20 @@ ReactDOM.render(<App />, mountNode);
   margin-right: 8px;
 }
 
-[dir='rtl'] .example > * {
-  margin-right: auto;
-  margin-left: 8px;
-}
-
 .change-direction {
   margin-bottom: 16px;
 }
 .demo-block-title {
   margin-bottom: 10px;
   border-bottom: 1px solid #d9d9d9;
+}
+.button-demo .ant-btn {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+.button-demo .ant-btn-group > .ant-btn,
+.button-demo .ant-btn-group > span > .ant-btn {
+  margin-right: 0;
+  margin-left: 0;
 }
 ```
