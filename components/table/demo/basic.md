@@ -3,6 +3,7 @@ order: 0
 title:
   en-US: Basic Usage
   zh-CN: 基本用法
+only: true
 ---
 
 ## zh-CN
