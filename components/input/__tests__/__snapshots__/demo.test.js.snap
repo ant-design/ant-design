@@ -870,7 +870,7 @@ exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
   <br />
   <br />
   <span
-    class="ant-input-affix-wrapper"
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
   >
     <textarea
       class="ant-input"

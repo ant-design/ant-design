@@ -534,7 +534,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
     value="111"
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
@@ -623,7 +623,7 @@ exports[`TextArea allowClear should change type when click 2`] = `
     value=""
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
@@ -674,7 +674,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
     value=""
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
@@ -723,7 +723,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
     value=""
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
@@ -774,7 +774,7 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
     value=""
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
@@ -825,7 +825,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
     value=""
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
@@ -873,7 +873,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
     value=""
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
@@ -923,7 +923,7 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
     value=""
   >
     <span
-      className="ant-input-affix-wrapper"
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
     >
       <ResizableTextArea
         allowClear={true}
