@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RcSteps from 'rc-steps';
+import classNames from 'classnames';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -39,14 +40,23 @@ export default class Steps extends React.Component<StepsProps, any> {
     current: 0,
   };
 
-  renderSteps = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSteps = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const prefixCls = getPrefixCls('steps', this.props.prefixCls);
     const iconPrefix = getPrefixCls('', this.props.iconPrefix);
+    const className = classNames({ [`${prefixCls}-rtl`]: direction === 'rtl' });
     const icons = {
       finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
       error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
     };
-    return <RcSteps icons={icons} {...this.props} prefixCls={prefixCls} iconPrefix={iconPrefix} />;
+    return (
+      <RcSteps
+        icons={icons}
+        {...this.props}
+        prefixCls={prefixCls}
+        iconPrefix={iconPrefix}
+        className={className}
+      />
+    );
   };
 
   render() {

@@ -2,8 +2,18 @@
   &.@{steps-prefix-cls}-horizontal:not(.@{steps-prefix-cls}-label-vertical)
     .@{steps-prefix-cls}-item {
     margin-right: 12px;
+
+    .@{steps-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: 12px;
+    }
+
     &:last-child {
       margin-right: 0;
+
+      .@{steps-prefix-cls}-rtl& {
+        margin-left: 0;
+      }
     }
   }
   .@{steps-prefix-cls}-item-icon {

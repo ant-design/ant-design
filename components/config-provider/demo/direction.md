@@ -31,6 +31,7 @@ import {
   Form,
   Divider,
   Pagination,
+  Steps,
 } from 'antd';
 
 import { Search as SearchIcon, Smile, Down, Download, Left, Right } from '@ant-design/icons';
@@ -39,6 +40,7 @@ const InputGroup = Input.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
+const { Step } = Steps;
 
 const cascaderOptions = [
   {
@@ -157,7 +159,7 @@ class Page extends React.Component {
     scroll: undefined,
     hasData: true,
     tableLayout: undefined,
-
+    currentStep: 0,
     modalVisible: false,
   };
 
@@ -262,7 +264,13 @@ class Page extends React.Component {
   };
   // ==== End Table ====
 
+  onStepsChange = currentStep => {
+    console.log('onChange:', currentStep);
+    this.setState({ currentStep });
+  };
+
   render() {
+    const { currentStep } = this.state;
     return (
       <div className="direction-components example">
         <Row>
@@ -449,9 +457,30 @@ class Page extends React.Component {
                 </div>
               </Col>
             </Row>
+            <br />
+            <Row>
+              <Col span={24}>
+                <h3 className="demo-block-title">Steps example:</h3>
+                <div>
+                  <Steps progressDot current={currentStep}>
+                    <Step title="Finished" description="This is a description." />
+                    <Step title="In Progress" description="This is a description." />
+                    <Step title="Waiting" description="This is a description." />
+                  </Steps>
+                  <br />
+                  <Steps current={currentStep} onChange={this.onStepsChange}>
+                    <Step title="Step 1" description="This is a description." />
+                    <Step title="Step 2" description="This is a description." />
+                    <Step title="Step 3" description="This is a description." />
+                  </Steps>
+                </div>
+              </Col>
+            </Row>
           </Col>
         </Row>
 
+        <br />
+        <br />
         <br />
         <Row>
           <Col span={24}>
