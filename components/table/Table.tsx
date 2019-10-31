@@ -7,7 +7,7 @@ import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import { TableRowSelection, GetRowKey } from './interface';
-import useSelection from './hooks/useSelection';
+import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 
 const EMPTY_LIST: any[] = [];
 
@@ -60,7 +60,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ========================== Selections ==========================
   const [transformColumns, selectedKeySet] = useSelection(rowSelection, {
     prefixCls,
-    data: pageData,
+    data: mergedData,
+    pageData,
     getRowKey,
     getRecordByKey,
   });
@@ -106,6 +107,8 @@ Table.defaultProps = {
   rowKey: 'key',
 };
 
+Table.SELECTION_ALL = SELECTION_ALL;
+Table.SELECTION_INVERT = SELECTION_INVERT;
 Table.Column = Column;
 Table.ColumnGroup = ColumnGroup;
 
