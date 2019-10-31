@@ -97,6 +97,14 @@
 
         &[colspan]:not([colspan='1']) {
           text-align: center;
+
+          .@{table-wrapepr-rtl-cls} & {
+            text-align: center;
+          }
+        }
+
+        .@{table-wrapepr-rtl-cls} & {
+          text-align: right;
         }
       }
     }
