@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@table-header-icon-color: #bfbfbf;
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -79,6 +80,27 @@
 
     .@{ant-prefix}-radio-wrapper {
       margin-right: 0;
+    }
+  }
+
+  &-selection {
+    position: relative;
+
+    &-extra {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(100%, -50%);
+
+      .@{iconfont-css-prefix} {
+        .iconfont-size-under-12px(10px);
+
+        color: @table-header-icon-color;
+
+        &:hover {
+          color: darken(@table-header-icon-color, 10%);
+        }
+      }
     }
   }
 
