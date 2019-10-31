@@ -20,13 +20,20 @@
   cursor: pointer;
   transition: all @switch-duration;
   user-select: none;
-
+  &-rtl {
+    direction: rtl;
+  }
   &-inner {
     display: block;
     margin-right: 6px;
     margin-left: 24px;
     color: @text-color-inverse;
     font-size: @font-size-sm;
+
+    .@{switch-prefix-cls}-rtl & {
+      margin-right: 24px;
+      margin-left: 6px;
+    }
   }
 
   &-loading-icon,
@@ -102,6 +109,11 @@
       margin-right: 3px;
       margin-left: 18px;
       font-size: @font-size-sm;
+
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 18px;
+        margin-left: 3px;
+      }
     }
 
     &::after {
@@ -128,6 +140,11 @@
     .@{switch-prefix-cls}-inner {
       margin-right: 18px;
       margin-left: 3px;
+
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 3px;
+        margin-left: 18px;
+      }
     }
   }
 
@@ -148,6 +165,11 @@
     .@{switch-prefix-cls}-inner {
       margin-right: 24px;
       margin-left: 6px;
+
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 6px;
+        margin-left: 24px;
+      }
     }
 
     &::after {
