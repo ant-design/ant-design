@@ -11772,7 +11772,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                     </span>
                     <span
                       aria-label="filter"
-                      class="anticon anticon-filter config-table-filter-open config-dropdown-trigger config-dropdown-open"
+                      class="anticon anticon-filter config-table-filter-open config-dropdown-trigger"
                       role="img"
                       tabindex="-1"
                       title="Filter menu"
@@ -11795,6 +11795,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                     <div>
                       <div
                         class="config-dropdown  config-dropdown-placement-bottomRight "
+                        style="visibility:hidden"
                       >
                         <div
                           class="config-table-filter-dropdown"
@@ -12021,7 +12022,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                     </span>
                     <span
                       aria-label="filter"
-                      class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      class="anticon anticon-filter ant-table-filter-open ant-dropdown-trigger"
                       role="img"
                       tabindex="-1"
                       title="Filter menu"
@@ -12044,6 +12045,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                     <div>
                       <div
                         class="ant-dropdown  ant-dropdown-placement-bottomRight "
+                        style="visibility:hidden"
                       >
                         <div
                           class="ant-table-filter-dropdown"
@@ -12270,7 +12272,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                     </span>
                     <span
                       aria-label="filter"
-                      class="anticon anticon-filter prefix-Table-filter-open ant-dropdown-trigger ant-dropdown-open"
+                      class="anticon anticon-filter prefix-Table-filter-open ant-dropdown-trigger"
                       role="img"
                       tabindex="-1"
                       title="Filter menu"
@@ -12293,6 +12295,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                     <div>
                       <div
                         class="ant-dropdown  ant-dropdown-placement-bottomRight "
+                        style="visibility:hidden"
                       >
                         <div
                           class="prefix-Table-filter-dropdown"
