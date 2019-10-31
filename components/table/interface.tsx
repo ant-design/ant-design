@@ -1,7 +1,7 @@
-import { ColumnsType, FixedType } from 'rc-table/lib/interface';
+import { ColumnsType, GetRowKey } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 
-export { ColumnsType, FixedType };
+export { ColumnsType, GetRowKey };
 
 export type Key = React.Key;
 

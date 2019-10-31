@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Key } from '../interface';
+import { Key, GetRowKey } from '../interface';
 
 interface MapCache<RecordType> {
   data?: RecordType[];
@@ -9,7 +9,7 @@ interface MapCache<RecordType> {
 
 export default function useLazyKVMap<RecordType>(
   data: RecordType[],
-  getRowKey: (record: RecordType, index: number) => Key,
+  getRowKey: GetRowKey<RecordType>,
 ) {
   const mapCacheRef = React.useRef<MapCache<RecordType>>({});
 
