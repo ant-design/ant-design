@@ -487,20 +487,21 @@
 
   .@{inputClass}:not(:first-child) {
     padding-left: @input-padding-horizontal-base + @input-affix-width;
-
-    .@{inputClass}-rtl & {
-      padding-right: @input-padding-horizontal-base + @input-affix-width;
-      padding-left: @input-padding-horizontal-base;
-    }
   }
 
   .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-width;
+  }
 
-    .@{inputClass}-rtl & {
-      padding-right: @input-padding-horizontal-base;
-      padding-left: @input-padding-horizontal-base + @input-affix-width;
-    }
+  // Needed to change priority of classes in rtl direction (last-child comes before first-child)
+  .@{inputClass}-affix-wrapper-rtl& .@{inputClass}:not(:last-child) {
+    padding-right: @input-padding-horizontal-base;
+    padding-left: @input-padding-horizontal-base + @input-affix-width;
+  }
+
+  .@{inputClass}-affix-wrapper-rtl& .@{inputClass}:not(:first-child) {
+    padding-right: @input-padding-horizontal-base + @input-affix-width;
+    padding-left: @input-padding-horizontal-base;
   }
 
   // Needed to change priority of classes in rtl direction (last-child comes before first-child)
