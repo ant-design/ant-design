@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { Down } from '@ant-design/icons';
 import Checkbox, { CheckboxProps } from '../../checkbox';
+import Dropdown from '../../dropdown';
+import Menu from '../../menu';
 import Radio from '../../radio';
 import { TableRowSelection, Key, ColumnsType, GetRowKey } from '../interface';
 
@@ -22,6 +25,7 @@ export default function useSelection<RecordType>(
     onChange: onSelectionChange,
     columnWidth: selectionColWidth = 60,
     type: selectionType,
+    selections,
   } = rowSelection || {};
 
   const { prefixCls, data, getRecordByKey, getRowKey } = config;
@@ -32,6 +36,14 @@ export default function useSelection<RecordType>(
     const keys = selectionType === 'radio' ? mergedSelectedKeys.slice(0, 1) : mergedSelectedKeys;
     return new Set(keys);
   }, [mergedSelectedKeys, selectionType]);
+
+  const mergedSelections = React.useMemo(() => {
+    if (selections === true) {
+      // TODO: handle this
+      return [];
+    }
+    return selections;
+  }, [selections]);
 
   const setSelectedKeys = (keys: Key[]) => {
     setInnerSelectedKeys(keys);
@@ -76,7 +88,53 @@ export default function useSelection<RecordType>(
         setSelectedKeys(Array.from(keySet));
       };
 
-      // Render record selection cell
+      // ===================== Render =====================
+      // Title Cell
+      let title: React.ReactNode;
+      if (selectionType !== 'radio') {
+        let customizeSelections: React.ReactNode;
+        if (mergedSelections) {
+          const menu = (
+            <Menu>
+              {mergedSelections.map((selection, index) => {
+                const { key, text, onSelect } = selection;
+                return (
+                  <Menu.Item
+                    key={key || index}
+                    onClick={() => {
+                      if (onSelect) {
+                        onSelect(recordKeys);
+                      }
+                    }}
+                  >
+                    {text}
+                  </Menu.Item>
+                );
+              })}
+            </Menu>
+          );
+          customizeSelections = (
+            <div className={`${prefixCls}-selection-extra`}>
+              <Dropdown overlay={menu}>
+                <Down />
+              </Dropdown>
+            </div>
+          );
+        }
+
+        title = (
+          <div className={`${prefixCls}-selection`}>
+            <Checkbox
+              checked={checkedCurrentAll}
+              indeterminate={!checkedCurrentAll && checkedCurrentSome}
+              onChange={onSelectAllChange}
+            />
+            {customizeSelections}
+          </div>
+        );
+      }
+
+      // Body Cell
       let renderCell: (_: RecordType, record: RecordType, index: number) => React.ReactNode;
       if (selectionType === 'radio') {
         renderCell = (_, record, index) => {
@@ -114,23 +172,26 @@ export default function useSelection<RecordType>(
         };
       }
 
+      // Columns
       return [
         {
           width: selectionColWidth,
           className: `${prefixCls}-selection-column`,
-          title: selectionType !== 'radio' && (
-            <Checkbox
-              checked={checkedCurrentAll}
-              indeterminate={!checkedCurrentAll && checkedCurrentSome}
-              onChange={onSelectAllChange}
-            />
-          ),
+          title,
           render: renderCell,
         },
         ...columns,
       ];
     },
-    [getRowKey, data, rowSelection, innerSelectedKeys, mergedSelectedKeys, selectionColWidth],
+    [
+      getRowKey,
+      data,
+      rowSelection,
+      innerSelectedKeys,
+      mergedSelectedKeys,
+      selectionColWidth,
+      mergedSelections,
+    ],
   );
 
   return [transformColumns, mergedSelectedKeySet];

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { PaginationConfig } from '../../pagination';
+import { PaginationConfig, PaginationProps } from '../../pagination';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
 export default function usePagination(
   total: number,
   pagination?: PaginationConfig | false,
-): [PaginationConfig, (pagination: PaginationConfig) => void] {
+): [PaginationConfig] {
   const [innerPagination, setInnerPagination] = useState<PaginationConfig>({
     current: 1,
     pageSize: DEFAULT_PAGE_SIZE,
@@ -14,14 +14,30 @@ export default function usePagination(
   });
 
   if (pagination === false) {
-    return [{}, setInnerPagination];
+    return [{}];
   }
+
+  const mergedPagination = {
+    ...pagination,
+    ...innerPagination,
+  };
+
+  const onInternalChange: PaginationProps['onChange'] = (...args) => {
+    const [current] = args;
+    setInnerPagination({
+      ...mergedPagination,
+      current,
+    });
+
+    if (pagination && pagination.onChange) {
+      pagination.onChange(...args);
+    }
+  };
 
   return [
     {
-      ...pagination,
-      ...innerPagination,
+      ...mergedPagination,
+      onChange: onInternalChange,
     },
-    setInnerPagination,
   ];
 }

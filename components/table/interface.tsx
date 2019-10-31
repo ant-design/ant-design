@@ -9,7 +9,7 @@ export type RowSelectionType = 'checkbox' | 'radio';
 
 export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
 
-export type SelectionItemSelectFn = (key: string[]) => void;
+export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
 
 export interface SelectionItem {
   key: string;

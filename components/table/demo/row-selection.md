@@ -3,7 +3,6 @@ order: 2
 title:
   en-US: selection
   zh-CN: 可选择
-only: true
 ---
 
 ## zh-CN
