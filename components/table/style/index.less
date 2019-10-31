@@ -54,6 +54,32 @@
     td {
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
+
+    tr {
+      transition: background 0.3s;
+
+      &:hover {
+        background: @table-row-hover-bg;
+      }
+
+      &.@{table-prefix-cls}-row-selected {
+        background: @table-selected-row-bg;
+
+        &:hover {
+          background: @table-selected-row-hover-bg;
+        }
+      }
+    }
+  }
+
+  // ========================== Selections ==========================
+  table tr th&-selection-column,
+  table tr td&-selection-column {
+    text-align: center;
+
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
   }
 
   // ========================== Pagination ==========================

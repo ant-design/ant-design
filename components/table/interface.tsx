@@ -27,12 +27,12 @@ export type SelectionSelectFn<T> = (
 export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
-  onChange?: (selectedRowKeys: string[] | number[], selectedRows: T[]) => void;
+  onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
   getCheckboxProps?: (record: T) => Partial<CheckboxProps>;
   onSelect?: SelectionSelectFn<T>;
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  onSelectInvert?: (selectedRowKeys: string[] | number[]) => void;
+  onSelectInvert?: (selectedRowKeys: Key[]) => void;
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;
   fixed?: boolean;

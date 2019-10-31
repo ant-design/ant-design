@@ -1,10 +1,12 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import RcTable, { Column, ColumnGroup } from 'rc-table';
 import { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import Checkbox, { CheckboxProps } from '../checkbox';
 import Pagination, { PaginationConfig } from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
+import useLazyKVMap from './hooks/useLazyKVMap';
 import { TableRowSelection, ColumnsType, Key } from './interface';
 
 const EMPTY_LIST: any[] = [];
@@ -19,20 +21,29 @@ export interface TableProps<RecordType> extends RcTableProps<RecordType> {
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
-  const { prefixCls: customizePrefixCls, dataSource, pagination, rowSelection, rowKey } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    dataSource,
+    pagination,
+    rowSelection,
+    rowKey,
+    rowClassName,
+  } = props;
   const mergedData: RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
 
   // ============================ RowKey ============================
-  const getRowKey = React.useMemo(() => {
+  const getRowKey = React.useMemo<(record: RecordType, index: number) => Key>(() => {
     if (typeof rowKey === 'function') {
       return rowKey;
     }
 
     return (record: RecordType) => (record as any)[rowKey as string];
   }, [rowKey]);
+
+  const [getRecordByKey] = useLazyKVMap(mergedData, getRowKey);
 
   // ========================== Pagination ==========================
   // TODO: handle this
@@ -46,11 +57,24 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     return currentPageData;
   }, [mergedData, mergedPagination.current, mergedPagination.pageSize]);
 
-  // =========================== Checkbox ===========================
-  const { selectedRowKeys, getCheckboxProps } = rowSelection || {};
+  // ========================== Selections ==========================
+  const {
+    selectedRowKeys,
+    getCheckboxProps,
+    onChange: onSelectionChange,
+    columnWidth: selectionColWidth = 60,
+  } = rowSelection || {};
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
   const mergedSelectedKeys = selectedRowKeys || innerSelectedKeys || EMPTY_LIST;
+
+  const setSelectedKeys = (keys: Key[]) => {
+    setInnerSelectedKeys(keys);
+
+    if (onSelectionChange) {
+      onSelectionChange(keys, keys.map(key => getRecordByKey(key)));
+    }
+  };
 
   const transformColumns = React.useCallback(
     (columns: ColumnsType<RecordType>) => {
@@ -86,11 +110,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
             keySet.add(key);
           });
         }
-        setInnerSelectedKeys(Array.from(keySet));
+        setSelectedKeys(Array.from(keySet));
       };
 
       return [
         {
+          width: selectionColWidth,
+          className: `${prefixCls}-selection-column`,
           title: (
             <Checkbox
               checked={checkedCurrentAll}
@@ -111,7 +137,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
                   } else {
                     keySet.add(key);
                   }
-                  setInnerSelectedKeys(Array.from(keySet));
+                  setSelectedKeys(Array.from(keySet));
                 }}
               />
             );
@@ -120,8 +146,24 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         ...columns,
       ];
     },
-    [getRowKey, pageData, rowSelection, innerSelectedKeys, mergedSelectedKeys],
+    [getRowKey, pageData, rowSelection, innerSelectedKeys, mergedSelectedKeys, selectionColWidth],
   );
+
+  const internalRowClassName = (record: RecordType, index: number, indent: number) => {
+    let mergedRowClassName;
+    if (typeof rowClassName === 'function') {
+      mergedRowClassName = classNames(rowClassName(record, index, indent));
+    } else {
+      mergedRowClassName = classNames(rowClassName);
+    }
+
+    return classNames(
+      {
+        [`${prefixCls}-row-selected`]: mergedSelectedKeys.includes(getRowKey(record, index)),
+      },
+      mergedRowClassName,
+    );
+  };
 
   // ============================ Render ============================
   let paginationNode;
@@ -137,6 +179,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         data={pageData}
         transformColumns={transformColumns}
         rowKey={getRowKey}
+        rowClassName={internalRowClassName}
       />
       {paginationNode}
     </div>
