@@ -304,6 +304,7 @@ class Page extends React.Component {
     this.setState({ showBadge });
   };
   // ==== End Badge ====
+
   render() {
     const { currentStep } = this.state;
     return (
