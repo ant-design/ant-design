@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcTable, { Column, ColumnGroup } from 'rc-table';
 import { TableProps as RcTableProps } from 'rc-table/lib/Table';
-import Checkbox from '../checkbox';
+import Checkbox, { CheckboxProps } from '../checkbox';
 import Pagination, { PaginationConfig } from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
@@ -47,7 +47,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }, [mergedData, mergedPagination.current, mergedPagination.pageSize]);
 
   // =========================== Checkbox ===========================
-  const { selectedRowKeys } = rowSelection || {};
+  const { selectedRowKeys, getCheckboxProps } = rowSelection || {};
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
   const mergedSelectedKeys = selectedRowKeys || innerSelectedKeys || EMPTY_LIST;
@@ -60,7 +60,19 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
       // Support selection
       const keySet = new Set(mergedSelectedKeys);
-      const recordKeys = pageData.map(getRowKey);
+
+      // Get all checkbox props
+      const checkboxPropsMap = new Map<Key, Partial<CheckboxProps>>();
+      pageData.forEach((record, index) => {
+        const key = getRowKey(record, index);
+        const checkboxProps = getCheckboxProps ? getCheckboxProps(record) : null;
+        checkboxPropsMap.set(key, checkboxProps || {});
+      });
+
+      // Record key only need check with enabled
+      const recordKeys = pageData
+        .map(getRowKey)
+        .filter(key => !checkboxPropsMap.get(key)!.disabled);
       const checkedCurrentAll = recordKeys.every(key => keySet.has(key));
       const checkedCurrentSome = recordKeys.some(key => keySet.has(key));
 
@@ -88,8 +100,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           ),
           render: (_: RecordType, record: RecordType, index: number) => {
             const key = getRowKey(record, index);
+
             return (
               <Checkbox
+                {...checkboxPropsMap.get(key)}
                 checked={keySet.has(key)}
                 onChange={() => {
                   if (keySet.has(key)) {

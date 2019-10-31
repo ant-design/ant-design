@@ -1,4 +1,5 @@
 import { ColumnsType, FixedType } from 'rc-table/lib/interface';
+import { CheckboxProps } from '../checkbox';
 
 export { ColumnsType, FixedType };
 
@@ -27,7 +28,7 @@ export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   onChange?: (selectedRowKeys: string[] | number[], selectedRows: T[]) => void;
-  getCheckboxProps?: (record: T) => Object;
+  getCheckboxProps?: (record: T) => Partial<CheckboxProps>;
   onSelect?: SelectionSelectFn<T>;
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
