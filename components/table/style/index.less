@@ -41,6 +41,12 @@
         text-align: center;
       }
     }
+
+    tr:not(:last-child) > th {
+      &[colspan] {
+        border-bottom: 0;
+      }
+    }
   }
 
   // ============================= Body =============================
