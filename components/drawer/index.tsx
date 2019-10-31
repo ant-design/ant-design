@@ -174,19 +174,13 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render drawer body dom
   renderBody = () => {
-    const { bodyStyle, drawerStyle, placement, prefixCls, visible } = this.props;
+    const { bodyStyle, drawerStyle, prefixCls, visible } = this.props;
     if (this.destroyClose && !visible) {
       return null;
     }
     this.destroyClose = false;
 
-    const containerStyle: React.CSSProperties =
-      placement === 'left' || placement === 'right'
-        ? {
-            overflow: 'auto',
-            height: '100%',
-          }
-        : {};
+    const containerStyle: React.CSSProperties = {};
 
     const isDestroyOnClose = this.getDestroyOnClose();
 

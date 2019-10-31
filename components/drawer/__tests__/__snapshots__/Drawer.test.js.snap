@@ -20,7 +20,7 @@ exports[`Drawer className is test_drawer 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="overflow:auto;height:100%;opacity:0;transition:opacity .3s"
+          style="opacity:0;transition:opacity .3s"
         >
           <div
             class="ant-drawer-header-no-title"
@@ -82,7 +82,6 @@ exports[`Drawer closable is false 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="overflow:auto;height:100%"
         >
           <div
             class="ant-drawer-body"
@@ -116,7 +115,7 @@ exports[`Drawer destroyOnClose is true 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="overflow:auto;height:100%;opacity:0;transition:opacity .3s"
+          style="opacity:0;transition:opacity .3s"
         >
           <div
             class="ant-drawer-header-no-title"
@@ -178,7 +177,6 @@ exports[`Drawer have a title 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="overflow:auto;height:100%"
         >
           <div
             class="ant-drawer-header"
@@ -245,7 +243,6 @@ exports[`Drawer render correctly 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="overflow:auto;height:100%"
         >
           <div
             class="ant-drawer-header-no-title"
@@ -369,7 +366,7 @@ exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="overflow:auto;height:100%;background-color:#08c"
+          style="background-color:#08c"
         >
           <div
             class="ant-drawer-header-no-title"
