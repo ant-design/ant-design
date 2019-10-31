@@ -34,11 +34,22 @@ import {
   Pagination,
   Steps,
   Rate,
+  Badge,
 } from 'antd';
 
-import { Search as SearchIcon, Smile, Down, Download, Left, Right } from '@ant-design/icons';
+import {
+  Search as SearchIcon,
+  Smile,
+  Down,
+  Download,
+  Left,
+  Right,
+  Minus,
+  Plus,
+} from '@ant-design/icons';
 
 const InputGroup = Input.Group;
+const ButtonGroup = Button.Group;
 const { Option } = Select;
 const { TreeNode } = Tree;
 const { Search } = Input;
@@ -163,6 +174,9 @@ class Page extends React.Component {
     tableLayout: undefined,
     currentStep: 0,
     modalVisible: false,
+
+    badgeCount: 5,
+    showBadge: true,
   };
 
   selectBefore = (
@@ -271,6 +285,25 @@ class Page extends React.Component {
     this.setState({ currentStep });
   };
 
+  // ==== Badge ====
+
+  increaseBadge = () => {
+    const badgeCount = this.state.badgeCount + 1;
+    this.setState({ badgeCount });
+  };
+
+  declineBadge = () => {
+    let badgeCount = this.state.badgeCount - 1;
+    if (badgeCount < 0) {
+      badgeCount = 0;
+    }
+    this.setState({ badgeCount });
+  };
+
+  onChangeBadge = showBadge => {
+    this.setState({ showBadge });
+  };
+  // ==== End Badge ====
   render() {
     const { currentStep } = this.state;
     return (
@@ -516,7 +549,7 @@ class Page extends React.Component {
             </Row>
             <br />
             <Row>
-              <Col span={24}>
+              <Col span={12}>
                 <h3 className="demo-block-title">Rate example:</h3>
                 <div>
                   <Rate defaultValue={2.5} />
@@ -524,6 +557,30 @@ class Page extends React.Component {
                   <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
                   supported after <a href="https://github.com/react-component/rate">rc-rate</a>{' '}
                   implement rtl support.
+                </div>
+              </Col>
+              <Col span={12}>
+                <h3 className="demo-block-title">Badge example:</h3>
+                <div>
+                  <div>
+                    <Badge count={this.state.badgeCount}>
+                      <a href="#" className="head-example" />
+                    </Badge>
+                    <ButtonGroup>
+                      <Button onClick={this.declineBadge}>
+                        <Minus />
+                      </Button>
+                      <Button onClick={this.increaseBadge}>
+                        <Plus />
+                      </Button>
+                    </ButtonGroup>
+                  </div>
+                  <div style={{ marginTop: 10 }}>
+                    <Badge dot={this.state.showBadge}>
+                      <a href="#" className="head-example" />
+                    </Badge>
+                    <Switch onChange={this.onChangeBadge} checked={this.state.showBadge} />
+                  </div>
                 </div>
               </Col>
             </Row>
@@ -730,7 +787,8 @@ ReactDOM.render(<App />, mountNode);
   margin: 0 8px 18px 8px;
   border-bottom: 1px solid #d9d9d9;
 }
-.button-demo .ant-btn {
+.button-demo .ant-btn,
+.button-demo .ant-btn-group {
   margin-right: 8px;
   margin-bottom: 12px;
 }
@@ -738,5 +796,21 @@ ReactDOM.render(<App />, mountNode);
 .button-demo .ant-btn-group > span > .ant-btn {
   margin-right: 0;
   margin-left: 0;
+}
+.head-example {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  vertical-align: middle;
+  background: #eee;
+  border-radius: 4px;
+}
+
+.ant-badge:not(.ant-badge-not-a-wrapper) {
+  margin-right: 20px;
+}
+.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
+  margin-right: 0;
+  margin-left: 20px;
 }
 ```
