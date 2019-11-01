@@ -53,11 +53,12 @@ subtitle: 导航菜单
 
 ### Menu.Item
 
-| 参数     | 说明                     | 类型    | 默认值 | 版本   |
-| -------- | ------------------------ | ------- | ------ | ------ |
-| disabled | 是否禁用                 | boolean | false  |        |
-| key      | item 的唯一标志          | string  |        |        |
-| title    | 设置收缩时展示的悬浮标题 | string  |        | 3.11.0 |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| disabled | 是否禁用 | boolean | false |  |
+| key | item 的唯一标志 | string |  |  |
+| title | 设置收缩时展示的悬浮标题 | string |  | 3.11.0 |
+| tooltipProps | 自定义收缩菜单的 tooltip 属性 | [TooltipProps](/components/tooltip) |  |  |
 
 ### Menu.SubMenu
 
