@@ -39,6 +39,7 @@ describe('Form', () => {
         pattern: /^$/,
         message: (
           <span>
+            {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
             Account does not exist,{' '}
             <a rel="noopener noreferrer" href="https://www.alipay.com/" target="_blank">
               Forgot account?

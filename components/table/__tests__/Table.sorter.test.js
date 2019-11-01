@@ -145,8 +145,8 @@ describe('Table.sorter', () => {
     const sorter3 = handleChange.mock.calls[2][2];
     expect(sorter3.column).toBe(undefined);
     expect(sorter3.order).toBe(undefined);
-    expect(sorter3.field).toBe(undefined);
-    expect(sorter3.columnKey).toBe(undefined);
+    expect(sorter3.field).toBe('name');
+    expect(sorter3.columnKey).toBe('name');
   });
 
   it('works with grouping columns in controlled mode', () => {
@@ -354,6 +354,7 @@ describe('Table.sorter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
+  // https://github.com/ant-design/ant-design/issues/19398
   it('should toggle sort state when columns with non primitive properties are put in render', () => {
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
@@ -377,6 +378,7 @@ describe('Table.sorter', () => {
             dataIndex: 'name',
             sorter: true,
             render: text => text,
+            array: ['1', '2', 3],
           },
         ];
         const { pagination } = this.state;

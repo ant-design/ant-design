@@ -4,6 +4,15 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { injectIntl } from 'react-intl';
 
 const { Dragger } = Upload;
+interface AntdIconClassifier {
+  load: Function;
+  predict: Function;
+}
+declare global {
+  interface Window {
+    antdIconClassifier: AntdIconClassifier;
+  }
+}
 
 interface PicSearcherProps {
   intl: any;
@@ -16,6 +25,7 @@ interface PicSearcherState {
   icons: Array<string>;
   fileList: Array<any>;
   error: boolean;
+  modelLoaded: boolean;
 }
 
 interface iconObject {
@@ -31,16 +41,28 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     icons: [],
     fileList: [],
     error: false,
+    modelLoaded: false,
   };
 
   componentDidMount() {
-    document.addEventListener('paste', this.onPaste);
+    this.loadModel();
     this.setState({ popoverVisible: !localStorage.getItem('disableIconTip') });
   }
 
   componentWillUnmount() {
     document.removeEventListener('paste', this.onPaste);
   }
+
+  loadModel = () => {
+    const script = document.createElement('script');
+    script.onload = async () => {
+      await window.antdIconClassifier.load();
+      this.setState({ modelLoaded: true });
+      document.addEventListener('paste', this.onPaste);
+    };
+    script.src = 'https://cdn.jsdelivr.net/gh/lewis617/antd-icon-classifier@0.0/dist/main.js';
+    document.head.appendChild(script);
+  };
 
   onPaste = (event: ClipboardEvent) => {
     const items = event.clipboardData && event.clipboardData.items;
@@ -57,9 +79,10 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
   };
 
   uploadFile = (file: File) => {
+    this.setState(() => ({ loading: true }));
     const reader: FileReader = new FileReader();
     reader.onload = () => {
-      this.downscaleImage(reader.result).then(this.predict);
+      this.toImage(reader.result).then(this.predict);
       this.setState(() => ({
         fileList: [{ uid: 1, name: file.name, status: 'done', url: reader.result }],
       }));
@@ -67,46 +90,27 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     reader.readAsDataURL(file);
   };
 
-  downscaleImage = (url: any) => {
+  toImage = (url: any) => {
     return new Promise(resolve => {
       const img = new Image();
       img.setAttribute('crossOrigin', 'anonymous');
       img.src = url;
       img.onload = function onload() {
-        const scale = Math.min(1, 300 / Math.max(img.width, img.height));
-        const canvas = document.createElement('canvas');
-        canvas.width = img.width * scale;
-        canvas.height = img.height * scale;
-        const ctx = canvas.getContext('2d');
-        (ctx as CanvasRenderingContext2D).drawImage(img, 0, 0, canvas.width, canvas.height);
-        const newDataUrl = canvas.toDataURL('image/jpeg');
-        resolve(newDataUrl);
+        resolve(img);
       };
     });
   };
 
-  predict = async (imageBase64: any) => {
-    this.setState(() => ({ loading: true }));
+  predict = (imgEl: any) => {
     try {
-      const res = await fetch(
-        '//1647796581073291.cn-shanghai.fc.aliyuncs.com/2016-08-15/proxy/cr-sh.cr-fc-predict__stable/cr-fc-predict/',
-        {
-          method: 'post',
-          body: JSON.stringify({
-            modelId: 'data_icon',
-            type: 'ic',
-            imageBase64,
-          }),
-        },
-      );
-      let icons = await res.json();
+      let icons = window.antdIconClassifier.predict(imgEl);
       if (gtag && icons.length >= 1) {
         gtag('event', 'icon', {
           event_category: 'search-by-image',
-          event_label: icons[0].class_name,
+          event_label: icons[0].className,
         });
       }
-      icons = icons.map((i: any) => ({ score: i.score, type: i.class_name.replace(/\s/g, '-') }));
+      icons = icons.map((i: any) => ({ score: i.score, type: i.className.replace(/\s/g, '-') }));
       this.setState(() => ({ icons, loading: false, error: false }));
     } catch (err) {
       this.setState(() => ({ loading: false, error: true }));
@@ -137,7 +141,15 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
     const {
       intl: { messages },
     } = this.props;
-    const { modalVisible, popoverVisible, icons, fileList, loading, error } = this.state;
+    const {
+      modalVisible,
+      popoverVisible,
+      icons,
+      fileList,
+      loading,
+      modelLoaded,
+      error,
+    } = this.state;
     return (
       <div className="icon-pic-searcher">
         <Popover
@@ -152,23 +164,33 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
           onCancel={this.toggleModal}
           footer={null}
         >
-          <Dragger
-            accept="image/jpeg, image/png"
-            listType="picture"
-            customRequest={(o: any) => this.uploadFile(o.file)}
-            fileList={fileList}
-            showUploadList={{ showPreviewIcon: false, showRemoveIcon: false }}
-          >
-            <p className="ant-upload-drag-icon">
-              <Icon type="inbox" />
-            </p>
-            <p className="ant-upload-text">
-              {messages['app.docs.components.icon.pic-searcher.upload-text']}
-            </p>
-            <p className="ant-upload-hint">
-              {messages['app.docs.components.icon.pic-searcher.upload-hint']}
-            </p>
-          </Dragger>
+          {modelLoaded || (
+            <Spin
+              spinning={!modelLoaded}
+              tip={messages['app.docs.components.icon.pic-searcher.modelloading']}
+            >
+              <div style={{ height: 100 }} />
+            </Spin>
+          )}
+          {modelLoaded && (
+            <Dragger
+              accept="image/jpeg, image/png"
+              listType="picture"
+              customRequest={(o: any) => this.uploadFile(o.file)}
+              fileList={fileList}
+              showUploadList={{ showPreviewIcon: false, showRemoveIcon: false }}
+            >
+              <p className="ant-upload-drag-icon">
+                <Icon type="inbox" />
+              </p>
+              <p className="ant-upload-text">
+                {messages['app.docs.components.icon.pic-searcher.upload-text']}
+              </p>
+              <p className="ant-upload-hint">
+                {messages['app.docs.components.icon.pic-searcher.upload-hint']}
+              </p>
+            </Dragger>
+          )}
           <Spin spinning={loading} tip={messages['app.docs.components.icon.pic-searcher.matching']}>
             <div className="icon-pic-search-result">
               {icons.length > 0 && (

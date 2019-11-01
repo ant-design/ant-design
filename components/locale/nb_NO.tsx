@@ -35,6 +35,7 @@ export default {
     removeFile: 'Fjern fil',
     uploadError: 'Feil ved opplastning',
     previewFile: 'Forhåndsvisning',
+    downloadFile: 'Last ned fil',
   },
   Empty: {
     description: 'Ingen data',

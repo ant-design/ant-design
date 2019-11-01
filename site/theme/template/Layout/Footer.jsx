@@ -73,7 +73,7 @@ class Footer extends React.Component {
           {
             title: 'Scaffolds',
             description: <FormattedMessage id="app.footer.scaffolds" />,
-            url: 'https://scaffolds.ant.design',
+            url: 'https://scaffold.ant.design',
             openExternal: true,
           },
           {
@@ -86,6 +86,12 @@ class Footer extends React.Component {
             title: 'Dva',
             description: <FormattedMessage id="app.footer.dva" />,
             url: 'https://dvajs.com',
+            openExternal: true,
+          },
+          {
+            title: 'Remax',
+            description: <FormattedMessage id="app.footer.remax" />,
+            url: 'https://remaxjs.org/',
             openExternal: true,
           },
           {
@@ -142,7 +148,7 @@ class Footer extends React.Component {
             icon: <Icon type="zhihu" style={{ color: '#0084ff' }} />,
             title: 'SEE Conf',
             description: <FormattedMessage id="app.footer.seeconf" />,
-            url: 'http://zhuanlan.zhihu.com/xtech',
+            url: 'https://seeconf.antfin.com/',
             openExternal: true,
           },
           {
@@ -401,7 +407,8 @@ class Footer extends React.Component {
         columns={this.getColumns()}
         bottom={
           <>
-            Made with <span style={{ color: '#fff' }}>❤</span> by{' '}
+            Made with <span style={{ color: '#fff' }}>❤</span> by
+            {/* eslint-disable-next-line react/jsx-curly-brace-presence */}{' '}
             <a target="_blank" rel="noopener noreferrer" href="https://xtech.antfin.com">
               <FormattedMessage id="app.footer.company" />
             </a>

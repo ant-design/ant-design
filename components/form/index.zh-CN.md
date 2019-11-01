@@ -179,7 +179,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 | --- | --- | --- | --- | --- |
 | id | 必填输入控件唯一标志。支持嵌套式的[写法](https://github.com/react-component/form/pull/48)。 | string |  |  |
 | options.getValueFromEvent | 可以把 onChange 的参数（如 event）转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#option-object) |  |
-| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定(注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量)) |  |  |  |
+| options.initialValue | 子节点的初始值，类型、可选值均由子节点决定([注意：由于内部校验时使用 `===` 判断是否变化，建议使用变量缓存所需设置的值而非直接使用字面量](https://github.com/ant-design/ant-design/issues/4093)) |  |  |  |
 | options.normalize | 转换默认的 value 给控件，[一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | - |  |
 | options.preserve | 即便字段不再使用，也保留该字段的值 | boolean | - | 3.12.0 |
 | options.rules | 校验规则，参考下方文档 | object\[] |  |  |

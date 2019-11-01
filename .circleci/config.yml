@@ -184,6 +184,7 @@ jobs:
           command: npm test -- -w 1 -u
           environment:
             LIB_DIR: dist
+            REACT: 15
 
   test_lib_15:
     <<: *container_config
@@ -196,6 +197,7 @@ jobs:
           command: npm test -- -w 1 -u
           environment:
             LIB_DIR: lib
+            REACT: 15
 
   test_es_15:
     <<: *container_config
@@ -208,6 +210,7 @@ jobs:
           command: npm test -- -w 1 -u
           environment:
             LIB_DIR: es
+            REACT: 15
 
   test_dom_15:
     <<: *container_config
@@ -216,7 +219,10 @@ jobs:
       - checkout
       - *attach_workspace
       - *install_react
-      - run: npm test -- -w 1 -u
+      - run:
+          command: npm test -- -w 1 -u
+          environment:
+            REACT: 15
 
   test_node_15:
     <<: *container_config
@@ -225,7 +231,10 @@ jobs:
       - checkout
       - *attach_workspace
       - *install_react
-      - run: npm run test-node -- -w 1 -u
+      - run:
+          command: npm run test-node -- -w 1 -u
+          environment:
+            REACT: 15
 
   check_metadata:
     <<: *container_config

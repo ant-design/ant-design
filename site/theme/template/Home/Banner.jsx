@@ -5,7 +5,7 @@ import ScrollParallax from 'rc-scroll-anim/lib/ScrollParallax';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, useIntl } from 'react-intl';
 import GitHubButton from 'react-github-button';
-import { Button } from 'antd';
+import { Button, Divider, Icon } from 'antd';
 import BannerImage from './BannerImage';
 import * as utils from '../utils';
 
@@ -67,13 +67,43 @@ const Banner = ({ isMobile }) => {
             {!isMobile && (
               <GitHubButton
                 style={{ marginLeft: 16 }}
-                key="github-button"
                 size="large"
                 type="stargazers"
                 namespace="ant-design"
                 repo="ant-design"
               />
             )}
+          </div>
+          <div
+            key="promote"
+            className="banner-promote"
+            style={{
+              width: isZhCN ? 412 : 522,
+            }}
+          >
+            <Divider>
+              <FormattedMessage id="app.home.recommend" />
+            </Divider>
+            <a
+              href="https://www.yuque.com/?chInfo=ch_antd"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => {
+                if (window.gtag) {
+                  window.gtag('event', '点击', {
+                    event_category: '首页推广',
+                    event_label: 'https://www.yuque.com/?chInfo=ch_antd',
+                  });
+                }
+              }}
+            >
+              <img
+                src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                alt="yuque logo"
+              />
+              <FormattedMessage id="app.home.recommend.yuque" />
+              <Icon type="right" style={{ marginLeft: 6, fontSize: 12, opacity: 0.6 }} />
+            </a>
           </div>
         </QueueAnim>
         {!isMobile && (

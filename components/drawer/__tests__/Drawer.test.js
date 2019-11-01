@@ -59,4 +59,23 @@ describe('Drawer', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('style/drawerStyle/headerStyle/bodyStyle should work', () => {
+    const style = {
+      backgroundColor: '#08c',
+    };
+    const wrapper = render(
+      <Drawer
+        visible
+        style={style}
+        drawerStyle={style}
+        headerStyle={style}
+        bodyStyle={style}
+        getContainer={false}
+      >
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

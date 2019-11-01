@@ -4,6 +4,9 @@ import { Store } from './createStore';
 import { RadioChangeEvent } from '../radio';
 import { CheckboxChangeEvent } from '../checkbox';
 import { PaginationConfig } from '../pagination';
+import { tuple } from '../_util/type';
+
+const ColumnFixedPlacements = tuple('left', 'right');
 
 // eslint-disable-next-line import/prefer-default-export
 export { PaginationConfig } from '../pagination';
@@ -18,7 +21,7 @@ export type ColumnFilterItem = {
 export interface FilterDropdownProps {
   prefixCls?: string;
   setSelectedKeys?: (selectedKeys: string[]) => void;
-  selectedKeys?: string[];
+  selectedKeys?: React.Key[];
   confirm?: () => void;
   clearFilters?: (selectedKeys: string[]) => void;
   filters?: ColumnFilterItem[];
@@ -50,7 +53,7 @@ export interface ColumnProps<T> {
   colSpan?: number;
   width?: string | number;
   className?: string;
-  fixed?: boolean | ('left' | 'right');
+  fixed?: boolean | (typeof ColumnFixedPlacements)[number];
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filteredValue?: any[];
   sortOrder?: SortOrder | boolean;
@@ -158,7 +161,7 @@ export interface WithStore {
   setCheckboxPropsCache: (cache: CheckboxPropsCache) => void;
 }
 
-export interface TableProps<T> extends WithStore {
+export interface TableProps<T> {
   prefixCls?: string;
   dropdownPrefixCls?: string;
   rowSelection?: TableRowSelection<T>;
@@ -215,6 +218,8 @@ export interface TableProps<T> extends WithStore {
   sortDirections?: SortOrder[];
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
 }
+
+export type InternalTableProps<T> = TableProps<T> & WithStore;
 
 export interface TableStateFilters {
   [key: string]: string[];
@@ -285,16 +290,16 @@ export interface FilterMenuProps<T> {
   locale: TableLocale;
   selectedKeys: string[];
   column: ColumnProps<T>;
-  confirmFilter: (column: ColumnProps<T>, selectedKeys: string[]) => any;
+  confirmFilter: (column: ColumnProps<T>, selectedKeys: React.Key[]) => any;
   prefixCls: string;
   dropdownPrefixCls: string;
   getPopupContainer?: GetPopupContainer;
 }
 
 export interface FilterMenuState<T> {
-  selectedKeys: string[];
+  selectedKeys: React.Key[];
   valueKeys: { [name: string]: string };
-  keyPathOfSelectedItem: { [key: string]: string };
+  keyPathOfSelectedItem: { [key: string]: React.Key[] };
   visible?: boolean;
   prevProps: FilterMenuProps<T>;
 }

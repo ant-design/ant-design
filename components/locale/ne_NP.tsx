@@ -36,6 +36,7 @@ export default {
     removeFile: 'फाइल हटाउनुहोस्',
     uploadError: 'अप्लोडमा समस्या भयो',
     previewFile: 'फाइल पूर्वावलोकन गर्नुहोस्',
+    downloadFile: 'डाउनलोड फाइल',
   },
   Empty: {
     description: 'डाटा छैन',

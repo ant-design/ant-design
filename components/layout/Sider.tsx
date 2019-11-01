@@ -52,6 +52,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultCollapsed?: boolean;
   reverseArrow?: boolean;
   onCollapse?: (collapsed: boolean, type: CollapseType) => void;
+  zeroWidthTriggerStyle?: React.CSSProperties;
   trigger?: React.ReactNode;
   width?: number | string;
   collapsedWidth?: number | string;
@@ -186,6 +187,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       style,
       width,
       collapsedWidth,
+      zeroWidthTriggerStyle,
       ...others
     } = this.props;
     const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
@@ -196,6 +198,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       'breakpoint',
       'onBreakpoint',
       'siderHook',
+      'zeroWidthTriggerStyle',
     ]);
     const rawWidth = this.state.collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
@@ -208,6 +211,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
           className={`${prefixCls}-zero-width-trigger ${prefixCls}-zero-width-trigger-${
             reverseArrow ? 'right' : 'left'
           }`}
+          style={zeroWidthTriggerStyle}
         >
           <Icon type="bars" />
         </span>
