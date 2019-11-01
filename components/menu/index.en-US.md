@@ -57,7 +57,7 @@ More layouts with navigation: [Layout](/components/layout).
 | disabled | Whether menu item is disabled | boolean | false |  |
 | key | Unique ID of the menu item | string |  |  |
 | title | Set display title for collapsed item | string |  | 3.11.0 |
-| tooltipProps | The tooltip props | [TooltipProps](/components/tooltip) |  |  |
+| tooltipProps | The tooltip props | [TooltipProps](/components/tooltip) |  | 3.25.0 |
 
 ### Menu.SubMenu
 
