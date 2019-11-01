@@ -3,7 +3,6 @@ order: 4
 title:
   en-US: Custom selection
   zh-CN: 自定义选择项
-only: true
 ---
 
 ## zh-CN

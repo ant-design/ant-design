@@ -11,11 +11,14 @@ import {
   GetRowKey,
   TableLocale,
   SelectionItem,
+  TransformColumns,
 } from '../interface';
 import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
 
 const EMPTY_LIST: any[] = [];
+
+// TODO: warning if use ajax!!!
 export const SELECTION_ALL = 'SELECT_ALL';
 export const SELECTION_INVERT = 'SELECT_INVERT';
 
@@ -32,7 +35,7 @@ type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SEL
 export default function useSelection<RecordType>(
   rowSelection: TableRowSelection<RecordType> | undefined,
   config: UseSelectionConfig<RecordType>,
-): [(columns: ColumnsType<RecordType>) => ColumnsType<RecordType>, Set<Key>] {
+): [TransformColumns<RecordType>, Set<Key>] {
   const {
     selectedRowKeys,
     getCheckboxProps,

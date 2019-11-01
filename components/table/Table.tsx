@@ -6,12 +6,13 @@ import Pagination, { PaginationConfig } from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
-import { TableRowSelection, GetRowKey } from './interface';
+import { TableRowSelection, GetRowKey, ColumnsType } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
+import useFilterSorter from './hooks/useFilterSorter';
 
 const EMPTY_LIST: any[] = [];
 
-export interface TableProps<RecordType> extends RcTableProps<RecordType> {
+export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, 'transformColumns'> {
   dataSource?: RcTableProps<RecordType>['data'];
   pagination?: false | PaginationConfig;
 
@@ -28,8 +29,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     rowSelection,
     rowKey,
     rowClassName,
+    columns,
   } = props;
-  const mergedData: RecordType[] = dataSource || EMPTY_LIST;
+  const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
@@ -43,7 +45,14 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     return (record: RecordType) => (record as any)[rowKey as string];
   }, [rowKey]);
 
-  const [getRecordByKey] = useLazyKVMap(mergedData, getRowKey);
+  const [getRecordByKey] = useLazyKVMap(rawData, getRowKey);
+
+  // ======================== Filter / Sorter ========================
+  const [transformFilterSorterColumns, mergedData] = useFilterSorter<RecordType>({
+    prefixCls,
+    columns: columns || [],
+    data: rawData,
+  });
 
   // ========================== Pagination ==========================
   // TODO: handle this
@@ -58,7 +67,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }, [mergedData, mergedPagination.current, mergedPagination.pageSize]);
 
   // ========================== Selections ==========================
-  const [transformColumns, selectedKeySet] = useSelection(rowSelection, {
+  const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(rowSelection, {
     prefixCls,
     data: mergedData,
     pageData,
@@ -83,6 +92,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   // ============================ Render ============================
+  const transformColumns = React.useCallback(
+    (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
+      return transformSelectionColumns(transformFilterSorterColumns(innerColumns));
+    },
+    [transformFilterSorterColumns, transformSelectionColumns],
+  );
+
   let paginationNode;
   if (pagination !== false) {
     paginationNode = <Pagination className={`${prefixCls}-pagination`} {...mergedPagination} />;

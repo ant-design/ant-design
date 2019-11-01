@@ -1,7 +1,8 @@
-import { ColumnsType, GetRowKey } from 'rc-table/lib/interface';
+import { GetRowKey, ColumnGroupType, ColumnType as RcColumnType } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 
-export { ColumnsType, GetRowKey };
+// eslint-disable-next-line import/prefer-default-export
+export { GetRowKey };
 
 export type Key = React.Key;
 
@@ -23,6 +24,26 @@ export interface TableLocale {
   expand?: string;
   collapse?: string;
 }
+
+export type SortOrder = 'descend' | 'ascend';
+
+export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
+
+export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
+  // TODO: Doc this update
+  sorter?:
+    | boolean
+    | CompareFn<RecordType>
+    | {
+        compare: CompareFn<RecordType>;
+        /** Config multiple sorter order priority */
+        multiple: number;
+      };
+  sortOrder?: SortOrder;
+  sortDirections?: SortOrder[];
+}
+
+export type ColumnsType<RecordType> = (ColumnGroupType<RecordType> | ColumnType<RecordType>)[];
 
 export interface SelectionItem {
   key: string;
@@ -53,3 +74,7 @@ export interface TableRowSelection<T> {
   selectWay?: TableSelectWay;
   columnTitle?: string | React.ReactNode;
 }
+
+export type TransformColumns<RecordType> = (
+  columns: ColumnsType<RecordType>,
+) => ColumnsType<RecordType>;

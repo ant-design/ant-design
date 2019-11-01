@@ -3,6 +3,7 @@ order: 6
 title:
   en-US: Filter and sorter
   zh-CN: 筛选和排序
+only: true
 ---
 
 ## zh-CN

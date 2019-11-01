@@ -3,6 +3,8 @@
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @table-header-icon-color: #bfbfbf;
+@table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
+@table-header-sort-hover-bg: darken(@table-header-sort-bg, 5%);
 
 .@{table-prefix-cls}-wrapper {
   .clearfix;
@@ -26,6 +28,7 @@
   td {
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
+    position: relative;
   }
 
   // ============================ Header ============================
@@ -94,13 +97,59 @@
 
       .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(10px);
-
         color: @table-header-icon-color;
 
         &:hover {
-          color: darken(@table-header-icon-color, 10%);
+          color: @table-header-icon-color-hover;
         }
       }
+    }
+  }
+
+  // ============================ Sorter ============================
+  th&-column-sort {
+    transition: all 0.3s;
+    background: @table-header-sort-bg;
+    cursor: pointer;
+
+    &:hover {
+      background: @table-header-sort-hover-bg;
+    }
+  }
+
+  &-column-sorters {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &-column-sorter {
+    margin-left: @padding-xs;
+    color: @table-header-icon-color;
+    margin-top: 0.15em;
+    margin-bottom: -0.15em;
+
+    &-full {
+      margin-top: -0.2em;
+      margin-bottom: 0;
+    }
+
+    &-inner {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-up,
+    &-down {
+      .iconfont-size-under-12px(11px);
+
+      &.active {
+        color: @primary-color;
+      }
+    }
+
+    &-up + &-down {
+      margin-top: -0.42em;
     }
   }
 
