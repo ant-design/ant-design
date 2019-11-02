@@ -98,7 +98,7 @@ describe('Table.pagination', () => {
       .simulate('click');
     expect(scrollToSpy).toHaveBeenCalledTimes(1);
 
-    wrapper.find('Trigger').simulate('click');
+    wrapper.find('.ant-select').simulate('click');
     wrapper
       .find('MenuItem')
       .find('li')
