@@ -79,6 +79,7 @@ export interface UploadProps {
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
   data?: object | ((file: UploadFile) => object);
+  method?: 'POST' | 'PUT' | 'post' | 'put';
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;

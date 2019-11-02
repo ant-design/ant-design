@@ -133,7 +133,7 @@
     "rc-tree": "~2.1.0",
     "rc-tree-select": "~2.9.1",
     "rc-trigger": "^2.6.2",
-    "rc-upload": "~2.8.0",
+    "rc-upload": "~2.9.1",
     "rc-util": "^4.10.0",
     "react-lazy-load": "^3.0.13",
     "react-lifecycles-compat": "^3.0.4",
