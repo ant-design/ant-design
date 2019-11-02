@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
 import PageHeader from '..';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('PageHeader', () => {
@@ -87,5 +88,15 @@ describe('PageHeader', () => {
 
     wrapper.setProps({ onBack: () => {} });
     expect(wrapper.find('.ant-breadcrumb')).toHaveLength(1);
+  });
+
+  it('pageHeader should render correctly int RTL direction', () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <PageHeader title="Page Title" />
+      </ConfigProvider>,
+    );
+
+    expect(render(wrapper)).toMatchSnapshot();
   });
 });
