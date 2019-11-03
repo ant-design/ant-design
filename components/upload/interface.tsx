@@ -41,6 +41,7 @@ export interface UploadFile<T = any> {
   linkProps?: any;
   type: string;
   preview?: string;
+  xhr?: T;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {
