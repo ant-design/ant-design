@@ -62,10 +62,11 @@ When uploading state change, it returns:
    ```js
    {
       uid: 'uid',      // unique identifier, negative is recommend, to prevent interference with internal generated id
-      name: 'xx.png'   // file name
+      name: 'xx.png',   // file name
       status: 'done', // options：uploading, done, error, removed
       response: '{"status": "success"}', // response from server
       linkProps: '{"download": "image"}', // additional html props of file link
+      xhr: 'XMLHttpRequest{ ... }', // XMLHttpRequest Header
    }
    ```
 
