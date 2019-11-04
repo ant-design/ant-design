@@ -84,6 +84,8 @@ const eslintrc = {
     'no-restricted-globals': 0,
     'max-classes-per-file': 0,
     'react/static-property-placement': 0,
+    'jest/no-test-callback': 0,
+    'jest/expect-expect': 0,
   },
   globals: {
     gtag: true,
