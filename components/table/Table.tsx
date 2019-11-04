@@ -8,7 +8,8 @@ import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import { TableRowSelection, GetRowKey, ColumnsType } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
-import useFilterSorter from './hooks/useFilterSorter';
+import useSorter from './hooks/useSorter';
+import useFilter from './hooks/useFilter';
 
 const EMPTY_LIST: any[] = [];
 
@@ -47,11 +48,18 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const [getRecordByKey] = useLazyKVMap(rawData, getRowKey);
 
-  // ======================== Filter / Sorter ========================
-  const [transformFilterSorterColumns, mergedData] = useFilterSorter<RecordType>({
+  // ============================ Sorter =============================
+  const [transformSorterColumns, sortedData] = useSorter<RecordType>({
     prefixCls,
     columns: columns || [],
     data: rawData,
+  });
+
+  // ============================ Filter ============================
+  const [transformFilterColumns, mergedData] = useFilter<RecordType>({
+    prefixCls,
+    columns: columns || [],
+    data: sortedData,
   });
 
   // ========================== Pagination ==========================
@@ -94,9 +102,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ============================ Render ============================
   const transformColumns = React.useCallback(
     (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
-      return transformSelectionColumns(transformFilterSorterColumns(innerColumns));
+      return transformSelectionColumns(
+        transformFilterColumns(transformSorterColumns(innerColumns)),
+      );
     },
-    [transformFilterSorterColumns, transformSelectionColumns],
+    [transformSorterColumns, transformSelectionColumns],
   );
 
   let paginationNode;

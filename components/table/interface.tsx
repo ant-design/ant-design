@@ -29,7 +29,14 @@ export type SortOrder = 'descend' | 'ascend';
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
+export interface ColumnFilterItem {
+  text: React.ReactNode;
+  value: string;
+  children?: ColumnFilterItem[];
+}
+
 export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
+  // Sorter
   // TODO: Doc this update
   sorter?:
     | boolean
@@ -42,6 +49,9 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
+
+  // Filter
+  filters?: ColumnFilterItem[];
 }
 
 export type ColumnsType<RecordType> = (ColumnGroupType<RecordType> | ColumnType<RecordType>)[];

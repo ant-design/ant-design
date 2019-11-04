@@ -2,19 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { CaretDown, CaretUp } from '@ant-design/icons';
 import { TransformColumns, ColumnsType, Key, ColumnType, SortOrder, CompareFn } from '../interface';
-
-const JOIN_KEY = String(Math.random());
-
-function getColumnKey<RecordType>(column: ColumnType<RecordType>, defaultKey: string): Key {
-  if ('key' in column && column.key !== undefined) {
-    return column.key;
-  }
-  if (column.dataIndex) {
-    return Array.isArray(column.dataIndex) ? column.dataIndex.join(JOIN_KEY) : column.dataIndex;
-  }
-
-  return defaultKey;
-}
+import { getColumnKey, getColumnPos } from '../util';
 
 function getMultiplePriority<RecordType>(column: ColumnType<RecordType>): number | false {
   if (typeof column.sorter === 'object' && typeof column.sorter.multiple === 'number') {
@@ -58,7 +46,7 @@ function collectSortStates<RecordType>(
   let sortStates: SortState<RecordType>[] = [];
 
   columns.forEach((column, index) => {
-    const columnPos = pos ? `${pos}-${index}` : `${index}`;
+    const columnPos = getColumnPos(index, pos);
 
     if ('children' in column) {
       sortStates = [...sortStates, ...collectSortStates(column.children, init, columnPos)];
@@ -86,7 +74,7 @@ function collectSortStates<RecordType>(
   return sortStates;
 }
 
-function injectFilter<RecordType>(
+function injectSorter<RecordType>(
   prefixCls: string,
   columns: ColumnsType<RecordType>,
   sorterSates: SortState<RecordType>[],
@@ -94,7 +82,7 @@ function injectFilter<RecordType>(
   pos?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
-    const columnPos = pos ? `${pos}-${index}` : `${index}`;
+    const columnPos = getColumnPos(index, pos);
     let newColumn: ColumnsType<RecordType>[number] = column;
 
     if ('sorter' in newColumn) {
@@ -162,7 +150,7 @@ function injectFilter<RecordType>(
     if ('children' in newColumn) {
       newColumn = {
         ...newColumn,
-        children: injectFilter(
+        children: injectSorter(
           prefixCls,
           newColumn.children,
           sorterSates,
@@ -176,7 +164,7 @@ function injectFilter<RecordType>(
   });
 }
 
-interface FilterSorterConfig<RecordType> {
+interface SorterConfig<RecordType> {
   prefixCls: string;
   columns: ColumnsType<RecordType>;
   data: RecordType[];
@@ -186,7 +174,7 @@ export default function useFilterSorter<RecordType>({
   prefixCls,
   columns,
   data,
-}: FilterSorterConfig<RecordType>): [TransformColumns<RecordType>, RecordType[]] {
+}: SorterConfig<RecordType>): [TransformColumns<RecordType>, RecordType[]] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(columns, true),
   );
@@ -234,7 +222,7 @@ export default function useFilterSorter<RecordType>({
 
   const transformColumns = React.useCallback(
     (innerColumns: ColumnsType<RecordType>) =>
-      injectFilter(prefixCls, innerColumns, mergedSorterStates, triggerSorter),
+      injectSorter(prefixCls, innerColumns, mergedSorterStates, triggerSorter),
     [mergedSorterStates],
   );
 
