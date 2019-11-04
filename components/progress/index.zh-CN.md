@@ -20,7 +20,7 @@ title: Progress
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| type | 类型，可选 `line` `circle` `dashboard` | string | `line` |  |
+| type | 类型，可选 `line` `circle` `dashboard` `steps` | string | `line` |  |
 | format | 内容的模板函数 | function(percent, successPercent) | `percent => percent + '%'` |  |
 | percent | 百分比 | number | 0 |  |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true |  |
@@ -52,3 +52,10 @@ title: Progress
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | 3.13.1 |
 | gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 360 | number | 0 | 3.13.1 |
 | gapPosition | 仪表盘进度条缺口位置 | Enum{ 'top', 'bottom', 'left', 'right' } | `top` | 3.13.1 |
+
+### `type="steps"`
+
+| 属性       | 说明         | 类型   | 默认值 | 版本 |
+| ---------- | ------------ | ------ | ------ | ---- |
+| stepsCount | 总共步数     | number | 3      | 4.0  |
+| stepWidth  | 每一步的宽度 | number | 14     | 4.0  |

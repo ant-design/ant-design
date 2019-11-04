@@ -8,6 +8,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import Line from './Line';
 import Circle from './Circle';
+import Steps from './Steps';
 import { validProgress } from './utils';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
@@ -35,6 +36,8 @@ export interface ProgressProps {
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
+  stepsCount?: number;
+  stepWidth?: number;
 }
 
 export default class Progress extends React.Component<ProgressProps> {
@@ -60,6 +63,8 @@ export default class Progress extends React.Component<ProgressProps> {
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,
+    stepsCount: PropTypes.number,
+    stepWidth: PropTypes.number,
   };
 
   getPercentNumber() {
@@ -119,6 +124,13 @@ export default class Progress extends React.Component<ProgressProps> {
           {progressInfo}
         </Circle>
       );
+    } else if (type === 'steps') {
+      const { stepWidth = 14, stepsCount = 3 } = this.props;
+      progress = (
+        <Steps {...this.props} prefixCls={prefixCls} stepWidth={stepWidth} stepsCount={stepsCount}>
+          {progressInfo}
+        </Steps>
+      );
     }
 
     const classString = classNames(
@@ -146,6 +158,8 @@ export default class Progress extends React.Component<ProgressProps> {
           'strokeColor',
           'strokeLinecap',
           'percent',
+          'stepsCount',
+          'stepWidth',
         ])}
         className={classString}
       >
