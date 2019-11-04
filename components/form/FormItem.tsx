@@ -48,6 +48,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    labelAlign: PropTypes.string,
     labelCol: PropTypes.object,
     help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
     validateStatus: PropTypes.oneOf(ValidateStatuses),
