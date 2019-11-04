@@ -16,7 +16,7 @@ export interface AvatarProps {
   /** Srcset of image avatar */
   srcSet?: string;
   /** Type of the Icon to be used in avatar */
-  icon?: string;
+  icon?: string | React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -137,7 +137,11 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     if (src && isImgExist) {
       children = <img src={src} srcSet={srcSet} onError={this.handleImgLoadError} alt={alt} />;
     } else if (icon) {
-      children = <Icon type={icon} />;
+      if (typeof icon === 'string') {
+        children = <Icon type={icon} />;
+      } else {
+        children = icon;
+      }
     } else {
       const childrenNode = this.avatarChildren;
       if (childrenNode || scale !== 1) {

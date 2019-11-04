@@ -417,7 +417,32 @@
     padding-right: @input-padding-horizontal-base + @input-affix-width;
   }
 
-  &.@{inputClass}-affix-wrapper-with-clear-btn .@{inputClass}:not(:last-child) {
+  &.@{inputClass}-affix-wrapper-input-with-clear-btn .@{inputClass}:not(:last-child) {
     padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
+  }
+
+  &.@{inputClass}-affix-wrapper-textarea-with-clear-btn .@{inputClass} {
+    padding-right: 22px;
+  }
+}
+
+.clear-icon() {
+  color: @disabled-color;
+  font-size: @font-size-sm;
+  // https://github.com/ant-design/ant-design/pull/18151
+  // https://codesandbox.io/s/wizardly-sun-u10br
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: @text-color-secondary;
+  }
+
+  &:active {
+    color: @text-color;
+  }
+
+  + i {
+    margin-left: 6px;
   }
 }

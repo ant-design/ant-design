@@ -442,8 +442,11 @@ describe('Transfer', () => {
     const style = {
       backgroundColor: 'red',
     };
-    const listStyle = {
+    const leftStyle = {
       backgroundColor: 'blue',
+    };
+    const rightStyle = {
+      backgroundColor: 'red',
     };
     const operationStyle = {
       backgroundColor: 'yellow',
@@ -453,7 +456,7 @@ describe('Transfer', () => {
       <Transfer
         {...listCommonProps}
         style={style}
-        listStyle={listStyle}
+        listStyle={({ direction }) => (direction === 'left' ? leftStyle : rightStyle)}
         operationStyle={operationStyle}
       />,
     );
@@ -465,7 +468,7 @@ describe('Transfer', () => {
 
     expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
-    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
   });
 

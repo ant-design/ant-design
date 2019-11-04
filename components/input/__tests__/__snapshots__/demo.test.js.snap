@@ -853,19 +853,31 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/allowClear.md correctly 1`] = `
-<span
-  class="ant-input-affix-wrapper"
->
-  <input
-    class="ant-input"
-    placeholder="input with clear icon"
-    type="text"
-    value=""
-  />
+<div>
   <span
-    class="ant-input-suffix"
-  />
-</span>
+    class="ant-input-affix-wrapper"
+  >
+    <input
+      class="ant-input"
+      placeholder="input with clear icon"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    />
+  </span>
+  <br />
+  <br />
+  <span
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+  >
+    <textarea
+      class="ant-input"
+      placeholder="textarea with clear icon"
+    />
+  </span>
+</div>
 `;
 
 exports[`renders ./components/input/demo/autosize-textarea.md correctly 1`] = `

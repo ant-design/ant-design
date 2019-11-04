@@ -14,11 +14,12 @@ title:
 Image, Icon and letter are supported, and the latter two kinds of avatar can have custom colors and background colors.
 
 ```jsx
-import { Avatar } from 'antd';
+import { Avatar, Icon } from 'antd';
 
 ReactDOM.render(
   <div>
     <Avatar icon="user" />
+    <Avatar icon={<Icon type="user" />} />
     <Avatar>U</Avatar>
     <Avatar>USER</Avatar>
     <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />

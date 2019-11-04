@@ -5,22 +5,560 @@ exports[`Input allowClear should change type when click 1`] = `
   allowClear={true}
   type="text"
 >
-  <span
-    className="ant-input-affix-wrapper"
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value="111"
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value="111"
+      />
+      <span
+        className="ant-input-suffix"
+      >
+        <Icon
+          className="ant-input-clear-icon"
+          onClick={[Function]}
+          role="button"
+          theme="filled"
+          type="close-circle"
+        >
+          <LocaleReceiver
+            componentName="Icon"
+          >
+            <i
+              aria-label="icon: close-circle"
+              className="anticon anticon-close-circle ant-input-clear-icon"
+              onClick={[Function]}
+              role="button"
+              tabIndex={-1}
+            >
+              <IconReact
+                className=""
+                type="close-circle-fill"
+              >
+                <svg
+                  aria-hidden="true"
+                  className=""
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  key="svg-close-circle"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    key="svg-close-circle-svg-0"
+                  />
+                </svg>
+              </IconReact>
+            </i>
+          </LocaleReceiver>
+        </Icon>
+      </span>
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input allowClear should change type when click 2`] = `
+<Input
+  allowClear={true}
+  type="text"
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
+<Input
+  allowClear={true}
+  defaultValue={null}
+  type="text"
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    defaultValue={null}
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
+<Input
+  allowClear={true}
+  type="text"
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
+<Input
+  allowClear={true}
+  defaultValue=""
+  type="text"
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    defaultValue=""
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 1`] = `
+<Input
+  allowClear={true}
+  type="text"
+  value={null}
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+        value={null}
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 2`] = `
+<Input
+  allowClear={true}
+  type="text"
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input allowClear should not show icon if value is undefined, null or empty string 3`] = `
+<Input
+  allowClear={true}
+  type="text"
+  value=""
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+        value=""
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    type="text"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper"
+    >
+      <input
+        className="ant-input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        style={null}
+        type="text"
+        value=""
+      />
+      <span
+        className="ant-input-suffix"
+      />
+    </span>
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input should support maxLength 1`] = `
+<Input
+  maxLength={3}
+  type="text"
+>
+  <ClearableLabeledInput
+    element={
+      <input
+        className="ant-input"
+        maxLength={3}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    handleReset={[Function]}
+    inputType="input"
+    maxLength={3}
+    prefixCls="ant-input"
+    type="text"
+    value=""
   >
     <input
       className="ant-input"
+      maxLength={3}
       onChange={[Function]}
       onKeyDown={[Function]}
-      style={null}
       type="text"
-      value="111"
+      value=""
     />
-    <span
-      className="ant-input-suffix"
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input.Search should support suffix 1`] = `
+<Search
+  enterButton={false}
+  suffix="suffix"
+>
+  <Input
+    className="ant-input-search"
+    onChange={[Function]}
+    onPressEnter={[Function]}
+    prefixCls="ant-input"
+    suffix={
+      Array [
+        null,
+        <Icon
+          className="ant-input-search-icon"
+          onClick={[Function]}
+          type="search"
+        />,
+      ]
+    }
+    type="text"
+  >
+    <ClearableLabeledInput
+      className="ant-input-search"
+      element={
+        <input
+          className="ant-input ant-input-search"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          type="text"
+        />
+      }
+      handleReset={[Function]}
+      inputType="input"
+      onChange={[Function]}
+      onPressEnter={[Function]}
+      prefixCls="ant-input"
+      suffix={
+        Array [
+          null,
+          <Icon
+            className="ant-input-search-icon"
+            onClick={[Function]}
+            type="search"
+          />,
+        ]
+      }
+      type="text"
+      value=""
     >
+      <span
+        className="ant-input-search ant-input-affix-wrapper"
+      >
+        <input
+          className="ant-input"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          style={null}
+          type="text"
+          value=""
+        />
+        <span
+          className="ant-input-suffix"
+        >
+          <Icon
+            className="ant-input-search-icon"
+            key="searchIcon"
+            onClick={[Function]}
+            type="search"
+          >
+            <LocaleReceiver
+              componentName="Icon"
+            >
+              <i
+                aria-label="icon: search"
+                className="anticon anticon-search ant-input-search-icon"
+                onClick={[Function]}
+                tabIndex={-1}
+              >
+                <IconReact
+                  className=""
+                  type="search-o"
+                >
+                  <svg
+                    aria-hidden="true"
+                    className=""
+                    data-icon="search"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    key="svg-search"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                      key="svg-search-svg-0"
+                    />
+                  </svg>
+                </IconReact>
+              </i>
+            </LocaleReceiver>
+          </Icon>
+        </span>
+      </span>
+    </ClearableLabeledInput>
+  </Input>
+</Search>
+`;
+
+exports[`TextArea allowClear should change type when click 1`] = `
+<TextArea
+  allowClear={true}
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value="111"
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        style={null}
+        value="111"
+      >
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
+        >
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value="111"
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
       <Icon
-        className="ant-input-clear-icon"
+        className="ant-input-textarea-clear-icon"
         onClick={[Function]}
         role="button"
         theme="filled"
@@ -31,7 +569,7 @@ exports[`Input allowClear should change type when click 1`] = `
         >
           <i
             aria-label="icon: close-circle"
-            className="anticon anticon-close-circle ant-input-clear-icon"
+            className="anticon anticon-close-circle ant-input-textarea-clear-icon"
             onClick={[Function]}
             role="button"
             tabIndex={-1}
@@ -61,288 +599,399 @@ exports[`Input allowClear should change type when click 1`] = `
         </LocaleReceiver>
       </Icon>
     </span>
-  </span>
-</Input>
+  </ClearableLabeledInput>
+</TextArea>
 `;
 
-exports[`Input allowClear should change type when click 2`] = `
-<Input
+exports[`TextArea allowClear should change type when click 2`] = `
+<TextArea
   allowClear={true}
-  type="text"
 >
-  <span
-    className="ant-input-affix-wrapper"
-  >
-    <input
-      className="ant-input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={null}
-      type="text"
-      value=""
-    />
-    <span
-      className="ant-input-suffix"
-    />
-  </span>
-</Input>
-`;
-
-exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
-<Input
-  allowClear={true}
-  defaultValue={null}
-  type="text"
->
-  <span
-    className="ant-input-affix-wrapper"
-  >
-    <input
-      className="ant-input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={null}
-      type="text"
-      value=""
-    />
-    <span
-      className="ant-input-suffix"
-    />
-  </span>
-</Input>
-`;
-
-exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
-<Input
-  allowClear={true}
-  type="text"
->
-  <span
-    className="ant-input-affix-wrapper"
-  >
-    <input
-      className="ant-input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={null}
-      type="text"
-      value=""
-    />
-    <span
-      className="ant-input-suffix"
-    />
-  </span>
-</Input>
-`;
-
-exports[`Input allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
-<Input
-  allowClear={true}
-  defaultValue=""
-  type="text"
->
-  <span
-    className="ant-input-affix-wrapper"
-  >
-    <input
-      className="ant-input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={null}
-      type="text"
-      value=""
-    />
-    <span
-      className="ant-input-suffix"
-    />
-  </span>
-</Input>
-`;
-
-exports[`Input allowClear should not show icon if value is undefined, null or empty string 1`] = `
-<Input
-  allowClear={true}
-  type="text"
-  value={null}
->
-  <span
-    className="ant-input-affix-wrapper"
-  >
-    <input
-      className="ant-input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={null}
-      type="text"
-      value=""
-    />
-    <span
-      className="ant-input-suffix"
-    />
-  </span>
-</Input>
-`;
-
-exports[`Input allowClear should not show icon if value is undefined, null or empty string 2`] = `
-<Input
-  allowClear={true}
-  type="text"
->
-  <span
-    className="ant-input-affix-wrapper"
-  >
-    <input
-      className="ant-input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={null}
-      type="text"
-      value=""
-    />
-    <span
-      className="ant-input-suffix"
-    />
-  </span>
-</Input>
-`;
-
-exports[`Input allowClear should not show icon if value is undefined, null or empty string 3`] = `
-<Input
-  allowClear={true}
-  type="text"
-  value=""
->
-  <span
-    className="ant-input-affix-wrapper"
-  >
-    <input
-      className="ant-input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      style={null}
-      type="text"
-      value=""
-    />
-    <span
-      className="ant-input-suffix"
-    />
-  </span>
-</Input>
-`;
-
-exports[`Input should support maxLength 1`] = `
-<Input
-  maxLength={3}
-  type="text"
->
-  <input
-    className="ant-input"
-    maxLength={3}
-    onChange={[Function]}
-    onKeyDown={[Function]}
-    type="text"
-    value=""
-  />
-</Input>
-`;
-
-exports[`Input.Search should support suffix 1`] = `
-<Search
-  enterButton={false}
-  suffix="suffix"
->
-  <Input
-    className="ant-input-search"
-    onChange={[Function]}
-    onPressEnter={[Function]}
-    prefixCls="ant-input"
-    suffix={
-      Array [
-        null,
-        <Icon
-          className="ant-input-search-icon"
-          onClick={[Function]}
-          type="search"
-        />,
-      ]
-    }
-    type="text"
-  >
-    <span
-      className="ant-input-search ant-input-affix-wrapper"
-    >
-      <input
-        className="ant-input"
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <ResizableTextArea
+        allowClear={true}
         onChange={[Function]}
         onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
         style={null}
-        type="text"
+        value=""
+      >
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
+        >
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value=""
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
+    </span>
+  </ClearableLabeledInput>
+</TextArea>
+`;
+
+exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 1`] = `
+<TextArea
+  allowClear={true}
+  defaultValue={null}
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    defaultValue={null}
+    element={
+      <ResizableTextArea
+        allowClear={true}
+        defaultValue={null}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        defaultValue={null}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        style={null}
+        value=""
+      >
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
+        >
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value=""
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
+    </span>
+  </ClearableLabeledInput>
+</TextArea>
+`;
+
+exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 2`] = `
+<TextArea
+  allowClear={true}
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        style={null}
+        value=""
+      >
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
+        >
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value=""
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
+    </span>
+  </ClearableLabeledInput>
+</TextArea>
+`;
+
+exports[`TextArea allowClear should not show icon if defaultValue is undefined, null or empty string 3`] = `
+<TextArea
+  allowClear={true}
+  defaultValue=""
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    defaultValue=""
+    element={
+      <ResizableTextArea
+        allowClear={true}
+        defaultValue=""
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        defaultValue=""
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        style={null}
+        value=""
+      >
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
+        >
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value=""
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
+    </span>
+  </ClearableLabeledInput>
+</TextArea>
+`;
+
+exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 1`] = `
+<TextArea
+  allowClear={true}
+  value={null}
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        value={null}
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        style={null}
+        value=""
+      >
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
+        >
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value=""
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
+    </span>
+  </ClearableLabeledInput>
+</TextArea>
+`;
+
+exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 2`] = `
+<TextArea
+  allowClear={true}
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        style={null}
+        value=""
+      >
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
+        >
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value=""
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
+    </span>
+  </ClearableLabeledInput>
+</TextArea>
+`;
+
+exports[`TextArea allowClear should not show icon if value is undefined, null or empty string 3`] = `
+<TextArea
+  allowClear={true}
+  value=""
+>
+  <ClearableLabeledInput
+    allowClear={true}
+    element={
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
         value=""
       />
-      <span
-        className="ant-input-suffix"
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
+  >
+    <span
+      className="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
+    >
+      <ResizableTextArea
+        allowClear={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+        style={null}
+        value=""
       >
-        <Icon
-          className="ant-input-search-icon"
-          key="searchIcon"
-          onClick={[Function]}
-          type="search"
+        <ResizeObserver
+          disabled={true}
+          onResize={[Function]}
         >
-          <LocaleReceiver
-            componentName="Icon"
-          >
-            <i
-              aria-label="icon: search"
-              className="anticon anticon-search ant-input-search-icon"
-              onClick={[Function]}
-              tabIndex={-1}
-            >
-              <IconReact
-                className=""
-                type="search-o"
-              >
-                <svg
-                  aria-hidden="true"
-                  className=""
-                  data-icon="search"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  key="svg-search"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                    key="svg-search-svg-0"
-                  />
-                </svg>
-              </IconReact>
-            </i>
-          </LocaleReceiver>
-        </Icon>
-      </span>
+          <textarea
+            className="ant-input"
+            onChange={[Function]}
+            onKeyDown={[Function]}
+            style={Object {}}
+            value=""
+          />
+        </ResizeObserver>
+      </ResizableTextArea>
     </span>
-  </Input>
-</Search>
+  </ClearableLabeledInput>
+</TextArea>
 `;
 
 exports[`TextArea should support disabled 1`] = `
 <TextArea
   disabled={true}
 >
-  <ResizeObserver
+  <ClearableLabeledInput
     disabled={true}
-    onResize={[Function]}
+    element={
+      <ResizableTextArea
+        disabled={true}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    prefixCls="ant-input"
+    value=""
   >
-    <textarea
-      className="ant-input ant-input-disabled"
+    <ResizableTextArea
       disabled={true}
       onChange={[Function]}
       onKeyDown={[Function]}
-      style={Object {}}
-    />
-  </ResizeObserver>
+      prefixCls="ant-input"
+      value=""
+    >
+      <ResizeObserver
+        disabled={true}
+        onResize={[Function]}
+      >
+        <textarea
+          className="ant-input ant-input-disabled"
+          disabled={true}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          style={Object {}}
+          value=""
+        />
+      </ResizeObserver>
+    </ResizableTextArea>
+  </ClearableLabeledInput>
 </TextArea>
 `;
 
@@ -350,17 +999,42 @@ exports[`TextArea should support maxLength 1`] = `
 <TextArea
   maxLength={10}
 >
-  <ResizeObserver
-    disabled={true}
-    onResize={[Function]}
+  <ClearableLabeledInput
+    element={
+      <ResizableTextArea
+        maxLength={10}
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        prefixCls="ant-input"
+      />
+    }
+    handleReset={[Function]}
+    inputType="text"
+    maxLength={10}
+    prefixCls="ant-input"
+    value=""
   >
-    <textarea
-      className="ant-input"
+    <ResizableTextArea
       maxLength={10}
       onChange={[Function]}
       onKeyDown={[Function]}
-      style={Object {}}
-    />
-  </ResizeObserver>
+      prefixCls="ant-input"
+      value=""
+    >
+      <ResizeObserver
+        disabled={true}
+        onResize={[Function]}
+      >
+        <textarea
+          className="ant-input"
+          maxLength={10}
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          style={Object {}}
+          value=""
+        />
+      </ResizeObserver>
+    </ResizableTextArea>
+  </ClearableLabeledInput>
 </TextArea>
 `;
