@@ -40,6 +40,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
         multiple: number;
       };
   sortOrder?: SortOrder;
+  defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
 }
 

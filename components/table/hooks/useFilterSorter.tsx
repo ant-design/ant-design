@@ -1,17 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import get from 'lodash/get';
 import { CaretDown, CaretUp } from '@ant-design/icons';
 import { TransformColumns, ColumnsType, Key, ColumnType, SortOrder, CompareFn } from '../interface';
 
 const JOIN_KEY = String(Math.random());
-
-function toArray<T>(data: T | T[] | undefined | null): T[] {
-  if (data === null || data === undefined) {
-    return [];
-  }
-  return Array.isArray(data) ? data : [data];
-}
 
 function getColumnKey<RecordType>(column: ColumnType<RecordType>, defaultKey: string): Key {
   if ('key' in column && column.key !== undefined) {
@@ -29,16 +21,6 @@ function getMultiplePriority<RecordType>(column: ColumnType<RecordType>): number
     return column.sorter.multiple;
   }
   return false;
-}
-
-function defaultSortFn<T>(a: T, b: T): number {
-  if (a < b) {
-    return -1;
-  }
-  if (a > b) {
-    return 1;
-  }
-  return 0;
 }
 
 function getSortFunction<RecordType>(
@@ -70,6 +52,7 @@ interface SortState<RecordType> {
 
 function collectSortStates<RecordType>(
   columns: ColumnsType<RecordType>,
+  init: boolean,
   pos?: string,
 ): SortState<RecordType>[] {
   let sortStates: SortState<RecordType>[] = [];
@@ -78,14 +61,25 @@ function collectSortStates<RecordType>(
     const columnPos = pos ? `${pos}-${index}` : `${index}`;
 
     if ('children' in column) {
-      sortStates = [...sortStates, ...collectSortStates(column.children, columnPos)];
-    } else if ('sorter' in column && (columns as ColumnType<RecordType>).sortOrder) {
-      sortStates.push({
-        column,
-        key: getColumnKey(column, columnPos),
-        multiplePriority: getMultiplePriority(column),
-        sortOrder: column.sortOrder!,
-      });
+      sortStates = [...sortStates, ...collectSortStates(column.children, init, columnPos)];
+    } else if ('sorter' in column) {
+      if (column.sortOrder) {
+        // Controlled
+        sortStates.push({
+          column,
+          key: getColumnKey(column, columnPos),
+          multiplePriority: getMultiplePriority(column),
+          sortOrder: column.sortOrder!,
+        });
+      } else if (init && column.defaultSortOrder) {
+        // Default sorter
+        sortStates.push({
+          column,
+          key: getColumnKey(column, columnPos),
+          multiplePriority: getMultiplePriority(column),
+          sortOrder: column.defaultSortOrder!,
+        });
+      }
     }
   });
 
@@ -193,10 +187,12 @@ export default function useFilterSorter<RecordType>({
   columns,
   data,
 }: FilterSorterConfig<RecordType>): [TransformColumns<RecordType>, RecordType[]] {
-  const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>([]);
+  const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
+    collectSortStates(columns, true),
+  );
 
   const mergedSorterStates = React.useMemo(() => {
-    const collectedStates = collectSortStates(columns);
+    const collectedStates = collectSortStates(columns, false);
 
     // Return if not controlled
     if (!collectedStates.length) {
@@ -253,23 +249,18 @@ export default function useFilterSorter<RecordType>({
       for (let i = 0; i < innerSorterStates.length; i += 1) {
         const sorterState = innerSorterStates[i];
         const {
-          column: { sorter, dataIndex },
+          column: { sorter },
           sortOrder,
         } = sorterState;
 
-        let compareResult: number;
         const compareFn = getSortFunction(sorter);
 
-        if (compareFn === false) {
-          const value1 = get(record1, toArray<string | number>(dataIndex));
-          const value2 = get(record2, toArray<string | number>(dataIndex));
-          compareResult = defaultSortFn(value1, value2);
-        } else {
-          compareResult = compareFn(record1, record2);
-        }
+        if (compareFn) {
+          const compareResult = compareFn(record1, record2);
 
-        if (compareResult !== 0) {
-          return sortOrder === 'ascend' ? compareResult : -compareResult;
+          if (compareResult !== 0) {
+            return sortOrder === 'ascend' ? compareResult : -compareResult;
+          }
         }
       }
 
