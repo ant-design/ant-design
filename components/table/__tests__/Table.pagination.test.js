@@ -79,14 +79,32 @@ describe('Table.pagination', () => {
     expect(wrapper.find('.ant-pagination.mini')).toHaveLength(1);
   });
 
-  // TODO
   it('should scroll to first row when page change', () => {
-    const wrapper = mount(createTable({ scroll: { y: 20 } }));
+    const wrapper = mount(
+      createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
+    );
+    const scrollToSpy = jest.spyOn(
+      wrapper
+        .find('Table')
+        .first()
+        .instance(),
+      'scrollToFirstRow',
+    );
+    expect(scrollToSpy).toHaveBeenCalledTimes(0);
 
     wrapper
       .find('Pager')
       .last()
       .simulate('click');
+    expect(scrollToSpy).toHaveBeenCalledTimes(1);
+
+    wrapper.find('.ant-select').simulate('click');
+    wrapper
+      .find('MenuItem')
+      .find('li')
+      .last()
+      .simulate('click');
+    expect(scrollToSpy).toHaveBeenCalledTimes(2);
   });
 
   it('fires change event', () => {
