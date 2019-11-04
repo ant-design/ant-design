@@ -29,11 +29,11 @@ timeline: true
 - 🐞 修复 Table 改变每页大小时不滚动到第一行的问题。[#19474](https://github.com/ant-design/ant-design/pull/19474) [@MrHeer](https://github.com/MrHeer)
 - 💄 修复 Button.Group 下图标按钮没有对齐的问题。[#19453](https://github.com/ant-design/ant-design/pull/19453)
 - 💄 修复 Checkbox 对勾在 Chrome 下有时没有居中的问题。[#19452](https://github.com/ant-design/ant-design/pull/19452)
-- 💄 修复 Menu margin 样式重合的问题。[#19476](https://github.com/ant-design/ant-design/pull/19476) [@wangweijun0418](https://github.com/wangweijun0418)
+- 💄 修复 Menu `margin` 样式重合的问题。[#19476](https://github.com/ant-design/ant-design/pull/19476) [@wangweijun0418](https://github.com/wangweijun0418)
 - 💄 移除 Select 中没有必要的样式。[#19510](https://github.com/ant-design/ant-design/pull/19510) [@jacklee814](https://github.com/jacklee814)
 - 💄 新增 less 变量 `@input-number-hover-border-color`, `@select-background`。[#19546](https://github.com/ant-design/ant-design/pull/19546)
 - 🌍 国际化添加缺失的 `downloadFile` 支持。[#19361](https://github.com/ant-design/ant-design/pull/19361) [@DemetriusHR](https://github.com/DemetriusHR)
-- 🌍 添加丢失的泰文国际化 (th_TH)。[#19378](https://github.com/ant-design/ant-design/pull/19378) [@anawinwz](https://github.com/anawinwz)
+- 🇹🇭 添加丢失的泰文国际化 (th_TH)。[#19378](https://github.com/ant-design/ant-design/pull/19378) [@anawinwz](https://github.com/anawinwz)
 - Typescript
   - 🐞 修复 Upload 丢失的 `preview` 定义。[#19496](https://github.com/ant-design/ant-design/pull/19496) [@chnliquan](https://github.com/chnliquan)
 

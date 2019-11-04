@@ -29,11 +29,11 @@ timeline: true
 - 🐞 Fix table does not automatically scroll to the top when change page size. [#19474](https://github.com/ant-design/ant-design/pull/19474) [@MrHeer](https://github.com/MrHeer)
 - 💄 Fix Icon Button not aligned well in Button.Group. [#19453](https://github.com/ant-design/ant-design/pull/19453)
 - 💄 Fix Checkbox not aligned center of some cases in Chrome. [#19452](https://github.com/ant-design/ant-design/pull/19452)
-- 💄 Fix Menu margin collapsed issue. [#19476](https://github.com/ant-design/ant-design/pull/19476) [@wangweijun0418](https://github.com/wangweijun0418)
+- 💄 Fix Menu `margin` collapsed issue. [#19476](https://github.com/ant-design/ant-design/pull/19476) [@wangweijun0418](https://github.com/wangweijun0418)
 - 💄 Remove useless style in Select. [#19510](https://github.com/ant-design/ant-design/pull/19510) [@jacklee814](https://github.com/jacklee814)
 - 💄 Added less variables `@input-number-hover-border-color`, `@select-background`. [#19546](https://github.com/ant-design/ant-design/pull/19546)
 - 🌍 Add `downloadFile` in all locale files. [#19361](https://github.com/ant-design/ant-design/pull/19361) [@DemetriusHR](https://github.com/DemetriusHR)
-- 🌍 Add missing translations in Thai (th_TH) locale. [#19378](https://github.com/ant-design/ant-design/pull/19378) [@anawinwz](https://github.com/anawinwz)
+- 🇹🇭 Add missing translations in Thai (th_TH) locale. [#19378](https://github.com/ant-design/ant-design/pull/19378) [@anawinwz](https://github.com/anawinwz)
 - Typescript
   - 🐞 Add Upload missing `preview` type. [#19496](https://github.com/ant-design/ant-design/pull/19496) [@chnliquan](https://github.com/chnliquan)
 
