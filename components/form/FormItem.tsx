@@ -14,7 +14,9 @@ import FormContext, { FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
-export type FormLabelAlign = 'left' | 'right';
+const FormLabelAligns = tuple('left', 'right');
+
+export type FormLabelAlign = (typeof FormLabelAligns)[number];
 
 export interface FormItemProps {
   prefixCls?: string;
