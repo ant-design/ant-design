@@ -1775,7 +1775,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
     <span
       class="ant-pagination-slash"
     >
-      ／
+      /
     </span>
     5
   </li>

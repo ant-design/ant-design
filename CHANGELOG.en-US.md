@@ -15,6 +15,28 @@ timeline: true
 
 ---
 
+## 3.25.0
+
+`2019-11-04`
+
+- 🌟 Transfer `listStyle` support function callback. [#19330](https://github.com/ant-design/ant-design/pull/19330) [@lxnxbnq](https://github.com/lxnxbnq)
+- 🌟 `icon` of Avatar support ReactNode. [#19368](https://github.com/ant-design/ant-design/pull/19368)
+- 🌟 TextArea support `allowClear`. [#19310](https://github.com/ant-design/ant-design/pull/19310) [@Rustin-Liu](https://github.com/Rustin-Liu)
+- 🌟 Upload support to custom `method` for request. [#19533](https://github.com/ant-design/ant-design/pull/19533)
+- 🌟 Upload `onChange` add `XMLHttpRequest` as additional param. [#19539](https://github.com/ant-design/ant-design/pull/19539) [@hahmadia](https://github.com/hahmadia)
+- 🐞 Fix WeekPicker `defaultPickerValue` not works. [#19141](https://github.com/ant-design/ant-design/pull/19141) [@NightFox7](https://github.com/NightFox7)
+- 🐞 Fix DatePicker `onEsc is not a function` TypeError. [#19474](https://github.com/ant-design/ant-design/pull/19474)
+- 🐞 Fix table does not automatically scroll to the top when change page size. [#19474](https://github.com/ant-design/ant-design/pull/19474) [@MrHeer](https://github.com/MrHeer)
+- 💄 Fix Icon Button not aligned well in Button.Group. [#19453](https://github.com/ant-design/ant-design/pull/19453)
+- 💄 Fix Checkbox not aligned center of some cases in Chrome. [#19452](https://github.com/ant-design/ant-design/pull/19452)
+- 💄 Fix Menu `margin` collapsed issue. [#19476](https://github.com/ant-design/ant-design/pull/19476) [@wangweijun0418](https://github.com/wangweijun0418)
+- 💄 Remove useless style in Select. [#19510](https://github.com/ant-design/ant-design/pull/19510) [@jacklee814](https://github.com/jacklee814)
+- 💄 Added less variables `@input-number-hover-border-color`, `@select-background`. [#19546](https://github.com/ant-design/ant-design/pull/19546)
+- 🌍 Add `downloadFile` in all locale files. [#19361](https://github.com/ant-design/ant-design/pull/19361) [@DemetriusHR](https://github.com/DemetriusHR)
+- 🇹🇭 Add missing translations in Thai (th_TH) locale. [#19378](https://github.com/ant-design/ant-design/pull/19378) [@anawinwz](https://github.com/anawinwz)
+- Typescript
+  - 🐞 Add Upload missing `preview` type. [#19496](https://github.com/ant-design/ant-design/pull/19496) [@chnliquan](https://github.com/chnliquan)
+
 ## 3.24.3
 
 `2019-10-26`
