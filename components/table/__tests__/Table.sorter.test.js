@@ -696,4 +696,13 @@ describe('Table.sorter', () => {
       mount(<Demo />);
     }).not.toThrow();
   });
+
+  it('should support defaultOrder in Column', () => {
+    const wrapper = mount(
+      <Table dataSource={[{ key: '1', age: 1 }]}>
+        <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
+      </Table>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });
