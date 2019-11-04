@@ -284,7 +284,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
     const { columns, sortColumn, sortOrder } = this.state;
     if (this.getSortOrderColumns(columns).length > 0) {
       const sortState = this.getSortStateFromColumns(columns);
-      if (sortState.sortColumn !== sortColumn || sortState.sortOrder !== sortOrder) {
+      if (!isSameColumn(sortState.sortColumn, sortColumn) || sortState.sortOrder !== sortOrder) {
         this.setState(sortState);
       }
     }
