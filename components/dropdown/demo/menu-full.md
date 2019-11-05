@@ -8,11 +8,15 @@ debug: true
 
 ## zh-CN
 
-此演示需要注意查看 Dropdown 内 Menu 的样式是否正常。[#19150](https://github.com/ant-design/ant-design/pull/19150)
+此演示需要注意去掉 Reset 样式后查看 Dropdown 内 Menu 的样式是否正常。
+
+[#19150](https://github.com/ant-design/ant-design/pull/19150)
 
 ## en-US
 
-This demo was created for debugging Menu styles inside Dropdown. [#19150](https://github.com/ant-design/ant-design/pull/19150)
+This demo was created for debugging Menu styles inside Dropdown.
+
+[#19150](https://github.com/ant-design/ant-design/pull/19150)
 
 ```jsx
 import { Menu, Dropdown, Icon } from 'antd';
@@ -21,6 +25,10 @@ const { SubMenu } = Menu;
 
 const menu = (
   <Menu selectedKeys={['1']} openKeys={['sub1']}>
+    <Menu.ItemGroup key="group" title="Item Group">
+      <Menu.Item key="01">Option 0</Menu.Item>
+      <Menu.Item key="02">Option 0</Menu.Item>
+    </Menu.ItemGroup>
     <SubMenu
       key="sub1"
       title={
