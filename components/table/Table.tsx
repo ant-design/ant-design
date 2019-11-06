@@ -10,6 +10,7 @@ import { TableRowSelection, GetRowKey, ColumnsType } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
+import useTitleColumns from './hooks/useTitleColumns';
 
 const EMPTY_LIST: any[] = [];
 
@@ -49,7 +50,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(rawData, getRowKey);
 
   // ============================ Sorter =============================
-  const [transformSorterColumns, sortedData] = useSorter<RecordType>({
+  const [transformSorterColumns, sortedData, sorterTitleProps] = useSorter<RecordType>({
     prefixCls,
     columns: columns || [],
     data: rawData,
@@ -61,6 +62,15 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     columns: columns || [],
     data: sortedData,
   });
+
+  // ============================ Column ============================
+  const columnTitleProps = React.useMemo(
+    () => ({
+      ...sorterTitleProps,
+    }),
+    [sorterTitleProps],
+  );
+  const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
   // TODO: handle this
@@ -102,11 +112,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ============================ Render ============================
   const transformColumns = React.useCallback(
     (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
-      return transformSelectionColumns(
-        transformFilterColumns(transformSorterColumns(innerColumns)),
+      return transformTitleColumns(
+        transformSelectionColumns(transformFilterColumns(transformSorterColumns(innerColumns))),
       );
     },
-    [transformSorterColumns, transformSelectionColumns],
+    [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
   );
 
   let paginationNode;

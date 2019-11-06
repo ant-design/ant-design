@@ -1,13 +1,27 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { TransformColumns, ColumnsType, ColumnType } from '../interface';
-import { getColumnPos } from '../util';
+import { FilterFilled } from '@ant-design/icons';
+import { TransformColumns, ColumnsType, ColumnType, ColumnTitleProps } from '../interface';
+import { getColumnPos, renderColumnTitle } from '../util';
 
-function addFilterTitle<RecordType>(column: ColumnType<RecordType>): ColumnType<RecordType> {
-  const { title } = column;
+function addFilterTitle<RecordType>(
+  prefixCls: string,
+  column: ColumnType<RecordType>,
+): ColumnType<RecordType> {
   return {
     ...column,
-    title: () => {},
+    title: (renderProps: ColumnTitleProps<RecordType>) => {
+      return (
+        <div className={classNames(`${prefixCls}-column-filter`)}>
+          <span className={`${prefixCls}-column-title`}>
+            {renderColumnTitle(column.title, renderProps)}
+          </span>
+          <span role="button" className={classNames(`${prefixCls}-filter-trigger`)}>
+            <FilterFilled />
+          </span>
+        </div>
+      );
+    },
   };
 }
 
@@ -20,8 +34,9 @@ function injectFilter<RecordType>(
     const columnPos = getColumnPos(index, pos);
 
     if ('filters' in column) {
-      return addFilterTitle(column);
+      return addFilterTitle(prefixCls, column);
     } else if ('filterDropdown' in column) {
+      return addFilterTitle(prefixCls, column);
     }
 
     return column;

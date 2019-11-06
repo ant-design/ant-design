@@ -86,7 +86,6 @@ function injectSorter<RecordType>(
   prefixCls: string,
   columns: ColumnsType<RecordType>,
   sorterSates: SortState<RecordType>[],
-  columnTitleSorterProps: ColumnTitleProps<RecordType>,
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
   pos?: string,
 ): ColumnsType<RecordType> {
@@ -117,15 +116,10 @@ function injectSorter<RecordType>(
 
       newColumn = {
         ...newColumn,
-        className: classNames(newColumn.className, `${prefixCls}-column-sort`),
+        className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sorterOrder }),
         title: (renderProps: ColumnTitleProps<RecordType>) => (
           <div className={`${prefixCls}-column-sorters`}>
-            <span className={`${prefixCls}-column-title`}>
-              {renderColumnTitle(column.title, {
-                ...renderProps,
-                ...columnTitleSorterProps,
-              })}
-            </span>
+            <span>{renderColumnTitle(column.title, renderProps)}</span>
             <span
               className={classNames(`${prefixCls}-column-sorter`, {
                 [`${prefixCls}-column-sorter-full`]: upNode && downNode,
@@ -156,6 +150,8 @@ function injectSorter<RecordType>(
             }
           };
 
+          cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+
           return cell;
         },
       };
@@ -168,7 +164,6 @@ function injectSorter<RecordType>(
           prefixCls,
           newColumn.children,
           sorterSates,
-          columnTitleSorterProps,
           triggerSorter,
           columnPos,
         ),
@@ -189,7 +184,11 @@ export default function useFilterSorter<RecordType>({
   prefixCls,
   columns,
   data,
-}: SorterConfig<RecordType>): [TransformColumns<RecordType>, RecordType[]] {
+}: SorterConfig<RecordType>): [
+  TransformColumns<RecordType>,
+  RecordType[],
+  ColumnTitleProps<RecordType>,
+] {
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
     collectSortStates(columns, true),
   );
@@ -252,13 +251,7 @@ export default function useFilterSorter<RecordType>({
 
   const transformColumns = React.useCallback(
     (innerColumns: ColumnsType<RecordType>) =>
-      injectSorter(
-        prefixCls,
-        innerColumns,
-        mergedSorterStates,
-        columnTitleSorterProps,
-        triggerSorter,
-      ),
+      injectSorter(prefixCls, innerColumns, mergedSorterStates, triggerSorter),
     [mergedSorterStates],
   );
 
@@ -292,5 +285,5 @@ export default function useFilterSorter<RecordType>({
     });
   }, [data, mergedSorterStates]);
 
-  return [transformColumns, sortedData];
+  return [transformColumns, sortedData, columnTitleSorterProps];
 }
