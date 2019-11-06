@@ -1,6 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import Form from '..';
 import mountTest from '../../../tests/shared/mountTest';
 
@@ -11,6 +11,17 @@ describe('Form', () => {
   it('hideRequiredMark', () => {
     const wrapper = mount(<Form hideRequiredMark />);
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBe(true);
+  });
+
+  it('Form.Item should support data-*、aria-* and custom attribute', () => {
+    const wrapper = render(
+      <Form>
+        <Form.Item data-text="123" aria-hidden="true" cccc="bbbb">
+          text
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 
   describe('wrappedComponentRef', () => {
