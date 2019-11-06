@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
+import omit from 'omit.js';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
 import Icon from '../icon';
@@ -400,7 +401,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, style, className } = this.props;
+    const { prefixCls: customizePrefixCls, style, className, ...restProps } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const children = this.renderChildren(prefixCls);
     const itemClassName = {
@@ -410,7 +411,25 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     };
 
     return (
-      <Row className={classNames(itemClassName)} style={style} key="row">
+      <Row
+        className={classNames(itemClassName)}
+        style={style}
+        {...omit(restProps, [
+          'id', // It is deprecated because `htmlFor` is its replacement.
+          'htmlFor',
+          'label',
+          'labelAlign',
+          'labelCol',
+          'wrapperCol',
+          'help',
+          'extra',
+          'validateStatus',
+          'hasFeedback',
+          'required',
+          'colon',
+        ])}
+        key="row"
+      >
         {children}
       </Row>
     );

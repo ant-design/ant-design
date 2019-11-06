@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    aria-hidden="true"
+    cccc="bbbb"
+    class="ant-row ant-form-item"
+    data-text="123"
+  >
+    <div
+      class="ant-col ant-form-item-control-wrapper"
+    >
+      <div
+        class="ant-form-item-control"
+      >
+        <span
+          class="ant-form-item-children"
+        >
+          text
+        </span>
+      </div>
+    </div>
+  </div>
+</form>
+`;
