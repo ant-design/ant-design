@@ -121,6 +121,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   renderDropDown = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -128,14 +129,21 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       trigger,
       disabled,
       getPopupContainer,
+      overlayClassName,
     } = this.props;
 
     const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
     const child = React.Children.only(children) as React.ReactElement<any>;
 
     const dropdownTrigger = React.cloneElement(child, {
-      className: classNames(child.props.className, `${prefixCls}-trigger`),
+      className: classNames(child.props.className, `${prefixCls}-trigger`, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      }),
       disabled,
+    });
+
+    const overlayClassNameCustomized = classNames(overlayClassName, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const triggerActions = disabled ? [] : trigger;
@@ -148,6 +156,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       <RcDropdown
         alignPoint={alignPoint}
         {...this.props}
+        overlayClassName={overlayClassNameCustomized}
         prefixCls={prefixCls}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
         transitionName={this.getTransitionName()}
