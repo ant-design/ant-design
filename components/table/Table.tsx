@@ -249,7 +249,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
   constructor(props: InternalTableProps<T>) {
     super(props);
 
-    const { expandedRowRender, columns: columnsProp = [] } = props;
+    const { expandedRowRender, columns: columnsProp } = props;
 
     warning(
       !('columnsPageRange' in props || 'columnsPageSize' in props),
@@ -258,7 +258,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
         'fixed columns instead, see: https://u.ant.design/fixed-columns.',
     );
 
-    if (expandedRowRender && columnsProp.some(({ fixed }) => !!fixed)) {
+    if (expandedRowRender && (columnsProp || []).some(({ fixed }) => !!fixed)) {
       warning(
         false,
         'Table',
@@ -269,7 +269,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
     const columns = columnsProp || normalizeColumns(props.children as React.ReactChildren);
 
     this.state = {
-      ...this.getDefaultSortOrder(columns),
+      ...this.getDefaultSortOrder(columns || []),
       // 减少状态
       filters: getFiltersFromColumns<T>(),
       pagination: this.getDefaultPagination(props),
@@ -284,7 +284,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
     const { columns, sortColumn, sortOrder } = this.state;
     if (this.getSortOrderColumns(columns).length > 0) {
       const sortState = this.getSortStateFromColumns(columns);
-      if (sortState.sortColumn !== sortColumn || sortState.sortOrder !== sortOrder) {
+      if (!isSameColumn(sortState.sortColumn, sortColumn) || sortState.sortOrder !== sortOrder) {
         this.setState(sortState);
       }
     }
@@ -358,10 +358,9 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
   getDefaultSortOrder(columns?: ColumnProps<T>[]) {
     const definedSortState = this.getSortStateFromColumns(columns);
 
-    const defaultSortedColumn = flatFilter(
-      columns || [],
-      (column: ColumnProps<T>) => column.defaultSortOrder != null,
-    )[0];
+    const defaultSortedColumn = flatFilter(columns || [], (column: ColumnProps<T>) => {
+      return column.defaultSortOrder != null;
+    })[0];
 
     if (defaultSortedColumn && !definedSortState.sortColumn) {
       return {
@@ -807,7 +806,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
         current: this.state.pagination.current,
       };
     }
-    this.setState(newState, () => this.scrollToFirstRow());
+    this.setState(newState, this.scrollToFirstRow);
 
     this.props.store.setState({
       selectionDirty: false,
@@ -834,7 +833,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
       pageSize,
       current,
     };
-    this.setState({ pagination: nextPagination });
+    this.setState({ pagination: nextPagination }, this.scrollToFirstRow);
 
     const { onChange } = this.props;
     if (onChange) {
@@ -878,7 +877,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
 
     // Controlled
     if (this.getSortOrderColumns().length === 0) {
-      this.setState(newState, () => this.scrollToFirstRow());
+      this.setState(newState, this.scrollToFirstRow);
     }
 
     const { onChange } = this.props;

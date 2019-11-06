@@ -232,6 +232,7 @@ describe('Typography', () => {
           wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ESC });
         },
         onChange => {
+          // eslint-disable-next-line
           expect(onChange).not.toHaveBeenCalled();
         },
       );

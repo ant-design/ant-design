@@ -370,12 +370,12 @@ exports[`Icon support render svg as component 1`] = `
 </i>
 `;
 
-exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
+exports[`Icon.createFromIconfontCN() extraCommonProps should works fine and can be overwritten 1`] = `
 <div
   class="icons-list"
 >
   <i
-    class="anticon"
+    class="anticon bcd"
   >
     <svg
       aria-hidden="true"
@@ -391,7 +391,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    class="anticon"
+    class="anticon abc"
   >
     <svg
       aria-hidden="true"
@@ -407,7 +407,62 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    class="anticon"
+    class="anticon efg"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-twitter"
+      />
+    </svg>
+  </i>
+</div>
+`;
+
+exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
+<div
+  class="icons-list"
+>
+  <i
+    class="anticon abc"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-tuichu"
+      />
+    </svg>
+  </i>
+  <i
+    class="anticon abc"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-facebook"
+      />
+    </svg>
+  </i>
+  <i
+    class="anticon abc"
   >
     <svg
       aria-hidden="true"

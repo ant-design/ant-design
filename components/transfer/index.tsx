@@ -49,7 +49,7 @@ export interface TransferProps {
   onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
-  listStyle: (style: ListStyle) => React.CSSProperties | React.CSSProperties;
+  listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
   titles?: string[];
   operations?: string[];
@@ -353,7 +353,7 @@ class Transfer extends React.Component<TransferProps, any> {
   }
 
   handleListStyle = (
-    listStyle: (style: ListStyle) => React.CSSProperties | React.CSSProperties,
+    listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties,
     direction: TransferDirection,
   ) => {
     if (typeof listStyle === 'function') {

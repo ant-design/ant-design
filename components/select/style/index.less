@@ -72,7 +72,7 @@
   &-selection {
     display: block;
     box-sizing: border-box;
-    background-color: @component-background;
+    background-color: @select-background;
     border: @border-width-base @border-style-base @select-border-color;
     // strange align fix for chrome but works
     // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
@@ -380,10 +380,6 @@
     .@{select-prefix-cls}-arrow {
       top: @input-height-base / 2;
     }
-  }
-
-  &-allow-clear &-selection--single &-selection-selected-value {
-    padding-right: 16px;
   }
 
   &-allow-clear &-selection--multiple &-selection__rendered,

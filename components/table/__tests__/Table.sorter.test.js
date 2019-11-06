@@ -676,4 +676,33 @@ describe('Table.sorter', () => {
 
     expect(renderedNames(wrapper)).toEqual(['Brown', 'Green', 'Mike', 'Alex', 'Petter', 'Zoe']);
   });
+
+  // https://github.com/ant-design/ant-design/issues/19443
+  it('should not being inifinite loop when using Table.Column with sortOrder', () => {
+    class Demo extends React.Component {
+      componentDidMount() {
+        this.setState({});
+      }
+
+      render() {
+        return (
+          <Table dataSource={[]}>
+            <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
+          </Table>
+        );
+      }
+    }
+    expect(() => {
+      mount(<Demo />);
+    }).not.toThrow();
+  });
+
+  it('should support defaultOrder in Column', () => {
+    const wrapper = mount(
+      <Table dataSource={[{ key: '1', age: 1 }]}>
+        <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
+      </Table>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

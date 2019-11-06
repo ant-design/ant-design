@@ -192,6 +192,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
                 className={timePickerCls}
                 placeholder={locale.timePickerLocale.placeholder}
                 transitionName="slide-up"
+                onEsc={() => {}}
               />
             ) : null;
 
