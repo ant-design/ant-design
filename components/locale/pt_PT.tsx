@@ -36,6 +36,7 @@ export default {
     removeFile: 'Remover',
     uploadError: 'Erro ao carregar',
     previewFile: 'Pré-visualizar',
+    downloadFile: 'Baixar',
   },
   Empty: {
     description: 'Sem resultados',

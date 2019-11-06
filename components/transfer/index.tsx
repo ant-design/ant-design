@@ -33,6 +33,10 @@ export interface TransferItem {
   [name: string]: any;
 }
 
+export interface ListStyle {
+  direction: TransferDirection;
+}
+
 export interface TransferProps {
   prefixCls?: string;
   className?: string;
@@ -44,7 +48,7 @@ export interface TransferProps {
   onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
-  listStyle?: React.CSSProperties;
+  listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
   titles?: string[];
   operations?: string[];
@@ -80,6 +84,7 @@ class Transfer extends React.Component<TransferProps, any> {
     dataSource: [],
     locale: {},
     showSearch: false,
+    listStyle: () => {},
   };
 
   static propTypes = {
@@ -91,7 +96,7 @@ class Transfer extends React.Component<TransferProps, any> {
     onChange: PropTypes.func,
     height: PropTypes.number,
     style: PropTypes.object,
-    listStyle: PropTypes.object,
+    listStyle: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
     operationStyle: PropTypes.object,
     className: PropTypes.string,
     titles: PropTypes.array,
@@ -279,6 +284,16 @@ class Transfer extends React.Component<TransferProps, any> {
     }
   }
 
+  handleListStyle = (
+    listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties,
+    direction: TransferDirection,
+  ) => {
+    if (typeof listStyle === 'function') {
+      return listStyle({ direction });
+    }
+    return listStyle;
+  };
+
   separateDataSource() {
     const { dataSource, rowKey, targetKeys = [] } = this.props;
 
@@ -349,7 +364,7 @@ class Transfer extends React.Component<TransferProps, any> {
               titleText={titles[0]}
               dataSource={leftDataSource}
               filterOption={filterOption}
-              style={listStyle}
+              style={this.handleListStyle(listStyle, 'left')}
               checkedKeys={sourceSelectedKeys}
               handleFilter={this.handleLeftFilter}
               handleClear={this.handleLeftClear}
@@ -382,7 +397,7 @@ class Transfer extends React.Component<TransferProps, any> {
               titleText={titles[1]}
               dataSource={rightDataSource}
               filterOption={filterOption}
-              style={listStyle}
+              style={this.handleListStyle(listStyle, 'right')}
               checkedKeys={targetSelectedKeys}
               handleFilter={this.handleRightFilter}
               handleClear={this.handleRightClear}

@@ -9,6 +9,7 @@
 @select-height-without-border: @input-height-base - 2 * @border-width-base;
 
 .select-selector() {
+  background-color: @select-background;
   position: relative;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
@@ -108,7 +109,7 @@
     line-height: 1;
     text-align: center;
     text-transform: none;
-    background: @component-background;
+    background: @select-background;
     cursor: pointer;
     opacity: 0;
     transition: color 0.3s ease, opacity 0.15s ease;

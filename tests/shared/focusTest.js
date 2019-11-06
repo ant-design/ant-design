@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 
+// eslint-disable-next-line jest/no-export
 export default function focusTest(Component) {
   describe('focus and blur', () => {
     beforeAll(() => {

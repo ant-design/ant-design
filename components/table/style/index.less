@@ -621,7 +621,8 @@
       min-width: 100%;
 
       // https://github.com/ant-design/ant-design/issues/14545
-      .@{table-prefix-cls}-fixed-columns-in-body {
+      // https://github.com/ant-design/ant-design/issues/19491
+      .@{table-prefix-cls}-fixed-columns-in-body:not([colspan]) {
         visibility: hidden;
       }
     }

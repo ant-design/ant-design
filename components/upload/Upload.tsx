@@ -103,7 +103,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     }
   };
 
-  onSuccess = (response: any, file: UploadFile) => {
+  onSuccess = (response: any, file: UploadFile, xhr: any) => {
     this.clearProgressTimer();
     try {
       if (typeof response === 'string') {
@@ -120,6 +120,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     }
     targetItem.status = 'done';
     targetItem.response = response;
+    targetItem.xhr = xhr;
     this.onChange({
       file: { ...targetItem },
       fileList,

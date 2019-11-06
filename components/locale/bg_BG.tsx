@@ -35,6 +35,7 @@ export default {
     removeFile: 'Премахване',
     uploadError: 'Грешка при качването',
     previewFile: 'Преглед',
+    downloadFile: 'Свали файл',
   },
   Empty: {
     description: 'Няма данни',
