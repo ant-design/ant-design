@@ -993,6 +993,7 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
 <div>
   <div
     class="ant-dropdown  ant-dropdown-placement-bottomLeft  ant-dropdown-hidden"
+    style="visibility:hidden"
   >
     <ul
       class="ant-dropdown-menu ant-table-selection-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"

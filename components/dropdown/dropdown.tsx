@@ -18,7 +18,7 @@ const Placements = tuple(
 );
 type Placement = (typeof Placements)[number];
 
-type OverlayFunc = () => React.ReactNode;
+type OverlayFunc = () => React.ReactElement;
 
 type Align = {
   points?: [string, string];
@@ -35,7 +35,7 @@ type Align = {
 
 export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
-  overlay: React.ReactNode | OverlayFunc;
+  overlay: React.ReactElement | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
@@ -115,7 +115,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
             expandIcon,
           });
 
-    return fixedModeOverlay;
+    return fixedModeOverlay as React.ReactElement;
   };
 
   renderDropDown = ({
