@@ -1,8 +1,16 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { CaretDown, CaretUp } from '@ant-design/icons';
-import { TransformColumns, ColumnsType, Key, ColumnType, SortOrder, CompareFn } from '../interface';
-import { getColumnKey, getColumnPos } from '../util';
+import {
+  TransformColumns,
+  ColumnsType,
+  Key,
+  ColumnType,
+  SortOrder,
+  CompareFn,
+  ColumnTitleProps,
+} from '../interface';
+import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
 
 function getMultiplePriority<RecordType>(column: ColumnType<RecordType>): number | false {
   if (typeof column.sorter === 'object' && typeof column.sorter.multiple === 'number') {
@@ -78,6 +86,7 @@ function injectSorter<RecordType>(
   prefixCls: string,
   columns: ColumnsType<RecordType>,
   sorterSates: SortState<RecordType>[],
+  columnTitleSorterProps: ColumnTitleProps<RecordType>,
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
   pos?: string,
 ): ColumnsType<RecordType> {
@@ -109,9 +118,14 @@ function injectSorter<RecordType>(
       newColumn = {
         ...newColumn,
         className: classNames(newColumn.className, `${prefixCls}-column-sort`),
-        title: (
+        title: (renderProps: ColumnTitleProps<RecordType>) => (
           <div className={`${prefixCls}-column-sorters`}>
-            <span className={`${prefixCls}-column-title`}>{newColumn.title}</span>
+            <span className={`${prefixCls}-column-title`}>
+              {renderColumnTitle(column.title, {
+                ...renderProps,
+                ...columnTitleSorterProps,
+              })}
+            </span>
             <span
               className={classNames(`${prefixCls}-column-sorter`, {
                 [`${prefixCls}-column-sorter-full`]: upNode && downNode,
@@ -154,6 +168,7 @@ function injectSorter<RecordType>(
           prefixCls,
           newColumn.children,
           sorterSates,
+          columnTitleSorterProps,
           triggerSorter,
           columnPos,
         ),
@@ -206,6 +221,21 @@ export default function useFilterSorter<RecordType>({
     return validateStates;
   }, [columns, sortStates]);
 
+  // Get render columns title required props
+  const columnTitleSorterProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
+    const sortColumns = mergedSorterStates.map(({ column, sortOrder }) => ({
+      column,
+      order: sortOrder,
+    }));
+
+    return {
+      sortColumns,
+      // Legacy
+      sortColumn: sortColumns[0] && sortColumns[0].column,
+      sortOrder: sortColumns[0] && sortColumns[0].order,
+    };
+  }, [mergedSorterStates]);
+
   function triggerSorter(sortState: SortState<RecordType>) {
     if (!sortState.sortOrder) {
       setSortStates(mergedSorterStates.filter(({ key }) => key !== sortState.key));
@@ -222,7 +252,13 @@ export default function useFilterSorter<RecordType>({
 
   const transformColumns = React.useCallback(
     (innerColumns: ColumnsType<RecordType>) =>
-      injectSorter(prefixCls, innerColumns, mergedSorterStates, triggerSorter),
+      injectSorter(
+        prefixCls,
+        innerColumns,
+        mergedSorterStates,
+        columnTitleSorterProps,
+        triggerSorter,
+      ),
     [mergedSorterStates],
   );
 

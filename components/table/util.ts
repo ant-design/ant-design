@@ -1,5 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import { ColumnType } from './interface';
+import * as React from 'react';
+import { ColumnType, ColumnTitle, ColumnTitleProps } from './interface';
 
 const JOIN_KEY = String(Math.random());
 
@@ -16,4 +17,15 @@ export function getColumnKey<RecordType>(column: ColumnType<RecordType>, default
 
 export function getColumnPos(index: number, pos?: string) {
   return pos ? `${pos}-${index}` : `${index}`;
+}
+
+export function renderColumnTitle<RecordType>(
+  title: ColumnTitle<RecordType>,
+  props: ColumnTitleProps<RecordType>,
+) {
+  if (typeof title === 'function') {
+    return title(props);
+  }
+
+  return title;
 }

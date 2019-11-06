@@ -35,7 +35,23 @@ export interface ColumnFilterItem {
   children?: ColumnFilterItem[];
 }
 
+export interface ColumnTitleProps<RecordType> {
+  /** @deprecated Please use `sorterColumns` instead. */
+  sortOrder?: SortOrder;
+  /** @deprecated Please use `sorterColumns` instead. */
+  sortColumn?: ColumnType<RecordType>;
+  sortColumns?: { column: ColumnType<RecordType>; order: SortOrder }[];
+
+  filters?: Record<string, string[]>;
+}
+
+export type ColumnTitle<RecordType> =
+  | React.ReactNode
+  | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
+
 export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
+  title?: ColumnTitle<RecordType>;
+
   // Sorter
   // TODO: Doc this update
   sorter?:

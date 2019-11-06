@@ -4,7 +4,11 @@ import { TransformColumns, ColumnsType, ColumnType } from '../interface';
 import { getColumnPos } from '../util';
 
 function addFilterTitle<RecordType>(column: ColumnType<RecordType>): ColumnType<RecordType> {
-  const { filters } = column;
+  const { title } = column;
+  return {
+    ...column,
+    title: () => {},
+  };
 }
 
 function injectFilter<RecordType>(
