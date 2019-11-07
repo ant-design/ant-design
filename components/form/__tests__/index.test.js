@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import scrollIntoView from 'dom-scroll-into-view';
 import Form from '..';
 import Input from '../../input';
@@ -135,6 +135,17 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
     );
+  });
+
+  it('Form.Item should support data-*、aria-* and custom attribute', () => {
+    const wrapper = render(
+      <Form>
+        <Form.Item id="testId" data-text="123" aria-hidden="true" cccc="bbbb">
+          text
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper).toMatchSnapshot();
   });
 
   describe('scrollToField', () => {

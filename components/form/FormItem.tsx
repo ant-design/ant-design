@@ -1,4 +1,5 @@
 import * as React from 'react';
+import omit from 'omit.js';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
@@ -50,6 +51,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
     required,
     trigger = 'onChange',
     validateTrigger = 'onChange',
+    ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const formContext = React.useContext(FormContext);
@@ -193,7 +195,26 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         }
 
         return (
-          <Row type="flex" className={classNames(itemClassName)} style={style} key="row">
+          <Row
+            type="flex"
+            className={classNames(itemClassName)}
+            style={style}
+            {...omit(restProps, [
+              'colon',
+              'extra',
+              'getValueFromEvent',
+              // 'id',  In v3.x it's deprecated because `htmlFor` is its replacement, but in 4.x it has nothing to do with `htmlFor`.
+              'htmlFor',
+              'label',
+              'labelAlign',
+              'labelCol',
+              'wrapperCol',
+              'normalize',
+              'onReset',
+              'valuePropName',
+            ])}
+            key="row"
+          >
             {/* Label */}
             <FormItemLabel
               htmlFor={fieldId}

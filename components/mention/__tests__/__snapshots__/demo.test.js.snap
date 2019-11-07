@@ -255,6 +255,7 @@ exports[`renders ./components/mention/demo/controlled.md correctly 1`] = `
 >
   <div
     class="ant-row-flex ant-form-item"
+    id="control-mention"
   >
     <div
       class="ant-col ant-col-6 ant-form-item-label"
