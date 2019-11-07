@@ -27,6 +27,7 @@ interface ChangeEventInfo<RecordType> {
     pageSize: number;
   };
   filters: Record<string, Key[] | null>;
+  sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 }
 
 export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, 'transformColumns'> {
@@ -36,8 +37,8 @@ export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, '
 
   onChange?: (
     pagination: PaginationConfig,
-    filters: Record<string, Key[]>,
-    sorter: SorterResult<RecordType>,
+    filters: Record<string, Key[] | null>,
+    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
@@ -72,15 +73,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(rawData, getRowKey);
 
   // ============================ Events =============================
-  const changeEventInfo: ChangeEventInfo<RecordType> = {};
+  const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
 
-  // const [changeInfo, setChangeInfo] = React.useState<ChangeEventInfo<RecordType>>({
-  //   pagination: {
-  //     current: mergedPagination.current!,
-  //     pageSize: mergedPagination.pageSize!,
-  //   },
-  //   filters: filterInfo,
-  // });
   const triggerOnChange = (info: Partial<ChangeEventInfo<RecordType>>) => {
     const changeInfo = {
       ...changeEventInfo,
@@ -89,16 +83,25 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
     // setChangeInfo(newChangeInfo);
     if (onChange) {
-      onChange(changeInfo.pagination, changeInfo.filters, null, null);
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, null);
     }
   };
 
   // ============================ Sorter =============================
-  const [transformSorterColumns, sortedData, sorterTitleProps] = useSorter<RecordType>({
+  const onSorterChange = (sorter: SorterResult<RecordType> | SorterResult<RecordType>[]) => {
+    triggerOnChange({
+      sorter,
+    });
+  };
+
+  const [transformSorterColumns, sortedData, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
     columns: columns || [],
     data: rawData,
+    onSorterChange,
   });
+
+  changeEventInfo.sorter = getSorters();
 
   // ============================ Filter ============================
   const onFilterChange = (filters: Record<string, Key[]>) => {

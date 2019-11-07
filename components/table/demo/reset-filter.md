@@ -3,7 +3,6 @@ order: 8
 title:
   en-US: Reset filters and sorters
   zh-CN: 可控的筛选和排序
-only: true
 ---
 
 ## zh-CN

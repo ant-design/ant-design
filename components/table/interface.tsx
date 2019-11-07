@@ -25,7 +25,7 @@ export interface TableLocale {
   collapse?: string;
 }
 
-export type SortOrder = 'descend' | 'ascend';
+export type SortOrder = 'descend' | 'ascend' | null;
 
 export type CompareFn<T> = (a: T, b: T, sortOrder?: SortOrder) => number;
 
@@ -116,6 +116,6 @@ export interface TableCurrentDataSource<RecordType> {
 export interface SorterResult<RecordType> {
   column: ColumnType<RecordType>;
   order: SortOrder;
-  field: string;
-  columnKey: string;
+  field?: Key | Key[];
+  columnKey?: Key;
 }
