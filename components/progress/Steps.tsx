@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { ProgressProps } from './progress';
+
 interface StepsProps extends ProgressProps {
   stepsCount: number;
   stepWidth: number;

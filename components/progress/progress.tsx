@@ -11,7 +11,7 @@ import Circle from './Circle';
 import Steps from './Steps';
 import { validProgress } from './utils';
 
-const ProgressTypes = tuple('line', 'circle', 'dashboard');
+const ProgressTypes = tuple('line', 'circle', 'dashboard', 'steps');
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
 export type ProgressSize = 'default' | 'small';
