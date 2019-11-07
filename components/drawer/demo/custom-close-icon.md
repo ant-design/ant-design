@@ -6,6 +6,7 @@ title:
 ---
 
 ## zh-CN
+自定义Drawer关闭icon
 
 ## en-US
 
