@@ -916,4 +916,32 @@ describe('Table.filter', () => {
     );
     expect(wrapper.find('.ant-pagination-item-active').text()).toBe('3');
   });
+
+  // https://github.com/ant-design/ant-design/issues/19274
+  it('should not crash', () => {
+    class TestTable extends React.Component {
+      state = {
+        cols: [],
+      };
+
+      componentDidMount = () => {
+        this.setState({
+          cols: [
+            {
+              title: 'test',
+              itemKey: 'test',
+              filterDropdown: 123,
+            },
+          ],
+        });
+      };
+
+      render = () => {
+        const { cols } = this.state;
+        return <Table columns={cols} dataSource={[]} scroll={{ x: 1000 }} />;
+      };
+    }
+
+    mount(<TestTable />);
+  });
 });

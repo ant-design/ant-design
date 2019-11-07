@@ -12,7 +12,19 @@ export interface RcFile extends File {
   readonly webkitRelativePath: string;
 }
 
-export interface UploadFile {
+export interface RcCustomRequestOptions {
+  onProgress: (event: { percent: number }, file: File) => void;
+  onError: (error: Error) => void;
+  onSuccess: (response: object, file: File) => void;
+  data: object;
+  filename: string;
+  file: File;
+  withCredentials: boolean;
+  action: string;
+  headers: object;
+}
+
+export interface UploadFile<T = any> {
   uid: string;
   size: number;
   name: string;
@@ -24,10 +36,12 @@ export interface UploadFile {
   percent?: number;
   thumbUrl?: string;
   originFileObj?: File | Blob;
-  response?: any;
+  response?: T;
   error?: any;
   linkProps?: any;
   type: string;
+  xhr?: T;
+  preview?: string;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {
@@ -67,6 +81,7 @@ export interface UploadProps {
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
   data?: object | ((file: UploadFile) => object);
+  method?: 'POST' | 'PUT' | 'post' | 'put';
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
@@ -82,7 +97,7 @@ export interface UploadProps {
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (option: object) => void;
+  customRequest?: (options: RcCustomRequestOptions) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;

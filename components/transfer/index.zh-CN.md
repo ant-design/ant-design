@@ -29,7 +29,7 @@ title: Transfer
 | filterOption | 接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 |  | (inputValue, option): boolean |  |  |
 | footer | 底部渲染函数 | (props) => ReactNode |  |  |
 | lazy | Transfer 使用了 [react-lazy-load](https://github.com/loktar00/react-lazy-load) 优化性能，这里可以设置相关参数。设为 `false` 可以关闭懒加载。 | object\|boolean | `{ height: 32, offset: 32 }` |  |
-| listStyle | 两个穿梭框的自定义样式 | object |  |  |
+| listStyle | 两个穿梭框的自定义样式 | object\|({direction: 'left'\|'right'}) => object |  |  |
 | locale | 各种语言 | { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode; } | `{ itemUnit: '项', itemsUnit: '项', searchPlaceholder: '请输入搜索内容' }` | 3.9.0 |
 | operations | 操作文案集合，顺序从上至下 | string\[] | \['>', '<'] |  |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode |  |  |

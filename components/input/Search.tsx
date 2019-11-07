@@ -69,7 +69,7 @@ export default class Search extends React.Component<SearchProps, any> {
         </Button>
       );
     }
-    return <IconLoading className={`${prefixCls}-icon`} />;
+    return <IconLoading className={`${prefixCls}-icon`} key="loadingIcon" />;
   };
 
   renderSuffix = (prefixCls: string) => {
@@ -81,21 +81,22 @@ export default class Search extends React.Component<SearchProps, any> {
 
     if (enterButton) return suffix;
 
-    const node = (
+    const icon = (
       <IconSearch className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
     );
 
     if (suffix) {
-      let cloneSuffix = suffix;
-      if (React.isValidElement(cloneSuffix) && !cloneSuffix.key) {
-        cloneSuffix = React.cloneElement(cloneSuffix, {
-          key: 'originSuffix',
-        });
-      }
-      return [cloneSuffix, node];
+      return [
+        React.isValidElement(suffix)
+          ? React.cloneElement(suffix, {
+              key: 'suffix',
+            })
+          : null,
+        icon,
+      ];
     }
 
-    return node;
+    return icon;
   };
 
   renderAddonAfter = (prefixCls: string) => {
@@ -140,7 +141,14 @@ export default class Search extends React.Component<SearchProps, any> {
     }
 
     if (addonAfter) {
-      return [button, addonAfter];
+      return [
+        button,
+        React.isValidElement(addonAfter)
+          ? React.cloneElement(addonAfter, {
+              key: 'addonAfter',
+            })
+          : null,
+      ];
     }
 
     return button;
@@ -157,6 +165,7 @@ export default class Search extends React.Component<SearchProps, any> {
     } = this.props;
 
     delete (restProps as any).onSearch;
+    delete (restProps as any).loading;
 
     const prefixCls = getPrefixCls('input-search', customizePrefixCls);
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);

@@ -27,7 +27,7 @@ describe('Button', () => {
     const wrapper = render(<Button>按钮</Button>);
     expect(wrapper).toMatchSnapshot();
     // should not insert space when there is icon
-    const wrapper1 = render(<Button icon="search">按钮</Button>);
+    const wrapper1 = render(<Button icon={<Search />}>按钮</Button>);
     expect(wrapper1).toMatchSnapshot();
     // should not insert space when there is icon
     const wrapper2 = render(
@@ -38,11 +38,11 @@ describe('Button', () => {
     );
     expect(wrapper2).toMatchSnapshot();
     // should not insert space when there is icon
-    const wrapper3 = render(<Button icon="search">按钮</Button>);
+    const wrapper3 = render(<Button icon={<Search />}>按钮</Button>);
     expect(wrapper3).toMatchSnapshot();
     // should not insert space when there is icon while loading
     const wrapper4 = render(
-      <Button icon="search" loading>
+      <Button icon={<Search />} loading>
         按钮
       </Button>,
     );

@@ -173,32 +173,33 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           [downloadIcon, removeIcon].filter(x => x).length
         }`]: true,
       });
-      const preview = file.url ? (
-        [
-          <a
-            key="view"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={listItemNameClass}
-            title={file.name}
-            {...linkProps}
-            href={file.url}
-            onClick={e => this.handlePreview(file, e)}
-          >
-            {file.name}
-          </a>,
-          downloadOrDelete,
-        ]
-      ) : (
-        <span
-          className={listItemNameClass}
-          onClick={e => this.handlePreview(file, e)}
-          title={file.name}
-        >
-          {file.name}
-          {downloadOrDelete}
-        </span>
-      );
+      const preview = file.url
+        ? [
+            <a
+              key="view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={listItemNameClass}
+              title={file.name}
+              {...linkProps}
+              href={file.url}
+              onClick={e => this.handlePreview(file, e)}
+            >
+              {file.name}
+            </a>,
+            downloadOrDelete,
+          ]
+        : [
+            <span
+              key="view"
+              className={listItemNameClass}
+              onClick={e => this.handlePreview(file, e)}
+              title={file.name}
+            >
+              {file.name}
+            </span>,
+            downloadOrDelete,
+          ];
       const style: React.CSSProperties = {
         pointerEvents: 'none',
         opacity: 0.5,

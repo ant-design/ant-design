@@ -35,6 +35,7 @@ export default {
     removeFile: 'Αφαίρεση αρχείου',
     uploadError: 'Σφάλμα μεταφόρτωσης',
     previewFile: 'Προεπισκόπηση αρχείου',
+    downloadFile: 'Λήψη αρχείου',
   },
   Empty: {
     description: 'Δεν υπάρχουν δεδομένα',

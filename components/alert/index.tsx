@@ -66,7 +66,7 @@ const iconMapOutlined = {
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
   state = {
-    closing: true,
+    closing: false,
     closed: false,
   };
 
@@ -79,15 +79,15 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     dom.style.height = `${dom.offsetHeight}px`;
 
     this.setState({
-      closing: false,
+      closing: true,
     });
     (this.props.onClose || noop)(e);
   };
 
   animationEnd = () => {
     this.setState({
+      closing: false,
       closed: true,
-      closing: true,
     });
     (this.props.afterClose || noop)();
   };
@@ -104,6 +104,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       icon,
     } = this.props;
     let { closable, type, showIcon } = this.props;
+    const { closing, closed } = this.state;
 
     const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
@@ -124,7 +125,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       prefixCls,
       `${prefixCls}-${type}`,
       {
-        [`${prefixCls}-close`]: !this.state.closing,
+        [`${prefixCls}-closing`]: closing,
         [`${prefixCls}-with-description`]: !!description,
         [`${prefixCls}-no-icon`]: !showIcon,
         [`${prefixCls}-banner`]: !!banner,
@@ -150,9 +151,8 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       (icon &&
         (React.isValidElement<{ className?: string }>(icon) ? (
           React.cloneElement(icon, {
-            className: classNames({
+            className: classNames(`${prefixCls}-icon`, {
               [icon.props.className as string]: icon.props.className,
-              [`${prefixCls}-icon`]: true,
             }),
           })
         ) : (
@@ -160,14 +160,14 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         ))) ||
       React.createElement(iconType, { className: `${prefixCls}-icon` });
 
-    return this.state.closed ? null : (
+    return closed ? null : (
       <Animate
         component=""
         showProp="data-show"
         transitionName={`${prefixCls}-slide-up`}
         onEnd={this.animationEnd}
       >
-        <div data-show={this.state.closing} className={alertCls} style={style} {...dataOrAriaProps}>
+        <div data-show={!closing} className={alertCls} style={style} {...dataOrAriaProps}>
           {showIcon ? iconNode : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>

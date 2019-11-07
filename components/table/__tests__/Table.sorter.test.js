@@ -354,6 +354,7 @@ describe('Table.sorter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
+  // https://github.com/ant-design/ant-design/issues/19398
   it('should toggle sort state when columns with non primitive properties are put in render', () => {
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
@@ -377,6 +378,7 @@ describe('Table.sorter', () => {
             dataIndex: 'name',
             sorter: true,
             render: text => text,
+            array: ['1', '2', 3],
           },
         ];
         const { pagination } = this.state;
@@ -673,5 +675,34 @@ describe('Table.sorter', () => {
     );
 
     expect(renderedNames(wrapper)).toEqual(['Brown', 'Green', 'Mike', 'Alex', 'Petter', 'Zoe']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/19443
+  it('should not being inifinite loop when using Table.Column with sortOrder', () => {
+    class Demo extends React.Component {
+      componentDidMount() {
+        this.setState({});
+      }
+
+      render() {
+        return (
+          <Table dataSource={[]}>
+            <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
+          </Table>
+        );
+      }
+    }
+    expect(() => {
+      mount(<Demo />);
+    }).not.toThrow();
+  });
+
+  it('should support defaultOrder in Column', () => {
+    const wrapper = mount(
+      <Table dataSource={[{ key: '1', age: 1 }]}>
+        <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
+      </Table>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

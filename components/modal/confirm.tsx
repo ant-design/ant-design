@@ -91,7 +91,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
       <div className={`${contentPrefixCls}-body-wrapper`}>
         <div className={`${contentPrefixCls}-body`}>
           {icon}
-          <span className={`${contentPrefixCls}-title`}>{props.title}</span>
+          {props.title === undefined ? null : (
+            <span className={`${contentPrefixCls}-title`}>{props.title}</span>
+          )}
           <div className={`${contentPrefixCls}-content`}>{props.content}</div>
         </div>
         <div className={`${contentPrefixCls}-btns`}>

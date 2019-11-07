@@ -3,7 +3,7 @@
 exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-  style="width:300px"
+  style="width:100%"
 >
   <div
     class="ant-select-selector"
@@ -63,7 +63,7 @@ exports[`renders ./components/tree-select/demo/async.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-  style="width:300px"
+  style="width:100%"
 >
   <div
     class="ant-select-selector"
@@ -123,7 +123,7 @@ exports[`renders ./components/tree-select/demo/basic.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/checkable.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-show-search"
-  style="width:300px"
+  style="width:100%"
 >
   <div
     class="ant-select-selector"
@@ -195,7 +195,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
   multiple=""
-  style="width:300px"
+  style="width:100%"
 >
   <div
     class="ant-select-selector"
@@ -235,7 +235,7 @@ exports[`renders ./components/tree-select/demo/multiple.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-  style="width:300px"
+  style="width:100%"
 >
   <div
     class="ant-select-selector"
@@ -295,7 +295,7 @@ exports[`renders ./components/tree-select/demo/suffix.md correctly 1`] = `
 exports[`renders ./components/tree-select/demo/treeData.md correctly 1`] = `
 <div
   class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
-  style="width:300px"
+  style="width:100%"
 >
   <div
     class="ant-select-selector"

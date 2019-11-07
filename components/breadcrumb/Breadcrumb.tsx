@@ -105,7 +105,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         paths.push(path);
       }
       // generated overlay by route.children
-      let overlay = null;
+      let overlay;
       if (route.children && route.children.length) {
         overlay = (
           <Menu>
@@ -149,7 +149,8 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
         warning(
           element.type &&
-            (element.type.__ANT_BREADCRUMB_ITEM || element.type.__ANT_BREADCRUMB_SEPARATOR),
+            (element.type.__ANT_BREADCRUMB_ITEM === true ||
+              element.type.__ANT_BREADCRUMB_SEPARATOR === true),
           'Breadcrumb',
           "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
         );

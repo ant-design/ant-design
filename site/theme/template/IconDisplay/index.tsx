@@ -4,11 +4,12 @@ import { Radio, Input } from 'antd';
 import { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
-import { ThemeType } from 'antd/es/icon';
 import Category from './Category';
 import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
+
+type ThemeType = 'filled' | 'outlined' | 'twoTone';
 
 const allIcons: {
   [key: string]: any;

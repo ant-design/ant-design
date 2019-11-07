@@ -59,7 +59,12 @@ export default class Header extends React.Component<HeaderProps, any> {
     const suffix = locale.year === '年' ? '年' : '';
     const options: React.ReactElement<any>[] = [];
     for (let index = start; index < end; index++) {
-      options.push(<Option key={`${index}`}>{index + suffix}</Option>);
+      const optionValue = `${index}`;
+      options.push(
+        <Option key={optionValue} value={optionValue}>
+          {index + suffix}
+        </Option>,
+      );
     }
     return (
       <Select
@@ -92,7 +97,12 @@ export default class Header extends React.Component<HeaderProps, any> {
     }
 
     for (let index = start; index < end; index++) {
-      options.push(<Option key={`${index}`}>{months[index]}</Option>);
+      const optionValue = `${index}`;
+      options.push(
+        <Option key={optionValue} value={optionValue}>
+          {months[index]}
+        </Option>,
+      );
     }
     return (
       <Select

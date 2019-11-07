@@ -22,6 +22,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | defaultValue | The initial input content | string |  |  |
 | disabled | Whether the input is disabled. | boolean | false |  |
 | id | The ID for input | string |  |  |
+| maxLength | max length | number |  |  |
 | prefix | The prefix icon for the Input. | string\|ReactNode |  |  |
 | size | The size of the input box. Note: in the context of a form, the `large` size is used. Available: `large` `default` `small` | string | `default` |  |
 | suffix | The suffix icon for the Input. | string\|ReactNode |  |  |
@@ -45,6 +46,7 @@ The rest of the props of Input are exactly the same as the original [input](http
 | defaultValue | The initial input content | string |  |  |
 | value | The input content value | string |  |  |
 | onPressEnter | The callback function that is triggered when Enter key is pressed. | function(e) |  |  |
+| allowClear | allow to remove input content with clear icon | boolean |  |  |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
