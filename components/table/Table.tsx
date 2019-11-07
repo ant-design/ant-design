@@ -11,10 +11,12 @@ import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelect
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
+import defaultLocale from '../locale/default';
 
 const EMPTY_LIST: any[] = [];
 
 export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, 'transformColumns'> {
+  dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   pagination?: false | PaginationConfig;
 
@@ -26,6 +28,7 @@ export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, '
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const {
     prefixCls: customizePrefixCls,
+    dropdownPrefixCls,
     dataSource,
     pagination,
     rowSelection,
@@ -59,6 +62,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ============================ Filter ============================
   const [transformFilterColumns, mergedData] = useFilter<RecordType>({
     prefixCls,
+    dropdownPrefixCls,
     columns: columns || [],
     data: sortedData,
   });

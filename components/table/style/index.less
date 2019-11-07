@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 
@@ -169,13 +170,13 @@
   }
 
   // ============================ Filter ============================
-  &-column-filter {
+  &-filter-column {
     display: flex;
     align-items: center;
     margin: -@table-padding-vertical -@table-padding-horizontal;
   }
 
-  &-column-title {
+  &-filter-column-title {
     flex: auto;
     padding: @table-padding-vertical 0 @table-padding-vertical @table-padding-horizontal;
   }
@@ -202,6 +203,38 @@
       > svg {
         margin-top: 0.1em;
       }
+    }
+  }
+
+  // Dropdown
+  &-filter-dropdown {
+    .reset-component;
+
+    // Reset menu
+    .@{dropdown-prefix-cls}-menu {
+      border: 0;
+      box-shadow: none;
+    }
+
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    background-color: @component-background;
+
+    // Checkbox
+    &,
+    &-submenu {
+      .@{ant-prefix}-checkbox-wrapper + span {
+        padding-left: 8px;
+      }
+    }
+
+    // Operation
+    &-btns {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 8px;
+      overflow: hidden;
+      border-top: @border-width-base @border-style-base @border-color-split;
     }
   }
 
