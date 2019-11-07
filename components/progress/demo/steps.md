@@ -1,34 +1,28 @@
 ---
 order: 11
 title:
-  zh-CN: 进度条
-  en-US: Progress bar
+  zh-CN: 步骤进度条
+  en-US: Progress bar with steps
 ---
 
 ## zh-CN
 
-标准的进度条。
+带步骤的进度条。
 
 ## en-US
 
-A standard progress bar.
+A progress bar with steps.
 
 ```jsx
 import { Progress } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Progress percent={0} type="steps" stepsCount={10} strokeColor="#1890ff" />
     <Progress percent={10} type="steps" showInfo={true} stepsCount={10} strokeColor="#1890ff" />
-    <Progress percent={20} type="steps" stepsCount={6} strokeColor="#1890ff" />
-    <Progress percent={30} type="steps" stepsCount={6} strokeColor="#1890ff" />
     <Progress percent={40} type="steps" stepsCount={6} strokeColor="#1890ff" />
     <Progress percent={50} type="steps" stepsCount={6} strokeColor="#1890ff" />
-    <Progress percent={60} type="steps" stepsCount={6} strokeColor="#1890ff" />
     <Progress percent={70} type="steps" stepsCount={6} strokeColor="#1890ff" />
-    <Progress percent={80} type="steps" stepsCount={6} strokeColor="#1890ff" />
-    <Progress percent={90} type="steps" stepsCount={6} strokeColor="#1890ff" />
-    <Progress percent={100} type="steps" stepsCount={6} strokeColor="#1890ff" />
+    <Progress percent={80} type="steps" showInfo={false} stepsCount={6} strokeColor="#1890ff" />
   </div>,
   mountNode,
 );

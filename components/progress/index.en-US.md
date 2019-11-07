@@ -51,3 +51,10 @@ Properties that shared by all types.
 | strokeWidth | to set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 | 3.13.1 |
 | gapDegree | the gap degree of half circle, 0 ~ 360 | number | 0 | 3.13.1 |
 | gapPosition | the gap position, options: `top` `bottom` `left` `right` | string | `top` | 3.13.1 |
+
+### `type="steps"`
+
+| Property   | Description              | Type   | Default | Version |
+| ---------- | ------------------------ | ------ | ------- | ------- |
+| stepsCount | the total step count     | number | 3       | 4.0     |
+| stepWidth  | to set with of each step | number | 14      | 4.0     |
