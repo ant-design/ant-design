@@ -156,8 +156,7 @@ export default class Progress extends React.Component<ProgressProps> {
           'strokeColor',
           'strokeLinecap',
           'percent',
-          'stepsCount',
-          'stepWidth',
+          'count',
         ])}
         className={classString}
       >
