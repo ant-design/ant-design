@@ -75,9 +75,9 @@ Following is a brief look at how it works:
 
 ## Flex layout
 
-Our grid systems support set up the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
+Our grid systems support Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
 
-layout base on a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
+Flex layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
 
 ## API
 
