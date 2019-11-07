@@ -46,7 +46,7 @@ function renderFilterItems(
   });
 }
 
-function formatKeys(keys?: Key[]) {
+function formatKeys(keys?: Key[] | null) {
   return (keys || []).map(key => String(key));
 }
 
@@ -115,12 +115,18 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[]) => {
+    setVisible(false);
+
+    const mergedKeys = keys.length ? keys : null;
+    if (mergedKeys === null && (!filterState || filterState.filteredKeys === null)) {
+      return null;
+    }
+
     triggerFilter({
       column,
       key: columnKey,
-      filteredKeys: keys,
+      filteredKeys: mergedKeys,
     });
-    setVisible(false);
   };
 
   const onConfirm = () => {
@@ -140,7 +146,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ======================== Style ========================
   const dropdownMenuClass = classNames({
-    [`${dropdownPrefixCls}-menu-without-submenu`]: hasSubMenu(column.filters || []),
+    [`${dropdownPrefixCls}-menu-without-submenu`]: !hasSubMenu(column.filters || []),
   });
 
   const menu = (
@@ -178,7 +184,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         role="button"
         tabIndex={-1}
         className={classNames(`${prefixCls}-trigger`, {
-          active: filterState,
+          active: filterState && filterState.filteredKeys,
         })}
         onClick={e => {
           e.stopPropagation();
@@ -189,6 +195,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           trigger={['click']}
           visible={visible}
           onVisibleChange={onVisibleChange}
+          placement="bottomRight"
         >
           <FilterFilled />
         </Dropdown>

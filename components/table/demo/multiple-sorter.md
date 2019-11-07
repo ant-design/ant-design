@@ -3,7 +3,6 @@ order: 7
 title:
   en-US: Multiple sorter
   zh-CN: 多列排序
-only: true
 ---
 
 ## zh-CN

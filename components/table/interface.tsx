@@ -108,3 +108,14 @@ export interface TableRowSelection<T> {
 export type TransformColumns<RecordType> = (
   columns: ColumnsType<RecordType>,
 ) => ColumnsType<RecordType>;
+
+export interface TableCurrentDataSource<RecordType> {
+  currentDataSource: RecordType[];
+}
+
+export interface SorterResult<RecordType> {
+  column: ColumnType<RecordType>;
+  order: SortOrder;
+  field: string;
+  columnKey: string;
+}

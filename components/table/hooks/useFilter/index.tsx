@@ -15,7 +15,7 @@ import defaultLocale from '../../../locale/en_US';
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
   key: Key;
-  filteredKeys: Key[];
+  filteredKeys: Key[] | null;
 }
 
 function collectFilterStates<RecordType>(
@@ -29,15 +29,13 @@ function collectFilterStates<RecordType>(
 
     if ('children' in column) {
       filterStates = [...filterStates, ...collectFilterStates(column.children, columnPos)];
-    } else if ('sorter' in column) {
-      if (column.filteredValue) {
-        // Controlled
-        filterStates.push({
-          column,
-          key: getColumnKey(column, columnPos),
-          filteredKeys: column.filteredValue,
-        });
-      }
+    } else if ('filters' in column || 'filterDropdown' in column) {
+      // Controlled
+      filterStates.push({
+        column,
+        key: getColumnKey(column, columnPos),
+        filteredKeys: column.filteredValue || null,
+      });
     }
   });
 
@@ -99,11 +97,22 @@ function injectFilter<RecordType>(
   });
 }
 
+function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[]) {
+  const currentFilters: Record<string, Key[] | null> = {};
+
+  filterStates.forEach(({ key, filteredKeys }) => {
+    currentFilters[key] = filteredKeys;
+  });
+
+  return currentFilters;
+}
+
 interface FilterConfig<RecordType> {
   prefixCls: string;
   dropdownPrefixCls?: string;
   columns: ColumnsType<RecordType>;
   data: RecordType[];
+  onFilterChange: (filters: Record<string, Key[] | null>) => void;
 }
 
 function useFilter<RecordType>({
@@ -111,7 +120,12 @@ function useFilter<RecordType>({
   dropdownPrefixCls = 'ant-dropdown',
   data,
   columns,
-}: FilterConfig<RecordType>): [TransformColumns<RecordType>, RecordType[]] {
+  onFilterChange,
+}: FilterConfig<RecordType>): [
+  TransformColumns<RecordType>,
+  RecordType[],
+  () => Record<string, Key[] | null>,
+] {
   const { locale = defaultLocale } = React.useContext(ConfigContext);
   const tableLocale = (locale.Table || {}) as TableLocale;
 
@@ -130,12 +144,15 @@ function useFilter<RecordType>({
     return collectedStates;
   }, [columns, filterStates]);
 
+  const getFilters = React.useCallback(() => generateFilterInfo(mergedFilterStates), [
+    mergedFilterStates,
+  ]);
+
   const triggerFilter = (filterState: FilterState<RecordType>) => {
     const newFilterStates = mergedFilterStates.filter(({ key }) => key !== filterState.key);
-    if (filterState.filteredKeys.length) {
-      newFilterStates.push(filterState);
-    }
+    newFilterStates.push(filterState);
     setFilterStates(newFilterStates);
+    onFilterChange(generateFilterInfo(newFilterStates));
   };
 
   const filteredData = React.useMemo<RecordType[]>(() => {
@@ -144,7 +161,7 @@ function useFilter<RecordType>({
         column: { onFilter },
         filteredKeys,
       } = filterState;
-      if (onFilter) {
+      if (onFilter && filteredKeys) {
         return currentData.filter(record => filteredKeys.some(key => onFilter(key, record)));
       }
       return currentData;
@@ -163,7 +180,7 @@ function useFilter<RecordType>({
       );
   }, [mergedFilterStates]);
 
-  return [transformColumns, filteredData];
+  return [transformColumns, filteredData, getFilters];
 }
 
 export default useFilter;

@@ -1,5 +1,5 @@
 ---
-order: 18
+order: 19
 title:
   en-US: Fixed Columns
   zh-CN: 固定列

@@ -6,7 +6,14 @@ import Pagination, { PaginationConfig } from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
-import { TableRowSelection, GetRowKey, ColumnsType } from './interface';
+import {
+  TableRowSelection,
+  GetRowKey,
+  ColumnsType,
+  TableCurrentDataSource,
+  SorterResult,
+  Key,
+} from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
@@ -14,13 +21,25 @@ import useTitleColumns from './hooks/useTitleColumns';
 
 const EMPTY_LIST: any[] = [];
 
+interface ChangeEventInfo<RecordType> {
+  pagination: {
+    current: number;
+    pageSize: number;
+  };
+  filters: Record<string, Key[] | null>;
+}
+
 export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, 'transformColumns'> {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   pagination?: false | PaginationConfig;
 
-  // TODO: handle this
-  onChange?: () => void;
+  onChange?: (
+    pagination: PaginationConfig,
+    filters: Record<string, Key[]>,
+    sorter: SorterResult<RecordType>,
+    extra: TableCurrentDataSource<RecordType>,
+  ) => void;
   rowSelection?: TableRowSelection<RecordType>;
 }
 
@@ -34,6 +53,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     rowKey,
     rowClassName,
     columns,
+    onChange,
   } = props;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
@@ -51,6 +71,28 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const [getRecordByKey] = useLazyKVMap(rawData, getRowKey);
 
+  // ============================ Events =============================
+  const changeEventInfo: ChangeEventInfo<RecordType> = {};
+
+  // const [changeInfo, setChangeInfo] = React.useState<ChangeEventInfo<RecordType>>({
+  //   pagination: {
+  //     current: mergedPagination.current!,
+  //     pageSize: mergedPagination.pageSize!,
+  //   },
+  //   filters: filterInfo,
+  // });
+  const triggerOnChange = (info: Partial<ChangeEventInfo<RecordType>>) => {
+    const changeInfo = {
+      ...changeEventInfo,
+      ...info,
+    };
+
+    // setChangeInfo(newChangeInfo);
+    if (onChange) {
+      onChange(changeInfo.pagination, changeInfo.filters, null, null);
+    }
+  };
+
   // ============================ Sorter =============================
   const [transformSorterColumns, sortedData, sorterTitleProps] = useSorter<RecordType>({
     prefixCls,
@@ -59,12 +101,20 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   });
 
   // ============================ Filter ============================
-  const [transformFilterColumns, mergedData] = useFilter<RecordType>({
+  const onFilterChange = (filters: Record<string, Key[]>) => {
+    triggerOnChange({
+      filters,
+    });
+  };
+
+  const [transformFilterColumns, mergedData, getFilters] = useFilter<RecordType>({
     prefixCls,
     dropdownPrefixCls,
     columns: columns || [],
     data: sortedData,
+    onFilterChange,
   });
+  changeEventInfo.filters = getFilters();
 
   // ============================ Column ============================
   const columnTitleProps = React.useMemo(
@@ -77,7 +127,21 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ========================== Pagination ==========================
   // TODO: handle this
-  const [mergedPagination, setMergedPagination] = usePagination(mergedData.length, pagination);
+  const [mergedPagination] = usePagination(mergedData.length, pagination);
+  changeEventInfo.pagination = {
+    current: mergedPagination.current!,
+    pageSize: mergedPagination.pageSize!,
+  };
+
+  const onPaginationChange = (current: number, pageSize: number) => {
+    if (mergedPagination.onChange) {
+      mergedPagination.onChange(current, pageSize);
+    }
+
+    triggerOnChange({
+      pagination: { current, pageSize },
+    });
+  };
 
   // ============================= Data =============================
   const pageData = React.useMemo<RecordType[]>(() => {
@@ -124,7 +188,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   let paginationNode;
   if (pagination !== false) {
-    paginationNode = <Pagination className={`${prefixCls}-pagination`} {...mergedPagination} />;
+    paginationNode = (
+      <Pagination
+        className={`${prefixCls}-pagination`}
+        {...mergedPagination}
+        onChange={onPaginationChange}
+      />
+    );
   }
 
   return (

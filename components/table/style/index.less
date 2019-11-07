@@ -218,11 +218,18 @@
     .@{dropdown-prefix-cls}-menu {
       border: 0;
       box-shadow: none;
+
+      // https://github.com/ant-design/ant-design/issues/4916
+      &-without-submenu {
+        max-height: 400px;
+        overflow-x: hidden;
+      }
     }
 
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
     background-color: @component-background;
+    min-width: 96px;
 
     // Checkbox
     &,

@@ -2,14 +2,12 @@
 import * as React from 'react';
 import { ColumnType, ColumnTitle, ColumnTitleProps } from './interface';
 
-const JOIN_KEY = String(Math.random());
-
 export function getColumnKey<RecordType>(column: ColumnType<RecordType>, defaultKey: string): Key {
   if ('key' in column && column.key !== undefined) {
     return column.key;
   }
   if (column.dataIndex) {
-    return Array.isArray(column.dataIndex) ? column.dataIndex.join(JOIN_KEY) : column.dataIndex;
+    return Array.isArray(column.dataIndex) ? column.dataIndex.join('.') : column.dataIndex;
   }
 
   return defaultKey;
