@@ -1401,87 +1401,50 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
 <div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    count="10"
   >
     <div
       class="ant-progress-steps"
     >
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
-      />
-      <span
-        class="ant-progress-text"
-        title="10%"
-      >
-        10%
-      </span>
-    </div>
-  </div>
-  <div
-    class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <div
-      class="ant-progress-steps"
-    >
-      <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
       <span
         class="ant-progress-text"
@@ -1493,33 +1456,50 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    count="10"
   >
     <div
       class="ant-progress-steps"
     >
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
       <span
         class="ant-progress-text"
@@ -1531,33 +1511,30 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+    count="5"
   >
     <div
       class="ant-progress-steps"
     >
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:26.4px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:26.4px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:26.4px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:26.4px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
-      />
-      <div
-        class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#f3f3f3;width:26.4px;height:6px"
       />
       <span
         class="ant-progress-text"
@@ -1569,33 +1546,50 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-default"
+    count="10"
   >
     <div
       class="ant-progress-steps"
     >
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#1890ff;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:6px"
+        style="background-color:#1890ff;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:13.2px;height:6px"
       />
     </div>
   </div>
