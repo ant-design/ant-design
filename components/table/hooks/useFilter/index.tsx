@@ -1,7 +1,16 @@
 import * as React from 'react';
-import { TransformColumns, ColumnsType, ColumnType, ColumnTitleProps, Key } from '../../interface';
+import {
+  TransformColumns,
+  ColumnsType,
+  ColumnType,
+  ColumnTitleProps,
+  Key,
+  TableLocale,
+} from '../../interface';
 import { getColumnPos, renderColumnTitle, getColumnKey } from '../../util';
 import FilterDropdown from './FilterDropdown';
+import { ConfigContext } from '../../../config-provider';
+import defaultLocale from '../../../locale/en_US';
 
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
@@ -41,7 +50,7 @@ function injectFilter<RecordType>(
   columns: ColumnsType<RecordType>,
   filterStates: FilterState<RecordType>[],
   triggerFilter: (filterState: FilterState<RecordType>) => void,
-  confirmFilter: () => void,
+  locale: TableLocale,
   pos?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
@@ -63,6 +72,7 @@ function injectFilter<RecordType>(
             filterState={filterState}
             filterMultiple={filterMultiple}
             triggerFilter={triggerFilter}
+            locale={locale}
           >
             {renderColumnTitle(column.title, renderProps)}
           </FilterDropdown>
@@ -79,7 +89,7 @@ function injectFilter<RecordType>(
           column.children,
           filterStates,
           triggerFilter,
-          confirmFilter,
+          locale,
           columnPos,
         ),
       };
@@ -102,6 +112,9 @@ function useFilter<RecordType>({
   data,
   columns,
 }: FilterConfig<RecordType>): [TransformColumns<RecordType>, RecordType[]] {
+  const { locale = defaultLocale } = React.useContext(ConfigContext);
+  const tableLocale = (locale.Table || {}) as TableLocale;
+
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
     collectFilterStates(columns),
   );
@@ -118,9 +131,25 @@ function useFilter<RecordType>({
   }, [columns, filterStates]);
 
   const triggerFilter = (filterState: FilterState<RecordType>) => {
-    console.log('>>>', filterState);
+    const newFilterStates = mergedFilterStates.filter(({ key }) => key !== filterState.key);
+    if (filterState.filteredKeys.length) {
+      newFilterStates.push(filterState);
+    }
+    setFilterStates(newFilterStates);
   };
-  const confirmFilter = () => {};
+
+  const filteredData = React.useMemo<RecordType[]>(() => {
+    return mergedFilterStates.reduce((currentData, filterState) => {
+      const {
+        column: { onFilter },
+        filteredKeys,
+      } = filterState;
+      if (onFilter) {
+        return currentData.filter(record => filteredKeys.some(key => onFilter(key, record)));
+      }
+      return currentData;
+    }, data);
+  }, [data, mergedFilterStates]);
 
   const transformColumns = React.useMemo(() => {
     return (innerColumns: ColumnsType<RecordType>) =>
@@ -130,11 +159,11 @@ function useFilter<RecordType>({
         innerColumns,
         mergedFilterStates,
         triggerFilter,
-        confirmFilter,
+        tableLocale,
       );
   }, [mergedFilterStates]);
 
-  return [transformColumns, data];
+  return [transformColumns, filteredData];
 }
 
 export default useFilter;

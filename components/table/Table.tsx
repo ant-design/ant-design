@@ -11,7 +11,6 @@ import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelect
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
-import defaultLocale from '../locale/default';
 
 const EMPTY_LIST: any[] = [];
 

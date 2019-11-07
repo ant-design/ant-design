@@ -9,8 +9,6 @@ import Dropdown from '../../../dropdown';
 import { ColumnType, ColumnFilterItem, Key, TableLocale } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
-import { ConfigContext } from '../../../config-provider';
-import defaultLocale from '../../../locale/en_US';
 
 const { SubMenu, Item: MenuItem } = Menu;
 
@@ -61,6 +59,7 @@ export interface FilterDropdownProps<RecordType> {
   columnKey: string;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
+  locale: TableLocale;
 }
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
@@ -72,11 +71,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     filterMultiple,
     filterState,
     triggerFilter,
+    locale,
     children,
   } = props;
 
-  const { locale = defaultLocale } = React.useContext(ConfigContext);
-  const tableLocale = (locale.Table || {}) as TableLocale;
+  const [visible, setVisible] = React.useState(false);
 
   // ===================== Select Keys =====================
   const [propFilteredKeys, setPropFilteredKeys] = React.useState(
@@ -92,6 +91,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       setFilteredKeys(newFilteredKeys);
     }
   }, [filterState]);
+
+  const onSelectKeys = ({ selectedKeys }: SelectParam) => {
+    setFilteredKeys(formatKeys(selectedKeys));
+  };
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
@@ -110,19 +113,35 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     };
   }, []);
 
+  // ======================= Submit ========================
+  const internalTriggerFilter = (keys: Key[]) => {
+    triggerFilter({
+      column,
+      key: columnKey,
+      filteredKeys: keys,
+    });
+    setVisible(false);
+  };
+
+  const onConfirm = () => {
+    internalTriggerFilter(filteredKeys);
+  };
+
+  const onReset = () => {
+    internalTriggerFilter([]);
+  };
+
+  const onVisibleChange = (newVisible: boolean) => {
+    setVisible(newVisible);
+    if (!newVisible) {
+      onConfirm();
+    }
+  };
+
   // ======================== Style ========================
   const dropdownMenuClass = classNames({
     [`${dropdownPrefixCls}-menu-without-submenu`]: hasSubMenu(column.filters || []),
   });
-
-  const onSelectKeys = ({ selectedKeys }: SelectParam) => {
-    setFilteredKeys(formatKeys(selectedKeys));
-    // triggerFilter({
-    //   column,
-    //   key: columnKey,
-    //   filteredKeys: selectedKeys,
-    // });
-  };
 
   const menu = (
     <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
@@ -134,6 +153,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         onSelect={onSelectKeys}
         onDeselect={onSelectKeys}
         selectedKeys={filteredKeys}
+        // TODO:
         // getPopupContainer={getPopupContainer}
         openKeys={openKeys}
         onOpenChange={onOpenChange}
@@ -141,17 +161,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         {renderFilterItems(column.filters!, prefixCls, filteredKeys, filterMultiple)}
       </Menu>
       <div className={`${prefixCls}-dropdown-btns`}>
-        <a
-          className={`${prefixCls}-dropdown-link confirm`}
-          //  onClick={this.handleConfirm}
-        >
-          {tableLocale.filterConfirm}
+        <a className={`${prefixCls}-dropdown-link confirm`} onClick={onConfirm}>
+          {locale.filterConfirm}
         </a>
-        <a
-          className={`${prefixCls}-dropdown-link clear`}
-          //  onClick={this.handleClearFilters}
-        >
-          {tableLocale.filterReset}
+        <a className={`${prefixCls}-dropdown-link clear`} onClick={onReset}>
+          {locale.filterReset}
         </a>
       </div>
     </FilterDropdownMenuWrapper>
@@ -163,12 +177,19 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       <span
         role="button"
         tabIndex={-1}
-        className={classNames(`${prefixCls}-trigger`)}
+        className={classNames(`${prefixCls}-trigger`, {
+          active: filterState,
+        })}
         onClick={e => {
           e.stopPropagation();
         }}
       >
-        <Dropdown overlay={menu} trigger={['click']}>
+        <Dropdown
+          overlay={menu}
+          trigger={['click']}
+          visible={visible}
+          onVisibleChange={onVisibleChange}
+        >
           <FilterFilled />
         </Dropdown>
       </span>

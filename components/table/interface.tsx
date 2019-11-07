@@ -70,6 +70,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   filters?: ColumnFilterItem[];
   filterMultiple?: boolean;
   filteredValue?: Key[];
+  onFilter?: (value: any, record: RecordType) => boolean;
 }
 
 export type ColumnsType<RecordType> = (ColumnGroupType<RecordType> | ColumnType<RecordType>)[];
