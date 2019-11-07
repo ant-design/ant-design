@@ -36,8 +36,7 @@ export interface ProgressProps {
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
-  stepsCount?: number;
-  stepWidth?: number;
+  count?: number;
 }
 
 export default class Progress extends React.Component<ProgressProps> {
@@ -63,8 +62,7 @@ export default class Progress extends React.Component<ProgressProps> {
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,
-    stepsCount: PropTypes.number,
-    stepWidth: PropTypes.number,
+    count: PropTypes.number,
   };
 
   getPercentNumber() {
@@ -125,9 +123,9 @@ export default class Progress extends React.Component<ProgressProps> {
         </Circle>
       );
     } else if (type === 'steps') {
-      const { stepWidth = 14, stepsCount = 3 } = this.props;
+      const { width = 132, count = 3 } = this.props;
       progress = (
-        <Steps {...this.props} prefixCls={prefixCls} stepWidth={stepWidth} stepsCount={stepsCount}>
+        <Steps {...this.props} prefixCls={prefixCls} width={width} count={count}>
           {progressInfo}
         </Steps>
       );

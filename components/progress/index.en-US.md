@@ -54,7 +54,7 @@ Properties that shared by all types.
 
 ### `type="steps"`
 
-| Property   | Description              | Type   | Default | Version |
-| ---------- | ------------------------ | ------ | ------- | ------- |
-| stepsCount | the total step count     | number | 3       | 4.0     |
-| stepWidth  | to set with of each step | number | 14      | 4.0     |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| count | the total step count | number | 3 | 4.0 |
+| width | to set the canvas width of the steps progress, unit: `px` | number | 132 | 4.0 |
