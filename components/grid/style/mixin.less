@@ -29,27 +29,6 @@
   .col(1);
 }
 
-.float-grid-columns(@class) {
-  .col(@index) {
-    // initial
-    @item: ~'.@{ant-prefix}-col@{class}-@{index}';
-    .col((@index + 1), @item);
-  }
-  .col(@index, @list) when (@index =< @grid-columns) {
-    // general
-    @item: ~'.@{ant-prefix}-col@{class}-@{index}';
-    .col((@index + 1), ~'@{list}, @{item}');
-  }
-  .col(@index, @list) when (@index > @grid-columns) {
-    // terminal
-    @{list} {
-      flex: 0 0 auto;
-      float: left;
-    }
-  }
-  .col(1); // kickstart it
-}
-
 .loop-grid-columns(@index, @class) when (@index > 0) {
   .@{ant-prefix}-col@{class}-@{index} {
     display: block;
@@ -96,6 +75,5 @@
 }
 
 .make-grid(@class: ~'') {
-  .float-grid-columns(@class);
   .loop-grid-columns(@grid-columns, @class);
 }
