@@ -1401,7 +1401,6 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
 <div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
-    count="10"
   >
     <div
       class="ant-progress-steps"
@@ -1456,7 +1455,6 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
-    count="10"
   >
     <div
       class="ant-progress-steps"
@@ -1511,7 +1509,6 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
-    count="5"
   >
     <div
       class="ant-progress-steps"
@@ -1546,7 +1543,6 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
   </div>
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-default"
-    count="10"
   >
     <div
       class="ant-progress-steps"
