@@ -264,7 +264,7 @@ exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Progresser AFX
+                  Progresser XTech
                 </div>
               </div>
             </div>
@@ -310,7 +310,7 @@ exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Progresser AFX
+                  Progresser XTech
                 </div>
               </div>
             </div>
