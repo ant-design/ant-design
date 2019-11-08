@@ -13,9 +13,13 @@ export default function usePagination(
     total,
   });
 
+  if (pagination === false) {
+    return [{}];
+  }
+
   const mergedPagination = {
-    ...(typeof pagination === 'object' ? pagination : null),
     ...innerPagination,
+    ...(typeof pagination === 'object' ? pagination : null),
   };
 
   const onInternalChange: PaginationProps['onChange'] = (...args) => {

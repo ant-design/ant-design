@@ -7,11 +7,11 @@
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 
 // Sorter
-@table-header-sort-hover-bg: darken(@table-header-sort-bg, 5%);
+// Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
 
 // Filter
-@table-header-filter-active-bg: darken(@table-header-sort-hover-bg, 5%);
+@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
 
 @table-selection-column-width: 60px;
 
@@ -119,15 +119,14 @@
   thead th.@{table-prefix-cls}-column-has-sorters {
     transition: all 0.3s;
     cursor: pointer;
-    background: @table-header-sort-bg;
 
     &:hover {
-      background: @table-header-sort-hover-bg;
+      background: @table-header-sort-active-bg;
     }
   }
 
   thead th.@{table-prefix-cls}-column-sort {
-    background: @table-header-sort-active-bg;
+    background: @table-header-sort-bg;
   }
   td&-column-sort {
     background: @table-body-sort-bg;

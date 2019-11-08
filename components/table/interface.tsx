@@ -49,6 +49,16 @@ export type ColumnTitle<RecordType> =
   | React.ReactNode
   | ((props: ColumnTitleProps<RecordType>) => React.ReactNode);
 
+export interface FilterDropdownProps {
+  prefixCls: string;
+  setSelectedKeys: (selectedKeys: string[]) => void;
+  selectedKeys: React.Key[];
+  confirm: () => void;
+  clearFilters: (selectedKeys: string[]) => void;
+  filters?: ColumnFilterItem[];
+  visible: boolean;
+}
+
 export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   title?: ColumnTitle<RecordType>;
 
@@ -68,8 +78,10 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
 
   // Filter
   filters?: ColumnFilterItem[];
+  filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterMultiple?: boolean;
   filteredValue?: Key[];
+  filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   onFilter?: (value: any, record: RecordType) => boolean;
 }
 
@@ -119,3 +131,5 @@ export interface SorterResult<RecordType> {
   field?: Key | Key[];
   columnKey?: Key;
 }
+
+export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;

@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcTable, { Column, ColumnGroup } from 'rc-table';
 import { TableProps as RcTableProps } from 'rc-table/lib/Table';
+import Spin, { SpinProps } from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
@@ -13,6 +14,7 @@ import {
   TableCurrentDataSource,
   SorterResult,
   Key,
+  GetPopupContainer,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter from './hooks/useSorter';
@@ -23,17 +25,20 @@ const EMPTY_LIST: any[] = [];
 
 interface ChangeEventInfo<RecordType> {
   pagination: {
-    current: number;
-    pageSize: number;
+    current?: number;
+    pageSize?: number;
+    total?: number;
   };
   filters: Record<string, Key[] | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
 }
 
-export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, 'transformColumns'> {
+export interface TableProps<RecordType>
+  extends Omit<RcTableProps<RecordType>, 'transformColumns' | 'data'> {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   pagination?: false | PaginationConfig;
+  loading?: boolean | SpinProps;
 
   onChange?: (
     pagination: PaginationConfig,
@@ -42,6 +47,8 @@ export interface TableProps<RecordType> extends Omit<RcTableProps<RecordType>, '
     extra: TableCurrentDataSource<RecordType>,
   ) => void;
   rowSelection?: TableRowSelection<RecordType>;
+
+  getPopupContainer?: GetPopupContainer;
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -55,6 +62,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     rowClassName,
     columns,
     onChange,
+    getPopupContainer,
+    loading,
   } = props;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
@@ -87,6 +96,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
   };
 
+  /**
+   * Controlled state in `columns` is not a good idea that makes too many code (1000+ line?)
+   * to read state out and then put it back to title render.
+   * Move these code into `hooks` but still too complex.
+   * We should provides Table props like `sorter` & `filter` to handle control in next big version.
+   */
+
   // ============================ Sorter =============================
   const onSorterChange = (sorter: SorterResult<RecordType> | SorterResult<RecordType>[]) => {
     triggerOnChange({
@@ -116,6 +132,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     columns: columns || [],
     data: sortedData,
     onFilterChange,
+    getPopupContainer,
   });
   changeEventInfo.filters = getFilters();
 
@@ -131,10 +148,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ========================== Pagination ==========================
   // TODO: handle this
   const [mergedPagination] = usePagination(mergedData.length, pagination);
-  changeEventInfo.pagination = {
-    current: mergedPagination.current!,
-    pageSize: mergedPagination.pageSize!,
-  };
+  changeEventInfo.pagination =
+    pagination !== false
+      ? {
+          current: mergedPagination.current!,
+          pageSize: mergedPagination.pageSize!,
+        }
+      : {};
 
   const onPaginationChange = (current: number, pageSize: number) => {
     if (mergedPagination.onChange) {
@@ -148,11 +168,25 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   // ============================= Data =============================
   const pageData = React.useMemo<RecordType[]>(() => {
+    if (
+      pagination === false ||
+      !mergedPagination.pageSize ||
+      mergedData.length < mergedPagination.total!
+    ) {
+      return mergedData;
+    }
+
     const { current = 1, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
     // TODO: ajax mode
     const currentPageData = mergedData.slice((current - 1) * pageSize, current * pageSize);
     return currentPageData;
-  }, [mergedData, mergedPagination.current, mergedPagination.pageSize]);
+  }, [
+    !!pagination,
+    mergedData,
+    mergedPagination && mergedPagination.current,
+    mergedPagination && mergedPagination.pageSize,
+    mergedPagination && mergedPagination.total,
+  ]);
 
   // ========================== Selections ==========================
   const [transformSelectionColumns, selectedKeySet] = useSelection<RecordType>(rowSelection, {
@@ -200,17 +234,29 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     );
   }
 
+  // >>>>>>>>> Spinning
+  let spinProps: SpinProps | undefined;
+  if (typeof loading === 'boolean') {
+    spinProps = {
+      spinning: loading,
+    };
+  } else {
+    spinProps = loading;
+  }
+
   return (
     <div className={`${prefixCls}-wrapper`}>
-      <RcTable<RecordType>
-        {...props}
-        prefixCls={prefixCls}
-        data={pageData}
-        transformColumns={transformColumns}
-        rowKey={getRowKey}
-        rowClassName={internalRowClassName}
-      />
-      {paginationNode}
+      <Spin {...spinProps}>
+        <RcTable<RecordType>
+          {...props}
+          prefixCls={prefixCls}
+          data={pageData}
+          transformColumns={transformColumns}
+          rowKey={getRowKey}
+          rowClassName={internalRowClassName}
+        />
+        {paginationNode}
+      </Spin>
     </div>
   );
 }

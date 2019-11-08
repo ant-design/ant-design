@@ -6,6 +6,7 @@ import {
   ColumnTitleProps,
   Key,
   TableLocale,
+  GetPopupContainer,
 } from '../../interface';
 import { getColumnPos, renderColumnTitle, getColumnKey } from '../../util';
 import FilterDropdown from './FilterDropdown';
@@ -48,6 +49,7 @@ function injectFilter<RecordType>(
   columns: ColumnsType<RecordType>,
   filterStates: FilterState<RecordType>[],
   triggerFilter: (filterState: FilterState<RecordType>) => void,
+  getPopupContainer: GetPopupContainer | undefined,
   locale: TableLocale,
   pos?: string,
 ): ColumnsType<RecordType> {
@@ -71,6 +73,7 @@ function injectFilter<RecordType>(
             filterMultiple={filterMultiple}
             triggerFilter={triggerFilter}
             locale={locale}
+            getPopupContainer={getPopupContainer}
           >
             {renderColumnTitle(column.title, renderProps)}
           </FilterDropdown>
@@ -87,6 +90,7 @@ function injectFilter<RecordType>(
           column.children,
           filterStates,
           triggerFilter,
+          getPopupContainer,
           locale,
           columnPos,
         ),
@@ -113,6 +117,7 @@ interface FilterConfig<RecordType> {
   columns: ColumnsType<RecordType>;
   data: RecordType[];
   onFilterChange: (filters: Record<string, Key[] | null>) => void;
+  getPopupContainer?: GetPopupContainer;
 }
 
 function useFilter<RecordType>({
@@ -121,6 +126,7 @@ function useFilter<RecordType>({
   data,
   columns,
   onFilterChange,
+  getPopupContainer,
 }: FilterConfig<RecordType>): [
   TransformColumns<RecordType>,
   RecordType[],
@@ -137,7 +143,7 @@ function useFilter<RecordType>({
     const collectedStates = collectFilterStates(columns);
 
     // Return if not controlled
-    if (!collectedStates.length) {
+    if (collectedStates.every(({ filteredKeys }) => !filteredKeys)) {
       return filterStates;
     }
 
@@ -176,6 +182,7 @@ function useFilter<RecordType>({
         innerColumns,
         mergedFilterStates,
         triggerFilter,
+        getPopupContainer,
         tableLocale,
       );
   }, [mergedFilterStates]);
