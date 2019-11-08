@@ -34,9 +34,19 @@ title: Checkbox
 | defaultValue | 默认选中的选项 | string\[] | \[] | 3.6.2 |
 | disabled | 整组失效 | boolean | false | 3.6.2 |
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - | 3.16.0 |
-| options | 指定可选项 | string\[] | \[] | 3.6.2 |
+| options | 指定可选项 | string\[] \| Option\[] | \[] | 3.6.2 |
 | value | 指定选中的选项 | string\[] | \[] | 3.6.2 |
 | onChange | 变化时回调函数 | Function(checkedValue) | - | 3.6.2 |
+
+##### Option
+
+```typescript
+interface Option {
+  label: string;
+  value: string;
+  disabled?: boolean;
+}
+```
 
 ### 方法
 
