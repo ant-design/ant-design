@@ -82,7 +82,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     }
   };
 
-  renderUploadList = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderUploadList = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       items = [],
@@ -258,6 +258,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     const listClassNames = classNames({
       [`${prefixCls}-list`]: true,
       [`${prefixCls}-list-${listType}`]: true,
+      [`${prefixCls}-list-rtl`]: direction === 'rtl',
     });
     const animationDirection = listType === 'picture-card' ? 'animate-inline' : 'animate';
     return (
