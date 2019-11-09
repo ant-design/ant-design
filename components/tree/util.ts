@@ -104,11 +104,9 @@ export function convertDirectoryKeysToNodes(
 
 export function getFullKeyListByTreeData(treeData: any[], keys: any = []): any[] {
   (treeData || []).forEach(item => {
+    keys.push(item.key);
     if (item.children) {
-      keys.push(item.key);
-      keys.concat(getFullKeyListByTreeData(item.children, keys));
-    } else {
-      keys.push(item.key);
+      keys = [...keys, ...getFullKeyListByTreeData(item.children, keys)];
     }
   });
   return keys;

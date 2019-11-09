@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Tree from '../index';
-import { calcRangeKeys } from '../util';
+import { calcRangeKeys, getFullKeyListByTreeData } from '../util';
 
 const { TreeNode } = Tree;
 
@@ -31,5 +31,16 @@ describe('Tree util', () => {
     const keys = calcRangeKeys(children, ['0-0', '0-2', '0-2-0'], '0-2-0-1', '0-0-0');
     const target = ['0-0-0', '0-0-1', '0-1', '0-2', '0-2-0', '0-2-0-0', '0-2-0-1'];
     expect(keys.sort()).toEqual(target.sort());
+  });
+
+  it('getFullKeyListByTreeData', () => {
+    expect(
+      getFullKeyListByTreeData([
+        {
+          key: 'light',
+          children: [{ key: 'bamboo' }],
+        },
+      ]),
+    ).toEqual(['light', 'bamboo']);
   });
 });
