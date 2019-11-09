@@ -1,0 +1,39 @@
+@import './index';
+
+@table-padding-vertical-md: @table-padding-vertical * 3 / 4;
+@table-padding-horizontal-md: @table-padding-horizontal / 2;
+@table-padding-vertical-sm: @table-padding-vertical / 2;
+@table-padding-horizontal-sm: @table-padding-horizontal / 2;
+
+// ================================================================
+// =                            Middle                            =
+// ================================================================
+.@{table-prefix-cls}.@{table-prefix-cls}-middle {
+  thead > tr > th,
+  tbody > tr > td {
+    padding: @table-padding-vertical-md @table-padding-horizontal-md;
+  }
+}
+
+// ================================================================
+// =                            Small                             =
+// ================================================================
+.@{table-prefix-cls}.@{table-prefix-cls}-small {
+  thead > tr > th,
+  tbody > tr > td {
+    padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
+  }
+}
+
+//   tbody {
+//     tr:last-child {
+//       td {
+//         border-bottom: 0;
+//       }
+//     }
+//   }
+
+//   .@{table-prefix-cls}-content {
+//     padding: 0 @table-padding-horizontal-sm;
+//   }
+// }

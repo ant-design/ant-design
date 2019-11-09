@@ -12,6 +12,8 @@ export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | '
 
 export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
 
+export type TableSize = 'default' | 'middle' | 'small';
+
 export interface TableLocale {
   filterTitle?: string;
   filterConfirm?: React.ReactNode;

@@ -15,11 +15,14 @@ import {
   SorterResult,
   Key,
   GetPopupContainer,
+  TableSize,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter from './hooks/useSorter';
 import useFilter from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
+import renderExpandIcon from './ExpandIcon';
+import defaultLocale from '../locale/en_US';
 
 const EMPTY_LIST: any[] = [];
 
@@ -31,6 +34,7 @@ interface ChangeEventInfo<RecordType> {
   };
   filters: Record<string, Key[] | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
+  extra: { currentDataSource: RecordType[] };
 }
 
 export interface TableProps<RecordType>
@@ -39,6 +43,8 @@ export interface TableProps<RecordType>
   dataSource?: RcTableProps<RecordType>['data'];
   pagination?: false | PaginationConfig;
   loading?: boolean | SpinProps;
+  size?: TableSize;
+  bordered?: boolean;
 
   onChange?: (
     pagination: PaginationConfig,
@@ -54,6 +60,9 @@ export interface TableProps<RecordType>
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const {
     prefixCls: customizePrefixCls,
+    className,
+    size,
+    bordered,
     dropdownPrefixCls,
     dataSource,
     pagination,
@@ -64,7 +73,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     onChange,
     getPopupContainer,
     loading,
+    expandIcon,
   } = props;
+  const { locale = defaultLocale } = React.useContext(ConfigContext);
+  const tableLocale = locale.Table;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -90,9 +102,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       ...info,
     };
 
-    // setChangeInfo(newChangeInfo);
     if (onChange) {
-      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, null);
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, changeInfo.extra!);
     }
   };
 
@@ -134,7 +145,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     onFilterChange,
     getPopupContainer,
   });
+
   changeEventInfo.filters = getFilters();
+  changeEventInfo.extra = {
+    currentDataSource: mergedData,
+  };
 
   // ============================ Column ============================
   const columnTitleProps = React.useMemo(
@@ -146,7 +161,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
-  // TODO: handle this
   const [mergedPagination] = usePagination(mergedData.length, pagination);
   changeEventInfo.pagination =
     pagination !== false
@@ -177,7 +191,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     }
 
     const { current = 1, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
-    // TODO: ajax mode
     const currentPageData = mergedData.slice((current - 1) * pageSize, current * pageSize);
     return currentPageData;
   }, [
@@ -213,6 +226,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     );
   };
 
+  // ========================== Expandable ==========================
+
   // ============================ Render ============================
   const transformColumns = React.useCallback(
     (innerColumns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
@@ -230,6 +245,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         className={`${prefixCls}-pagination`}
         {...mergedPagination}
         onChange={onPaginationChange}
+        size={size === 'small' || size === 'middle' ? 'small' : undefined}
       />
     );
   }
@@ -246,10 +262,16 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   return (
     <div className={`${prefixCls}-wrapper`}>
-      <Spin {...spinProps}>
+      <Spin spinning={false} {...spinProps}>
         <RcTable<RecordType>
           {...props}
+          expandIcon={expandIcon || renderExpandIcon(tableLocale!)}
           prefixCls={prefixCls}
+          className={classNames(className, {
+            [`${prefixCls}-middle`]: size === 'middle',
+            [`${prefixCls}-small`]: size === 'small',
+            [`${prefixCls}-bordered`]: bordered,
+          })}
           data={pageData}
           transformColumns={transformColumns}
           rowKey={getRowKey}

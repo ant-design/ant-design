@@ -3,6 +3,7 @@ order: 14
 title:
   en-US: Expandable Row
   zh-CN: 可展开
+only: true
 ---
 
 ## zh-CN

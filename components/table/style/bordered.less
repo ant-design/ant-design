@@ -1,0 +1,40 @@
+@import './index';
+
+@table-border: @border-width-base @border-style-base @border-color-split;
+
+.@{table-prefix-cls}.@{table-prefix-cls}-bordered {
+  // ============================ Title =============================
+  .@{table-prefix-cls}-title {
+    border: @table-border;
+    border-bottom: 0;
+  }
+
+  // ============================= Cell =============================
+  thead > tr > th,
+  tbody > tr > td {
+    border-left: @table-border;
+
+    &:first-child {
+      border-left: 0;
+    }
+  }
+
+  // =========================== Content ============================
+  .@{table-prefix-cls}-content {
+    border: @table-border;
+    border-bottom: 0;
+  }
+
+  // ============================ Footer ============================
+  .@{table-prefix-cls}-footer {
+    border: @table-border;
+    border-top: 0;
+  }
+}
+
+// // ============================= Small ==============================
+// // Small Table always has outer border
+
+// .@{table-prefix-cls}.@{table-prefix-cls}-small {
+//   border: @table-border;
+// }

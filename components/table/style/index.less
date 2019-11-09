@@ -1,5 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './size';
+@import './bordered';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
@@ -33,11 +35,21 @@
   }
 
   // ============================= Cell =============================
-  th,
-  td {
+  thead > tr > th,
+  tbody > tr > td {
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
     position: relative;
+  }
+
+  // ============================ Title =============================
+  &-title {
+    padding: @table-padding-vertical @table-padding-horizontal;
+  }
+
+  // ============================ Footer ============================
+  &-footer {
+    padding: @table-padding-vertical @table-padding-horizontal;
   }
 
   // ============================ Header ============================
@@ -85,35 +97,22 @@
     }
   }
 
-  // ========================== Selections ==========================
-  table tr th&-selection-column,
-  table tr td&-selection-column {
-    text-align: center;
-
-    .@{ant-prefix}-radio-wrapper {
-      margin-right: 0;
-    }
+  // ============================ Footer ============================
+  &-footer {
+    padding: @table-padding-vertical @table-padding-horizontal;
+    color: @table-footer-color;
+    background: @table-footer-bg;
   }
 
-  &-selection {
-    position: relative;
-
-    &-extra {
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translate(100%, -50%);
-
-      .@{iconfont-css-prefix} {
-        .iconfont-size-under-12px(10px);
-        color: @table-header-icon-color;
-
-        &:hover {
-          color: @table-header-icon-color-hover;
-        }
-      }
-    }
+  // ========================== Pagination ==========================
+  &-pagination.@{ant-prefix}-pagination {
+    float: right;
+    margin: 16px 0;
   }
+
+  // ================================================================
+  // =                           Function                           =
+  // ================================================================
 
   // ============================ Sorter ============================
   thead th.@{table-prefix-cls}-column-has-sorters {
@@ -248,16 +247,129 @@
     }
   }
 
-  // ========================== Pagination ==========================
-  &-pagination.@{ant-prefix}-pagination {
-    float: right;
-    margin: 16px 0;
-  }
-
-  // ========================== Row Selection ==========================
+  // ========================== Selections ==========================
   colgroup {
     > col.@{table-prefix-cls}-selection-col {
       width: @table-selection-column-width;
     }
   }
+
+  table tr th&-selection-column,
+  table tr td&-selection-column {
+    text-align: center;
+
+    .@{ant-prefix}-radio-wrapper {
+      margin-right: 0;
+    }
+  }
+
+  &-selection {
+    position: relative;
+
+    &-extra {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(100%, -50%);
+
+      .@{iconfont-css-prefix} {
+        .iconfont-size-under-12px(10px);
+        color: @table-header-icon-color;
+
+        &:hover {
+          color: @table-header-icon-color-hover;
+        }
+      }
+    }
+  }
+
+  // ========================== Expandable ==========================
+
+  &-expand-icon-col {
+    width: 48px;
+  }
+
+  &-row-expand-icon {
+    .operation-unit();
+
+    display: inline-block;
+    width: floor(@font-size-sm * 1.4);
+    height: floor(@font-size-sm * 1.4);
+    color: inherit;
+    line-height: floor(@font-size-sm * 1.4);
+    font-size: @font-size-sm;
+    box-sizing: border-box;
+    background: @component-background;
+    border: @border-width-base @border-style-base @border-color-split;
+    border-radius: @border-radius-sm;
+    outline: none;
+    transition: all 0.3s;
+    user-select: none;
+
+    &:focus,
+    &:hover,
+    &:active {
+      border-color: currentColor;
+    }
+  }
+
+  // ================================================================
+  // =                         Border Radio                         =
+  // ================================================================
+
+  /* title + table */
+  &-title {
+    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
+  }
+
+  &-title + &-content {
+    table > thead > tr:first-child {
+      th:first-child {
+        border-radius: 0;
+      }
+
+      th:last-child {
+        border-radius: 0;
+      }
+    }
+  }
+
+  /* table */
+  &-content {
+    table > thead > tr:first-child {
+      th:first-child {
+        border-radius: @table-border-radius-base 0 0 0;
+      }
+
+      th:last-child {
+        border-radius: 0 @table-border-radius-base 0 0;
+      }
+    }
+  }
+
+  /* table + footer */
+  &-content:last-child {
+    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
+  }
+
+  &-footer {
+    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
+  }
+
+  // // Small table is not same as above
+  // &-small {
+  //   border-radius: @table-border-radius-base;
+
+  //   .@{table-prefix-cls}-content {
+  //     table > thead > tr:first-child {
+  //       th:first-child {
+  //         border-radius: 0;
+  //       }
+
+  //       th:last-child {
+  //         border-radius: 0;
+  //       }
+  //     }
+  //   }
+  // }
 }
