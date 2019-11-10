@@ -17,6 +17,10 @@
   border-radius: @card-radius;
   transition: all 0.3s;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-hoverable {
     cursor: pointer;
     &:hover {
@@ -76,6 +80,11 @@
     color: @text-color;
     font-weight: normal;
     font-size: @font-size-base;
+
+    .@{card-prefix-cls}-rtl & {
+      margin-right: auto;
+      margin-left: 0;
+    }
   }
 
   &-body {
@@ -98,6 +107,11 @@
       1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
       0 1px 0 0 @border-color-split inset;
     transition: all 0.3s;
+
+    .@{card-prefix-cls}-rtl & {
+      float: right;
+    }
+
     &-hoverable {
       &:hover {
         position: relative;
@@ -141,6 +155,10 @@
       margin: 12px 0;
       color: @text-color-secondary;
       text-align: center;
+
+      .@{card-prefix-cls}-rtl & {
+        float: right;
+      }
 
       > span {
         position: relative;
@@ -205,6 +223,12 @@
     &-avatar {
       float: left;
       padding-right: 16px;
+
+      .@{card-prefix-cls}-rtl & {
+        float: right;
+        padding-right: 0;
+        padding-left: 16px;
+      }
     }
 
     &-detail {
