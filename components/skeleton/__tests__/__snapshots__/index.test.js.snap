@@ -169,9 +169,19 @@ exports[`Skeleton avatar size 4`] = `
 </div>
 `;
 
-exports[`Skeleton button width 1`] = `
+exports[`Skeleton button active 1`] = `
 <div
   class="ant-skeleton ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
+exports[`Skeleton button loading 1`] = `
+<div
+  class="ant-skeleton"
 >
   <span
     class="ant-skeleton-button"
