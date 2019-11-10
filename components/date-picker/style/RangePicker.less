@@ -44,7 +44,7 @@
   }
 
   &-left {
-    float: left;
+    .dir();
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
         .idirBorder(1px solid @border-color-split);
@@ -53,7 +53,7 @@
   }
 
   &-right {
-    float: right;
+    .idir();
     .@{calendar-prefix-cls} {
       &-time-picker-inner {
         .dirBorder(1px solid @border-color-split);
@@ -172,7 +172,7 @@
   }
 
   .@{calendar-prefix-cls}-footer-extra {
-    float: left;
+    .dir();
   }
 
   // `div` for selector specificity

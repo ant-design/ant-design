@@ -22,7 +22,7 @@
   }
 
   &-back {
-    float: left;
+    .dir();
     margin: 8px 0;
     .margin-idir(16px);
     font-size: 16px;
@@ -49,7 +49,7 @@
     overflow: hidden;
     &-title {
       display: block;
-      float: left;
+      .dir();
       margin-bottom: 0;
       .padding-idir(12px);
       color: @heading-color;
@@ -59,12 +59,12 @@
     }
 
     .@{ant-prefix}-avatar {
-      float: left;
+      .dir();
       .margin-idir(12px);
     }
 
     &-sub-title {
-      float: left;
+      .dir();
       margin: 5px 0;
       .padding-idir(12px);
       color: @text-color-secondary;
@@ -73,12 +73,12 @@
     }
 
     &-tags {
-      float: left;
+      .dir();
       margin: 4px 0;
     }
 
     &-extra {
-      float: right;
+      .idir();
       > * {
         .margin-dir(8px);
       }
