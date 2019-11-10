@@ -129,7 +129,7 @@
 
       &.@{table-prefix-cls}-column-has-filters {
         // https://github.com/ant-design/ant-design/issues/12650
-        padding-right: 30px !important;
+        .padding-idir(30px) !important;
 
         .@{iconfont-css-prefix}-filter,
         .@{table-prefix-cls}-filter-icon {
@@ -758,7 +758,7 @@
 
   &-thead > tr > th.@{table-prefix-cls}-selection-column-custom {
     .@{table-prefix-cls}-selection {
-      margin-right: -15px;
+      .margin-idir(-15px);
     }
   }
 
@@ -767,7 +767,7 @@
     text-align: center;
 
     .@{ant-prefix}-radio-wrapper {
-      margin-right: 0;
+      .margin-idir(0);
     }
   }
 
@@ -779,7 +779,7 @@
 .@{table-prefix-cls}-filter-dropdown,
 .@{table-prefix-cls}-filter-dropdown-submenu {
   .@{ant-prefix}-checkbox-wrapper + span {
-    padding-left: 8px;
+    .padding-dir(8px);
   }
 }
 

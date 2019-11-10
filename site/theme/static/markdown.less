@@ -81,7 +81,7 @@
 
 .markdown ul > li {
   margin-left: 20px;
-  padding-left: 4px;
+  .padding-dir(4px);
   list-style-type: circle;
   &:empty {
     display: none;
@@ -90,7 +90,7 @@
 
 .markdown ol > li {
   margin-left: 20px;
-  padding-left: 4px;
+  .padding-dir(4px);
   list-style-type: decimal;
 }
 
@@ -154,7 +154,7 @@
 
 .markdown blockquote {
   margin: 1em 0;
-  padding-left: 0.8em;
+  .padding-dir(0.8em);
   color: @site-text-color-secondary;
   font-size: 90%;
   border-left: 4px solid @site-border-color-split;
@@ -410,7 +410,7 @@
     .ant-timeline-item-content {
       position: relative;
       top: -14px;
-      padding-left: 32px;
+      .padding-dir(32px);
       font-size: 14px;
       > h2 {
         margin-top: 0;
