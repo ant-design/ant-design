@@ -48,6 +48,16 @@ exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/skeleton/demo/button.md correctly 1`] = `
+<div
+  class="ant-skeleton"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
 exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
 <div
   class="article"
@@ -79,7 +89,7 @@ exports[`renders ./components/skeleton/demo/complex.md correctly 1`] = `
     class="ant-skeleton-header"
   >
     <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+      class="ant-skeleton-avatar ant-skeleton-avatar-circle"
     />
   </div>
   <div
@@ -135,7 +145,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                 class="ant-skeleton-header"
               >
                 <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                  class="ant-skeleton-avatar ant-skeleton-avatar-circle"
                 />
               </div>
               <div
@@ -164,7 +174,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                 class="ant-skeleton-header"
               >
                 <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                  class="ant-skeleton-avatar ant-skeleton-avatar-circle"
                 />
               </div>
               <div
@@ -193,7 +203,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                 class="ant-skeleton-header"
               >
                 <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+                  class="ant-skeleton-avatar ant-skeleton-avatar-circle"
                 />
               </div>
               <div

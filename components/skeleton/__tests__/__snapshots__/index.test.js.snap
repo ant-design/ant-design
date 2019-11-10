@@ -8,7 +8,7 @@ exports[`Skeleton avatar shape 1`] = `
     class="ant-skeleton-header"
   >
     <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+      class="ant-skeleton-avatar ant-skeleton-avatar-circle"
     />
   </div>
   <div
@@ -36,7 +36,7 @@ exports[`Skeleton avatar shape 2`] = `
     class="ant-skeleton-header"
   >
     <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
+      class="ant-skeleton-avatar ant-skeleton-avatar-square"
     />
   </div>
   <div
@@ -166,6 +166,16 @@ exports[`Skeleton avatar size 4`] = `
       <li />
     </ul>
   </div>
+</div>
+`;
+
+exports[`Skeleton button width 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-button"
+  />
 </div>
 `;
 

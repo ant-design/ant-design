@@ -556,7 +556,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
           class="ant-skeleton-header"
         >
           <span
-            class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+            class="ant-skeleton-avatar ant-skeleton-avatar-circle"
           />
         </div>
         <div
