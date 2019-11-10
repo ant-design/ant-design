@@ -11057,7 +11057,7 @@ exports[`ConfigProvider components Skeleton configProvider 1`] = `
     class="config-skeleton-header"
   >
     <span
-      class="config-skeleton-avatar config-skeleton-avatar-lg config-skeleton-avatar-circle"
+      class="config-skeleton-avatar config-skeleton-avatar-circle"
     />
   </div>
   <div
@@ -11085,7 +11085,7 @@ exports[`ConfigProvider components Skeleton normal 1`] = `
     class="ant-skeleton-header"
   >
     <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+      class="ant-skeleton-avatar ant-skeleton-avatar-circle"
     />
   </div>
   <div
@@ -11113,7 +11113,7 @@ exports[`ConfigProvider components Skeleton prefixCls 1`] = `
     class="prefix-Skeleton-header"
   >
     <span
-      class="prefix-Skeleton-avatar prefix-Skeleton-avatar-lg prefix-Skeleton-avatar-circle"
+      class="prefix-Skeleton-avatar prefix-Skeleton-avatar-circle"
     />
   </div>
   <div
