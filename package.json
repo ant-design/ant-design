@@ -167,7 +167,7 @@
     "bisheng-plugin-react": "^1.0.0",
     "bisheng-plugin-toc": "^0.4.4",
     "bundlesize": "^0.18.0",
-    "chalk": "^2.4.2",
+    "chalk": "^3.0.0",
     "cheerio": "^1.0.0-rc.3",
     "cross-env": "^6.0.0",
     "css-split-webpack-plugin": "^0.2.6",
