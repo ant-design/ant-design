@@ -12,11 +12,26 @@ exports[`Icon \`component\` prop can access to svg defs if has children 1`] = `
     height="1em"
     width="1em"
   >
+    <defs>
+      <linearGradient
+        id="gradient"
+      >
+        <stop
+          offset="20%"
+          stop-color="#39F"
+        />
+        <stop
+          offset="90%"
+          stop-color="#F3F"
+        />
+      </linearGradient>
+    </defs>
     <title>
       Cool Home
     </title>
     <path
       d="'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'"
+      fill="scriptUrl(#gradient)"
     />
   </svg>
 </i>
@@ -38,6 +53,7 @@ exports[`Icon should render to a <i class="xxx"><svg>...</svg></i> 1`] = `
     class=""
     data-icon="message"
     fill="currentColor"
+    focusable="false"
     height="1em"
     viewBox="64 64 896 896"
     width="1em"
@@ -60,6 +76,7 @@ exports[`Icon should support basic usage 1`] = `
       class=""
       data-icon="home"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -78,6 +95,7 @@ exports[`Icon should support basic usage 1`] = `
       class=""
       data-icon="setting"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -96,6 +114,7 @@ exports[`Icon should support basic usage 1`] = `
       class=""
       data-icon="smile"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -114,6 +133,7 @@ exports[`Icon should support basic usage 1`] = `
       class="anticon-spin"
       data-icon="sync"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -132,6 +152,7 @@ exports[`Icon should support basic usage 1`] = `
       class="anticon-spin"
       data-icon="loading"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="0 0 1024 1024"
       width="1em"
@@ -154,6 +175,7 @@ exports[`Icon should support config global two-tone primary color 1`] = `
     class=""
     data-icon="check-circle"
     fill="currentColor"
+    focusable="false"
     height="1em"
     viewBox="64 64 896 896"
     width="1em"
@@ -185,6 +207,7 @@ exports[`Icon should support older usage 1`] = `
       class=""
       data-icon="home"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -203,6 +226,7 @@ exports[`Icon should support older usage 1`] = `
       class=""
       data-icon="setting"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -221,6 +245,7 @@ exports[`Icon should support older usage 1`] = `
       class=""
       data-icon="smile"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -239,6 +264,7 @@ exports[`Icon should support older usage 1`] = `
       class=""
       data-icon="check-circle"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="64 64 896 896"
       width="1em"
@@ -287,13 +313,14 @@ exports[`Icon should support svg react component 1`] = `
     fill="currentColor"
     focusable="false"
     height="1em"
+    viewBox="0 0 24 24"
     width="1em"
   >
     <title>
-      Cool Home
+      Custom Svg
     </title>
     <path
-      d="'M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z'"
+      d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
     />
   </svg>
 </i>
@@ -309,6 +336,7 @@ exports[`Icon should support two-tone icon 1`] = `
     class=""
     data-icon="check-circle"
     fill="currentColor"
+    focusable="false"
     height="1em"
     viewBox="64 64 896 896"
     width="1em"
@@ -342,12 +370,12 @@ exports[`Icon support render svg as component 1`] = `
 </i>
 `;
 
-exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
+exports[`Icon.createFromIconfontCN() extraCommonProps should works fine and can be overwritten 1`] = `
 <div
   class="icons-list"
 >
   <i
-    class="anticon"
+    class="anticon bcd"
   >
     <svg
       aria-hidden="true"
@@ -363,7 +391,7 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    class="anticon"
+    class="anticon abc"
   >
     <svg
       aria-hidden="true"
@@ -379,7 +407,62 @@ exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
     </svg>
   </i>
   <i
-    class="anticon"
+    class="anticon efg"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-twitter"
+      />
+    </svg>
+  </i>
+</div>
+`;
+
+exports[`Icon.createFromIconfontCN() should support iconfont.cn 1`] = `
+<div
+  class="icons-list"
+>
+  <i
+    class="anticon abc"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-tuichu"
+      />
+    </svg>
+  </i>
+  <i
+    class="anticon abc"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      width="1em"
+    >
+      <use
+        href="#icon-facebook"
+      />
+    </svg>
+  </i>
+  <i
+    class="anticon abc"
   >
     <svg
       aria-hidden="true"

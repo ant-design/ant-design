@@ -9,7 +9,7 @@ Animations bring vividness to interfaces and reinforce user experiences.
 
 ## Values of Animations
 
-- **Smooth interactions** - Animations can make user interactions more natural. 
+- **Smooth interactions** - Animations can make user interactions more natural.
 - **Bring vividness** - Animations can attract users' attention and increase users' motivation to interact by bring more vividness.
 - **Define hierarchies** - Animations can define elements' hierarchies and logical relationships in the most intuitive way.
 - **Provide feedbacks** - Animations can reinforce user experiences by providing motional feedbacks.
@@ -24,7 +24,6 @@ We can determine if an animation is effective or not from the following two aspe
 ## Principles
 
 Different from animations usage in typical front-office applications, animations in enterprise level applications spend a great amount of efforts on reinforcing user interactions and the effectiveness of those interactions. Therefore, we derived three animation design principles from Ant Design's core design language:
-
 
 ```__react
 

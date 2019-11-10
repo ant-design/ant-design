@@ -49,4 +49,19 @@ describe('Alert', () => {
       expect(input.getAttribute('role')).toBe('status');
     });
   });
+
+  it('warning for props#iconType', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      <Alert
+        message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
+        type="warning"
+        iconType="up"
+      />,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Alert] `iconType` is deprecated. Please use `icon` instead.',
+    );
+    warnSpy.mockRestore();
+  });
 });

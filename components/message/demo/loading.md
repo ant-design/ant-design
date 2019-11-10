@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 加载中
-  en-US: Message of loading
+  en-US: Message with loading indicator
 ---
 
 ## zh-CN
@@ -13,7 +13,7 @@ title:
 
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
-````jsx
+```jsx
 import { message, Button } from 'antd';
 
 const success = () => {
@@ -22,8 +22,5 @@ const success = () => {
   setTimeout(hide, 2500);
 };
 
-ReactDOM.render(
-  <Button onClick={success}>Display a loading indicator</Button>,
-  mountNode
-);
-````
+ReactDOM.render(<Button onClick={success}>Display a loading indicator</Button>, mountNode);
+```

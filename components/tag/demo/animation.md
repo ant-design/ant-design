@@ -11,14 +11,11 @@ title:
 
 ## en-US
 
-Animating the Tag by using [rc-tween-one] (https://github.com/react-component/tween-one).
+Animating the Tag by using [rc-tween-one](https://github.com/react-component/tween-one).
 
-````jsx
-import {
-  Tag, Input, Icon,
-} from 'antd';
+```jsx
+import { Tag, Input, Icon } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
-
 
 class EditableTagGroup extends React.Component {
   state = {
@@ -27,19 +24,19 @@ class EditableTagGroup extends React.Component {
     inputValue: '',
   };
 
-  handleClose = (removedTag) => {
+  handleClose = removedTag => {
     const tags = this.state.tags.filter(tag => tag !== removedTag);
     console.log(tags);
     this.setState({ tags });
-  }
+  };
 
   showInput = () => {
     this.setState({ inputVisible: true }, () => this.input.focus());
-  }
+  };
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     this.setState({ inputValue: e.target.value });
-  }
+  };
 
   handleInputConfirm = () => {
     const { inputValue } = this.state;
@@ -53,15 +50,15 @@ class EditableTagGroup extends React.Component {
       inputVisible: false,
       inputValue: '',
     });
-  }
+  };
 
-  saveInputRef = input => this.input = input
+  saveInputRef = input => (this.input = input);
 
-  forMap = (tag) => {
+  forMap = tag => {
     const tagElem = (
-      <Tag 
-        closable 
-        onClose={(e) => {
+      <Tag
+        closable
+        onClose={e => {
           e.preventDefault();
           this.handleClose(tag);
         }}
@@ -74,7 +71,7 @@ class EditableTagGroup extends React.Component {
         {tagElem}
       </span>
     );
-  }
+  };
 
   render() {
     const { tags, inputVisible, inputValue } = this.state;
@@ -82,10 +79,13 @@ class EditableTagGroup extends React.Component {
     return (
       <div>
         <div style={{ marginBottom: 16 }}>
-          <TweenOneGroup 
+          <TweenOneGroup
             enter={{
-              scale: 0.8, opacity: 0, type: 'from', duration: 100,
-              onComplete: (e) => {
+              scale: 0.8,
+              opacity: 0,
+              type: 'from',
+              duration: 100,
+              onComplete: e => {
                 e.target.style = '';
               },
             }}
@@ -108,10 +108,7 @@ class EditableTagGroup extends React.Component {
           />
         )}
         {!inputVisible && (
-          <Tag
-            onClick={this.showInput}
-            style={{ background: '#fff', borderStyle: 'dashed' }}
-          >
+          <Tag onClick={this.showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
             <Icon type="plus" /> New Tag
           </Tag>
         )}
@@ -121,4 +118,4 @@ class EditableTagGroup extends React.Component {
 }
 
 ReactDOM.render(<EditableTagGroup />, mountNode);
-````
+```

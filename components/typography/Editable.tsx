@@ -10,6 +10,8 @@ interface EditableProps {
   ['aria-label']?: string;
   onSave: (value: string) => void;
   onCancel: () => void;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 interface EditableState {
@@ -33,7 +35,9 @@ class Editable extends React.Component<EditableProps, EditableState> {
   }
 
   textarea?: TextArea;
+
   lastKeyCode?: number;
+
   inComposition?: boolean = false;
 
   state = {
@@ -53,6 +57,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
   onCompositionStart = () => {
     this.inComposition = true;
   };
+
   onCompositionEnd = () => {
     this.inComposition = false;
   };
@@ -106,10 +111,10 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   render() {
     const { current } = this.state;
-    const { prefixCls, ['aria-label']: ariaLabel } = this.props;
+    const { prefixCls, 'aria-label': ariaLabel, className, style } = this.props;
 
     return (
-      <div className={`${prefixCls} ${prefixCls}-edit-content`}>
+      <div className={`${prefixCls} ${prefixCls}-edit-content ${className}`} style={style}>
         <TextArea
           ref={this.setTextarea}
           value={current}
@@ -120,7 +125,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
           onCompositionEnd={this.onCompositionEnd}
           onBlur={this.onBlur}
           aria-label={ariaLabel}
-          autosize
+          autoSize
         />
         <Icon type="enter" className={`${prefixCls}-edit-content-confirm`} />
       </div>

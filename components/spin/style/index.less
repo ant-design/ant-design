@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @spin-prefix-cls: ~'@{ant-prefix}-spin';
@@ -6,6 +6,7 @@
 
 .@{spin-prefix-cls} {
   .reset-component;
+
   position: absolute;
   display: none;
   color: @primary-color;
@@ -91,8 +92,8 @@
       background: @component-background;
       opacity: 0;
       transition: all 0.3s;
-      pointer-events: none;
       content: '';
+      pointer-events: none;
     }
   }
 
@@ -123,7 +124,7 @@
     display: inline-block;
     font-size: @spin-dot-size;
 
-    .square(@spin-dot-size);
+    .square(1em);
 
     &-item {
       position: absolute;
@@ -171,7 +172,6 @@
   &-sm &-dot {
     font-size: @spin-dot-size-sm;
 
-    .square(@spin-dot-size-sm);
     i {
       width: 6px;
       height: 6px;
@@ -182,7 +182,6 @@
   &-lg &-dot {
     font-size: @spin-dot-size-lg;
 
-    .square(@spin-dot-size-lg);
     i {
       width: 14px;
       height: 14px;

@@ -27,6 +27,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
   }
 
+  it('should not render title when title not defined', () => {
+    confirm({
+      content: 'some descriptions',
+    });
+    expect(document.querySelector('.ant-modal-confirm-title')).toBe(null);
+  });
+
   it('trigger onCancel once when click on cancel button', () => {
     const onCancel = jest.fn();
     const onOk = jest.fn();
@@ -67,12 +74,25 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('should emit error when onOk return Promise.reject', () => {
+    const error = new Error('something wrong');
+    open({
+      onOk: () => Promise.reject(error),
+    });
+    // Fifth Modal
+    $$('.ant-btn-primary')[0].click();
+    // wait promise
+    return Promise.resolve().then(() => {
+      expect(errorSpy).toHaveBeenCalledWith(error);
+    });
+  });
+
   if (process.env.REACT !== '15') {
     it('shows animation when close', () => {
       jest.useFakeTimers();
       open();
-      $$('.ant-btn')[0].click();
       expect($$('.ant-modal-confirm')).toHaveLength(1);
+      $$('.ant-btn')[0].click();
       jest.runAllTimers();
       expect($$('.ant-modal-confirm')).toHaveLength(0);
       jest.useRealTimers();

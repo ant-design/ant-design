@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Animate from 'rc-animate';
-import Icon, { ThemeType } from '../icon';
 import classNames from 'classnames';
+import Icon, { ThemeType } from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import warning from '../_util/warning';
 
 function noop() {}
 
@@ -22,7 +23,7 @@ export interface AlertProps {
   /** Additional content of Alert */
   description?: React.ReactNode;
   /** Callback when close Alert */
-  onClose?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClose?: React.MouseEventHandler<HTMLButtonElement>;
   /** Trigger when animation ending of Alert */
   afterClose?: () => void;
   /** Whether to show icon */
@@ -41,12 +42,22 @@ export interface AlertState {
 }
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
-  state: AlertState = {
-    closing: true,
-    closed: false,
-  };
+  constructor(props: AlertProps) {
+    super(props);
 
-  handleClose = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    warning(
+      !('iconType' in props),
+      'Alert',
+      '`iconType` is deprecated. Please use `icon` instead.',
+    );
+
+    this.state = {
+      closing: false,
+      closed: false,
+    };
+  }
+
+  handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const dom = ReactDOM.findDOMNode(this) as HTMLElement;
     dom.style.height = `${dom.offsetHeight}px`;
@@ -55,15 +66,15 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     dom.style.height = `${dom.offsetHeight}px`;
 
     this.setState({
-      closing: false,
+      closing: true,
     });
     (this.props.onClose || noop)(e);
   };
 
   animationEnd = () => {
     this.setState({
+      closing: false,
       closed: true,
-      closing: true,
     });
     (this.props.afterClose || noop)();
   };
@@ -80,6 +91,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       icon,
     } = this.props;
     let { closable, type, showIcon, iconType } = this.props;
+    const { closing, closed } = this.state;
 
     const prefixCls = getPrefixCls('alert', customizePrefixCls);
 
@@ -89,8 +101,6 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     type = banner && type === undefined ? 'warning' : type || 'info';
 
     let iconTheme: ThemeType = 'filled';
-    // should we give a warning?
-    // warning(!iconType, `The property 'iconType' is deprecated. Use the property 'icon' instead.`);
     if (!iconType) {
       switch (type) {
         case 'success':
@@ -110,7 +120,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       }
 
       // use outline icon in alert with description
-      if (!!description) {
+      if (description) {
         iconTheme = 'outlined';
       }
     }
@@ -124,7 +134,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       prefixCls,
       `${prefixCls}-${type}`,
       {
-        [`${prefixCls}-close`]: !this.state.closing,
+        [`${prefixCls}-closing`]: closing,
         [`${prefixCls}-with-description`]: !!description,
         [`${prefixCls}-no-icon`]: !showIcon,
         [`${prefixCls}-banner`]: !!banner,
@@ -134,9 +144,18 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     );
 
     const closeIcon = closable ? (
-      <a onClick={this.handleClose} className={`${prefixCls}-close-icon`}>
-        {closeText || <Icon type="close" />}
-      </a>
+      <button
+        type="button"
+        onClick={this.handleClose}
+        className={`${prefixCls}-close-icon`}
+        tabIndex={0}
+      >
+        {closeText ? (
+          <span className={`${prefixCls}-close-text`}>{closeText}</span>
+        ) : (
+          <Icon type="close" />
+        )}
+      </button>
     ) : null;
 
     const dataOrAriaProps = getDataOrAriaProps(this.props);
@@ -144,23 +163,22 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     const iconNode = (icon &&
       (React.isValidElement<{ className?: string }>(icon) ? (
         React.cloneElement(icon, {
-          className: classNames({
+          className: classNames(`${prefixCls}-icon`, {
             [icon.props.className as string]: icon.props.className,
-            [`${prefixCls}-icon`]: true,
           }),
         })
       ) : (
         <span className={`${prefixCls}-icon`}>{icon}</span>
       ))) || <Icon className={`${prefixCls}-icon`} type={iconType} theme={iconTheme} />;
 
-    return this.state.closed ? null : (
+    return closed ? null : (
       <Animate
         component=""
         showProp="data-show"
         transitionName={`${prefixCls}-slide-up`}
         onEnd={this.animationEnd}
       >
-        <div data-show={this.state.closing} className={alertCls} style={style} {...dataOrAriaProps}>
+        <div data-show={!closing} className={alertCls} style={style} {...dataOrAriaProps}>
           {showIcon ? iconNode : null}
           <span className={`${prefixCls}-message`}>{message}</span>
           <span className={`${prefixCls}-description`}>{description}</span>

@@ -35,10 +35,18 @@ Some component use dynamic style to support wave effect. You can config `csp` pr
 
 ## API
 
-| Property | Description | Type | Default |
-| -------- | ----------- | ---- | ------- |
-| autoInsertSpaceInButton | Set `false` to remove space between 2 chinese characters on Button | boolean | true |
-| csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |
-| renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - |
-| getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` |
-| prefixCls | set prefix class | string | ant |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| autoInsertSpaceInButton | Set `false` to remove space between 2 chinese characters on Button | boolean | true | 3.13.0 |
+| csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - | 3.13.1 |
+| renderEmpty | set empty content of components. Ref [Empty](/components/empty/) | Function(componentName: string): ReactNode | - | 3.12.2 |
+| getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` | 3.11.0 |
+| locale | language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object | 3.21.0 |
+| prefixCls | set prefix class | string | ant | 3.12.0 |
+| pageHeader | Unify the ghost of pageHeader ,Ref [pageHeader](<(/components/page-header)> | { ghost:boolean } | 'true' | 3.24.0 |
+
+## FAQ
+
+#### Locale problem is still existed in DatePicker even ConfigProvider `locale` is used?
+
+Please make sure you set moment locale by `moment.locale('zh-cn')`, or you don't have two moment of different version.

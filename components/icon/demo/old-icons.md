@@ -14,7 +14,7 @@ title:
 
 Test old icons before `3.9.0`.
 
-````jsx
+```jsx
 import { Icon } from 'antd';
 
 const icons = [
@@ -310,8 +310,10 @@ const icons = [
 
 ReactDOM.render(
   <div>
-    {icons.map(icon => <Icon key={icon} type={icon} />)}
+    {icons.map(icon => (
+      <Icon key={icon} type={icon} />
+    ))}
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

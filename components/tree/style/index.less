@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../checkbox/style/mixin';
 @import './mixin';
@@ -11,7 +11,17 @@
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
 .@{tree-prefix-cls} {
+  /* see https://github.com/ant-design/ant-design/issues/16259 */
+  &-checkbox-checked::after {
+    position: absolute;
+    top: 16.67%;
+    left: 0;
+    width: 100%;
+    height: 66.67%;
+  }
+
   .reset-component;
+
   margin: 0;
   padding: 0;
 
@@ -73,7 +83,7 @@
               left: 0;
               display: inline-block;
               width: 24px;
-              height: 24px;
+              height: @tree-title-height;
               color: @primary-color;
               font-size: 14px;
               transform: none;
@@ -112,21 +122,24 @@
       cursor: pointer;
       transition: all 0.3s;
       &:hover {
-        background-color: @item-hover-bg;
+        background-color: @tree-node-hover-bg;
       }
       &.@{tree-prefix-cls}-node-selected {
-        background-color: @primary-2;
+        background-color: @tree-node-selected-bg;
       }
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 4px 4px 0 2px;
+        top: initial;
+        height: @tree-title-height;
+        margin: 0 4px 0 2px;
+        padding: ((@tree-title-height - 16px) / 2) 0;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
         display: inline-block;
         width: 24px;
-        height: 24px;
+        height: @tree-title-height;
         margin: 0;
         line-height: @tree-title-height;
         text-align: center;
@@ -174,11 +187,6 @@
     }
   }
   &-child-tree {
-    display: none;
-    &-open {
-      display: block;
-    }
-
     // https://github.com/ant-design/ant-design/issues/14958
     > li {
       // Provide additional padding between top child node and parent node
@@ -236,7 +244,8 @@
       left: 12px;
       width: 1px;
       height: 100%;
-      margin: 22px 0;
+      height: calc(100% - 22px); // Remove additional height if support
+      margin: 22px 0 0;
       border-left: 1px solid @border-color-base;
       content: ' ';
     }

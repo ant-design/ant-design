@@ -5,11 +5,13 @@
 
 .@{dialog-prefix-cls} {
   .reset-component;
+
   position: relative;
   top: 100px;
   width: auto;
   margin: 0 auto;
   padding-bottom: 24px;
+  pointer-events: none;
 
   &-wrap {
     position: fixed;
@@ -25,10 +27,11 @@
 
   &-title {
     margin: 0;
-    color: @heading-color;
+    color: @modal-heading-color;
     font-weight: 500;
     font-size: @font-size-lg;
     line-height: 22px;
+    word-wrap: break-word;
   }
 
   &-content {
@@ -38,6 +41,7 @@
     border: 0;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+    pointer-events: auto;
   }
 
   &-close {
@@ -94,7 +98,7 @@
     padding: @modal-footer-padding-vertical @modal-footer-padding-horizontal;
     .idirAlign();
     background: @modal-footer-bg;
-    border-top: @border-width-base @border-style-base @border-color-split;
+    border-top: @border-width-base @border-style-base @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
     button + button {
       margin-bottom: 0;

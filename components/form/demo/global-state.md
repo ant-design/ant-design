@@ -19,7 +19,7 @@ We can store form data into upper component or [Redux](https://github.com/reactj
 
 **Note:** Here, errors are passed to higher order component in `onFieldsChange` and passed back in `mapPropsToFields`.
 
-````jsx
+```jsx
 import { Form, Input } from 'antd';
 
 const CustomizedForm = Form.create({
@@ -38,7 +38,7 @@ const CustomizedForm = Form.create({
   onValuesChange(_, values) {
     console.log(values);
   },
-})((props) => {
+})(props => {
   const { getFieldDecorator } = props.form;
   return (
     <Form layout="inline">
@@ -60,27 +60,25 @@ class Demo extends React.Component {
     },
   };
 
-  handleFormChange = (changedFields) => {
+  handleFormChange = changedFields => {
     this.setState(({ fields }) => ({
       fields: { ...fields, ...changedFields },
     }));
-  }
+  };
 
   render() {
-    const fields = this.state.fields;
+    const { fields } = this.state;
     return (
       <div>
         <CustomizedForm {...fields} onChange={this.handleFormChange} />
-        <pre className="language-bash">
-          {JSON.stringify(fields, null, 2)}
-        </pre>
+        <pre className="language-bash">{JSON.stringify(fields, null, 2)}</pre>
       </div>
     );
   }
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```
 
 <style>
 #components-form-demo-global-state .language-bash {

@@ -13,7 +13,7 @@ title:
 
 TimePicker of 12 hours format, with default format `h:mm:ss a`.
 
-````jsx
+```jsx
 import { TimePicker } from 'antd';
 
 function onChange(time, timeString) {
@@ -26,6 +26,6 @@ ReactDOM.render(
     <TimePicker use12Hours format="h:mm:ss A" onChange={onChange} />
     <TimePicker use12Hours format="h:mm a" onChange={onChange} />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

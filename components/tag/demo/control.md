@@ -8,14 +8,13 @@ title:
 ## zh-CN
 
 用数组生成一组标签，可以动态添加和删除。
+
 ## en-US
 
 Generating a set of Tags by array, you can add and remove dynamically.
 
-````jsx
-import {
-  Tag, Input, Tooltip, Icon,
-} from 'antd';
+```jsx
+import { Tag, Input, Tooltip, Icon } from 'antd';
 
 class EditableTagGroup extends React.Component {
   state = {
@@ -24,19 +23,19 @@ class EditableTagGroup extends React.Component {
     inputValue: '',
   };
 
-  handleClose = (removedTag) => {
+  handleClose = removedTag => {
     const tags = this.state.tags.filter(tag => tag !== removedTag);
     console.log(tags);
     this.setState({ tags });
-  }
+  };
 
   showInput = () => {
     this.setState({ inputVisible: true }, () => this.input.focus());
-  }
+  };
 
-  handleInputChange = (e) => {
+  handleInputChange = e => {
     this.setState({ inputValue: e.target.value });
-  }
+  };
 
   handleInputConfirm = () => {
     const { inputValue } = this.state;
@@ -50,9 +49,9 @@ class EditableTagGroup extends React.Component {
       inputVisible: false,
       inputValue: '',
     });
-  }
+  };
 
-  saveInputRef = input => this.input = input
+  saveInputRef = input => (this.input = input);
 
   render() {
     const { tags, inputVisible, inputValue } = this.state;
@@ -65,7 +64,13 @@ class EditableTagGroup extends React.Component {
               {isLongTag ? `${tag.slice(0, 20)}...` : tag}
             </Tag>
           );
-          return isLongTag ? <Tooltip title={tag} key={tag}>{tagElem}</Tooltip> : tagElem;
+          return isLongTag ? (
+            <Tooltip title={tag} key={tag}>
+              {tagElem}
+            </Tooltip>
+          ) : (
+            tagElem
+          );
         })}
         {inputVisible && (
           <Input
@@ -80,10 +85,7 @@ class EditableTagGroup extends React.Component {
           />
         )}
         {!inputVisible && (
-          <Tag
-            onClick={this.showInput}
-            style={{ background: '#fff', borderStyle: 'dashed' }}
-          >
+          <Tag onClick={this.showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
             <Icon type="plus" /> New Tag
           </Tag>
         )}
@@ -93,4 +95,4 @@ class EditableTagGroup extends React.Component {
 }
 
 ReactDOM.render(<EditableTagGroup />, mountNode);
-````
+```

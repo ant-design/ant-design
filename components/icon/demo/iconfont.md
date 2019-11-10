@@ -13,7 +13,7 @@ title:
 
 If you are using [iconfont.cn](http://iconfont.cn/), you can use the icons in your project gracefully.
 
-````jsx
+```jsx
 import { Icon } from 'antd';
 
 const IconFont = Icon.createFromIconfontCN({
@@ -26,6 +26,6 @@ ReactDOM.render(
     <IconFont type="icon-facebook" />
     <IconFont type="icon-twitter" />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

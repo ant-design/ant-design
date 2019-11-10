@@ -7,16 +7,10 @@
   "plugins": ["stylelint-order", "stylelint-declaration-block-no-ignored-properties"],
   "rules": {
     "comment-empty-line-before": null,
-    "declaration-empty-line-before": null,
     "function-name-case": ["lower", { "ignoreFunctions": ["/colorPalette/"] }],
     "no-invalid-double-slash-comments": null,
     "no-descending-specificity": null,
-    "plugin/declaration-block-no-ignored-properties": null,
-    "order/properties-order": null,
-    "selector-pseudo-element-colon-notation": null,
-    "font-family-no-missing-generic-family-keyword": null,
-    "selector-type-no-unknown":null,
-    "selector-attribute-quotes":null
+    "declaration-empty-line-before": null
   },
   "ignoreFiles": ["components/style/color/{bezierEasing,colorPalette,tinyColor}.less"]
 }

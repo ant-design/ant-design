@@ -17,6 +17,7 @@ export interface TimelineProps {
 
 export default class Timeline extends React.Component<TimelineProps, any> {
   static Item: React.SFC<TimeLineItemProps> = TimelineItem;
+
   static defaultProps = {
     reverse: false,
     mode: '',
@@ -45,41 +46,43 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       className,
     );
 
-    const pendingItem = !!pending ? (
+    const pendingItem = pending ? (
       <TimelineItem pending={!!pending} dot={pendingDot || <Icon type="loading" />}>
         {pendingNode}
       </TimelineItem>
     ) : null;
 
-    const timeLineItems = !!reverse
+    const timeLineItems = reverse
       ? [pendingItem, ...React.Children.toArray(children).reverse()]
       : [...React.Children.toArray(children), pendingItem];
+
+    const getPositionCls = (ele: React.ReactElement<any>, idx: number) => {
+      if (mode === 'alternate') {
+        if (ele.props.position === 'right') return `${prefixCls}-item-right`;
+        if (ele.props.position === 'left') return `${prefixCls}-item-left`;
+        return idx % 2 === 0 ? `${prefixCls}-item-left` : `${prefixCls}-item-right`;
+      }
+      if (mode === 'left') return `${prefixCls}-item-left`;
+      if (mode === 'right') return `${prefixCls}-item-right`;
+      if (ele.props.position === 'right') return `${prefixCls}-item-right`;
+      return '';
+    };
 
     // Remove falsy items
     const truthyItems = timeLineItems.filter(item => !!item);
     const itemsCount = React.Children.count(truthyItems);
     const lastCls = `${prefixCls}-item-last`;
-    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) =>
-      React.cloneElement(ele, {
+    const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
+      const pendingClass = idx === itemsCount - 2 ? lastCls : '';
+      const readyClass = idx === itemsCount - 1 ? lastCls : '';
+      return React.cloneElement(ele, {
         className: classNames([
           ele.props.className,
-          !reverse && !!pending
-            ? idx === itemsCount - 2
-              ? lastCls
-              : ''
-            : idx === itemsCount - 1
-            ? lastCls
-            : '',
-          mode === 'alternate'
-            ? idx % 2 === 0
-              ? `${prefixCls}-item-left`
-              : `${prefixCls}-item-right`
-            : mode === 'right'
-            ? `${prefixCls}-item-right`
-            : '',
+          !reverse && !!pending ? pendingClass : readyClass,
+          getPositionCls(ele, idx),
         ]),
-      }),
-    );
+      });
+    });
 
     return (
       <ul {...restProps} className={classString}>

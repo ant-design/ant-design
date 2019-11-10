@@ -12,7 +12,7 @@ Ant Design 将色彩体系解读成两个层面：系统级色彩体系和产品
 
 ## 设计师专属
 
-安装 [💎 Kitchen Sketch 插件  💎](https://kitchen.alipay.com)，不但可以使用 Ant Design 官方色板库，还可以管理自己的专属色板。
+安装 [💎 Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，不但可以使用 Ant Design 官方色板库，还可以管理自己的专属色板。
 
 ## 色彩模型
 
@@ -26,11 +26,11 @@ Ant Design 系统级色彩体系同样源于『自然』的设计价值观。设
 
 Ant Design 的基础色板共计 120 个颜色，包含 12 个主色以及衍生色。这些颜色基本可以满足中后台设计中对于颜色的需求。
 
-`````__react
+```__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 
 ReactDOM.render(<ColorPalettes />, mountNode);
-`````
+```
 
 Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序员的精心调制，结合了色彩自然变化的规律，我们得出了一套色彩生成工具，当有进一步色彩设计需求时，设计者只需按照一定规则定义完毕主色，便可以自动获得一系列完整的衍生色。
 
@@ -38,13 +38,13 @@ Ant Design 的色板还具备进一步拓展的能力。经过设计师和程序
 
 ### 中性色板
 
-中性色包含了黑、白、灰。在蚂蚁中后台的网页设计中被大量使用到，合理的选择中性色能够令页面信息具备良好的主次关系，助力阅读体验。Ant Design 的中性色板一共包含了从白到黑的 10 个颜色。
+中性色包含了黑、白、灰。在蚂蚁中后台的网页设计中被大量使用到，合理地选择中性色能够令页面信息具备良好的主次关系，助力阅读体验。Ant Design 的中性色板一共包含了从白到黑的 10 个颜色。
 
-`````__react
+```__react
 import Palette from '../../site/theme/template/Color/Palette';
 
 ReactDOM.render(<Palette color={{ name: 'gray' }} direction="horizontal" />, mountNode);
-`````
+```
 
 ### 数据可视化色板（敬请期待）
 
@@ -54,11 +54,42 @@ ReactDOM.render(<Palette color={{ name: 'gray' }} direction="horizontal" />, mou
 
 如果上面的色板不能满足你的需求，你可以选择一个主色，Ant Design 的色彩生成算法会为你生成完整的色板。
 
-`````__react
+```__react
 import ColorPaletteTool from '../../site/theme/template/Color/ColorPaletteTool';
 
 ReactDOM.render(<ColorPaletteTool />, mountNode);
-`````
+```
+
+### 在代码中使用色板
+
+我们为程序员提供了色板的 Less 和 JavaScript 的使用方式。
+
+- **Less**
+
+  ```less
+  @import '~antd/es/style/themes/default.less', .selector {
+    color: @blue-5;
+    background-color: @gold-2;
+  }
+  ```
+
+  所有色板变量列表：[color.less](https://github.com/ant-design/ant-design/blob/5ab2783ff00d4b1da04bb213c6b12de43e7649eb/components/style/color/colors.less)。
+
+  <br />
+
+- **JavaScript**
+
+  ```
+  npm install @ant-design/colors
+  ```
+
+  ```js
+  import { blue } from '@ant-design/colors';
+  console.log(blue); // ['#E6F7FF', '#BAE7FF', '#91D5FF', ''#69C0FF', '#40A9FF', '#1890FF', '#096DD9', '#0050B3', '#003A8C', '#002766']
+  console.log(blue.primary); // '#1890FF'
+  ```
+
+  更多使用方式：[@ant-design/colors](https://www.npmjs.com/package/@ant-design/colors)
 
 ---
 
@@ -68,8 +99,7 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/msiCkgfDaDgrTUuumxlq.png">
 
-品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需要先明确品牌色在界面中的使用场景及范围。在基础色板中选择主色，我们建议选择色板从浅自深的第六个颜色作为主色。
-Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 1890FF，应用场景包括：关键行动点，操作状态、重要信息高亮，图形化等场景。
+品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需要先明确品牌色在界面中的使用场景及范围。在基础色板中选择主色，我们建议选择色板从浅至深的第六个颜色作为主色。 Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 `#1890FF`，应用场景包括：关键行动点，操作状态、重要信息高亮，图形化等场景。
 
 ### 功能色
 

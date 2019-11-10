@@ -10,11 +10,11 @@ debug: true
 
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
-````jsx
+```jsx
 import { Layout, Menu, Icon } from 'antd';
 
 const { Header, Sider, Content } = Layout;
-const SubMenu = Menu.SubMenu;
+const { SubMenu } = Menu;
 
 class SiderDemo extends React.Component {
   state = {
@@ -32,12 +32,7 @@ class SiderDemo extends React.Component {
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={['3']}
-            defaultOpenKeys={['sub1']}
-          >
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']} defaultOpenKeys={['sub1']}>
             <Menu.Item key="1">
               <Icon type="pie-chart" />
               <span>Option 1</span>
@@ -102,15 +97,15 @@ class SiderDemo extends React.Component {
 }
 
 ReactDOM.render(<SiderDemo />, mountNode);
-````
+```
 
-````css
+```css
 #components-layout-demo-custom-trigger .trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 24px;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 #components-layout-demo-custom-trigger .trigger:hover {
@@ -119,7 +114,7 @@ ReactDOM.render(<SiderDemo />, mountNode);
 
 #components-layout-demo-custom-trigger .logo {
   height: 32px;
-  background: rgba(255,255,255,.2);
+  background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
-````
+```

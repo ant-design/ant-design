@@ -53,6 +53,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -121,6 +122,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -268,13 +270,59 @@ exports[`renders ./components/timeline/demo/color.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-timeline-item ant-timeline-item-last"
+    class="ant-timeline-item"
   >
     <div
       class="ant-timeline-item-tail"
     />
     <div
       class="ant-timeline-item-head ant-timeline-item-head-blue"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      <p>
+        Technical testing 1
+      </p>
+      <p>
+        Technical testing 2
+      </p>
+      <p>
+        Technical testing 3 2015-09-01
+      </p>
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-gray"
+    />
+    <div
+      class="ant-timeline-item-content"
+    >
+      <p>
+        Technical testing 1
+      </p>
+      <p>
+        Technical testing 2
+      </p>
+      <p>
+        Technical testing 3 2015-09-01
+      </p>
+    </div>
+  </li>
+  <li
+    class="ant-timeline-item ant-timeline-item-last"
+  >
+    <div
+      class="ant-timeline-item-tail"
+    />
+    <div
+      class="ant-timeline-item-head ant-timeline-item-head-gray"
     />
     <div
       class="ant-timeline-item-content"
@@ -346,6 +394,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -451,6 +500,7 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
             class="anticon-spin"
             data-icon="loading"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="0 0 1024 1024"
             width="1em"
@@ -533,6 +583,7 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
           class=""
           data-icon="clock-circle"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"

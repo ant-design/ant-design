@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @upload-prefix-cls: ~'@{ant-prefix}-upload';
@@ -8,6 +8,7 @@
 
 .@{upload-prefix-cls} {
   .reset-component;
+
   outline: 0;
 
   p {
@@ -28,8 +29,13 @@
     display: inline-block;
   }
 
+  &&-disabled {
+    cursor: not-allowed;
+  }
+
   &&-select-picture-card {
     display: table;
+    float: left;
     width: @upload-picture-card-size;
     height: @upload-picture-card-size;
     .margin-idir(8px);
@@ -98,6 +104,7 @@
         color: @primary-5;
         font-size: 48px;
       }
+
       margin-bottom: 20px;
     }
     p.@{upload-prefix-cls}-text {
@@ -121,11 +128,28 @@
       color: @text-color-secondary;
     }
   }
+
+  &-picture-card-wrapper {
+    .clearfix;
+
+    display: inline-block;
+    width: 100%;
+  }
 }
 
 .@{upload-prefix-cls}-list {
   .reset-component;
   .clearfix;
+  &-item-list-type-text {
+    &:hover {
+      .@{upload-prefix-cls}-list-item-name-icon-count-1 {
+        padding-right: 14px;
+      }
+      .@{upload-prefix-cls}-list-item-name-icon-count-2 {
+        padding-right: 28px;
+      }
+    }
+  }
   &-item {
     position: relative;
     height: 22px;
@@ -140,6 +164,25 @@
       text-overflow: ellipsis;
     }
 
+    &-name-icon-count-1 {
+      padding-right: 14px;
+    }
+
+    &-card-actions {
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      &.picture {
+        top: 25px;
+        line-height: 1;
+        opacity: 1;
+      }
+      .anticon {
+        padding-right: 5px;
+        color: rgba(0, 0, 0, 0.45);
+      }
+    }
+
     &-info {
       height: 100%;
       .padding(0; 12px; 0; 4px);
@@ -147,6 +190,8 @@
 
       > span {
         display: block;
+        width: 100%;
+        height: 100%;
       }
 
       .@{iconfont-css-prefix}-loading,
@@ -160,6 +205,7 @@
 
     .@{iconfont-css-prefix}-close {
       .iconfont-size-under-12px(10px);
+
       position: absolute;
       top: 6px;
       .posiDir(4px);
@@ -181,14 +227,21 @@
       opacity: 1;
     }
 
+    &:hover &-card-actions {
+      opacity: 1;
+    }
+
     &-error,
     &-error .@{iconfont-css-prefix}-paper-clip,
     &-error &-name {
       color: @error-color;
     }
 
-    &-error .@{iconfont-css-prefix}-close {
-      color: @error-color !important;
+    &-error &-card-actions {
+      .anticon {
+        padding-right: 5px;
+        color: @error-color;
+      }
       opacity: 1;
     }
 
@@ -250,6 +303,10 @@
       .translate(-50%; -50%);
     }
 
+    .@{upload-item}-image {
+      max-width: 100%;
+    }
+
     .@{upload-item}-thumbnail img {
       display: block;
       width: 48px;
@@ -269,6 +326,14 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       transition: all 0.3s;
+    }
+
+    .@{upload-item}-name-icon-count-1 {
+      padding-right: 18px;
+    }
+
+    .@{upload-item}-name-icon-count-2 {
+      padding-right: 36px;
     }
 
     .@{upload-item}-uploading .@{upload-item}-name {
@@ -292,8 +357,6 @@
   }
 
   &-picture-card {
-    // https://github.com/ant-design/ant-design/issues/11183
-    .dir();
     &.@{upload-prefix-cls}-list::after {
       display: none;
     }
@@ -336,6 +399,7 @@
       transition: all 0.3s;
 
       .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-download,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
         width: 16px;
@@ -361,6 +425,7 @@
       display: block;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
 
     .@{upload-item}-name {

@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @pageheader-prefix-cls: ~'@{ant-prefix}-page-header';
@@ -6,83 +6,113 @@
 .@{pageheader-prefix-cls} {
   .reset-component;
   position: relative;
-  padding: @page-header-padding-vertical @page-header-padding-horizontal;
-  background: @component-background;
+  padding: @page-header-padding-vertical @page-header-padding;
+  background-color: @component-background;
 
-  &.@{pageheader-prefix-cls}-has-footer {
+  &-ghost {
+    background-color: inherit;
+  }
+
+  &.has-breadcrumb {
+    padding-top: @page-header-padding-breadcrumb;
+  }
+
+  &.has-footer {
     padding-bottom: 0;
   }
 
-  &-back-icon {
-    display: inline-block;
-    padding: 4px 0;
+  &-back {
+    float: left;
+    margin: 8px 0;
+    margin-right: 16px;
     font-size: 16px;
-    line-height: 100%;
-    cursor: pointer;
-    i:hover {
-      color: @primary-color;
+    line-height: 1;
+    &-button {
+      .operation-unit();
+      color: @page-header-back-color;
+      cursor: pointer;
     }
   }
 
-  .@{ant-prefix}-divider {
+  .@{ant-prefix}-divider-vertical {
     height: 14px;
     margin: 0 12px;
+    vertical-align: middle;
   }
 
-  .@{ant-prefix}-breadcrumb {
-    margin-bottom: 12px;
+  .@{ant-prefix}-breadcrumb + &-heading {
+    margin-top: 8px;
   }
 
-  &-title-view {
-    display: inline-block;
+  &-heading {
+    width: 100%;
+    overflow: hidden;
     &-title {
-      display: inline-block;
+      display: block;
+      float: left;
+      margin-bottom: 0;
       .padding-idir(12px);
       color: @heading-color;
-      font-weight: bold;
-      font-size: 16px;
-      line-height: 1.4;
+      font-weight: 600;
+      font-size: @heading-4-size;
+      line-height: 32px;
+    }
+
+    .@{ant-prefix}-avatar {
+      float: left;
+      margin-right: 12px;
     }
 
     &-sub-title {
-      display: inline-block;
+      float: left;
+      margin: 5px 0;
       .padding-idir(12px);
       color: @text-color-secondary;
       font-size: 14px;
-      line-height: 1.8;
+      line-height: 22px;
     }
 
     &-tags {
-      display: inline-block;
-      vertical-align: top;
+      float: left;
+      margin: 4px 0;
     }
 
     &-extra {
-      position: absolute;
-      top: 16px;
-      .posiDir(@page-header-padding-horizontal);
+      float: right;
       > * {
-        .margin-idir(8px);
+        .margin-dir(8px);
       }
-      > *:last-child {
-        .margin-idir(0);
+      > *:first-child {
+        .margin-dir(0);
       }
     }
   }
 
-  &-content-view {
+  &-content {
     padding-top: 12px;
+    overflow: hidden;
   }
 
   &-footer {
-    margin: 0 -8px;
-    padding-top: 24px;
+    margin-top: 16px;
     .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
       .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-        padding: 12px 8px;
-        padding-top: 0;
+        padding: 8px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  @media (max-width: @screen-sm) {
+    &-heading {
+      &-extra {
+        display: block;
+        float: unset;
+        width: 100%;
+        padding-top: 12px;
+        overflow: hidden;
       }
     }
   }

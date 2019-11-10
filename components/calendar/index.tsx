@@ -2,12 +2,12 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
-import Header from './Header';
+import { polyfill } from 'react-lifecycles-compat';
+import Header, { HeaderRender } from './Header';
 import enUS from './locale/en_US';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
-import { polyfill } from 'react-lifecycles-compat';
 
 export { HeaderProps } from './Header';
 
@@ -23,7 +23,6 @@ function zerofixed(v: number) {
 }
 
 export type CalendarMode = 'month' | 'year';
-
 export interface CalendarProps {
   prefixCls?: string;
   className?: string;
@@ -42,6 +41,7 @@ export interface CalendarProps {
   onChange?: (date?: moment.Moment) => void;
   disabledDate?: (current: moment.Moment) => boolean;
   validRange?: [moment.Moment, moment.Moment];
+  headerRender?: HeaderRender;
 }
 
 export interface CalendarState {
@@ -72,6 +72,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     value: PropTypes.object as PropTypes.Requireable<moment.Moment>,
     onSelect: PropTypes.func,
     onChange: PropTypes.func,
+    headerRender: PropTypes.func,
   };
 
   static getDerivedStateFromProps(nextProps: CalendarProps) {
@@ -103,47 +104,6 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     };
   }
 
-  monthCellRender = (value: moment.Moment) => {
-    const { monthCellRender = noop as Function } = this.props;
-    const { prefixCls } = this;
-    return (
-      <div className={`${prefixCls}-month`}>
-        <div className={`${prefixCls}-value`}>{value.localeData().monthsShort(value)}</div>
-        <div className={`${prefixCls}-content`}>{monthCellRender(value)}</div>
-      </div>
-    );
-  };
-
-  dateCellRender = (value: moment.Moment) => {
-    const { dateCellRender = noop as Function } = this.props;
-    const { prefixCls } = this;
-    return (
-      <div className={`${prefixCls}-date`}>
-        <div className={`${prefixCls}-value`}>{zerofixed(value.date())}</div>
-        <div className={`${prefixCls}-content`}>{dateCellRender(value)}</div>
-      </div>
-    );
-  };
-
-  setValue = (value: moment.Moment, way: 'select' | 'changePanel') => {
-    const prevValue = this.props.value || this.state.value;
-    const { mode } = this.state;
-
-    if (!('value' in this.props)) {
-      this.setState({ value });
-    }
-    if (way === 'select') {
-      if (prevValue && prevValue.month() !== value.month()) {
-        this.onPanelChange(value, mode);
-      }
-      if (this.props.onSelect) {
-        this.props.onSelect(value);
-      }
-    } else if (way === 'changePanel') {
-      this.onPanelChange(value, mode);
-    }
-  };
-
   onHeaderValueChange = (value: moment.Moment) => {
     this.setValue(value, 'changePanel');
   };
@@ -165,6 +125,25 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
 
   onSelect = (value: moment.Moment) => {
     this.setValue(value, 'select');
+  };
+
+  setValue = (value: moment.Moment, way: 'select' | 'changePanel') => {
+    const prevValue = this.props.value || this.state.value;
+    const { mode } = this.state;
+
+    if (!('value' in this.props)) {
+      this.setState({ value });
+    }
+    if (way === 'select') {
+      if (prevValue && prevValue.month() !== value.month()) {
+        this.onPanelChange(value, mode);
+      }
+      if (this.props.onSelect) {
+        this.props.onSelect(value);
+      }
+    } else if (way === 'changePanel') {
+      this.onPanelChange(value, mode);
+    }
   };
 
   getDateRange = (
@@ -194,6 +173,28 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
     return result;
   };
 
+  monthCellRender = (value: moment.Moment) => {
+    const { monthCellRender = noop as Function } = this.props;
+    const { prefixCls } = this;
+    return (
+      <div className={`${prefixCls}-month`}>
+        <div className={`${prefixCls}-value`}>{value.localeData().monthsShort(value)}</div>
+        <div className={`${prefixCls}-content`}>{monthCellRender(value)}</div>
+      </div>
+    );
+  };
+
+  dateCellRender = (value: moment.Moment) => {
+    const { dateCellRender = noop as Function } = this.props;
+    const { prefixCls } = this;
+    return (
+      <div className={`${prefixCls}-date`}>
+        <div className={`${prefixCls}-value`}>{zerofixed(value.date())}</div>
+        <div className={`${prefixCls}-content`}>{dateCellRender(value)}</div>
+      </div>
+    );
+  };
+
   renderCalendar = (locale: any, localeCode: string) => {
     const { state, props } = this;
     const { value, mode } = state;
@@ -205,13 +206,14 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
       style,
       className,
       fullscreen,
+      headerRender,
       dateFullCellRender,
       monthFullCellRender,
     } = props;
     const monthCellRender = monthFullCellRender || this.monthCellRender;
     const dateCellRender = dateFullCellRender || this.dateCellRender;
 
-    let disabledDate = props.disabledDate;
+    let { disabledDate } = props;
 
     if (props.validRange) {
       disabledDate = this.getDateRange(props.validRange, disabledDate);
@@ -237,6 +239,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
               <Header
                 fullscreen={fullscreen}
                 type={mode}
+                headerRender={headerRender}
                 value={value}
                 locale={locale.lang}
                 prefixCls={prefixCls}

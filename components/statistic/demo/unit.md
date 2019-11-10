@@ -25,6 +25,6 @@ ReactDOM.render(
       <Statistic title="Unmerged" value={93} suffix="/ 100" />
     </Col>
   </Row>,
-  mountNode
+  mountNode,
 );
 ```

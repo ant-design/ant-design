@@ -1,69 +1,25 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @typography-prefix-cls: ~'@{ant-prefix}-typography';
-@typography-title-margin-top: 1.2em;
-
-// =============== Common ===============
-.typography-paragraph() {
-  margin-bottom: 1em;
-}
-
-.typography-title(@fontSize; @lineHeight) {
-  margin-bottom: 0.5em;
-  color: @heading-color;
-  font-weight: 600;
-  font-size: @fontSize;
-  line-height: @lineHeight;
-}
-
-.typography-title-1() {
-  .typography-title(@heading-1-size, 1.23);
-}
-.typography-title-2() {
-  .typography-title(@heading-2-size, 1.35);
-}
-.typography-title-3() {
-  .typography-title(@heading-3-size, 1.35);
-}
-.typography-title-4() {
-  .typography-title(@heading-4-size, 1.4);
-}
-
-.operation-unit() {
-  color: @link-color;
-  text-decoration: none;
-  outline: none;
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:focus,
-  &:hover {
-    color: @link-hover-color;
-  }
-
-  &:active {
-    color: @link-active-color;
-  }
-}
 
 // =============== Basic ===============
 .@{typography-prefix-cls} {
   color: @text-color;
 
-  &-secondary {
+  &&-secondary {
     color: @text-color-secondary;
   }
 
-  &-warning {
-    color: @text-color-warning;
+  &&-warning {
+    color: @warning-color;
   }
 
-  &-danger {
-    color: @text-color-danger;
+  &&-danger {
+    color: @error-color;
   }
 
-  &-disabled {
+  &&-disabled {
     color: @disabled-color;
     cursor: not-allowed;
     user-select: none;
@@ -189,6 +145,7 @@
     div& {
       left: -@input-padding-horizontal - 1px;
       margin-top: -@input-padding-vertical-base - 1px;
+      // stylelint-disable-next-line function-calc-no-invalid
       margin-bottom: calc(1em - @input-padding-vertical-base - 2px);
     }
 

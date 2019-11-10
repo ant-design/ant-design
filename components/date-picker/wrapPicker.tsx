@@ -4,6 +4,7 @@ import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import * as moment from 'moment';
 import enUS from './locale/en_US';
+import interopDefault from '../_util/interopDefault';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -52,7 +53,7 @@ function checkValidate(value: any, propName: string) {
     if (!val) return;
 
     warning(
-      !moment.isMoment(val) || val.isValid(),
+      !interopDefault(moment).isMoment(val) || val.isValid(),
       'DatePicker',
       `\`${propName}\` provides invalidate moment time. If you want to set empty value, use \`null\` instead.`,
     );
@@ -87,6 +88,22 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
         this.focus();
       }
     }
+
+    savePicker = (node: any) => {
+      this.picker = node;
+    };
+
+    getDefaultLocale = () => {
+      const result = {
+        ...enUS,
+        ...this.props.locale,
+      };
+      result.lang = {
+        ...result.lang,
+        ...(this.props.locale || {}).lang,
+      };
+      return result;
+    };
 
     handleOpenChange = (open: boolean) => {
       const { onOpenChange } = this.props;
@@ -128,22 +145,6 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
     blur() {
       this.picker.blur();
     }
-
-    savePicker = (node: any) => {
-      this.picker = node;
-    };
-
-    getDefaultLocale = () => {
-      const result = {
-        ...enUS,
-        ...this.props.locale,
-      };
-      result.lang = {
-        ...result.lang,
-        ...(this.props.locale || {}).lang,
-      };
-      return result;
-    };
 
     renderPicker = (locale: any, localeCode: string) => {
       const { format, showTime } = this.props;
@@ -191,6 +192,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
                 className={timePickerCls}
                 placeholder={locale.timePickerLocale.placeholder}
                 transitionName="slide-up"
+                onEsc={() => {}}
               />
             ) : null;
 

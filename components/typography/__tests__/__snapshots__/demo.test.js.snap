@@ -17,7 +17,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography"
     >
@@ -82,6 +82,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-divider ant-divider-horizontal"
+    role="separator"
   />
   <h1
     class="ant-typography"
@@ -130,7 +131,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         Sketch
       </code>
     </span>
-     和 
+     和
     <span
       class="ant-typography"
     >
@@ -238,7 +239,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
     />
     <div
       class="ant-slider-track"
-      style="left:0%;width:0%"
+      style="left:0%;right:auto;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -250,7 +251,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
       aria-valuenow="1"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%"
+      style="left:0%;right:auto;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -272,7 +273,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
         </del>
       </code>
     </span>
-     case.Bnt Design, a design language for background applications, is refined by Ant UED Team.Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
+     case. Bnt Design, a design language for background applications, is refined by Ant UED Team. Cnt Design, a design language for background applications, is refined by Ant UED Team. Dnt Design, a design language for background applications, is refined by Ant UED Team. Ent Design, a design language for background applications, is refined by Ant UED Team.
   </div>
 </div>
 `;
@@ -283,10 +284,12 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
     class="ant-typography"
   >
     This is an editable text.
-    <button
-      aria-label="edit"
+    <div
+      aria-label="Edit"
       class="ant-typography-edit"
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: edit"
@@ -298,6 +301,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           class=""
           data-icon="edit"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -307,16 +311,18 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
   </div>
   <div
     class="ant-typography"
   >
     This is a copyable text.
-    <button
-      aria-label="copy"
+    <div
+      aria-label="Copy"
       class="ant-typography-copy"
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: copy"
@@ -328,6 +334,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           class=""
           data-icon="copy"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -337,16 +344,18 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
   </div>
   <div
     class="ant-typography"
   >
     Replace copy text.
-    <button
-      aria-label="copy"
+    <div
+      aria-label="Copy"
       class="ant-typography-copy"
-      style="border:0;background:transparent;padding:0;line-height:inherit"
+      role="button"
+      style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+      tabindex="0"
     >
       <i
         aria-label="icon: copy"
@@ -358,6 +367,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           class=""
           data-icon="copy"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"
@@ -367,7 +377,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
           />
         </svg>
       </i>
-    </button>
+    </div>
   </div>
 </div>
 `;
@@ -387,7 +397,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
   <div
     class="ant-typography"
   >
-    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to 
+    After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
     <span
       class="ant-typography"
     >
@@ -498,7 +508,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         Sketch
       </code>
     </span>
-     和 
+     和
     <span
       class="ant-typography"
     >

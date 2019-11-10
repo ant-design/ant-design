@@ -22,10 +22,10 @@ export interface PlacementsConfig {
   horizontalArrowShift?: number;
   verticalArrowShift?: number;
   arrowPointAtCenter?: boolean;
-  autoAdjustOverflow?: any;
+  autoAdjustOverflow?: boolean | AdjustOverflow;
 }
 
-export function getOverflowOptions(autoAdjustOverflow: any) {
+export function getOverflowOptions(autoAdjustOverflow: boolean | AdjustOverflow) {
   if (typeof autoAdjustOverflow === 'boolean') {
     return autoAdjustOverflow ? autoAdjustOverflowEnabled : autoAdjustOverflowDisabled;
   }

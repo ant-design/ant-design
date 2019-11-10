@@ -2,15 +2,18 @@ import * as React from 'react';
 import manifest from '@ant-design/icons/lib/manifest';
 import { ThemeType as ThemeFolderType } from '@ant-design/icons/lib/types';
 import { Radio, Icon, Input } from 'antd';
-import { RadioChangeEvent } from 'antd/lib/radio/interface';
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { RadioChangeEvent } from 'antd/es/radio/interface';
+import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
+import { ThemeType } from 'antd/es/icon';
 import Category from './Category';
+import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
-import { categories, Categories, CategoriesKeys } from './fields';
-import { ThemeType } from '../../../../components/icon';
+import categories, { Categories, CategoriesKeys } from './fields';
 
-interface IconDisplayProps extends InjectedIntlProps {}
+interface IconDisplayProps {
+  intl: any;
+}
 
 interface IconDisplayState {
   theme: ThemeType;
@@ -42,7 +45,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     return Object.keys(IconDisplay.categories)
       .map((category: CategoriesKeys) => ({
         category,
-        icons: IconDisplay.categories[category].filter(
+        icons: (IconDisplay.categories[category] || []).filter(
           name => manifest[IconDisplay.themeTypeMapper[this.state.theme]].indexOf(name) !== -1,
         ),
       }))
@@ -63,24 +66,32 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
   };
 
   renderCategories(list: Array<{ category: CategoriesKeys; icons: string[] }>) {
-    const { searchKey } = this.state;
+    const { searchKey, theme } = this.state;
+    const otherIcons = categories.all.filter(icon => {
+      return list
+        .filter(({ category }) => category !== 'all')
+        .every(item => !item.icons.includes(icon));
+    });
+
     return list
-      .map(({ category, icons }) => {
-        const iconResult = icons.filter(name => name.includes(searchKey));
-        if (iconResult.length === 0) {
-          return null;
-        }
-        return (
-          <Category
-            key={category}
-            title={category}
-            icons={iconResult}
-            theme={this.state.theme}
-            newIcons={IconDisplay.newIconNames}
-          />
-        );
-      })
-      .filter(category => !!category);
+      .filter(({ category }) => category !== 'all')
+      .concat({ category: 'other', icons: otherIcons })
+      .map(({ category, icons }) => ({
+        category,
+        icons: icons
+          .filter(name => name.includes(searchKey))
+          .filter(name => manifest[IconDisplay.themeTypeMapper[theme]].includes(name)),
+      }))
+      .filter(({ icons }) => !!icons.length)
+      .map(({ category, icons }) => (
+        <Category
+          key={category}
+          title={category}
+          icons={icons}
+          theme={this.state.theme}
+          newIcons={IconDisplay.newIconNames}
+        />
+      ));
   }
 
   render() {
@@ -91,7 +102,12 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
     return (
       <>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Radio.Group value={this.state.theme} onChange={this.handleChangeTheme} size="large">
+          <Radio.Group
+            value={this.state.theme}
+            onChange={this.handleChangeTheme}
+            size="large"
+            buttonStyle="solid"
+          >
             <Radio.Button value="outlined">
               <Icon component={OutlinedIcon} /> {messages['app.docs.components.icon.outlined']}
             </Radio.Button>
@@ -109,6 +125,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
             autoFocus
+            suffix={<IconPicSearcher />}
           />
         </div>
         {this.renderCategories(list)}

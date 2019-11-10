@@ -13,10 +13,10 @@ title:
 
 To show close button.
 
-````jsx
+```jsx
 import { Alert } from 'antd';
 
-const onClose = (e) => {
+const onClose = e => {
   console.log(e, 'I was closed.');
 };
 
@@ -36,6 +36,6 @@ ReactDOM.render(
       onClose={onClose}
     />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

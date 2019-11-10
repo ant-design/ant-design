@@ -14,28 +14,28 @@ title:
 
 The most basic usage.
 
-````jsx
+```jsx
 import { TreeSelect, Icon } from 'antd';
 
-const TreeNode = TreeSelect.TreeNode;
+const { TreeNode } = TreeSelect;
 const icon = <Icon type="smile" />;
 
 class Demo extends React.Component {
   state = {
     value: undefined,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     console.log(value);
     this.setState({ value });
-  }
+  };
 
   render() {
     return (
       <TreeSelect
         showSearch
         suffixIcon={icon}
-        style={{ width: 300 }}
+        style={{ width: '100%' }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="Please select"
@@ -58,4 +58,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

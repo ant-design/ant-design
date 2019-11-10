@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
 
@@ -42,23 +42,16 @@
 }
 
 .@{ant-prefix}-input-clear-icon {
-  color: @disabled-color;
-  font-size: @font-size-sm;
-  vertical-align: top;
-  cursor: pointer;
-  transition: color 0.3s;
+  .clear-icon;
+  vertical-align: 0;
+}
 
-  &:hover {
-    color: @text-color-secondary;
-  }
-
-  &:active {
-    color: @text-color;
-  }
-
-  + i {
-    .margin-dir(6px);
-  }
+.@{ant-prefix}-input-textarea-clear-icon {
+  .clear-icon;
+  position: absolute;
+  top: 0;
+  .posiDir(0);
+  .margin(8px; 8px; 0; 0);
 }
 
 @import './search-input';

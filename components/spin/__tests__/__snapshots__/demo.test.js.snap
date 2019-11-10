@@ -37,6 +37,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
       class="anticon-spin"
       data-icon="loading"
       fill="currentColor"
+      focusable="false"
       height="1em"
       viewBox="0 0 1024 1024"
       width="1em"

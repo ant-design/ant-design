@@ -4,33 +4,42 @@
   }
 }
 
-[ant-click-animating],
-[ant-click-animating-without-extra-node] {
+[ant-click-animating='true'],
+[ant-click-animating-without-extra-node='true'] {
   position: relative;
 }
 
-[ant-click-animating-without-extra-node]:after,
+html {
+  --antd-wave-shadow-color: @primary-color;
+}
+
+[ant-click-animating-without-extra-node='true']::after,
 .ant-click-animating-node {
-  content: '';
   position: absolute;
-  top: -1px;
-  .posDir(-1px);
-  bottom: -1px;
-  .posiDir(-1px);
-  border-radius: inherit;
-  border: 0 solid @primary-color;
-  opacity: 0.4;
-  animation: waveEffect 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   display: block;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 @primary-color;
+  box-shadow: 0 0 0 0 var(--antd-wave-shadow-color);
+  opacity: 0.2;
+  animation: fadeEffect 2s @ease-out-circ, waveEffect 0.4s @ease-out-circ;
+  animation-fill-mode: forwards;
+  content: '';
+  pointer-events: none;
 }
 
 @keyframes waveEffect {
-  to {
+  100% {
+    box-shadow: 0 0 0 @primary-color;
+    box-shadow: 0 0 0 @wave-animation-width var(--antd-wave-shadow-color);
+  }
+}
+
+@keyframes fadeEffect {
+  100% {
     opacity: 0;
-    top: -@wave-animation-width;
-    .posDir(-@wave-animation-width);
-    bottom: -@wave-animation-width;
-    .posiDir(-@wave-animation-width);
-    border-width: @wave-animation-width;
   }
 }

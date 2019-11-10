@@ -182,7 +182,7 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
     class="ant-card-body"
   >
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
@@ -194,31 +194,31 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
     </div>
     <div
-      class="ant-card-grid"
+      class="ant-card-grid ant-card-grid-hoverable"
       style="width:25%;text-align:center"
     >
       Content
@@ -591,6 +591,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
               class=""
               data-icon="setting"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -615,6 +616,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
               class=""
               data-icon="edit"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -639,6 +641,7 @@ exports[`renders ./components/card/demo/loading.md correctly 1`] = `
               class=""
               data-icon="ellipsis"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -717,6 +720,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
             class=""
             data-icon="setting"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -741,6 +745,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
             class=""
             data-icon="edit"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -765,6 +770,7 @@ exports[`renders ./components/card/demo/meta.md correctly 1`] = `
             class=""
             data-icon="ellipsis"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -855,6 +861,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="left"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -882,6 +889,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="right"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -995,6 +1003,16 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           tabindex="0"
         >
           <div
+            class="ant-tabs-extra-content"
+            style="float:right"
+          >
+            <a
+              href="#"
+            >
+              More
+            </a>
+          </div>
+          <div
             class="ant-tabs-nav-container"
           >
             <span
@@ -1013,6 +1031,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="left"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1040,6 +1059,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     class=""
                     data-icon="right"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"

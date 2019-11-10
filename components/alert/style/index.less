@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
@@ -10,8 +10,10 @@
 
 .@{alert-prefix-cls} {
   .reset-component;
+
   position: relative;
   .padding(8px; 15px; 8px; 37px);
+  word-wrap: break-word;
   border-radius: @border-radius-base;
 
   &&-no-icon {
@@ -73,6 +75,9 @@
     overflow: hidden;
     font-size: @font-size-sm;
     line-height: 22px;
+    background-color: transparent;
+    border: none;
+    outline: none;
     cursor: pointer;
 
     .@{iconfont-css-prefix}-close {
@@ -85,8 +90,11 @@
   }
 
   &-close-text {
-    position: absolute;
-    .posiDir(16px);
+    color: @alert-close-color;
+    transition: color 0.3s;
+    &:hover {
+      color: @alert-close-hover-color;
+    }
   }
 
   &-with-description {
@@ -123,11 +131,15 @@
     font-size: @font-size-lg;
   }
 
+  &-message {
+    color: @alert-message-color;
+  }
+
   &-with-description &-description {
     display: block;
   }
 
-  &&-close {
+  &&-closing {
     height: 0 !important;
     margin: 0;
     padding-top: 0;

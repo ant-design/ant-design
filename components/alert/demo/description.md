@@ -13,7 +13,7 @@ title:
 
 Additional description for alert message.
 
-````jsx
+```jsx
 import { Alert } from 'antd';
 
 ReactDOM.render(
@@ -39,6 +39,6 @@ ReactDOM.render(
       type="error"
     />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```

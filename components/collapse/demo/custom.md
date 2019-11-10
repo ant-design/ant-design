@@ -13,10 +13,10 @@ title:
 
 Customize the background, border, margin styles and icon for each panel.
 
-````jsx
+```jsx
 import { Collapse, Icon } from 'antd';
 
-const Panel = Collapse.Panel;
+const { Panel } = Collapse;
 
 const text = `
   A dog is a type of domesticated animal.
@@ -48,6 +48,6 @@ ReactDOM.render(
       <p>{text}</p>
     </Panel>
   </Collapse>,
-  mountNode
+  mountNode,
 );
-````
+```

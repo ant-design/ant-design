@@ -1,9 +1,10 @@
+/* eslint-disable react/button-has-type */
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
-import Group from './button-group';
 import omit from 'omit.js';
+import Group from './button-group';
 import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
@@ -40,14 +41,37 @@ function insertSpace(child: React.ReactChild, needInserted: boolean) {
   return child;
 }
 
-const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger');
-export type ButtonType = (typeof ButtonTypes)[number];
+function spaceChildren(children: React.ReactNode, needInserted: boolean) {
+  let isPrevChildPure: boolean = false;
+  const childList: React.ReactNode[] = [];
+  React.Children.forEach(children, child => {
+    const type = typeof child;
+    const isCurrentChildPure = type === 'string' || type === 'number';
+    if (isPrevChildPure && isCurrentChildPure) {
+      const lastIndex = childList.length - 1;
+      const lastChild = childList[lastIndex];
+      childList[lastIndex] = `${lastChild}${child}`;
+    } else {
+      childList.push(child);
+    }
+
+    isPrevChildPure = isCurrentChildPure;
+  });
+
+  // Pass to React.Children.map to auto fill key
+  return React.Children.map(childList, child =>
+    insertSpace(child as React.ReactChild, needInserted),
+  );
+}
+
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
+export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
-export type ButtonShape = (typeof ButtonShapes)[number];
+export type ButtonShape = typeof ButtonShapes[number];
 const ButtonSizes = tuple('large', 'default', 'small');
-export type ButtonSize = (typeof ButtonSizes)[number];
+export type ButtonSize = typeof ButtonSizes[number];
 const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -62,20 +86,23 @@ export interface BaseButtonProps {
   children?: React.ReactNode;
 }
 
+// Typescript will make optional not optional if use Pick with union.
+// Should change to `AnchorButtonProps | NativeButtonProps` and `any` to `HTMLAnchorElement | HTMLButtonElement` if it fixed.
+// ref: https://github.com/ant-design/ant-design/issues/15930
 export type AnchorButtonProps = {
   href: string;
   target?: string;
-  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 } & BaseButtonProps &
-  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type'>;
+  Omit<React.AnchorHTMLAttributes<any>, 'type' | 'onClick'>;
 
 export type NativeButtonProps = {
   htmlType?: ButtonHTMLType;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLElement>;
 } & BaseButtonProps &
-  Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type'>;
+  Omit<React.ButtonHTMLAttributes<any>, 'type' | 'onClick'>;
 
-export type ButtonProps = AnchorButtonProps | NativeButtonProps;
+export type ButtonProps = Partial<AnchorButtonProps & NativeButtonProps>;
 
 interface ButtonState {
   loading?: boolean | { delay?: number };
@@ -84,6 +111,7 @@ interface ButtonState {
 
 class Button extends React.Component<any, ButtonState> {
   static Group: typeof Group;
+
   static __ANT_BUTTON = true;
 
   static defaultProps = {
@@ -103,19 +131,11 @@ class Button extends React.Component<any, ButtonState> {
     className: PropTypes.string,
     icon: PropTypes.string,
     block: PropTypes.bool,
+    title: PropTypes.string,
   };
 
-  static getDerivedStateFromProps(nextProps: ButtonProps, prevState: ButtonState) {
-    if (nextProps.loading instanceof Boolean) {
-      return {
-        ...prevState,
-        loading: nextProps.loading,
-      };
-    }
-    return null;
-  }
-
   private delayTimeout: number;
+
   private buttonNode: HTMLElement | null;
 
   constructor(props: ButtonProps) {
@@ -139,10 +159,11 @@ class Button extends React.Component<any, ButtonState> {
 
     const { loading } = this.props;
     if (loading && typeof loading !== 'boolean' && loading.delay) {
-      this.delayTimeout = window.setTimeout(() => this.setState({ loading }), loading.delay);
-    } else if (prevProps.loading === this.props.loading) {
-      return;
-    } else {
+      this.delayTimeout = window.setTimeout(() => {
+        this.setState({ loading });
+      }, loading.delay);
+    } else if (prevProps.loading !== loading) {
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ loading });
     }
   }
@@ -155,6 +176,17 @@ class Button extends React.Component<any, ButtonState> {
 
   saveButtonRef = (node: HTMLElement | null) => {
     this.buttonNode = node;
+  };
+
+  handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
+    const { loading } = this.state;
+    const { onClick } = this.props;
+    if (loading) {
+      return;
+    }
+    if (onClick) {
+      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
+    }
   };
 
   fixTwoCNChar() {
@@ -176,20 +208,9 @@ class Button extends React.Component<any, ButtonState> {
     }
   }
 
-  handleClick: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement> = e => {
-    const { loading } = this.state;
-    const { onClick } = this.props;
-    if (!!loading) {
-      return;
-    }
-    if (onClick) {
-      (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)(e);
-    }
-  };
-
   isNeedInserted() {
-    const { icon, children } = this.props;
-    return React.Children.count(children) === 1 && !icon;
+    const { icon, children, type } = this.props;
+    return React.Children.count(children) === 1 && !icon && type !== 'link';
   }
 
   renderButton = ({ getPrefixCls, autoInsertSpaceInButton }: ConfigConsumerProps) => {
@@ -202,7 +223,6 @@ class Button extends React.Component<any, ButtonState> {
       children,
       icon,
       ghost,
-      loading: _loadingProp,
       block,
       ...rest
     } = this.props;
@@ -225,27 +245,26 @@ class Button extends React.Component<any, ButtonState> {
         break;
     }
 
+    const iconType = loading ? 'loading' : icon;
+
     const classes = classNames(prefixCls, className, {
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-icon-only`]: !children && children !== 0 && icon,
-      [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+      [`${prefixCls}-loading`]: !!loading,
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
     });
 
-    const iconType = loading ? 'loading' : icon;
     const iconNode = iconType ? <Icon type={iconType} /> : null;
     const kids =
       children || children === 0
-        ? React.Children.map(children, child =>
-            insertSpace(child as React.ReactChild, this.isNeedInserted() && autoInsertSpace),
-          )
+        ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
         : null;
 
-    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType']);
+    const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
     if (linkButtonRestProps.href !== undefined) {
       return (
         <a
@@ -263,20 +282,24 @@ class Button extends React.Component<any, ButtonState> {
     // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
     const { htmlType, ...otherProps } = rest as NativeButtonProps;
 
-    return (
-      <Wave>
-        <button
-          {...otherProps as NativeButtonProps}
-          type={htmlType}
-          className={classes}
-          onClick={this.handleClick}
-          ref={this.saveButtonRef}
-        >
-          {iconNode}
-          {kids}
-        </button>
-      </Wave>
+    const buttonNode = (
+      <button
+        {...(omit(otherProps, ['loading']) as NativeButtonProps)}
+        type={htmlType}
+        className={classes}
+        onClick={this.handleClick}
+        ref={this.saveButtonRef}
+      >
+        {iconNode}
+        {kids}
+      </button>
     );
+
+    if (type === 'link') {
+      return buttonNode;
+    }
+
+    return <Wave>{buttonNode}</Wave>;
   };
 
   render() {

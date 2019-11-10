@@ -109,7 +109,11 @@ describe('List Item Layout', () => {
       <List
         dataSource={data}
         renderItem={item => (
-          <List.Item key={item.title} actions={[<a>Action</a>]} extra={<span>{item.extra}</span>}>
+          <List.Item
+            key={item.title}
+            actions={[<a key="action">Action</a>]}
+            extra={<span>{item.extra}</span>}
+          >
             <List.Item.Meta
               title={<a href={item.href}>{item.title}</a>}
               description={item.description}

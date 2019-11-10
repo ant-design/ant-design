@@ -508,6 +508,40 @@ describe('Table.rowSelection', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('fix selection column on the left when any other column is fixed', () => {
+    const wrapper = render(
+      createTable({
+        rowSelection: {},
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            fixed: 'left',
+          },
+        ],
+      }),
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('use column as selection column when key is `selection-column`', () => {
+    const wrapper = render(
+      createTable({
+        rowSelection: {},
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'selection-column',
+          },
+        ],
+      }),
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   // https://github.com/ant-design/ant-design/issues/10629
   it('should keep all checked state when remove item from dataSource', () => {
     const wrapper = mount(
@@ -670,10 +704,52 @@ describe('Table.rowSelection', () => {
     expect(checkboxAll.instance().state).toEqual({ indeterminate: false, checked: true });
   });
 
-  it('clear selection className when remove `rowSelection`', () => {
-    const dataSource = [{ id: 1, name: 'Hello', age: 10 }, { id: 2, name: 'World', age: 30 }];
+  // https://github.com/ant-design/ant-design/issues/16614
+  it('should get selectedRows correctly when set childrenColumnName', () => {
+    const onChange = jest.fn();
+    const newDatas = [
+      {
+        key: 1,
+        name: 'Jack',
+        list: [
+          {
+            key: 11,
+            name: 'John Brown',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        dataSource={newDatas}
+        childrenColumnName="list"
+        rowSelection={{ onChange }}
+        expandedRowKeys={[1]}
+      />,
+    );
+    const checkboxes = wrapper.find('input');
+    checkboxes.at(2).simulate('change', { target: { checked: true } });
+    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]]);
+    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    const item0 = { ...newDatas[0], list: undefined };
+    expect(onChange).toHaveBeenLastCalledWith([11, 1], [item0, newDatas[0].list[0]]);
+  });
 
-    const wrapper = mount(<Table columns={columns} dataSource={dataSource} rowSelection={{}} />);
+  it('clear selection className when remove `rowSelection`', () => {
+    const dataSource = [
+      { id: 1, name: 'Hello', age: 10 },
+      { id: 2, name: 'World', age: 30 },
+    ];
+
+    const wrapper = mount(
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        rowSelection={{}}
+        expandedRowRender={() => null}
+      />,
+    );
     const checkboxes = wrapper.find('input');
     checkboxes.at(1).simulate('change', { target: { checked: true } });
 
@@ -681,5 +757,24 @@ describe('Table.rowSelection', () => {
 
     wrapper.setProps({ rowSelection: null });
     expect(wrapper.find('.ant-table-row-selected').length).toBe(0);
+  });
+
+  it('select by checkbox to trigger stopPropagation', () => {
+    const wrapper = mount(createTable());
+    expect(() => {
+      wrapper
+        .find('span')
+        .at(10)
+        .simulate('click');
+    }).not.toThrow();
+  });
+
+  it('could hide all selections', () => {
+    const rowSelection = {
+      hideDefaultSelections: true,
+      selections: [],
+    };
+    const wrapper = mount(createTable({ rowSelection }));
+    expect(wrapper.find('Trigger')).toHaveLength(0);
   });
 });

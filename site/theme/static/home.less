@@ -42,12 +42,15 @@
     .posDir(0);
     overflow: hidden;
   }
+
+  position: absolute;
+  bottom: -200px;
+  .posDir(0%);
   width: 120%;
   height: 200px;
   background: @home-bg-color;
   position: absolute;
   bottom: -200px;
-  .posDir(0%);
   transform-origin: 0;
   .rotate(-4deg);
 }
@@ -64,9 +67,8 @@
   .text-wrapper {
     width: 54%;
     max-width: 560px;
-    min-width: 420px;
-    min-height: 336px;
-    color: #0d1a26;
+    min-height: 400px;
+    color: @home-text-color;
     > * {
       will-change: transform;
     }
@@ -98,31 +100,68 @@
     display: flex;
     align-items: center;
     margin-top: 24px;
-    min-width: 520px;
+
+    .banner-btn {
+      display: inline-block;
+      height: 40px;
+      padding: 0 24px;
+      font-size: 16px;
+      font-family: Avenir, @font-family, sans-serif;
+      line-height: 40px;
+      text-align: center;
+      text-decoration: none;
+      border: 1px solid @home-bg-color;
+      border-radius: 6px;
+    }
+
+    .banner-btn.components {
+      color: #fff;
+      background: @home-bg-color;
+    }
+
+    .banner-btn.language {
+      color: @home-bg-color;
+    }
   }
 
-  .banner-btn {
-    padding: 0 24px;
-    border-radius: 100px;
-    font-size: 16px;
-    line-height: 38px;
-    display: inline-block;
-    height: 40px;
-    text-align: center;
-    .margin-idir(16px);
-    text-decoration: none;
-    border: 1px solid #2f54eb;
-    font-family: @font-family;
-    font-variant: tabular-nums;
-  }
+  .banner-promote {
+    max-width: 100%;
+    margin: 48px 0 24px 0;
 
-  .banner-btn.components {
-    background: #2f54eb;
-    color: #fff;
-  }
+    .ant-divider-inner-text {
+      padding: 0 12px;
+      color: rgba(0, 0, 0, 0.25);
+      font-weight: normal;
+      font-size: 12px;
+    }
 
-  .banner-btn.language {
-    color: #2f54eb;
+    a {
+      color: @home-text-color;
+      font-size: 16px;
+      transition: all 0.3s;
+
+      .anticon {
+        position: relative;
+        left: 0;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        color: @home-bg-color;
+
+        .anticon {
+          left: 4px;
+        }
+      }
+
+      img {
+        position: relative;
+        top: -1px;
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+    }
   }
 }
 
@@ -164,6 +203,9 @@ svg {
     }
   }
   &-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 120px;
     height: 120px;
     background: #fff;
@@ -367,6 +409,37 @@ svg {
     width: 100%;
     video {
       display: block;
+    }
+  }
+}
+
+.banner-1024 {
+  display: block;
+  cursor: pointer;
+  transition: all 0.4s;
+
+  &:hover {
+    transform: translateY(-16px) scale(1.01);
+  }
+}
+
+.github-btn-large {
+  height: 40px;
+  font-family: Avenir, @font-family, sans-serif;
+  line-height: 40px;
+
+  .gh-btn,
+  .gh-count {
+    height: 40px;
+    padding: 9px;
+    background: transparent;
+  }
+
+  .gh-count {
+    .margin-dir(10px);
+
+    &::after {
+      border-width: 7px 6px 7px 0;
     }
   }
 }

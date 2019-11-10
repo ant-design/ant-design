@@ -11,24 +11,25 @@ title:
 
 ## en-US
 
-`Duration` can be used to specify how long the notification stays open. After the duration time elapses,
-the notification closes automatically. If not specified, default value is 4.5 seconds. If you set the value to 0,
-the notification box will never close automatically.
+`Duration` can be used to specify how long the notification stays open. After the duration time elapses, the notification closes automatically. If not specified, default value is 4.5 seconds. If you set the value to 0, the notification box will never close automatically.
 
-````jsx
+```jsx
 import { Button, notification } from 'antd';
 
 const openNotification = () => {
   const args = {
     message: 'Notification Title',
-    description: 'I will never close automatically. I will be close automatically. I will never close automatically.',
+    description:
+      'I will never close automatically. I will be close automatically. I will never close automatically.',
     duration: 0,
   };
   notification.open(args);
 };
 
 ReactDOM.render(
-  <Button type="primary" onClick={openNotification}>Open the notification box</Button>,
-  mountNode
+  <Button type="primary" onClick={openNotification}>
+    Open the notification box
+  </Button>,
+  mountNode,
 );
-````
+```

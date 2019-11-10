@@ -1,10 +1,11 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
 
 // Grid system
 .@{ant-prefix}-row {
   .make-row();
+
   display: block;
   box-sizing: border-box;
 }
@@ -61,6 +62,8 @@
 
 .@{ant-prefix}-col {
   position: relative;
+  // Prevent columns from collapsing when empty
+  min-height: 1px;
 }
 
 .make-grid-columns();

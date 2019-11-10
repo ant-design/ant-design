@@ -68,7 +68,18 @@ exports[`renders ./components/message/demo/thenable.md correctly 1`] = `
   type="button"
 >
   <span>
-    Display a sequence of message
+    Display sequential messages
+  </span>
+</button>
+`;
+
+exports[`renders ./components/message/demo/update.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open the message box
   </span>
 </button>
 `;
