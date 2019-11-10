@@ -96,7 +96,7 @@
     "babel-runtime": "6.x",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
-    "css-animation": "^1.5.0",
+    "css-animation": "^2.0.4",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
     "lodash": "^4.17.13",
