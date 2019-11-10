@@ -3,7 +3,7 @@
 exports[`renders ./components/avatar/demo/badge.md correctly 1`] = `
 <div>
   <span
-    style="margin-right:24px"
+    class="avatar-item"
   >
     <span
       class="ant-badge"
