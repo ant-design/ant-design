@@ -45,3 +45,12 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | --- | --- | --- | --- | --- |
 | rows | Set the row count of paragraph | number | - | 3.9.0 |
 | width | Set the width of paragraph. When width is an Array, it can set the width of each row. Otherwise only set the last row width | number \| string \| Array<number \| string> | - | 3.9.0 |
+
+### SkeletonButtonProps
+
+| Property | Description                      | Type    | Default | Version |
+| -------- | -------------------------------- | ------- | ------- | ------- |
+| active   | Show animation effect            | boolean | false   | 3.9.0   |
+| loading  | Display the skeleton when `true` | boolean | -       | 3.9.0   |
+
+Supports all props of `Button`.

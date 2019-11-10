@@ -10,6 +10,12 @@ describe('Skeleton', () => {
         Bamboo
       </Skeleton>,
     );
+  const genSkeletonButton = props =>
+    mount(
+      <Skeleton.Button loading {...props}>
+        Button
+      </Skeleton.Button>,
+    );
 
   mountTest(Skeleton);
 
@@ -51,6 +57,13 @@ describe('Skeleton', () => {
       expect(wrapperPure.render()).toMatchSnapshot();
       const wrapperList = genSkeleton({ paragraph: { width: ['28%', '93%'] } });
       expect(wrapperList.render()).toMatchSnapshot();
+    });
+  });
+
+  describe('button', () => {
+    it('width', () => {
+      const wrapper = genSkeletonButton({ active: true });
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 });
