@@ -61,8 +61,12 @@ describe('Skeleton', () => {
   });
 
   describe('button', () => {
-    it('width', () => {
+    it('active', () => {
       const wrapper = genSkeletonButton({ active: true });
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+    it('loading', () => {
+      const wrapper = genSkeletonButton({ loading: true });
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
