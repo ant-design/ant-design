@@ -15,6 +15,7 @@ Skeleton Button.
 
 ```jsx
 import { Skeleton } from 'antd';
+
 const { Button } = Skeleton;
 ReactDOM.render(<Button>Button</Button>, mountNode);
 ```
