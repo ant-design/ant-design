@@ -124,9 +124,9 @@
   &-placement-topRight > &-content > &-arrow {
     bottom: @popover-distance - @popover-arrow-width + 2.2px;
     border-top-color: transparent;
-    border-left-color: @popover-bg;
+    .dirBorderColor(@popover-bg);
     border-bottom-color: @popover-bg;
-    border-right-color: transparent;
+    .idirBorderColor(transparent);
     .box-shadow(3px; 3px 7px fade(@black, 7%));
   }
   &-placement-top > &-content > &-arrow {
@@ -145,9 +145,9 @@
   &-placement-rightBottom > &-content > &-arrow {
     .posDir(@popover-distance - @popover-arrow-width + 2px);
     border-top-color: transparent;
-    border-left-color: transparent;
+    .dirBorderColor(transparent);
     border-bottom-color: @popover-bg;
-    border-right-color: @popover-bg;
+    .idirBorderColor(@popover-bg);
     .box-shadow(-3px; 3px 7px fade(@black, 7%));
   }
   &-placement-right > &-content > &-arrow {
@@ -183,9 +183,9 @@
   &-placement-leftBottom > &-content > &-arrow {
     .posiDir(@popover-distance - @popover-arrow-width + 2px);
     border-top-color: @popover-bg;
-    border-left-color: @popover-bg;
+    .dirBorderColor(@popover-bg);
     border-bottom-color: transparent;
-    border-right-color: transparent;
+    .idirBorderColor(transparent);
     .box-shadow(3px; -3px 7px fade(@black, 7%));
   }
   &-placement-left > &-content > &-arrow {

@@ -51,7 +51,7 @@
     height: 226px;
     overflow: hidden;
     font-size: @font-size-base;
-    border-right: @border-width-base @border-style-base @border-color-split;
+    .idirBorder(@border-width-base @border-style-base @border-color-split);
 
     &:hover {
       overflow-y: auto;
@@ -59,11 +59,11 @@
 
     &:first-child {
       margin-left: 0;
-      border-left: 0;
+      .dirBorderWidth(0);
     }
 
     &:last-child {
-      border-right: 0;
+      .idirBorderWidth(0);
     }
 
     ul {
