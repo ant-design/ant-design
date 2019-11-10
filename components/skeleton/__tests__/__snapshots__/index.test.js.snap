@@ -180,13 +180,14 @@ exports[`Skeleton button active 1`] = `
 `;
 
 exports[`Skeleton button loading 1`] = `
-<div
-  class="ant-skeleton"
+<button
+  class="ant-btn"
+  type="button"
 >
-  <span
-    class="ant-skeleton-button"
-  />
-</div>
+  <span>
+    Button
+  </span>
+</button>
 `;
 
 exports[`Skeleton paragraph rows 1`] = `
