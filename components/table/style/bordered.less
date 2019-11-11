@@ -1,4 +1,5 @@
 @import './index';
+@import './size';
 
 @table-border: @border-width-base @border-style-base @border-color-split;
 
@@ -41,6 +42,39 @@
 
   .@{table-prefix-cls}-body {
     border-top: 0;
+  }
+
+  // ========================== Expandable ==========================
+  .@{table-prefix-cls}-expanded-row-fixed {
+    margin: -@table-padding-vertical (-@table-padding-horizontal - @border-width-base);
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: @border-width-base;
+      border-right: @table-border;
+    }
+  }
+
+  tr.@{table-prefix-cls}-placeholder {
+    > td {
+      border-right: 0;
+    }
+  }
+
+  // Size related
+  &.@{table-prefix-cls}-middle {
+    .@{table-prefix-cls}-expanded-row-fixed {
+      margin: -@table-padding-vertical-md (-@table-padding-horizontal-md - @border-width-base);
+    }
+  }
+
+  &.@{table-prefix-cls}-small {
+    .@{table-prefix-cls}-expanded-row-fixed {
+      margin: -@table-padding-vertical-sm (-@table-padding-horizontal-sm - @border-width-base);
+    }
   }
 
   // ============================ Footer ============================

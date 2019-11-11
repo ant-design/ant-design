@@ -78,7 +78,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandable,
     indentSize,
   } = props;
-  const { locale = defaultLocale } = React.useContext(ConfigContext);
+  const { locale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
   const tableLocale = locale.Table;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
@@ -292,6 +292,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           transformColumns={transformColumns}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
+          emptyText={renderEmpty('Table')}
         />
         {paginationNode}
       </Spin>

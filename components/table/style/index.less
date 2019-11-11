@@ -378,6 +378,21 @@
     }
   }
 
+  // With fixed
+  .@{table-prefix-cls}-expanded-row-fixed {
+    position: relative;
+    margin: -@table-padding-vertical -@table-padding-horizontal;
+  }
+
+  // ========================= Placeholder ==========================
+  tbody > tr&-placeholder {
+    &:hover {
+      > td {
+        background: @component-background;
+      }
+    }
+  }
+
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
