@@ -140,13 +140,11 @@
   }
 
   &-disabled-cell-first-of-row &-value {
-    border-top-left-radius: @border-radius-base;
-    border-bottom-left-radius: @border-radius-base;
+    .dirBorderRadius(@border-radius-base);
   }
 
   &-disabled-cell-last-of-row &-value {
-    border-top-right-radius: @border-radius-base;
-    border-bottom-right-radius: @border-radius-base;
+    .idirBorderRadius(@border-radius-base);
   }
 
   &-last-month-cell &-value,
