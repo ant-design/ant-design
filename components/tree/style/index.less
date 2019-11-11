@@ -107,7 +107,7 @@
 
     ul {
       margin: 0;
-      padding: 0 0 0 @tree-child-padding;
+      .padding(0; 0; 0; @tree-child-padding);
     }
     .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
@@ -132,7 +132,7 @@
       &.@{tree-prefix-cls}-checkbox {
         top: initial;
         height: @tree-title-height;
-        margin: 0 4px 0 2px;
+        .margin(0; 4px; 0; 2px);
         padding: ((@tree-title-height - 16px) / 2) 0;
       }
       &.@{tree-prefix-cls}-switcher,
