@@ -5,6 +5,7 @@ import {
   ExpandableConfig,
 } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
+import { PaginationConfig } from '../pagination';
 
 export { GetRowKey, ExpandableConfig };
 
@@ -17,6 +18,8 @@ export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | '
 export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
 
 export type TableSize = 'default' | 'middle' | 'small';
+
+export type ExpandType = null | 'row' | 'nest';
 
 export interface TableLocale {
   filterTitle?: string;
@@ -139,3 +142,7 @@ export interface SorterResult<RecordType> {
 }
 
 export type GetPopupContainer = (triggerNode: HTMLElement) => HTMLElement;
+
+export interface TablePaginationConfig extends PaginationConfig {
+  position?: 'top' | 'bottom' | 'both';
+}

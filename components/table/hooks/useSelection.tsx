@@ -12,6 +12,7 @@ import {
   TableLocale,
   SelectionItem,
   TransformColumns,
+  ExpandType,
 } from '../interface';
 import { ConfigContext } from '../../config-provider';
 import defaultLocale from '../../locale/en_US';
@@ -28,6 +29,7 @@ interface UseSelectionConfig<RecordType> {
   data: RecordType[];
   getRowKey: GetRowKey<RecordType>;
   getRecordByKey: (key: Key) => RecordType;
+  expandType: ExpandType;
 }
 
 type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
@@ -47,7 +49,7 @@ export default function useSelection<RecordType>(
 
   const { locale = defaultLocale } = React.useContext(ConfigContext);
   const tableLocale = (locale.Table || {}) as TableLocale;
-  const { prefixCls, data, pageData, getRecordByKey, getRowKey } = config;
+  const { prefixCls, data, pageData, getRecordByKey, getRowKey, expandType } = config;
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
   const mergedSelectedKeys = selectedRowKeys || innerSelectedKeys || EMPTY_LIST;
@@ -107,7 +109,7 @@ export default function useSelection<RecordType>(
   }, [selections, pageData, getRowKey]);
 
   const transformColumns = React.useCallback(
-    (columns: ColumnsType<RecordType>) => {
+    (columns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
       if (!rowSelection) {
         return columns;
       }
@@ -228,15 +230,18 @@ export default function useSelection<RecordType>(
       }
 
       // Columns
-      return [
-        {
-          width: selectionColWidth,
-          className: `${prefixCls}-selection-column`,
-          title,
-          render: renderCell,
-        },
-        ...columns,
-      ];
+      const selectionColumn = {
+        width: selectionColWidth,
+        className: `${prefixCls}-selection-column`,
+        title,
+        render: renderCell,
+      };
+
+      if (expandType === 'row' && columns.length) {
+        const [expandColumn, ...restColumns] = columns;
+        return [expandColumn, selectionColumn, ...restColumns];
+      }
+      return [selectionColumn, ...columns];
     },
     [
       getRowKey,
@@ -246,6 +251,7 @@ export default function useSelection<RecordType>(
       mergedSelectedKeys,
       selectionColWidth,
       mergedSelections,
+      expandType,
     ],
   );
 

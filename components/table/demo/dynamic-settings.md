@@ -3,6 +3,7 @@ order: 100
 title:
   en-US: Dynamic Settings
   zh-CN: 动态控制表格属性
+only: true
 ---
 
 ## zh-CN

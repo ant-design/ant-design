@@ -24,6 +24,7 @@
 .@{table-prefix-cls} {
   .reset-component;
   position: relative;
+  clear: both;
 
   // https://github.com/ant-design/ant-design/issues/17611
   table {
@@ -40,7 +41,18 @@
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
     position: relative;
+  }
+
+  // weak priority
+  td {
     background: @component-background;
+  }
+
+  &-cell-ellipsis {
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   // ============================ Title =============================
@@ -77,6 +89,12 @@
     }
   }
 
+  &-fixed-column &-header {
+    // Workaround for additional scroll bar on the table header
+    // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
+    opacity: 0.9999;
+  }
+
   // ============================= Body =============================
   tbody {
     > tr {
@@ -85,7 +103,7 @@
         transition: background 0.3s;
       }
 
-      &:hover {
+      &.@{table-prefix-cls}-row:hover {
         > td {
           background: @table-row-hover-bg;
         }
@@ -374,7 +392,9 @@
   tr&-expanded-row {
     &,
     &:hover {
-      background: @table-expanded-row-bg;
+      > td {
+        background: @table-expanded-row-bg;
+      }
     }
   }
 
@@ -430,6 +450,22 @@
   &-ping-right {
     .@{table-prefix-cls}-cell-fix-right-first::after {
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+    }
+  }
+
+  // ========================= Nest Table ===========================
+  tbody > tr > td {
+    .@{table-prefix-cls} {
+      margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+            ceil(@font-size-sm * 1.4));
+
+      td {
+        background: transparent;
+      }
+
+      tbody > tr:last-child > td {
+        border-bottom: 0;
+      }
     }
   }
 

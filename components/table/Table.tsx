@@ -17,6 +17,8 @@ import {
   GetPopupContainer,
   TableSize,
   ExpandableConfig,
+  ExpandType,
+  TablePaginationConfig,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter from './hooks/useSorter';
@@ -42,7 +44,7 @@ export interface TableProps<RecordType>
   extends Omit<RcTableProps<RecordType>, 'transformColumns' | 'data' | 'expandIconColumnIndex'> {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
-  pagination?: false | PaginationConfig;
+  pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
   size?: TableSize;
   bordered?: boolean;
@@ -76,7 +78,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     loading,
     expandIcon,
     expandable,
+    expandedRowRender,
     indentSize,
+    childrenColumnName,
   } = props;
   const { locale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
   const tableLocale = locale.Table;
@@ -84,6 +88,18 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
+
+  const expandType: ExpandType = React.useMemo<ExpandType>(() => {
+    if (rawData.some(item => (item as any)[childrenColumnName || 'children'])) {
+      return 'nest';
+    }
+
+    if (expandedRowRender || (expandable && expandable.expandedRowRender)) {
+      return 'row';
+    }
+
+    return null;
+  }, [rawData]);
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
@@ -211,6 +227,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     pageData,
     getRowKey,
     getRecordByKey,
+    expandType,
   });
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
@@ -239,7 +256,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
 
   // Adjust expand icon index
-  mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
+  if (expandType === 'nest') {
+    mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
+  }
 
   // Indent size
   mergedExpandable.indentSize = mergedExpandable.indentSize || indentSize || 15;
@@ -254,9 +273,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     [transformSorterColumns, transformFilterColumns, transformSelectionColumns],
   );
 
-  let paginationNode;
+  let topPaginationNode: React.ReactNode;
+  let bottomPaginationNode: React.ReactNode;
   if (pagination !== false) {
-    paginationNode = (
+    const renderPagination = () => (
       <Pagination
         className={`${prefixCls}-pagination`}
         {...mergedPagination}
@@ -264,6 +284,20 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         size={size === 'small' || size === 'middle' ? 'small' : undefined}
       />
     );
+
+    switch (mergedPagination.position) {
+      case 'top':
+        topPaginationNode = renderPagination();
+        break;
+
+      case 'both':
+        topPaginationNode = renderPagination();
+        bottomPaginationNode = renderPagination();
+        break;
+
+      default:
+        bottomPaginationNode = renderPagination();
+    }
   }
 
   // >>>>>>>>> Spinning
@@ -279,6 +313,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   return (
     <div className={`${prefixCls}-wrapper`}>
       <Spin spinning={false} {...spinProps}>
+        {topPaginationNode}
         <RcTable<RecordType>
           {...props}
           expandable={mergedExpandable}
@@ -294,7 +329,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           rowClassName={internalRowClassName}
           emptyText={renderEmpty('Table')}
         />
-        {paginationNode}
+        {bottomPaginationNode}
       </Spin>
     </div>
   );

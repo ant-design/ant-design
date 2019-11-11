@@ -7,6 +7,8 @@
 
 .table-size(@size, @padding-vertical, @padding-horizontal) {
   .@{table-prefix-cls}.@{table-prefix-cls}-@{size} {
+    .@{table-prefix-cls}-title,
+    .@{table-prefix-cls}-footer,
     thead > tr > th,
     tbody > tr > td {
       padding: @padding-vertical @padding-horizontal;

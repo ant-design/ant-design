@@ -1,13 +1,14 @@
 import { useState } from 'react';
-import { PaginationConfig, PaginationProps } from '../../pagination';
+import { PaginationProps } from '../../pagination';
+import { TablePaginationConfig } from '../interface';
 
 export const DEFAULT_PAGE_SIZE = 10;
 
 export default function usePagination(
   total: number,
-  pagination?: PaginationConfig | false,
-): [PaginationConfig] {
-  const [innerPagination, setInnerPagination] = useState<PaginationConfig>({
+  pagination?: TablePaginationConfig | false,
+): [TablePaginationConfig] {
+  const [innerPagination, setInnerPagination] = useState<TablePaginationConfig>({
     current: 1,
     pageSize: DEFAULT_PAGE_SIZE,
     total,
