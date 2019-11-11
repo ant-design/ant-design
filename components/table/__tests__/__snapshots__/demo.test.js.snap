@@ -522,13 +522,13 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -536,7 +536,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -560,13 +560,13 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -574,7 +574,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -770,13 +770,13 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -784,7 +784,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -808,13 +808,13 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -822,7 +822,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -1100,13 +1100,13 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1114,7 +1114,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -1138,13 +1138,13 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1152,7 +1152,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -1491,13 +1491,13 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1505,7 +1505,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -1529,13 +1529,13 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1543,7 +1543,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -1729,13 +1729,13 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1743,7 +1743,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -1767,13 +1767,13 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1781,7 +1781,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -3576,13 +3576,13 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: left"
-                class="anticon anticon-left"
+                aria-label="icon: right"
+                class="anticon anticon-right"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="left"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -3590,7 +3590,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -3614,13 +3614,13 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: right"
-                class="anticon anticon-right"
+                aria-label="icon: left"
+                class="anticon anticon-left"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -3628,7 +3628,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -3844,13 +3844,13 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: left"
-                class="anticon anticon-left"
+                aria-label="icon: right"
+                class="anticon anticon-right"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="left"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -3858,7 +3858,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -3882,13 +3882,13 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: right"
-                class="anticon anticon-right"
+                aria-label="icon: left"
+                class="anticon anticon-left"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -3896,7 +3896,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -4312,13 +4312,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -4326,7 +4326,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -4434,13 +4434,13 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -4448,7 +4448,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -4752,13 +4752,13 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -4766,7 +4766,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -4790,13 +4790,13 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -4804,7 +4804,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -5062,13 +5062,13 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -5076,7 +5076,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -5100,13 +5100,13 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -5114,7 +5114,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -5376,13 +5376,13 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -5390,7 +5390,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -5414,13 +5414,13 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -5428,7 +5428,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -6012,13 +6012,13 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -6026,7 +6026,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -6050,13 +6050,13 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -6064,7 +6064,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -7447,13 +7447,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -7461,7 +7461,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -7569,13 +7569,13 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -7583,7 +7583,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -8730,13 +8730,13 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -8744,7 +8744,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -8778,13 +8778,13 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -8792,7 +8792,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -10017,13 +10017,13 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -10031,7 +10031,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -10139,13 +10139,13 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -10153,7 +10153,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -10514,13 +10514,13 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -10528,7 +10528,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -10552,13 +10552,13 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -10566,7 +10566,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -10934,13 +10934,13 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -10948,7 +10948,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -10972,13 +10972,13 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -10986,7 +10986,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -11346,13 +11346,13 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -11360,7 +11360,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -11384,13 +11384,13 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -11398,7 +11398,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -11815,13 +11815,13 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: left"
-                class="anticon anticon-left"
+                aria-label="icon: right"
+                class="anticon anticon-right"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="left"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -11829,7 +11829,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -11853,13 +11853,13 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: right"
-                class="anticon anticon-right"
+                aria-label="icon: left"
+                class="anticon anticon-left"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -11867,7 +11867,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -12146,13 +12146,13 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -12160,7 +12160,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -12184,13 +12184,13 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -12198,7 +12198,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -12534,13 +12534,13 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -12548,7 +12548,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -12572,13 +12572,13 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -12586,7 +12586,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -13172,13 +13172,13 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: left"
-                class="anticon anticon-left"
+                aria-label="icon: right"
+                class="anticon anticon-right"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="left"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -13186,7 +13186,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   width="1em"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -13247,13 +13247,13 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: right"
-                class="anticon anticon-right"
+                aria-label="icon: left"
+                class="anticon anticon-left"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -13261,7 +13261,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -13854,13 +13854,13 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: left"
-              class="anticon anticon-left"
+              aria-label="icon: right"
+              class="anticon anticon-right"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="left"
+                data-icon="right"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -13868,7 +13868,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 width="1em"
               >
                 <path
-                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                 />
               </svg>
             </i>
@@ -13929,13 +13929,13 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
             class="ant-pagination-item-link"
           >
             <i
-              aria-label="icon: right"
-              class="anticon anticon-right"
+              aria-label="icon: left"
+              class="anticon anticon-left"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="right"
+                data-icon="left"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -13943,7 +13943,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 width="1em"
               >
                 <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                 />
               </svg>
             </i>
@@ -14127,13 +14127,13 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: left"
-                class="anticon anticon-left"
+                aria-label="icon: right"
+                class="anticon anticon-right"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="left"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -14141,7 +14141,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -14165,13 +14165,13 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: right"
-                class="anticon anticon-right"
+                aria-label="icon: left"
+                class="anticon anticon-left"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -14179,7 +14179,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
@@ -14359,13 +14359,13 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: left"
-                class="anticon anticon-left"
+                aria-label="icon: right"
+                class="anticon anticon-right"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="left"
+                  data-icon="right"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -14373,7 +14373,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
                   />
                 </svg>
               </i>
@@ -14397,13 +14397,13 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
               class="ant-pagination-item-link"
             >
               <i
-                aria-label="icon: right"
-                class="anticon anticon-right"
+                aria-label="icon: left"
+                class="anticon anticon-left"
               >
                 <svg
                   aria-hidden="true"
                   class=""
-                  data-icon="right"
+                  data-icon="left"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -14411,7 +14411,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   width="1em"
                 >
                   <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                    d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                   />
                 </svg>
               </i>
