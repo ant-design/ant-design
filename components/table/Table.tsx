@@ -16,6 +16,7 @@ import {
   Key,
   GetPopupContainer,
   TableSize,
+  ExpandableConfig,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter from './hooks/useSorter';
@@ -38,7 +39,7 @@ interface ChangeEventInfo<RecordType> {
 }
 
 export interface TableProps<RecordType>
-  extends Omit<RcTableProps<RecordType>, 'transformColumns' | 'data'> {
+  extends Omit<RcTableProps<RecordType>, 'transformColumns' | 'data' | 'expandIconColumnIndex'> {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   pagination?: false | PaginationConfig;
@@ -74,6 +75,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     getPopupContainer,
     loading,
     expandIcon,
+    expandable,
+    indentSize,
   } = props;
   const { locale = defaultLocale } = React.useContext(ConfigContext);
   const tableLocale = locale.Table;
@@ -227,6 +230,19 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   // ========================== Expandable ==========================
+  const mergedExpandable: ExpandableConfig<RecordType> = {
+    ...expandable,
+  };
+
+  // Customize expandable icon
+  mergedExpandable.expandIcon =
+    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
+
+  // Adjust expand icon index
+  mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
+
+  // Indent size
+  mergedExpandable.indentSize = mergedExpandable.indentSize || indentSize || 15;
 
   // ============================ Render ============================
   const transformColumns = React.useCallback(
@@ -265,7 +281,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       <Spin spinning={false} {...spinProps}>
         <RcTable<RecordType>
           {...props}
-          expandIcon={expandIcon || renderExpandIcon(tableLocale!)}
+          expandable={mergedExpandable}
           prefixCls={prefixCls}
           className={classNames(className, {
             [`${prefixCls}-middle`]: size === 'middle',

@@ -8,6 +8,7 @@ interface DefaultExpandIconProps<RecordType> {
   onExpand: (record: RecordType, e: React.MouseEvent<HTMLElement>) => void;
   record: RecordType;
   expanded: boolean;
+  expandable: boolean;
 }
 
 function renderExpandIcon(locale: TableLocale) {
@@ -16,16 +17,21 @@ function renderExpandIcon(locale: TableLocale) {
     onExpand,
     record,
     expanded,
+    expandable,
   }: DefaultExpandIconProps<RecordType>) {
+    const iconPrefix = `${prefixCls}-row-expand-icon`;
+
     return (
       <button
         type="button"
         onClick={e => onExpand(record, e!)}
-        className={classNames(`${prefixCls}-row-expand-icon`, `${prefixCls}-row-collapsed`)}
+        className={classNames(iconPrefix, {
+          [`${iconPrefix}-spaced`]: !expandable,
+          [`${iconPrefix}-expanded`]: expandable && expanded,
+          [`${iconPrefix}-collapsed`]: expandable && !expanded,
+        })}
         aria-label={expanded ? locale.collapse : locale.expand}
-      >
-        {expanded ? <Minus /> : <Plus />}
-      </button>
+      />
     );
   };
 }

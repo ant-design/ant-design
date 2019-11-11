@@ -1,8 +1,12 @@
-import { GetRowKey, ColumnGroupType, ColumnType as RcColumnType } from 'rc-table/lib/interface';
+import {
+  GetRowKey,
+  ColumnGroupType,
+  ColumnType as RcColumnType,
+  ExpandableConfig,
+} from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 
-// eslint-disable-next-line import/prefer-default-export
-export { GetRowKey };
+export { GetRowKey, ExpandableConfig };
 
 export type Key = React.Key;
 

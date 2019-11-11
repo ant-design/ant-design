@@ -293,11 +293,7 @@
     .operation-unit();
 
     display: inline-block;
-    width: floor(@font-size-sm * 1.4);
-    height: floor(@font-size-sm * 1.4);
     color: inherit;
-    line-height: floor(@font-size-sm * 1.4);
-    font-size: @font-size-sm;
     box-sizing: border-box;
     background: @component-background;
     border: @border-width-base @border-style-base @border-color-split;
@@ -306,10 +302,64 @@
     transition: all 0.3s;
     user-select: none;
 
+    width: ceil(@font-size-sm * 1.4);
+    height: ceil(@font-size-sm * 1.4);
+    line-height: @font-size-sm;
+    position: relative;
+    vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
+
     &:focus,
     &:hover,
     &:active {
       border-color: currentColor;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: currentColor;
+    }
+
+    &::before {
+      left: 3px;
+      right: 3px;
+      top: 7px;
+      height: @border-width-base;
+    }
+
+    &::after {
+      left: 7px;
+      width: @border-width-base;
+      top: 3px;
+      bottom: 3px;
+      transform: scaleY(0);
+      transition: transform 0.3s;
+    }
+
+    &-collapsed::after {
+      transform: scaleY(1);
+    }
+
+    &-spaced {
+      &::before,
+      &::after {
+        display: none;
+        content: none;
+      }
+      border: 0;
+      background: transparent;
+    }
+
+    .@{table-prefix-cls}-row-indent + & {
+      margin-right: @padding-xs;
+    }
+  }
+
+  tr&-expanded-row {
+    &,
+    &:hover {
+      background: @table-expanded-row-bg;
     }
   }
 
