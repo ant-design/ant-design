@@ -13,6 +13,10 @@
   tbody > tr > td {
     padding: @table-padding-vertical-md @table-padding-horizontal-md;
   }
+
+  .@{table-prefix-cls}-filter-column {
+    margin: -@table-padding-vertical-md -@table-padding-horizontal-md;
+  }
 }
 
 // ================================================================
@@ -23,17 +27,8 @@
   tbody > tr > td {
     padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
   }
+
+  .@{table-prefix-cls}-filter-column {
+    margin: -@table-padding-vertical-sm -@table-padding-horizontal-sm;
+  }
 }
-
-//   tbody {
-//     tr:last-child {
-//       td {
-//         border-bottom: 0;
-//       }
-//     }
-//   }
-
-//   .@{table-prefix-cls}-content {
-//     padding: 0 @table-padding-horizontal-sm;
-//   }
-// }

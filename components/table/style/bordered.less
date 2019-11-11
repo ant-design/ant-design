@@ -12,17 +12,35 @@
   // ============================= Cell =============================
   thead > tr > th,
   tbody > tr > td {
-    border-left: @table-border;
+    border-right: @table-border;
+  }
 
-    &:first-child {
-      border-left: 0;
+  // Fixed right should provides additional border
+  .@{table-prefix-cls}-cell-fix-right-first::after {
+    border-right: @table-border;
+  }
+
+  // ============================ Header ============================
+  table > {
+    thead {
+      > tr:not(:last-child) > th {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+      }
     }
   }
 
   // =========================== Content ============================
+  .@{table-prefix-cls}-header,
+  .@{table-prefix-cls}-body,
+  .@{table-prefix-cls}-footer,
   .@{table-prefix-cls}-content {
     border: @table-border;
     border-bottom: 0;
+    border-right: 0;
+  }
+
+  .@{table-prefix-cls}-body {
+    border-top: 0;
   }
 
   // ============================ Footer ============================
@@ -31,10 +49,3 @@
     border-top: 0;
   }
 }
-
-// // ============================= Small ==============================
-// // Small Table always has outer border
-
-// .@{table-prefix-cls}.@{table-prefix-cls}-small {
-//   border: @table-border;
-// }

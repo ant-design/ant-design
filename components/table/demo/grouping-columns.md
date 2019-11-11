@@ -3,6 +3,7 @@ order: 22
 title:
   en-US: Grouping table head
   zh-CN: 表头分组
+only: true
 ---
 
 ## zh-CN

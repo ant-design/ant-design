@@ -184,7 +184,7 @@
 
   &-filter-column-title {
     flex: auto;
-    padding: @table-padding-vertical 0 @table-padding-vertical @table-padding-horizontal;
+    padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
   }
 
   &-filter-trigger {
@@ -193,6 +193,11 @@
     align-self: stretch;
     flex: none;
     transition: all 0.3s;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2.3em;
 
     &:hover {
       color: @text-color-secondary;
@@ -207,7 +212,6 @@
       display: flex;
       height: 100%;
       align-items: center;
-      width: 2.3em;
       justify-content: center;
 
       > svg {
@@ -423,7 +427,10 @@
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
   }
 
+  &-title + &-header,
   &-title + &-content {
+    border-radius: 0;
+
     table > thead > tr:first-child {
       th:first-child {
         border-radius: 0;
@@ -436,7 +443,10 @@
   }
 
   /* table */
+  &-header,
   &-content {
+    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
+
     table > thead > tr:first-child {
       th:first-child {
         border-radius: @table-border-radius-base 0 0 0;
@@ -449,6 +459,7 @@
   }
 
   /* table + footer */
+  &-body:last-child,
   &-content:last-child {
     border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
   }
