@@ -17,7 +17,7 @@
     overflow: hidden;
     font-size: @font-size-base;
     line-height: 1.5;
-    text-align: left;
+    .dirAlign();
     list-style: none;
     background-color: @component-background;
     background-clip: padding-box;
@@ -131,7 +131,7 @@
     height: auto;
 
     &-btn {
-      text-align: right;
+      .idirAlign();
     }
 
     .@{calendar-prefix-cls}-today-btn {

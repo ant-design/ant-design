@@ -28,15 +28,15 @@
 
   &-header {
     padding: 11px 16px 11px 0;
-    text-align: right;
+    .idirAlign();
 
     .@{ant-prefix}-select-dropdown {
-      text-align: left;
+      .dirAlign();
     }
 
     .@{ant-prefix}-radio-group {
       .margin-dir(8px);
-      text-align: left;
+      .dirAlign();
     }
 
     label.@{ant-prefix}-radio-button {
@@ -192,7 +192,7 @@
     margin: 0 4px;
     padding: 4px 8px;
     color: @text-color;
-    text-align: left;
+    .dirAlign();
     border-top: 2px solid @border-color-split;
     transition: background 0.3s;
 
@@ -209,12 +209,12 @@
   &-fullscreen &-column-header {
     .padding-idir(12px);
     padding-bottom: 5px;
-    text-align: right;
+    .idirAlign();
   }
 
   &-fullscreen &-value {
     width: auto;
-    text-align: right;
+    .idirAlign();
     background: transparent;
   }
 
