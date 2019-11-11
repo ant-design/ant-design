@@ -67,7 +67,6 @@ const expandedRowRender = record => <p>{record.description}</p>;
 const title = () => 'Here is title';
 const showHeader = true;
 const footer = () => 'Here is footer';
-const scroll = { y: 240 };
 const pagination = { position: 'bottom' };
 
 class Demo extends React.Component {
@@ -122,8 +121,12 @@ class Demo extends React.Component {
     this.setState({ rowSelection: enable ? {} : undefined });
   };
 
-  handleScollChange = enable => {
-    this.setState({ scroll: enable ? scroll : undefined });
+  handleYScrollChange = enable => {
+    this.setState({ yScroll: enabled });
+  };
+
+  handleXScrollChange = e => {
+    this.setState({ xScroll: e.target.value });
   };
 
   handleDataChange = hasData => {
@@ -138,7 +141,22 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { state } = this;
+    const { xScroll, yScroll, ...state } = this.state;
+
+    const scroll = {};
+    if (yScroll) {
+      scroll.y = 240;
+    }
+    if (xScroll) {
+      scroll.x = '100vw';
+    }
+
+    const tableColumns = columns.map(item => ({ ...item, ellipsis: state.ellipsis }));
+    if (xScroll === 'fixed') {
+      tableColumns[0].fixed = true;
+      tableColumns[tableColumns.length - 1].fixed = 'right';
+    }
+
     return (
       <div>
         <Form
@@ -168,7 +186,7 @@ class Demo extends React.Component {
             <Switch checked={!!state.rowSelection} onChange={this.handleRowSelectionChange} />
           </Form.Item>
           <Form.Item label="Fixed Header">
-            <Switch checked={!!state.scroll} onChange={this.handleScollChange} />
+            <Switch checked={!!yScroll} onChange={this.handleYScrollChange} />
           </Form.Item>
           <Form.Item label="Has Data">
             <Switch checked={!!state.hasData} onChange={this.handleDataChange} />
@@ -181,6 +199,13 @@ class Demo extends React.Component {
               <Radio.Button value="default">Default</Radio.Button>
               <Radio.Button value="middle">Middle</Radio.Button>
               <Radio.Button value="small">Small</Radio.Button>
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item label="Table Scroll">
+            <Radio.Group value={xScroll} onChange={this.handleXScrollChange}>
+              <Radio.Button value={undefined}>Unset</Radio.Button>
+              <Radio.Button value="scroll">Scroll</Radio.Button>
+              <Radio.Button value="fixed">Fixed Columns</Radio.Button>
             </Radio.Group>
           </Form.Item>
           <Form.Item label="Table Layout">
@@ -203,8 +228,9 @@ class Demo extends React.Component {
         </Form>
         <Table
           {...this.state}
-          columns={columns.map(item => ({ ...item, ellipsis: state.ellipsis }))}
+          columns={tableColumns}
           dataSource={state.hasData ? data : null}
+          scroll={scroll}
         />
       </div>
     );

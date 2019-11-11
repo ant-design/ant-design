@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Down } from '@ant-design/icons';
+import { FixedType } from 'rc-table/lib/interface';
 import Checkbox, { CheckboxProps } from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Menu from '../../menu';
@@ -22,6 +23,10 @@ const EMPTY_LIST: any[] = [];
 // TODO: warning if use ajax!!!
 export const SELECTION_ALL = 'SELECT_ALL';
 export const SELECTION_INVERT = 'SELECT_INVERT';
+
+function getFixedType<RecordType>(column: ColumnsType<RecordType>[number]): FixedType | undefined {
+  return column && column.fixed;
+}
 
 interface UseSelectionConfig<RecordType> {
   prefixCls: string;
@@ -182,9 +187,10 @@ export default function useSelection<RecordType>(
         title = (
           <div className={`${prefixCls}-selection`}>
             <Checkbox
-              checked={checkedCurrentAll}
+              checked={!!pageData.length && checkedCurrentAll}
               indeterminate={!checkedCurrentAll && checkedCurrentSome}
               onChange={onSelectAllChange}
+              disabled={pageData.length === 0}
             />
             {customizeSelections}
           </div>
@@ -239,9 +245,13 @@ export default function useSelection<RecordType>(
 
       if (expandType === 'row' && columns.length) {
         const [expandColumn, ...restColumns] = columns;
-        return [expandColumn, selectionColumn, ...restColumns];
+        return [
+          expandColumn,
+          { ...selectionColumn, fixed: getFixedType(restColumns[0]) },
+          ...restColumns,
+        ];
       }
-      return [selectionColumn, ...columns];
+      return [{ ...selectionColumn, fixed: getFixedType(columns[0]) }, ...columns];
     },
     [
       getRowKey,
