@@ -3,7 +3,6 @@ order: 27
 title:
   en-US: Resizable column
   zh-CN: 可伸缩列
-only: true
 ---
 
 ## zh-CN
