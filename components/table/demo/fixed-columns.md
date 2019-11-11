@@ -3,6 +3,7 @@ order: 19
 title:
   en-US: Fixed Columns
   zh-CN: 固定列
+only: true
 ---
 
 ## zh-CN

@@ -40,6 +40,7 @@
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
     position: relative;
+    background: @component-background;
   }
 
   // ============================ Title =============================
@@ -54,20 +55,22 @@
 
   // ============================ Header ============================
   thead {
-    th {
-      color: @table-header-color;
-      font-weight: 500;
-      text-align: left;
-      background: @table-header-bg;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-      transition: background 0.3s ease;
+    > tr {
+      > th {
+        color: @table-header-color;
+        font-weight: 500;
+        text-align: left;
+        background: @table-header-bg;
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+        transition: background 0.3s ease;
 
-      &[colspan] {
-        text-align: center;
+        &[colspan] {
+          text-align: center;
+        }
       }
     }
 
-    tr:not(:last-child) > th {
+    > tr:not(:last-child) > th {
       &[colspan] {
         border-bottom: 0;
       }
@@ -76,22 +79,27 @@
 
   // ============================= Body =============================
   tbody {
-    td {
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-    }
-
-    tr {
-      transition: background 0.3s;
+    > tr {
+      > td {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
+        transition: background 0.3s;
+      }
 
       &:hover {
-        background: @table-row-hover-bg;
+        > td {
+          background: @table-row-hover-bg;
+        }
       }
 
       &.@{table-prefix-cls}-row-selected {
-        background: @table-selected-row-bg;
+        > td {
+          background: @table-selected-row-bg;
+        }
 
-        &:hover {
-          background: @table-selected-row-hover-bg;
+        :hover {
+          > td {
+            background: @table-selected-row-hover-bg;
+          }
         }
       }
     }
@@ -284,7 +292,6 @@
   }
 
   // ========================== Expandable ==========================
-
   &-expand-icon-col {
     width: 48px;
   }
@@ -319,6 +326,7 @@
       content: '';
       position: absolute;
       background: currentColor;
+      transition: transform 0.3s ease-out;
     }
 
     &::before {
@@ -333,12 +341,15 @@
       width: @border-width-base;
       top: 3px;
       bottom: 3px;
-      transform: scaleY(0);
-      transition: transform 0.3s;
+      transform: rotate(90deg);
     }
 
+    // Motion effect
+    &-collapsed::before {
+      transform: rotate(-180deg);
+    }
     &-collapsed::after {
-      transform: scaleY(1);
+      transform: rotate(0deg);
     }
 
     &-spaced {
@@ -360,6 +371,46 @@
     &,
     &:hover {
       background: @table-expanded-row-bg;
+    }
+  }
+
+  // ============================ Fixed =============================
+  &-cell-fix-left,
+  &-cell-fix-right {
+    z-index: 1;
+  }
+
+  &-cell-fix-left-last::after {
+    pointer-events: none;
+    content: '';
+    transition: box-shadow 0.3s;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    width: 20px;
+    right: 0;
+    transform: translateX(100%);
+  }
+  &-cell-fix-right-first::after {
+    pointer-events: none;
+    content: '';
+    transition: box-shadow 0.3s;
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    width: 20px;
+    left: 0;
+    transform: translateX(-100%);
+  }
+
+  &-ping-left {
+    .@{table-prefix-cls}-cell-fix-left-last::after {
+      box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+    }
+  }
+  &-ping-right {
+    .@{table-prefix-cls}-cell-fix-right-first::after {
+      box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
 
@@ -405,21 +456,4 @@
   &-footer {
     border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
   }
-
-  // // Small table is not same as above
-  // &-small {
-  //   border-radius: @table-border-radius-base;
-
-  //   .@{table-prefix-cls}-content {
-  //     table > thead > tr:first-child {
-  //       th:first-child {
-  //         border-radius: 0;
-  //       }
-
-  //       th:last-child {
-  //         border-radius: 0;
-  //       }
-  //     }
-  //   }
-  // }
 }
