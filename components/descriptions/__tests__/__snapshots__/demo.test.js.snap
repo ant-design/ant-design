@@ -263,7 +263,7 @@ exports[`renders ./components/descriptions/demo/border.md correctly 1`] = `
             <br />
             Storage space: 10 GB
             <br />
-            Replication_factor:3
+            Replication factor: 3
             <br />
             Region: East China 1
             <br />
@@ -384,7 +384,7 @@ exports[`renders ./components/descriptions/demo/responsive.md correctly 1`] = `
               <br />
               Storage space: 10 GB
               <br />
-              Replication_factor:3
+              Replication factor: 3
               <br />
               Region: East China 1
             </td>
@@ -569,7 +569,7 @@ exports[`renders ./components/descriptions/demo/size.md correctly 1`] = `
               <br />
               Storage space: 10 GB
               <br />
-              Replication_factor:3
+              Replication factor: 3
               <br />
               Region: East China 1
               <br />
@@ -1025,7 +1025,7 @@ exports[`renders ./components/descriptions/demo/vertical-border.md correctly 1`]
             <br />
             Storage space: 10 GB
             <br />
-            Replication_factor:3
+            Replication factor: 3
             <br />
             Region: East China 1
             <br />

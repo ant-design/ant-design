@@ -54,7 +54,7 @@ class Demo extends React.Component {
             <br />
             Storage space: 10 GB
             <br />
-            Replication_factor:3
+            Replication factor: 3
             <br />
             Region: East China 1<br />
           </Descriptions.Item>

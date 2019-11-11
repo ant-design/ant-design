@@ -6743,7 +6743,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
       >
         <div
           class="config-drawer-wrapper-body"
-          style="overflow:auto;height:100%"
         >
           <div
             class="config-drawer-header-no-title"
@@ -6804,7 +6803,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="overflow:auto;height:100%"
         >
           <div
             class="ant-drawer-header-no-title"
@@ -6865,7 +6863,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
       >
         <div
           class="prefix-Drawer-wrapper-body"
-          style="overflow:auto;height:100%"
         >
           <div
             class="prefix-Drawer-header-no-title"
