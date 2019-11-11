@@ -19,7 +19,7 @@
 
   .@{ant-prefix}-select&-month-select {
     min-width: 80px;
-    margin-left: 8px;
+    .margin-dir(8px);
 
     &.@{ant-prefix}-select-sm {
       min-width: 70px;
@@ -35,7 +35,7 @@
     }
 
     .@{ant-prefix}-radio-group {
-      margin-left: 8px;
+      .margin-dir(8px);
       text-align: left;
     }
 
@@ -163,7 +163,7 @@
   &-content {
     position: absolute;
     bottom: -9px;
-    left: 0;
+    .posDir(0);
     width: 100%;
   }
 
@@ -177,7 +177,7 @@
 
   &-fullscreen &-header {
     .@{ant-prefix}-radio-group {
-      margin-left: 16px;
+      .margin-dir(16px);
     }
     label.@{ant-prefix}-radio-button {
       height: @input-height-base;

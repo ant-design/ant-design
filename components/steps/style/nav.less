@@ -4,7 +4,7 @@
   &.@{steps-prefix-cls}-small {
     .@{steps-prefix-cls}-item {
       &-container {
-        margin-left: -12px;
+        .margin-dir(-12px);
       }
     }
   }
@@ -16,7 +16,7 @@
     &-container {
       display: inline-block;
       height: 100%;
-      margin-left: -16px;
+      .margin-dir(-16px);
       padding-bottom: 12px;
       text-align: left;
       transition: opacity 0.3s;
@@ -57,12 +57,12 @@
     &::after {
       position: absolute;
       top: 50%;
-      left: 100%;
+      .posDir(100%);
       display: inline-block;
       width: 12px;
       height: 12px;
       margin-top: -14px;
-      margin-left: -2px;
+      .margin-dir(-2px);
       border: 1px solid @steps-nav-arrow-color;
       border-bottom: none;
       .dirBorder(none);
@@ -73,7 +73,7 @@
     &::before {
       position: absolute;
       bottom: 0;
-      left: 50%;
+      .posDir(50%);
       display: inline-block;
       width: 0;
       height: 3px;
@@ -85,7 +85,7 @@
   }
 
   .@{steps-prefix-cls}-item.@{steps-prefix-cls}-item-active::before {
-    left: 0;
+    .posDir(0);
     width: 100%;
   }
 }

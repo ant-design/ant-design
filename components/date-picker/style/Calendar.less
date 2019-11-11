@@ -32,7 +32,7 @@
 
   &::after {
     position: relative;
-    left: -3px;
+    .posDir(-3px);
     display: inline-block;
   }
 }
@@ -51,7 +51,7 @@
 
   &::before {
     position: relative;
-    left: 3px;
+    .posDir(3px);
   }
 
   &::after {
@@ -109,24 +109,24 @@
   .@{calendar-prefix-cls}-prev-century-btn,
   .@{calendar-prefix-cls}-prev-decade-btn,
   .@{calendar-prefix-cls}-prev-year-btn {
-    left: 7px;
+    .posDir(7px);
     .calendarLeftDoubleArrow;
   }
 
   .@{calendar-prefix-cls}-next-century-btn,
   .@{calendar-prefix-cls}-next-decade-btn,
   .@{calendar-prefix-cls}-next-year-btn {
-    right: 7px;
+    .posiDir(7px);
     .calendarRightDoubleArrow;
   }
 
   .@{calendar-prefix-cls}-prev-month-btn {
-    left: 29px;
+    .posDir(29px);
     .calendarLeftArrow;
   }
 
   .@{calendar-prefix-cls}-next-month-btn {
-    right: 29px;
+    .posiDir(29px);
     .calendarRightArrow;
   }
 }
@@ -298,7 +298,7 @@
   &-disabled-cell&-selected-day &-date::before {
     position: absolute;
     top: -1px;
-    left: 5px;
+    .posDir(5px);
     width: 24px;
     height: 24px;
     background: rgba(0, 0, 0, 0.1);
@@ -313,7 +313,7 @@
     &::before {
       position: absolute;
       top: -1px;
-      left: 5px;
+      .posDir(5px);
       width: 24px;
       height: 24px;
       border: @border-width-base @border-style-base @disabled-color;
@@ -365,7 +365,7 @@
   .@{calendar-prefix-cls}-clear-btn {
     position: absolute;
     top: 7px;
-    right: 5px;
+    .posiDir(5px);
     display: none;
     width: 20px;
     height: 20px;

@@ -52,7 +52,7 @@
   }
 
   &-right {
-    right: 0;
+    .posiDir(0);
 
     .@{drawer-prefix-cls} {
       &-content-wrapper {
@@ -65,7 +65,7 @@
       }
       // https://github.com/ant-design/ant-design/issues/18607, Avoid edge alignment bug.
       &.no-mask {
-        right: 1px;
+        .posiDir(1px);
         transform: translateX(1px);
       }
     }
@@ -73,7 +73,7 @@
 
   &-top,
   &-bottom {
-    left: 0;
+    .posDir(0);
     width: 100%;
     height: 0%;
 
@@ -201,7 +201,7 @@
   &-mask {
     position: absolute;
     top: 0;
-    left: 0;
+    .posDir(0);
     width: 100%;
     height: 0;
     background-color: @modal-mask-bg;

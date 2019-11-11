@@ -8,16 +8,16 @@
 
   position: absolute;
   top: -9999px;
-  left: -9999px;
+  .posDir(-9999px);
   z-index: @zindex-dropdown;
   display: block;
 
   &::before {
     position: absolute;
     top: -7px;
-    right: 0;
+    .posiDir(0);
     bottom: -7px;
-    left: -7px;
+    .posDir(-7px);
     z-index: -9999;
     opacity: 0.0001;
     content: ' ';

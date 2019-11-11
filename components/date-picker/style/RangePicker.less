@@ -63,7 +63,7 @@
 
   &-middle {
     position: absolute;
-    left: 50%;
+    .posDir(50%);
     z-index: 1;
     height: @input-box-height;
     margin: 1px 0 0 0;
@@ -76,7 +76,7 @@
   }
 
   &-right .@{calendar-prefix-cls}-date-input-wrap {
-    margin-left: -90px;
+    .margin-dir(-90px);
   }
 
   &.@{calendar-prefix-cls}-time &-middle {
@@ -101,7 +101,7 @@
   }
 
   &.@{calendar-prefix-cls}-time &-right .@{calendar-prefix-cls}-date-input-wrap {
-    margin-left: 0;
+    .margin-dir(0);
   }
 
   .@{calendar-prefix-cls}-input-wrap {

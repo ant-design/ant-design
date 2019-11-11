@@ -184,7 +184,7 @@
       &::before {
         position: absolute;
         top: -1px;
-        left: 0;
+        .posDir(0);
         width: 100%;
         border-top: 2px solid transparent;
         border-radius: @border-radius-base @border-radius-base 0 0;
@@ -335,7 +335,7 @@
     }
 
     .@{tab-prefix-cls}-tab-next {
-      right: 0;
+      .posiDir(0);
       bottom: 0;
       width: 100%;
       height: @tabs-scrolling-size;

@@ -36,14 +36,14 @@
     &-value {
       position: relative;
       top: -3px;
-      margin-left: 16px;
+      .margin-dir(16px);
       font-size: 14px;
       font-family: Consolas, sans-serif;
     }
     &-validation {
       position: relative;
       top: -3px;
-      margin-left: 16px;
+      .margin-dir(16px);
       color: @error-color;
       font-size: 13px;
     }
@@ -121,7 +121,7 @@
 
 .main-color:hover {
   .main-color-value {
-    left: 0;
+    .posDir(0);
     opacity: 0.7;
   }
 }
@@ -156,7 +156,7 @@
     &-value {
       position: absolute;
       bottom: 0;
-      left: 0;
+      .posDir(0);
       width: 100%;
       text-align: center;
       transform-origin: unset;

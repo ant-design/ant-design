@@ -201,7 +201,7 @@
       height: @input-height-sm;
     }
     .@{select-prefix-cls}-selection__rendered {
-      margin-left: @control-padding-horizontal-sm - 1px;
+      .margin-dir(@control-padding-horizontal-sm - 1px);
       line-height: @input-height-sm - 2px;
     }
     .@{select-prefix-cls}-selection--multiple {
@@ -428,7 +428,7 @@
 
   position: absolute;
   top: -9999px;
-  left: -9999px;
+  .posDir(-9999px);
   z-index: @zindex-dropdown;
   box-sizing: border-box;
   font-size: @font-size-base;

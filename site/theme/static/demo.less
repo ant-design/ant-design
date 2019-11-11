@@ -22,7 +22,7 @@
 
   &-expand-trigger {
     position: relative;
-    margin-left: 8px;
+    .margin-dir(8px);
     color: #3b4357;
     font-size: 18px;
     cursor: pointer;
@@ -33,7 +33,7 @@
   &-title {
     position: absolute;
     top: -14px;
-    margin-left: 16px;
+    .margin-dir(16px);
     padding: 1px 8px;
     color: #777;
     background: #fff;
@@ -55,7 +55,7 @@
   a.edit-button {
     position: absolute;
     top: 7px;
-    right: -16px;
+    .posiDir(-16px);
     .padding-idir(6px);
     font-size: 12px;
     text-decoration: none;
@@ -114,7 +114,7 @@
   .code-expand-icon-hide {
     position: absolute;
     top: 0;
-    left: 0;
+    .posDir(0);
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -180,11 +180,11 @@
       display: inline-block;
       width: 16px;
       height: 16px;
-      margin-left: 16px;
+      .margin-dir(16px);
       vertical-align: top;
 
       &:first-child {
-        margin-left: 0;
+        .margin-dir(0);
       }
     }
 
