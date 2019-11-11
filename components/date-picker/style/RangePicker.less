@@ -71,7 +71,7 @@
     color: @text-color-secondary;
     line-height: @input-box-height;
     text-align: center;
-    transform: translateX(-50%);
+    .translateX(-50%);
     pointer-events: none;
   }
 
@@ -80,8 +80,8 @@
   }
 
   &.@{calendar-prefix-cls}-time &-middle {
-    padding: 0 10px 0 0;
-    transform: translateX(-50%);
+    .padding(0; 10px; 0; 0);
+    .translateX(-50%);
   }
 
   .@{calendar-prefix-cls}-today
