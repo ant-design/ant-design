@@ -193,7 +193,6 @@ exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
         >
           <div
             class="ant-drawer-wrapper-body"
-            style="overflow:auto;height:100%"
           >
             <div
               class="ant-drawer-header"
@@ -265,7 +264,7 @@ exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Progresser AFX
+                  Progresser XTech
                 </div>
               </div>
             </div>
@@ -311,7 +310,7 @@ exports[`renders ./components/drawer/demo/user-profile.md correctly 1`] = `
                 <div
                   class="ant-list-item-meta-description"
                 >
-                  Progresser AFX
+                  Progresser XTech
                 </div>
               </div>
             </div>

@@ -203,6 +203,7 @@ validateFields(['field1', 'field2'], options, (errors, values) => {
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string |  | 3.17.0 |
 | label | label 标签的文本 | string\|ReactNode |  |  |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。在 3.14.0 之后，你可以通过 Form 的 labelCol 进行统一设置。当和 Form 同时设置时，以 FormItem 为准。 | [object](https://ant.design/components/grid/#Col) |  |  |
+| labelAlign | 标签文本对齐方式 | 'left' \| 'right' | 'right' | 3.15.0 |
 | required | 是否必填，如不设置，则会根据校验规则自动生成 | boolean | false |  |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |  |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol。在 3.14.0 之后，你可以通过 Form 的 wrapperCol 进行统一设置。当和 Form 同时设置时，以 FormItem 为准。 | [object](https://ant.design/components/grid/#Col) |  |  |

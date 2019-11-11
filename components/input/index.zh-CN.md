@@ -47,7 +47,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | defaultValue | 输入框默认内容 | string |  |  |
 | value | 输入框内容 | string |  |  |
 | onPressEnter | 按下回车的回调 | function(e) |  |  |
-| allowClear | 可以点击清除图标删除内容 | boolean |  |  |
+| allowClear | 可以点击清除图标删除内容 | boolean |  | 3.25.0 |
 
 `Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 
