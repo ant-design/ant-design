@@ -121,7 +121,7 @@ class Demo extends React.Component {
   };
 
   handleYScrollChange = enable => {
-    this.setState({ yScroll: enabled });
+    this.setState({ yScroll: enable });
   };
 
   handleXScrollChange = e => {
