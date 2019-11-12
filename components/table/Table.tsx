@@ -311,7 +311,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   }
 
   return (
-    <div className={`${prefixCls}-wrapper`}>
+    <div
+      className={`${prefixCls}-wrapper`}
+      onTouchMove={e => {
+        e.preventDefault();
+      }}
+    >
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>

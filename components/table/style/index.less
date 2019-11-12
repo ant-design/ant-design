@@ -101,12 +101,6 @@
     }
   }
 
-  &-fixed-column &-header {
-    // Workaround for additional scroll bar on the table header
-    // https://github.com/ant-design/ant-design/issues/6515#issuecomment-419634369
-    opacity: 0.9999;
-  }
-
   // ============================= Body =============================
   tbody {
     > tr {
@@ -432,7 +426,7 @@
   // ============================ Fixed =============================
   &-cell-fix-left,
   &-cell-fix-right {
-    z-index: 1;
+    z-index: 2;
   }
 
   &-cell-fix-left-last::after {
@@ -458,23 +452,49 @@
     transform: translateX(-100%);
   }
 
+  .@{table-prefix-cls}-container {
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      z-index: 1;
+      transition: box-shadow 0.3s;
+    }
+
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
+  }
+
   &-ping-left {
-    // .@{table-prefix-cls}-content {
-    //   &::before {
-    //     content: '';
-    //     position: absolute;
-    //     left: 0;
-    //     top: 0;
-    //     bottom: 0;
-    //     box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
-    //   }
-    // }
+    &:not(.@{table-prefix-cls}-has-fix-left) .@{table-prefix-cls}-container {
+      position: relative;
+
+      &::before {
+        box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+      }
+    }
 
     .@{table-prefix-cls}-cell-fix-left-last::after {
       box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
   &-ping-right {
+    &:not(.@{table-prefix-cls}-has-fix-right) .@{table-prefix-cls}-container {
+      position: relative;
+
+      &::after {
+        box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
+      }
+    }
+
     .@{table-prefix-cls}-cell-fix-right-first::after {
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
@@ -510,9 +530,9 @@
     border-radius: @table-border-radius-base @table-border-radius-base 0 0;
   }
 
-  &-title + &-header,
-  &-title + &-content {
-    border-radius: 0;
+  &-title + &-container {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 
     table > thead > tr:first-child {
       th:first-child {
@@ -526,9 +546,9 @@
   }
 
   /* table */
-  &-header,
-  &-content {
-    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
+  &-container {
+    border-top-left-radius: @table-border-radius-base;
+    border-top-right-radius: @table-border-radius-base;
 
     table > thead > tr:first-child {
       th:first-child {
@@ -542,9 +562,9 @@
   }
 
   /* table + footer */
-  &-body:last-child,
-  &-content:last-child {
-    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
+  &-container:last-child {
+    border-bottom-left-radius: @table-border-radius-base;
+    border-bottom-right-radius: @table-border-radius-base;
 
     table > tbody > tr:last-child {
       > td:first-child {
