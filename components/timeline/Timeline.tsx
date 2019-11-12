@@ -24,7 +24,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     mode: '',
   };
 
-  renderTimeline = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTimeline = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       pending = null,
@@ -43,6 +43,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
         [`${prefixCls}-pending`]: !!pending,
         [`${prefixCls}-reverse`]: !!reverse,
         [`${prefixCls}-${mode}`]: !!mode,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
