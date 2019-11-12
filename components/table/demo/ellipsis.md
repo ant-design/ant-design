@@ -13,9 +13,9 @@ title:
 
 ## en-US
 
-Ellipsize cell content via setting `column.ellipsis`.
+Ellipsis cell content via setting `column.ellipsis`.
 
-> Cannot ellipsize table header with sorters and filters for now.
+> Cannot ellipsis table header with sorters and filters for now.
 
 ```jsx
 import { Table } from 'antd';

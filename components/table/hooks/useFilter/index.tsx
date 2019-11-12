@@ -16,7 +16,7 @@ import defaultLocale from '../../../locale/en_US';
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
   key: Key;
-  filteredKeys: Key[] | null;
+  filteredKeys?: Key[] | null;
 }
 
 function collectFilterStates<RecordType>(
@@ -35,7 +35,7 @@ function collectFilterStates<RecordType>(
       filterStates.push({
         column,
         key: getColumnKey(column, columnPos),
-        filteredKeys: column.filteredValue || null,
+        filteredKeys: column.filteredValue,
       });
     }
   });
@@ -105,7 +105,7 @@ function generateFilterInfo<RecordType>(filterStates: FilterState<RecordType>[])
   const currentFilters: Record<string, Key[] | null> = {};
 
   filterStates.forEach(({ key, filteredKeys }) => {
-    currentFilters[key] = filteredKeys;
+    currentFilters[key] = filteredKeys || null;
   });
 
   return currentFilters;
@@ -143,7 +143,7 @@ function useFilter<RecordType>({
     const collectedStates = collectFilterStates(columns);
 
     // Return if not controlled
-    if (collectedStates.every(({ filteredKeys }) => !filteredKeys)) {
+    if (collectedStates.every(({ filteredKeys }) => filteredKeys === undefined)) {
       return filterStates;
     }
 
