@@ -54,6 +54,7 @@ exports[`renders ./components/tooltip/demo/basic.md correctly 1`] = `
 exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
 <div
   class="demo"
+  style="direction:ltr"
 >
   <div
     style="margin-left:70px;white-space:nowrap"
