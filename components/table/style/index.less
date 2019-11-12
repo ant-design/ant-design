@@ -53,6 +53,18 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+
+    // Fixed first or last should special process
+    &.@{table-prefix-cls}-cell-fix-left-last,
+    &.@{table-prefix-cls}-cell-fix-right-first {
+      overflow: visible;
+
+      .@{table-prefix-cls}-cell-content {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+      }
+    }
   }
 
   // ============================ Title =============================
@@ -480,6 +492,11 @@
 
       tbody > tr:last-child > td {
         border-bottom: 0;
+
+        &:first-child,
+        &:last-child {
+          border-radius: 0;
+        }
       }
     }
   }
