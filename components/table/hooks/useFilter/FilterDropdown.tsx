@@ -38,16 +38,12 @@ function renderFilterItems(
     const Component = multiple ? Checkbox : Radio;
 
     return (
-      <MenuItem key={filter.value || index}>
+      <MenuItem key={filter.value !== undefined ? filter.value : index}>
         <Component checked={filteredKeys.includes(String(filter.value))} />
         <span>{filter.text}</span>
       </MenuItem>
     );
   });
-}
-
-function formatKeys(keys?: Key[] | null) {
-  return (keys || []).map(key => String(key));
 }
 
 export interface FilterDropdownProps<RecordType> {
@@ -77,26 +73,37 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     getPopupContainer,
   } = props;
 
+  const { filterDropdownVisible, onFilterDropdownVisibleChange } = column;
   const [visible, setVisible] = React.useState(false);
+
   const filtered: boolean = !!(filterState && filterState.filteredKeys);
+  const triggerVisible = (newVisible: boolean) => {
+    setVisible(newVisible);
+    if (onFilterDropdownVisibleChange) {
+      onFilterDropdownVisibleChange(newVisible);
+    }
+  };
+
+  const mergedVisible =
+    typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
 
   // ===================== Select Keys =====================
   const [propFilteredKeys, setPropFilteredKeys] = React.useState(
-    formatKeys(filterState && filterState.filteredKeys),
+    filterState && filterState.filteredKeys,
   );
-  const [filteredKeys, setFilteredKeys] = React.useState(propFilteredKeys);
+  const [filteredKeys, setFilteredKeys] = React.useState(propFilteredKeys || []);
 
   React.useEffect(() => {
     // Sync internal filtered keys when props key changed
-    const newFilteredKeys = formatKeys(filterState && filterState.filteredKeys);
+    const newFilteredKeys = filterState && filterState.filteredKeys;
     if (!shallowEqual(propFilteredKeys, newFilteredKeys)) {
       setPropFilteredKeys(newFilteredKeys);
-      setFilteredKeys(newFilteredKeys);
+      setFilteredKeys(newFilteredKeys || []);
     }
   }, [filterState]);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
-    setFilteredKeys(formatKeys(selectedKeys));
+    setFilteredKeys(selectedKeys);
   };
 
   // ====================== Open Keys ======================
@@ -117,11 +124,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }, []);
 
   // ======================= Submit ========================
-  const internalTriggerFilter = (keys: Key[]) => {
-    setVisible(false);
+  const internalTriggerFilter = (keys: Key[] | undefined | null) => {
+    triggerVisible(false);
 
-    const mergedKeys = keys.length ? keys : null;
-    if (mergedKeys === null && (!filterState || filterState.filteredKeys === null)) {
+    const mergedKeys = keys && keys.length ? keys : null;
+    if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
       return null;
     }
 
@@ -141,7 +148,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onVisibleChange = (newVisible: boolean) => {
-    setVisible(newVisible);
+    triggerVisible(newVisible);
 
     // Default will filter when closed
     if (!newVisible && !column.filterDropdown) {
@@ -164,7 +171,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       confirm: onConfirm,
       clearFilters: onReset,
       filters: column.filters,
-      visible,
+      visible: mergedVisible,
     });
   } else if (column.filterDropdown) {
     dropdownContent = column.filterDropdown;
@@ -178,7 +185,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           onClick={onMenuClick}
           onSelect={onSelectKeys}
           onDeselect={onSelectKeys}
-          selectedKeys={filteredKeys}
+          selectedKeys={(filteredKeys || []) as any}
           getPopupContainer={getPopupContainer}
           openKeys={openKeys}
           onOpenChange={onOpenChange}
@@ -228,7 +235,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         <Dropdown
           overlay={menu}
           trigger={['click']}
-          visible={visible}
+          visible={mergedVisible}
           onVisibleChange={onVisibleChange}
           placement="bottomRight"
         >

@@ -92,6 +92,8 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   filteredValue?: Key[];
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   onFilter?: (value: any, record: RecordType) => boolean;
+  filterDropdownVisible?: boolean;
+  onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
 export type ColumnsType<RecordType> = (ColumnGroupType<RecordType> | ColumnType<RecordType>)[];

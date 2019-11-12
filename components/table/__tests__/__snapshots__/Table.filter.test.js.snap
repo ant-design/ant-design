@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table.filter override custom filter correctly 1`] = `
+<div
+  className="ant-dropdown-custom-view"
+  id="customFilter"
+>
+  <span
+    id="setSelectedKeys"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="confirm"
+    onClick={[Function]}
+  >
+    Confirm
+  </span>
+  <span
+    id="reset"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+</div>
+`;
+
+exports[`Table.filter renders custom content correctly 1`] = `
+<div>
+  <div
+    class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
+  >
+    <div
+      class="ant-table-filter-dropdown"
+    >
+      <div
+        class="custom-filter-dropdown"
+      >
+        custom filter
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Table.filter renders filter correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -169,6 +213,102 @@ exports[`Table.filter renders menu correctly 1`] = `
               />
               <span
                 class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span>
+            Girl
+          </span>
+        </li>
+        <li
+          class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+          role="menuitem"
+        >
+          <div
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="ant-dropdown-menu-submenu-title"
+            title="Title"
+          >
+            Title
+            <i
+              class="ant-dropdown-menu-submenu-arrow"
+            />
+          </div>
+        </li>
+      </ul>
+      <div
+        class="ant-table-filter-dropdown-btns"
+      >
+        <a
+          class="ant-table-filter-dropdown-link confirm"
+        >
+          OK
+        </a>
+        <a
+          class="ant-table-filter-dropdown-link clear"
+        >
+          Reset
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Table.filter renders radio filter correctly 1`] = `
+<div>
+  <div
+    class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
+  >
+    <div
+      class="ant-table-filter-dropdown"
+    >
+      <ul
+        class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+        role="menu"
+      >
+        <li
+          class="ant-dropdown-menu-item"
+          role="menuitem"
+        >
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+                value=""
+              />
+              <span
+                class="ant-radio-inner"
+              />
+            </span>
+          </label>
+          <span>
+            Boy
+          </span>
+        </li>
+        <li
+          class="ant-dropdown-menu-item"
+          role="menuitem"
+        >
+          <label
+            class="ant-radio-wrapper"
+          >
+            <span
+              class="ant-radio"
+            >
+              <input
+                class="ant-radio-input"
+                type="radio"
+                value=""
+              />
+              <span
+                class="ant-radio-inner"
               />
             </span>
           </label>

@@ -21,8 +21,8 @@ import {
   TablePaginationConfig,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
-import useSorter from './hooks/useSorter';
-import useFilter from './hooks/useFilter';
+import useSorter, { getSortData, SortState } from './hooks/useSorter';
+import useFilter, { getFilterData, FilterState } from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
 import defaultLocale from '../locale/en_US';
@@ -37,7 +37,9 @@ interface ChangeEventInfo<RecordType> {
   };
   filters: Record<string, Key[] | null>;
   sorter: SorterResult<RecordType> | SorterResult<RecordType>[];
-  extra: { currentDataSource: RecordType[] };
+
+  filterStates: FilterState<RecordType>[];
+  sorterStates: SortState<RecordType>[];
 }
 
 export interface TableProps<RecordType>
@@ -122,7 +124,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     };
 
     if (onChange) {
-      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, changeInfo.extra!);
+      onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+        currentDataSource: getFilterData(
+          getSortData(rawData, changeInfo.sorterStates!),
+          changeInfo.filterStates!,
+        ),
+      });
     }
   };
 
@@ -134,41 +141,48 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
    */
 
   // ============================ Sorter =============================
-  const onSorterChange = (sorter: SorterResult<RecordType> | SorterResult<RecordType>[]) => {
+  const onSorterChange = (
+    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
+    sorterStates: SortState<RecordType>[],
+  ) => {
     triggerOnChange({
       sorter,
+      sorterStates,
     });
   };
 
-  const [transformSorterColumns, sortedData, sorterTitleProps, getSorters] = useSorter<RecordType>({
+  const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
     columns: columns || [],
-    data: rawData,
     onSorterChange,
   });
+  const sortedData = React.useMemo(() => getSortData(rawData, sortStates), [rawData, sortStates]);
 
   changeEventInfo.sorter = getSorters();
+  changeEventInfo.sorterStates = sortStates;
 
   // ============================ Filter ============================
-  const onFilterChange = (filters: Record<string, Key[]>) => {
+  const onFilterChange = (
+    filters: Record<string, Key[]>,
+    filterStates: FilterState<RecordType>[],
+  ) => {
     triggerOnChange({
       filters,
+      filterStates,
     });
   };
 
-  const [transformFilterColumns, mergedData, getFilters] = useFilter<RecordType>({
+  const [transformFilterColumns, filterStates, getFilters] = useFilter<RecordType>({
     prefixCls,
     dropdownPrefixCls,
     columns: columns || [],
-    data: sortedData,
     onFilterChange,
     getPopupContainer,
   });
+  const mergedData = getFilterData(sortedData, filterStates);
 
   changeEventInfo.filters = getFilters();
-  changeEventInfo.extra = {
-    currentDataSource: mergedData,
-  };
+  changeEventInfo.filterStates = filterStates;
 
   // ============================ Column ============================
   const columnTitleProps = React.useMemo(
