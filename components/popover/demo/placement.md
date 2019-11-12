@@ -27,7 +27,7 @@ const content = (
 const buttonWidth = 70;
 
 ReactDOM.render(
-  <div className="demo">
+  <div className="demo" style={{ direction: 'ltr' }}>
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
         <Button>TL</Button>

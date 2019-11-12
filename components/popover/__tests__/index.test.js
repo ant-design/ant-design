@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { sleep } from '../../../tests/utils';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Popover', () => {
   mountTest(Popover);
+  rtlTest(Popover);
 
   it('should show overlay when trigger is clicked', async () => {
     const popover = mount(
