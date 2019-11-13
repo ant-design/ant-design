@@ -379,6 +379,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-row-flex ant-form-item"
+    valuepropname="checked"
   >
     <div
       class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
@@ -2437,6 +2438,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
   </div>
   <div
     class="ant-row-flex ant-form-item"
+    valuepropname="checked"
   >
     <div
       class="ant-col ant-form-item-control ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
@@ -3179,6 +3181,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
   </div>
   <div
     class="ant-row-flex ant-form-item"
+    valuepropname="checked"
   >
     <div
       class="ant-col ant-col-6 ant-form-item-label"
@@ -3975,6 +3978,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
   </div>
   <div
     class="ant-row-flex ant-form-item"
+    valuepropname="fileList"
   >
     <div
       class="ant-col ant-col-6 ant-form-item-label"

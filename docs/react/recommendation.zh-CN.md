@@ -17,7 +17,7 @@ title: 社区精选组件
 | 拾色器 | [rc-color-picker](https://github.com/react-component/color-picker) [react-color](http://casesandberg.github.io/react-color/) |
 | 响应式 | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media) |
 | 复制到剪贴板 | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
-| 页面 meta 属性 | [react-helmet](https://github.com/nfl/react-helmet) [react-document-title](https://github.com/gaearon/react-document-title) |
+| 页面 meta 属性 | [react-helmet](https://github.com/nfl/react-helmet) [react-helmet-async](https://github.com/staylor/react-helmet-async) |
 | 图标 | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons) |
 | 二维码 | [qrcode.react](https://github.com/zpao/qrcode.react) |
 | 可视化图编辑器 | [GGEditor](https://github.com/gaoli/GGEditor) |

@@ -3,6 +3,7 @@ import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps as RcFieldProps } from 'rc-field-form/lib/Field';
+import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -13,7 +14,7 @@ import { FormContext, FormItemContext } from './context';
 import { toArray, getFieldId } from './util';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
-export type ValidateStatus = (typeof ValidateStatuses)[number];
+export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren = (form: FormInstance) => React.ReactElement;
 
@@ -50,6 +51,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
     required,
     trigger = 'onChange',
     validateTrigger = 'onChange',
+    ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const formContext = React.useContext(FormContext);
@@ -193,7 +195,22 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         }
 
         return (
-          <Row type="flex" className={classNames(itemClassName)} style={style} key="row">
+          <Row
+            type="flex"
+            className={classNames(itemClassName)}
+            style={style}
+            key="row"
+            {...omit(restProps, [
+              'id', // It is deprecated because `htmlFor` is its replacement.
+              'htmlFor',
+              'label',
+              'labelAlign',
+              'labelCol',
+              'wrapperCol',
+              'extra',
+              'colon',
+            ])}
+          >
             {/* Label */}
             <FormItemLabel
               htmlFor={fieldId}
