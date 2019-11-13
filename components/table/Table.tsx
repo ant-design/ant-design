@@ -40,6 +40,8 @@ interface ChangeEventInfo<RecordType> {
 
   filterStates: FilterState<RecordType>[];
   sorterStates: SortState<RecordType>[];
+
+  resetPagination: Function;
 }
 
 export interface TableProps<RecordType>
@@ -117,11 +119,20 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ============================ Events =============================
   const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
 
-  const triggerOnChange = (info: Partial<ChangeEventInfo<RecordType>>) => {
+  const triggerOnChange = (info: Partial<ChangeEventInfo<RecordType>>, reset: boolean = false) => {
     const changeInfo = {
       ...changeEventInfo,
       ...info,
     };
+
+    if (reset) {
+      changeEventInfo.resetPagination!();
+
+      // Reset event param
+      if (changeInfo.pagination!.current) {
+        changeInfo.pagination!.current = 1;
+      }
+    }
 
     if (onChange) {
       onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
@@ -145,10 +156,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
     sorterStates: SortState<RecordType>[],
   ) => {
-    triggerOnChange({
-      sorter,
-      sorterStates,
-    });
+    triggerOnChange(
+      {
+        sorter,
+        sorterStates,
+      },
+      true,
+    );
   };
 
   const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
@@ -166,10 +180,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     filters: Record<string, Key[]>,
     filterStates: FilterState<RecordType>[],
   ) => {
-    triggerOnChange({
-      filters,
-      filterStates,
-    });
+    triggerOnChange(
+      {
+        filters,
+        filterStates,
+      },
+      true,
+    );
   };
 
   const [transformFilterColumns, filterStates, getFilters] = useFilter<RecordType>({
@@ -194,7 +211,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
-  const [mergedPagination] = usePagination(mergedData.length, pagination);
+  const [mergedPagination, resetPagination] = usePagination(mergedData.length, pagination);
   changeEventInfo.pagination =
     pagination !== false
       ? {
@@ -202,6 +219,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           pageSize: mergedPagination.pageSize!,
         }
       : {};
+  changeEventInfo.resetPagination = resetPagination;
 
   const onPaginationChange = (current: number, pageSize: number) => {
     if (mergedPagination.onChange) {

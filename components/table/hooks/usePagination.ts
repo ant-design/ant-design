@@ -7,7 +7,7 @@ export const DEFAULT_PAGE_SIZE = 10;
 export default function usePagination(
   total: number,
   pagination?: TablePaginationConfig | false,
-): [TablePaginationConfig] {
+): [TablePaginationConfig, () => void] {
   const [innerPagination, setInnerPagination] = useState<TablePaginationConfig>({
     current: 1,
     pageSize: DEFAULT_PAGE_SIZE,
@@ -15,7 +15,7 @@ export default function usePagination(
   });
 
   if (pagination === false) {
-    return [{}];
+    return [{}, () => {}];
   }
 
   const mergedPagination = {
@@ -23,12 +23,16 @@ export default function usePagination(
     ...(typeof pagination === 'object' ? pagination : null),
   };
 
-  const onInternalChange: PaginationProps['onChange'] = (...args) => {
-    const [current] = args;
+  const refreshPagination = (current: number = 1) => {
     setInnerPagination({
       ...mergedPagination,
       current,
     });
+  };
+
+  const onInternalChange: PaginationProps['onChange'] = (...args) => {
+    const [current] = args;
+    refreshPagination(current);
 
     if (pagination && pagination.onChange) {
       pagination.onChange(...args);
@@ -40,5 +44,6 @@ export default function usePagination(
       ...mergedPagination,
       onChange: onInternalChange,
     },
+    refreshPagination,
   ];
 }

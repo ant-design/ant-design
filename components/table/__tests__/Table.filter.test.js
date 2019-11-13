@@ -786,206 +786,212 @@ describe('Table.filter', () => {
     expect(onChange).toHaveBeenCalled();
   });
 
-  // it('should support getPopupContainer', () => {
-  //   const wrapper = mount(
-  //     createTable({
-  //       columns: [
-  //         {
-  //           ...column,
-  //           filterDropdownVisible: true,
-  //         },
-  //       ],
-  //       getPopupContainer: node => node.parentNode,
-  //     }),
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+  it('should support getPopupContainer', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdownVisible: true,
+          },
+        ],
+        getPopupContainer: node => node.parentNode,
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
-  // it('should support getPopupContainer from ConfigProvider', () => {
-  //   const wrapper = mount(
-  //     <ConfigProvider getPopupContainer={node => node.parentNode}>
-  //       {createTable({
-  //         columns: [
-  //           {
-  //             ...column,
-  //             filterDropdownVisible: true,
-  //           },
-  //         ],
-  //       })}
-  //     </ConfigProvider>,
-  //   );
-  //   expect(wrapper.render()).toMatchSnapshot();
-  // });
+  it('should support getPopupContainer from ConfigProvider', () => {
+    const wrapper = mount(
+      <ConfigProvider getPopupContainer={node => node.parentNode}>
+        {createTable({
+          columns: [
+            {
+              ...column,
+              filterDropdownVisible: true,
+            },
+          ],
+        })}
+      </ConfigProvider>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
-  // it('pass visible prop to filterDropdown', () => {
-  //   const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
-  //   const filterDropdown = (...args) => filterDropdownMock(...args);
+  it('pass visible prop to filterDropdown', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
 
-  //   const Test = () => {
-  //     return (
-  //       <Table
-  //         rowKey="name"
-  //         columns={[
-  //           {
-  //             title: 'Name',
-  //             dataIndex: 'name',
-  //             filterDropdown,
-  //           },
-  //         ]}
-  //         dataSource={[
-  //           {
-  //             name: 'Jack',
-  //           },
-  //         ]}
-  //       />
-  //     );
-  //   };
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
 
-  //   mount(<Test />);
-  //   expect(filterDropdownMock).toHaveBeenCalledWith(
-  //     expect.objectContaining({
-  //       visible: false,
-  //     }),
-  //   );
-  // });
+    mount(<Test />);
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
+  });
 
-  // it('visible prop of filterDropdown changes on click', () => {
-  //   const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
-  //   const filterDropdown = (...args) => filterDropdownMock(...args);
+  it('visible prop of filterDropdown changes on click', () => {
+    const filterDropdownMock = jest.fn().mockReturnValue(<span>test</span>);
+    const filterDropdown = (...args) => filterDropdownMock(...args);
 
-  //   const Test = () => {
-  //     return (
-  //       <Table
-  //         rowKey="name"
-  //         columns={[
-  //           {
-  //             title: 'Name',
-  //             dataIndex: 'name',
-  //             filterDropdown,
-  //           },
-  //         ]}
-  //         dataSource={[
-  //           {
-  //             name: 'Jack',
-  //           },
-  //         ]}
-  //       />
-  //     );
-  //   };
+    const Test = () => {
+      return (
+        <Table
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              filterDropdown,
+            },
+          ]}
+          dataSource={[
+            {
+              name: 'Jack',
+            },
+          ]}
+        />
+      );
+    };
 
-  //   const wrapper = mount(<Test />);
+    const wrapper = mount(<Test />);
 
-  //   wrapper
-  //     .find('.ant-dropdown-trigger')
-  //     .first()
-  //     .simulate('click');
-  //   expect(filterDropdownMock).toHaveBeenCalledWith(
-  //     expect.objectContaining({
-  //       visible: true,
-  //     }),
-  //   );
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: true,
+      }),
+    );
 
-  //   wrapper
-  //     .find('.ant-dropdown-trigger')
-  //     .first()
-  //     .simulate('click');
-  //   expect(filterDropdownMock).toHaveBeenCalledWith(
-  //     expect.objectContaining({
-  //       visible: false,
-  //     }),
-  //   );
-  // });
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    expect(filterDropdownMock).toHaveBeenCalledWith(
+      expect.objectContaining({
+        visible: false,
+      }),
+    );
+  });
 
-  // it('should reset pagination after filter', () => {
-  //   const handleChange = jest.fn();
-  //   const wrapper = mount(
-  //     createTable({
-  //       onChange: handleChange,
-  //       dataSource: longData,
-  //       pagination: true,
-  //     }),
-  //   );
-  //   const dropdownWrapper = getDropdownWrapper(wrapper);
+  it('should reset pagination after filter', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange: handleChange,
+        dataSource: longData,
+        pagination: true,
+      }),
+    );
 
-  //   dropdownWrapper
-  //     .find('MenuItem')
-  //     .first()
-  //     .simulate('click');
-  //   dropdownWrapper.find('.confirm').simulate('click');
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    wrapper.find('.confirm').simulate('click');
 
-  //   expect(handleChange).toHaveBeenCalledWith(
-  //     {
-  //       current: 1,
-  //       pageSize: 10,
-  //     },
-  //     { name: ['boy'] },
-  //     {},
-  //     {
-  //       currentDataSource: [],
-  //     },
-  //   );
-  //   expect(wrapper.find('.ant-pagination-item-active').text()).toBe('1');
-  // });
+    expect(handleChange).toHaveBeenCalledWith(
+      {
+        current: 1,
+        pageSize: 10,
+      },
+      { name: ['boy'] },
+      {},
+      {
+        currentDataSource: [],
+      },
+    );
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('1');
+  });
 
-  // it('should keep pagination current after filter', () => {
-  //   const handleChange = jest.fn();
-  //   const wrapper = mount(
-  //     createTable({
-  //       onChange: handleChange,
-  //       dataSource: longData,
-  //       pagination: {
-  //         current: 3,
-  //       },
-  //     }),
-  //   );
-  //   expect(wrapper.find('.ant-pagination-item-active').text()).toBe('3');
-  //   const dropdownWrapper = getDropdownWrapper(wrapper);
+  it('should keep pagination current after filter', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        onChange: handleChange,
+        dataSource: longData,
+        pagination: {
+          current: 3,
+        },
+      }),
+    );
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('3');
 
-  //   dropdownWrapper
-  //     .find('MenuItem')
-  //     .first()
-  //     .simulate('click');
-  //   dropdownWrapper.find('.confirm').simulate('click');
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('MenuItem')
+      .first()
+      .simulate('click');
+    wrapper.find('.confirm').simulate('click');
 
-  //   expect(handleChange).toHaveBeenCalledWith(
-  //     {
-  //       current: 1,
-  //       pageSize: 10,
-  //     },
-  //     { name: ['boy'] },
-  //     {},
-  //     {
-  //       currentDataSource: [],
-  //     },
-  //   );
-  //   expect(wrapper.find('.ant-pagination-item-active').text()).toBe('3');
-  // });
+    expect(handleChange).toHaveBeenCalledWith(
+      {
+        current: 1,
+        pageSize: 10,
+      },
+      { name: ['boy'] },
+      {},
+      {
+        currentDataSource: [],
+      },
+    );
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('3');
+  });
 
-  // // https://github.com/ant-design/ant-design/issues/19274
-  // it('should not crash', () => {
-  //   class TestTable extends React.Component {
-  //     state = {
-  //       cols: [],
-  //     };
+  // https://github.com/ant-design/ant-design/issues/19274
+  it('should not crash', () => {
+    class TestTable extends React.Component {
+      state = {
+        cols: [],
+      };
 
-  //     componentDidMount = () => {
-  //       this.setState({
-  //         cols: [
-  //           {
-  //             title: 'test',
-  //             itemKey: 'test',
-  //             filterDropdown: 123,
-  //           },
-  //         ],
-  //       });
-  //     };
+      componentDidMount = () => {
+        this.setState({
+          cols: [
+            {
+              title: 'test',
+              itemKey: 'test',
+              filterDropdown: 123,
+            },
+          ],
+        });
+      };
 
-  //     render = () => {
-  //       const { cols } = this.state;
-  //       return <Table columns={cols} dataSource={[]} scroll={{ x: 1000 }} />;
-  //     };
-  //   }
+      render = () => {
+        const { cols } = this.state;
+        return <Table columns={cols} dataSource={[]} scroll={{ x: 1000 }} />;
+      };
+    }
 
-  //   mount(<TestTable />);
-  // });
+    mount(<TestTable />);
+  });
 });
