@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Table from '..';
 
 describe('Table.pagination', () => {
@@ -28,8 +28,8 @@ describe('Table.pagination', () => {
   }
 
   it('renders pagination correctly', () => {
-    const wrapper = render(createTable());
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(createTable());
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
@@ -235,8 +235,8 @@ describe('Table.pagination', () => {
    * since they misunderstand that `pagination` can accept a boolean value.
    */
   it('Accepts pagination as true', () => {
-    const wrapper = render(createTable({ pagination: true }));
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(createTable({ pagination: true }));
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('ajax render should keep display by the dataSource', () => {

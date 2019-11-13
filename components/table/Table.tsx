@@ -211,7 +211,17 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const [transformTitleColumns] = useTitleColumns(columnTitleProps);
 
   // ========================== Pagination ==========================
-  const [mergedPagination, resetPagination] = usePagination(mergedData.length, pagination);
+  const onPaginationChange = (current: number, pageSize: number) => {
+    triggerOnChange({
+      pagination: { current, pageSize },
+    });
+  };
+
+  const [mergedPagination, resetPagination] = usePagination(
+    mergedData.length,
+    pagination,
+    onPaginationChange,
+  );
   changeEventInfo.pagination =
     pagination !== false
       ? {
@@ -220,16 +230,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         }
       : {};
   changeEventInfo.resetPagination = resetPagination;
-
-  const onPaginationChange = (current: number, pageSize: number) => {
-    if (mergedPagination.onChange) {
-      mergedPagination.onChange(current, pageSize);
-    }
-
-    triggerOnChange({
-      pagination: { current, pageSize },
-    });
-  };
 
   // ============================= Data =============================
   const pageData = React.useMemo<RecordType[]>(() => {
@@ -312,7 +312,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       <Pagination
         className={`${prefixCls}-pagination`}
         {...mergedPagination}
-        onChange={onPaginationChange}
         size={size === 'small' || size === 'middle' ? 'small' : undefined}
       />
     );
