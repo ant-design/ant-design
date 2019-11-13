@@ -17,7 +17,7 @@ export interface ConfigConsumerProps {
   pageHeader?: {
     ghost: boolean;
   };
-  direction?: 'ltr' | 'rtl' | 'auto';
+  direction?: 'ltr' | 'rtl';
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({

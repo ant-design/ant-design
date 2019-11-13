@@ -13,7 +13,7 @@ interface EditableProps {
   onCancel: () => void;
   className?: string;
   style?: React.CSSProperties;
-  direction?: 'ltr' | 'rtl' | 'auto';
+  direction?: 'ltr' | 'rtl';
 }
 
 interface EditableState {

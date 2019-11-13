@@ -12,7 +12,7 @@ export interface TransferOperationProps {
   rightActive?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
-  direction?: 'ltr' | 'rtl' | 'auto';
+  direction?: 'ltr' | 'rtl';
 }
 
 const Operation = ({

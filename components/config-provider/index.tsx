@@ -36,7 +36,7 @@ export interface ConfigProviderProps {
   pageHeader?: {
     ghost: boolean;
   };
-  direction?: 'ltr' | 'rtl' | 'auto';
+  direction?: 'ltr' | 'rtl';
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
