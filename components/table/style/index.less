@@ -38,9 +38,9 @@
   // ============================= Cell =============================
   thead > tr > th,
   tbody > tr > td {
+    position: relative;
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
-    position: relative;
   }
 
   // weak priority
@@ -49,10 +49,10 @@
   }
 
   &-cell-ellipsis {
-    word-break: keep-all;
+    overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
+    word-break: keep-all;
 
     // Fixed first or last should special process
     &.@{table-prefix-cls}-cell-fix-left-last,
@@ -60,9 +60,9 @@
       overflow: visible;
 
       .@{table-prefix-cls}-cell-content {
+        display: block;
         overflow: hidden;
         text-overflow: ellipsis;
-        display: block;
       }
     }
   }
@@ -148,8 +148,8 @@
 
   // ============================ Sorter ============================
   thead th.@{table-prefix-cls}-column-has-sorters {
-    transition: all 0.3s;
     cursor: pointer;
+    transition: all 0.3s;
 
     &:hover {
       background: @table-header-sort-active-bg;
@@ -169,10 +169,10 @@
   }
 
   &-column-sorter {
-    margin-left: @padding-xs;
-    color: @table-header-icon-color;
     margin-top: 0.15em;
     margin-bottom: -0.15em;
+    margin-left: @padding-xs;
+    color: @table-header-icon-color;
 
     &-full {
       margin-top: -0.2em;
@@ -212,16 +212,16 @@
   }
 
   &-filter-trigger {
-    font-size: @font-size-sm;
-    color: @table-header-icon-color;
-    align-self: stretch;
-    flex: none;
-    transition: all 0.3s;
     position: absolute;
-    right: 0;
     top: 0;
+    right: 0;
     bottom: 0;
+    flex: none;
+    align-self: stretch;
     width: 2.3em;
+    color: @table-header-icon-color;
+    font-size: @font-size-sm;
+    transition: all 0.3s;
 
     &:hover {
       color: @text-color-secondary;
@@ -234,9 +234,9 @@
 
     .@{iconfont-css-prefix} {
       display: flex;
-      height: 100%;
       align-items: center;
       justify-content: center;
+      height: 100%;
 
       > svg {
         margin-top: 0.1em;
@@ -259,11 +259,11 @@
         overflow-x: hidden;
       }
     }
+    min-width: 96px;
+    background-color: @component-background;
 
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
-    background-color: @component-background;
-    min-width: 96px;
 
     // Checkbox
     &,
@@ -304,8 +304,8 @@
 
     &-extra {
       position: absolute;
-      right: 0;
       top: 50%;
+      right: 0;
       transform: translate(100%, -50%);
 
       .@{iconfont-css-prefix} {
@@ -330,22 +330,21 @@
 
   &-row-expand-icon {
     .operation-unit();
-
+    position: relative;
     display: inline-block;
-    color: inherit;
     box-sizing: border-box;
+
+    width: ceil(@font-size-sm * 1.4);
+    height: ceil(@font-size-sm * 1.4);
+    color: inherit;
+    line-height: @font-size-sm;
+    vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
     background: @component-background;
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-sm;
     outline: none;
     transition: all 0.3s;
     user-select: none;
-
-    width: ceil(@font-size-sm * 1.4);
-    height: ceil(@font-size-sm * 1.4);
-    line-height: @font-size-sm;
-    position: relative;
-    vertical-align: floor((@font-size-base - ceil(@font-size-sm * 1.4)) / 2);
 
     &:focus,
     &:hover,
@@ -355,24 +354,24 @@
 
     &::before,
     &::after {
-      content: '';
       position: absolute;
       background: currentColor;
       transition: transform 0.3s ease-out;
+      content: '';
     }
 
     &::before {
-      left: 3px;
-      right: 3px;
       top: 7px;
+      right: 3px;
+      left: 3px;
       height: @border-width-base;
     }
 
     &::after {
-      left: 7px;
-      width: @border-width-base;
       top: 3px;
       bottom: 3px;
+      left: 7px;
+      width: @border-width-base;
       transform: rotate(90deg);
     }
 
@@ -390,8 +389,8 @@
         display: none;
         content: none;
       }
-      border: 0;
       background: transparent;
+      border: 0;
     }
 
     .@{table-prefix-cls}-row-indent + & {
@@ -431,39 +430,39 @@
   }
 
   &-cell-fix-left-last::after {
-    pointer-events: none;
-    content: '';
-    transition: box-shadow 0.3s;
     position: absolute;
     top: 0;
+    right: 0;
     bottom: -1px;
     width: 20px;
-    right: 0;
     transform: translateX(100%);
+    transition: box-shadow 0.3s;
+    content: '';
+    pointer-events: none;
   }
   &-cell-fix-right-first::after {
-    pointer-events: none;
-    content: '';
-    transition: box-shadow 0.3s;
     position: absolute;
     top: 0;
     bottom: -1px;
-    width: 20px;
     left: 0;
+    width: 20px;
     transform: translateX(-100%);
+    transition: box-shadow 0.3s;
+    content: '';
+    pointer-events: none;
   }
 
   .@{table-prefix-cls}-container {
     &::before,
     &::after {
-      content: '';
       position: absolute;
-      pointer-events: none;
       top: 0;
       bottom: 0;
-      width: 20px;
       z-index: 1;
+      width: 20px;
       transition: box-shadow 0.3s;
+      content: '';
+      pointer-events: none;
     }
 
     &::before {
@@ -564,8 +563,8 @@
 
   /* table + footer */
   &-container:last-child {
-    border-bottom-left-radius: @table-border-radius-base;
     border-bottom-right-radius: @table-border-radius-base;
+    border-bottom-left-radius: @table-border-radius-base;
 
     table > tbody > tr:last-child {
       > td:first-child {

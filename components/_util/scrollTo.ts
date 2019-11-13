@@ -12,7 +12,6 @@ interface ScrollToOptions {
 }
 
 export default function scrollTo(y: number, options: ScrollToOptions = {}) {
-  console.log('ssss!!!!');
   const { getContainer = () => window, callback, duration = 450 } = options;
 
   const container = getContainer();

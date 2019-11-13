@@ -34,7 +34,9 @@ exports[`Table.expand click to expand 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -175,14 +177,36 @@ exports[`Table.expand should support expandIconColumnIndex 1`] = `
             <table
               style="table-layout: auto;"
             >
-              <colgroup />
+              <colgroup>
+                <col />
+              </colgroup>
               <thead>
-                <tr />
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  />
+                </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                />
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-with-append"
+                  >
+                    <span
+                      class="ant-table-row-indent indent-level-0"
+                      style="padding-left: 0px;"
+                    />
+                    <button
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

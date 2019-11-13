@@ -131,7 +131,9 @@ exports[`Table.filter renders filter correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -437,7 +439,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown ant-dropdown-placement-bottomRight slide-up-appear"
+                            class="ant-dropdown ant-dropdown-placement-bottomRight"
                             style="left: -999px; top: -995px;"
                           >
                             <div
@@ -534,7 +536,9 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -648,7 +652,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown ant-dropdown-placement-bottomRight slide-up-appear"
+                            class="ant-dropdown ant-dropdown-placement-bottomRight"
                             style="left: -999px; top: -995px;"
                           >
                             <div
@@ -745,7 +749,9 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >

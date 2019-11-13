@@ -52,7 +52,7 @@ export interface FilterDropdownProps<RecordType> {
   column: ColumnType<RecordType>;
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
-  columnKey: string;
+  columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
   locale: TableLocale;

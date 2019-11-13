@@ -33,8 +33,8 @@
   // =========================== Content ============================
   .@{table-prefix-cls}-container {
     border: @table-border;
-    border-bottom: 0;
     border-right: 0;
+    border-bottom: 0;
   }
 
   // ========================== Expandable ==========================
@@ -42,12 +42,12 @@
     margin: -@table-padding-vertical (-@table-padding-horizontal - @border-width-base);
 
     &::after {
-      content: '';
       position: absolute;
       top: 0;
-      bottom: 0;
       right: @border-width-base;
+      bottom: 0;
       border-right: @table-border;
+      content: '';
     }
   }
 

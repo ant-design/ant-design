@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Plus, Minus } from '@ant-design/icons';
 import { TableLocale } from './interface';
 
 interface DefaultExpandIconProps<RecordType> {

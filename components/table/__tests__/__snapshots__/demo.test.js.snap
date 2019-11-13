@@ -139,7 +139,9 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-placeholder"
                 >
@@ -336,7 +338,9 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -626,7 +630,9 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -833,7 +839,9 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -1205,7 +1213,9 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -1484,7 +1494,9 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   index="0"
@@ -2381,7 +2393,9 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  class="ant-table-tbody"
+                >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
                   >
@@ -3476,7 +3490,9 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  class="ant-table-tbody"
+                >
                   <tr
                     class="ant-table-row ant-table-row-level-0 editable-row"
                   >
@@ -3682,33 +3698,9 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr
-                  class="ant-table-row ant-table-row-level-0 editable-row"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Edrward 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Edit
-                    </a>
-                  </td>
-                </tr>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
                 >
@@ -3726,6 +3718,32 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Edit
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0 editable-row"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Edrward 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
                   </td>
                   <td
                     class="ant-table-cell"
@@ -4184,7 +4202,9 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -4447,7 +4467,9 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -4713,7 +4735,9 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -4996,7 +5020,9 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -5352,71 +5378,9 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   style="width:100px;min-width:100px"
                 />
               </colgroup>
-              <tbody>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                >
-                  <td
-                    class="ant-table-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
-                  >
-                    Edrward 50
-                  </td>
-                  <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London Park no. 50
-                  </td>
-                  <td
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
-                    style="position:sticky;right:0"
-                  >
-                    <a>
-                      action
-                    </a>
-                  </td>
-                </tr>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -5471,6 +5435,70 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                     class="ant-table-cell"
                   >
                     London Park no. 0
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    style="position:sticky;right:0"
+                  >
+                    <a>
+                      action
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left"
+                    style="position:sticky;left:0"
+                  >
+                    Edrward 1
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    style="position:sticky;left:0"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London Park no. 1
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
@@ -6229,26 +6257,9 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 />
                 <col />
               </colgroup>
-              <tbody>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Edward King 50
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London, Park Lane no. 50
-                  </td>
-                </tr>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -6266,6 +6277,25 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     London, Park Lane no. 0
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Edward King 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
                   </td>
                 </tr>
                 <tr
@@ -7514,7 +7544,9 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   style="width:80px;min-width:80px"
                 />
               </colgroup>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -7527,7 +7559,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    51
+                    1
                   </td>
                   <td
                     class="ant-table-cell"
@@ -7573,7 +7605,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    1
+                    2
                   </td>
                   <td
                     class="ant-table-cell"
@@ -8402,7 +8434,9 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -8639,7 +8673,9 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -9101,7 +9137,9 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -9358,7 +9396,9 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -9900,7 +9940,9 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  class="ant-table-tbody"
+                >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
                   >
@@ -10152,7 +10194,9 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -10450,7 +10494,9 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  class="ant-table-tbody"
+                >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
                   >
@@ -10790,45 +10836,9 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                     </th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                  >
-                    <td
-                      class="ant-table-cell ant-table-selection-column"
-                    >
-                      <label
-                        class="ant-checkbox-wrapper"
-                      >
-                        <span
-                          class="ant-checkbox"
-                        >
-                          <input
-                            class="ant-checkbox-input"
-                            type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
-                        </span>
-                      </label>
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      Edward King 23
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                    >
-                      London, Park Lane no. 23
-                    </td>
-                  </tr>
+                <tbody
+                  class="ant-table-tbody"
+                >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
                   >
@@ -10865,6 +10875,44 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       class="ant-table-cell"
                     >
                       London, Park Lane no. 0
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                  >
+                    <td
+                      class="ant-table-cell ant-table-selection-column"
+                    >
+                      <label
+                        class="ant-checkbox-wrapper"
+                      >
+                        <span
+                          class="ant-checkbox"
+                        >
+                          <input
+                            class="ant-checkbox-input"
+                            type="checkbox"
+                          />
+                          <span
+                            class="ant-checkbox-inner"
+                          />
+                        </span>
+                      </label>
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      Edward King 1
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-cell"
+                    >
+                      London, Park Lane no. 1
                     </td>
                   </tr>
                   <tr
@@ -11389,45 +11437,9 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                   </th>
                 </tr>
               </thead>
-              <tbody>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                >
-                  <td
-                    class="ant-table-cell ant-table-selection-column"
-                  >
-                    <label
-                      class="ant-checkbox-wrapper"
-                    >
-                      <span
-                        class="ant-checkbox"
-                      >
-                        <input
-                          class="ant-checkbox-input"
-                          type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
-                      </span>
-                    </label>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Edward King 23
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    London, Park Lane no. 23
-                  </td>
-                </tr>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -11464,6 +11476,44 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     class="ant-table-cell"
                   >
                     London, Park Lane no. 0
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell ant-table-selection-column"
+                  >
+                    <label
+                      class="ant-checkbox-wrapper"
+                    >
+                      <span
+                        class="ant-checkbox"
+                      >
+                        <input
+                          class="ant-checkbox-input"
+                          type="checkbox"
+                        />
+                        <span
+                          class="ant-checkbox-inner"
+                        />
+                      </span>
+                    </label>
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Edward King 1
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London, Park Lane no. 1
                   </td>
                 </tr>
                 <tr
@@ -11941,7 +11991,9 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  class="ant-table-tbody"
+                >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
                   >
@@ -12129,7 +12181,9 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody
+                  class="ant-table-tbody"
+                >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
                   >

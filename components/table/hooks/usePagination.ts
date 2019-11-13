@@ -37,13 +37,13 @@ export default function usePagination(
       current: 'defaultCurrent' in paginationObj ? paginationObj.defaultCurrent : 1,
       pageSize:
         'defaultPageSize' in paginationObj ? paginationObj.defaultPageSize : DEFAULT_PAGE_SIZE,
-      total,
     };
   });
 
   // ============ Basic Pagination Config ============
   const mergedPagination = {
     ...innerPagination,
+    total,
     ...paginationObj,
   };
 
