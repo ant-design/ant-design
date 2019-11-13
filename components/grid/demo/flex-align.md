@@ -71,3 +71,9 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+```css
+#components-grid-demo-flex-align [class~='ant-row'] {
+  background: #f5f5f5;
+}
+```
