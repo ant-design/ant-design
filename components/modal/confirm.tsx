@@ -139,7 +139,7 @@ export default function confirm(config: ModalFuncProps) {
   }
 
   function render(props: any) {
-    ReactDOM.render(<ConfirmDialog getContainer={false} {...props} />, div);
+    ReactDOM.render(<ConfirmDialog {...props} />, div);
   }
 
   function close(...args: any[]) {

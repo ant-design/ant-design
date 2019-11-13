@@ -229,7 +229,7 @@ class Footer extends React.Component {
         icon: (
           <img
             src="https://gw.alipayobjects.com/zos/rmsportal/nBVXkrFdWHxbZlmMbsaH.svg"
-            alt="AFX Cloud"
+            alt="Ant XTech"
           />
         ),
         title: <FormattedMessage id="app.footer.more-product" />,
@@ -241,9 +241,9 @@ class Footer extends React.Component {
                 alt="yuque"
               />
             ),
-            title: '语雀',
+            title: <FormattedMessage id="app.footer.yuque" />,
             url: 'https://yuque.com',
-            description: '知识创作与分享工具',
+            description: <FormattedMessage id="app.footer.yuque.slogan" />,
             openExternal: true,
           },
           {
@@ -253,9 +253,9 @@ class Footer extends React.Component {
                 alt="yunfengdie"
               />
             ),
-            title: '云凤蝶',
+            title: <FormattedMessage id="app.footer.fengdie" />,
             url: 'https://yunfengdie.com',
-            description: '中台建站平台',
+            description: <FormattedMessage id="app.footer.fengdie.slogan" />,
             openExternal: true,
           },
           {
@@ -267,7 +267,7 @@ class Footer extends React.Component {
             ),
             title: 'AntV',
             url: 'https://antv.alipay.com',
-            description: '数据可视化',
+            description: <FormattedMessage id="app.footer.antv.slogan" />,
             openExternal: true,
           },
           {
@@ -279,7 +279,7 @@ class Footer extends React.Component {
             ),
             title: 'Egg',
             url: 'https://eggjs.org',
-            description: '企业级 Node 开发框架',
+            description: <FormattedMessage id="app.footer.egg.slogan" />,
             openExternal: true,
           },
           {
@@ -301,7 +301,7 @@ class Footer extends React.Component {
                 alt="xtech"
               />
             ),
-            title: '蚂蚁体验科技',
+            title: <FormattedMessage id="app.footer.xtech" />,
             url: 'https://xtech.antfin.com/',
             openExternal: true,
           },

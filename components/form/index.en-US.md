@@ -16,28 +16,30 @@ High performance Form component with data scope management. Including data colle
 
 ### Form
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |
-| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |
-| fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
-| form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |
-| hideRequiredMark | Hide required mark for all form items | boolean | false |
-| initialValues | Set value by Form initialization or reset | object | - |
-| labelAlign | Label text alignment | 'left' \| 'right' | 'right' |
-| labelCol | label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) |  |
-| layout | Form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
-| name | Form name. Will be the prefix of Field `id` | string | - |
-| validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
-| wrapperCol | The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  |
-| onFinish | Trigger after submitting the form and verifying data successfully | Function(values) | - |
-| onFinishFailed | Trigger after submitting the form and verifying data failed | Function({ values, errorFields, outOfDate }) | - |
-| onFieldsChange | Trigger when field updated | Function(changedFields, allFields) | - |
-| onValuesChange | Trigger when value updated | Function(changedValues, allValues) | - |
+<<<<<<< HEAD | Property | Description | Type | Default | | --- | --- | --- | --- | | component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form | | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true | | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - | | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - | | hideRequiredMark | Hide required mark for all form items | boolean | false | | initialValues | Set value by Form initialization or reset | object | - | | labelAlign | Label text alignment | 'left' \| 'right' | 'right' | | labelCol | label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | | | layout | Form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' | | name | Form name. Will be the prefix of Field `id` | string | - | | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - | | wrapperCol | The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) | | | onFinish | Trigger after submitting the form and verifying data successfully | Function(values) | - | | onFinishFailed | Trigger after submitting the form and verifying data failed | Function({ values, errorFields, outOfDate }) | - | | onFieldsChange | Trigger when field updated | Function(changedFields, allFields) | - | | onValuesChange | Trigger when value updated | Function(changedValues, allValues) | - |
 
 ### validateMessages
 
-Form provides [default verification error messages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts). You can modify template by configuring `validateMessages` property. A common usage is to configure localization:
+# Form provides [default verification error messages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts). You can modify template by configuring `validateMessages` property. A common usage is to configure localization:
+
+**more example [rc-form](http://react-component.github.io/form/)**。
+
+| Property | Description | Type | Default Value | Version |
+| --- | --- | --- | --- | --- |
+| form | Decorated by `Form.create()` will be automatically set `this.props.form` property | object | n/a |  |
+| hideRequiredMark | Hide required mark of all form items | Boolean | false |  |
+| labelAlign | text align of label of all items | 'left' \| 'right' | 'right' | 3.15.0 |
+| labelCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>` | [object](https://ant.design/components/grid/#Col) |  | 3.14.0 |
+| layout | Define form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |  |
+| onSubmit | Defines a function will be called if form data validation is successful. | Function(e:Event) |  |  |
+| wrapperCol | (Added in 3.14.0. Previous version can only set on FormItem.) The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) |  | 3.14.0 |
+| colon | change default props colon value of Form.Item (only effective when prop layout is horizontal) | boolean | true | 3.15.0 |
+
+### Form.create(options)
+
+How to use：
+
+> > > > > > > master
 
 ```jsx
 const validateMessages = {
