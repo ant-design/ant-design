@@ -19,6 +19,7 @@ import {
   ExpandableConfig,
   ExpandType,
   TablePaginationConfig,
+  SortOrder,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter, { getSortData, SortState } from './hooks/useSorter';
@@ -74,6 +75,7 @@ export interface TableProps<RecordType>
   scroll?: RcTableProps<RecordType>['scroll'] & {
     scrollToFirstRowOnChange?: boolean;
   };
+  sortDirections?: SortOrder[];
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -98,6 +100,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     indentSize,
     childrenColumnName = 'children',
     scroll,
+    sortDirections,
   } = props;
   const { locale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
   const tableLocale = locale.Table;
@@ -149,6 +152,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       if (changeInfo.pagination!.current) {
         changeInfo.pagination!.current = 1;
       }
+
+      // Trigger pagination events
+      if (pagination && pagination.onChange) {
+        pagination.onChange(1, changeInfo.pagination!.pageSize);
+      }
     }
 
     if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRefs.body.current) {
@@ -160,7 +168,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     if (onChange) {
       onChange(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
         currentDataSource: getFilterData(
-          getSortData(rawData, changeInfo.sorterStates!),
+          getSortData(rawData, changeInfo.sorterStates!, childrenColumnName),
           changeInfo.filterStates!,
         ),
       });
@@ -192,8 +200,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     prefixCls,
     columns: columns || [],
     onSorterChange,
+    sortDirections: sortDirections || ['ascend', 'descend'],
   });
-  const sortedData = React.useMemo(() => getSortData(rawData, sortStates), [rawData, sortStates]);
+  const sortedData = React.useMemo(() => getSortData(rawData, sortStates, childrenColumnName), [
+    rawData,
+    sortStates,
+  ]);
 
   changeEventInfo.sorter = getSorters();
   changeEventInfo.sorterStates = sortStates;

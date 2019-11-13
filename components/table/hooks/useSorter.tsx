@@ -88,6 +88,7 @@ function injectSorter<RecordType>(
   columns: ColumnsType<RecordType>,
   sorterSates: SortState<RecordType>[],
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
+  defaultSortDirections: SortOrder[],
   pos?: string,
 ): ColumnsType<RecordType> {
   return columns.map((column, index) => {
@@ -95,7 +96,7 @@ function injectSorter<RecordType>(
     let newColumn: ColumnsType<RecordType>[number] = column;
 
     if ('sorter' in newColumn) {
-      const sortDirections: SortOrder[] = newColumn.sortDirections || ['ascend', 'descend'];
+      const sortDirections: SortOrder[] = newColumn.sortDirections || defaultSortDirections;
       const columnKey = getColumnKey(newColumn, columnPos);
       const sorterState = sorterSates.find(({ key }) => key === columnKey);
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
@@ -166,6 +167,7 @@ function injectSorter<RecordType>(
           newColumn.children,
           sorterSates,
           triggerSorter,
+          defaultSortDirections,
           columnPos,
         ),
       };
@@ -175,18 +177,25 @@ function injectSorter<RecordType>(
   });
 }
 
+function stateToInfo<RecordType>(sorterStates: SortState<RecordType>) {
+  const { column, sortOrder } = sorterStates;
+  return { column, order: sortOrder, field: column.dataIndex, columnKey: column.key };
+}
+
 function generateSorterInfo<RecordType>(
   sorterStates: SortState<RecordType>[],
 ): SorterResult<RecordType> | SorterResult<RecordType>[] {
-  const list = sorterStates
-    .filter(({ sortOrder }) => sortOrder)
-    .map(
-      ({ column, sortOrder }): SorterResult<RecordType> => {
-        return { column, order: sortOrder, field: column.dataIndex, columnKey: column.key };
-      },
-    );
+  const list = sorterStates.filter(({ sortOrder }) => sortOrder).map(stateToInfo);
 
-  // Legacy compatible support
+  // =========== Legacy compatible support ===========
+  // https://github.com/ant-design/ant-design/pull/19226
+  if (list.length === 0 && sorterStates.length) {
+    return {
+      ...stateToInfo(sorterStates[0]),
+      column: undefined,
+    };
+  }
+
   if (list.length <= 1) {
     return list[0] || {};
   }
@@ -194,7 +203,11 @@ function generateSorterInfo<RecordType>(
   return list;
 }
 
-export function getSortData<RecordType>(data: RecordType[], sortStates: SortState<RecordType>[]) {
+export function getSortData<RecordType>(
+  data: RecordType[],
+  sortStates: SortState<RecordType>[],
+  childrenColumnName: string,
+): RecordType[] {
   const innerSorterStates = sortStates
     .slice()
     .sort((a, b) => (b.multiplePriority as number) - (a.multiplePriority as number));
@@ -210,27 +223,38 @@ export function getSortData<RecordType>(data: RecordType[], sortStates: SortStat
     return cloneData;
   }
 
-  return cloneData.sort((record1, record2) => {
-    for (let i = 0; i < runningSorters.length; i += 1) {
-      const sorterState = runningSorters[i];
-      const {
-        column: { sorter },
-        sortOrder,
-      } = sorterState;
+  return cloneData
+    .sort((record1, record2) => {
+      for (let i = 0; i < runningSorters.length; i += 1) {
+        const sorterState = runningSorters[i];
+        const {
+          column: { sorter },
+          sortOrder,
+        } = sorterState;
 
-      const compareFn = getSortFunction(sorter);
+        const compareFn = getSortFunction(sorter);
 
-      if (compareFn && sortOrder) {
-        const compareResult = compareFn(record1, record2);
+        if (compareFn && sortOrder) {
+          const compareResult = compareFn(record1, record2, sortOrder);
 
-        if (compareResult !== 0) {
-          return sortOrder === 'ascend' ? compareResult : -compareResult;
+          if (compareResult !== 0) {
+            return sortOrder === 'ascend' ? compareResult : -compareResult;
+          }
         }
       }
-    }
 
-    return 0;
-  });
+      return 0;
+    })
+    .map<RecordType>(record => {
+      const subRecords = (record as any)[childrenColumnName];
+      if (subRecords) {
+        return {
+          ...record,
+          [childrenColumnName]: getSortData(subRecords, sortStates, childrenColumnName),
+        };
+      }
+      return record;
+    });
 }
 
 interface SorterConfig<RecordType> {
@@ -240,12 +264,14 @@ interface SorterConfig<RecordType> {
     sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
     sortStates: SortState<RecordType>[],
   ) => void;
+  sortDirections: SortOrder[];
 }
 
 export default function useFilterSorter<RecordType>({
   prefixCls,
   columns,
   onSorterChange,
+  sortDirections,
 }: SorterConfig<RecordType>): [
   TransformColumns<RecordType>,
   SortState<RecordType>[],
@@ -319,9 +345,7 @@ export default function useFilterSorter<RecordType>({
   function triggerSorter(sortState: SortState<RecordType>) {
     let newSorterStates;
 
-    if (!sortState.sortOrder) {
-      newSorterStates = mergedSorterStates.filter(({ key }) => key !== sortState.key);
-    } else if (
+    if (
       sortState.multiplePriority === false ||
       !mergedSorterStates.length ||
       mergedSorterStates[0].multiplePriority === false
@@ -333,14 +357,14 @@ export default function useFilterSorter<RecordType>({
         sortState,
       ];
     }
-    setSortStates(newSorterStates);
 
+    setSortStates(newSorterStates);
     onSorterChange(generateSorterInfo(newSorterStates), newSorterStates);
   }
 
   const transformColumns = React.useCallback(
     (innerColumns: ColumnsType<RecordType>) =>
-      injectSorter(prefixCls, innerColumns, mergedSorterStates, triggerSorter),
+      injectSorter(prefixCls, innerColumns, mergedSorterStates, triggerSorter, sortDirections),
     [mergedSorterStates],
   );
 

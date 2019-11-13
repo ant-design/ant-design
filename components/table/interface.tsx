@@ -139,8 +139,8 @@ export interface TableCurrentDataSource<RecordType> {
 }
 
 export interface SorterResult<RecordType> {
-  column: ColumnType<RecordType>;
-  order: SortOrder;
+  column?: ColumnType<RecordType>;
+  order?: SortOrder;
   field?: Key | Key[];
   columnKey?: Key;
 }
