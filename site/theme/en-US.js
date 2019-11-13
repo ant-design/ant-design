@@ -24,6 +24,7 @@ module.exports = {
     'app.demo.code.hide': 'Hide code',
     'app.demo.codepen': 'Open in CodePen',
     'app.demo.codesandbox': 'Open in CodeSandbox',
+    'app.demo.stackblitz': 'Open in Stackblitz',
     'app.demo.riddle': 'Open in Riddle',
     'app.home.slogan': "The world's second most popular React UI framework",
     'app.home.introduce':

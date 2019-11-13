@@ -6,6 +6,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Icon, Tooltip } from 'antd';
+import stackblitzSdk from '@stackblitz/sdk';
 import EditButton from './EditButton';
 import ErrorBoundary from './ErrorBoundary';
 import BrowserFrame from '../BrowserFrame';
@@ -98,8 +99,16 @@ class Demo extends React.Component {
 
   render() {
     const {
-      meta, src, content, preview, highlightedCode, style,
-      highlightedStyle, expand, utils, intl: { locale },
+      meta,
+      src,
+      content,
+      preview,
+      highlightedCode,
+      style,
+      highlightedStyle,
+      expand,
+      utils,
+      intl: { locale },
     } = this.props;
     const { copied, copyTooltipVisible } = this.state;
     if (!this.liveDemo) {
@@ -181,28 +190,32 @@ class Demo extends React.Component {
       },
       { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
     );
-    const codesanboxPrefillConfig = {
-      files: {
-        'package.json': {
-          content: {
-            dependencies,
-          },
-        },
-        'index.css': {
-          content: (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), ''),
-        },
-        'index.js': {
-          content: `
+    const indexJsContent = `
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 ${sourceCode.replace('mountNode', "document.getElementById('container')")}
-          `,
-        },
+          `;
+    const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const codesanboxPrefillConfig = {
+      files: {
+        'package.json': { content: { dependencies } },
+        'index.css': { content: indexCssContent },
+        'index.js': { content: indexJsContent },
         'index.html': {
           content: html,
         },
+      },
+    };
+    const stackblitzPrefillConfig = {
+      title: `${localizedTitle} - Ant Design Demo`,
+      template: 'create-react-app',
+      dependencies,
+      files: {
+        'index.css': indexCssContent,
+        'index.js': indexJsContent,
+        'index.html': html,
       },
     };
     return (
@@ -276,6 +289,16 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  stackblitzSdk.openProject(stackblitzPrefillConfig);
+                }}
+              >
+                <Icon type="thunderbolt" />
+              </span>
+            </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 visible={copyTooltipVisible}
