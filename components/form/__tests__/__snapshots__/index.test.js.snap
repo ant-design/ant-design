@@ -7,7 +7,7 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
   <div
     aria-hidden="true"
     cccc="bbbb"
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
     data-text="123"
   >
     <div
