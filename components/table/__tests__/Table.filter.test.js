@@ -516,69 +516,75 @@ describe('Table.filter', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
   });
 
-  // it('works with grouping columns in controlled mode', () => {
-  //   const columns = [
-  //     {
-  //       title: 'group',
-  //       key: 'group',
-  //       children: [
-  //         {
-  //           title: 'Name',
-  //           dataIndex: 'name',
-  //           key: 'name',
-  //           filters: [{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }],
-  //           onFilter: filterFn,
-  //           filteredValue: ['Jack'],
-  //         },
-  //         {
-  //           title: 'Age',
-  //           dataIndex: 'age',
-  //           key: 'age',
-  //         },
-  //       ],
-  //     },
-  //   ];
-  //   const testData = [
-  //     { key: 0, name: 'Jack', age: 11 },
-  //     { key: 1, name: 'Lucy', age: 20 },
-  //     { key: 2, name: 'Tom', age: 21 },
-  //     { key: 3, name: 'Jerry', age: 22 },
-  //   ];
-  //   const wrapper = mount(<Table columns={columns} dataSource={testData} />);
+  it('works with grouping columns in controlled mode', () => {
+    const columns = [
+      {
+        title: 'group',
+        key: 'group',
+        children: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+            onFilter: filterFn,
+            filteredValue: ['Jack'],
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
+            key: 'age',
+          },
+        ],
+      },
+    ];
+    const testData = [
+      { key: 0, name: 'Jack', age: 11 },
+      { key: 1, name: 'Lucy', age: 20 },
+      { key: 2, name: 'Tom', age: 21 },
+      { key: 3, name: 'Jerry', age: 22 },
+    ];
+    const wrapper = mount(<Table columns={columns} dataSource={testData} />);
 
-  //   expect(renderedNames(wrapper)).toEqual(['Jack']);
-  // });
+    expect(renderedNames(wrapper)).toEqual(['Jack']);
+  });
 
-  // it('confirm filter when dropdown hidden', () => {
-  //   const handleChange = jest.fn();
-  //   const wrapper = mount(
-  //     createTable({
-  //       columns: [
-  //         {
-  //           ...column,
-  //           filters: [{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }],
-  //         },
-  //       ],
-  //       onChange: handleChange,
-  //     }),
-  //   );
+  it('confirm filter when dropdown hidden', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+          },
+        ],
+        onChange: handleChange,
+      }),
+    );
 
-  //   wrapper
-  //     .find('.ant-dropdown-trigger')
-  //     .first()
-  //     .simulate('click');
-  //   wrapper
-  //     .find('.ant-dropdown-menu-item')
-  //     .first()
-  //     .simulate('click');
-  //   wrapper
-  //     .find('.ant-dropdown-trigger')
-  //     .first()
-  //     .simulate('click');
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('.ant-dropdown-menu-item')
+      .first()
+      .simulate('click');
+    wrapper
+      .find('.ant-dropdown-trigger')
+      .first()
+      .simulate('click');
 
-  //   expect(handleChange).toHaveBeenCalled();
-  //   expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
-  // });
+    expect(handleChange).toHaveBeenCalled();
+    expect(handleChange.mock.calls[0][3].currentDataSource.length).toBe(1);
+  });
 
   // it('renders custom filter icon correctly', () => {
   //   const filterIcon = filtered => <span>{filtered ? 'filtered' : 'unfiltered'}</span>;
