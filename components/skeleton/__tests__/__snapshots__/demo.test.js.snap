@@ -89,7 +89,7 @@ exports[`renders ./components/skeleton/demo/complex.md correctly 1`] = `
     class="ant-skeleton-header"
   >
     <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
     />
   </div>
   <div
@@ -145,7 +145,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                 class="ant-skeleton-header"
               >
                 <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
                 />
               </div>
               <div
@@ -174,7 +174,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                 class="ant-skeleton-header"
               >
                 <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
                 />
               </div>
               <div
@@ -203,7 +203,7 @@ exports[`renders ./components/skeleton/demo/list.md correctly 1`] = `
                 class="ant-skeleton-header"
               >
                 <span
-                  class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+                  class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
                 />
               </div>
               <div

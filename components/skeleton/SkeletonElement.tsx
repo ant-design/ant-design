@@ -11,10 +11,6 @@ export interface SkeletonElementProps {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SkeletonElement extends React.Component<SkeletonElementProps, any> {
-  static defaultProps: Partial<SkeletonElementProps> = {
-    size: 'default',
-  };
-
   render() {
     const { prefixCls, className, style, size, shape } = this.props;
 

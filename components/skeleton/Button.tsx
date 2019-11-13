@@ -12,6 +12,10 @@ interface SkeletonButtonProps extends ButtonProps {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SkeletonButton extends React.Component<SkeletonButtonProps, any> {
+  static defaultProps: Partial<SkeletonButtonProps> = {
+    size: 'default',
+  };
+
   renderSkeletonButton = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, active, loading } = this.props;
     if (loading || !('loading' in this.props)) {

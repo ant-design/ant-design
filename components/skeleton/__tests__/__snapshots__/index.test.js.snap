@@ -8,7 +8,7 @@ exports[`Skeleton avatar shape 1`] = `
     class="ant-skeleton-header"
   >
     <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
     />
   </div>
   <div
@@ -36,7 +36,7 @@ exports[`Skeleton avatar shape 2`] = `
     class="ant-skeleton-header"
   >
     <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-square"
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
     />
   </div>
   <div
