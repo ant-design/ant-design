@@ -38,6 +38,8 @@ title: Drawer
 | onClose | 点击遮罩层或右上角叉或取消按钮的回调 | function(e) | 无 | 3.7.0 |
 | afterVisibleChange | 切换抽屉时动画结束后的回调 | function(visible) | 无 | 3.17.0 |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | 3.19.8 |
+| footer | 抽屉的页脚 | string\|ReactNode | - | 3.26.0 |
+| footerStyle | 抽屉页脚部件的样式 | object | - | 3.26.0 |
 
 <style>
 #_hj_feedback_container {

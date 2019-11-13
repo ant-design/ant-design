@@ -39,6 +39,8 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button. | function(e) | - | 3.7.0 |
 | afterVisibleChange | Callback after the animation ends when switching drawers. | function(visible) | - | 3.17.0 |
 | keyboard | Whether support press esc to close | Boolean | true | 3.19.8 |
+| footer | The footer for Drawer. | string\|ReactNode | - | 3.26.0 |
+| footerStyle | Style of the drawer footer part. | object | - | 3.26.0 |
 
 <style>
 #_hj_feedback_container {
