@@ -1,11 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcTable, { Column, ColumnGroup } from 'rc-table';
-import { TableProps as RcTableProps } from 'rc-table/lib/Table';
+import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import Spin, { SpinProps } from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
 import { ConfigContext } from '../config-provider/context';
-import usePagination, { DEFAULT_PAGE_SIZE } from './hooks/usePagination';
+import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import {
   TableRowSelection,
@@ -25,6 +25,7 @@ import useSorter, { getSortData, SortState } from './hooks/useSorter';
 import useFilter, { getFilterData, FilterState } from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
+import scrollTo from '../_util/scrollTo';
 import defaultLocale from '../locale/en_US';
 
 const EMPTY_LIST: any[] = [];
@@ -45,7 +46,15 @@ interface ChangeEventInfo<RecordType> {
 }
 
 export interface TableProps<RecordType>
-  extends Omit<RcTableProps<RecordType>, 'transformColumns' | 'data' | 'expandIconColumnIndex'> {
+  extends Omit<
+    RcTableProps<RecordType>,
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'expandIconColumnIndex'
+    | 'scroll'
+  > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   pagination?: false | TablePaginationConfig;
@@ -62,6 +71,9 @@ export interface TableProps<RecordType>
   rowSelection?: TableRowSelection<RecordType>;
 
   getPopupContainer?: GetPopupContainer;
+  scroll?: RcTableProps<RecordType>['scroll'] & {
+    scrollToFirstRowOnChange?: boolean;
+  };
 }
 
 function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
@@ -85,6 +97,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandedRowRender,
     indentSize,
     childrenColumnName,
+    scroll,
   } = props;
   const { locale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
   const tableLocale = locale.Table;
@@ -104,6 +117,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
     return null;
   }, [rawData]);
+
+  const internalRefs = {
+    body: React.useRef<HTMLDivElement>(),
+  };
 
   // ============================ RowKey ============================
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
@@ -132,6 +149,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       if (changeInfo.pagination!.current) {
         changeInfo.pagination!.current = 1;
       }
+    }
+
+    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRefs.body.current) {
+      scrollTo(0, {
+        getContainer: () => internalRefs.body.current!,
+      });
     }
 
     if (onChange) {
@@ -213,7 +236,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   // ========================== Pagination ==========================
   const onPaginationChange = (current: number, pageSize: number) => {
     triggerOnChange({
-      pagination: { current, pageSize },
+      pagination: { ...changeEventInfo.pagination, current, pageSize },
     });
   };
 
@@ -222,13 +245,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     pagination,
     onPaginationChange,
   );
+
   changeEventInfo.pagination =
-    pagination !== false
-      ? {
-          current: mergedPagination.current!,
-          pageSize: mergedPagination.pageSize!,
-        }
-      : {};
+    pagination === false ? {} : getPaginationParam(pagination, mergedPagination);
+
   changeEventInfo.resetPagination = resetPagination;
 
   // ============================= Data =============================
@@ -308,11 +328,18 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   let topPaginationNode: React.ReactNode;
   let bottomPaginationNode: React.ReactNode;
   if (pagination !== false) {
+    let paginationSize: PaginationConfig['size'];
+    if (mergedPagination.size) {
+      paginationSize = mergedPagination.size;
+    } else {
+      paginationSize = size === 'small' || size === 'middle' ? 'small' : undefined;
+    }
+
     const renderPagination = () => (
       <Pagination
         className={`${prefixCls}-pagination`}
         {...mergedPagination}
-        size={size === 'small' || size === 'middle' ? 'small' : undefined}
+        size={paginationSize}
       />
     );
 
@@ -360,10 +387,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
             [`${prefixCls}-bordered`]: bordered,
           })}
           data={pageData}
-          transformColumns={transformColumns}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
           emptyText={renderEmpty('Table')}
+          // Internal
+          internalHooks={INTERNAL_HOOKS}
+          internalRefs={internalRefs as any}
+          transformColumns={transformColumns}
         />
         {bottomPaginationNode}
       </Spin>

@@ -34,7 +34,9 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
@@ -189,7 +191,9 @@ exports[`Table.pagination renders pagination correctly 1`] = `
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody
+                class="ant-table-tbody"
+              >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >

@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import * as React from 'react';
 import { ColumnType, ColumnTitle, ColumnTitleProps } from './interface';
 
 export function getColumnKey<RecordType>(column: ColumnType<RecordType>, defaultKey: string): Key {
