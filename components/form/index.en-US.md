@@ -47,7 +47,7 @@ A form consists of one or more form fields whose type includes input, textarea, 
 
 ### Form.create(options)
 
-How to use：
+How to use:
 
 ```jsx
 class CustomizedForm extends React.Component {}
