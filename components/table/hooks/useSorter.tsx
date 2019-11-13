@@ -201,9 +201,18 @@ export function getSortData<RecordType>(data: RecordType[], sortStates: SortStat
 
   const cloneData = data.slice();
 
+  const runningSorters = innerSorterStates.filter(({ column: { sorter }, sortOrder }) => {
+    return getSortFunction(sorter) && sortOrder;
+  });
+
+  // Skip if no sorter needed
+  if (!runningSorters.length) {
+    return cloneData;
+  }
+
   return cloneData.sort((record1, record2) => {
-    for (let i = 0; i < innerSorterStates.length; i += 1) {
-      const sorterState = innerSorterStates[i];
+    for (let i = 0; i < runningSorters.length; i += 1) {
+      const sorterState = runningSorters[i];
       const {
         column: { sorter },
         sortOrder,

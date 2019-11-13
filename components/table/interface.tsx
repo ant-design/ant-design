@@ -118,7 +118,9 @@ export interface TableRowSelection<T> {
   getCheckboxProps?: (record: T) => Partial<CheckboxProps>;
   onSelect?: SelectionSelectFn<T>;
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
+  /** @deprecated This function is meaningless and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
   selections?: SelectionItem[] | boolean;
   hideDefaultSelections?: boolean;

@@ -96,7 +96,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandable,
     expandedRowRender,
     indentSize,
-    childrenColumnName,
+    childrenColumnName = 'children',
     scroll,
   } = props;
   const { locale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
@@ -107,7 +107,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const prefixCls = getPrefixCls('table', customizePrefixCls);
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
-    if (rawData.some(item => (item as any)[childrenColumnName || 'children'])) {
+    if (rawData.some(item => (item as any)[childrenColumnName])) {
       return 'nest';
     }
 
@@ -131,7 +131,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     return (record: RecordType) => (record as any)[rowKey as string];
   }, [rowKey]);
 
-  const [getRecordByKey] = useLazyKVMap(rawData, getRowKey);
+  const [getRecordByKey] = useLazyKVMap(rawData, childrenColumnName, getRowKey);
 
   // ============================ Events =============================
   const changeEventInfo: Partial<ChangeEventInfo<RecordType>> = {};
