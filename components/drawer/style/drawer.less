@@ -191,11 +191,25 @@
     background: @component-background;
   }
 
+  &-wrapper-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
   &-body {
+    flex-grow: 1;
+    overflow: auto;
     padding: @drawer-body-padding;
     font-size: @font-size-base;
     line-height: @line-height-base;
     word-wrap: break-word;
+  }
+
+  &-footer {
+    flex-shrink: 0;
   }
 
   &-mask {

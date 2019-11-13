@@ -45,6 +45,23 @@ class DrawerForm extends React.Component {
           width={720}
           onClose={this.onClose}
           visible={this.state.visible}
+          footer={
+            <div
+              style={{
+                borderTop: '1px solid #e9e9e9',
+                padding: '10px 16px',
+                background: '#fff',
+                textAlign: 'right',
+              }}
+            >
+              <Button onClick={this.onClose} style={{ marginRight: 8 }}>
+                Cancel
+              </Button>
+              <Button onClick={this.onClose} type="primary">
+                Submit
+              </Button>
+            </div>
+          }
         >
           <Form layout="vertical" hideRequiredMark>
             <Row gutter={16}>
@@ -137,25 +154,6 @@ class DrawerForm extends React.Component {
               </Col>
             </Row>
           </Form>
-          <div
-            style={{
-              position: 'absolute',
-              left: 0,
-              bottom: 0,
-              width: '100%',
-              borderTop: '1px solid #e9e9e9',
-              padding: '10px 16px',
-              background: '#fff',
-              textAlign: 'right',
-            }}
-          >
-            <Button onClick={this.onClose} style={{ marginRight: 8 }}>
-              Cancel
-            </Button>
-            <Button onClick={this.onClose} type="primary">
-              Submit
-            </Button>
-          </div>
         </Drawer>
       </div>
     );
