@@ -105,7 +105,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         paths.push(path);
       }
       // generated overlay by route.children
-      let overlay = null;
+      let overlay;
       if (route.children && route.children.length) {
         overlay = (
           <Menu>

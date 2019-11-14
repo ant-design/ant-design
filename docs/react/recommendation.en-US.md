@@ -17,7 +17,7 @@ title: Third-Party Libraries
 | Color Picker | [rc-color-picker](https://github.com/react-component/color-picker) [react-color](http://casesandberg.github.io/react-color/) |
 | Media Query | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media) |
 | Copy to clipboard | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
-| Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-document-title](https://github.com/gaearon/react-document-title) |
+| Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-helmet-async](https://github.com/staylor/react-helmet-async) |
 | Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons) |
 | QR Code | [qrcode.react](https://github.com/zpao/qrcode.react) |
 | Visual Graph Editor | [GGEditor](https://github.com/gaoli/GGEditor) |

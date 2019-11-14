@@ -24,7 +24,7 @@ High performance Form component with data scope management. Including data colle
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | Hide required mark for all form items | boolean | false |
 | initialValues | Set value by Form initialization or reset | object | - |
-| labelAlign | Label text alignment | 'left' \| 'right' | 'right' |
+| labelAlign | text align of label of all items | 'left' \| 'right' | 'right' | 3.15.0 |
 | labelCol | label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) |  |
 | layout | Form layout | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | name | Form name. Will be the prefix of Field `id` | string | - |
@@ -76,6 +76,7 @@ Form field component for data bidirectional binding, validation, layout, and so 
 | htmlFor | Set sub label `htmlFor` | string | - |
 | noStyle | No style for `true`, used as a pure field control | boolean | false |
 | label | Label text | string\|ReactNode | - |
+| labelAlign | text align of label | 'left' \| 'right' | 'right' | 3.15.0 |
 | labelCol | The layout of label. You can set `span` `offset` to something like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` same as with `<Col>`. You can set `labelCol` on Form. If both exists, use Item first | [object](/components/grid/#Col) | - |
 | name | Field name, support array | [NamePath](#NamePath) | - |
 | normalize | Normalize value to form component | (value, prevValue, prevValues) => any | - |

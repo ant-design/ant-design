@@ -77,6 +77,7 @@ const validateMessages = {
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |
 | label | `label` 标签的文本 | string\|ReactNode | - |
+| labelAlign | 标签文本对齐方式 | 'left' \| 'right' | 'right' | 3.15.0 |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
 | normalize | 转换字段值给控件 | (value, prevValue, prevValues) => any | - |

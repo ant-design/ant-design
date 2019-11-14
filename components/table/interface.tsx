@@ -13,8 +13,6 @@ export type Key = React.Key;
 
 export type RowSelectionType = 'checkbox' | 'radio';
 
-export type TableSelectWay = 'onSelect' | 'onSelectMultiple' | 'onSelectAll' | 'onSelectInvert';
-
 export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
 
 export type TableSize = 'default' | 'middle' | 'small';
@@ -126,7 +124,6 @@ export interface TableRowSelection<T> {
   hideDefaultSelections?: boolean;
   fixed?: boolean;
   columnWidth?: string | number;
-  selectWay?: TableSelectWay;
   columnTitle?: string | React.ReactNode;
 }
 

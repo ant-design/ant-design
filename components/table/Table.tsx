@@ -20,6 +20,7 @@ import {
   ExpandType,
   TablePaginationConfig,
   SortOrder,
+  TableLocale,
 } from './interface';
 import useSelection, { SELECTION_ALL, SELECTION_INVERT } from './hooks/useSelection';
 import useSorter, { getSortData, SortState } from './hooks/useSorter';
@@ -62,6 +63,7 @@ export interface TableProps<RecordType>
   loading?: boolean | SpinProps;
   size?: TableSize;
   bordered?: boolean;
+  locale?: TableLocale;
 
   onChange?: (
     pagination: PaginationConfig,
@@ -101,9 +103,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     childrenColumnName = 'children',
     scroll,
     sortDirections,
+    locale,
   } = props;
-  const { locale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
-  const tableLocale = locale.Table;
+  const { locale: contextLocale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
+  const tableLocale = locale || contextLocale.Table;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);

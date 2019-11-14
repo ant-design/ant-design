@@ -14,11 +14,9 @@ declare module 'rc-util*';
 
 declare module 'css-animation*';
 
-declare module 'rc-cascader';
-
 declare module 'rc-checkbox';
 
-declare module 'rc-dropdown';
+declare module 'rc-radio';
 
 declare module 'rc-editor-mention';
 
