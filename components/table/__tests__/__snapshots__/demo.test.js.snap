@@ -4548,6 +4548,41 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                   >
                     <button
                       aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Not Expandable
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    29
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jiangsu No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                  >
+                    <button
+                      aria-label="Expand row"
                       class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
                       type="button"
                     />
@@ -12320,6 +12355,189 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
             </a>
           </li>
         </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/table/demo/summary.md correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:auto"
+            >
+              <colgroup>
+                <col />
+                <col />
+                <col />
+                <col />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Chinese Score
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    Math Score
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    English Score
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    98
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    60
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    70
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    98
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    66
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    89
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    98
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    90
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    70
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Red
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    88
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    99
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    89
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <th>
+                    Total
+                  </th>
+                  <td
+                    colspan="3"
+                  />
+                </tr>
+                <tr>
+                  <td />
+                  <td>
+                    382
+                  </td>
+                  <td>
+                    315
+                  </td>
+                  <td>
+                    318
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
