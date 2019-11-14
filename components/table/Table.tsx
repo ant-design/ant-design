@@ -292,6 +292,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     getRowKey,
     getRecordByKey,
     expandType,
+    childrenColumnName,
   });
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {

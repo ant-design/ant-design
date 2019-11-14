@@ -36,9 +36,29 @@ interface UseSelectionConfig<RecordType> {
   getRowKey: GetRowKey<RecordType>;
   getRecordByKey: (key: Key) => RecordType;
   expandType: ExpandType;
+  childrenColumnName: string;
 }
 
 type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
+
+function flattenData<RecordType>(
+  data: RecordType[] | undefined,
+  childrenColumnName: string,
+): RecordType[] {
+  let list: RecordType[] = [];
+  (data || []).forEach(record => {
+    list.push(record);
+
+    if (childrenColumnName in record) {
+      list = [
+        ...list,
+        ...flattenData<RecordType>((record as any)[childrenColumnName], childrenColumnName),
+      ];
+    }
+  });
+
+  return list;
+}
 
 export default function useSelection<RecordType>(
   rowSelection: TableRowSelection<RecordType> | undefined,
@@ -59,7 +79,15 @@ export default function useSelection<RecordType>(
 
   const { locale = defaultLocale } = React.useContext(ConfigContext);
   const tableLocale = (locale.Table || {}) as TableLocale;
-  const { prefixCls, data, pageData, getRecordByKey, getRowKey, expandType } = config;
+  const {
+    prefixCls,
+    data,
+    pageData,
+    getRecordByKey,
+    getRowKey,
+    expandType,
+    childrenColumnName,
+  } = config;
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
   const mergedSelectedKeys = selectedRowKeys || innerSelectedKeys || EMPTY_LIST;
@@ -161,12 +189,15 @@ export default function useSelection<RecordType>(
         return columns;
       }
 
+      // Get flatten data
+      const flattedData = flattenData(pageData, childrenColumnName);
+
       // Support selection
       const keySet = new Set(mergedSelectedKeySet);
 
       // Get all checkbox props
       const checkboxPropsMap = new Map<Key, Partial<CheckboxProps>>();
-      pageData.forEach((record, index) => {
+      flattedData.forEach((record, index) => {
         const key = getRowKey(record, index);
         const checkboxProps = (getCheckboxProps ? getCheckboxProps(record) : null) || {};
         checkboxPropsMap.set(key, checkboxProps);
@@ -184,7 +215,7 @@ export default function useSelection<RecordType>(
       });
 
       // Record key only need check with enabled
-      const recordKeys = pageData
+      const recordKeys = flattedData
         .map(getRowKey)
         .filter(key => !checkboxPropsMap.get(key)!.disabled);
       const checkedCurrentAll = recordKeys.every(key => keySet.has(key));
@@ -254,12 +285,12 @@ export default function useSelection<RecordType>(
         title = (
           <div className={`${prefixCls}-selection`}>
             <Checkbox
-              checked={!!pageData.length && checkedCurrentAll}
+              checked={!!flattedData.length && checkedCurrentAll}
               indeterminate={!checkedCurrentAll && checkedCurrentSome}
               onChange={onSelectAllChange}
               disabled={
-                pageData.length === 0 ||
-                pageData.every((record, index) => {
+                flattedData.length === 0 ||
+                flattedData.every((record, index) => {
                   const key = getRowKey(record, index);
                   const checkboxProps = checkboxPropsMap.get(key) || {};
                   return checkboxProps.disabled;
