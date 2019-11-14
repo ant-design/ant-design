@@ -119,7 +119,7 @@ const columns = [
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean | false | 3.24.0 |
 | className | 列样式类名 | string | - |  |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |  |
-| dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c`、`a[0].b.c[1]` 的嵌套写法 | string | - |  |
+| dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
 | defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - | 3.9.3 |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
@@ -264,6 +264,12 @@ return <Table rowKey="uid" />;
 // 或
 return <Table rowKey={record => record.uid} />;
 ```
+
+## 从 v3 升级到 v4
+
+Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMouseEnter`、`onRowMouseLeave` 等方法。如果你使用的 api 为文档中列举的 api，那你不用担心会丢失功能。
+
+此外，比较重大的改动为 `dataIndex` 从支持路径嵌套如 `user.age` 改成了数组路径如 `['user', 'age']`。以解决过去属性名带 `.` 需要额外的数据转化问题。
 
 ## FAQ
 

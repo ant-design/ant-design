@@ -37,7 +37,9 @@
 
   // ============================= Cell =============================
   thead > tr > th,
-  tbody > tr > td {
+  tbody > tr > td,
+  tfoot > tr > th,
+  tfoot > tr > td {
     position: relative;
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
@@ -125,6 +127,16 @@
             background: @table-selected-row-hover-bg;
           }
         }
+      }
+    }
+  }
+
+  // =========================== Summary ============================
+  tfoot {
+    > tr {
+      > th,
+      > td {
+        border-bottom: @border-width-base @border-style-base @border-color-split;
       }
     }
   }

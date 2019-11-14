@@ -114,7 +114,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | ellipsis | ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is true. | boolean | false | 3.24.0 |
 | className | className of this column | string | - |  |
 | colSpan | Span of this column's title | number |  |  |
-| dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |  |
+| dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |
 | defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |  |
 | filterDropdown | Customized filter overlay | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
@@ -260,6 +260,12 @@ return <Table rowKey="uid" />;
 // or
 return <Table rowKey={record => record.uid} />;
 ```
+
+## Migrate to v4
+
+Table removes `onRowClick`, `onRowDoubleClick`, `onRowMouseEnter`, `onRowMouseLeave` and some other api which is already deprecated in v3. If you only use api listing in official document, that's OK.
+
+Besides, the breaking change is changing `dataIndex` from nest string path like `user.age` to string array path like `['user', 'age']`. This help to resolve developer should additional work on the field which contains `.`.
 
 ## FAQ
 
