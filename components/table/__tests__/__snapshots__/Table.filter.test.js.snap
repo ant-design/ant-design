@@ -30,6 +30,7 @@ exports[`Table.filter renders custom content correctly 1`] = `
 <div>
   <div
     class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
+    style="visibility: hidden;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -184,6 +185,7 @@ exports[`Table.filter renders menu correctly 1`] = `
 <div>
   <div
     class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
+    style="visibility: hidden;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -280,6 +282,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
 <div>
   <div
     class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
+    style="visibility: hidden;"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -417,7 +420,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                       >
                         <span
                           aria-label="filter"
-                          class="anticon anticon-filter ant-dropdown-trigger ant-dropdown-open"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                           role="img"
                           style=""
                           tabindex="-1"
@@ -440,7 +443,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         <div>
                           <div
                             class="ant-dropdown ant-dropdown-placement-bottomRight"
-                            style="left: -999px; top: -995px;"
+                            style="left: -999px; top: -995px; min-width: 0;"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -630,7 +633,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                       >
                         <span
                           aria-label="filter"
-                          class="anticon anticon-filter ant-dropdown-trigger ant-dropdown-open"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                           role="img"
                           style=""
                           tabindex="-1"
@@ -653,7 +656,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         <div>
                           <div
                             class="ant-dropdown ant-dropdown-placement-bottomRight"
-                            style="left: -999px; top: -995px;"
+                            style="left: -999px; top: -995px; min-width: 0;"
                           >
                             <div
                               class="ant-table-filter-dropdown"

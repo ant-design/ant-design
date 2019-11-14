@@ -11772,7 +11772,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       >
                         <span
                           aria-label="filter"
-                          class="anticon anticon-filter config-dropdown-trigger config-dropdown-open"
+                          class="anticon anticon-filter config-dropdown-trigger"
                           role="img"
                           tabindex="-1"
                         >
@@ -11794,6 +11794,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         <div>
                           <div
                             class="config-dropdown  config-dropdown-placement-bottomRight "
+                            style="visibility:hidden"
                           >
                             <div
                               class="config-table-filter-dropdown"
@@ -12103,7 +12104,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       >
                         <span
                           aria-label="filter"
-                          class="anticon anticon-filter ant-dropdown-trigger ant-dropdown-open"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                           role="img"
                           tabindex="-1"
                         >
@@ -12125,6 +12126,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                         <div>
                           <div
                             class="ant-dropdown  ant-dropdown-placement-bottomRight "
+                            style="visibility:hidden"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -12434,7 +12436,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       >
                         <span
                           aria-label="filter"
-                          class="anticon anticon-filter ant-dropdown-trigger ant-dropdown-open"
+                          class="anticon anticon-filter ant-dropdown-trigger"
                           role="img"
                           tabindex="-1"
                         >
@@ -12456,6 +12458,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         <div>
                           <div
                             class="ant-dropdown  ant-dropdown-placement-bottomRight "
+                            style="visibility:hidden"
                           >
                             <div
                               class="prefix-Table-filter-dropdown"
