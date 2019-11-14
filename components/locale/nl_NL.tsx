@@ -9,12 +9,18 @@ export default {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Maak een selectie',
+  },
   Table: {
     filterTitle: 'Filteren',
     filterConfirm: 'OK',
     filterReset: 'Reset',
     selectAll: 'Selecteer huidige pagina',
     selectInvert: 'Deselecteer huidige pagina',
+    sortTitle: 'Sorteren',
+    expand: 'Rij uitklappen',
+    collapse: 'Rij inklappen',
   },
   Modal: {
     okText: 'OK',
@@ -26,6 +32,7 @@ export default {
     cancelText: 'Annuleren',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Zoeken',
     itemUnit: 'item',
     itemsUnit: 'items',
@@ -39,5 +46,17 @@ export default {
   },
   Empty: {
     description: 'Geen gegevens',
+  },
+  Icon: {
+    icon: 'icoon',
+  },
+  Text: {
+    edit: 'Bewerken',
+    copy: 'Kopieren',
+    copied: 'Gekopieerd',
+    expand: 'Uitklappen',
+  },
+  PageHeader: {
+    back: 'Terug',
   },
 };
