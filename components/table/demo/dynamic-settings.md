@@ -62,7 +62,7 @@ for (let i = 1; i <= 10; i++) {
   });
 }
 
-const expandedRowRender = record => <p>{record.description}</p>;
+const expandable = { expandedRowRender: record => <p>{record.description}</p> };
 const title = () => 'Here is title';
 const showHeader = true;
 const footer = () => 'Here is footer';
@@ -74,7 +74,7 @@ class Demo extends React.Component {
     loading: false,
     pagination,
     size: 'default',
-    expandedRowRender,
+    expandable,
     title: undefined,
     showHeader,
     footer,
@@ -97,7 +97,7 @@ class Demo extends React.Component {
   };
 
   handleExpandChange = enable => {
-    this.setState({ expandedRowRender: enable ? expandedRowRender : undefined });
+    this.setState({ expandable: enable ? expandable : undefined });
   };
 
   handleEllipsisChange = enable => {
@@ -179,7 +179,7 @@ class Demo extends React.Component {
             <Switch checked={!!state.footer} onChange={this.handleFooterChange} />
           </Form.Item>
           <Form.Item label="Expandable">
-            <Switch checked={!!state.expandedRowRender} onChange={this.handleExpandChange} />
+            <Switch checked={!!state.expandable} onChange={this.handleExpandChange} />
           </Form.Item>
           <Form.Item label="Checkbox">
             <Switch checked={!!state.rowSelection} onChange={this.handleRowSelectionChange} />

@@ -97,7 +97,7 @@ function NestedTable() {
     <Table
       className="components-table-demo-nested"
       columns={columns}
-      expandedRowRender={expandedRowRender}
+      expandable={{ expandedRowRender }}
       dataSource={data}
     />
   );
