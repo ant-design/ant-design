@@ -80,6 +80,7 @@ const columns = [
 | scroll | 表格是否可滚动，[配置项](#scroll) | object | - |  |
 | showHeader | 是否显示表头 | boolean | true |  |
 | size | 表格大小 | default \| middle \| small | default |  |
+| summary | 总结栏 | (currentData) => ReactNode | - |  |
 | title | 表格标题 | Function(currentPageData) |  |  |
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |  |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |  |

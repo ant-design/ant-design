@@ -75,6 +75,7 @@ const columns = [
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | `true` |  |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |  |
+| summary | Summary content | (currentData) => ReactNode | - |  |
 | title | Table title renderer | Function(currentPageData) |  |  |
 | onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |  |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |  |
