@@ -66,18 +66,11 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| 'auto' \| 'fixed' | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` | 3.24.0 |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
-| childrenColumnName | 指定树形结构的列名 | string\[] | children | 3.4.2 |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)\[] | - |  |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |  |
 | dataSource | 数据数组 | any\[] |  |  |
-| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
-| defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |
-| expandedRowKeys | 展开的行，控制属性 | string\[] | - |  |
-| expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |  |
-| expandIcon | 自定义展开图标，参考[示例](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - | 3.11.3 |
-| expandRowByClick | 通过点击行来展开子行 | boolean | `false` | 3.0.1 |
+| expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | Function(currentPageData) |  |  |
-| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | loading | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |  |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |  |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object |  |  |
@@ -89,8 +82,6 @@ const columns = [
 | size | 表格大小 | default \| middle \| small | default |  |
 | title | 表格标题 | Function(currentPageData) |  |  |
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |  |
-| onExpand | 点击展开图标时触发 | Function(expanded, record) |  |  |
-| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |  |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |  |
 | onRow | 设置行属性 | Function(record, index) | - |  |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
@@ -165,6 +156,24 @@ const columns = [
 | position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' | 3.3.0 |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
+
+### expandable
+
+展开功能的配置。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| childrenColumnName | 指定树形结构的列名 | string\[] | children |
+| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
+| defaultExpandedRowKeys | 默认展开的行 | string\[] |  |
+| expandIcon | 自定义展开图标，参考[示例](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode |  |
+| expandedRowKeys | 展开的行，控制属性 | string\[] |  |
+| expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode |  |
+| expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
+| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
+| rowExpandable | 设置是否允许行展开 | (record) => boolean |  |
+| onExpand | 点击展开图标时触发 | Function(expanded, record) |  |
+| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |
 
 ### rowSelection
 
