@@ -562,20 +562,6 @@
   }
 
   /* table + footer */
-  &-container:last-child {
-    border-bottom-right-radius: @table-border-radius-base;
-    border-bottom-left-radius: @table-border-radius-base;
-
-    table > tbody > tr:last-child {
-      > td:first-child {
-        border-bottom-left-radius: @table-border-radius-base;
-      }
-      > td:last-child {
-        border-bottom-right-radius: @table-border-radius-base;
-      }
-    }
-  }
-
   &-footer {
     border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
   }

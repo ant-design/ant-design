@@ -251,3 +251,9 @@ return <Table rowKey="uid" />;
 // or
 return <Table rowKey={record => record.uid} />;
 ```
+
+## FAQ
+
+### How to hide pagination when single page or not data
+
+You can set `hideOnSinglePage` with `pagination` prop.

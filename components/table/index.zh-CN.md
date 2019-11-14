@@ -255,3 +255,9 @@ return <Table rowKey="uid" />;
 // 或
 return <Table rowKey={record => record.uid} />;
 ```
+
+## FAQ
+
+### 如何在没有数据或只有一页数据时隐藏分页栏
+
+你可以设置 `pagination` 的 `hideOnSinglePage` 属性为 `true`。
