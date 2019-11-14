@@ -95,7 +95,6 @@ export interface OptionProps {
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
-  [key: string]: any;
 }
 
 export interface OptGroupProps {
