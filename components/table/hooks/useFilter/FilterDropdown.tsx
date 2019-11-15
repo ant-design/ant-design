@@ -224,7 +224,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       <span className={`${prefixCls}-column-title`}>{children}</span>
 
       <span
-        className={`${prefixCls}-trigger-container`}
+        className={classNames(`${prefixCls}-trigger-container`, {
+          [`${prefixCls}-trigger-container-open`]: mergedVisible,
+        })}
         onClick={e => {
           e.stopPropagation();
         }}

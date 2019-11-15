@@ -234,6 +234,7 @@
     align-self: stretch;
     transition: background-color 0.3s;
 
+    &-open,
     &:hover {
       background: @table-header-filter-active-bg;
     }
@@ -253,6 +254,7 @@
       transform: translate(-50%, -50%);
     }
 
+    .@{table-prefix-cls}-filter-trigger-container-open &,
     &:hover {
       color: @text-color-secondary;
     }
