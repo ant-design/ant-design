@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-与 `react-window` 集成。
+通过 `react-window` 引入虚拟滚动方案，实现 100000 条数据的高性能表格。
 
 ## en-US
 
-Integrate with `react-window`.
+Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
 
 ```jsx
 import { VariableSizeGrid as Grid } from 'react-window';
