@@ -271,7 +271,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
     this.state = {
       ...this.getDefaultSortOrder(columns || []),
       // 减少状态
-      filters: getFiltersFromColumns<T>(),
+      filters: this.getDefaultFilters(columns),
       pagination: this.getDefaultPagination(props),
       pivot: undefined,
       prevProps: props,
@@ -353,6 +353,26 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
       columns || (this.state || {}).columns || [],
       (column: ColumnProps<T>) => 'sortOrder' in column,
     );
+  }
+
+  getDefaultFilters(columns?: ColumnProps<T>[]) {
+    const definedFilters = getFiltersFromColumns(this.state, columns);
+
+    const defaultFilteredValueColumns = flatFilter(
+      columns || [],
+      (column: ColumnProps<T>) => typeof column.defaultFilteredValue !== 'undefined',
+    );
+
+    const defaultFilters = defaultFilteredValueColumns.reduce(
+      (soFar: { [s: string]: any }, col: ColumnProps<T>) => {
+        const colKey = getColumnKey(col) as string;
+        soFar[colKey] = col.defaultFilteredValue;
+        return soFar;
+      },
+      {},
+    );
+
+    return { ...defaultFilters, ...definedFilters };
   }
 
   getDefaultSortOrder(columns?: ColumnProps<T>[]) {

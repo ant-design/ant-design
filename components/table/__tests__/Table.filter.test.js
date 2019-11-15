@@ -286,6 +286,58 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
+  it('can read defaults from defaultFilteredValue', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            defaultFilteredValue: ['Lucy'],
+          },
+        ],
+      }),
+    );
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Lucy');
+
+    // Should properly ignore further defaultFilteredValue changes
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: [],
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Lucy');
+
+    // Should properly be overidden by non-null filteredValue
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: ['Lucy'],
+          filteredValue: ['Tom'],
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Tom');
+
+    // Should properly be overidden by a null filteredValue
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: ['Lucy'],
+          filteredValue: null,
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(4);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
