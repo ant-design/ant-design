@@ -14,5 +14,9 @@ module.exports = {
       pattern: /ConfigConsumer.*renderEmpty/ms,
       module: '../empty',
     },
+    {
+      pattern: /config-provider\/context.*renderEmpty/ms,
+      module: '../empty',
+    },
   ],
 };

@@ -64,6 +64,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       getPrefixCls: this.getPrefixCls,
       csp,
       autoInsertSpaceInButton,
+      locale: locale || legacyLocale,
     };
 
     if (getPopupContainer) {

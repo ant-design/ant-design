@@ -61,18 +61,11 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| 'auto' \| 'fixed' | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` | 3.24.0 |
 | bordered | Whether to show all table borders | boolean | `false` |  |
-| childrenColumnName | The column contains children to display | string\[] | children | 3.4.2 |
 | columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |  |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |  |
 | dataSource | Data record array to be displayed | any\[] | - |  |
-| defaultExpandAllRows | Expand all rows initially | boolean | `false` |  |
-| defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |  |
-| expandedRowKeys | Current expanded row keys | string\[] | - |  |
-| expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |  |
-| expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - | 3.11.3 |
-| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` | 3.0.1 |
+| expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | Function(currentPageData) |  |  |
-| indentSize | Indent size in pixels of tree data | number | 15 |  |
 | loading | Loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |  |
 | locale | i18n text including filter, sort, empty text, etc | object | filterConfirm: 'Ok' <br> filterReset: 'Reset' <br> emptyText: 'No Data' <br> [Default](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |  |
 | pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | object |  |  |
@@ -82,10 +75,9 @@ const columns = [
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | `true` |  |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |  |
+| summary | Summary content | (currentData) => ReactNode | - |  |
 | title | Table title renderer | Function(currentPageData) |  |  |
 | onChange | Callback executed when pagination, filters or sorter is changed | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |  |
-| onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) |  |  |
-| onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |  |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |  |
 | onRow | Set props on per row | Function(record, index) | - |  |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
@@ -120,10 +112,10 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' | 3.3.2 |
-| ellipsis | ellipsize cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is true. | boolean | false | 3.24.0 |
+| ellipsis | ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is true. | boolean | false | 3.24.0 |
 | className | className of this column | string | - |  |
 | colSpan | Span of this column's title | number |  |  |
-| dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |  |
+| dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |
 | defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |  |
 | filterDropdown | Customized filter overlay | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
@@ -160,6 +152,24 @@ Properties for pagination.
 | position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' | 3.3.0 |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
+
+### expandable
+
+Properties for expandable.
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| childrenColumnName | The column contains children to display | string\[] | children |
+| defaultExpandAllRows | Expand all rows initially | boolean | `false` |
+| defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
+| expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
+| expandedRowKeys | Current expanded row keys | string\[] | - |
+| expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
+| expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
+| indentSize | Indent size in pixels of tree data | number | 15 |
+| rowExpandable | Enable row can be expandable | (record) => boolean |  |
+| onExpand | Callback executed when the row expand icon is clicked | Function(expanded, record) |  |
+| onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |
 
 ### rowSelection
 
@@ -251,3 +261,15 @@ return <Table rowKey="uid" />;
 // or
 return <Table rowKey={record => record.uid} />;
 ```
+
+## Migrate to v4
+
+Table removes `onRowClick`, `onRowDoubleClick`, `onRowMouseEnter`, `onRowMouseLeave` and some other api which is already deprecated in v3. If you only use api listing in official document, that's OK.
+
+Besides, the breaking change is changing `dataIndex` from nest string path like `user.age` to string array path like `['user', 'age']`. This help to resolve developer should additional work on the field which contains `.`.
+
+## FAQ
+
+### How to hide pagination when single page or not data
+
+You can set `hideOnSinglePage` with `pagination` prop.

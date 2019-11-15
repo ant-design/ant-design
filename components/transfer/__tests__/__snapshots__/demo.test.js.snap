@@ -1402,118 +1402,64 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-small ant-table-scroll-position-left"
+                  class="ant-table ant-table-small"
                 >
                   <div
-                    class="ant-table-content"
+                    class="ant-table-container"
                   >
                     <div
-                      class="ant-table-body"
+                      class="ant-table-content"
                     >
                       <table
-                        class=""
+                        style="table-layout:auto"
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-col"
+                            style="width:60px;min-width:60px"
                           />
                           <col />
                           <col />
                           <col />
                         </colgroup>
-                        <thead
-                          class="ant-table-thead"
-                        >
+                        <thead>
                           <tr>
                             <th
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span
-                                class="ant-table-header-column"
+                              <div
+                                class="ant-table-selection"
                               >
-                                <div>
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
                                   <span
-                                    class="ant-table-column-title"
+                                    class="ant-checkbox"
                                   >
-                                    <div
-                                      class="ant-table-selection"
-                                    >
-                                      <label
-                                        class="ant-checkbox-wrapper"
-                                      >
-                                        <span
-                                          class="ant-checkbox"
-                                        >
-                                          <input
-                                            class="ant-checkbox-input"
-                                            type="checkbox"
-                                          />
-                                          <span
-                                            class="ant-checkbox-inner"
-                                          />
-                                        </span>
-                                      </label>
-                                    </div>
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
                                   </span>
-                                  <span
-                                    class="ant-table-column-sorter"
-                                  />
-                                </div>
-                              </span>
+                                </label>
+                              </div>
                             </th>
                             <th
-                              class=""
+                              class="ant-table-cell"
                             >
-                              <span
-                                class="ant-table-header-column"
-                              >
-                                <div>
-                                  <span
-                                    class="ant-table-column-title"
-                                  >
-                                    Name
-                                  </span>
-                                  <span
-                                    class="ant-table-column-sorter"
-                                  />
-                                </div>
-                              </span>
+                              Name
                             </th>
                             <th
-                              class=""
+                              class="ant-table-cell"
                             >
-                              <span
-                                class="ant-table-header-column"
-                              >
-                                <div>
-                                  <span
-                                    class="ant-table-column-title"
-                                  >
-                                    Tag
-                                  </span>
-                                  <span
-                                    class="ant-table-column-sorter"
-                                  />
-                                </div>
-                              </span>
+                              Tag
                             </th>
                             <th
-                              class=""
+                              class="ant-table-cell"
                             >
-                              <span
-                                class="ant-table-header-column"
-                              >
-                                <div>
-                                  <span
-                                    class="ant-table-column-title"
-                                  >
-                                    Description
-                                  </span>
-                                  <span
-                                    class="ant-table-column-sorter"
-                                  />
-                                </div>
-                              </span>
+                              Description
                             </th>
                           </tr>
                         </thead>
@@ -1522,37 +1468,34 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                         >
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="0"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox ant-checkbox-disabled"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      disabled=""
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content1
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1561,43 +1504,40 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content1
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="1"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content2
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1606,43 +1546,40 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content2
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="3"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content4
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1651,44 +1588,41 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content4
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="4"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox ant-checkbox-disabled"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      disabled=""
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content5
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1697,43 +1631,40 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content5
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="6"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content7
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1742,43 +1673,40 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content7
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="7"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content8
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1787,43 +1715,40 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content8
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="9"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content10
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1832,43 +1757,40 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content10
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="10"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content11
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1877,44 +1799,41 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content11
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="12"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox ant-checkbox-disabled"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      disabled=""
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content13
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1923,43 +1842,40 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content13
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="13"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content14
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               <span
                                 class="ant-tag"
@@ -1968,7 +1884,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               description of content14
                             </td>
@@ -2157,80 +2073,52 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                 class="ant-spin-container"
               >
                 <div
-                  class="ant-table ant-table-small ant-table-scroll-position-left"
+                  class="ant-table ant-table-small"
                 >
                   <div
-                    class="ant-table-content"
+                    class="ant-table-container"
                   >
                     <div
-                      class="ant-table-body"
+                      class="ant-table-content"
                     >
                       <table
-                        class=""
+                        style="table-layout:auto"
                       >
                         <colgroup>
                           <col
-                            class="ant-table-selection-col"
+                            style="width:60px;min-width:60px"
                           />
                           <col />
                         </colgroup>
-                        <thead
-                          class="ant-table-thead"
-                        >
+                        <thead>
                           <tr>
                             <th
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span
-                                class="ant-table-header-column"
+                              <div
+                                class="ant-table-selection"
                               >
-                                <div>
+                                <label
+                                  class="ant-checkbox-wrapper"
+                                >
                                   <span
-                                    class="ant-table-column-title"
+                                    class="ant-checkbox"
                                   >
-                                    <div
-                                      class="ant-table-selection"
-                                    >
-                                      <label
-                                        class="ant-checkbox-wrapper"
-                                      >
-                                        <span
-                                          class="ant-checkbox"
-                                        >
-                                          <input
-                                            class="ant-checkbox-input"
-                                            type="checkbox"
-                                          />
-                                          <span
-                                            class="ant-checkbox-inner"
-                                          />
-                                        </span>
-                                      </label>
-                                    </div>
+                                    <input
+                                      class="ant-checkbox-input"
+                                      type="checkbox"
+                                    />
+                                    <span
+                                      class="ant-checkbox-inner"
+                                    />
                                   </span>
-                                  <span
-                                    class="ant-table-column-sorter"
-                                  />
-                                </div>
-                              </span>
+                                </label>
+                              </div>
                             </th>
                             <th
-                              class=""
+                              class="ant-table-cell"
                             >
-                              <span
-                                class="ant-table-header-column"
-                              >
-                                <div>
-                                  <span
-                                    class="ant-table-column-title"
-                                  >
-                                    Name
-                                  </span>
-                                  <span
-                                    class="ant-table-column-sorter"
-                                  />
-                                </div>
-                              </span>
+                              Name
                             </th>
                           </tr>
                         </thead>
@@ -2239,187 +2127,169 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                         >
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="2"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content3
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="5"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content6
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="8"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              <label
+                                class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled"
+                              >
+                                <span
+                                  class="ant-checkbox ant-checkbox-disabled"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    disabled=""
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox ant-checkbox-disabled"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      disabled=""
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content9
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="11"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content12
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="14"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content15
                             </td>
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
-                            data-row-key="17"
                           >
                             <td
-                              class="ant-table-selection-column"
+                              class="ant-table-cell ant-table-selection-column"
                             >
-                              <span>
-                                <label
-                                  class="ant-checkbox-wrapper"
+                              <label
+                                class="ant-checkbox-wrapper"
+                              >
+                                <span
+                                  class="ant-checkbox"
                                 >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
                                   <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </span>
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                              </label>
                             </td>
                             <td
-                              class=""
+                              class="ant-table-cell"
                             >
                               content18
                             </td>

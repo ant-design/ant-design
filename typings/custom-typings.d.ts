@@ -53,8 +53,6 @@ declare module 'rc-steps';
 
 declare module 'rc-switch';
 
-declare module 'rc-table';
-
 declare module 'rc-upload';
 
 declare module 'rc-form*';
