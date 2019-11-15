@@ -276,7 +276,9 @@ export default function useSelection<RecordType>(
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>
               <Dropdown overlay={menu}>
-                <Down />
+                <span>
+                  <Down />
+                </span>
               </Dropdown>
             </div>
           );

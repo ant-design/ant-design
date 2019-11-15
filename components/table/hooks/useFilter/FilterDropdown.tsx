@@ -222,12 +222,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   return (
     <div className={classNames(`${prefixCls}-column`)}>
       <span className={`${prefixCls}-column-title`}>{children}</span>
+
       <span
-        role="button"
-        tabIndex={-1}
-        className={classNames(`${prefixCls}-trigger`, {
-          active: filtered,
-        })}
+        className={`${prefixCls}-trigger-container`}
         onClick={e => {
           e.stopPropagation();
         }}
@@ -239,7 +236,15 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           onVisibleChange={onVisibleChange}
           placement="bottomRight"
         >
-          {filterIcon}
+          <span
+            role="button"
+            tabIndex={-1}
+            className={classNames(`${prefixCls}-trigger`, {
+              active: filtered,
+            })}
+          >
+            {filterIcon}
+          </span>
         </Dropdown>
       </span>
     </div>

@@ -223,36 +223,42 @@
     padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
   }
 
-  &-filter-trigger {
+  &-filter-trigger-container {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     flex: none;
     align-self: stretch;
+    display: flex;
+    align-items: stretch;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background: @table-header-filter-active-bg;
+    }
+  }
+
+  &-filter-trigger {
     width: 2.3em;
-    color: @table-header-icon-color;
     font-size: @font-size-sm;
-    transition: all 0.3s;
+    display: block;
+    color: @table-header-icon-color;
+    transition: color 0.3s;
+
+    .@{iconfont-css-prefix} {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
     &:hover {
       color: @text-color-secondary;
-      background: @table-header-filter-active-bg;
     }
 
     &.active {
       color: @primary-color;
-    }
-
-    .@{iconfont-css-prefix} {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-
-      > svg {
-        margin-top: 0.1em;
-      }
     }
   }
 
