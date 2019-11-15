@@ -8,7 +8,7 @@ interface MeasureResult {
 }
 interface Option {
   rows: number;
-  endFix?: string;
+  suffix?: string;
 }
 
 // We only handle element & text node.
@@ -68,7 +68,7 @@ export default (
     document.body.appendChild(ellipsisContainer);
   }
 
-  const { rows, endFix = '' } = option;
+  const { rows, suffix = '' } = option;
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
   const originCSS = styleToString(originStyle);
@@ -104,7 +104,7 @@ export default (
   render(
     <div style={wrapperStyle}>
       <span style={wrapperStyle}>
-        {(ellipsisStr + endFix)
+        {(ellipsisStr + suffix)
           .split('')
           .reverse()
           .join('')}
@@ -114,13 +114,13 @@ export default (
     ellipsisContainer,
   );
 
-  // endFix if ellipsis
+  // suffix if ellipsis
   if (inRange()) {
     render(
       <div style={wrapperStyle}>
         <span style={wrapperStyle}>
           {contentList}
-          {endFix}
+          {suffix}
         </span>
         <span style={wrapperStyle}>{fixedContent}</span>
       </div>,
@@ -152,7 +152,7 @@ export default (
   const ellipsisContentHolder = document.createElement('span');
   ellipsisContainer.appendChild(ellipsisContentHolder);
   const ellipsisTextNode = document.createTextNode(
-    `${ellipsisStr}${isEllipsisEndFix ? '' : endFix}`,
+    `${ellipsisStr}${isEllipsisEndFix ? '' : suffix}`,
   );
   ellipsisContentHolder.appendChild(ellipsisTextNode);
 
@@ -259,7 +259,7 @@ export default (
   if (isEllipsisEndFix) {
     ellipsisChildren.unshift(ellipsisStr);
   } else {
-    ellipsisChildren.push(ellipsisStr, endFix);
+    ellipsisChildren.push(ellipsisStr, suffix);
   }
 
   return {

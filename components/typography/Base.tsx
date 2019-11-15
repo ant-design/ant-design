@@ -37,16 +37,17 @@ interface EditConfig {
 interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
+  suffix?: string;
   onExpand?: () => void;
 }
 
 export interface BlockProps extends TypographyProps {
+  title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
   type?: BaseType;
   disabled?: boolean;
   ellipsis?: boolean | EllipsisConfig;
-  endFix?: string;
   // decorations
   code?: boolean;
   mark?: boolean;
@@ -284,8 +285,8 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, expanded } = this.state;
-    const { rows } = this.getEllipsis();
-    const { children, endFix } = this.props;
+    const { rows, suffix } = this.getEllipsis();
+    const { children } = this.props;
     if (!rows || rows < 0 || !this.content || expanded) return;
 
     // Do not measure if css already support ellipsis
@@ -299,7 +300,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     const { content, text, ellipsis } = measure(
       findDOMNode(this.content),
-      { rows, endFix },
+      { rows, suffix },
       children,
       this.renderOperations(true),
       ELLIPSIS_STR,
@@ -398,10 +399,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       type,
       disabled,
       style,
-      endFix,
+      title,
       ...restProps
     } = this.props;
-    const { rows } = this.getEllipsis();
+    const { rows, suffix } = this.getEllipsis();
 
     const textProps = omit(restProps, [
       'prefixCls',
@@ -441,10 +442,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
-      ariaLabel = getChildrenAllText(children) + endFix;
+      ariaLabel = title || null;
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={getChildrenAllText(children) + endFix} aria-hidden="true">
+        <span title={title} aria-hidden="true">
           {ellipsisContent}
         </span>
       );
@@ -452,7 +453,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       textNode = (
         <span aria-hidden="true">
           {children}
-          {endFix}
+          {suffix}
         </span>
       );
     }

@@ -31,22 +31,28 @@ class Demo extends React.Component {
 
   render() {
     const { rows, songForDrinking, Hamlet } = this.state;
+    const poetry =
+      '君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来';
+    const article =
+      'To be, or not to be, that is a question: Whether it is nobler in the mind to sufferThe slings and arrows of outrageous fortune';
     return (
       <div>
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
         <div>
-          <Paragraph ellipsis={{ rows, expandable: true }} endFix={songForDrinking}>
+          <Paragraph
+            ellipsis={{ rows, expandable: true, suffix: songForDrinking }}
+            title={poetry + songForDrinking}
+          >
             <Text code strong>
               将进酒
             </Text>
-            君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来。
+            {poetry}
           </Paragraph>
-          <Paragraph ellipsis={{ rows, expandable: true }} endFix={Hamlet}>
+          <Paragraph ellipsis={{ rows, expandable: true, suffix: Hamlet }} title={article + Hamlet}>
             <Text code strong>
               Hamlet
             </Text>
-            To be, or not to be, that is a question: Whether 'tis nobler in the mind to sufferThe slings
-            and arrows of outrageous fortune.
+            {article}
           </Paragraph>
         </div>
       </div>
