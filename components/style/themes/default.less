@@ -131,12 +131,17 @@
 // Shadow
 @shadow-color: rgba(0, 0, 0, 0.15);
 @shadow-color-inverse: @component-background;
-@box-shadow-base: @shadow-1-down;
-@shadow-1-up: 0 -2px 8px @shadow-color;
-@shadow-1-down: 0 2px 8px @shadow-color;
-@shadow-1-left: -2px 0 8px @shadow-color;
-@shadow-1-right: 2px 0 8px @shadow-color;
-@shadow-2: 0 4px 12px @shadow-color;
+@box-shadow-base: @shadow-2;
+@shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.08), 0 -9px 28px 0 rgba(0, 0, 0, 0.05),
+  0 -12px 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05),
+  0 12px 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-left: -6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05),
+  -12px 0 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),
+  12px 0 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
 // Buttons
 @btn-font-weight: 400;
@@ -488,7 +493,8 @@
 @card-actions-background: @background-color-light;
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
-@card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+@card-shadow: 0px 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
+  0 5px 12px 4px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-base;
 
 // Comment
