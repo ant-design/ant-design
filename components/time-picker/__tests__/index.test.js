@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import RcTimePicker from 'rc-time-picker/es/TimePicker';
+import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
