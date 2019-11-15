@@ -15,10 +15,12 @@
   }
 
   &-steps {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: auto;
+    display: inline-block;
+    &-outer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
     &-item {
       min-width: 4px;
       margin-right: 4px;

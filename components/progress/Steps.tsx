@@ -8,7 +8,7 @@ interface StepsProps extends ProgressProps {
 
 const Steps: React.SFC<StepsProps> = props => {
   const getStyledSteps = () => {
-    const { width, count, percent = 0, strokeWidth = 6, strokeColor, prefixCls } = props;
+    const { width, count, percent = 0, strokeWidth = 8, strokeColor, prefixCls } = props;
     const current = Math.floor(count * (percent / 100));
     const stepWidth = count > 0 ? width / count : 0;
     const styleSteps = [];
@@ -28,7 +28,7 @@ const Steps: React.SFC<StepsProps> = props => {
   };
   const { prefixCls, children } = props;
   return (
-    <div className={`${prefixCls}-steps`}>
+    <div className={`${prefixCls}-steps-outer`}>
       {getStyledSteps()}
       {children}
     </div>
