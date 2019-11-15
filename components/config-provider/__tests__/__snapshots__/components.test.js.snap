@@ -11766,7 +11766,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         </div>
                       </span>
                       <span
-                        class="config-table-filter-trigger-container"
+                        class="config-table-filter-trigger-container config-table-filter-trigger-container-open"
                       >
                         <span
                           class="config-table-filter-trigger config-dropdown-trigger"
@@ -12101,7 +12101,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                         </div>
                       </span>
                       <span
-                        class="ant-table-filter-trigger-container"
+                        class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
                           class="ant-table-filter-trigger ant-dropdown-trigger"
@@ -12436,7 +12436,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         </div>
                       </span>
                       <span
-                        class="prefix-Table-filter-trigger-container"
+                        class="prefix-Table-filter-trigger-container prefix-Table-filter-trigger-container-open"
                       >
                         <span
                           class="prefix-Table-filter-trigger ant-dropdown-trigger"

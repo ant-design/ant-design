@@ -415,7 +415,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         Name
                       </span>
                       <span
-                        class="ant-table-filter-trigger-container"
+                        class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
                           class="ant-table-filter-trigger ant-dropdown-trigger"
@@ -631,7 +631,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         Name
                       </span>
                       <span
-                        class="ant-table-filter-trigger-container"
+                        class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
                       >
                         <span
                           class="ant-table-filter-trigger ant-dropdown-trigger"
