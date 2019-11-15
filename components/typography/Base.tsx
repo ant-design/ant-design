@@ -46,7 +46,7 @@ export interface BlockProps extends TypographyProps {
   type?: BaseType;
   disabled?: boolean;
   ellipsis?: boolean | EllipsisConfig;
-
+  endFix?: string;
   // decorations
   code?: boolean;
   mark?: boolean;
@@ -285,7 +285,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   syncEllipsis() {
     const { ellipsisText, isEllipsis, expanded } = this.state;
     const { rows } = this.getEllipsis();
-    const { children } = this.props;
+    const { children, endFix } = this.props;
     if (!rows || rows < 0 || !this.content || expanded) return;
 
     // Do not measure if css already support ellipsis
@@ -299,7 +299,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     const { content, text, ellipsis } = measure(
       findDOMNode(this.content),
-      rows,
+      { rows, endFix },
       children,
       this.renderOperations(true),
       ELLIPSIS_STR,
@@ -398,6 +398,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       type,
       disabled,
       style,
+      endFix,
       ...restProps
     } = this.props;
     const { rows } = this.getEllipsis();
@@ -423,14 +424,35 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     let textNode: React.ReactNode = children;
     let ariaLabel: string | null = null;
 
+    const getChildrenAllText = (children: React.ReactNode): string => {
+      if (typeof children === 'string') return children;
+      if (Object.prototype.toString.call(children) !== '[object Array]') return '';
+      const faltChildrenText: string[] = React.Children.map(children, (item: React.ReactChild) => {
+        if (typeof item === 'string') {
+          return item;
+        }
+        if (typeof item === 'object') {
+          return getChildrenAllText(item.props.children);
+        }
+        return '';
+      });
+      return faltChildrenText.join('');
+    };
+
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
-      ariaLabel = String(children);
+      ariaLabel = getChildrenAllText(children) + endFix;
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={String(children)} aria-hidden="true">
+        <span title={getChildrenAllText(children) + endFix} aria-hidden="true">
           {ellipsisContent}
-          {ELLIPSIS_STR}
+        </span>
+      );
+    } else {
+      textNode = (
+        <span aria-hidden="true">
+          {children}
+          {endFix}
         </span>
       );
     }

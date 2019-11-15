@@ -6,6 +6,10 @@ interface MeasureResult {
   finished: boolean;
   reactNode: React.ReactNode;
 }
+interface Option {
+  rows: number;
+  endFix?: string;
+}
 
 // We only handle element & text node.
 const ELEMENT_NODE = 1;
@@ -53,7 +57,7 @@ function mergeChildren(children: React.ReactNode[]): React.ReactNode[] {
 
 export default (
   originEle: HTMLElement,
-  rows: number,
+  option: Option,
   content: React.ReactNode,
   fixedContent: React.ReactNode[],
   ellipsisStr: string,
@@ -64,6 +68,7 @@ export default (
     document.body.appendChild(ellipsisContainer);
   }
 
+  const { rows, endFix = '' } = option;
   // Get origin style
   const originStyle = window.getComputedStyle(originEle);
   const originCSS = styleToString(originStyle);
@@ -72,7 +77,7 @@ export default (
     lineHeight * (rows + 1) +
     pxToNumber(originStyle.paddingTop) +
     pxToNumber(originStyle.paddingBottom);
-
+  let isEllipsisEndFix = false;
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
   ellipsisContainer.style.position = 'fixed';
@@ -90,23 +95,44 @@ export default (
 
   // Render in the fake container
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));
-  render(
-    <div style={wrapperStyle}>
-      <span style={wrapperStyle}>{contentList}</span>
-      <span style={wrapperStyle}>{fixedContent}</span>
-    </div>,
-    ellipsisContainer,
-  ); // wrap in an div for old version react
 
   // Check if ellipsis in measure div is height enough for content
   function inRange() {
     return ellipsisContainer.offsetHeight < maxHeight;
   }
 
-  // Skip ellipsis if already match
+  render(
+    <div style={wrapperStyle}>
+      <span style={wrapperStyle}>
+        {(ellipsisStr + endFix)
+          .split('')
+          .reverse()
+          .join('')}
+      </span>
+      <span style={wrapperStyle}>{fixedContent}</span>
+    </div>,
+    ellipsisContainer,
+  );
+
+  // endFix if ellipsis
   if (inRange()) {
-    unmountComponentAtNode(ellipsisContainer);
-    return { content, text: ellipsisContainer.innerHTML, ellipsis: false };
+    render(
+      <div style={wrapperStyle}>
+        <span style={wrapperStyle}>
+          {contentList}
+          {endFix}
+        </span>
+        <span style={wrapperStyle}>{fixedContent}</span>
+      </div>,
+      ellipsisContainer,
+    );
+
+    if (inRange()) {
+      unmountComponentAtNode(ellipsisContainer);
+      return { content, text: ellipsisContainer.innerHTML, ellipsis: false };
+    }
+  } else {
+    isEllipsisEndFix = true;
   }
 
   // We should clone the childNode since they're controlled by React and we can't reuse it without warning
@@ -125,7 +151,9 @@ export default (
   // Create origin content holder
   const ellipsisContentHolder = document.createElement('span');
   ellipsisContainer.appendChild(ellipsisContentHolder);
-  const ellipsisTextNode = document.createTextNode(ellipsisStr);
+  const ellipsisTextNode = document.createTextNode(
+    `${ellipsisStr}${isEllipsisEndFix ? '' : endFix}`,
+  );
   ellipsisContentHolder.appendChild(ellipsisTextNode);
 
   fixedNodes.forEach(childNode => {
@@ -155,7 +183,7 @@ export default (
         const currentStepText = fullText.slice(0, step);
         textNode.textContent = currentStepText;
 
-        if (inRange()) {
+        if (inRange() || !currentStepText) {
           return step === fullText.length
             ? {
                 finished: false,
@@ -210,13 +238,29 @@ export default (
     };
   }
 
+  function getDeleteLastCharAndReverse(str: string): string {
+    return str
+      .substring(0, str.length - 1)
+      .split('')
+      .reverse()
+      .join('');
+  }
+
   childNodes.some((childNode, index) => {
     const { finished, reactNode } = measureNode(childNode, index);
     if (reactNode) {
-      ellipsisChildren.push(reactNode);
+      ellipsisChildren.push(
+        isEllipsisEndFix ? getDeleteLastCharAndReverse(reactNode as string) : reactNode,
+      );
     }
     return finished;
   });
+
+  if (isEllipsisEndFix) {
+    ellipsisChildren.unshift(ellipsisStr);
+  } else {
+    ellipsisChildren.push(ellipsisStr, endFix);
+  }
 
   return {
     content: ellipsisChildren,
