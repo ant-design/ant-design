@@ -293,6 +293,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               <span
                 className="code-box-code-action"
                 onClick={() => {
+                  this.track({ type: 'stackblitz', demo: meta.id });
                   stackblitzSdk.openProject(stackblitzPrefillConfig);
                 }}
               >
