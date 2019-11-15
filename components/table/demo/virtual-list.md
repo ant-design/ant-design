@@ -20,8 +20,8 @@ import classNames from 'classnames';
 import { Table } from 'antd';
 
 function VirtualTable(props) {
-  const { columns, scroll, className, ...restProps } = props;
-  const [width, setWidth] = React.useState(0);
+  const { columns, scroll, className } = props;
+  const [tableWidth, setTableWidth] = React.useState(0);
 
   const widthColumnCount = columns.filter(({ width }) => !width).length;
   const mergedColumns = columns.map(column => {
@@ -31,7 +31,7 @@ function VirtualTable(props) {
 
     return {
       ...column,
-      width: Math.floor(width / widthColumnCount),
+      width: Math.floor(tableWidth / widthColumnCount),
     };
   });
 
@@ -58,7 +58,7 @@ function VirtualTable(props) {
   };
 
   React.useEffect(() => resetVirtualGrid, []);
-  React.useEffect(() => resetVirtualGrid, [width]);
+  React.useEffect(() => resetVirtualGrid, [tableWidth]);
 
   const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;
@@ -72,10 +72,10 @@ function VirtualTable(props) {
           const { width } = mergedColumns[index];
           return index === mergedColumns.length - 1 ? width - scrollbarSize - 1 : width;
         }}
-        height={300}
+        height={scroll.y}
         rowCount={rawData.length}
         rowHeight={() => 54}
-        width={width}
+        width={tableWidth}
         onScroll={({ scrollLeft }) => {
           onScroll({ scrollLeft });
         }}
@@ -97,7 +97,7 @@ function VirtualTable(props) {
 
   return (
     <ResizeObserver onResize={({ width }) => {
-      setWidth(width);
+      setTableWidth(width);
     }}>
       <Table
         {...props}
