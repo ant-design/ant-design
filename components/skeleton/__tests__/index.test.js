@@ -10,7 +10,7 @@ describe('Skeleton', () => {
         Bamboo
       </Skeleton>,
     );
-  const genSkeletonButton = props => mount(<Skeleton.Button {...props}>Button</Skeleton.Button>);
+  const genSkeletonButton = props => mount(<Skeleton.Button {...props} />);
 
   mountTest(Skeleton);
 
@@ -58,11 +58,6 @@ describe('Skeleton', () => {
   describe('button', () => {
     it('active', () => {
       const wrapper = genSkeletonButton({ active: true });
-      expect(wrapper.render()).toMatchSnapshot();
-    });
-
-    it('loading', () => {
-      const wrapper = genSkeletonButton({ loading: false });
       expect(wrapper.render()).toMatchSnapshot();
     });
   });

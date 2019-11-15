@@ -179,17 +179,6 @@ exports[`Skeleton button active 1`] = `
 </div>
 `;
 
-exports[`Skeleton button loading 1`] = `
-<button
-  class="ant-btn"
-  type="button"
->
-  <span>
-    Button
-  </span>
-</button>
-`;
-
 exports[`Skeleton paragraph rows 1`] = `
 <div
   class="ant-skeleton"

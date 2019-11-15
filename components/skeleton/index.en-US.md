@@ -48,9 +48,8 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### SkeletonButtonProps
 
-| Property | Description                      | Type    | Default | Version |
-| -------- | -------------------------------- | ------- | ------- | ------- |
-| active   | Show animation effect            | boolean | false   | 3.9.0   |
-| loading  | Display the skeleton when `true` | boolean | -       | 3.9.0   |
-
-Supports all props of `Button`.
+| Property | Description             | Type                                 | Default | Version |
+| -------- | ----------------------- | ------------------------------------ | ------- | ------- |
+| active   | Show animation effect   | boolean                              | false   |         |
+| size     | Set the size of button  | Enum{ 'large', 'small', 'default' }  | -       |         |
+| shape    | Set the shape of button | Enum{ 'circle', 'round', 'default' } | -       |         |
