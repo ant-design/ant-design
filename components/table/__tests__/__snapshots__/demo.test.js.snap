@@ -12372,7 +12372,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table ant-table-bordered"
       >
         <div
           class="ant-table-container"
@@ -12387,7 +12387,6 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                 <col />
                 <col />
                 <col />
-                <col />
               </colgroup>
               <thead>
                 <tr>
@@ -12399,17 +12398,12 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                   <th
                     class="ant-table-cell"
                   >
-                    Chinese Score
+                    Borrow
                   </th>
                   <th
                     class="ant-table-cell"
                   >
-                    Math Score
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    English Score
+                    Repayment
                   </th>
                 </tr>
               </thead>
@@ -12427,17 +12421,12 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    98
+                    10
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    60
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    70
+                    33
                   </td>
                 </tr>
                 <tr
@@ -12451,17 +12440,12 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    98
+                    100
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    66
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    89
+                    0
                   </td>
                 </tr>
                 <tr
@@ -12475,17 +12459,12 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    98
+                    10
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    90
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    70
+                    10
                   </td>
                 </tr>
                 <tr
@@ -12499,17 +12478,12 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
-                    88
+                    75
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    99
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    89
+                    45
                   </td>
                 </tr>
               </tbody>
@@ -12518,24 +12492,219 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                   <th>
                     Total
                   </th>
-                  <td
-                    colspan="3"
-                  />
+                  <td>
+                    <span
+                      class="ant-typography ant-typography-danger"
+                    >
+                      195
+                    </span>
+                  </td>
+                  <td>
+                    <span
+                      class="ant-typography"
+                    >
+                      88
+                    </span>
+                  </td>
                 </tr>
                 <tr>
-                  <td />
-                  <td>
-                    382
-                  </td>
-                  <td>
-                    315
-                  </td>
-                  <td>
-                    318
+                  <th>
+                    Balance
+                  </th>
+                  <td
+                    colspan="2"
+                  >
+                    <span
+                      class="ant-typography ant-typography-danger"
+                    >
+                      107
+                    </span>
                   </td>
                 </tr>
               </tfoot>
             </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table virtual-table ant-table-fixed-header ant-table-fixed-column"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-header"
+            style="overflow-x:scroll;margin-bottom:0"
+          >
+            <table
+              style="table-layout:fixed"
+            >
+              <colgroup>
+                <col
+                  style="width:150px;min-width:150px"
+                />
+                <col
+                  style="width:0;min-width:0"
+                />
+                <col
+                  style="width:0;min-width:0"
+                />
+                <col
+                  style="width:0;min-width:0"
+                />
+                <col
+                  style="width:200px;min-width:200px"
+                />
+                <col
+                  style="width:100px;min-width:100px"
+                />
+                <col
+                  style="width:0;min-width:0"
+                />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    A
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    B
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    C
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    D
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    E
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    F
+                  </th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div
+            class="virtual-grid"
+            style="position:relative;height:300px;width:0;overflow:auto;-webkit-overflow-scrolling:touch;will-change:transform;direction:ltr"
+          >
+            <div
+              style="height:5000000px;width:350px"
+            >
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:0;top:0;height:50px;width:150px"
+              >
+                0
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:150px;top:0;height:50px;width:0"
+              >
+                0
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:0;top:50px;height:50px;width:150px"
+              >
+                1
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:150px;top:50px;height:50px;width:0"
+              >
+                1
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:0;top:100px;height:50px;width:150px"
+              >
+                2
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:150px;top:100px;height:50px;width:0"
+              >
+                2
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:0;top:150px;height:50px;width:150px"
+              >
+                3
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:150px;top:150px;height:50px;width:0"
+              >
+                3
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:0;top:200px;height:50px;width:150px"
+              >
+                4
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:150px;top:200px;height:50px;width:0"
+              >
+                4
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:0;top:250px;height:50px;width:150px"
+              >
+                5
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:150px;top:250px;height:50px;width:0"
+              >
+                5
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:0;top:300px;height:50px;width:150px"
+              >
+                6
+              </div>
+              <div
+                class="virtual-table-cell"
+                style="position:absolute;left:150px;top:300px;height:50px;width:0"
+              >
+                6
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -14,7 +14,9 @@ title:
 Set summary content by `summary` prop.
 
 ```jsx
-import { Table } from 'antd';
+import { Table, Typography } from 'antd';
+
+const { Text } = Typography;
 
 const columns = [
   {
@@ -22,16 +24,12 @@ const columns = [
     dataIndex: 'name',
   },
   {
-    title: 'Chinese Score',
-    dataIndex: 'chinese',
+    title: 'Borrow',
+    dataIndex: 'borrow',
   },
   {
-    title: 'Math Score',
-    dataIndex: 'math',
-  },
-  {
-    title: 'English Score',
-    dataIndex: 'english',
+    title: 'Repayment',
+    dataIndex: 'repayment',
   },
 ];
 
@@ -39,30 +37,26 @@ const data = [
   {
     key: '1',
     name: 'John Brown',
-    chinese: 98,
-    math: 60,
-    english: 70,
+    borrow: 10,
+    repayment: 33,
   },
   {
     key: '2',
     name: 'Jim Green',
-    chinese: 98,
-    math: 66,
-    english: 89,
+    borrow: 100,
+    repayment: 0,
   },
   {
     key: '3',
     name: 'Joe Black',
-    chinese: 98,
-    math: 90,
-    english: 70,
+    borrow: 10,
+    repayment: 10,
   },
   {
     key: '4',
     name: 'Jim Red',
-    chinese: 88,
-    math: 99,
-    english: 89,
+    borrow: 75,
+    repayment: 45,
   },
 ];
 
@@ -71,28 +65,32 @@ ReactDOM.render(
     columns={columns}
     dataSource={data}
     pagination={false}
+    bordered
     summary={pageData => {
-      let totalChinese = 0;
-      let totalMath = 0;
-      let totalEnglish = 0;
+      let totalBorrow = 0;
+      let totalRepayment = 0;
 
-      pageData.forEach(({ chinese, math, english }) => {
-        totalChinese += chinese;
-        totalMath += math;
-        totalEnglish += english;
+      pageData.forEach(({ borrow, repayment }) => {
+        totalBorrow += borrow;
+        totalRepayment += repayment;
       });
 
       return (
         <>
           <tr>
             <th>Total</th>
-            <td colSpan={3} />
+            <td>
+              <Text type="danger">{totalBorrow}</Text>
+            </td>
+            <td>
+              <Text>{totalRepayment}</Text>
+            </td>
           </tr>
           <tr>
-            <td />
-            <td>{totalChinese}</td>
-            <td>{totalMath}</td>
-            <td>{totalEnglish}</td>
+            <th>Balance</th>
+            <td colSpan={2}>
+              <Text type="danger">{totalBorrow - totalRepayment}</Text>
+            </td>
           </tr>
         </>
       );
@@ -101,3 +99,10 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+<style>
+  #components-table-demo-summary tfoot th,
+  #components-table-demo-summary tfoot td {
+    background: #fafafa;
+  }
+</style>
