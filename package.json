@@ -129,7 +129,7 @@
     "rc-switch": "~1.9.0",
     "rc-table": "~6.9.4",
     "rc-tabs": "~9.6.4",
-    "rc-time-picker": "~3.7.1",
+    "rc-time-picker": "~4.0.0-alpha.2",
     "rc-tooltip": "~3.7.3",
     "rc-tree": "~3.0.0-alpha.37",
     "rc-tree-select": "~3.0.0-alpha.5",
