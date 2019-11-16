@@ -2,7 +2,7 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
-import { AlignType, ActionType } from 'rc-trigger/lib/interface';
+import { AlignType, ActionType, BuildInPlacements } from 'rc-trigger/lib/interface';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -41,7 +41,7 @@ export interface AbstractTooltipProps {
   className?: string;
   overlayStyle?: React.CSSProperties;
   placement?: TooltipPlacement;
-  builtinPlacements?: Object;
+  builtinPlacements?: BuildInPlacements;
   defaultVisible?: boolean;
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
