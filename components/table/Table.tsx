@@ -30,6 +30,8 @@ import renderExpandIcon from './ExpandIcon';
 import scrollTo from '../_util/scrollTo';
 import defaultLocale from '../locale/en_US';
 
+export { ColumnsType, TablePaginationConfig };
+
 const EMPTY_LIST: any[] = [];
 
 interface ChangeEventInfo<RecordType> {

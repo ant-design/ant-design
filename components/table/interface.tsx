@@ -94,7 +94,10 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
-export type ColumnsType<RecordType> = (ColumnGroupType<RecordType> | ColumnType<RecordType>)[];
+export type ColumnsType<RecordType = unknown> = (
+  | ColumnGroupType<RecordType>
+  | ColumnType<RecordType>
+)[];
 
 export interface SelectionItem {
   key: string;
