@@ -46,7 +46,7 @@
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit.js",
     "compile": "antd-tools run compile",
-    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp .circleci/config.yml _site && npm run site:test",
+    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp .circleci/ _site -r && npm run site:test",
     "deploy": "bisheng gh-pages --push-only",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "dist": "antd-tools run dist",
