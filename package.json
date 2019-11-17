@@ -234,7 +234,7 @@
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
     "simple-git": "^1.113.0",
-    "stylelint": "^11.0.0",
+    "stylelint": "^12.0.0",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^19.0.0",
