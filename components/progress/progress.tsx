@@ -12,7 +12,7 @@ import Steps from './Steps';
 import { validProgress } from './utils';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard', 'steps');
-export type ProgressType = (typeof ProgressTypes)[number];
+export type ProgressType = typeof ProgressTypes[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
 export type ProgressSize = 'default' | 'small';
 export type StringGradients = { [percentage: string]: string };
@@ -25,7 +25,7 @@ export interface ProgressProps {
   percent?: number;
   successPercent?: number;
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
-  status?: (typeof ProgressStatuses)[number];
+  status?: typeof ProgressStatuses[number];
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
@@ -81,7 +81,7 @@ export default class Progress extends React.Component<ProgressProps> {
     return status || 'normal';
   }
 
-  renderProcessInfo(prefixCls: string, progressStatus: (typeof ProgressStatuses)[number]) {
+  renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
     const { showInfo, format, type, percent, successPercent } = this.props;
     if (!showInfo) return null;
 
@@ -123,7 +123,7 @@ export default class Progress extends React.Component<ProgressProps> {
         </Circle>
       );
     } else if (type === 'steps') {
-      const { width = 132, count = 3 } = this.props;
+      const { width = 42, count = 3 } = this.props;
       progress = (
         <Steps {...this.props} prefixCls={prefixCls} width={width} count={count}>
           {progressInfo}

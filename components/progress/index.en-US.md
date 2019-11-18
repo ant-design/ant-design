@@ -57,4 +57,4 @@ Properties that shared by all types.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | count | the total step count | number | 3 | 4.0 |
-| width | to set the canvas width of the steps progress, unit: `px` | number | 132 | 4.0 |
+| width | to set the canvas width of the steps progress, unit: `px` | number | 42 | 4.0 |
