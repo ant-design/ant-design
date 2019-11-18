@@ -56,11 +56,13 @@ export interface TableProps<RecordType>
     | 'internalHooks'
     | 'internalRefs'
     | 'data'
+    | 'columns'
     | 'expandIconColumnIndex'
     | 'scroll'
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
+  columns?: ColumnsType<RecordType>;
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
   size?: TableSize;
