@@ -114,14 +114,14 @@ jobs:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
+      - name: debug
+        run: ls -l
+
       - name: restore cache from node_modules
         uses: actions/cache@v1
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: debug
-        run: ls -l
 
       - name: lint
         run: npm run lint
