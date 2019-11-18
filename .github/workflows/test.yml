@@ -31,9 +31,6 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: debug
-        run: ls -l
-
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
@@ -122,9 +119,6 @@ jobs:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
-      - name: debug
-        run: ls -l
-
       - name: restore cache from node_modules
         uses: actions/cache@v1
         with:
@@ -179,7 +173,7 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: cache lib
+      - name: restore cache from lib
         uses: actions/cache@v1
         with:
           path: lib
@@ -211,7 +205,7 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: cache es
+      - name: restore cache from es
         uses: actions/cache@v1
         with:
           path: es
