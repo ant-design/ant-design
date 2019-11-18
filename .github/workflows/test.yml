@@ -10,6 +10,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
+      - name: cache package-lock.json
+        uses: actions/cache@v1
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
       - name: create package-lock.json
         run: npm i --package-lock-only
 
