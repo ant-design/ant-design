@@ -1,6 +1,5 @@
 import {
   GetRowKey,
-  ColumnGroupType,
   ColumnType as RcColumnType,
   ExpandableConfig,
 } from 'rc-table/lib/interface';
@@ -92,6 +91,10 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   onFilter?: (value: any, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
+}
+
+export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
+  children: ColumnsType<RecordType>
 }
 
 export type ColumnsType<RecordType = unknown> = (
