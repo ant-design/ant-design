@@ -12,9 +12,6 @@ jobs:
         uses: actions/checkout@master
 
       - name: create package-lock.json
-        run: npm i --package-lock-only
-
-      - name: create package-lock.json
         run: |
           npm i --package-lock-only
           mkdir package-temp-dir
