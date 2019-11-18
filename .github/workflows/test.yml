@@ -11,8 +11,19 @@ jobs:
       - name: checkout
         uses: actions/checkout@master
 
+      - name: create package-lock.json
+        run: npm i --package-lock-only
+
+      - name: cache node_modules
+        id: node_modules_cache_id
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-lock.json') }}
+
       - name: install
-        run: npm install
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: npm ci
 
       - name: test
         run: npm run test-all
