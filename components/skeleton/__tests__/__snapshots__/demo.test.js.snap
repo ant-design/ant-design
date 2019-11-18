@@ -49,12 +49,28 @@ exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/skeleton/demo/button.md correctly 1`] = `
-<div
-  class="ant-skeleton"
->
-  <span
-    class="ant-skeleton-button"
-  />
+<div>
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <span
+      class="ant-switch-inner"
+    >
+      Animation not activated
+    </span>
+  </button>
+  <br />
+  <br />
+  <div
+    class="ant-skeleton"
+  >
+    <span
+      class="ant-skeleton-button"
+    />
+  </div>
 </div>
 `;
 
