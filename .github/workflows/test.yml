@@ -23,6 +23,9 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
+      - name: debug
+        run: ls -l
+
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
@@ -116,6 +119,9 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: debug
+        run: ls -l
 
       - name: lint
         run: npm run lint
