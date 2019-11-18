@@ -97,7 +97,8 @@ jobs:
 
       - name: test
         run: npm test
-        env: dist
+        env:
+          LIB_DIR: dist
 
     needs: setup
 
