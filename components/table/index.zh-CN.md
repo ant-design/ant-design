@@ -66,18 +66,11 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| 'auto' \| 'fixed' | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` | 3.24.0 |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
-| childrenColumnName | 指定树形结构的列名 | string\[] | children | 3.4.2 |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)\[] | - |  |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |  |
 | dataSource | 数据数组 | any\[] |  |  |
-| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |  |
-| defaultExpandedRowKeys | 默认展开的行 | string\[] | - |  |
-| expandedRowKeys | 展开的行，控制属性 | string\[] | - |  |
-| expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |  |
-| expandIcon | 自定义展开图标，参考[示例](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - | 3.11.3 |
-| expandRowByClick | 通过点击行来展开子行 | boolean | `false` | 3.0.1 |
+| expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | Function(currentPageData) |  |  |
-| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | loading | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |  |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | filterConfirm: '确定' <br> filterReset: '重置' <br> emptyText: '暂无数据' <br> [默认值](https://github.com/ant-design/ant-design/issues/575#issuecomment-159169511) |  |
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object |  |  |
@@ -87,10 +80,9 @@ const columns = [
 | scroll | 表格是否可滚动，[配置项](#scroll) | object | - |  |
 | showHeader | 是否显示表头 | boolean | true |  |
 | size | 表格大小 | default \| middle \| small | default |  |
+| summary | 总结栏 | (currentData) => ReactNode | - |  |
 | title | 表格标题 | Function(currentPageData) |  |  |
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) |  |  |
-| onExpand | 点击展开图标时触发 | Function(expanded, record) |  |  |
-| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |  |
 | onHeaderRow | 设置头部行属性 | Function(column, index) | - |  |
 | onRow | 设置行属性 | Function(record, index) | - |  |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
@@ -128,7 +120,7 @@ const columns = [
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean | false | 3.24.0 |
 | className | 列样式类名 | string | - |  |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number |  |  |
-| dataIndex | 列数据在数据项中对应的 key，支持 `a.b.c`、`a[0].b.c[1]` 的嵌套写法 | string | - |  |
+| dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
 | defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - | 3.9.3 |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
@@ -165,6 +157,24 @@ const columns = [
 | position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' | 3.3.0 |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
+
+### expandable
+
+展开功能的配置。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| childrenColumnName | 指定树形结构的列名 | string\[] | children |
+| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
+| defaultExpandedRowKeys | 默认展开的行 | string\[] |  |
+| expandIcon | 自定义展开图标，参考[示例](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode |  |
+| expandedRowKeys | 展开的行，控制属性 | string\[] |  |
+| expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode |  |
+| expandRowByClick | 通过点击行来展开子行 | boolean | `false` |
+| indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |
+| rowExpandable | 设置是否允许行展开 | (record) => boolean |  |
+| onExpand | 点击展开图标时触发 | Function(expanded, record) |  |
+| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) |  |
 
 ### rowSelection
 
@@ -255,3 +265,15 @@ return <Table rowKey="uid" />;
 // 或
 return <Table rowKey={record => record.uid} />;
 ```
+
+## 从 v3 升级到 v4
+
+Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMouseEnter`、`onRowMouseLeave` 等方法。如果你使用的 api 为文档中列举的 api，那你不用担心会丢失功能。
+
+此外，比较重大的改动为 `dataIndex` 从支持路径嵌套如 `user.age` 改成了数组路径如 `['user', 'age']`。以解决过去属性名带 `.` 需要额外的数据转化问题。
+
+## FAQ
+
+### 如何在没有数据或只有一页数据时隐藏分页栏
+
+你可以设置 `pagination` 的 `hideOnSinglePage` 属性为 `true`。
