@@ -43,6 +43,8 @@ export interface DrawerProps {
   className?: string;
   handler?: React.ReactNode;
   keyboard?: boolean;
+  footer?: React.ReactNode;
+  footerStyle?: React.CSSProperties;
 }
 
 export interface IDrawerState {
@@ -157,6 +159,20 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     );
   }
 
+  renderFooter() {
+    const { footer, footerStyle, prefixCls } = this.props;
+    if (!footer) {
+      return null;
+    }
+
+    const footerClassName = `${prefixCls}-footer`;
+    return (
+      <div className={footerClassName} style={footerStyle}>
+        {footer}
+      </div>
+    );
+  }
+
   renderCloseIcon() {
     const { closable, prefixCls, onClose } = this.props;
     return (
@@ -200,6 +216,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
         <div className={`${prefixCls}-body`} style={bodyStyle}>
           {this.props.children}
         </div>
+        {this.renderFooter()}
       </div>
     );
   };
