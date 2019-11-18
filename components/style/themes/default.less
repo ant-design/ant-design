@@ -79,8 +79,8 @@
 
 // The background colors for active and hover states for things like
 // list items or table cells.
-@item-active-bg: @primary-1;
-@item-hover-bg: @primary-1;
+@item-active-bg: #fafafa;
+@item-hover-bg: #fafafa;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
@@ -341,9 +341,13 @@
 @select-border-color: @border-color-base;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
-@select-item-selected-bg: @background-color-light;
+@select-item-selected-bg: @blue-1;
 @select-item-active-bg: @item-active-bg;
 @select-background: @component-background;
+
+// Cascader
+// ---
+@cascader-item-selected-bg: @blue-1;
 
 // Anchor
 // ---
@@ -439,9 +443,9 @@
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: rgba(0, 0, 0, 0.01);
-@table-row-hover-bg: @primary-1;
+@table-row-hover-bg: @item-hover-bg;
 @table-selected-row-color: inherit;
-@table-selected-row-bg: #fafafa;
+@table-selected-row-bg: @primary-1;
 @table-body-selected-sort-bg: @table-selected-row-bg;
 @table-selected-row-hover-bg: @table-selected-row-bg;
 @table-expanded-row-bg: #fbfbfb;
