@@ -11,8 +11,10 @@ jobs:
         uses: actions/checkout@master
 
       - name: create package-lock.json
+        run: npm i --package-lock-only
+
+      - name: hack for singe file
         run: |
-          npm i --package-lock-only
           mkdir package-temp-dir
           cp package-lock.json package-temp-dir
 
