@@ -141,7 +141,7 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
     <span
       class="ant-switch-inner"
     >
-      开
+      Open
     </span>
   </button>
   <br />
