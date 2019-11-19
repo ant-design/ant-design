@@ -44,6 +44,7 @@ export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> 
     | React.ReactElement<InputProps>
     | React.ReactElement<OptionProps>
     | Array<React.ReactElement<OptionProps>>;
+  inputProps?: InputProps;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -70,12 +71,12 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
   };
 
   getInputElement = () => {
-    const { children } = this.props;
+    const { children, inputProps } = this.props;
     const element =
       children && React.isValidElement(children) && children.type !== Option ? (
         React.Children.only(this.props.children)
       ) : (
-        <Input />
+        <Input {...inputProps}/>
       );
     const elementProps = { ...(element as React.ReactElement<any>).props };
     // https://github.com/ant-design/ant-design/pull/7742
