@@ -37,16 +37,17 @@ interface EditConfig {
 interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
+  suffix?: string;
   onExpand?: () => void;
 }
 
 export interface BlockProps extends TypographyProps {
+  title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
   type?: BaseType;
   disabled?: boolean;
   ellipsis?: boolean | EllipsisConfig;
-
   // decorations
   code?: boolean;
   mark?: boolean;
@@ -284,7 +285,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, expanded } = this.state;
-    const { rows } = this.getEllipsis();
+    const { rows, suffix } = this.getEllipsis();
     const { children } = this.props;
     if (!rows || rows < 0 || !this.content || expanded) return;
 
@@ -299,7 +300,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     const { content, text, ellipsis } = measure(
       findDOMNode(this.content),
-      rows,
+      { rows, suffix },
       children,
       this.renderOperations(true),
       ELLIPSIS_STR,
@@ -398,9 +399,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       type,
       disabled,
       style,
+      title,
       ...restProps
     } = this.props;
-    const { rows } = this.getEllipsis();
+    const { rows, suffix } = this.getEllipsis();
 
     const textProps = omit(restProps, [
       'prefixCls',
@@ -423,14 +425,35 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     let textNode: React.ReactNode = children;
     let ariaLabel: string | null = null;
 
+    const getChildrenAllText = (children: React.ReactNode): string => {
+      if (typeof children === 'string') return children;
+      if (Object.prototype.toString.call(children) !== '[object Array]') return '';
+      const faltChildrenText: string[] = React.Children.map(children, (item: React.ReactChild) => {
+        if (typeof item === 'string') {
+          return item;
+        }
+        if (typeof item === 'object') {
+          return getChildrenAllText(item.props.children);
+        }
+        return '';
+      });
+      return faltChildrenText.join('');
+    };
+
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
-      ariaLabel = String(children);
+      ariaLabel = title || null;
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={String(children)} aria-hidden="true">
+        <span title={title} aria-hidden="true">
           {ellipsisContent}
-          {ELLIPSIS_STR}
+        </span>
+      );
+    } else {
+      textNode = (
+        <span aria-hidden="true">
+          {children}
+          {suffix}
         </span>
       );
     }

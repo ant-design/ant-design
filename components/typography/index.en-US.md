@@ -55,7 +55,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | delete line style | boolean | false | 3.14.0 |
 | disabled | Disable content | boolean | false | 3.14.0 |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false | 3.14.0 |
-| ellipsis | Display ellipsis when overflow. Can config rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false | 3.14.0 |
+| ellipsis | Display ellipsis when overflow. Can config rows, expandable and suffix by using object | boolean \| { rows: number, expandable: boolean, suffix: string, onExpand: Function } | false | 3.14.0 |
 | mark | mark style | boolean | false | 3.14.0 |
 | underline | underline style | boolean | false | 3.14.0 |
 | onChange | Trigger when user edit the content | Function(string) | - | 3.14.0 |
