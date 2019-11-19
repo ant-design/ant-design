@@ -79,7 +79,7 @@
 
 // The background colors for active and hover states for things like
 // list items or table cells.
-@item-active-bg: #f5f5f5;
+@item-active-bg: @primary-1;
 @item-hover-bg: #f5f5f5;
 
 // ICONFONT
@@ -342,7 +342,7 @@
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
 @select-item-selected-bg: @blue-1;
-@select-item-active-bg: @item-active-bg;
+@select-item-active-bg: @item-hover-bg;
 @select-background: @component-background;
 
 // Cascader
@@ -411,7 +411,7 @@
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
 @menu-highlight-color: @primary-color;
-@menu-item-active-bg: @item-active-bg;
+@menu-item-active-bg: @primary-1;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
 @menu-icon-size: @font-size-base;
@@ -465,7 +465,7 @@
 // ---
 @time-picker-panel-column-width: 56px;
 @time-picker-panel-width: @time-picker-panel-column-width * 3;
-@time-picker-selected-bg: @background-color-base;
+@time-picker-selected-bg: @item-active-bg;
 
 // Carousel
 // ---
