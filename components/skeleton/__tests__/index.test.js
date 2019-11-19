@@ -60,5 +60,21 @@ describe('Skeleton', () => {
       const wrapper = genSkeletonButton({ active: true });
       expect(wrapper.render()).toMatchSnapshot();
     });
+    it('size', () => {
+      const wrapperDefault = genSkeletonButton({ size: 'default' });
+      expect(wrapperDefault.render()).toMatchSnapshot();
+      const wrapperLarge = genSkeletonButton({ size: 'large' });
+      expect(wrapperLarge.render()).toMatchSnapshot();
+      const wrapperSmall = genSkeletonButton({ size: 'small' });
+      expect(wrapperSmall.render()).toMatchSnapshot();
+    });
+    it('shape', () => {
+      const wrapperDefault = genSkeletonButton({ shape: 'default' });
+      expect(wrapperDefault.render()).toMatchSnapshot();
+      const wrapperRound = genSkeletonButton({ shape: 'round' });
+      expect(wrapperRound.render()).toMatchSnapshot();
+      const wrapperCircle = genSkeletonButton({ shape: 'circle' });
+      expect(wrapperCircle.render()).toMatchSnapshot();
+    });
   });
 });
