@@ -106,10 +106,6 @@
       padding: 0;
       overflow: auto;
       list-style: none;
-      > .LazyLoad {
-        animation: transferHighlightIn 1s;
-      }
-
       &-item {
         min-height: 32px;
         padding: 6px @control-padding-horizontal;
@@ -182,14 +178,5 @@
         font-size: 12px;
       }
     }
-  }
-}
-
-@keyframes transferHighlightIn {
-  0% {
-    background: @primary-2;
-  }
-  100% {
-    background: transparent;
   }
 }
