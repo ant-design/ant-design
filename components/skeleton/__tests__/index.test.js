@@ -14,6 +14,16 @@ describe('Skeleton', () => {
 
   mountTest(Skeleton);
 
+  it('should without avatar and paragraph', () => {
+    const wrapperSmall = genSkeleton({ avatar: false, paragraph: false });
+    expect(wrapperSmall.render()).toMatchSnapshot();
+  });
+
+  it('should square avatar', () => {
+    const wrapperSmall = genSkeleton({ avatar: true, paragraph: false });
+    expect(wrapperSmall.render()).toMatchSnapshot();
+  });
+
   describe('avatar', () => {
     it('size', () => {
       const wrapperSmall = genSkeleton({ avatar: { size: 'small' } });

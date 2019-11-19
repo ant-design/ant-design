@@ -315,6 +315,41 @@ exports[`Skeleton paragraph width 2`] = `
 </div>
 `;
 
+exports[`Skeleton should square avatar 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-with-avatar"
+>
+  <div
+    class="ant-skeleton-header"
+  >
+    <span
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
+    />
+  </div>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+    />
+  </div>
+</div>
+`;
+
+exports[`Skeleton should without avatar and paragraph 1`] = `
+<div
+  class="ant-skeleton"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+    />
+  </div>
+</div>
+`;
+
 exports[`Skeleton title width 1`] = `
 <div
   class="ant-skeleton"
