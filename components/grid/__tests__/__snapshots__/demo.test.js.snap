@@ -487,7 +487,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
   </div>
   <div
     class="ant-row"
-    style="margin-top:-10px;margin-bottom:-10px"
+    style="margin-top:-10px;margin-bottom:10px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
@@ -877,7 +877,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
   </div>
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:8px"
   >
     <div
       class="ant-col ant-col-6"
@@ -914,7 +914,7 @@ exports[`renders ./components/grid/demo/playground.md correctly 1`] = `
   </div>
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
+    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:8px"
   >
     <div
       class="ant-col ant-col-6"
