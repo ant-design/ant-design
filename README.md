@@ -10,7 +10,7 @@
 
 An enterprise-class UI design language and React UI library.
 
-[![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design) ![CI Status](https://github.com/ant-design/ant-design/workflows/Node%20CI/badge.svg) [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master) [![](https://flat.badgen.net/npm/v/antd?icon=npm)](https://www.npmjs.com/package/antd) [![](https://badgen.net/npm/v/antd/next)](https://www.npmjs.com/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design) ![CI Status](https://github.com/ant-design/ant-design/workflows/test/badge.svg) [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master) [![](https://flat.badgen.net/npm/v/antd?icon=npm)](https://www.npmjs.com/package/antd) [![](https://badgen.net/npm/v/antd/next)](https://www.npmjs.com/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
 
 [![Dependencies](https://img.shields.io/david/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design) [![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design?type=dev) [![Total alerts](https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design)](https://lgtm.com/projects/g/ant-design/ant-design/alerts/) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fant-design%2Fant-design.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fant-design%2Fant-design?ref=badge_shield) [![Issues need help](https://flat.badgen.net/github/label-issues/ant-design/ant-design/help%20wanted/open)](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
 
@@ -36,8 +36,8 @@ English | [简体中文](./README-zh_CN.md)
 - [Electron](http://electron.atom.io/)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
-| --- | --- | --- | --- | --- | --- |
-| IE9, IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| IE9, IE10, IE11, Edge                                                                                                                                                                                           | last 2 versions                                                                                                                                                                                                   | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                           | last 2 versions                                                                                                                                                                                                       |
 
 ## 📦 Install
 
@@ -52,14 +52,14 @@ yarn add antd
 ## 🔨 Usage
 
 ```jsx
-import { DatePicker } from 'antd';
+import { DatePicker } from "antd";
 ReactDOM.render(<DatePicker />, mountNode);
 ```
 
 And import style manually:
 
 ```jsx
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
 ```
 
 Or [import components on demand](https://ant.design/docs/react/getting-started#Import-on-Demand).
