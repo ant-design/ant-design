@@ -106,10 +106,6 @@
       padding: 0;
       overflow: auto;
       list-style: none;
-      > .LazyLoad {
-        animation: transferHighlightIn 1s;
-      }
-
       &-item {
         min-height: 32px;
         padding: 6px @control-padding-horizontal;
@@ -128,6 +124,10 @@
       &-item:not(&-item-disabled):hover {
         background-color: @item-hover-bg;
         cursor: pointer;
+      }
+
+      &-item-checked {
+        background-color: @item-active-bg;
       }
 
       &-item-disabled {
@@ -178,14 +178,5 @@
         font-size: 12px;
       }
     }
-  }
-}
-
-@keyframes transferHighlightIn {
-  0% {
-    background: @primary-2;
-  }
-  100% {
-    background: transparent;
   }
 }

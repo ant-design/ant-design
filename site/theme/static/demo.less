@@ -13,7 +13,7 @@
   width: 100%;
   margin: 0 0 16px;
   border: 1px solid @site-border-color-split;
-  border-radius: @border-radius-sm;
+  border-radius: @border-radius-base;
   transition: all 0.2s;
 
   &:target {
@@ -37,7 +37,7 @@
     padding: 1px 8px;
     color: #777;
     background: #fff;
-    border-radius: @border-radius-sm @border-radius-sm 0 0;
+    border-radius: @border-radius-base @border-radius-base 0 0;
     transition: background-color 0.4s;
 
     a,
@@ -79,7 +79,7 @@
       position: relative;
       width: 100%;
       font-size: @font-size-base;
-      border-radius: 0 0 @border-radius-sm @border-radius-sm;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
       transition: background-color 0.4s;
     }
 
@@ -143,7 +143,7 @@
   .highlight-wrapper {
     display: none;
     overflow: auto;
-    border-radius: 0 0 @border-radius-sm @border-radius-sm;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
 
     &-expand {
       display: block;
