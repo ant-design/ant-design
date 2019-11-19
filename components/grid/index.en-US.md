@@ -75,7 +75,7 @@ Following is a brief look at how it works:
 
 ## Flex layout
 
-Our grid systems support Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
+Our grid systems base on Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
 
 Flex layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
 
@@ -91,7 +91,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | the vertical alignment of the flex layout | `top` `middle` `bottom` | `top` |  |
-| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` (supported after `3.24.0`) | number/object/array | 0 |  ||
+| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` (supported after `3.24.0`) | number/object/array | 0 |  |  |
 | justify | horizontal arrangement of the flex layout | `start` `end` `center` `space-around` `space-between` | `start` |  |
 
 ### Col
@@ -100,7 +100,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | --- | --- | --- | --- | --- |
 | flex | flex layout style | string \| number | - | 3.19.0 |
 | offset | the number of cells to offset Col from the left | number | 0 |  |
-| order | raster order, used in `flex` layout mode | number | 0 |  |
+| order | raster order | number | 0 |  |
 | pull | the number of cells that raster is moved to the left | number | 0 |  |
 | push | the number of cells that raster is moved to the right | number | 0 |  |
 | span | raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
