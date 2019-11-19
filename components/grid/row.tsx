@@ -15,8 +15,8 @@ const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-betwee
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  align?: (typeof RowAligns)[number];
-  justify?: (typeof RowJustify)[number];
+  align?: typeof RowAligns[number];
+  justify?: typeof RowJustify[number];
   prefixCls?: string;
 }
 
@@ -102,7 +102,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       ...(gutter[1]! > 0
         ? {
             marginTop: gutter[1]! / -2,
-            marginBottom: gutter[1]! / -2,
+            marginBottom: gutter[1]! / 2,
           }
         : {}),
       ...style,

@@ -73,11 +73,9 @@ Following is a brief look at how it works:
 - The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `<Col span={8} />`.
 - If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
 
-## Flex layout
-
 Our grid systems base on Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
 
-Flex layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
+Layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
 
 ## API
 
@@ -90,9 +88,9 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | the vertical alignment of the flex layout | `top` `middle` `bottom` | `top` |  |
+| align | vertical alignment | `top` `middle` `bottom` | `top` |  |
 | gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` (supported after `3.24.0`) | number/object/array | 0 |  |  |
-| justify | horizontal arrangement of the flex layout | `start` `end` `center` `space-around` `space-between` | `start` |  |
+| justify | horizontal arrangement | `start` `end` `center` `space-around` `space-between` | `start` |  |
 
 ### Col
 
