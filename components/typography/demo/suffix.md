@@ -39,10 +39,7 @@ class Demo extends React.Component {
       <div>
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
         <div>
-          <Paragraph
-            ellipsis={{ rows, expandable: true, suffix: songForDrinking }}
-            title={poetry + songForDrinking}
-          >
+          <Paragraph ellipsis={{ rows, suffix: songForDrinking }} title={poetry + songForDrinking}>
             <Text code strong>
               将进酒
             </Text>

@@ -269,8 +269,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   canUseCSSEllipsis(): boolean {
     const { clientRendered } = this.state;
     const { editable, copyable } = this.props;
-    const { rows, expandable } = this.getEllipsis();
+    const { rows, expandable, suffix } = this.getEllipsis();
 
+    if (suffix) return false;
     // Can't use css ellipsis since we need to provide the place for button
     if (editable || copyable || expandable || !clientRendered) {
       return false;
@@ -290,7 +291,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     if (!rows || rows < 0 || !this.content || expanded) return;
 
     // Do not measure if css already support ellipsis
-    if (this.canUseCSSEllipsis()) return;
+    if (this.canUseCSSEllipsis() && !suffix) return;
 
     warning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
@@ -424,21 +425,6 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     let textNode: React.ReactNode = children;
     let ariaLabel: string | null = null;
-
-    const getChildrenAllText = (children: React.ReactNode): string => {
-      if (typeof children === 'string') return children;
-      if (Object.prototype.toString.call(children) !== '[object Array]') return '';
-      const faltChildrenText: string[] = React.Children.map(children, (item: React.ReactChild) => {
-        if (typeof item === 'string') {
-          return item;
-        }
-        if (typeof item === 'object') {
-          return getChildrenAllText(item.props.children);
-        }
-        return '';
-      });
-      return faltChildrenText.join('');
-    };
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
