@@ -95,7 +95,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 | 成员 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| flex | flex 布局属性 | string \| number | - | 3.19.0 |
+| flex | flex 布局属性 | string \| number | - |  |
 | offset | 栅格左侧的间隔格数，间隔内不可以有栅格 | number | 0 |  |
 | order | 栅格顺序 | number | 0 |  |
 | pull | 栅格向左移动格数 | number | 0 |  |
