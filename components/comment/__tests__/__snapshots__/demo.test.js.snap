@@ -152,7 +152,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
         >
           <div>
             <div
-              class="ant-row-flex ant-form-item"
+              class="ant-row ant-form-item"
             >
               <div
                 class="ant-col ant-form-item-control"
@@ -168,7 +168,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-row-flex ant-form-item"
+              class="ant-row ant-form-item"
             >
               <div
                 class="ant-col ant-form-item-control"
