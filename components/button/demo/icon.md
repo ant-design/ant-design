@@ -18,24 +18,32 @@ title:
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
 ```jsx
-import { Button } from 'antd';
+import { Button, Tooltip } from 'antd';
 import { Search as IconSearch } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
-    <Button type="primary" shape="circle" icon={<IconSearch />} />
+    <Tooltip title="search">
+      <Button type="primary" shape="circle" icon={<IconSearch />} />
+    </Tooltip>
     <Button type="primary" shape="circle">
       A
     </Button>
     <Button type="primary" icon={<IconSearch />}>
       Search
     </Button>
-    <Button shape="circle" icon={<IconSearch />} />
+    <Tooltip title="search">
+      <Button shape="circle" icon={<IconSearch />} />
+    </Tooltip>
     <Button icon={<IconSearch />}>Search</Button>
     <br />
-    <Button shape="circle" icon={<IconSearch />} />
+    <Tooltip title="search">
+      <Button shape="circle" icon={<IconSearch />} />
+    </Tooltip>
     <Button icon={<IconSearch />}>Search</Button>
-    <Button type="dashed" shape="circle" icon={<IconSearch />} />
+    <Tooltip title="search">
+      <Button type="dashed" shape="circle" icon={<IconSearch />} />
+    </Tooltip>
     <Button type="dashed" icon={<IconSearch />}>
       Search
     </Button>
