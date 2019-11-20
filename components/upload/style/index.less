@@ -369,6 +369,7 @@
       .@{upload-prefix-cls}-list-rtl& {
         right: 50%;
         left: auto;
+        transform: translate(50%, -50%);
       }
     }
 
@@ -407,6 +408,7 @@
       padding-right: 18px;
 
       .@{upload-prefix-cls}-list-rtl& {
+        padding-right: 48px;
         padding-left: 18px;
       }
     }
@@ -415,6 +417,7 @@
       padding-right: 36px;
 
       .@{upload-prefix-cls}-list-rtl& {
+        padding-right: 48px;
         padding-left: 36px;
       }
     }
@@ -505,6 +508,7 @@
       .@{upload-prefix-cls}-list-rtl& {
         right: 50%;
         left: auto;
+        transform: translate(50%, -50%);
       }
 
       .@{iconfont-css-prefix}-eye-o,
@@ -549,6 +553,11 @@
       position: absolute;
       bottom: 10px;
       display: block;
+
+      .@{upload-prefix-cls}-list-rtl& {
+        margin: 8px 0 0;
+        padding: 0;
+      }
     }
 
     .@{upload-item}-uploading {
