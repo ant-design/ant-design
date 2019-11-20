@@ -119,9 +119,10 @@ const RegistrationForm = () => {
     }
   };
 
-  const websiteOptions = autoCompleteResult.map(website => (
-    <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-  ));
+  const websiteOptions = autoCompleteResult.map(website => ({
+    label: website,
+    value: website,
+  }));
 
   return (
     <Form
@@ -227,7 +228,7 @@ const RegistrationForm = () => {
         label="Website"
         rules={[{ required: true, message: 'Please input website!' }]}
       >
-        <AutoComplete dataSource={websiteOptions} onChange={onWebsiteChange} placeholder="website">
+        <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
           <Input />
         </AutoComplete>
       </Form.Item>

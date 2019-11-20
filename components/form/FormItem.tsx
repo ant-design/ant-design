@@ -200,14 +200,17 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             style={style}
             key="row"
             {...omit(restProps, [
-              'id', // It is deprecated because `htmlFor` is its replacement.
+              'colon',
+              'extra',
+              'getValueFromEvent',
               'htmlFor',
+              'id', // It is deprecated because `htmlFor` is its replacement.
               'label',
               'labelAlign',
               'labelCol',
+              'normalize',
+              'valuePropName',
               'wrapperCol',
-              'extra',
-              'colon',
             ])}
           >
             {/* Label */}
