@@ -17,6 +17,7 @@ A carousel component. Scales with its container.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterChange | Callback function called after the current index changes | function(current) | - |  |
+| arrows | Add arrow 'prev' and 'next' sliders | boolean | `false` |  |
 | autoplay | Whether to scroll automatically | boolean | `false` |  |
 | beforeChange | Callback function called before the current index changes | function(from, to) | - |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | bottom | 3.17.0 |
