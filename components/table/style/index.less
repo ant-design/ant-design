@@ -147,6 +147,9 @@
         margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
               ceil(@font-size-sm * 1.4));
 
+        &.@{table-prefix-cls}-rtl {
+          margin: -@table-padding-vertical (@table-padding-horizontal + ceil(@font-size-sm * 1.4)) -@table-padding-vertical -@table-padding-horizontal;
+        }
         td {
           background: transparent;
         }
@@ -219,6 +222,11 @@
     margin-left: @padding-xs;
     color: @table-header-icon-color;
 
+    .@{table-wrapepr-rtl-cls} & {
+      margin-right: @padding-xs;
+      margin-left: 0;
+    }
+
     &-full {
       margin-top: -0.2em;
       margin-bottom: 0;
@@ -254,6 +262,10 @@
   &-filter-column-title {
     flex: auto;
     padding: @table-padding-vertical 2.3em @table-padding-vertical @table-padding-horizontal;
+
+    .@{table-wrapepr-rtl-cls} & {
+      padding: @table-padding-vertical @table-padding-horizontal @table-padding-vertical 2.3em;
+    }
   }
 
   &-filter-trigger-container {
@@ -267,6 +279,11 @@
     align-self: stretch;
     cursor: pointer;
     transition: background-color 0.3s;
+
+    .@{table-wrapepr-rtl-cls} & {
+      right: auto;
+      left: 0;
+    }
 
     &-open,
     &:hover,
@@ -325,6 +342,11 @@
     &-submenu {
       .@{ant-prefix}-checkbox-wrapper + span {
         padding-left: 8px;
+
+        .@{ant-prefix}-dropdown-rtl & {
+          padding-right: 8px;
+          padding-left: 0;
+        }
       }
     }
 
@@ -358,11 +380,21 @@
   &-selection {
     position: relative;
 
+    .@{table-wrapepr-rtl-cls} & {
+      text-align: center;
+    }
+
     &-extra {
       position: absolute;
       top: 50%;
       right: 0;
       transform: translate(100%, -50%);
+
+      .@{table-wrapepr-rtl-cls} & {
+        right: auto;
+        left: 0;
+        transform: translate(-100%, -50%);
+      }
 
       .@{iconfont-css-prefix} {
         .iconfont-size-under-12px(10px);
@@ -451,6 +483,11 @@
 
     .@{table-prefix-cls}-row-indent + & {
       margin-right: @padding-xs;
+
+      .@{table-wrapepr-rtl-cls} & {
+        margin-right: 0;
+        margin-left: @padding-xs;
+      }
     }
   }
 
