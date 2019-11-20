@@ -11,8 +11,9 @@
 
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
+@form-component-max-height: @input-height-lg;
 @form-font-height: ceil(@font-size-base * @line-height-base);
-@form-label-margin-top: floor((@input-height-base - @form-font-height) / 2);
+@form-label-margin-top: floor((@form-component-max-height - @form-font-height)/2);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -20,7 +21,6 @@
 
   .@{form-prefix-cls}-text {
     display: inline-block;
-    margin-top: @form-label-margin-top;
     padding-right: 8px;
   }
 }
@@ -42,11 +42,12 @@
   // =                            Label                           =
   // ==============================================================
   &-label {
-    display: inline-block;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
     overflow: hidden;
     white-space: nowrap;
     text-align: right;
-    vertical-align: middle;
 
     &-left {
       text-align: left;
@@ -102,6 +103,7 @@
   &-control {
     display: flex;
     flex-direction: column;
+    line-height: @form-component-max-height;
 
     &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
       width: 100%;
