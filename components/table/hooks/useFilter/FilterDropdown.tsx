@@ -92,18 +92,21 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     filterState && filterState.filteredKeys,
   );
   const [filteredKeys, setFilteredKeys] = React.useState(propFilteredKeys || []);
+  // Use it to fix 'setFilteredKeys' is async
+  const filteredKeysRef = React.useRef(filteredKeys);
 
   React.useEffect(() => {
     // Sync internal filtered keys when props key changed
     const newFilteredKeys = filterState && filterState.filteredKeys;
     if (!shallowEqual(propFilteredKeys, newFilteredKeys)) {
       setPropFilteredKeys(newFilteredKeys);
-      setFilteredKeys(newFilteredKeys || []);
+      onSelectKeys({selectedKeys: newFilteredKeys || []});
     }
   }, [filterState]);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
     setFilteredKeys(selectedKeys);
+    filteredKeysRef.current = selectedKeys;
   };
 
   // ====================== Open Keys ======================
@@ -140,7 +143,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onConfirm = () => {
-    internalTriggerFilter(filteredKeys);
+    internalTriggerFilter(filteredKeysRef.current);
   };
 
   const onReset = () => {
