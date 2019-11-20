@@ -15,7 +15,7 @@ Use `Form.Provider` to process data between forms. In this case, submit button i
 
 ```tsx
 import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { Smile, User } from '@ant-design/icons';
 
 const layout = {
   labelCol: { span: 8 },
@@ -96,7 +96,7 @@ const Demo = () => {
                 <ul>
                   {users.map((user, index) => (
                     <li key={index} className="user">
-                      <Avatar icon="user" />
+                      <Avatar icon={<User />} />
                       {user.name} - {user.age}
                     </li>
                   ))}

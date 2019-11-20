@@ -19,7 +19,7 @@ The `size` can be set to `large`, `small` or left unset resulting in a default s
 
 ```jsx
 import { Button } from 'antd';
-import { Left, Right } from '@ant-design/icons';
+import { Left, Right, Cloud, CloudDownload } from '@ant-design/icons';
 
 const ButtonGroup = Button.Group;
 
@@ -53,12 +53,12 @@ ReactDOM.render(
       </Button>
     </ButtonGroup>
     <ButtonGroup>
-      <Button type="primary" icon="cloud" />
-      <Button type="primary" icon="cloud-download" />
+      <Button type="primary" icon={<Cloud />} />
+      <Button type="primary" icon={<CloudDownload />} />
     </ButtonGroup>
     <ButtonGroup>
-      <Button type="primary" size="small" icon="cloud" />
-      <Button type="primary" size="small" icon="cloud-download" />
+      <Button type="primary" size="small" icon={<Cloud />} />
+      <Button type="primary" size="small" icon={<CloudDownload />} />
     </ButtonGroup>
   </div>,
   mountNode,
