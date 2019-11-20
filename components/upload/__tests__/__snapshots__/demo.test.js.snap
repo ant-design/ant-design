@@ -1478,7 +1478,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row-flex ant-form-item"
+    class="ant-row ant-form-item"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"

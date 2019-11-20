@@ -112,7 +112,7 @@ describe('Grid', () => {
       marginLeft: -8,
       marginRight: -8,
       marginTop: -10,
-      marginBottom: -10,
+      marginBottom: 10,
     });
   });
 });

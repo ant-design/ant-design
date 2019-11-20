@@ -25,18 +25,18 @@ title: AutoComplete
 | defaultValue | 指定默认选中的条目 | string\|string\[]\| 无 |  |
 | disabled | 是否禁用 | boolean | false |  |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true |  |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | Function(triggerNode) | () => document.body | 3.19.4 |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codesandbox.io/s/4j168r7jw0) | Function(triggerNode) | () => document.body |  |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` |  |
 | placeholder | 输入框提示 | string | - |  |
 | value | 指定当前选中的条目 | string\|string\[]\|{ key: string, label: string\|ReactNode }\|Array&lt;{ key: string, label: string\|ReactNode }> | 无 |  |
-| onBlur | 失去焦点时的回调 | function() | - | 3.6.5 |
+| onBlur | 失去焦点时的回调 | function() | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | 无 |  |
-| onFocus | 获得焦点时的回调 | function() | - | 3.6.5 |
+| onFocus | 获得焦点时的回调 | function() | - |  |
 | onSearch | 搜索补全项的时候调用 | function(value) | 无 |  |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | 无 |  |
-| defaultOpen | 是否默认展开下拉菜单 | boolean | - | 3.9.3 |
-| open | 是否展开下拉菜单 | boolean | - | 3.9.3 |
-| onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - | 3.9.3 |
+| defaultOpen | 是否默认展开下拉菜单 | boolean | - |  |
+| open | 是否展开下拉菜单 | boolean | - |  |
+| onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
 
 ## 方法
 
