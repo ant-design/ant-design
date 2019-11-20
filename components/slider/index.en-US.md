@@ -23,16 +23,16 @@ To input a value in a range.
 | max | The maximum value the slider can slide to | number | 100 |  |
 | min | The minimum value the slider can slide to. | number | 0 |  |
 | range | dual thumb mode | boolean | false |  |
-| reverse | reverse the component | boolean | false | 3.24.0 |
+| reverse | reverse the component | boolean | false |  |
 | step | The granularity the slider can step through values. Must greater than 0, and be divided by (max - min) . When `marks` no null, `step` can be `null`. | number\|null | 1 |  |
 | tipFormatter | Slider will pass its value to `tipFormatter`, and display its value in Tooltip, and hide Tooltip when return value is null. | Function\|null | IDENTITY |  |
 | value | The value of slider. When `range` is `false`, use `number`, otherwise, use `[number, number]` | number\|number\[] |  |
 | vertical | If true, the slider will be vertical. | Boolean | false |  |
 | onAfterChange | Fire when `onmouseup` is fired. | Function(value) | NOOP |  |
 | onChange | Callback function that is fired when the user changes the slider's value. | Function(value) | NOOP |  |
-| tooltipPlacement | Set Tooltip display position. Ref [`Tooltip`](/components/tooltip/). | string |  | 3.19.0 |
-| tooltipVisible | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering. | Boolean |  | 3.11.0 |
-| getTooltipPopupContainer | The DOM container of the Tooltip, the default behavior is to create a div element in body. | Function | () => document.body | 3.19.0 |
+| tooltipPlacement | Set Tooltip display position. Ref [`Tooltip`](/components/tooltip/). | string |  |  |
+| tooltipVisible | If true, Tooltip will show always, or it will not show anyway, even if dragging or hovering. | Boolean |  |  |
+| getTooltipPopupContainer | The DOM container of the Tooltip, the default behavior is to create a div element in body. | Function | () => document.body |  |
 
 ## Methods
 
