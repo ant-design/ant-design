@@ -23,7 +23,7 @@ function confirm() {
 }
 
 ReactDOM.render(
-  <div className="demo">
+  <div className="demo" style={{ direction: 'ltr' }}>
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
         <Button>TL</Button>
