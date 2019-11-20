@@ -81,7 +81,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
     paragraph: true,
   };
 
-  renderSkeleton = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSkeleton = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       loading,
@@ -153,6 +153,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       const cls = classNames(prefixCls, className, {
         [`${prefixCls}-with-avatar`]: hasAvatar,
         [`${prefixCls}-active`]: active,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       });
 
       return (
