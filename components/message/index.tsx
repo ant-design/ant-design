@@ -66,6 +66,7 @@ function notice(args: ArgsProps): MessageType {
     warning: 'exclamation-circle',
     loading: 'loading',
   }[args.type];
+
   const target = key++;
   const closePromise = new Promise(resolve => {
     const callback = () => {
@@ -174,6 +175,7 @@ const api: any = {
       onClose = duration;
       duration = undefined;
     }
+
     return api.open({ content, duration, type, onClose });
   };
 });
