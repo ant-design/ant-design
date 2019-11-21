@@ -10,6 +10,7 @@ let prefixCls = 'ant-message';
 let transitionName = 'move-up';
 let getContainer: () => HTMLElement;
 let maxCount: number;
+let zIndex: number;
 
 function getMessageInstance(callback: (i: any) => void) {
   if (messageInstance) {
@@ -20,7 +21,7 @@ function getMessageInstance(callback: (i: any) => void) {
     {
       prefixCls,
       transitionName,
-      style: { top: defaultTop }, // 覆盖原来的样式
+      style: { top: defaultTop, zIndex }, // 覆盖原来的样式
       getContainer,
       maxCount,
     },
@@ -65,7 +66,6 @@ function notice(args: ArgsProps): MessageType {
     warning: 'exclamation-circle',
     loading: 'loading',
   }[args.type];
-
   const target = key++;
   const closePromise = new Promise(resolve => {
     const callback = () => {
@@ -124,6 +124,7 @@ export interface ConfigOptions {
   getContainer?: () => HTMLElement;
   transitionName?: string;
   maxCount?: number;
+  zIndex?: number;
 }
 
 const api: any = {
@@ -150,6 +151,10 @@ const api: any = {
       maxCount = options.maxCount;
       messageInstance = null;
     }
+    if (options.zIndex !== undefined) {
+      zIndex = options.zIndex;
+      messageInstance = null;
+    }
   },
   destroy() {
     if (messageInstance) {
@@ -169,7 +174,6 @@ const api: any = {
       onClose = duration;
       duration = undefined;
     }
-
     return api.open({ content, duration, type, onClose });
   };
 });
