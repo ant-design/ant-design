@@ -1,8 +1,12 @@
 import * as React from 'react';
 import SkeletonElement, { SkeletonElementProps } from './SkeletonElement';
 
+interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
+  shape?: 'circle' | 'square';
+}
+
 // eslint-disable-next-line react/prefer-stateless-function
-class SkeletonAvatar extends React.Component<SkeletonElementProps, any> {
+class SkeletonAvatar extends React.Component<AvatarProps, any> {
   static defaultProps: Partial<SkeletonElementProps> = {
     size: 'large',
   };

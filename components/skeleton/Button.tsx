@@ -4,8 +4,9 @@ import classNames from 'classnames';
 import SkeletonElement, { SkeletonElementProps } from './SkeletonElement';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-interface SkeletonButtonProps extends SkeletonElementProps {
+interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
   active?: boolean;
+  size?: 'large' | 'small' | 'default';
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
