@@ -14,6 +14,8 @@
 @form-component-max-height: @input-height-lg;
 @form-font-height: ceil(@font-size-base * @line-height-base);
 @form-label-margin-top: floor((@form-component-max-height - @form-font-height)/2);
+@form-item-vertical-spacing: @form-item-margin-bottom -
+  (@form-component-max-height - @input-height-base);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -31,7 +33,7 @@
 .@{form-item-prefix-cls} {
   .reset-component;
 
-  margin-bottom: @form-item-margin-bottom;
+  margin-bottom: @form-item-vertical-spacing;
   vertical-align: top;
 
   &-with-help {
