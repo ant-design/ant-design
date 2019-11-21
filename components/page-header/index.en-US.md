@@ -16,13 +16,13 @@ PageHeader can be used to highlight the page topic, display important informatio
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
-| title | Custom title text | ReactNode | - | 3.14.0 |
-| subTitle | Custom subtitle text | ReactNode | - | 3.14.0 |
-| ghost | PageHeader type, will change background color | boolean | true | 3.24.0 |
-| avatar | Avatar next to the title bar | [avatar props](/components/avatar/) | - | 3.22.0 |
-| backIcon | Custom back icon, if false the back icon will not be displayed | ReactNode | `<ArrowLeft />` | 3.14.0 |
-| tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - | 3.14.0 |
-| extra | Operating area, at the end of the line of the title line | ReactNode | - | 3.14.0 |
-| breadcrumb | Breadcrumb configuration | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - | 3.14.0 |
-| footer | PageHeader's footer, generally used to render TabBar | ReactNode | - | 3.14.0 |
-| onBack | Back icon click event | `()=>void` | `()=>history.back()` | 3.14.0 |
+| title | Custom title text | ReactNode | - |  |
+| subTitle | Custom subtitle text | ReactNode | - |  |
+| ghost | PageHeader type, will change background color | boolean | true |  |
+| avatar | Avatar next to the title bar | [avatar props](/components/avatar/) | - |  |
+| backIcon | Custom back icon, if false the back icon will not be displayed | ReactNode | `<ArrowLeft />` |  |
+| tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |  |
+| extra | Operating area, at the end of the line of the title line | ReactNode | - |  |
+| breadcrumb | Breadcrumb configuration | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - |  |
+| footer | PageHeader's footer, generally used to render TabBar | ReactNode | - |  |
+| onBack | Back icon click event | `()=>void` | `()=>history.back()` |  |
