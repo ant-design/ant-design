@@ -1425,6 +1425,7 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
       </span>
     </div>
   </div>
+  <br />
   <div
     class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
   >
@@ -1459,6 +1460,7 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
       </span>
     </div>
   </div>
+  <br />
   <div
     class="ant-progress ant-progress-steps ant-progress-status-success ant-progress-show-info ant-progress-small"
   >
