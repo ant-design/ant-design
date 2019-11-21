@@ -11,7 +11,7 @@ import Circle from './Circle';
 import Steps from './Steps';
 import { validProgress } from './utils';
 
-const ProgressTypes = tuple('line', 'circle', 'dashboard', 'steps');
+const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = typeof ProgressTypes[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
 export type ProgressSize = 'default' | 'small';
@@ -62,7 +62,6 @@ export default class Progress extends React.Component<ProgressProps> {
     trailColor: PropTypes.string,
     format: PropTypes.func,
     gapDegree: PropTypes.number,
-    count: PropTypes.number,
   };
 
   getPercentNumber() {
