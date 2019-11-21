@@ -104,7 +104,7 @@ const content = (
       easier for designers to have a clear psychological expectation of color when adjusting colors,
       as well as facilitate communication in teams.
     </Paragraph>
-    <Row className="contentLink" type="flex">
+    <Row className="contentLink">
       <IconLink
         src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
         text="Quick Start"
@@ -123,7 +123,7 @@ const content = (
 
 const Content = ({ children, extraContent }) => {
   return (
-    <Row className="content" type="flex">
+    <Row className="content">
       <div className="main" style={{ flex: 1 }}>
         {children}
       </div>

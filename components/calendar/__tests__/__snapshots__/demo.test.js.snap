@@ -2128,7 +2128,7 @@ exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = 
         Custom header 
       </div>
       <div
-        class="ant-row-flex"
+        class="ant-row"
         style="margin-left:-4px;margin-right:-4px;flex-wrap:nowrap"
       >
         <div

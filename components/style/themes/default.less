@@ -12,8 +12,8 @@
 @info-color: @blue-6;
 @success-color: @green-6;
 @processing-color: @blue-6;
-@error-color: @red-6;
-@highlight-color: @red-6;
+@error-color: @red-5;
+@highlight-color: @red-5;
 @warning-color: @gold-6;
 @normal-color: #d9d9d9;
 @white: #fff;
@@ -65,8 +65,7 @@
 @heading-3-size: ceil(@font-size-base * 1.71);
 @heading-4-size: ceil(@font-size-base * 1.42);
 @line-height-base: 1.5;
-@border-radius-base: 4px;
-@border-radius-sm: 2px;
+@border-radius-base: 2px;
 
 // vertical paddings
 @padding-lg: 24px; // containers
@@ -81,7 +80,7 @@
 // The background colors for active and hover states for things like
 // list items or table cells.
 @item-active-bg: @primary-1;
-@item-hover-bg: @primary-1;
+@item-hover-bg: #f5f5f5;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
@@ -111,7 +110,7 @@
 
 // Border color
 @border-color-base: hsv(0, 0, 85%); // base border outline a component
-@border-color-split: hsv(0, 0, 91%); // split border inside a component
+@border-color-split: hsv(0, 0, 94%); // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
 @border-style-base: solid; // style of a components border
@@ -132,12 +131,17 @@
 // Shadow
 @shadow-color: rgba(0, 0, 0, 0.15);
 @shadow-color-inverse: @component-background;
-@box-shadow-base: @shadow-1-down;
-@shadow-1-up: 0 -2px 8px @shadow-color;
-@shadow-1-down: 0 2px 8px @shadow-color;
-@shadow-1-left: -2px 0 8px @shadow-color;
-@shadow-1-right: 2px 0 8px @shadow-color;
-@shadow-2: 0 4px 12px @shadow-color;
+@box-shadow-base: @shadow-2;
+@shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.08), 0 -9px 28px 0 rgba(0, 0, 0, 0.05),
+  0 -12px 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.08), 0 9px 28px 0 rgba(0, 0, 0, 0.05),
+  0 12px 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-left: -6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05),
+  -12px 0 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),
+  12px 0 48px 16px rgba(0, 0, 0, 0.03);
+@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+  0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
 // Buttons
 @btn-font-weight: 400;
@@ -337,9 +341,13 @@
 @select-border-color: @border-color-base;
 @select-item-selected-font-weight: 600;
 @select-dropdown-bg: @component-background;
-@select-item-selected-bg: @background-color-light;
-@select-item-active-bg: @item-active-bg;
+@select-item-selected-bg: @blue-1;
+@select-item-active-bg: @item-hover-bg;
 @select-background: @component-background;
+
+// Cascader
+// ---
+@cascader-item-selected-bg: @blue-1;
 
 // Anchor
 // ---
@@ -403,7 +411,7 @@
 @menu-popup-bg: @component-background;
 @menu-item-color: @text-color;
 @menu-highlight-color: @primary-color;
-@menu-item-active-bg: @item-active-bg;
+@menu-item-active-bg: @primary-1;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
 @menu-icon-size: @font-size-base;
@@ -435,9 +443,9 @@
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
 @table-body-sort-bg: rgba(0, 0, 0, 0.01);
-@table-row-hover-bg: @primary-1;
+@table-row-hover-bg: @item-hover-bg;
 @table-selected-row-color: inherit;
-@table-selected-row-bg: #fafafa;
+@table-selected-row-bg: @primary-1;
 @table-body-selected-sort-bg: @table-selected-row-bg;
 @table-selected-row-hover-bg: @table-selected-row-bg;
 @table-expanded-row-bg: #fbfbfb;
@@ -457,7 +465,7 @@
 // ---
 @time-picker-panel-column-width: 56px;
 @time-picker-panel-width: @time-picker-panel-column-width * 3;
-@time-picker-selected-bg: @background-color-base;
+@time-picker-selected-bg: @item-active-bg;
 
 // Carousel
 // ---
@@ -489,8 +497,9 @@
 @card-actions-background: @background-color-light;
 @card-skeleton-bg: #cfd8dc;
 @card-background: @component-background;
-@card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
-@card-radius: @border-radius-sm;
+@card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.16), 0 3px 6px 0 rgba(0, 0, 0, 0.12),
+  0 5px 12px 4px rgba(0, 0, 0, 0.09);
+@card-radius: @border-radius-base;
 
 // Comment
 // ---

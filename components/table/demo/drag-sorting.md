@@ -1,5 +1,5 @@
 ---
-order: 25
+order: 26
 title:
   en-US: Drag sorting
   zh-CN: 拖拽排序
@@ -136,7 +136,10 @@ class DragSortingTable extends React.Component {
     this.setState(
       update(this.state, {
         data: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragRow]],
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, dragRow],
+          ],
         },
       }),
     );

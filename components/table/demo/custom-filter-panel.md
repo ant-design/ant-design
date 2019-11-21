@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title:
   en-US: Customized filter panel
   zh-CN: 自定义筛选菜单
@@ -66,7 +66,7 @@ class App extends React.Component {
         <Button
           type="primary"
           onClick={() => this.handleSearch(selectedKeys, confirm)}
-          icon="search"
+          icon={<Search />}
           size="small"
           style={{ width: 90, marginRight: 8 }}
         >

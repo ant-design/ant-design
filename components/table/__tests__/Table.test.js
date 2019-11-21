@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 
@@ -30,7 +30,7 @@ describe('Table', () => {
       },
     ];
 
-    const wrapper = render(
+    const wrapper = mount(
       <Table dataSource={data} pagination={false}>
         <ColumnGroup title="Name">
           <Column title="First Name" dataIndex="firstName" key="firstName" />
@@ -42,7 +42,7 @@ describe('Table', () => {
       </Table>,
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('updates columns when receiving props', () => {
@@ -53,7 +53,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    const wrapper = shallow(<Table columns={columns} />);
+    const wrapper = mount(<Table columns={columns} />);
     const newColumns = [
       {
         title: 'Title',
@@ -63,7 +63,7 @@ describe('Table', () => {
     ];
     wrapper.setProps({ columns: newColumns });
 
-    expect(wrapper.dive().state('columns')).toBe(newColumns);
+    expect(wrapper.find('th').text()).toEqual('Title');
   });
 
   it('loading with Spin', async () => {
@@ -73,7 +73,12 @@ describe('Table', () => {
     };
     const wrapper = mount(<Table loading={loading} />);
     expect(wrapper.find('.ant-spin')).toHaveLength(0);
-    expect(wrapper.find('.ant-table-placeholder').text()).not.toEqual('');
+    expect(
+      wrapper
+        .find('.ant-table-placeholder')
+        .hostNodes()
+        .text(),
+    ).not.toEqual('');
 
     loading.spinning = true;
     wrapper.setProps({ loading });
@@ -90,13 +95,6 @@ describe('Table', () => {
     const wrapper = mount(<Table components={{ body: { wrapper: BodyWrapper1 } }} />);
     wrapper.setProps({ components: { body: { wrapper: BodyWrapper2 } } });
     expect(wrapper.find('tbody').props().id).toBe('wrapper2');
-  });
-
-  it('warning if both `expandedRowRender` & `Column.fixed` are used', () => {
-    mount(<Table expandedRowRender={() => null} columns={[{ fixed: true }]} />);
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Table] `expandedRowRender` and `Column.fixed` are not compatible. Please use one of them at one time.',
-    );
   });
 
   it('props#columnsPageRange and props#columnsPageSize do not warn anymore', () => {

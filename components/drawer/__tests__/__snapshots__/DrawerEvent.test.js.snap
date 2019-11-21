@@ -29,7 +29,6 @@ exports[`Drawer render correctly 1`] = `
         >
           <div
             class="ant-drawer-wrapper-body"
-            style="overflow: auto; height: 100%;"
           >
             <div
               class="ant-drawer-header-no-title"

@@ -1,5 +1,5 @@
 ---
-order: 27
+order: 28
 title:
   en-US: ellipsis column
   zh-CN: 单元格自动省略
@@ -13,9 +13,9 @@ title:
 
 ## en-US
 
-Ellipsize cell content via setting `column.ellipsis`.
+Ellipsis cell content via setting `column.ellipsis`.
 
-> Cannot ellipsize table header with sorters and filters for now.
+> Cannot ellipsis table header with sorters and filters for now.
 
 ```jsx
 import { Table } from 'antd';

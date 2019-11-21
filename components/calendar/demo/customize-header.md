@@ -60,7 +60,7 @@ ReactDOM.render(
         return (
           <div style={{ padding: 10 }}>
             <div style={{ marginBottom: '10px' }}>Custom header </div>
-            <Row type="flex" style={{ flexWrap: 'nowrap' }} gutter={8}>
+            <Row style={{ flexWrap: 'nowrap' }} gutter={8}>
               <Col style={{ flex: 'none' }}>
                 <Group size="small" onChange={e => onTypeChange(e.target.value)} value={type}>
                   <Button value="month">Month</Button>

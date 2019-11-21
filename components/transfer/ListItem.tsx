@@ -24,6 +24,7 @@ export default class ListItem extends React.Component<any, any> {
     const className = classNames({
       [`${prefixCls}-content-item`]: true,
       [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
+      [`${prefixCls}-content-item-checked`]: checked,
     });
 
     let title: string | undefined;

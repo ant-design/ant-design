@@ -273,7 +273,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
       class="ant-page-header-content"
     >
       <div
-        class="ant-row-flex"
+        class="ant-row"
       >
         <div
           class="ant-statistic"
@@ -634,7 +634,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     class="ant-page-header-content"
   >
     <div
-      class="ant-row-flex content"
+      class="ant-row content"
     >
       <div
         class="main"
@@ -654,7 +654,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
             Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
           </div>
           <div
-            class="ant-row-flex contentLink"
+            class="ant-row contentLink"
           >
             <a
               style="margin-right:16px;display:flex;align-items:center"

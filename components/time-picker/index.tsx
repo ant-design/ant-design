@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as moment from 'moment';
 import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
 import { ClockCircle, CloseCircleFilled } from '@ant-design/icons';
@@ -164,10 +163,10 @@ class TimePicker extends React.Component<TimePickerProps, any> {
   renderInputIcon(prefixCls: string) {
     const { suffixIcon } = this.props;
     const clockIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon) &&
-        React.cloneElement(suffixIcon, {
-          className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
-        }))) || <ClockCircle className={`${prefixCls}-clock-icon`} />;
+      React.isValidElement<{ className?: string }>(suffixIcon) &&
+      React.cloneElement(suffixIcon, {
+        className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
+      })) || <ClockCircle className={`${prefixCls}-clock-icon`} />;
 
     return <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
   }
@@ -241,7 +240,5 @@ class TimePicker extends React.Component<TimePickerProps, any> {
     );
   }
 }
-
-polyfill(TimePicker);
 
 export default TimePicker;
