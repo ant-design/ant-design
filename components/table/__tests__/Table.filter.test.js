@@ -123,6 +123,15 @@ describe('Table.filter', () => {
         <span onClick={() => clearFilters()} id="reset">
           Reset
         </span>
+        <span
+          onClick={() => {
+            setSelectedKeys([43]);
+            confirm();
+          }}
+          id="simulateOnSelect"
+        >
+          SimulateOnSelect
+        </span>
       </div>
     );
 
@@ -170,6 +179,11 @@ describe('Table.filter', () => {
         .first()
         .props().visible,
     ).toBeFalsy();
+
+    // Simulate onSelect, setSelectedKeys & confirm
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    wrapper.find('#simulateOnSelect').simulate('click');
+    expect(getFilterMenu().props().filterState.filteredKeys).toEqual([43]);
   });
 
   it('can be controlled by filterDropdownVisible', () => {
