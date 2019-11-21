@@ -140,6 +140,16 @@
 .@{upload-prefix-cls}-list {
   .reset-component;
   .clearfix;
+  &-item-list-type-text {
+    &:hover {
+      .@{upload-prefix-cls}-list-item-name-icon-count-1 {
+        padding-right: 14px;
+      }
+      .@{upload-prefix-cls}-list-item-name-icon-count-2 {
+        padding-right: 28px;
+      }
+    }
+  }
   &-item {
     position: relative;
     height: 22px;
@@ -152,6 +162,25 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+
+    &-name-icon-count-1 {
+      padding-right: 14px;
+    }
+
+    &-card-actions {
+      position: absolute;
+      right: 0;
+      opacity: 0;
+      &.picture {
+        top: 25px;
+        line-height: 1;
+        opacity: 1;
+      }
+      .anticon {
+        padding-right: 5px;
+        color: rgba(0, 0, 0, 0.45);
+      }
     }
 
     &-info {
@@ -198,14 +227,21 @@
       opacity: 1;
     }
 
+    &:hover &-card-actions {
+      opacity: 1;
+    }
+
     &-error,
     &-error .@{iconfont-css-prefix}-paper-clip,
     &-error &-name {
       color: @error-color;
     }
 
-    &-error .@{iconfont-css-prefix}-close {
-      color: @error-color !important;
+    &-error &-card-actions {
+      .anticon {
+        padding-right: 5px;
+        color: @error-color;
+      }
       opacity: 1;
     }
 
@@ -292,6 +328,14 @@
       transition: all 0.3s;
     }
 
+    .@{upload-item}-name-icon-count-1 {
+      padding-right: 18px;
+    }
+
+    .@{upload-item}-name-icon-count-2 {
+      padding-right: 36px;
+    }
+
     .@{upload-item}-uploading .@{upload-item}-name {
       line-height: 28px;
     }
@@ -355,6 +399,7 @@
       transition: all 0.3s;
 
       .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-download,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
         width: 16px;

@@ -6,22 +6,23 @@ cols: 1
 subtitle:
 ---
 
-The header can be used to declare the page topic, display important information about the page that the user is interested in, and carry the action items related to the current page (including page-level operations, inter-page navigation, etc.)
+A header with common actions and design elements built in.
 
 ## When To Use
 
-It can also be used as inter-page navigation when it is needed to make the user quickly understand what the current page is and to facilitate the user to use the page function.
+PageHeader can be used to highlight the page topic, display important information about the page, and carry the action items related to the current page (including page-level operations, inter-page navigation, etc.) It can also be used as inter-page navigation.
 
 ## API
 
 | Param | Description | Type | Default value |
 | --- | --- | --- | --- |
-| title | custom title text | ReactNode | - |
-| subTitle | custom subTitle text | ReactNode | - |
+| title | Custom title text | ReactNode | - |
+| subTitle | Custom subtitle text | ReactNode | - |
+| ghost | PageHeader type, will change background color | boolean | true |
 | avatar | Avatar next to the title bar | [avatar props](/components/avatar/) | - |
-| backIcon | custom back icon, if false the back icon will not be displayed | ReactNode | `<ArrowLeft />` |
+| backIcon | Custom back icon, if false the back icon will not be displayed | ReactNode | `<ArrowLeft />` |
 | tags | Tag list next to title | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |
 | extra | Operating area, at the end of the line of the title line | ReactNode | - |
-| breadcrumb | breadcrumb config | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - |
+| breadcrumb | Breadcrumb configuration | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - |
 | footer | PageHeader's footer, generally used to render TabBar | ReactNode | - |
-| onBack | back icon click event | `()=>void` | `()=>history.back()` |
+| onBack | Back icon click event | `()=>void` | `()=>history.back()` |

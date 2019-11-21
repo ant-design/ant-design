@@ -111,7 +111,7 @@
 .markdown pre {
   font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   background: #f2f4f5;
-  border-radius: @border-radius-sm;
+  border-radius: @border-radius-base;
 }
 
 .markdown pre code {
@@ -252,10 +252,14 @@
         word-break: break-all;
       }
       &:nth-child(4) {
-        width: 13%;
+        width: 16%;
         font-size: @font-size-base - 1px;
       }
     }
+  }
+
+  hr {
+    margin: 12px 0;
   }
 }
 
@@ -315,14 +319,8 @@
       transparent 95.83333333%
     );
   }
-  .ant-row-flex,
-  .code-box-demo .ant-row-flex {
-    background: #f5f5f5;
-  }
   .ant-row > div,
-  .code-box-demo .ant-row > div,
-  .ant-row-flex > div,
-  .code-box-demo .ant-row-flex > div {
+  .code-box-demo .ant-row > div {
     min-height: 30px;
     margin-top: 8px;
     margin-bottom: 8px;
@@ -331,8 +329,7 @@
     text-align: center;
     border-radius: 0;
   }
-  .code-box-demo .ant-row > div:not(.gutter-row),
-  .code-box-demo .ant-row-flex > div:not(.gutter-row) {
+  .code-box-demo .ant-row > div:not(.gutter-row) {
     padding: 16px 0;
     background: #00a0e9;
     &:nth-child(2n + 1) {
@@ -385,6 +382,14 @@
   .code-box-demo .height-80 {
     height: 80px;
     line-height: 80px;
+  }
+}
+
+[id='components-grid-demo-playground'],
+[id='components-grid-demo-gutter'] {
+  > .code-box-demo .ant-row > div {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 

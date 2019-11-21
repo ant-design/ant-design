@@ -44,3 +44,10 @@ Some component use dynamic style to support wave effect. You can config `csp` pr
 | getPopupContainer | to set the container of the popup element. The default is to create a `div` element in `body`. | Function(triggerNode) | `() => document.body` | 3.11.0 |
 | locale | language package setting, you can find the packages in [antd/es/locale](http://unpkg.com/antd/es/locale/) | object | 3.21.0 |
 | prefixCls | set prefix class | string | ant | 3.12.0 |
+| pageHeader | Unify the ghost of pageHeader ,Ref [pageHeader](<(/components/page-header)> | { ghost:boolean } | 'true' | 3.24.0 |
+
+## FAQ
+
+#### Locale problem is still existed in DatePicker even ConfigProvider `locale` is used?
+
+Please make sure you set moment locale by `moment.locale('zh-cn')`, or you don't have two moment of different version.

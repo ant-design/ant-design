@@ -159,4 +159,30 @@ describe('Input.Search', () => {
     expect(onSearch).toHaveBeenLastCalledWith('', expect.anything());
     expect(onChange).toHaveBeenCalled();
   });
+
+  it('should support loading', () => {
+    const wrapper = mount(<Search loading />);
+    const wrapperWithEnterButton = mount(<Search loading enterButton />);
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
+
+  it('should support addonAfter and suffix for loading', () => {
+    const wrapper = mount(<Search loading suffix="suffix" addonAfter="addonAfter" />);
+    const wrapperWithEnterButton = mount(
+      <Search loading enterButton suffix="suffix" addonAfter="addonAfter" />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapperWithEnterButton.render()).toMatchSnapshot();
+  });
+
+  it('should support invalid suffix', () => {
+    const wrapper = mount(<Search suffix={[]} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support invalid addonAfter', () => {
+    const wrapper = mount(<Search addonAfter={[]} enterButton />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

@@ -18,6 +18,7 @@ subtitle: 页头
 | --- | --- | --- | --- |
 | title | 自定义标题文字 | ReactNode | - |
 | subTitle | 自定义的二级标题文字 | ReactNode | - |
+| ghost | pageHeader 的类型，将会改变背景颜色 | boolean | true |
 | avatar | 标题栏旁的头像 | [avatar props](/components/avatar/) | - |
 | backIcon | 自定义 back icon ，如果为 false 不渲染 back icon | ReactNode | `<ArrowLeft />` |
 | tags | title 旁的 tag 列表 | [Tag](https://ant.design/components/tag-cn/)[] \| [Tag](https://ant.design/components/tag-cn/) | - |

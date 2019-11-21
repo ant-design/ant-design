@@ -27,6 +27,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
   }
 
+  it('should not render title when title not defined', () => {
+    confirm({
+      content: 'some descriptions',
+    });
+    expect(document.querySelector('.ant-modal-confirm-title')).toBe(null);
+  });
+
   it('trigger onCancel once when click on cancel button', () => {
     const onCancel = jest.fn();
     const onOk = jest.fn();

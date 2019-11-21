@@ -1,5 +1,5 @@
 ---
-order: 24
+order: 25
 title:
   en-US: Nested tables
   zh-CN: 嵌套子表格
@@ -97,7 +97,7 @@ function NestedTable() {
     <Table
       className="components-table-demo-nested"
       columns={columns}
-      expandedRowRender={expandedRowRender}
+      expandable={{ expandedRowRender }}
       dataSource={data}
     />
   );

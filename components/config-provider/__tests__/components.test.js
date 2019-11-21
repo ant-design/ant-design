@@ -31,6 +31,7 @@ import Mention from '../../mention';
 import Menu from '../../menu';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
+import PageHeader from '../../page-header';
 import Popconfirm from '../../popconfirm';
 import Popover from '../../popover';
 import Progress from '../../progress';
@@ -60,6 +61,7 @@ jest.mock('rc-util/lib/Portal');
 describe('ConfigProvider', () => {
   describe('components', () => {
     function testPair(name, renderComponent) {
+      // eslint-disable-next-line jest/valid-describe
       describe(`${name}`, () => {
         // normal
         it('normal', () => {
@@ -74,7 +76,11 @@ describe('ConfigProvider', () => {
         // configProvider
         it('configProvider', () => {
           expect(
-            render(<ConfigProvider prefixCls="config">{renderComponent({})}</ConfigProvider>),
+            render(
+              <ConfigProvider pageHeader={{ ghost: false }} prefixCls="config">
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
           ).toMatchSnapshot();
         });
       });
@@ -365,6 +371,13 @@ describe('ConfigProvider', () => {
       <div>
         <Pagination showSizeChanger showQuickJumper {...props} />
         <Pagination size="small" showSizeChanger showQuickJumper {...props} />
+      </div>
+    ));
+
+    // PageHeader
+    testPair('PageHeader', props => (
+      <div>
+        <PageHeader title="pageHeader" {...props} />
       </div>
     ));
 

@@ -144,6 +144,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
       onBlur,
       id,
       suffixIcon,
+      defaultPickerValue,
     } = this.props;
 
     const prefixCls = getPrefixCls('calendar', customizePrefixCls);
@@ -171,6 +172,7 @@ class WeekPicker extends React.Component<any, WeekPickerState> {
         showToday={false}
         disabledDate={disabledDate}
         renderFooter={this.renderFooter}
+        defaultValue={defaultPickerValue}
       />
     );
     const clearIcon =

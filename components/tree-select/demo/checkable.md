@@ -74,7 +74,7 @@ class Demo extends React.Component {
       showCheckedStrategy: SHOW_PARENT,
       searchPlaceholder: 'Please select',
       style: {
-        width: 300,
+        width: '100%',
       },
     };
     return <TreeSelect {...tProps} />;

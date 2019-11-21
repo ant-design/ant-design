@@ -19,6 +19,7 @@ export const configConsumerProps = [
   'csp',
   'autoInsertSpaceInButton',
   'locale',
+  'pageHeader',
 ];
 
 export interface ConfigProviderProps {
@@ -32,6 +33,9 @@ export interface ConfigProviderProps {
     validateMessages?: ValidateMessages;
   };
   locale?: Locale;
+  pageHeader?: {
+    ghost: boolean;
+  };
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
@@ -52,6 +56,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       autoInsertSpaceInButton,
       form,
       locale,
+      pageHeader,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -59,13 +64,19 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       getPrefixCls: this.getPrefixCls,
       csp,
       autoInsertSpaceInButton,
+      locale: locale || legacyLocale,
     };
 
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
     }
+
     if (renderEmpty) {
       config.renderEmpty = renderEmpty;
+    }
+
+    if (pageHeader) {
+      config.pageHeader = pageHeader;
     }
 
     let childNode = children;
@@ -97,51 +108,6 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       </LocaleReceiver>
     );
   }
-}
-
-// =========================== withConfigConsumer ===========================
-// We need define many types here. So let's put in the block region
-type IReactComponent<P = any> =
-  | React.StatelessComponent<P>
-  | React.ComponentClass<P>
-  | React.ClassicComponentClass<P>;
-
-interface BasicExportProps {
-  prefixCls?: string;
-}
-
-interface ConsumerConfig {
-  prefixCls: string;
-}
-
-interface ConstructorProps {
-  displayName?: string;
-}
-
-export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
-  return function withConfigConsumerFunc<ComponentDef>(
-    Component: IReactComponent,
-  ): React.SFC<ExportProps> & ComponentDef {
-    // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
-    const SFC = ((props: ExportProps) => (
-      <ConfigConsumer>
-        {(configProps: ConfigConsumerProps) => {
-          const { prefixCls: basicPrefixCls } = config;
-          const { getPrefixCls } = configProps;
-          const { prefixCls: customizePrefixCls } = props;
-          const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
-          return <Component {...configProps} {...props} prefixCls={prefixCls} />;
-        }}
-      </ConfigConsumer>
-    )) as React.SFC<ExportProps> & ComponentDef;
-
-    const cons: ConstructorProps = Component.constructor as ConstructorProps;
-    const name = (cons && cons.displayName) || Component.name || 'Component';
-
-    SFC.displayName = `withConfigConsumer(${name})`;
-
-    return SFC;
-  };
 }
 
 export default ConfigProvider;

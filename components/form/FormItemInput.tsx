@@ -1,6 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Loading, CloseCircleFilled, CheckCircleFilled, ExclamationCircleFilled } from '@ant-design/icons';
+import {
+  Loading,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  ExclamationCircleFilled,
+} from '@ant-design/icons';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
 
 import Col, { ColProps } from '../grid/col';
@@ -30,7 +35,7 @@ const iconMap: { [key: string]: any } = {
   warning: ExclamationCircleFilled,
   error: CloseCircleFilled,
   validating: Loading,
-}
+};
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   prefixCls,
@@ -57,12 +62,11 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   });
 
   // Should provides additional icon if `hasFeedback`
-  // const iconType = getIconType(validateStatus);
-  const iconNode = validateStatus && iconMap[validateStatus];
+  const IconNode = validateStatus && iconMap[validateStatus];
   const icon =
-    hasFeedback && iconNode ? (
+    hasFeedback && IconNode ? (
       <span className={`${baseClassName}-children-icon`}>
-        {iconNode}
+        <IconNode />
       </span>
     ) : null;
 
