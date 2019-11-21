@@ -87,7 +87,7 @@ const validateMessages = {
 | trigger | 设置收集字段值变更的时机 | string | onChange |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |
 | validateTrigger | 设置字段校验的时机 | string \| string[] | onChange |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | value |
+| valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) | - |
 
 ### dependencies
