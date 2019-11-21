@@ -109,18 +109,15 @@ export default class Progress extends React.Component<ProgressProps> {
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
     let progress;
     // Render progress shape
-    if (steps && type !== 'circle' && type !== 'dashboard') {
-      progress = (
+    if (type === 'line') {
+      progress = steps ? (
         <Steps {...this.props} prefixCls={prefixCls} steps={steps}>
           {progressInfo}
-        </Steps>
-      );
-    } else if (type === 'line') {
-      progress = (
-        <Line {...this.props} prefixCls={prefixCls}>
-          {progressInfo}
-        </Line>
-      );
+        </Steps>) : (
+          <Line {...this.props} prefixCls={prefixCls}>
+            {progressInfo}
+          </Line>
+        );
     } else if (type === 'circle' || type === 'dashboard') {
       progress = (
         <Circle {...this.props} prefixCls={prefixCls} progressStatus={progressStatus}>
