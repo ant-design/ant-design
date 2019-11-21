@@ -256,7 +256,7 @@ exports[`renders ./components/skeleton/demo/button.md correctly 1`] = `
     </div>
   </form>
   <div
-    class="ant-skeleton"
+    class="ant-skeleton ant-skeleton-element"
   >
     <span
       class="ant-skeleton-button"

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { SkeletonElementProps } from './SkeletonElement';
-import Avatar from './Avatar';
+import Avatar, { AvatarProps } from './Avatar';
 import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -13,7 +12,7 @@ export interface SkeletonProps {
   prefixCls?: string;
   className?: string;
   children?: React.ReactNode;
-  avatar?: SkeletonElementProps | boolean;
+  avatar?: AvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
 }
@@ -25,7 +24,7 @@ function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
   return {};
 }
 
-function getAvatarBasicProps(hasTitle: boolean, hasParagraph: boolean): SkeletonElementProps {
+function getAvatarBasicProps(hasTitle: boolean, hasParagraph: boolean): AvatarProps {
   if (hasTitle && !hasParagraph) {
     return { shape: 'square' };
   }
@@ -94,7 +93,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       // Avatar
       let avatarNode;
       if (hasAvatar) {
-        const avatarProps: SkeletonElementProps = {
+        const avatarProps: AvatarProps = {
           prefixCls: `${prefixCls}-avatar`,
           ...getAvatarBasicProps(hasTitle, hasParagraph),
           ...getComponentProps(avatar),

@@ -19,7 +19,7 @@ class SkeletonButton extends React.Component<SkeletonButtonProps, any> {
     const { prefixCls: customizePrefixCls, className, active } = this.props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
     const otherProps = omit(this.props, ['prefixCls']);
-    const cls = classNames(prefixCls, className, {
+    const cls = classNames(prefixCls, className, `${prefixCls}-element`, {
       [`${prefixCls}-active`]: active,
     });
     return (

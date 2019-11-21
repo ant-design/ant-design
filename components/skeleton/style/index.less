@@ -102,21 +102,26 @@
       .skeleton-color();
     }
   }
-  // Button
-  .@{skeleton-button-prefix-cls} {
+
+  // Skeleton element
+  &-element {
     display: inline-block;
-    vertical-align: top;
-    background: @skeleton-color;
-    border-radius: @border-radius-base;
+    // Button
+    .@{skeleton-button-prefix-cls} {
+      display: inline-block;
+      vertical-align: top;
+      background: @skeleton-color;
+      border-radius: @border-radius-base;
 
-    .skeleton-element-button-size(@btn-height-base);
+      .skeleton-element-button-size(@btn-height-base);
 
-    &-lg {
-      .skeleton-element-button-size(@btn-height-lg);
-    }
+      &-lg {
+        .skeleton-element-button-size(@btn-height-lg);
+      }
 
-    &-sm {
-      .skeleton-element-button-size(@btn-height-sm);
+      &-sm {
+        .skeleton-element-button-size(@btn-height-sm);
+      }
     }
   }
 }

@@ -171,7 +171,7 @@ exports[`Skeleton avatar size 4`] = `
 
 exports[`Skeleton button active 1`] = `
 <div
-  class="ant-skeleton ant-skeleton-active"
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
 >
   <span
     class="ant-skeleton-button"
@@ -181,7 +181,7 @@ exports[`Skeleton button active 1`] = `
 
 exports[`Skeleton button shape 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton ant-skeleton-element"
 >
   <span
     class="ant-skeleton-button"
@@ -191,7 +191,7 @@ exports[`Skeleton button shape 1`] = `
 
 exports[`Skeleton button shape 2`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton ant-skeleton-element"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-round"
@@ -201,7 +201,7 @@ exports[`Skeleton button shape 2`] = `
 
 exports[`Skeleton button shape 3`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton ant-skeleton-element"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-circle"
@@ -211,7 +211,7 @@ exports[`Skeleton button shape 3`] = `
 
 exports[`Skeleton button size 1`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton ant-skeleton-element"
 >
   <span
     class="ant-skeleton-button"
@@ -221,7 +221,7 @@ exports[`Skeleton button size 1`] = `
 
 exports[`Skeleton button size 2`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton ant-skeleton-element"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-lg"
@@ -231,7 +231,7 @@ exports[`Skeleton button size 2`] = `
 
 exports[`Skeleton button size 3`] = `
 <div
-  class="ant-skeleton"
+  class="ant-skeleton ant-skeleton-element"
 >
   <span
     class="ant-skeleton-button ant-skeleton-button-sm"

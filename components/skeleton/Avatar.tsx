@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SkeletonElement, { SkeletonElementProps } from './SkeletonElement';
 
-interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
+export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   shape?: 'circle' | 'square';
 }
 
