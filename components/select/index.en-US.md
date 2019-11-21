@@ -39,7 +39,7 @@ Select component to select value from options.
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [Example](https://codesandbox.io/s/4j168r7jw0) | function(triggerNode) | () => document.body |  |
 | labelInValue | whether to embed label in value, turn the format of value from `string` to `{key: string, label: ReactNode}` | boolean | false |  |
 | maxTagCount | Max tag count to show | number | - |  |
-| maxTagTextLength | Max tag count to show | number | - | 3.18.0 |
+| maxTagTextLength | Max tag text length to show | number | - | 3.18.0 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |  |
 | mode | Set mode of Select | 'default' \| 'multiple' \| 'tags' | 'default' |  |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |  |
