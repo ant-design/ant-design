@@ -7,120 +7,66 @@ title: 项目实战
 
 [dva](http://dvajs.com/) 是一个基于 Redux 的 轻量级数据流方案，概念来自 elm，支持 side effects、热替换、动态加载、react-native、SSR 等，已在生产环境广泛应用。
 
-[umi](http://umijs.org/) 则是一个可插拔的企业级 react 应用框架。umi 以路由为基础的，支持[类 next.js 的约定式路由](https://umijs.org/zh/guide/router.html)，以及各种进阶的路由功能，并以此进行功能扩展，比如[支持路由级的按需加载](https://umijs.org/zh/plugin/umi-plugin-react.html#dynamicimport)。然后配以完善的[插件体系](https://umijs.org/zh/plugin/)，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。
+[umi](http://umijs.org/) 则是一个可插拔的企业级 react 应用框架。umi 以路由为基础的，支持[类 next.js 的约定式路由](https://umijs.org/zh/guide/router.html)，以及各种进阶的路由功能，并以此进行功能扩展，比如[支持路由级的按需加载](https://umijs.org/zh/plugin/umi-plugin-react.html#dynamicimport)。然后配以完善的[插件体系](https://umijs.org/zh/plugin/)，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求，同时提供 [Umi UI](https://umijs.org/zh/guide/umi-ui.html) 通过可视化辅助编程（VAP）提高开发体验和研发效率。
 
 > 你可能也会对 [Ant Design Pro](https://pro.ant.design/) 感兴趣，这是一个基于 umi、dva 和 ant design 的开箱即用的中台前端/设计解决方案。
 
-本文会引导你使用 umi、dva 和 antd 从 0 开始创建一个简单应用。
+本文会引导你使用 Umi UI、dva 和 antd 从 0 开始创建一个简单应用。
+
+## 安装 Umi UI
+
+推荐使用 yarn 安装 Umi UI，执行以下命令。
+
+> 如果你使用 npm，可执行 `npm install umi -g`，效果一致。
+
+```bash
+$ yarn global add umi
+$ umi -v
+2.10.4
+```
+
+确保 umi 版本在 2.10.0 以上。
 
 ## 创建新应用
 
-先创建一个空目录，
+启动 Umi UI，
 
 ```bash
-$ mkdir myapp
-$ cd myapp
+$ umi ui
+
+🚀 Starting Umi UI using umi@2.10.4...
+🧨  Ready on http://localhost:3000/
 ```
 
-推荐使用 yarn 创建应用，执行以下命令，
+启动后， Umi UI 会自动打开浏览器，点击 `创建项目`，选择路径并输入 `应用名`，如下图：
 
-> 如果你使用 npm，可执行 `npm create umi`，效果一致。
+<img src="https://gw.alipayobjects.com/zos/antfincdn/1%24I%24KuXNop/60f0bae2-d803-4339-bc09-8df618ebd916.png" width="718" />
 
-```bash
-$ yarn create umi
+点击 `下一步`，选择 `基础模板`，技术栈选上 `antd` 和 `dva`，然后点击 `完成`。
 
-yarn create v1.12.0
-[1/4] 🔍  Resolving packages...
-[2/4] 🚚  Fetching packages...
-[3/4] 🔗  Linking dependencies...
-[4/4] 📃  Building fresh packages...
+<img src="https://gw.alipayobjects.com/zos/antfincdn/9gmy78Evsp/7978f0b2-8b8c-44fa-84df-bfe9dc6065f4.png" width="718" />
 
-success Installed "create-umi@0.9.5" with binaries:
-      - create-umi
-```
+进入到项目创建流程，等待几分钟，
 
-yarn 会先安装最新版的 [create-umi](https://github.com/umijs/create-umi)，然后提供交互式的提示来创建应用。
+<img src="https://gw.alipayobjects.com/zos/antfincdn/cT35jkUl4j/8381545c-7f89-48ef-9e93-8adcdd6a3bb4.png" width="718" />
 
-选择 `app`, 然后回车确认。
+创建完成后，进入到 `总览`，点击快捷入口 `本地启动`，
 
-```
-? Select the boilerplate type
-  ant-design-pro  - Create project with an layout-only ant-design-pro boilerplate, use together with umi block.
-❯ app             - Create project with a simple boilerplate, support typescript.
-  block           - Create a umi block.
-  library         - Create a library with umi.
-  plugin          - Create a umi plugin.
-```
+<img src="https://gw.alipayobjects.com/zos/antfincdn/vGsor%24iku8/531acbd7-f48e-4246-bc77-152117ef56db.png" width="718" />
 
-选上 `antd` 和 `dva`，然后回车确认。
+在任务页中，点击 `启动`，
 
-```
-   create package.json
-   create mock/.gitkeep
-   create src/assets/yay.jpg
-   create src/layouts/index.css
-   create src/layouts/index.js
-   create src/pages/index.css
-   create src/pages/index.js
-   create src/global.css
-   create .gitignore
-   create .editorconfig
-   create .env
-   create .umirc.js
-   create .eslintrc
-   create .prettierrc
-   create .prettierignore
-   create src/models/.gitkeep
-   create src/dva.js
-✨  File Generate Done
-✨  Done in 966.73s.
-```
+<img src="https://gw.alipayobjects.com/zos/antfincdn/RRYNqxBs9g/72ec5739-ac1f-40a6-8f7a-204c7faba0a7.png" width="718" />
 
-然后安装依赖，
+按提示，点击 [http://localhost:8000](http://localhost:8000)，你会看到 umi 的欢迎界面。
 
-```bash
-$ yarn
-```
-
-然后启动应用，
-
-```bash
-$ yarn start
-```
-
-几秒钟后，你会看到以下输出，
-
-```bash
- DONE  Compiled successfully in 212ms
-
-  App running at:
-  - Local:   http://localhost:8000/
-  - Network: http://{{ YourIP }}:8000/
-```
-
-在浏览器里打开 [http://localhost:8000](http://localhost:8000)，你会看到 umi 的欢迎界面。
-
-<img src="https://gw.alipayobjects.com/zos/rmsportal/lewbQdlEHzuNDpaxykUP.png" width="718" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/2Bm%24zoeBpz/ba708131-c7ac-41f0-92a0-c86007291b6a.png" width="718" />
 
 ## 使用 antd
 
-前面选择 antd 之后，会自动处理 antd 的依赖以及按需加载。你可以检查 `.umirc.js` 里的配置，确保 antd 已开启。
+前面选择 antd 之后，会自动处理 antd 的依赖以及按需加载。你可以检查 `配置`，确保 antd 已开启。
 
-```js
-// ref: https://umijs.org/config/
-export default {
-  plugins: [
-    // ref: https://umijs.org/plugin/umi-plugin-react.html
-    [
-      'umi-plugin-react',
-      {
-        antd: true,
-        dva: true,
-      },
-    ],
-  ],
-};
-```
+<img src="https://gw.alipayobjects.com/zos/antfincdn/0EFiWipONe/7aea9287-09ff-4396-bb20-d8da28483c2c.png" width="718" />
 
 > 而如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，package.json 里声明的 antd 依赖会被优先使用。
 
@@ -128,16 +74,10 @@ export default {
 
 我们要写个应用来先显示产品列表。首先第一步是创建路由，路由可以想象成是组成应用的不同页面。
 
-如果你没有 npx，需要先安装他，用于执行 node_modules 下的命令，
-
-```bash
-$ yarn global add npx
-```
-
 然后通过命令创建 `/products` 路由，
 
 ```bash
-$ npx umi g page products
+$ umi g page products
 
    create src/pages/products.js
    create src/pages/products.css
@@ -152,7 +92,11 @@ $ npx umi g page products
 
 我们来编写一个 `ProductList` component，这样就能在不同的地方显示产品列表了。
 
-新建 `src/components/ProductList.js` 文件：
+点击 `在编辑器中打开`，
+
+<img src="https://gw.alipayobjects.com/zos/antfincdn/ffPr49NZ%26p/64fa0ad5-9a7a-43c0-b308-ffe28e680a8b.png" width="718" />
+
+然后新建 `src/components/ProductList.js` 文件：
 
 ```js
 import { Table, Popconfirm, Button } from 'antd';
@@ -262,30 +206,11 @@ export const dva = {
 
 ## 构建应用
 
-完成开发并且在开发环境验证之后，就需要部署给我们的用户了。先执行下面的命令，
+完成开发并且在开发环境验证之后，就需要部署给我们的用户了。点击 `构建`，
 
-```bash
-$ npm run build
-```
+<img src="https://gw.alipayobjects.com/zos/antfincdn/D%2671c0zDk%26/a6c69c76-28e1-4001-9228-3affe8468e2f.png" width="718" />
 
-几秒后，输出应该如下：
-
-```bash
-> @ build /private/tmp/sorrycc-V0lLrF
-> umi build
-
-[5:01:58 PM] webpack compiled in 11s 615ms
-
-
- DONE  Compiled successfully in 11622ms                                           5:01:58 PM
-
-File sizes after gzip:
-
-  340.44 KB  dist/umi.js
-  17.82 KB   dist/umi.css
-```
-
-build 命令会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 `dist/` 目录下找到这些文件。
+构建会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 `dist/` 目录下找到这些文件。
 
 ## 下一步
 

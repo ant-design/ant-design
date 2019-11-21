@@ -491,4 +491,15 @@ describe('Cascader', () => {
     );
     expect(popupWrapper.render()).toMatchSnapshot();
   });
+
+  it('placeholder works correctly', () => {
+    const wrapper = mount(<Cascader options={[]} />);
+    expect(wrapper.find('input').prop('placeholder')).toBe('Please select');
+
+    const customPlaceholder = 'Custom placeholder';
+    wrapper.setProps({
+      placeholder: customPlaceholder,
+    });
+    expect(wrapper.find('input').prop('placeholder')).toBe(customPlaceholder);
+  });
 });

@@ -481,3 +481,33 @@ exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
   </span>
 </div>
 `;
+
+exports[`renders ./components/tag/demo/status.md correctly 1`] = `
+<div>
+  <span
+    class="ant-tag ant-tag-success"
+  >
+    success
+  </span>
+  <span
+    class="ant-tag ant-tag-processing"
+  >
+    processing
+  </span>
+  <span
+    class="ant-tag ant-tag-error"
+  >
+    error
+  </span>
+  <span
+    class="ant-tag ant-tag-default"
+  >
+    default
+  </span>
+  <span
+    class="ant-tag ant-tag-warning"
+  >
+    warning
+  </span>
+</div>
+`;

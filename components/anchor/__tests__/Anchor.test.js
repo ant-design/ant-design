@@ -322,4 +322,18 @@ describe('Anchor Render', () => {
     dateNowMock.mockRestore();
     jest.useRealTimers();
   });
+
+  it('Anchor onChange prop', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Anchor onChange={onChange}>
+        <Link href="#API1" title="API1" />
+        <Link href="#API2" title="API2" />
+      </Anchor>,
+    );
+    expect(onChange).toHaveBeenCalledTimes(1);
+    wrapper.instance().handleScrollTo('#API2');
+    expect(onChange).toHaveBeenCalledTimes(2);
+    expect(onChange).toHaveBeenCalledWith('#API2');
+  });
 });

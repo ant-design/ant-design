@@ -18,6 +18,7 @@ export default {
     filterReset: 'Reset',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
+    selectionAll: 'Select all data',
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
@@ -42,6 +43,7 @@ export default {
     removeFile: 'Remove file',
     uploadError: 'Upload error',
     previewFile: 'Preview file',
+    downloadFile: 'Download file',
   },
   Empty: {
     description: 'No Data',

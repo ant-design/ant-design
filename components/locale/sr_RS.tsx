@@ -35,6 +35,7 @@ export default {
     removeFile: 'Ukloni fajl',
     uploadError: 'Greška prilikom slanja',
     previewFile: 'Pogledaj fajl',
+    downloadFile: 'Preuzmi datoteku',
   },
   Empty: {
     description: 'Nema podataka',

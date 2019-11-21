@@ -1,5 +1,5 @@
 ---
-order: 25
+order: 26
 title:
   en-US: Drag sorting
   zh-CN: 拖拽排序

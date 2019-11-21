@@ -1,0 +1,12 @@
+# CODEOWNERS syntax
+# A CODEOWNERS file uses a pattern that follows the same rules used in gitignore files.
+# The pattern is followed by one or more GitHub usernames or team names using the standard @username or @org/team-name format.
+# You can also refer to a user by an email address that has been added to their GitHub account, for example user@example.com.
+
+# no default file owner
+#/*                               @afc163
+/components/tree/*                @zombieJ
+/components/tree-select/*         @zombieJ
+
+# ...
+# other components

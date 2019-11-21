@@ -10,6 +10,7 @@
 
 .select-selector() {
   position: relative;
+  background-color: @select-background;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
   transition: all 0.3s @ease-in-out;
@@ -108,7 +109,7 @@
     line-height: 1;
     text-align: center;
     text-transform: none;
-    background: @component-background;
+    background: @select-background;
     cursor: pointer;
     opacity: 0;
     transition: color 0.3s ease, opacity 0.15s ease;
@@ -205,7 +206,7 @@
         background-color: @select-item-active-bg;
       }
 
-      &-selected {
+      &-selected:not(&-disabled) {
         color: @text-color;
         font-weight: @select-item-selected-font-weight;
         background-color: @select-item-selected-bg;
