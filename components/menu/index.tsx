@@ -115,6 +115,8 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
 
   private mountRafId: number;
 
+  private direction: 'ltr' | 'rtl' | undefined;
+
   constructor(props: InternalMenuProps) {
     super(props);
 
@@ -273,7 +275,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
   }
 
-  renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+  renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
@@ -307,6 +309,8 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       menuProps.openKeys = [];
     }
 
+    this.direction = direction;
+
     return (
       <RcMenu
         getPopupContainer={getPopupContainer}
@@ -315,6 +319,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
         prefixCls={prefixCls}
         onTransitionEnd={this.handleTransitionEnd}
         onMouseEnter={this.handleMouseEnter}
+        direction={direction}
       />
     );
   };
@@ -325,6 +330,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
         value={{
           inlineCollapsed: this.getInlineCollapsed() || false,
           antdMenuTheme: this.props.theme,
+          direction: this.direction,
         }}
       >
         <ConfigConsumer>{this.renderMenu}</ConfigConsumer>

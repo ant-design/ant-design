@@ -4,12 +4,21 @@ import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { resetWarned } from '../../_util/warning';
 
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
   mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <Menu.ItemGroup />
+      <Menu.SubMenu />
+    </Menu>
+  ));
+
+  rtlTest(() => (
     <Menu>
       <Menu.Item />
       <Menu.ItemGroup />

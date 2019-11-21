@@ -5,6 +5,7 @@ export type MenuTheme = 'light' | 'dark';
 export interface MenuContextProps {
   inlineCollapsed: boolean;
   antdMenuTheme?: MenuTheme;
+  direction?: 'ltr' | 'rtl';
 }
 
 const MenuContext = createContext<MenuContextProps>({
