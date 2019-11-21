@@ -16,7 +16,7 @@ export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
  */
 interface BasicProps {
   prefixCls: string;
-  inputType: typeof ClearableInputType[number];
+  inputType: (typeof ClearableInputType)[number];
   value?: any;
   defaultValue?: any;
   allowClear?: boolean;
@@ -31,7 +31,7 @@ interface BasicProps {
  * This props only for input.
  */
 interface ClearableInputProps extends BasicProps {
-  size?: typeof InputSizes[number];
+  size?: (typeof InputSizes)[number];
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;

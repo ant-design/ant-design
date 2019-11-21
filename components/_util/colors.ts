@@ -18,5 +18,5 @@ export const PresetColorTypes = tuple(
   'lime',
 );
 
-export type PresetColorType = typeof PresetColorTypes[number];
-export type PresetStatusColorType = typeof PresetStatusColorTypes[number];
+export type PresetColorType = (typeof PresetColorTypes)[number];
+export type PresetStatusColorType = (typeof PresetStatusColorTypes)[number];
