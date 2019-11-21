@@ -46,3 +46,11 @@ cols: 1
 | --- | --- | --- | --- |
 | rows | 设置段落占位图的行数 | number | - |
 | width | 设置段落占位图的宽度，若为数组时则为对应的每行宽度，反之则是最后一行的宽度 | number \| string \| Array<number \| string> | - |
+
+### SkeletonButtonProps
+
+| 属性   | 说明             | 类型                                 | 默认值 |
+| ------ | ---------------- | ------------------------------------ | ------ |
+| active | 是否展示动画效果 | boolean                              | false  |
+| size   | 设置按钮的大小   | Enum{ 'large', 'small', 'default' }  | -      |
+| shape  | 指定按钮的形状   | Enum{ 'circle', 'round', 'default' } | -      |

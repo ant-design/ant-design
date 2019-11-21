@@ -169,6 +169,76 @@ exports[`Skeleton avatar size 4`] = `
 </div>
 `;
 
+exports[`Skeleton button active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
+exports[`Skeleton button shape 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
+exports[`Skeleton button shape 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-round"
+  />
+</div>
+`;
+
+exports[`Skeleton button shape 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton button size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button"
+  />
+</div>
+`;
+
+exports[`Skeleton button size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-lg"
+  />
+</div>
+`;
+
+exports[`Skeleton button size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-button ant-skeleton-button-sm"
+  />
+</div>
+`;
+
 exports[`Skeleton paragraph rows 1`] = `
 <div
   class="ant-skeleton"
@@ -241,6 +311,41 @@ exports[`Skeleton paragraph width 2`] = `
       />
       <li />
     </ul>
+  </div>
+</div>
+`;
+
+exports[`Skeleton should square avatar 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-with-avatar"
+>
+  <div
+    class="ant-skeleton-header"
+  >
+    <span
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
+    />
+  </div>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+    />
+  </div>
+</div>
+`;
+
+exports[`Skeleton should without avatar and paragraph 1`] = `
+<div
+  class="ant-skeleton"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+    />
   </div>
 </div>
 `;
