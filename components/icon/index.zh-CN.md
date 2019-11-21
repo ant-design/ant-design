@@ -29,8 +29,8 @@ ReactDOM.render(<IconDisplay />, mountNode);
 | --- | --- | --- | --- | --- |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
 | spin | 是否有旋转动画 | boolean | false |  |
-| rotate | 图标旋转角度（3.13.0 后新增，IE9 无效） | number | - | 3.13.0 |
-| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - | 3.9.0 |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - |  |
 
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
@@ -48,8 +48,8 @@ import { Star, StarFilled, StarTwoTone } from '@ant-design/icons';
 | --- | --- | --- | --- | --- |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
 | spin | 是否有旋转动画 | boolean | false |  |
-| rotate | 图标旋转角度（3.13.0 后新增，IE9 无效） | number | - | 3.13.0 |
-| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件 | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  |
+| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件 | ComponentType<CustomIconComponentProps\> | - |  |
 
 ### 关于 SVG 图标
 
@@ -101,8 +101,8 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址 | string | - | 3.9.3 |
-| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ [key: string]: any }` | {} | 3.9.3 |
+| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址 | string | - |  |
+| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ [key: string]: any }` | {} |  |
 
 在 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
 
@@ -142,8 +142,8 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 | 字段      | 说明                    | 类型             | 只读值         | 版本   |
 | --------- | ----------------------- | ---------------- | -------------- | ------ |
-| width     | `svg` 元素宽度          | string \| number | '1em'          | 3.10.0 |
-| height    | `svg` 元素高度          | string \| number | '1em'          | 3.10.0 |
-| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' | 3.10.0 |
-| className | 计算后的 `svg` 类名     | string           | -              | 3.10.0 |
-| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              | 3.10.0 |
+| width     | `svg` 元素宽度          | string \| number | '1em'          |  |
+| height    | `svg` 元素高度          | string \| number | '1em'          |  |
+| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' |  |
+| className | 计算后的 `svg` 类名     | string           | -              |  |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |  |
