@@ -18,9 +18,9 @@ import { Progress } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Progress percent={50} type="steps" strokeColor="#1890ff" />
-    <Progress percent={80} type="steps" strokeColor="#1890ff" width={60} />
-    <Progress percent={100} type="steps" count={5} strokeColor="#1890ff" width={80} />
+    <Progress percent={50} type="line" steps={3} strokeColor="#1890ff" />
+    <Progress percent={30} steps={5} strokeColor="#1890ff" />
+    <Progress percent={100} steps={5} size="small" strokeColor="#1890ff" />
   </div>,
   mountNode,
 );

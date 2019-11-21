@@ -34,6 +34,7 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | strokeWidth | to set the width of the progress bar, unit: `px` | number | 10 | 3.13.1 |
 | strokeColor | color of progress bar, render `linear-gradient` when passing an object | string \| { from: string; to: string; direction: string } | - | 3.16.0 |
+| steps | the total step count | number | - | 4.0 |
 
 ### `type="circle"`
 
@@ -51,10 +52,3 @@ Properties that shared by all types.
 | strokeWidth | to set the width of the dashboard progress, unit: percentage of the canvas width | number | 6 | 3.13.1 |
 | gapDegree | the gap degree of half circle, 0 ~ 360 | number | 0 | 3.13.1 |
 | gapPosition | the gap position, options: `top` `bottom` `left` `right` | string | `top` | 3.13.1 |
-
-### `type="steps"`
-
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| count | the total step count | number | 3 | 4.0 |
-| width | to set the canvas width of the steps progress, unit: `px` | number | 42 | 4.0 |

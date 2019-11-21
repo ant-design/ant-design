@@ -35,6 +35,7 @@ title: Progress
 | --- | --- | --- | --- | --- |
 | strokeWidth | 进度条线的宽度，单位 px | number | 10 | 3.13.1 |
 | strokeColor | 进度条的色彩，传入 object 时为渐变 | string \| { from: string; to: string; direction: string } | - | 3.16.0 |
+| steps | 进度条总共步数 | number | - | 4.0 |
 
 ### `type="circle"`
 
@@ -52,10 +53,3 @@ title: Progress
 | strokeWidth | 仪表盘进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 | 3.13.1 |
 | gapDegree | 仪表盘进度条缺口角度，可取值 0 ~ 360 | number | 0 | 3.13.1 |
 | gapPosition | 仪表盘进度条缺口位置 | Enum{ 'top', 'bottom', 'left', 'right' } | `top` | 3.13.1 |
-
-### `type="steps"`
-
-| 属性  | 说明                   | 类型   | 默认值 | 版本 |
-| ----- | ---------------------- | ------ | ------ | ---- |
-| count | 总共步数               | number | 3      | 4.0  |
-| width | 设置步骤进度条画布宽度 | number | 42     | 4.0  |
