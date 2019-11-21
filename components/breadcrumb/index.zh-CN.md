@@ -26,17 +26,17 @@ title: Breadcrumb
 
 ### Breadcrumb.Item
 
-| 参数    | 说明           | 类型                                   | 默认值 | 版本 |
-| ------- | -------------- | -------------------------------------- | ------ | ---- |
-| href    | 链接的目的地   | string                                 | -      |      |
-| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | -      |      |
-| onClick | 单击事件       | (e:MouseEvent)=>void                   | -      |      |
+| 参数    | 说明           | 类型                                   | 默认值 | 版本   |
+| ------- | -------------- | -------------------------------------- | ------ | ------ |
+| href    | 链接的目的地   | string                                 | -      |  |
+| overlay | 下拉菜单的内容 | [Menu](/components/menu) \| () => Menu | -      |  |
+| onClick | 单击事件       | (e:MouseEvent)=>void                   | -      |  |
 
 ### Breadcrumb.Separator
 
-| 参数     | 说明           | 类型              | 默认值 | 版本 |
-| -------- | -------------- | ----------------- | ------ | ---- |
-| children | 要显示的分隔符 | string\|ReactNode | '/'    |      |
+| 参数     | 说明           | 类型              | 默认值 | 版本   |
+| -------- | -------------- | ----------------- | ------ | ------ |
+| children | 要显示的分隔符 | string\|ReactNode | '/'    |  |
 
 > 注意：在使用 `Breadcrumb.Separator` 时，其父组件的分隔符必须设置为 `separator=""`，否则会出现父组件默认的分隔符。
 

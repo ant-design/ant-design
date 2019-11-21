@@ -1,4 +1,8 @@
-import { GetRowKey, ColumnType as RcColumnType, ExpandableConfig } from 'rc-table/lib/interface';
+import {
+  GetRowKey,
+  ColumnType as RcColumnType,
+  ExpandableConfig,
+} from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 
@@ -90,7 +94,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
 }
 
 export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
-  children: ColumnsType<RecordType>;
+  children: ColumnsType<RecordType>
 }
 
 export type ColumnsType<RecordType = unknown> = (

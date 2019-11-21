@@ -13,9 +13,9 @@ A simple text popup tip.
 
 ## API
 
-| Property | Description                   | Type                               | Default |
-| -------- | ----------------------------- | ---------------------------------- | ------- |
-| title    | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| title | The text shown in the tooltip | string\|ReactNode\|() => ReactNode | - |
 
 ### Common API
 
