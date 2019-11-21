@@ -10,8 +10,19 @@ describe('Skeleton', () => {
         Bamboo
       </Skeleton>,
     );
+  const genSkeletonButton = props => mount(<Skeleton.Button {...props} />);
 
   mountTest(Skeleton);
+
+  it('should without avatar and paragraph', () => {
+    const wrapperSmall = genSkeleton({ avatar: false, paragraph: false });
+    expect(wrapperSmall.render()).toMatchSnapshot();
+  });
+
+  it('should square avatar', () => {
+    const wrapperSmall = genSkeleton({ avatar: true, paragraph: false });
+    expect(wrapperSmall.render()).toMatchSnapshot();
+  });
 
   describe('avatar', () => {
     it('size', () => {
@@ -51,6 +62,29 @@ describe('Skeleton', () => {
       expect(wrapperPure.render()).toMatchSnapshot();
       const wrapperList = genSkeleton({ paragraph: { width: ['28%', '93%'] } });
       expect(wrapperList.render()).toMatchSnapshot();
+    });
+  });
+
+  describe('button', () => {
+    it('active', () => {
+      const wrapper = genSkeletonButton({ active: true });
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+    it('size', () => {
+      const wrapperDefault = genSkeletonButton({ size: 'default' });
+      expect(wrapperDefault.render()).toMatchSnapshot();
+      const wrapperLarge = genSkeletonButton({ size: 'large' });
+      expect(wrapperLarge.render()).toMatchSnapshot();
+      const wrapperSmall = genSkeletonButton({ size: 'small' });
+      expect(wrapperSmall.render()).toMatchSnapshot();
+    });
+    it('shape', () => {
+      const wrapperDefault = genSkeletonButton({ shape: 'default' });
+      expect(wrapperDefault.render()).toMatchSnapshot();
+      const wrapperRound = genSkeletonButton({ shape: 'round' });
+      expect(wrapperRound.render()).toMatchSnapshot();
+      const wrapperCircle = genSkeletonButton({ shape: 'circle' });
+      expect(wrapperCircle.render()).toMatchSnapshot();
     });
   });
 });
