@@ -90,6 +90,10 @@ describe('Skeleton', () => {
   });
 
   describe('avatar element', () => {
+    it('active', () => {
+      const wrapper = genSkeletonAvatar({ active: true });
+      expect(wrapper.render()).toMatchSnapshot();
+    });
     it('size', () => {
       const wrapperSmall = genSkeletonAvatar({ size: 'small' });
       expect(wrapperSmall.render()).toMatchSnapshot();

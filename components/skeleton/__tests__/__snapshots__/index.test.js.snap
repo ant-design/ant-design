@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Skeleton avatar element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
 exports[`Skeleton avatar element shape 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
