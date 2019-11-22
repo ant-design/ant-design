@@ -54,6 +54,9 @@ class ButtonSize extends React.Component {
         <Button type="link" size={size}>
           Link
         </Button>
+        <Button type="danger-link" size={size}>
+          Danger Link
+        </Button>
         <br />
         <Button type="primary" icon={<Download />} size={size} />
         <Button type="primary" shape="circle" icon={<Download />} size={size} />
@@ -64,17 +67,6 @@ class ButtonSize extends React.Component {
         <Button type="primary" icon={<Download />} size={size}>
           Download
         </Button>
-        <br />
-        <Button.Group size={size}>
-          <Button type="primary">
-            <Left />
-            Backward
-          </Button>
-          <Button type="primary">
-            Forward
-            <Right />
-          </Button>
-        </Button.Group>
       </div>
     );
   }

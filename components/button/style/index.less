@@ -71,6 +71,10 @@
     .btn-link;
   }
 
+  &-danger-link {
+    .btn-danger-link;
+  }
+
   &-icon-only {
     .btn-square(@btn-prefix-cls);
   }
@@ -171,6 +175,12 @@
 
   &-background-ghost&-link {
     .button-variant-ghost(@link-color; transparent);
+
+    color: @component-background;
+  }
+
+  &-background-ghost&-danger-link {
+    .button-variant-ghost(@error-color; transparent);
 
     color: @component-background;
   }

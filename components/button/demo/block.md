@@ -31,6 +31,9 @@ ReactDOM.render(
     <Button type="link" block>
       Link
     </Button>
+    <Button type="danger-link" block>
+      Danger Link
+    </Button>
   </div>,
   mountNode,
 );

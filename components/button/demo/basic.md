@@ -23,6 +23,7 @@ ReactDOM.render(
     <Button type="dashed">Dashed</Button>
     <Button type="danger">Danger</Button>
     <Button type="link">Link</Button>
+    <Button type="danger-link">Link</Button>
   </div>,
   mountNode,
 );

@@ -28,6 +28,9 @@ ReactDOM.render(
     <Button type="link" ghost>
       link
     </Button>
+    <Button type="danger-link" ghost>
+      Danger Link
+    </Button>
   </div>,
   mountNode,
 );

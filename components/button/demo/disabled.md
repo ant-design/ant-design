@@ -35,6 +35,10 @@ ReactDOM.render(
     <Button type="link" disabled>
       Link(disabled)
     </Button>
+    <Button type="danger-link">Danger Link</Button>
+    <Button type="danger-link" disabled>
+      Danger Link(disabled)
+    </Button>
     <div style={{ padding: '8px 8px 0 8px', background: 'rgb(190, 200, 200)' }}>
       <Button ghost>Ghost</Button>
       <Button ghost disabled>

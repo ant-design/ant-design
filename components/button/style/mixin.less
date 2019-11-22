@@ -236,6 +236,19 @@
   }
   .button-disabled(@disabled-color; transparent; transparent);
 }
+// danger link button style
+.btn-danger-link() {
+  .button-variant-other(@error-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
+  }
+  &:active {
+    .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+  }
+  .button-disabled(@disabled-color; transparent; transparent);
+}
 // round button
 .btn-round(@btnClassName: btn) {
   .button-size(@btn-circle-size; 0 @btn-circle-size / 2; @font-size-base; @btn-circle-size);
