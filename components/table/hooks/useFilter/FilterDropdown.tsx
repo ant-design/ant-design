@@ -9,6 +9,7 @@ import Dropdown from '../../../dropdown';
 import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
+import useSyncState from '../useSyncState';
 
 const { SubMenu, Item: MenuItem } = Menu;
 
@@ -92,10 +93,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     filterState && filterState.filteredKeys,
   );
   const [filteredKeys, setFilteredKeys] = React.useState(propFilteredKeys || []);
-  let filteredKeysLast = filteredKeys;
+  const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
-    filteredKeysLast = selectedKeys;
+    setFilteredKeysSync(selectedKeys);
     setFilteredKeys(selectedKeys);
   };
 
@@ -142,7 +143,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onConfirm = () => {
-    internalTriggerFilter(filteredKeysLast);
+    internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onReset = () => {
