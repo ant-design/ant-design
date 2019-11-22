@@ -76,7 +76,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     }
   };
 
-  getIcon = (file: UploadFile, prefixCls: string) => {
+  getIcon = (file: UploadFile) => {
     const { listType, locale, customIconRender } = this.props;
     if (customIconRender) {
       return customIconRender(file, listType);
@@ -118,18 +118,16 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
     const list = items.map(file => {
       let progress;
-      let icon = <div className={`${prefixCls}-text-icon`}>{this.getIcon(file, prefixCls)}</div>;
+      let icon = <div className={`${prefixCls}-text-icon`}>{this.getIcon(file)}</div>;
       if (listType === 'picture' || listType === 'picture-card') {
         if (listType === 'picture-card' && file.status === 'uploading') {
           icon = (
-            <div className={`${prefixCls}-list-item-uploading-text`}>
-              {this.getIcon(file, prefixCls)}
-            </div>
+            <div className={`${prefixCls}-list-item-uploading-text`}>{this.getIcon(file)}</div>
           );
         } else if (!file.thumbUrl && !file.url) {
           icon = (
             <div className={`${prefixCls}-list-item-thumbnail ${prefixCls}-list-item-file`}>
-              {this.getIcon(file, prefixCls)}
+              {this.getIcon(file)}
             </div>
           );
         } else {
@@ -140,7 +138,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               className={`${prefixCls}-list-item-image`}
             />
           ) : (
-            this.getIcon(file, prefixCls)
+            this.getIcon(file)
           );
           const aClassName = classNames({
             [`${prefixCls}-list-item-thumbnail`]: true,
