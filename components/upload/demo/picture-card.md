@@ -55,6 +55,12 @@ class PicturesWall extends React.Component {
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       },
       {
+        uid: '-6',
+        name: 'pdf.pdf',
+        status: 'done',
+        url: 'http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf',
+      },
+      {
         uid: '-5',
         name: 'image.png',
         status: 'done',

@@ -85,6 +85,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       progressAttr,
     } = this.props;
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
+
     const list = items.map(file => {
       let progress;
       let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
