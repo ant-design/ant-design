@@ -16,9 +16,9 @@ import { formatDate } from './utils';
 export interface PickerProps {
   value?: moment.Moment;
   open?: boolean;
+  allowClear?: boolean;
+  showToday?: boolean;
   prefixCls: string;
-  allowClear: boolean;
-  showToday: boolean;
 }
 
 export interface PickerState {
