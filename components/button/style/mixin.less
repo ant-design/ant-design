@@ -225,16 +225,22 @@
 .btn-danger() {
   .button-variant-primary(@btn-danger-color, @btn-danger-bg);
 }
-// link button style
-.btn-link() {
-  .button-variant-other(@link-color, transparent, transparent);
-  box-shadow: none;
+// danger default button style
+.btn-danger-default() {
+  .button-color(@error-color, @btn-default-bg, @error-color);
   &:hover,
-  &:focus,
-  &:active {
-    border-color: transparent;
+  &:focus {
+    .button-color(
+      ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5) `
+    );
   }
-  .button-disabled(@disabled-color; transparent; transparent);
+  &:active,
+  &.active {
+    .button-color(
+      ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7) `
+    );
+  }
+  .button-disabled();
 }
 // danger link button style
 .btn-danger-link() {
@@ -246,6 +252,17 @@
   }
   &:active {
     .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+  }
+  .button-disabled(@disabled-color; transparent; transparent);
+}
+// link button style
+.btn-link() {
+  .button-variant-other(@link-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
   }
   .button-disabled(@disabled-color; transparent; transparent);
 }

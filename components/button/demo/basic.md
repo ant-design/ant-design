@@ -22,8 +22,9 @@ ReactDOM.render(
     <Button>Default</Button>
     <Button type="dashed">Dashed</Button>
     <Button type="danger">Danger</Button>
+    <Button type="danger-default">Danger default</Button>
+    <Button type="danger-link">Danger Link</Button>
     <Button type="link">Link</Button>
-    <Button type="danger-link">Link</Button>
   </div>,
   mountNode,
 );

@@ -48,14 +48,18 @@ class ButtonSize extends React.Component {
         <Button type="dashed" size={size}>
           Dashed
         </Button>
+        <br />
         <Button type="danger" size={size}>
           Danger
         </Button>
-        <Button type="link" size={size}>
-          Link
+        <Button type="danger-default" size={size}>
+          Danger Default
         </Button>
         <Button type="danger-link" size={size}>
           Danger Link
+        </Button>
+        <Button type="link" size={size}>
+          Link
         </Button>
         <br />
         <Button type="primary" icon={<Download />} size={size} />

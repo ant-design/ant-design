@@ -28,11 +28,14 @@ ReactDOM.render(
     <Button type="danger" block>
       Danger
     </Button>
-    <Button type="link" block>
-      Link
+    <Button type="danger-default" block>
+      Danger Default
     </Button>
     <Button type="danger-link" block>
       Danger Link
+    </Button>
+    <Button type="link" block>
+      Link
     </Button>
   </div>,
   mountNode,
