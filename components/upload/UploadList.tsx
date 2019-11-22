@@ -78,28 +78,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
 
   getIcon = (file: UploadFile) => {
     const { listType, locale } = this.props;
-    let _dom;
+    // let _dom;
     let icon: React.ReactNode = (
       <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />
     );
 
     if (listType === 'picture' || listType === 'picture-card') {
-      if (listType === 'picture-card' && file.status === 'uploading') {
+      if (file.status === 'uploading') {
         icon = locale.uploading;
         // icon = <Icon type="loading" />;
-      } else if (!file.thumbUrl && !file.url) {
-        icon = (
-          <Icon
-            type={get(
-              find(fileSufIconList, item =>
-                includes(item.suf, file.name.substr(file.name.lastIndexOf('.'))),
-              ),
-              'type',
-              'file',
-            )}
-            theme="twoTone"
-          />
-        );
       } else {
         icon = (
           <Icon
@@ -108,15 +95,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
                 includes(item.suf, file.name.substr(file.name.lastIndexOf('.'))),
               ),
               'type',
-              'file',
+              'file-unknown',
             )}
             theme="twoTone"
           />
         );
       }
     }
-    _dom = icon;
-    return _dom;
+    // _dom = icon;
+    return icon;
   };
 
   renderUploadList = ({ getPrefixCls }: ConfigConsumerProps) => {
