@@ -27,11 +27,27 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-danger"
+    class="ant-btn ant-btn-primary ant-btn-dangerous"
     type="button"
   >
     <span>
       Danger
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Link
     </span>
   </button>
   <button
@@ -72,11 +88,27 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-danger ant-btn-block"
+    class="ant-btn ant-btn-primary ant-btn-block ant-btn-dangerous"
     type="button"
   >
     <span>
       Danger
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-block ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-block ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Link
     </span>
   </button>
   <button
@@ -163,6 +195,42 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
       Link(disabled)
     </span>
   </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-link ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Link
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-dangerous"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Danger Link(disabled)
+    </span>
+  </button>
+  <br />
+  <button
+    class="ant-btn ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-dangerous"
+    disabled=""
+    type="button"
+  >
+    <span>
+      Danger Default(disabled)
+    </span>
+  </button>
   <div
     style="padding:8px 8px 0 8px;background:rgb(190, 200, 200)"
   >
@@ -208,11 +276,27 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-danger ant-btn-background-ghost"
+    class="ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-dangerous"
     type="button"
   >
     <span>
       danger
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-background-ghost ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-background-ghost ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Link
     </span>
   </button>
   <button
@@ -670,12 +754,29 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       Dashed
     </span>
   </button>
+  <br />
   <button
-    class="ant-btn ant-btn-danger ant-btn-lg"
+    class="ant-btn ant-btn-primary ant-btn-lg ant-btn-dangerous"
     type="button"
   >
     <span>
       Danger
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-lg ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Default
+    </span>
+  </button>
+  <button
+    class="ant-btn ant-btn-link ant-btn-lg ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Danger Link
     </span>
   </button>
   <button
@@ -818,66 +919,5 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
       Download
     </span>
   </button>
-  <br />
-  <div
-    class="ant-btn-group ant-btn-group-lg"
-  >
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
-    >
-      <span
-        aria-label="left"
-        class="anticon anticon-left"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="left"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
-          />
-        </svg>
-      </span>
-      <span>
-        Backward
-      </span>
-    </button>
-    <button
-      class="ant-btn ant-btn-primary"
-      type="button"
-    >
-      <span>
-        Forward
-      </span>
-      <span
-        aria-label="right"
-        class="anticon anticon-right"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="right"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-          />
-        </svg>
-      </span>
-    </button>
-  </div>
 </div>
 `;

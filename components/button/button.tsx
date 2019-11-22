@@ -9,6 +9,7 @@ import omit from 'omit.js';
 import Group from './button-group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
+import warning from '../_util/warning';
 import { Omit, tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -65,16 +66,7 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
   );
 }
 
-const ButtonTypes = tuple(
-  'default',
-  'primary',
-  'ghost',
-  'dashed',
-  'danger',
-  'danger-link',
-  'danger-default',
-  'link',
-);
+const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
 export type ButtonShape = typeof ButtonShapes[number];
@@ -92,6 +84,7 @@ export interface BaseButtonProps {
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
+  danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
 }
@@ -158,6 +151,11 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   componentDidMount() {
     this.fixTwoCNChar();
+    warning(
+      !('type' in this.props && this.props.type === 'danger'),
+      'Button',
+      '`type="danger"` is deprecated, please use `danger` instead.',
+    );
   }
 
   componentDidUpdate(prevProps: ButtonProps) {
@@ -227,6 +225,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     const {
       prefixCls: customizePrefixCls,
       type,
+      danger,
       shape,
       size,
       className,
@@ -266,6 +265,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
+      [`${prefixCls}-dangerous`]: !!danger,
     });
 
     const iconNode = loading ? <Loading /> : icon || null;
@@ -305,7 +305,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       </button>
     );
 
-    if (type === 'link' || type === 'danger-link') {
+    if (type === 'link') {
       return buttonNode;
     }
 

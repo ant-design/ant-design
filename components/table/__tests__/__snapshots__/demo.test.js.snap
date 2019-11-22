@@ -384,13 +384,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span>
-                      <a>
+                      <a
+                        style="margin-right:16px"
+                      >
                         Invite John Brown
                       </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                        role="separator"
-                      />
                       <a>
                         Delete
                       </a>
@@ -432,13 +430,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span>
-                      <a>
+                      <a
+                        style="margin-right:16px"
+                      >
                         Invite Jim Green
                       </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                        role="separator"
-                      />
                       <a>
                         Delete
                       </a>
@@ -485,13 +481,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span>
-                      <a>
+                      <a
+                        style="margin-right:16px"
+                      >
                         Invite Joe Black
                       </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                        role="separator"
-                      />
                       <a>
                         Delete
                       </a>
@@ -2460,20 +2454,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -2554,20 +2539,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -2648,20 +2624,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -2742,20 +2709,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -2836,20 +2794,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -2930,20 +2879,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -3024,20 +2964,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -3118,20 +3049,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -3212,20 +3134,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -3306,20 +3219,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <span>
-                        <a>
-                          Action 一 John Brown
-                        </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
-                        <a>
+                        <a
+                          style="margin-right:16px"
+                        >
                           Delete
                         </a>
-                        <div
-                          class="ant-divider ant-divider-vertical"
-                          role="separator"
-                        />
                         <a
                           class="ant-dropdown-link"
                         >
@@ -8775,13 +8679,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span>
-                      <a>
+                      <a
+                        style="margin-right:16px"
+                      >
                         Invite Brown
                       </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                        role="separator"
-                      />
                       <a>
                         Delete
                       </a>
@@ -8826,13 +8728,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span>
-                      <a>
+                      <a
+                        style="margin-right:16px"
+                      >
                         Invite Green
                       </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                        role="separator"
-                      />
                       <a>
                         Delete
                       </a>
@@ -8882,13 +8782,11 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <span>
-                      <a>
+                      <a
+                        style="margin-right:16px"
+                      >
                         Invite Black
                       </a>
-                      <div
-                        class="ant-divider ant-divider-vertical"
-                        role="separator"
-                      />
                       <a>
                         Delete
                       </a>

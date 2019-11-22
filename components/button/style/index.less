@@ -63,20 +63,26 @@
     .btn-dashed;
   }
 
+  // type="danger" will deprecated
+  // use danger instead
   &-danger {
     .btn-danger;
   }
 
-  &-danger-default {
+  &-link {
+    .btn-link;
+  }
+
+  &-dangerous {
     .btn-danger-default;
   }
 
-  &-danger-link {
-    .btn-danger-link;
+  &-dangerous&-primary {
+    .btn-danger;
   }
 
-  &-link {
-    .btn-link;
+  &-dangerous&-link {
+    .btn-danger-link;
   }
 
   &-icon-only {
@@ -179,12 +185,6 @@
 
   &-background-ghost&-link {
     .button-variant-ghost(@link-color; transparent);
-
-    color: @component-background;
-  }
-
-  &-background-ghost&-danger-link {
-    .button-variant-ghost(@error-color; transparent);
 
     color: @component-background;
   }
