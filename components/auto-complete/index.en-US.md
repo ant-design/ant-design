@@ -52,8 +52,8 @@ const dataSource = ['12345', '23456', '34567'];
 
 ## FAQ
 
-### Why text composition system not works well with onSearch in controlled mode?
+### Why doesn't the text composition system work well with onSearch in controlled mode?
 
-Please use `onChange` to manage control state. `onSearch` is used for searching input which is not same as `onChange`. Besides, click on the option also not trigger the `onSearch` event.
+Please use `onChange` to manage control state. `onSearch` is used for searching input which is not same as `onChange`. Besides, clicking on the option will not trigger the `onSearch` event.
 
 Related issue: [#18230](https://github.com/ant-design/ant-design/issues/18230) [#17916](https://github.com/ant-design/ant-design/issues/17916)
