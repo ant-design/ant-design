@@ -123,5 +123,6 @@ export interface UploadListProps {
   showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;
   locale: UploadLocale;
+  customIconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
   previewFile?: PreviewFileHandler;
 }

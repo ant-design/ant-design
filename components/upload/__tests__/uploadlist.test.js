@@ -573,7 +573,7 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
-    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(2);
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(1);
   });
 
   it('extname should work correctly when url exists', () => {
