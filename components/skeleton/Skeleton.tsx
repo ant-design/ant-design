@@ -26,10 +26,11 @@ function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
 
 function getAvatarBasicProps(hasTitle: boolean, hasParagraph: boolean): AvatarProps {
   if (hasTitle && !hasParagraph) {
-    return { shape: 'square' };
+    // Square avatar
+    return { size: 'large', shape: 'square' };
   }
 
-  return { shape: 'circle' };
+  return { size: 'large', shape: 'circle' };
 }
 
 function getTitleBasicProps(hasAvatar: boolean, hasParagraph: boolean): SkeletonTitleProps {

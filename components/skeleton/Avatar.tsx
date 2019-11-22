@@ -7,10 +7,6 @@ export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SkeletonAvatar extends React.Component<AvatarProps, any> {
-  static defaultProps: Partial<SkeletonElementProps> = {
-    size: 'large',
-  };
-
   render() {
     return <SkeletonElement {...this.props} />;
   }
