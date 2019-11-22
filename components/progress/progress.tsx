@@ -8,6 +8,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 import Line from './Line';
 import Circle from './Circle';
+import Steps from './Steps';
 import { validProgress } from './utils';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
@@ -35,6 +36,7 @@ export interface ProgressProps {
   gapDegree?: number;
   gapPosition?: 'top' | 'bottom' | 'left' | 'right';
   size?: ProgressSize;
+  steps?: number;
 }
 
 export default class Progress extends React.Component<ProgressProps> {
@@ -101,18 +103,21 @@ export default class Progress extends React.Component<ProgressProps> {
 
   renderProgress = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { props } = this;
-    const { prefixCls: customizePrefixCls, className, size, type, showInfo, ...restProps } = props;
+    const { prefixCls: customizePrefixCls, className, size, type, steps, showInfo, ...restProps } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
     const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
     let progress;
     // Render progress shape
     if (type === 'line') {
-      progress = (
-        <Line {...this.props} prefixCls={prefixCls}>
+      progress = steps ? (
+        <Steps {...this.props} prefixCls={prefixCls} steps={steps}>
           {progressInfo}
-        </Line>
-      );
+        </Steps>) : (
+          <Line {...this.props} prefixCls={prefixCls}>
+            {progressInfo}
+          </Line>
+        );
     } else if (type === 'circle' || type === 'dashboard') {
       progress = (
         <Circle {...this.props} prefixCls={prefixCls} progressStatus={progressStatus}>
@@ -124,7 +129,7 @@ export default class Progress extends React.Component<ProgressProps> {
     const classString = classNames(
       prefixCls,
       {
-        [`${prefixCls}-${(type === 'dashboard' && 'circle') || type}`]: true,
+        [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,
         [`${prefixCls}-status-${progressStatus}`]: true,
         [`${prefixCls}-show-info`]: showInfo,
         [`${prefixCls}-${size}`]: size,
@@ -146,6 +151,7 @@ export default class Progress extends React.Component<ProgressProps> {
           'strokeColor',
           'strokeLinecap',
           'percent',
+          'steps',
         ])}
         className={classString}
       >

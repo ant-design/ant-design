@@ -1396,3 +1396,122 @@ exports[`renders ./components/progress/demo/segment.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
+<div>
+  <div
+    class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  >
+    <div
+      class="ant-progress-steps-outer"
+    >
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:14px;height:8px"
+      />
+      <span
+        class="ant-progress-text"
+        title="50%"
+      >
+        50%
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  >
+    <div
+      class="ant-progress-steps-outer"
+    >
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#f3f3f3;width:14px;height:8px"
+      />
+      <span
+        class="ant-progress-text"
+        title="30%"
+      >
+        30%
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-progress ant-progress-steps ant-progress-status-success ant-progress-show-info ant-progress-small"
+  >
+    <div
+      class="ant-progress-steps-outer"
+    >
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:2px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:2px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:2px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:2px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="background-color:#1890ff;width:2px;height:8px"
+      />
+      <span
+        class="ant-progress-text"
+      >
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
