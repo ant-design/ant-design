@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import SkeletonElement, { SkeletonElementProps } from './SkeletonElement';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
+interface ButtonProps extends Omit<SkeletonElementProps, 'size'> {
   active?: boolean;
   size?: 'large' | 'small' | 'default';
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class SkeletonButton extends React.Component<SkeletonButtonProps, any> {
-  static defaultProps: Partial<SkeletonButtonProps> = {
+class SkeletonButton extends React.Component<ButtonProps, any> {
+  static defaultProps: Partial<ButtonProps> = {
     size: 'default',
   };
 

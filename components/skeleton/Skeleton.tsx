@@ -1,10 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Avatar, { AvatarProps } from './Avatar';
-import Title, { SkeletonTitleProps } from './Title';
-import Paragraph, { SkeletonParagraphProps } from './Paragraph';
+import SkeletonTitle, { SkeletonTitleProps } from './SkeletonTitle';
+import SkeletonParagraph, { SkeletonParagraphProps } from './SkeletonParagraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SkeletonButton from './Button';
+import SkeletonElement from './SkeletonElement';
+import SkeletonAvatar, { AvatarProps } from './Avatar';
+
+/* This only for skeleton internal. */
+interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
 
 export interface SkeletonProps {
   active?: boolean;
@@ -12,7 +16,7 @@ export interface SkeletonProps {
   prefixCls?: string;
   className?: string;
   children?: React.ReactNode;
-  avatar?: AvatarProps | boolean;
+  avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
 }
@@ -24,7 +28,7 @@ function getComponentProps<T>(prop: T | boolean | undefined): T | {} {
   return {};
 }
 
-function getAvatarBasicProps(hasTitle: boolean, hasParagraph: boolean): AvatarProps {
+function getAvatarBasicProps(hasTitle: boolean, hasParagraph: boolean): SkeletonAvatarProps {
   if (hasTitle && !hasParagraph) {
     // Square avatar
     return { size: 'large', shape: 'square' };
@@ -66,6 +70,8 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 class Skeleton extends React.Component<SkeletonProps, any> {
   static Button: typeof SkeletonButton;
 
+  static Avatar: typeof SkeletonAvatar;
+
   static defaultProps: Partial<SkeletonProps> = {
     avatar: false,
     title: true,
@@ -94,15 +100,15 @@ class Skeleton extends React.Component<SkeletonProps, any> {
       // Avatar
       let avatarNode;
       if (hasAvatar) {
-        const avatarProps: AvatarProps = {
+        const avatarProps: SkeletonAvatarProps = {
           prefixCls: `${prefixCls}-avatar`,
           ...getAvatarBasicProps(hasTitle, hasParagraph),
           ...getComponentProps(avatar),
         };
-
+        // We direct use SkeletonElement as avatar in skeleton internal.
         avatarNode = (
           <div className={`${prefixCls}-header`}>
-            <Avatar {...avatarProps} />
+            <SkeletonElement {...avatarProps} />
           </div>
         );
       }
@@ -118,7 +124,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(title),
           };
 
-          $title = <Title {...titleProps} />;
+          $title = <SkeletonTitle {...titleProps} />;
         }
 
         // Paragraph
@@ -130,7 +136,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(paragraph),
           };
 
-          paragraphNode = <Paragraph {...paragraphProps} />;
+          paragraphNode = <SkeletonParagraph {...paragraphProps} />;
         }
 
         contentNode = (
