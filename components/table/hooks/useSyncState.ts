@@ -7,6 +7,6 @@ export default function useSyncState<T>(filteredKeys: T): UseSyncStateProps<T> {
 
   return [
     () => filteredKeysRef.current,
-    (newValue: T) => (filteredKeysRef.current = newValue)
+    (newValue: T) => (filteredKeysRef.current = newValue),
   ];
 }
