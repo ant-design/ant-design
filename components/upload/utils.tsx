@@ -131,6 +131,7 @@ export function previewImage(file: File | Blob): Promise<string> {
 export const fileSufIconList = [
   { type: 'file-pdf', suf: ['.pdf'] },
   { type: 'file-excel', suf: ['.xlsx', '.xls', '.csv'] },
+  { type: 'file-word', suf: ['.doc', '.docx'] },
   {
     type: 'picture',
     suf: ['.webp', '.svg', '.png', '.gif', '.jpg', '.jpeg', '.jfif', '.bmp', '.dpg'],
