@@ -53,7 +53,7 @@ export interface IDrawerState {
 }
 
 class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerState> {
-  static defaultProps = {
+  static defaultProps: Partial<DrawerProps & ConfigConsumerProps & { level: any }> = {
     width: 256,
     height: 256,
     closable: true,

@@ -17,8 +17,8 @@ export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
   type?: 'flex';
-  align?: (typeof RowAligns)[number];
-  justify?: (typeof RowJustify)[number];
+  align?: typeof RowAligns[number];
+  justify?: typeof RowJustify[number];
   prefixCls?: string;
 }
 
@@ -27,7 +27,7 @@ export interface RowState {
 }
 
 export default class Row extends React.Component<RowProps, RowState> {
-  static defaultProps = {
+  static defaultProps: RowProps = {
     gutter: 0,
   };
 

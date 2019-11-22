@@ -19,7 +19,7 @@ interface WeekPickerState {
 }
 
 class WeekPicker extends React.Component<any, WeekPickerState> {
-  static defaultProps = {
+  static defaultProps: any = {
     format: 'gggg-wo',
     allowClear: true,
   };

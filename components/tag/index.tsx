@@ -31,7 +31,7 @@ const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
 
-  static defaultProps = {
+  static defaultProps: TagProps = {
     closable: false,
   };
 

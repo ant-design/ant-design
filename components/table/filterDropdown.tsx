@@ -21,7 +21,7 @@ function stopPropagation(e: React.SyntheticEvent<any>) {
 }
 
 class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<T>> {
-  static defaultProps = {
+  static defaultProps: Partial<FilterMenuProps<unknown>> = {
     column: {},
   };
 

@@ -43,7 +43,7 @@ export interface MentionState {
 class Mention extends React.Component<MentionProps, MentionState> {
   static getMentions = getMentions;
 
-  static defaultProps = {
+  static defaultProps: MentionProps = {
     notFoundContent: 'No matches found',
     loading: false,
     multiLines: false,

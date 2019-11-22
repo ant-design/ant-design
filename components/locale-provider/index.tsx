@@ -40,8 +40,8 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     locale: PropTypes.object,
   };
 
-  static defaultProps = {
-    locale: {},
+  static defaultProps: LocaleProviderProps = {
+    locale: {} as Locale,
   };
 
   static childContextTypes = {

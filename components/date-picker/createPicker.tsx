@@ -17,6 +17,8 @@ export interface PickerProps {
   value?: moment.Moment;
   open?: boolean;
   prefixCls: string;
+  allowClear: boolean;
+  showToday: boolean;
 }
 
 export interface PickerState {
@@ -27,7 +29,7 @@ export interface PickerState {
 
 export default function createPicker(TheCalendar: React.ComponentClass): any {
   class CalenderWrapper extends React.Component<any, PickerState> {
-    static defaultProps = {
+    static defaultProps: Partial<PickerProps> = {
       allowClear: true,
       showToday: true,
     };

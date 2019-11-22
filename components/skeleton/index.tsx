@@ -62,7 +62,7 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 }
 
 class Skeleton extends React.Component<SkeletonProps, any> {
-  static defaultProps: Partial<SkeletonProps> = {
+  static defaultProps: SkeletonProps = {
     avatar: false,
     title: true,
     paragraph: true,

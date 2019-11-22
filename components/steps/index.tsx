@@ -35,7 +35,7 @@ export interface StepProps {
 export default class Steps extends React.Component<StepsProps, any> {
   static Step = RcSteps.Step as React.ClassicComponentClass<StepProps>;
 
-  static defaultProps = {
+  static defaultProps: StepsProps = {
     current: 0,
   };
 

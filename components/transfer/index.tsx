@@ -85,11 +85,11 @@ class Transfer extends React.Component<TransferProps, any> {
 
   static Search = Search;
 
-  static defaultProps = {
+  static defaultProps: TransferProps = {
     dataSource: [],
     locale: {},
     showSearch: false,
-    listStyle: () => {},
+    listStyle: (() => {}) as TransferProps['listStyle'],
   };
 
   static propTypes = {
@@ -247,7 +247,11 @@ class Transfer extends React.Component<TransferProps, any> {
       'Transfer',
       '`handleSelectAll` will be removed, please use `onSelectAll` instead.',
     );
-    this.onItemSelectAll(direction, filteredDataSource.map(({ key }) => key), !checkAll);
+    this.onItemSelectAll(
+      direction,
+      filteredDataSource.map(({ key }) => key),
+      !checkAll,
+    );
   };
 
   // [Legacy] Old prop `body` pass origin check as arg. It's confusing.

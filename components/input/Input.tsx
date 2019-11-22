@@ -17,7 +17,7 @@ export const InputSizes = tuple('small', 'default', 'large');
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   prefixCls?: string;
-  size?: (typeof InputSizes)[number];
+  size?: typeof InputSizes[number];
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -61,7 +61,7 @@ export function resolveOnChange(
 
 export function getInputClassName(
   prefixCls: string,
-  size?: (typeof InputSizes)[number],
+  size?: typeof InputSizes[number],
   disabled?: boolean,
 ) {
   return classNames(prefixCls, {
@@ -84,7 +84,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   static Password: typeof Password;
 
-  static defaultProps = {
+  static defaultProps: InputProps = {
     type: 'text',
   };
 

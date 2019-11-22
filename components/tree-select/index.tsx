@@ -23,7 +23,7 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
 
   static SHOW_CHILD = SHOW_CHILD;
 
-  static defaultProps = {
+  static defaultProps: TreeSelectProps<any> = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
   };

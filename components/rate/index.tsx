@@ -32,7 +32,7 @@ export default class Rate extends React.Component<RateProps, any> {
     character: PropTypes.node,
   };
 
-  static defaultProps = {
+  static defaultProps: RateProps = {
     character: <Icon type="star" theme="filled" />,
   };
 

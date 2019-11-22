@@ -65,13 +65,13 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
 }
 
 const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
-export type ButtonType = (typeof ButtonTypes)[number];
+export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
-export type ButtonShape = (typeof ButtonShapes)[number];
+export type ButtonShape = typeof ButtonShapes[number];
 const ButtonSizes = tuple('large', 'default', 'small');
-export type ButtonSize = (typeof ButtonSizes)[number];
+export type ButtonSize = typeof ButtonSizes[number];
 const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -114,7 +114,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   static __ANT_BUTTON = true;
 
-  static defaultProps = {
+  static defaultProps: ButtonProps = {
     loading: false,
     ghost: false,
     block: false,

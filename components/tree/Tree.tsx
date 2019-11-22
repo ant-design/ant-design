@@ -173,7 +173,7 @@ export default class Tree extends React.Component<TreeProps, any> {
 
   static DirectoryTree = DirectoryTree;
 
-  static defaultProps = {
+  static defaultProps: TreeProps & { motion: typeof collapseMotion } = {
     checkable: false,
     showIcon: false,
     motion: {

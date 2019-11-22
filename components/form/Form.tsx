@@ -29,7 +29,7 @@ export interface FormCreateOption<T> {
 }
 
 const FormLayouts = tuple('horizontal', 'inline', 'vertical');
-export type FormLayout = (typeof FormLayouts)[number];
+export type FormLayout = typeof FormLayouts[number];
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
@@ -199,9 +199,9 @@ export interface FormComponentProps<V = any> extends WrappedFormInternalProps<V>
 }
 
 export default class Form extends React.Component<FormProps, any> {
-  static defaultProps = {
+  static defaultProps: FormProps = {
     colon: true,
-    layout: 'horizontal' as FormLayout,
+    layout: 'horizontal',
     hideRequiredMark: false,
     onSubmit(e: React.FormEvent<HTMLFormElement>) {
       e.preventDefault();

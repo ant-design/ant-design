@@ -7,7 +7,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { tuple } from '../_util/type';
 
 const SpinSizes = tuple('small', 'default', 'large');
-export type SpinSize = (typeof SpinSizes)[number];
+export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export interface SpinProps {
@@ -60,7 +60,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
 }
 
 class Spin extends React.Component<SpinProps, SpinState> {
-  static defaultProps = {
+  static defaultProps: SpinProps = {
     spinning: true,
     size: 'default' as SpinSize,
     wrapperClassName: '',

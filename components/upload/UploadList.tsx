@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
-import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { UploadListProps, UploadFile } from './interface';
 import { previewImage, isImageUrl } from './utils';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
@@ -9,8 +9,8 @@ import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export default class UploadList extends React.Component<UploadListProps, any> {
-  static defaultProps = {
-    listType: 'text' as UploadListType, // or picture
+  static defaultProps: Partial<UploadListProps> = {
+    listType: 'text',
     progressAttr: {
       strokeWidth: 2,
       showInfo: false,

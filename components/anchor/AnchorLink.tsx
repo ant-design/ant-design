@@ -15,7 +15,7 @@ export interface AnchorLinkProps {
 }
 
 class AnchorLink extends React.Component<AnchorLinkProps, any> {
-  static defaultProps = {
+  static defaultProps: Partial<AnchorLinkProps> = {
     href: '#',
   };
 

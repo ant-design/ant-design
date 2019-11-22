@@ -101,7 +101,7 @@ interface Locale {
 const ELLIPSIS_STR = '...';
 
 class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, BaseState> {
-  static defaultProps = {
+  static defaultProps: Partial<InternalBlockProps & ConfigConsumerProps> = {
     children: '',
   };
 

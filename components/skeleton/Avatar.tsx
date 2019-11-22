@@ -11,7 +11,7 @@ export interface SkeletonAvatarProps {
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
-  static defaultProps: Partial<SkeletonAvatarProps> = {
+  static defaultProps: SkeletonAvatarProps = {
     size: 'large',
   };
 

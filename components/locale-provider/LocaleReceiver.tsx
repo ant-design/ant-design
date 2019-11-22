@@ -17,7 +17,7 @@ export interface LocaleReceiverContext {
 }
 
 export default class LocaleReceiver extends React.Component<LocaleReceiverProps> {
-  static defaultProps = {
+  static defaultProps: Partial<LocaleReceiverProps> = {
     componentName: 'global',
   };
 

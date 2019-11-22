@@ -49,7 +49,7 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
 
   static __ANT_CHECKBOX = true;
 
-  static defaultProps = {
+  static defaultProps: CheckboxProps = {
     indeterminate: false,
   };
 

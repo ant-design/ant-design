@@ -42,7 +42,7 @@ function intersperseSpace<T>(list: Array<T>): Array<T | string> {
 }
 
 export default class FormItem extends React.Component<FormItemProps, any> {
-  static defaultProps = {
+  static defaultProps: FormItemProps = {
     hasFeedback: false,
   };
 
@@ -66,7 +66,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const { children, help, validateStatus, id } = this.props;
     warning(
       this.getControls(children, true).length <= 1 ||
-        help !== undefined || validateStatus !== undefined,
+        help !== undefined ||
+        validateStatus !== undefined,
       'Form.Item',
       'Cannot generate `validateStatus` and `help` automatically, ' +
         'while there are more than one `getFieldDecorator` in it.',

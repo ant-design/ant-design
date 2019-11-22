@@ -156,11 +156,11 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
     getPopupContainer: PropTypes.func,
   };
 
-  static defaultProps = {
+  static defaultProps: TableProps<unknown> = {
     dataSource: [],
     useFixedHeader: false,
     className: '',
-    size: 'default' as TableSize,
+    size: 'default',
     loading: false,
     bordered: false,
     indentSize: 20,

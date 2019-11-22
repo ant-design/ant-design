@@ -13,13 +13,11 @@ import {
   UploadFile,
   UploadLocale,
   UploadChangeParam,
-  UploadType,
-  UploadListType,
 } from './interface';
 import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 import warning from '../_util/warning';
 
 export { UploadProps };
@@ -27,15 +25,15 @@ export { UploadProps };
 class Upload extends React.Component<UploadProps, UploadState> {
   static Dragger: typeof Dragger;
 
-  static defaultProps = {
-    type: 'select' as UploadType,
+  static defaultProps: UploadProps = {
+    type: 'select',
     multiple: false,
     action: '',
     data: {},
     accept: '',
     beforeUpload: T,
     showUploadList: true,
-    listType: 'text' as UploadListType, // or picture
+    listType: 'text',
     className: '',
     disabled: false,
     supportServerRender: true,

@@ -71,7 +71,7 @@ function fixLocale(value: RangePickerValue | undefined, localeCode: string | und
 }
 
 class RangePicker extends React.Component<RangePickerProps, RangePickerState> {
-  static defaultProps = {
+  static defaultProps: RangePickerProps = {
     allowClear: true,
     showToday: false,
     separator: '~',

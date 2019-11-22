@@ -71,12 +71,12 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
     itemLayout: PropTypes.string,
   };
 
-  static defaultProps = {
+  static defaultProps: ListProps<unknown> = {
     dataSource: [],
     bordered: false,
     split: true,
     loading: false,
-    pagination: false as ListProps<any>['pagination'],
+    pagination: false,
   };
 
   defaultPaginationProps = {

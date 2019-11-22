@@ -78,7 +78,7 @@ const generateId = (() => {
 })();
 
 class InternalSider extends React.Component<InternalSideProps, SiderState> {
-  static defaultProps = {
+  static defaultProps: Partial<InternalSideProps> = {
     collapsible: false,
     defaultCollapsed: false,
     reverseArrow: false,

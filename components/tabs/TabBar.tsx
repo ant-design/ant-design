@@ -5,7 +5,7 @@ import { TabsProps } from './index';
 import Icon from '../icon';
 
 export default class TabBar extends React.Component<TabsProps> {
-  static defaultProps = {
+  static defaultProps: TabsProps = {
     animated: true,
     type: 'line',
   };

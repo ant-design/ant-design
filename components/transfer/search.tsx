@@ -12,7 +12,7 @@ export interface TransferSearchProps {
 }
 
 export default class Search extends React.Component<TransferSearchProps, any> {
-  static defaultProps = {
+  static defaultProps: TransferSearchProps = {
     placeholder: '',
   };
 

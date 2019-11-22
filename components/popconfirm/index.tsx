@@ -32,11 +32,11 @@ export interface PopconfirmLocale {
 }
 
 class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
-  static defaultProps = {
+  static defaultProps: Partial<PopconfirmProps> = {
     transitionName: 'zoom-big',
-    placement: 'top' as PopconfirmProps['placement'],
-    trigger: 'click' as PopconfirmProps['trigger'],
-    okType: 'primary' as PopconfirmProps['okType'],
+    placement: 'top',
+    trigger: 'click',
+    okType: 'primary',
     icon: <Icon type="exclamation-circle" theme="filled" />,
     disabled: false,
   };

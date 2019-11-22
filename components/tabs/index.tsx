@@ -54,9 +54,9 @@ export interface TabPaneProps {
 export default class Tabs extends React.Component<TabsProps, any> {
   static TabPane = TabPane as React.ClassicComponentClass<TabPaneProps>;
 
-  static defaultProps = {
+  static defaultProps: TabsProps = {
     hideAdd: false,
-    tabPosition: 'top' as TabsPosition,
+    tabPosition: 'top',
   };
 
   componentDidMount() {

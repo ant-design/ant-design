@@ -10,15 +10,18 @@ import { tuple } from '../_util/type';
 
 const SelectSizes = tuple('default', 'large', 'small');
 
-export interface AbstractSelectProps {
+interface SelectDefaultProps {
+  transitionName: string;
+  choiceTransitionName: string;
+  showSearch: boolean;
+}
+
+export interface AbstractSelectProps extends Partial<SelectDefaultProps> {
   prefixCls?: string;
   className?: string;
   showAction?: string | string[];
-  size?: (typeof SelectSizes)[number];
+  size?: typeof SelectSizes[number];
   notFoundContent?: React.ReactNode | null;
-  transitionName?: string;
-  choiceTransitionName?: string;
-  showSearch?: boolean;
   allowClear?: boolean;
   disabled?: boolean;
   showArrow?: boolean;
@@ -58,7 +61,7 @@ const ModeOptions = tuple(
   'combobox',
   'SECRET_COMBOBOX_MODE_DO_NOT_USE',
 );
-export type ModeOption = (typeof ModeOptions)[number];
+export type ModeOption = typeof ModeOptions[number];
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
   defaultValue?: T;
@@ -124,7 +127,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
   static SECRET_COMBOBOX_MODE_DO_NOT_USE: ModeOption = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
-  static defaultProps = {
+  static defaultProps: SelectDefaultProps = {
     showSearch: false,
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',

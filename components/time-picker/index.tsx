@@ -62,7 +62,11 @@ export interface TimePickerLocale {
 }
 
 class TimePicker extends React.Component<TimePickerProps, any> {
-  static defaultProps = {
+  static defaultProps: TimePickerProps & {
+    align: { offset: [number, number] };
+    placement: string;
+    transitionName: string;
+  } = {
     align: {
       offset: [0, -2],
     },
@@ -163,10 +167,10 @@ class TimePicker extends React.Component<TimePickerProps, any> {
   renderInputIcon(prefixCls: string) {
     const { suffixIcon } = this.props;
     const clockIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon) &&
-        React.cloneElement(suffixIcon, {
-          className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
-        }))) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} />;
+      React.isValidElement<{ className?: string }>(suffixIcon) &&
+      React.cloneElement(suffixIcon, {
+        className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
+      })) || <Icon type="clock-circle" className={`${prefixCls}-clock-icon`} />;
 
     return <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
   }

@@ -64,7 +64,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
   static Separator: typeof BreadcrumbSeparator;
 
-  static defaultProps = {
+  static defaultProps: BreadcrumbProps = {
     separator: '/',
   };
 

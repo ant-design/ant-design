@@ -41,7 +41,7 @@ function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
 }
 
 class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeState> {
-  static defaultProps = {
+  static defaultProps: DirectoryTreeProps = {
     showIcon: true,
     expandAction: 'click',
   };

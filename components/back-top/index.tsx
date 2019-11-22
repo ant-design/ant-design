@@ -22,7 +22,7 @@ export interface BackTopProps {
 }
 
 export default class BackTop extends React.Component<BackTopProps, any> {
-  static defaultProps = {
+  static defaultProps: BackTopProps = {
     visibilityHeight: 400,
   };
 

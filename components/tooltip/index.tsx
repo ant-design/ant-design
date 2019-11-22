@@ -137,8 +137,8 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
 }
 
 class Tooltip extends React.Component<TooltipProps, any> {
-  static defaultProps = {
-    placement: 'top' as TooltipPlacement,
+  static defaultProps: Partial<TooltipProps> = {
+    placement: 'top',
     transitionName: 'zoom-big-fast',
     mouseEnterDelay: 0.1,
     mouseLeaveDelay: 0.1,
