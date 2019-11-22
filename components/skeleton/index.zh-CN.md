@@ -29,10 +29,11 @@ cols: 1
 
 ### SkeletonAvatarProps
 
-| 属性  | 说明                 | 类型                                          | 默认值 |
-| ----- | -------------------- | --------------------------------------------- | ------ |
-| size  | 设置头像占位图的大小 | number \| Enum{ 'large', 'small', 'default' } | -      |
-| shape | 指定头像的形状       | Enum{ 'circle', 'square' }                    | -      |
+| 属性 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| active | 是否展示动画效果，仅在单独使用头像骨架时生效 | boolean | false |
+| size | 设置头像占位图的大小 | number \| Enum{ 'large', 'small', 'default' } | - |
+| shape | 指定头像的形状 | Enum{ 'circle', 'square' } | - |
 
 ### SkeletonTitleProps
 

@@ -28,10 +28,11 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### SkeletonAvatarProps
 
-| Property | Description             | Type                                          | Default |
-| -------- | ----------------------- | --------------------------------------------- | ------- |
-| size     | Set the size of avatar  | number \| Enum{ 'large', 'small', 'default' } | -       |
-| shape    | Set the shape of avatar | Enum{ 'circle', 'square' }                    | -       |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| active | Show animation effect, only valid when used avatar independently. | boolean | false |
+| size | Set the size of avatar | number \| Enum{ 'large', 'small', 'default' } | - |
+| shape | Set the shape of avatar | Enum{ 'circle', 'square' } | - |
 
 ### SkeletonTitleProps
 
