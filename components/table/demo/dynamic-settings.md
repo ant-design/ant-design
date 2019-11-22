@@ -37,7 +37,7 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
-    render: (text, record) => (
+    render: () => (
       <span>
         <a style={{ marginRight: 16 }}>Delete</a>
         <a className="ant-dropdown-link">

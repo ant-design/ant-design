@@ -19,7 +19,7 @@ If a large or small button is desired, set the `size` property to either `large`
 
 ```jsx
 import { Button, Radio } from 'antd';
-import { Download, Left, Right } from '@ant-design/icons';
+import { Download } from '@ant-design/icons';
 
 class ButtonSize extends React.Component {
   state = {
