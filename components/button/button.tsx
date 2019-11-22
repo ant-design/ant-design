@@ -9,7 +9,6 @@ import omit from 'omit.js';
 import Group from './button-group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
-import warning from '../_util/warning';
 import { Omit, tuple } from '../_util/type';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
@@ -151,11 +150,6 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   componentDidMount() {
     this.fixTwoCNChar();
-    warning(
-      !('type' in this.props && this.props.type === 'danger'),
-      'Button',
-      '`type="danger"` is deprecated, please use `danger` instead.',
-    );
   }
 
   componentDidUpdate(prevProps: ButtonProps) {
