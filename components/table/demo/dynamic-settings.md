@@ -14,7 +14,7 @@ title:
 Select different settings to see the result.
 
 ```jsx
-import { Table, Switch, Radio, Form, Divider } from 'antd';
+import { Table, Switch, Radio, Form } from 'antd';
 import { Down } from '@ant-design/icons';
 
 const columns = [
@@ -39,10 +39,8 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <span>
-        <a>Action 一 {record.name}</a>
-        <Divider type="vertical" />
-        <a>Delete</a>
-        <Divider type="vertical" />
+        <a style={{ marginRight: 16 }}>Action 一 {record.name}</a>
+        <a style={{ marginRight: 16 }}>Delete</a>
         <a className="ant-dropdown-link">
           More actions <Down />
         </a>
