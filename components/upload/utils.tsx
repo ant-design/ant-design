@@ -127,3 +127,8 @@ export function previewImage(file: File | Blob): Promise<string> {
     img.src = window.URL.createObjectURL(file);
   });
 }
+
+export const fileSufIconList = [
+  { type: 'file-pdf', suf: ['.pdf'] },
+  { type: 'file-excel', suf: ['.xlsx', '.xls', '.csv'] },
+];
