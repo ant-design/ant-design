@@ -32,6 +32,12 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
 </div>
 `;
 
+exports[`Breadcrumb rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-breadcrumb"
+/>
+`;
+
 exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 <div
   class="ant-breadcrumb"
