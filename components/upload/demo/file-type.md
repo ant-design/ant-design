@@ -94,25 +94,24 @@ class PicturesWall extends React.Component {
   handleChange = ({ fileList }) => this.setState({ fileList });
 
   handleIconRender = (file, listType) => {
-    console.log(1, file, listType);
-    let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
-    if (listType === 'picture' || listType === 'picture-card') {
-      if (listType === 'picture-card' && file.status === 'uploading') {
-        // icon = <Icon type="loading" />; // or icon = 'uploading...';
-      } else {
-        icon = (
-          <Icon
-            type={get(
-              find(fileSufIconList, item =>
-                includes(item.suf, file.name && file.name.substr(file.name.lastIndexOf('.'))),
-              ),
-              'type',
-              'file-unknown',
-            )}
-            theme="twoTone"
-          />
-        );
-      }
+    const isLoading = file.status === 'uploading';
+    const fileIcon = (
+      <Icon
+        type={get(
+          find(fileSufIconList, item =>
+            includes(item.suf, file.name && file.name.substr(file.name.lastIndexOf('.'))),
+          ),
+          'type',
+          'file-unknown',
+        )}
+        theme="twoTone"
+      />
+    );
+    let icon = <Icon type={isLoading ? 'loading' : 'paper-clip'} />;
+    if (listType === 'picture') {
+      icon = isLoading ? <Icon type="loading" /> : fileIcon;
+    } else if (listType === 'picture-card') {
+      icon = isLoading ? 'uploading...' : fileIcon;
     }
     return icon;
   };

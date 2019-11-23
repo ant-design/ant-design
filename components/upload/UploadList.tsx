@@ -78,13 +78,13 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     if (iconRender) {
       return iconRender(file, listType);
     }
-    let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
-    if (listType === 'picture' || listType === 'picture-card') {
-      if (listType === 'picture-card' && file.status === 'uploading') {
-        icon = <div>{locale.uploading}</div>;
-      } else {
-        icon = <Icon type={isImageUrl(file) ? 'picture' : 'file'} theme="twoTone" />;
-      }
+    const isLoading = file.status === 'uploading';
+    const fileIcon = <Icon type={isImageUrl(file) ? 'picture' : 'file'} theme="twoTone" />;
+    let icon: React.ReactNode = <Icon type={isLoading ? 'loading' : 'paper-clip'} />;
+    if (listType === 'picture') {
+      icon = isLoading ? <Icon type="loading" /> : fileIcon;
+    } else if (listType === 'picture-card') {
+      icon = isLoading ? locale.uploading : fileIcon;
     }
     return icon;
   };
