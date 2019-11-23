@@ -97,14 +97,14 @@ const Banner = ({ isMobile }) => {
               <FormattedMessage id="app.home.recommend" />
             </Divider>
             <a
-              href="https://antv.vision?from=antd"
+              href={`https://antv.vision/${isZhCN ? 'zh' : 'en'}?from=antd`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 if (window.gtag) {
                   window.gtag('event', '点击', {
                     event_category: '首页推广',
-                    event_label: 'https://antv.vision?from=antd',
+                    event_label: `https://antv.vision/${isZhCN ? 'zh' : 'en'}?from=antd`,
                   });
                 }
               }}
