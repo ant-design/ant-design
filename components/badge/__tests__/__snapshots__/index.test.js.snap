@@ -724,6 +724,12 @@ exports[`Badge render correct with negative number 1`] = `
 </div>
 `;
 
+exports[`Badge rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-badge ant-badge-not-a-wrapper ant-badge-rtl"
+/>
+`;
+
 exports[`Badge should be compatible with borderColor style 1`] = `
 <span
   class="ant-badge ant-badge-not-a-wrapper"
