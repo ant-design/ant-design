@@ -1,11 +1,8 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
-import find from 'lodash/find';
-import get from 'lodash/get';
-import includes from 'lodash/includes';
 import classNames from 'classnames';
 import { UploadListProps, UploadFile, UploadListType } from './interface';
-import { previewImage, isImageUrl, fileSufIconList } from './utils';
+import { previewImage, isImageUrl } from './utils';
 import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
@@ -77,27 +74,16 @@ export default class UploadList extends React.Component<UploadListProps, any> {
   };
 
   getIcon = (file: UploadFile) => {
-    const { listType, locale, customIconRender } = this.props;
-    if (customIconRender) {
-      return customIconRender(file, listType);
+    const { listType, locale, iconRender } = this.props;
+    if (iconRender) {
+      return iconRender(file, listType);
     }
     let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
     if (listType === 'picture' || listType === 'picture-card') {
       if (listType === 'picture-card' && file.status === 'uploading') {
         icon = <div>{locale.uploading}</div>;
       } else {
-        icon = (
-          <Icon
-            type={get(
-              find(fileSufIconList, item =>
-                includes(item.suf, file.name && file.name.substr(file.name.lastIndexOf('.'))),
-              ),
-              'type',
-              'file-unknown',
-            )}
-            theme="twoTone"
-          />
-        );
+        icon = <Icon type={isImageUrl(file) ? 'picture' : 'file'} theme="twoTone" />;
       }
     }
     return icon;

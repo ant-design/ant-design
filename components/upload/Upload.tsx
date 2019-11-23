@@ -254,7 +254,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       previewFile,
       disabled,
       locale: propLocale,
-      customIconRender,
+      iconRender,
     } = this.props;
     const { showRemoveIcon, showPreviewIcon, showDownloadIcon } = showUploadList as any;
     const { fileList } = this.state;
@@ -269,7 +269,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
         showRemoveIcon={!disabled && showRemoveIcon}
         showPreviewIcon={showPreviewIcon}
         showDownloadIcon={showDownloadIcon}
-        customIconRender={customIconRender}
+        iconRender={iconRender}
         locale={{ ...locale, ...propLocale }}
       />
     );

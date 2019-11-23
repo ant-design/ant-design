@@ -93,7 +93,7 @@ class PicturesWall extends React.Component {
 
   handleChange = ({ fileList }) => this.setState({ fileList });
 
-  handleCustomIconRender = (file, listType) => {
+  handleIconRender = (file, listType) => {
     console.log(1, file, listType);
     let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
     if (listType === 'picture' || listType === 'picture-card') {
@@ -133,7 +133,7 @@ class PicturesWall extends React.Component {
           fileList={fileList}
           onPreview={this.handlePreview}
           onChange={this.handleChange}
-          customIconRender={this.handleCustomIconRender}
+          iconRender={this.handleIconRender}
         >
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>

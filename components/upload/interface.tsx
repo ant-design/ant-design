@@ -104,7 +104,7 @@ export interface UploadProps {
   id?: string;
   previewFile?: PreviewFileHandler;
   transformFile?: TransformFileHandler;
-  customIconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
+  iconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
 }
 
 export interface UploadState {
@@ -124,6 +124,6 @@ export interface UploadListProps {
   showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;
   locale: UploadLocale;
-  customIconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
+  iconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
   previewFile?: PreviewFileHandler;
 }
