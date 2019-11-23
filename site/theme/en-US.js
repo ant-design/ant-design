@@ -50,6 +50,7 @@ module.exports = {
     'app.home.getting-started': 'Getting Started',
     'app.home.recommend': 'Recommend',
     'app.home.recommend.yuque': 'Yuque, our favorite documentation tool',
+    'app.home.recommend.antv': 'AntV: brand new data visualization solution',
     'app.home.more': 'Learn more',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',
