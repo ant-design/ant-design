@@ -33,7 +33,8 @@ class PicturesWall extends React.Component {
       {
         uid: '-1',
         name: 'image.png',
-        status: 'error',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       },
       {
         uid: '-2',
@@ -54,14 +55,8 @@ class PicturesWall extends React.Component {
         url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
       },
       {
-        uid: '-6',
-        name: 'pdf.pdf',
-        status: 'done',
-        url: 'http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf',
-      },
-      {
         uid: '-5',
-        name: 'image.pdf',
+        name: 'image.png',
         status: 'error',
       },
     ],
