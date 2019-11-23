@@ -1683,7 +1683,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
               </div>
             </td>
             <td
-              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
+              class="ant-fullcalendar-cell"
               role="gridcell"
               title="November 21, 2019"
             >
@@ -1719,7 +1719,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
               </div>
             </td>
             <td
-              class="ant-fullcalendar-cell"
+              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
               role="gridcell"
               title="November 23, 2019"
             >

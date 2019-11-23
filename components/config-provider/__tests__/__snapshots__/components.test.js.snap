@@ -7082,14 +7082,14 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
     </span>
   </div>
   <div
+    aria-valuemin="-9007199254740991"
     class="config-input-number-input-wrap"
+    role="spinbutton"
   >
     <input
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="config-input-number-input"
       min="-9007199254740991"
-      role="spinbutton"
       step="1"
       value=""
     />
@@ -7162,14 +7162,14 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
     </span>
   </div>
   <div
+    aria-valuemin="-9007199254740991"
     class="ant-input-number-input-wrap"
+    role="spinbutton"
   >
     <input
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
       min="-9007199254740991"
-      role="spinbutton"
       step="1"
       value=""
     />
@@ -7242,14 +7242,14 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
     </span>
   </div>
   <div
+    aria-valuemin="-9007199254740991"
     class="prefix-InputNumber-input-wrap"
+    role="spinbutton"
   >
     <input
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="prefix-InputNumber-input"
       min="-9007199254740991"
-      role="spinbutton"
       step="1"
       value=""
     />
