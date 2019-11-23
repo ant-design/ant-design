@@ -2,10 +2,14 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Grid', () => {
   mountTest(Row);
   mountTest(Col);
+
+  rtlTest(Row);
+  rtlTest(Col);
 
   it('should render Col', () => {
     const wrapper = render(<Col span={2} />);
