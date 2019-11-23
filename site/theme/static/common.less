@@ -161,6 +161,10 @@ a {
   width: 100%;
   padding: 0;
   overflow: hidden;
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 .drawer-content {
@@ -172,6 +176,9 @@ a {
 }
 
 #_hj_feedback_container {
+  > div {
+    left: 0;
+  }
   .path1::before {
     color: @primary-color !important;
   }
