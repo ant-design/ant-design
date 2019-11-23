@@ -411,6 +411,20 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
 </Input>
 `;
 
+exports[`Input rtl render component should be rendered correctly in RTL direction 1`] = `
+<input
+  class="ant-input ant-input-rtl"
+  type="text"
+  value=""
+/>
+`;
+
+exports[`Input rtl render component should be rendered correctly in RTL direction 2`] = `
+<span
+  class="ant-input-group ant-input-group-rtl"
+/>
+`;
+
 exports[`Input should support maxLength 1`] = `
 <Input
   maxLength={3}
