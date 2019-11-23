@@ -89,7 +89,7 @@
   ],
   "dependencies": {
     "@ant-design/create-react-context": "^0.2.4",
-    "@ant-design/icons": "^4.0.0-alpha.7",
+    "@ant-design/icons": "^4.0.0-alpha.10",
     "@ant-design/icons-svg": "^4.0.0-alpha.0",
     "@types/react-slick": "^0.23.4",
     "array-tree-filter": "^2.1.0",
