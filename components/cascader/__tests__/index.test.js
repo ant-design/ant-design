@@ -5,6 +5,7 @@ import Cascader from '..';
 import ConfigProvider from '../../config-provider';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const options = [
   {
@@ -48,6 +49,7 @@ function filter(inputValue, path) {
 describe('Cascader', () => {
   focusTest(Cascader);
   mountTest(Cascader);
+  rtlTest(Cascader);
 
   it('popup correctly when panel is hidden', () => {
     const wrapper = mount(<Cascader options={options} />);
