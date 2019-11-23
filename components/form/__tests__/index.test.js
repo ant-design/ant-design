@@ -5,6 +5,7 @@ import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -16,6 +17,9 @@ const delay = (timeout = 0) =>
 describe('Form', () => {
   mountTest(Form);
   mountTest(Form.Item);
+
+  rtlTest(Form);
+  rtlTest(Form.Item);
 
   scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
