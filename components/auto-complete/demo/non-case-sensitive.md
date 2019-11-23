@@ -29,7 +29,7 @@ function Complete() {
       options={options}
       placeholder="try to type `b`"
       filterOption={(inputValue, option) =>
-        option.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+        option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
       }
     />
   );
