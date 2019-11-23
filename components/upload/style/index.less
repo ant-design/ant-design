@@ -300,10 +300,12 @@
       left: 8px;
       width: 48px;
       height: 48px;
-      font-size: 26px;
       line-height: 54px;
       text-align: center;
       opacity: 0.8;
+      > i {
+        font-size: 26px;
+      }
     }
 
     .@{upload-item}-image {
@@ -460,21 +462,6 @@
         .@{iconfont-css-prefix}-eye-o,
         .@{iconfont-css-prefix}-delete {
           display: none;
-        }
-      }
-
-      &-text {
-        margin-top: 18px;
-        color: @text-color-secondary;
-        text-align: center;
-        > i {
-          position: static;
-          display: block;
-          width: 100%;
-          height: 100%;
-          margin-top: -18px;
-          font-size: 26px;
-          line-height: 84px;
         }
       }
     }

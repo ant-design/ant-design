@@ -596,8 +596,8 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ uploading: 'uploading' }} />,
     );
-    expect(wrapper.find('.ant-upload-list-item-uploading-text').length).toBe(1);
-    expect(wrapper.find('.ant-upload-list-item-uploading-text').text()).toBe('uploading');
+    expect(wrapper.find('.ant-upload-list-item-file').length).toBe(1);
+    expect(wrapper.find('.ant-upload-list-item-file').text()).toBe('uploading');
   });
 
   it('onPreview should be called, when url exists', () => {
