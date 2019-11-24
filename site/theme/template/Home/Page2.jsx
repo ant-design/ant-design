@@ -28,7 +28,7 @@ const page2Data = [
     img: 'https://gw.alipayobjects.com/zos/rmsportal/slVtnOCcgeAcLEPwtewY.svg',
     name: 'AntV',
     slogan: <FormattedMessage id="app.home.product-antv-slogan" />,
-    link: 'https://antv.alipay.com/zh-cn/index.html',
+    link: 'https://antv.vision',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg',
