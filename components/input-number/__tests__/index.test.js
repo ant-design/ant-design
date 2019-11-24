@@ -3,10 +3,12 @@ import { mount } from 'enzyme';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('InputNumber', () => {
   focusTest(InputNumber);
   mountTest(InputNumber);
+  rtlTest(InputNumber);
 
   // https://github.com/ant-design/ant-design/issues/13896
   it('should return null when blur a empty input number', () => {
