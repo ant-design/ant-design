@@ -59,9 +59,3 @@ ReactDOM.render(
   mountNode,
 );
 ```
-
-```css
-span[role='img'] {
-  margin-right: 6px;
-}
-```
