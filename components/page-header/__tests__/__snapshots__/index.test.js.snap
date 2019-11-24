@@ -37,3 +37,9 @@ exports[`PageHeader pageHeader should support className 1`] = `
   </div>
 </div>
 `;
+
+exports[`PageHeader rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-page-header ant-page-header-ghost ant-page-header-rtl"
+/>
+`;

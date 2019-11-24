@@ -3,9 +3,11 @@ import { mount, render } from 'enzyme';
 import PageHeader from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('PageHeader', () => {
   mountTest(PageHeader);
+  rtlTest(PageHeader);
 
   it('pageHeader should not contain back it back', () => {
     const routes = [
