@@ -3,9 +3,11 @@ import { render, mount } from 'enzyme';
 import Slider from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Slider', () => {
   mountTest(Slider);
+  rtlTest(Slider);
 
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
