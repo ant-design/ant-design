@@ -106,7 +106,7 @@ class App extends React.Component {
     confirm();
     this.setState({ 
       searchText: selectedKeys[0],
-      searchedColumn: dataIndex
+      searchedColumn: dataIndex,
       });
   };
 
