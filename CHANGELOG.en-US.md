@@ -20,7 +20,7 @@ timeline: true
 `2019-11-24`
 
 - 🐞 Fix TimePicker disabled item focus style. [#19812](https://github.com/ant-design/ant-design/pull/19812) [@yoyo837](https://github.com/yoyo837)
-- 🐞 Fix MenuItem link style inside Badge. [#19810](https://github.com/ant-design/ant-design/pull/19810)
+- 🐞 Fix Menu.Item link style inside Badge. [#19810](https://github.com/ant-design/ant-design/pull/19810)
 - 🐞 Fix Upload `picture-card` type, list item remove style. [#19783](https://github.com/ant-design/ant-design/pull/19783) [@qq645381995](https://github.com/qq645381995)
 - 🇳🇱 Update `sk-SK` locales. [#19787](https://github.com/ant-design/ant-design/pull/19787) [@Kamahl19](https://github.com/Kamahl19)
 - TypeScript
