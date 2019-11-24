@@ -47,7 +47,16 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     >
       <div
         class="ant-form-item-control-input"
-      />
+      >
+        <div
+          class="ant-mentions"
+        >
+          <textarea
+            id="coders"
+            rows="1"
+          />
+        </div>
+      </div>
     </div>
   </div>
   <div
