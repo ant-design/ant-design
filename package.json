@@ -128,15 +128,9 @@
     "rc-slider": "~8.7.1",
     "rc-steps": "~3.5.0",
     "rc-switch": "~1.9.0",
-<<<<<<< ours
     "rc-table": "~7.0.0-alpha.20",
-    "rc-tabs": "~9.6.4",
-    "rc-time-picker": "~4.0.0-alpha.2",
-=======
-    "rc-table": "~6.9.4",
     "rc-tabs": "~9.7.0",
-    "rc-time-picker": "~3.7.1",
->>>>>>> theirs
+    "rc-time-picker": "~4.0.0-alpha.2",
     "rc-tooltip": "~3.7.3",
     "rc-tree": "~3.0.0-alpha.37",
     "rc-tree-select": "~3.0.0-alpha.5",
