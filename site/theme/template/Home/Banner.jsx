@@ -23,10 +23,22 @@ const Banner = ({ isMobile }) => {
     <div className="home-page-wrapper banner-wrapper" id="banner">
       <div className="banner-bg-wrapper">
         <svg width="400px" height="576px" viewBox="0 0 400 576" fill="none">
-          <TweenOne component="g" animation={[{ opacity: 0, type: 'from' }, { ...loop, y: 15 }]}>
+          <TweenOne
+            component="g"
+            animation={[
+              { opacity: 0, type: 'from' },
+              { ...loop, y: 15 },
+            ]}
+          >
             <ellipse cx="100" cy="100" rx="6" ry="6" stroke="#2F54EB" strokeWidth="1.6" />
           </TweenOne>
-          <TweenOne component="g" animation={[{ opacity: 0, type: 'from' }, { ...loop, y: -15 }]}>
+          <TweenOne
+            component="g"
+            animation={[
+              { opacity: 0, type: 'from' },
+              { ...loop, y: -15 },
+            ]}
+          >
             <g transform="translate(200 450)">
               <g style={{ transformOrigin: '50% 50%', transform: 'rotate(-340deg)' }}>
                 <rect stroke="#FADB14" strokeWidth="1.6" width="9" height="9" />
@@ -86,23 +98,20 @@ const Banner = ({ isMobile }) => {
               <FormattedMessage id="app.home.recommend" />
             </Divider>
             <a
-              href="https://www.yuque.com/?chInfo=ch_antd"
+              href={`https://antv.vision/${isZhCN ? 'zh' : 'en'}?from=antd`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 if (window.gtag) {
                   window.gtag('event', '点击', {
                     event_category: '首页推广',
-                    event_label: 'https://www.yuque.com/?chInfo=ch_antd',
+                    event_label: `https://antv.vision/${isZhCN ? 'zh' : 'en'}?from=antd`,
                   });
                 }
               }}
             >
-              <img
-                src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
-                alt="yuque logo"
-              />
-              <FormattedMessage id="app.home.recommend.yuque" />
+              <img src="https://antv.vision/icons/icon-512x512.png" alt="AntV logo" />
+              <FormattedMessage id="app.home.recommend.antv" />
               <Right style={{ marginLeft: 6, fontSize: 12, opacity: 0.6 }} />
             </a>
           </div>

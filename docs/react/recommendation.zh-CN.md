@@ -7,7 +7,7 @@ title: 社区精选组件
 
 | 类型 | 推荐组件 |
 | --- | --- |
-| 可视化图表 | [🔥 AntV 数据可视化解决方案](https://antv.alipay.com) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
+| 可视化图表 | [AntV 数据可视化解决方案](https://antv.vision/zh) [🔥 AntV 图表库](https://g2plot.antv.vision/zh) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
 | 路由 | [react-router](https://github.com/ReactTraining/react-router) |
 | 布局 | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](https://github.com/whoisandy/react-blocks) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | 拖拽 | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
@@ -40,14 +40,14 @@ title: 社区精选组件
 
 还有一些常用的前端/设计/产品相关的工具推荐给大家使用。
 
-| 类型 | 推荐产品 |
-| --- | --- |
-| 文档管理 | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd) |
-| 图标 | [阿里巴巴矢量图标库](https://www.iconfont.cn/) |
-| Sketch 插件 | [Kitchen](https://kitchen.alipay.com) |
+| 类型         | 推荐产品                                                              |
+| ------------ | --------------------------------------------------------------------- |
+| 文档管理     | [🐦 语雀](https://www.yuque.com/?chInfo=ch_antd)                      |
+| 图标         | [阿里巴巴矢量图标库](https://www.iconfont.cn/)                        |
+| Sketch 插件  | [Kitchen](https://kitchen.alipay.com)                                 |
 | 在线代码编辑 | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
-| 图片压缩 | [tinypng](https://tinypng.com/) |
-| 图表分类查询 | [G2](https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html) [图之典](http://tuzhidian.com/) |
+| 图片压缩     | [tinypng](https://tinypng.com/)                                       |
+| 图表分类查询 | [图之典](http://tuzhidian.com/)                                       |
 
 <style>
 .markdown table td:first-child {

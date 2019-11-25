@@ -74,6 +74,14 @@
     }
   }
 
+  // https://github.com/ant-design/ant-design/issues/19809
+  &-item > .@{ant-prefix}-badge > a {
+    color: @menu-item-color;
+    &:hover {
+      color: @menu-highlight-color;
+    }
+  }
+
   &-item-divider {
     height: 1px;
     overflow: hidden;

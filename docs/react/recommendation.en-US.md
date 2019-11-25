@@ -7,7 +7,7 @@ title: Third-Party Libraries
 
 | Category | Recommended Components |
 | --- | --- |
-| Visualization and charts | [🔥 AntV 数据可视化解决方案](https://antv.alipay.com) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
+| Visualization and charts | [AntV Data Visualization](https://antv.vision/en) [🔥 AntV Charting Library](https://g2plot.antv.vision/en) [BizCharts](https://github.com/alibaba/BizCharts) [recharts](https://github.com/recharts/recharts/) [viser](https://viserjs.github.io/) |
 | Router | [react-router](https://github.com/ReactTraining/react-router) |
 | Layout | [@rebass/grid](https://github.com/rebassjs/grid) [react-blocks](http://whoisandy.github.io/react-blocks/) [react-flexbox-grid](https://github.com/roylee0704/react-flexbox-grid) |
 | Drag and drop | [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd/) [react-dnd](https://github.com/gaearon/react-dnd) [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc) |
@@ -40,14 +40,14 @@ title: Third-Party Libraries
 
 There are some products to recommend for developer/designer/product manager.
 
-| Category | Recommended Products |
-| --- | --- |
-| Documentation | [🐦 Yuque](https://www.yuque.com/?chInfo=ch_antd) |
-| Icon | [Iconfont](https://www.iconfont.cn/) |
-| Sketch plugin | [Kitchen](https://kitchen.alipay.com) |
+| Category          | Recommended Products                                                  |
+| ----------------- | --------------------------------------------------------------------- |
+| Documentation     | [🐦 Yuque](https://www.yuque.com/?chInfo=ch_antd)                     |
+| Icon              | [Iconfont](https://www.iconfont.cn/)                                  |
+| Sketch plugin     | [Kitchen](https://kitchen.alipay.com)                                 |
 | Online Playground | [codesandbox](https://codesandbox.io/) [codepen](https://codepen.io/) |
-| Image Compressor | [tinypng](https://tinypng.com/) |
-| Charts Dictionary | [G2](https://antv.alipay.com/zh-cn/g2/3.x/demo/index.html) [图之典](http://tuzhidian.com/) |
+| Image Compressor  | [tinypng](https://tinypng.com/)                                       |
+| Charts Dictionary | [图之典](http://tuzhidian.com/)                                       |
 
 <style>
 .markdown table td:first-child {

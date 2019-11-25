@@ -9,13 +9,20 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
+    - name: checkout
       uses: actions/checkout@master
 
-    - name: Deploy website
-      uses: JamesIves/github-pages-deploy-action@master
+    - name: install
+      run: npm install
+
+    - name: build
+      run: npm run predeploy
+
+    - name: deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
       env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: _site
-        BUILD_SCRIPT: npm install && npm run predeploy
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACCESS_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./_site
+      with:
+        emptyCommits: false

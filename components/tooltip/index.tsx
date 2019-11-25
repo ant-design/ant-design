@@ -65,12 +65,12 @@ export interface AbstractTooltipProps {
 
 export type RenderFunction = () => React.ReactNode;
 
-interface TooltipPropsWithOverlay extends AbstractTooltipProps {
+export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay: React.ReactNode | RenderFunction;
 }
 
-interface TooltipPropsWithTitle extends AbstractTooltipProps {
+export interface TooltipPropsWithTitle extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
 }

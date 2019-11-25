@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 3.25.3
+
+`2019-11-24`
+
+- 🐞 Fix TimePicker disabled item style when focussed. [#19812](https://github.com/ant-design/ant-design/pull/19812) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Menu.Item link style inside Badge. [#19810](https://github.com/ant-design/ant-design/pull/19810)
+- 🐞 Fix Upload `picture-card` type, for crashed style when list item is removing. [#19783](https://github.com/ant-design/ant-design/pull/19783) [@qq645381995](https://github.com/qq645381995)
+- 🇳🇱 Update `sk-SK` locales. [#19787](https://github.com/ant-design/ant-design/pull/19787) [@Kamahl19](https://github.com/Kamahl19)
+- TypeScript
+  - ⚡️ Export interface types in Tooltip. [19846](https://github.com/ant-design/ant-design/pull/19846) [@kachkaev](https://github.com/kachkaev)
+
+## 3.25.2
+
+`2019-11-17`
+
+- 🐞 Fix Upload List do not have tooltip when upload failed. [#19689](https://github.com/ant-design/ant-design/pull/19689) [@qq645381995](https://github.com/qq645381995)
+- 💄 Fix Transfer search style to avoid text overlap with clear icon. [#19693](https://github.com/ant-design/ant-design/pull/19693) [@Abdullah700](https://github.com/Abdullah700)
+- 🇳🇱 Update `NL-nl` locales. [#19734](https://github.com/ant-design/ant-design/pull/19734) [@hoest](https://github.com/hoest)
+- TypeScript
+  - 🐞 Fix Table FilterDropdownProps definition. [#19701](https://github.com/ant-design/ant-design/pull/19701) [@DeanVanNiekerk](https://github.com/DeanVanNiekerk)
+  - 🛠 Slider add `reverse` definition. [#19713](https://github.com/ant-design/ant-design/pull/19713) [@jacklee814](https://github.com/jacklee814)
+  - 🐞 Update Table `filteredValue` definition. [#19722](https://github.com/ant-design/ant-design/pull/19722) [@andelf](https://github.com/andelf)
+
 ## 3.25.1
 
 `2019-11-10`
