@@ -186,7 +186,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           onClick={onMenuClick}
           onSelect={onSelectKeys}
           onDeselect={onSelectKeys}
-          selectedKeys={getFilteredKeysSync() as any}
+          selectedKeys={(getFilteredKeysSync() || []) as any}
           getPopupContainer={getPopupContainer}
           openKeys={openKeys}
           onOpenChange={onOpenChange}
