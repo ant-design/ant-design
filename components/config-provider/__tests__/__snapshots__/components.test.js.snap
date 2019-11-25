@@ -17923,7 +17923,9 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
   <div
     class="config-upload-list config-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
@@ -18035,7 +18037,9 @@ exports[`ConfigProvider components Upload normal 1`] = `
   <div
     class="ant-upload-list ant-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -18147,7 +18151,9 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
   <div
     class="ant-upload-list ant-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"

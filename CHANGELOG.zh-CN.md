@@ -15,6 +15,29 @@ timeline: true
 
 ---
 
+## 3.25.3
+
+`2019-11-24`
+
+- 🐞 修复 TimePicker 禁用项 focus 时的样式问题。[#19812](https://github.com/ant-design/ant-design/pull/19812) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Menu.Item 链接在 Badge 内时，始终处于 active 状态的问题。[#19810](https://github.com/ant-design/ant-design/pull/19810)
+- 🐞 修复 Upload 类型为 `picture-card` 时，列表删除时的样式问题。[#19783](https://github.com/ant-design/ant-design/pull/19783) [@qq645381995](https://github.com/qq645381995)
+- 🇳🇱 更新 `sk-SK` 国际化。[#19787](https://github.com/ant-design/ant-design/pull/19787) [@Kamahl19](https://github.com/Kamahl19)
+- TypeScript
+  - ⚡️ 导出 Tooltip 类型定义。[19846](https://github.com/ant-design/ant-design/pull/19846) [@kachkaev](https://github.com/kachkaev)
+
+## 3.25.2
+
+`2019-11-17`
+
+- 🐞 修复 Upload List 上传错误时没有鼠标悬浮提示的问题。[#19689](https://github.com/ant-design/ant-design/pull/19689) [@qq645381995](https://github.com/qq645381995)
+- 💄 修复 Transfer 输入框内容会与清除按钮重叠的问题。[#19693](https://github.com/ant-design/ant-design/pull/19693) [@Abdullah700](https://github.com/Abdullah700)
+- 🇳🇱 更新 `NL-nl` 国际化。[#19734](https://github.com/ant-design/ant-design/pull/19734) [@hoest](https://github.com/hoest)
+- TypeScript
+  - 🐞 修复 Table FilterDropdownProps 定义。[#19701](https://github.com/ant-design/ant-design/pull/19701) [@DeanVanNiekerk](https://github.com/DeanVanNiekerk)
+  - 🛠 Slider 添加 `reverse` 定义。[#19713](https://github.com/ant-design/ant-design/pull/19713) [@jacklee814](https://github.com/jacklee814)
+  - 🐞 更新 Table `filteredValue` 定义。[#19722](https://github.com/ant-design/ant-design/pull/19722) [@andelf](https://github.com/andelf)
+
 ## 3.25.1
 
 `2019-11-10`

@@ -33,7 +33,9 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
   <div
     class="ant-upload-list ant-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -134,7 +136,9 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -235,7 +239,9 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <div
         class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-text"
       >
@@ -348,7 +354,9 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
   <div
     class="ant-upload-list ant-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -463,7 +471,9 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
     <div
       class="ant-upload-list ant-upload-list-picture-card"
     >
-      <div>
+      <div
+        class="ant-upload-list-picture-card-container"
+      >
         <span>
           <div
             class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
@@ -575,7 +585,9 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </div>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-upload-list-picture-card-container"
+      >
         <span>
           <div
             class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
@@ -687,7 +699,9 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </div>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-upload-list-picture-card-container"
+      >
         <span>
           <div
             class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
@@ -799,7 +813,9 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </div>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-upload-list-picture-card-container"
+      >
         <span>
           <div
             class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture-card"
@@ -911,7 +927,9 @@ exports[`renders ./components/upload/demo/picture-card.md correctly 1`] = `
           </div>
         </span>
       </div>
-      <div>
+      <div
+        class="ant-upload-list-picture-card-container"
+      >
         <div
           class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture-card"
         >
@@ -1040,7 +1058,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
     <div
       class="ant-upload-list ant-upload-list-picture"
     >
-      <div>
+      <div
+        class=""
+      >
         <span>
           <div
             class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -1133,7 +1153,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </div>
         </span>
       </div>
-      <div>
+      <div
+        class=""
+      >
         <div
           class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture"
         >
@@ -1233,7 +1255,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
     <div
       class="ant-upload-list ant-upload-list-picture"
     >
-      <div>
+      <div
+        class=""
+      >
         <span>
           <div
             class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -1326,7 +1350,9 @@ exports[`renders ./components/upload/demo/picture-style.md correctly 1`] = `
           </div>
         </span>
       </div>
-      <div>
+      <div
+        class=""
+      >
         <div
           class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-picture"
         >

@@ -24,6 +24,7 @@ module.exports = {
     'app.demo.code.hide': '收起代码',
     'app.demo.codepen': '在 CodePen 中打开',
     'app.demo.codesandbox': '在 CodeSandbox 中打开',
+    'app.demo.stackblitz': '在 Stackblitz 中打开',
     'app.demo.riddle': '在 Riddle 中打开',
     'app.home.slogan': '一个 UI 设计语言',
     'app.home.introduce':
@@ -46,6 +47,7 @@ module.exports = {
     'app.home.getting-started': '开始使用',
     'app.home.recommend': '推荐',
     'app.home.recommend.yuque': '语雀，我们都喜欢的文档工具',
+    'app.home.recommend.antv': 'AntV：全新的蚂蚁金服数据可视化解决方案',
     'app.home.more': '查看更多',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',

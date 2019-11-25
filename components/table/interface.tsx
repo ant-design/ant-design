@@ -1,8 +1,4 @@
-import {
-  GetRowKey,
-  ColumnType as RcColumnType,
-  ExpandableConfig,
-} from 'rc-table/lib/interface';
+import { GetRowKey, ColumnType as RcColumnType, ExpandableConfig } from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 
@@ -60,7 +56,7 @@ export interface FilterDropdownProps {
   setSelectedKeys: (selectedKeys: string[]) => void;
   selectedKeys: React.Key[];
   confirm: () => void;
-  clearFilters: (selectedKeys: string[]) => void;
+  clearFilters?: () => void;
   filters?: ColumnFilterItem[];
   visible: boolean;
 }
@@ -86,7 +82,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterMultiple?: boolean;
-  filteredValue?: Key[];
+  filteredValue?: Key[] | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   onFilter?: (value: any, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
@@ -94,7 +90,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
 }
 
 export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
-  children: ColumnsType<RecordType>
+  children: ColumnsType<RecordType>;
 }
 
 export type ColumnsType<RecordType = unknown> = (

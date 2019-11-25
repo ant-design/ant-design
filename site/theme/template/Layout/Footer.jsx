@@ -266,7 +266,7 @@ class Footer extends React.Component {
               />
             ),
             title: 'AntV',
-            url: 'https://antv.alipay.com',
+            url: 'https://antv.vision',
             description: <FormattedMessage id="app.footer.antv.slogan" />,
             openExternal: true,
           },

@@ -24,6 +24,7 @@ module.exports = {
     'app.demo.code.hide': 'Hide code',
     'app.demo.codepen': 'Open in CodePen',
     'app.demo.codesandbox': 'Open in CodeSandbox',
+    'app.demo.stackblitz': 'Open in Stackblitz',
     'app.demo.riddle': 'Open in Riddle',
     'app.home.slogan': "The world's second most popular React UI framework",
     'app.home.introduce':
@@ -49,6 +50,7 @@ module.exports = {
     'app.home.getting-started': 'Getting Started',
     'app.home.recommend': 'Recommend',
     'app.home.recommend.yuque': 'Yuque, our favorite documentation tool',
+    'app.home.recommend.antv': 'AntV: brand new data visualization solution',
     'app.home.more': 'Learn more',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',

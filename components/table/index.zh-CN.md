@@ -66,7 +66,7 @@ const columns = [
 | --- | --- | --- | --- |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| 'auto' \| 'fixed' | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |
 | bordered | 是否展示外边框和列边框 | boolean | false |
-| columns | 表格列的配置描述，具体项见下表 | [ColumnProps](https://git.io/vMMXC)\[] | - |
+| columns | 表格列的配置描述，具体项见下表 | [ColumnProps](#Column)\[] | - |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |
 | dataSource | 数据数组 | any\[] | - |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |

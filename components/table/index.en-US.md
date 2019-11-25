@@ -61,7 +61,7 @@ const columns = [
 | --- | --- | --- | --- |
 | tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| 'auto' \| 'fixed' | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |
 | bordered | Whether to show all table borders | boolean | `false` |
-| columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |
+| columns | Columns of table | [ColumnProps](#Column)\[] | - |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
 | dataSource | Data record array to be displayed | any\[] | - |
 | expandable | Config expandable content | [expandable](#expandable) | - |
