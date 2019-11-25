@@ -21,7 +21,9 @@ jobs:
 
       - name: hack for singe file
         run: |
-          mkdir package-temp-dir
+          if [ ! -d "package-temp-dir" ]; then
+            mkdir package-temp-dir
+          fi
           cp package-lock.json package-temp-dir
 
       - name: cache node_modules
