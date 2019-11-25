@@ -92,12 +92,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const [propFilteredKeys, setPropFilteredKeys] = React.useState(
     filterState && filterState.filteredKeys,
   );
-  const [filteredKeys, setFilteredKeys] = React.useState(propFilteredKeys || []);
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
     setFilteredKeysSync(selectedKeys);
-    setFilteredKeys(selectedKeys);
   };
 
   React.useEffect(() => {
@@ -170,7 +168,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
       setSelectedKeys: (selectedKeys: Key[]) => onSelectKeys({ selectedKeys }),
-      selectedKeys: filteredKeys,
+      selectedKeys: getFilteredKeysSync(),
       confirm: onConfirm,
       clearFilters: onReset,
       filters: column.filters,
@@ -188,12 +186,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           onClick={onMenuClick}
           onSelect={onSelectKeys}
           onDeselect={onSelectKeys}
-          selectedKeys={(filteredKeys || []) as any}
+          selectedKeys={getFilteredKeysSync() as any}
           getPopupContainer={getPopupContainer}
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          {renderFilterItems(column.filters!, prefixCls, filteredKeys, filterMultiple)}
+          {renderFilterItems(column.filters!, prefixCls, getFilteredKeysSync(), filterMultiple)}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
           <a className={`${prefixCls}-dropdown-link confirm`} onClick={onConfirm}>

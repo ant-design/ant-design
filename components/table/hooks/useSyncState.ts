@@ -4,9 +4,14 @@ type UseSyncStateProps<T> = [() => T, (newValue: T) => void];
 
 export default function useSyncState<T>(filteredKeys: T): UseSyncStateProps<T> {
   const filteredKeysRef = React.useRef<T>(filteredKeys);
+  const [, forceUpdate] = React.useState<T>();
 
   return [
     () => filteredKeysRef.current,
-    (newValue: T) => (filteredKeysRef.current = newValue),
+    (newValue: T) => {
+      filteredKeysRef.current = newValue;
+      // re-render
+      forceUpdate(filteredKeys);
+    },
   ];
 }
