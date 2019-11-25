@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.25.3
+
+`2019-11-24`
+
+- 🐞 修复 TimePicker 禁用项 focus 时的样式问题。[#19812](https://github.com/ant-design/ant-design/pull/19812) [@yoyo837](https://github.com/yoyo837)
+- 🐞 修复 Menu.Item 链接在 Badge 内时，始终处于 active 状态的问题。[#19810](https://github.com/ant-design/ant-design/pull/19810)
+- 🐞 修复 Upload 类型为 `picture-card` 时，列表删除时的样式问题。[#19783](https://github.com/ant-design/ant-design/pull/19783) [@qq645381995](https://github.com/qq645381995)
+- 🇳🇱 更新 `sk-SK` 国际化。[#19787](https://github.com/ant-design/ant-design/pull/19787) [@Kamahl19](https://github.com/Kamahl19)
+- TypeScript
+  - ⚡️ 导出 Tooltip 类型定义。[19846](https://github.com/ant-design/ant-design/pull/19846) [@kachkaev](https://github.com/kachkaev)
+
 ## 3.25.2
 
 `2019-11-17`
