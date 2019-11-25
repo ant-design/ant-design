@@ -6,7 +6,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Tooltip } from 'antd';
-import { Snippets, Check } from '@ant-design/icons';
+import { Snippets, Check, Thunderbolt } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
@@ -45,7 +45,6 @@ class Demo extends React.Component {
   }
 
   getSourceCode() {
-    const { highlightedCodes } = this.props;
     if (typeof document !== 'undefined') {
       const div = document.createElement('div');
       div.innerHTML = highlightedCode[1].highlighted;
@@ -100,7 +99,6 @@ class Demo extends React.Component {
   }
 
   render() {
-    const { state } = this;
     const { props } = this;
     const {
       meta,
@@ -301,7 +299,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                   stackblitzSdk.openProject(stackblitzPrefillConfig);
                 }}
               >
-                <Icon type="thunderbolt" />
+                <Thunderbolt />
               </span>
             </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
