@@ -28,8 +28,6 @@ import {
   TreeSelect,
   Modal,
   Button,
-  Table,
-  Form,
   Divider,
   Pagination,
   Steps,
@@ -105,51 +103,6 @@ const cascaderOptions = [
     ],
   },
 ];
-
-const columns = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    render: text => <a>{text}</a>,
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (text, record) => (
-      <span>
-        <a>Action 一 {record.name}</a>
-        <Divider type="vertical" />
-        <a>Delete</a>
-        <Divider type="vertical" />
-        <a className="ant-dropdown-link">
-          More actions <Down />
-        </a>
-      </span>
-    ),
-  },
-];
-
-const data = [];
-for (let i = 1; i <= 10; i++) {
-  data.push({
-    key: i,
-    name: 'هوشنگ ابتهاج',
-    age: `${i}2`,
-    address: `Rasht No. ${i} Shahrdari sq.`,
-    description: `Hushang Ebtehaj is an Iranian poet of the ${i}th century, whose life and work spans many of Iran's political, cultural and literary upheavals`,
-  });
-}
 
 class Page extends React.Component {
   state = {
