@@ -278,54 +278,39 @@ validator(rule, value, callback) => {
 }
 ```
 
-### 如何在函数组件中也能正常使用`wrappedComponentRef`拿到 form 实例
+### 如何在函数组件中拿到 form 实例？
 
-你需要通过`forwardRef`和`useImperativeHandle`的组合使用来实现在函数组件中正确拿到 form 实例：
+你需要通过 `forwardRef` 和 `useImperativeHandle` 的组合使用来实现在函数组件中正确拿到 form 实例：
+
+你的表单组件应该写成这样：
 
 ```tsx
-import React, { createRef, forwardRef, useImperativeHandle, useState } from 'react';
-import { Form, Input, Button } from 'antd';
-import { FormComponentProps } from 'antd/lib/form/Form';
+import React, { forwardRef, useImperativeHandle } from 'react';
+import Form, { FormComponentProps } from 'antd/lib/form/Form';
 
-interface FCFormProps extends FormComponentProps {
-  onSubmit: () => void;
-}
-
-type Ref = FormComponentProps;
-const FCForm = forwardRef<Ref, FCFormProps>(({ form, onSubmit }, ref) => {
+const FCForm = forwardRef<FormComponentProps, FCFormProps>(({ form, onSubmit }, ref) => {
   useImperativeHandle(ref, () => ({
     form,
   }));
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    onSubmit();
-  };
-
-  return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Item>{form.getFieldDecorator('name')(<Input />)}</Form.Item>
-      <Button htmlType="submit">submit</Button>
-    </Form>
-  );
+  `...the rest of your form`;
 });
-
 const EnhancedFCForm = Form.create<FCFormProps>()(FCForm);
+```
 
+使用表单组件可以写成这样：
+
+```tsx
 const TestForm = () => {
-  const [name, setName] = useState();
   const formRef = createRef<Ref>();
-
-  const handleSubmit = () => {
-    const inputValue = formRef.current!.form.getFieldValue('name');
-    setName(inputValue);
-  };
-
   return (
-    <div>
-      <div>current value: {name}</div>
-      <EnhancedFCForm onSubmit={handleSubmit} wrappedComponentRef={formRef} />
-    </div>
+    <EnhancedFCForm
+      onSubmit={() => console.log(formRef.current!.form.getFieldValue('name'))}
+      wrappedComponentRef={formRef}
+    />
   );
 };
 ```
+
+你可以点击下面的 codeSandbox 链接查看完整示例：
+
+[![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
