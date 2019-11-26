@@ -282,6 +282,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       type,
       disabled,
       children,
+      style,
     } = this.props;
     const { fileList, dragState } = this.state;
 
@@ -298,6 +299,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     };
 
     delete rcUploadProps.className;
+    delete rcUploadProps.style;
 
     const uploadList = showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
@@ -313,7 +315,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
         [`${prefixCls}-disabled`]: disabled,
       });
       return (
-        <span className={className}>
+        <span className={className} style={style}>
           <div
             className={dragCls}
             onDrop={this.onFileDrop}
