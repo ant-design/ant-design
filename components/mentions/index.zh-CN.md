@@ -7,8 +7,6 @@ title: Mentions
 
 提及组件。
 
-> 原 Mention 组件已废弃，原文档请点击[这里](/components/mention)。
-
 ## 何时使用
 
 用于在输入中提及某人或某事，常用于发布、聊天或评论功能。

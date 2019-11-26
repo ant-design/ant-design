@@ -6,8 +6,6 @@ title: Mentions
 
 Mention component.
 
-> Mention component is deprecated. Please click [here](/components/mention) to view old document.
-
 ## When To Use
 
 When need to mention someone or something.
