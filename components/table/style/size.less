@@ -5,7 +5,7 @@
 
 .@{table-prefix-cls}-middle {
   > .@{table-prefix-cls}-title,
-  > .@{table-prefix-cls}-footer {
+  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
     padding: @table-padding-vertical-md @table-padding-horizontal-md;
   }
   > .@{table-prefix-cls}-content {
@@ -41,13 +41,21 @@
   border-radius: @table-border-radius-base;
 
   > .@{table-prefix-cls}-title,
-  > .@{table-prefix-cls}-footer {
+  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
     padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
   }
 
   > .@{table-prefix-cls}-title {
     top: 0;
     border-bottom: @border-width-base @border-style-base @border-color-split;
+  }
+
+  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
+    background-color: transparent;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    &::before {
+      background-color: transparent;
+    }
   }
 
   > .@{table-prefix-cls}-content {
@@ -75,7 +83,7 @@
         padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
       }
       > .@{table-prefix-cls}-thead > tr > th {
-        background-color: transparent;
+        background-color: @table-header-bg-sm;
       }
       > .@{table-prefix-cls}-thead > tr {
         border-bottom: @border-width-base @border-style-base @border-color-split;
@@ -101,7 +109,7 @@
     }
 
     .@{table-prefix-cls}-header {
-      background-color: @component-background;
+      background-color: @table-header-bg-sm;
       border-radius: @table-border-radius-base @table-border-radius-base 0 0;
     }
 
