@@ -74,8 +74,6 @@ export { default as Layout } from './layout';
 
 export { default as List } from './list';
 
-export { default as LocaleProvider } from './locale-provider';
-
 export { default as message } from './message';
 
 export { default as Menu } from './menu';
@@ -137,8 +135,6 @@ export { default as Timeline } from './timeline';
 export { default as Tooltip } from './tooltip';
 
 export { default as Typography } from './typography';
-
-export { default as Mention } from './mention';
 
 export { default as Upload } from './upload';
 
