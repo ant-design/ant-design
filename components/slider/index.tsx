@@ -54,7 +54,6 @@ export interface SliderProps {
   tooltipVisible?: boolean;
   tooltipPlacement?: TooltipPlacement;
   getTooltipPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
-  reverse?: boolean;
 }
 
 export interface SliderState {
