@@ -27,7 +27,6 @@ import Input from '../../input';
 import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
-import Mention from '../../mention';
 import Menu from '../../menu';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
@@ -340,9 +339,6 @@ describe('ConfigProvider', () => {
         )}
       />
     ));
-
-    // Mention
-    testPair('Mention', props => <Mention {...props} />);
 
     // Menu
     testPair('Menu', props => (
