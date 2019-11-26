@@ -275,3 +275,55 @@ validator(rule, value, callback) => {
   }
 }
 ```
+
+### How you can use `wrappedComponentRef` to get form instance in functional component
+
+you have to combine `forwardRef` with `useImperativeHandle` so you can get form instance by using `wrappedComponentRef`:
+
+```tsx
+import React, { createRef, forwardRef, useImperativeHandle, useState } from 'react';
+import { Form, Input, Button } from 'antd';
+import { FormComponentProps } from 'antd/lib/form/Form';
+
+interface FCFormProps extends FormComponentProps {
+  onSubmit: () => void;
+}
+
+type Ref = FormComponentProps;
+const FCForm = forwardRef<Ref, FCFormProps>(({ form, onSubmit }, ref) => {
+  useImperativeHandle(ref, () => ({
+    form,
+  }));
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onSubmit();
+  };
+
+  return (
+    <Form onSubmit={handleSubmit}>
+      <Form.Item>{form.getFieldDecorator('name')(<Input />)}</Form.Item>
+      <Button htmlType="submit">submit</Button>
+    </Form>
+  );
+});
+
+const EnhancedFCForm = Form.create<FCFormProps>()(FCForm);
+
+const TestForm = () => {
+  const [name, setName] = useState();
+  const formRef = createRef<Ref>();
+
+  const handleSubmit = () => {
+    const inputValue = formRef.current!.form.getFieldValue('name');
+    setName(inputValue);
+  };
+
+  return (
+    <div>
+      <div>current value: {name}</div>
+      <EnhancedFCForm onSubmit={handleSubmit} wrappedComponentRef={formRef} />
+    </div>
+  );
+};
+```
