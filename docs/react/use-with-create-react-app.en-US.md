@@ -203,7 +203,11 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically.
 
+```bash
+$ yarn add antd-dayjs-webpack-plugin
 ```
+
+```js
 const { override, addWebpackPlugin } = require('customize-cra');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 

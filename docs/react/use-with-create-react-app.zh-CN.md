@@ -205,7 +205,11 @@ module.exports = override(
 
 你可以使用 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) 插件用 Day.js 替换 momentjs 来大幅减小打包大小。
 
+```bash
+$ yarn add antd-dayjs-webpack-plugin
 ```
+
+```js
 const { override, addWebpackPlugin } = require('customize-cra');
 const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
