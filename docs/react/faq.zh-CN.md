@@ -56,6 +56,10 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 参考：https://github.com/jmblog/how-to-optimize-momentjs-with-webpack 。
 
+### 如何使用 Day.js 替换 momentjs 来减小打包大小？
+
+我们提供了 `antd-dayjs-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Day.js`。请参考 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin)。
+
 ### 当我动态改变 `defaultValue` 的时候它并没有生效。
 
 `Input`/`Select` 等的 `defaultXxxx`（例如 `defaultValue`）只有在第一次渲染的时候有效，这是 React 的规范，请阅读 [React 的文档](https://reactjs.org/docs/forms.html#controlled-components)。
