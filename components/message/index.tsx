@@ -66,7 +66,7 @@ function notice(args: ArgsProps): MessageType {
     loading: 'loading',
   }[args.type];
 
-  const target = key++;
+  const target = args.key || key++;
   const closePromise = new Promise(resolve => {
     const callback = () => {
       if (typeof args.onClose === 'function') {
@@ -80,7 +80,7 @@ function notice(args: ArgsProps): MessageType {
       );
       const switchIconNode = iconType ? iconNode : '';
       instance.notice({
-        key: args.key || target,
+        key: target,
         duration,
         style: {},
         content: (
