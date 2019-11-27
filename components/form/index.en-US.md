@@ -276,9 +276,9 @@ validator(rule, value, callback) => {
 }
 ```
 
-### Why `wrappedComponentRef` get warning with function component?
+### get form instance in functional component
 
-you have to combine `forwardRef` with `useImperativeHandle` so you can get form instance by using `wrappedComponentRef`:
+you need to combine `forwardRef` with `useImperativeHandle` to get form instance:
 
 your custom form component should look like this:
 
