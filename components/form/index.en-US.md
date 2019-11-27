@@ -280,8 +280,6 @@ validator(rule, value, callback) => {
 
 You can combine `forwardRef` with `useImperativeHandle` to get form instance:
 
-Your custom form component should look like this:
-
 ```tsx
 import React, { forwardRef, useImperativeHandle } from 'react';
 import Form, { FormComponentProps } from 'antd/lib/form/Form';

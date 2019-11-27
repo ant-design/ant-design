@@ -282,8 +282,6 @@ validator(rule, value, callback) => {
 
 你需要通过 `forwardRef` 和 `useImperativeHandle` 的组合使用来实现在函数组件中正确拿到 form 实例：
 
-你的表单组件应该写成这样：
-
 ```tsx
 import React, { forwardRef, useImperativeHandle } from 'react';
 import Form, { FormComponentProps } from 'antd/lib/form/Form';
