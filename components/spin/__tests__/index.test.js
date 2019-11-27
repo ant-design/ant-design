@@ -38,4 +38,9 @@ describe('Spin', () => {
     wrapper.setProps({ spinning: true });
     expect(wrapper.instance().state.spinning).toBe(true);
   });
+
+  it('if indicator set null should not be render default indicator', () => {
+    const wrapper = mount(<Spin indicator={null} />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

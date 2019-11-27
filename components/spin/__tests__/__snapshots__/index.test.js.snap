@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Spin if indicator set null should not be render default indicator 1`] = `
+<Spin
+  indicator={null}
+  size="default"
+  spinning={true}
+  wrapperClassName=""
+>
+  <div
+    className="ant-spin ant-spin-spinning"
+  />
+</Spin>
+`;
+
 exports[`Spin should render custom indicator when it's set 1`] = `
 <div
   class="ant-spin ant-spin-spinning"
