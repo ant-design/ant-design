@@ -311,6 +311,6 @@ const TestForm = () => {
 };
 ```
 
-你可以点击下面的 codeSandbox 链接查看完整示例：
+在线示例：
 
 [![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)

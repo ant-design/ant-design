@@ -276,9 +276,9 @@ validator(rule, value, callback) => {
 }
 ```
 
-### Get form instance in functional component
+### Get form instance from function component
 
-You need to combine `forwardRef` with `useImperativeHandle` to get form instance:
+You can combine `forwardRef` with `useImperativeHandle` to get form instance:
 
 Your custom form component should look like this:
 
@@ -309,6 +309,6 @@ const TestForm = () => {
 };
 ```
 
-You can click the codesandbox to see the complete demo:
+Online demo:
 
 [![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
