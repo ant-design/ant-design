@@ -57,6 +57,15 @@ function finalizeDist() {
 
     // eslint-disable-next-line
     console.log('Built a entry less file to dist/antd.less');
+
+    // Build less entry file: dist/antd-dark.less
+    fs.writeFileSync(
+      path.join(process.cwd(), 'dist', 'antd-dark.less'),
+      '@import "../lib/style/dark.less";\n@import "../lib/style/components.less";',
+    );
+
+    // eslint-disable-next-line
+    console.log('Built a entry less file to dist/antd-dark.less');
   }
 }
 

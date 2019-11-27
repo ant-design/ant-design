@@ -1,0 +1,311 @@
+@import './default.less';
+
+// color palettes
+@blue-1: mix(color(~`colorPalette('@{blue-6}', 8) `), @component-background, 15%);
+@blue-2: mix(color(~`colorPalette('@{blue-6}', 7) `), @component-background, 30%);
+@blue-3: mix(@blue-6, @component-background, 30%);
+@blue-4: mix(@blue-6, @component-background, 45%);
+@blue-5: mix(@blue-6, @component-background, 65%);
+@blue-7: mix(color(~`colorPalette('@{blue-6}', 5) `), @component-background, 85%);
+@blue-8: mix(color(~`colorPalette('@{blue-6}', 4) `), @component-background, 95%);
+@blue-9: mix(color(~`colorPalette('@{blue-6}', 3) `), @component-background, 95%);
+@blue-10: mix(color(~`colorPalette('@{blue-6}', 2) `), @component-background, 95%);
+
+@purple-1: mix(color(~`colorPalette('@{purple-6}', 8) `), @component-background, 15%);
+@purple-2: mix(color(~`colorPalette('@{purple-6}', 7) `), @component-background, 30%);
+@purple-3: mix(@purple-6, @component-background, 30%);
+@purple-4: mix(@purple-6, @component-background, 45%);
+@purple-5: mix(@purple-6, @component-background, 65%);
+@purple-7: mix(color(~`colorPalette('@{purple-6}', 5) `), @component-background, 85%);
+@purple-8: mix(color(~`colorPalette('@{purple-6}', 4) `), @component-background, 95%);
+@purple-9: mix(color(~`colorPalette('@{purple-6}', 3) `), @component-background, 95%);
+@purple-10: mix(color(~`colorPalette('@{purple-6}', 2) `), @component-background, 95%);
+
+@cyan-1: mix(color(~`colorPalette('@{cyan-6}', 8) `), @component-background, 15%);
+@cyan-2: mix(color(~`colorPalette('@{cyan-6}', 7) `), @component-background, 30%);
+@cyan-3: mix(@cyan-6, @component-background, 30%);
+@cyan-4: mix(@cyan-6, @component-background, 45%);
+@cyan-5: mix(@cyan-6, @component-background, 65%);
+@cyan-7: mix(color(~`colorPalette('@{cyan-6}', 5) `), @component-background, 85%);
+@cyan-8: mix(color(~`colorPalette('@{cyan-6}', 4) `), @component-background, 95%);
+@cyan-9: mix(color(~`colorPalette('@{cyan-6}', 3) `), @component-background, 95%);
+@cyan-10: mix(color(~`colorPalette('@{cyan-6}', 2) `), @component-background, 95%);
+
+@green-1: mix(color(~`colorPalette('@{green-6}', 8) `), @component-background, 15%);
+@green-2: mix(color(~`colorPalette('@{green-6}', 7) `), @component-background, 30%);
+@green-3: mix(@green-6, @component-background, 30%);
+@green-4: mix(@green-6, @component-background, 45%);
+@green-5: mix(@green-6, @component-background, 65%);
+@green-7: mix(color(~`colorPalette('@{green-6}', 5) `), @component-background, 85%);
+@green-8: mix(color(~`colorPalette('@{green-6}', 4) `), @component-background, 95%);
+@green-9: mix(color(~`colorPalette('@{green-6}', 3) `), @component-background, 95%);
+@green-10: mix(color(~`colorPalette('@{green-6}', 2) `), @component-background, 95%);
+
+@magenta-1: mix(color(~`colorPalette('@{magenta-6}', 8) `), @component-background, 15%);
+@magenta-2: mix(color(~`colorPalette('@{magenta-6}', 7) `), @component-background, 30%);
+@magenta-3: mix(@magenta-6, @component-background, 30%);
+@magenta-4: mix(@magenta-6, @component-background, 45%);
+@magenta-5: mix(@magenta-6, @component-background, 65%);
+@magenta-7: mix(color(~`colorPalette('@{magenta-6}', 5) `), @component-background, 85%);
+@magenta-8: mix(color(~`colorPalette('@{magenta-6}', 4) `), @component-background, 95%);
+@magenta-9: mix(color(~`colorPalette('@{magenta-6}', 3) `), @component-background, 95%);
+@magenta-10: mix(color(~`colorPalette('@{magenta-6}', 2) `), @component-background, 95%);
+
+@pink-1: mix(color(~`colorPalette('@{pink-6}', 8) `), @component-background, 15%);
+@pink-2: mix(color(~`colorPalette('@{pink-6}', 7) `), @component-background, 30%);
+@pink-3: mix(@pink-6, @component-background, 30%);
+@pink-4: mix(@pink-6, @component-background, 45%);
+@pink-5: mix(@pink-6, @component-background, 65%);
+@pink-7: mix(color(~`colorPalette('@{pink-6}', 5) `), @component-background, 85%);
+@pink-8: mix(color(~`colorPalette('@{pink-6}', 4) `), @component-background, 95%);
+@pink-9: mix(color(~`colorPalette('@{pink-6}', 3) `), @component-background, 95%);
+@pink-10: mix(color(~`colorPalette('@{pink-6}', 2) `), @component-background, 95%);
+
+@red-1: mix(color(~`colorPalette('@{red-6}', 8) `), @component-background, 15%);
+@red-2: mix(color(~`colorPalette('@{red-6}', 7) `), @component-background, 30%);
+@red-3: mix(@red-6, @component-background, 30%);
+@red-4: mix(@red-6, @component-background, 45%);
+@red-5: mix(@red-6, @component-background, 65%);
+@red-7: mix(color(~`colorPalette('@{red-6}', 5) `), @component-background, 85%);
+@red-8: mix(color(~`colorPalette('@{red-6}', 4) `), @component-background, 95%);
+@red-9: mix(color(~`colorPalette('@{red-6}', 3) `), @component-background, 95%);
+@red-10: mix(color(~`colorPalette('@{red-6}', 2) `), @component-background, 95%);
+
+@orange-1: mix(color(~`colorPalette('@{orange-6}', 8) `), @component-background, 15%);
+@orange-2: mix(color(~`colorPalette('@{orange-6}', 7) `), @component-background, 30%);
+@orange-3: mix(@orange-6, @component-background, 30%);
+@orange-4: mix(@orange-6, @component-background, 45%);
+@orange-5: mix(@orange-6, @component-background, 65%);
+@orange-7: mix(color(~`colorPalette('@{orange-6}', 5) `), @component-background, 85%);
+@orange-8: mix(color(~`colorPalette('@{orange-6}', 4) `), @component-background, 95%);
+@orange-9: mix(color(~`colorPalette('@{orange-6}', 3) `), @component-background, 95%);
+@orange-10: mix(color(~`colorPalette('@{orange-6}', 2) `), @component-background, 95%);
+
+@yellow-1: mix(color(~`colorPalette('@{yellow-6}', 8) `), @component-background, 15%);
+@yellow-2: mix(color(~`colorPalette('@{yellow-6}', 7) `), @component-background, 30%);
+@yellow-3: mix(@yellow-6, @component-background, 30%);
+@yellow-4: mix(@yellow-6, @component-background, 45%);
+@yellow-5: mix(@yellow-6, @component-background, 65%);
+@yellow-7: mix(color(~`colorPalette('@{yellow-6}', 5) `), @component-background, 85%);
+@yellow-8: mix(color(~`colorPalette('@{yellow-6}', 4) `), @component-background, 95%);
+@yellow-9: mix(color(~`colorPalette('@{yellow-6}', 3) `), @component-background, 95%);
+@yellow-10: mix(color(~`colorPalette('@{yellow-6}', 2) `), @component-background, 95%);
+
+@volcano-1: mix(color(~`colorPalette('@{volcano-6}', 8) `), @component-background, 15%);
+@volcano-2: mix(color(~`colorPalette('@{volcano-6}', 7) `), @component-background, 30%);
+@volcano-3: mix(@volcano-6, @component-background, 30%);
+@volcano-4: mix(@volcano-6, @component-background, 45%);
+@volcano-5: mix(@volcano-6, @component-background, 65%);
+@volcano-7: mix(color(~`colorPalette('@{volcano-6}', 5) `), @component-background, 85%);
+@volcano-8: mix(color(~`colorPalette('@{volcano-6}', 4) `), @component-background, 95%);
+@volcano-9: mix(color(~`colorPalette('@{volcano-6}', 3) `), @component-background, 95%);
+@volcano-10: mix(color(~`colorPalette('@{volcano-6}', 2) `), @component-background, 95%);
+
+@geekblue-1: mix(color(~`colorPalette('@{geekblue-6}', 8) `), @component-background, 15%);
+@geekblue-2: mix(color(~`colorPalette('@{geekblue-6}', 7) `), @component-background, 30%);
+@geekblue-3: mix(@geekblue-6, @component-background, 30%);
+@geekblue-4: mix(@geekblue-6, @component-background, 45%);
+@geekblue-5: mix(@geekblue-6, @component-background, 65%);
+@geekblue-7: mix(color(~`colorPalette('@{geekblue-6}', 5) `), @component-background, 85%);
+@geekblue-8: mix(color(~`colorPalette('@{geekblue-6}', 4) `), @component-background, 95%);
+@geekblue-9: mix(color(~`colorPalette('@{geekblue-6}', 3) `), @component-background, 95%);
+@geekblue-10: mix(color(~`colorPalette('@{geekblue-6}', 2) `), @component-background, 95%);
+
+@lime-1: mix(color(~`colorPalette('@{lime-6}', 8) `), @component-background, 15%);
+@lime-2: mix(color(~`colorPalette('@{lime-6}', 7) `), @component-background, 30%);
+@lime-3: mix(@lime-6, @component-background, 30%);
+@lime-4: mix(@lime-6, @component-background, 45%);
+@lime-5: mix(@lime-6, @component-background, 65%);
+@lime-7: mix(color(~`colorPalette('@{lime-6}', 5) `), @component-background, 85%);
+@lime-8: mix(color(~`colorPalette('@{lime-6}', 4) `), @component-background, 95%);
+@lime-9: mix(color(~`colorPalette('@{lime-6}', 3) `), @component-background, 95%);
+@lime-10: mix(color(~`colorPalette('@{lime-6}', 2) `), @component-background, 95%);
+
+@gold-1: mix(color(~`colorPalette('@{gold-6}', 8) `), @component-background, 15%);
+@gold-2: mix(color(~`colorPalette('@{gold-6}', 7) `), @component-background, 30%);
+@gold-3: mix(@gold-6, @component-background, 30%);
+@gold-4: mix(@gold-6, @component-background, 45%);
+@gold-5: mix(@gold-6, @component-background, 65%);
+@gold-7: mix(color(~`colorPalette('@{gold-6}', 5) `), @component-background, 85%);
+@gold-8: mix(color(~`colorPalette('@{gold-6}', 4) `), @component-background, 95%);
+@gold-9: mix(color(~`colorPalette('@{gold-6}', 3) `), @component-background, 95%);
+@gold-10: mix(color(~`colorPalette('@{gold-6}', 2) `), @component-background, 95%);
+
+// Color used by default to control hover and active backgrounds and for
+// alert info backgrounds.
+@primary-1: @blue-1; // replace tint(@primary-color, 90%)
+@primary-2: @blue-2; // replace tint(@primary-color, 80%)
+@primary-3: @blue-3; // unused
+@primary-4: @blue-4; // unused
+@primary-5: @blue-5; // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
+@primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
+@primary-7: @blue-7; // replace shade(@primary-color, 5%)
+@primary-8: @blue-8; // unused
+@primary-9: @blue-9; // unused
+@primary-10: @blue-10; // unused
+
+@body-background: @black;
+@component-background: #1f1f1f;
+
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
+  'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
+@text-color: fade(@white, 65%);
+@text-color-secondary: fade(@white, 45%);
+@text-color-inverse: @white;
+@icon-color-hover: fade(@white, 75%);
+@heading-color: fade(@white, 85%);
+
+// The background colors for active and hover states for things like
+// list items or table cells.
+@item-active-bg: @primary-1;
+@item-hover-bg: fade(@white, 8%);
+
+// Border color
+@border-color-base: fade(@white, 20%); // base border outline a component
+@border-color-split: fade(@white, 12%); // split border inside a component
+
+@background-color-light: fade(@white, 4%); // background of header and selected item
+@background-color-base: fade(@white, 8%); // Default grey background color
+
+// Disabled states
+@disabled-color: fade(@white, 30%);
+@disabled-bg: @background-color-base;
+@disabled-color-dark: fade(@white, 30%);
+
+// Shadow
+@shadow-color: rgba(0, 0, 0, 0.15);
+@shadow-color-inverse: @component-background;
+@box-shadow-base: @shadow-2;
+@shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.24), 0 -9px 28px 0 rgba(0, 0, 0, 0.15),
+  0 -12px 48px 16px rgba(0, 0, 0, 0.09);
+@shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.24), 0 9px 28px 0 rgba(0, 0, 0, 0.15),
+  0 12px 48px 16px rgba(0, 0, 0, 0.09);
+@shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.24), 9px 0 28px 0 rgba(0, 0, 0, 0.15),
+  12px 0 48px 16px rgba(0, 0, 0, 0.09);
+@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.36), 0 6px 16px 0 rgba(0, 0, 0, 0.24),
+  0 9px 28px 8px rgba(0, 0, 0, 0.15);
+
+// Buttons
+@btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
+@btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+@btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+
+@btn-default-bg: transparent;
+
+@btn-danger-bg: @red-7;
+@btn-danger-border: @red-7;
+
+@btn-default-ghost-color: @text-color;
+@btn-default-ghost-border: fade(@white, 25%);
+
+// Checkbox
+@checkbox-check-bg: transparent;
+
+// Descriptions
+@descriptions-bg: @component-background;
+
+// Empty
+
+// Radio
+@radtio-solid-checked-color: @white;
+
+// Radio buttons
+@radio-disabled-button-checked-bg: @disabled-bg;
+@radio-disabled-button-checked-color: @text-color;
+
+// Layout
+@layout-body-background: #141414;
+@layout-header-background: @layout-body-background;
+@layout-footer-background: @layout-body-background;
+@layout-sider-background: @layout-body-background;
+@layout-trigger-background: @layout-body-background;
+
+// Input
+// ---
+@input-placeholder-color: fade(@white, 30%);
+
+// Anchor
+// ---
+@anchor-bg: @black;
+
+// Tooltip
+// ---
+// Tooltip background color
+@tooltip-bg: #434343;
+
+// Menu
+// ---
+// dark theme
+@menu-dark-submenu-bg: @black;
+
+// Table
+// --
+@table-bg: #141414;
+@table-header-bg: #1d1d1d;
+
+// TimePicker
+// ---
+@time-picker-selected-bg: @item-active-bg;
+
+// Calendar
+// ---
+@calendar-border-color: transparent;
+@calendar-item-active-bg: @background-color-base;
+
+// Badge
+// ---
+@badge-text-color: @white;
+
+// Card
+// ---
+@card-actions-background: #141414;
+@card-skeleton-bg: #f2f2f2;
+@card-background: #141414;
+@card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
+  0 5px 12px 4px rgba(0, 0, 0, 0.27);
+
+// Comment
+// ---
+@comment-bg: @component-background;
+
+// Switch
+// ---
+@switch-bg: @white;
+
+// PageHeader
+// ---
+@page-header-back-color: @icon-color;
+
+// Slider
+// ---
+@slider-rail-background-color: fade(@white, 20%);
+@slider-rail-background-color-hover: @slider-rail-background-color;
+@slider-track-background-color: @primary-color;
+@slider-track-background-color-hover: @slider-track-background-color;
+@slider-handle-color: @primary-color;
+@slider-handle-color-hover: @slider-handle-color;
+
+// Skeleton
+// ---
+@skeleton-color: #262626;
+
+// Alert
+// ---
+@alert-success-border-color: @green-3;
+@alert-success-bg-color: @green-1;
+@alert-success-icon-color: @success-color;
+@alert-info-border-color: @blue-3;
+@alert-info-bg-color: @blue-1;
+@alert-info-icon-color: @info-color;
+@alert-warning-border-color: @gold-3;
+@alert-warning-bg-color: @gold-1;
+@alert-warning-icon-color: @warning-color;
+@alert-error-border-color: @red-3;
+@alert-error-bg-color: @red-1;
+@alert-error-icon-color: @error-color;
+
+// Timeline
+// ---
+@timeline-color: @border-color-split;
+@timeline-dot-color: @primary-color;
+@timeline-dot-bg: transparent;
