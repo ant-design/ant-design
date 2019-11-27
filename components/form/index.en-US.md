@@ -276,11 +276,11 @@ validator(rule, value, callback) => {
 }
 ```
 
-### get form instance in functional component
+### Get form instance in functional component
 
-you need to combine `forwardRef` with `useImperativeHandle` to get form instance:
+You need to combine `forwardRef` with `useImperativeHandle` to get form instance:
 
-your custom form component should look like this:
+Your custom form component should look like this:
 
 ```tsx
 import React, { forwardRef, useImperativeHandle } from 'react';
@@ -295,7 +295,7 @@ const FCForm = forwardRef<FormComponentProps, FCFormProps>(({ form, onSubmit }, 
 const EnhancedFCForm = Form.create<FCFormProps>()(FCForm);
 ```
 
-you can use your form component like this：
+You can use your form component like this：
 
 ```tsx
 const TestForm = () => {
@@ -309,6 +309,6 @@ const TestForm = () => {
 };
 ```
 
-you can click the codesandbox to see the complete demo:
+You can click the codesandbox to see the complete demo:
 
 [![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
