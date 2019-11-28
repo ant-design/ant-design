@@ -46,7 +46,7 @@ ReactDOM.render(
           <span className="nav-text">nav 1</span>
         </Menu.Item>
         <Menu.Item key="2">
-          <VideoCamera />
+          <VideoCameraOutlined />
           <span className="nav-text">nav 2</span>
         </Menu.Item>
         <Menu.Item key="3">
