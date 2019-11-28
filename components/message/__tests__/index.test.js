@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
 import message from '..';
 
@@ -119,7 +119,7 @@ describe('message', () => {
   });
 
   it('should allow custom icon', () => {
-    message.open({ content: 'Message', icon: <Smile /> });
+    message.open({ content: 'Message', icon: <SmileOutlined /> });
     expect(document.querySelectorAll('.anticon-smile').length).toBe(1);
   });
 

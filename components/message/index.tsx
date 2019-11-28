@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
 import {
-  Loading,
+  LoadingOutlined,
   ExclamationCircleFilled,
   CloseCircleFilled,
   CheckCircleFilled,
@@ -67,7 +67,7 @@ const iconMap = {
   success: CheckCircleFilled,
   error: CloseCircleFilled,
   warning: ExclamationCircleFilled,
-  loading: Loading,
+  loading: LoadingOutlined,
 };
 
 function notice(args: ArgsProps): MessageType {

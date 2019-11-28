@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
-import { Search } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { sleep } from '../../../tests/utils';
@@ -27,22 +27,22 @@ describe('Button', () => {
     const wrapper = render(<Button>按钮</Button>);
     expect(wrapper).toMatchSnapshot();
     // should not insert space when there is icon
-    const wrapper1 = render(<Button icon={<Search />}>按钮</Button>);
+    const wrapper1 = render(<Button icon={<SearchOutlined />}>按钮</Button>);
     expect(wrapper1).toMatchSnapshot();
     // should not insert space when there is icon
     const wrapper2 = render(
       <Button>
-        <Search />
+        <SearchOutlined />
         按钮
       </Button>,
     );
     expect(wrapper2).toMatchSnapshot();
     // should not insert space when there is icon
-    const wrapper3 = render(<Button icon={<Search />}>按钮</Button>);
+    const wrapper3 = render(<Button icon={<SearchOutlined />}>按钮</Button>);
     expect(wrapper3).toMatchSnapshot();
     // should not insert space when there is icon while loading
     const wrapper4 = render(
-      <Button icon={<Search />} loading>
+      <Button icon={<SearchOutlined />} loading>
         按钮
       </Button>,
     );

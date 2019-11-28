@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Search as IconSearch, Loading as IconLoading } from '@ant-design/icons';
+import { SearchOutlined, LoadingOutlined } from '@ant-design/icons';
 
 import Input, { InputProps } from './Input';
 import Button from '../button';
@@ -65,11 +65,11 @@ export default class Search extends React.Component<SearchProps, any> {
     if (enterButton) {
       return (
         <Button className={`${prefixCls}-button`} type="primary" size={size} key="enterButton">
-          <IconLoading />
+          <LoadingOutlined />
         </Button>
       );
     }
-    return <IconLoading className={`${prefixCls}-icon`} key="loadingIcon" />;
+    return <LoadingOutlined className={`${prefixCls}-icon`} key="loadingIcon" />;
   };
 
   renderSuffix = (prefixCls: string) => {
@@ -82,7 +82,7 @@ export default class Search extends React.Component<SearchProps, any> {
     if (enterButton) return suffix;
 
     const icon = (
-      <IconSearch className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
+      <SearchOutlined className={`${prefixCls}-icon`} key="searchIcon" onClick={this.onSearch} />
     );
 
     if (suffix) {
@@ -135,7 +135,7 @@ export default class Search extends React.Component<SearchProps, any> {
           key="enterButton"
           onClick={this.onSearch}
         >
-          {enterButton === true ? <IconSearch /> : enterButton}
+          {enterButton === true ? <SearchOutlined /> : enterButton}
         </Button>
       );
     }

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { polyfill } from 'react-lifecycles-compat';
-import { CloseCircleFilled, Down, Right, Redo } from '@ant-design/icons';
+import { CloseCircleFilled, DownOutlined, RightOutlined, RedoOutlined } from '@ant-design/icons';
 
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
@@ -534,7 +534,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         })
       ) : (
         <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>
-      ))) || <Down className={arrowCls} />;
+      ))) || <DownOutlined className={arrowCls} />;
 
     const input = children || (
       <span style={style} className={pickerCls}>
@@ -560,11 +560,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       </span>
     );
 
-    const expandIcon = <Right />;
+    const expandIcon = <RightOutlined />;
 
     const loadingIcon = (
       <span className={`${prefixCls}-menu-item-loading-icon`}>
-        <Redo spin />
+        <RedoOutlined spin />
       </span>
     );
 

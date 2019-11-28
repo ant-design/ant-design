@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
-import { Right } from '@ant-design/icons';
+import { RightOutlined } from '@ant-design/icons';
 
 import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -101,7 +101,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
 
     const expandIcon = (
       <span className={`${prefixCls}-menu-submenu-arrow`}>
-        <Right className={`${prefixCls}-menu-submenu-arrow-icon`} />
+        <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
       </span>
     );
 

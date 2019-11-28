@@ -17,13 +17,13 @@ Click `TimePicker`, and then we could select or input a time in panel.
 ```jsx
 import { TimePicker } from 'antd';
 import moment from 'moment';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
 function onChange(time, timeString) {
   console.log(time, timeString);
 }
 
-const icon = <Smile />;
+const icon = <SmileOutlined />;
 
 ReactDOM.render(
   <TimePicker

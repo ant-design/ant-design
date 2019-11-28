@@ -2,7 +2,12 @@ import * as React from 'react';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
-import { Left, Right, DoubleLeft, DoubleRight } from '@ant-design/icons';
+import {
+  LeftOutlined,
+  RightOutlined,
+  DoubleLeftOutlined,
+  DoubleRightOutlined,
+} from '@ant-design/icons';
 
 import MiniSelect from './MiniSelect';
 import Select from '../select';
@@ -49,19 +54,19 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
   getIconsProps = (prefixCls: string) => {
     const prevIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Left />
+        <LeftOutlined />
       </a>
     );
     const nextIcon = (
       <a className={`${prefixCls}-item-link`}>
-        <Right />
+        <RightOutlined />
       </a>
     );
     const jumpPrevIcon = (
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <DoubleLeft className={`${prefixCls}-item-link-icon`} />
+          <DoubleLeftOutlined className={`${prefixCls}-item-link-icon`} />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>
@@ -70,7 +75,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
-          <DoubleRight className={`${prefixCls}-item-link-icon`} />
+          <DoubleRightOutlined className={`${prefixCls}-item-link-icon`} />
           <span className={`${prefixCls}-item-ellipsis`}>•••</span>
         </div>
       </a>

@@ -15,7 +15,7 @@ Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZe
 
 ```jsx
 import { Badge } from 'antd';
-import { ClockCircle } from '@ant-design/icons';
+import { ClockCircleOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
@@ -25,7 +25,7 @@ ReactDOM.render(
     <Badge count={0} showZero>
       <a href="#" className="head-example" />
     </Badge>
-    <Badge count={<ClockCircle style={{ color: '#f5222d' }} />}>
+    <Badge count={<ClockCircleOutlined style={{ color: '#f5222d' }} />}>
       <a href="#" className="head-example" />
     </Badge>
   </div>,

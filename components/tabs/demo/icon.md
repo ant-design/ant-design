@@ -15,7 +15,7 @@ The Tab with Icon.
 
 ```jsx
 import { Tabs } from 'antd';
-import { Apple, Android } from '@ant-design/icons';
+import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
 
@@ -24,7 +24,7 @@ ReactDOM.render(
     <TabPane
       tab={
         <span>
-          <Apple />
+          <AppleOutlined />
           Tab 1
         </span>
       }
@@ -35,7 +35,7 @@ ReactDOM.render(
     <TabPane
       tab={
         <span>
-          <Android />
+          <AndroidOutlined />
           Tab 2
         </span>
       }

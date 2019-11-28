@@ -15,7 +15,7 @@ The menu has multiple levels.
 
 ```jsx
 import { Menu, Dropdown } from 'antd';
-import { Down } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -37,7 +37,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" href="#">
-      Cascading menu <Down />
+      Cascading menu <DownOutlined />
     </a>
   </Dropdown>,
   mountNode,

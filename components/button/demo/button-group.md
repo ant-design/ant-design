@@ -19,7 +19,7 @@ The `size` can be set to `large`, `small` or left unset resulting in a default s
 
 ```jsx
 import { Button } from 'antd';
-import { Left, Right } from '@ant-design/icons';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 
 const ButtonGroup = Button.Group;
 
@@ -44,12 +44,12 @@ ReactDOM.render(
     <h4>With Icon</h4>
     <ButtonGroup>
       <Button type="primary">
-        <Left />
+        <LeftOutlined />
         Go back
       </Button>
       <Button type="primary">
         Go forward
-        <Right />
+        <RightOutlined />
       </Button>
     </ButtonGroup>
     <ButtonGroup>

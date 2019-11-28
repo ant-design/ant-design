@@ -29,11 +29,11 @@ title: 介绍
 
 ```__react
 import {
-  Export as ExportIcon,
+  ExportOutlined,
 } from '@ant-design/icons';
 
 const LinkIcon = () => (
-  <ExportIcon className="outside-link-icon" />
+  <ExportOutlined className="outside-link-icon" />
 );
 
 const LinksList = () => (

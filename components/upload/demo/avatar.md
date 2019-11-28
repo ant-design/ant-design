@@ -19,7 +19,7 @@ Click to upload user's avatar, and validate size and format of picture with `bef
 
 ```jsx
 import { Upload, message } from 'antd';
-import { Loading, Plus } from '@ant-design/icons';
+import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 
 function getBase64(img, callback) {
   const reader = new FileReader();
@@ -63,7 +63,7 @@ class Avatar extends React.Component {
   render() {
     const uploadButton = (
       <div>
-        {this.state.loading ? <Loading /> : <Plus />}
+        {this.state.loading ? <LoadingOutlined /> : <PlusOutlined />}
         <div className="ant-upload-text">Upload</div>
       </div>
     );

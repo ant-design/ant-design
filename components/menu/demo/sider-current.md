@@ -15,7 +15,7 @@ Click the menu and you will see that all the other menus gets collapsed to keep 
 
 ```jsx
 import { Menu } from 'antd';
-import { Appstore, Mail, Setting } from '@ant-design/icons';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -50,7 +50,7 @@ class Sider extends React.Component {
           key="sub1"
           title={
             <span>
-              <Mail />
+              <MailOutlined />
               <span>Navigation One</span>
             </span>
           }
@@ -64,7 +64,7 @@ class Sider extends React.Component {
           key="sub2"
           title={
             <span>
-              <Appstore />
+              <AppstoreOutlined />
               <span>Navigation Two</span>
             </span>
           }
@@ -80,7 +80,7 @@ class Sider extends React.Component {
           key="sub4"
           title={
             <span>
-              <Setting />
+              <SettingOutlined />
               <span>Navigation Three</span>
             </span>
           }

@@ -15,7 +15,7 @@ Show all props.Used all the capabilities provided by pageHeader.
 
 ```jsx
 import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
-import { Ellipsis } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
@@ -48,7 +48,7 @@ const DropdownMenu = () => {
           padding: 0,
         }}
       >
-        <Ellipsis
+        <EllipsisOutlined
           style={{
             fontSize: 20,
             verticalAlign: 'top',
