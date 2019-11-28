@@ -91,7 +91,7 @@ export interface AntAnchor {
 export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   static Link: typeof AnchorLink;
 
-  static defaultProps = {
+  static defaultProps: AnchorProps = {
     affix: true,
     showInkInFixed: false,
     getContainer: getDefaultContainer,

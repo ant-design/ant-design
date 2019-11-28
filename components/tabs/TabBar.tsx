@@ -6,7 +6,7 @@ import { UpOutlined, LeftOutlined, DownOutlined, RightOutlined } from '@ant-desi
 import { TabsProps } from './index';
 
 export default class TabBar extends React.Component<TabsProps> {
-  static defaultProps = {
+  static defaultProps: TabsProps = {
     animated: true,
     type: 'line',
   };

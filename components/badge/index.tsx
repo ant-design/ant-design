@@ -33,7 +33,7 @@ function isPresetColor(color?: string): boolean {
 }
 
 export default class Badge extends React.Component<BadgeProps, any> {
-  static defaultProps = {
+  static defaultProps: BadgeProps = {
     count: null,
     showZero: false,
     dot: false,

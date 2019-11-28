@@ -43,7 +43,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
 
   static SHOW_CHILD = SHOW_CHILD;
 
-  static defaultProps = {
+  static defaultProps: TreeSelectProps<any> = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
   };

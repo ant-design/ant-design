@@ -38,7 +38,7 @@ interface PanelProps {
 export default class Collapse extends React.Component<CollapseProps, any> {
   static Panel = CollapsePanel;
 
-  static defaultProps = {
+  static defaultProps: CollapseProps & { openAnimation: typeof animation } = {
     bordered: true,
     openAnimation: { ...animation, appear() {} },
     expandIconPosition: 'left',

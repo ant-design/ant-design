@@ -42,7 +42,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
 
   static SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
-  static defaultProps = {
+  static defaultProps: SelectProps<unknown> = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
   };

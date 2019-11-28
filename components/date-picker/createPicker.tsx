@@ -16,6 +16,8 @@ import { formatDate } from './utils';
 export interface PickerProps {
   value?: moment.Moment;
   open?: boolean;
+  allowClear?: boolean;
+  showToday?: boolean;
   prefixCls: string;
 }
 
@@ -27,7 +29,7 @@ export interface PickerState {
 
 export default function createPicker(TheCalendar: React.ComponentClass): any {
   class CalenderWrapper extends React.Component<any, PickerState> {
-    static defaultProps = {
+    static defaultProps: any = {
       allowClear: true,
       showToday: true,
     };

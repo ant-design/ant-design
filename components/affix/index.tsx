@@ -53,7 +53,7 @@ export interface AffixState {
 }
 
 class Affix extends React.Component<AffixProps, AffixState> {
-  static defaultProps = {
+  static defaultProps: Partial<AffixProps> = {
     target: getDefaultTarget,
   };
 

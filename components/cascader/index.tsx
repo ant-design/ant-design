@@ -216,7 +216,7 @@ function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNames
 }
 
 class Cascader extends React.Component<CascaderProps, CascaderState> {
-  static defaultProps = {
+  static defaultProps: CascaderProps & { transitionName: string } = {
     transitionName: 'slide-up',
     popupPlacement: 'bottomLeft',
     options: [],

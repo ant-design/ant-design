@@ -34,7 +34,7 @@ export interface InputNumberProps
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
-  static defaultProps = {
+  static defaultProps: InputNumberProps = {
     step: 1,
   };
 

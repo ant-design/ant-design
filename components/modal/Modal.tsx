@@ -142,7 +142,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
   static destroyAll: () => void;
 
-  static defaultProps = {
+  static defaultProps: ModalProps = {
     width: 520,
     transitionName: 'zoom',
     maskTransitionName: 'fade',

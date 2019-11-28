@@ -11,15 +11,15 @@ import {
   DownloadOutlined,
 } from '@ant-design/icons';
 
-import { UploadListProps, UploadFile, UploadListType } from './interface';
+import { UploadListProps, UploadFile } from './interface';
 import { previewImage, isImageUrl } from './utils';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export default class UploadList extends React.Component<UploadListProps, any> {
-  static defaultProps = {
-    listType: 'text' as UploadListType, // or picture
+  static defaultProps: Partial<UploadListProps> = {
+    listType: 'text',
     progressAttr: {
       strokeWidth: 2,
       showInfo: false,

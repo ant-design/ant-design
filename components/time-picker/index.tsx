@@ -62,7 +62,11 @@ export interface TimePickerLocale {
 }
 
 class TimePicker extends React.Component<TimePickerProps, any> {
-  static defaultProps = {
+  static defaultProps: TimePickerProps & {
+    align: { offset: [number, number] };
+    placement: string;
+    transitionName: string;
+  } = {
     align: {
       offset: [0, -2],
     },

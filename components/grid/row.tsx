@@ -25,7 +25,7 @@ export interface RowState {
 }
 
 export default class Row extends React.Component<RowProps, RowState> {
-  static defaultProps = {
+  static defaultProps: RowProps = {
     gutter: 0,
   };
 

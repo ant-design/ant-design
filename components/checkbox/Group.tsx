@@ -45,7 +45,7 @@ export interface CheckboxGroupContext {
 }
 
 class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
-  static defaultProps = {
+  static defaultProps: CheckboxGroupProps = {
     options: [],
   };
 

@@ -39,7 +39,7 @@ export interface CarouselProps extends Settings {
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
-  static defaultProps = {
+  static defaultProps: CarouselProps = {
     dots: true,
     arrows: false,
     draggable: false,

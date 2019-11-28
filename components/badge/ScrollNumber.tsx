@@ -48,7 +48,7 @@ export interface ScrollNumberState {
 }
 
 class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState> {
-  static defaultProps = {
+  static defaultProps: ScrollNumberProps = {
     count: null,
     onAnimated() {},
   };

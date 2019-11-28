@@ -73,7 +73,7 @@ export interface MenuState {
 }
 
 class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
-  static defaultProps: Partial<MenuProps> = {
+  static defaultProps: MenuProps = {
     className: '',
     theme: 'light', // or dark
     focusable: false,

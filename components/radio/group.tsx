@@ -25,7 +25,7 @@ function getCheckedValue(children: React.ReactNode) {
 }
 
 class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
-  static defaultProps = {
+  static defaultProps: RadioGroupProps = {
     buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
 

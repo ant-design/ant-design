@@ -71,7 +71,7 @@ function renderListNode(renderList: RenderListFunction | undefined, props: Trans
 }
 
 export default class TransferList extends React.Component<TransferListProps, TransferListState> {
-  static defaultProps = {
+  static defaultProps: Partial<TransferListProps> = {
     dataSource: [],
     titleText: '',
     showSearch: false,

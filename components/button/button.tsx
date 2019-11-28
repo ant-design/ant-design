@@ -115,7 +115,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   static __ANT_BUTTON = true;
 
-  static defaultProps = {
+  static defaultProps: ButtonProps = {
     loading: false,
     ghost: false,
     block: false,

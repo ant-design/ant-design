@@ -80,11 +80,11 @@ class Transfer extends React.Component<TransferProps, any> {
 
   static Search = Search;
 
-  static defaultProps = {
+  static defaultProps: TransferProps = {
     dataSource: [],
     locale: {},
     showSearch: false,
-    listStyle: () => {},
+    listStyle: (() => {}) as TransferProps['listStyle'],
   };
 
   static propTypes = {

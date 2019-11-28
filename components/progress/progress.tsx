@@ -45,7 +45,7 @@ export interface ProgressProps {
 }
 
 export default class Progress extends React.Component<ProgressProps> {
-  static defaultProps = {
+  static defaultProps: ProgressProps = {
     type: 'line',
     percent: 0,
     showInfo: true,

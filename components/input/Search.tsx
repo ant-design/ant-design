@@ -20,7 +20,7 @@ export interface SearchProps extends InputProps {
 }
 
 export default class Search extends React.Component<SearchProps, any> {
-  static defaultProps = {
+  static defaultProps: SearchProps = {
     enterButton: false,
   };
 

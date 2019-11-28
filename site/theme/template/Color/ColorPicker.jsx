@@ -9,7 +9,7 @@ const pickers = {
 };
 
 export default class ColorPicker extends Component {
-  static defaultProps = {
+  static defaultProps: any = {
     onChange: noop,
     onChangeComplete: noop,
     position: 'bottom',

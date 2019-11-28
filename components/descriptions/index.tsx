@@ -236,9 +236,9 @@ class Descriptions extends React.Component<
             })
             .filter((node: React.ReactElement) => node);
 
-          const childrenArray: Array<
-            React.ReactElement<DescriptionsItemProps>[]
-          > = generateChildrenRows(cloneChildren, column);
+          const childrenArray: Array<React.ReactElement<
+            DescriptionsItemProps
+          >[]> = generateChildrenRows(cloneChildren, column);
           return (
             <div
               className={classNames(prefixCls, className, {

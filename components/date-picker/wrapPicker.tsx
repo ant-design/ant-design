@@ -62,7 +62,7 @@ function checkValidate(value: any, propName: string) {
 
 export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType: PickerType): any {
   class PickerWrapper extends React.Component<any, any> {
-    static defaultProps = {
+    static defaultProps: any = {
       transitionName: 'slide-up',
       popupStyle: {},
       onChange() {},
