@@ -37,7 +37,7 @@ cols: 1
 | delete | 添加删除线样式 | boolean | false | 3.14.0 |
 | disabled | 禁用文本 | boolean | false | 3.14.0 |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false | 3.14.0 |
-| ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false | 3.14.0 |
+| ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: Function, expandText: string } | false | 3.14.0 |
 | level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4` | number: `1`, `2`, `3`, `4` | 1 | 3.14.0 |
 | mark | 添加标记样式 | boolean | false | 3.14.0 |
 | underline | 添加下划线样式 | boolean | false | 3.14.0 |
@@ -52,7 +52,7 @@ cols: 1
 | delete | 添加删除线样式 | boolean | false | 3.14.0 |
 | disabled | 禁用文本 | boolean | false | 3.14.0 |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false | 3.14.0 |
-| ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false | 3.14.0 |
+| ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: Function, expandText: string } | false | 3.14.0 |
 | mark | 添加标记样式 | boolean | false | 3.14.0 |
 | underline | 添加下划线样式 | boolean | false | 3.14.0 |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - | 3.14.0 |
