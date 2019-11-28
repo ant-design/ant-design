@@ -2,11 +2,20 @@ import * as React from 'react';
 import Picker from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import { PickerBaseProps, PickerDateProps, PickerTimeProps } from 'rc-picker/lib/Picker';
-import { CalendarOutlined } from '@ant-design/icons';
+import {
+  CalendarOutlined,
+  LeftOutlined,
+  RightOutlined,
+  DoubleLeftOutlined,
+  DoubleRightOutlined,
+} from '@ant-design/icons';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
 
-type InjectDefaultProps<Props> = Omit<Props, 'locale' | 'generateConfig'> & {
+type InjectDefaultProps<Props> = Omit<
+  Props,
+  'locale' | 'generateConfig' | 'prevIcon' | 'nextIcon' | 'superPrevIcon' | 'superNextIcon'
+> & {
   locale?: typeof defaultLocale;
 };
 
@@ -51,6 +60,10 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           {...restProps}
           prefixCls={prefixCls}
           generateConfig={generateConfig}
+          prevIcon={<LeftOutlined />}
+          nextIcon={<RightOutlined />}
+          superPrevIcon={<DoubleLeftOutlined />}
+          superNextIcon={<DoubleRightOutlined />}
         />
       );
     }

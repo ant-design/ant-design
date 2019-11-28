@@ -1,7 +1,146 @@
 @import './index';
 
-.@{picker-prefix-cls}-panel {
-  background: @component-background;
-  border-radius: @border-radius-base;
-  border: @border-width-base @border-style-base @border-color-split;
+.@{picker-prefix-cls} {
+  &-panel {
+    background: @component-background;
+    border-radius: @border-radius-base;
+    border: @border-width-base @border-style-base @border-color-split;
+    display: inline-block;
+    text-align: center;
+
+    &-focused {
+      border-color: @primary-5;
+    }
+  }
+
+  // ========================================================
+  // =                     Shared Panel                     =
+  // ========================================================
+  &-decade-panel,
+  &-year-panel,
+  &-month-panel,
+  &-week-panel,
+  &-date-panel,
+  &-time-panel {
+    display: flex;
+    flex-direction: column;
+
+    // ======================= Header =======================
+    &-header {
+      display: flex;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
+
+      > * {
+        flex: none;
+      }
+
+      button {
+        border: 0;
+        padding: 0;
+        background: transparent;
+        line-height: 40px;
+        color: @disabled-color;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      > button {
+        min-width: 2em;
+        font-size: @font-size-sm;
+
+        &:hover {
+          color: @text-color;
+        }
+      }
+
+      &-view {
+        flex: auto;
+        text-align: center;
+        font-weight: 500;
+
+        button {
+          color: @heading-color;
+
+          &:not(:first-child) {
+            margin-left: @padding-xs;
+          }
+
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+
+    // ======================== Body ========================
+    &-body {
+      padding: @padding-xs @padding-sm;
+    }
+
+    &-content {
+      border-collapse: collapse;
+
+      th,
+      td {
+        font-weight: 400;
+      }
+
+      th {
+        height: 30px;
+        line-height: 30px;
+        color: @text-color;
+      }
+    }
+
+    &-cell {
+      cursor: pointer;
+      color: @disabled-color;
+      padding: 3px 0;
+
+      // Default
+      &-inner {
+        display: inline-block;
+        min-width: 24px;
+        height: 24px;
+        line-height: 24px - @border-width-base * 2;
+        border-radius: @border-radius-base;
+        transition: background 0.3s;
+        border: @border-width-base @border-style-base transparent;
+      }
+
+      &:hover &-inner {
+        background: @item-hover-bg;
+      }
+
+      // Today
+      &-today &-inner {
+        border-color: @primary-color;
+      }
+
+      // In view
+      &-in-view {
+        color: @text-color;
+      }
+
+      // Selected
+      &-selected &-inner,
+      &-selected:hover &-inner {
+        color: @text-color-inverse;
+        background: @primary-color;
+      }
+    }
+  }
+
+  // ========================================================
+  // =                       Special                        =
+  // ========================================================
+
+  // ====================== Date Panel ======================
+  &-date-panel {
+    &-content {
+      th {
+        width: 33px;
+      }
+    }
+  }
 }
