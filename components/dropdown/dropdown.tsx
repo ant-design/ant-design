@@ -59,7 +59,6 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   static defaultProps = {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
-    placement: 'bottomLeft' as Placement,
   };
 
   getTransitionName() {
@@ -118,6 +117,13 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     return fixedModeOverlay as React.ReactElement;
   };
 
+  getPlacement(direction: string = 'ltr') {
+    const { placement } = this.props;
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+  }
   renderDropDown = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
@@ -162,6 +168,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
         transitionName={this.getTransitionName()}
         trigger={triggerActions}
         overlay={() => this.renderOverlay(prefixCls)}
+        placement={this.getPlacement(direction)}
       >
         {dropdownTrigger}
       </RcDropdown>
