@@ -15,7 +15,7 @@ After users upload picture, the thumbnail will be shown in list. The upload butt
 
 ```jsx
 import { Upload, Modal } from 'antd';
-import { Plus } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -82,7 +82,7 @@ class PicturesWall extends React.Component {
     const { previewVisible, previewImage, fileList } = this.state;
     const uploadButton = (
       <div>
-        <Plus />
+        <PlusOutlined />
         <div className="ant-upload-text">Upload</div>
       </div>
     );

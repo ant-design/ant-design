@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'enzyme';
-import { Loading } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import List from '..';
 
@@ -26,7 +26,7 @@ describe('List', () => {
   });
 
   it('renders object loading with indicator', () => {
-    const antIcon = <Loading style={{ fontSize: 24 }} spin />;
+    const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
     const loading = {
       spinning: true,

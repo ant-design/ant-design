@@ -2,13 +2,13 @@ import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 import {
-  Loading,
-  PaperClip,
+  LoadingOutlined,
+  PaperClipOutlined,
   PictureTwoTone,
   FileTwoTone,
-  Eye,
-  Delete,
-  Download,
+  EyeOutlined,
+  DeleteOutlined,
+  DownloadOutlined,
 } from '@ant-design/icons';
 
 import { UploadListProps, UploadFile, UploadListType } from './interface';
@@ -96,7 +96,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
       let progress;
-      let icon = file.status === 'uploading' ? <Loading /> : <PaperClip />;
+      let icon = file.status === 'uploading' ? <LoadingOutlined /> : <PaperClipOutlined />;
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (listType === 'picture-card' && file.status === 'uploading') {
@@ -149,12 +149,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
       const removeIcon = showRemoveIcon ? (
-        <Delete title={locale.removeFile} onClick={() => this.handleClose(file)} />
+        <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
 
       const downloadIcon =
         showDownloadIcon && file.status === 'done' ? (
-          <Download title={locale.downloadFile} onClick={() => this.handleDownload(file)} />
+          <DownloadOutlined title={locale.downloadFile} onClick={() => this.handleDownload(file)} />
         ) : null;
       const downloadOrDelete = listType !== 'picture-card' && (
         <span
@@ -213,7 +213,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           onClick={e => this.handlePreview(file, e)}
           title={locale.previewFile}
         >
-          <Eye />
+          <EyeOutlined />
         </a>
       ) : null;
 

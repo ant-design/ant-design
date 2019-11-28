@@ -16,7 +16,7 @@ A basic comment with author, avatar, time and actions.
 ```jsx
 import { Comment, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
-import { Dislike, Like, DislikeFilled, LikeFilled } from '@ant-design/icons';
+import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 
 class App extends React.Component {
   state = {
@@ -47,7 +47,7 @@ class App extends React.Component {
     const actions = [
       <span key="comment-basic-like">
         <Tooltip title="Like">
-          {React.createElement(action === 'liked' ? LikeFilled : Like, {
+          {React.createElement(action === 'liked' ? LikeFilled : LikeOutlined, {
             onClick: this.like,
           })}
         </Tooltip>
@@ -55,7 +55,7 @@ class App extends React.Component {
       </span>,
       <span key=' key="comment-basic-dislike"'>
         <Tooltip title="Dislike">
-          {React.createElement(action === 'liked' ? DislikeFilled : Dislike, {
+          {React.createElement(action === 'liked' ? DislikeFilled : DislikeOutlined, {
             onClick: this.dislike,
           })}
         </Tooltip>

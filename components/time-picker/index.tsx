@@ -3,7 +3,7 @@ import * as moment from 'moment';
 import omit from 'omit.js';
 import RcTimePicker from 'rc-time-picker/lib/TimePicker';
 import classNames from 'classnames';
-import { ClockCircle, CloseCircleFilled } from '@ant-design/icons';
+import { ClockCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
 
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -166,7 +166,7 @@ class TimePicker extends React.Component<TimePickerProps, any> {
       React.isValidElement<{ className?: string }>(suffixIcon) &&
       React.cloneElement(suffixIcon, {
         className: classNames(suffixIcon.props.className, `${prefixCls}-clock-icon`),
-      })) || <ClockCircle className={`${prefixCls}-clock-icon`} />;
+      })) || <ClockCircleOutlined className={`${prefixCls}-clock-icon`} />;
 
     return <span className={`${prefixCls}-icon`}>{clockIcon}</span>;
   }

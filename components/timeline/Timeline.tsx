@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Loading } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -48,7 +48,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     );
 
     const pendingItem = pending ? (
-      <TimelineItem pending={!!pending} dot={pendingDot || <Loading />}>
+      <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
         {pendingNode}
       </TimelineItem>
     ) : null;

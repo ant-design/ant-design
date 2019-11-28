@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import {
-  Loading,
+  LoadingOutlined,
   CloseCircleFilled,
   CheckCircleFilled,
   ExclamationCircleFilled,
@@ -34,7 +34,7 @@ const iconMap: { [key: string]: any } = {
   success: CheckCircleFilled,
   warning: ExclamationCircleFilled,
   error: CloseCircleFilled,
-  validating: Loading,
+  validating: LoadingOutlined,
 };
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({

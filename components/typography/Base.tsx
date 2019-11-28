@@ -5,7 +5,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
-import { Edit, Check, Copy } from '@ant-design/icons';
+import { EditOutlined, CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumerProps, configConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
@@ -344,7 +344,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onEditClick}
           aria-label={this.editStr}
         >
-          <Edit role="button" />
+          <EditOutlined role="button" />
         </TransButton>
       </Tooltip>
     );
@@ -363,7 +363,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onCopyClick}
           aria-label={title}
         >
-          {copied ? <Check /> : <Copy />}
+          {copied ? <CheckOutlined /> : <CopyOutlined />}
         </TransButton>
       </Tooltip>
     );

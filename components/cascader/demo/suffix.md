@@ -16,7 +16,7 @@ Cascade selection box for selecting province/city/district.
 
 ```jsx
 import { Cascader } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
 const options = [
   {
@@ -60,7 +60,7 @@ function onChange(value) {
 ReactDOM.render(
   <div>
     <Cascader
-      suffixIcon={<Smile />}
+      suffixIcon={<SmileOutlined />}
       options={options}
       onChange={onChange}
       placeholder="Please select"

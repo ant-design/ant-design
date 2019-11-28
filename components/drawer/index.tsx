@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import createReactContext from '@ant-design/create-react-context';
-import { Close } from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
@@ -167,7 +167,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       closable && (
         // eslint-disable-next-line react/button-has-type
         <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-          <Close />
+          <CloseOutlined />
         </button>
       )
     );

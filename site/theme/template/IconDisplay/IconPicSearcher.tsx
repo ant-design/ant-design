@@ -161,7 +161,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
           content={messages[`app.docs.components.icon.pic-searcher.intro`]}
           visible={popoverVisible}
         >
-          <AntdIcons.Camera className="icon-pic-btn" onClick={this.toggleModal} />
+          <AntdIcons.CameraOutlined className="icon-pic-btn" onClick={this.toggleModal} />
         </Popover>
         <Modal
           title={messages[`app.docs.components.icon.pic-searcher.title`]}
@@ -186,7 +186,7 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
               showUploadList={{ showPreviewIcon: false, showRemoveIcon: false }}
             >
               <p className="ant-upload-drag-icon">
-                <AntdIcons.Inbox />
+                <AntdIcons.InboxOutlined />
               </p>
               <p className="ant-upload-text">
                 {messages['app.docs.components.icon.pic-searcher.upload-text']}

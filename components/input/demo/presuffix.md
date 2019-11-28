@@ -15,16 +15,16 @@ Add prefix or suffix icons inside input.
 
 ```jsx
 import { Input, Tooltip } from 'antd';
-import { InfoCircle, User } from '@ant-design/icons';
+import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
     <Input
       placeholder="Enter your username"
-      prefix={<User style={{ color: 'rgba(0,0,0,.25)' }} />}
+      prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
       suffix={
         <Tooltip title="Extra information">
-          <InfoCircle style={{ color: 'rgba(0,0,0,.45)' }} />
+          <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />
         </Tooltip>
       }
     />

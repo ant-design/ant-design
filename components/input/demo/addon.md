@@ -15,7 +15,7 @@ Using pre & post tabs example.
 
 ```jsx
 import { Input, Select } from 'antd';
-import { Setting } from '@ant-design/icons';
+import { SettingOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -43,7 +43,7 @@ ReactDOM.render(
       <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
     </div>
     <div style={{ marginBottom: 16 }}>
-      <Input addonAfter={<Setting />} defaultValue="mysite" />
+      <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
     </div>
   </div>,
   mountNode,

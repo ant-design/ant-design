@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Down } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 import { FixedType } from 'rc-table/lib/interface';
 import Checkbox, { CheckboxProps } from '../../checkbox';
 import Dropdown from '../../dropdown';
@@ -277,7 +277,7 @@ export default function useSelection<RecordType>(
             <div className={`${prefixCls}-selection-extra`}>
               <Dropdown overlay={menu}>
                 <span>
-                  <Down />
+                  <DownOutlined />
                 </span>
               </Dropdown>
             </div>

@@ -16,10 +16,10 @@ The most basic usage.
 
 ```jsx
 import { TreeSelect } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
 const { TreeNode } = TreeSelect;
-const icon = <Smile />;
+const icon = <SmileOutlined />;
 
 class Demo extends React.Component {
   state = {

@@ -1,5 +1,12 @@
 import React from 'react';
-import { Down, Loading, Check, Close, CloseCircleFilled, Search } from '@ant-design/icons';
+import {
+  DownOutlined,
+  LoadingOutlined,
+  CheckOutlined,
+  CloseOutlined,
+  CloseCircleFilled,
+  SearchOutlined,
+} from '@ant-design/icons';
 
 export default function getIcons({
   suffixIcon,
@@ -27,13 +34,13 @@ export default function getIcons({
   if (suffixIcon !== undefined) {
     mergedSuffixIcon = suffixIcon;
   } else if (loading) {
-    mergedSuffixIcon = <Loading spin />;
+    mergedSuffixIcon = <LoadingOutlined spin />;
   } else {
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
       if (open && showSearch) {
-        return <Search />;
+        return <SearchOutlined />;
       }
-      return <Down />;
+      return <DownOutlined />;
     };
   }
 
@@ -42,7 +49,7 @@ export default function getIcons({
   if (menuItemSelectedIcon !== undefined) {
     mergedItemIcon = menuItemSelectedIcon;
   } else if (multiple) {
-    mergedItemIcon = <Check />;
+    mergedItemIcon = <CheckOutlined />;
   } else {
     mergedItemIcon = null;
   }
@@ -51,7 +58,7 @@ export default function getIcons({
   if (removeIcon !== undefined) {
     mergedRemoveIcon = removeIcon;
   } else {
-    mergedRemoveIcon = <Close />;
+    mergedRemoveIcon = <CloseOutlined />;
   }
 
   return {

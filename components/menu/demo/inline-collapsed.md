@@ -19,7 +19,15 @@ Here is [a complete demo](/components/layout/#components-layout-demo-side) with 
 
 ```jsx
 import { Menu, Button } from 'antd';
-import { Appstore, MenuUnfold, MenuFold, PieChart, Desktop, Inbox, Mail } from '@ant-design/icons';
+import {
+  AppstoreOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  PieChartOutlined,
+  DesktopOutlined,
+  InboxOutlined,
+  MailOutlined,
+} from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -38,7 +46,7 @@ class App extends React.Component {
     return (
       <div style={{ width: 256 }}>
         <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
-          {React.createElement(this.state.collapsed ? MenuUnfold : MenuFold)}
+          {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
         </Button>
         <Menu
           defaultSelectedKeys={['1']}
@@ -48,22 +56,22 @@ class App extends React.Component {
           inlineCollapsed={this.state.collapsed}
         >
           <Menu.Item key="1">
-            <PieChart />
+            <PieChartOutlined />
             <span>Option 1</span>
           </Menu.Item>
           <Menu.Item key="2">
-            <Desktop />
+            <DesktopOutlined />
             <span>Option 2</span>
           </Menu.Item>
           <Menu.Item key="3">
-            <Inbox />
+            <InboxOutlined />
             <span>Option 3</span>
           </Menu.Item>
           <SubMenu
             key="sub1"
             title={
               <span>
-                <Mail />
+                <MailOutlined />
                 <span>Navigation One</span>
               </span>
             }
@@ -77,7 +85,7 @@ class App extends React.Component {
             key="sub2"
             title={
               <span>
-                <Appstore />
+                <AppstoreOutlined />
                 <span>Navigation Two</span>
               </span>
             }

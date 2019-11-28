@@ -15,7 +15,7 @@ More than one panel can be expanded at a time, the first panel is initialized to
 
 ```jsx
 import { Collapse, Select } from 'antd';
-import { Setting } from '@ant-design/icons';
+import { SettingOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;
 const { Option } = Select;
@@ -31,7 +31,7 @@ const text = `
 `;
 
 const genExtra = () => (
-  <Setting
+  <SettingOutlined
     onClick={event => {
       // If you don't want click extra trigger collapse, you can prevent this:
       event.stopPropagation();

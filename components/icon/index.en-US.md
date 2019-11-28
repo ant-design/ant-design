@@ -28,9 +28,9 @@ ReactDOM.render(<IconDisplay />, mountNode);
 We still have three different themes for icons, icon component name is the icon name suffixed by the theme name.
 
 ```jsx
-import { Star, StarFilled, StarTwoTone } from '@ant-design/icons';
+import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
-<Star />
+<StarOutlined />
 <StarFilled />
 <StarTwoTone twoToneColor="#eb2f96" />
 ```
@@ -62,9 +62,9 @@ More discussion of SVG icon reference at [#10353](https://github.com/ant-design/
 The properties `theme`, `component` and `twoToneColor` were added in `3.9.0`. The best practice is to pass the property `theme` to every `<Icon />` component.
 
 ```jsx
-import { Message } from '@ant-design/icons';
+import { MessageOutlined } from '@ant-design/icons';
 
-<Message style={{ fontSize: '16px', color: '#08c' }} />;
+<MessageOutlined style={{ fontSize: '16px', color: '#08c' }} />;
 ```
 
 All the icons will render to `<svg>`. You can still set `style` and `className` for size and color of icons.

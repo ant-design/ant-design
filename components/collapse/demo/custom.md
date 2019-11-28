@@ -15,7 +15,7 @@ Customize the background, border, margin styles and icon for each panel.
 
 ```jsx
 import { Collapse } from 'antd';
-import { CaretRight } from '@ant-design/icons';
+import { CaretRightOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;
 
@@ -37,7 +37,7 @@ ReactDOM.render(
   <Collapse
     bordered={false}
     defaultActiveKey={['1']}
-    expandIcon={({ isActive }) => <CaretRight rotate={isActive ? 90 : 0} />}
+    expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
   >
     <Panel header="This is panel header 1" key="1" style={customPanelStyle}>
       <p>{text}</p>

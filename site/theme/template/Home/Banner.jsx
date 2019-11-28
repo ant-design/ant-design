@@ -6,7 +6,7 @@ import { Link } from 'bisheng/router';
 import { FormattedMessage, useIntl } from 'react-intl';
 import GitHubButton from 'react-github-button';
 import { Button, Divider } from 'antd';
-import { Right } from '@ant-design/icons';
+import { RightOutlined } from '@ant-design/icons';
 import BannerImage from './BannerImage';
 import * as utils from '../utils';
 
@@ -112,7 +112,7 @@ const Banner = ({ isMobile }) => {
             >
               <img src="https://antv.vision/icons/icon-512x512.png" alt="AntV logo" />
               <FormattedMessage id="app.home.recommend.antv" />
-              <Right style={{ marginLeft: 6, fontSize: 12, opacity: 0.6 }} />
+              <RightOutlined style={{ marginLeft: 6, fontSize: 12, opacity: 0.6 }} />
             </a>
           </div>
         </QueueAnim>
