@@ -51,12 +51,17 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
       const mergedLocale = locale || defaultLocale;
 
+      const additionalProps = {
+        showToday: true,
+      };
+
       return (
         <Picker<DateType>
           ref={this.pickerRef}
           locale={mergedLocale.lang}
           placeholder={mergedLocale.lang.placeholder}
           suffixIcon={<CalendarOutlined />}
+          {...additionalProps}
           {...restProps}
           prefixCls={prefixCls}
           generateConfig={generateConfig}

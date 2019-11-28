@@ -24,6 +24,7 @@
   &-time-panel {
     display: flex;
     flex-direction: column;
+    width: 280px;
 
     // ======================= Header =======================
     &-header {
@@ -55,7 +56,6 @@
 
       &-view {
         flex: auto;
-        text-align: center;
         font-weight: 500;
 
         button {
@@ -73,12 +73,10 @@
     }
 
     // ======================== Body ========================
-    &-body {
-      padding: @padding-xs @padding-sm;
-    }
 
     &-content {
       border-collapse: collapse;
+      width: 100%;
 
       th,
       td {
@@ -114,7 +112,7 @@
 
       // Today
       &-today &-inner {
-        border-color: @primary-color;
+        border-color: @primary-5;
       }
 
       // In view
@@ -126,8 +124,38 @@
       &-selected &-inner,
       &-selected:hover &-inner {
         color: @text-color-inverse;
-        background: @primary-color;
+        background: @primary-5;
       }
+    }
+  }
+
+  &-decade-panel,
+  &-year-panel,
+  &-month-panel {
+    &-content {
+      height: 249px;
+    }
+
+    &-cell-inner {
+      padding: 0 @padding-xs;
+    }
+  }
+
+  // ======================== Footer ========================
+  &-footer {
+    border-top: @border-width-base @border-style-base @border-color-split;
+  }
+
+  &-today-btn {
+    line-height: 40px - 2 * @border-width-base;
+    color: @link-color;
+
+    &:hover {
+      color: @link-hover-color;
+    }
+
+    &:active {
+      color: @link-active-color;
     }
   }
 
@@ -135,8 +163,19 @@
   // =                       Special                        =
   // ========================================================
 
+  // ====================== Year Panel ======================
+  &-decade-panel {
+    &-cell-inner {
+      padding: 0 (@padding-xs / 2);
+    }
+  }
+
   // ====================== Date Panel ======================
   &-date-panel {
+    &-body {
+      padding: @padding-xs @padding-sm;
+    }
+
     &-content {
       th {
         width: 33px;
