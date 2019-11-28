@@ -49,6 +49,7 @@ export default class Progress extends React.Component<ProgressProps> {
     type: 'line',
     percent: 0,
     showInfo: true,
+    trailColor: '#f3f3f3',
     size: 'default',
     gapDegree: 0,
     strokeLinecap: 'round',
