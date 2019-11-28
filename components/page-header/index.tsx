@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { ArrowLeft } from '@ant-design/icons';
+import { ArrowLeftOutlined } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Tag from '../tag';
@@ -129,7 +129,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
 );
 
 PageHeader.defaultProps = {
-  backIcon: <ArrowLeft />,
+  backIcon: <ArrowLeftOutlined />,
 };
 
 export default PageHeader;

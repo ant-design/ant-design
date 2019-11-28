@@ -15,7 +15,7 @@ If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not suppor
 
 ```jsx
 import { Upload, Button } from 'antd';
-import { Upload as IconUpload } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons';
 
 const fileList = [
   {
@@ -49,14 +49,14 @@ ReactDOM.render(
   <div>
     <Upload {...props}>
       <Button>
-        <IconUpload /> Upload
+        <UploadOutlined /> Upload
       </Button>
     </Upload>
     <br />
     <br />
     <Upload {...props2}>
       <Button>
-        <IconUpload /> Upload
+        <UploadOutlined /> Upload
       </Button>
     </Upload>
   </div>,

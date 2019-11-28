@@ -26,7 +26,7 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
-import { QuestionCircle } from '@ant-design/icons';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -196,7 +196,7 @@ const RegistrationForm = () => {
           <span>
             Nickname&nbsp;
             <Tooltip title="What do you want others to call you?">
-              <QuestionCircle />
+              <QuestionCircleOutlined />
             </Tooltip>
           </span>
         }

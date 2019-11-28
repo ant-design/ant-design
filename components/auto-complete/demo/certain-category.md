@@ -15,7 +15,7 @@ Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spe
 
 ```tsx
 import { Input, AutoComplete } from 'antd';
-import { Search, User } from '@ant-design/icons';
+import { SearchOutlined, UserOutlined } from '@ant-design/icons';
 
 const { Option, OptGroup } = AutoComplete;
 
@@ -42,7 +42,7 @@ function renderItem(title: string, count: number) {
       <>
         {title}
         <span className="certain-search-item-count">
-          <User /> {count}
+          <UserOutlined /> {count}
         </span>
       </>
     ),
@@ -76,7 +76,7 @@ function Complete() {
       >
         <Input
           size="large"
-          suffix={<Search className="certain-category-icon" />}
+          suffix={<SearchOutlined className="certain-category-icon" />}
           placeholder="input here"
         />
       </AutoComplete>

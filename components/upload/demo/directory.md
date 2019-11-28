@@ -15,12 +15,12 @@ You can select and upload a whole directory.
 
 ```jsx
 import { Upload, Button } from 'antd';
-import { Upload as IconUpload } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <Upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76" directory>
     <Button>
-      <IconUpload /> Upload Directory
+      <UploadOutlined /> Upload Directory
     </Button>
   </Upload>,
   mountNode,

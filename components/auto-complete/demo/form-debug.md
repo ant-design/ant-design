@@ -8,7 +8,7 @@ debug: true
 
 ```jsx
 import { Input, AutoComplete, Form, TreeSelect } from 'antd';
-import { Search } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 
 const formItemLayout = {
   labelCol: {
@@ -37,14 +37,14 @@ ReactDOM.render(
     </Form.Item>
     <Form.Item label="包含 search 图标正常" {...formItemLayout}>
       <AutoComplete>
-        <Input suffix={<Search />} />
+        <Input suffix={<SearchOutlined />} />
       </AutoComplete>
     </Form.Item>
     <Form.Item label="同时有 Input.Group 和图标发生移位" {...formItemLayout}>
       <Input.Group compact>
         <TreeSelect style={{ width: '30%' }} />
         <AutoComplete>
-          <Input suffix={<Search />} />
+          <Input suffix={<SearchOutlined />} />
         </AutoComplete>
       </Input.Group>
     </Form.Item>

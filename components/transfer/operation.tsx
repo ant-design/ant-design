@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Left, Right } from '@ant-design/icons';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import Button from '../button';
 
 export interface TransferOperationProps {
@@ -31,7 +31,7 @@ const Operation = ({
       size="small"
       disabled={disabled || !rightActive}
       onClick={moveToRight}
-      icon={<Right />}
+      icon={<RightOutlined />}
     >
       {rightArrowText}
     </Button>
@@ -40,7 +40,7 @@ const Operation = ({
       size="small"
       disabled={disabled || !leftActive}
       onClick={moveToLeft}
-      icon={<Left />}
+      icon={<LeftOutlined />}
     >
       {leftArrowText}
     </Button>

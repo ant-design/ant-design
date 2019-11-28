@@ -16,10 +16,10 @@ Basic Usage.
 
 ```jsx
 import { Select } from 'antd';
-import { Smile, Meh } from '@ant-design/icons';
+import { SmileOutlined, MehOutlined } from '@ant-design/icons';
 
-const smileIcon = <Smile />;
-const mehIcon = <Meh />;
+const smileIcon = <SmileOutlined />;
+const mehIcon = <MehOutlined />;
 const { Option } = Select;
 
 function handleChange(value) {

@@ -15,7 +15,7 @@ Select different settings to see the result.
 
 ```jsx
 import { Table, Switch, Radio, Form, Divider } from 'antd';
-import { Down } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 
 const columns = [
   {
@@ -44,7 +44,7 @@ const columns = [
         <a>Delete</a>
         <Divider type="vertical" />
         <a className="ant-dropdown-link">
-          More actions <Down />
+          More actions <DownOutlined />
         </a>
       </span>
     ),

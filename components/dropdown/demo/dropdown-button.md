@@ -15,7 +15,7 @@ A button is on the left, and a related functional menu is on the right. You can 
 
 ```jsx
 import { Menu, Dropdown, Button, message } from 'antd';
-import { Down, User } from '@ant-design/icons';
+import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 function handleButtonClick(e) {
   message.info('Click on left button.');
@@ -30,15 +30,15 @@ function handleMenuClick(e) {
 const menu = (
   <Menu onClick={handleMenuClick}>
     <Menu.Item key="1">
-      <User />
+      <UserOutlined />
       1st menu item
     </Menu.Item>
     <Menu.Item key="2">
-      <User />
+      <UserOutlined />
       2nd menu item
     </Menu.Item>
     <Menu.Item key="3">
-      <User />
+      <UserOutlined />
       3rd item
     </Menu.Item>
   </Menu>
@@ -49,7 +49,7 @@ ReactDOM.render(
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button overlay={menu} icon={<User />}>
+    <Dropdown.Button overlay={menu} icon={<UserOutlined />}>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>
@@ -57,7 +57,7 @@ ReactDOM.render(
     </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button>
-        Button <Down />
+        Button <DownOutlined />
       </Button>
     </Dropdown>
   </div>,

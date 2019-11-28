@@ -15,15 +15,15 @@ This will simply display a red badge, without a specific count. If count equals 
 
 ```jsx
 import { Badge } from 'antd';
-import { Notification as IconNotification } from '@ant-design/icons';
+import { NotificationOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
     <Badge dot>
-      <IconNotification />
+      <NotificationOutlined />
     </Badge>
     <Badge count={0} dot>
-      <IconNotification />
+      <NotificationOutlined />
     </Badge>
     <Badge dot>
       <a href="#">Link something</a>

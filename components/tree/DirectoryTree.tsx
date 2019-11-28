@@ -5,7 +5,7 @@ import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 import { polyfill } from 'react-lifecycles-compat';
-import { File, FolderOpen, Folder } from '@ant-design/icons';
+import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 import Tree, {
@@ -31,9 +31,9 @@ export interface DirectoryTreeState {
 function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
   const { isLeaf, expanded } = props;
   if (isLeaf) {
-    return <File />;
+    return <FileOutlined />;
   }
-  return expanded ? <FolderOpen /> : <Folder />;
+  return expanded ? <FolderOpenOutlined /> : <FolderOutlined />;
 }
 
 function getTreeData({ treeData, children }: DirectoryTreeProps) {

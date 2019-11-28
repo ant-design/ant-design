@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Ellipsis } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 
 import Button from '../button';
 import { ButtonHTMLType } from '../button/button';
@@ -52,7 +52,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       placement,
       getPopupContainer,
       href,
-      icon = <Ellipsis />,
+      icon = <EllipsisOutlined />,
       title,
       ...restProps
     } = this.props;

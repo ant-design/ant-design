@@ -15,16 +15,16 @@ You can use your own custom icons by setting the property `icon` for `Steps.Step
 
 ```jsx
 import { Steps } from 'antd';
-import { User, Solution, Loading, Smile } from '@ant-design/icons';
+import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
 
 const { Step } = Steps;
 
 ReactDOM.render(
   <Steps>
-    <Step status="finish" title="Login" icon={<User />} />
-    <Step status="finish" title="Verification" icon={<Solution />} />
-    <Step status="process" title="Pay" icon={<Loading />} />
-    <Step status="wait" title="Done" icon={<Smile />} />
+    <Step status="finish" title="Login" icon={<UserOutlined />} />
+    <Step status="finish" title="Verification" icon={<SolutionOutlined />} />
+    <Step status="process" title="Pay" icon={<LoadingOutlined />} />
+    <Step status="wait" title="Done" icon={<SmileOutlined />} />
   </Steps>,
   mountNode,
 );

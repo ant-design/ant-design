@@ -15,14 +15,14 @@ The icon can be customized to any react node.
 
 ```jsx
 import { Button, notification } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
 const openNotification = () => {
   notification.open({
     message: 'Notification Title',
     description:
       'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-    icon: <Smile style={{ color: '#108ee9' }} />,
+    icon: <SmileOutlined style={{ color: '#108ee9' }} />,
   });
 };
 

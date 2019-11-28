@@ -22,7 +22,13 @@ The level of the aside navigation is scalable. The first, second, and third leve
 
 ```jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { Desktop, PieChart, File, Team, User } from '@ant-design/icons';
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  FileOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -44,18 +50,18 @@ class SiderDemo extends React.Component {
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
-              <PieChart />
+              <PieChartOutlined />
               <span>Option 1</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Desktop />
+              <DesktopOutlined />
               <span>Option 2</span>
             </Menu.Item>
             <SubMenu
               key="sub1"
               title={
                 <span>
-                  <User />
+                  <UserOutlined />
                   <span>User</span>
                 </span>
               }
@@ -68,7 +74,7 @@ class SiderDemo extends React.Component {
               key="sub2"
               title={
                 <span>
-                  <Team />
+                  <TeamOutlined />
                   <span>Team</span>
                 </span>
               }
@@ -77,7 +83,7 @@ class SiderDemo extends React.Component {
               <Menu.Item key="8">Team 2</Menu.Item>
             </SubMenu>
             <Menu.Item key="9">
-              <File />
+              <FileOutlined />
             </Menu.Item>
           </Menu>
         </Sider>

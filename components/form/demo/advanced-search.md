@@ -19,7 +19,7 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 
 ```tsx
 import { Form, Row, Col, Input, Button } from 'antd';
-import { Down, Up } from '@ant-design/icons';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
 const AdvancedSearchForm = () => {
   const [expand, setExpand] = React.useState(false);
@@ -80,7 +80,7 @@ const AdvancedSearchForm = () => {
               setExpand(!expand);
             }}
           >
-            Collapse {expand ? <Up /> : <Down />}
+            Collapse {expand ? <UpOutlined /> : <DownOutlined />}
           </a>
         </Col>
       </Row>

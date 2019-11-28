@@ -35,9 +35,9 @@ ReactDOM.render(<IconDisplay />, mountNode);
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
 ```jsx
-import { Star, StarFilled, StarTwoTone } from '@ant-design/icons';
+import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
 
-<Star />
+<StarOutlined />
 <StarFilled />
 <StarTwoTone twoToneColor="#eb2f96" />
 ```
@@ -65,9 +65,9 @@ import { Star, StarFilled, StarTwoTone } from '@ant-design/icons';
 所有的图标都会以 `<svg>` 标签渲染，可以使用 `style` 和 `className` 设置图标的大小和单色图标的颜色。例如：
 
 ```jsx
-import { Message } from '@ant-design/icons';
+import { MessageOutlined } from '@ant-design/icons';
 
-<Message style={{ fontSize: '16px', color: '#08c' }} />;
+<MessageOutlined style={{ fontSize: '16px', color: '#08c' }} />;
 ```
 
 ### 双色图标主色
@@ -140,10 +140,10 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段      | 说明                    | 类型             | 只读值         | 版本   |
-| --------- | ----------------------- | ---------------- | -------------- | ------ |
-| width     | `svg` 元素宽度          | string \| number | '1em'          |  |
-| height    | `svg` 元素高度          | string \| number | '1em'          |  |
-| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' |  |
-| className | 计算后的 `svg` 类名     | string           | -              |  |
-| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |  |
+| 字段      | 说明                    | 类型             | 只读值         | 版本 |
+| --------- | ----------------------- | ---------------- | -------------- | ---- |
+| width     | `svg` 元素宽度          | string \| number | '1em'          |      |
+| height    | `svg` 元素高度          | string \| number | '1em'          |      |
+| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' |      |
+| className | 计算后的 `svg` 类名     | string           | -              |      |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |

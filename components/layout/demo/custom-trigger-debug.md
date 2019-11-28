@@ -12,7 +12,15 @@ debug: true
 
 ```jsx
 import { Layout, Menu } from 'antd';
-import { Team, User, File, Desktop, PieChart, MenuUnfold, MenuFold } from '@ant-design/icons';
+import {
+  TeamOutlined,
+  UserOutlined,
+  FileOutlined,
+  DesktopOutlined,
+  PieChartOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+} from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -35,18 +43,18 @@ class SiderDemo extends React.Component {
           <div className="logo" />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']} defaultOpenKeys={['sub1']}>
             <Menu.Item key="1">
-              <PieChart />
+              <PieChartOutlined />
               <span>Option 1</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Desktop />
+              <DesktopOutlined />
               <span>Option 2</span>
             </Menu.Item>
             <SubMenu
               key="sub1"
               title={
                 <span>
-                  <User />
+                  <UserOutlined />
                   <span>User</span>
                 </span>
               }
@@ -59,7 +67,7 @@ class SiderDemo extends React.Component {
               key="sub2"
               title={
                 <span>
-                  <Team />
+                  <TeamOutlined />
                   <span>Team</span>
                 </span>
               }
@@ -68,13 +76,13 @@ class SiderDemo extends React.Component {
               <Menu.Item key="8">Team 2</Menu.Item>
             </SubMenu>
             <Menu.Item key="9">
-              <File />
+              <FileOutlined />
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
-            {React.createElement(this.state.collapsed ? MenuUnfold : MenuFold, {
+            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
               onClick: this.toggle,
             })}

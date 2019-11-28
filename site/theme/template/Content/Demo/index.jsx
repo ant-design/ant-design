@@ -6,7 +6,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Tooltip } from 'antd';
-import { Snippets, Check, Thunderbolt } from '@ant-design/icons';
+import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
@@ -301,7 +301,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                   stackblitzSdk.openProject(stackblitzPrefillConfig);
                 }}
               >
-                <Thunderbolt />
+                <ThunderboltOutlined />
               </span>
             </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
@@ -310,9 +310,12 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
-                {React.createElement(copied && copyTooltipVisible ? Check : Snippets, {
-                  className: 'code-box-code-copy',
-                })}
+                {React.createElement(
+                  copied && copyTooltipVisible ? CheckOutlined : SnippetsOutlined,
+                  {
+                    className: 'code-box-code-copy',
+                  },
+                )}
               </Tooltip>
             </CopyToClipboard>
             <Tooltip

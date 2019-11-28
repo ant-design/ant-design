@@ -15,7 +15,7 @@ You can add an icon beside the slider to make it meaningful.
 
 ```jsx
 import { Slider } from 'antd';
-import { Frown, Smile } from '@ant-design/icons';
+import { FrownOutlined, SmileOutlined } from '@ant-design/icons';
 
 class IconSlider extends React.Component {
   state = {
@@ -34,9 +34,9 @@ class IconSlider extends React.Component {
     const nextColor = value >= mid ? 'rgba(0, 0, 0, .45)' : '';
     return (
       <div className="icon-wrapper">
-        <Frown style={{ color: preColor }} />
+        <FrownOutlined style={{ color: preColor }} />
         <Slider {...this.props} onChange={this.handleChange} value={value} />
-        <Smile style={{ color: nextColor }} />
+        <SmileOutlined style={{ color: nextColor }} />
       </div>
     );
   }
