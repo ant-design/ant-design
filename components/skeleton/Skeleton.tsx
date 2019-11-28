@@ -5,10 +5,10 @@ import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SkeletonButton from './Button';
 import Element from './Element';
-import SkeletonAvatar, { SkeletonAvatarProps } from './Avatar';
+import SkeletonAvatar, { AvatarProps } from './Avatar';
 
 /* This only for skeleton internal. */
-interface SkeletonAvatarProps extends Omit<SkeletonAvatarProps, 'active'> {}
+interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
 
 export interface SkeletonProps {
   active?: boolean;

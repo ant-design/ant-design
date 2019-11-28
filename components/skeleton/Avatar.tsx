@@ -4,14 +4,14 @@ import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Element, { SkeletonElementProps } from './Element';
 
-export interface SkeletonAvatarProps extends Omit<SkeletonElementProps, 'shape'> {
+export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   active?: boolean;
   shape?: 'circle' | 'square';
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
-  static defaultProps: Partial<SkeletonAvatarProps> = {
+class SkeletonAvatar extends React.Component<AvatarProps, any> {
+  static defaultProps: Partial<AvatarProps> = {
     size: 'default',
     shape: 'circle',
   };
