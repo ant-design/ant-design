@@ -144,8 +144,9 @@
 @primary-9: @blue-9; // unused
 @primary-10: @blue-10; // unused
 
+@gray-11: #1f1f1f;
 @body-background: @black;
-@component-background: #1f1f1f;
+@component-background: #141414;
 
 @font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica,
   'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;
@@ -190,7 +191,7 @@
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
 
-@btn-default-bg: @component-background;
+@btn-default-bg: transparent;
 
 @btn-danger-bg: @red-7;
 @btn-danger-border: @red-7;
@@ -204,7 +205,9 @@
 // Descriptions
 @descriptions-bg: @component-background;
 
-// Empty
+// Modal
+@modal-header-bg: @gray-11;
+@modal-content-bg: @gray-11;
 
 // Radio
 @radtio-solid-checked-color: @white;
@@ -214,7 +217,7 @@
 @radio-disabled-button-checked-color: @text-color;
 
 // Layout
-@layout-body-background: #141414;
+@layout-body-background: @component-background;
 @layout-header-background: @layout-body-background;
 @layout-footer-background: @layout-body-background;
 @layout-sider-background: @layout-body-background;
@@ -238,17 +241,29 @@
 // dark theme
 @menu-dark-submenu-bg: @black;
 
+// Message
+// ---
+@message-notice-content-bg: @gray-11;
+
+// Notification
+@notification-bg: @gray-11;
+
 // Table
 // --
-@table-bg: #141414;
 @table-header-bg: #1d1d1d;
 
 // TimePicker
 // ---
-@time-picker-selected-bg: @item-active-bg;
+@time-picker-bg: @gray-11;
+
+// Dropdown
+// ---
+@dropdown-menu-bg: @gray-11;
 
 // Calendar
 // ---
+@calendar-bg: @gray-11;
+@calendar-input-bg: @calendar-bg;
 @calendar-border-color: transparent;
 @calendar-item-active-bg: @background-color-base;
 
@@ -256,11 +271,16 @@
 // ---
 @badge-text-color: @white;
 
+// Popover
+@popover-bg: @gray-11;
+
+// Drawer
+@drawer-bg: @gray-11;
+
 // Card
 // ---
-@card-actions-background: #141414;
+@card-actions-background: @component-background;
 @card-skeleton-bg: #f2f2f2;
-@card-background: #141414;
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
   0 5px 12px 4px rgba(0, 0, 0, 0.27);
 
@@ -287,7 +307,8 @@
 
 // Skeleton
 // ---
-@skeleton-color: #262626;
+@skeleton-color: #303030;
+@skeleton-to-color: fade(@white, 16%);
 
 // Alert
 // ---

@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
+@notification-bg: @component-background;
 @notification-width: 384px;
 @notification-padding-vertical: 16px;
 @notification-padding-horizontal: 24px;
@@ -39,7 +40,7 @@
     padding: @notification-padding;
     overflow: hidden;
     line-height: 1.5;
-    background: @component-background;
+    background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
 
