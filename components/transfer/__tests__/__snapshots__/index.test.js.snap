@@ -706,7 +706,7 @@ exports[`Transfer should support render value and label in item 1`] = `
             disabled={true}
             ghost={false}
             htmlType="button"
-            icon={<Right />}
+            icon={<RightOutlined />}
             loading={false}
             onClick={[Function]}
             size="small"
@@ -719,7 +719,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 onClick={[Function]}
                 type="button"
               >
-                <Right>
+                <RightOutlined>
                   <AntdIcon
                     icon={
                       Object {
@@ -791,7 +791,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                       </IconReact>
                     </span>
                   </AntdIcon>
-                </Right>
+                </RightOutlined>
               </button>
             </Wave>
           </Button>
@@ -800,7 +800,7 @@ exports[`Transfer should support render value and label in item 1`] = `
             disabled={true}
             ghost={false}
             htmlType="button"
-            icon={<Left />}
+            icon={<LeftOutlined />}
             loading={false}
             onClick={[Function]}
             size="small"
@@ -813,7 +813,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 onClick={[Function]}
                 type="button"
               >
-                <Left>
+                <LeftOutlined>
                   <AntdIcon
                     icon={
                       Object {
@@ -885,7 +885,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                       </IconReact>
                     </span>
                   </AntdIcon>
-                </Left>
+                </LeftOutlined>
               </button>
             </Wave>
           </Button>
