@@ -1,14 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import SkeletonTitle, { SkeletonTitleProps } from './SkeletonTitle';
-import SkeletonParagraph, { SkeletonParagraphProps } from './SkeletonParagraph';
+import Title, { SkeletonTitleProps } from './Title';
+import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SkeletonButton from './Button';
-import SkeletonElement from './SkeletonElement';
-import SkeletonAvatar, { AvatarProps } from './Avatar';
+import Element from './Element';
+import SkeletonAvatar, { SkeletonAvatarProps } from './Avatar';
 
 /* This only for skeleton internal. */
-interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
+interface SkeletonAvatarProps extends Omit<SkeletonAvatarProps, 'active'> {}
 
 export interface SkeletonProps {
   active?: boolean;
@@ -108,7 +108,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         // We direct use SkeletonElement as avatar in skeleton internal.
         avatarNode = (
           <div className={`${prefixCls}-header`}>
-            <SkeletonElement {...avatarProps} />
+            <Element {...avatarProps} />
           </div>
         );
       }
@@ -124,7 +124,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(title),
           };
 
-          $title = <SkeletonTitle {...titleProps} />;
+          $title = <Title {...titleProps} />;
         }
 
         // Paragraph
@@ -136,7 +136,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
             ...getComponentProps(paragraph),
           };
 
-          paragraphNode = <SkeletonParagraph {...paragraphProps} />;
+          paragraphNode = <Paragraph {...paragraphProps} />;
         }
 
         contentNode = (

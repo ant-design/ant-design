@@ -9,8 +9,8 @@ export interface SkeletonTitleProps {
   width?: number | string;
 }
 
-const SkeletonTitle = ({ prefixCls, className, width, style }: SkeletonTitleProps) => (
+const Title = ({ prefixCls, className, width, style }: SkeletonTitleProps) => (
   <h3 className={classNames(prefixCls, className)} style={{ width, ...style }} />
 );
 
-export default SkeletonTitle;
+export default Title;

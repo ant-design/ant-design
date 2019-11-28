@@ -10,7 +10,7 @@ export interface SkeletonElementProps {
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class SkeletonElement extends React.Component<SkeletonElementProps, any> {
+class Element extends React.Component<SkeletonElementProps, any> {
   render() {
     const { prefixCls, className, style, size, shape } = this.props;
 
@@ -42,4 +42,4 @@ class SkeletonElement extends React.Component<SkeletonElementProps, any> {
   }
 }
 
-export default SkeletonElement;
+export default Element;

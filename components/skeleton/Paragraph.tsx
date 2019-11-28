@@ -11,7 +11,7 @@ export interface SkeletonParagraphProps {
   rows?: number;
 }
 
-class SkeletonParagraph extends React.Component<SkeletonParagraphProps, {}> {
+class Paragraph extends React.Component<SkeletonParagraphProps, {}> {
   getWidth(index: number) {
     const { width, rows = 2 } = this.props;
     if (Array.isArray(width)) {
@@ -38,4 +38,4 @@ class SkeletonParagraph extends React.Component<SkeletonParagraphProps, {}> {
   }
 }
 
-export default SkeletonParagraph;
+export default Paragraph;

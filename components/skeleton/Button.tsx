@@ -1,17 +1,17 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import SkeletonElement, { SkeletonElementProps } from './SkeletonElement';
+import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-interface ButtonProps extends Omit<SkeletonElementProps, 'size'> {
+interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
   active?: boolean;
   size?: 'large' | 'small' | 'default';
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class SkeletonButton extends React.Component<ButtonProps, any> {
-  static defaultProps: Partial<ButtonProps> = {
+class SkeletonButton extends React.Component<SkeletonButtonProps, any> {
+  static defaultProps: Partial<SkeletonButtonProps> = {
     size: 'default',
   };
 
@@ -24,7 +24,7 @@ class SkeletonButton extends React.Component<ButtonProps, any> {
     });
     return (
       <div className={cls}>
-        <SkeletonElement prefixCls={`${prefixCls}-button`} {...otherProps} />
+        <Element prefixCls={`${prefixCls}-button`} {...otherProps} />
       </div>
     );
   };

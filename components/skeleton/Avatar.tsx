@@ -2,16 +2,16 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import SkeletonElement, { SkeletonElementProps } from './SkeletonElement';
+import Element, { SkeletonElementProps } from './Element';
 
-export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
+export interface SkeletonAvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   active?: boolean;
   shape?: 'circle' | 'square';
 }
 
 // eslint-disable-next-line react/prefer-stateless-function
-class SkeletonAvatar extends React.Component<AvatarProps, any> {
-  static defaultProps: Partial<AvatarProps> = {
+class SkeletonAvatar extends React.Component<SkeletonAvatarProps, any> {
+  static defaultProps: Partial<SkeletonAvatarProps> = {
     size: 'default',
     shape: 'circle',
   };
@@ -25,7 +25,7 @@ class SkeletonAvatar extends React.Component<AvatarProps, any> {
     });
     return (
       <div className={cls}>
-        <SkeletonElement prefixCls={`${prefixCls}-avatar`} {...otherProps} />
+        <Element prefixCls={`${prefixCls}-avatar`} {...otherProps} />
       </div>
     );
   };
