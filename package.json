@@ -193,7 +193,7 @@
     "fetch-jsonp": "^1.1.3",
     "full-icu": "^1.3.0",
     "glob": "^7.1.4",
-    "http-server": "^0.11.1",
+    "http-server": "^0.12.0",
     "husky": "^3.0.2",
     "immutability-helper": "^3.0.0",
     "intersection-observer": "^0.7.0",
