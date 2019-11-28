@@ -879,7 +879,7 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
 exports[`Cascader popup correctly with defaultValue RTL 1`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-rtl ant-cascader-menus-placement-bottomLeft "
+    class="ant-cascader-menus ant-cascader-menu-rtl ant-cascader-menus-placement-bottomRight "
   >
     <div>
       <ul
