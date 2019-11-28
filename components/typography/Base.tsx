@@ -39,6 +39,7 @@ interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
   onExpand?: () => void;
+  expandText?: string;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -311,9 +312,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   }
 
   renderExpand(forceRender?: boolean) {
-    const { expandable } = this.getEllipsis();
+    const { expandable, expandText } = this.getEllipsis();
     const { prefixCls } = this.props;
     const { expanded, isEllipsis } = this.state;
+    const text = expandText || this.expandStr;
 
     if (!expandable) return null;
 
@@ -325,9 +327,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
         key="expand"
         className={`${prefixCls}-expand`}
         onClick={this.onExpandClick}
-        aria-label={this.expandStr}
+        aria-label={text}
       >
-        {this.expandStr}
+        {text}
       </a>
     );
   }

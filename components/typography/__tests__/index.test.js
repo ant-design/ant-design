@@ -132,6 +132,25 @@ describe('Typography', () => {
         expect(wrapper.find('p').text()).toEqual(fullStr);
       });
 
+      it('should add expand text', () => {
+        const onExpand = jest.fn();
+        const expandText = 'show more';
+        const wrapper = mount(
+          <Base
+            ellipsis={{ expandable: true, onExpand, expandText }}
+            component="p"
+            copyable
+            editable
+          >
+            {fullStr}
+          </Base>,
+        );
+
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('.ant-typography-expand').text()).toEqual(expandText);
+      });
+
       it('can use css ellipsis', () => {
         const wrapper = mount(<Base ellipsis component="p" />);
         expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
