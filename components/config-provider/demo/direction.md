@@ -34,7 +34,15 @@ import {
   Badge,
 } from 'antd';
 
-import { Search as SearchIcon, Smile, Download, Left, Right, Minus, Plus } from '@ant-design/icons';
+import {
+  SearchOutlined as SearchIcon,
+  SmileOutlined,
+  DownloadOutlined,
+  LeftOutlined,
+  RightOutlined,
+  MinusOutlined,
+  PlusOutlined,
+} from '@ant-design/icons';
 
 const InputGroup = Input.Group;
 const ButtonGroup = Button.Group;
@@ -192,7 +200,7 @@ class Page extends React.Component {
             />
             &nbsp;&nbsp;&nbsp;&nbsp; With search:
             <Cascader
-              suffixIcon={<Smile />}
+              suffixIcon={<SmileOutlined />}
               options={cascaderOptions}
               onChange={this.onCascaderChange}
               placeholder="Select an item"
@@ -230,24 +238,24 @@ class Page extends React.Component {
           <Col span={12}>
             <h3 className="demo-block-title">Button example:</h3>
             <div className="button-demo">
-              <Button type="primary" icon={<Download />} />
-              <Button type="primary" shape="circle" icon={<Download />} />
-              <Button type="primary" shape="round" icon={<Download />} />
-              <Button type="primary" shape="round" icon={<Download />}>
+              <Button type="primary" icon={<DownloadOutlined />} />
+              <Button type="primary" shape="circle" icon={<DownloadOutlined />} />
+              <Button type="primary" shape="round" icon={<DownloadOutlined />} />
+              <Button type="primary" shape="round" icon={<DownloadOutlined />}>
                 Download
               </Button>
-              <Button type="primary" icon={<Download />}>
+              <Button type="primary" icon={<DownloadOutlined />}>
                 Download
               </Button>
               <br />
               <Button.Group>
                 <Button type="primary">
-                  <Left />
+                  <LeftOutlined />
                   Backward
                 </Button>
                 <Button type="primary">
                   Forward
-                  <Right />
+                  <RightOutlined />
                 </Button>
               </Button.Group>
               <Button type="primary" loading>
@@ -440,10 +448,10 @@ class Page extends React.Component {
                     </Badge>
                     <ButtonGroup>
                       <Button onClick={this.declineBadge}>
-                        <Minus />
+                        <MinusOutlined />
                       </Button>
                       <Button onClick={this.increaseBadge}>
-                        <Plus />
+                        <PlusOutlined />
                       </Button>
                     </ButtonGroup>
                   </div>
