@@ -39,7 +39,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false | 3.14.0 |
 | disabled | Disabled content | boolean | false | 3.14.0 |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false | 3.14.0 |
-| ellipsis | Display ellipsis when text overflows. Can configure rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false | 3.14.0 |
+| ellipsis | Display ellipsis when text overflows. Can configure rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function, expandText: string } | false | 3.14.0 |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4` | number: `1`, `2`, `3`, `4` | 1 | 3.14.0 |
 | mark | Marked style | boolean | false | 3.14.0 |
 | underline | Underlined style | boolean | false | 3.14.0 |
@@ -55,7 +55,7 @@ Basic text writing, including headings, body text, lists, and more.
 | delete | Deleted line style | boolean | false | 3.14.0 |
 | disabled | Disabled content | boolean | false | 3.14.0 |
 | editable | Editable. Can control edit state when is object | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false | 3.14.0 |
-| ellipsis | Display ellipsis when text overflows. Can configure rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false | 3.14.0 |
+| ellipsis | Display ellipsis when text overflows. Can configure rows and expandable by using object | boolean \| { rows: number, expandable: boolean, onExpand: Function, expandText: string } | false | 3.14.0 |
 | mark | Marked style | boolean | false | 3.14.0 |
 | underline | Underlined style | boolean | false | 3.14.0 |
 | onChange | Trigger when user edits the content | Function(string) | - | 3.14.0 |
