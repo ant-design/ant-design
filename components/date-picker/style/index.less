@@ -1,0 +1,52 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import '../../input/style/mixin';
+@import './panel';
+
+@picker-prefix-cls: ~'@{ant-prefix}-picker';
+
+.@{picker-prefix-cls} {
+  .reset-component;
+  display: inline;
+
+  // ======================== Input =========================
+  &-input {
+    position: relative;
+    display: inline;
+
+    > input {
+      .input;
+      width: auto;
+    }
+  }
+
+  &-suffix {
+    position: absolute;
+    top: 50%;
+    right: @input-padding-horizontal-base;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: @disabled-color;
+  }
+
+  &-clear {
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+
+    &-btn::after {
+      content: '×';
+    }
+  }
+
+  // ======================= Dropdown =======================
+  &-dropdown {
+    position: absolute;
+    box-shadow: @box-shadow-base;
+
+    &-hidden {
+      display: none;
+    }
+  }
+}

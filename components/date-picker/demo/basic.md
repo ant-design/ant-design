@@ -3,6 +3,7 @@ order: 0
 title:
   zh-CN: 基本
   en-US: Basic
+only: true
 ---
 
 ## zh-CN
@@ -24,13 +25,13 @@ function onChange(date, dateString) {
 
 ReactDOM.render(
   <div>
-    <DatePicker onChange={onChange} />
-    <br />
+    <DatePicker onChange={onChange} open />
+    {/*<br />
     <MonthPicker onChange={onChange} placeholder="Select month" />
     <br />
     <RangePicker onChange={onChange} />
     <br />
-    <WeekPicker onChange={onChange} placeholder="Select week" />
+    <WeekPicker onChange={onChange} placeholder="Select week" />*/}
   </div>,
   mountNode,
 );
