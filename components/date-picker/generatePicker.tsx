@@ -32,34 +32,37 @@ function toArray<T>(list: T | T[]): T[] {
   return Array.isArray(list) ? list : [list];
 }
 
-function getAdditionalProps<DateType>({ format, showTime }: Partial<RCPickerDateProps<DateType>>) {
+function getTimeProps<DateType>(
+  props: { format?: string; picker?: PickerMode } & SharedTimeProps<DateType>,
+) {
+  const { format, picker, showHour, showMinute, showSecond, use12Hours } = props;
+
   const firstFormat = toArray(format)[0];
-  const additionalProps: any = {};
+  const showTimeObj: SharedTimeProps<DateType> = { ...props };
 
-  if (showTime && firstFormat) {
-    const showTimeObj: SharedTimeProps<DateType> = showTime === true ? {} : showTime;
-
-    if (!firstFormat.includes('s') && !('showSecond' in showTimeObj)) {
+  if (firstFormat) {
+    if (!firstFormat.includes('s') && showSecond === undefined) {
       showTimeObj.showSecond = false;
     }
-    if (!firstFormat.includes('m') && !('showMinute' in showTimeObj)) {
+    if (!firstFormat.includes('m') && showMinute === undefined) {
       showTimeObj.showMinute = false;
     }
-    if (!firstFormat.includes('H') && !firstFormat.includes('h') && !('showHour' in showTimeObj)) {
+    if (!firstFormat.includes('H') && !firstFormat.includes('h') && showHour === undefined) {
       showTimeObj.showHour = false;
     }
 
-    if (
-      (firstFormat.includes('a') || firstFormat.includes('A')) &&
-      !('use12Hours' in showTimeObj)
-    ) {
+    if ((firstFormat.includes('a') || firstFormat.includes('A')) && use12Hours === undefined) {
       showTimeObj.use12Hours = true;
     }
-
-    additionalProps.showTime = showTimeObj;
   }
 
-  return additionalProps;
+  if (picker === 'time') {
+    return showTimeObj;
+  }
+
+  return {
+    showTime: showTimeObj,
+  };
 }
 
 type InjectDefaultProps<Props> = Omit<
@@ -122,6 +125,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       render() {
         const { getPrefixCls } = this.context;
         const { prefixCls: customizePrefixCls, className, size, locale, ...restProps } = this.props;
+        const { format, showTime } = this.props as any;
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
         const mergedLocale = locale || defaultLocale;
@@ -134,10 +138,14 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         if (picker) {
           additionalOverrideProps.picker = picker;
         }
+        const mergedPicker = picker || this.props.picker;
 
         additionalOverrideProps = {
           ...additionalOverrideProps,
-          ...getAdditionalProps(this.props),
+          ...(showTime ? getTimeProps({ format, picker: mergedPicker, ...showTime }) : {}),
+          ...(mergedPicker === 'time'
+            ? getTimeProps({ format, ...this.props, picker: mergedPicker })
+            : {}),
         };
 
         return (
@@ -201,9 +209,18 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     render() {
       const { getPrefixCls } = this.context;
       const { prefixCls: customizePrefixCls, locale, className, size, ...restProps } = this.props;
+      const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
       const mergedLocale = locale || defaultLocale;
+
+      let additionalOverrideProps: any = {};
+
+      additionalOverrideProps = {
+        ...additionalOverrideProps,
+        ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
+        ...(picker === 'time' ? getTimeProps({ format, ...this.props, picker }) : {}),
+      };
 
       return (
         <RCRangePicker<DateType>
@@ -219,7 +236,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           className={classNames(className, {
             [`${prefixCls}-${size}`]: size,
           })}
-          {...getAdditionalProps(this.props)}
+          {...additionalOverrideProps}
           prefixCls={prefixCls}
           generateConfig={generateConfig}
           prevIcon={<LeftOutlined />}
