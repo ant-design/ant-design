@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import RCPicker, { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import {
@@ -28,6 +29,7 @@ type InjectDefaultProps<Props> = Omit<
   'locale' | 'generateConfig' | 'prevIcon' | 'nextIcon' | 'superPrevIcon' | 'superNextIcon'
 > & {
   locale?: typeof defaultLocale;
+  size?: 'large' | 'default' | 'small';
 };
 
 // Picker Props
@@ -81,7 +83,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
       render() {
         const { getPrefixCls } = this.context;
-        const { prefixCls: customizePrefixCls, locale, ...restProps } = this.props;
+        const { prefixCls: customizePrefixCls, className, size, locale, ...restProps } = this.props;
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
         const mergedLocale = locale || defaultLocale;
@@ -107,6 +109,9 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
             {...additionalProps}
             {...restProps}
             {...additionalOverrideProps}
+            className={classNames(className, {
+              [`${prefixCls}-${size}`]: size,
+            })}
             prefixCls={prefixCls}
             generateConfig={generateConfig}
             prevIcon={<LeftOutlined />}
@@ -152,7 +157,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     render() {
       const { getPrefixCls } = this.context;
-      const { prefixCls: customizePrefixCls, locale, ...restProps } = this.props;
+      const { prefixCls: customizePrefixCls, locale, className, size, ...restProps } = this.props;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
       const mergedLocale = locale || defaultLocale;
@@ -168,6 +173,9 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           allowClear
           transitionName="slide-up"
           {...restProps}
+          className={classNames(className, {
+            [`${prefixCls}-${size}`]: size,
+          })}
           prefixCls={prefixCls}
           generateConfig={generateConfig}
           prevIcon={<LeftOutlined />}
