@@ -24,7 +24,7 @@ import { Modal, Button } from 'antd';
 const App = () => {
   const[modalSet,setModalSet] = useState({
     loading: false,
-    visible: true
+    visible: false
   });
   
   const showModal = () => {
@@ -46,7 +46,7 @@ const App = () => {
     },3000);
   };
 
-  handleCancel = e => {
+  const handleCancel = e => {
     console.log(e);
     setModalSet({ visible: false });
   }
@@ -57,7 +57,7 @@ const App = () => {
         Open Modal with customized footer
       </Button>
       <Modal
-        visible={visible}
+        visible={modalSet.visible}
         title="Title"
         onOk={handleOk}
         onCancel={handleCancel}
@@ -65,7 +65,7 @@ const App = () => {
           <Button key="back" onClick={handleCancel}>
             Return
           </Button>,
-          <Button key="submit" type="primary" loading={loading} onClick={handleOk}>
+          <Button key="submit" type="primary" loading={modalSet.loading} onClick={handleOk}>
             Submit
           </Button>,
         ]}
