@@ -168,6 +168,10 @@
 @btn-disable-bg: @disabled-bg;
 @btn-disable-border: @border-color-base;
 
+@btn-default-ghost-color: @component-background;
+@btn-default-ghost-bg: transparent;
+@btn-default-ghost-border: @component-background;
+
 @btn-padding-base: 0 @padding-md - 1px;
 @btn-font-size-lg: @font-size-lg;
 @btn-font-size-sm: @font-size-base;
@@ -192,6 +196,7 @@
 @checkbox-size: 16px;
 @checkbox-color: @primary-color;
 @checkbox-check-color: #fff;
+@checkbox-check-bg: @checkbox-check-color;
 @checkbox-border-width: @border-width-base;
 
 // Descriptions
@@ -206,6 +211,8 @@
 // Radio
 @radio-size: 16px;
 @radio-dot-color: @primary-color;
+// solid text-color
+@radtio-solid-checked-color: @component-background;
 
 // Radio buttons
 @radio-button-bg: @btn-default-bg;
@@ -213,6 +220,8 @@
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
+@radio-disabled-button-checked-bg: tint(@black, 90%);
+@radio-disabled-button-checked-color: @text-color-inverse;
 
 // Media queries breakpoints
 // Extra small screen / phone
@@ -293,6 +302,7 @@
 @collapse-panel-border-radius: @border-radius-base;
 
 //Dropdown
+@dropdown-menu-bg: @component-background;
 @dropdown-vertical-padding: 5px;
 @dropdown-font-size: @font-size-base;
 @dropdown-line-height: 22px;
@@ -351,6 +361,7 @@
 
 // Anchor
 // ---
+@anchor-bg: @component-background;
 @anchor-border-color: @border-color-split;
 
 // Tooltip
@@ -390,6 +401,7 @@
 // --
 @modal-body-padding: 24px;
 @modal-header-bg: @component-background;
+@modal-content-bg: @component-background;
 @modal-heading-color: @heading-color;
 @modal-footer-bg: transparent;
 @modal-footer-border-color-split: @border-color-split;
@@ -439,6 +451,7 @@
 
 // Table
 // --
+@table-bg: @component-background;
 @table-header-bg: @background-color-light;
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
@@ -463,9 +476,17 @@
 
 // TimePicker
 // ---
+@time-picker-bg: @component-background;
 @time-picker-panel-column-width: 56px;
 @time-picker-panel-width: @time-picker-panel-column-width * 3;
 @time-picker-selected-bg: @item-active-bg;
+
+// Calendar
+// ---
+@calendar-bg: @component-background;
+@calendar-input-bg: @input-bg;
+@calendar-border-color: @border-color-inverse;
+@calendar-item-active-bg: @item-active-bg;
 
 // Carousel
 // ---
@@ -503,6 +524,7 @@
 
 // Comment
 // ---
+@comment-bg: inherit;
 @comment-padding-base: 16px 0;
 @comment-nest-indent: 44px;
 @comment-font-size-base: @font-size-base;
@@ -560,10 +582,12 @@
 @switch-sm-checked-margin-left: -(@switch-sm-height - 3px);
 @switch-disabled-opacity: 0.4;
 @switch-color: @primary-color;
+@switch-bg: @component-background;
 @switch-shadow-color: fade(#00230b, 20%);
 
 // Pagination
 // ---
+@pagination-item-bg: @component-background;
 @pagination-item-size: 32px;
 @pagination-item-size-sm: 24px;
 @pagination-font-family: Arial;
@@ -638,7 +662,7 @@
 // Message
 // ---
 @message-notice-content-padding: 10px 16px;
-
+@message-notice-content-bg: @component-background;
 // Motion
 // ---
 @wave-animation-width: 6px;
@@ -679,6 +703,7 @@
 // ---
 @drawer-header-padding: 16px 24px;
 @drawer-body-padding: 24px;
+@drawer-bg: @component-background;
 
 // Timeline
 // ---
@@ -693,3 +718,7 @@
 @typography-title-font-weight: 600;
 @typography-title-margin-top: 1.2em;
 @typography-title-margin-bottom: 0.5em;
+
+// Upload
+// ---
+@upload-actions-color: @text-color-secondary;

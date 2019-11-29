@@ -100,6 +100,51 @@ module.exports = {
 
 注意，这种方式已经载入了所有组件的样式，不需要也无法和按需加载插件 `babel-plugin-import` 的 `style` 属性一起使用。
 
+### 使用暗色主题
+
+![](https://gw.alipayobjects.com/zos/antfincdn/wp6GpGo%26ID/f31e18a4-2018-4e12-95c6-998e7ac5b2fa.png)
+
+一种方式是在样式文件全量引入 `antd/dist/antd-dark.less`：
+
+```less
+@import '~antd/dist/antd-dark.less'; // 引入官方提供的暗色 less 样式入口文件
+```
+
+另一种是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
+
+```js
+const lessToJs = require('less-vars-to-js');
+const fs = require('fs');
+
+const colorLess = fs.readFileSync(require.resolve('antd/lib/style/color/colors.less'), 'utf8');
+const defaultLess = fs.readFileSync(require.resolve('antd/lib/style/themes/default.less'), 'utf8');
+const darkLess = fs.readFileSync(require.resolve('antd/lib/style/themes/dark.less'), 'utf8');
+
+const darkThemeVars = lessToJs(`${colorLess}${defaultLess}${darkLess}`, {
+  resolveVariables: false,
+  stripPrefix: false,
+})
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: darkThemeVars,
++       javascriptEnabled: true,
++     },
+    }],
+    // ...other rules
+  }],
+  // ...other config
+```
+
 ## 没有生效？
 
 注意样式必须加载 less 格式，一个常见的问题就是引入了多份样式，less 的样式被 css 的样式覆盖了。
@@ -111,7 +156,6 @@ module.exports = {
 
 我们提供了一些官方主题，欢迎在项目中试用，并且给我们提供反馈。
 
-- [黑色主题（Beta）](https://github.com/ant-design/ant-design-dark-theme)
 - [阿里云控制台主题（Beta）](https://github.com/ant-design/ant-design-aliyun-theme)
 
 ## 社区教程
