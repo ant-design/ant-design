@@ -103,6 +103,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
             suffixIcon={<CalendarOutlined />}
             clearIcon={<CloseCircleFilled />}
             allowClear
+            transitionName="slide-up"
             {...additionalProps}
             {...restProps}
             {...additionalOverrideProps}
@@ -165,6 +166,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           suffixIcon={<CalendarOutlined />}
           clearIcon={<CloseCircleFilled />}
           allowClear
+          transitionName="slide-up"
           {...restProps}
           prefixCls={prefixCls}
           generateConfig={generateConfig}
