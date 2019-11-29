@@ -1,12 +1,13 @@
 @import './index';
 
 .@{picker-prefix-cls} {
-  @picker-cell-hover-color: fade(@primary-5, 10%);
+  @picker-basic-cell-hover-color: fade(@primary-5, 10%);
+  @picker-border: @border-width-base @border-style-base @border-color-split;
 
   &-panel {
     background: @component-background;
     border-radius: @border-radius-base;
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @picker-border;
     display: inline-block;
     text-align: center;
 
@@ -31,7 +32,7 @@
     // ======================= Header =======================
     &-header {
       display: flex;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
+      border-bottom: @picker-border;
       padding: 0 @padding-xs;
 
       > * {
@@ -113,7 +114,7 @@
       }
 
       &:hover &-inner {
-        background: @picker-cell-hover-color;
+        background: @picker-basic-cell-hover-color;
       }
 
       // Today
@@ -129,7 +130,7 @@
       // In range
       &-in-range &-inner {
         display: block;
-        background: @picker-cell-hover-color;
+        background: @picker-basic-cell-hover-color;
       }
 
       // Selected
@@ -171,7 +172,7 @@
 
   // ======================== Footer ========================
   &-footer {
-    border-top: @border-width-base @border-style-base @border-color-split;
+    border-top: @picker-border;
   }
 
   &-today-btn {
@@ -220,7 +221,7 @@
       }
 
       &:hover td {
-        background: @picker-cell-hover-color;
+        background: @picker-basic-cell-hover-color;
       }
 
       &-selected td,
@@ -251,6 +252,102 @@
     &-content {
       th {
         width: 33px;
+      }
+    }
+  }
+
+  // ==================== Datetime Panel ====================
+  &-datetime-panel {
+    display: flex;
+
+    .@{picker-prefix-cls}-time-panel {
+      border-left: @picker-border;
+    }
+
+    .@{picker-prefix-cls}-date-panel,
+    .@{picker-prefix-cls}-time-panel {
+      transition: opacity 0.3s;
+    }
+
+    // Keyboard
+    &-active {
+      .@{picker-prefix-cls}-date-panel,
+      .@{picker-prefix-cls}-time-panel {
+        opacity: 0.3;
+
+        &-active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  // ====================== Time Panel ======================
+  &-time-panel {
+    min-width: auto;
+
+    &-content {
+      flex: auto;
+      display: flex;
+      height: 224px;
+    }
+
+    &-column {
+      flex: none;
+      text-align: left;
+      list-style: none;
+      margin: 0;
+      padding: 0 0 180px 0;
+      overflow-y: hidden;
+      width: 56px;
+      transition: background 0.3s;
+
+      &:not(:first-child) {
+        border-left: @picker-border;
+      }
+
+      &-active {
+        background: rgba(0, 0, 255, 0.1);
+      }
+
+      &:hover {
+        overflow-y: auto;
+      }
+
+      > li {
+        padding: 0;
+        margin: 0;
+
+        &.@{picker-prefix-cls}-time-panel-cell {
+          .@{picker-prefix-cls}-time-panel-cell-inner {
+            color: @text-color;
+            padding: 0;
+            margin: 0;
+            height: 32px;
+            line-height: 32px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            border-radius: 0;
+
+            &:hover {
+              background: @item-hover-bg;
+            }
+          }
+
+          &-selected {
+            .@{picker-prefix-cls}-time-panel-cell-inner {
+              background: @item-active-bg;
+            }
+          }
+
+          &-disabled {
+            .@{picker-prefix-cls}-time-panel-cell-inner {
+              color: @disabled-color;
+              background: transparent;
+            }
+          }
+        }
       }
     }
   }

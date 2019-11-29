@@ -7,16 +7,17 @@
 
 .@{picker-prefix-cls} {
   .reset-component;
-  display: inline;
+  display: inline-flex;
 
   // ======================== Input =========================
   &-input {
     position: relative;
-    display: inline-block;
+    display: inline-flex;
+    width: 100%;
 
     > input {
       .input;
-      width: auto;
+      padding-right: @font-size-base + @input-padding-horizontal-base;
     }
 
     &:hover {
@@ -28,10 +29,12 @@
 
   &-large &-input > input {
     .input-lg;
+    padding-right: @font-size-lg + @input-padding-horizontal-lg;
   }
 
   &-small &-input > input {
     .input-sm;
+    padding-right: @font-size-sm + @input-padding-horizontal-sm;
   }
 
   &-suffix,
@@ -60,6 +63,11 @@
     text-align: center;
     width: ceil(@font-size-base * 2.57);
     color: @disabled-color;
+  }
+
+  // ======================== Range =========================
+  &-range {
+    display: inline-flex;
   }
 
   // ======================= Dropdown =======================
