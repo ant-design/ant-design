@@ -7,6 +7,7 @@ import {
   PickerDateProps as RCPickerDateProps,
   PickerTimeProps as RCPickerTimeProps,
 } from 'rc-picker/lib/Picker';
+import { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
 import {
   RangePickerBaseProps as RCRangePickerBaseProps,
   RangePickerDateProps as RCRangePickerDateProps,
@@ -23,6 +24,43 @@ import {
 } from '@ant-design/icons';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
+
+function toArray<T>(list: T | T[]): T[] {
+  if (!list) {
+    return [];
+  }
+  return Array.isArray(list) ? list : [list];
+}
+
+function getAdditionalProps<DateType>({ format, showTime }: Partial<RCPickerDateProps<DateType>>) {
+  const firstFormat = toArray(format)[0];
+  const additionalProps: any = {};
+
+  if (showTime && firstFormat) {
+    const showTimeObj: SharedTimeProps<DateType> = showTime === true ? {} : showTime;
+
+    if (!firstFormat.includes('s') && !('showSecond' in showTimeObj)) {
+      showTimeObj.showSecond = false;
+    }
+    if (!firstFormat.includes('m') && !('showMinute' in showTimeObj)) {
+      showTimeObj.showMinute = false;
+    }
+    if (!firstFormat.includes('H') && !firstFormat.includes('h') && !('showHour' in showTimeObj)) {
+      showTimeObj.showHour = false;
+    }
+
+    if (
+      (firstFormat.includes('a') || firstFormat.includes('A')) &&
+      !('use12Hours' in showTimeObj)
+    ) {
+      showTimeObj.use12Hours = true;
+    }
+
+    additionalProps.showTime = showTimeObj;
+  }
+
+  return additionalProps;
+}
 
 type InjectDefaultProps<Props> = Omit<
   Props,
@@ -92,10 +130,15 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           showToday: true,
         };
 
-        const additionalOverrideProps: any = {};
+        let additionalOverrideProps: any = {};
         if (picker) {
           additionalOverrideProps.picker = picker;
         }
+
+        additionalOverrideProps = {
+          ...additionalOverrideProps,
+          ...getAdditionalProps(this.props),
+        };
 
         return (
           <RCPicker<DateType>
@@ -176,6 +219,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           className={classNames(className, {
             [`${prefixCls}-${size}`]: size,
           })}
+          {...getAdditionalProps(this.props)}
           prefixCls={prefixCls}
           generateConfig={generateConfig}
           prevIcon={<LeftOutlined />}

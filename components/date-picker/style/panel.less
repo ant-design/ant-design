@@ -34,6 +34,7 @@
       display: flex;
       border-bottom: @picker-border;
       padding: 0 @padding-xs;
+      color: @heading-color;
 
       > * {
         flex: none;
@@ -64,7 +65,8 @@
         line-height: 40px;
 
         button {
-          color: @heading-color;
+          color: inherit;
+          font-weight: inherit;
 
           &:not(:first-child) {
             margin-left: @padding-xs;
