@@ -18,6 +18,7 @@ export interface TextAreaProps extends HTMLTextareaProps {
 
 export interface TextAreaState {
   value: any;
+  hasVerticalScrollBar: boolean;
 }
 
 class TextArea extends React.Component<TextAreaProps, TextAreaState> {
@@ -30,6 +31,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
     this.state = {
       value,
+      hasVerticalScrollBar: false,
     };
   }
 
@@ -65,6 +67,10 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { textArea } = this.resizableTextArea;
+    if (textArea.scrollWidth > textArea.clientWidth) {
+      this.setState({ hasVerticalScrollBar: true });
+    }
     this.setValue(e.target.value, () => {
       this.resizableTextArea.resizeTextarea();
     });
@@ -102,7 +108,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { value } = this.state;
+    const { value, hasVerticalScrollBar } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     return (
@@ -110,6 +116,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
         {...this.props}
         prefixCls={prefixCls}
         inputType="text"
+        hasVerticalScrollBar={hasVerticalScrollBar}
         value={fixControlledValue(value)}
         element={this.renderTextArea(prefixCls)}
         handleReset={this.handleReset}
