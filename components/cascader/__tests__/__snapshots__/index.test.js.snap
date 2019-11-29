@@ -821,7 +821,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                       "width": 0,
                     }
                   }
-                  expandIcon={<Right />}
+                  expandIcon={<RightOutlined />}
                   expandTrigger="click"
                   fieldNames={
                     Object {
@@ -834,7 +834,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                     <span
                       className="ant-cascader-menu-item-loading-icon"
                     >
-                      <Redo
+                      <RedoOutlined
                         spin={true}
                       />
                     </span>
@@ -1220,7 +1220,7 @@ exports[`Cascader should render not found content 1`] = `
                       "width": 0,
                     }
                   }
-                  expandIcon={<Right />}
+                  expandIcon={<RightOutlined />}
                   expandTrigger="click"
                   fieldNames={
                     Object {
@@ -1233,7 +1233,7 @@ exports[`Cascader should render not found content 1`] = `
                     <span
                       className="ant-cascader-menu-item-loading-icon"
                     >
-                      <Redo
+                      <RedoOutlined
                         spin={true}
                       />
                     </span>
@@ -1542,7 +1542,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                       "width": 0,
                     }
                   }
-                  expandIcon={<Right />}
+                  expandIcon={<RightOutlined />}
                   expandTrigger="click"
                   fieldNames={
                     Object {
@@ -1555,7 +1555,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                     <span
                       className="ant-cascader-menu-item-loading-icon"
                     >
-                      <Redo
+                      <RedoOutlined
                         spin={true}
                       />
                     </span>

@@ -15,7 +15,7 @@ Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/s
 
 ```jsx
 import { Button, Input, AutoComplete } from 'antd';
-import { Search } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 
 function onSelect(value) {
   console.log('onSelect', value);
@@ -82,7 +82,7 @@ class Complete extends React.Component {
                 size="large"
                 type="primary"
               >
-                <Search />
+                <SearchOutlined />
               </Button>
             }
             size="large"

@@ -5,7 +5,7 @@ import MonthCalendar from 'rc-calendar/lib/MonthCalendar';
 import RcDatePicker from 'rc-calendar/lib/Picker';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { CloseCircleFilled, Calendar } from '@ant-design/icons';
+import { CloseCircleFilled, CalendarOutlined } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
@@ -218,7 +218,7 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           })
         ) : (
           <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-        ))) || <Calendar className={`${prefixCls}-picker-icon`} />;
+        ))) || <CalendarOutlined className={`${prefixCls}-picker-icon`} />;
 
       const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (

@@ -15,7 +15,7 @@ The default trigger mode is `hover`, you can change it to `click`.
 
 ```jsx
 import { Menu, Dropdown } from 'antd';
-import { Down } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 
 const menu = (
   <Menu>
@@ -33,7 +33,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu} trigger={['click']}>
     <a className="ant-dropdown-link" href="#">
-      Click me <Down />
+      Click me <DownOutlined />
     </a>
   </Dropdown>,
   mountNode,

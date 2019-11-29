@@ -15,7 +15,7 @@ customize collapse/expand icon of tree node
 
 ```jsx
 import { Tree } from 'antd';
-import { Down } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 
 const { TreeNode } = Tree;
 
@@ -28,7 +28,7 @@ class Demo extends React.Component {
     return (
       <Tree
         showLine
-        switcherIcon={<Down />}
+        switcherIcon={<DownOutlined />}
         defaultExpandedKeys={['0-0-0']}
         onSelect={this.onSelect}
       >

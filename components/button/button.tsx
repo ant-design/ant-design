@@ -2,7 +2,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { Loading } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 import { polyfill } from 'react-lifecycles-compat';
 import omit from 'omit.js';
 
@@ -262,7 +262,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-dangerous`]: !!danger,
     });
 
-    const iconNode = loading ? <Loading /> : icon || null;
+    const iconNode = loading ? <LoadingOutlined /> : icon || null;
     const kids =
       children || children === 0
         ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)

@@ -458,7 +458,7 @@ exports[`Input.Search should support suffix 1`] = `
     suffix={
       Array [
         null,
-        <Search
+        <SearchOutlined
           className="ant-input-search-icon"
           onClick={[Function]}
         />,
@@ -484,7 +484,7 @@ exports[`Input.Search should support suffix 1`] = `
       suffix={
         Array [
           null,
-          <Search
+          <SearchOutlined
             className="ant-input-search-icon"
             onClick={[Function]}
           />,
@@ -507,7 +507,7 @@ exports[`Input.Search should support suffix 1`] = `
         <span
           className="ant-input-suffix"
         >
-          <Search
+          <SearchOutlined
             className="ant-input-search-icon"
             key="searchIcon"
             onClick={[Function]}
@@ -587,7 +587,7 @@ exports[`Input.Search should support suffix 1`] = `
                 </IconReact>
               </span>
             </AntdIcon>
-          </Search>
+          </SearchOutlined>
         </span>
       </span>
     </ClearableLabeledInput>

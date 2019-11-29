@@ -7758,180 +7758,6 @@ exports[`ConfigProvider components List prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider components Mention configProvider 1`] = `
-<div
-  class="config-mention-wrapper"
->
-  <div
-    class="config-mention-editor oneline"
-  >
-    <div
-      class="config-mention-toolbar"
-    />
-    <div
-      class="config-mention-editor-wrapper"
-    >
-      <div
-        class="DraftEditor-root"
-      >
-        <div
-          class="DraftEditor-editorContainer"
-        >
-          <div
-            aria-describedby="placeholder-123"
-            class="notranslate public-DraftEditor-content"
-            contenteditable="true"
-            role="textbox"
-            spellcheck="false"
-            style="outline:none;user-select:text;-webkit-user-select:text;white-space:pre-wrap;word-wrap:break-word"
-          >
-            <div
-              data-contents="true"
-            >
-              <div
-                class=""
-                data-block="true"
-                data-editor="123"
-                data-offset-key="123-0-0"
-              >
-                <div
-                  class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="123-0-0"
-                >
-                  <span
-                    data-offset-key="123-0-0"
-                  >
-                    <br
-                      data-text="true"
-                    />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Mention normal 1`] = `
-<div
-  class="ant-mention-wrapper"
->
-  <div
-    class="ant-mention-editor oneline"
-  >
-    <div
-      class="ant-mention-toolbar"
-    />
-    <div
-      class="ant-mention-editor-wrapper"
-    >
-      <div
-        class="DraftEditor-root"
-      >
-        <div
-          class="DraftEditor-editorContainer"
-        >
-          <div
-            aria-describedby="placeholder-123"
-            class="notranslate public-DraftEditor-content"
-            contenteditable="true"
-            role="textbox"
-            spellcheck="false"
-            style="outline:none;user-select:text;-webkit-user-select:text;white-space:pre-wrap;word-wrap:break-word"
-          >
-            <div
-              data-contents="true"
-            >
-              <div
-                class=""
-                data-block="true"
-                data-editor="123"
-                data-offset-key="123-0-0"
-              >
-                <div
-                  class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="123-0-0"
-                >
-                  <span
-                    data-offset-key="123-0-0"
-                  >
-                    <br
-                      data-text="true"
-                    />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Mention prefixCls 1`] = `
-<div
-  class="prefix-Mention-wrapper"
->
-  <div
-    class="prefix-Mention-editor oneline"
-  >
-    <div
-      class="prefix-Mention-toolbar"
-    />
-    <div
-      class="prefix-Mention-editor-wrapper"
-    >
-      <div
-        class="DraftEditor-root"
-      >
-        <div
-          class="DraftEditor-editorContainer"
-        >
-          <div
-            aria-describedby="placeholder-123"
-            class="notranslate public-DraftEditor-content"
-            contenteditable="true"
-            role="textbox"
-            spellcheck="false"
-            style="outline:none;user-select:text;-webkit-user-select:text;white-space:pre-wrap;word-wrap:break-word"
-          >
-            <div
-              data-contents="true"
-            >
-              <div
-                class=""
-                data-block="true"
-                data-editor="123"
-                data-offset-key="123-0-0"
-              >
-                <div
-                  class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
-                  data-offset-key="123-0-0"
-                >
-                  <span
-                    data-offset-key="123-0-0"
-                  >
-                    <br
-                      data-text="true"
-                    />
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ConfigProvider components Menu configProvider 1`] = `
 <ul
   class="config-menu config-menu-light config-menu-root config-menu-inline"
@@ -17923,7 +17749,9 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
   <div
     class="config-upload-list config-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
@@ -18035,7 +17863,9 @@ exports[`ConfigProvider components Upload normal 1`] = `
   <div
     class="ant-upload-list ant-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
@@ -18147,7 +17977,9 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
   <div
     class="ant-upload-list ant-upload-list-text"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"

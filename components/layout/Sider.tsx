@@ -4,7 +4,7 @@ import * as React from 'react';
 import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { Bars, Right, Left } from '@ant-design/icons';
+import { BarsOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
 
 import { LayoutContext, LayoutContextProps } from './layout';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -214,12 +214,12 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
           }`}
           style={zeroWidthTriggerStyle}
         >
-          <Bars />
+          <BarsOutlined />
         </span>
       ) : null;
     const iconObj = {
-      expanded: reverseArrow ? <Right /> : <Left />,
-      collapsed: reverseArrow ? <Left /> : <Right />,
+      expanded: reverseArrow ? <RightOutlined /> : <LeftOutlined />,
+      collapsed: reverseArrow ? <LeftOutlined /> : <RightOutlined />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];

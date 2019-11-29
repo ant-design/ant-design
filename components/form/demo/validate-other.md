@@ -28,7 +28,7 @@ import {
   Row,
   Col,
 } from 'antd';
-import { Upload as IconUpload, Inbox } from '@ant-design/icons';
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -165,7 +165,7 @@ const Demo = () => {
       >
         <Upload name="logo" action="/upload.do" listType="picture">
           <Button>
-            <IconUpload /> Click to upload
+            <UploadOutlined /> Click to upload
           </Button>
         </Upload>
       </Form.Item>
@@ -174,7 +174,7 @@ const Demo = () => {
         <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
           <Upload.Dragger name="files" action="/upload.do">
             <p className="ant-upload-drag-icon">
-              <Inbox />
+              <InboxOutlined />
             </p>
             <p className="ant-upload-text">Click or drag file to this area to upload</p>
             <p className="ant-upload-hint">Support for a single or bulk upload.</p>

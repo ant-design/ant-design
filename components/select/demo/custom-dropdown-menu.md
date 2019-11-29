@@ -15,7 +15,7 @@ Customize the dropdown menu via `dropdownRender`.
 
 ```jsx
 import { Select, Divider, Input } from 'antd';
-import { Plus } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -58,7 +58,7 @@ class App extends React.Component {
                 style={{ flex: 'none', padding: '8px', display: 'block', cursor: 'pointer' }}
                 onClick={this.addItem}
               >
-                <Plus /> Add item
+                <PlusOutlined /> Add item
               </a>
             </div>
           </div>

@@ -15,7 +15,7 @@ Horizontal top navigation menu.
 
 ```jsx
 import { Menu } from 'antd';
-import { Mail, Appstore, Setting } from '@ant-design/icons';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
@@ -35,17 +35,17 @@ class App extends React.Component {
     return (
       <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal">
         <Menu.Item key="mail">
-          <Mail />
+          <MailOutlined />
           Navigation One
         </Menu.Item>
         <Menu.Item key="app" disabled>
-          <Appstore />
+          <AppstoreOutlined />
           Navigation Two
         </Menu.Item>
         <SubMenu
           title={
             <span className="submenu-title-wrapper">
-              <Setting />
+              <SettingOutlined />
               Navigation Three - Submenu
             </span>
           }

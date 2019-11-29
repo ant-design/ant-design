@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { Row, Col, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
-import { AppstoreFilled, Appstore } from '@ant-design/icons';
+import { AppstoreFilled, AppstoreOutlined } from '@ant-design/icons';
 import Demo from './Demo';
 import EditButton from './EditButton';
 import { ping, getMetaDescription } from '../utils';
@@ -144,7 +144,7 @@ class ComponentDoc extends React.Component {
               }
             >
               <span className={expandTriggerClass} onClick={this.handleExpandToggle}>
-                {expandAll ? <AppstoreFilled /> : <Appstore />}
+                {expandAll ? <AppstoreFilled /> : <AppstoreOutlined />}
               </span>
             </Tooltip>
           </h2>

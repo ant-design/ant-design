@@ -6,8 +6,8 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Tooltip } from 'antd';
-import { Snippets, Check } from '@ant-design/icons';
-
+import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
 import ErrorBoundary from '../ErrorBoundary';
@@ -194,28 +194,32 @@ class Demo extends React.Component {
       },
       { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
     );
-    const codesanboxPrefillConfig = {
-      files: {
-        'package.json': {
-          content: {
-            dependencies,
-          },
-        },
-        'index.css': {
-          content: (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), ''),
-        },
-        'index.js': {
-          content: `
+    const indexJsContent = `
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 ${sourceCode.replace('mountNode', "document.getElementById('container')")}
-          `,
-        },
+          `;
+    const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const codesanboxPrefillConfig = {
+      files: {
+        'package.json': { content: { dependencies } },
+        'index.css': { content: indexCssContent },
+        'index.js': { content: indexJsContent },
         'index.html': {
           content: html,
         },
+      },
+    };
+    const stackblitzPrefillConfig = {
+      title: `${localizedTitle} - Ant Design Demo`,
+      template: 'create-react-app',
+      dependencies,
+      files: {
+        'index.css': indexCssContent,
+        'index.js': indexJsContent,
+        'index.html': html,
       },
     };
     return (
@@ -289,15 +293,29 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  this.track({ type: 'stackblitz', demo: meta.id });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig);
+                }}
+              >
+                <ThunderboltOutlined />
+              </span>
+            </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 visible={copyTooltipVisible}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
-                {React.createElement(copied && copyTooltipVisible ? Check : Snippets, {
-                  className: 'code-box-code-copy',
-                })}
+                {React.createElement(
+                  copied && copyTooltipVisible ? CheckOutlined : SnippetsOutlined,
+                  {
+                    className: 'code-box-code-copy',
+                  },
+                )}
               </Tooltip>
             </CopyToClipboard>
             <Tooltip

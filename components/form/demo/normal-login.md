@@ -15,7 +15,7 @@ Normal login form which can contain more elements.
 
 ```tsx
 import { Form, Input, Button, Checkbox } from 'antd';
-import { User, Lock } from '@ant-design/icons';
+import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
 const NormalLoginForm = () => {
   const onFinish = values => {
@@ -33,14 +33,17 @@ const NormalLoginForm = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your Username!' }]}
       >
-        <Input prefix={<User style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+        <Input
+          prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+          placeholder="Username"
+        />
       </Form.Item>
       <Form.Item
         name="password"
         rules={[{ required: true, message: 'Please input your Password!' }]}
       >
         <Input
-          prefix={<Lock style={{ color: 'rgba(0,0,0,.25)' }} />}
+          prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
           type="password"
           placeholder="Password"
         />

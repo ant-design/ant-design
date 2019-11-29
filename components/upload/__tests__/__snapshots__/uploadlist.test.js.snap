@@ -410,7 +410,9 @@ exports[`Upload List should non-image format file preview 1`] = `
   <div
     class="ant-upload-list ant-upload-list-picture"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -523,7 +525,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -616,7 +620,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -729,7 +735,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -842,7 +850,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -935,7 +945,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -1028,7 +1040,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -1121,7 +1135,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -1214,7 +1230,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -1307,7 +1325,9 @@ exports[`Upload List should non-image format file preview 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
@@ -1431,7 +1451,9 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
   <div
     class="ant-upload-list ant-upload-list-picture"
   >
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
@@ -1474,7 +1496,9 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
         </div>
       </span>
     </div>
-    <div>
+    <div
+      class=""
+    >
       <span>
         <div
           class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"

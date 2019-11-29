@@ -304,4 +304,15 @@ describe('Table.pagination', () => {
     const wrapper = mount(createTable({ pagination: { defaultPageSize: 1 } }));
     expect(wrapper.find('.ant-pagination-item')).toHaveLength(4);
   });
+
+  // https://github.com/ant-design/ant-design/issues/19957
+  it('ajax should work with pagination', () => {
+    const wrapper = mount(createTable({ pagination: { total: 100 } }));
+    wrapper.find('.ant-pagination-item-2').simulate('click');
+    wrapper.setProps({ pagination: { current: 2, total: 100 } });
+
+    expect(
+      wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active'),
+    ).toBeTruthy();
+  });
 });

@@ -1,8 +1,11 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
 import {
-  Close, CheckCircle, CloseCircle,
-  ExclamationCircle, InfoCircle,
+  CloseOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
 } from '@ant-design/icons';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
@@ -111,7 +114,7 @@ function getNotificationInstance(
       className: `${prefixCls}-${placement}`,
       style: getPlacementStyle(placement, top, bottom),
       getContainer,
-      closeIcon: <Close className={`${prefixCls}-close-icon`} />,
+      closeIcon: <CloseOutlined className={`${prefixCls}-close-icon`} />,
     },
     (notification: any) => {
       notificationInstance[cacheKey] = notification;
@@ -121,10 +124,10 @@ function getNotificationInstance(
 }
 
 const typeToIcon = {
-  success: CheckCircle,
-  info: InfoCircle,
-  error: CloseCircle,
-  warning: ExclamationCircle,
+  success: CheckCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+  warning: ExclamationCircleOutlined,
 };
 
 export interface ArgsProps {

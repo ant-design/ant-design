@@ -3,7 +3,7 @@ import Dialog from 'rc-dialog';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import { Close } from '@ant-design/icons';
+import { CloseOutlined } from '@ant-design/icons';
 
 import { getConfirmLocale } from './locale';
 import Button from '../button';
@@ -224,7 +224,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIconToRender = (
       <span className={`${prefixCls}-close-x`}>
-        {closeIcon || <Close className={`${prefixCls}-close-icon`} />}
+        {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
       </span>
     );
 

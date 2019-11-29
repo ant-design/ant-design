@@ -25,11 +25,11 @@ import {
   Table,
   List,
 } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>
-    <Smile style={{ fontSize: 20 }} />
+    <SmileOutlined style={{ fontSize: 20 }} />
     <p>Data Not Found</p>
   </div>
 );

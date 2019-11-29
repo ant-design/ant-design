@@ -9,6 +9,7 @@ import Dropdown from '../../../dropdown';
 import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import { FilterState } from '.';
+import useSyncState from '../useSyncState';
 
 const { SubMenu, Item: MenuItem } = Menu;
 
@@ -91,20 +92,20 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const [propFilteredKeys, setPropFilteredKeys] = React.useState(
     filterState && filterState.filteredKeys,
   );
-  const [filteredKeys, setFilteredKeys] = React.useState(propFilteredKeys || []);
+  const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
+
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
+    setFilteredKeysSync(selectedKeys);
+  };
 
   React.useEffect(() => {
     // Sync internal filtered keys when props key changed
     const newFilteredKeys = filterState && filterState.filteredKeys;
     if (!shallowEqual(propFilteredKeys, newFilteredKeys)) {
       setPropFilteredKeys(newFilteredKeys);
-      setFilteredKeys(newFilteredKeys || []);
+      onSelectKeys({ selectedKeys: newFilteredKeys || [] });
     }
   }, [filterState]);
-
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
-    setFilteredKeys(selectedKeys);
-  };
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
@@ -140,7 +141,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onConfirm = () => {
-    internalTriggerFilter(filteredKeys);
+    internalTriggerFilter(getFilteredKeysSync());
   };
 
   const onReset = () => {
@@ -167,7 +168,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
       setSelectedKeys: (selectedKeys: Key[]) => onSelectKeys({ selectedKeys }),
-      selectedKeys: filteredKeys,
+      selectedKeys: getFilteredKeysSync(),
       confirm: onConfirm,
       clearFilters: onReset,
       filters: column.filters,
@@ -185,12 +186,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           onClick={onMenuClick}
           onSelect={onSelectKeys}
           onDeselect={onSelectKeys}
-          selectedKeys={(filteredKeys || []) as any}
+          selectedKeys={(getFilteredKeysSync() || []) as any}
           getPopupContainer={getPopupContainer}
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          {renderFilterItems(column.filters!, prefixCls, filteredKeys, filterMultiple)}
+          {renderFilterItems(column.filters!, prefixCls, getFilteredKeysSync(), filterMultiple)}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
           <a className={`${prefixCls}-dropdown-link confirm`} onClick={onConfirm}>

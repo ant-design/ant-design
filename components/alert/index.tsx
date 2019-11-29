@@ -1,11 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {
-  Close,
-  CheckCircle,
-  ExclamationCircle,
-  InfoCircle,
-  CloseCircle,
+  CloseOutlined,
+  CheckCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
+  CloseCircleOutlined,
   CheckCircleFilled,
   ExclamationCircleFilled,
   InfoCircleFilled,
@@ -58,10 +58,10 @@ const iconMapFilled = {
 };
 
 const iconMapOutlined = {
-  success: CheckCircle,
-  info: InfoCircle,
-  error: CloseCircle,
-  warning: ExclamationCircle,
+  success: CheckCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+  warning: ExclamationCircleOutlined,
 };
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
@@ -141,7 +141,11 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         className={`${prefixCls}-close-icon`}
         tabIndex={0}
       >
-        {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : <Close />}
+        {closeText ? (
+          <span className={`${prefixCls}-close-text`}>{closeText}</span>
+        ) : (
+          <CloseOutlined />
+        )}
       </button>
     ) : null;
 

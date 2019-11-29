@@ -1,6 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Loading, File, MinusSquare, PlusSquare, CaretDownFilled } from '@ant-design/icons';
+import {
+  LoadingOutlined,
+  FileOutlined,
+  MinusSquareOutlined,
+  PlusSquareOutlined,
+  CaretDownFilled,
+} from '@ant-design/icons';
 import { AntTreeNodeProps } from '../Tree';
 
 export default function renderSwitcherIcon(
@@ -10,11 +16,11 @@ export default function renderSwitcherIcon(
   { isLeaf, expanded, loading }: AntTreeNodeProps,
 ) {
   if (loading) {
-    return <Loading className={`${prefixCls}-switcher-loading-icon`} />;
+    return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
   if (isLeaf) {
     if (showLine) {
-      return <File className={`${prefixCls}-switcher-line-icon`} />;
+      return <FileOutlined className={`${prefixCls}-switcher-line-icon`} />;
     }
     return null;
   }
@@ -32,9 +38,9 @@ export default function renderSwitcherIcon(
 
   if (showLine) {
     return expanded ? (
-      <MinusSquare className={`${prefixCls}-switcher-line-icon`} />
+      <MinusSquareOutlined className={`${prefixCls}-switcher-line-icon`} />
     ) : (
-      <PlusSquare className={`${prefixCls}-switcher-line-icon`} />
+      <PlusSquareOutlined className={`${prefixCls}-switcher-line-icon`} />
     );
   }
   return <CaretDownFilled className={switcherCls} />;

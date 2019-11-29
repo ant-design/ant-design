@@ -3,7 +3,7 @@ import * as PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { Loading } from '@ant-design/icons';
+import { LoadingOutlined } from '@ant-design/icons';
 
 import Wave from '../_util/wave';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -74,7 +74,9 @@ export default class Switch extends React.Component<SwitchProps, {}> {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
     });
-    const loadingIcon = loading ? <Loading className={`${prefixCls}-loading-icon`} /> : null;
+    const loadingIcon = loading ? (
+      <LoadingOutlined className={`${prefixCls}-loading-icon`} />
+    ) : null;
     return (
       <Wave insertExtraNode>
         <RcSwitch

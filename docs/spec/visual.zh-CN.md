@@ -11,16 +11,16 @@ title: 可视化
 
 我们提供完善的设计原则 & 指引和设计资源文件（Sketch），此外还提供了一份完整的图表用法说明，来帮助用户快速理解图表并设计出高质量的可视化图表。
 
-- [设计原则](https://antv.alipay.com/zh-cn/vis/design/color.html)
-- [设计资源](https://antv.alipay.com/zh-cn/vis/resource/index.html)
-- [图表用法](https://antv.alipay.com/zh-cn/vis/chart/index.html)
+- [设计原则](https://antv.vision/zh/docs/specification/principles/basic)
+- [设计资源](https://antv.vision/zh/docs/specification/resources)
+- [图表用法](https://antv-2018.alipay.com/zh-cn/vis/chart/index.html)
 
 ## 前端实现
 
-我们基于原生 JavaScipt 封装了一套 AntV 的组件库，其包含高交互基础图表库 G2，专注解决流程与关系分析的图表库 G6，适于移动端应用的图表库 F2 等，也欢迎社区其他框架的实现版本。
+我们基于原生 JavaScipt 封装了一套 AntV 的组件库，其包含高交互基础图表库 G2Plot，专注解决流程与关系分析的图表库 G6，适于移动端应用的图表库 F2 等，也欢迎社区其他框架的实现版本。
 
-- [G2（官方实现）](https://antv.alipay.com/zh-cn/g2/3.x/index.html)
-- [G6（官方实现）](https://antv.alipay.com/zh-cn/g6/1.x/index.html)
-- [F2（官方实现）](https://antv.alipay.com/zh-cn/f2/3.x/index.html)
-- [BizCharts (React)](https://alibaba.github.io/BizCharts/)
-- [Viser (React / Vue / Angular)](https://viserjs.github.io/)
+- [G2 可视化引擎](https://g2.antv.vision/zh)
+- [G2Plot 开箱即用的图表库](https://g2plot.antv.vision/zh) 🔥
+- [G6 图可视化引擎](https://g6.antv.vision/zh)
+- [F2 移动端可视化方案](https://f2.antv.vision/zh)
+- [L7 地理空间数据可视分析引擎](https://l7.antv.vision/zh)

@@ -23,6 +23,12 @@ exports[`Table.filter override custom filter correctly 1`] = `
   >
     Reset
   </span>
+  <span
+    id="simulateOnSelect"
+    onClick={[Function]}
+  >
+    SimulateOnSelect
+  </span>
 </div>
 `;
 

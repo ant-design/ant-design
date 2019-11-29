@@ -15,7 +15,7 @@ Set the `itemLayout` property to `vertical` to create a vertical list.
 
 ```jsx
 import { List, Avatar } from 'antd';
-import { Message, Like, Star } from '@ant-design/icons';
+import { MessageOutlined, LikeOutlined, StarOutlined } from '@ant-design/icons';
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -57,9 +57,9 @@ ReactDOM.render(
       <List.Item
         key={item.title}
         actions={[
-          <IconText icon={Star} text="156" key="list-vertical-star-o" />,
-          <IconText icon={Like} text="156" key="list-vertical-like-o" />,
-          <IconText icon={Message} text="2" key="list-vertical-message" />,
+          <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+          <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+          <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
         ]}
         extra={
           <img

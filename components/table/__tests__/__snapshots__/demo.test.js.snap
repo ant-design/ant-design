@@ -1228,35 +1228,17 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        John Brown
-                      </span>
-                    </span>
+                    John Brown
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        32
-                      </span>
-                    </span>
+                    32
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        New York No. 1 Lake Park
-                      </span>
-                    </span>
+                    New York No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -1265,35 +1247,17 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        Joe Black
-                      </span>
-                    </span>
+                    Joe Black
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        42
-                      </span>
-                    </span>
+                    42
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        London No. 1 Lake Park
-                      </span>
-                    </span>
+                    London No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -1302,35 +1266,17 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        Jim Green
-                      </span>
-                    </span>
+                    Jim Green
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        32
-                      </span>
-                    </span>
+                    32
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        Sidney No. 1 Lake Park
-                      </span>
-                    </span>
+                    Sidney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
@@ -1339,35 +1285,17 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        Jim Red
-                      </span>
-                    </span>
+                    Jim Red
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        32
-                      </span>
-                    </span>
+                    32
                   </td>
                   <td
                     class="ant-table-cell"
                   >
-                    <span>
-                      <span
-                        class=""
-                      >
-                        London No. 2 Lake Park
-                      </span>
-                    </span>
+                    London No. 2 Lake Park
                   </td>
                 </tr>
               </tbody>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import { Right } from '@ant-design/icons';
+import { RightOutlined } from '@ant-design/icons';
 
 import CollapsePanel from './CollapsePanel';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -49,7 +49,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
     const icon = (expandIcon ? (
       expandIcon(panelProps)
     ) : (
-      <Right rotate={panelProps.isActive ? 90 : undefined} />
+      <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
     )) as React.ReactNode;
 
     return React.isValidElement(icon)

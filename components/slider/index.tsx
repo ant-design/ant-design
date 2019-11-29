@@ -31,6 +31,7 @@ export interface SliderProps {
   prefixCls?: string;
   tooltipPrefixCls?: string;
   range?: boolean;
+  reverse?: boolean;
   min?: number;
   max?: number;
   step?: number | null;
