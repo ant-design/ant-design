@@ -97,20 +97,20 @@ const Banner = ({ isMobile }) => {
               <FormattedMessage id="app.home.recommend" />
             </Divider>
             <a
-              href={`https://antv.vision/${isZhCN ? 'zh' : 'en'}?from=antd`}
+              href="https://github.com/antvis/g2plot?from=antd"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 if (window.gtag) {
                   window.gtag('event', '点击', {
                     event_category: '首页推广',
-                    event_label: `https://antv.vision/${isZhCN ? 'zh' : 'en'}?from=antd`,
+                    event_label: `https://github.com/antvis/g2plot?from=antd`,
                   });
                 }
               }}
             >
               <img src="https://antv.vision/icons/icon-512x512.png" alt="AntV logo" />
-              <FormattedMessage id="app.home.recommend.antv" />
+              <FormattedMessage id="app.home.recommend.antv.g2plot" />
               <Icon type="right" style={{ marginLeft: 6, fontSize: 12, opacity: 0.6 }} />
             </a>
           </div>
