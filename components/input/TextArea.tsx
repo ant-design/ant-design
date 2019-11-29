@@ -69,11 +69,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
   handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { textArea } = this.resizableTextArea;
 
-    if (textArea.scrollHeight > textArea.clientHeight) {
-      this.setState({ hasVerticalScrollBar: true });
-    } else {
-      this.setState({ hasVerticalScrollBar: false });
-    }
+    this.setState({ hasVerticalScrollBar: textArea.scrollHeight > textArea.clientHeight });
 
     this.setValue(e.target.value, () => {
       this.resizableTextArea.resizeTextarea();
