@@ -124,6 +124,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     }
     return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
   }
+
   renderDropDown = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
