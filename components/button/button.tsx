@@ -83,6 +83,7 @@ export interface BaseButtonProps {
   prefixCls?: string;
   className?: string;
   ghost?: boolean;
+  danger?: boolean;
   block?: boolean;
   children?: React.ReactNode;
 }
@@ -218,6 +219,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     const {
       prefixCls: customizePrefixCls,
       type,
+      danger,
       shape,
       size,
       className,
@@ -257,6 +259,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-background-ghost`]: ghost,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
+      [`${prefixCls}-dangerous`]: !!danger,
     });
 
     const iconNode = loading ? <LoadingOutlined /> : icon || null;

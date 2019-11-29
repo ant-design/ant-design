@@ -63,12 +63,26 @@
     .btn-dashed;
   }
 
+  // type="danger" will deprecated
+  // use danger instead
   &-danger {
     .btn-danger;
   }
 
   &-link {
     .btn-link;
+  }
+
+  &-dangerous {
+    .btn-danger-default;
+  }
+
+  &-dangerous&-primary {
+    .btn-danger;
+  }
+
+  &-dangerous&-link {
+    .btn-danger-link;
   }
 
   &-icon-only {
@@ -167,6 +181,14 @@
 
   &-background-ghost&-danger {
     .button-variant-ghost(@btn-danger-border);
+  }
+
+  &-background-ghost&-dangerous {
+    .button-variant-ghost(@btn-danger-border);
+  }
+
+  &-background-ghost&-dangerous&-link {
+    .button-variant-ghost(@btn-danger-border, transparent);
   }
 
   &-background-ghost&-link {
