@@ -1,6 +1,8 @@
 @import './index';
 
 .@{picker-prefix-cls} {
+  @picker-cell-hover-color: fade(@primary-5, 10%);
+
   &-panel {
     background: @component-background;
     border-radius: @border-radius-base;
@@ -84,6 +86,7 @@
       td {
         font-weight: 400;
         min-width: 24px;
+        position: relative;
       }
 
       th {
@@ -110,7 +113,7 @@
       }
 
       &:hover &-inner {
-        background: @item-hover-bg;
+        background: @picker-cell-hover-color;
       }
 
       // Today
@@ -123,11 +126,29 @@
         color: @text-color;
       }
 
+      // In range
+      &-in-range &-inner {
+        display: block;
+        background: @picker-cell-hover-color;
+      }
+
       // Selected
       &-selected &-inner,
       &-selected:hover &-inner {
         color: @text-color-inverse;
         background: @primary-5;
+      }
+
+      // Disabled
+      &-disabled {
+        cursor: not-allowed;
+      }
+
+      &-disabled &-inner,
+      &-disabled:hover &-inner {
+        color: @disabled-color;
+        background: @disabled-bg;
+        display: block;
       }
     }
   }
@@ -195,7 +216,7 @@
       }
 
       &:hover td {
-        background: fade(@primary-5, 10%);
+        background: @picker-cell-hover-color;
       }
 
       &-selected td,
