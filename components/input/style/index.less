@@ -47,11 +47,13 @@
 }
 
 .@{ant-prefix}-input-textarea-clear-icon {
-  .clear-icon;
-  position: absolute;
-  top: 0;
-  right: 0;
+  .textarea-clear-icon;
   margin: 8px 8px 0 0;
 }
 
+.@{ant-prefix}-input-textarea-scroll-bar-clear-icon {
+  .textarea-clear-icon();
+  // https://github.com/ant-design/ant-design/issues/19579
+  margin: 8px 18px 0 0;
+}
 @import './search-input';

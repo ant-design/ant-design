@@ -425,6 +425,9 @@
   &.@{inputClass}-affix-wrapper-textarea-with-clear-btn .@{inputClass} {
     padding-right: 22px;
   }
+  &.@{inputClass}-affix-wrapper-textarea-scroll-bar-with-clear-btn .@{inputClass} {
+    padding-right: 32px;
+  }
 }
 
 .clear-icon() {
@@ -446,4 +449,10 @@
   + i {
     margin-left: 6px;
   }
+}
+.textarea-clear-icon() {
+  .clear-icon;
+  position: absolute;
+  top: 0;
+  right: 0;
 }

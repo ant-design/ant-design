@@ -44,16 +44,21 @@ interface ClearableTextAreaProps extends BasicProps {
   hasVerticalScrollBar: boolean;
 }
 
-class ClearableLabeledInput extends React.Component<ClearableInputProps & ClearableTextAreaProps> {
+class ClearableLabeledInput extends React.Component<ClearableInputProps | ClearableTextAreaProps> {
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, inputType, handleReset } = this.props;
+    const { allowClear, value, disabled, inputType, handleReset, hasVerticalScrollBar } = this
+      .props as ClearableInputProps & ClearableTextAreaProps;
     if (!allowClear || disabled || value === undefined || value === null || value === '') {
       return null;
     }
-    const className =
-      inputType === ClearableInputType[0]
-        ? `${prefixCls}-textarea-clear-icon`
-        : `${prefixCls}-clear-icon`;
+    let className;
+    if (inputType === ClearableInputType[0] && hasVerticalScrollBar) {
+      className = `${prefixCls}-textarea-scroll-bar-clear-icon`;
+    } else if (inputType === ClearableInputType[0]) {
+      className = `${prefixCls}-textarea-clear-icon`;
+    } else {
+      className = `${prefixCls}-clear-icon`;
+    }
     return (
       <Icon
         type="close-circle"
@@ -66,7 +71,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps & Cleara
   }
 
   renderSuffix(prefixCls: string) {
-    const { suffix, allowClear } = this.props;
+    const { suffix, allowClear } = this.props as ClearableInputProps;
     if (suffix || allowClear) {
       return (
         <span className={`${prefixCls}-suffix`}>
@@ -79,7 +84,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps & Cleara
   }
 
   renderLabeledIcon(prefixCls: string, element: React.ReactElement<any>) {
-    const props = this.props;
+    const props = this.props as ClearableInputProps;
     const suffix = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(props)) {
       return React.cloneElement(element, {
@@ -111,7 +116,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps & Cleara
   }
 
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement<any>) {
-    const { addonBefore, addonAfter, style, size, className } = this.props;
+    const { addonBefore, addonAfter, style, size, className } = this.props as ClearableInputProps;
     // Not wrap when there is not addons
     if (!addonBefore && !addonAfter) {
       return labeledElement;
@@ -147,7 +152,8 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps & Cleara
   }
 
   renderTextAreaWithClearIcon(prefixCls: string, element: React.ReactElement<any>) {
-    const { value, allowClear, className, style } = this.props;
+    const { value, allowClear, className, style, hasVerticalScrollBar } = this
+      .props as ClearableTextAreaProps;
     if (!allowClear) {
       return React.cloneElement(element, {
         value,
@@ -157,6 +163,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps & Cleara
       className,
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
+      { [`${prefixCls}-affix-wrapper-textarea-scroll-bar-with-clear-btn`]: hasVerticalScrollBar },
     );
     return (
       <span className={affixWrapperCls} style={style}>
