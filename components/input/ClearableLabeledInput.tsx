@@ -162,8 +162,9 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps | Cleara
     const affixWrapperCls = classNames(
       className,
       `${prefixCls}-affix-wrapper`,
-      `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
-      { [`${prefixCls}-affix-wrapper-textarea-scroll-bar-with-clear-btn`]: hasVerticalScrollBar },
+      hasVerticalScrollBar
+        ? `${prefixCls}-affix-wrapper-textarea-scroll-bar-with-clear-btn`
+        : `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
     );
     return (
       <span className={affixWrapperCls} style={style}>
