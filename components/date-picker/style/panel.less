@@ -105,7 +105,7 @@
         height: 24px;
         line-height: 24px - @border-width-base * 2;
         border-radius: @border-radius-base;
-        transition: background 0.3s;
+        transition: background 0.3s, border 0.3s;
         border: @border-width-base @border-style-base transparent;
       }
 
@@ -175,6 +175,46 @@
 
   // ====================== Week Panel ======================
   &-week-panel {
+    &-body {
+      padding: @padding-xs @padding-sm;
+    }
+
+    // Clear cell style
+    &-cell {
+      &:hover &-inner,
+      &-selected &-inner,
+      &-inner {
+        background: transparent;
+      }
+    }
+
+    //
+    &-row {
+      td {
+        transition: background 0.3s;
+      }
+
+      &:hover td {
+        background: fade(@primary-5, 10%);
+      }
+
+      &-selected td,
+      &-selected:hover td {
+        background: @primary-5;
+
+        &.@{picker-prefix-cls}-week-panel-cell-week {
+          color: fade(@text-color-inverse, 50%);
+        }
+
+        &.@{picker-prefix-cls}-week-panel-cell-today .@{picker-prefix-cls}-week-panel-cell-inner {
+          border-color: @text-color-inverse;
+        }
+
+        .@{picker-prefix-cls}-week-panel-cell-inner {
+          color: @text-color-inverse;
+        }
+      }
+    }
   }
 
   // ====================== Date Panel ======================

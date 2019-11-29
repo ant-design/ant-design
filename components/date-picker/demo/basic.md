@@ -27,11 +27,13 @@ ReactDOM.render(
   <div>
     <DatePicker onChange={onChange} />
     <br />
-    <MonthPicker onChange={onChange} placeholder="Select month" />
+    <DatePicker onChange={onChange} picker="week" placeholder="Select week" />
     <br />
-    {/* <RangePicker onChange={onChange} /> */}
+    <DatePicker onChange={onChange} picker="month" placeholder="Select month" />
     <br />
-    <WeekPicker onChange={onChange} placeholder="Select week" open />
+    <DatePicker onChange={onChange} picker="year" placeholder="Select year" />
+    <br />
+    <RangePicker onChange={onChange} />
   </div>,
   mountNode,
 );
