@@ -24,7 +24,7 @@ ReactDOM.render(
     <Button type="primary" danger>
       Danger
     </Button>
-    <Button danger>Danger default</Button>
+    <Button danger>Danger Default</Button>
     <Button type="link" danger>
       Danger Link
     </Button>
