@@ -178,7 +178,6 @@ You must import styles as less format. A common mistake would be importing multi
 
 We have some official themes, try them out and give us some feedback!
 
-- [Dark Theme (Beta)](https://github.com/ant-design/ant-design-dark-theme)
 - [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
 
 ## Related Articles
