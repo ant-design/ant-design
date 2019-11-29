@@ -39,7 +39,7 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     type="button"
   >
     <span>
-      Danger default
+      Danger Default
     </span>
   </button>
   <button
@@ -743,7 +743,7 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     type="button"
   >
     <span>
-      Normal
+      Default
     </span>
   </button>
   <button
