@@ -13,6 +13,7 @@ import {
   RightOutlined,
   DoubleLeftOutlined,
   DoubleRightOutlined,
+  CloseCircleFilled,
 } from '@ant-design/icons';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import defaultLocale from './locale/en_US';
@@ -84,6 +85,8 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
             locale={mergedLocale!.lang}
             placeholder={mergedLocale!.lang.placeholder}
             suffixIcon={<CalendarOutlined />}
+            clearIcon={<CloseCircleFilled />}
+            allowClear
             {...additionalProps}
             {...restProps}
             picker={picker as any}

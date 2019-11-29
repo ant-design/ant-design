@@ -31,7 +31,7 @@ ReactDOM.render(
     <br />
     {/* <RangePicker onChange={onChange} /> */}
     <br />
-    <WeekPicker onChange={onChange} placeholder="Select week" />
+    <WeekPicker onChange={onChange} placeholder="Select week" open />
   </div>,
   mountNode,
 );

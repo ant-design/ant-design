@@ -18,26 +18,33 @@
       .input;
       width: auto;
     }
+
+    &:hover {
+      .@{picker-prefix-cls}-clear {
+        opacity: 1;
+      }
+    }
   }
 
-  &-suffix {
+  &-suffix,
+  &-clear {
     position: absolute;
     top: 50%;
     right: @input-padding-horizontal-base;
     transform: translateY(-50%);
+    transition: opacity 0.3s;
+  }
+
+  &-suffix {
     pointer-events: none;
     color: @disabled-color;
   }
 
   &-clear {
-    position: absolute;
-    right: 0;
-    top: 0;
     cursor: pointer;
-
-    &-btn::after {
-      content: '×';
-    }
+    color: @disabled-color;
+    opacity: 0;
+    background: @component-background;
   }
 
   // ======================= Dropdown =======================
