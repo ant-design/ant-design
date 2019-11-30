@@ -66,9 +66,10 @@ class ComponentDoc extends React.Component {
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    const showedDemo = demoValues.some(demo => demo.meta.only)
+    let showedDemo = demoValues.some(demo => demo.meta.only)
       ? demoValues.filter(demo => demo.meta.only)
       : demoValues.filter(demo => demo.preview);
+    showedDemo = showedDemo.filter(item => !item.meta.debug);
     showedDemo
       .sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
@@ -144,6 +145,19 @@ class ComponentDoc extends React.Component {
             >
               <Icon
                 type={`${expandAll ? 'appstore' : 'appstore-o'}`}
+                className={expandTriggerClass}
+                onClick={this.handleExpandToggle}
+              />
+            </Tooltip>
+            <Tooltip
+              title={
+                <FormattedMessage
+                  id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
+                />
+              }
+            >
+              <Icon
+                type={`${expandAll ? 'small-dash' : 'dash'}`}
                 className={expandTriggerClass}
                 onClick={this.handleExpandToggle}
               />
