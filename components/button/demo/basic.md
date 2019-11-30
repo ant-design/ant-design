@@ -1,5 +1,6 @@
 ---
 order: 0
+debug: true
 title:
   zh-CN: 按钮类型
   en-US: Type

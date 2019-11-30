@@ -11,6 +11,7 @@ import { ping, getMetaDescription } from '../utils';
 class ComponentDoc extends React.Component {
   state = {
     expandAll: false,
+    visibleAll: false,
     showRiddleButton: false,
   };
 
@@ -27,12 +28,17 @@ class ComponentDoc extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     const { location } = this.props;
     const { location: nextLocation } = nextProps;
-    const { expandAll, showRiddleButton } = this.state;
-    const { expandAll: nextExpandAll, showRiddleButton: nextShowRiddleButton } = nextState;
+    const { expandAll, visibleAll, showRiddleButton } = this.state;
+    const {
+      expandAll: nextExpandAll,
+      visibleAll: nextVisibleAll,
+      showRiddleButton: nextShowRiddleButton,
+    } = nextState;
 
     if (
       nextLocation.pathname === location.pathname &&
       expandAll === nextExpandAll &&
+      visibleAll === nextVisibleAll &&
       showRiddleButton === nextShowRiddleButton
     ) {
       return false;
@@ -51,6 +57,13 @@ class ComponentDoc extends React.Component {
     });
   };
 
+  handleVisibleToggle = () => {
+    const { visibleAll } = this.state;
+    this.setState({
+      visibleAll: !visibleAll,
+    });
+  };
+
   render() {
     const {
       doc,
@@ -61,15 +74,16 @@ class ComponentDoc extends React.Component {
     } = this.props;
     const { content, meta } = doc;
     const demoValues = Object.keys(demos).map(key => demos[key]);
-    const { expandAll, showRiddleButton } = this.state;
-
+    const { expandAll, visibleAll, showRiddleButton } = this.state;
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
     let showedDemo = demoValues.some(demo => demo.meta.only)
       ? demoValues.filter(demo => demo.meta.only)
       : demoValues.filter(demo => demo.preview);
-    showedDemo = showedDemo.filter(item => !item.meta.debug);
+    if (!visibleAll) {
+      showedDemo = showedDemo.filter(item => !item.meta.debug);
+    }
     showedDemo
       .sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
@@ -152,14 +166,14 @@ class ComponentDoc extends React.Component {
             <Tooltip
               title={
                 <FormattedMessage
-                  id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
+                  id={`app.component.examples.${visibleAll ? 'collapse' : 'expand'}`}
                 />
               }
             >
               <Icon
-                type={`${expandAll ? 'small-dash' : 'dash'}`}
+                type={`${visibleAll ? 'eye' : 'eye-invisible'}`}
                 className={expandTriggerClass}
-                onClick={this.handleExpandToggle}
+                onClick={this.handleVisibleToggle}
               />
             </Tooltip>
           </h2>
