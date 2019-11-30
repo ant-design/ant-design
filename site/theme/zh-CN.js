@@ -17,6 +17,8 @@ module.exports = {
     'app.component.examples': '代码演示',
     'app.component.examples.expand': '展开全部代码',
     'app.component.examples.collapse': '收起全部代码',
+    'app.component.examples.visible': '展开更多用例',
+    'app.component.examples.hide': '收起更多用例',
     'app.demo.debug': '此演示仅供调试，线上不会展示',
     'app.demo.copy': '复制代码',
     'app.demo.copied': '复制成功',

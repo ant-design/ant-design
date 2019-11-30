@@ -16,6 +16,14 @@ class ComponentDoc extends React.Component {
   };
 
   componentDidMount() {
+    const { demos = {}, location = {} } = this.props;
+    if (location.hash) {
+      const demoKey = location.hash.split('-demo-')[1];
+      const demoData = demos[demoKey];
+      if (demoData && demoData.meta && demoData.meta.debug) {
+        this.setState({ visibleAll: true });
+      }
+    }
     this.pingTimer = ping(status => {
       if (status !== 'timeout' && status !== 'error') {
         this.setState({
@@ -166,12 +174,12 @@ class ComponentDoc extends React.Component {
             <Tooltip
               title={
                 <FormattedMessage
-                  id={`app.component.examples.${visibleAll ? 'collapse' : 'expand'}`}
+                  id={`app.component.examples.${visibleAll ? 'hide' : 'visible'}`}
                 />
               }
             >
               <Icon
-                type={`${visibleAll ? 'eye' : 'eye-invisible'}`}
+                type={`${visibleAll ? 'eye-invisible' : 'eye'}`}
                 className={expandTriggerClass}
                 onClick={this.handleVisibleToggle}
               />
