@@ -176,10 +176,15 @@
   &-footer {
     border-top: @picker-border;
     padding: 0 @padding-xs;
+    text-align: center;
+    line-height: @picker-text-height - 2 * @border-width-base;
+
+    &-extra {
+      text-align: left;
+    }
   }
 
   &-today-btn {
-    line-height: @picker-text-height - 2 * @border-width-base;
     color: @link-color;
 
     &:hover {
@@ -194,7 +199,6 @@
   &-ranges {
     list-style: none;
     text-align: left;
-    line-height: @picker-text-height - 2 * @border-width-base;
 
     > li {
       display: inline-block;
