@@ -168,6 +168,7 @@ class ComponentDoc extends React.Component {
               >
                 <Icon
                   type="code"
+                  theme={expandAll ? 'filled' : 'outlined'}
                   className={expandTriggerClass}
                   onClick={this.handleExpandToggle}
                 />
@@ -181,6 +182,7 @@ class ComponentDoc extends React.Component {
               >
                 <Icon
                   type="bug"
+                  theme={visibleAll ? 'filled' : 'outlined'}
                   className={expandTriggerClass}
                   onClick={this.handleVisibleToggle}
                 />
