@@ -158,32 +158,34 @@ class ComponentDoc extends React.Component {
           )}
           <h2>
             <FormattedMessage id="app.component.examples" />
-            <Tooltip
-              title={
-                <FormattedMessage
-                  id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
+            <span style={{ float: 'right' }}>
+              <Tooltip
+                title={
+                  <FormattedMessage
+                    id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
+                  />
+                }
+              >
+                <Icon
+                  type="code"
+                  className={expandTriggerClass}
+                  onClick={this.handleExpandToggle}
                 />
-              }
-            >
-              <Icon
-                type={`${expandAll ? 'appstore' : 'appstore-o'}`}
-                className={expandTriggerClass}
-                onClick={this.handleExpandToggle}
-              />
-            </Tooltip>
-            <Tooltip
-              title={
-                <FormattedMessage
-                  id={`app.component.examples.${visibleAll ? 'hide' : 'visible'}`}
+              </Tooltip>
+              <Tooltip
+                title={
+                  <FormattedMessage
+                    id={`app.component.examples.${visibleAll ? 'hide' : 'visible'}`}
+                  />
+                }
+              >
+                <Icon
+                  type="bug"
+                  className={expandTriggerClass}
+                  onClick={this.handleVisibleToggle}
                 />
-              }
-            >
-              <Icon
-                type={`${visibleAll ? 'eye-invisible' : 'eye'}`}
-                className={expandTriggerClass}
-                onClick={this.handleVisibleToggle}
-              />
-            </Tooltip>
+              </Tooltip>
+            </span>
           </h2>
         </section>
         <Row gutter={16}>
