@@ -3,7 +3,6 @@ order: 3
 title:
   zh-CN: 日期时间选择
   en-US: Choose Time
-only: true
 ---
 
 ## zh-CN

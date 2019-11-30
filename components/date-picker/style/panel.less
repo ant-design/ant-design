@@ -155,7 +155,6 @@
       &-disabled:hover &-inner {
         color: @disabled-color;
         background: @disabled-bg;
-        display: block;
       }
     }
   }
@@ -254,6 +253,13 @@
     &-content {
       th {
         width: 33px;
+      }
+    }
+
+    &-cell {
+      &-disabled &-inner,
+      &-disabled:hover &-inner {
+        display: block;
       }
     }
   }

@@ -3,6 +3,7 @@ order: 6
 title:
   zh-CN: 不可选择日期和时间
   en-US: Disabled Date & Time
+only: true
 ---
 
 ## zh-CN

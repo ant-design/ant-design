@@ -3,6 +3,7 @@ order: 4
 title:
   zh-CN: 禁用
   en-US: Disabled
+only: true
 ---
 
 ## zh-CN
