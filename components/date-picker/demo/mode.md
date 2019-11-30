@@ -3,7 +3,7 @@ order: 11
 title:
   zh-CN: 受控面板
   en-US: Controlled Panels
-only: true
+debug: true
 ---
 
 ## zh-CN

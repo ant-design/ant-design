@@ -14,16 +14,10 @@ import {
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
 import { PickerMode } from 'rc-picker/lib/interface';
-import {
-  CalendarOutlined,
-  LeftOutlined,
-  RightOutlined,
-  DoubleLeftOutlined,
-  DoubleRightOutlined,
-  CloseCircleFilled,
-} from '@ant-design/icons';
+import { CalendarOutlined, CloseCircleFilled } from '@ant-design/icons';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
-import defaultLocale from './locale/en_US';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import enUS from './locale/en_US';
 
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {
@@ -69,7 +63,7 @@ type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'prevIcon' | 'nextIcon' | 'superPrevIcon' | 'superNextIcon'
 > & {
-  locale?: typeof defaultLocale;
+  locale?: typeof enUS;
   size?: 'large' | 'default' | 'small';
 };
 
@@ -122,13 +116,24 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         }
       };
 
-      render() {
+      getDefaultLocale = () => {
+        const { locale } = this.props;
+        const result = {
+          ...enUS,
+          ...locale,
+        };
+        result.lang = {
+          ...result.lang,
+          ...((locale || {}) as any).lang,
+        };
+        return result;
+      };
+
+      renderPicker = (locale: any) => {
         const { getPrefixCls } = this.context;
-        const { prefixCls: customizePrefixCls, className, size, locale, ...restProps } = this.props;
+        const { prefixCls: customizePrefixCls, className, size, ...restProps } = this.props;
         const { format, showTime } = this.props as any;
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
-
-        const mergedLocale = locale || defaultLocale;
 
         const additionalProps = {
           showToday: true,
@@ -151,8 +156,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         return (
           <RCPicker<DateType>
             ref={this.pickerRef}
-            locale={mergedLocale!.lang}
-            placeholder={mergedLocale!.lang.placeholder}
+            placeholder={locale!.lang.placeholder}
             suffixIcon={<CalendarOutlined />}
             clearIcon={<CloseCircleFilled />}
             allowClear
@@ -160,16 +164,25 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
             {...additionalProps}
             {...restProps}
             {...additionalOverrideProps}
+            locale={locale!.lang}
             className={classNames(className, {
               [`${prefixCls}-${size}`]: size,
             })}
             prefixCls={prefixCls}
             generateConfig={generateConfig}
-            prevIcon={<LeftOutlined />}
-            nextIcon={<RightOutlined />}
-            superPrevIcon={<DoubleLeftOutlined />}
-            superNextIcon={<DoubleRightOutlined />}
+            prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+            nextIcon={<span className={`${prefixCls}-next-icon`} />}
+            superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+            superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
           />
+        );
+      };
+
+      render() {
+        return (
+          <LocaleReceiver componentName="DatePicker" defaultLocale={this.getDefaultLocale}>
+            {this.renderPicker}
+          </LocaleReceiver>
         );
       }
     }
@@ -206,13 +219,24 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       }
     };
 
-    render() {
+    getDefaultLocale = () => {
+      const { locale } = this.props;
+      const result = {
+        ...enUS,
+        ...locale,
+      };
+      result.lang = {
+        ...result.lang,
+        ...((locale || {}) as any).lang,
+      };
+      return result;
+    };
+
+    renderPicker = (locale: any) => {
       const { getPrefixCls } = this.context;
-      const { prefixCls: customizePrefixCls, locale, className, size, ...restProps } = this.props;
+      const { prefixCls: customizePrefixCls, className, size, ...restProps } = this.props;
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
-
-      const mergedLocale = locale || defaultLocale;
 
       let additionalOverrideProps: any = {};
 
@@ -226,8 +250,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         <RCRangePicker<DateType>
           separator={<span className={`${prefixCls}-separator`}>~</span>}
           ref={this.pickerRef}
-          locale={mergedLocale!.lang}
-          placeholder={mergedLocale!.lang.rangePlaceholder as [string, string]}
+          placeholder={locale!.lang.rangePlaceholder as [string, string]}
           suffixIcon={<CalendarOutlined />}
           clearIcon={<CloseCircleFilled />}
           allowClear
@@ -237,13 +260,22 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
             [`${prefixCls}-${size}`]: size,
           })}
           {...additionalOverrideProps}
+          locale={locale!.lang}
           prefixCls={prefixCls}
           generateConfig={generateConfig}
-          prevIcon={<LeftOutlined />}
-          nextIcon={<RightOutlined />}
-          superPrevIcon={<DoubleLeftOutlined />}
-          superNextIcon={<DoubleRightOutlined />}
+          prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+          nextIcon={<span className={`${prefixCls}-next-icon`} />}
+          superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+          superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
         />
+      );
+    };
+
+    render() {
+      return (
+        <LocaleReceiver componentName="DatePicker" defaultLocale={this.getDefaultLocale}>
+          {this.renderPicker}
+        </LocaleReceiver>
       );
     }
   }
