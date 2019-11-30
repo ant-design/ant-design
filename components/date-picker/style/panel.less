@@ -3,6 +3,7 @@
 .@{picker-prefix-cls} {
   @picker-basic-cell-hover-color: fade(@primary-5, 10%);
   @picker-border: @border-width-base @border-style-base @border-color-split;
+  @picker-text-height: 40px;
 
   &-panel {
     background: @component-background;
@@ -44,7 +45,7 @@
         border: 0;
         padding: 0;
         background: transparent;
-        line-height: 40px;
+        line-height: @picker-text-height;
         color: @disabled-color;
         cursor: pointer;
         transition: color 0.3s;
@@ -62,7 +63,7 @@
       &-view {
         flex: auto;
         font-weight: 500;
-        line-height: 40px;
+        line-height: @picker-text-height;
 
         button {
           color: inherit;
@@ -174,10 +175,11 @@
   // ======================== Footer ========================
   &-footer {
     border-top: @picker-border;
+    padding: 0 @padding-xs;
   }
 
   &-today-btn {
-    line-height: 40px - 2 * @border-width-base;
+    line-height: @picker-text-height - 2 * @border-width-base;
     color: @link-color;
 
     &:hover {
@@ -186,6 +188,27 @@
 
     &:active {
       color: @link-active-color;
+    }
+  }
+
+  &-ranges {
+    list-style: none;
+    text-align: left;
+    line-height: @picker-text-height - 2 * @border-width-base;
+
+    > li {
+      display: inline-block;
+      color: @link-color;
+      margin: 0 @padding-xs;
+      cursor: pointer;
+
+      &:hover {
+        color: @link-hover-color;
+      }
+
+      &:active {
+        color: @link-active-color;
+      }
     }
   }
 

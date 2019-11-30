@@ -3,6 +3,7 @@ order: 8
 title:
   zh-CN: 预设范围
   en-US: Preset Ranges
+only: true
 ---
 
 ## zh-CN
