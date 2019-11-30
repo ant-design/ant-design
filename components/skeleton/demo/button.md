@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-骨架按钮。
+骨架按钮和头像。
 
 ## en-US
 
-Skeleton Button.
+Skeleton button and avatar.
 
 ```jsx
 import { Skeleton, Switch, Form, Radio } from 'antd';
