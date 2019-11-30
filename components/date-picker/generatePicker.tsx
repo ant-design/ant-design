@@ -61,7 +61,13 @@ function getTimeProps<DateType>(
 
 type InjectDefaultProps<Props> = Omit<
   Props,
-  'locale' | 'generateConfig' | 'prevIcon' | 'nextIcon' | 'superPrevIcon' | 'superNextIcon'
+  | 'locale'
+  | 'generateConfig'
+  | 'prevIcon'
+  | 'nextIcon'
+  | 'superPrevIcon'
+  | 'superNextIcon'
+  | 'hideHeader'
 > & {
   locale?: typeof enUS;
   size?: 'large' | 'default' | 'small';
@@ -139,7 +145,9 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           showToday: true,
         };
 
-        let additionalOverrideProps: any = {};
+        let additionalOverrideProps: any = {
+          hideHeader: false,
+        };
         if (picker) {
           additionalOverrideProps.picker = picker;
         }
@@ -238,7 +246,9 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
-      let additionalOverrideProps: any = {};
+      let additionalOverrideProps: any = {
+        hideHeader: false,
+      };
 
       additionalOverrideProps = {
         ...additionalOverrideProps,

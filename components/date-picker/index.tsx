@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 import generatePicker from './generatePicker';
