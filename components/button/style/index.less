@@ -118,7 +118,9 @@
 
   &&-loading {
     position: relative;
-    pointer-events: none;
+    &:not([disabled]) {
+      pointer-events: none;
+    }
   }
 
   &&-loading::before {
