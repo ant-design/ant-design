@@ -11156,7 +11156,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div>
     <div
-      class="config-tooltip  config-tooltip-placement-top "
+      class="config-tooltip config-slider-tooltip config-tooltip-placement-top "
     >
       <div
         class="config-tooltip-content"
@@ -11205,7 +11205,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip  ant-tooltip-placement-top "
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top "
     >
       <div
         class="ant-tooltip-content"
@@ -11254,7 +11254,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div>
     <div
-      class="prefix-Slider-tooltip  prefix-Slider-tooltip-placement-top "
+      class="prefix-Slider-tooltip prefix-Slider-tooltip prefix-Slider-tooltip-placement-top "
     >
       <div
         class="prefix-Slider-tooltip-content"

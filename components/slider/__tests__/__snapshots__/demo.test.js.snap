@@ -949,7 +949,7 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip  ant-tooltip-placement-top "
+      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top "
     >
       <div
         class="ant-tooltip-content"
