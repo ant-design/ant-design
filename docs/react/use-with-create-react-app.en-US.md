@@ -199,6 +199,21 @@ We use `modifyVars` option of [less-loader](https://github.com/webpack/less-load
 
 > You could also try [craco](https://github.com/sharegate/craco) and [craco-antd](https://github.com/FormAPI/craco-antd) to customize create-react-app webpack config same as customize-cra does.
 
+## Replace momentjs to Day.js
+
+You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically.
+
+```bash
+$ yarn add antd-dayjs-webpack-plugin
+```
+
+```js
+const { override, addWebpackPlugin } = require('customize-cra');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+
+module.exports = override(addWebpackPlugin(new AntdDayjsWebpackPlugin()));
+```
+
 ## eject
 
 You can also eject your application using [yarn run eject](https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject) for a custom setup of create-react-app, although you should dig into it by yourself.

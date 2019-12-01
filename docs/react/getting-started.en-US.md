@@ -151,6 +151,20 @@ And this plugin can load styles too. Read [usage](https://github.com/ant-design/
 
 > FYI, babel-plugin-import's `style` option will importing some global reset styles, don't use it if you don't need those styles. You can import styles manually via `import 'antd/dist/antd.css'` and override the global reset styles.
 
+## Replace momentjs to Day.js
+
+You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically. You need to update your webpack config file like this:
+
+```js
+// webpack-config.js
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdDayjsWebpackPlugin()],
+};
+```
+
 ## Customization
 
 - [Customize Theme](/docs/react/customize-theme)

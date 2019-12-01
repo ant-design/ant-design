@@ -18,7 +18,7 @@ type EventType =
 type getContainerFunc = () => HTMLElement;
 
 const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
-type placementType = (typeof PlacementTypes)[number];
+type placementType = typeof PlacementTypes[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
