@@ -19,7 +19,7 @@ import { PageHeader, Button, Descriptions } from 'antd';
 ReactDOM.render(
   <div
     style={{
-      backgroundColor: '#F5F5F5',
+      backgroundColor: 'rgba(255,255,255,0.08)',
       padding: 24,
     }}
   >

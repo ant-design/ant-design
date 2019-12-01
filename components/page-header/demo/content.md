@@ -143,7 +143,7 @@ ReactDOM.render(
   <PageHeader
     title="Title"
     style={{
-      border: '1px solid rgb(235, 237, 240)',
+      border: '1px solid rgb(255, 255, 255, 0.2)',
     }}
     subTitle="This is a subtitle"
     tags={<Tag color="blue">Running</Tag>}

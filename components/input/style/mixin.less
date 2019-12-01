@@ -19,7 +19,12 @@
 // input status
 // == when focus or actived
 .active(@color: @outline-color) {
-  border-color: ~`colorPalette('@{color}', 5) `;
+  & when (@theme = default) {
+    border-color: ~`colorPalette('@{color}', 5) `;
+  }
+  & when (@theme = dark) {
+    border-color: @color;
+  }
   border-right-width: @border-width-base !important;
   outline: 0;
   box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
