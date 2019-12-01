@@ -282,6 +282,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       type,
       disabled,
       children,
+      style,
     } = this.props;
     const { fileList, dragState } = this.state;
 
@@ -298,6 +299,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     };
 
     delete rcUploadProps.className;
+    delete rcUploadProps.style;
 
     const uploadList = showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
@@ -306,19 +308,24 @@ class Upload extends React.Component<UploadProps, UploadState> {
     ) : null;
 
     if (type === 'drag') {
-      const dragCls = classNames(prefixCls, {
-        [`${prefixCls}-drag`]: true,
-        [`${prefixCls}-drag-uploading`]: fileList.some(file => file.status === 'uploading'),
-        [`${prefixCls}-drag-hover`]: dragState === 'dragover',
-        [`${prefixCls}-disabled`]: disabled,
-      });
+      const dragCls = classNames(
+        prefixCls,
+        {
+          [`${prefixCls}-drag`]: true,
+          [`${prefixCls}-drag-uploading`]: fileList.some(file => file.status === 'uploading'),
+          [`${prefixCls}-drag-hover`]: dragState === 'dragover',
+          [`${prefixCls}-disabled`]: disabled,
+        },
+        className,
+      );
       return (
-        <span className={className}>
+        <span>
           <div
             className={dragCls}
             onDrop={this.onFileDrop}
             onDragOver={this.onFileDrop}
             onDragLeave={this.onFileDrop}
+            style={style}
           >
             <RcUpload {...rcUploadProps} ref={this.saveUpload} className={`${prefixCls}-btn`}>
               <div className={`${prefixCls}-drag-container`}>{children}</div>

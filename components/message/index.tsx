@@ -74,7 +74,7 @@ function notice(args: ArgsProps): MessageType {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
   const IconComponent = iconMap[args.type];
 
-  const target = key++;
+  const target = args.key || key++;
   const closePromise = new Promise(resolve => {
     const callback = () => {
       if (typeof args.onClose === 'function') {
@@ -84,7 +84,7 @@ function notice(args: ArgsProps): MessageType {
     };
     getMessageInstance(instance => {
       instance.notice({
-        key: args.key || target,
+        key: target,
         duration,
         style: {},
         content: (

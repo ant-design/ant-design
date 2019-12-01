@@ -1,3 +1,4 @@
+import React from 'react';
 import notification from '..';
 
 describe('notification', () => {
@@ -77,5 +78,26 @@ describe('notification', () => {
       duration: 0,
     });
     expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+  });
+
+  it('support closeIcon', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <span className="test-customize-icon" />,
+    });
+    expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
+  });
+
+  it('support config closeIcon', () => {
+    notification.config({
+      closeIcon: <span className="test-customize-icon" />,
+    });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <span className="test-customize-icon" />,
+    });
+    expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
   });
 });

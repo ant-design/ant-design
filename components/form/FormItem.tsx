@@ -203,12 +203,16 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
               'colon',
               'extra',
               'getValueFromEvent',
+              'hasFeedback',
+              'help',
               'htmlFor',
               'id', // It is deprecated because `htmlFor` is its replacement.
               'label',
               'labelAlign',
               'labelCol',
               'normalize',
+              'required',
+              'validateStatus',
               'valuePropName',
               'wrapperCol',
             ])}
