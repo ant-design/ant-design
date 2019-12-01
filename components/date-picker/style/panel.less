@@ -15,6 +15,7 @@
     border: @picker-border;
     display: inline-block;
     text-align: center;
+    outline: none;
 
     &-focused {
       border-color: @primary-color;
@@ -136,6 +137,7 @@
   // ======================== Body ========================
   &-content {
     border-collapse: collapse;
+    table-layout: fixed;
     width: 100%;
 
     th,

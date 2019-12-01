@@ -2,8 +2,8 @@ import * as React from 'react';
 import { GenerateConfig } from 'rc-picker/lib/generate';
 import { Locale } from 'rc-picker/lib/interface';
 import Select from '../select';
-
-const { Option } = Select;
+import { Group, Button } from '../radio';
+import { CalendarMode } from './generateCalendar';
 
 const YearSelectOffset = 10;
 const YearSelectTotal = 20;
@@ -91,21 +91,47 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
   );
 }
 
+interface ModeSwitchProps<DateType> extends Omit<SharedProps<DateType>, 'onChange'> {
+  mode: CalendarMode;
+  onModeChange: (type: CalendarMode) => void;
+}
+
+function ModeSwitch<DateType>(props: ModeSwitchProps<DateType>) {
+  const { prefixCls, locale, mode, fullscreen, onModeChange } = props;
+  return (
+    <Group
+      onChange={({ target: { value } }) => {
+        onModeChange(value);
+      }}
+      value={mode}
+      size={fullscreen ? 'default' : 'small'}
+      className={`${prefixCls}-mode-switch`}
+    >
+      <Button value="month">{locale.month}</Button>
+      <Button value="year">{locale.year}</Button>
+    </Group>
+  );
+}
+
 export interface CalendarHeaderProps<DateType> {
   prefixCls: string;
   value: DateType;
   validRange?: [DateType, DateType];
   generateConfig: GenerateConfig<DateType>;
   locale: Locale;
+  mode: CalendarMode;
+  fullscreen: boolean;
   onChange: (date: DateType) => void;
+  onModeChange: (mode: CalendarMode) => void;
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
-  const { prefixCls, onChange } = props;
+  const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
 
   return (
     <div className={`${prefixCls}-header`}>
-      <YearSelect {...props} onChange={onChange} fullscreen />
-      <MonthSelect {...props} onChange={onChange} fullscreen />
+      <YearSelect {...props} onChange={onChange} fullscreen={fullscreen} />
+      {mode === 'month' && <MonthSelect {...props} onChange={onChange} fullscreen={fullscreen} />}
+      <ModeSwitch {...props} onModeChange={onModeChange} fullscreen={fullscreen} />
     </div>
   );
 }

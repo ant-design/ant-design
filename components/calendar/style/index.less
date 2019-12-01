@@ -9,44 +9,140 @@
 
   // ========================= Header =========================
   &-header {
-    padding: @padding-sm @padding-md @padding-sm 0;
-    text-align: right;
+    padding: 11px 16px 11px 0;
+    display: flex;
+    justify-content: flex-end;
 
     .@{calendar-prefix-cls}-year-select {
-      width: 90px;
+      width: 85px;
     }
 
     .@{calendar-prefix-cls}-month-select {
-      width: 80px;
+      width: 70px;
+      margin-left: @padding-xs;
+    }
+
+    .@{calendar-prefix-cls}-mode-switch {
+      margin-left: @padding-xs;
+    }
+  }
+
+  .@{calendar-picker-prefix-cls}-panel {
+    border: 0;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    border-radius: 0;
+
+    .@{calendar-picker-prefix-cls}-body {
+      padding: @padding-xs @padding-sm;
+    }
+  }
+
+  // ========================== Mini ==========================
+  &-mini {
+    .@{calendar-picker-prefix-cls}-content {
+      height: 256px;
+
+      th {
+        line-height: 18px;
+        height: auto;
+        padding: 0;
+      }
     }
   }
 
   // ========================== Full ==========================
   &-full {
+    .@{calendar-prefix-cls}-header {
+      .@{calendar-prefix-cls}-year-select {
+        width: 90px;
+      }
+
+      .@{calendar-prefix-cls}-month-select {
+        width: 80px;
+        margin-left: @padding-xs;
+      }
+
+      .@{calendar-prefix-cls}-mode-switch {
+        margin-left: @padding-md;
+      }
+    }
+
     .@{calendar-picker-prefix-cls}-panel {
       width: 100%;
       display: block;
-      border: 0;
       text-align: right;
+      border: 0;
 
-      .@{calendar-picker-prefix-cls}-date-panel {
-        width: 100%;
-
+      .@{calendar-picker-prefix-cls}-body {
         th,
         td {
           padding: 0;
         }
+
+        th {
+          padding: 0 12px 5px 0;
+          line-height: 18px;
+          height: auto;
+        }
       }
 
+      // Cell
+      .@{calendar-picker-prefix-cls}-cell {
+        &::before {
+          display: none;
+        }
+
+        &:hover {
+          .@{calendar-prefix-cls}-date {
+            background: @item-hover-bg;
+            cursor: pointer;
+          }
+        }
+
+        &-selected,
+        &-selected:hover {
+          .@{calendar-prefix-cls}-date,
+          .@{calendar-prefix-cls}-date-today {
+            background: @item-active-bg;
+
+            .@{calendar-prefix-cls}-date-value {
+              color: @primary-color;
+            }
+          }
+        }
+      }
+
+      // Cell date
       .@{calendar-prefix-cls}-date {
+        border: 0;
         border-top: 2px solid @border-color-split;
+        border-radius: 0;
         margin: 0 @padding-xs / 2;
+        padding: @padding-xs / 2 @padding-xs 0;
+        transition: background 0.3s;
+        display: block;
+        height: auto;
+        width: auto;
+
+        &-value {
+          line-height: 24px;
+          transition: color 0.3s;
+        }
 
         &-content {
           position: static;
           width: auto;
-          height: 88px;
+          height: 86px;
           overflow-y: auto;
+          line-height: @line-height-base;
+        }
+
+        &-today {
+          border-color: @primary-color;
+
+          .@{calendar-prefix-cls}-date-value {
+            color: @text-color;
+          }
         }
       }
     }
