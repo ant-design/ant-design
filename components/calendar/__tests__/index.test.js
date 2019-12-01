@@ -316,7 +316,7 @@ describe('Calendar', () => {
 
       for (let index = start; index < end; index += 1) {
         monthOptions.push(
-          <Select.Option className="month-item" key={`${index}`}>
+          <Select.Option className="month-item" key={`${index}`} value={index}>
             {months[index]}
           </Select.Option>,
         );
