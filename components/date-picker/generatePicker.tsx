@@ -14,7 +14,7 @@ import {
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
 import { PickerMode } from 'rc-picker/lib/interface';
-import { CalendarOutlined, CloseCircleFilled } from '@ant-design/icons';
+import { CalendarOutlined, ClockCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';
@@ -145,9 +145,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           showToday: true,
         };
 
-        let additionalOverrideProps: any = {
-          hideHeader: false,
-        };
+        let additionalOverrideProps: any = {};
         if (picker) {
           additionalOverrideProps.picker = picker;
         }
@@ -164,8 +162,12 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         return (
           <RCPicker<DateType>
             ref={this.pickerRef}
-            placeholder={locale!.lang.placeholder}
-            suffixIcon={<CalendarOutlined />}
+            placeholder={
+              mergedPicker === 'time'
+                ? locale!.timePickerLocale.placeholder
+                : locale!.lang.placeholder
+            }
+            suffixIcon={mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
             clearIcon={<CloseCircleFilled />}
             allowClear
             transitionName="slide-up"
@@ -206,6 +208,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   const WeekPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('week', 'WeekPicker');
   const MonthPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('month', 'MonthPicker');
   const YearPicker = getPicker<Omit<PickerDateProps<DateType>, 'picker'>>('year', 'YearPicker');
+  const TimePicker = getPicker<Omit<PickerTimeProps<DateType>, 'picker'>>('time', 'TimePicker');
 
   // ======================== Range Picker ========================
   class RangePicker extends React.Component<RangePickerProps<DateType>> {
@@ -246,9 +249,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
-      let additionalOverrideProps: any = {
-        hideHeader: false,
-      };
+      let additionalOverrideProps: any = {};
 
       additionalOverrideProps = {
         ...additionalOverrideProps,
@@ -261,7 +262,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           separator={<span className={`${prefixCls}-separator`}>~</span>}
           ref={this.pickerRef}
           placeholder={locale!.lang.rangePlaceholder as [string, string]}
-          suffixIcon={<CalendarOutlined />}
+          suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
           clearIcon={<CloseCircleFilled />}
           allowClear
           transitionName="slide-up"
@@ -296,6 +297,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     MonthPicker: typeof MonthPicker;
     YearPicker: typeof YearPicker;
     RangePicker: typeof RangePicker;
+    TimePicker: typeof TimePicker;
   };
 
   const MergedDatePicker = DatePicker as MergedDatePicker;
@@ -303,6 +305,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   MergedDatePicker.MonthPicker = MonthPicker;
   MergedDatePicker.YearPicker = YearPicker;
   MergedDatePicker.RangePicker = RangePicker;
+  MergedDatePicker.TimePicker = TimePicker;
 
   return MergedDatePicker;
 }
