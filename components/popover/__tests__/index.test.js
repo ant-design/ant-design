@@ -2,11 +2,12 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Popover', () => {
   mountTest(Popover);
 
-  it('should show overlay when trigger is clicked', () => {
+  it('should show overlay when trigger is clicked', async () => {
     const popover = mount(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
@@ -16,6 +17,7 @@ describe('Popover', () => {
     expect(popover.instance().getPopupDomNode()).toBe(null);
 
     popover.find('span').simulate('click');
+    await sleep(100);
 
     const popup = popover.instance().getPopupDomNode();
     expect(popup).not.toBe(null);
