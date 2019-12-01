@@ -5,7 +5,7 @@
 
 .@{picker-prefix-cls} {
   @picker-basic-cell-hover-color: fade(@primary-color, 10%);
-  @picker-border: @border-width-base @border-style-base @calendar-border-color;
+  @picker-border: @border-width-base @border-style-base @border-color-split;
   @picker-text-height: 40px;
   @picker-arrow-size: 7px;
 
@@ -33,7 +33,7 @@
   &-time-panel {
     display: flex;
     flex-direction: column;
-    min-width: 280px;
+    width: 280px;
   }
 
   // ======================= Header =======================
@@ -403,6 +403,7 @@
   // ====================== Time Panel ======================
   &-time-panel {
     min-width: auto;
+    width: auto;
 
     .@{picker-prefix-cls}-content {
       display: flex;
