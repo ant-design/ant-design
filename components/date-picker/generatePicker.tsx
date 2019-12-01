@@ -201,7 +201,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       Picker.displayName = displayName;
     }
 
-    return Picker;
+    return Picker as React.ComponentClass<InnerPickerProps>;
   }
 
   const DatePicker = getPicker<DatePickerProps>();
@@ -296,7 +296,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     WeekPicker: typeof WeekPicker;
     MonthPicker: typeof MonthPicker;
     YearPicker: typeof YearPicker;
-    RangePicker: typeof RangePicker;
+    RangePicker: React.ComponentClass<RangePickerProps<DateType>>;
     TimePicker: typeof TimePicker;
   };
 
