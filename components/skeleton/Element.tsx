@@ -7,6 +7,7 @@ export interface SkeletonElementProps {
   style?: object;
   size?: 'large' | 'small' | 'default' | number;
   shape?: 'circle' | 'square' | 'round';
+  active?: boolean;
 }
 
 // eslint-disable-next-line react/prefer-stateless-function

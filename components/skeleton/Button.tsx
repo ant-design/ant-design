@@ -5,7 +5,6 @@ import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
-  active?: boolean;
   size?: 'large' | 'small' | 'default';
 }
 

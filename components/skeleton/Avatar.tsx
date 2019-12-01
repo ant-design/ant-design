@@ -5,7 +5,6 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Element, { SkeletonElementProps } from './Element';
 
 export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
-  active?: boolean;
   shape?: 'circle' | 'square';
 }
 
