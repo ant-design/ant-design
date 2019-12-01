@@ -73,7 +73,7 @@ export default function focusTest(Component, refFocus = false) {
         expect(onBlur).toHaveBeenCalled();
       });
 
-      it('autoFocus', () => {
+      it('Ref: autoFocus', () => {
         const onFocus = jest.fn();
         const wrapper = mount(<Component autoFocus onFocus={onFocus} />);
 
