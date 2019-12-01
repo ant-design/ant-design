@@ -908,7 +908,7 @@ exports[`Picker format by locale month 1`] = `
     class="ant-picker-input"
   >
     <input
-      placeholder="请选择日期"
+      placeholder="请选择月份"
       readonly=""
       size="12"
       value="2000-01"
@@ -973,7 +973,7 @@ exports[`Picker format by locale week 1`] = `
     class="ant-picker-input"
   >
     <input
-      placeholder="请选择日期"
+      placeholder="请选择周"
       readonly=""
       size="12"
       value="2000-52周"

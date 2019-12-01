@@ -385,7 +385,7 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          placeholder="Start date"
+          placeholder="Start time"
           readonly=""
           size="10"
           value=""
@@ -431,7 +431,7 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          placeholder="End date"
+          placeholder="End time"
           readonly=""
           size="10"
           value=""

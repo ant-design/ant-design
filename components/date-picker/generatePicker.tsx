@@ -18,6 +18,7 @@ import { CalendarOutlined, ClockCircleOutlined, CloseCircleFilled } from '@ant-d
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';
+import { getPlaceholder, getRangePlaceholder } from './util';
 
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {
@@ -162,11 +163,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         return (
           <RCPicker<DateType>
             ref={this.pickerRef}
-            placeholder={
-              mergedPicker === 'time'
-                ? locale!.timePickerLocale.placeholder
-                : locale!.lang.placeholder
-            }
+            placeholder={getPlaceholder(mergedPicker, locale)}
             suffixIcon={mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
             clearIcon={<CloseCircleFilled />}
             allowClear
@@ -261,7 +258,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         <RCRangePicker<DateType>
           separator={<span className={`${prefixCls}-separator`}>~</span>}
           ref={this.pickerRef}
-          placeholder={locale!.lang.rangePlaceholder as [string, string]}
+          placeholder={getRangePlaceholder(picker, locale)}
           suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
           clearIcon={<CloseCircleFilled />}
           allowClear

@@ -424,7 +424,7 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
     >
       <input
         disabled=""
-        placeholder="Select date"
+        placeholder="Select month"
         readonly=""
         size="12"
         value="2015-06"
@@ -1142,7 +1142,7 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        placeholder="Select date"
+        placeholder="Select month"
         readonly=""
         size="12"
         value="2015/01"
@@ -1823,7 +1823,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          placeholder="Start date"
+          placeholder="Start month"
           readonly=""
           size="12"
           value=""
@@ -1866,7 +1866,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          placeholder="End date"
+          placeholder="End month"
           readonly=""
           size="12"
           value=""
@@ -1909,7 +1909,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          placeholder="Start date"
+          placeholder="Start year"
           readonly=""
           size="12"
           value=""
@@ -1952,7 +1952,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         class="ant-picker-input"
       >
         <input
-          placeholder="End date"
+          placeholder="End year"
           readonly=""
           size="12"
           value=""
