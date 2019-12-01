@@ -4151,9 +4151,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <span
-            class=""
-          >
+          <span>
             <div
               class="ant-upload ant-upload-drag"
             />

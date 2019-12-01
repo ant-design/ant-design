@@ -40,7 +40,7 @@ export interface SinglePickerProps {
 }
 
 const DatePickerModes = tuple('time', 'date', 'month', 'year', 'decade');
-export type DatePickerMode = (typeof DatePickerModes)[number];
+export type DatePickerMode = typeof DatePickerModes[number];
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
   showTime?: TimePickerProps | boolean;

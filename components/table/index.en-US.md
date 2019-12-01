@@ -124,6 +124,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | className | className of this column | string | - |  |
 | colSpan | Span of this column's title | number |  |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |  |
+| defaultFilteredValue | Default filtered values | string\[] | - |  |
 | defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |  |
 | filterDropdown | Customized filter overlay | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
