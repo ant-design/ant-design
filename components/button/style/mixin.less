@@ -32,16 +32,30 @@
 
   &:hover,
   &:focus {
-    .button-color(
-      @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-    );
+    & when (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
+    & when (@theme = default) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+      );
+    }
   }
 
   &:active,
   &.active {
-    .button-color(
-      @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-    );
+    & when (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+      );
+    }
+    & when (@theme = default) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
   }
 
   .button-disabled();
@@ -52,17 +66,33 @@
 
   &:hover,
   &:focus {
-    .button-color(
-      ~`colorPalette('@{btn-primary-bg}', 5) `; @background; ~`colorPalette('@{btn-primary-bg}', 5)
-        `
-    );
+    & when (@theme = dark) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 7) `; @background; ~`colorPalette('@{btn-primary-bg}', 7)
+          `
+      );
+    }
+    & when (@theme = default) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 5) `; @background; ~`colorPalette('@{btn-primary-bg}', 5)
+          `
+      );
+    }
   }
   &:active,
   &.active {
-    .button-color(
-      ~`colorPalette('@{btn-primary-bg}', 7) `; @background; ~`colorPalette('@{btn-primary-bg}', 7)
-        `
-    );
+    & when (@theme = default) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 7) `; @background; ~`colorPalette('@{btn-primary-bg}', 7)
+          `
+      );
+    }
+    & when (@theme = dark) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 5) `; @background; ~`colorPalette('@{btn-primary-bg}', 5)
+          `
+      );
+    }
   }
   .button-disabled();
 }
