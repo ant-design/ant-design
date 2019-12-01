@@ -18,7 +18,7 @@ Using JSX style API (introduced in 2.5.0)
 > Since this is just a syntax sugar for the prop `columns`, you can't compose `Column` and `ColumnGroup` with other Components.
 
 ```jsx
-import { Table, Divider, Tag } from 'antd';
+import { Table, Tag } from 'antd';
 
 const { Column, ColumnGroup } = Table;
 
@@ -76,8 +76,7 @@ ReactDOM.render(
       key="action"
       render={(text, record) => (
         <span>
-          <a>Invite {record.lastName}</a>
-          <Divider type="vertical" />
+          <a style={{ marginRight: 16 }}>Invite {record.lastName}</a>
           <a>Delete</a>
         </span>
       )}

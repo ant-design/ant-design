@@ -22,11 +22,14 @@ ReactDOM.render(
       Primary
     </Button>
     <Button ghost>Default</Button>
-    <Button type="dashed" ghost>
-      Dashed
-    </Button>
-    <Button type="danger" ghost>
+    <Button type="primary" danger ghost>
       danger
+    </Button>
+    <Button danger ghost>
+      Danger Default
+    </Button>
+    <Button type="link" danger ghost>
+      Danger Link
     </Button>
     <Button type="link" ghost>
       link

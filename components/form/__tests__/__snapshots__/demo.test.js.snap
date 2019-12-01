@@ -248,7 +248,6 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         <a
           style="margin-left:8px;font-size:12px"
         >
-          Collapse 
           <span
             aria-label="down"
             class="anticon anticon-down"
@@ -269,6 +268,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               />
             </svg>
           </span>
+           Collapse
         </a>
       </div>
     </div>

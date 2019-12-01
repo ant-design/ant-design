@@ -80,7 +80,7 @@ const AdvancedSearchForm = () => {
               setExpand(!expand);
             }}
           >
-            Collapse {expand ? <UpOutlined /> : <DownOutlined />}
+            {expand ? <UpOutlined /> : <DownOutlined />} Collapse
           </a>
         </Col>
       </Row>

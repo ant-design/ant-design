@@ -6,7 +6,7 @@ exports[`renders ./components/grid/demo/basic.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col"
+      class="ant-col ant-col-24"
     >
       col
     </div>

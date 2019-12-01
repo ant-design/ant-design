@@ -5,12 +5,12 @@
 
 .@{picker-prefix-cls} {
   @picker-basic-cell-hover-color: fade(@primary-color, 10%);
-  @picker-border: @border-width-base @border-style-base @border-color-split;
+  @picker-border: @border-width-base @border-style-base @calendar-border-color;
   @picker-text-height: 40px;
   @picker-arrow-size: 7px;
 
   &-panel {
-    background: @component-background;
+    background: @calendar-bg;
     border-radius: @border-radius-base;
     border: @picker-border;
     display: inline-block;
@@ -455,7 +455,7 @@
 
           &-selected {
             .@{picker-prefix-cls}-time-panel-cell-inner {
-              background: @item-active-bg;
+              background: @calendar-item-active-bg;
             }
           }
 

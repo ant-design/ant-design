@@ -225,6 +225,36 @@
 .btn-danger() {
   .button-variant-primary(@btn-danger-color, @btn-danger-bg);
 }
+// danger default button style
+.btn-danger-default() {
+  .button-color(@error-color, @btn-default-bg, @error-color);
+  &:hover,
+  &:focus {
+    .button-color(
+      ~`colorPalette('@{error-color}', 5) `; @btn-default-bg; ~`colorPalette('@{error-color}', 5) `
+    );
+  }
+  &:active,
+  &.active {
+    .button-color(
+      ~`colorPalette('@{error-color}', 7) `; @btn-default-bg; ~`colorPalette('@{error-color}', 7) `
+    );
+  }
+  .button-disabled();
+}
+// danger link button style
+.btn-danger-link() {
+  .button-variant-other(@error-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus {
+    .button-color(~`colorPalette('@{error-color}', 5) `; transparent; transparent);
+  }
+  &:active {
+    .button-color(~`colorPalette('@{error-color}', 7) `; transparent; transparent);
+  }
+  .button-disabled(@disabled-color; transparent; transparent);
+}
 // link button style
 .btn-link() {
   .button-variant-other(@link-color, transparent, transparent);

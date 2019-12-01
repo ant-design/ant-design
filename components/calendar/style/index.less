@@ -6,6 +6,7 @@
 
 .@{calendar-prefix-cls} {
   .reset-component;
+  background: @calendar-bg;
 
   // ========================= Header =========================
   &-header {
@@ -102,7 +103,7 @@
         &-selected:hover {
           .@{calendar-prefix-cls}-date,
           .@{calendar-prefix-cls}-date-today {
-            background: @item-active-bg;
+            background: @calendar-item-active-bg;
 
             .@{calendar-prefix-cls}-date-value {
               color: @primary-color;
@@ -114,7 +115,7 @@
       // Cell date
       .@{calendar-prefix-cls}-date {
         border: 0;
-        border-top: 2px solid @border-color-split;
+        border-top: 2px solid @calendar-border-color;
         border-radius: 0;
         margin: 0 @padding-xs / 2;
         padding: @padding-xs / 2 @padding-xs 0;

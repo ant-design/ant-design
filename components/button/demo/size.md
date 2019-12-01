@@ -19,7 +19,7 @@ If a large or small button is desired, set the `size` property to either `large`
 
 ```jsx
 import { Button, Radio } from 'antd';
-import { DownloadOutlined, LeftOutlined, RightOutlined } from '@ant-design/icons';
+import { DownloadOutlined } from '@ant-design/icons';
 
 class ButtonSize extends React.Component {
   state = {
@@ -44,12 +44,19 @@ class ButtonSize extends React.Component {
         <Button type="primary" size={size}>
           Primary
         </Button>
-        <Button size={size}>Normal</Button>
+        <Button size={size}>Default</Button>
         <Button type="dashed" size={size}>
           Dashed
         </Button>
-        <Button type="danger" size={size}>
+        <br />
+        <Button type="primary" danger size={size}>
           Danger
+        </Button>
+        <Button danger size={size}>
+          Danger Default
+        </Button>
+        <Button danger type="link" size={size}>
+          Danger Link
         </Button>
         <Button type="link" size={size}>
           Link
@@ -64,17 +71,6 @@ class ButtonSize extends React.Component {
         <Button type="primary" icon={<DownloadOutlined />} size={size}>
           Download
         </Button>
-        <br />
-        <Button.Group size={size}>
-          <Button type="primary">
-            <LeftOutlined />
-            Backward
-          </Button>
-          <Button type="primary">
-            Forward
-            <RightOutlined />
-          </Button>
-        </Button.Group>
       </div>
     );
   }
