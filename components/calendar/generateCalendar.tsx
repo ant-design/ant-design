@@ -46,6 +46,7 @@ export interface CalendarProps<DateType> {
   style?: React.CSSProperties;
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
+  disabledDate?: (date: DateType) => boolean;
   dateFullCellRender?: (date: DateType) => React.ReactNode;
   dateCellRender?: (date: DateType) => React.ReactNode;
   monthFullCellRender?: (date: DateType) => React.ReactNode;
@@ -92,6 +93,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       headerRender,
       value,
       defaultValue,
+      disabledDate,
       mode,
       validRange,
       fullscreen = true,
@@ -120,6 +122,20 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       () => (mergedMode === 'year' ? 'month' : 'date'),
       [mergedMode],
     );
+
+    // Disabled Date
+    const mergedDisabledDate = React.useMemo(() => {
+      if (validRange) {
+        return (date: DateType) => {
+          return (
+            generateConfig.isAfter(validRange[0], date) ||
+            generateConfig.isAfter(date, validRange[1])
+          );
+        };
+      }
+
+      return disabledDate;
+    }, [disabledDate, validRange]);
 
     // ====================== Events ======================
     const triggerPanelChange = (date: DateType, newMode: CalendarMode) => {
@@ -151,11 +167,6 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
       if (onSelect) {
         onSelect(date);
       }
-    };
-
-    const onHeaderChange = (date: DateType) => {
-      triggerChange(date);
-      onInternalSelect(date);
     };
 
     // ====================== Locale ======================
@@ -237,7 +248,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 headerRender({
                   value: mergedValue,
                   type: mergedMode,
-                  onChange: onHeaderChange,
+                  onChange: onInternalSelect,
                   onTypeChange: triggerModeChange,
                 })
               ) : (
@@ -249,7 +260,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                   fullscreen={fullscreen}
                   locale={mergedLocale.lang}
                   validRange={validRange}
-                  onChange={onHeaderChange}
+                  onChange={onInternalSelect}
                   onModeChange={triggerModeChange}
                 />
               )}
@@ -263,6 +274,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 monthCellRender={date => monthRender(date, mergedLocale.lang)}
                 onSelect={onInternalSelect}
                 mode={panelMode}
+                disabledDate={mergedDisabledDate}
                 hideHeader
               />
             </div>

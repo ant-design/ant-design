@@ -15,11 +15,21 @@ interface SharedProps<DateType> {
   generateConfig: GenerateConfig<DateType>;
   locale: Locale;
   fullscreen: boolean;
+  divRef: React.RefObject<HTMLDivElement>;
   onChange: (year: DateType) => void;
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
-  const { fullscreen, validRange, generateConfig, locale, prefixCls, value, onChange } = props;
+  const {
+    fullscreen,
+    validRange,
+    generateConfig,
+    locale,
+    prefixCls,
+    value,
+    onChange,
+    divRef,
+  } = props;
 
   const year = generateConfig.getYear(value);
 
@@ -43,15 +53,45 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
       options={options}
       value={year}
       className={`${prefixCls}-year-select`}
-      onChange={newYear => {
-        onChange(generateConfig.setYear(value, newYear));
+      onChange={numYear => {
+        let newDate = generateConfig.setYear(value, numYear);
+
+        if (validRange) {
+          const [startDate, endDate] = validRange;
+          const newYear = generateConfig.getYear(newDate);
+          const newMonth = generateConfig.getMonth(newDate);
+          if (
+            newYear === generateConfig.getYear(endDate) &&
+            newMonth > generateConfig.getMonth(endDate)
+          ) {
+            newDate = generateConfig.setMonth(newDate, generateConfig.getMonth(endDate));
+          }
+          if (
+            newYear === generateConfig.getYear(startDate) &&
+            newMonth < generateConfig.getMonth(startDate)
+          ) {
+            newDate = generateConfig.setMonth(newDate, generateConfig.getMonth(startDate));
+          }
+        }
+
+        onChange(newDate);
       }}
+      getPopupContainer={() => divRef!.current!}
     />
   );
 }
 
 function MonthSelect<DateType>(props: SharedProps<DateType>) {
-  const { prefixCls, fullscreen, validRange, value, generateConfig, locale, onChange } = props;
+  const {
+    prefixCls,
+    fullscreen,
+    validRange,
+    value,
+    generateConfig,
+    locale,
+    onChange,
+    divRef,
+  } = props;
   const month = generateConfig.getMonth(value);
 
   let start = 0;
@@ -70,7 +110,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
 
   const months = locale.shortMonths || generateConfig.locale.getShortMonths!(locale.locale);
   const options: { label: string; value: number }[] = [];
-  for (let index = start; index < end; index++) {
+  for (let index = start; index < end; index += 1) {
     options.push({
       label: months[index],
       value: index,
@@ -87,6 +127,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
       onChange={newMonth => {
         onChange(generateConfig.setMonth(value, newMonth));
       }}
+      getPopupContainer={() => divRef!.current!}
     />
   );
 }
@@ -126,12 +167,20 @@ export interface CalendarHeaderProps<DateType> {
 }
 function CalendarHeader<DateType>(props: CalendarHeaderProps<DateType>) {
   const { prefixCls, fullscreen, mode, onChange, onModeChange } = props;
+  const divRef = React.useRef<HTMLDivElement>(null);
+
+  const sharedProps = {
+    ...props,
+    onChange,
+    fullscreen,
+    divRef,
+  };
 
   return (
-    <div className={`${prefixCls}-header`}>
-      <YearSelect {...props} onChange={onChange} fullscreen={fullscreen} />
-      {mode === 'month' && <MonthSelect {...props} onChange={onChange} fullscreen={fullscreen} />}
-      <ModeSwitch {...props} onModeChange={onModeChange} fullscreen={fullscreen} />
+    <div className={`${prefixCls}-header`} ref={divRef}>
+      <YearSelect {...sharedProps} />
+      {mode === 'month' && <MonthSelect {...sharedProps} />}
+      <ModeSwitch {...sharedProps} onModeChange={onModeChange} />
     </div>
   );
 }
