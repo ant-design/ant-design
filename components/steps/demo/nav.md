@@ -20,7 +20,7 @@ const { Step } = Steps;
 
 const stepStyle = {
   marginBottom: 60,
-  boxShadow: '0px -1px 0 0 rgba(255,255,255,.12) inset',
+  boxShadow: '0px -1px 0 0 #e8e8e8 inset',
 };
 
 class Demo extends React.Component {
