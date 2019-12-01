@@ -1,5 +1,6 @@
 const datePickerLocale = {
   lang: {
+    locale: 'hy',
     placeholder: 'Ընտրեք ամսաթիվը',
     rangePlaceholder: ['Մեկնարկի ամսաթիվ', 'Ավարտի ամսաթիվը'],
     today: 'Այսօր',

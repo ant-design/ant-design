@@ -10,9 +10,9 @@
 
   // ========================= Header =========================
   &-header {
-    padding: 11px 16px 11px 0;
     display: flex;
     justify-content: flex-end;
+    padding: 11px 16px 11px 0;
 
     .@{calendar-prefix-cls}-year-select {
       width: 85px;
@@ -44,9 +44,9 @@
       height: 256px;
 
       th {
-        line-height: 18px;
         height: auto;
         padding: 0;
+        line-height: 18px;
       }
     }
   }
@@ -69,8 +69,8 @@
     }
 
     .@{calendar-picker-prefix-cls}-panel {
-      width: 100%;
       display: block;
+      width: 100%;
       text-align: right;
       border: 0;
 
@@ -81,9 +81,9 @@
         }
 
         th {
+          height: auto;
           padding: 0 12px 5px 0;
           line-height: 18px;
-          height: auto;
         }
       }
 
@@ -114,15 +114,15 @@
 
       // Cell date
       .@{calendar-prefix-cls}-date {
+        display: block;
+        width: auto;
+        height: auto;
+        margin: 0 @padding-xs / 2;
+        padding: @padding-xs / 2 @padding-xs 0;
         border: 0;
         border-top: 2px solid @calendar-border-color;
         border-radius: 0;
-        margin: 0 @padding-xs / 2;
-        padding: @padding-xs / 2 @padding-xs 0;
         transition: background 0.3s;
-        display: block;
-        height: auto;
-        width: auto;
 
         &-value {
           line-height: 24px;
