@@ -11,14 +11,16 @@ export default function focusTest(Component, refFocus = false) {
 
     beforeAll(() => {
       jest.useFakeTimers();
-      domSpy = spyElementPrototypes(HTMLElement, {
-        focus() {
-          focused = true;
-        },
-        blur() {
-          blurred = true;
-        },
-      });
+      if (refFocus) {
+        domSpy = spyElementPrototypes(HTMLElement, {
+          focus() {
+            focused = true;
+          },
+          blur() {
+            blurred = true;
+          },
+        });
+      }
     });
 
     let container;
@@ -30,7 +32,9 @@ export default function focusTest(Component, refFocus = false) {
     });
 
     afterAll(() => {
-      domSpy.mockRestore();
+      if (domSpy) {
+        domSpy.mockRestore();
+      }
       jest.useRealTimers();
     });
 
