@@ -10,6 +10,20 @@ import ResponsiveObserve, {
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Col from './Col';
 
+// https://github.com/smooth-code/react-flatten-children/
+function flattenChildren(children: React.ReactNode): JSX.Element[] {
+  if (!children) {
+    return [];
+  }
+  return toArray(children).reduce((flatChildren: JSX.Element[], child: JSX.Element) => {
+    if (child && child.type === React.Fragment) {
+      return flatChildren.concat(flattenChildren(child.props.children));
+    }
+    flatChildren.push(child);
+    return flatChildren;
+  }, []);
+}
+
 export interface DescriptionsItemProps {
   prefixCls?: string;
   className?: string;
@@ -47,7 +61,7 @@ const generateChildrenRows = (
   let columns: React.ReactElement<DescriptionsItemProps>[] | null = null;
   let leftSpans: number;
 
-  const itemNodes = toArray(children);
+  const itemNodes = flattenChildren(children);
   itemNodes.forEach((node: React.ReactElement<DescriptionsItemProps>, index: number) => {
     let itemNode = node;
 
@@ -113,7 +127,7 @@ const renderRow = (
 
   const cloneChildren: JSX.Element[] = [];
   const cloneContentChildren: JSX.Element[] = [];
-  toArray(children).forEach(
+  flattenChildren(children).forEach(
     (childrenItem: React.ReactElement<DescriptionsItemProps>, idx: number) => {
       cloneChildren.push(renderCol(childrenItem, 'label', idx));
       if (layout === 'vertical') {
@@ -225,7 +239,7 @@ class Descriptions extends React.Component<
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
           const column = this.getColumn();
-          const cloneChildren = toArray(children)
+          const cloneChildren = flattenChildren(children)
             .map((child: React.ReactElement<DescriptionsItemProps>) => {
               if (React.isValidElement(child)) {
                 return React.cloneElement(child, {
@@ -236,9 +250,9 @@ class Descriptions extends React.Component<
             })
             .filter((node: React.ReactElement) => node);
 
-          const childrenArray: Array<
-            React.ReactElement<DescriptionsItemProps>[]
-          > = generateChildrenRows(cloneChildren, column);
+          const childrenArray: Array<React.ReactElement<
+            DescriptionsItemProps
+          >[]> = generateChildrenRows(cloneChildren, column);
           return (
             <div
               className={classNames(prefixCls, className, {

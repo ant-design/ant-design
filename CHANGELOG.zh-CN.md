@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.26.0
+
+`2019-12-01`
+
+- 🏆 `3.26.0` 将为 antd v3 最后一个 minor 版本，v4 beta 版即将发布！
+- 🌟 Notification 支持 `closeIcon` 属性。[#19618](https://github.com/ant-design/ant-design/pull/19618) [@liuchao233](https://github.com/liuchao233)
+- 🌟 Typography 添加 `pt_BR` 国际化支持。[#19651](https://github.com/ant-design/ant-design/pull/19651) [@liuchao233](https://github.com/liuchao233)
+- 🌟 Table 支持 `defaultFilteredValues` 属性。[#18925](https://github.com/ant-design/ant-design/pull/18925) [@mgcrea](https://github.com/mgcrea)
+- 🇲🇰 国际化添加北马其顿支持。[#19647](https://github.com/ant-design/ant-design/pull/19647) [@sradevski](https://github.com/sradevski)
+- 🐞 修复 Input.Group 紧凑模式下使用 Input Addon 圆角不对的问题。[#19926](https://github.com/ant-design/ant-design/pull/19926)
+- 🐞 修复 Spin 在 `indicator` 属性为 `null` 时，渲染默认的旋转图标。[#19943](https://github.com/ant-design/ant-design/pull/19943)
+- 🐞 修复 Button 组件 `disabled` 和 `loading` 状态下没有阻止鼠标事件。[#19958](https://github.com/ant-design/ant-design/pull/19958)
+- 🐞 修复 message 组件使用 `key` 时无法手动取消的问题。[#19967](https://github.com/ant-design/ant-design/pull/19967)
+- 🐞 修复 Upload 在 `picture-card` 模式下，图片过长会超出边界的问题。[#20008](https://github.com/ant-design/ant-design/pull/20008) [@qq645381995](https://github.com/qq645381995)
+- 🐞 修复 Input 清除图标和反馈图标重合的问题。[#20017](https://github.com/ant-design/ant-design/pull/20017)
+- 🐞 修复 Slider 的 tooltip 内容没有居中的问题。[#20016](https://github.com/ant-design/ant-design/pull/20016)
+- 🐞 修复 Descriptions 内使用 React.Fragment 的渲染问题。[#20019](https://github.com/ant-design/ant-design/pull/20019)
+- 🛠 Upload 拖拽模式下的 `className` 和 `style` 将会作用到真正的 dom 上。[#19987](https://github.com/ant-design/ant-design/pull/19987)
+- 💄 新增 less 变量 `@table-header-bg-sm` 并修复小号 Table 的 footer 样式。[#19939](https://github.com/ant-design/ant-design/pull/19939)
+
 ## 3.25.3
 
 `2019-11-24`

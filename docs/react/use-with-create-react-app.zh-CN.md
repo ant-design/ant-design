@@ -201,6 +201,21 @@ module.exports = override(
 
 > 你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
 
+## 使用 Day.js 替换 momentjs 优化打包大小
+
+你可以使用 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) 插件用 Day.js 替换 momentjs 来大幅减小打包大小。
+
+```bash
+$ yarn add antd-dayjs-webpack-plugin
+```
+
+```js
+const { override, addWebpackPlugin } = require('customize-cra');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+
+module.exports = override(addWebpackPlugin(new AntdDayjsWebpackPlugin()));
+```
+
 ## eject
 
 你也可以使用 create-react-app 提供的 [yarn run eject](https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject) 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。

@@ -185,4 +185,22 @@ describe('Descriptions', () => {
 
     expect(wrapper.find('Col').key()).toBe('label-bamboo');
   });
+
+  // https://github.com/ant-design/ant-design/issues/19887
+  it('should work with React Fragment', () => {
+    if (!React.Fragment) {
+      return;
+    }
+    const wrapper = mount(
+      <Descriptions>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <>
+          <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+          <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        </>
+      </Descriptions>,
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

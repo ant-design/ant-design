@@ -34,6 +34,7 @@ config 参数如下：
 | btn | 自定义关闭按钮 | ReactNode | - |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素。 | number | 24 |
 | className | 自定义 CSS class | string | - |
+| closeIcon | 自定义关闭图标 | ReactNode | - |
 | description | 通知提醒内容，必选 | string\|ReactNode | - |
 | duration | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭 | number | 4.5 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |
@@ -61,6 +62,7 @@ notification.config({
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | bottom | 消息从底部弹出时，距离底部的位置，单位像素。 | number | 24 |
+| closeIcon | 自定义关闭图标 | ReactNode | - |
 | duration | 默认自动关闭延时，单位秒 | number | 4.5 |
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
