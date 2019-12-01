@@ -2648,7 +2648,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
             class="ant-picker-input"
           >
             <input
-              placeholder="Select date"
+              placeholder="Select month"
               readonly=""
               size="12"
               value=""

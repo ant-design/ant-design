@@ -5964,7 +5964,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
       class="config-picker-input"
     >
       <input
-        placeholder="Select date"
+        placeholder="Select month"
         readonly=""
         size="12"
         value=""
@@ -6007,7 +6007,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
       class="ant-picker-input"
     >
       <input
-        placeholder="Select date"
+        placeholder="Select month"
         readonly=""
         size="12"
         value=""
@@ -6050,7 +6050,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
       class="prefix-MonthPicker-input"
     >
       <input
-        placeholder="Select date"
+        placeholder="Select month"
         readonly=""
         size="12"
         value=""
@@ -6363,7 +6363,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
       class="config-picker-input"
     >
       <input
-        placeholder="Select date"
+        placeholder="Select week"
         readonly=""
         size="12"
         value=""
@@ -6406,7 +6406,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
       class="ant-picker-input"
     >
       <input
-        placeholder="Select date"
+        placeholder="Select week"
         readonly=""
         size="12"
         value=""
@@ -6449,7 +6449,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
       class="prefix-WeekPicker-input"
     >
       <input
-        placeholder="Select date"
+        placeholder="Select week"
         readonly=""
         size="12"
         value=""
