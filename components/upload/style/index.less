@@ -177,7 +177,7 @@
         line-height: 1;
         opacity: 1;
       }
-      .anticon {
+      .@{iconfont-css-prefix} {
         padding-right: 5px;
         color: @upload-actions-color;
       }
@@ -196,7 +196,7 @@
 
       .@{iconfont-css-prefix}-loading,
       .@{upload-prefix-cls}-text-icon {
-        .anticon {
+        .@{iconfont-css-prefix} {
           position: absolute;
           top: @font-size-base / 2 - 2px;
           color: @text-color-secondary;
@@ -234,13 +234,13 @@
     }
 
     &-error,
-    &-error .@{upload-prefix-cls}-text-icon > .anticon,
+    &-error .@{upload-prefix-cls}-text-icon > .@{iconfont-css-prefix},
     &-error &-name {
       color: @error-color;
     }
 
     &-error &-card-actions {
-      .anticon {
+      .@{iconfont-css-prefix} {
         padding-right: 5px;
         color: @error-color;
       }
@@ -259,7 +259,7 @@
 
   &-picture {
     .@{upload-item}-file {
-      .anticon {
+      .@{iconfont-css-prefix} {
         position: absolute;
         top: 0;
         left: 0;
@@ -308,7 +308,7 @@
       line-height: 54px;
       text-align: center;
       opacity: 0.8;
-      .anticon {
+      .@{iconfont-css-prefix} {
         font-size: 26px;
       }
     }
