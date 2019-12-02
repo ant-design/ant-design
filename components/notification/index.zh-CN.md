@@ -45,6 +45,7 @@ config 参数如下：
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |  |
 | style | 自定义内联样式 | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |  |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |  |
+| closeIcon | 自定义关闭图标 | ReactNode | - | 3.25.0 |
 
 还提供了一个全局配置方法，在调用前提前配置，全局一次生效。
 
@@ -65,3 +66,4 @@ notification.config({
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |  |
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |  |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |  |
+| closeIcon | 自定义关闭图标 | ReactNode | - | 3.26.0 |

@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 3.26.0
+
+`2019-12-01`
+
+- 🏆 `3.26.0` will be the last minor version of antd v3. And v4 beta is coming!
+- 🌟 Notification support `closeIcon` props. [#19618](https://github.com/ant-design/ant-design/pull/19618) [@liuchao233](https://github.com/liuchao233)
+- 🌟 Typography support `pt_BR` locale. [#19651](https://github.com/ant-design/ant-design/pull/19651) [@liuchao233](https://github.com/liuchao233)
+- 🌟 Table support `defaultFilteredValues` props. [#18925](https://github.com/ant-design/ant-design/pull/18925) [@mgcrea](https://github.com/mgcrea)
+- 🇲🇰 Locale add Macedonian support. [#19647](https://github.com/ant-design/ant-design/pull/19647) [@sradevski](https://github.com/sradevski)
+- 🐞 Fix Input.Group compat mode has wrong border radius for Input Addon. [#19926](https://github.com/ant-design/ant-design/pull/19926)
+- 🐞 Fix Spin render default indicator when `indicator` is `null`. [#19943](https://github.com/ant-design/ant-design/pull/19943)
+- 🐞 Fix Button component `disabled` with `loading` not prevent pointer-events. [#19958](https://github.com/ant-design/ant-design/pull/19958)
+- 🐞 Fix message can not cancel when `key` is provided. [#19967](https://github.com/ant-design/ant-design/pull/19967)
+- 🐞 Fix image in Upload with `picture-card` mode exceeds the border. [#20008](https://github.com/ant-design/ant-design/pull/20008) [@qq645381995](https://github.com/qq645381995)
+- 🐞 Fix Input clear icon overlap with feedback icon. [#20017](https://github.com/ant-design/ant-design/pull/20017)
+- 🐞 Fix Slider tooltip text not align center. [#20016](https://github.com/ant-design/ant-design/pull/20016)
+- 🐞 Fix Descriptions items not working with React.Fragment. [#20019](https://github.com/ant-design/ant-design/pull/20019)
+- 🛠 Upload under drag mode moves `className` and `style` to the real effect dom.[#19987](https://github.com/ant-design/ant-design/pull/19987)
+- 💄Add less variable `@table-header-bg-sm` and fix small Table footer style. [#19939](https://github.com/ant-design/ant-design/pull/19939)
+
 ## 3.25.3
 
 `2019-11-24`

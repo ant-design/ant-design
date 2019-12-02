@@ -318,9 +318,7 @@ exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
 `;
 
 exports[`renders ./components/upload/demo/drag.md correctly 1`] = `
-<span
-  class=""
->
+<span>
   <div
     class="ant-upload ant-upload-drag"
   />

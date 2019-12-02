@@ -17,7 +17,7 @@ const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
 const FormLabelAligns = tuple('left', 'right');
 
-export type FormLabelAlign = (typeof FormLabelAligns)[number];
+export type FormLabelAlign = typeof FormLabelAligns[number];
 
 export interface FormItemProps {
   prefixCls?: string;
@@ -30,7 +30,7 @@ export interface FormItemProps {
   wrapperCol?: ColProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
-  validateStatus?: (typeof ValidateStatuses)[number];
+  validateStatus?: typeof ValidateStatuses[number];
   hasFeedback?: boolean;
   required?: boolean;
   style?: React.CSSProperties;
@@ -66,7 +66,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const { children, help, validateStatus, id } = this.props;
     warning(
       this.getControls(children, true).length <= 1 ||
-        (help !== undefined || validateStatus !== undefined),
+        help !== undefined ||
+        validateStatus !== undefined,
       'Form.Item',
       'Cannot generate `validateStatus` and `help` automatically, ' +
         'while there are more than one `getFieldDecorator` in it.',

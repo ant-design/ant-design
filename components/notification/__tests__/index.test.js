@@ -1,4 +1,6 @@
+import React from 'react';
 import notification from '..';
+import Icon from '../../icon';
 
 describe('notification', () => {
   beforeAll(() => {
@@ -77,5 +79,26 @@ describe('notification', () => {
       duration: 0,
     });
     expect(document.querySelectorAll('.ant-notification').length).toBe(1);
+  });
+
+  it('support closeIcon', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <Icon type="step-backward" />,
+    });
+    expect(document.querySelectorAll('.anticon-step-backward').length).toBe(1);
+  });
+
+  it('support config closeIcon', () => {
+    notification.config({
+      closeIcon: <Icon type="step-backward" />,
+    });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <Icon type="step-backward" />,
+    });
+    expect(document.querySelectorAll('.anticon-step-backward').length).toBe(1);
   });
 });
