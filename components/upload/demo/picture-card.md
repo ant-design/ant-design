@@ -111,8 +111,8 @@ ReactDOM.render(<PicturesWall />, mountNode);
 ```css
 /* you can make up upload button and sample style by using stylesheets */
 .ant-upload-select-picture-card i {
-  font-size: 32px;
   color: #999;
+  font-size: 32px;
 }
 
 .ant-upload-select-picture-card .ant-upload-text {
