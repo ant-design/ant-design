@@ -565,7 +565,7 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
-    expect(wrapper.find('.anticon.ant-upload-list-item-thumbnail').length).toBe(1);
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(1);
   });
 
   it('extname should work correctly when url exists', () => {
@@ -588,8 +588,8 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ uploading: 'uploading' }} />,
     );
-    expect(wrapper.find('.ant-upload-list-item-uploading-text').length).toBe(1);
-    expect(wrapper.find('.ant-upload-list-item-uploading-text').text()).toBe('uploading');
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(1);
+    expect(wrapper.find('.ant-upload-list-item-thumbnail').text()).toBe('uploading');
   });
 
   it('onPreview should be called, when url exists', () => {
