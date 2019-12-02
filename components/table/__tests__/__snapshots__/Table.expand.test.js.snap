@@ -30,7 +30,7 @@ exports[`Table.expand click to expand 1`] = `
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"

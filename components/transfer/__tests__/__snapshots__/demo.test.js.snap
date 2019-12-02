@@ -1484,7 +1484,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </th>
                             <th
-                              class=""
+                              class="ant-table-row-cell-last"
                             >
                               <span
                                 class="ant-table-header-column"
@@ -2197,7 +2197,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                               </span>
                             </th>
                             <th
-                              class=""
+                              class="ant-table-row-cell-last"
                             >
                               <span
                                 class="ant-table-header-column"

@@ -139,7 +139,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     </i>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -325,7 +325,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -659,7 +659,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -923,7 +923,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -1278,7 +1278,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </i>
                   </th>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -1551,7 +1551,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -2489,7 +2489,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -3668,7 +3668,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -3930,7 +3930,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4517,7 +4517,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class="ant-table-row-cell-ellipsis"
+                    class="ant-table-row-cell-ellipsis ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -4839,7 +4839,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -5165,7 +5165,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class="ant-table-row-cell-break-word"
+                    class="ant-table-row-cell-break-word ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -5600,7 +5600,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -5794,7 +5794,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                         </span>
                       </th>
                       <th
-                        class="ant-table-row-cell-break-word"
+                        class="ant-table-row-cell-break-word ant-table-row-cell-last"
                       >
                         <span
                           class="ant-table-header-column"
@@ -5874,7 +5874,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   >
                     <tr>
                       <th
-                        class="ant-table-row-cell-break-word"
+                        class="ant-table-row-cell-break-word ant-table-row-cell-last"
                       >
                         <span
                           class="ant-table-header-column"
@@ -6248,7 +6248,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -6978,7 +6978,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                       </span>
                     </th>
                     <th
-                      class="ant-table-row-cell-break-word"
+                      class="ant-table-row-cell-break-word ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -7195,7 +7195,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 >
                   <tr>
                     <th
-                      class="ant-table-row-cell-break-word"
+                      class="ant-table-row-cell-break-word ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -7598,7 +7598,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -8865,7 +8865,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word ant-table-row-cell-last"
                       rowspan="4"
                     >
                       <span
@@ -9598,7 +9598,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word ant-table-row-cell-last"
                       rowspan="4"
                     >
                       <span
@@ -9784,7 +9784,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 >
                   <tr>
                     <th
-                      class="ant-table-row-cell-break-word"
+                      class="ant-table-row-cell-break-word ant-table-row-cell-last"
                       rowspan="4"
                     >
                       <span
@@ -10255,7 +10255,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -10617,7 +10617,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                     rowspan="2"
                   >
                     <span
@@ -11078,7 +11078,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -11548,7 +11548,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis"
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -11938,7 +11938,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     />
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -12245,7 +12245,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -12650,7 +12650,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -13332,7 +13332,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     </span>
                   </th>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -13955,7 +13955,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"
@@ -14187,7 +14187,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                       </span>
                     </th>
                     <th
-                      class=""
+                      class="ant-table-row-cell-last"
                     >
                       <span
                         class="ant-table-header-column"

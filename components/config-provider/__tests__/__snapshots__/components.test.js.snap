@@ -11598,7 +11598,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
               >
                 <tr>
                   <th
-                    class="config-table-column-has-actions config-table-column-has-filters config-table-column-has-sorters"
+                    class="config-table-column-has-actions config-table-column-has-filters config-table-column-has-sorters config-table-row-cell-last"
                   >
                     <span
                       class="config-table-header-column"
@@ -11844,7 +11844,7 @@ exports[`ConfigProvider components Table normal 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -12090,7 +12090,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
               >
                 <tr>
                   <th
-                    class="prefix-Table-column-has-actions prefix-Table-column-has-filters prefix-Table-column-has-sorters"
+                    class="prefix-Table-column-has-actions prefix-Table-column-has-filters prefix-Table-column-has-sorters prefix-Table-row-cell-last"
                   >
                     <span
                       class="prefix-Table-header-column"
