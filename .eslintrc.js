@@ -55,6 +55,7 @@ const eslintrc = {
     'jsx-a11y/anchor-has-content': 0,
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/anchor-is-valid': 0,
+    'jsx-a11y/no-noninteractive-element-interactions': 0,
     'comma-dangle': ['error', 'always-multiline'],
     'react/jsx-filename-extension': 0,
     'react/state-in-constructor': 0,
