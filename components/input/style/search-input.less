@@ -11,7 +11,12 @@
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      color: fade(@black, 80%);
+      & when (@theme = default) {
+        color: fade(@black, 85%);
+      }
+      & when (@theme = dark) {
+        color: fade(@white, 85%);
+      }
     }
   }
 
