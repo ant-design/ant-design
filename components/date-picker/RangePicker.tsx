@@ -31,7 +31,7 @@ function getShowDateFromValue(value: RangePickerValue, mode?: string | string[])
   if (mode && mode[0] === 'month') {
     return [start, end] as RangePickerValue;
   }
-  const newEnd = end && end.isSame(start, 'month') ? end.clone().add(1, 'month') : end;
+  const newEnd = end && end.isSame(start!, 'month') ? end.clone().add(1, 'month') : end;
   return [start, newEnd] as RangePickerValue;
 }
 
@@ -162,7 +162,7 @@ class RangePicker extends React.Component<RangePickerProps, RangePickerState> {
         showDate: getShowDateFromValue(value) || showDate,
       }));
     }
-    if (value[0] && value[0].diff(value[1]) > 0) {
+    if (value[0] && value[1] && value[0].diff(value[1]) > 0) {
       value[1] = undefined;
     }
     const [start, end] = value;
