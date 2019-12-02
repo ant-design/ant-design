@@ -261,7 +261,7 @@
 
 // Anchor
 // ---
-@anchor-bg: @black;
+@anchor-bg: inherit;
 
 // Tooltip
 // ---
@@ -283,7 +283,7 @@
 // Table
 // --
 @table-header-bg: fade(@white, 4%);
-@table-header-bg-sm: fade(@white, 8%);
+@table-header-bg-sm: @table-header-bg;
 
 // TimePicker
 // ---
@@ -302,6 +302,10 @@
 // ---
 @process-tail-color: fade(@white, 20%);
 @steps-nav-arrow-color: fade(@white, 20%);
+
+// Avatar
+// ---
+@avatar-bg: #5a5a5a;
 
 // Calendar
 // ---
@@ -322,7 +326,7 @@
 
 // Card
 // ---
-@card-actions-background: @component-background;
+@card-actions-background: fade(@white, 4%);
 @card-skeleton-bg: #303030;
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
   0 5px 12px 4px rgba(0, 0, 0, 0.27);
@@ -384,5 +388,4 @@
 
 // Mentions
 // ---
-@mentions-textarea-bg: transparent;
 @mentions-dropdown-bg: @gray-11;

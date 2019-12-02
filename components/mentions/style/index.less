@@ -60,7 +60,9 @@
     border: none;
     outline: none;
     resize: none;
-    background-color: @mentions-textarea-bg;
+    & when (@theme = dark) {
+      background-color: transparent;
+    }
     .placeholder();
 
     &:read-only {
