@@ -93,7 +93,7 @@ export interface RangePickerProps extends PickerProps {
   mode?: string | string[];
   separator?: React.ReactNode;
   disabledTime?: (
-    current: moment.Moment | null,
+    current: RangePickerValue,
     type: string,
   ) => {
     disabledHours?: () => number[];
