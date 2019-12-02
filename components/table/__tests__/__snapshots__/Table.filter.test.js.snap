@@ -94,7 +94,7 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -407,7 +407,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -626,7 +626,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"

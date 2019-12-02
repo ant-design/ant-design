@@ -30,7 +30,7 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
@@ -204,7 +204,7 @@ exports[`Table.pagination renders pagination correctly 1`] = `
               >
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"

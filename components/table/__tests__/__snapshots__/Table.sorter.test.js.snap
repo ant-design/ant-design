@@ -6,7 +6,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
 >
   <tr>
     <th
-      class="ant-table-column-has-actions ant-table-column-has-sorters"
+      class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-row-cell-last"
     >
       <span
         class="ant-table-header-column"
@@ -103,7 +103,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
+                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort ant-table-row-cell-last"
                   >
                     <span
                       class="ant-table-header-column"
