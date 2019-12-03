@@ -44,6 +44,113 @@ exports[`Table.filter renders custom content correctly 1`] = `
 </div>
 `;
 
+exports[`Table.filter renders custom filter icon as string correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-default ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                    <span
+                      class="ant-table-filter-icon ant-dropdown-trigger"
+                    >
+                      string
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Table.filter renders custom filter icon correctly 1`] = `
 <span
   class="ant-table-filter-icon ant-table-filter-selected ant-dropdown-trigger"
@@ -62,6 +169,134 @@ exports[`Table.filter renders custom filter icon correctly 2`] = `
 >
   unfiltered
 </span>
+`;
+
+exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-default ant-table-scroll-position-left"
+      >
+        <div
+          class="ant-table-content"
+        >
+          <div
+            class="ant-table-body"
+          >
+            <table
+              class=""
+            >
+              <colgroup>
+                <col />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                    <span
+                      class="ant-tooltip-open ant-table-filter-icon ant-dropdown-trigger"
+                      style=""
+                    >
+                      Tooltip
+                    </span>
+                    <div>
+                      <div
+                        class="ant-tooltip ant-tooltip-placement-top zoom-big-fast-appear"
+                        style="left: -999px; top: -1003px; transform-origin: 50% 4px;"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          />
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            title
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jack
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Lucy
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Tom
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                  >
+                    Jerry
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Table.filter renders filter correctly 1`] = `
