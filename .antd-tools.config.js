@@ -70,7 +70,7 @@ function finalizeDist() {
     console.log('Built a entry less file to dist/antd-dark.less');
 
     // Build antd-dark.js: dist/antd-dark.js, for less-loader
-    const stylePath = path.join(process.cwd(), 'lib', 'style');
+    const stylePath = path.join(process.cwd(), 'components', 'style');
 
     const colorLess = fs.readFileSync(path.join(stylePath, 'color', 'colors.less'), 'utf8');
     const defaultLess = fs.readFileSync(path.join(stylePath, 'themes', 'default.less'), 'utf8');
