@@ -8,13 +8,6 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 
-// Sorter
-// Legacy: `table-header-sort-active-bg` is used for hover not real active
-@table-header-sort-active-bg: darken(@table-header-bg, 3%);
-
-// Filter
-@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
-
 @table-selection-column-width: 60px;
 
 .@{table-prefix-cls}-wrapper {
@@ -300,6 +293,9 @@
       padding: 7px 8px;
       overflow: hidden;
       border-top: @border-width-base @border-style-base @border-color-split;
+      & when (@theme = dark) {
+        background-color: @gray-11;
+      }
     }
   }
 
@@ -503,7 +499,13 @@
     }
 
     .@{table-prefix-cls}-cell-fix-left-last::after {
-      box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+      & when (@theme = dark) {
+        box-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
+          0 5px 12px 4px rgba(0, 0, 0, 0.27);
+      }
+      & when not (@theme = dark) {
+        box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
+      }
     }
   }
   &-ping-right {

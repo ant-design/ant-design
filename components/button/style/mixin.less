@@ -32,16 +32,30 @@
 
   &:hover,
   &:focus {
-    .button-color(
-      @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
-    );
+    & when (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
+    & when not (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+      );
+    }
   }
 
   &:active,
   &.active {
-    .button-color(
-      @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
-    );
+    & when (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 5) `; ~`colorPalette('@{background}', 5) `
+      );
+    }
+    & when not (@theme = dark) {
+      .button-color(
+        @color; ~`colorPalette('@{background}', 7) `; ~`colorPalette('@{background}', 7) `
+      );
+    }
   }
 
   .button-disabled();
@@ -52,17 +66,33 @@
 
   &:hover,
   &:focus {
-    .button-color(
-      ~`colorPalette('@{btn-primary-bg}', 5) `; @background; ~`colorPalette('@{btn-primary-bg}', 5)
-        `
-    );
+    & when (@theme = dark) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
+          ~`colorPalette('@{btn-primary-bg}', 7) `
+      );
+    }
+    & when not (@theme = dark) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
+          ~`colorPalette('@{btn-primary-bg}', 5) `
+      );
+    }
   }
   &:active,
   &.active {
-    .button-color(
-      ~`colorPalette('@{btn-primary-bg}', 7) `; @background; ~`colorPalette('@{btn-primary-bg}', 7)
-        `
-    );
+    & when (@theme = dark) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
+          ~`colorPalette('@{btn-primary-bg}', 5) `
+      );
+    }
+    & when not (@theme = default) {
+      .button-color(
+        ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
+          ~`colorPalette('@{btn-primary-bg}', 7) `
+      );
+    }
   }
   .button-disabled();
 }
@@ -92,8 +122,7 @@
 .button-color(@color; @background; @border) {
   color: @color;
   background-color: @background;
-  border-color: @border;
-  // a inside Button which only work in Chrome
+  border-color: @border; // a inside Button which only work in Chrome
   // http://stackoverflow.com/a/17253457
   > a:only-child {
     color: currentColor;

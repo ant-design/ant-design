@@ -1,6 +1,8 @@
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
 @import '../color/colors';
 
+@theme: default;
+
 // The prefix to use on all css classes from ant.
 @ant-prefix: ant;
 
@@ -161,8 +163,8 @@
 @btn-default-border: @border-color-base;
 
 @btn-danger-color: #fff;
-@btn-danger-bg: color(~`colorPalette('@{error-color}', 5) `);
-@btn-danger-border: color(~`colorPalette('@{error-color}', 5) `);
+@btn-danger-bg: @error-color;
+@btn-danger-border: @error-color;
 
 @btn-disable-color: @disabled-color;
 @btn-disable-bg: @disabled-bg;
@@ -204,6 +206,7 @@
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
+@dropdown-menu-submenu-disabled-bg: @component-background;
 
 // Empty
 @empty-font-size: @font-size-base;
@@ -211,6 +214,7 @@
 // Radio
 @radio-size: 16px;
 @radio-dot-color: @primary-color;
+@radio-dot-disabled-color: fade(@black, 20%);
 // solid text-color
 @radtio-solid-checked-color: @component-background;
 
@@ -346,6 +350,10 @@
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
 
+// Mentions
+// ---
+@mentions-dropdown-bg: @component-background;
+
 // Select
 // ---
 @select-border-color: @border-color-base;
@@ -357,7 +365,9 @@
 
 // Cascader
 // ---
+@cascader-bg: @component-background;
 @cascader-item-selected-bg: @blue-1;
+@cascader-menu-bg: @component-background;
 
 // Anchor
 // ---
@@ -468,6 +478,11 @@
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
 @table-header-bg-sm: transparent;
+// Sorter
+// Legacy: `table-header-sort-active-bg` is used for hover not real active
+@table-header-sort-active-bg: darken(@table-header-bg, 3%);
+// Filter
+@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
 
 // Tag
 // --
@@ -481,6 +496,10 @@
 @time-picker-panel-column-width: 56px;
 @time-picker-panel-width: @time-picker-panel-column-width * 3;
 @time-picker-selected-bg: @item-active-bg;
+@time-picker-inner-bg: @component-background;
+@time-picker-panel-inner-bg: @component-background;
+@month-panel-bg: @component-background;
+@year-panel-bg: @component-background;
 
 // Calendar
 // ---
@@ -594,6 +613,9 @@
 @pagination-font-family: Arial;
 @pagination-font-weight-active: 500;
 @pagination-item-bg-active: @component-background;
+@pagination-item-link-bg: @component-background;
+@pagination-item-disabled-color-active: @white;
+@pagination-item-disabled-bg-active: darken(@disabled-bg, 10%);
 
 // PageHeader
 // ---
@@ -635,6 +657,7 @@
 
 // Tree
 // ---
+@tree-bg: @component-background;
 @tree-title-height: 24px;
 @tree-child-padding: 18px;
 @tree-directory-selected-color: #fff;
@@ -723,3 +746,12 @@
 // Upload
 // ---
 @upload-actions-color: @text-color-secondary;
+
+// Steps
+// ---
+@process-tail-color: @border-color-split;
+@steps-nav-arrow-color: fade(@black, 25%);
+
+// Notification
+// ---
+@notification-bg: @component-background;

@@ -180,7 +180,7 @@
       height: 100%;
       font-size: 12px;
       text-align: center;
-      background-color: @component-background;
+      background-color: @pagination-item-link-bg;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-base;
       outline: none;
@@ -350,10 +350,10 @@
       }
 
       &-active {
-        background: darken(@disabled-bg, 10%);
+        background: @pagination-item-disabled-bg-active;
         border-color: transparent;
         a {
-          color: #fff;
+          color: @pagination-item-disabled-color-active;;
         }
       }
     }

@@ -22,8 +22,8 @@ There are some major variables below, all less variables could be found in [Defa
 @font-size-base: 14px; // major text font size
 @heading-color: rgba(0, 0, 0, 0.85); // heading text color
 @text-color: rgba(0, 0, 0, 0.65); // major text color
-@text-color-secondary : rgba(0, 0, 0, .45); // secondary text color
-@disabled-color : rgba(0, 0, 0, .25); // disable state color
+@text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
+@disabled-color: rgba(0, 0, 0, 0.25); // disable state color
 @border-radius-base: 4px; // major border radius
 @border-color-base: #d9d9d9; // major border color
 @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
@@ -113,17 +113,7 @@ include `antd/dist/antd-dark.less` in the style file:
 Another approach to using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
 ```js
-const lessToJs = require('less-vars-to-js');
-const fs = require('fs');
-
-const colorLess = fs.readFileSync(require.resolve('antd/lib/style/color/colors.less'), 'utf8');
-const defaultLess = fs.readFileSync(require.resolve('antd/lib/style/themes/default.less'), 'utf8');
-const darkLess = fs.readFileSync(require.resolve('antd/lib/style/themes/dark.less'), 'utf8');
-
-const darkThemeVars = lessToJs(`${colorLess}${defaultLess}${darkLess}`, {
-  resolveVariables: false,
-  stripPrefix: false,
-})
+const darkThemeVars = require('antd/dist/antd-dark');
 
 // webpack.config.js
 module.exports = {
@@ -143,7 +133,7 @@ module.exports = {
     // ...other rules
   }],
   // ...other config
-`` `
+```
 
 ## How to avoid modifying global styles?
 
