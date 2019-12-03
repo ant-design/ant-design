@@ -66,7 +66,7 @@ exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
       class="ant-slider-mark"
     />
   </div>
-  Disabled:
+  Disabled: 
   <button
     aria-checked="false"
     class="ant-switch-small ant-switch"
@@ -914,7 +914,7 @@ exports[`renders ./components/slider/demo/reverse.md correctly 1`] = `
       class="ant-slider-mark"
     />
   </div>
-  Reversed:
+  Reversed: 
   <button
     aria-checked="true"
     checked=""
@@ -955,7 +955,7 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip"
+      class="ant-tooltip ant-slider-tooltip"
       style="opacity:0"
     >
       <div

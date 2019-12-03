@@ -451,6 +451,14 @@ describe('Table.filter', () => {
         wrapper.find('.confirm').simulate('click');
         wrapper.update();
 
+        expect(
+          wrapper
+            .find('FilterDropdown')
+            .find('Checkbox')
+            .at(0)
+            .props().checked,
+        ).toEqual(true);
+
         expect(typeof wrapper.find('FilterDropdown').props().filterState.filteredKeys[0]).toEqual(
           'string',
         );
@@ -471,7 +479,7 @@ describe('Table.filter', () => {
             .find('Checkbox')
             .at(0)
             .props().checked,
-        ).toEqual(true);
+        ).toEqual(false);
         jest.useRealTimers();
       });
     });
