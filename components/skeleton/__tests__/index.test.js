@@ -11,6 +11,7 @@ describe('Skeleton', () => {
       </Skeleton>,
     );
   const genSkeletonButton = props => mount(<Skeleton.Button {...props} />);
+  const genSkeletonAvatar = props => mount(<Skeleton.Avatar {...props} />);
 
   mountTest(Skeleton);
 
@@ -65,7 +66,7 @@ describe('Skeleton', () => {
     });
   });
 
-  describe('button', () => {
+  describe('button element', () => {
     it('active', () => {
       const wrapper = genSkeletonButton({ active: true });
       expect(wrapper.render()).toMatchSnapshot();
@@ -85,6 +86,30 @@ describe('Skeleton', () => {
       expect(wrapperRound.render()).toMatchSnapshot();
       const wrapperCircle = genSkeletonButton({ shape: 'circle' });
       expect(wrapperCircle.render()).toMatchSnapshot();
+    });
+  });
+
+  describe('avatar element', () => {
+    it('active', () => {
+      const wrapper = genSkeletonAvatar({ active: true });
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+    it('size', () => {
+      const wrapperSmall = genSkeletonAvatar({ size: 'small' });
+      expect(wrapperSmall.render()).toMatchSnapshot();
+      const wrapperDefault = genSkeletonAvatar({ size: 'default' });
+      expect(wrapperDefault.render()).toMatchSnapshot();
+      const wrapperLarge = genSkeletonAvatar({ size: 'large' });
+      expect(wrapperLarge.render()).toMatchSnapshot();
+      const wrapperNumber = genSkeletonAvatar({ size: 20 });
+      expect(wrapperNumber.render()).toMatchSnapshot();
+    });
+
+    it('shape', () => {
+      const wrapperCircle = genSkeletonAvatar({ shape: 'circle' });
+      expect(wrapperCircle.render()).toMatchSnapshot();
+      const wrapperSquare = genSkeletonAvatar({ shape: 'square' });
+      expect(wrapperSquare.render()).toMatchSnapshot();
     });
   });
 });
