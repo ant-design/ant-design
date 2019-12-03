@@ -80,7 +80,7 @@
       fill: #434343;
     }
   }
-  & when (@theme = default) {
+  & when not (@theme = dark) {
     &-ellipse {
       fill-opacity: 0.8;
       fill: #f5f5f5;
@@ -123,7 +123,7 @@
       stroke: #434343;
     }
   }
-  & when (@theme = default) {
+  & when not (@theme = dark) {
     &-ellipse {
       fill: #f5f5f5;
     }

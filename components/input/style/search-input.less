@@ -11,11 +11,11 @@
     cursor: pointer;
     transition: all 0.3s;
     &:hover {
-      & when (@theme = default) {
-        color: fade(@black, 85%);
-      }
       & when (@theme = dark) {
         color: fade(@white, 85%);
+      }
+      & when not (@theme = dark) {
+        color: fade(@black, 85%);
       }
     }
   }
