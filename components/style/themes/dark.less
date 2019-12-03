@@ -176,8 +176,8 @@
 @item-hover-bg: fade(@white, 8%);
 
 // Border color
-@border-color-base: fade(@white, 20%); // base border outline a component
-@border-color-split: fade(@white, 12%); // split border inside a component
+@border-color-base: #434343; // base border outline a component
+@border-color-split: @gray-11; // split border inside a component
 
 @background-color-light: fade(@white, 4%); // background of header and selected item
 @background-color-base: fade(@white, 8%); // Default grey background color
@@ -206,6 +206,7 @@
   0 9px 28px 8px rgba(0, 0, 0, 0.15);
 
 // Buttons
+// ---
 @btn-shadow: 0 2px 0 rgba(0, 0, 0, 0.015);
 @btn-primary-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 @btn-text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -219,24 +220,30 @@
 @btn-default-ghost-border: fade(@white, 25%);
 
 // Checkbox
+// ---
 @checkbox-check-bg: transparent;
 
 // Descriptions
+// ---
 @descriptions-bg: @component-background;
 
 // Modal
+// ---
 @modal-header-bg: @gray-11;
 @modal-content-bg: @gray-11;
 
 // Radio
+// ---
 @radtio-solid-checked-color: @white;
 @radio-dot-disabled-color: fade(@white, 20%);
 
 // Radio buttons
+// ---
 @radio-disabled-button-checked-bg: fade(@white, 20%);
 @radio-disabled-button-checked-color: fade(@white, 25%);
 
 // Layout
+// ---
 @layout-body-background: @body-background;
 @layout-header-background: @component-background;
 @layout-sider-background: @component-background;
@@ -282,8 +289,9 @@
 
 // Table
 // --
-@table-header-bg: fade(@white, 4%);
+@table-header-bg: #1d1d1d;
 @table-header-bg-sm: @table-header-bg;
+@table-row-hover-bg: #262626;
 
 // TimePicker
 // ---
