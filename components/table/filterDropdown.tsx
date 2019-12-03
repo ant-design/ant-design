@@ -224,7 +224,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
 
     if (React.isValidElement(filterIcon)) {
       return React.cloneElement(filterIcon, {
-        title: locale.filterTitle,
+        title: filterIcon.props.title || locale.filterTitle,
         className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
         onClick: stopPropagation,
       });

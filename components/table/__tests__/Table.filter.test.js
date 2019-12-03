@@ -671,6 +671,25 @@ describe('Table.filter', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('renders custom filter icon with right Tooltip title', () => {
+    const filterIcon = () => (
+      <Tooltip title="title" visible>
+        Tooltip
+      </Tooltip>
+    );
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   // https://github.com/ant-design/ant-design/issues/13028
   it('reset dropdown filter correctly', () => {
     class Demo extends React.Component {
