@@ -112,7 +112,7 @@ include `antd/dist/antd-dark.less` in the style file:
 
 Another approach to using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
-````js
+```js
 const darkThemeVars = require('antd/dist/antd-dark');
 
 // webpack.config.js
@@ -133,7 +133,7 @@ module.exports = {
     // ...other rules
   }],
   // ...other config
-`` `
+```
 
 ## How to avoid modifying global styles?
 
@@ -149,7 +149,7 @@ It's possible to configure webpack to load an alternate less file:
 new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') )
 
 #antd { @import '~antd/es/style/core/index.less'; @import '~antd/es/style/themes/default.less'; }
-````
+```
 
 Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector : the result is that all of the "global" styles are being applied with the #antd scope.
 
