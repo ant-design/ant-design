@@ -43,7 +43,7 @@
     top: 50%;
     right: @input-padding-horizontal-base;
     transform: translateY(-50%);
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, color 0.3s;
   }
 
   &-suffix {
@@ -56,6 +56,10 @@
     background: @component-background;
     cursor: pointer;
     opacity: 0;
+
+    &:hover {
+      color: @text-color-secondary;
+    }
   }
 
   &-separator {
@@ -72,6 +76,13 @@
   // ======================== Range =========================
   &-range {
     display: inline-flex;
+    position: relative;
+
+    &:hover {
+      .@{picker-prefix-cls}-clear {
+        opacity: 1;
+      }
+    }
   }
 
   // ======================= Dropdown =======================
