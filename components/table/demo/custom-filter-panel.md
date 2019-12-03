@@ -90,24 +90,25 @@ class App extends React.Component {
         setTimeout(() => this.searchInput.select());
       }
     },
-    render: text => (
-    (this.state.searchedColumn === dataIndex) ?
-      <Highlighter
-        highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
-        searchWords={[this.state.searchText]}
-        autoEscape
-        textToHighlight={text.toString()}
-      />
-      : text
-    ),
+    render: text =>
+      this.state.searchedColumn === dataIndex ? (
+        <Highlighter
+          highlightStyle={{ backgroundColor: '#ffc069', padding: 0 }}
+          searchWords={[this.state.searchText]}
+          autoEscape
+          textToHighlight={text.toString()}
+        />
+      ) : (
+        text
+      ),
   });
 
   handleSearch = (selectedKeys, confirm, dataIndex) => {
     confirm();
-    this.setState({ 
+    this.setState({
       searchText: selectedKeys[0],
       searchedColumn: dataIndex,
-      });
+    });
   };
 
   handleReset = clearFilters => {

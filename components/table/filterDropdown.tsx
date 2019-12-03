@@ -200,7 +200,7 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
   renderFilterIcon = () => {
     const { column, locale, prefixCls, selectedKeys } = this.props;
     const filtered = selectedKeys && selectedKeys.length > 0;
-    let filterIcon = column.filterIcon as any;
+    let filterIcon = column.filterIcon;
     if (typeof filterIcon === 'function') {
       filterIcon = filterIcon(filtered);
     }
@@ -210,21 +210,27 @@ class FilterMenu<T> extends React.Component<FilterMenuProps<T>, FilterMenuState<
       [`${prefixCls}-open`]: this.getDropdownVisible(),
     });
 
-    return filterIcon ? (
-      React.cloneElement(filterIcon as any, {
+    if (!filterIcon) {
+      return (
+        <Icon
+          title={locale.filterTitle}
+          type="filter"
+          theme="filled"
+          className={dropdownIconClass}
+          onClick={stopPropagation}
+        />
+      );
+    }
+
+    if (React.isValidElement(filterIcon)) {
+      return React.cloneElement(filterIcon, {
         title: locale.filterTitle,
         className: classNames(`${prefixCls}-icon`, dropdownIconClass, filterIcon.props.className),
         onClick: stopPropagation,
-      })
-    ) : (
-      <Icon
-        title={locale.filterTitle}
-        type="filter"
-        theme="filled"
-        className={dropdownIconClass}
-        onClick={stopPropagation}
-      />
-    );
+      });
+    }
+
+    return <span className={classNames(`${prefixCls}-icon`, dropdownIconClass)}>{filterIcon}</span>;
   };
 
   renderMenuItem(item: ColumnFilterItem) {
