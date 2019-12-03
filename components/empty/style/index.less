@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 
 @empty-prefix-cls: ~'@{ant-prefix}-empty';
+@empty-img-prefix-cls: ~'@{ant-prefix}-empty-img';
 
 .@{empty-prefix-cls} {
   margin: 0 8px;
@@ -51,8 +52,7 @@
   }
 }
 
-// TODO: use `@{ant-prefix}`
-.default-empty-img {
+.@{empty-img-prefix-cls}-default {
   // not support the definition because the less variables have no meaning
   & when (@theme = dark) {
     &-ellipse {
@@ -108,7 +108,7 @@
   }
 }
 
-.simple-empty-img {
+.@{empty-img-prefix-cls}-simple {
   // not support the definition because the less variables have no meaning
   & when (@theme = dark) {
     &-ellipse {
