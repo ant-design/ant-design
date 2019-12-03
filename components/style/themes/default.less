@@ -478,6 +478,11 @@
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
 @table-header-bg-sm: transparent;
+// Sorter
+// Legacy: `table-header-sort-active-bg` is used for hover not real active
+@table-header-sort-active-bg: darken(@table-header-bg, 3%);
+// Filter
+@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
 
 // Tag
 // --
@@ -750,3 +755,5 @@
 // Notification
 // ---
 @notification-bg: @component-background;
+
+@import './dark.less';
