@@ -158,6 +158,9 @@
 @primary-9: @blue-9; // unused
 @primary-10: @blue-10; // unused
 
+// -------- Colors -----------
+@error-color: @red-6;
+
 // Layer background
 @gray-11: #1f1f1f;
 @body-background: @black;
@@ -179,6 +182,7 @@
 // Border color
 @border-color-base: #434343; // base border outline a component
 @border-color-split: @gray-11; // split border inside a component
+@border-color-split-popover: #303030; // base border in Popover Container
 
 @background-color-light: fade(@white, 4%); // background of header and selected item
 @background-color-base: fade(@white, 8%); // Default grey background color
@@ -194,7 +198,7 @@
 
 // Shadow
 // ---
-@shadow-color: rgba(0, 0, 0, 0.15);
+@shadow-color: rgba(0, 0, 0, 0.45);
 @shadow-color-inverse: @component-background;
 @box-shadow-base: @shadow-2;
 @shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.24), 0 -9px 28px 0 rgba(0, 0, 0, 0.15),
@@ -214,9 +218,6 @@
 
 @btn-default-bg: transparent;
 
-@btn-danger-bg: @red-7;
-@btn-danger-border: @red-7;
-
 @btn-default-ghost-color: @text-color;
 @btn-default-ghost-border: fade(@white, 25%);
 
@@ -231,7 +232,9 @@
 // Modal
 // ---
 @modal-header-bg: @gray-11;
+@modal-header-border-color-split: @border-color-split-popover;
 @modal-content-bg: @gray-11;
+@modal-footer-border-color-split: @border-color-split-popover;
 
 // Radio
 // ---
@@ -256,16 +259,19 @@
 @input-placeholder-color: fade(@white, 30%);
 @input-number-handler-bg: transparent;
 @input-number-handler-active-bg: @gray-11;
+@input-icon-hover-color: fade(@white, 85%);
 
 // Select
 // ---
 @select-background: transparent;
 @select-dropdown-bg: @gray-11;
+@select-clear-background: @component-background;
 
 // Cascader
 // ---
 @cascader-bg: transparent;
 @cascader-menu-bg: @gray-11;
+@cascader-menu-border-color-split: @border-color-split-popover;
 
 // Anchor
 // ---
@@ -296,9 +302,11 @@
 // --
 @table-header-bg: #1d1d1d;
 @table-header-bg-sm: @table-header-bg;
+@table-body-sort-bg: fade(@white, 1%);
 @table-row-hover-bg: #262626;
-@table-header-filter-active-bg: @item-hover-bg;
-@table-header-sort-active-bg: @item-hover-bg;
+@table-header-sort-bg: #262626;
+@table-header-filter-active-bg: #434343;
+@table-header-sort-active-bg: #262626;
 
 // TimePicker
 // ---
@@ -346,6 +354,10 @@
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
   0 5px 12px 4px rgba(0, 0, 0, 0.27);
 
+// Transfer
+// ---
+@transfer-item-hover-bg: #262626;
+
 // Comment
 // ---
 @comment-bg: @component-background;
@@ -371,9 +383,7 @@
 @slider-rail-background-color: fade(@white, 20%);
 @slider-rail-background-color-hover: @slider-rail-background-color;
 @slider-track-background-color: @primary-color;
-@slider-track-background-color-hover: @slider-track-background-color;
 @slider-handle-color: @primary-color;
-@slider-handle-color-hover: @slider-handle-color;
 
 // Skeleton
 // ---

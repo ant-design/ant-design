@@ -104,16 +104,16 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/wp6GpGo%26ID/f31e18a4-2018-4e12-95c6-998e7ac5b2fa.png)
 
-include `antd/dist/antd-dark.less` in the style file:
+include `antd/dist/dark.less` in the style file:
 
 ```less
-@import '~antd/dist/antd-dark.less'; // Introduce the official dark less style entry file
+@import '~antd/dist/dark.less'; // Introduce the official dark less style entry file
 ```
 
 Another approach to using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
-```js
-const darkThemeVars = require('antd/dist/antd-dark');
+```diff
+const darkThemeVars = require('antd/dist/dark');
 
 // webpack.config.js
 module.exports = {

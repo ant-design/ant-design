@@ -67,10 +67,7 @@
   &:hover,
   &:focus {
     & when (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 7) `
-      );
+      .button-color(@primary-5; @background; @primary-5);
     }
     & when not (@theme = dark) {
       .button-color(
@@ -82,12 +79,9 @@
   &:active,
   &.active {
     & when (@theme = dark) {
-      .button-color(
-        ~`colorPalette('@{btn-primary-bg}', 5) `; @background;
-          ~`colorPalette('@{btn-primary-bg}', 5) `
-      );
+      .button-color(@primary-7; @background; @primary-7);
     }
-    & when not (@theme = default) {
+    & when not (@theme = dark) {
       .button-color(
         ~`colorPalette('@{btn-primary-bg}', 7) `; @background;
           ~`colorPalette('@{btn-primary-bg}', 7) `

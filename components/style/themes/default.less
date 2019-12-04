@@ -113,6 +113,7 @@
 // Border color
 @border-color-base: hsv(0, 0, 85%); // base border outline a component
 @border-color-split: hsv(0, 0, 94%); // split border inside a component
+@border-color-split-popover: @border-color-split; // base border in Popover Container
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
 @border-style-base: solid; // style of a components border
@@ -349,6 +350,7 @@
 @input-hover-border-color: @primary-5;
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
+@input-icon-hover-color: fade(@black, 85%);
 
 // Mentions
 // ---
@@ -362,12 +364,14 @@
 @select-item-selected-bg: @blue-1;
 @select-item-active-bg: @item-hover-bg;
 @select-background: @component-background;
+@select-clear-background: @select-background;
 
 // Cascader
 // ---
 @cascader-bg: @component-background;
 @cascader-item-selected-bg: @blue-1;
 @cascader-menu-bg: @component-background;
+@cascader-menu-border-color-split: @border-color-split;
 
 // Anchor
 // ---
@@ -411,6 +415,7 @@
 // --
 @modal-body-padding: 24px;
 @modal-header-bg: @component-background;
+@modal-header-border-color-split: @border-color-split;
 @modal-content-bg: @component-background;
 @modal-heading-color: @heading-color;
 @modal-footer-bg: transparent;
@@ -676,12 +681,14 @@
 // Skeleton
 // ---
 @skeleton-color: #f2f2f2;
+@skeleton-to-color: shade(@skeleton-color, 5%);
 
 // Transfer
 // ---
 @transfer-header-height: 40px;
 @transfer-disabled-bg: @disabled-bg;
 @transfer-list-height: 200px;
+@transfer-item-hover-bg: @item-hover-bg;
 
 // Message
 // ---

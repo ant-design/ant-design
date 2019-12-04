@@ -60,16 +60,16 @@ function finalizeDist() {
     // eslint-disable-next-line
     console.log('Built a entry less file to dist/antd.less');
 
-    // Build less entry file: dist/antd-dark.less
+    // Build less entry file: dist/dark.less
     fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'antd-dark.less'),
+      path.join(process.cwd(), 'dist', 'dark.less'),
       '@import "../lib/style/dark.less";\n@import "../lib/style/components.less";',
     );
 
     // eslint-disable-next-line
-    console.log('Built a entry less file to dist/antd-dark.less');
+    console.log('Built a entry less file to dist/dark.less');
 
-    // Build antd-dark.js: dist/antd-dark.js, for less-loader
+    // Build dark.js: dist/dark.js, for less-loader
     const stylePath = path.join(process.cwd(), 'components', 'style');
 
     const colorLess = fs.readFileSync(path.join(stylePath, 'color', 'colors.less'), 'utf8');
@@ -82,12 +82,12 @@ function finalizeDist() {
     });
 
     fs.writeFileSync(
-      path.join(process.cwd(), 'dist', 'antd-dark.js'),
+      path.join(process.cwd(), 'dist', 'dark.js'),
       `module.exports = ${JSON.stringify(darkPaletteLess, null, 2)};`,
     );
 
     // eslint-disable-next-line
-    console.log('Built a dark theme js file to dist/antd-dark.js');
+    console.log('Built a dark theme js file to dist/dark.js');
   }
 }
 

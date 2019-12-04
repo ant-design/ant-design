@@ -104,16 +104,16 @@ module.exports = {
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/wp6GpGo%26ID/f31e18a4-2018-4e12-95c6-998e7ac5b2fa.png)
 
-一种方式是在样式文件全量引入 `antd/dist/antd-dark.less`：
+一种方式是在样式文件全量引入 `antd/dist/dark.less`：
 
 ```less
-@import '~antd/dist/antd-dark.less'; // 引入官方提供的暗色 less 样式入口文件
+@import '~antd/dist/dark.less'; // 引入官方提供的暗色 less 样式入口文件
 ```
 
 另一种是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
-```js
-const darkThemeVars = require('antd/dist/antd-dark');
+```diff
+const darkThemeVars = require('antd/dist/dark');
 
 // webpack.config.js
 module.exports = {
