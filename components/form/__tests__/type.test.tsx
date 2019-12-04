@@ -1,6 +1,13 @@
 /* tslint:disable */
+/* eslint-disable */
 import * as React from 'react';
 import Form, { FormComponentProps, FormCreateOption } from '../Form';
+
+describe('Form TypeScript test', async () => {
+  it('empty test case placeholder to avoid jest error', () => {
+    // empty
+  });
+});
 
 // test Form.create on component without own props
 class WithoutOwnProps extends React.Component<any, any> {
