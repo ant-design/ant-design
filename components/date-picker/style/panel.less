@@ -8,7 +8,7 @@
   @picker-border: @border-width-base @border-style-base @border-color-split;
   @picker-text-height: 40px;
   @picker-arrow-size: 7px;
-  @picker-date-hover-range-border: @border-width-base @border-style-base @primary-color;
+  @picker-date-hover-range-border: @border-width-base @border-style-base fade(@primary-color, 50%);
 
   &-panel {
     display: inline-block;
@@ -230,7 +230,7 @@
     &-range-hover-start::after {
       border-left: @picker-date-hover-range-border;
       border-radius: @border-radius-base 0 0 @border-radius-base;
-      left: 6px;
+      left: 7px;
     }
     &-range-hover-end::after {
       border-right: @picker-date-hover-range-border;
@@ -446,7 +446,7 @@
       flex: none;
       width: 56px;
       margin: 0;
-      padding: 0 0 180px 0;
+      padding: 0 0 194px 0;
       overflow-y: hidden;
       text-align: left;
       list-style: none;

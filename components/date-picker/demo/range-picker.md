@@ -3,6 +3,7 @@ order: 11
 title:
   zh-CN: 范围选择器
   en-US: Range Picker
+only: true
 ---
 
 ## zh-CN

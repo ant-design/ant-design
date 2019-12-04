@@ -6,8 +6,22 @@
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
 .@{picker-prefix-cls} {
+  @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) - 2 *
+    @input-padding-vertical-base - 2 * @border-width-base;
+  @vertical-fix-lg: @input-height-lg - ceil(@font-size-lg * @line-height-base) - 2 *
+    @input-padding-vertical-lg - 2 * @border-width-base;
+  @vertical-fix-sm: @input-height-sm - ceil(@font-size-base * @line-height-base) - 2 *
+    @input-padding-vertical-sm - 2 * @border-width-base;
+  @arrow-size: 10px;
+
   .reset-component;
   display: inline-flex;
+
+  background: @component-background;
+  border: @border-width-base @border-style-base @select-border-color;
+  border-radius: @border-radius-base;
+  padding: @input-padding-vertical-base @input-padding-horizontal-base @input-padding-vertical-base +
+    @vertical-fix-base;
 
   // ======================== Input =========================
   &-input {
@@ -16,8 +30,16 @@
     width: 100%;
 
     > input {
-      .input;
-      padding-right: @font-size-base + @input-padding-horizontal-base;
+      .input();
+
+      border: 0;
+      padding: 0;
+      height: auto;
+      background: transparent;
+
+      &:focus {
+        box-shadow: none;
+      }
     }
 
     &:hover {
@@ -27,28 +49,40 @@
     }
   }
 
-  &-large &-input > input {
-    .input-lg;
-    padding-right: @font-size-lg + @input-padding-horizontal-lg;
+  // Size
+  &-large {
+    padding: @input-padding-vertical-lg @input-padding-horizontal-lg @input-padding-vertical-lg +
+      @vertical-fix-lg;
+
+    .@{picker-prefix-cls}-input > input {
+      font-size: @font-size-lg;
+    }
   }
 
-  &-small &-input > input {
-    .input-sm;
-    padding-right: @font-size-sm + @input-padding-horizontal-sm;
+  &-small {
+    padding: @input-padding-vertical-sm @input-padding-horizontal-sm @input-padding-vertical-sm +
+      @vertical-fix-sm;
   }
 
-  &-suffix,
-  &-clear {
-    position: absolute;
-    top: 50%;
-    right: @input-padding-horizontal-base;
-    transform: translateY(-50%);
-    transition: opacity 0.3s, color 0.3s;
-  }
+  // &:not(&-range) &-input > input {
+  //   .input;
+  //   padding-right: @font-size-base + @input-padding-horizontal-base;
+  // }
+
+  // &-large:not(&-range) &-input > input {
+  //   .input-lg;
+  //   padding-right: @font-size-lg + @input-padding-horizontal-lg;
+  // }
+
+  // &-small:not(&-range) &-input > input {
+  //   .input-sm;
+  //   padding-right: @font-size-sm + @input-padding-horizontal-sm;
+  // }
 
   &-suffix {
     color: @disabled-color;
     pointer-events: none;
+    margin-left: @padding-xs / 2;
   }
 
   &-clear {
@@ -56,6 +90,11 @@
     background: @component-background;
     cursor: pointer;
     opacity: 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    transition: opacity 0.3s, color 0.3s;
 
     &:hover {
       color: @text-color-secondary;
@@ -78,8 +117,30 @@
     display: inline-flex;
     position: relative;
 
+    // Clear
+    .@{picker-prefix-cls}-clear {
+      right: @input-padding-horizontal-base;
+    }
+
     &:hover {
       .@{picker-prefix-cls}-clear {
+        opacity: 1;
+      }
+    }
+
+    // Active bar
+    .@{picker-prefix-cls}-active-bar {
+      background: @primary-color;
+      bottom: -@border-width-base;
+      height: 2px;
+      pointer-events: none;
+      margin-left: @input-padding-horizontal-base;
+      transition: all 0.3s ease-out;
+      opacity: 0;
+    }
+
+    &.@{picker-prefix-cls}-focused {
+      .@{picker-prefix-cls}-active-bar {
         opacity: 1;
       }
     }
@@ -87,12 +148,69 @@
 
   // ======================= Dropdown =======================
   &-dropdown {
+    .reset-component;
     position: absolute;
     z-index: @zindex-picker-panel;
-    box-shadow: @box-shadow-base;
 
     &-hidden {
       display: none;
+    }
+  }
+
+  &-dropdown-range {
+    padding: (@arrow-size * 2 / 3) 0;
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  &-range-arrow {
+    position: absolute;
+    width: @arrow-size;
+    height: @arrow-size;
+    z-index: 1;
+    transform: rotate(-45deg);
+    transition: left 0.3s ease-out;
+    top: @arrow-size / 2 - @arrow-size / 3;
+    margin-left: @input-padding-horizontal-base * 1.5;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
+
+    &::before {
+      right: 0;
+      top: 0;
+      width: @arrow-size;
+      height: @arrow-size;
+      border: @arrow-size / 2 solid @border-color-split;
+      border-color: @border-color-split @border-color-split transparent transparent;
+    }
+    &::after {
+      right: @border-width-base;
+      top: @border-width-base;
+      width: @arrow-size;
+      height: @arrow-size;
+      border: @arrow-size / 2 solid @border-color-split;
+      border-color: @calendar-bg @calendar-bg transparent transparent;
+    }
+  }
+
+  &-panel-container {
+    box-shadow: @box-shadow-base;
+    border: @border-width-base @border-style-base @border-color-split;
+    border-radius: @border-radius-base;
+    background: @calendar-bg;
+    display: flex;
+    flex-wrap: nowrap;
+
+    .@{picker-prefix-cls}-panel {
+      border: 0;
+      background: transparent;
+      border-radius: 0;
     }
   }
 }
