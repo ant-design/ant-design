@@ -78,7 +78,6 @@ function finalizeDist() {
 
     const darkPaletteLess = lessToJs(`${colorLess}${defaultLess}${darkLess}`, {
       resolveVariables: false,
-      stripPrefix: true,
     });
 
     fs.writeFileSync(
