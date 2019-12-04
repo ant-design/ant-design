@@ -31,7 +31,7 @@ module.exports = {
     '!components/*/style/index.tsx',
     '!components/style/index.tsx',
     '!components/*/locale/index.tsx',
-    '!components/*/__tests__/**/type.tsx',
+    '!components/form/__tests__/type.test.tsx',
     '!components/**/*/interface.{ts,tsx}',
   ],
   transformIgnorePatterns,

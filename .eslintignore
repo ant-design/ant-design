@@ -1,6 +1,5 @@
 components/**/*.js
 components/**/*.jsx
-components/*/__tests__/type.tsx
 !components/*/__tests__/**/*.js
 !components/*/demo/*
 !.*.js
