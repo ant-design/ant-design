@@ -3,6 +3,7 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Form from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import './type.test';
 
 describe('Form', () => {
   mountTest(Form);
