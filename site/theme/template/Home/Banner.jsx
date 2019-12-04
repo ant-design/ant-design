@@ -97,14 +97,14 @@ const Banner = ({ isMobile }) => {
               <FormattedMessage id="app.home.recommend" />
             </Divider>
             <a
-              href="https://github.com/antvis/g2plot?from=antd"
+              href="https://github.com/antvis/G2Plot?from=antd"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 if (window.gtag) {
                   window.gtag('event', '点击', {
                     event_category: '首页推广',
-                    event_label: `https://github.com/antvis/g2plot?from=antd`,
+                    event_label: `https://github.com/antvis/G2Plot?from=antd`,
                   });
                 }
               }}
