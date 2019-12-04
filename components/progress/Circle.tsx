@@ -10,12 +10,6 @@ interface CircleProps extends ProgressProps {
   progressStatus: string;
 }
 
-const statusColorMap: Record<string, string> = {
-  normal: '#108ee9',
-  exception: '#ff5500',
-  success: '#87d068',
-};
-
 function getPercentage({ percent, successPercent }: CircleProps) {
   const ptg = validProgress(percent);
   if (!successPercent) {
@@ -26,12 +20,12 @@ function getPercentage({ percent, successPercent }: CircleProps) {
   return [successPercent, validProgress(ptg - successPtg)];
 }
 
-function getStrokeColor({ progressStatus, successPercent, strokeColor }: CircleProps) {
-  const color = strokeColor || statusColorMap[progressStatus];
+function getStrokeColor({ successPercent, strokeColor }: CircleProps) {
+  const color = strokeColor || null;
   if (!successPercent) {
     return color;
   }
-  return [statusColorMap.success, color];
+  return [null, color];
 }
 
 const Circle: React.SFC<CircleProps> = props => {
