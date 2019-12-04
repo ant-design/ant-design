@@ -22,6 +22,7 @@ export interface FilterState<RecordType> {
 
 function collectFilterStates<RecordType>(
   columns: ColumnsType<RecordType>,
+  init: boolean,
   pos?: string,
 ): FilterState<RecordType>[] {
   let filterStates: FilterState<RecordType>[] = [];
@@ -30,14 +31,24 @@ function collectFilterStates<RecordType>(
     const columnPos = getColumnPos(index, pos);
 
     if ('children' in column) {
-      filterStates = [...filterStates, ...collectFilterStates(column.children, columnPos)];
+      filterStates = [...filterStates, ...collectFilterStates(column.children, init, columnPos)];
     } else if ('filters' in column || 'filterDropdown' in column) {
-      // Controlled
-      filterStates.push({
-        column,
-        key: getColumnKey(column, columnPos),
-        filteredKeys: column.filteredValue,
-      });
+      if ('filteredValue' in column) {
+        // Controlled
+        filterStates.push({
+          column,
+          key: getColumnKey(column, columnPos),
+          filteredKeys: column.filteredValue,
+        });
+      } else {
+        // Uncontrolled
+        filterStates.push({
+          column,
+          key: getColumnKey(column, columnPos),
+          filteredKeys:
+            init && column.defaultFilteredValue ? column.defaultFilteredValue! : undefined,
+        });
+      }
     }
   });
 
@@ -172,11 +183,11 @@ function useFilter<RecordType>({
   const tableLocale = (locale.Table || {}) as TableLocale;
 
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
-    collectFilterStates(columns),
+    collectFilterStates(columns, true),
   );
 
   const mergedFilterStates = React.useMemo(() => {
-    const collectedStates = collectFilterStates(columns);
+    const collectedStates = collectFilterStates(columns, false);
 
     // Return if not controlled
     if (collectedStates.every(({ filteredKeys }) => filteredKeys === undefined)) {
