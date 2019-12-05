@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tree icon of TreeNode should put inside line when showLine is true 1`] = `
+<ul
+  class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  role="tree"
+  unselectable="on"
+>
+  <li
+    class="ant-tree-treenode-switcher-close"
+    role="treeitem"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_close"
+    >
+      icon
+    </span>
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+      title="---"
+    >
+      <span
+        class="ant-tree-title"
+      >
+        ---
+      </span>
+    </span>
+  </li>
+</ul>
+`;
