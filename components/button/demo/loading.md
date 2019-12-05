@@ -15,46 +15,38 @@ A loading indicator can be added to a button by setting the `loading` property o
 
 ```jsx
 import { Button } from 'antd';
+import { FC, useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    loading: false,
-    iconLoading: false,
-  };
-
-  enterLoading = () => {
-    this.setState({ loading: true });
-  };
-
-  enterIconLoading = () => {
-    this.setState({ iconLoading: true });
-  };
-
-  render() {
-    return (
-      <div>
-        <Button type="primary" loading>
-          Loading
-        </Button>
-        <Button type="primary" size="small" loading>
-          Loading
-        </Button>
-        <br />
-        <Button type="primary" loading={this.state.loading} onClick={this.enterLoading}>
-          Click me!
-        </Button>
-        <Button
-          type="primary"
-          icon="poweroff"
-          loading={this.state.iconLoading}
-          onClick={this.enterIconLoading}
-        >
-          Click me!
-        </Button>
-      </div>
-    );
-  }
-}
+const App: FC = () => {
+  const [loading, setLoading] = useState(false);
+  const [iconLoading, setIconLoading] = useState(false);
+  return (
+    <div>
+      <Button type="primary" loading>
+        Loading
+      </Button>
+      <Button type="primary" size="small" loading>
+        Loading
+      </Button>
+      <br />
+      <Button type="primary" loading={loading} onClick={() => setLoading(true)}>
+        Click me!
+      </Button>
+      <Button
+        type="primary"
+        icon="poweroff"
+        loading={iconLoading}
+        onClick={() => setIconLoading(true)}
+      >
+        Click me!
+      </Button>
+      <br />
+      <Button type="primary" loading />
+      <Button type="primary" shape="circle" loading />
+      <Button type="danger" shape="round" loading />
+    </div>
+  );
+};
 
 ReactDOM.render(<App />, mountNode);
 ```
