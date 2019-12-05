@@ -8153,7 +8153,9 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
 
 exports[`ConfigProvider components Modal configProvider 1`] = `
 <div>
-  <div>
+  <div
+    class="config-modal-root"
+  >
     <div
       class="config-modal-mask"
     />
@@ -8245,7 +8247,9 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
 
 exports[`ConfigProvider components Modal normal 1`] = `
 <div>
-  <div>
+  <div
+    class="ant-modal-root"
+  >
     <div
       class="ant-modal-mask"
     />
@@ -8337,7 +8341,9 @@ exports[`ConfigProvider components Modal normal 1`] = `
 
 exports[`ConfigProvider components Modal prefixCls 1`] = `
 <div>
-  <div>
+  <div
+    class="prefix-Modal-root"
+  >
     <div
       class="prefix-Modal-mask"
     />
