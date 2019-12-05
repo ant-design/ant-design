@@ -955,7 +955,8 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top "
+      class="ant-tooltip ant-slider-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"

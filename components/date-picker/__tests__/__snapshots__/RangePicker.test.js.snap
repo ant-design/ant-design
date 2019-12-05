@@ -54,7 +54,8 @@ exports[`RangePicker customize separator 1`] = `
 exports[`RangePicker show month panel according to value 1`] = `
 <div>
   <div
-    class="ant-calendar-picker-container  ant-calendar-picker-container-placement-bottomLeft "
+    class="ant-calendar-picker-container"
+    style="opacity:0"
   >
     <div
       class="ant-calendar-time ant-calendar ant-calendar-range"
@@ -1559,7 +1560,8 @@ exports[`RangePicker show month panel according to value 1`] = `
 exports[`RangePicker switch to corresponding month panel when click presetted ranges 1`] = `
 <div>
   <div
-    class="ant-calendar-picker-container  ant-calendar-picker-container-placement-bottomLeft "
+    class="ant-calendar-picker-container"
+    style="opacity:0"
   >
     <div
       class="ant-calendar-time ant-calendar-range-with-ranges ant-calendar ant-calendar-range"
