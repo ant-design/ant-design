@@ -660,7 +660,12 @@
     // https://stackoverflow.com/a/54101063
     // https://github.com/react-component/table/pull/333
     scrollbar-color: transparent transparent;
+    min-width: unset;
+
     &::-webkit-scrollbar {
+      // set min width to window chrome scrollbar
+      // https://github.com/ant-design/ant-design/issues/19952#issuecomment-559367149
+      min-width: inherit;
       background-color: transparent;
     }
   }
