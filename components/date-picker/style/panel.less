@@ -9,6 +9,8 @@
   @picker-text-height: 40px;
   @picker-arrow-size: 7px;
   @picker-date-hover-range-border: @border-width-base @border-style-base fade(@primary-color, 50%);
+  @picker-panel-width: 280px;
+  @picker-year-month-cell-width: 60px;
 
   &-panel {
     display: inline-block;
@@ -34,7 +36,7 @@
   &-time-panel {
     display: flex;
     flex-direction: column;
-    width: 280px;
+    width: @picker-panel-width;
   }
 
   // ======================= Header =======================
@@ -283,12 +285,16 @@
     }
 
     .@{picker-prefix-cls}-cell {
-      &::before {
-        display: none;
-      }
-
       &-disabled .@{picker-cell-inner-cls} {
         background: @disabled-bg;
+      }
+    }
+  }
+
+  &-decade-panel {
+    .@{picker-prefix-cls}-cell {
+      &::before {
+        display: none;
       }
     }
   }
@@ -342,10 +348,37 @@
   // =                       Special                        =
   // ========================================================
 
-  // ====================== Year Panel ======================
+  // ===================== Decade Panel =====================
   &-decade-panel {
     .@{picker-cell-inner-cls} {
       padding: 0 (@padding-xs / 2);
+    }
+  }
+
+  // ================== Year & Month Panel ==================
+  &-year-panel,
+  &-month-panel {
+    @hover-cell-fixed-distance: (
+        (@picker-panel-width - @padding-xs * 2) / 3 - @picker-year-month-cell-width
+      ) / 2;
+
+    .@{picker-prefix-cls}-body {
+      padding: 0 @padding-xs;
+    }
+
+    .@{picker-cell-inner-cls} {
+      width: @picker-year-month-cell-width;
+    }
+
+    .@{picker-prefix-cls}-cell-range-hover-start::after {
+      border-left: @picker-date-hover-range-border;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+      left: @hover-cell-fixed-distance;
+    }
+    .@{picker-prefix-cls}-cell-range-hover-end::after {
+      border-right: @picker-date-hover-range-border;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+      right: @hover-cell-fixed-distance;
     }
   }
 
