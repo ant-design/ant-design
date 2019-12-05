@@ -188,7 +188,7 @@ export default class Tree extends React.Component<TreeProps, any> {
   renderSwitcherIcon = (
     prefixCls: string,
     switcherIcon: React.ReactElement<any> | undefined,
-    { isLeaf, expanded, loading }: AntTreeNodeProps,
+    { isLeaf, expanded, loading, icon }: AntTreeNodeProps,
   ) => {
     const { showLine } = this.props;
     if (loading) {
@@ -196,19 +196,18 @@ export default class Tree extends React.Component<TreeProps, any> {
     }
     if (isLeaf) {
       if (showLine) {
-        return <Icon type="file" className={`${prefixCls}-switcher-line-icon`} />;
+        return icon || <Icon type="file" className={`${prefixCls}-switcher-line-icon`} />;
       }
       return null;
     }
     const switcherCls = `${prefixCls}-switcher-icon`;
     if (switcherIcon) {
-      const switcherOriginCls = switcherIcon.props.className || '';
       return React.cloneElement(switcherIcon, {
-        className: classNames(switcherOriginCls, switcherCls),
+        className: classNames(switcherIcon.props.className || '', switcherCls),
       });
     }
     if (showLine) {
-      return (
+      return icon || (
         <Icon
           type={expanded ? 'minus-square' : 'plus-square'}
           className={`${prefixCls}-switcher-line-icon`}
@@ -229,6 +228,7 @@ export default class Tree extends React.Component<TreeProps, any> {
       prefixCls: customizePrefixCls,
       className,
       showIcon,
+      showLine,
       switcherIcon,
       blockNode,
       children,
@@ -239,6 +239,9 @@ export default class Tree extends React.Component<TreeProps, any> {
       <RcTree
         ref={this.setTreeRef}
         {...props}
+        // Hide icon in node when showLine is true, show icon in line always
+        // https://github.com/ant-design/ant-design/issues/20090
+        showIcon={showLine ? false : showIcon}
         prefixCls={prefixCls}
         className={classNames(className, {
           [`${prefixCls}-icon-hide`]: !showIcon,

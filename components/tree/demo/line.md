@@ -2,19 +2,19 @@
 order: 5
 title:
   zh-CN: 连接线
-  en-US: Tree With Line
+  en-US: Tree with line
 ---
 
 ## zh-CN
 
-带连接线的树。
+节点之间带连接线的树，常用于文件目录结构展示。
 
 ## en-US
 
-Tree With Line
+Tree with connected line between nodes.
 
 ```jsx
-import { Tree } from 'antd';
+import { Tree, Icon } from 'antd';
 
 const { TreeNode } = Tree;
 
@@ -37,7 +37,7 @@ class Demo extends React.Component {
           </TreeNode>
           <TreeNode title="parent 1-2" key="0-0-2">
             <TreeNode title="leaf" key="0-0-2-0" />
-            <TreeNode title="leaf" key="0-0-2-1" />
+            <TreeNode icon={<Icon type="form" />} title="leaf" key="0-0-2-1" />
           </TreeNode>
         </TreeNode>
       </Tree>
