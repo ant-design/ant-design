@@ -77,6 +77,7 @@ function finalizeDist() {
     const darkLess = fs.readFileSync(path.join(stylePath, 'themes', 'dark.less'), 'utf8');
 
     const darkPaletteLess = lessToJs(`${colorLess}${defaultLess}${darkLess}`, {
+      stripPrefix: true,
       resolveVariables: false,
     });
 
