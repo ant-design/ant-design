@@ -69,7 +69,7 @@ describe('Popconfirm', () => {
     expect(popconfirm.instance().getPopupDomNode().className).not.toContain('ant-popover-hidden');
     popconfirm.setProps({ visible: false });
     jest.runAllTimers();
-    expect(popconfirm.instance().getPopupDomNode().className).toContain('ant-popover-hidden');
+    expect(popconfirm.find('Trigger').props().popupVisible).toBe(false);
     jest.useRealTimers();
   });
 

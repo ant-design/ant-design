@@ -725,7 +725,12 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-menu-submenu-popup:not(.ant-menu-submenu-hidden)').length).toBe(0);
+    expect(
+      wrapper
+        .find('Trigger')
+        .map(node => node.prop('popupVisible'))
+        .findIndex(node => !!node),
+    ).toBe(-1);
     wrapper.setProps({ inlineCollapsed: false });
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();
