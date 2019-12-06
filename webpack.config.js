@@ -23,7 +23,7 @@ function addLocales(webpackConfig) {
 }
 
 function addDarkTheme(webpackConfig) {
-  let packageName = 'antd-dark';
+  let packageName = 'antd.dark';
   if (webpackConfig.entry['antd.min']) {
     packageName += '.min';
   }
