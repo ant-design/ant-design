@@ -10170,7 +10170,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     </span>
                     <i
                       aria-label="icon: filter"
-                      class="anticon anticon-filter ant-dropdown-trigger"
+                      class="anticon anticon-filter ant-table-filter-selected ant-dropdown-trigger"
                       tabindex="-1"
                       title="Filter menu"
                     >
@@ -10362,46 +10362,6 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                     class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
                   >
                     London No. 1 Lake Park
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
-                >
-                  <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
-                  >
-                    John Brown
-                  </td>
-                  <td
-                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
-                  >
-                    New York No. 1 Lake Park
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="3"
-                >
-                  <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
-                  >
-                    Joe Black
-                  </td>
-                  <td
-                    class="ant-table-column-has-actions ant-table-column-has-sorters ant-table-column-sort"
-                  >
-                    32
-                  </td>
-                  <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters"
-                  >
-                    Sidney No. 1 Lake Park
                   </td>
                 </tr>
                 <tr
