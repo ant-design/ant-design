@@ -15,35 +15,27 @@ DEBUG
 DEBUG
 
 ```jsx
+import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-class Demo extends React.Component {
-  state = {
-    top: 10,
-  };
-
-  render() {
-    return (
-      <div style={{ height: 10000 }}>
-        <div>Top</div>
-        <Affix offsetTop={this.state.top}>
-          <div style={{ background: 'red' }}>
-            <Button
-              type="primary"
-              onClick={() => {
-                this.setState({
-                  top: this.state.top + 10,
-                });
-              }}
-            >
-              Affix top
-            </Button>
-          </div>
-        </Affix>
-        <div>Bottom</div>
-      </div>
-    );
-  }
+const Demo = () => {
+  const [top, setTop] = useState(10);
+  return (
+    <div style={{ height: 10000 }}>
+      <div>Top</div>
+      <Affix offsetTop={top}>
+        <div style={{ background: 'red' }}>
+          <Button
+            type="primary"
+            onClick={() => setTop(top + 10)}
+          >
+            Affix top
+          </Button>
+        </div>
+      </Affix>
+      <div>Bottom</div>
+    </div>
+  );
 }
 
 ReactDOM.render(<Demo />, mountNode);
