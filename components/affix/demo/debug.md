@@ -1,8 +1,8 @@
 ---
 order: 99
 title:
-  zh-CN: 调试
-  en-US: Debug
+  zh-CN: 调整浏览器大小，观察 Affix 容器是否发生变化。跟随变化为正常。#17678
+  en-US:
 debug: true
 ---
 
