@@ -14,11 +14,12 @@ title:
 The simplest usage.
 
 ```jsx
+import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
 const Demo = () => {
-  const [top, setTop] = React.useState(10);
-  const [bottom, setBottom] = React.useState(10);
+  const [top, setTop] = useState(10);
+  const [bottom, setBottom] = useState(10);
 
   return (
     <div>

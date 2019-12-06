@@ -1,4 +1,4 @@
-import * as AntdIcons from '@ant-design/icons/lib/icons';
+import * as AntdIcons from '@ant-design/icons';
 
 const all = Object.keys(AntdIcons);
 
