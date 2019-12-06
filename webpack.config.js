@@ -2,6 +2,7 @@
 // This config is for building dist files
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
+const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 
 const { webpack } = getWebpackConfig;
 
@@ -21,6 +22,16 @@ function addLocales(webpackConfig) {
   webpackConfig.output.filename = '[name].js';
 }
 
+function addDarkTheme(webpackConfig) {
+  let packageName = 'antd-dark';
+  if (webpackConfig.entry['antd.min']) {
+    packageName += '.min';
+  }
+  webpackConfig.entry[packageName] = './index-dark.js';
+  webpackConfig.output.filename = '[name].js';
+  webpackConfig.plugins.push(new IgnoreEmitPlugin(/dark(.min)?\.js(\.map)?$/));
+}
+
 function externalMoment(config) {
   config.externals.moment = {
     root: 'moment',
@@ -36,6 +47,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     ignoreMomentLocale(config);
     externalMoment(config);
     addLocales(config);
+    addDarkTheme(config);
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
       // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
