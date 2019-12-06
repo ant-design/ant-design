@@ -13,6 +13,10 @@ Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/).
 
 ```bash
 $ yarn create react-app antd-demo
+
+# or
+
+$ npx create-react-app antd-demo
 ```
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting or use another npm registry if any network errors happen during it.
