@@ -60,7 +60,6 @@ const columns = [
         ],
       },
     ],
-    defaultFilteredValue: ['Jim'],
     // specify the condition of filtering result
     // here is that finding the name started with `value`
     onFilter: (value, record) => record.name.indexOf(value) === 0,
