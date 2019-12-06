@@ -14,11 +14,11 @@ DEBUG
 
 DEBUG
 
-```jsx
-import React, { useState } from 'react';
+```tsx
+import React, { useState, FC } from 'react';
 import { Affix, Button } from 'antd';
 
-const Demo = () => {
+const Demo: FC = () => {
   const [top, setTop] = useState(10);
   return (
     <div style={{ height: 10000 }}>
