@@ -11,7 +11,7 @@ import { useForm, FormInstance } from './util';
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-interface FormProps extends Omit<RcFormProps, 'form'> {
+export interface FormProps extends Omit<RcFormProps, 'form'> {
   prefixCls?: string;
   hideRequiredMark?: boolean;
   colon?: boolean;
