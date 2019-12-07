@@ -176,7 +176,6 @@
   &-ranges {
     text-align: left;
     list-style: none;
-    border-top: @border-width-base @border-style-base @select-border-color;
     line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
     padding: @padding-xs / 2;
     overflow: hidden;
@@ -240,7 +239,6 @@
 
   &-panel-container {
     box-shadow: @box-shadow-base;
-    border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;
     background: @calendar-bg;
     vertical-align: top;
@@ -252,7 +250,7 @@
     }
 
     .@{picker-prefix-cls}-panel {
-      border: 0;
+      border-width: 0 0 @border-width-base 0;
       background: transparent;
       border-radius: 0;
     }
