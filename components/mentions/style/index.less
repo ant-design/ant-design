@@ -60,6 +60,9 @@
     border: none;
     outline: none;
     resize: none;
+    & when (@theme = dark) {
+      background-color: transparent;
+    }
     .placeholder();
 
     &:read-only {
@@ -95,7 +98,7 @@
     box-sizing: border-box;
     font-size: @font-size-base;
     font-variant: initial;
-    background-color: @component-background;
+    background-color: @mentions-dropdown-bg;
     border-radius: @border-radius-base;
     outline: none;
     box-shadow: @box-shadow-base;

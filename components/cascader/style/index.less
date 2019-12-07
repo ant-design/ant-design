@@ -28,7 +28,7 @@
 
     position: relative;
     display: inline-block;
-    background-color: @component-background;
+    background-color: @cascader-bg;
     border-radius: @border-radius-base;
     outline: 0;
     cursor: pointer;
@@ -127,7 +127,7 @@
     z-index: @zindex-dropdown;
     font-size: @font-size-base;
     white-space: nowrap;
-    background: @component-background;
+    background: @cascader-menu-bg;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
 
@@ -169,7 +169,7 @@
     overflow: auto;
     vertical-align: top;
     list-style: none;
-    border-right: @border-width-base @border-style-base @border-color-split;
+    border-right: @border-width-base @border-style-base @cascader-menu-border-color-split;
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
     &:first-child {

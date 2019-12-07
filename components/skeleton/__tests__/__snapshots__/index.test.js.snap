@@ -1,5 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Skeleton avatar element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element shape 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element shape 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-square"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-sm ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+  />
+</div>
+`;
+
+exports[`Skeleton avatar element size 4`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-avatar ant-skeleton-avatar-circle"
+    style="width: 20px; height: 20px; line-height: 20px;"
+  />
+</div>
+`;
+
 exports[`Skeleton avatar shape 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"
@@ -169,7 +240,7 @@ exports[`Skeleton avatar size 4`] = `
 </div>
 `;
 
-exports[`Skeleton button active 1`] = `
+exports[`Skeleton button element active 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element ant-skeleton-active"
 >
@@ -179,7 +250,7 @@ exports[`Skeleton button active 1`] = `
 </div>
 `;
 
-exports[`Skeleton button shape 1`] = `
+exports[`Skeleton button element shape 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -189,7 +260,7 @@ exports[`Skeleton button shape 1`] = `
 </div>
 `;
 
-exports[`Skeleton button shape 2`] = `
+exports[`Skeleton button element shape 2`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -199,7 +270,7 @@ exports[`Skeleton button shape 2`] = `
 </div>
 `;
 
-exports[`Skeleton button shape 3`] = `
+exports[`Skeleton button element shape 3`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -209,7 +280,7 @@ exports[`Skeleton button shape 3`] = `
 </div>
 `;
 
-exports[`Skeleton button size 1`] = `
+exports[`Skeleton button element size 1`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -219,7 +290,7 @@ exports[`Skeleton button size 1`] = `
 </div>
 `;
 
-exports[`Skeleton button size 2`] = `
+exports[`Skeleton button element size 2`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >
@@ -229,7 +300,7 @@ exports[`Skeleton button size 2`] = `
 </div>
 `;
 
-exports[`Skeleton button size 3`] = `
+exports[`Skeleton button element size 3`] = `
 <div
   class="ant-skeleton ant-skeleton-element"
 >

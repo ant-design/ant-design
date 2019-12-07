@@ -18,7 +18,7 @@ export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren = (form: FormInstance) => React.ReactElement;
 
-interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
+export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
@@ -203,12 +203,16 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
               'colon',
               'extra',
               'getValueFromEvent',
+              'hasFeedback',
+              'help',
               'htmlFor',
               'id', // It is deprecated because `htmlFor` is its replacement.
               'label',
               'labelAlign',
               'labelCol',
               'normalize',
+              'required',
+              'validateStatus',
               'valuePropName',
               'wrapperCol',
             ])}

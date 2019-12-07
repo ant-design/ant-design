@@ -7,8 +7,6 @@
 @skeleton-paragraph-prefix-cls: ~'@{skeleton-prefix-cls}-paragraph';
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
 
-@skeleton-to-color: shade(@skeleton-color, 5%);
-
 .@{skeleton-prefix-cls} {
   display: table;
   width: 100%;
@@ -18,21 +16,8 @@
     padding-right: 16px;
     vertical-align: top;
 
-    // Avatar
     .@{skeleton-avatar-prefix-cls} {
-      display: inline-block;
-      vertical-align: top;
-      background: @skeleton-color;
-
-      .skeleton-element-avatar-size(@avatar-size-base);
-
-      &-lg {
-        .skeleton-element-avatar-size(@avatar-size-lg);
-      }
-
-      &-sm {
-        .skeleton-element-avatar-size(@avatar-size-sm);
-      }
+      .skeleton-element-avatar();
     }
   }
 
@@ -123,6 +108,27 @@
         .skeleton-element-button-size(@btn-height-sm);
       }
     }
+
+    .@{skeleton-avatar-prefix-cls} {
+      .skeleton-element-avatar();
+    }
+  }
+}
+
+// Avatar
+.skeleton-element-avatar() {
+  display: inline-block;
+  vertical-align: top;
+  background: @skeleton-color;
+
+  .skeleton-element-avatar-size(@avatar-size-base);
+
+  &-lg {
+    .skeleton-element-avatar-size(@avatar-size-lg);
+  }
+
+  &-sm {
+    .skeleton-element-avatar-size(@avatar-size-sm);
   }
 }
 

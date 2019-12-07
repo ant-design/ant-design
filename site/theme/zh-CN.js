@@ -47,7 +47,7 @@ module.exports = {
     'app.home.getting-started': '开始使用',
     'app.home.recommend': '推荐',
     'app.home.recommend.yuque': '语雀，我们都喜欢的文档工具',
-    'app.home.recommend.antv': 'AntV：全新的蚂蚁金服数据可视化解决方案',
+    'app.home.recommend.antv.g2plot': 'G2Plot：全新企业级图表',
     'app.home.more': '查看更多',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',

@@ -1,11 +1,10 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import SkeletonElement, { SkeletonElementProps } from './SkeletonElement';
+import Element, { SkeletonElementProps } from './Element';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
-  active?: boolean;
   size?: 'large' | 'small' | 'default';
 }
 
@@ -24,7 +23,7 @@ class SkeletonButton extends React.Component<SkeletonButtonProps, any> {
     });
     return (
       <div className={cls}>
-        <SkeletonElement prefixCls={`${prefixCls}-button`} {...otherProps} />
+        <Element prefixCls={`${prefixCls}-button`} {...otherProps} />
       </div>
     );
   };

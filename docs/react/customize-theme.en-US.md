@@ -104,26 +104,16 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ![](https://gw.alipayobjects.com/zos/antfincdn/wp6GpGo%26ID/f31e18a4-2018-4e12-95c6-998e7ac5b2fa.png)
 
-include `antd/dist/antd-dark.less` in the style file:
+include `antd/dist/antd.dark.less` in the style file:
 
 ```less
-@import '~antd/dist/antd-dark.less'; // Introduce the official dark less style entry file
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
 ```
 
 Another approach to using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
-````js
-const lessToJs = require('less-vars-to-js');
-const fs = require('fs');
-
-const colorLess = fs.readFileSync(require.resolve('antd/lib/style/color/colors.less'), 'utf8');
-const defaultLess = fs.readFileSync(require.resolve('antd/lib/style/themes/default.less'), 'utf8');
-const darkLess = fs.readFileSync(require.resolve('antd/lib/style/themes/dark.less'), 'utf8');
-
-const darkThemeVars = lessToJs(`${colorLess}${defaultLess}${darkLess}`, {
-  resolveVariables: false,
-  stripPrefix: false,
-})
+```diff
+const darkThemeVars = require('antd/dist/dark-theme');
 
 // webpack.config.js
 module.exports = {
@@ -143,7 +133,7 @@ module.exports = {
     // ...other rules
   }],
   // ...other config
-`` `
+```
 
 ## How to avoid modifying global styles?
 
@@ -159,7 +149,7 @@ It's possible to configure webpack to load an alternate less file:
 new webpack.NormalModuleReplacementPlugin( /node_modules\/antd\/lib\/style\/index\.less/, path.resolve(rootDir, 'src/myStylesReplacement.less') )
 
 #antd { @import '~antd/es/style/core/index.less'; @import '~antd/es/style/themes/default.less'; }
-````
+```
 
 Where the src/myStylesReplacement.less file loads the same files as the index.less file, but loads them within the scope of a top-level selector : the result is that all of the "global" styles are being applied with the #antd scope.
 

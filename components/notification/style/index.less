@@ -2,7 +2,6 @@
 @import '../../style/mixins/index';
 
 @notification-prefix-cls: ~'@{ant-prefix}-notification';
-@notification-bg: @component-background;
 @notification-width: 384px;
 @notification-padding-vertical: 16px;
 @notification-padding-horizontal: 24px;
@@ -117,7 +116,12 @@
       outline: none;
 
       &:hover {
-        color: shade(@text-color-secondary, 40%);
+        & when (@theme = dark) {
+          color: fade(@white, 85%);
+        }
+        & when not (@theme = dark) {
+          color: shade(@text-color-secondary, 40%);
+        }
       }
     }
 

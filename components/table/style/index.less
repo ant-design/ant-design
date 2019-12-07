@@ -8,13 +8,6 @@
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
 
-// Sorter
-// Legacy: `table-header-sort-active-bg` is used for hover not real active
-@table-header-sort-active-bg: darken(@table-header-bg, 3%);
-
-// Filter
-@table-header-filter-active-bg: darken(@table-header-sort-active-bg, 5%);
-
 @table-selection-column-width: 60px;
 
 .@{table-prefix-cls}-wrapper {
@@ -24,6 +17,7 @@
 .@{table-prefix-cls} {
   .reset-component;
   position: relative;
+  z-index: 0;
   clear: both;
 
   // https://github.com/ant-design/ant-design/issues/17611
@@ -299,6 +293,7 @@
       justify-content: space-between;
       padding: 7px 8px;
       overflow: hidden;
+      background-color: @table-filter-btns-bg;
       border-top: @border-width-base @border-style-base @border-color-split;
     }
   }
