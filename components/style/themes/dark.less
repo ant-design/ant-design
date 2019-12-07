@@ -159,7 +159,7 @@
 @primary-10: @blue-10; // unused
 
 // Layer background
-@gray-11: #1f1f1f;
+@popover-background: #1f1f1f;
 @body-background: @black;
 @component-background: #141414;
 
@@ -178,7 +178,7 @@
 
 // Border color
 @border-color-base: #434343; // base border outline a component
-@border-color-split: @gray-11; // split border inside a component
+@border-color-split: @popover-background; // split border inside a component
 @border-color-split-popover: #303030; // base border in Popover Container
 
 @background-color-light: fade(@white, 4%); // background of header and selected item
@@ -228,9 +228,9 @@
 
 // Modal
 // ---
-@modal-header-bg: @gray-11;
+@modal-header-bg: @popover-background;
 @modal-header-border-color-split: @border-color-split-popover;
-@modal-content-bg: @gray-11;
+@modal-content-bg: @popover-background;
 @modal-footer-border-color-split: @border-color-split-popover;
 
 // Radio
@@ -255,19 +255,19 @@
 @input-bg: transparent;
 @input-placeholder-color: fade(@white, 30%);
 @input-number-handler-bg: transparent;
-@input-number-handler-active-bg: @gray-11;
+@input-number-handler-active-bg: @popover-background;
 @input-icon-hover-color: fade(@white, 85%);
 
 // Select
 // ---
 @select-background: transparent;
-@select-dropdown-bg: @gray-11;
+@select-dropdown-bg: @popover-background;
 @select-clear-background: @component-background;
 
 // Cascader
 // ---
 @cascader-bg: transparent;
-@cascader-menu-bg: @gray-11;
+@cascader-menu-bg: @popover-background;
 @cascader-menu-border-color-split: @border-color-split-popover;
 
 // Anchor
@@ -283,14 +283,14 @@
 // ---
 // dark theme
 @menu-dark-submenu-bg: @black;
-@menu-popup-bg: @gray-11;
+@menu-popup-bg: @popover-background;
 
 // Message
 // ---
-@message-notice-content-bg: @gray-11;
+@message-notice-content-bg: @popover-background;
 
 // Notification
-@notification-bg: @gray-11;
+@notification-bg: @popover-background;
 
 // LINK
 @link-hover-color: @blue-5;
@@ -305,18 +305,19 @@
 @table-header-sort-bg: #262626;
 @table-header-filter-active-bg: #434343;
 @table-header-sort-active-bg: #262626;
+@table-filter-btns-bg: @popover-background;
 
 // TimePicker
 // ---
-@time-picker-bg: @gray-11;
-@time-picker-inner-bg: @gray-11;
-@time-picker-panel-inner-bg: @gray-11;
-@month-panel-bg: @gray-11;
-@year-panel-bg: @gray-11;
+@time-picker-bg: @popover-background;
+@time-picker-inner-bg: @popover-background;
+@time-picker-panel-inner-bg: @popover-background;
+@month-panel-bg: @popover-background;
+@year-panel-bg: @popover-background;
 
 // Dropdown
 // ---
-@dropdown-menu-bg: @gray-11;
+@dropdown-menu-bg: @popover-background;
 @dropdown-menu-submenu-disabled-bg: transparent;
 
 // Steps
@@ -330,7 +331,7 @@
 
 // Calendar
 // ---
-@calendar-bg: @gray-11;
+@calendar-bg: @popover-background;
 @calendar-input-bg: @calendar-bg;
 @calendar-border-color: transparent;
 @calendar-item-active-bg: @background-color-base;
@@ -340,10 +341,10 @@
 @badge-text-color: @white;
 
 // Popover
-@popover-bg: @gray-11;
+@popover-bg: @popover-background;
 
 // Drawer
-@drawer-bg: @gray-11;
+@drawer-bg: @popover-background;
 
 // Card
 // ---
@@ -411,4 +412,4 @@
 
 // Mentions
 // ---
-@mentions-dropdown-bg: @gray-11;
+@mentions-dropdown-bg: @popover-background;
