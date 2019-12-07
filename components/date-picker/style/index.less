@@ -17,12 +17,11 @@
 
   .reset-component;
   display: inline-flex;
-
+  padding: @input-padding-vertical-base @input-padding-horizontal-base @input-padding-vertical-base +
+    @vertical-fix-base;
   background: @component-background;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
-  padding: @input-padding-vertical-base @input-padding-horizontal-base @input-padding-vertical-base +
-    @vertical-fix-base;
 
   &-disabled {
     background: @input-disabled-bg;
@@ -36,11 +35,11 @@
 
     > input {
       .input();
+      height: auto;
+      padding: 0;
+      background: transparent;
 
       border: 0;
-      padding: 0;
-      height: auto;
-      background: transparent;
 
       &:focus {
         box-shadow: none;
@@ -70,21 +69,21 @@
   }
 
   &-suffix {
+    align-self: center;
+    margin-left: @padding-xs / 2;
     color: @disabled-color;
     pointer-events: none;
-    margin-left: @padding-xs / 2;
-    align-self: center;
   }
 
   &-clear {
-    color: @disabled-color;
-    background: @component-background;
-    cursor: pointer;
-    opacity: 0;
     position: absolute;
     top: 50%;
     right: 0;
+    color: @disabled-color;
+    background: @component-background;
     transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0;
     transition: opacity 0.3s, color 0.3s;
 
     &:hover {
@@ -105,8 +104,8 @@
 
   // ======================== Range =========================
   &-range {
-    display: inline-flex;
     position: relative;
+    display: inline-flex;
 
     // Clear
     .@{picker-prefix-cls}-clear {
@@ -121,13 +120,13 @@
 
     // Active bar
     .@{picker-prefix-cls}-active-bar {
-      background: @primary-color;
       bottom: -@border-width-base;
       height: 2px;
-      pointer-events: none;
       margin-left: @input-padding-horizontal-base;
-      transition: all 0.3s ease-out;
+      background: @primary-color;
       opacity: 0;
+      transition: all 0.3s ease-out;
+      pointer-events: none;
     }
 
     &.@{picker-prefix-cls}-focused {
@@ -149,17 +148,17 @@
 
     &-placement-bottomLeft {
       .@{picker-prefix-cls}-range-arrow {
+        top: @arrow-size / 2 - @arrow-size / 3;
         display: block;
         transform: rotate(-45deg);
-        top: @arrow-size / 2 - @arrow-size / 3;
       }
     }
 
     &-placement-topLeft {
       .@{picker-prefix-cls}-range-arrow {
+        bottom: @arrow-size / 2 - @arrow-size / 3;
         display: block;
         transform: rotate(135deg);
-        bottom: @arrow-size / 2 - @arrow-size / 3;
       }
     }
   }
@@ -174,11 +173,11 @@
 
   // ======================== Ranges ========================
   &-ranges {
-    text-align: left;
-    list-style: none;
-    line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
     padding: @padding-xs / 2;
     overflow: hidden;
+    line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
+    text-align: left;
+    list-style: none;
 
     > li {
       display: inline-block;
@@ -205,31 +204,31 @@
   }
 
   &-range-arrow {
-    display: none;
     position: absolute;
+    z-index: 1;
+    display: none;
     width: @arrow-size;
     height: @arrow-size;
-    z-index: 1;
-    transition: left 0.3s ease-out;
     margin-left: @input-padding-horizontal-base * 1.5;
+    transition: left 0.3s ease-out;
 
     &::before,
     &::after {
-      content: '';
       position: absolute;
+      content: '';
     }
 
     &::before {
-      right: 0;
       top: 0;
+      right: 0;
       width: @arrow-size;
       height: @arrow-size;
       border: @arrow-size / 2 solid @border-color-split;
       border-color: @border-color-split @border-color-split transparent transparent;
     }
     &::after {
-      right: @border-width-base;
       top: @border-width-base;
+      right: @border-width-base;
       width: @arrow-size;
       height: @arrow-size;
       border: @arrow-size / 2 solid @border-color-split;
@@ -238,10 +237,10 @@
   }
 
   &-panel-container {
-    box-shadow: @box-shadow-base;
-    border-radius: @border-radius-base;
-    background: @calendar-bg;
     vertical-align: top;
+    background: @calendar-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
     transition: margin 0.3s;
 
     .@{picker-prefix-cls}-panels {
@@ -250,8 +249,8 @@
     }
 
     .@{picker-prefix-cls}-panel {
-      border-width: 0 0 @border-width-base 0;
       background: transparent;
+      border-width: 0 0 @border-width-base 0;
       border-radius: 0;
     }
   }
