@@ -4,6 +4,7 @@
 @import './panel';
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
+@picker-text-height: 40px;
 
 .@{picker-prefix-cls} {
   @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) - 2 *
@@ -171,6 +172,35 @@
     }
   }
 
+  // ======================== Ranges ========================
+  &-ranges {
+    text-align: left;
+    list-style: none;
+    border-top: @border-width-base @border-style-base @select-border-color;
+    line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
+    padding: @padding-xs / 2;
+    overflow: hidden;
+
+    > li {
+      display: inline-block;
+      margin: 0 @padding-xs;
+      color: @link-color;
+      cursor: pointer;
+
+      &:hover {
+        color: @link-hover-color;
+      }
+
+      &:active {
+        color: @link-active-color;
+      }
+
+      &.@{picker-prefix-cls}-ok {
+        float: right;
+      }
+    }
+  }
+
   &-range-wrapper {
     display: flex;
   }
@@ -213,10 +243,13 @@
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;
     background: @calendar-bg;
-    display: inline-flex;
     vertical-align: top;
-    flex-wrap: nowrap;
     transition: margin 0.3s;
+
+    .@{picker-prefix-cls}-panels {
+      display: inline-flex;
+      flex-wrap: nowrap;
+    }
 
     .@{picker-prefix-cls}-panel {
       border: 0;

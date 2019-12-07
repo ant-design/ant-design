@@ -6,7 +6,6 @@
 .@{picker-prefix-cls} {
   @picker-basic-cell-hover-color: fade(@primary-color, 10%);
   @picker-border: @border-width-base @border-style-base @border-color-split;
-  @picker-text-height: 40px;
   @picker-arrow-size: 7px;
   @picker-date-hover-range-border: @border-width-base @border-style-base fade(@primary-color, 50%);
   @picker-panel-width: 280px;
@@ -312,6 +311,11 @@
     }
   }
 
+  &-now {
+    text-align: left;
+    padding: 0 @padding-xs;
+  }
+
   &-today-btn {
     color: @link-color;
 
@@ -321,26 +325,6 @@
 
     &:active {
       color: @link-active-color;
-    }
-  }
-
-  &-ranges {
-    text-align: left;
-    list-style: none;
-
-    > li {
-      display: inline-block;
-      margin: 0 @padding-xs;
-      color: @link-color;
-      cursor: pointer;
-
-      &:hover {
-        color: @link-hover-color;
-      }
-
-      &:active {
-        color: @link-active-color;
-      }
     }
   }
 

@@ -19,6 +19,7 @@ import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';
 import { getPlaceholder, getRangePlaceholder } from './util';
+import PickerButton from './PickerButton';
 
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {
@@ -69,6 +70,7 @@ type InjectDefaultProps<Props> = Omit<
   | 'superPrevIcon'
   | 'superNextIcon'
   | 'hideHeader'
+  | 'components'
 > & {
   locale?: typeof enUS;
   size?: 'large' | 'default' | 'small';
@@ -275,6 +277,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           nextIcon={<span className={`${prefixCls}-next-icon`} />}
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
           superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+          components={{ button: PickerButton }}
         />
       );
     };
