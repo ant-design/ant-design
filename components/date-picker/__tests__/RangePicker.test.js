@@ -44,19 +44,35 @@ describe('RangePicker', () => {
   // https://github.com/ant-design/ant-design/issues/13302
   describe('in "month" mode, when the left and right panels select the same month', () => {
     it('the cell status is correct', () => {
-      const onChange = jest.fn();
-      const wrapper = mount(<RangePicker mode={['month', 'month']} onChange={onChange} />);
+      class Test extends React.Component {
+        state = {
+          value: null,
+        };
+
+        onPanelChange = value => {
+          this.setState({ value });
+        };
+
+        render() {
+          return (
+            <RangePicker
+              value={this.state.value}
+              mode={['month', 'month']}
+              onPanelChange={this.onPanelChange}
+            />
+          );
+        }
+      }
+      const wrapper = mount(<Test />);
       openPicker(wrapper);
       selectCell(wrapper, 'Feb');
-      closePicker(wrapper);
-
       openPicker(wrapper, 1);
-      selectCell(wrapper, 'Feb', 1);
+      selectCell(wrapper, 'Feb');
       closePicker(wrapper, 1);
 
-      expect(
-        onChange.mock.calls[0][0][0].isSame(onChange.mock.calls[0][0][1], 'date'),
-      ).toBeTruthy();
+      const { value } = wrapper.state();
+
+      expect(value[0].isSame(value[1], 'date')).toBeTruthy();
     });
   });
 });

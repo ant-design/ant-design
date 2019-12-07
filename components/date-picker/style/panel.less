@@ -7,7 +7,7 @@
   @picker-basic-cell-hover-color: fade(@primary-color, 10%);
   @picker-border: @border-width-base @border-style-base @border-color-split;
   @picker-arrow-size: 7px;
-  @picker-date-hover-range-border: @border-width-base @border-style-base fade(@primary-color, 50%);
+  @picker-date-hover-range-border: @border-width-base dashed fade(@primary-color, 50%);
   @picker-panel-width: 280px;
   @picker-year-month-cell-width: 60px;
 
@@ -186,12 +186,12 @@
     }
 
     // Today
-    &-today .@{cellClassName} {
+    &-in-view&-today .@{cellClassName} {
       border-color: @primary-color;
     }
 
     // In range
-    &-in-range {
+    &-in-view&-in-range {
       position: relative;
 
       &::before {
@@ -200,42 +200,54 @@
     }
 
     // Selected
-    &-selected .@{cellClassName},
-    &-selected:hover .@{cellClassName},
-    &-range-start .@{cellClassName},
-    &-range-start:hover .@{cellClassName},
-    &-range-end .@{cellClassName},
-    &-range-end:hover .@{cellClassName} {
+    &-in-view&-selected .@{cellClassName},
+    &-in-view&-selected:hover .@{cellClassName},
+    &-in-view&-range-start .@{cellClassName},
+    &-in-view&-range-start:hover .@{cellClassName},
+    &-in-view&-range-end .@{cellClassName},
+    &-in-view&-range-end:hover .@{cellClassName} {
       color: @text-color-inverse;
       background: @primary-color;
     }
 
     // Hover
-    &-range-hover-start,
-    &-range-hover-end,
-    &-range-hover {
+    &-in-view&-range-hover-start:not(&-in-range):not(&-range-start):not(&-range-end),
+    &-in-view&-range-hover-end:not(&-in-range):not(&-range-start):not(&-range-end),
+    &-in-view&-range-hover:not(&-in-range):not(&-range-start):not(&-range-end) {
       &::after {
         content: '';
         position: absolute;
         top: 50%;
-        right: 0;
-        left: 0;
         height: 24px;
         transform: translateY(-50%);
         z-index: 1;
-        border: @picker-date-hover-range-border;
-        border-left: 0;
-        border-right: 0;
+        border-top: @picker-date-hover-range-border;
+        border-bottom: @picker-date-hover-range-border;
       }
     }
+
+    &-range-hover-start::after,
+    &-range-hover-end::after,
+    &-range-hover::after {
+      right: 0;
+      left: 2px;
+    }
+    tr > &-in-view&-range-hover:first-child::after,
+    tr > &-in-view&-range-hover-end:first-child::after,
+    &-range-hover-edge-start::after,
     &-range-hover-start::after {
       border-left: @picker-date-hover-range-border;
-      border-radius: @border-radius-base 0 0 @border-radius-base;
-      left: 7px;
+      border-top-left-radius: @border-radius-base;
+      border-bottom-left-radius: @border-radius-base;
+      left: 6px;
     }
+    tr > &-in-view&-range-hover:last-child::after,
+    tr > &-in-view&-range-hover-start:last-child::after,
+    &-range-hover-edge-end::after,
     &-range-hover-end::after {
       border-right: @picker-date-hover-range-border;
-      border-radius: 0 @border-radius-base @border-radius-base 0;
+      border-top-right-radius: @border-radius-base;
+      border-bottom-right-radius: @border-radius-base;
       right: 6px;
     }
 

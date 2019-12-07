@@ -49,13 +49,16 @@ export function closePicker(wrapper, index = 0) {
 export function selectCell(wrapper, text, index = 0) {
   let matchCell;
 
-  const panel = index ? wrapper.find('InnerPicker').at(index) : wrapper;
-  panel.find('td').forEach(td => {
-    if (td.text() === String(text) && td.props().className.includes('-in-view')) {
-      matchCell = td;
-      td.simulate('click');
-    }
-  });
+  wrapper
+    .find('table')
+    .at(index)
+    .find('td')
+    .forEach(td => {
+      if (td.text() === String(text) && td.props().className.includes('-in-view')) {
+        matchCell = td;
+        td.simulate('click');
+      }
+    });
 
   if (!matchCell) {
     throw new Error('Cell not match in picker panel.');

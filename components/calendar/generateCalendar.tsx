@@ -274,6 +274,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
                 monthCellRender={date => monthRender(date, mergedLocale.lang)}
                 onSelect={onInternalSelect}
                 mode={panelMode}
+                picker={panelMode as any}
                 disabledDate={mergedDisabledDate}
                 hideHeader
               />
