@@ -2,7 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Icon, Affix, Tooltip } from 'antd';
+import { Row, Col, Icon, Affix, Tooltip, Spin, Avatar } from 'antd';
+import ContributorsList from '@qixian.cs/github-contributors-list';
 import { getChildren } from 'jsonml.js/lib/utils';
 import Demo from './Demo';
 import EditButton from './EditButton';
@@ -131,7 +132,6 @@ class ComponentDoc extends React.Component {
     });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
     const contentChild = getMetaDescription(getChildren(content));
-
     return (
       <article className={articleClassName}>
         <Helmet encodeSpecialCharacters={false}>
@@ -153,9 +153,34 @@ class ComponentDoc extends React.Component {
               filename={filename}
             />
           </h1>
+
+          <ContributorsList
+            fileName={filename}
+            renderItem={(item, loading) => {
+              if (loading) {
+                return <Spin />;
+              }
+              return (
+                <Tooltip title={item.username}>
+                  <a
+                    href={`https://github.com/${item.username}`}
+                    style={{
+                      marginRight: 8,
+                    }}
+                  >
+                    <Avatar src={item.url}>{item.username}</Avatar>
+                  </a>
+                </Tooltip>
+              );
+            }}
+            repo="ant-design"
+            owner="ant-design"
+          />
+
           {utils.toReactComponent(
             ['section', { className: 'markdown' }].concat(getChildren(content)),
           )}
+
           <h2>
             <FormattedMessage id="app.component.examples" />
             <span style={{ float: 'right' }}>
@@ -190,6 +215,7 @@ class ComponentDoc extends React.Component {
             </span>
           </h2>
         </section>
+
         <Row gutter={16}>
           <Col
             span={isSingleCol ? 24 : 12}
