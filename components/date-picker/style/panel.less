@@ -210,6 +210,20 @@
       background: @primary-color;
     }
 
+    &-in-view&-range-start,
+    &-in-view&-range-end {
+      &::before {
+        background: @picker-basic-cell-hover-color;
+      }
+    }
+
+    &-in-view&-range-start::before {
+      left: 50%;
+    }
+    &-in-view&-range-end::before {
+      right: 50%;
+    }
+
     // Hover
     &-in-view&-range-hover-start:not(&-in-range):not(&-range-start):not(&-range-end),
     &-in-view&-range-hover-end:not(&-in-range):not(&-range-start):not(&-range-end),
