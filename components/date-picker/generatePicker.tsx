@@ -20,6 +20,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';
 import { getPlaceholder, getRangePlaceholder } from './util';
 import PickerButton from './PickerButton';
+import PickerTag from './PickerTag';
 
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {
@@ -277,7 +278,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           nextIcon={<span className={`${prefixCls}-next-icon`} />}
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
           superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-          components={{ button: PickerButton }}
+          components={{ button: PickerButton, rangeItem: PickerTag }}
         />
       );
     };
