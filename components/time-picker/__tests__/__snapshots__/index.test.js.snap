@@ -48,7 +48,6 @@ exports[`TimePicker prop locale should works 1`] = `
 Array [
   <div
     class="ant-picker"
-    style=""
   >
     <div
       class="ant-picker-input"
@@ -114,8 +113,8 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-picker-dropdown ant-picker-dropdown-placement-bottomLeft"
-      style="left: -999px; top: -995px;"
+      class="ant-picker-dropdown"
+      style="opacity: 0;"
     >
       <div
         class="ant-picker-panel-container"
