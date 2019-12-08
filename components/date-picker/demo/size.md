@@ -40,11 +40,11 @@ class PickerSizesDemo extends React.Component {
         <br />
         <DatePicker size={size} />
         <br />
-        <DatePicker size={size} placeholder="Select Month" picker="month" />
+        <DatePicker size={size} picker="month" />
         <br />
         <RangePicker size={size} />
         <br />
-        <DatePicker size={size} placeholder="Select Week" picker="week" />
+        <DatePicker size={size} picker="week" />
       </div>
     );
   }

@@ -1739,7 +1739,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        placeholder="Select Month"
+        placeholder="Select month"
         readonly=""
         size="12"
         value=""
@@ -1840,7 +1840,7 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        placeholder="Select Week"
+        placeholder="Select week"
         readonly=""
         size="12"
         value=""
@@ -2250,7 +2250,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        placeholder="Select Time"
+        placeholder="Select date"
         readonly=""
         size="21"
         value=""
@@ -2289,7 +2289,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       class="ant-picker-input ant-picker-input-active"
     >
       <input
-        placeholder="Start Time"
+        placeholder="Start date"
         readonly=""
         size="18"
         value=""
@@ -2308,7 +2308,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
       class="ant-picker-input"
     >
       <input
-        placeholder="End Time"
+        placeholder="End date"
         readonly=""
         size="18"
         value=""
