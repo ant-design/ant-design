@@ -28,7 +28,7 @@ type TransferRender = (item: TransferItem) => RenderResult;
 
 export interface TransferItem {
   key: string;
-  title: string;
+  title?: string;
   description?: string;
   disabled?: boolean;
   [name: string]: any;
