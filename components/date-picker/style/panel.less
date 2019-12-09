@@ -8,7 +8,7 @@
   @picker-basic-cell-hover-with-range-color: lighten(@primary-color, 35%);
   @picker-border: @border-width-base @border-style-base @border-color-split;
   @picker-arrow-size: 7px;
-  @picker-date-hover-range-border: @border-width-base dashed lighten(@primary-color, 10%);
+  @picker-date-hover-range-border: @border-width-base dashed @primary-color;
   @picker-panel-width: 280px;
   @picker-year-month-cell-width: 60px;
 
@@ -163,6 +163,7 @@
       top: 50%;
       right: 0;
       left: 0;
+      z-index: 1;
       height: 24px;
       transform: translateY(-50%);
       content: '';
@@ -171,7 +172,7 @@
     // >>> Default
     .@{cellClassName} {
       position: relative;
-      z-index: 1;
+      z-index: 2;
       display: inline-block;
       min-width: 24px;
       height: 24px;
@@ -237,7 +238,7 @@
       &::after {
         position: absolute;
         top: 50%;
-        z-index: 1;
+        z-index: 0;
         height: 24px;
         border-top: @picker-date-hover-range-border;
         border-bottom: @picker-date-hover-range-border;
@@ -259,30 +260,35 @@
     &-in-view&-range-start&-range-hover::before,
     &-in-view&-range-end&-range-hover::before,
     &-in-view&-range-start:not(&-range-start-single)&-range-hover-start::before,
-    &-in-view&-range-end:not(&-range-end-single)&-range-hover-end::before {
+    &-in-view&-range-end:not(&-range-end-single)&-range-hover-end::before,
+    .@{picker-prefix-cls}-panel:not(.@{picker-prefix-cls}-date-panel)
+      &-in-view&-in-range&-range-hover-start::before,
+    .@{picker-prefix-cls}-panel:not(.@{picker-prefix-cls}-date-panel)
+      &-in-view&-in-range&-range-hover-end::before {
       background: @picker-basic-cell-hover-with-range-color;
     }
 
-    &-in-view&-in-range&-range-hover-start .@{cellClassName},
-    &-in-view&-in-range&-range-hover-end .@{cellClassName} {
+    // DatePanel only
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-start .@{cellClassName},
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName} {
       &::after {
-        content: '';
         position: absolute;
-        z-index: -1;
         top: -@border-width-base;
         bottom: -@border-width-base;
+        z-index: -1;
         background: @picker-basic-cell-hover-with-range-color;
+        content: '';
       }
     }
-    &-in-view&-in-range&-range-hover-start .@{cellClassName}::after {
-      left: -@border-width-base;
+    .@{picker-prefix-cls}-date-panel
+      &-in-view&-in-range&-range-hover-start
+      .@{cellClassName}::after {
       right: -6px - @border-width-base;
-      border-radius: @border-radius-base 0 0 @border-radius-base;
+      left: -@border-width-base;
     }
-    &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
-      left: -6px - @border-width-base;
+    .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       right: -@border-width-base;
-      border-radius: 0 @border-radius-base @border-radius-base 0;
+      left: -6px - @border-width-base;
     }
 
     // Hover with range start & end
