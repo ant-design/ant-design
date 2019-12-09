@@ -184,7 +184,7 @@
     "eslint-config-airbnb": "^18.0.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "~2.18.2",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.0.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-markdown": "^1.0.0",
