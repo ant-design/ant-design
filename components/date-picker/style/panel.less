@@ -182,9 +182,11 @@
     }
 
     // >>> Hover
-    &:hover:not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end)
+    &:hover:not(&-in-view),
+    &:hover:not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end) {
       .@{cellClassName} {
-      background: @picker-basic-cell-hover-color;
+        background: @picker-basic-cell-hover-color;
+      }
     }
 
     // >>> Today
@@ -231,7 +233,7 @@
     &-in-view&-range-hover-end:not(&-in-range):not(&-range-start):not(&-range-end),
     &-in-view&-range-hover-start&-range-start-single,
     &-in-view&-range-hover-end&-range-end-single,
-    &-in-view&-range-hover:not(&-in-range):not(&-range-start):not(&-range-end) {
+    &-in-view&-range-hover:not(&-in-range) {
       &::after {
         position: absolute;
         top: 50%;
@@ -244,6 +246,7 @@
       }
     }
 
+    // Add space for stash
     &-range-hover-start::after,
     &-range-hover-end::after,
     &-range-hover::after {
@@ -251,18 +254,29 @@
       left: 2px;
     }
 
+    // Hover with range
+    &-range-hover&&-range-start::after {
+      right: 50%;
+    }
+    &-range-hover&&-range-end::after {
+      left: 50%;
+    }
+
+    // Edge start
     tr > &-in-view&-range-hover:first-child::after,
     tr > &-in-view&-range-hover-end:first-child::after,
-    &-range-hover-edge-start::after,
+    &-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
     &-range-hover-start::after {
       left: 6px;
       border-left: @picker-date-hover-range-border;
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
     }
+
+    // Edge end
     tr > &-in-view&-range-hover:last-child::after,
     tr > &-in-view&-range-hover-start:last-child::after,
-    &-range-hover-edge-end::after,
+    &-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
     &-range-hover-end::after {
       right: 6px;
       border-right: @picker-date-hover-range-border;
