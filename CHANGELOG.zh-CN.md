@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 3.26.1
+
+`2019-12-09`
+
+- 🐞 修复 List 下分页选项文本对齐问题。[#20037](https://github.com/ant-design/ant-design/issues/20037)
+- 🐞 修复 Chrome 下 Button 文字没有垂直居中的问题。[#20059](https://github.com/ant-design/ant-design/pull/20059)
+- 🐞 修复 DescriptionItem 的 `className` 错误应用于 label。[#20067](https://github.com/ant-design/ant-design/pull/20067) [@Liu-Ya](https://github.com/Liu-Ya)
+- 🐞 修复 Tree `showLine` 为 true 时展示多余图标的问题。[#20090](https://github.com/ant-design/ant-design/issues/20090)
+- 🐞 修复 Typography 可编辑组件在 Firefox 下闪动的问题。[#20118](https://github.com/ant-design/ant-design/pull/20118)
+- Table
+  - 🐞 修复小号 Table 表头边框丢失的问题。[#20030](https://github.com/ant-design/ant-design/issues/20030)
+  - 🐞 修复 `filterIcon` 返回字符串或数字时报错的问题。
+  - 🐞 修复 `filterIcon` 返回 Tooltip 时显示了错误的 `title`。[#20049](https://github.com/ant-design/ant-design/issues/20049)
+  - 🐞 修复在 Windows Chrome 下固定列有 9px 的对齐问题。[#19952](https://github.com/ant-design/ant-design/issues/19952)
+
 ## 3.26.0
 
 `2019-12-01`

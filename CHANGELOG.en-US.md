@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 3.26.1
+
+`2019-12-09`
+
+- 🐞 Fix List pagination options text align. [#20037](https://github.com/ant-design/ant-design/issues/20037)
+- 🐞 Fix Button text not align well in Chrome. [#20059](https://github.com/ant-design/ant-design/pull/20059)
+- 🐞 Fix DescriptionItem `className` error applied to label. [#20067](https://github.com/ant-design/ant-design/pull/20067) [@Liu-Ya](https://github.com/Liu-Ya)
+- 🐞 Fix Tree duplicated icons when `showLine` is true. [#20090](https://github.com/ant-design/ant-design/issues/20090)
+- 🐞 Fix Editable Typography flush in Firefox. [#20118](https://github.com/ant-design/ant-design/pull/20118)
+- Table
+  - 🐞 Fix small table header border missing. [#20030](https://github.com/ant-design/ant-design/issues/20030)
+  - 🐞 Fix `filterIcon` throws error when render string or number.
+  - 🐞 Fix `filterIcon` shows wrong title when returns Tooltip. [#20049](https://github.com/ant-design/ant-design/issues/20049)
+  - 🐞 Fix columns have 9px align issue in Windows Chrome. [#19952](https://github.com/ant-design/ant-design/issues/19952)
+
 ## 3.26.0
 
 `2019-12-01`
