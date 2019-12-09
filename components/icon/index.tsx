@@ -67,7 +67,7 @@ export interface IconProps {
   title?: string;
   onKeyUp?: React.KeyboardEventHandler<HTMLElement>;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  component?: React.ComponentType<CustomIconComponentProps>;
+  component?: React.ComponentType<CustomIconComponentProps | React.SVGProps<SVGSVGElement>>;
   twoToneColor?: string;
   viewBox?: string;
   spin?: boolean;
