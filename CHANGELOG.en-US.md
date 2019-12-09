@@ -24,6 +24,7 @@ timeline: true
 - 🐞 Fix DescriptionItem `className` error applied to label. [#20067](https://github.com/ant-design/ant-design/pull/20067) [@Liu-Ya](https://github.com/Liu-Ya)
 - 🐞 Fix Tree duplicated icons when `showLine` is true. [#20090](https://github.com/ant-design/ant-design/issues/20090)
 - 🐞 Fix Editable Typography flush in Firefox. [#20118](https://github.com/ant-design/ant-design/pull/20118)
+- 🐞 Improve Icon `component` definition to be compatible with create-react-app svg component. [#20142](https://github.com/ant-design/ant-design/pull/20142)
 - Table
   - 🐞 Fix small table header border missing. [#20030](https://github.com/ant-design/ant-design/issues/20030)
   - 🐞 Fix `filterIcon` throws error when render string or number.

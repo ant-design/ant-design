@@ -24,6 +24,7 @@ timeline: true
 - 🐞 修复 DescriptionItem 的 `className` 错误应用于 label。[#20067](https://github.com/ant-design/ant-design/pull/20067) [@Liu-Ya](https://github.com/Liu-Ya)
 - 🐞 修复 Tree `showLine` 为 true 时展示多余图标的问题。[#20090](https://github.com/ant-design/ant-design/issues/20090)
 - 🐞 修复 Typography 可编辑组件在 Firefox 下闪动的问题。[#20118](https://github.com/ant-design/ant-design/pull/20118)
+- 🐞 修复 Icon `component` 的定义，使其兼容于 create-react-app 的 svg 组件定义。[#20142](https://github.com/ant-design/ant-design/pull/20142)
 - Table
   - 🐞 修复小号 Table 表头边框丢失的问题。[#20030](https://github.com/ant-design/ant-design/issues/20030)
   - 🐞 修复 `filterIcon` 返回字符串或数字时报错的问题。
