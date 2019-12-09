@@ -168,7 +168,7 @@
       content: '';
     }
 
-    // Default
+    // >>> Default
     .@{cellClassName} {
       position: relative;
       z-index: 1;
@@ -181,16 +181,18 @@
       transition: background 0.3s, border 0.3s;
     }
 
-    &:hover .@{cellClassName} {
+    // >>> Hover
+    &:hover:not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end)
+      .@{cellClassName} {
       background: @picker-basic-cell-hover-color;
     }
 
-    // Today
+    // >>> Today
     &-in-view&-today .@{cellClassName} {
       border-color: @primary-color;
     }
 
-    // In range
+    // >>> In Range
     &-in-view&-in-range {
       position: relative;
 
@@ -199,7 +201,7 @@
       }
     }
 
-    // Selected
+    // >>> Selected
     &-in-view&-selected .@{cellClassName},
     &-in-view&-selected:hover .@{cellClassName},
     &-in-view&-range-start .@{cellClassName},
@@ -210,8 +212,8 @@
       background: @primary-color;
     }
 
-    &-in-view&-range-start,
-    &-in-view&-range-end {
+    &-in-view&-range-start:not(&-range-start-single),
+    &-in-view&-range-end:not(&-range-end-single) {
       &::before {
         background: @picker-basic-cell-hover-color;
       }
@@ -224,9 +226,11 @@
       right: 50%;
     }
 
-    // Hover
+    // >>> Range Hover
     &-in-view&-range-hover-start:not(&-in-range):not(&-range-start):not(&-range-end),
     &-in-view&-range-hover-end:not(&-in-range):not(&-range-start):not(&-range-end),
+    &-in-view&-range-hover-start&-range-start-single,
+    &-in-view&-range-hover-end&-range-end-single,
     &-in-view&-range-hover:not(&-in-range):not(&-range-start):not(&-range-end) {
       &::after {
         position: absolute;
@@ -246,6 +250,7 @@
       right: 0;
       left: 2px;
     }
+
     tr > &-in-view&-range-hover:first-child::after,
     tr > &-in-view&-range-hover-end:first-child::after,
     &-range-hover-edge-start::after,
@@ -265,9 +270,10 @@
       border-bottom-right-radius: @border-radius-base;
     }
 
-    // Disabled
-    &-disabled,
-    &-disabled:hover {
+    // >>> Disabled
+    &-disabled {
+      pointer-events: none;
+
       .@{cellClassName} {
         color: @disabled-color;
         background: transparent;

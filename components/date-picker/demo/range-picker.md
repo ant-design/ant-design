@@ -3,6 +3,7 @@ order: 11
 title:
   zh-CN: 范围选择器
   en-US: Range Picker
+only: true
 ---
 
 ## zh-CN
@@ -20,13 +21,13 @@ const { RangePicker } = DatePicker;
 
 ReactDOM.render(
   <div>
-    <RangePicker />
-    <br />
+    <RangePicker open />
+    {/*<br />
     <RangePicker showTime />
     <br />
     <RangePicker picker="month" />
     <br />
-    <RangePicker picker="year" />
+    <RangePicker picker="year" />*/}
   </div>,
   mountNode,
 );
