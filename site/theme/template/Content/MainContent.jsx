@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon, Affix, Tooltip, Spin, Avatar } from 'antd';
+import { Row, Col, Menu, Icon, Affix, Tooltip, Skeleton, Avatar } from 'antd';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
@@ -342,10 +342,19 @@ class MainContent extends Component {
                 style={{
                   position: 'absolute',
                   bottom: 16,
+                  minWidth: 240,
                 }}
                 renderItem={(item, loading) => {
                   if (loading) {
-                    return <Spin />;
+                    return (
+                      <Skeleton
+                        style={{
+                          height: 40,
+                        }}
+                        paragraph={false}
+                        active
+                      />
+                    );
                   }
                   return (
                     <Tooltip title={item.username}>
