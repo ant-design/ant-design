@@ -37,6 +37,7 @@ const eslintrc = {
     'react/forbid-prop-types': 0,
     'react/jsx-indent': 0,
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
+    'import/extensions': 0,
     'import/no-extraneous-dependencies': [
       'error',
       {
