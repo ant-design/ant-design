@@ -21,13 +21,13 @@ const { RangePicker } = DatePicker;
 
 ReactDOM.render(
   <div>
-    <RangePicker open />
-    {/*<br />
+    <RangePicker />
+    <br />
     <RangePicker showTime />
     <br />
     <RangePicker picker="month" />
     <br />
-    <RangePicker picker="year" />*/}
+    <RangePicker picker="year" />
   </div>,
   mountNode,
 );

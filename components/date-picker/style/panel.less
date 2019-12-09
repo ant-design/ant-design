@@ -4,10 +4,11 @@
 @picker-legacy-cell-cls: ~'@{ant-prefix}-calendar-date';
 
 .@{picker-prefix-cls} {
-  @picker-basic-cell-hover-color: fade(@primary-color, 10%);
+  @picker-basic-cell-hover-color: lighten(@primary-color, 40%);
+  @picker-basic-cell-hover-with-range-color: lighten(@primary-color, 35%);
   @picker-border: @border-width-base @border-style-base @border-color-split;
   @picker-arrow-size: 7px;
-  @picker-date-hover-range-border: @border-width-base dashed fade(@primary-color, 50%);
+  @picker-date-hover-range-border: @border-width-base dashed lighten(@primary-color, 10%);
   @picker-panel-width: 280px;
   @picker-year-month-cell-width: 60px;
 
@@ -164,7 +165,6 @@
       left: 0;
       height: 24px;
       transform: translateY(-50%);
-      transition: background 0.3s;
       content: '';
     }
 
@@ -254,19 +254,50 @@
       left: 2px;
     }
 
-    // Hover with range
-    &-range-hover&&-range-start::after {
+    // Hover with in range
+    &-in-view&-in-range&-range-hover::before,
+    &-in-view&-range-start&-range-hover::before,
+    &-in-view&-range-end&-range-hover::before,
+    &-in-view&-range-start:not(&-range-start-single)&-range-hover-start::before,
+    &-in-view&-range-end:not(&-range-end-single)&-range-hover-end::before {
+      background: @picker-basic-cell-hover-with-range-color;
+    }
+
+    &-in-view&-in-range&-range-hover-start .@{cellClassName},
+    &-in-view&-in-range&-range-hover-end .@{cellClassName} {
+      &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: -@border-width-base;
+        bottom: -@border-width-base;
+        background: @picker-basic-cell-hover-with-range-color;
+      }
+    }
+    &-in-view&-in-range&-range-hover-start .@{cellClassName}::after {
+      left: -@border-width-base;
+      right: -6px - @border-width-base;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
+    &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
+      left: -6px - @border-width-base;
+      right: -@border-width-base;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+
+    // Hover with range start & end
+    &-range-hover&-range-start::after {
       right: 50%;
     }
-    &-range-hover&&-range-end::after {
+    &-range-hover&-range-end::after {
       left: 50%;
     }
 
     // Edge start
     tr > &-in-view&-range-hover:first-child::after,
     tr > &-in-view&-range-hover-end:first-child::after,
-    &-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
-    &-range-hover-start::after {
+    &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
+    &-in-view&-range-hover-start::after {
       left: 6px;
       border-left: @picker-date-hover-range-border;
       border-top-left-radius: @border-radius-base;
@@ -276,8 +307,8 @@
     // Edge end
     tr > &-in-view&-range-hover:last-child::after,
     tr > &-in-view&-range-hover-start:last-child::after,
-    &-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
-    &-range-hover-end::after {
+    &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
+    &-in-view&-range-hover-end::after {
       right: 6px;
       border-right: @picker-date-hover-range-border;
       border-top-right-radius: @border-radius-base;
