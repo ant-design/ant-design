@@ -1,9 +1,8 @@
 import React, { Children, cloneElement } from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import { Helmet } from 'react-helmet-async';
-import ContributorsList from '@qixian.cs/github-contributors-list';
 import { getChildren } from 'jsonml.js/lib/utils';
-import { Timeline, Alert, Affix, Tooltip, Spin, Avatar } from 'antd';
+import { Timeline, Alert, Affix } from 'antd';
 import EditButton from './EditButton';
 import { getMetaDescription } from '../utils';
 
@@ -106,28 +105,6 @@ class Article extends React.Component {
           <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
         </h1>
 
-        <ContributorsList
-          fileName={filename}
-          renderItem={(item, loading) => {
-            if (loading) {
-              return <Spin />;
-            }
-            return (
-              <Tooltip title={item.username}>
-                <a
-                  href={`https://github.com/${item.username}`}
-                  style={{
-                    marginRight: 8,
-                  }}
-                >
-                  <Avatar src={item.url}>{item.username}</Avatar>
-                </a>
-              </Tooltip>
-            );
-          }}
-          repo="ant-design"
-          owner="ant-design"
-        />
         {!description
           ? null
           : utils.toReactComponent(

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon, Affix } from 'antd';
+import { Row, Col, Menu, Icon, Affix, Tooltip, Spin, Avatar } from 'antd';
+import ContributorsList from '@qixian.cs/github-contributors-list';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
@@ -284,6 +285,8 @@ class MainContent extends Component {
     const { isMobile } = this.context;
     const { openKeys } = this.state;
     const { localizedPageData, demos } = this.props;
+
+    const { meta } = localizedPageData;
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
@@ -334,6 +337,32 @@ class MainContent extends Component {
               ) : (
                 <Article {...this.props} content={localizedPageData} />
               )}
+              <ContributorsList
+                fileName={meta.filename}
+                style={{
+                  position: 'absolute',
+                  bottom: 16,
+                }}
+                renderItem={(item, loading) => {
+                  if (loading) {
+                    return <Spin />;
+                  }
+                  return (
+                    <Tooltip title={item.username}>
+                      <a
+                        href={`https://github.com/${item.username}`}
+                        style={{
+                          marginRight: 8,
+                        }}
+                      >
+                        <Avatar src={item.url}>{item.username}</Avatar>
+                      </a>
+                    </Tooltip>
+                  );
+                }}
+                repo="ant-design"
+                owner="ant-design"
+              />
             </section>
             <PrevAndNext prev={prev} next={next} />
             <Footer />
