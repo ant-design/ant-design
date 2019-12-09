@@ -63,6 +63,8 @@ export interface ColumnProps<T> {
   onCell?: (record: T, rowIndex: number) => TableEventListeners;
   onHeaderCell?: (props: ColumnProps<T>) => TableEventListeners;
   sortDirections?: SortOrder[];
+  sortUpIcon?: string;
+  sortDownIcon?: string;
 }
 
 export interface AdditionalCellProps {

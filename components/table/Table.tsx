@@ -1168,19 +1168,23 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
         const isAscend = isSortColumn && sortOrder === 'ascend';
         const isDescend = isSortColumn && sortOrder === 'descend';
 
+        const sortUpIcon = column.sortUpIcon !== undefined ? column.sortUpIcon : 'caret-up';
+        const themeUp = column.sortUpIcon !== undefined ? 'outlined' : 'filled';
         const ascend = sortDirections.indexOf('ascend') !== -1 && (
           <Icon
             className={`${prefixCls}-column-sorter-up ${isAscend ? 'on' : 'off'}`}
-            type="caret-up"
-            theme="filled"
+            type={sortUpIcon}
+            theme={themeUp}
           />
         );
 
+        const sortDownIcon = column.sortDownIcon !== undefined ? column.sortDownIcon : 'caret-down';
+        const themeDown = column.sortDownIcon !== undefined ? 'outlined' : 'filled';
         const descend = sortDirections.indexOf('descend') !== -1 && (
           <Icon
             className={`${prefixCls}-column-sorter-down ${isDescend ? 'on' : 'off'}`}
-            type="caret-down"
-            theme="filled"
+            type={sortDownIcon}
+            theme={themeDown}
           />
         );
 
