@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Popconfirm', () => {
   mountTest(Popconfirm);
@@ -36,7 +37,7 @@ describe('Popconfirm', () => {
     expect(onVisibleChange).toHaveBeenLastCalledWith(false, undefined);
   });
 
-  it('should show overlay when trigger is clicked', () => {
+  it('should show overlay when trigger is clicked', async () => {
     const popconfirm = mount(
       <Popconfirm title="code">
         <span>show me your code</span>
@@ -46,6 +47,7 @@ describe('Popconfirm', () => {
     expect(popconfirm.instance().getPopupDomNode()).toBe(null);
 
     popconfirm.find('span').simulate('click');
+    await sleep(100);
 
     const popup = popconfirm.instance().getPopupDomNode();
     expect(popup).not.toBe(null);
@@ -67,7 +69,7 @@ describe('Popconfirm', () => {
     expect(popconfirm.instance().getPopupDomNode().className).not.toContain('ant-popover-hidden');
     popconfirm.setProps({ visible: false });
     jest.runAllTimers();
-    expect(popconfirm.instance().getPopupDomNode().className).toContain('ant-popover-hidden');
+    expect(popconfirm.find('Trigger').props().popupVisible).toBe(false);
     jest.useRealTimers();
   });
 

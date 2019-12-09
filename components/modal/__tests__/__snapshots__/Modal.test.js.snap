@@ -4,7 +4,9 @@ exports[`Modal render correctly 1`] = `
 <div>
   <div>
     <div>
-      <div>
+      <div
+        class="ant-modal-root"
+      >
         <div
           class="ant-modal-mask fade-appear"
         />
@@ -101,7 +103,9 @@ exports[`Modal render without footer 1`] = `
 <div>
   <div>
     <div>
-      <div>
+      <div
+        class="ant-modal-root"
+      >
         <div
           class="ant-modal-mask fade-appear"
         />
@@ -173,7 +177,9 @@ exports[`Modal render without footer 1`] = `
 `;
 
 exports[`Modal support closeIcon 1`] = `
-<div>
+<div
+  class="ant-modal-root"
+>
   <div
     class="ant-modal-mask fade-appear"
   />

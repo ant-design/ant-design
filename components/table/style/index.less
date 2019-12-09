@@ -17,6 +17,7 @@
 .@{table-prefix-cls} {
   .reset-component;
   position: relative;
+  z-index: 0;
   clear: both;
 
   // https://github.com/ant-design/ant-design/issues/17611
@@ -292,10 +293,8 @@
       justify-content: space-between;
       padding: 7px 8px;
       overflow: hidden;
+      background-color: @table-filter-btns-bg;
       border-top: @border-width-base @border-style-base @border-color-split;
-      & when (@theme = dark) {
-        background-color: @gray-11;
-      }
     }
   }
 

@@ -35,8 +35,7 @@ exports[`Table.filter override custom filter correctly 1`] = `
 exports[`Table.filter renders custom content correctly 1`] = `
 <div>
   <div
-    class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
-    style="visibility: hidden;"
+    class="ant-dropdown ant-dropdown-hidden"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -191,8 +190,7 @@ exports[`Table.filter renders filter correctly 1`] = `
 exports[`Table.filter renders menu correctly 1`] = `
 <div>
   <div
-    class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
-    style="visibility: hidden;"
+    class="ant-dropdown ant-dropdown-hidden"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -288,8 +286,7 @@ exports[`Table.filter renders menu correctly 1`] = `
 exports[`Table.filter renders radio filter correctly 1`] = `
 <div>
   <div
-    class="ant-dropdown  ant-dropdown-placement-bottomRight  ant-dropdown-hidden"
-    style="visibility: hidden;"
+    class="ant-dropdown ant-dropdown-hidden"
   >
     <div
       class="ant-table-filter-dropdown"
@@ -426,7 +423,6 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         <span
                           class="ant-table-filter-trigger ant-dropdown-trigger"
                           role="button"
-                          style=""
                           tabindex="-1"
                         >
                           <span
@@ -452,8 +448,8 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown ant-dropdown-placement-bottomRight"
-                            style="left: -999px; top: -995px; min-width: 0;"
+                            class="ant-dropdown"
+                            style="opacity: 0;"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -642,7 +638,6 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         <span
                           class="ant-table-filter-trigger ant-dropdown-trigger"
                           role="button"
-                          style=""
                           tabindex="-1"
                         >
                           <span
@@ -668,8 +663,8 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown ant-dropdown-placement-bottomRight"
-                            style="left: -999px; top: -995px; min-width: 0;"
+                            class="ant-dropdown"
+                            style="opacity: 0;"
                           >
                             <div
                               class="ant-table-filter-dropdown"

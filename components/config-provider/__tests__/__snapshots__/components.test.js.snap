@@ -7919,7 +7919,9 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
 
 exports[`ConfigProvider components Modal configProvider 1`] = `
 <div>
-  <div>
+  <div
+    class="config-modal-root"
+  >
     <div
       class="config-modal-mask"
     />
@@ -8012,7 +8014,9 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
 
 exports[`ConfigProvider components Modal normal 1`] = `
 <div>
-  <div>
+  <div
+    class="ant-modal-root"
+  >
     <div
       class="ant-modal-mask"
     />
@@ -8105,7 +8109,9 @@ exports[`ConfigProvider components Modal normal 1`] = `
 
 exports[`ConfigProvider components Modal prefixCls 1`] = `
 <div>
-  <div>
+  <div
+    class="prefix-Modal-root"
+  >
     <div
       class="prefix-Modal-mask"
     />
@@ -9132,7 +9138,8 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
   </span>
   <div>
     <div
-      class="config-popover  config-popover-placement-top "
+      class="config-popover"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -9213,7 +9220,8 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
   </span>
   <div>
     <div
-      class="ant-popover  ant-popover-placement-top "
+      class="ant-popover"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -9294,7 +9302,8 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   </span>
   <div>
     <div
-      class="prefix-Popconfirm  prefix-Popconfirm-placement-top "
+      class="prefix-Popconfirm"
+      style="opacity:0"
     >
       <div
         class="prefix-Popconfirm-content"
@@ -9375,7 +9384,8 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
   </span>
   <div>
     <div
-      class="config-popover  config-popover-placement-top "
+      class="config-popover"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -9408,7 +9418,8 @@ exports[`ConfigProvider components Popover normal 1`] = `
   </span>
   <div>
     <div
-      class="ant-popover  ant-popover-placement-top "
+      class="ant-popover"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -9441,7 +9452,8 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
   </span>
   <div>
     <div
-      class="prefix-Popover  prefix-Popover-placement-top "
+      class="prefix-Popover"
+      style="opacity:0"
     >
       <div
         class="prefix-Popover-content"
@@ -10656,7 +10668,8 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   </div>
   <div>
     <div
-      class="config-select-dropdown  config-select-dropdown-placement-bottomLeft "
+      class="config-select-dropdown"
+      style="opacity:0"
     >
       <div>
         <div
@@ -10773,7 +10786,8 @@ exports[`ConfigProvider components Select normal 1`] = `
   </div>
   <div>
     <div
-      class="ant-select-dropdown  ant-select-dropdown-placement-bottomLeft "
+      class="ant-select-dropdown"
+      style="opacity:0"
     >
       <div>
         <div
@@ -10890,7 +10904,8 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   </div>
   <div>
     <div
-      class="prefix-Select-dropdown  prefix-Select-dropdown-placement-bottomLeft "
+      class="prefix-Select-dropdown"
+      style="opacity:0"
     >
       <div>
         <div
@@ -11087,7 +11102,8 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip config-tooltip-placement-top "
+      class="config-tooltip config-slider-tooltip"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -11136,7 +11152,8 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip ant-tooltip-placement-top "
+      class="ant-tooltip ant-slider-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -11185,7 +11202,8 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div>
     <div
-      class="prefix-Slider-tooltip prefix-Slider-tooltip prefix-Slider-tooltip-placement-top "
+      class="prefix-Slider-tooltip prefix-Slider-tooltip"
+      style="opacity:0"
     >
       <div
         class="prefix-Slider-tooltip-content"
@@ -11622,8 +11640,8 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         </span>
                         <div>
                           <div
-                            class="config-dropdown  config-dropdown-placement-bottomRight "
-                            style="visibility:hidden"
+                            class="config-dropdown"
+                            style="opacity:0"
                           >
                             <div
                               class="config-table-filter-dropdown"
@@ -11958,8 +11976,8 @@ exports[`ConfigProvider components Table normal 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown  ant-dropdown-placement-bottomRight "
-                            style="visibility:hidden"
+                            class="ant-dropdown"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -12294,8 +12312,8 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown  ant-dropdown-placement-bottomRight "
-                            style="visibility:hidden"
+                            class="ant-dropdown"
+                            style="opacity:0"
                           >
                             <div
                               class="prefix-Table-filter-dropdown"
@@ -12987,7 +13005,8 @@ Array [
   </span>,
   <div>
     <div
-      class="config-time-picker-panel config-time-picker-panel-column-3 config-time-picker-panel-placement-bottomLeft "
+      class="config-time-picker-panel config-time-picker-panel-column-3"
+      style="opacity:0"
     >
       <div
         class="config-time-picker-panel-inner"
@@ -14079,7 +14098,8 @@ Array [
   </span>,
   <div>
     <div
-      class="ant-time-picker-panel ant-time-picker-panel-column-3 ant-time-picker-panel-placement-bottomLeft "
+      class="ant-time-picker-panel ant-time-picker-panel-column-3"
+      style="opacity:0"
     >
       <div
         class="ant-time-picker-panel-inner"
@@ -15171,7 +15191,8 @@ Array [
   </span>,
   <div>
     <div
-      class="prefix-TimePicker-panel prefix-TimePicker-panel-column-3 prefix-TimePicker-panel-placement-bottomLeft "
+      class="prefix-TimePicker-panel prefix-TimePicker-panel-column-3"
+      style="opacity:0"
     >
       <div
         class="prefix-TimePicker-panel-inner"
@@ -16296,7 +16317,8 @@ Array [
   </span>,
   <div>
     <div
-      class="config-tooltip  config-tooltip-placement-top "
+      class="config-tooltip"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -16325,7 +16347,8 @@ Array [
   </span>,
   <div>
     <div
-      class="ant-tooltip  ant-tooltip-placement-top "
+      class="ant-tooltip"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -16354,7 +16377,8 @@ Array [
   </span>,
   <div>
     <div
-      class="prefix-Tooltip  prefix-Tooltip-placement-top "
+      class="prefix-Tooltip"
+      style="opacity:0"
     >
       <div
         class="prefix-Tooltip-content"
@@ -17448,7 +17472,8 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   </div>
   <div>
     <div
-      class="config-select-dropdown config-tree-select-dropdown config-select-dropdown-placement-bottomLeft "
+      class="config-select-dropdown config-tree-select-dropdown"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -17558,7 +17583,8 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   </div>
   <div>
     <div
-      class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-placement-bottomLeft "
+      class="ant-select-dropdown ant-tree-select-dropdown"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -17668,7 +17694,8 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   </div>
   <div>
     <div
-      class="prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown-placement-bottomLeft "
+      class="prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown"
+      style="opacity:0"
     >
       <div>
         <div>

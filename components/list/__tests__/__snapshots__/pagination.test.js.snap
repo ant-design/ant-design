@@ -337,7 +337,6 @@ exports[`List.pagination should change page size work 2`] = `
     >
       <div
         class="ant-select-selector"
-        style=""
       >
         <span
           class="ant-select-selection-search"
@@ -365,8 +364,8 @@ exports[`List.pagination should change page size work 2`] = `
       </div>
       <div>
         <div
-          class="ant-select-dropdown  ant-select-dropdown-placement-bottomLeft  ant-select-dropdown-hidden"
-          style="width: 0px; left: -999px; top: -995px;"
+          class="ant-select-dropdown"
+          style="width: 0px;"
         >
           <div>
             <div
