@@ -50,3 +50,23 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 #### Does the locale problem still exist in DatePicker even if ConfigProvider `locale` is used?
 
 Please make sure you set moment locale by `moment.locale('zh-cn')` or that you don't have two different versions of moment.
+
+#### Modal throw error when setting `getPopupContainer`?
+
+Related issue: https://github.com/ant-design/ant-design/issues/19974
+
+When you config `getPopupContainer` to parentNode globally, Modal will throw error of `triggerNode is undefined` because it did not have a triggerNode. You can try the [fix](https://github.com/afc163/feedback-antd/commit/3e4d1ad1bc1a38460dc3bf3c56517f737fe7d44a) below.
+
+```diff
+ <ConfigProvider
+-  getPopupContainer={triggerNode => triggerNode.parentNode}
++  getPopupContainer={node => {
++    if (node) {
++      return node.parentNode;
++    }
++    return document.body;
++  }}
+ >
+   <App />
+ </ConfigProvider>
+```
