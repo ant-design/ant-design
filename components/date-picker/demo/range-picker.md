@@ -24,6 +24,8 @@ ReactDOM.render(
     <br />
     <RangePicker showTime />
     <br />
+    <RangePicker picker="week" />
+    <br />
     <RangePicker picker="month" />
     <br />
     <RangePicker picker="year" />

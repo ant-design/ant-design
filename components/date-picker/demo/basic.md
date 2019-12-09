@@ -31,8 +31,6 @@ ReactDOM.render(
     <DatePicker onChange={onChange} picker="month" />
     <br />
     <DatePicker onChange={onChange} picker="year" />
-    <br />
-    <RangePicker onChange={onChange} />
   </div>,
   mountNode,
 );
