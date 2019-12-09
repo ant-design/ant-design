@@ -45,10 +45,10 @@ class Demo extends React.Component {
   }
 
   getSourceCode() {
-    const { highlightedCode } = this.props;
+    const { highlightedCodes } = this.props;
     if (typeof document !== 'undefined') {
       const div = document.createElement('div');
-      div.innerHTML = highlightedCode[1].highlighted;
+      div.innerHTML = highlightedCodes.jsx;
       return div.textContent;
     }
     return '';
