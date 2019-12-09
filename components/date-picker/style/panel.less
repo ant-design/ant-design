@@ -261,9 +261,11 @@
     &-in-view&-range-end&-range-hover::before,
     &-in-view&-range-start:not(&-range-start-single)&-range-hover-start::before,
     &-in-view&-range-end:not(&-range-end-single)&-range-hover-end::before,
-    .@{picker-prefix-cls}-panel:not(.@{picker-prefix-cls}-date-panel)
+    .@{picker-prefix-cls}-panel
+      > :not(.@{picker-prefix-cls}-date-panel)
       &-in-view&-in-range&-range-hover-start::before,
-    .@{picker-prefix-cls}-panel:not(.@{picker-prefix-cls}-date-panel)
+    .@{picker-prefix-cls}-panel
+      > :not(.@{picker-prefix-cls}-date-panel)
       &-in-view&-in-range&-range-hover-end::before {
       background: @picker-basic-cell-hover-with-range-color;
     }
