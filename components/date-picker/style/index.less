@@ -210,6 +210,10 @@
     margin-left: @input-padding-horizontal-base * 1.5;
     transition: left 0.3s ease-out;
 
+    .@{picker-prefix-cls}-time-range-wrapper & {
+      display: none !important;
+    }
+
     &::before,
     &::after {
       position: absolute;
