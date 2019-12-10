@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.26.2
+
+`2019-12-10`
+
+- 🐞 Fix DatePicker `disabledTime` TypeScript definition to be optional. [#20153](https://github.com/ant-design/ant-design/pull/20153) [@khaledkhalil94](https://github.com/khaledkhalil94)
+- 🐞 Fix Transfer's `title` of `dataSource` TypeScript definition to be optional. [#20144](https://github.com/ant-design/ant-design/pull/20144) [@mraiguo](https://github.com/mraiguo)
+
 ## 3.26.1
 
 `2019-12-09`

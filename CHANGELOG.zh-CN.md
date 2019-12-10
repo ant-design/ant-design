@@ -15,6 +15,13 @@ timeline: true
 
 ---
 
+## 3.26.2
+
+`2019-12-10`
+
+- 🐞 修正 DatePicker `disabledTime` 属性 TypeScript 定义为可选。[#20153](https://github.com/ant-design/ant-design/pull/20153) [@khaledkhalil94](https://github.com/khaledkhalil94)
+- 🐞 修正 Transfer `dataSource` 的 `title` 属性 TypeScript 定义为可选。[#20144](https://github.com/ant-design/ant-design/pull/20144) [@mraiguo](https://github.com/mraiguo)
+
 ## 3.26.1
 
 `2019-12-09`
