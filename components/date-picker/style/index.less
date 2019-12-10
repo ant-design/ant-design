@@ -36,13 +36,17 @@
     > input {
       .input();
       height: auto;
-      padding: 0;
+      padding: 0 @padding-xs / 2;
       background: transparent;
 
       border: 0;
 
       &:focus {
         box-shadow: none;
+      }
+
+      &[disabled] {
+        background: transparent;
       }
     }
 

@@ -131,6 +131,7 @@ import 'moment/locale/zh-cn';
 | --- | --- | --- | --- | --- |
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 |  |
+| disabled | 禁用起始项 | [boolean, boolean] | 无 |  |
 | disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `'start'|'end'`) | 无 |  |
 | format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |  |
 | ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | 无 |  |

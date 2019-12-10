@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 99
 title:
   zh-CN: 受控面板
   en-US: Controlled Panels

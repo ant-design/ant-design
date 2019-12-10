@@ -182,14 +182,14 @@
     // ======================== Picker =========================
     // Fix issue: https://github.com/ant-design/ant-design/issues/4783
     .@{ant-prefix}-picker {
-      padding-right: @input-padding-horizontal-base + @font-size-base;
+      padding-right: @input-padding-horizontal-base + @font-size-base * 1.3;
 
       &-large {
-        padding-right: @input-padding-horizontal-lg + @font-size-base;
+        padding-right: @input-padding-horizontal-lg + @font-size-base * 1.3;
       }
 
       &-small {
-        padding-right: @input-padding-horizontal-sm + @font-size-base;
+        padding-right: @input-padding-horizontal-sm + @font-size-base * 1.3;
       }
     }
 
@@ -259,14 +259,6 @@
       }
     }
 
-    // arrow and icon
-    .@{ant-prefix}-picker-suffix,
-    .@{ant-prefix}-picker-icon::after,
-    .@{ant-prefix}-select-arrow,
-    .@{ant-prefix}-cascader-picker-arrow {
-      color: @warning-color;
-    }
-
     //input-number, timepicker
     .@{ant-prefix}-input-number,
     .@{ant-prefix}-picker {
@@ -319,14 +311,6 @@
         border-color: transparent;
         box-shadow: none;
       }
-    }
-
-    // arrow and icon
-    .@{ant-prefix}-picker-suffix,
-    .@{ant-prefix}-picker-icon::after,
-    .@{ant-prefix}-select-arrow,
-    .@{ant-prefix}-cascader-picker-arrow {
-      color: @error-color;
     }
 
     //input-number, timepicker
