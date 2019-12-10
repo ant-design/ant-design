@@ -469,6 +469,7 @@
   &-menu {
     max-height: 250px;
     margin-bottom: 0;
+    padding: @select-dropdown-edge-child-vertical-padding 0;  //Change
     padding-left: 0; // Override default ul/ol
     overflow: auto;
     list-style: none;
@@ -499,11 +500,12 @@
     &-item {
       position: relative;
       display: block;
-      padding: 5px @control-padding-horizontal;
+      padding: @select-dropdown-vertical-padding @control-padding-horizontal;
       overflow: hidden;
       color: @text-color;
       font-weight: normal;
-      line-height: 22px;
+      font-size: @select-dropdown-font-size;
+      line-height: @select-dropdown-line-height;
       white-space: nowrap;
       text-overflow: ellipsis;
       cursor: pointer;
@@ -514,11 +516,15 @@
       }
 
       &:first-child {
-        border-radius: @border-radius-base @border-radius-base 0 0;
+        & when (@select-dropdown-edge-child-vertical-padding = 0) {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
       }
 
       &:last-child {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
+        & when (@select-dropdown-edge-child-vertical-padding = 0) {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
       }
 
       &-selected {

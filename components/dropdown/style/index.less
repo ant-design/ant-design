@@ -49,7 +49,7 @@
   &-menu {
     position: relative;
     margin: 0;
-    padding: 4px 0;
+    padding: @dropdown-edge-child-vertical-padding 0;
     text-align: left;
     list-style-type: none;
     background-color: @component-background;
@@ -111,6 +111,18 @@
         padding: 5px @control-padding-horizontal;
         color: @text-color;
         transition: all 0.3s;
+      }
+
+      &:first-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
+      }
+
+      &:last-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
       }
 
       &-selected,
