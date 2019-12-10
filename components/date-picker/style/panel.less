@@ -57,7 +57,7 @@
       background: transparent;
       border: 0;
       cursor: pointer;
-      transition: color 0.3s;
+      transition: color @animation-duration-slow;
     }
 
     > button {
@@ -178,7 +178,7 @@
       height: 24px;
       line-height: 24px;
       border-radius: @border-radius-base;
-      transition: background 0.3s, border 0.3s;
+      transition: background @animation-duration-slow, border @animation-duration-slow;
     }
 
     // >>> Hover
@@ -477,7 +477,7 @@
 
     &-row {
       td {
-        transition: background 0.3s;
+        transition: background @animation-duration-slow;
       }
 
       &:hover td {
@@ -528,7 +528,7 @@
 
     .@{picker-prefix-cls}-date-panel,
     .@{picker-prefix-cls}-time-panel {
-      transition: opacity 0.3s;
+      transition: opacity @animation-duration-slow;
     }
 
     // Keyboard
@@ -563,7 +563,7 @@
       overflow-y: hidden;
       text-align: left;
       list-style: none;
-      transition: background 0.3s;
+      transition: background @animation-duration-slow;
 
       &:not(:first-child) {
         border-left: @picker-border;

@@ -22,9 +22,19 @@
   background: @component-background;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
+  transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
 
   &-disabled {
     background: @input-disabled-bg;
+  }
+
+  &:hover,
+  &-focused {
+    .hover();
+  }
+
+  &-focused {
+    .active();
   }
 
   // ======================== Input =========================
@@ -88,7 +98,7 @@
     transform: translateY(-50%);
     cursor: pointer;
     opacity: 0;
-    transition: opacity 0.3s, color 0.3s;
+    transition: opacity @animation-duration-slow, color @animation-duration-slow;
 
     &:hover {
       color: @text-color-secondary;
@@ -129,7 +139,7 @@
       margin-left: @input-padding-horizontal-base;
       background: @primary-color;
       opacity: 0;
-      transition: all 0.3s ease-out;
+      transition: all @animation-duration-slow ease-out;
       pointer-events: none;
     }
 
@@ -208,7 +218,7 @@
     width: @arrow-size;
     height: @arrow-size;
     margin-left: @input-padding-horizontal-base * 1.5;
-    transition: left 0.3s ease-out;
+    transition: left @animation-duration-slow ease-out;
 
     .@{picker-prefix-cls}-time-range-wrapper & {
       display: none !important;
@@ -243,7 +253,7 @@
     background: @calendar-bg;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
-    transition: margin 0.3s;
+    transition: margin @animation-duration-slow;
 
     .@{picker-prefix-cls}-panels {
       display: inline-flex;
