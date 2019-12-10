@@ -143,7 +143,7 @@ import 'moment/locale/zh-cn';
 | onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 |  |
 
 <style>
-.code-box-demo .ant-calendar-picker {
+.code-box-demo .ant-picker {
   margin: 0 8px 12px 0;
 }
 </style>

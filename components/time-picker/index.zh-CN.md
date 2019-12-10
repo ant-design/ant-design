@@ -60,4 +60,4 @@ import moment from 'moment';
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-<style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>
+<style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>

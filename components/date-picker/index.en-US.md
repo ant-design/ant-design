@@ -141,7 +141,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | onChange | a callback function, can be executed when the selected time is changing | function(dates: \[moment, moment], dateStrings: \[string, string]) | - |  |
 
 <style>
-.code-box-demo .ant-calendar-picker {
+.code-box-demo .ant-picker {
   margin: 0 8px 12px 0;
 }
 </style>
