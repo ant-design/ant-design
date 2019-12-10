@@ -127,6 +127,7 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| allowEmpty | Allow start or end input leave empty | \[boolean, boolean] | \[false, false] |  |
 | defaultValue | to set default date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
 | defaultPickerValue | to set default picker date | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)\] | - |  |
 | disabled | disable start or end | [boolean, boolean] | - |  |

@@ -129,6 +129,7 @@ import 'moment/locale/zh-cn';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  |
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | disabled | 禁用起始项 | [boolean, boolean] | 无 |  |
