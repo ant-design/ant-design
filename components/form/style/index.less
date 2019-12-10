@@ -181,11 +181,15 @@
 
     // ======================== Picker =========================
     // Fix issue: https://github.com/ant-design/ant-design/issues/4783
-    .@{ant-prefix}-calendar-picker,
-    .@{ant-prefix}-time-picker {
-      &-icon,
-      &-clear {
-        right: 28px;
+    .@{ant-prefix}-picker {
+      padding-right: @input-padding-horizontal-base + @font-size-base;
+
+      &-large {
+        padding-right: @input-padding-horizontal-lg + @font-size-base;
+      }
+
+      &-small {
+        padding-right: @input-padding-horizontal-sm + @font-size-base;
       }
     }
 
@@ -256,8 +260,7 @@
     }
 
     // arrow and icon
-    .@{ant-prefix}-calendar-picker-icon::after,
-    .@{ant-prefix}-time-picker-icon::after,
+    .@{ant-prefix}-picker-suffix,
     .@{ant-prefix}-picker-icon::after,
     .@{ant-prefix}-select-arrow,
     .@{ant-prefix}-cascader-picker-arrow {
@@ -266,7 +269,7 @@
 
     //input-number, timepicker
     .@{ant-prefix}-input-number,
-    .@{ant-prefix}-time-picker-input {
+    .@{ant-prefix}-picker {
       border-color: @warning-color;
       &-focused,
       &:focus {
@@ -319,8 +322,7 @@
     }
 
     // arrow and icon
-    .@{ant-prefix}-calendar-picker-icon::after,
-    .@{ant-prefix}-time-picker-icon::after,
+    .@{ant-prefix}-picker-suffix,
     .@{ant-prefix}-picker-icon::after,
     .@{ant-prefix}-select-arrow,
     .@{ant-prefix}-cascader-picker-arrow {
@@ -329,7 +331,7 @@
 
     //input-number, timepicker
     .@{ant-prefix}-input-number,
-    .@{ant-prefix}-time-picker-input {
+    .@{ant-prefix}-picker {
       border-color: @error-color;
       &-focused,
       &:focus {

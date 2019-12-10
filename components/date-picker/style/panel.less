@@ -391,8 +391,9 @@
 
   // ======================== Footer ========================
   &-footer {
-    padding: 0 @padding-xs;
+    padding: 0 @padding-sm;
     line-height: @picker-text-height - 2 * @border-width-base;
+    border-bottom: @border-width-base @border-style-base transparent;
     text-align: center;
 
     .@{picker-prefix-cls}-panel & {
@@ -400,14 +401,12 @@
     }
 
     &-extra {
-      padding: 0 @padding-xs;
       line-height: @picker-text-height - 2 * @border-width-base;
       text-align: left;
     }
   }
 
   &-now {
-    padding: 0 @padding-xs;
     text-align: left;
   }
 
@@ -557,7 +556,7 @@
     }
 
     &-column {
-      flex: none;
+      flex: 1 0 auto;
       width: 56px;
       margin: 0;
       padding: 0 0 194px 0;

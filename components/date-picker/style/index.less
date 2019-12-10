@@ -173,7 +173,7 @@
 
   // ======================== Ranges ========================
   &-ranges {
-    padding: @padding-xs / 2 @padding-xs;
+    padding: @padding-xs / 2 0;
     overflow: hidden;
     line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
     text-align: left;
@@ -181,21 +181,15 @@
 
     > li {
       display: inline-block;
-      margin: 0;
-      color: @link-color;
+    }
+
+    .@{picker-prefix-cls}-preset {
       cursor: pointer;
+    }
 
-      &:hover {
-        color: @link-hover-color;
-      }
-
-      &:active {
-        color: @link-active-color;
-      }
-
-      &.@{picker-prefix-cls}-ok {
-        float: right;
-      }
+    .@{picker-prefix-cls}-ok {
+      margin-left: @padding-xs;
+      float: right;
     }
   }
 
