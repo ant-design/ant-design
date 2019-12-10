@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 1
 title:
   zh-CN: 范围选择器
   en-US: Range Picker

@@ -14046,6 +14046,36 @@ Array [
               </ul>
             </div>
           </div>
+          <div
+            class="config-picker-footer"
+          >
+            <ul
+              class="config-picker-ranges"
+            >
+              <li
+                class="config-picker-now"
+              >
+                <a
+                  class="config-picker-now-btn"
+                >
+                  Now
+                </a>
+              </li>
+              <li
+                class="config-picker-ok"
+              >
+                <button
+                  class="config-btn config-btn-primary config-btn-sm"
+                  disabled=""
+                  type="button"
+                >
+                  <span>
+                    Ok
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -15427,6 +15457,36 @@ Array [
               </ul>
             </div>
           </div>
+          <div
+            class="ant-picker-footer"
+          >
+            <ul
+              class="ant-picker-ranges"
+            >
+              <li
+                class="ant-picker-now"
+              >
+                <a
+                  class="ant-picker-now-btn"
+                >
+                  Now
+                </a>
+              </li>
+              <li
+                class="ant-picker-ok"
+              >
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  disabled=""
+                  type="button"
+                >
+                  <span>
+                    Ok
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -16807,6 +16867,36 @@ Array [
                 </li>
               </ul>
             </div>
+          </div>
+          <div
+            class="prefix-TimePicker-footer"
+          >
+            <ul
+              class="prefix-TimePicker-ranges"
+            >
+              <li
+                class="prefix-TimePicker-now"
+              >
+                <a
+                  class="prefix-TimePicker-now-btn"
+                >
+                  Now
+                </a>
+              </li>
+              <li
+                class="prefix-TimePicker-ok"
+              >
+                <button
+                  class="ant-btn ant-btn-primary ant-btn-sm"
+                  disabled=""
+                  type="button"
+                >
+                  <span>
+                    Ok
+                  </span>
+                </button>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

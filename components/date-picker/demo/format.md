@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title:
   zh-CN: 日期格式
   en-US: Date Format

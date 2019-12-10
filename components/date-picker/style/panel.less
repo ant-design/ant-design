@@ -193,14 +193,14 @@
     &-in-view&-today .@{cellClassName} {
       &::before {
         position: absolute;
-        left: 0;
-        right: 0;
         top: 0;
+        right: 0;
         bottom: 0;
-        content: '';
+        left: 0;
         z-index: 1;
-        border-radius: @border-radius-base;
         border: @border-width-base @border-style-base @primary-color;
+        border-radius: @border-radius-base;
+        content: '';
       }
     }
 
