@@ -29,12 +29,12 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
-<span
+<div
   class="ant-dropdown-trigger"
-  style="user-select:none"
+  style="text-align:center;background:#f7f7f7;height:200px;line-height:200px;color:#777"
 >
-  Right Click on Me
-</span>
+  Right Click on here
+</div>
 `;
 
 exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
