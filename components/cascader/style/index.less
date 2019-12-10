@@ -125,7 +125,7 @@
   &-menus {
     position: absolute;
     z-index: @zindex-dropdown;
-    font-size: @font-size-base;
+    font-size: @cascader-dropdown-font-size;
     white-space: nowrap;
     background: @component-background;
     border-radius: @border-radius-base;
@@ -134,7 +134,6 @@
     ul,
     ol {
       margin: 0;
-      padding: 0;
       list-style: none;
     }
 
@@ -165,7 +164,7 @@
     min-width: 111px;
     height: 180px;
     margin: 0;
-    padding: 0;
+    padding: @cascader-dropdown-edge-child-vertical-padding 0;
     overflow: auto;
     vertical-align: top;
     list-style: none;
@@ -185,8 +184,8 @@
     }
   }
   &-menu-item {
-    padding: 5px @control-padding-horizontal;
-    line-height: 22px;
+    padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
+    line-height: @cascader-dropdown-line-height;
     white-space: nowrap;
     cursor: pointer;
     transition: all 0.3s;
