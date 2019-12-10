@@ -157,7 +157,7 @@ form {
     :not(.@{ant-prefix}-input-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection__clear {
-      right: 28px;
+      right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
@@ -168,17 +168,17 @@ form {
 
     .@{ant-prefix}-cascader-picker {
       &-arrow {
-        margin-right: 17px;
+        margin-right: (@form-component-height / 2) + @form-feedback-icon-size - 13px;
       }
       &-clear {
-        right: 28px;
+        right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
       }
     }
 
     // Fix issue: https://github.com/ant-design/ant-design/issues/7854
     .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
       .@{ant-prefix}-input-suffix {
-        right: 28px;
+        right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
       }
     }
 
@@ -187,7 +187,7 @@ form {
     .@{ant-prefix}-time-picker {
       &-icon,
       &-clear {
-        right: 28px;
+        right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
       }
     }
   }
