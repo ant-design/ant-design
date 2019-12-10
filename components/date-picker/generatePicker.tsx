@@ -22,6 +22,8 @@ import { getPlaceholder, getRangePlaceholder } from './util';
 import PickerButton from './PickerButton';
 import PickerTag from './PickerTag';
 
+const Components = { button: PickerButton, rangeItem: PickerTag };
+
 function toArray<T>(list: T | T[]): T[] {
   if (!list) {
     return [];
@@ -184,6 +186,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
             nextIcon={<span className={`${prefixCls}-next-icon`} />}
             superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+            components={Components}
           />
         );
       };
@@ -278,7 +281,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           nextIcon={<span className={`${prefixCls}-next-icon`} />}
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
           superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-          components={{ button: PickerButton, rangeItem: PickerTag }}
+          components={Components}
         />
       );
     };

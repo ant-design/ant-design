@@ -176,15 +176,14 @@
       display: inline-block;
       min-width: 24px;
       height: 24px;
-      line-height: 24px - @border-width-base * 2;
-      border: @border-width-base @border-style-base transparent;
+      line-height: 24px;
       border-radius: @border-radius-base;
       transition: background 0.3s, border 0.3s;
     }
 
     // >>> Hover
     &:hover:not(&-in-view),
-    &:hover:not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end) {
+    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end) {
       .@{cellClassName} {
         background: @picker-basic-cell-hover-color;
       }
@@ -192,7 +191,17 @@
 
     // >>> Today
     &-in-view&-today .@{cellClassName} {
-      border-color: @primary-color;
+      &::before {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        content: '';
+        z-index: 1;
+        border-radius: @border-radius-base;
+        border: @border-width-base @border-style-base @primary-color;
+      }
     }
 
     // >>> In Range
@@ -206,11 +215,8 @@
 
     // >>> Selected
     &-in-view&-selected .@{cellClassName},
-    &-in-view&-selected:hover .@{cellClassName},
     &-in-view&-range-start .@{cellClassName},
-    &-in-view&-range-start:hover .@{cellClassName},
-    &-in-view&-range-end .@{cellClassName},
-    &-in-view&-range-end:hover .@{cellClassName} {
+    &-in-view&-range-end .@{cellClassName} {
       color: @text-color-inverse;
       background: @primary-color;
     }
@@ -275,8 +281,8 @@
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName} {
       &::after {
         position: absolute;
-        top: -@border-width-base;
-        bottom: -@border-width-base;
+        top: 0;
+        bottom: 0;
         z-index: -1;
         background: @picker-basic-cell-hover-with-range-color;
         content: '';
@@ -286,10 +292,10 @@
       &-in-view&-in-range&-range-hover-start
       .@{cellClassName}::after {
       right: -6px - @border-width-base;
-      left: -@border-width-base;
+      left: 0;
     }
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
-      right: -@border-width-base;
+      right: 0;
       left: -6px - @border-width-base;
     }
 
@@ -388,7 +394,10 @@
     padding: 0 @padding-xs;
     line-height: @picker-text-height - 2 * @border-width-base;
     text-align: center;
-    border-top: @picker-border;
+
+    .@{picker-prefix-cls}-panel & {
+      border-top: @picker-border;
+    }
 
     &-extra {
       padding: 0 @padding-xs;
