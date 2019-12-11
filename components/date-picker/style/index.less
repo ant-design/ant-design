@@ -24,10 +24,6 @@
   border-radius: @border-radius-base;
   transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
 
-  &-disabled {
-    background: @input-disabled-bg;
-  }
-
   &:hover,
   &-focused {
     .hover();
@@ -35,6 +31,11 @@
 
   &-focused {
     .active();
+  }
+
+  &&-disabled {
+    background: @input-disabled-bg;
+    border-color: @select-border-color;
   }
 
   // ======================== Input =========================
