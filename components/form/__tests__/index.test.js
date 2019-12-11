@@ -207,4 +207,19 @@ describe('Form', () => {
       'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
     );
   });
+
+  it('warning when use `noStyle` without `name`', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item noStyle>
+          [<h1 />, <h2 />]
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('h1')).toHaveLength(1);
+    expect(wrapper.find('h2')).toHaveLength(1);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] No need to wrap with Form.Item when field not set `name` and `noStyle` is true.',
+    );
+  });
 });

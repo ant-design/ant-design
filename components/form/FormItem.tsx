@@ -198,7 +198,12 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         }
 
         if (noStyle) {
-          return childNode;
+          warning(
+            !!mergedName.length,
+            'Form.Item',
+            'No need to wrap with Form.Item when field not set `name` and `noStyle` is true.',
+          );
+          return Array.isArray(childNode) ? <>{childNode}</> : childNode;
         }
 
         return (
