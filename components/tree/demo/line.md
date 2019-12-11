@@ -37,7 +37,7 @@ class Demo extends React.Component {
           </TreeNode>
           <TreeNode title="parent 1-2" key="0-0-2">
             <TreeNode title="leaf" key="0-0-2-0" />
-            <TreeNode icon={<Icon type="form" />} title="leaf" key="0-0-2-1" />
+            <TreeNode switcherIcon={<Icon type="form" />} title="leaf" key="0-0-2-1" />
           </TreeNode>
         </TreeNode>
       </Tree>

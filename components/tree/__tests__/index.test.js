@@ -5,12 +5,26 @@ import Tree from '../index';
 const { TreeNode } = Tree;
 
 describe('Tree', () => {
-  it('icon of TreeNode should put inside line when showLine is true', () => {
+  it('icon and switcherIcon of Tree with showLine should render correctly', () => {
     const wrapper = mount(
-      <Tree showLine>
-        <TreeNode icon="icon" key="0-0">
-          <TreeNode icon="icon" key="0-0-0" />
-          <TreeNode key="0-0-1" />
+      <Tree showLine showIcon>
+        <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0">
+          <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0-0" />
+          <TreeNode switcherIcon="switcherIcon" key="0-0-1" />
+          <TreeNode icon="icon" key="0-0-2" />
+          <TreeNode key="0-0-3" />
+        </TreeNode>
+        <TreeNode switcherIcon="switcherIcon" key="0-1">
+          <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0-0" />
+          <TreeNode switcherIcon="switcherIcon" key="0-0-1" />
+          <TreeNode icon="icon" key="0-0-2" />
+          <TreeNode key="0-0-3" />
+        </TreeNode>
+        <TreeNode key="0-2">
+          <TreeNode icon="icon" switcherIcon="switcherIcon" key="0-0-0" />
+          <TreeNode switcherIcon="switcherIcon" key="0-0-1" />
+          <TreeNode icon="icon" key="0-0-2" />
+          <TreeNode key="0-0-3" />
         </TreeNode>
       </Tree>,
     );
