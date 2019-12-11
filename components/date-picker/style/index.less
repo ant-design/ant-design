@@ -186,6 +186,11 @@
     }
   }
 
+  // Time picker with additional style
+  &-dropdown &-panel > &-time-panel {
+    padding-top: @padding-xs / 2;
+  }
+
   // ======================== Ranges ========================
   &-ranges {
     padding: @padding-xs / 2 @padding-sm;
@@ -221,9 +226,9 @@
     margin-left: @input-padding-horizontal-base * 1.5;
     transition: left @animation-duration-slow ease-out;
 
-    .@{picker-prefix-cls}-time-range-wrapper & {
-      display: none !important;
-    }
+    // .@{picker-prefix-cls}-time-range-wrapper & {
+    //   display: none !important;
+    // }
 
     &::before,
     &::after {
@@ -253,6 +258,7 @@
     vertical-align: top;
     background: @calendar-bg;
     border-radius: @border-radius-base;
+    overflow: hidden;
     box-shadow: @box-shadow-base;
     transition: margin @animation-duration-slow;
 
