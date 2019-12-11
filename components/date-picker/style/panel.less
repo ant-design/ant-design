@@ -394,7 +394,6 @@
 
   // ======================== Footer ========================
   &-footer {
-    padding: 0 @padding-sm;
     line-height: @picker-text-height - 2 * @border-width-base;
     text-align: center;
     border-bottom: @border-width-base @border-style-base transparent;
@@ -404,8 +403,13 @@
     }
 
     &-extra {
+      padding: 0 @padding-sm;
       line-height: @picker-text-height - 2 * @border-width-base;
       text-align: left;
+
+      &:not(:last-child) {
+        border-bottom: @picker-border;
+      }
     }
   }
 
