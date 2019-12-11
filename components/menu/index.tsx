@@ -58,6 +58,7 @@ export interface MenuProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   overflowedIndicator?: React.ReactNode;
   forceSubMenuRender?: boolean;
+  disableAnimation?: boolean;
 }
 
 type InternalMenuProps = MenuProps & SiderContextProps;
@@ -281,11 +282,27 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
   }
 
-  renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
+  renderMenu = ({
+    getPopupContainer,
+    getPrefixCls,
+    disableAnimation: disableAnimationGlobal,
+  }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      className,
+      theme,
+      collapsedWidth,
+      disableAnimation: disableAnimationLocal,
+    } = this.props;
+
+    // Give preference to the the prop if it alters the
+    // animation state of the component directly.
+    const disableAnimation =
+      typeof disableAnimationLocal !== 'undefined' ? disableAnimationLocal : disableAnimationGlobal;
+
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
-    const menuOpenMotion = this.getOpenMotionProps(menuMode!);
+    const menuOpenMotion = disableAnimation ? null : this.getOpenMotionProps(menuMode!);
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
     const menuClassName = classNames(className, `${prefixCls}-${theme}`, {

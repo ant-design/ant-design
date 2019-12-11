@@ -23,11 +23,6 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
 
   static SHOW_CHILD = SHOW_CHILD;
 
-  static defaultProps = {
-    transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
-  };
-
   private rcTreeSelect: any;
 
   constructor(props: TreeSelectProps<T>) {
@@ -66,6 +61,7 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
+    disableAnimation: disableAnimationGlobal,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -78,9 +74,15 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
       removeIcon,
       clearIcon,
       getPopupContainer,
+      disableAnimation: disableAnimationLocal,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon', 'removeIcon', 'clearIcon', 'switcherIcon']);
+
+    // Give preference to the the prop if it alters the
+    // animation state of the component directly.
+    const disableAnimation =
+      typeof disableAnimationLocal !== 'undefined' ? disableAnimationLocal : disableAnimationGlobal;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
     const cls = classNames(
@@ -134,6 +136,8 @@ export default class TreeSelect<T extends TreeNodeValue> extends React.Component
         dropdownClassName={classNames(dropdownClassName, `${prefixCls}-tree-dropdown`)}
         prefixCls={prefixCls}
         className={cls}
+        transitionName={disableAnimation ? null : 'slide-up'}
+        choiceTransitionName={disableAnimation ? null : 'zoom'}
         dropdownStyle={{ maxHeight: '100vh', overflow: 'auto', ...dropdownStyle }}
         treeCheckable={checkable}
         notFoundContent={notFoundContent || renderEmpty('Select')}

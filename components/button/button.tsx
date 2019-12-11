@@ -65,13 +65,13 @@ function spaceChildren(children: React.ReactNode, needInserted: boolean) {
 }
 
 const ButtonTypes = tuple('default', 'primary', 'ghost', 'dashed', 'danger', 'link');
-export type ButtonType = (typeof ButtonTypes)[number];
+export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tuple('circle', 'circle-outline', 'round');
-export type ButtonShape = (typeof ButtonShapes)[number];
+export type ButtonShape = typeof ButtonShapes[number];
 const ButtonSizes = tuple('large', 'default', 'small');
-export type ButtonSize = (typeof ButtonSizes)[number];
+export type ButtonSize = typeof ButtonSizes[number];
 const ButtonHTMLTypes = tuple('submit', 'button', 'reset');
-export type ButtonHTMLType = (typeof ButtonHTMLTypes)[number];
+export type ButtonHTMLType = typeof ButtonHTMLTypes[number];
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -84,6 +84,7 @@ export interface BaseButtonProps {
   ghost?: boolean;
   block?: boolean;
   children?: React.ReactNode;
+  disableAnimation?: boolean;
 }
 
 // Typescript will make optional not optional if use Pick with union.
@@ -213,7 +214,11 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return React.Children.count(children) === 1 && !icon && type !== 'link';
   }
 
-  renderButton = ({ getPrefixCls, autoInsertSpaceInButton }: ConfigConsumerProps) => {
+  renderButton = ({
+    getPrefixCls,
+    autoInsertSpaceInButton,
+    disableAnimation: disableAnimationGlobal,
+  }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       type,
@@ -224,12 +229,18 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       icon,
       ghost,
       block,
+      disableAnimation: disableAnimationLocal,
       ...rest
     } = this.props;
     const { loading, hasTwoCNChar } = this.state;
 
     const prefixCls = getPrefixCls('btn', customizePrefixCls);
     const autoInsertSpace = autoInsertSpaceInButton !== false;
+
+    // Give preference to the the prop if it alters the
+    // animation state of the component directly.
+    const disableAnimation =
+      typeof disableAnimationLocal !== 'undefined' ? disableAnimationLocal : disableAnimationGlobal;
 
     // large => lg
     // small => sm
@@ -296,6 +307,10 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     );
 
     if (type === 'link') {
+      return buttonNode;
+    }
+
+    if (disableAnimation) {
       return buttonNode;
     }
 

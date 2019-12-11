@@ -21,6 +21,7 @@ title: TreeSelect
 | autoClearSearchValue | 当多选模式下值被选择，自动清空搜索框 | boolean | true | 3.7.0 |
 | defaultValue | 指定默认选中的条目 | string/string\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
+| disableAnimation | 是否禁用下拉动画 | boolean | false |  |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - | 3.3.0 |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`。 | boolean | true |  |
 | dropdownStyle | 下拉菜单的样式 | object | - |  |

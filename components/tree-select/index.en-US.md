@@ -20,6 +20,7 @@ Tree selection control.
 | autoClearSearchValue | auto clear search input value when multiple select is selected/deselected | boolean | true | 3.7.0 |
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
+| disableAnimation | Whether the dropdown animation is disabled | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - | 3.3.0 |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. | boolean | true |  |
 | dropdownStyle | To set the style of the dropdown menu | object | - |  |

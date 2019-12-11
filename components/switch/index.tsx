@@ -27,6 +27,7 @@ export interface SwitchProps {
   autoFocus?: boolean;
   style?: React.CSSProperties;
   title?: string;
+  disableAnimation?: boolean;
 }
 
 export default class Switch extends React.Component<SwitchProps, {}> {
@@ -66,9 +67,25 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     this.rcSwitch.blur();
   }
 
-  renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
+  renderSwitch = ({
+    getPrefixCls,
+    disableAnimation: disableAnimationGlobal,
+  }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      size,
+      loading,
+      className = '',
+      disabled,
+      disableAnimation: disableAnimationLocal,
+    } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
+
+    // Give preference to the the prop if it alters the
+    // animation state of the component directly.
+    const disableAnimation =
+      typeof disableAnimationLocal !== 'undefined' ? disableAnimationLocal : disableAnimationGlobal;
+
     const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
@@ -76,18 +93,23 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     const loadingIcon = loading ? (
       <Icon type="loading" className={`${prefixCls}-loading-icon`} />
     ) : null;
-    return (
-      <Wave insertExtraNode>
-        <RcSwitch
-          {...omit(this.props, ['loading'])}
-          prefixCls={prefixCls}
-          className={classes}
-          disabled={disabled || loading}
-          ref={this.saveSwitch}
-          loadingIcon={loadingIcon}
-        />
-      </Wave>
+
+    const switchNode = (
+      <RcSwitch
+        {...omit(this.props, ['loading'])}
+        prefixCls={prefixCls}
+        className={classes}
+        disabled={disabled || loading}
+        ref={this.saveSwitch}
+        loadingIcon={loadingIcon}
+      />
     );
+
+    if (disableAnimation) {
+      return switchNode;
+    }
+
+    return <Wave insertExtraNode>{switchNode}</Wave>;
   };
 
   render() {

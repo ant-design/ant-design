@@ -18,6 +18,7 @@ export interface ConfigConsumerProps {
   pageHeader?: {
     ghost: boolean;
   };
+  disableAnimation?: boolean;
 }
 
 export const ConfigContext = createReactContext<ConfigConsumerProps>({

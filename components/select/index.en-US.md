@@ -29,6 +29,7 @@ Select component to select value from options.
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultValue | Initial selected option. | string\|string\[]<br />number\|number\[]<br />LabeledValue\|LabeledValue[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
+| disableAnimation | Whether the dropdown animation is disabled | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
 | dropdownMatchSelectWidth | Whether dropdown's width is same with select. | boolean | true |  |
 | dropdownRender | Customize dropdown content | (menuNode: ReactNode, props) => ReactNode | - | 3.11.0 |

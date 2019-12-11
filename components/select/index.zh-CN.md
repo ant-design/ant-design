@@ -30,6 +30,7 @@ title: Select
 | defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true |  |
 | defaultValue | 指定默认选中的条目 | string\|string\[]\<br />number\|number\[]\<br />LabeledValue\|LabeledValue[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
+| disableAnimation | 是否禁用下拉动画 | boolean | false |  |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |  |
 | dropdownRender | 自定义下拉框内容 | (menuNode: ReactNode, props) => ReactNode | - | 3.11.0 |

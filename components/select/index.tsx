@@ -14,7 +14,7 @@ export interface AbstractSelectProps {
   prefixCls?: string;
   className?: string;
   showAction?: string | string[];
-  size?: (typeof SelectSizes)[number];
+  size?: typeof SelectSizes[number];
   notFoundContent?: React.ReactNode | null;
   transitionName?: string;
   choiceTransitionName?: string;
@@ -58,7 +58,7 @@ const ModeOptions = tuple(
   'combobox',
   'SECRET_COMBOBOX_MODE_DO_NOT_USE',
 );
-export type ModeOption = (typeof ModeOptions)[number];
+export type ModeOption = typeof ModeOptions[number];
 export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   value?: T;
   defaultValue?: T;
@@ -86,6 +86,7 @@ export interface SelectProps<T = SelectValue> extends AbstractSelectProps {
   removeIcon?: React.ReactNode;
   clearIcon?: React.ReactNode;
   menuItemSelectedIcon?: React.ReactNode;
+  disableAnimation?: boolean;
 }
 
 export interface OptionProps {
@@ -127,8 +128,6 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
 
   static defaultProps = {
     showSearch: false,
-    transitionName: 'slide-up',
-    choiceTransitionName: 'zoom',
   };
 
   static propTypes = SelectPropTypes;
@@ -196,6 +195,7 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
+    disableAnimation: disableAnimationGlobal,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -207,9 +207,15 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
       clearIcon,
       menuItemSelectedIcon,
       showArrow,
+      disableAnimation: disableAnimationLocal,
       ...restProps
     } = this.props;
     const rest = omit(restProps, ['inputIcon']);
+
+    // Give preference to the the prop if it alters the
+    // animation state of the component directly.
+    const disableAnimation =
+      typeof disableAnimationLocal !== 'undefined' ? disableAnimationLocal : disableAnimationGlobal;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
     const cls = classNames(
@@ -268,6 +274,8 @@ export default class Select<T = SelectValue> extends React.Component<SelectProps
         showArrow={showArrow}
         {...rest}
         {...modeConfig}
+        transitionName={disableAnimation ? null : 'slide-up'}
+        choiceTransitionName={disableAnimation ? null : 'zoom'}
         prefixCls={prefixCls}
         className={cls}
         optionLabelProp={optionLabelProp || 'children'}

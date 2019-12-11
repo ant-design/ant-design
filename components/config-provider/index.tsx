@@ -19,6 +19,7 @@ export const configConsumerProps = [
   'autoInsertSpaceInButton',
   'locale',
   'pageHeader',
+  'disableAnimation',
 ];
 
 export interface ConfigProviderProps {
@@ -32,6 +33,7 @@ export interface ConfigProviderProps {
   pageHeader?: {
     ghost: boolean;
   };
+  disableAnimation?: boolean;
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
@@ -52,6 +54,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       autoInsertSpaceInButton,
       locale,
       pageHeader,
+      disableAnimation,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -71,6 +74,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
 
     if (pageHeader) {
       config.pageHeader = pageHeader;
+    }
+
+    if (disableAnimation) {
+      config.disableAnimation = disableAnimation;
     }
 
     return (

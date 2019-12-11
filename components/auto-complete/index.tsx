@@ -44,6 +44,7 @@ export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> 
     | React.ReactElement<InputProps>
     | React.ReactElement<OptionProps>
     | Array<React.ReactElement<OptionProps>>;
+  disableAnimation?: boolean;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {
@@ -57,8 +58,8 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
 
   static defaultProps = {
     transitionName: 'slide-up',
-    optionLabelProp: 'children',
     choiceTransitionName: 'zoom',
+    optionLabelProp: 'children',
     showSearch: false,
     filterOption: false,
   };
@@ -91,7 +92,10 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
     this.select.blur();
   }
 
-  renderAutoComplete = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderAutoComplete = ({
+    getPrefixCls,
+    disableAnimation: disableAnimationGlobal,
+  }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       size,
@@ -100,8 +104,14 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
       optionLabelProp,
       dataSource,
       children,
+      disableAnimation: disableAnimationLocal,
     } = this.props;
     const prefixCls = getPrefixCls('select', customizePrefixCls);
+
+    // Give preference to the the prop if it alters the
+    // animation state of the component directly.
+    const disableAnimation =
+      typeof disableAnimationLocal !== 'undefined' ? disableAnimationLocal : disableAnimationGlobal;
 
     const cls = classNames({
       [`${prefixCls}-lg`]: size === 'large',
@@ -147,6 +157,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
         optionLabelProp={optionLabelProp}
         getInputElement={this.getInputElement}
         notFoundContent={notFoundContent}
+        disableAnimation={disableAnimation}
         ref={this.saveSelect}
       >
         {options}

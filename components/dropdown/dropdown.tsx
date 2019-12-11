@@ -15,7 +15,7 @@ const Placements = tuple(
   'bottomCenter',
   'bottomRight',
 );
-type Placement = (typeof Placements)[number];
+type Placement = typeof Placements[number];
 
 type OverlayFunc = () => React.ReactNode;
 
@@ -50,6 +50,7 @@ export interface DropDownProps {
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   openClassName?: string;
+  disableAnimation?: boolean;
 }
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
@@ -120,6 +121,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   renderDropDown = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    disableAnimation: disableAnimationGlobal,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -127,9 +129,16 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       trigger,
       disabled,
       getPopupContainer,
+      disableAnimation: disableAnimationLocal,
     } = this.props;
 
     const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+
+    // Give preference to the the prop if it alters the
+    // animation state of the component directly.
+    const disableAnimation =
+      typeof disableAnimationLocal !== 'undefined' ? disableAnimationLocal : disableAnimationGlobal;
+
     const child = React.Children.only(children) as React.ReactElement<any>;
 
     const dropdownTrigger = React.cloneElement(child, {
@@ -149,7 +158,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
         {...this.props}
         prefixCls={prefixCls}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
-        transitionName={this.getTransitionName()}
+        transitionName={disableAnimation ? null : this.getTransitionName()}
         trigger={triggerActions}
         overlay={() => this.renderOverlay(prefixCls)}
       >

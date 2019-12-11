@@ -30,6 +30,7 @@ const dataSource = ['12345', '23456', '34567'];
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultValue | Initial selected option. | string\|string\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
+| disableAnimation | Whether the dropdown animation is disabled | boolean | false |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |  |
 | optionLabelProp | Which prop value of option will render as content of select. | string | `children` |  |
 | placeholder | placeholder of input | string | - |  |

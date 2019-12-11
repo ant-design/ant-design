@@ -65,4 +65,5 @@ export interface TreeSelectProps<T extends TreeNodeValue> extends AbstractSelect
   treeNodeFilterProp?: string;
   treeNodeLabelProp?: string;
   value?: T;
+  disableAnimation?: boolean;
 }
