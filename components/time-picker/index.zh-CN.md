@@ -24,7 +24,6 @@ import moment from 'moment';
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| addon | 选择框底部显示自定义的内容 | function | 无 |  |
 | allowClear | 是否展示清除按钮 | boolean | true |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | className | 选择器类名 | string | '' |  |
@@ -48,6 +47,7 @@ import moment from 'moment';
 | secondStep | 秒选项间隔 | number | 1 |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | clearIcon | 自定义的清除图标 | ReactNode | - |  |
+| renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | 无 |  |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  |
 | value | 当前时间 | [moment](http://momentjs.com/) | 无 |  |
 | onChange | 时间发生变化的回调 | function(time: moment, timeString: string): void | 无 |  |
@@ -60,4 +60,4 @@ import moment from 'moment';
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-<style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>
+<style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>

@@ -23,7 +23,6 @@ import moment from 'moment';
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| addon | called from timepicker panel to render some addon to its bottom | function | - |  |
 | allowClear | allow clearing text | boolean | true |  |
 | autoFocus | get focus when component mounted | boolean | false |  |
 | className | className of picker | string | '' |  |
@@ -48,6 +47,7 @@ import moment from 'moment';
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | clearIcon | The custom clear icon | ReactNode | - |  |
 | use12Hours | display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
+| renderExtraFooter | called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | value | to set time | [moment](http://momentjs.com/) | - |  |
 | onChange | a callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
 | onOpenChange | a callback function which will be called while panel opening/closing | (open: boolean): void | - |  |
@@ -59,4 +59,4 @@ import moment from 'moment';
 | blur()  | remove focus |         |
 | focus() | get focus    |         |
 
-<style>.code-box-demo .ant-time-picker { margin: 0 8px 12px 0; }</style>
+<style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>

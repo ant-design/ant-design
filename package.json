@@ -120,6 +120,7 @@
     "rc-menu": "~8.0.0-alpha.4",
     "rc-notification": "~3.3.1",
     "rc-pagination": "~1.20.11",
+    "rc-picker": "^0.0.1-alpha.58",
     "rc-progress": "~2.5.0",
     "rc-rate": "~2.5.0",
     "rc-resize-observer": "^0.1.0",

@@ -1,5 +1,5 @@
 ---
-order: 12
+order: 99
 debug: true
 title:
   zh-CN: 后缀图标
