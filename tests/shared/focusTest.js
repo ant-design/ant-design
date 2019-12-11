@@ -54,7 +54,10 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.focus();
         expect(focused).toBeTruthy();
 
-        wrapper.find('input').simulate('focus');
+        wrapper
+          .find('input')
+          .first()
+          .simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
 
@@ -69,7 +72,10 @@ export default function focusTest(Component, refFocus = false) {
         ref.current.blur();
         expect(blurred).toBeTruthy();
 
-        wrapper.find('input').simulate('blur');
+        wrapper
+          .find('input')
+          .first()
+          .simulate('blur');
         expect(onBlur).toHaveBeenCalled();
       });
 
@@ -79,7 +85,10 @@ export default function focusTest(Component, refFocus = false) {
 
         expect(focused).toBeTruthy();
 
-        wrapper.find('input').simulate('focus');
+        wrapper
+          .find('input')
+          .first()
+          .simulate('focus');
         expect(onFocus).toHaveBeenCalled();
       });
     } else {

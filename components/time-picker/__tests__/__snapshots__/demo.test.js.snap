@@ -45,6 +45,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
   </div>
   <div
     class="ant-picker"
+    style="width:140px"
   >
     <div
       class="ant-picker-input"

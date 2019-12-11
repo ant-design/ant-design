@@ -8,7 +8,7 @@ import focusTest from '../../../tests/shared/focusTest';
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  focusTest(DatePicker);
+  focusTest(DatePicker, true);
 
   beforeEach(() => {
     MockDate.set(moment('2016-11-22'));

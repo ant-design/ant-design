@@ -43,6 +43,12 @@
     }
   }
 
+  .@{calendar-picker-prefix-cls}-panel {
+    .@{calendar-picker-prefix-cls}-content {
+      width: 100%;
+    }
+  }
+
   // ========================== Mini ==========================
   &-mini {
     .@{calendar-picker-prefix-cls}-content {
@@ -102,6 +108,10 @@
           .@{calendar-prefix-cls}-date {
             background: @item-hover-bg;
           }
+        }
+
+        .@{calendar-prefix-cls}-date-today::before {
+          display: none;
         }
 
         &-selected,
