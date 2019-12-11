@@ -224,6 +224,29 @@ describe('Calendar', () => {
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('10'));
   });
 
+  it('if change year and new month > end month, set value.month to end.month ', () => {
+    const value = new Moment('2018-11-03');
+    const start = new Moment('2000-01-01');
+    const end = new Moment('2019-03-01');
+    const onValueChange = jest.fn();
+    const wrapper = mount(
+      <Header
+        prefixCls="ant-picker-calendar"
+        generateConfig={momentGenerateConfig}
+        onChange={onValueChange}
+        value={value}
+        validRange={[start, end]}
+        locale={{ year: '年' }}
+      />,
+    );
+    openSelect(wrapper, '.ant-picker-calendar-year-select');
+    wrapper
+      .find('.ant-select-item-option')
+      .last()
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('2'));
+  });
+
   it('onMonthChange should work correctly', () => {
     const start = new Moment('2018-11-01');
     const end = new Moment('2019-03-01');
