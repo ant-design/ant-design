@@ -577,7 +577,7 @@
       }
 
       &-active {
-        background: rgba(0, 0, 255, 0.1);
+        background: fade(@calendar-item-active-bg, 20%);
       }
 
       &:hover {
@@ -600,6 +600,7 @@
             text-align: center;
             border-radius: 0;
             cursor: pointer;
+            transition: background @animation-duration-slow;
 
             &:hover {
               background: @item-hover-bg;
