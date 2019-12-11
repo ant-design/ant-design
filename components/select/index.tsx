@@ -92,6 +92,7 @@ export interface OptionProps {
   disabled?: boolean;
   value?: string | number;
   title?: string;
+  label?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
   style?: React.CSSProperties;
