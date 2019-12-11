@@ -211,9 +211,7 @@ describe('Form', () => {
   it('warning when use `noStyle` without `name`', () => {
     const wrapper = mount(
       <Form>
-        <Form.Item noStyle>
-          [<h1 />, <h2 />]
-        </Form.Item>
+        <Form.Item noStyle>{[<h1 key="h1">Light</h1>, <h2 key="h2">Bamboo</h2>]}</Form.Item>
       </Form>,
     );
     expect(wrapper.find('h1')).toHaveLength(1);
