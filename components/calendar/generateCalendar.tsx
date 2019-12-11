@@ -63,16 +63,12 @@ export interface CalendarProps<DateType> {
 
 function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
   function isSameMonth(date1: DateType, date2: DateType) {
-    if (date1 === date2) {
-      return true;
-    }
-    if (!date1 || !date2) {
-      return false;
-    }
-
     return (
-      generateConfig.getYear(date1) === generateConfig.getYear(date2) &&
-      generateConfig.getMonth(date1) === generateConfig.getMonth(date2)
+      date1 === date2 ||
+      (date1 &&
+        date2 &&
+        generateConfig.getYear(date1) === generateConfig.getYear(date2) &&
+        generateConfig.getMonth(date1) === generateConfig.getMonth(date2))
     );
   }
 
