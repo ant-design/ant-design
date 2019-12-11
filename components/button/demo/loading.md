@@ -15,9 +15,9 @@ A loading indicator can be added to a button by setting the `loading` property o
 
 ```jsx
 import { Button } from 'antd';
-import { FC, useState } from 'react';
+import { useState } from 'react';
 
-const App: FC = () => {
+const App = () => {
   const [loading, setLoading] = useState(false);
   const [iconLoading, setIconLoading] = useState(false);
   return (

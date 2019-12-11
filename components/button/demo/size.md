@@ -20,9 +20,9 @@ If a large or small button is desired, set the `size` property to either `large`
 ```jsx
 import { Button, Radio } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
-import { FC, useState } from 'react';
+import { useState } from 'react';
 
-const ButtonSize: FC = () => {
+const ButtonSize = () => {
   const [size, setSize] = useState('large');
   return (
     <div>
