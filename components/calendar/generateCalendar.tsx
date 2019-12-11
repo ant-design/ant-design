@@ -183,7 +183,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const dateRender = React.useCallback(
       (date: DateType): React.ReactNode => {
         if (dateFullCellRender) {
-          return dateFullCellRender;
+          return dateFullCellRender(date);
         }
 
         return (
@@ -207,7 +207,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     const monthRender = React.useCallback(
       (date: DateType, locale: Locale): React.ReactNode => {
         if (monthFullCellRender) {
-          return monthFullCellRender;
+          return monthFullCellRender(date);
         }
 
         const months = locale.shortMonths || generateConfig.locale.getShortMonths!(locale.locale);

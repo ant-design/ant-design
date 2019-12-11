@@ -395,4 +395,28 @@ describe('Calendar', () => {
       .simulate('change');
     expect(onTypeChange).toHaveBeenCalled();
   });
+
+  it('dateFullCellRender', () => {
+    const wrapper = mount(
+      <Calendar dateFullCellRender={() => <div className="light">Bamboo</div>} />,
+    );
+    expect(
+      wrapper
+        .find('.light')
+        .first()
+        .text(),
+    ).toEqual('Bamboo');
+  });
+
+  it('monthFullCellRender', () => {
+    const wrapper = mount(
+      <Calendar mode="year" monthFullCellRender={() => <div className="bamboo">Light</div>} />,
+    );
+    expect(
+      wrapper
+        .find('.bamboo')
+        .first()
+        .text(),
+    ).toEqual('Light');
+  });
 });
