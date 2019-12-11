@@ -46,14 +46,14 @@
 
     > input {
       .input();
-      height: auto;
-      padding: 0 @padding-xs / 2;
-      background: transparent;
       flex: auto;
 
       // Fix Firefox flex not correct:
       // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
       min-width: 1px;
+      height: auto;
+      padding: 0 @padding-xs / 2;
+      background: transparent;
 
       border: 0;
 
@@ -260,10 +260,10 @@
   }
 
   &-panel-container {
+    overflow: hidden;
     vertical-align: top;
     background: @calendar-bg;
     border-radius: @border-radius-base;
-    overflow: hidden;
     box-shadow: @box-shadow-base;
     transition: margin @animation-duration-slow;
 
