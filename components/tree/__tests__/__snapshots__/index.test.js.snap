@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tree icon of TreeNode should put inside line when showLine is true 1`] = `
+exports[`Tree icon and switcherIcon of Tree with showLine should render correctly 1`] = `
 <ul
-  class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  class="ant-tree ant-tree-show-line"
   role="tree"
   unselectable="on"
 >
@@ -13,12 +13,84 @@ exports[`Tree icon of TreeNode should put inside line when showLine is true 1`] 
     <span
       class="ant-tree-switcher ant-tree-switcher_close"
     >
-      icon
+      switcherIcon
     </span>
     <span
       class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
       title="---"
     >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__customize"
+      >
+        icon
+      </span>
+      <span
+        class="ant-tree-title"
+      >
+        ---
+      </span>
+    </span>
+  </li>
+  <li
+    class="ant-tree-treenode-switcher-close"
+    role="treeitem"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_close"
+    >
+      switcherIcon
+    </span>
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+      title="---"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__close"
+      />
+      <span
+        class="ant-tree-title"
+      >
+        ---
+      </span>
+    </span>
+  </li>
+  <li
+    class="ant-tree-treenode-switcher-close"
+    role="treeitem"
+  >
+    <span
+      class="ant-tree-switcher ant-tree-switcher_close"
+    >
+      <i
+        aria-label="icon: plus-square"
+        class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="plus-square"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+          />
+          <path
+            d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+          />
+        </svg>
+      </i>
+    </span>
+    <span
+      class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+      title="---"
+    >
+      <span
+        class="ant-tree-iconEle ant-tree-icon__close"
+      />
       <span
         class="ant-tree-title"
       >
