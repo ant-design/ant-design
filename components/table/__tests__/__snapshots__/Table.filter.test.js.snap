@@ -755,6 +755,12 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                             </div>
                           </div>
                         </div>
+                        <div
+                          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+                        />
+                        <div
+                          style="position: absolute; top: 0px; left: 0px; width: 100%;"
+                        />
                       </span>
                     </div>
                   </th>

@@ -188,6 +188,13 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           childNode = React.cloneElement(children, childProps);
         } else if (typeof children === 'function' && shouldUpdate && !name) {
           childNode = children(context);
+        } else {
+          warning(
+            !mergedName.length,
+            'Form.Item',
+            '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
+          );
+          childNode = children;
         }
 
         if (noStyle) {
