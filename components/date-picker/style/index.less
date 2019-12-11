@@ -49,6 +49,11 @@
       height: auto;
       padding: 0 @padding-xs / 2;
       background: transparent;
+      flex: auto;
+
+      // Fix Firefox flex not correct:
+      // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
+      min-width: 1px;
 
       border: 0;
 
