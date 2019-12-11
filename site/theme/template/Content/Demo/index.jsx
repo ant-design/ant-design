@@ -5,13 +5,14 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip } from 'antd';
+import { Tooltip, Alert } from 'antd';
 import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
-import ErrorBoundary from '../ErrorBoundary';
 import BrowserFrame from '../../BrowserFrame';
+
+const { ErrorBoundary } = Alert;
 
 function compress(string) {
   return LZString.compressToBase64(string)

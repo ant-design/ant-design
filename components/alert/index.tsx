@@ -16,6 +16,7 @@ import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import ErrorBoundary from './ErrorBoundary';
 
 function noop() {}
 
@@ -65,6 +66,8 @@ const iconMapOutlined = {
 };
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
+  static ErrorBoundary = ErrorBoundary;
+
   state = {
     closing: false,
     closed: false,

@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-danger"
+  type="button"
+>
+  <span>
+    Click me to throw a error
+  </span>
+</button>
+`;
+
 exports[`renders ./components/alert/demo/banner.md correctly 1`] = `
 <div>
   <div
