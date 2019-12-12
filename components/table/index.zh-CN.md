@@ -130,7 +130,7 @@ const columns = [
 | filterIcon | 自定义 filter 图标。 | ReactNode\|(filtered: boolean) => ReactNode | false |
 | filterMultiple | 是否多选 | boolean | true |
 | filters | 表头的筛选菜单项 | object\[] | - |
-| fixed | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
+| fixed | （IE 下无效）列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean\|string | false |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |
 | render | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return 里面可以设置表格[行/列合并](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function\|boolean | - |
