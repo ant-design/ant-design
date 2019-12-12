@@ -96,6 +96,37 @@ describe('Typography', () => {
         wrapper.unmount();
       });
 
+      it('should middle ellipsis', () => {
+        const suffix = '--suffix';
+        const wrapper = mount(<Base ellipsis={{ rows: 1, suffix }}>{fullStr}</Base>);
+
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('span').text()).toEqual('Bamboo is...--suffix');
+        wrapper.unmount();
+      });
+
+      it('should front or middle ellipsis', () => {
+        const suffix = '--The information is very important';
+        const wrapper = mount(<Base ellipsis={{ rows: 1, suffix }}>{fullStr}</Base>);
+
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('span').text()).toEqual('...s very important');
+
+        wrapper.setProps({ ellipsis: { rows: 2, suffix } });
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('span').text()).toEqual('Ba...--The information is very important');
+
+        wrapper.setProps({ ellipsis: { rows: 99, suffix } });
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('span').text()).toEqual(fullStr + suffix);
+
+        wrapper.unmount();
+      });
+
       it('connect children', () => {
         const bamboo = 'Bamboo';
         const is = ' is ';
