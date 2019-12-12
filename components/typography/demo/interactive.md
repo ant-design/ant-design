@@ -20,9 +20,9 @@ import { useState } from 'react';
 const { Paragraph } = Typography;
 const Demo = () => {
   const [str, setStr] = useState('This is an editable text.');
-  const onChange = str => {
-    console.log('Content change:', str);
-    setStr(str);
+  const onChange = data => {
+    console.log('Content change:', data);
+    setStr(data);
   };
   return (
     <div>
