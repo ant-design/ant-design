@@ -55,7 +55,7 @@ antd4-codemod src
 #### 将那些包含字符串 icon props 的组件转换成从 `@ant-design/icons` 中特定组件引入
 
 ```diff
-- import { Avatar, Button, Result } from 'antd';
+  import { Avatar, Button, Result } from 'antd';
 + import { QuestionOutlined, UserOutlined } from '@ant-design/icons';
 
   ReactDOM.render(
@@ -80,7 +80,7 @@ antd4-codemod src
 
 ```diff
 - import { Icon, Input } from 'antd';
-+ import { Icon } from 'antd';
++ import { Input } from 'antd';
 + import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from '@ant-design/icons';
 
   const HeartSvg = () => (
