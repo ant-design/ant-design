@@ -7,10 +7,10 @@
 
     .@{select-prefix-cls}-selection-search {
       position: absolute;
-      left: @input-padding-horizontal-base;
-      right: @input-padding-horizontal-base;
       top: 0;
+      right: @input-padding-horizontal-base;
       bottom: 0;
+      left: @input-padding-horizontal-base;
 
       &-input {
         width: 100%;
@@ -105,8 +105,8 @@
   &.@{select-prefix-cls}-sm {
     &:not(.@{select-prefix-cls}-customize-input) {
       .@{select-prefix-cls}-selection-search {
-        left: @input-padding-horizontal-sm;
         right: @input-padding-horizontal-sm;
+        left: @input-padding-horizontal-sm;
       }
 
       .@{select-prefix-cls}-selector {
