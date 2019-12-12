@@ -196,4 +196,39 @@ describe('Form', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('warning when use `name` but children is not validate element', () => {
+    mount(
+      <Form>
+        <Form.Item name="warning">text</Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
+    );
+  });
+
+  it('dynamic change required', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item label="light" name="light" valuePropName="checked">
+          <input type="checkbox" />
+        </Form.Item>
+        <Form.Item
+          label="bamboo"
+          name="bamboo"
+          dependencies={['light']}
+          rules={[({ getFieldValue }) => ({ required: getFieldValue('light') })]}
+        >
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('.ant-form-item-required')).toHaveLength(0);
+
+    wrapper.find('input[type="checkbox"]').simulate('change', { target: { checked: true } });
+    wrapper.update();
+    expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
+  });
 });

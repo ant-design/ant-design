@@ -134,6 +134,8 @@ module.exports = {
 
     config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
 
+    delete config.module.noParse;
+
     return config;
   },
 

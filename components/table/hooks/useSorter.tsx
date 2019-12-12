@@ -59,7 +59,7 @@ function collectSortStates<RecordType>(
 
     if ('children' in column) {
       sortStates = [...sortStates, ...collectSortStates(column.children, init, columnPos)];
-    } else if ('sorter' in column) {
+    } else if (column.sorter) {
       if ('sortOrder' in column) {
         // Controlled
         sortStates.push({
@@ -95,7 +95,7 @@ function injectSorter<RecordType>(
     const columnPos = getColumnPos(index, pos);
     let newColumn: ColumnsType<RecordType>[number] = column;
 
-    if ('sorter' in newColumn) {
+    if (newColumn.sorter) {
       const sortDirections: SortOrder[] = newColumn.sortDirections || defaultSortDirections;
       const columnKey = getColumnKey(newColumn, columnPos);
       const sorterState = sorterSates.find(({ key }) => key === columnKey);
