@@ -125,7 +125,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filterIcon | Customized filter icon | ReactNode\|(filtered: boolean) => ReactNode | `false` |
 | filterMultiple | Whether multiple filters can be selected | boolean | `true` |
 | filters | Filter menu config | object\[] | - |
-| fixed | Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | `false` |
+| fixed | (IE not support) Set column to be fixed: `true`(same as left) `'left'` `'right'` | boolean\|string | `false` |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
