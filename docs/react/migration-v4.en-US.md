@@ -55,7 +55,7 @@ antd4-codemod src
 #### Update component which contains string icon props with specific v4 Icon component from `@ant-design/icons`
 
 ```diff
-- import { Avatar, Button, Result } from 'antd';
+  import { Avatar, Button, Result } from 'antd';
 + import { QuestionOutlined, UserOutlined } from '@ant-design/icons';
 
   ReactDOM.render(
@@ -80,7 +80,7 @@ antd4-codemod src
 
 ```diff
 - import { Icon, Input } from 'antd';
-+ import { Icon } from 'antd';
++ import { Input } from 'antd';
 + import Icon, { CodeFilled, SmileOutlined, SmileTwoTone } from '@ant-design/icons';
 
   const HeartSvg = () => (
