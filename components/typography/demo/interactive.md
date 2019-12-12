@@ -15,29 +15,23 @@ Provide additional interactive capacity.
 
 ```jsx
 import { Typography } from 'antd';
+import { useState } from 'react';
 
 const { Paragraph } = Typography;
-
-class Demo extends React.Component {
-  state = {
-    str: 'This is an editable text.',
-  };
-
-  onChange = str => {
+const Demo = () => {
+  const [str, setStr] = useState('This is an editable text.');
+  const onChange = str => {
     console.log('Content change:', str);
-    this.setState({ str });
+    setStr(str);
   };
-
-  render() {
-    return (
-      <div>
-        <Paragraph editable={{ onChange: this.onChange }}>{this.state.str}</Paragraph>
-        <Paragraph copyable>This is a copyable text.</Paragraph>
-        <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Paragraph editable={{ onChange }}>{str}</Paragraph>
+      <Paragraph copyable>This is a copyable text.</Paragraph>
+      <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
+    </div>
+  );
+};
 
 ReactDOM.render(<Demo />, mountNode);
 ```
