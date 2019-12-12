@@ -13,7 +13,7 @@ Select component to select value from options.
 
 ## API
 
-```html
+```jsx
 <select>
   <option value="lucy">lucy</option>
 </select>

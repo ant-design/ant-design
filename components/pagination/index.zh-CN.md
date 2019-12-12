@@ -15,8 +15,8 @@ cols: 1
 
 ## API
 
-```html
-<Pagination onChange="{onChange}" total="{50}" />
+```jsx
+<Pagination onChange={onChange} total={50} />
 ```
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
