@@ -12,7 +12,6 @@
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 @form-font-height: ceil(@font-size-base * @line-height-base);
-@form-label-margin-top: floor((@input-height-base - @form-font-height) / 2);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -20,7 +19,6 @@
 
   .@{form-prefix-cls}-text {
     display: inline-block;
-    margin-top: @form-label-margin-top;
     padding-right: 8px;
   }
 }
@@ -54,8 +52,11 @@
 
     > label {
       position: relative;
-      display: inline-block;
-      margin-top: @form-label-margin-top;
+      // display: inline;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      max-height: @input-height-base;
       color: @label-color;
 
       > .@{iconfont-css-prefix} {
