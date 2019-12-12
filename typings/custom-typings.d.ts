@@ -1,7 +1,5 @@
 declare module '*.svg';
 
-declare module 'rc-calendar*';
-
 declare module 'rc-time-picker*';
 
 declare module 'rc-pagination/*';
