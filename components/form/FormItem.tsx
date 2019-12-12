@@ -149,11 +149,22 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
         };
 
-        // TODO: Check if user add `required` in RuleRender
         const isRequired =
           required !== undefined
             ? required
-            : !!(rules && rules.some(rule => typeof rule === 'object' && rule.required));
+            : !!(
+                rules &&
+                rules.some(rule => {
+                  if (rule && typeof rule === 'object' && rule.required) {
+                    return true;
+                  }
+                  if (typeof rule === 'function') {
+                    const ruleEntity = rule(context);
+                    return ruleEntity && ruleEntity.required;
+                  }
+                  return false;
+                })
+              );
 
         // ======================= Children =======================
         const fieldId = getFieldId(mergedName, formName);
