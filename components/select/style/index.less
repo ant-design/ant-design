@@ -71,6 +71,10 @@
   &-arrow {
     .iconfont-mixin();
 
+    > * {
+      line-height: 0;
+    }
+
     position: absolute;
     top: 53%;
     right: @control-padding-horizontal - 1px;
@@ -170,7 +174,7 @@
   }
 
   // ========================= Options =========================
-  &-item {
+  .item() {
     position: relative;
     display: block;
     min-height: 32px;
@@ -180,6 +184,14 @@
     line-height: 22px;
     cursor: pointer;
     transition: background 0.3s ease;
+  }
+
+  &-item-empty {
+    .item();
+  }
+
+  &-item {
+    .item();
 
     // =========== Group ============
     &-group {
