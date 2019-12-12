@@ -236,6 +236,12 @@ validateFields()
 
 #### Rule
 
+Rule support config object, an also support function to get config object:
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
 | Name | Description | Type |
 | --- | --- | --- |
 | enum | Match enum value | any[] |

@@ -237,6 +237,12 @@ validateFields()
 
 #### Rule
 
+Rule 支持接收 object 进行配置，也支持 function 来动态获取 from 的数据：
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
 | enum | 是否匹配枚举中的值 | any[] |
