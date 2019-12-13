@@ -18,14 +18,6 @@ import { Form, Input, Button, Select } from 'antd';
 
 const { Option } = Select;
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
-
 class Demo extends React.Component {
   formRef = React.createRef();
 
@@ -52,7 +44,7 @@ class Demo extends React.Component {
 
   render() {
     return (
-      <Form {...layout} ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
+      <Form layout="vertical" ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
         <Form.Item name="note" label="Note" rules={[{ required: true }]}>
           <Input />
         </Form.Item>
@@ -83,7 +75,7 @@ class Demo extends React.Component {
             ) : null;
           }}
         </Form.Item>
-        <Form.Item {...tailLayout}>
+        <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
