@@ -54,6 +54,7 @@
 
   position: relative;
   display: inline-block;
+  width: 100px;
 
   // ======================== Selection ========================
   &-selection-item {
@@ -170,7 +171,7 @@
   }
 
   // ========================= Options =========================
-  &-item {
+  .item() {
     position: relative;
     display: block;
     min-height: 32px;
@@ -178,6 +179,15 @@
     color: @text-color;
     font-weight: normal;
     line-height: 22px;
+  }
+
+  &-item-empty {
+    .item();
+  }
+
+  &-item {
+    .item();
+
     cursor: pointer;
     transition: background 0.3s ease;
 
