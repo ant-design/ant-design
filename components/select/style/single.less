@@ -20,7 +20,7 @@
     .@{select-prefix-cls}-selection-item,
     .@{select-prefix-cls}-selection-placeholder {
       padding: 0;
-      line-height: @input-height-base;
+      line-height: @select-height-without-border;
       transition: all 0.3s;
       pointer-events: none;
 
@@ -32,10 +32,10 @@
       }
     }
 
-    .@{select-prefix-cls}-selection-placeholder {
-      &::after {
-        content: '\a0';
-      }
+    &::after,
+    .@{select-prefix-cls}-selection-placeholder::after {
+      content: '\a0';
+      line-height: @select-height-without-border;
     }
   }
 
