@@ -193,7 +193,8 @@ class Demo extends React.Component {
         }
         return acc;
       },
-      { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
+      // eslint-disable-next-line no-undef
+      { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
     const indexJsContent = `
 import React from 'react';
