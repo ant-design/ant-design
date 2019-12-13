@@ -675,7 +675,11 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                [ITEM]
+                <span
+                  aria-hidden="true"
+                >
+                  [ITEM]
+                </span>
               </mark>
             </span>
              Racing car sprays burning fuel into crowd.
@@ -687,7 +691,11 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                [ITEM]
+                <span
+                  aria-hidden="true"
+                >
+                  [ITEM]
+                </span>
               </mark>
             </span>
              Japanese princess to wed commoner.
@@ -699,7 +707,11 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                [ITEM]
+                <span
+                  aria-hidden="true"
+                >
+                  [ITEM]
+                </span>
               </mark>
             </span>
              Australian walks 100km after outback crash.
@@ -711,7 +723,11 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                [ITEM]
+                <span
+                  aria-hidden="true"
+                >
+                  [ITEM]
+                </span>
               </mark>
             </span>
              Man charged over missing wedding girl.
@@ -723,7 +739,11 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                [ITEM]
+                <span
+                  aria-hidden="true"
+                >
+                  [ITEM]
+                </span>
               </mark>
             </span>
              Los Angeles battles huge wildfires.
