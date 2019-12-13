@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
+import warning from '../_util/warning';
 
 import noFound from './noFound';
 import serverError from './serverError';
@@ -52,6 +53,12 @@ const ExceptionStatus = Object.keys(ExceptionMap);
  */
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
+
+  warning(
+    !(typeof icon === 'string' && icon.length > 2),
+    'Result',
+    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+  );
 
   if (ExceptionStatus.includes(status as ResultStatusType)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Dialog, { ModalFuncProps, destroyFns } from './Modal';
 import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
+import warning from '../_util/warning';
 
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
@@ -30,6 +31,12 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     okButtonProps,
     cancelButtonProps,
   } = props;
+
+  warning(
+    !(typeof icon === 'string' && icon.length > 2),
+    'Modal',
+    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+  );
 
   // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
   const okType = props.okType || 'primary';
