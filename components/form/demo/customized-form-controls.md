@@ -27,6 +27,7 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 
 ```jsx
 import { Form, Input, Select, Button } from 'antd';
+
 const { Option } = Select;
 
 class PriceInput extends React.Component {
@@ -86,6 +87,7 @@ class Demo extends React.Component {
       }
     });
   };
+
   checkPrice = (rule, value, callback) => {
     if (value.number > 0) {
       callback();
@@ -107,7 +109,7 @@ class Demo extends React.Component {
         <Form.Item>
           <Button type="primary" htmlType="submit">
             Submit
-            </Button>
+          </Button>
         </Form.Item>
       </Form>
     );
