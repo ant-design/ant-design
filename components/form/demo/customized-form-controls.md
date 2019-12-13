@@ -44,28 +44,28 @@ class PriceInput extends React.Component {
   };
 
   triggerChange = changedValue => {
-    const { onChange } = this.props;
+    const { onChange, value } = this.props;
     if (onChange) {
       onChange({
-        ...this.props.value,
+        ...value,
         ...changedValue,
       });
     }
   };
 
   render() {
-    const { size } = this.props;
+    const { size, value } = this.props;
     return (
       <span>
         <Input
           type="text"
           size={size}
-          value={this.props.value.number}
+          value={value.number}
           onChange={this.handleNumberChange}
           style={{ width: '65%', marginRight: '3%' }}
         />
         <Select
-          value={this.props.value.currency}
+          value={value.currency}
           size={size}
           style={{ width: '32%' }}
           onChange={this.handleCurrencyChange}
@@ -90,8 +90,7 @@ class Demo extends React.Component {
 
   checkPrice = (rule, value, callback) => {
     if (value.number > 0) {
-      callback();
-      return;
+      return callback();
     }
     callback('Price must greater than zero!');
   };
