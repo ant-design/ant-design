@@ -55,8 +55,6 @@ class PriceInput extends React.Component {
 
     render() {
         const { size } = this.props;
-
-        console.log
         return (
             <span>
                 <Input
