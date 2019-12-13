@@ -18,6 +18,7 @@ import Tooltip from '../tooltip';
 import Typography, { TypographyProps } from './Typography';
 import Editable from './Editable';
 import measure from './util';
+
 export type BaseType = 'secondary' | 'danger' | 'warning';
 
 const isLineClampSupport = isStyleSupport('webkitLineClamp');

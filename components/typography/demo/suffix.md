@@ -14,9 +14,9 @@ title:
 add suffix ellipsis support.
 
 ```jsx
-import { Typography, Slider, Switch } from 'antd';
+import { Typography, Slider } from 'antd';
 
-const { Text, Paragraph, Title } = Typography;
+const { Text, Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
