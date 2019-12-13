@@ -18,16 +18,6 @@ import { Form, DatePicker, TimePicker, Button } from 'antd';
 
 const { MonthPicker, RangePicker } = DatePicker;
 
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 8 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 16 },
-  },
-};
 const config = {
   rules: [{ type: 'object', required: true, message: 'Please select time!' }],
 };
@@ -56,7 +46,7 @@ const TimeRelatedForm = () => {
   };
 
   return (
-    <Form name="time_related_controls" {...formItemLayout} onFinish={onFinish}>
+    <Form name="time_related_controls" layout="vertical" onFinish={onFinish}>
       <Form.Item name="date-picker" label="DatePicker" {...config}>
         <DatePicker />
       </Form.Item>
@@ -75,12 +65,7 @@ const TimeRelatedForm = () => {
       <Form.Item name="time-picker" label="TimePicker" {...config}>
         <TimePicker />
       </Form.Item>
-      <Form.Item
-        wrapperCol={{
-          xs: { span: 24, offset: 0 },
-          sm: { span: 16, offset: 8 },
-        }}
-      >
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>

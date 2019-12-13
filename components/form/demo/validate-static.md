@@ -25,20 +25,10 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
 
 const { Option } = Select;
-
-const formItemLayout = {
-  labelCol: {
-    xs: { span: 24 },
-    sm: { span: 5 },
-  },
-  wrapperCol: {
-    xs: { span: 24 },
-    sm: { span: 12 },
-  },
-};
+const { RangePicker } = DatePicker;
 
 ReactDOM.render(
-  <Form {...formItemLayout}>
+  <Form layout="vertical">
     <Form.Item
       label="Fail"
       validateStatus="error"
@@ -102,18 +92,13 @@ ReactDOM.render(
       <Cascader defaultValue={['1']} options={[]} />
     </Form.Item>
 
-    <Form.Item label="inline" style={{ marginBottom: 0 }}>
-      <Form.Item
-        validateStatus="error"
-        help="Please select the correct date"
-        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
-      >
-        <DatePicker />
-      </Form.Item>
-      <span style={{ display: 'inline-block', width: '24px', textAlign: 'center' }}>-</span>
-      <Form.Item style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-        <DatePicker />
-      </Form.Item>
+    <Form.Item
+      label="inline"
+      style={{ marginBottom: 0 }}
+      validateStatus="error"
+      help="Please select the correct date"
+    >
+      <RangePicker />
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">

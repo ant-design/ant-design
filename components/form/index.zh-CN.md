@@ -13,6 +13,24 @@ title: Form
 - 用于创建一个实体或收集信息。
 - 需要对输入的数据类型进行校验时。
 
+## 表单
+
+我们为 `form` 提供了以下三种排列方式：
+
+- 水平排列：标签和表单控件水平排列；（默认）
+- 垂直排列：标签和表单控件上下垂直排列；（推荐）
+- 行内排列：表单项水平行内排列。
+
+## 表单域
+
+表单一定会包含表单域，表单域可以是输入控件，标准表单域，标签，下拉菜单，文本域等。
+
+这里我们封装了表单域 `<Form.Item />` 。
+
+```jsx
+<Form.Item {...props}>{children}</Form.Item>
+```
+
 ## API
 
 ### Form
@@ -263,7 +281,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 如果你是 antd v3 的用户，你可以参考[迁移示例](/components/form/v3)。
 
 <style>
-.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
+.code-box-demo .ant-form:not(.ant-form-inline) {
   max-width: 600px;
 }
 .markdown.api-container table td:last-child {

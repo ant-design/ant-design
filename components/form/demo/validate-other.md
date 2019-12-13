@@ -32,11 +32,6 @@ import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
-const formItemLayout = {
-  labelCol: { span: 6 },
-  wrapperCol: { span: 14 },
-};
-
 const normFile = e => {
   console.log('Upload event:', e);
   if (Array.isArray(e)) {
@@ -53,7 +48,7 @@ const Demo = () => {
   return (
     <Form
       name="validate_other"
-      {...formItemLayout}
+      layout="vertical"
       onFinish={onFinish}
       initialValues={{
         ['input-number']: 3,
@@ -182,7 +177,7 @@ const Demo = () => {
         </Form.Item>
       </Form.Item>
 
-      <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
