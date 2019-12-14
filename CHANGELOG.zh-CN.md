@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.26.3
+
+`2019-12-14`
+
+- 🛠 antd `package.json` 中补充 `unpkg` 字段。[#20193](https://github.com/ant-design/ant-design/pull/20193)
+- 🐞 修复 Tree `showLine` 和 `showIcon` 同时开启时 `[+]` `[-]` 图标丢失的问题。[#20196](https://github.com/ant-design/ant-design/pull/20196)
+- 🐞 修复 Modal 和 Drawer 结合使用时导致滚动失效的问题。[#20242](https://github.com/ant-design/ant-design/pull/20242)
+- 🐞 修复 Drawer `switchScrollingEffect prop on a DOM element` 警告。[#20175](https://github.com/ant-design/ant-design/pull/20175)
+- 🐞 修复 Select Option 的 `label` 属性定义。[#20190](https://github.com/ant-design/ant-design/pull/20190) [@ZhechenLi](https://github.com/ZhechenLi)
+- 💄 优化 Form 反馈图标的间距样式。[#20164](https://github.com/ant-design/ant-design/pull/20164) [@Satloff](https://github.com/Satloff)
+- 💄 Select/Cascader 新增和优化边距 padding 和圆角的相关 less 变量。[#20156](https://github.com/ant-design/ant-design/pull/20156) [@Satloff](https://github.com/Satloff)
+
 ## 3.26.2
 
 `2019-12-10`

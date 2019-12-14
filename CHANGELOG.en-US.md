@@ -15,6 +15,18 @@ timeline: true
 
 ---
 
+## 3.26.3
+
+`2019-12-14`
+
+- 🛠 support `unpkg` field in `package.json`. [#20193](https://github.com/ant-design/ant-design/pull/20193)
+- 🐞 Fix Tree `showLine` and `showIcon` missing icon. [#20196](https://github.com/ant-design/ant-design/pull/20196)
+- 🐞 Fix Modal combine Drawer cause invalid scroll problem. [#20242](https://github.com/ant-design/ant-design/pull/20242)
+- 🐞 Fix Drawer `switchScrollingEffect prop on a DOM element` warning. [#20175](https://github.com/ant-design/ant-design/pull/20175)
+- 🐞 Fix Select Option `label` definition. [#20190](https://github.com/ant-design/ant-design/pull/20190) [@ZhechenLi](https://github.com/ZhechenLi)
+- 💄 Optimize Form feedback icon padding. [#20164](https://github.com/ant-design/ant-design/pull/20164) [@Satloff](https://github.com/Satloff)
+- 💄 Add less variables for Select/Cascader to optimize dropdown padding and border radius. [#20156](https://github.com/ant-design/ant-design/pull/20156) [@Satloff](https://github.com/Satloff)
+
 ## 3.26.2
 
 `2019-12-10`
