@@ -49,8 +49,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
   }
 
   isZero() {
-    const numberedDispayCount = this.getNumberedDispayCount();
-    return numberedDispayCount === '0' || numberedDispayCount === 0;
+    const numberedDisplayCount = this.getNumberedDisplayCount();
+    return numberedDisplayCount === '0' || numberedDisplayCount === 0;
   }
 
   isDot() {
@@ -61,7 +61,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
 
   isHidden() {
     const { showZero } = this.props;
-    const displayCount = this.getDispayCount();
+    const displayCount = this.getDisplayCount();
     const isZero = this.isZero();
     const isDot = this.isDot();
     const isEmpty = displayCount === null || displayCount === undefined || displayCount === '';
@@ -75,13 +75,13 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return displayCount as string | number | null;
   }
 
-  getDispayCount() {
+  getDisplayCount() {
     const isDot = this.isDot();
     // dot mode don't need count
     if (isDot) {
       return '';
     }
-    return this.getNumberedDispayCount();
+    return this.getNumberedDisplayCount();
   }
 
   getScrollNumberTitle() {
@@ -126,7 +126,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
   renderBadgeNumber(prefixCls: string, scrollNumberPrefixCls: string) {
     const { count, status } = this.props;
 
-    const displayCount = this.getDispayCount();
+    const displayCount = this.getDisplayCount();
     const isDot = this.isDot();
     const hidden = this.isHidden();
 
