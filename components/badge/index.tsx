@@ -109,7 +109,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return hidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
   }
 
-  renderDispayComponent() {
+  renderDisplayComponent() {
     const { count } = this.props;
     const customNode = count as React.ReactElement<any>;
     if (!customNode || typeof customNode !== 'object') {
@@ -144,7 +144,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         data-show={!hidden}
         className={scrollNumberCls}
         count={displayCount}
-        displayComponent={this.getNumberedDisplayCount()} // <Badge status="success" count={<Icon type="xxx" />}></Badge>
+        displayComponent={this.renderDisplayComponent()} // <Badge status="success" count={<Icon type="xxx" />}></Badge>
         title={this.getScrollNumberTitle()}
         style={this.getStyleWithOffset()}
         key="scrollNumber"
