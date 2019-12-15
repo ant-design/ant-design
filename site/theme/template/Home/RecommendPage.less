@@ -1,3 +1,5 @@
+@import '../../../../components/style/themes/default.less';
+
 .recommend-block {
   background: green;
   height: 192px;
@@ -5,10 +7,6 @@
   position: relative;
   border-radius: 2px;
   display: block;
-
-  &.main {
-    height: 408px;
-  }
 
   &::before {
     content: '';
@@ -58,7 +56,6 @@
       padding: 0 20px 24px;
       transform: translateY(-100%);
       transition: padding 0.3s;
-      font-weight: 400;
     }
 
     p {
@@ -80,5 +77,11 @@
         opacity: 1;
       }
     }
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .recommend-block.main {
+    height: 408px;
   }
 }

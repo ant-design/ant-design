@@ -53,11 +53,11 @@ const RecommendBlock = ({ main, title, popularize, description }: RecommendBlock
 
 export default function RecommendPage() {
   return (
-    <Row gutter={24}>
-      <Col span={14}>
+    <Row gutter={[24, 24]} style={{ marginBottom: -36 }}>
+      <Col xs={24} sm={14}>
         <RecommendBlock {...LIST[0]} main />
       </Col>
-      <Col span={10}>
+      <Col xs={24} sm={10}>
         <Row gutter={[24, 24]}>
           <Col span={24}>
             <RecommendBlock {...LIST[1]} />
