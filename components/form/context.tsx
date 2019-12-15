@@ -15,6 +15,7 @@ export interface FormContextProps {
   colon?: boolean;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
+  labelSelectiveFilling?: boolean;
   wrapperCol?: ColProps;
 }
 

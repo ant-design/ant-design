@@ -19,6 +19,7 @@ export interface FormProps extends Omit<RcFormProps, 'form'> {
   layout?: FormLayout;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
+  labelSelectiveFilling?: boolean;
   wrapperCol?: ColProps;
   form?: FormInstance;
 }
@@ -32,6 +33,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     name,
     labelAlign,
     labelCol,
+    labelSelectiveFilling,
     wrapperCol,
     prefixCls: customizePrefixCls,
     hideRequiredMark,
@@ -71,6 +73,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
         name,
         labelAlign,
         labelCol,
+        labelSelectiveFilling,
         wrapperCol,
         vertical: layout === 'vertical',
         colon,
