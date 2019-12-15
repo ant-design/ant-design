@@ -27,8 +27,10 @@ module.exports = {
     'app.demo.stackblitz': '在 Stackblitz 中打开',
     'app.demo.riddle': '在 Riddle 中打开',
     'app.home.slogan': '一个 UI 设计语言',
-    'app.home.introduce':
-      '服务于企业级产品的设计体系，基于确定和自然的设计价值观上的模块化解决方案，让设计者和开发者专注于更好的用户体验。',
+    'app.home.introduce': '企业级产品设计体系，创造高效愉悦的工作体验。',
+    'app.home.recommend': '精彩推荐',
+    'app.home.popularize': '推广',
+
     'app.home.design-language': '设计语言',
     'app.home.solution': '解决方案',
     'app.home.components-explain':
@@ -45,7 +47,6 @@ module.exports = {
     'app.home.tool-kitchen-title': 'Kitchen',
     'app.home.tool-kitchen-content': '一个为设计师提效的 Sketch 工具集',
     'app.home.getting-started': '开始使用',
-    'app.home.recommend': '推荐',
     'app.home.recommend.yuque': '语雀，我们都喜欢的文档工具',
     'app.home.recommend.antv.g2plot': 'G2Plot：全新企业级图表',
     'app.home.more': '查看更多',

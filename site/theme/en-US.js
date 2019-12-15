@@ -28,7 +28,10 @@ module.exports = {
     'app.demo.riddle': 'Open in Riddle',
     'app.home.slogan': "The world's second most popular React UI framework",
     'app.home.introduce':
-      'A design system with values of Nature and Determinacy for better user experience of enterprise applications',
+      'Enterprise-level product design system to create an efficient and enjoyable work experience.',
+    'app.home.recommend': 'Recommend',
+    'app.home.popularize': 'Popularize',
+
     'app.home.design-language': 'Design Language',
     'app.home.solution': 'Solution',
     'app.home.components-explain':
@@ -48,7 +51,6 @@ module.exports = {
     'app.home.tool-kitchen-title': 'Kitchen',
     'app.home.tool-kitchen-content': 'A Sketch tools for designers',
     'app.home.getting-started': 'Getting Started',
-    'app.home.recommend': 'Recommend',
     'app.home.recommend.yuque': 'Yuque, our favorite documentation tool',
     'app.home.recommend.antv': 'G2Plot, the new charting library',
     'app.home.more': 'Learn more',
