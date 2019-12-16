@@ -3,6 +3,8 @@ import { FormattedMessage } from 'react-intl';
 import { Typography } from 'antd';
 import RecommendPage from './RecommendPage';
 import DesignPage from './DesignPage';
+import MorePage from './MorePage';
+import Footer from '../Layout/Footer';
 import './index.less';
 
 const { Title } = Typography;
@@ -12,7 +14,11 @@ interface BlockContentProps {
 }
 
 const BlockContent: React.FC<BlockContentProps> = ({ title, children }) => (
-  <div style={{ margin: '88px 24px 124px', background: 'rgba(255,0,0, 0.1)' }}>
+  <div
+    style={{
+      margin: '88px 24px 124px',
+    }}
+  >
     <Title level={2} style={{ fontWeight: 'lighter', marginBottom: 56 }}>
       {title}
     </Title>
@@ -25,7 +31,7 @@ export default function Home() {
     <div className="home-container">
       <FormattedMessage id="app.home.introduce" />
 
-      <div style={{ maxWidth: 1208, margin: '0 auto' }}>
+      <div style={{ maxWidth: 1256, margin: '0 auto' }}>
         <BlockContent title={<FormattedMessage id="app.home.recommend" />}>
           <RecommendPage />
         </BlockContent>
@@ -33,7 +39,13 @@ export default function Home() {
         <BlockContent title={<FormattedMessage id="app.home.design-and-framework" />}>
           <DesignPage />
         </BlockContent>
+
+        <BlockContent title={<FormattedMessage id="app.home.more" />}>
+          <MorePage />
+        </BlockContent>
       </div>
+
+      <Footer />
     </div>
   );
 }

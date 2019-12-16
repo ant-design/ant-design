@@ -44,6 +44,7 @@ module.exports = {
     'app.home.values': 'Values',
     'app.home.global-style': 'Global style',
     'app.home.design-patterns': 'Design patterns',
+    'app.home.more': 'More',
 
     'app.home.design-language': 'Design Language',
     'app.home.solution': 'Solution',

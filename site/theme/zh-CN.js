@@ -43,6 +43,7 @@ module.exports = {
     'app.home.values': '价值观',
     'app.home.global-style': '全局样式',
     'app.home.design-patterns': '设计模式',
+    'app.home.more': '更多内容',
 
     'app.home.design-language': '设计语言',
     'app.home.solution': '解决方案',
