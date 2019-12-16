@@ -147,16 +147,16 @@
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: @blue-1; // replace tint(@primary-color, 90%)
-@primary-2: @blue-2; // replace tint(@primary-color, 80%)
-@primary-3: @blue-3; // unused
-@primary-4: @blue-4; // unused
-@primary-5: @blue-5; // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
-@primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: @blue-7; // replace shade(@primary-color, 5%)
-@primary-8: @blue-8; // unused
-@primary-9: @blue-9; // unused
-@primary-10: @blue-10; // unused
+@primary-1: mix(color(~`colorPalette('@{primary-color}', 8) `), @component-background, 15%);
+@primary-2: mix(color(~`colorPalette('@{primary-color}', 7) `), @component-background, 25%);
+@primary-3: mix(@primary-color, @component-background, 30%);
+@primary-4: mix(@primary-color, @component-background, 45%);
+@primary-5: mix(@primary-color, @component-background, 65%);
+@primary-6: @primary-color;
+@primary-7: mix(color(~`colorPalette('@{primary-color}', 5) `), @component-background, 85%);
+@primary-8: mix(color(~`colorPalette('@{primary-color}', 4) `), @component-background, 95%);
+@primary-9: mix(color(~`colorPalette('@{primary-color}', 3) `), @component-background, 95%);
+@primary-10: mix(color(~`colorPalette('@{primary-color}', 2) `), @component-background, 95%);
 
 // Layer background
 @popover-background: #1f1f1f;
@@ -263,6 +263,8 @@
 @select-background: transparent;
 @select-dropdown-bg: @popover-background;
 @select-clear-background: @component-background;
+@select-selection-item-bg: fade(@white, 8);
+@select-selection-item-border-color: #303030;
 
 // Cascader
 // ---
@@ -293,8 +295,8 @@
 @notification-bg: @popover-background;
 
 // LINK
-@link-hover-color: @blue-5;
-@link-active-color: @blue-7;
+@link-hover-color: @primary-5;
+@link-active-color: @primary-7;
 
 // Table
 // --
@@ -381,6 +383,8 @@
 // ---
 @slider-rail-background-color: #262626;
 @slider-rail-background-color-hover: @border-color-base;
+@slider-dot-border-color: #303030;
+@slider-dot-border-color-active: @primary-4;
 
 // Skeleton
 // ---
@@ -392,8 +396,8 @@
 @alert-success-border-color: @green-3;
 @alert-success-bg-color: @green-1;
 @alert-success-icon-color: @success-color;
-@alert-info-border-color: @blue-3;
-@alert-info-bg-color: @blue-1;
+@alert-info-border-color: @primary-3;
+@alert-info-bg-color: @primary-1;
 @alert-info-icon-color: @info-color;
 @alert-warning-border-color: @gold-3;
 @alert-warning-bg-color: @gold-1;
