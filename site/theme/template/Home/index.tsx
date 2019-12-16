@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Typography } from 'antd';
+import Banner from './Banner';
 import RecommendPage from './RecommendPage';
 import DesignPage from './DesignPage';
 import MorePage from './MorePage';
@@ -29,7 +30,7 @@ const BlockContent: React.FC<BlockContentProps> = ({ title, children }) => (
 export default function Home() {
   return (
     <div className="home-container">
-      <FormattedMessage id="app.home.introduce" />
+      <Banner />
 
       <div style={{ maxWidth: 1256, margin: '0 auto' }}>
         <BlockContent title={<FormattedMessage id="app.home.recommend" />}>
