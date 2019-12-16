@@ -29,9 +29,11 @@
     left: 0;
     z-index: 1;
     box-sizing: border-box;
+    width: 0;
     height: 2px;
     background-color: @tabs-ink-bar-color;
     transform-origin: 0 0;
+    opacity: 0;
   }
 
   &-bar {
@@ -330,7 +332,7 @@
       bottom: auto;
       left: auto;
       width: 2px;
-      height: auto;
+      height: 0;
     }
 
     .@{tab-prefix-cls}-tab-next {
@@ -403,12 +405,16 @@
 
 .@{tab-prefix-cls}-top .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-bottom .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out, left 0.3s @ease-in-out;
+  opacity: 1;
+  transition: transform 0.3s @ease-in-out, width 0.2s @ease-in-out, left 0.3s @ease-in-out,
+    opacity 0.3s;
 }
 
 .@{tab-prefix-cls}-left .@{tab-prefix-cls}-ink-bar-animated,
 .@{tab-prefix-cls}-right .@{tab-prefix-cls}-ink-bar-animated {
-  transition: transform 0.3s @ease-in-out, height 0.3s @ease-in-out, top 0.3s @ease-in-out;
+  opacity: 1;
+  transition: transform 0.3s @ease-in-out, height 0.2s @ease-in-out, top 0.3s @ease-in-out,
+    opacity 0.3s;
 }
 
 // No animation
