@@ -16,15 +16,6 @@ Perform different check rules according to different situations.
 ```tsx
 import { Form, Input, Button, Checkbox } from 'antd';
 
-const formItemLayout = {
-  labelCol: { span: 4 },
-  wrapperCol: { span: 8 },
-};
-const formTailLayout = {
-  labelCol: { span: 4 },
-  wrapperCol: { span: 8, offset: 4 },
-};
-
 const DynamicRule = () => {
   const [form] = Form.useForm();
   const [checkNick, setCheckNick] = React.useState(false);
@@ -47,9 +38,8 @@ const DynamicRule = () => {
   };
 
   return (
-    <Form form={form} name="dynamic_rule">
+    <Form layout="vertical" form={form} name="dynamic_rule">
       <Form.Item
-        {...formItemLayout}
         name="username"
         label="Name"
         rules={[
@@ -62,7 +52,6 @@ const DynamicRule = () => {
         <Input placeholder="Please input your name" />
       </Form.Item>
       <Form.Item
-        {...formItemLayout}
         name="nickname"
         label="Nickname"
         rules={[
@@ -74,12 +63,12 @@ const DynamicRule = () => {
       >
         <Input placeholder="Please input your nickname" />
       </Form.Item>
-      <Form.Item {...formTailLayout}>
+      <Form.Item>
         <Checkbox checked={checkNick} onChange={onCheckboxChange}>
           Nickname is required
         </Checkbox>
       </Form.Item>
-      <Form.Item {...formTailLayout}>
+      <Form.Item>
         <Button type="primary" onClick={onCheck}>
           Check
         </Button>

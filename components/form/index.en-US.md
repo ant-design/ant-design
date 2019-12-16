@@ -12,6 +12,22 @@ High performance Form component with data scope management. Including data colle
 - When you need to create a instance or collect information.
 - When you need to validate fields in certain rules.
 
+## Form Component
+
+You can align the controls of a `form` using the `layout` prop：
+
+- `horizontal`：to horizontally align the `label`s and controls of the fields. (Default)
+- `vertical`：to vertically align the `label`s and controls of the fields. (Recommended)
+- `inline`：to render form fields in one line.
+
+## Form Item Component
+
+A form consists of one or more form fields whose type includes input, textarea, checkbox, radio, select, tag, and more. A form field is defined using `<Form.Item />`.
+
+```jsx
+<Form.Item {...props}>{children}</Form.Item>
+```
+
 ## API
 
 ### Form
@@ -262,7 +278,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 If you are the user of v3, you can ref [migrate doc](/components/form/v3)。
 
 <style>
-.code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
+.code-box-demo .ant-form:not(.ant-form-inline) {
   max-width: 600px;
 }
 .markdown.api-container table td:last-child {

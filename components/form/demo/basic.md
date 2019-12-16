@@ -16,14 +16,6 @@ Basic Form data control. Includes layout, initial values, validation and submit.
 ```tsx
 import { Form, Input, Button, Checkbox } from 'antd';
 
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
-
 const Demo = () => {
   const onFinish = values => {
     console.log('Success:', values);
@@ -35,7 +27,7 @@ const Demo = () => {
 
   return (
     <Form
-      {...layout}
+      layout="vertical"
       name="basic"
       initialValues={{ remember: true }}
       onFinish={onFinish}
@@ -49,11 +41,11 @@ const Demo = () => {
         <Input.Password />
       </Form.Item>
 
-      <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+      <Form.Item name="remember" valuePropName="checked">
         <Checkbox>Remember me</Checkbox>
       </Form.Item>
 
-      <Form.Item {...tailLayout}>
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Submit
         </Button>
