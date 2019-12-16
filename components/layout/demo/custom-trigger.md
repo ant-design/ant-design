@@ -14,6 +14,7 @@ title:
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
 ```jsx
+import { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
@@ -24,60 +25,48 @@ import {
 } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
-
-class SiderDemo extends React.Component {
-  state = {
-    collapsed: false,
-  };
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
-  render() {
-    return (
+const SiderDemo = () => {
+  const [collapsed, setCollapsed] = useState(true);
+  return (
+    <Layout>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo" />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">
+            <UserOutlined />
+            <span>nav 1</span>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <VideoCameraOutlined />
+            <span>nav 2</span>
+          </Menu.Item>
+          <Menu.Item key="3">
+            <UploadOutlined />
+            <span>nav 3</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key="1">
-              <UserOutlined />
-              <span>nav 1</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <VideoCameraOutlined />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <UploadOutlined />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
-        <Layout>
-          <Header style={{ background: '#fff', padding: 0 }}>
-            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: this.toggle,
-            })}
-          </Header>
-          <Content
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              background: '#fff',
-              minHeight: 280,
-            }}
-          >
-            Content
-          </Content>
-        </Layout>
+        <Header style={{ background: '#fff', padding: 0 }}>
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: 'trigger',
+            onClick: () => setCollapsed(!collapsed),
+          })}
+        </Header>
+        <Content
+          style={{
+            margin: '24px 16px',
+            padding: 24,
+            background: '#fff',
+            minHeight: 280,
+          }}
+        >
+          Content
+        </Content>
       </Layout>
-    );
-  }
-}
+    </Layout>
+  );
+};
 
 ReactDOM.render(<SiderDemo />, mountNode);
 ```

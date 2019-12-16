@@ -128,8 +128,8 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
   class="ant-layout"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark"
-    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed"
+    style="flex:0 0 80px;max-width:80px;min-width:80px;width:80px"
   >
     <div
       class="ant-layout-sider-children"
@@ -138,13 +138,12 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
         role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
-          style="padding-left:24px"
         >
           <span
             aria-label="user"
@@ -173,7 +172,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         <li
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px"
         >
           <span
             aria-label="video-camera"
@@ -202,7 +200,6 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
         <li
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px"
         >
           <span
             aria-label="upload"
@@ -239,15 +236,15 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       style="background:#fff;padding:0"
     >
       <span
-        aria-label="menu-fold"
-        class="anticon anticon-menu-fold trigger"
+        aria-label="menu-unfold"
+        class="anticon anticon-menu-unfold trigger"
         role="img"
         tabindex="-1"
       >
         <svg
           aria-hidden="true"
           class=""
-          data-icon="menu-fold"
+          data-icon="menu-unfold"
           fill="currentColor"
           focusable="false"
           height="1em"
@@ -255,7 +252,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+            d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"
           />
         </svg>
       </span>
@@ -1007,8 +1004,8 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
   style="min-height:100vh"
 >
   <aside
-    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-has-trigger"
-    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+    class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-layout-sider-has-trigger"
+    style="flex:0 0 80px;max-width:80px;min-width:80px;width:80px"
   >
     <div
       class="ant-layout-sider-children"
@@ -1017,13 +1014,12 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         class="logo"
       />
       <ul
-        class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-menu-root ant-menu-vertical"
         role="menu"
       >
         <li
           class="ant-menu-item ant-menu-item-selected"
           role="menuitem"
-          style="padding-left:24px"
         >
           <span
             aria-label="pie-chart"
@@ -1052,7 +1048,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         <li
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px"
         >
           <span
             aria-label="desktop"
@@ -1079,14 +1074,13 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           </span>
         </li>
         <li
-          class="ant-menu-submenu ant-menu-submenu-inline"
+          class="ant-menu-submenu ant-menu-submenu-vertical"
           role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            style="padding-left:24px"
           >
             <span>
               <span
@@ -1117,17 +1111,15 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               class="ant-menu-submenu-arrow"
             />
           </div>
-          <div />
         </li>
         <li
-          class="ant-menu-submenu ant-menu-submenu-inline"
+          class="ant-menu-submenu ant-menu-submenu-vertical"
           role="menuitem"
         >
           <div
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            style="padding-left:24px"
           >
             <span>
               <span
@@ -1158,12 +1150,10 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
               class="ant-menu-submenu-arrow"
             />
           </div>
-          <div />
         </li>
         <li
           class="ant-menu-item"
           role="menuitem"
-          style="padding-left:24px"
         >
           <span
             aria-label="file"
@@ -1190,17 +1180,17 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
     <div
       class="ant-layout-sider-trigger"
-      style="width:200px"
+      style="width:80px"
     >
       <span
-        aria-label="left"
-        class="anticon anticon-left"
+        aria-label="right"
+        class="anticon anticon-right"
         role="img"
       >
         <svg
           aria-hidden="true"
           class=""
-          data-icon="left"
+          data-icon="right"
           fill="currentColor"
           focusable="false"
           height="1em"
@@ -1208,7 +1198,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
           />
         </svg>
       </span>
