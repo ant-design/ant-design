@@ -1,13 +1,13 @@
 ---
 order: 3
 title:
-  zh-CN: 隐藏必选标记
-  en-US: Form HideRequiredMark
+  zh-CN: 隐藏必选标记，展示（可选）
+  en-US: Form HideRequiredMark and showLabelOptionalText
 ---
 
 ## zh-CN
 
-隐藏必选标记
+隐藏必选标记，展示（可选）
 
 ## en-US
 
