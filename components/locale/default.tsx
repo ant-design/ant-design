@@ -61,6 +61,6 @@ export default {
     back: 'Back',
   },
   Form: {
-    optionalText: '(optionalText)',
+    optionalText: ' (optional)',
   },
 };
