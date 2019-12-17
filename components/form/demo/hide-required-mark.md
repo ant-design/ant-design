@@ -2,7 +2,7 @@
 order: 3
 title:
   zh-CN: 隐藏必选标记
-  en-US: Form HideRequiredMark
+  en-US: Hide Required Mark
 ---
 
 ## zh-CN
