@@ -10,7 +10,7 @@ const { Title } = Typography;
 
 interface PanelProps {
   img: string;
-  title: string;
+  title: React.ReactNode;
   description: string;
 }
 
@@ -32,7 +32,7 @@ const MINI_LIST: PanelProps[] = [
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2CrPS5YSep0AAAAAAAAAAABkARQnAQ',
-    title: '海兔',
+    title: <FormattedMessage id="app.home.product-hitu" />,
     description: 'app.home.product-hitu-slogan',
   },
   {
@@ -50,7 +50,7 @@ const MINI_LIST: PanelProps[] = [
 const MiniPanel = ({ title, img, description }: PanelProps) => {
   return (
     <Col xs={24} sm={8}>
-      <Card hoverable cover={<img alt={title} src={img} />}>
+      <Card hoverable cover={<img alt={typeof title === 'string' ? title : 'Hitu'} src={img} />}>
         <Card.Meta title={title} description={<FormattedMessage id={description} />} />
       </Card>
     </Col>
@@ -67,7 +67,14 @@ export default function DesignPage() {
       <Row gutter={[40, 72]}>
         {/* Design Values */}
         <Col span={24}>
-          <div className="design-card" style={{ background: '#F9FCFE' }}>
+          <div
+            className="design-card"
+            style={{
+              backgroundImage:
+                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i1EySrFVZvAAAAAAAAAAAABkARQnAQ)',
+              backgroundSize: 'cover',
+            }}
+          >
             <Title level={3}>
               <FormattedMessage id="app.home.design-values" />
             </Title>
@@ -205,7 +212,7 @@ export default function DesignPage() {
       {/* ***************************** Group 2 ***************************** */}
       <Row gutter={[40, 72]}>
         {MINI_LIST.map(panel => (
-          <MiniPanel key={panel.title} {...panel} />
+          <MiniPanel key={panel.description} {...panel} />
         ))}
       </Row>
     </div>
