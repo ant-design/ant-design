@@ -22,7 +22,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ```tsx
-import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
+import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber, Popover } from 'antd';
 
 const { Option } = Select;
 const { RangePicker } = DatePicker;
@@ -65,6 +65,21 @@ ReactDOM.render(
       help="Should be combination of numbers & alphabets"
     >
       <Input placeholder="unavailable choice" id="error2" />
+    </Form.Item>
+
+    <Form.Item label="Important Tip">
+      <Popover
+        placement="topLeft"
+        content={
+          <p>
+            some important help tips, the content can config <a>link</a>
+          </p>
+        }
+        title={null}
+        trigger="focus"
+      >
+        <Input placeholder="please input" />
+      </Popover>
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
