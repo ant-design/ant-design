@@ -42,6 +42,7 @@ export interface ColumnProps<T> {
   render?: (text: any, record: T, index: number) => React.ReactNode;
   align?: 'left' | 'right' | 'center';
   ellipsis?: boolean;
+  editable?: boolean;
   filters?: ColumnFilterItem[];
   onFilter?: (value: any, record: T) => boolean;
   filterMultiple?: boolean;
