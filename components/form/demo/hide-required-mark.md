@@ -51,7 +51,7 @@ const HideRequiredMarkDemo = () => {
               setState({ showLabelOptionalText: true });
             }}
           >
-            showLabelOptionalText:true
+            Hide * and show optional text
           </Button>
         </Form.Item>
       </Form>
