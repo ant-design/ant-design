@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-There is hideRequiredMark for form: `true`, `false`, `{showLabelOptionalText:true}`.
+There is hideRequiredMark for form: `true`, `false`, `{ showLabelOptionalText: true }`.
 
 ```tsx
 import React, { useState } from 'react';
