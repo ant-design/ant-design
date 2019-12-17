@@ -1,15 +1,14 @@
 @import '../../../../components/style/themes/default.less';
 
 .recommend-block {
-  background: green;
+  position: relative;
+  display: block;
   height: 192px;
   overflow: hidden;
-  position: relative;
+  background: green;
   border-radius: 2px;
-  display: block;
 
   &::before {
-    content: '';
     position: absolute;
     top: 0;
     right: 0;
@@ -20,39 +19,40 @@
       rgba(0, 0, 0, 0, 0.25) 57%,
       rgba(0, 0, 0, 0.5)
     );
+    content: '';
     pointer-events: none;
   }
 
   .recommend-popularize {
     position: absolute;
-    left: 0;
     top: 0;
-    background: #ffd75a;
-    border-radius: 0 0 4px 0;
-    line-height: 28px;
+    left: 0;
     padding: 0 8px;
     color: #314659;
+    line-height: 28px;
+    background: #ffd75a;
+    border-radius: 0 0 4px 0;
   }
 
   .recommend-content {
     position: absolute;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     padding: 0 20px 24px;
     transform: translateY(100%);
     transition: transform 0.3s;
 
     .ant-typography {
-      color: #fff;
       margin: 0;
+      color: #fff;
     }
 
     h4 {
       position: absolute;
-      left: 0;
-      right: 0;
       top: 0;
+      right: 0;
+      left: 0;
       padding: 0 20px 24px;
       transform: translateY(-100%);
       transition: padding 0.3s;

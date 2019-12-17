@@ -1,23 +1,23 @@
 @import '../../../../../components/style/themes/default.less';
 
 .home-banner {
-  height: 448px;
   position: relative;
+  height: 448px;
+  overflow: hidden;
   background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(235, 245, 255, 0.58)),
     linear-gradient(150deg, #fbfcfd, #f8fcff);
-  overflow: hidden;
 
   &-holder {
-    margin-top: 130px;
     position: relative;
     z-index: 1;
+    margin-top: 130px;
   }
 
   &-content {
-    padding: 0 16px;
     margin: 0 auto;
-    text-align: center;
+    padding: 0 16px;
     font-size: 16px;
+    text-align: center;
 
     p {
       margin: 24px 0 0;
@@ -34,14 +34,14 @@
       white-space: nowrap;
 
       button {
+        height: auto;
         margin: 0 16px;
         padding: 8px 24px;
-        height: auto;
         font-size: 16px;
 
         &:not(.ant-btn-primary) {
-          border-color: @primary-color;
           color: @primary-color;
+          border-color: @primary-color;
         }
       }
     }

@@ -1,5 +1,7 @@
 declare module '*.svg';
 
+declare module 'bisheng/router';
+
 declare module 'rc-time-picker*';
 
 declare module 'rc-pagination/*';

@@ -146,7 +146,7 @@
   },
   "devDependencies": {
     "@ant-design/colors": "^3.2.2",
-    "@ant-design/hitu": "^0.0.0-alpha.9",
+    "@ant-design/hitu": "^0.0.0-alpha.10",
     "@ant-design/tools": "^8.0.4",
     "@packtracker/webpack-plugin": "^2.0.1",
     "@sentry/browser": "^5.4.0",
