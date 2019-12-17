@@ -17,7 +17,7 @@ Fill in this form to create a new account for you.
 import {
   Form,
   Input,
-  Tooltip,
+  Popover,
   Cascader,
   Select,
   Row,
@@ -172,9 +172,9 @@ const RegistrationForm = () => {
         label={
           <span>
             Nickname&nbsp;
-            <Tooltip title="What do you want others to call you?">
-              <QuestionCircleOutlined />
-            </Tooltip>
+            <Popover title={null} content="What do you want others to call you?">
+              <QuestionCircleOutlined className="form-label-tip" />
+            </Popover>
           </span>
         }
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
@@ -243,3 +243,12 @@ const RegistrationForm = () => {
 
 ReactDOM.render(<RegistrationForm />, mountNode);
 ```
+
+<style>
+  .form-label-tip {
+    transition: color .3s;
+  }
+  .form-label-tip:hover {
+    color: #1890ff;
+  }
+</style>
