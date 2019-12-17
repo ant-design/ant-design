@@ -60,4 +60,7 @@ export default {
   PageHeader: {
     back: 'Back',
   },
+  Form: {
+    optionalText: '(optionalText)',
+  },
 };

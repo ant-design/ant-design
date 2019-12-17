@@ -1,0 +1,69 @@
+---
+order: 3
+title:
+  zh-CN: 隐藏必选标记
+  en-US: Form HideRequiredMark
+---
+
+## zh-CN
+
+隐藏必选标记
+
+## en-US
+
+There is hideRequiredMark for form: `true`, `false`, `{showLabelOptionalText:true}`.
+
+```tsx
+import React, { useState } from 'react';
+import { Form, Input, Button } from 'antd';
+
+const HideRequiredMarkDemo = () => {
+  const [state, setState] = useState(false);
+  return (
+    <div>
+      <Form layout="vertical" hideRequiredMark={state}>
+        <Form.Item label="Field A" rules={[{ required: true }]}>
+          <Input placeholder="input placeholder" />
+        </Form.Item>
+        <Form.Item label="Field B">
+          <Input placeholder="input placeholder" />
+        </Form.Item>
+        <Form.Item>
+          <Button
+            type="primary"
+            onClick={() => {
+              setState(true);
+            }}
+          >
+            true
+          </Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              setState(false);
+            }}
+          >
+            false
+          </Button>
+          <Button
+            type="primary"
+            onClick={() => {
+              setState({ showLabelOptionalText: true });
+            }}
+          >
+            showLabelOptionalText:true
+          </Button>
+        </Form.Item>
+      </Form>
+    </div>
+  );
+};
+
+ReactDOM.render(<HideRequiredMarkDemo />, mountNode);
+```
+
+```css
+#components-form-demo-hide-required-mark .ant-btn {
+  margin-right: 8px;
+}
+```

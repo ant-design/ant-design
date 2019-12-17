@@ -4,6 +4,9 @@ import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';
 
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+
 export interface FormItemLabelProps {
   colon?: boolean;
   htmlFor?: string;
@@ -24,7 +27,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required: boolean; prefixCl
   if (!label) return null;
 
   const formContext = React.useContext(FormContext);
-  const { labelSelectiveFilling } = formContext;
+  const { hideRequiredMark } = formContext;
 
   return (
     <FormContext.Consumer key="label">
@@ -67,9 +70,15 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required: boolean; prefixCl
               title={typeof label === 'string' ? label : ''}
             >
               {labelChildren}
-              {!required && labelSelectiveFilling && (
-                <span className={`${labelClsBasic}-tag`}>（选填）</span>
-              )}
+              {typeof hideRequiredMark === 'object' &&
+                Object.prototype.toString.call(hideRequiredMark) === '[object Object]' &&
+                hideRequiredMark.showLabelOptionalText && (
+                  <LocaleReceiver componentName="Form" defaultLocale={defaultLocale.Form}>
+                    {(locale: { optionalText: string }) => (
+                      <span className={`${labelClsBasic}-tag`}>{locale.optionalText}</span>
+                    )}
+                  </LocaleReceiver>
+                )}
             </label>
           </Col>
         );

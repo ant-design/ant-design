@@ -5,7 +5,7 @@ import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ColProps } from '../grid/col';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
-import { FormContext } from './context';
+import { FormContext, HideRequiredMarkProps } from './context';
 import { FormLabelAlign } from './interface';
 import { useForm, FormInstance } from './util';
 
@@ -13,13 +13,12 @@ export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
 export interface FormProps extends Omit<RcFormProps, 'form'> {
   prefixCls?: string;
-  hideRequiredMark?: boolean;
+  hideRequiredMark?: boolean | HideRequiredMarkProps;
   colon?: boolean;
   name?: string;
   layout?: FormLayout;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
-  labelSelectiveFilling?: boolean;
   wrapperCol?: ColProps;
   form?: FormInstance;
 }
@@ -33,7 +32,6 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     name,
     labelAlign,
     labelCol,
-    labelSelectiveFilling,
     wrapperCol,
     prefixCls: customizePrefixCls,
     hideRequiredMark,
@@ -73,10 +71,10 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
         name,
         labelAlign,
         labelCol,
-        labelSelectiveFilling,
         wrapperCol,
         vertical: layout === 'vertical',
         colon,
+        hideRequiredMark,
       }}
     >
       <FieldForm id={name} {...formProps} form={wrapForm} className={formClassName} />

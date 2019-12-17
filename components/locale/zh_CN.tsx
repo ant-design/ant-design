@@ -60,4 +60,7 @@ export default {
   PageHeader: {
     back: '返回',
   },
+  Form: {
+    optionalText: '（选填）',
+  },
 };

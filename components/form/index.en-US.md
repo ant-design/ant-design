@@ -22,7 +22,7 @@ High performance Form component with data scope management. Including data colle
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |
 | fields | Control of form fields through state management (such as redux). Not recommended for non-strong demand. View [example](#components-form-demo-global-state) | [FieldData](#FieldData)\[] | - |
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |
-| hideRequiredMark | Hide required mark for all form items | boolean | false |
+| hideRequiredMark | Hide required mark for all form items | boolean \| { showLabelOptionalText: true } | false |
 | initialValues | Set value by Form initialization or reset | object | - |
 | labelAlign | text align of label of all items | 'left' \| 'right' | 'right' |
 | labelCol | label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | - |
