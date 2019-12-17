@@ -4608,7 +4608,6 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <input
               class="ant-time-picker-input"
-              id=""
               placeholder="Select time"
               type="text"
               value=""

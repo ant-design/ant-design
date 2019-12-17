@@ -421,7 +421,6 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
   >
     <input
       class="ant-time-picker-input"
-      id=""
       placeholder="Select time"
       type="text"
       value=""
