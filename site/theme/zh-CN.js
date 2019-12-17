@@ -27,7 +27,7 @@ module.exports = {
     'app.demo.stackblitz': '在 Stackblitz 中打开',
     'app.demo.riddle': '在 Riddle 中打开',
     'app.home.slogan': '一个 UI 设计语言',
-    'app.home.introduce': '企业级产品设计体系，创造高效愉悦的工作体验。',
+    'app.home.introduce': '企业级产品设计体系，创造高效愉悦的工作体验',
     'app.home.recommend': '精彩推荐',
     'app.home.popularize': '推广',
     'app.home.design-and-framework': '设计语言与研发框架',
@@ -44,8 +44,10 @@ module.exports = {
     'app.home.global-style': '全局样式',
     'app.home.design-patterns': '设计模式',
     'app.home.more': '更多内容',
-
+    'app.home.play-video': '播放视频',
+    'app.home.getting-started': '开始使用',
     'app.home.design-language': '设计语言',
+
     'app.home.solution': '解决方案',
     'app.home.components-explain':
       '基于 Ant Design 设计语言，我们提供了开箱即用的高质量 React 和 Angular 组件实现，用于开发和服务于企业级中后台产品。',
@@ -60,10 +62,8 @@ module.exports = {
     'app.home.tool-library-content': '一套精美得像视觉稿的 Axure 组件库',
     'app.home.tool-kitchen-title': 'Kitchen',
     'app.home.tool-kitchen-content': '一个为设计师提效的 Sketch 工具集',
-    'app.home.getting-started': '开始使用',
     'app.home.recommend.yuque': '语雀，我们都喜欢的文档工具',
     'app.home.recommend.antv.g2plot': 'G2Plot：全新企业级图表',
-    'app.home.more': '查看更多',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',
     'app.footer.repo': 'GitHub 仓库',

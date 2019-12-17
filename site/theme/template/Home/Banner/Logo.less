@@ -1,20 +1,42 @@
-.home-card-logo {
-  width: 490px;
-  height: 100px;
-  position: relative;
-  cursor: pointer;
+@import '../../../../../components/style/themes/default.less';
 
-  > img {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
+.home-card-logo {
+  margin: 0 32px;
+  max-width: 490px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
 
   .home-card-logo-icon {
     width: 60px;
     height: 60px;
     position: absolute;
     left: 336px;
-    top: -20px;
+    top: -35px;
+    display: none;
+  }
+
+  .home-banner-mini {
+    display: block;
+    max-width: 100%;
+  }
+  .home-banner-normal {
+    display: none;
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .home-card-logo {
+    height: 90px;
+
+    .home-banner-mini {
+      display: none;
+    }
+    .home-banner-normal {
+      display: block;
+    }
+    .home-card-logo-icon {
+      display: block;
+    }
   }
 }

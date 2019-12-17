@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Hitu from '@ant-design/hitu';
+import './Background.less';
 
 const RANDOM_OFFSET = 20;
 const TOTAL_FRAMES = 500;
@@ -140,40 +141,46 @@ export default function Background() {
   const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, 0));
 
   return (
-    <Hitu
-      width={1440}
-      height={448}
-      frames={TOTAL_FRAMES}
-      onFrame={frame => {
-        if (frame === 0) {
-          setCircleFrames(randomFrames(550, 200));
-          setCircle2Frames(randomFrames(0, 448));
-          setReactFrames(randomFrames(1350, 330));
-          setDiamondFrames(randomFrames(1100, 0));
-        }
-      }}
-      shapes={[
-        {
-          type: 'shape',
-          source: Circle1,
-          frames: circleFrames,
-        },
-        {
-          type: 'shape',
-          source: Circle2,
-          frames: circle2Frames,
-        },
-        {
-          type: 'shape',
-          source: React1,
-          frames: reactFrames,
-        },
-        {
-          type: 'shape',
-          source: Diamond1,
-          frames: diamondFrames,
-        },
-      ]}
-    />
+    <div className="home-banner-background">
+      <img
+        alt="background"
+        src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qf3wQ6EAd00AAAAAAAAAAABkARQnAQ"
+      />
+      <Hitu
+        width={1440}
+        height={448}
+        frames={TOTAL_FRAMES}
+        onFrame={frame => {
+          if (frame === 0) {
+            setCircleFrames(randomFrames(550, 200));
+            setCircle2Frames(randomFrames(0, 448));
+            setReactFrames(randomFrames(1350, 330));
+            setDiamondFrames(randomFrames(1100, 0));
+          }
+        }}
+        shapes={[
+          {
+            type: 'shape',
+            source: Circle1,
+            frames: circleFrames,
+          },
+          {
+            type: 'shape',
+            source: Circle2,
+            frames: circle2Frames,
+          },
+          {
+            type: 'shape',
+            source: React1,
+            frames: reactFrames,
+          },
+          {
+            type: 'shape',
+            source: Diamond1,
+            frames: diamondFrames,
+          },
+        ]}
+      />
+    </div>
   );
 }

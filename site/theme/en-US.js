@@ -44,9 +44,11 @@ module.exports = {
     'app.home.values': 'Values',
     'app.home.global-style': 'Global style',
     'app.home.design-patterns': 'Design patterns',
-    'app.home.more': 'More',
-
+    'app.home.more': 'Learn More',
+    'app.home.play-video': 'Play video',
+    'app.home.getting-started': 'Getting Started',
     'app.home.design-language': 'Design Language',
+
     'app.home.solution': 'Solution',
     'app.home.components-explain':
       'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications, including the official React UI library and Angular, Vue implementations',
@@ -64,10 +66,8 @@ module.exports = {
     'app.home.tool-library-content': 'Beautifully visual Axure library',
     'app.home.tool-kitchen-title': 'Kitchen',
     'app.home.tool-kitchen-content': 'A Sketch tools for designers',
-    'app.home.getting-started': 'Getting Started',
     'app.home.recommend.yuque': 'Yuque, our favorite documentation tool',
     'app.home.recommend.antv': 'G2Plot, the new charting library',
-    'app.home.more': 'Learn more',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',
     'app.footer.repo': 'GitHub Repository',

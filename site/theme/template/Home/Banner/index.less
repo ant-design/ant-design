@@ -1,15 +1,49 @@
+@import '../../../../../components/style/themes/default.less';
+
 .home-banner {
   height: 448px;
   position: relative;
   background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(235, 245, 255, 0.58)),
     linear-gradient(150deg, #fbfcfd, #f8fcff);
+  overflow: hidden;
+
+  &-holder {
+    margin-top: 120px;
+    position: relative;
+    z-index: 1;
+  }
 
   &-content {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    transform: translate(-50%, -50%);
+    padding: 0 16px;
+    margin: 0 auto;
     text-align: center;
+    font-size: 16px;
+
+    p {
+      margin: 24px 0 0;
+    }
+
+    a {
+      display: block;
+      margin: 8px 0;
+      color: @primary-color;
+    }
+
+    &-operations {
+      margin-top: 40px;
+      white-space: nowrap;
+
+      button {
+        margin: 0 16px;
+        padding: 8px 24px;
+        height: auto;
+        font-size: 16px;
+
+        &:not(.ant-btn-primary) {
+          border-color: @primary-color;
+          color: @primary-color;
+        }
+      }
+    }
   }
 }
