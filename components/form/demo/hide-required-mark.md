@@ -35,7 +35,7 @@ const HideRequiredMarkDemo = () => {
               setState(true);
             }}
           >
-            true
+            Hide *
           </Button>
           <Button
             type="primary"
