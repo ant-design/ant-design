@@ -78,21 +78,37 @@ export default function DesignPage() {
               <Col xs={24} sm={16}>
                 <Row className="design-values">
                   <Col span={6}>
+                    <img
+                      alt="certainty"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/bbeaec9b-18fc-414d-899b-9f766859f693.svg"
+                    />
                     <h4>
                       <FormattedMessage id="app.home.certainty" />
                     </h4>
                   </Col>
                   <Col span={6}>
+                    <img
+                      alt="certainty"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/cbe8e1e3-e3e6-4c23-9800-105efe465cda.svg"
+                    />
                     <h4>
                       <FormattedMessage id="app.home.meaningful" />
                     </h4>
                   </Col>
                   <Col span={6}>
+                    <img
+                      alt="certainty"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/5668216e-c543-4fc7-a4a3-bb5785250106.svg"
+                    />
                     <h4>
                       <FormattedMessage id="app.home.growth" />
                     </h4>
                   </Col>
                   <Col span={6}>
+                    <img
+                      alt="certainty"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/bf7b9fce-cb1c-4264-9596-0438b252c07e.svg"
+                    />
                     <h4>
                       <FormattedMessage id="app.home.natural" />
                     </h4>

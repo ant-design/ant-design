@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import GitHubButton from 'react-github-button';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
@@ -130,15 +131,19 @@ class Header extends React.Component {
     if (activeMenuItem === 'components' || location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
+
+    const isHome = location.pathname === 'index' || location.pathname === 'index-cn';
+
     const isZhCN = locale === 'zh-CN';
 
     const headerClassName = classNames({
       clearfix: true,
+      'home-header': isHome,
     });
 
     const menu = [
+      <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />,
       <Button
-        ghost
         size="small"
         onClick={this.handleLangChange}
         className="header-lang-button"
@@ -164,11 +169,13 @@ class Header extends React.Component {
         id="nav"
         key="nav"
       >
-        <Menu.Item key="home" className="hide-in-home-page">
-          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
-            <FormattedMessage id="app.header.menu.home" />
-          </Link>
-        </Menu.Item>
+        {isHome ? null : (
+          <Menu.Item key="home" className="hide-in-home-page">
+            <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+              <FormattedMessage id="app.header.menu.home" />
+            </Link>
+          </Menu.Item>
+        )}
         <Menu.Item key="docs/spec">
           <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.spec" />
