@@ -107,7 +107,7 @@ export default function Logo() {
               },
               {
                 frame: 30,
-                rotate: -60,
+                rotate: 0,
                 opacity: 1,
                 cubic: Hitu.CUBIC_EASE,
               },
@@ -131,7 +131,7 @@ export default function Logo() {
               },
               {
                 frame: 30,
-                rotate: -60,
+                rotate: 0,
                 opacity: 0,
                 cubic: Hitu.CUBIC_EASE,
               },
