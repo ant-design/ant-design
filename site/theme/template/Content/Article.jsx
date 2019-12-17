@@ -104,7 +104,6 @@ class Article extends React.Component {
           {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
           <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
         </h1>
-
         {!description
           ? null
           : utils.toReactComponent(

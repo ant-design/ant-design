@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon, Affix, Tooltip, Skeleton, Avatar } from 'antd';
+import { Row, Col, Menu, Icon, Affix, Tooltip, Avatar } from 'antd';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
@@ -284,8 +284,11 @@ class MainContent extends Component {
   render() {
     const { isMobile } = this.context;
     const { openKeys } = this.state;
-    const { localizedPageData, demos } = this.props;
-
+    const {
+      localizedPageData,
+      demos,
+      intl: { formatMessage },
+    } = this.props;
     const { meta } = localizedPageData;
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
@@ -338,37 +341,28 @@ class MainContent extends Component {
                 <Article {...this.props} content={localizedPageData} />
               )}
               <ContributorsList
+                className="contributors-list"
                 fileName={meta.filename}
-                style={{
-                  position: 'absolute',
-                  bottom: 16,
-                  minWidth: 240,
-                }}
-                renderItem={(item, loading) => {
-                  if (loading) {
-                    return (
-                      <Skeleton
-                        style={{
-                          height: 40,
-                        }}
-                        paragraph={false}
-                        active
-                      />
-                    );
-                  }
-                  return (
-                    <Tooltip title={item.username}>
+                renderItem={(item, loading) =>
+                  loading ? (
+                    <Avatar style={{ opacity: 0.3 }} />
+                  ) : (
+                    <Tooltip
+                      title={`${formatMessage({ id: 'app.content.contributors' })}: ${
+                        item.username
+                      }`}
+                      key={item.username}
+                    >
                       <a
                         href={`https://github.com/${item.username}`}
-                        style={{
-                          marginRight: 8,
-                        }}
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <Avatar src={item.url}>{item.username}</Avatar>
                       </a>
                     </Tooltip>
-                  );
-                }}
+                  )
+                }
                 repo="ant-design"
                 owner="ant-design"
               />

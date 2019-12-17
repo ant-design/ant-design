@@ -131,6 +131,7 @@ class ComponentDoc extends React.Component {
     });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;
     const contentChild = getMetaDescription(getChildren(content));
+
     return (
       <article className={articleClassName}>
         <Helmet encodeSpecialCharacters={false}>
@@ -152,11 +153,9 @@ class ComponentDoc extends React.Component {
               filename={filename}
             />
           </h1>
-
           {utils.toReactComponent(
             ['section', { className: 'markdown' }].concat(getChildren(content)),
           )}
-
           <h2>
             <FormattedMessage id="app.component.examples" />
             <span style={{ float: 'right' }}>
@@ -191,7 +190,6 @@ class ComponentDoc extends React.Component {
             </span>
           </h2>
         </section>
-
         <Row gutter={16}>
           <Col
             span={isSingleCol ? 24 : 12}
