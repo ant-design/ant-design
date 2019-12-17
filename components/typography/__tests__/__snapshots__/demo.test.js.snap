@@ -757,51 +757,14 @@ exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
       class="ant-slider-mark"
     />
   </div>
-  <div>
-    <div
-      class="ant-typography ant-typography-ellipsis"
+  <div
+    class="ant-typography ant-typography-ellipsis"
+  >
+    <span
+      aria-hidden="true"
     >
-      <span
-        aria-hidden="true"
-      >
-        <span
-          class="ant-typography"
-        >
-          <code>
-            <strong>
-              <span
-                aria-hidden="true"
-              >
-                将进酒
-              </span>
-            </strong>
-          </code>
-        </span>
-        君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来--李白
-      </span>
-    </div>
-    <div
-      class="ant-typography ant-typography-ellipsis"
-    >
-      <span
-        aria-hidden="true"
-      >
-        <span
-          class="ant-typography"
-        >
-          <code>
-            <strong>
-              <span
-                aria-hidden="true"
-              >
-                Hamlet
-              </span>
-            </strong>
-          </code>
-        </span>
-        To be, or not to be, that is a question: Whether it is nobler in the mind to sufferThe slings and arrows of outrageous fortune--William Shakespeare
-      </span>
-    </div>
+      To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune--William Shakespeare
+    </span>
   </div>
 </div>
 `;

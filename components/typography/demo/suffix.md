@@ -16,7 +16,7 @@ add suffix ellipsis support.
 ```jsx
 import { Typography, Slider } from 'antd';
 
-const { Text, Paragraph } = Typography;
+const { Paragraph } = Typography;
 
 class Demo extends React.Component {
   state = {
