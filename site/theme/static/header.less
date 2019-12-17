@@ -26,6 +26,7 @@
     color: @primary-color;
   }
 
+  // ===================== Home Page =====================
   &.home-header {
     position: absolute;
     top: 0;
@@ -33,6 +34,13 @@
     left: 0;
     background: transparent;
     box-shadow: none;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+
+    #logo {
+      padding-left: 0;
+    }
 
     .ant-menu {
       background: transparent;
@@ -46,7 +54,7 @@
     .github-btn {
       float: right;
       height: auto;
-      margin: 20px 40px 0 16px;
+      margin: 20px 0 0 16px;
 
       .gh-btn {
         height: auto;

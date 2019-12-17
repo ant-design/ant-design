@@ -122,8 +122,9 @@ class Header extends React.Component {
         {version}
       </Option>
     ));
-    const module = location.pathname
-      .replace(/(^\/|\/$)/g, '')
+
+    const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
+    const module = pathname
       .split('/')
       .slice(0, -1)
       .join('/');
@@ -132,7 +133,7 @@ class Header extends React.Component {
       activeMenuItem = 'docs/react';
     }
 
-    const isHome = location.pathname === 'index' || location.pathname === 'index-cn';
+    const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
     const isZhCN = locale === 'zh-CN';
 

@@ -1,5 +1,7 @@
 @import '../../../../../components/style/themes/default.less';
 
+@home-color: #0170fe;
+
 .home-banner {
   position: relative;
   height: 448px;
@@ -23,10 +25,10 @@
       margin: 24px 0 0;
     }
 
-    a {
+    .video {
       display: block;
-      margin: 8px 0;
-      color: @primary-color;
+      margin: 8px auto;
+      color: @home-color;
     }
 
     &-operations {
@@ -35,13 +37,21 @@
 
       button {
         height: auto;
-        margin: 0 16px;
+        margin: 0 8px;
         padding: 8px 24px;
         font-size: 16px;
+        border-color: @home-color;
+
+        &:hover {
+          border-color: @home-color;
+        }
+
+        &.ant-btn-primary {
+          background: @home-color;
+        }
 
         &:not(.ant-btn-primary) {
-          color: @primary-color;
-          border-color: @primary-color;
+          color: @home-color;
         }
       }
     }

@@ -18,32 +18,32 @@ const MINI_LIST: PanelProps[] = [
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*an6USLkxir4AAAAAAAAAAABkARQnAQ',
     title: 'AntV',
-    description: '全新一代数据可视化解决方案',
+    description: 'app.home.product-antv-slogan',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*L5CSQayF2FEAAAAAAAAAAABkARQnAQ',
     title: 'Ant Design Pro',
-    description: '开箱即用的中台前端/设计解决方案',
+    description: 'app.home.product-pro-slogan',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*TwTMSbN9H40AAAAAAAAAAABkARQnAQ',
     title: 'Ant Design Mobile',
-    description: '一个基于 Preact / React / React Native 的 UI 组件库',
+    description: 'app.home.product-mobile-slogan',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2CrPS5YSep0AAAAAAAAAAABkARQnAQ',
     title: '海兔',
-    description: '全新一代图形化解决方案',
+    description: 'app.home.product-hitu-slogan',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U_IWSLxXmNgAAAAAAAAAAABkARQnAQ',
     title: 'Kitchen',
-    description: '一款为设计者提升工作效率的 Sketch 工具集',
+    description: 'app.home.product-kitchen-slogan',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6Yy1RYXPIDIAAAAAAAAAAABkARQnAQ',
     title: 'Icons',
-    description: '一款为设计者提升工作效率的 Sketch 工具集',
+    description: 'app.home.product-icons-slogan',
   },
 ];
 
@@ -51,7 +51,7 @@ const MiniPanel = ({ title, img, description }: PanelProps) => {
   return (
     <Col xs={24} sm={8}>
       <Card hoverable cover={<img alt={title} src={img} />}>
-        <Card.Meta title={title} description={description} />
+        <Card.Meta title={title} description={<FormattedMessage id={description} />} />
       </Card>
     </Col>
   );

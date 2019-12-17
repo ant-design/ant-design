@@ -1,13 +1,18 @@
 import * as React from 'react';
 import { Button } from 'antd';
-import { FormattedMessage } from 'react-intl';
+import { Link } from 'bisheng/router';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { PlayCircleFilled } from '@ant-design/icons';
 import Background from './Background';
+import { getLocalizedPathname } from '../../utils';
 import Logo from './Logo';
 
 import './index.less';
 
 export default function Banner() {
+  const { locale } = useIntl();
+  const isZhCN = locale === 'zh-CN';
+
   return (
     <div className="home-banner">
       <Background />
@@ -21,17 +26,21 @@ export default function Banner() {
             <FormattedMessage id="app.home.introduce" />
           </p>
 
-          <a>
+          <a className="video">
             <PlayCircleFilled /> <FormattedMessage id="app.home.play-video" />
           </a>
 
           <div className="home-banner-content-operations">
-            <Button type="primary" shape="round">
-              <FormattedMessage id="app.home.getting-started" />
-            </Button>
-            <Button shape="round">
-              <FormattedMessage id="app.home.design-language" />
-            </Button>
+            <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+              <Button type="primary" shape="round">
+                <FormattedMessage id="app.home.getting-started" />
+              </Button>
+            </Link>
+            <Link to={getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
+              <Button shape="round" ghost>
+                <FormattedMessage id="app.home.design-language" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
