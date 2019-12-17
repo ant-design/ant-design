@@ -49,10 +49,10 @@ module.exports = {
     'app.home.getting-started': 'Getting Started',
     'app.home.design-language': 'Design Language',
     'app.home.product-antv-slogan': 'A new generation of data visualization solutions',
-    'app.home.product-pro-slogan': 'Out-of-the-box design solutions',
+    'app.home.product-pro-slogan': 'Out-of-the-box front end / design solutions',
     'app.home.product-mobile-slogan': 'Mobile UI components with Ant Design',
     'app.home.product-hitu-slogan': 'A new generation of graphical solutions',
-    'app.home.product-kitchen-slogan': 'A suite of plugins to enhance designers',
+    'app.home.product-kitchen-slogan': 'A Sketch toolset to enhance designers',
     'app.home.product-icons-slogan': 'A set of premium icons',
 
     'app.home.solution': 'Solution',
