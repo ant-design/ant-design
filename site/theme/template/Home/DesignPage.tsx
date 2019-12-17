@@ -12,6 +12,8 @@ interface PanelProps {
   img: string;
   title: React.ReactNode;
   description: string;
+  href?: string;
+  link?: string;
 }
 
 const MINI_LIST: PanelProps[] = [
@@ -19,16 +21,19 @@ const MINI_LIST: PanelProps[] = [
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*an6USLkxir4AAAAAAAAAAABkARQnAQ',
     title: 'AntV',
     description: 'app.home.product-antv-slogan',
+    href: 'https://antv.vision',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*L5CSQayF2FEAAAAAAAAAAABkARQnAQ',
     title: 'Ant Design Pro',
     description: 'app.home.product-pro-slogan',
+    href: 'https://pro.ant.design/',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*TwTMSbN9H40AAAAAAAAAAABkARQnAQ',
     title: 'Ant Design Mobile',
     description: 'app.home.product-mobile-slogan',
+    href: 'https://mobile.ant.design/',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2CrPS5YSep0AAAAAAAAAAABkARQnAQ',
@@ -39,20 +44,43 @@ const MINI_LIST: PanelProps[] = [
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U_IWSLxXmNgAAAAAAAAAAABkARQnAQ',
     title: 'Kitchen',
     description: 'app.home.product-kitchen-slogan',
+    href: 'https://kitchen.alipay.com/',
   },
   {
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6Yy1RYXPIDIAAAAAAAAAAABkARQnAQ',
     title: 'Icons',
     description: 'app.home.product-icons-slogan',
+    link: '/components/icon/',
   },
 ];
 
-const MiniPanel = ({ title, img, description }: PanelProps) => {
+const MiniPanel = ({
+  title,
+  img,
+  description,
+  href,
+  link,
+  isZhCN,
+}: PanelProps & { isZhCN: boolean }) => {
+  let content = (
+    <Card hoverable cover={<img alt={typeof title === 'string' ? title : 'Hitu'} src={img} />}>
+      <Card.Meta title={title} description={<FormattedMessage id={description} />} />
+    </Card>
+  );
+
+  if (href) {
+    content = (
+      <a href={href} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
+    );
+  } else if (link) {
+    content = <Link to={getLocalizedPathname(link, isZhCN)}>{content}</Link>;
+  }
+
   return (
     <Col xs={24} sm={8}>
-      <Card hoverable cover={<img alt={typeof title === 'string' ? title : 'Hitu'} src={img} />}>
-        <Card.Meta title={title} description={<FormattedMessage id={description} />} />
-      </Card>
+      {content}
     </Col>
   );
 };
@@ -65,7 +93,7 @@ export default function DesignPage() {
     <div style={{ marginBottom: -36 }}>
       {/* ***************************** Group 1 ***************************** */}
       <Row gutter={[40, 72]}>
-        {/* Design Values */}
+        {/* *********************** Design Values *********************** */}
         <Col span={24}>
           <div
             className="design-card"
@@ -126,7 +154,7 @@ export default function DesignPage() {
           </div>
         </Col>
 
-        {/* Design Guide */}
+        {/* *********************** Design Guides *********************** */}
         <Col xs={24} sm={12}>
           <div className="design-card sub-card" style={{ background: '#E6F1FF' }}>
             <Row>
@@ -137,19 +165,19 @@ export default function DesignPage() {
 
                 <ul>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                    <Link to={getLocalizedPathname('/docs/spec/values', isZhCN)}>
                       <FormattedMessage id="app.home.values" />
                       <RightOutlined />
                     </Link>
                   </li>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                    <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN)}>
                       <FormattedMessage id="app.home.global-style" />
                       <RightOutlined />
                     </Link>
                   </li>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                    <Link to={getLocalizedPathname('/docs/spec/overview', isZhCN)}>
                       <FormattedMessage id="app.home.design-patterns" />
                       <RightOutlined />
                     </Link>
@@ -167,7 +195,7 @@ export default function DesignPage() {
           </div>
         </Col>
 
-        {/* Components */}
+        {/* ************************* Component ************************* */}
         <Col xs={24} sm={12}>
           <div className="design-card sub-card" style={{ background: '#DEF6FF' }}>
             <Row>
@@ -184,16 +212,16 @@ export default function DesignPage() {
                     </Link>
                   </li>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                    <a href="https://ng.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Angular
                       <RightOutlined />
-                    </Link>
+                    </a>
                   </li>
                   <li>
-                    <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+                    <a href="https://vue.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Vue
                       <RightOutlined />
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </Col>
@@ -212,7 +240,7 @@ export default function DesignPage() {
       {/* ***************************** Group 2 ***************************** */}
       <Row gutter={[40, 72]}>
         {MINI_LIST.map(panel => (
-          <MiniPanel key={panel.description} {...panel} />
+          <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} />
         ))}
       </Row>
     </div>

@@ -143,7 +143,9 @@ class Header extends React.Component {
     });
 
     const menu = [
-      <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />,
+      isHome ? (
+        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
+      ) : null,
       <Button
         size="small"
         onClick={this.handleLangChange}
