@@ -20,42 +20,40 @@ import { Form, Input, Button } from 'antd';
 const HideRequiredMarkDemo = () => {
   const [hideRequiredMark, setHideRequiredMark] = useState({ showLabelOptionalText: true });
   return (
-    <div>
-      <Form layout="vertical" hideRequiredMark={state}>
-        <Form.Item label="Field A" rules={[{ required: true }]}>
-          <Input placeholder="input placeholder" />
-        </Form.Item>
-        <Form.Item label="Field B">
-          <Input placeholder="input placeholder" />
-        </Form.Item>
-        <Form.Item>
-          <Button
-            type="primary"
-            onClick={() => {
-              setState(true);
-            }}
-          >
-            Hide *
-          </Button>
-          <Button
-            type="primary"
-            onClick={() => {
-              setState(false);
-            }}
-          >
-            Show *
-          </Button>
-          <Button
-            type="primary"
-            onClick={() => {
-              setState({ showLabelOptionalText: true });
-            }}
-          >
-            Hide * and show optional text
-          </Button>
-        </Form.Item>
-      </Form>
-    </div>
+    <Form layout="vertical" hideRequiredMark={hideRequiredMark}>
+      <Form.Item label="Field A" rules={[{ required: true }]}>
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item label="Field B">
+        <Input placeholder="input placeholder" />
+      </Form.Item>
+      <Form.Item>
+        <Button
+          type="primary"
+          onClick={() => {
+            setHideRequiredMark(true);
+          }}
+        >
+          Hide *
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            setHideRequiredMark(false);
+          }}
+        >
+          Show *
+        </Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            setHideRequiredMark({ showLabelOptionalText: true });
+          }}
+        >
+          Hide * and show optional text
+        </Button>
+      </Form.Item>
+    </Form>
   );
 };
 
