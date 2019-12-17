@@ -21,8 +21,6 @@ const { Text, Paragraph } = Typography;
 class Demo extends React.Component {
   state = {
     rows: 1,
-    songForDrinking: '--李白',
-    hamlet: '--William Shakespeare',
   };
 
   onChange = rows => {
@@ -30,28 +28,22 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { rows, songForDrinking, hamlet } = this.state;
-    const poetry =
-      '君不见，黄河之水天上来，奔流到海不复回。君不见，高堂明镜悲白发，朝如青丝暮成雪。人生得意须尽欢，莫使金樽空对月。天生我材必有用，千金散尽还复来';
+    const { rows } = this.state;
     const article =
-      'To be, or not to be, that is a question: Whether it is nobler in the mind to sufferThe slings and arrows of outrageous fortune';
+      'To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune';
     return (
       <div>
         <Slider value={rows} min={1} max={10} onChange={this.onChange} />
-        <div>
-          <Paragraph ellipsis={{ rows, suffix: songForDrinking }} title={poetry + songForDrinking}>
-            <Text code strong>
-              将进酒
-            </Text>
-            {poetry}
-          </Paragraph>
-          <Paragraph ellipsis={{ rows, expandable: true, suffix: hamlet }} title={article + hamlet}>
-            <Text code strong>
-              Hamlet
-            </Text>
-            {article}
-          </Paragraph>
-        </div>
+        <Paragraph
+          ellipsis={{
+            rows,
+            expandable: true,
+            suffix: '--William Shakespeare',
+          }}
+          title={`${article}--William Shakespeare`}
+        >
+          {article}
+        </Paragraph>
       </div>
     );
   }
