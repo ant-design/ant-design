@@ -954,13 +954,13 @@ exports[`Calendar Calendar should support locale 1`] = `
 
 exports[`Calendar rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-fullcalendar-fullscreen ant-fullcalendar-rtl"
+  class="ant-picker-calendar ant-picker-calendar-full"
 >
   <div
-    class="ant-fullcalendar-header"
+    class="ant-picker-calendar-header"
   >
     <div
-      class="ant-select ant-fullcalendar-year-select ant-select-rtl ant-select-single ant-select-show-arrow"
+      class="ant-select ant-picker-calendar-year-select ant-select-rtl ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1016,7 +1016,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-select ant-fullcalendar-month-select ant-select-rtl ant-select-single ant-select-show-arrow"
+      class="ant-select ant-picker-calendar-month-select ant-select-rtl ant-select-single ant-select-show-arrow"
     >
       <div
         class="ant-select-selector"
@@ -1072,7 +1072,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-radio-group-rtl"
+      class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-radio-group-rtl ant-picker-calendar-mode-switch"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl"
@@ -1116,991 +1116,786 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     </div>
   </div>
   <div
-    class="ant-fullcalendar ant-fullcalendar-full ant-fullcalendar-fullscreen"
+    class="ant-picker-panel"
     tabindex="0"
   >
     <div
-      class="ant-fullcalendar-calendar-body"
+      class="ant-picker-date-panel"
     >
-      <table
-        cellspacing="0"
-        class="ant-fullcalendar-table"
-        role="grid"
+      <div
+        class="ant-picker-body"
       >
-        <thead>
-          <tr
-            role="row"
-          >
-            <th
-              class="ant-fullcalendar-column-header"
-              role="columnheader"
-              title="Sun"
-            >
-              <span
-                class="ant-fullcalendar-column-header-inner"
-              >
+        <table
+          class="ant-picker-content"
+        >
+          <thead>
+            <tr>
+              <th>
                 Su
-              </span>
-            </th>
-            <th
-              class="ant-fullcalendar-column-header"
-              role="columnheader"
-              title="Mon"
-            >
-              <span
-                class="ant-fullcalendar-column-header-inner"
-              >
+              </th>
+              <th>
                 Mo
-              </span>
-            </th>
-            <th
-              class="ant-fullcalendar-column-header"
-              role="columnheader"
-              title="Tue"
-            >
-              <span
-                class="ant-fullcalendar-column-header-inner"
-              >
+              </th>
+              <th>
                 Tu
-              </span>
-            </th>
-            <th
-              class="ant-fullcalendar-column-header"
-              role="columnheader"
-              title="Wed"
-            >
-              <span
-                class="ant-fullcalendar-column-header-inner"
-              >
+              </th>
+              <th>
                 We
-              </span>
-            </th>
-            <th
-              class="ant-fullcalendar-column-header"
-              role="columnheader"
-              title="Thu"
-            >
-              <span
-                class="ant-fullcalendar-column-header-inner"
-              >
+              </th>
+              <th>
                 Th
-              </span>
-            </th>
-            <th
-              class="ant-fullcalendar-column-header"
-              role="columnheader"
-              title="Fri"
-            >
-              <span
-                class="ant-fullcalendar-column-header-inner"
-              >
+              </th>
+              <th>
                 Fr
-              </span>
-            </th>
-            <th
-              class="ant-fullcalendar-column-header"
-              role="columnheader"
-              title="Sat"
-            >
-              <span
-                class="ant-fullcalendar-column-header-inner"
-              >
+              </th>
+              <th>
                 Sa
-              </span>
-            </th>
-          </tr>
-        </thead>
-        <tbody
-          class="ant-fullcalendar-tbody"
-        >
-          <tr
-            class="ant-fullcalendar-current-week ant-fullcalendar-active-week"
-            role="row"
-          >
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 1, 2019"
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class=""
             >
-              <div
-                class="ant-fullcalendar-date"
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-01"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  01
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-today ant-fullcalendar-selected-day"
-              role="gridcell"
-              title="December 2, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-02"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  02
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 3, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-03"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  03
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 4, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-04"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  04
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 5, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-05"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  05
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 6, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-06"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  06
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 7, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-07"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  07
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr
-            class=""
-            role="row"
-          >
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 8, 2019"
+              </td>
+            </tr>
+            <tr
+              class=""
             >
-              <div
-                class="ant-fullcalendar-date"
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-08"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  08
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 9, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-09"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  09
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 10, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-10"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  10
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 11, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-11"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  11
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    11
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 12, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-12"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  12
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    12
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 13, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-13"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  13
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    13
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 14, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-14"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  14
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    14
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr
-            class=""
-            role="row"
-          >
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 15, 2019"
+              </td>
+            </tr>
+            <tr
+              class=""
             >
-              <div
-                class="ant-fullcalendar-date"
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-15"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  15
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    15
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 16, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-16"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  16
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    16
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 17, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                title="2019-12-17"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
-                  17
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    17
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 18, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-18"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  18
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    18
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 19, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-19"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  19
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    19
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 20, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-20"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  20
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    20
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 21, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-21"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  21
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    21
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr
-            class=""
-            role="row"
-          >
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 22, 2019"
+              </td>
+            </tr>
+            <tr
+              class=""
             >
-              <div
-                class="ant-fullcalendar-date"
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-22"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  22
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    22
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 23, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-23"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  23
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    23
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 24, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-24"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  24
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    24
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 25, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-25"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  25
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    25
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 26, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-26"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  26
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    26
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 27, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-27"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  27
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    27
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 28, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-28"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  28
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    28
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr
-            class=""
-            role="row"
-          >
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 29, 2019"
+              </td>
+            </tr>
+            <tr
+              class=""
             >
-              <div
-                class="ant-fullcalendar-date"
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-29"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  29
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    29
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell"
-              role="gridcell"
-              title="December 30, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-30"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  30
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    30
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-last-day-of-month"
-              role="gridcell"
-              title="December 31, 2019"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell ant-picker-cell-in-view"
+                title="2019-12-31"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  31
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    31
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 1, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-01"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  01
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    01
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 2, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-02"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  02
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    02
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 3, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-03"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  03
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    03
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 4, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-04"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  04
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    04
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-          </tr>
-          <tr
-            class=""
-            role="row"
-          >
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 5, 2020"
+              </td>
+            </tr>
+            <tr
+              class=""
             >
-              <div
-                class="ant-fullcalendar-date"
+              <td
+                class="ant-picker-cell"
+                title="2020-01-05"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  05
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    05
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 6, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-06"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  06
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    06
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 7, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-07"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  07
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    07
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 8, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-08"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  08
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    08
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 9, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-09"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  09
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    09
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 10, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-10"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  10
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    10
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-            <td
-              class="ant-fullcalendar-cell ant-fullcalendar-next-month-btn-day"
-              role="gridcell"
-              title="January 11, 2020"
-            >
-              <div
-                class="ant-fullcalendar-date"
+              </td>
+              <td
+                class="ant-picker-cell"
+                title="2020-01-11"
               >
                 <div
-                  class="ant-fullcalendar-value"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
-                  11
+                  <div
+                    class="ant-picker-calendar-date-value"
+                  >
+                    11
+                  </div>
+                  <div
+                    class="ant-picker-calendar-date-content"
+                  />
                 </div>
-                <div
-                  class="ant-fullcalendar-content"
-                />
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Calendar rtl render component should be rendered correctly in RTL direction 2`] = `
-<div
-  class="undefined-header"
->
-  <div
-    class="ant-select ant-fullcalendar-year-select ant-select-sm ant-select-rtl ant-select-single ant-select-show-arrow"
-  >
-    <div
-      class="ant-select-selector"
-    >
-      <span
-        class="ant-select-selection-search"
-      >
-        <input
-          aria-activedescendant="undefined_list_0"
-          aria-autocomplete="list"
-          aria-controls="undefined_list"
-          aria-haspopup="listbox"
-          aria-owns="undefined_list"
-          autocomplete="off"
-          class="ant-select-selection-search-input"
-          role="combobox"
-          style="opacity:0"
-          value=""
-        />
-      </span>
-      <span
-        class="ant-select-selection-item"
-      >
-        2019
-      </span>
-    </div>
-    <span
-      aria-hidden="true"
-      class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
-      unselectable="on"
-    >
-      <span
-        aria-label="down"
-        class="anticon anticon-down"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
-  <div
-    class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-radio-group-rtl"
-  >
-    <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="month"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-    </label>
-    <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
-    >
-      <span
-        class="ant-radio-button"
-      >
-        <input
-          class="ant-radio-button-input"
-          type="radio"
-          value="year"
-        />
-        <span
-          class="ant-radio-button-inner"
-        />
-      </span>
-    </label>
   </div>
 </div>
 `;

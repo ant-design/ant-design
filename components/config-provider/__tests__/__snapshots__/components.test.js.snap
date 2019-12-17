@@ -7658,9 +7658,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
 
 exports[`ConfigProvider components Modal configProvider 1`] = `
 <div>
-  <div
-    class="config-modal-root"
-  >
+  <div>
     <div
       class="config-modal-mask"
     />
@@ -7753,9 +7751,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
 
 exports[`ConfigProvider components Modal normal 1`] = `
 <div>
-  <div
-    class="ant-modal-root"
-  >
+  <div>
     <div
       class="ant-modal-mask"
     />
@@ -7848,9 +7844,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
 
 exports[`ConfigProvider components Modal prefixCls 1`] = `
 <div>
-  <div
-    class="prefix-Modal-root"
-  >
+  <div>
     <div
       class="prefix-Modal-mask"
     />
@@ -10850,7 +10844,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div>
     <div
-      class="config-tooltip config-slider-tooltip"
+      class="config-tooltip"
       style="opacity:0"
     >
       <div
@@ -10900,7 +10894,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip ant-slider-tooltip"
+      class="ant-tooltip"
       style="opacity:0"
     >
       <div
@@ -10950,7 +10944,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div>
     <div
-      class="prefix-Slider-tooltip prefix-Slider-tooltip"
+      class="prefix-Slider-tooltip"
       style="opacity:0"
     >
       <div

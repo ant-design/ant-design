@@ -363,7 +363,8 @@ exports[`Cascader can be selected 3`] = `
 exports[`Cascader can be selected in RTL direction 1`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-rtl ant-cascader-menus-placement-bottomRight "
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0"
   >
     <div>
       <ul
@@ -475,7 +476,8 @@ exports[`Cascader can be selected in RTL direction 1`] = `
 exports[`Cascader can be selected in RTL direction 2`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-rtl ant-cascader-menus-placement-bottomRight "
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0"
   >
     <div>
       <ul
@@ -879,7 +881,8 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
 exports[`Cascader popup correctly with defaultValue RTL 1`] = `
 <div>
   <div
-    class="ant-cascader-menus ant-cascader-menu-rtl ant-cascader-menus-placement-bottomRight "
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0"
   >
     <div>
       <ul
