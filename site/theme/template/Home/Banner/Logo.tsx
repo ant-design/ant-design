@@ -2,6 +2,7 @@ import * as React from 'react';
 import Hitu from '@ant-design/hitu';
 import { HiTuRefObject } from '@ant-design/hitu/lib/HiTu';
 import './Logo.less';
+import { preLoad } from '../util';
 
 const ICON_IMAGES = [
   'https://gw.alipayobjects.com/zos/basement_prod/c6935869-a270-463a-8303-9273173c189f.svg',
@@ -17,6 +18,8 @@ const ICON_IMAGES = [
   'https://gw.alipayobjects.com/zos/basement_prod/36871c50-fb03-4f76-9929-3c4484107b5c.svg',
   'https://gw.alipayobjects.com/zos/basement_prod/9c2c7598-cd37-4879-ba30-2f409c9e994b.svg',
 ];
+
+preLoad(ICON_IMAGES);
 
 const AntDesign = () => (
   <svg>
