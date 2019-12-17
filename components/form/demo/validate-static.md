@@ -89,7 +89,7 @@ ReactDOM.render(
       validateStatus="validating"
       help="The information is being validated..."
     >
-      <Cascader defaultValue={['1']} options={[]} />
+      <Cascader placeholder="Please select" defaultValue={['1']} options={[]} />
     </Form.Item>
 
     <Form.Item
@@ -102,7 +102,7 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
-      <InputNumber style={{ width: '100%' }} />
+      <InputNumber defaultValue={0} style={{ width: '100%' }} />
     </Form.Item>
   </Form>,
   mountNode,

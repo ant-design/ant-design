@@ -17,7 +17,7 @@ Fill in this form to create a new account for you.
 import {
   Form,
   Input,
-  Tooltip,
+  Popover,
   Cascader,
   Select,
   Row,
@@ -127,7 +127,7 @@ const RegistrationForm = () => {
           },
         ]}
       >
-        <Input />
+        <Input placeholder="Please input" />
       </Form.Item>
 
       <Form.Item
@@ -141,7 +141,7 @@ const RegistrationForm = () => {
         ]}
         hasFeedback
       >
-        <Input.Password />
+        <Input.Password placeholder="Please input" />
       </Form.Item>
 
       <Form.Item
@@ -164,7 +164,7 @@ const RegistrationForm = () => {
           }),
         ]}
       >
-        <Input.Password />
+        <Input.Password placeholder="Please input" />
       </Form.Item>
 
       <Form.Item
@@ -172,14 +172,14 @@ const RegistrationForm = () => {
         label={
           <span>
             Nickname&nbsp;
-            <Tooltip title="What do you want others to call you?">
+            <Popover title="What do you want others to call you?">
               <QuestionCircleOutlined />
-            </Tooltip>
+            </Popover>
           </span>
         }
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
       >
-        <Input />
+        <Input placeholder="Please input" />
       </Form.Item>
 
       <Form.Item
@@ -197,7 +197,7 @@ const RegistrationForm = () => {
         label="Phone Number"
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+        <Input placeholder="Please input" addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
 
       <Form.Item
@@ -206,7 +206,7 @@ const RegistrationForm = () => {
         rules={[{ required: true, message: 'Please input website!' }]}
       >
         <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
-          <Input />
+          <Input placeholder="Please input" />
         </AutoComplete>
       </Form.Item>
 
@@ -218,7 +218,7 @@ const RegistrationForm = () => {
               noStyle
               rules={[{ required: true, message: 'Please input the captcha you got!' }]}
             >
-              <Input />
+              <Input placeholder="Please input" />
             </Form.Item>
           </Col>
           <Col span={12}>

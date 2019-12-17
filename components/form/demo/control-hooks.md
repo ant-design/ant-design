@@ -45,7 +45,7 @@ const Demo = () => {
   return (
     <Form layout="vertical" form={form} name="control-hooks" onFinish={onFinish}>
       <Form.Item name="note" label="Note" rules={[{ required: true }]}>
-        <Input />
+        <Input placeholder="Please input" />
       </Form.Item>
       <Form.Item name="gender" label="Gender" rules={[{ required: true }]}>
         <Select

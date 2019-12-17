@@ -34,11 +34,11 @@ const Demo = () => {
       onFinishFailed={onFinishFailed}
     >
       <Form.Item label="Username" name="username" rules={[{ required: true }]}>
-        <Input />
+        <Input placeholder="Please input" />
       </Form.Item>
 
       <Form.Item label="Password" name="password" rules={[{ required: true }]}>
-        <Input.Password />
+        <Input.Password placeholder="Please input" />
       </Form.Item>
 
       <Form.Item name="remember" valuePropName="checked">

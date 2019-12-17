@@ -46,7 +46,7 @@ class Demo extends React.Component {
     return (
       <Form layout="vertical" ref={this.formRef} name="control-ref" onFinish={this.onFinish}>
         <Form.Item name="note" label="Note" rules={[{ required: true }]}>
-          <Input />
+          <Input placeholder="Please input" />
         </Form.Item>
         <Form.Item name="gender" label="Gender" rules={[{ required: true }]}>
           <Select
@@ -70,7 +70,7 @@ class Demo extends React.Component {
                 label="Customize Gender"
                 rules={[{ required: true }]}
               >
-                <Input />
+                <Input placeholder="Please input" />
               </Form.Item>
             ) : null;
           }}
