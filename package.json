@@ -58,7 +58,7 @@
     "lint:demo": "cross-env RUN_ENV=DEMO eslint components/*/demo/*.md --ext '.md'",
     "lint:deps": "antd-tools run deps-lint",
     "lint:md": "remark components/",
-    "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx'",
+    "lint:script": "eslint . --ext '.js,.jsx,.ts,.tsx' --ignore-pattern 'site/theme/template/Home/*.jsx'",
     "lint:style": "stylelint '{site,components}/**/*.less' --syntax less",
     "lint:tsc": "npm run tsc",
     "pre-publish": "npm run check-commit && npm run test-all",
