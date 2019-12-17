@@ -27,9 +27,7 @@ exports[`Select Select Custom Icons should support customized icons 1`] = `
     </span>
     <span
       class="ant-select-selection-placeholder"
-    >
-      Please select
-    </span>
+    />
   </div>
   <span
     aria-hidden="true"

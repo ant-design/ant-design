@@ -32,9 +32,7 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
     </span>
     <span
       class="ant-select-selection-placeholder"
-    >
-      Please select
-    </span>
+    />
   </div>
 </div>
 `;
@@ -589,7 +587,6 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
 <div>
   <input
     class="ant-input"
-    placeholder="Please input"
     style="width:100px"
     type="text"
     value="222"

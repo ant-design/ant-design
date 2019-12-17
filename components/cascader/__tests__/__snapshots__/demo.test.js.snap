@@ -106,7 +106,6 @@ exports[`renders ./components/cascader/demo/custom-render.md correctly 1`] = `
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
-    placeholder="Please input"
     readonly=""
     tabindex="-1"
     type="text"
@@ -181,7 +180,6 @@ exports[`renders ./components/cascader/demo/default-value.md correctly 1`] = `
   <input
     autocomplete="off"
     class="ant-input ant-cascader-input "
-    placeholder="Please input"
     readonly=""
     tabindex="-1"
     type="text"
