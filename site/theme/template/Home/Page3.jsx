@@ -108,7 +108,7 @@ export default function Page3({ locale }) {
         {item.to ? (
           <Link to={utils.getLocalizedPathname(item.to, isZhCN)}>{child}</Link>
         ) : (
-          <a href={item.link} target="_blank">
+          <a href={item.link} target="_blank" rel="noopener noreferrer">
             {child}
           </a>
         )}
