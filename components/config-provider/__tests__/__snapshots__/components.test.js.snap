@@ -180,7 +180,9 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
     </span>
     <span
       class="config-select-selection-placeholder"
-    />
+    >
+      Please select
+    </span>
   </div>
 </div>
 `;
@@ -209,7 +211,9 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
     </span>
     <span
       class="ant-select-selection-placeholder"
-    />
+    >
+      Please select
+    </span>
   </div>
 </div>
 `;
@@ -238,7 +242,9 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
     </span>
     <span
       class="prefix-AutoComplete-selection-placeholder"
-    />
+    >
+      Please select
+    </span>
   </div>
 </div>
 `;
@@ -6747,6 +6753,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
       >
         <input
           class="config-input"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -6771,6 +6778,7 @@ exports[`ConfigProvider components Form normal 1`] = `
       >
         <input
           class="ant-input"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -6795,6 +6803,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
       >
         <input
           class="prefix-Form"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -6841,6 +6850,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
   >
     <input
       class="config-input"
+      placeholder="Please input"
       type="text"
       value=""
     />
@@ -6849,6 +6859,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     >
       <input
         class="config-input"
+        placeholder="Please input"
         type="text"
         value=""
       />
@@ -6892,6 +6903,7 @@ exports[`ConfigProvider components Input normal 1`] = `
   >
     <input
       class="ant-input"
+      placeholder="Please input"
       type="text"
       value=""
     />
@@ -6900,6 +6912,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     >
       <input
         class="ant-input"
+        placeholder="Please input"
         type="text"
         value=""
       />
@@ -6943,6 +6956,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
   >
     <input
       class="prefix-Input"
+      placeholder="Please input"
       type="text"
       value=""
     />
@@ -6951,6 +6965,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     >
       <input
         class="ant-input"
+        placeholder="Please input"
         type="text"
         value=""
       />
@@ -10373,7 +10388,9 @@ exports[`ConfigProvider components Select configProvider 1`] = `
     </span>
     <span
       class="config-select-selection-placeholder"
-    />
+    >
+      Please select
+    </span>
   </div>
   <div>
     <div
@@ -10491,7 +10508,9 @@ exports[`ConfigProvider components Select normal 1`] = `
     </span>
     <span
       class="ant-select-selection-placeholder"
-    />
+    >
+      Please select
+    </span>
   </div>
   <div>
     <div
@@ -10609,7 +10628,9 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
     </span>
     <span
       class="prefix-Select-selection-placeholder"
-    />
+    >
+      Please select
+    </span>
   </div>
   <div>
     <div

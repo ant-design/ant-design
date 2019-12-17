@@ -309,6 +309,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
         <input
           class="ant-input"
           id="basic_username"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -342,6 +343,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
             action="click"
             class="ant-input"
             id="basic_password"
+            placeholder="Please input"
             type="password"
             value=""
           />
@@ -460,6 +462,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
         <input
           class="ant-input"
           id="control-hooks_note"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -613,6 +616,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
         <input
           class="ant-input"
           id="control-ref_note"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -766,6 +770,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
         <span>
           <input
             class="ant-input"
+            placeholder="Please input"
             style="width:100px;margin-right:8px"
             type="text"
             value="0"
@@ -1076,6 +1081,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
           <input
             class="ant-input"
             id="basicForm_group"
+            placeholder="Please input"
             type="text"
             value=""
           />
@@ -1205,6 +1211,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
           <input
             class="ant-input"
             id="global_state_username"
+            placeholder="Please input"
             type="text"
             value=""
           />
@@ -1548,6 +1555,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         <input
           class="ant-input"
           id="nest-messages_user_name"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -1577,6 +1585,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         <input
           class="ant-input"
           id="nest-messages_user_email"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -1707,6 +1716,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
         <input
           class="ant-input"
           id="nest-messages_user_website"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -1959,6 +1969,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <input
           class="ant-input"
           id="register_email"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -1992,6 +2003,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             action="click"
             class="ant-input"
             id="register_password"
+            placeholder="Please input"
             type="password"
             value=""
           />
@@ -2054,6 +2066,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             action="click"
             class="ant-input"
             id="register_confirm"
+            placeholder="Please input"
             type="password"
             value=""
           />
@@ -2137,6 +2150,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <input
           class="ant-input"
           id="register_nickname"
+          placeholder="Please input"
           type="text"
           value=""
         />
@@ -2176,6 +2190,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             autocomplete="off"
             class="ant-input ant-cascader-input "
             id="register_residence"
+            placeholder="Please input"
             readonly=""
             tabindex="-1"
             type="text"
@@ -2318,6 +2333,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             <input
               class="ant-input"
               id="register_phone"
+              placeholder="Please input"
               type="text"
               value=""
             />
@@ -2364,6 +2380,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 autocomplete="off"
                 class="ant-input ant-select-selection-search-input"
                 id="register_website"
+                placeholder="Please input"
                 role="combobox"
                 type="text"
                 value=""
@@ -2409,6 +2426,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             <input
               class="ant-input"
               id="register_captcha"
+              placeholder="Please input"
               type="text"
               value=""
             />
@@ -4682,6 +4700,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           <input
             autocomplete="off"
             class="ant-input ant-cascader-input "
+            placeholder="Please input"
             readonly=""
             tabindex="-1"
             type="text"

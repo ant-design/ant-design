@@ -124,7 +124,9 @@ exports[`renders ./components/auto-complete/demo/certain-category.md correctly 1
       </span>
       <span
         class="ant-select-selection-placeholder"
-      />
+      >
+        Please select
+      </span>
     </div>
   </div>
 </div>
@@ -156,7 +158,9 @@ exports[`renders ./components/auto-complete/demo/custom.md correctly 1`] = `
     </span>
     <span
       class="ant-select-selection-placeholder"
-    />
+    >
+      Please select
+    </span>
   </div>
 </div>
 `;
@@ -208,7 +212,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
             </span>
             <span
               class="ant-select-selection-placeholder"
-            />
+            >
+              Please select
+            </span>
           </div>
         </div>
       </div>
@@ -390,7 +396,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               </span>
               <span
                 class="ant-select-selection-placeholder"
-              />
+              >
+                Please select
+              </span>
             </div>
           </div>
         </span>
@@ -436,6 +444,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-input"
+                  placeholder="Please input"
                   role="combobox"
                   type="text"
                   value=""
@@ -468,7 +477,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
             </span>
             <span
               class="ant-select-selection-placeholder"
-            />
+            >
+              Please select
+            </span>
           </div>
         </div>
       </div>
@@ -571,6 +582,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-input"
+                    placeholder="Please input"
                     role="combobox"
                     type="text"
                     value=""
@@ -603,7 +615,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               </span>
               <span
                 class="ant-select-selection-placeholder"
-              />
+              >
+                Please select
+              </span>
             </div>
           </div>
         </span>
@@ -707,6 +721,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     aria-owns="undefined_list"
                     autocomplete="off"
                     class="ant-input"
+                    placeholder="Please input"
                     role="combobox"
                     type="text"
                     value=""
@@ -740,7 +755,9 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               </span>
               <span
                 class="ant-select-selection-placeholder"
-              />
+              >
+                Please select
+              </span>
             </div>
           </div>
         </span>
@@ -879,7 +896,9 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md correctly
       </span>
       <span
         class="ant-select-selection-placeholder"
-      />
+      >
+        Please select
+      </span>
     </div>
   </div>
 </div>
