@@ -1230,7 +1230,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
 exports[`renders ./components/form/demo/hide-required-mark.md correctly 1`] = `
 <div>
   <form
-    class="ant-form ant-form-vertical"
+    class="ant-form ant-form-vertical ant-form-hide-required-mark"
   >
     <div
       class="ant-row ant-form-item"
@@ -1243,6 +1243,11 @@ exports[`renders ./components/form/demo/hide-required-mark.md correctly 1`] = `
           title="Field A"
         >
           Field A
+          <span
+            class="ant-form-item-label-tag"
+          >
+            (optionalText)
+          </span>
         </label>
       </div>
       <div
@@ -1271,6 +1276,11 @@ exports[`renders ./components/form/demo/hide-required-mark.md correctly 1`] = `
           title="Field B"
         >
           Field B
+          <span
+            class="ant-form-item-label-tag"
+          >
+            (optionalText)
+          </span>
         </label>
       </div>
       <div

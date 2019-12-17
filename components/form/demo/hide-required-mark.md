@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 
 const HideRequiredMarkDemo = () => {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState({ showLabelOptionalText: true });
   return (
     <div>
       <Form layout="vertical" hideRequiredMark={state}>

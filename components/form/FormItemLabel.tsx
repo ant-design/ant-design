@@ -70,15 +70,13 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required: boolean; prefixCl
               title={typeof label === 'string' ? label : ''}
             >
               {labelChildren}
-              {typeof hideRequiredMark === 'object' &&
-                Object.prototype.toString.call(hideRequiredMark) === '[object Object]' &&
-                hideRequiredMark.showLabelOptionalText && (
-                  <LocaleReceiver componentName="Form" defaultLocale={defaultLocale.Form}>
-                    {(locale: { optionalText: string }) => (
-                      <span className={`${labelClsBasic}-tag`}>{locale.optionalText}</span>
-                    )}
-                  </LocaleReceiver>
-                )}
+              {typeof hideRequiredMark === 'object' && hideRequiredMark.showLabelOptionalText && (
+                <LocaleReceiver componentName="Form" defaultLocale={defaultLocale.Form}>
+                  {(locale: { optionalText: string }) => (
+                    <span className={`${labelClsBasic}-tag`}>{locale.optionalText}</span>
+                  )}
+                </LocaleReceiver>
+              )}
             </label>
           </Col>
         );
