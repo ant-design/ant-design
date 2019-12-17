@@ -8,15 +8,21 @@ import TextArea from './TextArea';
 import Password from './Password';
 import { Omit, tuple } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
 export const InputSizes = tuple('small', 'default', 'large');
 
+export interface InputLocale {
+  placeholder: string;
+}
+
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   prefixCls?: string;
-  size?: (typeof InputSizes)[number];
+  size?: typeof InputSizes[number];
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -60,7 +66,7 @@ export function resolveOnChange(
 
 export function getInputClassName(
   prefixCls: string,
-  size?: (typeof InputSizes)[number],
+  size?: typeof InputSizes[number],
   disabled?: boolean,
 ) {
   return classNames(prefixCls, {
@@ -178,8 +184,15 @@ class Input extends React.Component<InputProps, InputState> {
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
-  renderInput = (prefixCls: string) => {
-    const { className, addonBefore, addonAfter, size, disabled } = this.props;
+  renderInput = (prefixCls: string, locale: InputLocale) => {
+    const {
+      className,
+      addonBefore,
+      addonAfter,
+      size,
+      disabled,
+      placeholder = locale.placeholder,
+    } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',
@@ -194,10 +207,12 @@ class Input extends React.Component<InputProps, InputState> {
       'defaultValue',
       'size',
       'inputType',
+      'placeholder',
     ]);
     return (
       <input
         {...otherProps}
+        placeholder={placeholder}
         onChange={this.handleChange}
         onKeyDown={this.handleKeyDown}
         className={classNames(getInputClassName(prefixCls, size, disabled), {
@@ -223,7 +238,7 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls }: ConfigConsumerProps, locale: InputLocale) => {
     const { value } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
@@ -233,7 +248,7 @@ class Input extends React.Component<InputProps, InputState> {
         prefixCls={prefixCls}
         inputType="input"
         value={fixControlledValue(value)}
-        element={this.renderInput(prefixCls)}
+        element={this.renderInput(prefixCls, locale)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
       />
@@ -241,7 +256,15 @@ class Input extends React.Component<InputProps, InputState> {
   };
 
   render() {
-    return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
+    return (
+      <ConfigConsumer>
+        {(configArgument: ConfigConsumerProps) => (
+          <LocaleReceiver componentName="Input" defaultLocale={defaultLocale.Input}>
+            {(locale: InputLocale) => this.renderComponent(configArgument, locale)}
+          </LocaleReceiver>
+        )}
+      </ConfigConsumer>
+    );
   }
 }
 

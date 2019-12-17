@@ -4,6 +4,8 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getIcons from './utils/iconUtil';
 
@@ -12,6 +14,10 @@ type RawValue = string | number;
 export type Size = 'large' | 'default' | 'small';
 
 export type OptionType = typeof Option;
+
+export interface SelectLocale {
+  placeholder: string;
+}
 
 export interface LabeledValue {
   key?: string;
@@ -75,16 +81,16 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     return mode;
   };
 
-  renderSelect = ({
-    getPopupContainer: getContextPopupContainer,
-    getPrefixCls,
-    renderEmpty,
-  }: ConfigConsumerProps) => {
+  renderSelect = (
+    { getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty }: ConfigConsumerProps,
+    locale: SelectLocale,
+  ) => {
     const {
       prefixCls: customizePrefixCls,
       notFoundContent,
       className,
       size,
+      placeholder = locale.placeholder,
       listHeight = 256,
       listItemHeight = 32,
       getPopupContainer,
@@ -115,6 +121,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       'prefixCls',
       'suffixIcon',
       'itemIcon',
+      'placeholder',
       'removeIcon',
       'clearIcon',
       'size',
@@ -129,6 +136,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       <RcSelect<ValueType>
         ref={this.selectRef}
         {...selectProps}
+        placeholder={placeholder}
         listHeight={listHeight}
         listItemHeight={listItemHeight}
         mode={mode}
@@ -145,7 +153,15 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
   };
 
   render() {
-    return <ConfigConsumer>{this.renderSelect}</ConfigConsumer>;
+    return (
+      <ConfigConsumer>
+        {(configArgument: ConfigConsumerProps) => (
+          <LocaleReceiver defaultLocale={defaultLocale.global}>
+            {(locale: SelectLocale) => this.renderSelect(configArgument, locale)}
+          </LocaleReceiver>
+        )}
+      </ConfigConsumer>
+    );
   }
 }
 
