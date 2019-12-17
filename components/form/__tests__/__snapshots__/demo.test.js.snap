@@ -2104,7 +2104,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           Nickname 
           <span
             aria-label="question-circle"
-            class="anticon anticon-question-circle"
+            class="anticon anticon-question-circle form-label-tip"
             role="img"
           >
             <svg
