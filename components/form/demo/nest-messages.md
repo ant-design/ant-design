@@ -38,7 +38,13 @@ const Demo = () => {
   };
 
   return (
-    <Form {...layout} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages}>
+    <Form
+      {...layout}
+      name="nest-messages"
+      onFinish={onFinish}
+      validateMessages={validateMessages}
+      initialValues={{ user: { age: 0 } }}
+    >
       <Form.Item name={['user', 'name']} label="Name" rules={[{ required: true }]}>
         <Input placeholder="Please input" />
       </Form.Item>
@@ -46,7 +52,7 @@ const Demo = () => {
         <Input placeholder="Please input" />
       </Form.Item>
       <Form.Item name={['user', 'age']} label="Age" rules={[{ type: 'number', min: 0, max: 99 }]}>
-        <InputNumber defaultValue={18} />
+        <InputNumber />
       </Form.Item>
       <Form.Item name={['user', 'website']} label="Website">
         <Input placeholder="Please input" />

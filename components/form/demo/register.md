@@ -206,7 +206,7 @@ const RegistrationForm = () => {
         rules={[{ required: true, message: 'Please input website!' }]}
       >
         <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
-          <Input placeholder="Please input" />
+          <Input />
         </AutoComplete>
       </Form.Item>
 

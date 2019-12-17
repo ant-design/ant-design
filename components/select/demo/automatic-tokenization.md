@@ -28,7 +28,13 @@ function handleChange(value) {
 }
 
 ReactDOM.render(
-  <Select mode="tags" style={{ width: '100%' }} onChange={handleChange} tokenSeparators={[',']}>
+  <Select
+    placeholder="Please select"
+    mode="tags"
+    style={{ width: '100%' }}
+    onChange={handleChange}
+    tokenSeparators={[',']}
+  >
     {children}
   </Select>,
   mountNode,
