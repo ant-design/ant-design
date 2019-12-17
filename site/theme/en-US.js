@@ -14,6 +14,7 @@ module.exports = {
     'app.header.lang': '中文',
     'app.content.edit-page': 'Edit this page on GitHub!',
     'app.content.edit-demo': 'Edit this demo on GitHub!',
+    'app.content.contributors': 'contributors',
     'app.component.examples': 'Examples',
     'app.component.examples.expand': 'Expand all code',
     'app.component.examples.collapse': 'Collapse all code',

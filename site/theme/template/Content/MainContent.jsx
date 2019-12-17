@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon, Affix } from 'antd';
+import { Row, Col, Menu, Icon, Affix, Tooltip, Avatar } from 'antd';
+import ContributorsList from '@qixian.cs/github-contributors-list';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
@@ -283,7 +284,12 @@ class MainContent extends Component {
   render() {
     const { isMobile } = this.context;
     const { openKeys } = this.state;
-    const { localizedPageData, demos } = this.props;
+    const {
+      localizedPageData,
+      demos,
+      intl: { formatMessage },
+    } = this.props;
+    const { meta } = localizedPageData;
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
@@ -334,6 +340,32 @@ class MainContent extends Component {
               ) : (
                 <Article {...this.props} content={localizedPageData} />
               )}
+              <ContributorsList
+                className="contributors-list"
+                fileName={meta.filename}
+                renderItem={(item, loading) =>
+                  loading ? (
+                    <Avatar style={{ opacity: 0.3 }} />
+                  ) : (
+                    <Tooltip
+                      title={`${formatMessage({ id: 'app.content.contributors' })}: ${
+                        item.username
+                      }`}
+                      key={item.username}
+                    >
+                      <a
+                        href={`https://github.com/${item.username}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Avatar src={item.url}>{item.username}</Avatar>
+                      </a>
+                    </Tooltip>
+                  )
+                }
+                repo="ant-design"
+                owner="ant-design"
+              />
             </section>
             <PrevAndNext prev={prev} next={next} />
             <Footer />
