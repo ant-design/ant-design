@@ -18,7 +18,6 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         </span>
         <input
           class="ant-input"
-          placeholder="Please input"
           type="text"
           value="mysite"
         />
@@ -102,7 +101,6 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         </span>
         <input
           class="ant-input"
-          placeholder="Please input"
           type="text"
           value="mysite"
         />
@@ -181,7 +179,6 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
       >
         <input
           class="ant-input"
-          placeholder="Please input"
           type="text"
           value="mysite"
         />
@@ -240,7 +237,6 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
   </button>
   <input
     class="ant-input"
-    placeholder="Please input"
     style="width:100px"
     type="text"
     value=""
@@ -289,7 +285,6 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     </span>
     <input
       class="ant-input"
-      placeholder="Please input"
       type="text"
       value=""
     />
@@ -313,7 +308,6 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       </span>
       <input
         class="ant-input"
-        placeholder="Please input"
         type="text"
         value=""
       />
@@ -664,7 +658,6 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     <input
       autocomplete="off"
       class="ant-input ant-cascader-input "
-      placeholder="Please input"
       readonly=""
       tabindex="-1"
       type="text"
@@ -961,7 +954,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <input
           class="ant-input"
-          placeholder="Please input"
           type="text"
           value="0571"
         />
@@ -972,7 +964,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       >
         <input
           class="ant-input"
-          placeholder="Please input"
           type="text"
           value="26888888"
         />
@@ -985,14 +976,12 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
   >
     <input
       class="ant-input"
-      placeholder="Please input"
       style="width:20%"
       type="text"
       value="0571"
     />
     <input
       class="ant-input"
-      placeholder="Please input"
       style="width:30%"
       type="text"
       value="26888888"
@@ -1060,7 +1049,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </div>
     <input
       class="ant-input"
-      placeholder="Please input"
       style="width:50%"
       type="text"
       value="Xihu District, Hangzhou"
@@ -1128,7 +1116,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     </div>
     <input
       class="ant-input"
-      placeholder="Please input"
       style="width:50%"
       type="text"
       value="input content"
@@ -1217,7 +1204,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
   >
     <input
       class="ant-input"
-      placeholder="Please input"
       style="width:50%"
       type="text"
       value="input content"
@@ -1774,7 +1760,6 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     </span>
     <input
       class="ant-input"
-      placeholder="Please input"
       type="text"
       value=""
     />

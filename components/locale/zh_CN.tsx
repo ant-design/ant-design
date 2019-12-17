@@ -60,7 +60,4 @@ export default {
   PageHeader: {
     back: '返回',
   },
-  Input: {
-    placeholder: '请输入',
-  },
 };

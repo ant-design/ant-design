@@ -12,33 +12,8 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
       type="text"
       value=""
     >
-      <LocaleReceiver
-        componentName="Input"
-        defaultLocale={
-          Object {
-            "placeholder": "Please input",
-          }
-        }
-      >
-        <ClearableLabeledInput
-          element={
-            <input
-              className="ant-input"
-              onChange={[Function]}
-              onKeyDown={[Function]}
-              placeholder=""
-              type="text"
-              value=""
-            />
-          }
-          handleReset={[Function]}
-          inputType="input"
-          onChange={[Function]}
-          placeholder=""
-          prefixCls="ant-input"
-          type="text"
-          value=""
-        >
+      <ClearableLabeledInput
+        element={
           <input
             className="ant-input"
             onChange={[Function]}
@@ -47,8 +22,24 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
             type="text"
             value=""
           />
-        </ClearableLabeledInput>
-      </LocaleReceiver>
+        }
+        handleReset={[Function]}
+        inputType="input"
+        onChange={[Function]}
+        placeholder=""
+        prefixCls="ant-input"
+        type="text"
+        value=""
+      >
+        <input
+          className="ant-input"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          type="text"
+          value=""
+        />
+      </ClearableLabeledInput>
     </Input>
     <span
       className="undefined-action"
@@ -143,33 +134,8 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
       type="text"
       value="a"
     >
-      <LocaleReceiver
-        componentName="Input"
-        defaultLocale={
-          Object {
-            "placeholder": "Please input",
-          }
-        }
-      >
-        <ClearableLabeledInput
-          element={
-            <input
-              className="ant-input"
-              onChange={[Function]}
-              onKeyDown={[Function]}
-              placeholder=""
-              type="text"
-              value="a"
-            />
-          }
-          handleReset={[Function]}
-          inputType="input"
-          onChange={[Function]}
-          placeholder=""
-          prefixCls="ant-input"
-          type="text"
-          value="a"
-        >
+      <ClearableLabeledInput
+        element={
           <input
             className="ant-input"
             onChange={[Function]}
@@ -178,8 +144,24 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
             type="text"
             value="a"
           />
-        </ClearableLabeledInput>
-      </LocaleReceiver>
+        }
+        handleReset={[Function]}
+        inputType="input"
+        onChange={[Function]}
+        placeholder=""
+        prefixCls="ant-input"
+        type="text"
+        value="a"
+      >
+        <input
+          className="ant-input"
+          onChange={[Function]}
+          onKeyDown={[Function]}
+          placeholder=""
+          type="text"
+          value="a"
+        />
+      </ClearableLabeledInput>
     </Input>
     <a
       className="undefined-action"

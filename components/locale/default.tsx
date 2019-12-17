@@ -60,7 +60,4 @@ export default {
   PageHeader: {
     back: 'Back',
   },
-  Input: {
-    placeholder: 'Please input',
-  },
 };
