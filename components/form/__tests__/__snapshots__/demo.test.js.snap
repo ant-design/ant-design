@@ -1232,6 +1232,110 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/form/demo/hide-required-mark.md correctly 1`] = `
+<form
+  class="ant-form ant-form-vertical ant-form-hide-required-mark"
+>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class="ant-form-item-required"
+        title="Field A"
+      >
+        Field A
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <input
+          class="ant-input"
+          placeholder="input placeholder"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Field B"
+      >
+        Field B
+        <span
+          class="ant-form-item-label-tag"
+        >
+           (optional)
+        </span>
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <input
+          class="ant-input"
+          placeholder="input placeholder"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Hide *
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Show *
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Hide * and show optional text
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
 <form
   class="ant-form ant-form-inline"

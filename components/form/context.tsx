@@ -15,7 +15,12 @@ export interface FormContextProps {
   colon?: boolean;
   labelAlign?: FormLabelAlign;
   labelCol?: ColProps;
+  hideRequiredMark?: boolean | HideRequiredMarkProps;
   wrapperCol?: ColProps;
+}
+
+export interface HideRequiredMarkProps {
+  optionalMark: boolean;
 }
 
 export const FormContext = React.createContext<FormContextProps>({
