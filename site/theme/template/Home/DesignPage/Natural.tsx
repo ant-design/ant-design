@@ -68,23 +68,23 @@ function getFrames(init: Partial<FrameInfo>, delay: number = 0): FrameInfo[] {
       cubic: Hitu.CUBIC_EASE_IN_OUT,
     },
     {
-      frame: 30 + delay,
+      frame: 45 + delay,
       scaleX: 1.1,
       scaleY: 1.1,
       cubic: Hitu.CUBIC_EASE_OUT,
     },
     {
-      frame: 40 + delay,
+      frame: 55 + delay,
       scaleX: 1,
       scaleY: 1,
     },
     {
-      frame: 50 + delay,
+      frame: 65 + delay,
       scaleX: 1.05,
       scaleY: 1.05,
     },
     {
-      frame: 60 + delay,
+      frame: 75 + delay,
       scaleX: 1,
       scaleY: 1,
     },
