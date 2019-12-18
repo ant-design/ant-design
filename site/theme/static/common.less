@@ -125,6 +125,10 @@ a {
   width: 100%;
   padding: 0;
   overflow: hidden;
+  &.page-theme-dark {
+    @import (inline) '../../../components/style/dark.less';
+    @import (less) '../../../dist/antd.dark.css';
+  }
 }
 
 .drawer-content {
@@ -141,5 +145,15 @@ a {
   }
   .path2::before {
     color: #fff !important;
+  }
+}
+
+.fixed-widgets {
+  position: fixed;
+  z-index: 2147483640;
+  bottom: 102px;
+  right: 30px;
+  & > div {
+    display: block;
   }
 }

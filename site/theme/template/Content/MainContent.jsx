@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix } from 'antd';
+import { Row, Col, Menu, Affix, Button } from 'antd';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
@@ -73,6 +73,8 @@ const getSubMenuTitle = menuItem => {
 class MainContent extends Component {
   static contextTypes = {
     isMobile: PropTypes.bool.isRequired,
+    theme: PropTypes.oneOf(['default', 'dark']),
+    setTheme: PropTypes.func,
   };
 
   state = {
@@ -282,8 +284,13 @@ class MainContent extends Component {
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
+  changeTheme = () => {
+    const { theme, setTheme } = this.context;
+    setTheme(theme !== 'dark' ? 'dark' : 'default');
+  };
+
   render() {
-    const { isMobile } = this.context;
+    const { isMobile, theme, setTheme } = this.context;
     const { openKeys } = this.state;
     const { localizedPageData, demos } = this.props;
     const activeMenuItem = this.getActiveMenuItem();
@@ -308,6 +315,7 @@ class MainContent extends Component {
         {menuItems}
       </Menu>
     );
+
     return (
       <div className="main-wrapper">
         <Row>
@@ -330,6 +338,11 @@ class MainContent extends Component {
                 <Article {...this.props} content={localizedPageData} />
               )}
             </section>
+            <div className="fixed-widgets">
+              <div>
+                <Button onClick={this.changeTheme}>{theme}</Button>
+              </div>
+            </div>
             <PrevAndNext prev={prev} next={next} />
             <Footer />
           </Col>
