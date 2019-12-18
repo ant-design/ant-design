@@ -1,7 +1,7 @@
 ---
 category: Components
 type: Data Display
-title: Description List
+title: Descriptions
 cols: 1
 ---
 
