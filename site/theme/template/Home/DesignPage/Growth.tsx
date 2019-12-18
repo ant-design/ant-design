@@ -46,7 +46,15 @@ function getRectFrames(scaleY: number, index: number): FrameInfo[] {
       cubic: Hitu.CUBIC_EASE,
     },
     {
-      frame: 60 + delay,
+      frame: 30 + delay,
+      scaleY: scaleY * 1.05,
+    },
+    {
+      frame: 40 + delay,
+      scaleY: scaleY * 0.95,
+    },
+    {
+      frame: 50 + delay,
       scaleY,
     },
   ];
@@ -72,7 +80,7 @@ const shapes: Shape[] = [
         opacity: 0,
       },
       {
-        frame: 60,
+        frame: 30,
         y: 12,
         opacity: 1,
       },
