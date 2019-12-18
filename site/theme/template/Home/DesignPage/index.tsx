@@ -6,6 +6,7 @@ import { Link } from 'bisheng/router';
 import { getLocalizedPathname } from '../../utils';
 import './index.less';
 import Certainty from './Certainty';
+import Meaningful from './Meaningful';
 
 const { Title } = Typography;
 
@@ -120,10 +121,7 @@ export default function DesignPage() {
                     </h4>
                   </Col>
                   <Col span={6}>
-                    <img
-                      alt="meaningful"
-                      src="https://gw.alipayobjects.com/zos/basement_prod/cbe8e1e3-e3e6-4c23-9800-105efe465cda.svg"
-                    />
+                    <Meaningful />
                     <h4>
                       <FormattedMessage id="app.home.meaningful" />
                     </h4>
