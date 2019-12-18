@@ -13,10 +13,11 @@ exports[`Alert ErrorBoundary 1`] = `
   <span
     class="ant-alert-description"
   >
-    
-    in ThrowError
+    <pre>
+          in ThrowError
     in ErrorBoundary (created by WrapperComponent)
     in WrapperComponent
+    </pre>
   </span>
 </div>
 `;
