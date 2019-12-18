@@ -99,51 +99,53 @@ export default function DesignPage() {
       <Row gutter={[40, 72]}>
         {/* *********************** Design Values *********************** */}
         <Col span={24}>
-          <div
-            className="design-card"
-            style={{
-              backgroundImage:
-                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i1EySrFVZvAAAAAAAAAAAABkARQnAQ)',
-              backgroundSize: 'cover',
-            }}
-          >
-            <Title level={3}>
-              <FormattedMessage id="app.home.design-values" />
-            </Title>
-            <Row>
-              <Col xs={24} sm={8}>
-                <FormattedMessage id="app.home.design-values-description" />
-              </Col>
-              <Col xs={24} sm={16}>
-                <Row className="design-values">
-                  <Col span={6}>
-                    <Certainty />
-                    <h4>
-                      <FormattedMessage id="app.home.certainty" />
-                    </h4>
-                  </Col>
-                  <Col span={6}>
-                    <Meaningful />
-                    <h4>
-                      <FormattedMessage id="app.home.meaningful" />
-                    </h4>
-                  </Col>
-                  <Col span={6}>
-                    <Growth />
-                    <h4>
-                      <FormattedMessage id="app.home.growth" />
-                    </h4>
-                  </Col>
-                  <Col span={6}>
-                    <Natural />
-                    <h4>
-                      <FormattedMessage id="app.home.natural" />
-                    </h4>
-                  </Col>
-                </Row>
-              </Col>
-            </Row>
-          </div>
+          <Link to={getLocalizedPathname('/docs/spec/values', isZhCN)}>
+            <div
+              className="design-card"
+              style={{
+                backgroundImage:
+                  'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i1EySrFVZvAAAAAAAAAAAABkARQnAQ)',
+                backgroundSize: 'cover',
+              }}
+            >
+              <Title level={3}>
+                <FormattedMessage id="app.home.design-values" />
+              </Title>
+              <Row>
+                <Col xs={24} sm={8}>
+                  <FormattedMessage id="app.home.design-values-description" />
+                </Col>
+                <Col xs={24} sm={16}>
+                  <Row className="design-values">
+                    <Col span={6}>
+                      <Certainty />
+                      <h4>
+                        <FormattedMessage id="app.home.certainty" />
+                      </h4>
+                    </Col>
+                    <Col span={6}>
+                      <Meaningful />
+                      <h4>
+                        <FormattedMessage id="app.home.meaningful" />
+                      </h4>
+                    </Col>
+                    <Col span={6}>
+                      <Growth />
+                      <h4>
+                        <FormattedMessage id="app.home.growth" />
+                      </h4>
+                    </Col>
+                    <Col span={6}>
+                      <Natural />
+                      <h4>
+                        <FormattedMessage id="app.home.natural" />
+                      </h4>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </div>
+          </Link>
         </Col>
 
         {/* *********************** Design Guides *********************** */}
@@ -156,12 +158,6 @@ export default function DesignPage() {
                 </Title>
 
                 <ul>
-                  <li>
-                    <Link to={getLocalizedPathname('/docs/spec/values', isZhCN)}>
-                      <FormattedMessage id="app.home.values" />
-                      <RightOutlined />
-                    </Link>
-                  </li>
                   <li>
                     <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN)}>
                       <FormattedMessage id="app.home.global-style" />
