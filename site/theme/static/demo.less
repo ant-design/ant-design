@@ -15,6 +15,35 @@
   border: 1px solid @site-border-color-split;
   border-radius: @border-radius-base;
   transition: all 0.2s;
+  &[data-theme='dark'] {
+    @import (less) '../../../components/style/themes/dark.less';
+    .code-box-title {
+      background: @component-background;
+      &,
+      a {
+        color: @text-color;
+      }
+    }
+    p {
+      color: @text-color;
+    }
+    a.edit-button .anticon {
+      color: @icon-color;
+      &:hover {
+        color: @icon-color-hover;
+      }
+    }
+    &,
+    .code-box-demo {
+      background-color: @component-background;
+      border-bottom: 1px solid @border-color-base;
+    }
+    .markdown {
+      code {
+        background: @popover-background;
+      }
+    }
+  }
   &:target {
     border: 1px solid @primary-color;
   }
