@@ -312,14 +312,7 @@ class MainContent extends Component {
       <div className="main-wrapper">
         <Row>
           {isMobile ? (
-            <MobileMenu
-              iconChild={[
-                <Icon key="menu-unfold" type="menu-unfold" />,
-                <Icon key="menu-fold" type="menu-fold" />,
-              ]}
-              key="Mobile-menu"
-              wrapperClassName="drawer-wrapper"
-            >
+            <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
               {menuChild}
             </MobileMenu>
           ) : (
