@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { isMobile } from 'is-mobile';
 import Input, { InputProps } from './Input';
 import Icon from '../icon';
 import Button from '../button';
@@ -47,7 +48,10 @@ export default class Search extends React.Component<SearchProps, any> {
     if (onSearch) {
       onSearch(this.input.input.value, e);
     }
-    this.input.focus();
+
+    if (!isMobile({ tablet: true })) {
+      this.input.focus();
+    }
   };
 
   focus() {

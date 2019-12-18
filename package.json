@@ -101,6 +101,7 @@
     "css-animation": "^1.5.0",
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
+    "is-mobile": "^2.1.0",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "omit.js": "^1.0.2",
