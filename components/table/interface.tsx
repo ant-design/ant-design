@@ -190,7 +190,7 @@ export interface TableProps<T> {
   onExpand?: (expanded: boolean, record: T) => void;
   onChange?: (
     pagination: PaginationConfig,
-    filters: Record<keyof T, string[]>,
+    filters: Partial<Record<keyof T, string[]>>,
     sorter: SorterResult<T>,
     extra: TableCurrentDataSource<T>,
   ) => void;
