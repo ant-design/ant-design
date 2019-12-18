@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Hitu from '@ant-design/hitu';
-import { Shape, FrameInfo } from '@ant-design/hitu/lib/interface';
+import { Shape } from '@ant-design/hitu/lib/interface';
 import InteractiveIcon from './InteractiveIcon';
 
 function Heart() {

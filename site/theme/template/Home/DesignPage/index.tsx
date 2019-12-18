@@ -7,6 +7,7 @@ import { getLocalizedPathname } from '../../utils';
 import './index.less';
 import Certainty from './Certainty';
 import Meaningful from './Meaningful';
+import Growth from './Growth';
 
 const { Title } = Typography;
 
@@ -127,10 +128,7 @@ export default function DesignPage() {
                     </h4>
                   </Col>
                   <Col span={6}>
-                    <img
-                      alt="growth"
-                      src="https://gw.alipayobjects.com/zos/basement_prod/5668216e-c543-4fc7-a4a3-bb5785250106.svg"
-                    />
+                    <Growth />
                     <h4>
                       <FormattedMessage id="app.home.growth" />
                     </h4>

@@ -2,19 +2,25 @@ import * as React from 'react';
 import Hitu, { HiTuRefObject } from '@ant-design/hitu';
 import { Shape } from '@ant-design/hitu/lib/interface';
 
+const HOVER_LOOP = false;
+
 export interface InteractiveIconProps {
   shapes: Shape[];
   debug?: boolean;
+  frames?: number;
 }
 
-export default function InteractiveIcon({ shapes, debug }: InteractiveIconProps) {
+export default function InteractiveIcon({ shapes, debug, frames }: InteractiveIconProps) {
   const hituRef = React.useRef<HiTuRefObject>(null);
   const [loop, setLoop] = React.useState(false);
 
   return (
     <span
       onMouseEnter={() => {
-        setLoop(true);
+        if (HOVER_LOOP) {
+          setLoop(true);
+        }
+
         if (hituRef.current) {
           hituRef.current.triggerMotion(true);
         }
@@ -28,7 +34,7 @@ export default function InteractiveIcon({ shapes, debug }: InteractiveIconProps)
         loop={loop}
         defaultPlay={false}
         ref={hituRef}
-        frames={120}
+        frames={frames || 120}
         width={120}
         height={120}
         style={{ width: 120, height: 120 }}
