@@ -4379,6 +4379,34 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     </div>
   </div>
   <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Important Tip"
+      >
+        Important Tip
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <input
+          class="ant-input"
+          placeholder="please input"
+          type="text"
+          value=""
+        />
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
