@@ -1,7 +1,6 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
