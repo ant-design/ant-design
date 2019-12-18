@@ -20,7 +20,7 @@ export interface FormContextProps {
 }
 
 export interface HideRequiredMarkProps {
-  showLabelOptionalText: boolean;
+  optionalMark: boolean;
 }
 
 export const FormContext = React.createContext<FormContextProps>({

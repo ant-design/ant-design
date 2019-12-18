@@ -11,14 +11,14 @@ title:
 
 ## en-US
 
-There is hideRequiredMark for form: `true`, `false`, `{ showLabelOptionalText: true }`.
+There is hideRequiredMark for form: `true`, `false`, `{ optionalMark: true }`.
 
 ```tsx
 import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 
 const HideRequiredMarkDemo = () => {
-  const [hideRequiredMark, setHideRequiredMark] = useState({ showLabelOptionalText: true });
+  const [hideRequiredMark, setHideRequiredMark] = useState({ optionalMark: true });
   return (
     <Form layout="vertical" hideRequiredMark={hideRequiredMark}>
       <Form.Item label="Field A" rules={[{ required: true }]}>
@@ -47,7 +47,7 @@ const HideRequiredMarkDemo = () => {
         <Button
           type="primary"
           onClick={() => {
-            setHideRequiredMark({ showLabelOptionalText: true });
+            setHideRequiredMark({ optionalMark: true });
           }}
         >
           Hide * and show optional text

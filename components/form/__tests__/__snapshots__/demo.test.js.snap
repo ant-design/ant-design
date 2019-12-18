@@ -1242,11 +1242,6 @@ exports[`renders ./components/form/demo/hide-required-mark.md correctly 1`] = `
         title="Field A"
       >
         Field A
-        <span
-          class="ant-form-item-label-tag"
-        >
-           (optional)
-        </span>
       </label>
     </div>
     <div
