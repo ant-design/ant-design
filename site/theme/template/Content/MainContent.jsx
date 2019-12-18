@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix } from 'antd';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
