@@ -34,7 +34,7 @@ module.exports = {
     'app.home.design-and-framework': 'Design language and framework',
     'app.home.design-values': 'Design values',
     'app.home.design-values-description':
-      'This is an internal criterion for Ant Design to evaluate good design. Based on the assumption that "everyone is pursuing a happy work", we have added the two values of "Sense of Meaning" and "Growth" on the basis of "Determinism" and "Nature" to guide each designer to do better Judgment and decision making.',
+      'This is an internal criterion for Ant Design to evaluate good design. Based on the assumption that "everyone pursues pleasure at work", we have added the two values of "Sense of Meaning" and "Growth" on the basis of "Determinism" and "Nature" to guide each designer to do better Judgment and decision making.',
     'app.home.certainty': 'Certainty',
     'app.home.meaningful': 'Meaningful',
     'app.home.growth': 'Growth',

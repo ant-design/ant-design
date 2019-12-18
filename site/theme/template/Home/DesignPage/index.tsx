@@ -8,6 +8,7 @@ import './index.less';
 import Certainty from './Certainty';
 import Meaningful from './Meaningful';
 import Growth from './Growth';
+import Natural from './Natural';
 
 const { Title } = Typography;
 
@@ -134,10 +135,7 @@ export default function DesignPage() {
                     </h4>
                   </Col>
                   <Col span={6}>
-                    <img
-                      alt="natural"
-                      src="https://gw.alipayobjects.com/zos/basement_prod/bf7b9fce-cb1c-4264-9596-0438b252c07e.svg"
-                    />
+                    <Natural />
                     <h4>
                       <FormattedMessage id="app.home.natural" />
                     </h4>
