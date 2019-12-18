@@ -52,16 +52,44 @@ a {
   padding-bottom: 48px;
   font-family: Avenir, @font-family, sans-serif;
 
-  &.ant-menu-inline .ant-menu-submenu-title h4,
-  &.ant-menu-inline > .ant-menu-item,
-  &.ant-menu-inline .ant-menu-item a {
-    overflow: hidden;
-    font-size: 14px;
-    text-overflow: ellipsis;
-  }
+  &.ant-menu-inline {
+    .ant-menu-submenu-title h4,
+    > .ant-menu-item,
+    .ant-menu-item a {
+      overflow: hidden;
+      font-size: 14px;
+      text-overflow: ellipsis;
+    }
 
-  &.ant-menu-inline .ant-menu-item-group-title {
-    padding-left: 56px;
+    .ant-menu-item-group-title {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      font-size: 13px;
+
+      &::after {
+        position: relative;
+        top: 12px;
+        display: block;
+        width: calc(100% - 20px);
+        height: 1px;
+        background: @border-color-split;
+        content: '';
+      }
+    }
+
+    > .ant-menu-item,
+    > .ant-menu-submenu > .ant-menu-submenu-title,
+    > .ant-menu-item-group > .ant-menu-item-group-title,
+    > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
+      padding-left: 40px !important;
+    }
+
+    .ant-menu-item-group:first-child {
+      .ant-menu-item-group-title {
+        margin-top: 0;
+      }
+    }
   }
 
   a[disabled] {

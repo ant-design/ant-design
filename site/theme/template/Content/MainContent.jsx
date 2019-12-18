@@ -131,21 +131,19 @@ class MainContent extends Component {
       themeConfig.typeOrder,
     );
     return menuItems.map(menuItem => {
+      if (menuItem.type === 'type') {
+        return (
+          <Menu.ItemGroup title={menuItem.title} key={menuItem.title}>
+            {menuItem.children
+              .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+              .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+          </Menu.ItemGroup>
+        );
+      }
       if (menuItem.children) {
         return (
           <SubMenu title={getSubMenuTitle(menuItem)} key={menuItem.title}>
-            {menuItem.children.map(child => {
-              if (child.type === 'type') {
-                return (
-                  <Menu.ItemGroup title={child.title} key={child.title}>
-                    {child.children
-                      .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
-                  </Menu.ItemGroup>
-                );
-              }
-              return this.generateMenuItem(false, child, footerNavIcons);
-            })}
+            {menuItem.children.map(child => this.generateMenuItem(false, child, footerNavIcons))}
           </SubMenu>
         );
       }
@@ -301,7 +299,7 @@ class MainContent extends Component {
     });
     const menuChild = (
       <Menu
-        inlineIndent={40}
+        inlineIndent={30}
         className="aside-container menu-site"
         mode="inline"
         openKeys={openKeys}
