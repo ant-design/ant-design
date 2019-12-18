@@ -25,7 +25,6 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required: boolean; prefixCl
   required,
 }) => {
   if (!label) return null;
-  console.log(label, required);
   const formContext = React.useContext(FormContext);
   const { hideRequiredMark } = formContext;
 
