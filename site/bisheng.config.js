@@ -1,5 +1,4 @@
 const path = require('path');
-const CSSSplitWebpackPlugin = require('css-split-webpack-plugin').default;
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { version } = require('../package.json');
@@ -138,7 +137,6 @@ module.exports = {
       type: 'javascript/auto',
     });
 
-    config.plugins.push(new CSSSplitWebpackPlugin({ size: 4000 }));
     config.plugins.push(
       new webpack.DefinePlugin({
         antdReproduceVersion: JSON.stringify(isNextVersion ? 'next' : 'latest'),
