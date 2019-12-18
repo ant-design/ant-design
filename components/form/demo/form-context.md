@@ -42,10 +42,16 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   };
 
   return (
-    <Modal title="Basic Drawer" visible={visible} onOk={onOk} onCancel={onCancel}>
+    <Modal
+      title="Basic Drawer"
+      visible={visible}
+      onOk={onOk}
+      onCancel={onCancel}
+      initialValues={{ age: 0 }}
+    >
       <Form form={form} layout="vertical" name="userForm">
         <Form.Item name="name" label="User Name" rules={[{ required: true }]}>
-          <Input />
+          <Input placeholder="Please input" />
         </Form.Item>
         <Form.Item name="age" label="User Age" rules={[{ required: true }]}>
           <InputNumber />
@@ -84,7 +90,7 @@ const Demo = () => {
       >
         <Form {...layout} name="basicForm" onFinish={onFinish}>
           <Form.Item name="group" label="Group Name" rules={[{ required: true }]}>
-            <Input />
+            <Input placeholder="Please input" />
           </Form.Item>
           <Form.Item
             label="User List"
