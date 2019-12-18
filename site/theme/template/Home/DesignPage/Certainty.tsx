@@ -32,8 +32,8 @@ function getFrames(x: number, y: number): FrameInfo[] {
     },
     {
       frame: 15 + delay,
-      scaleX: 1.2,
-      scaleY: 1.2,
+      scaleX: 1.3,
+      scaleY: 1.3,
       cubic: Hitu.CUBIC_EASE,
     },
     {
