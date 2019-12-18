@@ -91,6 +91,16 @@ const shapes: Shape[] = [
         scaleX: 1,
         scaleY: 1,
       },
+      {
+        frame: 50,
+        scaleX: 1.05,
+        scaleY: 1.05,
+      },
+      {
+        frame: 60,
+        scaleX: 1,
+        scaleY: 1,
+      },
     ],
   },
   {
@@ -127,10 +137,20 @@ const shapes: Shape[] = [
         scaleX: 1,
         scaleY: 1,
       },
+      {
+        frame: 50,
+        scaleX: 1.05,
+        scaleY: 1.05,
+      },
+      {
+        frame: 60,
+        scaleX: 1,
+        scaleY: 1,
+      },
     ],
   },
 ];
 
 export default function Meaningful() {
-  return <InteractiveIcon shapes={shapes} frames={60} />;
+  return <InteractiveIcon shapes={shapes} frames={80} />;
 }
