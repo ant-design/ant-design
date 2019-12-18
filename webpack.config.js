@@ -1,5 +1,8 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
+const fs = require('fs');
+const path = require('path');
+const lessToJs = require('less-vars-to-js');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
@@ -22,16 +25,6 @@ function addLocales(webpackConfig) {
   webpackConfig.output.filename = '[name].js';
 }
 
-function addDarkTheme(webpackConfig) {
-  let packageName = 'antd.dark';
-  if (webpackConfig.entry['antd.min']) {
-    packageName += '.min';
-  }
-  webpackConfig.entry[packageName] = './index-dark.js';
-  webpackConfig.output.filename = '[name].js';
-  webpackConfig.plugins.push(new IgnoreEmitPlugin(/dark(.min)?\.js(\.map)?$/));
-}
-
 function externalMoment(config) {
   config.externals.moment = {
     root: 'moment',
@@ -42,12 +35,12 @@ function externalMoment(config) {
 }
 
 const webpackConfig = getWebpackConfig(false);
+const webpackDarkConfig = getWebpackConfig(false);
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     ignoreMomentLocale(config);
     externalMoment(config);
     addLocales(config);
-    addDarkTheme(config);
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
       // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
@@ -61,6 +54,49 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       );
     }
   });
+
+  webpackDarkConfig.forEach(config => {
+    // rename default entry to dark entry
+    Object.keys(config.entry).forEach(entryName => {
+      config.entry[entryName.replace('antd', 'antd.dark')] = config.entry[entryName];
+      delete config.entry[entryName];
+    });
+
+    // apply dark less variables
+    config.module.rules.forEach(rule => {
+      // filter less rule
+      if (rule.test instanceof RegExp && rule.test.test('.less')) {
+        const stylePath = path.join(process.cwd(), 'components', 'style');
+        const colorLess = fs.readFileSync(path.join(stylePath, 'color', 'colors.less'), 'utf8');
+        const defaultLess = fs.readFileSync(path.join(stylePath, 'themes', 'default.less'), 'utf8');
+        const darkLess = fs.readFileSync(path.join(stylePath, 'themes', 'dark.less'), 'utf8');
+
+        rule.use[rule.use.length - 1].options.modifyVars = lessToJs(
+          `${colorLess}${defaultLess}${darkLess}`,
+          {
+            stripPrefix: true,
+            resolveVariables: false,
+          },
+        );
+      }
+    });
+
+    // ignore emit dark entry js & js.map file
+    config.plugins.push(new IgnoreEmitPlugin(/dark(.min)?\.js(\.map)?$/));
+
+    // skip codesandbox ci
+    if (!process.env.CSB_REPO) {
+      // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
+      config.plugins.push(
+        new PacktrackerPlugin({
+          project_token: '8adbb892-ee4a-4d6f-93bb-a03219fb6778',
+          upload: process.env.CI === 'true',
+          fail_build: true,
+          exclude_assets: name => !['antd.dark.min.js', 'antd.dark.min.css'].includes(name),
+        }),
+      );
+    }
+  });
 }
 
-module.exports = webpackConfig;
+module.exports = webpackConfig.concat(webpackDarkConfig);
