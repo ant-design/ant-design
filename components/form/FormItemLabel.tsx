@@ -25,7 +25,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required: boolean; prefixCl
   required,
 }) => {
   if (!label) return null;
-
+  console.log(label, required);
   const formContext = React.useContext(FormContext);
   const { hideRequiredMark } = formContext;
 
@@ -70,13 +70,15 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required: boolean; prefixCl
               title={typeof label === 'string' ? label : ''}
             >
               {labelChildren}
-              {typeof hideRequiredMark === 'object' && hideRequiredMark.showLabelOptionalText && (
-                <LocaleReceiver componentName="Form" defaultLocale={defaultLocale.Form}>
-                  {(locale: { optionalText: string }) => (
-                    <span className={`${labelClsBasic}-tag`}>{locale.optionalText}</span>
-                  )}
-                </LocaleReceiver>
-              )}
+              {typeof hideRequiredMark === 'object' &&
+                !required &&
+                hideRequiredMark.showLabelOptionalText && (
+                  <LocaleReceiver componentName="Form" defaultLocale={defaultLocale.Form}>
+                    {(locale: { optionalText: string }) => (
+                      <span className={`${labelClsBasic}-tag`}>{locale.optionalText}</span>
+                    )}
+                  </LocaleReceiver>
+                )}
             </label>
           </Col>
         );
