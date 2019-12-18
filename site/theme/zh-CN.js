@@ -40,7 +40,7 @@ module.exports = {
     'app.home.natural': '自然',
     'app.home.design-guide': '设计指引',
     'app.home.components': '组件库',
-    'app.home.values': '价值观',
+    'app.home.detail': '查看详情',
     'app.home.global-style': '全局样式',
     'app.home.design-patterns': '设计模式',
     'app.home.more': '更多内容',

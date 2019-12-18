@@ -41,7 +41,7 @@ module.exports = {
     'app.home.natural': 'Natural',
     'app.home.design-guide': 'Design guide',
     'app.home.components': 'components',
-    'app.home.values': 'Values',
+    'app.home.detail': 'Detail',
     'app.home.global-style': 'Global style',
     'app.home.design-patterns': 'Design patterns',
     'app.home.more': 'Learn More',
