@@ -4,6 +4,8 @@ order: 1
 title: Design Values
 ---
 
+> This article is out of date. Need help to [translate](https://github.com/ant-design/ant-design/issues/1471).
+
 Ant Design provides a practical evaluation of better design for both designers of Ant Design and designers who are using it. At the same time, it builds a foundation for design principles and design patterns which could provide guideline and general solutions for specified design goal.
 
 <div>
