@@ -2,10 +2,10 @@
 // This config is for building dist files
 const fs = require('fs');
 const path = require('path');
-const lessToJs = require('less-vars-to-js');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
+const darkVars = require('./scripts/dark-vars');
 
 const { webpack } = getWebpackConfig;
 
@@ -66,18 +66,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     config.module.rules.forEach(rule => {
       // filter less rule
       if (rule.test instanceof RegExp && rule.test.test('.less')) {
-        const stylePath = path.join(process.cwd(), 'components', 'style');
-        const colorLess = fs.readFileSync(path.join(stylePath, 'color', 'colors.less'), 'utf8');
-        const defaultLess = fs.readFileSync(path.join(stylePath, 'themes', 'default.less'), 'utf8');
-        const darkLess = fs.readFileSync(path.join(stylePath, 'themes', 'dark.less'), 'utf8');
-
-        rule.use[rule.use.length - 1].options.modifyVars = lessToJs(
-          `${colorLess}${defaultLess}${darkLess}`,
-          {
-            stripPrefix: true,
-            resolveVariables: false,
-          },
-        );
+        rule.use[rule.use.length - 1].options.modifyVars = darkVars;
       }
     });
 
