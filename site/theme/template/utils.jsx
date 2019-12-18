@@ -11,7 +11,7 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
       menuItems.push(meta);
     } else {
       const category = meta.category[locale] || meta.category;
-      let group = menuItems.filter(i => i.title === category)[0];
+      let group = menuItems.find(i => i.title === category);
       if (!group) {
         group = {
           type: 'category',
@@ -22,7 +22,7 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
         menuItems.push(group);
       }
       if (meta.type) {
-        let type = group.children.filter(i => i.title === meta.type)[0];
+        let type = group.children.find(i => i.title === meta.type);
         if (!type) {
           type = {
             type: 'type',

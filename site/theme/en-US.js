@@ -3,8 +3,7 @@ module.exports = {
   messages: {
     'app.header.search': 'Search...',
     'app.header.menu.home': 'Home',
-    'app.header.menu.practice': 'Practice',
-    'app.header.menu.pattern': 'Patterns',
+    'app.header.menu.documentation': 'Documentation',
     'app.header.menu.components': 'Components',
     'app.header.menu.spec': 'Guidelines',
     'app.header.menu.resource': 'Resources',

@@ -176,6 +176,11 @@ class Header extends React.Component {
         </Menu.Item>
         <Menu.Item key="docs/react">
           <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+            <FormattedMessage id="app.header.menu.documentation" />
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="docs/components">
+          <Link to={utils.getLocalizedPathname('/components/button/', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
