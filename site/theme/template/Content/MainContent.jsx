@@ -25,11 +25,18 @@ function getModuleData(props) {
         .filter(item => item)
         .slice(0, 2)
         .join('/');
-  const moduleData = moduleName === 'components'
-      ? props.picked.components
-      : [...props.picked['docs/react'], ...props.picked.changelog];
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
-  return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
+  let data;
+  switch (moduleName) {
+    case 'docs/react':
+    case 'changelog':
+    case 'changelog-cn':
+      data = [...props.picked['docs/react'], ...props.picked.changelog];
+      break;
+    default:
+      data = props.picked[moduleName];
+  }
+  return data.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
 }
 
 function fileNameToPath(filename) {
