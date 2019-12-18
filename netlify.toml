@@ -1,6 +1,6 @@
 [build]
   publish = "_site"
-  command = "npm run site"
+  command = "npm run compile && npm run dist && npm run site"
 
 [[redirects]]
   from = "/docs/resource/download"
