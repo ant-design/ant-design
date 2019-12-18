@@ -290,7 +290,7 @@ class MainContent extends Component {
   };
 
   render() {
-    const { isMobile, theme, setTheme } = this.context;
+    const { isMobile, theme } = this.context;
     const { openKeys } = this.state;
     const { localizedPageData, demos } = this.props;
     const activeMenuItem = this.getActiveMenuItem();
@@ -333,7 +333,7 @@ class MainContent extends Component {
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
             <section className={mainContainerClass}>
               {demos ? (
-                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} />
+                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} theme={theme} />
               ) : (
                 <Article {...this.props} content={localizedPageData} />
               )}

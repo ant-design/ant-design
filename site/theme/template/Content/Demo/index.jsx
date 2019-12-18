@@ -1,6 +1,7 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
@@ -37,11 +38,12 @@ class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipVisible } = this.state;
-    const { expand } = this.props;
+    const { expand, theme } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
-      copyTooltipVisible !== nextState.copyTooltipVisible
+      copyTooltipVisible !== nextState.copyTooltipVisible ||
+      nextProps.theme !== theme
     );
   }
 
@@ -114,6 +116,7 @@ class Demo extends React.Component {
       expand,
       utils,
       intl: { locale },
+      theme,
     } = props;
     const { copied, copyTooltipVisible } = state;
     if (!this.liveDemo) {
@@ -225,7 +228,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
       },
     };
     return (
-      <section className={codeBoxClass} id={meta.id}>
+      <section className={codeBoxClass} id={meta.id} data-theme={theme}>
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
           {style ? (

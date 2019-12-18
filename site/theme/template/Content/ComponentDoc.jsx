@@ -26,15 +26,16 @@ class ComponentDoc extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { location } = this.props;
-    const { location: nextLocation } = nextProps;
+    const { location, theme } = this.props;
+    const { location: nextLocation, theme: nextTheme } = nextProps;
     const { expandAll, showRiddleButton } = this.state;
     const { expandAll: nextExpandAll, showRiddleButton: nextShowRiddleButton } = nextState;
 
     if (
       nextLocation.pathname === location.pathname &&
       expandAll === nextExpandAll &&
-      showRiddleButton === nextShowRiddleButton
+      showRiddleButton === nextShowRiddleButton &&
+      theme === nextTheme
     ) {
       return false;
     }
@@ -58,6 +59,7 @@ class ComponentDoc extends React.Component {
       location,
       intl: { locale },
       utils,
+      theme,
       demos,
     } = this.props;
     const { content, meta } = doc;
@@ -80,6 +82,7 @@ class ComponentDoc extends React.Component {
             utils={utils}
             expand={expandAll}
             location={location}
+            theme={theme}
           />
         );
         if (index % 2 === 0 || isSingleCol) {

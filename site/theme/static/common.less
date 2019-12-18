@@ -125,10 +125,6 @@ a {
   width: 100%;
   padding: 0;
   overflow: hidden;
-  &.page-theme-dark {
-    @import (inline) '../../../components/style/dark.less';
-    @import (less) '../../../dist/antd.dark.css';
-  }
 }
 
 .drawer-content {
@@ -156,4 +152,9 @@ a {
   & > div {
     display: block;
   }
+}
+
+[data-theme='dark'] {
+  @import (inline) '../../../components/style/dark.less';
+  @import (less) '../../../dist/antd.dark.css';
 }
