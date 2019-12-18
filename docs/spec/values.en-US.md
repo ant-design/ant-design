@@ -15,7 +15,7 @@ Here is our design values:
 ## Nature
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/cdaxgaTMQCGTqjdlwwgt.png" alt="Nature" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*C3v0SacCpwoAAAAAAAAAAABkARQnAQ" alt="Nature" />
 </div>
 
 As a part of nature, it will have deep influence on user behavior, and designers should draw inspiration from it and apply it to our daily design work. We have started exploring and will pursue nature as our future direction.
@@ -26,7 +26,7 @@ As a part of nature, it will have deep influence on user behavior, and designers
 ## Certainty
 
 <div>
-  <img src="https://gw.alipayobjects.com/zos/rmsportal/ZxgRAMzXNrxHTcvMLchq.png" alt="Certainty" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wtMAQ6uIcykAAAAAAAAAAABkARQnAQ" alt="Certainty" />
 </div>
 
 The designers needs to make better design decisions and create a high-definition and low-entropy atmosphere for developer team. Meanwhile, different designers could produce the same design output which fit business needs based on the same understanding of business requirements and design system.
@@ -34,3 +34,15 @@ The designers needs to make better design decisions and create a high-definition
 - **Keep restraint:** Don't make decision until we have to. Designers should focus on the valuable product features using minimal design elements to express. As Antoine de St.Exupery said: [“Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.”](https://www.goodreads.com/quotes/19905-perfection-is-achieved-not-when-there-is-nothing-more-to)
 - **Object-oriented:** Explore design rules and abstract them as "objects" to enhance the flexibility and maintainability of user interface design while reducing designer's subjective judgement and uncertainty of real world system. For example: color value conversion, spacing typesetting.
 - **Modular:** Encapsulate the complex or reusable parts could provide limited interfaces to interact with other modules, ultimately reducing overall system complexity, resulting in better reliability and maintainability. Designers can use existed resources or abstract their own reusable resources, save unnecessary and low additional design to keep their focus on where creativity most needed.
+
+## Meaningful
+
+<div>
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xxdeTamP0fcAAAAAAAAAAABkARQnAQ" alt="Meaningful" />
+</div>
+
+## Growth
+
+<div>
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mDUiSZi59f8AAAAAAAAAAABkARQnAQ" alt="Growth" />
+</div>

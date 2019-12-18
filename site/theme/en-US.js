@@ -38,7 +38,7 @@ module.exports = {
     'app.home.certainty': 'Certainty',
     'app.home.meaningful': 'Meaningful',
     'app.home.growth': 'Growth',
-    'app.home.natural': 'Natural',
+    'app.home.natural': 'Nature',
     'app.home.design-guide': 'Design guide',
     'app.home.components': 'components',
     'app.home.detail': 'Detail',
