@@ -60,6 +60,9 @@ const Demo = () => {
       <Form.Item name={['user', 'introduction']} label="Introduction">
         <Input.TextArea placeholder="Please input" />
       </Form.Item>
+      <Form.Item name={['user', 'miscellaneous']} label="Miscellaneous">
+        <Input.TextArea placeholder="Please input" autoSize />
+      </Form.Item>
       <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
         <Button type="primary" htmlType="submit">
           Submit

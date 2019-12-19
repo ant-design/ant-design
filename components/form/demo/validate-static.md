@@ -71,8 +71,13 @@ ReactDOM.render(
       <Popover
         placement="topLeft"
         content={
-          <p>
-            some important help tips, the content can config <a>link</a>
+          <p style={{ maxWidth: 312 }}>
+            a help description. The text width is limited to 312px, no more than two lines are
+            allowed.{' '}
+            <a href="#" target="_blank" rel="noopener noreferrer">
+              Link
+            </a>
+            .
           </p>
         }
         title={null}

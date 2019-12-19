@@ -172,7 +172,10 @@ const RegistrationForm = () => {
         label={
           <span>
             Nickname&nbsp;
-            <Popover title="What do you want others to call you?">
+            <Popover
+              title={null}
+              content={<p style={{ maxWidth: 312 }}>What do you want others to call you?</p>}
+            >
               <QuestionCircleOutlined />
             </Popover>
           </span>
@@ -194,7 +197,26 @@ const RegistrationForm = () => {
 
       <Form.Item
         name="phone"
-        label="Phone Number"
+        label={
+          <span>
+            Phone Number&nbsp;
+            <Popover
+              title={null}
+              content={
+                <p style={{ maxWidth: 312 }}>
+                  a help description. The text width is limited to 312px, no more than two lines are
+                  allowed.{' '}
+                  <a href="#" target="_blank" rel="noopener noreferrer">
+                    Link
+                  </a>
+                  .
+                </p>
+              }
+            >
+              <QuestionCircleOutlined />
+            </Popover>
+          </span>
+        }
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
         <Input placeholder="Please input" addonBefore={prefixSelector} style={{ width: '100%' }} />
