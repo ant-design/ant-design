@@ -100,6 +100,7 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   handleIconClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     this.setVisible(false, e);
   };
 
