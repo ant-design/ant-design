@@ -40,7 +40,7 @@ Tree selection control.
 | suffixIcon | The custom suffix icon | ReactNode | - | 3.10.0 |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
-| treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array\<{ value, title, children, \[disabled, disableCheckbox, selectable] }> | \[] |  |
+| treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array\<{ value, title, children, \[disabled, disableCheckbox, checkable] }> | \[] |  |
 | treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: \[{id:1, pId:0, value:'1', title:"test1",...},...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | false\|object\<{ id: string, pId: string, rootPId: string }> | false |  |
 | treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false |  |
 | treeDefaultExpandedKeys | Default expanded treeNodes | string\[] | - |  |
@@ -66,7 +66,7 @@ Tree selection control.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| selectable | can be selected | boolean | true | 3.9.3 |
+| checkable | can be checked | boolean | true | 3.9.3 |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disabled or not | boolean | false |  |
 | isLeaf | Leaf node or not | boolean | false |  |
