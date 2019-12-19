@@ -248,14 +248,14 @@
 
     //select
     .@{ant-prefix}-select {
-      &-selection {
+      .@{ant-prefix}-select-selector {
         border-color: @warning-color;
         &:hover {
           border-color: @warning-color;
         }
       }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@warning-color);
       }
     }
@@ -289,14 +289,14 @@
 
     //select
     .@{ant-prefix}-select {
-      &-selection {
+      .@{ant-prefix}-select-selector {
         border-color: @error-color;
         &:hover {
           border-color: @error-color;
         }
       }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@error-color);
       }
     }
@@ -308,7 +308,7 @@
     }
 
     .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
-      &-selection {
+      &-selector {
         border-color: transparent;
         box-shadow: none;
       }
