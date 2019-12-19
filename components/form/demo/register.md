@@ -173,10 +173,7 @@ const RegistrationForm = () => {
           <span>
             Nickname&nbsp;
             <Popover title={null} content="What do you want others to call you?">
-              <QuestionCircleOutlined
-                style={{ transition: 'color .3s', cursor: 'pointer' }}
-                className="form-label-tip"
-              />
+              <QuestionCircleOutlined />
             </Popover>
           </span>
         }
@@ -197,7 +194,24 @@ const RegistrationForm = () => {
 
       <Form.Item
         name="phone"
-        label="Phone Number"
+        label={
+          <span>
+            Phone Number&nbsp;
+            <Popover
+              title={null}
+              content={
+                <span>
+                  Your home phone,{' '}
+                  <a target="_blank" rel="noopener noreferrer" href="#">
+                    country calling codes
+                  </a>
+                </span>
+              }
+            >
+              <QuestionCircleOutlined />
+            </Popover>
+          </span>
+        }
         rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
