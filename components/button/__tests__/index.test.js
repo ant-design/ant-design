@@ -233,4 +233,15 @@ describe('Button', () => {
       wrapper.unmount();
     }).not.toThrow();
   });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Button type="primary" icon="ab" />);
+    expect(warnSpy).not.toHaveBeenCalled();
+    mount(<Button type="primary" icon="search" />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Button] \`icon\` is using ReactNode instead of string naming in v4. Please check \`search\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
+  });
 });

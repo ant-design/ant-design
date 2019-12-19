@@ -12,7 +12,6 @@
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 @form-font-height: ceil(@font-size-base * @line-height-base);
-@form-label-margin-top: floor((@input-height-base - @form-font-height) / 2);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -20,7 +19,6 @@
 
   .@{form-prefix-cls}-text {
     display: inline-block;
-    margin-top: @form-label-margin-top;
     padding-right: 8px;
   }
 }
@@ -54,8 +52,11 @@
 
     > label {
       position: relative;
-      display: inline-block;
-      margin-top: @form-label-margin-top;
+      // display: inline;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      max-height: @input-height-base;
       color: @label-color;
 
       > .@{iconfont-css-prefix} {
@@ -247,14 +248,14 @@
 
     //select
     .@{ant-prefix}-select {
-      &-selection {
+      .@{ant-prefix}-select-selector {
         border-color: @warning-color;
         &:hover {
           border-color: @warning-color;
         }
       }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@warning-color);
       }
     }
@@ -288,14 +289,14 @@
 
     //select
     .@{ant-prefix}-select {
-      &-selection {
+      .@{ant-prefix}-select-selector {
         border-color: @error-color;
         &:hover {
           border-color: @error-color;
         }
       }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@error-color);
       }
     }
@@ -307,7 +308,7 @@
     }
 
     .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
-      &-selection {
+      &-selector {
         border-color: transparent;
         box-shadow: none;
       }

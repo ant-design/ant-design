@@ -10,6 +10,7 @@ import Group from './button-group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -230,6 +231,12 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       ...rest
     } = this.props;
     const { loading, hasTwoCNChar } = this.state;
+
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'Button',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
 
     const prefixCls = getPrefixCls('btn', customizePrefixCls);
     const autoInsertSpace = autoInsertSpaceInButton !== false;
