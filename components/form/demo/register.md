@@ -173,7 +173,10 @@ const RegistrationForm = () => {
           <span>
             Nickname&nbsp;
             <Popover title={null} content="What do you want others to call you?">
-              <QuestionCircleOutlined className="form-label-tip" />
+              <QuestionCircleOutlined
+                style={{ transition: 'color .3s', cursor: 'pointer' }}
+                className="form-label-tip"
+              />
             </Popover>
           </span>
         }
@@ -243,12 +246,3 @@ const RegistrationForm = () => {
 
 ReactDOM.render(<RegistrationForm />, mountNode);
 ```
-
-<style>
-  .form-label-tip {
-    transition: color .3s;
-  }
-  .form-label-tip:hover {
-    color: #1890ff;
-  }
-</style>
