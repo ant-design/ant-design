@@ -39,6 +39,16 @@ describe('Tag', () => {
     expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
   });
 
+  // https://github.com/ant-design/ant-design/issues/20344
+  it('should not trigger onClick when click close icon', () => {
+    const onClose = jest.fn();
+    const onClick = jest.fn();
+    const wrapper = mount(<Tag closable onClose={onClose} onClick={onClick} />);
+    wrapper.find('.anticon-close').simulate('click');
+    expect(onClose).toHaveBeenCalled();
+    expect(onClick).not.toHaveBeenCalled();
+  });
+
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
       const wrapper = mount(<Tag visible />);
