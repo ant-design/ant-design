@@ -675,9 +675,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                <span
-                  aria-hidden="true"
-                >
+                <span>
                   [ITEM]
                 </span>
               </mark>
@@ -691,9 +689,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                <span
-                  aria-hidden="true"
-                >
+                <span>
                   [ITEM]
                 </span>
               </mark>
@@ -707,9 +703,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                <span
-                  aria-hidden="true"
-                >
+                <span>
                   [ITEM]
                 </span>
               </mark>
@@ -723,9 +717,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                <span
-                  aria-hidden="true"
-                >
+                <span>
                   [ITEM]
                 </span>
               </mark>
@@ -739,9 +731,7 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
               class="ant-typography"
             >
               <mark>
-                <span
-                  aria-hidden="true"
-                >
+                <span>
                   [ITEM]
                 </span>
               </mark>

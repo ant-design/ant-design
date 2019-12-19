@@ -439,7 +439,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       );
     } else {
       textNode = (
-        <span aria-hidden="true">
+        <span>
           {children}
           {suffix}
         </span>

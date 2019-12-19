@@ -1117,17 +1117,13 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
       <div
         class="ant-typography"
       >
-        <span
-          aria-hidden="true"
-        >
+        <span>
           <span
             class="ant-typography"
             style="font-size:16px"
           >
             <strong>
-              <span
-                aria-hidden="true"
-              >
+              <span>
                 The content you submitted has the following error:
               </span>
             </strong>
@@ -1137,9 +1133,7 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
       <div
         class="ant-typography"
       >
-        <span
-          aria-hidden="true"
-        >
+        <span>
           <span
             aria-label="close-circle"
             class="anticon anticon-close-circle"
@@ -1173,9 +1167,7 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
       <div
         class="ant-typography"
       >
-        <span
-          aria-hidden="true"
-        >
+        <span>
           <span
             aria-label="close-circle"
             class="anticon anticon-close-circle"

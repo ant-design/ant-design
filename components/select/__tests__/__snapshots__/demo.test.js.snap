@@ -303,18 +303,14 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
   <h3
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design 4.0
     </span>
   </h3>
   <h4
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       100000 Items
     </span>
   </h4>
@@ -402,9 +398,7 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
   <h3
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design 3.0
     </span>
   </h3>

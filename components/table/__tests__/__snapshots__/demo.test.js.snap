@@ -12354,9 +12354,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                     <span
                       class="ant-typography ant-typography-danger"
                     >
-                      <span
-                        aria-hidden="true"
-                      >
+                      <span>
                         195
                       </span>
                     </span>
@@ -12365,9 +12363,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                     <span
                       class="ant-typography"
                     >
-                      <span
-                        aria-hidden="true"
-                      >
+                      <span>
                         88
                       </span>
                     </span>
@@ -12383,9 +12379,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                     <span
                       class="ant-typography ant-typography-danger"
                     >
-                      <span
-                        aria-hidden="true"
-                      >
+                      <span>
                         107
                       </span>
                     </span>

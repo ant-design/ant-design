@@ -7,35 +7,27 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <h1
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Introduction
     </span>
   </h1>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     </span>
   </div>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
       <span
         class="ant-typography"
       >
         <strong>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
           </span>
         </strong>
@@ -46,26 +38,20 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <h2
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Guidelines and Resources
     </span>
   </h2>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       We supply a series of design principles, practical patterns and high quality design resources (
       <span
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Sketch
           </span>
         </code>
@@ -75,9 +61,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Axure
           </span>
         </code>
@@ -88,9 +72,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       <ul>
         <li>
           <a
@@ -123,35 +105,27 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <h1
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       介绍
     </span>
   </h1>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
     </span>
   </div>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
       <span
         class="ant-typography"
       >
         <mark>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             『确定』和『自然』
           </span>
         </mark>
@@ -161,9 +135,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         class="ant-typography"
       >
         <strong>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             更好的用户体验
           </span>
         </strong>
@@ -174,26 +146,20 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <h2
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       设计资源
     </span>
   </h2>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       我们提供完善的设计原则、最佳实践和设计资源文件（
       <span
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Sketch
           </span>
         </code>
@@ -203,9 +169,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Axure
           </span>
         </code>
@@ -216,9 +180,7 @@ exports[`renders ./components/typography/demo/basic.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       <ul>
         <li>
           <a
@@ -252,18 +214,14 @@ exports[`renders ./components/typography/demo/ellipsis.md correctly 1`] = `
   <div
     class="ant-typography ant-typography-ellipsis"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
     </span>
   </div>
   <div
     class="ant-typography ant-typography-ellipsis"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team.
     </span>
   </div>
@@ -345,9 +303,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
   <div
     class="ant-typography ant-typography-ellipsis"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design, a design language for background applications, is refined by Ant UED Team. This is a nest sample 
       <span
         class="ant-typography"
@@ -355,9 +311,7 @@ exports[`renders ./components/typography/demo/ellipsis-debug.md correctly 1`] = 
         <code>
           <del>
             <strong>
-              <span
-                aria-hidden="true"
-              >
+              <span>
                 Test
               </span>
             </strong>
@@ -375,9 +329,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       This is an editable text.
     </span>
     <div
@@ -412,9 +364,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       This is a copyable text.
     </span>
     <div
@@ -449,9 +399,7 @@ exports[`renders ./components/typography/demo/interactive.md correctly 1`] = `
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Replace copy text.
     </span>
     <div
@@ -491,35 +439,27 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
   <h1
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Introduction
     </span>
   </h1>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
     </span>
   </div>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to
       <span
         class="ant-typography"
       >
         <strong>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development
           </span>
         </strong>
@@ -530,26 +470,20 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
   <h2
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Guidelines and Resources
     </span>
   </h2>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       We supply a series of design principles, practical patterns and high quality design resources (
       <span
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Sketch
           </span>
         </code>
@@ -559,9 +493,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Axure
           </span>
         </code>
@@ -572,9 +504,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       <ul>
         <li>
           <a
@@ -604,35 +534,27 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
     class="ant-typography"
     id="intro"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       介绍
     </span>
   </h1>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂，而且变动和并发频繁，常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件，可以通过抽象得到一些稳定且高复用性的内容。
     </span>
   </div>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       随着商业化的趋势，越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标，我们（蚂蚁金服体验技术部）经过大量的项目实践和总结，逐步打磨出一个服务于企业级产品的设计体系 Ant Design。基于
       <span
         class="ant-typography"
       >
         <mark>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             『确定』和『自然』
           </span>
         </mark>
@@ -642,9 +564,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         class="ant-typography"
       >
         <strong>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             更好的用户体验
           </span>
         </strong>
@@ -655,26 +575,20 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
   <h2
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       设计资源
     </span>
   </h2>
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       我们提供完善的设计原则、最佳实践和设计资源文件（
       <span
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Sketch
           </span>
         </code>
@@ -684,9 +598,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
         class="ant-typography"
       >
         <code>
-          <span
-            aria-hidden="true"
-          >
+          <span>
             Axure
           </span>
         </code>
@@ -697,9 +609,7 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
   <div
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       <ul>
         <li>
           <a
@@ -760,9 +670,7 @@ exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
   <div
     class="ant-typography ant-typography-ellipsis"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune--William Shakespeare
     </span>
   </div>
@@ -774,9 +682,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   <span
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design
     </span>
   </span>
@@ -784,9 +690,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   <span
     class="ant-typography ant-typography-secondary"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design
     </span>
   </span>
@@ -794,9 +698,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   <span
     class="ant-typography ant-typography-warning"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design
     </span>
   </span>
@@ -804,9 +706,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   <span
     class="ant-typography ant-typography-danger"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design
     </span>
   </span>
@@ -814,9 +714,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
   <span
     class="ant-typography ant-typography-disabled"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design
     </span>
   </span>
@@ -825,9 +723,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <mark>
-      <span
-        aria-hidden="true"
-      >
+      <span>
         Ant Design
       </span>
     </mark>
@@ -837,9 +733,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <code>
-      <span
-        aria-hidden="true"
-      >
+      <span>
         Ant Design
       </span>
     </code>
@@ -849,9 +743,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <u>
-      <span
-        aria-hidden="true"
-      >
+      <span>
         Ant Design
       </span>
     </u>
@@ -861,9 +753,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <del>
-      <span
-        aria-hidden="true"
-      >
+      <span>
         Ant Design
       </span>
     </del>
@@ -873,9 +763,7 @@ exports[`renders ./components/typography/demo/text.md correctly 1`] = `
     class="ant-typography"
   >
     <strong>
-      <span
-        aria-hidden="true"
-      >
+      <span>
         Ant Design
       </span>
     </strong>
@@ -888,36 +776,28 @@ exports[`renders ./components/typography/demo/title.md correctly 1`] = `
   <h1
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       h1. Ant Design
     </span>
   </h1>
   <h2
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       h2. Ant Design
     </span>
   </h2>
   <h3
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       h3. Ant Design
     </span>
   </h3>
   <h4
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       h4. Ant Design
     </span>
   </h4>

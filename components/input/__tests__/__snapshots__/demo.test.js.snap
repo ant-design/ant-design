@@ -244,9 +244,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
   <span
     class="ant-typography"
   >
-    <span
-      aria-hidden="true"
-    >
+    <span>
       Ant Design
     </span>
     <div

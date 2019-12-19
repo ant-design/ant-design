@@ -1104,9 +1104,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
           <span
             class="ant-typography ant-form-text ant-typography-secondary"
           >
-            <span
-              aria-hidden="true"
-            >
+            <span>
               ( 
               <span
                 aria-label="smile"
