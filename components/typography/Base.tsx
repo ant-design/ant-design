@@ -439,10 +439,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       );
     } else {
       textNode = (
-        <React.Fragment>
+        <>
           {children}
           {suffix}
-        </React.Fragment>
+        </>
       );
     }
 
