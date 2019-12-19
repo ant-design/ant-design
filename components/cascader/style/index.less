@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 
@@ -8,12 +8,15 @@
   .reset-component;
 
   &-input.@{ant-prefix}-input {
+    // Keep it static for https://github.com/ant-design/ant-design/issues/16738
+    position: static;
+    width: 100%;
+    // https://github.com/ant-design/ant-design/issues/17582
+    padding-right: 24px;
     // Add important to fix https://github.com/ant-design/ant-design/issues/5078
     // because input.less will compile after cascader.less
     background-color: transparent !important;
     cursor: pointer;
-    width: 100%;
-    position: relative;
   }
 
   &-picker-show-search &-input.@{ant-prefix}-input {
@@ -22,12 +25,13 @@
 
   &-picker {
     .reset-component;
+
     position: relative;
     display: inline-block;
-    cursor: pointer;
     background-color: @component-background;
     border-radius: @border-radius-base;
     outline: 0;
+    cursor: pointer;
     transition: color 0.3s;
 
     &-with-value &-label {
@@ -35,9 +39,9 @@
     }
 
     &-disabled {
-      cursor: not-allowed;
-      background: @input-disabled-bg;
       color: @disabled-color;
+      background: @input-disabled-bg;
+      cursor: not-allowed;
       .@{cascader-prefix-cls}-input {
         cursor: not-allowed;
       }
@@ -53,32 +57,32 @@
 
     &-label {
       position: absolute;
-      left: 0;
-      height: 20px;
-      line-height: 20px;
       top: 50%;
+      left: 0;
+      width: 100%;
+      height: 20px;
       margin-top: -10px;
+      padding: 0 20px 0 @control-padding-horizontal;
+      overflow: hidden;
+      line-height: 20px;
       white-space: nowrap;
       text-overflow: ellipsis;
-      overflow: hidden;
-      width: 100%;
-      padding: 0 @control-padding-horizontal;
     }
 
     &-clear {
-      opacity: 0;
       position: absolute;
+      top: 50%;
       right: @control-padding-horizontal;
       z-index: 2;
-      background: @component-background;
-      top: 50%;
-      font-size: @font-size-sm;
-      color: @disabled-color;
       width: 12px;
       height: 12px;
       margin-top: -6px;
+      color: @disabled-color;
+      font-size: @font-size-sm;
       line-height: 12px;
+      background: @component-background;
       cursor: pointer;
+      opacity: 0;
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
         color: @text-color-secondary;
@@ -92,20 +96,25 @@
     // arrow
     &-arrow {
       position: absolute;
-      z-index: 1;
       top: 50%;
       right: @control-padding-horizontal;
+      z-index: 1;
       width: 12px;
       height: 12px;
-      font-size: 12px;
       margin-top: -6px;
-      line-height: 12px;
       color: @disabled-color;
+      font-size: 12px;
+      line-height: 12px;
       transition: transform 0.2s;
       &&-expand {
         transform: rotate(180deg);
       }
     }
+  }
+
+  // https://github.com/ant-design/ant-design/pull/12407#issuecomment-424657810
+  &-picker-label:hover + &-input {
+    .hover;
   }
 
   &-picker-small &-picker-clear,
@@ -114,19 +123,18 @@
   }
 
   &-menus {
-    font-size: @font-size-base;
-    background: @component-background;
     position: absolute;
     z-index: @zindex-dropdown;
+    font-size: @cascader-dropdown-font-size;
+    white-space: nowrap;
+    background: @component-background;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
-    white-space: nowrap;
 
     ul,
     ol {
-      list-style: none;
       margin: 0;
-      padding: 0;
+      list-style: none;
     }
 
     &-empty,
@@ -153,22 +161,22 @@
   }
   &-menu {
     display: inline-block;
-    vertical-align: top;
     min-width: 111px;
     height: 180px;
-    list-style: none;
     margin: 0;
-    padding: 0;
-    border-right: @border-width-base @border-style-base @border-color-split;
+    padding: @cascader-dropdown-edge-child-vertical-padding 0;
     overflow: auto;
+    vertical-align: top;
+    list-style: none;
+    border-right: @border-width-base @border-style-base @border-color-split;
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
     &:first-child {
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
     &:last-child {
-      border-right-color: transparent;
       margin-right: -1px;
+      border-right-color: transparent;
       border-radius: 0 @border-radius-base @border-radius-base 0;
     }
     &:only-child {
@@ -176,17 +184,17 @@
     }
   }
   &-menu-item {
-    padding: 5px @control-padding-horizontal;
-    line-height: 22px;
-    cursor: pointer;
+    padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
+    line-height: @cascader-dropdown-line-height;
     white-space: nowrap;
+    cursor: pointer;
     transition: all 0.3s;
     &:hover {
       background: @item-hover-bg;
     }
     &-disabled {
-      cursor: not-allowed;
       color: @disabled-color;
+      cursor: not-allowed;
       &:hover {
         background: transparent;
       }
@@ -194,8 +202,8 @@
     &-active:not(&-disabled) {
       &,
       &:hover {
-        background: @background-color-base;
-        font-weight: 600;
+        font-weight: @select-item-selected-font-weight;
+        background-color: @background-color-light;
       }
     }
     &-expand {
@@ -204,11 +212,12 @@
     }
 
     &-expand &-expand-icon,
-    &-expand &-loading-icon {
+    &-loading-icon {
       .iconfont-size-under-12px(10px);
-      color: @text-color-secondary;
+
       position: absolute;
       right: @control-padding-horizontal;
+      color: @text-color-secondary;
     }
 
     & &-keyword {

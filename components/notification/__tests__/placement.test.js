@@ -28,126 +28,157 @@ describe('Notification.placement', () => {
     open();
   }
 
-  it('change notification placement by `open` method', () => {
-    const defaultTop = '24px';
-    const defaultBottom = '24px';
-    let style;
+  describe('placement', () => {
+    it('can be configured per notification using the `open` method', () => {
+      const defaultTop = '24px';
+      const defaultBottom = '24px';
+      let style;
 
-    // topLeft
-    open({
-      placement: 'topLeft',
-    });
-    style = getStyle($$('.ant-notification-topLeft')[0]);
-    expect(style.top).toBe(defaultTop);
-    expect(style.left).toBe('0px');
-    expect(style.bottom).toBe('');
+      // topLeft
+      open({
+        placement: 'topLeft',
+        top: 50,
+      });
+      style = getStyle($$('.ant-notification-topLeft')[0]);
+      expect(style.top).toBe('50px');
+      expect(style.left).toBe('0px');
+      expect(style.bottom).toBe('');
 
-    open({
-      placement: 'topLeft',
-    });
-    expect($$('.ant-notification-topLeft').length).toBe(1);
+      open({
+        placement: 'topLeft',
+      });
+      expect($$('.ant-notification-topLeft').length).toBe(1);
 
-    // topRight
-    open({
-      placement: 'topRight',
-    });
-    style = getStyle($$('.ant-notification-topRight')[0]);
-    expect(style.top).toBe(defaultTop);
-    expect(style.right).toBe('0px');
-    expect(style.bottom).toBe('');
+      // topRight
+      open({
+        placement: 'topRight',
+      });
+      style = getStyle($$('.ant-notification-topRight')[0]);
+      expect(style.top).toBe(defaultTop);
+      expect(style.right).toBe('0px');
+      expect(style.bottom).toBe('');
 
-    open({
-      placement: 'topRight',
-    });
-    expect($$('.ant-notification-topRight').length).toBe(1);
+      open({
+        placement: 'topRight',
+      });
+      expect($$('.ant-notification-topRight').length).toBe(1);
 
-    // bottomRight
-    open({
-      placement: 'bottomRight',
-    });
-    style = getStyle($$('.ant-notification-bottomRight')[0]);
-    expect(style.top).toBe('');
-    expect(style.right).toBe('0px');
-    expect(style.bottom).toBe(defaultBottom);
+      // bottomRight
+      open({
+        placement: 'bottomRight',
+        bottom: 100,
+      });
+      style = getStyle($$('.ant-notification-bottomRight')[0]);
+      expect(style.top).toBe('');
+      expect(style.right).toBe('0px');
+      expect(style.bottom).toBe('100px');
 
-    open({
-      placement: 'bottomRight',
-    });
-    expect($$('.ant-notification-bottomRight').length).toBe(1);
+      open({
+        placement: 'bottomRight',
+      });
+      expect($$('.ant-notification-bottomRight').length).toBe(1);
 
-    // bottomLeft
-    open({
-      placement: 'bottomLeft',
-    });
-    style = getStyle($$('.ant-notification-bottomLeft')[0]);
-    expect(style.top).toBe('');
-    expect(style.left).toBe('0px');
-    expect(style.bottom).toBe(defaultBottom);
+      // bottomLeft
+      open({
+        placement: 'bottomLeft',
+      });
+      style = getStyle($$('.ant-notification-bottomLeft')[0]);
+      expect(style.top).toBe('');
+      expect(style.left).toBe('0px');
+      expect(style.bottom).toBe(defaultBottom);
 
-    open({
-      placement: 'bottomLeft',
+      open({
+        placement: 'bottomLeft',
+      });
+      expect($$('.ant-notification-bottomLeft').length).toBe(1);
     });
-    expect($$('.ant-notification-bottomLeft').length).toBe(1);
+
+    it('can be configured globally using the `config` method', () => {
+      let style;
+
+      // topLeft
+      config({
+        placement: 'topLeft',
+        top: 50,
+        bottom: 50,
+      });
+      style = getStyle($$('.ant-notification-topLeft')[0]);
+      expect(style.top).toBe('50px');
+      expect(style.left).toBe('0px');
+      expect(style.bottom).toBe('');
+
+      // topRight
+      config({
+        placement: 'topRight',
+        top: 100,
+        bottom: 50,
+      });
+      style = getStyle($$('.ant-notification-topRight')[0]);
+      expect(style.top).toBe('100px');
+      expect(style.right).toBe('0px');
+      expect(style.bottom).toBe('');
+
+      // bottomRight
+      config({
+        placement: 'bottomRight',
+        top: 50,
+        bottom: 100,
+      });
+      style = getStyle($$('.ant-notification-bottomRight')[0]);
+      expect(style.top).toBe('');
+      expect(style.right).toBe('0px');
+      expect(style.bottom).toBe('100px');
+
+      // bottomLeft
+      config({
+        placement: 'bottomLeft',
+        top: 100,
+        bottom: 50,
+      });
+      style = getStyle($$('.ant-notification-bottomLeft')[0]);
+      expect(style.top).toBe('');
+      expect(style.left).toBe('0px');
+      expect(style.bottom).toBe('50px');
+    });
   });
 
-  it('change notification placement by `config` method', () => {
-    let style;
-
-    // topLeft
-    config({
-      placement: 'topLeft',
-      top: 50,
-      bottom: 50,
-    });
-    style = getStyle($$('.ant-notification-topLeft')[0]);
-    expect(style.top).toBe('50px');
-    expect(style.left).toBe('0px');
-    expect(style.bottom).toBe('');
-
-    // topRight
-    config({
-      placement: 'topRight',
-      top: 100,
-      bottom: 50,
-    });
-    style = getStyle($$('.ant-notification-topRight')[0]);
-    expect(style.top).toBe('100px');
-    expect(style.right).toBe('0px');
-    expect(style.bottom).toBe('');
-
-    // bottomRight
-    config({
-      placement: 'bottomRight',
-      top: 50,
-      bottom: 100,
-    });
-    style = getStyle($$('.ant-notification-bottomRight')[0]);
-    expect(style.top).toBe('');
-    expect(style.right).toBe('0px');
-    expect(style.bottom).toBe('100px');
-
-    // bottomLeft
-    config({
-      placement: 'bottomLeft',
-      top: 100,
-      bottom: 50,
-    });
-    style = getStyle($$('.ant-notification-bottomLeft')[0]);
-    expect(style.top).toBe('');
-    expect(style.left).toBe('0px');
-    expect(style.bottom).toBe('50px');
-  });
-  it('change notification mountNode by `config` method', () => {
+  describe('mountNode', () => {
     const $container = document.createElement('div');
-    document.body.appendChild($container);
-    config({
-      top: 50,
-      bottom: 100,
-      getContainer() {
-        return $container;
-      },
+    beforeEach(() => {
+      document.body.appendChild($container);
     });
-    expect($container.querySelector('.ant-notification')).not.toBe(null);
-    $container.remove();
+    afterEach(() => {
+      $container.remove();
+    });
+
+    it('can be configured per notification using the `open` method', () => {
+      open({
+        getContainer: () => $container,
+      });
+      expect($container.querySelector('.ant-notification')).not.toBe(null);
+
+      notification.destroy();
+
+      setTimeout(() => {
+        // Upcoming notifications still use their default mountNode and not $container
+        open();
+        expect($container.querySelector('.ant-notification')).toBe(null);
+      });
+    });
+
+    it('can be configured globally using the `config` method', () => {
+      config({
+        getContainer: () => $container,
+      });
+      expect($container.querySelector('.ant-notification')).not.toBe(null);
+
+      notification.destroy();
+
+      setTimeout(() => {
+        // Upcoming notifications are mounted in $container
+        open();
+        expect($container.querySelector('.ant-notification')).not.toBe(null);
+      });
+    });
   });
 });

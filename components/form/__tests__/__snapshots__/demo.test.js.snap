@@ -10,14 +10,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       style="margin-left:-12px;margin-right:-12px"
     >
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -28,7 +28,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -51,14 +51,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -69,7 +69,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -92,14 +92,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -110,7 +110,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -133,14 +133,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -151,7 +151,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -174,14 +174,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -192,7 +192,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -215,14 +215,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:block"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -233,7 +233,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -256,14 +256,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -274,7 +274,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -297,14 +297,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -315,7 +315,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -338,14 +338,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -356,7 +356,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -379,14 +379,14 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-col-8"
+        class="ant-col ant-col-8"
         style="padding-left:12px;padding-right:12px;display:none"
       >
         <div
           class="ant-row ant-form-item"
         >
           <div
-            class="ant-form-item-label"
+            class="ant-col ant-form-item-label"
           >
             <label
               class="ant-form-item-required"
@@ -397,7 +397,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
             </label>
           </div>
           <div
-            class="ant-form-item-control-wrapper"
+            class="ant-col ant-form-item-control-wrapper"
           >
             <div
               class="ant-form-item-control"
@@ -424,7 +424,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
       class="ant-row"
     >
       <div
-        class="ant-col-24"
+        class="ant-col ant-col-24"
         style="text-align:right"
       >
         <button
@@ -449,6 +449,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
         >
           Collapse 
           <i
+            aria-label="icon: down"
             class="anticon anticon-down"
           >
             <svg
@@ -456,6 +457,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -485,7 +487,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-5 ant-form-item-label"
+      class="ant-col ant-col-5 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -496,7 +498,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-12 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -520,7 +522,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-5 ant-form-item-label"
+      class="ant-col ant-col-5 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -531,7 +533,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-12 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -572,6 +574,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -579,6 +582,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -599,7 +603,7 @@ exports[`renders ./components/form/demo/coordinated.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-12 ant-col-offset-5 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-col-offset-5 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -630,7 +634,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -641,7 +645,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -687,6 +691,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                   unselectable="on"
                 >
                   <i
+                    aria-label="icon: down"
                     class="anticon anticon-down ant-select-arrow-icon"
                   >
                     <svg
@@ -694,6 +699,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
                       class=""
                       data-icon="down"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -715,7 +721,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md correctly 1`
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -746,7 +752,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
     >
       <div
         class="ant-form-item-control"
@@ -760,6 +766,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
             type="button"
           >
             <i
+              aria-label="icon: plus"
               class="anticon anticon-plus"
             >
               <svg
@@ -767,12 +774,16 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
                 class=""
                 data-icon="plus"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
-                  d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
                 />
               </svg>
             </i>
@@ -788,7 +799,7 @@ exports[`renders ./components/form/demo/dynamic-form-item.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-20 ant-col-sm-offset-4"
     >
       <div
         class="ant-form-item-control"
@@ -817,7 +828,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-4 ant-form-item-label"
+      class="ant-col ant-col-4 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -828,7 +839,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -853,7 +864,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-4 ant-form-item-label"
+      class="ant-col ant-col-4 ant-form-item-label"
     >
       <label
         class=""
@@ -864,7 +875,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-8 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -889,7 +900,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -923,7 +934,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
+      class="ant-col ant-col-8 ant-col-offset-4 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -968,7 +979,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-form-item-label"
+        class="ant-col ant-form-item-label"
       >
         <label
           class="ant-form-item-required"
@@ -979,7 +990,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-form-item-control-wrapper"
+        class="ant-col ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control has-success"
@@ -1012,7 +1023,7 @@ exports[`renders ./components/form/demo/global-state.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
+exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
 <form
   class="ant-form ant-form-inline"
 >
@@ -1020,7 +1031,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1035,6 +1046,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
+                aria-label="icon: user"
                 class="anticon anticon-user"
                 style="color:rgba(0,0,0,.25)"
               >
@@ -1043,6 +1055,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
                   class=""
                   data-icon="user"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1057,7 +1070,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="horizontal_login_userName"
+              id="horizontal_login_username"
               placeholder="Username"
               type="text"
               value=""
@@ -1071,7 +1084,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1086,6 +1099,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
+                aria-label="icon: lock"
                 class="anticon anticon-lock"
                 style="color:rgba(0,0,0,.25)"
               >
@@ -1094,6 +1108,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
                   class=""
                   data-icon="lock"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1122,7 +1137,7 @@ exports[`renders ./components/form/demo/horizontal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1154,7 +1169,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-4 ant-form-item-label"
+        class="ant-col ant-col-4 ant-form-item-label"
       >
         <label
           class=""
@@ -1164,7 +1179,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1242,7 +1257,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-4 ant-form-item-label"
+        class="ant-col ant-col-4 ant-form-item-label"
       >
         <label
           class=""
@@ -1252,7 +1267,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1274,7 +1289,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-4 ant-form-item-label"
+        class="ant-col ant-col-4 ant-form-item-label"
       >
         <label
           class=""
@@ -1284,7 +1299,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         </label>
       </div>
       <div
-        class="ant-col-14 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1306,7 +1321,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col-14 ant-col-offset-4 ant-form-item-control-wrapper"
+        class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control-wrapper"
       >
         <div
           class="ant-form-item-control"
@@ -1338,7 +1353,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1353,6 +1368,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
+                aria-label="icon: user"
                 class="anticon anticon-user"
                 style="color:rgba(0,0,0,.25)"
               >
@@ -1361,6 +1377,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                   class=""
                   data-icon="user"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1375,7 +1392,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input"
               data-__field="[object Object]"
               data-__meta="[object Object]"
-              id="normal_login_userName"
+              id="normal_login_username"
               placeholder="Username"
               type="text"
               value=""
@@ -1389,7 +1406,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -1404,6 +1421,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               class="ant-input-prefix"
             >
               <i
+                aria-label="icon: lock"
                 class="anticon anticon-lock"
                 style="color:rgba(0,0,0,.25)"
               >
@@ -1412,6 +1430,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
                   class=""
                   data-icon="lock"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -1440,7 +1459,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -1505,7 +1524,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1516,7 +1535,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1540,7 +1559,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1551,7 +1570,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1559,14 +1578,46 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <input
-            class="ant-input"
-            data-__field="[object Object]"
-            data-__meta="[object Object]"
-            id="register_password"
-            type="password"
-            value=""
-          />
+          <span
+            class="ant-input-password ant-input-affix-wrapper"
+          >
+            <input
+              action="click"
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="register_password"
+              type="password"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <i
+                aria-label="icon: eye-invisible"
+                class="anticon anticon-eye-invisible ant-input-password-icon"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye-invisible"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+                  />
+                  <path
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
         </span>
       </div>
     </div>
@@ -1575,7 +1626,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1586,7 +1637,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1594,14 +1645,46 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <input
-            class="ant-input"
-            data-__field="[object Object]"
-            data-__meta="[object Object]"
-            id="register_confirm"
-            type="password"
-            value=""
-          />
+          <span
+            class="ant-input-password ant-input-affix-wrapper"
+          >
+            <input
+              action="click"
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="register_confirm"
+              type="password"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            >
+              <i
+                aria-label="icon: eye-invisible"
+                class="anticon anticon-eye-invisible ant-input-password-icon"
+                tabindex="-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="eye-invisible"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+                  />
+                  <path
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+                  />
+                </svg>
+              </i>
+            </span>
+          </span>
         </span>
       </div>
     </div>
@@ -1610,7 +1693,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1620,6 +1703,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <span>
           Nickname 
           <i
+            aria-label="icon: question-circle-o"
             class="anticon anticon-question-circle-o"
           >
             <svg
@@ -1627,6 +1711,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               class=""
               data-icon="question-circle"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1643,7 +1728,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1667,7 +1752,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1678,7 +1763,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control has-success"
@@ -1702,17 +1787,21 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               data-__meta="[object Object]"
               id="register_residence"
               readonly=""
+              tabindex="-1"
               type="text"
               value=""
             />
             <i
+              aria-label="icon: close-circle"
               class="anticon anticon-close-circle ant-cascader-picker-clear"
+              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1723,6 +1812,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               </svg>
             </i>
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-cascader-picker-arrow"
             >
               <svg
@@ -1730,6 +1820,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -1748,7 +1839,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1759,7 +1850,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1811,6 +1902,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                       unselectable="on"
                     >
                       <i
+                        aria-label="icon: down"
                         class="anticon anticon-down ant-select-arrow-icon"
                       >
                         <svg
@@ -1818,6 +1910,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                           class=""
                           data-icon="down"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -1849,7 +1942,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1860,7 +1953,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1920,6 +2013,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -1927,6 +2021,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -1947,7 +2042,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -1958,7 +2053,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -1971,7 +2066,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             style="margin-left:-4px;margin-right:-4px"
           >
             <div
-              class="ant-col-12"
+              class="ant-col ant-col-12"
               style="padding-left:4px;padding-right:4px"
             >
               <input
@@ -1984,7 +2079,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               />
             </div>
             <div
-              class="ant-col-12"
+              class="ant-col ant-col-12"
               style="padding-left:4px;padding-right:4px"
             >
               <button
@@ -2010,7 +2105,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
     >
       <div
         class="ant-form-item-control"
@@ -2052,7 +2147,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
     >
       <div
         class="ant-form-item-control"
@@ -2075,6 +2170,379 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
 </form>
 `;
 
+exports[`renders ./components/form/demo/style-check-debug.md correctly 1`] = `
+<div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      打 开
+    </span>
+  </button>
+  <form
+    class="ant-form ant-form-horizontal"
+  >
+    <div
+      class="ant-row"
+      style="margin-left:-8px;margin-right:-8px"
+    >
+      <div
+        class="ant-col ant-col-md-24 ant-col-lg-12"
+        style="padding-left:8px;padding-right:8px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-no-colon"
+              title="input:64.5px"
+            >
+              input:64.5px
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <input
+                  class="ant-input"
+                  type="text"
+                  value=""
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-md-24 ant-col-lg-12"
+        style="padding-left:8px;padding-right:8px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              title="select:64px"
+            >
+              select:64px
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <div
+                  class="ant-select ant-select-enabled"
+                >
+                  <div
+                    aria-autocomplete="list"
+                    aria-controls=""
+                    aria-expanded="false"
+                    aria-haspopup="true"
+                    class="ant-select-selection
+            ant-select-selection--single"
+                    role="combobox"
+                    tabindex="0"
+                  >
+                    <div
+                      class="ant-select-selection__rendered"
+                    />
+                    <span
+                      class="ant-select-arrow"
+                      style="user-select:none;-webkit-user-select:none"
+                      unselectable="on"
+                    >
+                      <i
+                        aria-label="icon: down"
+                        class="anticon anticon-down ant-select-arrow-icon"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </i>
+                    </span>
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-md-24 ant-col-lg-12"
+        style="padding-left:8px;padding-right:8px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              title="InputNumber:64px"
+            >
+              InputNumber:64px
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <div
+                  class="ant-input-number"
+                >
+                  <div
+                    class="ant-input-number-handler-wrap"
+                  >
+                    <span
+                      aria-disabled="false"
+                      aria-label="Increase Value"
+                      class="ant-input-number-handler ant-input-number-handler-up "
+                      role="button"
+                      unselectable="unselectable"
+                    >
+                      <i
+                        aria-label="icon: up"
+                        class="anticon anticon-up ant-input-number-handler-up-inner"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="up"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                          />
+                        </svg>
+                      </i>
+                    </span>
+                    <span
+                      aria-disabled="false"
+                      aria-label="Decrease Value"
+                      class="ant-input-number-handler ant-input-number-handler-down "
+                      role="button"
+                      unselectable="unselectable"
+                    >
+                      <i
+                        aria-label="icon: down"
+                        class="anticon anticon-down ant-input-number-handler-down-inner"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </i>
+                    </span>
+                  </div>
+                  <div
+                    class="ant-input-number-input-wrap"
+                  >
+                    <input
+                      aria-valuemin="-9007199254740991"
+                      autocomplete="off"
+                      class="ant-input-number-input"
+                      min="-9007199254740991"
+                      role="spinbutton"
+                      step="1"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-md-24 ant-col-lg-12"
+        style="padding-left:8px;padding-right:8px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              title="DatePicker: 64.5px"
+            >
+              DatePicker: 64.5px
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <span
+                  class="ant-calendar-picker"
+                >
+                  <div>
+                    <input
+                      class="ant-calendar-picker-input ant-input"
+                      placeholder="Select date"
+                      readonly=""
+                      value=""
+                    />
+                    <i
+                      aria-label="icon: calendar"
+                      class="anticon anticon-calendar ant-calendar-picker-icon"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        class=""
+                        data-icon="calendar"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                        />
+                      </svg>
+                    </i>
+                  </div>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-md-24 ant-col-lg-12"
+        style="padding-left:8px;padding-right:8px"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              title="RadioGroup: 64px"
+            >
+              RadioGroup: 64px
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control-wrapper"
+          >
+            <div
+              class="ant-form-item-control"
+            >
+              <span
+                class="ant-form-item-children"
+              >
+                <div
+                  class="ant-radio-group ant-radio-group-outline"
+                >
+                  <label
+                    class="ant-radio-wrapper"
+                  >
+                    <span
+                      class="ant-radio"
+                    >
+                      <input
+                        class="ant-radio-input"
+                        type="radio"
+                        value="0"
+                      />
+                      <span
+                        class="ant-radio-inner"
+                      />
+                    </span>
+                    <span>
+                      男
+                    </span>
+                  </label>
+                  <label
+                    class="ant-radio-wrapper"
+                  >
+                    <span
+                      class="ant-radio"
+                    >
+                      <input
+                        class="ant-radio-input"
+                        type="radio"
+                        value="1"
+                      />
+                      <span
+                        class="ant-radio-inner"
+                      />
+                    </span>
+                    <span>
+                      女
+                    </span>
+                  </label>
+                </div>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
 exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -2083,7 +2551,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2094,7 +2562,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2114,6 +2582,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
+                aria-label="icon: calendar"
                 class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
@@ -2121,6 +2590,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2140,7 +2610,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2151,7 +2621,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2162,7 +2632,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           <span
             class="ant-calendar-picker"
             id="time_related_controls_date-time-picker"
-            style="width:195px"
+            style="min-width:195px"
           >
             <div>
               <input
@@ -2172,6 +2642,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
+                aria-label="icon: calendar"
                 class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
@@ -2179,6 +2650,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2198,7 +2670,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2209,7 +2681,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2229,6 +2701,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
+                aria-label="icon: calendar"
                 class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
@@ -2236,6 +2709,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2255,7 +2729,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2266,7 +2740,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2302,6 +2776,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
+                aria-label="icon: calendar"
                 class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
@@ -2309,6 +2784,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2328,7 +2804,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2339,7 +2815,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2376,6 +2852,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 value=""
               />
               <i
+                aria-label="icon: calendar"
                 class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
@@ -2383,6 +2860,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2402,7 +2880,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
     >
       <label
         class="ant-form-item-required"
@@ -2413,7 +2891,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-16"
     >
       <div
         class="ant-form-item-control"
@@ -2422,7 +2900,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-form-item-children"
         >
           <span
-            class="ant-time-picker "
+            class="ant-time-picker"
           >
             <input
               class="ant-time-picker-input"
@@ -2435,6 +2913,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-time-picker-icon"
             >
               <i
+                aria-label="icon: clock-circle"
                 class="anticon anticon-clock-circle ant-time-picker-clock-icon"
               >
                 <svg
@@ -2442,6 +2921,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                   class=""
                   data-icon="clock-circle"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -2464,7 +2944,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-xs-offset-0 ant-col-sm-16 ant-col-sm-offset-8"
     >
       <div
         class="ant-form-item-control"
@@ -2495,7 +2975,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -2505,7 +2985,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -2526,7 +3006,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -2537,7 +3017,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -2578,6 +3058,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -2585,6 +3066,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -2605,7 +3087,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class="ant-form-item-required"
@@ -2616,7 +3098,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -2681,7 +3163,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -2692,7 +3174,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -2714,6 +3196,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
+                  aria-label="icon: up"
                   class="anticon anticon-up ant-input-number-handler-up-inner"
                 >
                   <svg
@@ -2721,6 +3204,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class=""
                     data-icon="up"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -2739,6 +3223,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-input-number-handler-down-inner"
                 >
                   <svg
@@ -2746,6 +3231,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -2758,13 +3244,12 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-valuemax="10"
-              aria-valuemin="1"
-              aria-valuenow="3"
               class="ant-input-number-input-wrap"
-              role="spinbutton"
             >
               <input
+                aria-valuemax="10"
+                aria-valuemin="1"
+                aria-valuenow="3"
                 autocomplete="off"
                 class="ant-input-number-input"
                 data-__field="[object Object]"
@@ -2772,6 +3257,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 id="validate_other_input-number"
                 max="10"
                 min="1"
+                role="spinbutton"
                 step="1"
                 value="3"
               />
@@ -2790,7 +3276,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -2801,7 +3287,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -2830,7 +3316,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -2841,7 +3327,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -2857,7 +3343,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             />
             <div
               class="ant-slider-track"
-              style="left:0%;width:0%"
+              style="left:0%;right:auto;width:0%"
             />
             <div
               class="ant-slider-step"
@@ -2894,7 +3380,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               aria-valuenow="0"
               class="ant-slider-handle"
               role="slider"
-              style="left:0%"
+              style="left:0%;right:auto;transform:translateX(-50%)"
               tabindex="0"
             />
             <div
@@ -2902,37 +3388,37 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             >
               <span
                 class="ant-slider-mark-text ant-slider-mark-text-active"
-                style="width:18%;margin-left:-9%;left:0%"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
               >
                 A
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:20%"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
               >
                 B
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:40%"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
               >
                 C
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:60%"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
               >
                 D
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:80%"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
               >
                 E
               </span>
               <span
                 class="ant-slider-mark-text"
-                style="width:18%;margin-left:-9%;left:100%"
+                style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
               >
                 F
               </span>
@@ -2946,7 +3432,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -2957,7 +3443,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3035,7 +3521,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3046,7 +3532,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3124,7 +3610,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3135,7 +3621,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -3154,7 +3640,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               class="ant-row"
             >
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
@@ -3178,7 +3664,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
@@ -3203,7 +3689,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper"
@@ -3226,7 +3712,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper"
@@ -3249,7 +3735,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 </label>
               </div>
               <div
-                class="ant-col-8"
+                class="ant-col ant-col-8"
               >
                 <label
                   class="ant-checkbox-wrapper"
@@ -3281,7 +3767,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3292,7 +3778,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control has-success"
@@ -3319,6 +3805,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-first"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3326,6 +3813,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3340,6 +3828,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-second"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3347,6 +3836,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3373,6 +3863,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-first"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3380,6 +3871,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3394,6 +3886,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-second"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3401,6 +3894,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3427,6 +3921,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-first"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3434,6 +3929,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3448,6 +3944,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-second"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3455,6 +3952,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3481,6 +3979,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-first"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3488,6 +3987,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3502,6 +4002,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-second"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3509,6 +4010,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3535,6 +4037,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-first"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3542,6 +4045,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3556,6 +4060,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   class="ant-rate-star-second"
                 >
                   <i
+                    aria-label="icon: star"
                     class="anticon anticon-star"
                   >
                     <svg
@@ -3563,6 +4068,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -3584,7 +4090,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3595,7 +4101,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3608,7 +4114,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           >
             <div
               class="ant-upload ant-upload-select ant-upload-select-picture"
-              style="display:"
             />
             <div
               class="ant-upload-list ant-upload-list-picture"
@@ -3627,7 +4132,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-6 ant-form-item-label"
+      class="ant-col ant-col-6 ant-form-item-label"
     >
       <label
         class=""
@@ -3638,7 +4143,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-14 ant-form-item-control-wrapper"
+      class="ant-col ant-col-14 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3646,20 +4151,14 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <div
-            class="dropbox"
-          >
-            <span
-              class=""
-            >
-              <div
-                class="ant-upload ant-upload-drag"
-              />
-              <div
-                class="ant-upload-list ant-upload-list-text"
-              />
-            </span>
-          </div>
+          <span>
+            <div
+              class="ant-upload ant-upload-drag"
+            />
+            <div
+              class="ant-upload-list ant-upload-list-text"
+            />
+          </span>
         </span>
       </div>
     </div>
@@ -3668,7 +4167,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col-12 ant-col-offset-6 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-col-offset-6 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -3699,7 +4198,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -3709,7 +4208,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-error"
@@ -3737,7 +4236,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -3747,7 +4246,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-warning"
@@ -3770,7 +4269,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -3780,7 +4279,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback is-validating"
@@ -3799,6 +4298,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: loading"
               class="anticon anticon-loading"
             >
               <svg
@@ -3806,6 +4306,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class="anticon-spin"
                 data-icon="loading"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="0 0 1024 1024"
                 width="1em"
@@ -3829,7 +4330,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -3839,7 +4340,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-success"
@@ -3858,6 +4359,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: check-circle"
               class="anticon anticon-check-circle"
             >
               <svg
@@ -3865,6 +4367,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="check-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -3883,7 +4386,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -3893,7 +4396,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-warning"
@@ -3912,6 +4415,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: exclamation-circle"
               class="anticon anticon-exclamation-circle"
             >
               <svg
@@ -3919,6 +4423,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="exclamation-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -3937,7 +4442,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -3947,7 +4452,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-error"
@@ -3966,6 +4471,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: close-circle"
               class="anticon anticon-close-circle"
             >
               <svg
@@ -3973,6 +4479,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -3996,7 +4503,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4006,7 +4513,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-success"
@@ -4026,6 +4533,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 value=""
               />
               <i
+                aria-label="icon: calendar"
                 class="anticon anticon-calendar ant-calendar-picker-icon"
               >
                 <svg
@@ -4033,6 +4541,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   class=""
                   data-icon="calendar"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -4048,6 +4557,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: check-circle"
               class="anticon anticon-check-circle"
             >
               <svg
@@ -4055,6 +4565,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="check-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4073,7 +4584,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4083,7 +4594,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-warning"
@@ -4092,12 +4603,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-children"
         >
           <span
-            class="ant-time-picker "
+            class="ant-time-picker"
             style="width:100%"
           >
             <input
               class="ant-time-picker-input"
-              id=""
               placeholder="Select time"
               type="text"
               value=""
@@ -4106,6 +4616,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-time-picker-icon"
             >
               <i
+                aria-label="icon: clock-circle"
                 class="anticon anticon-clock-circle ant-time-picker-clock-icon"
               >
                 <svg
@@ -4113,6 +4624,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   class=""
                   data-icon="clock-circle"
                   fill="currentColor"
+                  focusable="false"
                   height="1em"
                   viewBox="64 64 896 896"
                   width="1em"
@@ -4131,6 +4643,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: exclamation-circle"
               class="anticon anticon-exclamation-circle"
             >
               <svg
@@ -4138,6 +4651,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="exclamation-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4156,7 +4670,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4166,7 +4680,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-error"
@@ -4204,6 +4718,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 unselectable="on"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-select-arrow-icon"
                 >
                   <svg
@@ -4211,6 +4726,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -4227,6 +4743,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: close-circle"
               class="anticon anticon-close-circle"
             >
               <svg
@@ -4234,6 +4751,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4252,7 +4770,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4262,7 +4780,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback is-validating"
@@ -4281,17 +4799,21 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               autocomplete="off"
               class="ant-input ant-cascader-input "
               readonly=""
+              tabindex="-1"
               type="text"
               value=""
             />
             <i
+              aria-label="icon: close-circle"
               class="anticon anticon-close-circle ant-cascader-picker-clear"
+              tabindex="-1"
             >
               <svg
                 aria-hidden="true"
                 class=""
                 data-icon="close-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4302,6 +4824,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </svg>
             </i>
             <i
+              aria-label="icon: down"
               class="anticon anticon-down ant-cascader-picker-arrow"
             >
               <svg
@@ -4309,6 +4832,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="down"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4323,6 +4847,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: loading"
               class="anticon anticon-loading"
             >
               <svg
@@ -4330,6 +4855,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class="anticon-spin"
                 data-icon="loading"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="0 0 1024 1024"
                 width="1em"
@@ -4354,7 +4880,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     style="margin-bottom:0"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4364,7 +4890,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control"
@@ -4377,7 +4903,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             style="display:inline-block;width:calc(50% - 12px)"
           >
             <div
-              class="ant-form-item-control-wrapper"
+              class="ant-col ant-form-item-control-wrapper"
             >
               <div
                 class="ant-form-item-control has-error"
@@ -4396,6 +4922,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         value=""
                       />
                       <i
+                        aria-label="icon: calendar"
                         class="anticon anticon-calendar ant-calendar-picker-icon"
                       >
                         <svg
@@ -4403,6 +4930,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           class=""
                           data-icon="calendar"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -4433,7 +4961,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             style="display:inline-block;width:calc(50% - 12px)"
           >
             <div
-              class="ant-form-item-control-wrapper"
+              class="ant-col ant-form-item-control-wrapper"
             >
               <div
                 class="ant-form-item-control"
@@ -4452,6 +4980,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         value=""
                       />
                       <i
+                        aria-label="icon: calendar"
                         class="anticon anticon-calendar ant-calendar-picker-icon"
                       >
                         <svg
@@ -4459,6 +4988,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                           class=""
                           data-icon="calendar"
                           fill="currentColor"
+                          focusable="false"
                           height="1em"
                           viewBox="64 64 896 896"
                           width="1em"
@@ -4482,7 +5012,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
     >
       <label
         class=""
@@ -4492,7 +5022,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control-wrapper ant-col-xs-24 ant-col-sm-12"
     >
       <div
         class="ant-form-item-control has-feedback has-success"
@@ -4515,6 +5045,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
+                  aria-label="icon: up"
                   class="anticon anticon-up ant-input-number-handler-up-inner"
                 >
                   <svg
@@ -4522,6 +5053,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     class=""
                     data-icon="up"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -4540,6 +5072,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-input-number-handler-down-inner"
                 >
                   <svg
@@ -4547,6 +5080,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -4559,14 +5093,14 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-valuemin="-9007199254740991"
               class="ant-input-number-input-wrap"
-              role="spinbutton"
             >
               <input
+                aria-valuemin="-9007199254740991"
                 autocomplete="off"
                 class="ant-input-number-input"
                 min="-9007199254740991"
+                role="spinbutton"
                 step="1"
                 value=""
               />
@@ -4576,6 +5110,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             class="ant-form-item-children-icon"
           >
             <i
+              aria-label="icon: check-circle"
               class="anticon anticon-check-circle"
             >
               <svg
@@ -4583,6 +5118,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 class=""
                 data-icon="check-circle"
                 fill="currentColor"
+                focusable="false"
                 height="1em"
                 viewBox="64 64 896 896"
                 width="1em"
@@ -4608,7 +5144,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
-      class="ant-col-7 ant-form-item-label"
+      class="ant-col ant-col-7 ant-form-item-label"
     >
       <label
         class=""
@@ -4618,7 +5154,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col-12 ant-form-item-control-wrapper"
+      class="ant-col ant-col-12 ant-form-item-control-wrapper"
     >
       <div
         class="ant-form-item-control"
@@ -4640,6 +5176,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
+                  aria-label="icon: up"
                   class="anticon anticon-up ant-input-number-handler-up-inner"
                 >
                   <svg
@@ -4647,6 +5184,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                     class=""
                     data-icon="up"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -4665,6 +5203,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 unselectable="unselectable"
               >
                 <i
+                  aria-label="icon: down"
                   class="anticon anticon-down ant-input-number-handler-down-inner"
                 >
                   <svg
@@ -4672,6 +5211,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                     class=""
                     data-icon="down"
                     fill="currentColor"
+                    focusable="false"
                     height="1em"
                     viewBox="64 64 896 896"
                     width="1em"
@@ -4684,17 +5224,17 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
               </span>
             </div>
             <div
-              aria-valuemax="12"
-              aria-valuemin="8"
-              aria-valuenow="11"
               class="ant-input-number-input-wrap"
-              role="spinbutton"
             >
               <input
+                aria-valuemax="12"
+                aria-valuemin="8"
+                aria-valuenow="11"
                 autocomplete="off"
                 class="ant-input-number-input"
                 max="12"
                 min="8"
+                role="spinbutton"
                 step="1"
                 value="11"
               />

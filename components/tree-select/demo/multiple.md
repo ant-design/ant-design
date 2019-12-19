@@ -13,26 +13,26 @@ title:
 
 Multiple selection usage.
 
-````jsx
+```jsx
 import { TreeSelect } from 'antd';
 
-const TreeNode = TreeSelect.TreeNode;
+const { TreeNode } = TreeSelect;
 
 class Demo extends React.Component {
   state = {
     value: undefined,
-  }
+  };
 
-  onChange = (value) => {
+  onChange = value => {
     console.log(value);
     this.setState({ value });
-  }
+  };
 
   render() {
     return (
       <TreeSelect
         showSearch
-        style={{ width: 300 }}
+        style={{ width: '100%' }}
         value={this.state.value}
         dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
         placeholder="Please select"
@@ -56,4 +56,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
+```

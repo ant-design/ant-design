@@ -21,7 +21,7 @@ export interface InputNumberProps
   disabled?: boolean;
   size?: 'large' | 'small' | 'default';
   formatter?: (value: number | string | undefined) => string;
-  parser?: (displayValue: string | undefined) => number;
+  parser?: (displayValue: string | undefined) => number | string;
   decimalSeparator?: string;
   placeholder?: string;
   style?: React.CSSProperties;
@@ -29,6 +29,7 @@ export interface InputNumberProps
   name?: string;
   id?: string;
   precision?: number;
+  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
 }
 
 export default class InputNumber extends React.Component<InputNumberProps, any> {
@@ -37,6 +38,10 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
   };
 
   private inputNumberRef: any;
+
+  saveInputNumber = (inputNumberRef: any) => {
+    this.inputNumberRef = inputNumberRef;
+  };
 
   focus() {
     this.inputNumberRef.focus();
@@ -61,7 +66,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
     return (
       <RcInputNumber
-        ref={(c: any) => (this.inputNumberRef = c)}
+        ref={this.saveInputNumber}
         className={inputNumberClass}
         upHandler={upIcon}
         downHandler={downIcon}

@@ -12,6 +12,7 @@ exports[`DatePicker disabled date 1`] = `
       value=""
     />
     <i
+      aria-label="icon: calendar"
       class="anticon anticon-calendar ant-calendar-picker-icon"
     >
       <svg
@@ -19,6 +20,7 @@ exports[`DatePicker disabled date 1`] = `
         class=""
         data-icon="calendar"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -46,13 +48,16 @@ exports[`DatePicker prop locale should works 1`] = `
       value="2000-01-01"
     />
     <i
+      aria-label="icon: close-circle"
       class="anticon anticon-close-circle ant-calendar-picker-clear"
+      tabindex="-1"
     >
       <svg
         aria-hidden="true"
         class=""
         data-icon="close-circle"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -63,6 +68,7 @@ exports[`DatePicker prop locale should works 1`] = `
       </svg>
     </i>
     <i
+      aria-label="icon: calendar"
       class="anticon anticon-calendar ant-calendar-picker-icon"
     >
       <svg
@@ -70,6 +76,7 @@ exports[`DatePicker prop locale should works 1`] = `
         class=""
         data-icon="calendar"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"

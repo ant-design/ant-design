@@ -11,9 +11,9 @@ title:
 
 ## en-US
 
-There are three sizes of an Input box: `large` (40px)、`default` (32px) and `small` (24px).
+There are three sizes of an Input box: `large` (40px), `default` (32px) and `small` (24px).
 
-````jsx
+```jsx
 import { Input } from 'antd';
 
 ReactDOM.render(
@@ -22,13 +22,13 @@ ReactDOM.render(
     <Input placeholder="default size" />
     <Input size="small" placeholder="small size" />
   </div>,
-  mountNode
+  mountNode,
 );
-````
+```
 
-````css
+```css
 .example-input .ant-input {
   width: 200px;
   margin: 0 8px 8px 0;
 }
-````
+```

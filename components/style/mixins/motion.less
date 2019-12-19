@@ -1,4 +1,4 @@
-@import '../themes/default';
+@import '../themes/index';
 
 .motion-common(@duration: @animation-duration-base) {
   animation-duration: @duration;
@@ -14,10 +14,12 @@
   .@{className}-enter,
   .@{className}-appear {
     .motion-common(@duration);
+
     animation-play-state: paused;
   }
   .@{className}-leave {
     .motion-common-leave(@duration);
+
     animation-play-state: paused;
   }
   .@{className}-enter.@{className}-enter-active,

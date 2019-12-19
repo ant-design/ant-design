@@ -7,16 +7,16 @@ import RangePicker from './RangePicker';
 import WeekPicker from './WeekPicker';
 import { DatePickerProps, DatePickerDecorator } from './interface';
 
-const DatePicker = wrapPicker(createPicker(RcCalendar)) as React.ClassicComponentClass<
+const DatePicker = wrapPicker(createPicker(RcCalendar), 'date') as React.ClassicComponentClass<
   DatePickerProps
 >;
 
-const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'YYYY-MM');
+const MonthPicker = wrapPicker(createPicker(MonthCalendar), 'month');
 
 Object.assign(DatePicker, {
-  RangePicker: wrapPicker(RangePicker),
+  RangePicker: wrapPicker(RangePicker, 'date'),
   MonthPicker,
-  WeekPicker: wrapPicker(WeekPicker, 'gggg-wo'),
+  WeekPicker: wrapPicker(WeekPicker, 'week'),
 });
 
 export default DatePicker as DatePickerDecorator;

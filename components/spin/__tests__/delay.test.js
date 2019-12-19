@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Spin from '..';
 
 describe('delay spinning', () => {
-  it('should render with delay when it\'s mounted with spinning=true and delay', () => {
+  it("should render with delay when it's mounted with spinning=true and delay", () => {
     const wrapper = mount(<Spin spinning delay={500} />);
     expect(
       wrapper

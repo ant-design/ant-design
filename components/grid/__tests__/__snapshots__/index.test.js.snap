@@ -7,12 +7,12 @@ exports[`Grid renders wrapped Col correctly 1`] = `
 >
   <div>
     <div
-      class="ant-col-12"
+      class="ant-col ant-col-12"
       style="padding-left:10px;padding-right:10px"
     />
   </div>
   <div
-    class="ant-col-12"
+    class="ant-col ant-col-12"
     style="padding-left:10px;padding-right:10px"
   />
 </div>
@@ -20,7 +20,7 @@ exports[`Grid renders wrapped Col correctly 1`] = `
 
 exports[`Grid should render Col 1`] = `
 <div
-  class="ant-col-2"
+  class="ant-col ant-col-2"
 />
 `;
 

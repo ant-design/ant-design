@@ -13,7 +13,7 @@ title:
 
 Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
-````jsx
+```jsx
 import { Tree } from 'antd';
 
 const { TreeNode } = Tree;
@@ -50,17 +50,17 @@ class Demo extends React.Component {
   state = {
     gData,
     expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
-  }
+  };
 
-  onDragEnter = (info) => {
+  onDragEnter = info => {
     console.log(info);
     // expandedKeys 需要受控时设置
     // this.setState({
     //   expandedKeys: info.expandedKeys,
     // });
-  }
+  };
 
-  onDrop = (info) => {
+  onDrop = info => {
     console.log(info);
     const dropKey = info.node.props.eventKey;
     const dragKey = info.dragNode.props.eventKey;
@@ -88,17 +88,17 @@ class Demo extends React.Component {
 
     if (!info.dropToGap) {
       // Drop on the content
-      loop(data, dropKey, (item) => {
+      loop(data, dropKey, item => {
         item.children = item.children || [];
         // where to insert 示例添加到尾部，可以是随意位置
         item.children.push(dragObj);
       });
     } else if (
-      (info.node.props.children || []).length > 0 // Has children
-      && info.node.props.expanded // Is expanded
-      && dropPosition === 1 // On the bottom gap
+      (info.node.props.children || []).length > 0 && // Has children
+      info.node.props.expanded && // Is expanded
+      dropPosition === 1 // On the bottom gap
     ) {
-      loop(data, dropKey, (item) => {
+      loop(data, dropKey, item => {
         item.children = item.children || [];
         // where to insert 示例添加到尾部，可以是随意位置
         item.children.unshift(dragObj);
@@ -120,20 +120,26 @@ class Demo extends React.Component {
     this.setState({
       gData: data,
     });
-  }
+  };
 
   render() {
-    const loop = data => data.map((item) => {
-      if (item.children && item.children.length) {
-        return <TreeNode key={item.key} title={item.title}>{loop(item.children)}</TreeNode>;
-      }
-      return <TreeNode key={item.key} title={item.title} />;
-    });
+    const loop = data =>
+      data.map(item => {
+        if (item.children && item.children.length) {
+          return (
+            <TreeNode key={item.key} title={item.title}>
+              {loop(item.children)}
+            </TreeNode>
+          );
+        }
+        return <TreeNode key={item.key} title={item.title} />;
+      });
     return (
       <Tree
         className="draggable-tree"
         defaultExpandedKeys={this.state.expandedKeys}
         draggable
+        blockNode
         onDragEnter={this.onDragEnter}
         onDrop={this.onDrop}
       >
@@ -144,11 +150,4 @@ class Demo extends React.Component {
 }
 
 ReactDOM.render(<Demo />, mountNode);
-````
-
-````css
-/* You can add the following CSS to your project to make draggable area bigger */
-#components-tree-demo-draggable .draggable-tree .ant-tree-node-content-wrapper {
-  width: calc(100% - 18px);
-}
-````
+```

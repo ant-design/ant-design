@@ -1,13 +1,139 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
+exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
 <div>
   <div
+    style="margin-bottom:16px"
+  >
+    <div>
+      <span
+        style="display:inline-block"
+      >
+        <span
+          class="ant-tag"
+        >
+          Tag 1
+          <i
+            aria-label="icon: close"
+            class="anticon anticon-close"
+            tabindex="-1"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </i>
+        </span>
+      </span>
+      <span
+        style="display:inline-block"
+      >
+        <span
+          class="ant-tag"
+        >
+          Tag 2
+          <i
+            aria-label="icon: close"
+            class="anticon anticon-close"
+            tabindex="-1"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </i>
+        </span>
+      </span>
+      <span
+        style="display:inline-block"
+      >
+        <span
+          class="ant-tag"
+        >
+          Tag 3
+          <i
+            aria-label="icon: close"
+            class="anticon anticon-close"
+            tabindex="-1"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </i>
+        </span>
+      </span>
+    </div>
+  </div>
+  <span
+    class="ant-tag"
+    style="background:#fff;border-style:dashed"
+  >
+    <i
+      aria-label="icon: plus"
+      class="anticon anticon-plus"
+    >
+      <svg
+        aria-hidden="true"
+        class=""
+        data-icon="plus"
+        fill="currentColor"
+        focusable="false"
+        height="1em"
+        viewBox="64 64 896 896"
+        width="1em"
+      >
+        <path
+          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+        />
+        <path
+          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+        />
+      </svg>
+    </i>
+     New Tag
+  </span>
+</div>
+`;
+
+exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
+<div>
+  <span
     class="ant-tag"
   >
     Tag 1
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     <a
@@ -15,19 +141,22 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
     >
       Link
     </a>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Tag 2
     <i
+      aria-label="icon: close"
       class="anticon anticon-close"
+      tabindex="-1"
     >
       <svg
         aria-hidden="true"
         class=""
         data-icon="close"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -37,19 +166,22 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Prevent Default
     <i
+      aria-label="icon: close"
       class="anticon anticon-close"
+      tabindex="-1"
     >
       <svg
         aria-hidden="true"
         class=""
         data-icon="close"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -59,27 +191,27 @@ exports[`renders ./components/tag/demo/basic.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
+  </span>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/checkable.md correctly 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
     Tag1
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
     Tag2
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable ant-tag-checkable-checked"
   >
     Tag3
-  </div>
+  </span>
 </div>
 `;
 
@@ -91,61 +223,61 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     Presets:
   </h4>
   <div>
-    <div
+    <span
       class="ant-tag ant-tag-magenta"
     >
       magenta
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-red"
     >
       red
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-volcano"
     >
       volcano
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-orange"
     >
       orange
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-gold"
     >
       gold
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-lime"
     >
       lime
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-green"
     >
       green
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-cyan"
     >
       cyan
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-blue"
     >
       blue
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-geekblue"
     >
       geekblue
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-purple"
     >
       purple
-    </div>
+    </span>
   </div>
   <h4
     style="margin:16px 0"
@@ -153,53 +285,56 @@ exports[`renders ./components/tag/demo/colorful.md correctly 1`] = `
     Custom:
   </h4>
   <div>
-    <div
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#f50"
     >
       #f50
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#2db7f5"
     >
       #2db7f5
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#87d068"
     >
       #87d068
-    </div>
-    <div
+    </span>
+    <span
       class="ant-tag ant-tag-has-color"
       style="background-color:#108ee9"
     >
       #108ee9
-    </div>
+    </span>
   </div>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/control.md correctly 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag"
   >
     Unremovable
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Tag 2
     <i
+      aria-label="icon: close"
       class="anticon anticon-close"
+      tabindex="-1"
     >
       <svg
         aria-hidden="true"
         class=""
         data-icon="close"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -209,19 +344,22 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
   >
     Tag 3
     <i
+      aria-label="icon: close"
       class="anticon anticon-close"
+      tabindex="-1"
     >
       <svg
         aria-hidden="true"
         class=""
         data-icon="close"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -231,12 +369,13 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag"
     style="background:#fff;border-style:dashed"
   >
     <i
+      aria-label="icon: plus"
       class="anticon anticon-plus"
     >
       <svg
@@ -244,34 +383,41 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
         class=""
         data-icon="plus"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
       >
         <path
-          d="M848 474H550V152h-76v322H176c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h298v322h76V550h298c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+          d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+        />
+        <path
+          d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
         />
       </svg>
     </i>
      New Tag
-  </div>
+  </span>
 </div>
 `;
 
 exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
 <div>
-  <div
+  <span
     class="ant-tag"
   >
     Movies
     <i
+      aria-label="icon: close"
       class="anticon anticon-close"
+      tabindex="-1"
     >
       <svg
         aria-hidden="true"
         class=""
         data-icon="close"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"
@@ -281,7 +427,7 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
         />
       </svg>
     </i>
-  </div>
+  </span>
   <br />
   <button
     class="ant-btn ant-btn-sm"
@@ -301,25 +447,25 @@ exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
   >
     Categories:
   </h6>
-  <div
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Movies
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Books
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Music
-  </div>
-  <div
+  </span>
+  <span
     class="ant-tag ant-tag-checkable"
   >
     Sports
-  </div>
+  </span>
 </div>
 `;

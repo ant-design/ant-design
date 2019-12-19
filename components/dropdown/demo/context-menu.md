@@ -13,7 +13,7 @@ title:
 
 The default trigger mode is `hover`, you can change it to `contextMenu`.
 
-````jsx
+```jsx
 import { Menu, Dropdown } from 'antd';
 
 const menu = (
@@ -26,8 +26,18 @@ const menu = (
 
 ReactDOM.render(
   <Dropdown overlay={menu} trigger={['contextMenu']}>
-    <span style={{ userSelect: 'none' }}>Right Click on Me</span>
+    <div
+      style={{
+        textAlign: 'center',
+        background: '#f7f7f7',
+        height: 200,
+        lineHeight: '200px',
+        color: '#777',
+      }}
+    >
+      Right Click on here
+    </div>
   </Dropdown>,
-  mountNode
+  mountNode,
 );
-````
+```

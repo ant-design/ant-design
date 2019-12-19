@@ -50,6 +50,7 @@ export default class TabBar extends React.Component<TabsProps> {
 
     const renderProps = {
       ...this.props,
+      children: null,
       inkBarAnimated,
       extraContent: tabBarExtraContent,
       style: tabBarStyle,

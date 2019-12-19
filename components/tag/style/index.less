@@ -1,23 +1,24 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @tag-prefix-cls: ~'@{ant-prefix}-tag';
 
 .@{tag-prefix-cls} {
   .reset-component;
+
   display: inline-block;
-  line-height: 20px;
-  height: 22px;
-  padding: 0 7px;
-  border-radius: @border-radius-base;
-  border: @border-width-base @border-style-base @border-color-base;
-  background: @tag-default-bg;
-  font-size: @tag-font-size;
-  transition: all 0.3s @ease-out;
-  opacity: 1;
+  height: auto;
   margin-right: 8px;
-  cursor: pointer;
+  padding: 0 7px;
+  font-size: @tag-font-size;
+  line-height: 20px;
   white-space: nowrap;
+  background: @tag-default-bg;
+  border: @border-width-base @border-style-base @border-color-base;
+  border-radius: @border-radius-base;
+  cursor: default;
+  opacity: 1;
+  transition: all 0.3s @ease-in-out-circ;
 
   &:hover {
     opacity: 0.85;
@@ -37,11 +38,12 @@
 
   .@{iconfont-css-prefix}-close {
     .iconfont-size-under-12px(10px);
-    cursor: pointer;
+
     margin-left: 3px;
-    transition: all 0.3s;
     color: @text-color-secondary;
     font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s @ease-in-out-circ;
 
     &:hover {
       color: @heading-color;
@@ -77,34 +79,14 @@
     }
   }
 
-  &-close {
-    width: 0 !important;
-    padding: 0;
-    margin: 0;
-  }
-
-  &-zoom-enter,
-  &-zoom-appear {
-    animation: antFadeIn 0.2s @ease-in-out-circ;
-    animation-fill-mode: both;
-  }
-
-  &-zoom-leave {
-    animation: antZoomOut 0.3s @ease-in-out-circ;
-    animation-fill-mode: both;
-  }
-
   &-hidden {
     display: none;
   }
 
-  @colors: pink, magenta, red, volcano, orange, yellow, gold, cyan, lime, green, blue, geekblue,
-    purple;
-
   // mixin to iterate over colors and create CSS class for each one
-  .make-color-classes(@i: length(@colors)) when (@i > 0) {
+  .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
     .make-color-classes(@i - 1);
-    @color: extract(@colors, @i);
+    @color: extract(@preset-colors, @i);
     @lightColor: '@{color}-1';
     @lightBorderColor: '@{color}-3';
     @darkColor: '@{color}-6';
@@ -114,9 +96,9 @@
       border-color: @@lightBorderColor;
     }
     &-@{color}-inverse {
+      color: @text-color-inverse;
       background: @@darkColor;
       border-color: @@darkColor;
-      color: @text-color-inverse;
     }
   }
 

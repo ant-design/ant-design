@@ -1,36 +1,38 @@
+// TODO: remove this lint
+// SFC has specified a displayName, but not worked.
+/* eslint-disable react/display-name */
 import * as React from 'react';
-import createReactContext, { Context } from 'create-react-context';
 
-import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
+import { RenderEmptyHandler } from './renderEmpty';
+import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 
-export { RenderEmptyHandler };
+export { RenderEmptyHandler, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
-export interface ConfigConsumerProps {
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
-  rootPrefixCls?: string;
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
-  renderEmpty: RenderEmptyHandler;
-}
+export const configConsumerProps = [
+  'getPopupContainer',
+  'rootPrefixCls',
+  'getPrefixCls',
+  'renderEmpty',
+  'csp',
+  'autoInsertSpaceInButton',
+  'locale',
+  'pageHeader',
+];
 
-interface ConfigProviderProps {
-  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
+export interface ConfigProviderProps {
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   children?: React.ReactNode;
   renderEmpty?: RenderEmptyHandler;
+  csp?: CSPConfig;
+  autoInsertSpaceInButton?: boolean;
+  locale?: Locale;
+  pageHeader?: {
+    ghost: boolean;
+  };
 }
-
-const ConfigContext: Context<ConfigConsumerProps | null> = createReactContext({
-  // We provide a default function for Context without provider
-  getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
-
-    return `ant-${suffixCls}`;
-  },
-
-  renderEmpty: defaultRenderEmpty,
-});
-
-export const ConfigConsumer = ConfigContext.Consumer;
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
   getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
@@ -41,59 +43,56 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     return suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
   };
 
-  renderProvider = (context: ConfigConsumerProps) => {
-    const { children, getPopupContainer, renderEmpty } = this.props;
+  renderProvider = (context: ConfigConsumerProps, legacyLocale: Locale) => {
+    const {
+      children,
+      getPopupContainer,
+      renderEmpty,
+      csp,
+      autoInsertSpaceInButton,
+      locale,
+      pageHeader,
+    } = this.props;
 
     const config: ConfigConsumerProps = {
       ...context,
       getPrefixCls: this.getPrefixCls,
+      csp,
+      autoInsertSpaceInButton,
     };
 
     if (getPopupContainer) {
       config.getPopupContainer = getPopupContainer;
     }
+
     if (renderEmpty) {
       config.renderEmpty = renderEmpty;
     }
 
-    return <ConfigContext.Provider value={config}>{children}</ConfigContext.Provider>;
+    if (pageHeader) {
+      config.pageHeader = pageHeader;
+    }
+
+    return (
+      <ConfigContext.Provider value={config}>
+        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+          {children}
+        </LocaleProvider>
+      </ConfigContext.Provider>
+    );
   };
 
   render() {
-    return <ConfigConsumer>{this.renderProvider}</ConfigConsumer>;
-  }
-}
-
-// =========================== withConfigConsumer ===========================
-// We need define many types here. So let's put in the block region
-type IReactComponent<P = any> =
-  | React.StatelessComponent<P>
-  | React.ComponentClass<P>
-  | React.ClassicComponentClass<P>;
-
-interface BasicExportProps {
-  prefixCls?: string;
-}
-
-interface ConsumerConfig {
-  prefixCls: string;
-}
-
-export function withConfigConsumer<ExportProps extends BasicExportProps>(config: ConsumerConfig) {
-  return function(Component: IReactComponent): React.SFC<ExportProps> {
-    // Wrap with ConfigConsumer. Since we need compatible with react 15, be care when using ref methods
-    return (props: ExportProps) => (
-      <ConfigConsumer>
-        {(configProps: ConfigConsumerProps) => {
-          const { prefixCls: basicPrefixCls } = config;
-          const { getPrefixCls } = configProps;
-          const { prefixCls: customizePrefixCls } = props;
-          const prefixCls = getPrefixCls(basicPrefixCls, customizePrefixCls);
-          return <Component {...configProps} {...props} prefixCls={prefixCls} />;
-        }}
-      </ConfigConsumer>
+    return (
+      <LocaleReceiver>
+        {(_, __, legacyLocale) => (
+          <ConfigConsumer>
+            {context => this.renderProvider(context, legacyLocale as Locale)}
+          </ConfigConsumer>
+        )}
+      </LocaleReceiver>
     );
-  };
+  }
 }
 
 export default ConfigProvider;

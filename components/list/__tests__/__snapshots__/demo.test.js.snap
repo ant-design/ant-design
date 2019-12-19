@@ -10,154 +10,158 @@ exports[`renders ./components/list/demo/basic.md correctly 1`] = `
     <div
       class="ant-spin-container"
     >
-      <div
-        class="ant-list-item"
+      <ul
+        class="ant-list-items"
       >
-        <div
-          class="ant-list-item-meta"
+        <li
+          class="ant-list-item"
         >
           <div
-            class="ant-list-item-meta-avatar"
+            class="ant-list-item-meta"
           >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                Ant Design Title 1
-              </a>
-            </h4>
             <div
-              class="ant-list-item-meta-description"
+              class="ant-list-item-meta-avatar"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 1
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
+        </li>
+        <li
+          class="ant-list-item"
         >
           <div
-            class="ant-list-item-meta-avatar"
+            class="ant-list-item-meta"
           >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                Ant Design Title 2
-              </a>
-            </h4>
             <div
-              class="ant-list-item-meta-description"
+              class="ant-list-item-meta-avatar"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 2
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
+        </li>
+        <li
+          class="ant-list-item"
         >
           <div
-            class="ant-list-item-meta-avatar"
+            class="ant-list-item-meta"
           >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                Ant Design Title 3
-              </a>
-            </h4>
             <div
-              class="ant-list-item-meta-description"
+              class="ant-list-item-meta-avatar"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 3
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-meta"
+        </li>
+        <li
+          class="ant-list-item"
         >
           <div
-            class="ant-list-item-meta-avatar"
+            class="ant-list-item-meta"
           >
-            <span
-              class="ant-avatar ant-avatar-circle ant-avatar-image"
-            >
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-            </span>
-          </div>
-          <div
-            class="ant-list-item-meta-content"
-          >
-            <h4
-              class="ant-list-item-meta-title"
-            >
-              <a
-                href="https://ant.design"
-              >
-                Ant Design Title 4
-              </a>
-            </h4>
             <div
-              class="ant-list-item-meta-description"
+              class="ant-list-item-meta-avatar"
             >
-              Ant Design, a design language for background applications, is refined by Ant UED Team
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image"
+              >
+                <img
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 4
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
@@ -178,141 +182,125 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 1
-                    </div>
+                    Title 1
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 2
-                    </div>
+                    Title 2
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 3
-                    </div>
+                    Title 3
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 4
-                    </div>
+                    Title 4
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
@@ -346,10 +334,38 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
               <div
                 class="ant-empty-image"
               >
-                <img
-                  alt="No Data"
-                  src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNDEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxKSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgIDxlbGxpcHNlIGZpbGw9IiNGNUY1RjUiIGN4PSIzMiIgY3k9IjMzIiByeD0iMzIiIHJ5PSI3Ii8+CiAgICA8ZyBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iI0Q5RDlEOSI+CiAgICAgIDxwYXRoIGQ9Ik01NSAxMi43Nkw0NC44NTQgMS4yNThDNDQuMzY3LjQ3NCA0My42NTYgMCA0Mi45MDcgMEgyMS4wOTNjLS43NDkgMC0xLjQ2LjQ3NC0xLjk0NyAxLjI1N0w5IDEyLjc2MVYyMmg0NnYtOS4yNHoiLz4KICAgICAgPHBhdGggZD0iTTQxLjYxMyAxNS45MzFjMC0xLjYwNS45OTQtMi45MyAyLjIyNy0yLjkzMUg1NXYxOC4xMzdDNTUgMzMuMjYgNTMuNjggMzUgNTIuMDUgMzVoLTQwLjFDMTAuMzIgMzUgOSAzMy4yNTkgOSAzMS4xMzdWMTNoMTEuMTZjMS4yMzMgMCAyLjIyNyAxLjMyMyAyLjIyNyAyLjkyOHYuMDIyYzAgMS42MDUgMS4wMDUgMi45MDEgMi4yMzcgMi45MDFoMTQuNzUyYzEuMjMyIDAgMi4yMzctMS4zMDggMi4yMzctMi45MTN2LS4wMDd6IiBmaWxsPSIjRkFGQUZBIi8+CiAgICA8L2c+CiAgPC9nPgo8L3N2Zz4K"
-                />
+                <svg
+                  height="41"
+                  viewBox="0 0 64 41"
+                  width="64"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    transform="translate(0 1)"
+                  >
+                    <ellipse
+                      cx="32"
+                      cy="33"
+                      fill="#F5F5F5"
+                      rx="32"
+                      ry="7"
+                    />
+                    <g
+                      fill-rule="nonzero"
+                      stroke="#D9D9D9"
+                    >
+                      <path
+                        d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      />
+                      <path
+                        d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                        fill="#FAFAFA"
+                      />
+                    </g>
+                  </g>
+                </svg>
               </div>
               <p
                 class="ant-empty-description"
@@ -393,10 +409,18 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
         <span
           class="ant-spin-dot ant-spin-dot-spin"
         >
-          <i />
-          <i />
-          <i />
-          <i />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
         </span>
       </div>
     </div>
@@ -426,211 +450,187 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 1
-                    </div>
+                    Title 1
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 2
-                    </div>
+                    Title 2
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 3
-                    </div>
+                    Title 3
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 4
-                    </div>
+                    Title 4
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 5
-                    </div>
+                    Title 5
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
         </div>
         <div
-          class="ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
             class="ant-list-item"
           >
             <div
-              class="ant-list-item-content ant-list-item-content-single"
+              class="ant-card ant-card-bordered"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card-head"
               >
                 <div
-                  class="ant-card-head"
+                  class="ant-card-head-wrapper"
                 >
                   <div
-                    class="ant-card-head-wrapper"
+                    class="ant-card-head-title"
                   >
-                    <div
-                      class="ant-card-head-title"
-                    >
-                      Title 6
-                    </div>
+                    Title 6
                   </div>
                 </div>
-                <div
-                  class="ant-card-body"
-                >
-                  Card content
-                </div>
+              </div>
+              <div
+                class="ant-card-body"
+              >
+                Card content
               </div>
             </div>
           </div>
@@ -664,51 +664,70 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
       <div
         class="ant-spin-container"
       >
-        <div
-          class="ant-list-item"
+        <ul
+          class="ant-list-items"
         >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
-            Racing car sprays burning fuel into crowd.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Racing car sprays burning fuel into crowd.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
-            Japanese princess to wed commoner.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Japanese princess to wed commoner.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
-            Australian walks 100km after outback crash.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Australian walks 100km after outback crash.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
-            Man charged over missing wedding girl.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Man charged over missing wedding girl.
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
-            Los Angeles battles huge wildfires.
-          </div>
-        </div>
+            <span
+              class="ant-typography"
+            >
+              <mark>
+                [ITEM]
+              </mark>
+            </span>
+             Los Angeles battles huge wildfires.
+          </li>
+        </ul>
       </div>
     </div>
     <div
@@ -740,51 +759,35 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
       <div
         class="ant-spin-container"
       >
-        <div
-          class="ant-list-item"
+        <ul
+          class="ant-list-items"
         >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Racing car sprays burning fuel into crowd.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Japanese princess to wed commoner.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Australian walks 100km after outback crash.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Man charged over missing wedding girl.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Los Angeles battles huge wildfires.
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div
@@ -816,51 +819,35 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
       <div
         class="ant-spin-container"
       >
-        <div
-          class="ant-list-item"
+        <ul
+          class="ant-list-items"
         >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Racing car sprays burning fuel into crowd.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Japanese princess to wed commoner.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Australian walks 100km after outback crash.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Man charged over missing wedding girl.
-          </div>
-        </div>
-        <div
-          class="ant-list-item"
-        >
-          <div
-            class="ant-list-item-content ant-list-item-content-single"
+          </li>
+          <li
+            class="ant-list-item ant-list-item-no-flex"
           >
             Los Angeles battles huge wildfires.
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div
@@ -884,11 +871,11 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
     <div
       class="ant-spin-container"
     >
-      <div
-        class="ant-list-item"
+      <ul
+        class="ant-list-items"
       >
-        <div
-          class="ant-list-item-extra-wrap"
+        <li
+          class="ant-list-item"
         >
           <div
             class="ant-list-item-main"
@@ -926,17 +913,14 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="ant-list-item-content"
-            >
-              We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-            </div>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
             <ul
               class="ant-list-item-action"
             >
               <li>
                 <span>
                   <i
+                    aria-label="icon: star-o"
                     class="anticon anticon-star-o"
                     style="margin-right:8px"
                   >
@@ -945,6 +929,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -963,6 +948,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
+                    aria-label="icon: like-o"
                     class="anticon anticon-like-o"
                     style="margin-right:8px"
                   >
@@ -971,6 +957,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="like"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -989,6 +976,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
+                    aria-label="icon: message"
                     class="anticon anticon-message"
                     style="margin-right:8px"
                   >
@@ -997,6 +985,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="message"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1020,13 +1009,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               width="272"
             />
           </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-extra-wrap"
+        </li>
+        <li
+          class="ant-list-item"
         >
           <div
             class="ant-list-item-main"
@@ -1064,17 +1049,14 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="ant-list-item-content"
-            >
-              We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-            </div>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
             <ul
               class="ant-list-item-action"
             >
               <li>
                 <span>
                   <i
+                    aria-label="icon: star-o"
                     class="anticon anticon-star-o"
                     style="margin-right:8px"
                   >
@@ -1083,6 +1065,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1101,6 +1084,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
+                    aria-label="icon: like-o"
                     class="anticon anticon-like-o"
                     style="margin-right:8px"
                   >
@@ -1109,6 +1093,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="like"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1127,6 +1112,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
+                    aria-label="icon: message"
                     class="anticon anticon-message"
                     style="margin-right:8px"
                   >
@@ -1135,6 +1121,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="message"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1158,13 +1145,9 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               width="272"
             />
           </div>
-        </div>
-      </div>
-      <div
-        class="ant-list-item"
-      >
-        <div
-          class="ant-list-item-extra-wrap"
+        </li>
+        <li
+          class="ant-list-item"
         >
           <div
             class="ant-list-item-main"
@@ -1202,17 +1185,14 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                 </div>
               </div>
             </div>
-            <div
-              class="ant-list-item-content"
-            >
-              We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-            </div>
+            We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
             <ul
               class="ant-list-item-action"
             >
               <li>
                 <span>
                   <i
+                    aria-label="icon: star-o"
                     class="anticon anticon-star-o"
                     style="margin-right:8px"
                   >
@@ -1221,6 +1201,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="star"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1239,6 +1220,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
+                    aria-label="icon: like-o"
                     class="anticon anticon-like-o"
                     style="margin-right:8px"
                   >
@@ -1247,6 +1229,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="like"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1265,6 +1248,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               <li>
                 <span>
                   <i
+                    aria-label="icon: message"
                     class="anticon anticon-message"
                     style="margin-right:8px"
                   >
@@ -1273,6 +1257,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
                       class=""
                       data-icon="message"
                       fill="currentColor"
+                      focusable="false"
                       height="1em"
                       viewBox="64 64 896 896"
                       width="1em"
@@ -1296,8 +1281,8 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               width="272"
             />
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
   </div>
   <div
@@ -1314,7 +1299,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination "
+      class="ant-pagination"
       unselectable="unselectable"
     >
       <li
@@ -1326,6 +1311,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           class="ant-pagination-item-link"
         >
           <i
+            aria-label="icon: left"
             class="anticon anticon-left"
           >
             <svg
@@ -1333,6 +1319,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               class=""
               data-icon="left"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1426,6 +1413,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
           class="ant-pagination-item-link"
         >
           <i
+            aria-label="icon: right"
             class="anticon anticon-right"
           >
             <svg
@@ -1433,6 +1421,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
               class=""
               data-icon="right"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"

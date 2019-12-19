@@ -1,7 +1,8 @@
 import * as React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { Icon as AntdIcon, Badge } from 'antd';
-import { ThemeType, IconProps } from '../../../../components/icon';
+import { ThemeType, IconProps } from 'antd/es/icon';
+import classNames from 'classnames';
 
 const Icon: React.SFC<IconProps> = AntdIcon;
 
@@ -20,6 +21,10 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({
   justCopied,
   onCopied,
 }) => {
+  const className = classNames({
+    copied: justCopied === type,
+    outlined: theme === 'twoTone',
+  });
   return (
     <CopyToClipboard
       text={
@@ -29,7 +34,7 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({
       }
       onCopy={(text: string) => onCopied(type, text)}
     >
-      <li className={justCopied === type ? 'copied' : ''}>
+      <li className={className}>
         <Icon type={type} theme={theme} />
         <span className="anticon-class">
           <Badge dot={isNew}>{type}</Badge>

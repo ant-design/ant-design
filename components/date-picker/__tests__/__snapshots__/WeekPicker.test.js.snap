@@ -801,6 +801,7 @@ exports[`WeekPicker should support style prop 1`] = `
       value=""
     />
     <i
+      aria-label="icon: calendar"
       class="anticon anticon-calendar ant-calendar-picker-icon"
     >
       <svg
@@ -808,6 +809,7 @@ exports[`WeekPicker should support style prop 1`] = `
         class=""
         data-icon="calendar"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="64 64 896 896"
         width="1em"

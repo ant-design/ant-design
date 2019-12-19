@@ -1,9 +1,12 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
+import { Settings } from 'react-slick';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 // matchMedia polyfill for
 // https://github.com/WickyNilliams/enquire.js/issues/82
+// TODO: Will be removed in antd 4.0 because we will no longer support ie9
 if (typeof window !== 'undefined') {
   const matchMediaPolyfill = (mediaQuery: string) => {
     return {
@@ -13,7 +16,8 @@ if (typeof window !== 'undefined') {
       removeListener() {},
     };
   };
-  window.matchMedia = window.matchMedia || matchMediaPolyfill;
+  // ref: https://github.com/ant-design/ant-design/issues/18774
+  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill as any;
 }
 // Use require over import (will be lifted up)
 // make sure matchMedia polyfill run before require('react-slick')
@@ -22,47 +26,16 @@ if (typeof window !== 'undefined') {
 const SlickCarousel = require('react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
+export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
+
 // Carousel
-export interface CarouselProps {
+export interface CarouselProps extends Settings {
   effect?: CarouselEffect;
-  dots?: boolean;
-  vertical?: boolean;
-  autoplay?: boolean;
-  easing?: string;
-  beforeChange?: (from: number, to: number) => void;
-  afterChange?: (current: number) => void;
   style?: React.CSSProperties;
   prefixCls?: string;
-  accessibility?: boolean;
-  nextArrow?: HTMLElement | any;
-  prevArrow?: HTMLElement | any;
-  pauseOnHover?: boolean;
-  className?: string;
-  adaptiveHeight?: boolean;
-  arrows?: boolean;
-  autoplaySpeed?: number;
-  centerMode?: boolean;
-  centerPadding?: string | any;
-  cssEase?: string | any;
-  dotsClass?: string;
-  draggable?: boolean;
-  fade?: boolean;
-  focusOnSelect?: boolean;
-  infinite?: boolean;
-  initialSlide?: number;
-  lazyLoad?: boolean;
-  rtl?: boolean;
-  slide?: string;
-  slidesToShow?: number;
-  slidesToScroll?: number;
-  speed?: number;
-  swipe?: boolean;
-  swipeToSlide?: boolean;
-  touchMove?: boolean;
-  touchThreshold?: number;
-  variableWidth?: boolean;
-  useCSS?: boolean;
   slickGoTo?: number;
+  dotPosition?: DotPosition;
+  children?: React.ReactNode;
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
@@ -81,6 +54,14 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.onWindowResized = debounce(this.onWindowResized, 500, {
       leading: false,
     });
+
+    if ('vertical' in this.props) {
+      warning(
+        !this.props.vertical,
+        'Carousel',
+        '`vertical` is deprecated, please use `dotPosition` instead.',
+      );
+    }
   }
 
   componentDidMount() {
@@ -92,6 +73,12 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.innerSlider = this.slick && this.slick.innerSlider;
   }
 
+  componentDidUpdate(prevProps: CarouselProps) {
+    if (React.Children.count(this.props.children) !== React.Children.count(prevProps.children)) {
+      this.goTo(this.props.initialSlide || 0, false);
+    }
+  }
+
   componentWillUnmount() {
     const { autoplay } = this.props;
     if (autoplay) {
@@ -100,16 +87,26 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     }
   }
 
+  getDotPosition(): DotPosition {
+    if (this.props.dotPosition) {
+      return this.props.dotPosition;
+    }
+    if ('vertical' in this.props) {
+      return this.props.vertical ? 'right' : 'bottom';
+    }
+    return 'bottom';
+  }
+
+  saveSlick = (node: any) => {
+    this.slick = node;
+  };
+
   onWindowResized = () => {
     // Fix https://github.com/ant-design/ant-design/issues/2550
     const { autoplay } = this.props;
     if (autoplay && this.slick && this.slick.innerSlider && this.slick.innerSlider.autoPlay) {
       this.slick.innerSlider.autoPlay();
     }
-  };
-
-  saveSlick = (node: any) => {
-    this.slick = node;
   };
 
   next() {
@@ -134,6 +131,10 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     }
 
     let className = getPrefixCls('carousel', props.prefixCls);
+    const dotsClass = 'slick-dots';
+    const dotPosition = this.getDotPosition();
+    props.vertical = dotPosition === 'left' || dotPosition === 'right';
+    props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
     if (props.vertical) {
       className = `${className} ${className}-vertical`;
     }

@@ -12,6 +12,7 @@ let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
+let defaultCloseIcon: React.ReactNode;
 
 export interface ConfigProps {
   top?: number;
@@ -19,10 +20,11 @@ export interface ConfigProps {
   duration?: number;
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
+  closeIcon?: React.ReactNode;
 }
 
 function setNotificationConfig(options: ConfigProps) {
-  const { duration, placement, bottom, top, getContainer } = options;
+  const { duration, placement, bottom, top, getContainer, closeIcon } = options;
   if (duration !== undefined) {
     defaultDuration = duration;
   }
@@ -38,22 +40,29 @@ function setNotificationConfig(options: ConfigProps) {
   if (getContainer !== undefined) {
     defaultGetContainer = getContainer;
   }
+  if (closeIcon !== undefined) {
+    defaultCloseIcon = closeIcon;
+  }
 }
 
-function getPlacementStyle(placement: NotificationPlacement) {
+function getPlacementStyle(
+  placement: NotificationPlacement,
+  top: number = defaultTop,
+  bottom: number = defaultBottom,
+) {
   let style;
   switch (placement) {
     case 'topLeft':
       style = {
         left: 0,
-        top: defaultTop,
+        top,
         bottom: 'auto',
       };
       break;
     case 'topRight':
       style = {
         right: 0,
-        top: defaultTop,
+        top,
         bottom: 'auto',
       };
       break;
@@ -61,23 +70,38 @@ function getPlacementStyle(placement: NotificationPlacement) {
       style = {
         left: 0,
         top: 'auto',
-        bottom: defaultBottom,
+        bottom,
       };
       break;
     default:
       style = {
         right: 0,
         top: 'auto',
-        bottom: defaultBottom,
+        bottom,
       };
       break;
   }
   return style;
 }
 
+type NotificationInstanceProps = {
+  prefixCls: string;
+  placement?: NotificationPlacement;
+  getContainer?: () => HTMLElement;
+  top?: number;
+  bottom?: number;
+  closeIcon?: React.ReactNode;
+};
+
 function getNotificationInstance(
-  prefixCls: string,
-  placement: NotificationPlacement,
+  {
+    prefixCls,
+    placement = defaultPlacement,
+    getContainer = defaultGetContainer,
+    top,
+    bottom,
+    closeIcon = defaultCloseIcon,
+  }: NotificationInstanceProps,
   callback: (n: any) => void,
 ) {
   const cacheKey = `${prefixCls}-${placement}`;
@@ -85,13 +109,20 @@ function getNotificationInstance(
     callback(notificationInstance[cacheKey]);
     return;
   }
+
+  const closeIconToRender = (
+    <span className={`${prefixCls}-close-x`}>
+      {closeIcon || <Icon className={`${prefixCls}-close-icon`} type="close" />}
+    </span>
+  );
+
   (Notification as any).newInstance(
     {
       prefixCls,
       className: `${prefixCls}-${placement}`,
-      style: getPlacementStyle(placement),
-      getContainer: defaultGetContainer,
-      closeIcon: <Icon className={`${prefixCls}-close-icon`} type={'close'} />,
+      style: getPlacementStyle(placement, top, bottom),
+      getContainer,
+      closeIcon: closeIconToRender,
     },
     (notification: any) => {
       notificationInstance[cacheKey] = notification;
@@ -121,6 +152,10 @@ export interface ArgsProps {
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
+  top?: number;
+  bottom?: number;
+  getContainer?: () => HTMLElement;
+  closeIcon?: React.ReactNode;
 }
 
 function notice(args: ArgsProps) {
@@ -143,9 +178,17 @@ function notice(args: ArgsProps) {
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
+  const { placement, top, bottom, getContainer, closeIcon } = args;
+
   getNotificationInstance(
-    outerPrefixCls,
-    args.placement || defaultPlacement,
+    {
+      prefixCls: outerPrefixCls,
+      placement,
+      top,
+      bottom,
+      getContainer,
+      closeIcon,
+    },
     (notification: any) => {
       notification.notice({
         content: (

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { ColumnFilterItem } from './interface';
 
 export function flatArray(data: any[] = [], childrenName = 'children') {
   const result: any[] = [];
@@ -57,7 +58,7 @@ export function normalizeColumns(elements: React.ReactChildren) {
       return;
     }
     const column: any = {
-      ...element.props,
+      ...(element.props as Object),
     };
     if (element.key) {
       column.key = element.key;
@@ -68,4 +69,12 @@ export function normalizeColumns(elements: React.ReactChildren) {
     columns.push(column);
   });
   return columns;
+}
+
+export function generateValueMaps(items?: ColumnFilterItem[], maps: { [name: string]: any } = {}) {
+  (items || []).forEach(({ value, children }) => {
+    maps[value.toString()] = value;
+    generateValueMaps(children, maps);
+  });
+  return maps;
 }

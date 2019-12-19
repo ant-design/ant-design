@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import * as React from 'react';
 import classNames from 'classnames';
 import * as allIcons from '@ant-design/icons/lib/dist';
@@ -11,13 +12,38 @@ import {
   alias,
 } from './utils';
 import warning from '../_util/warning';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTwoToneColor, setTwoToneColor } from './twoTonePrimaryColor';
 
 // Initial setting
 ReactIcon.add(...Object.keys(allIcons).map(key => (allIcons as any)[key]));
 setTwoToneColor('#1890ff');
 let defaultTheme: ThemeType = 'outlined';
-let dangerousTheme: ThemeType | undefined = undefined;
+let dangerousTheme: ThemeType | undefined;
+
+function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
+  warning(
+    false,
+    'Icon',
+    `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
+      `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  dangerousTheme = theme;
+}
+
+function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
+  warning(
+    false,
+    'Icon',
+    `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
+      `make sure that all the icons with theme '${theme}' display correctly.`,
+  );
+  defaultTheme = theme;
+}
+
+export interface TransferLocale {
+  icon: string;
+}
 
 export interface CustomIconComponentProps {
   width: string | number;
@@ -26,21 +52,26 @@ export interface CustomIconComponentProps {
   viewBox?: string;
   className?: string;
   style?: React.CSSProperties;
-  ['aria-hidden']?: string;
+  spin?: boolean;
+  rotate?: number;
+  ['aria-hidden']?: React.AriaAttributes['aria-hidden'];
 }
 
 export type ThemeType = 'filled' | 'outlined' | 'twoTone';
 
 export interface IconProps {
+  tabIndex?: number;
   type?: string;
   className?: string;
   theme?: ThemeType;
   title?: string;
+  onKeyUp?: React.KeyboardEventHandler<HTMLElement>;
   onClick?: React.MouseEventHandler<HTMLElement>;
-  component?: React.ComponentType<CustomIconComponentProps>;
+  component?: React.ComponentType<CustomIconComponentProps | React.SVGProps<SVGSVGElement>>;
   twoToneColor?: string;
   viewBox?: string;
   spin?: boolean;
+  rotate?: number;
   style?: React.CSSProperties;
   prefixCls?: string;
   role?: string;
@@ -64,6 +95,10 @@ const Icon: IconComponent<IconProps> = props => {
     component: Component,
     viewBox,
     spin,
+    rotate,
+
+    tabIndex,
+    onClick,
 
     // children
     children,
@@ -77,7 +112,8 @@ const Icon: IconComponent<IconProps> = props => {
 
   warning(
     Boolean(type || Component || children),
-    'Icon should have `type` prop or `component` prop or `children`.',
+    'Icon',
+    'Should have `type` prop or `component` prop or `children`.',
   );
 
   const classString = classNames(
@@ -92,85 +128,94 @@ const Icon: IconComponent<IconProps> = props => {
     [`anticon-spin`]: !!spin || type === 'loading',
   });
 
-  let innerNode;
+  const svgStyle = rotate
+    ? {
+        msTransform: `rotate(${rotate}deg)`,
+        transform: `rotate(${rotate}deg)`,
+      }
+    : undefined;
 
-  // component > children > type
-  if (Component) {
-    const innerSvgProps: CustomIconComponentProps = {
-      ...svgBaseProps,
-      className: svgClassString,
-      viewBox,
-    };
-    if (!viewBox) {
-      delete innerSvgProps.viewBox;
+  const innerSvgProps: CustomIconComponentProps = {
+    ...svgBaseProps,
+    className: svgClassString,
+    style: svgStyle,
+    viewBox,
+  };
+
+  if (!viewBox) {
+    delete innerSvgProps.viewBox;
+  }
+
+  const renderInnerNode = () => {
+    // component > children > type
+    if (Component) {
+      return <Component {...innerSvgProps}>{children}</Component>;
     }
 
-    innerNode = <Component {...innerSvgProps}>{children}</Component>;
-  }
-
-  if (children) {
-    warning(
-      Boolean(viewBox) ||
-        (React.Children.count(children) === 1 &&
-          React.isValidElement(children) &&
-          React.Children.only(children).type === 'use'),
-      'Make sure that you provide correct `viewBox`' +
-        ' prop (default `0 0 1024 1024`) to the icon.',
-    );
-    const innerSvgProps: CustomIconComponentProps = {
-      ...svgBaseProps,
-      className: svgClassString,
-    };
-    innerNode = (
-      <svg {...innerSvgProps} viewBox={viewBox}>
-        {children}
-      </svg>
-    );
-  }
-
-  if (typeof type === 'string') {
-    let computedType = type;
-    if (theme) {
-      const themeInName = getThemeFromTypeName(type);
+    if (children) {
       warning(
-        !themeInName || theme === themeInName,
-        `The icon name '${type}' already specify a theme '${themeInName}',` +
-          ` the 'theme' prop '${theme}' will be ignored.`,
+        Boolean(viewBox) ||
+          (React.Children.count(children) === 1 &&
+            React.isValidElement(children) &&
+            React.Children.only(children).type === 'use'),
+        'Icon',
+        'Make sure that you provide correct `viewBox`' +
+          ' prop (default `0 0 1024 1024`) to the icon.',
+      );
+      return (
+        <svg {...innerSvgProps} viewBox={viewBox}>
+          {children}
+        </svg>
       );
     }
-    computedType = withThemeSuffix(
-      removeTypeTheme(alias(computedType)),
-      dangerousTheme || theme || defaultTheme,
-    );
-    innerNode = (
-      <ReactIcon className={svgClassString} type={computedType} primaryColor={twoToneColor} />
-    );
+
+    if (typeof type === 'string') {
+      let computedType = type;
+      if (theme) {
+        const themeInName = getThemeFromTypeName(type);
+        warning(
+          !themeInName || theme === themeInName,
+          'Icon',
+          `The icon name '${type}' already specify a theme '${themeInName}',` +
+            ` the 'theme' prop '${theme}' will be ignored.`,
+        );
+      }
+      computedType = withThemeSuffix(
+        removeTypeTheme(alias(computedType)),
+        dangerousTheme || theme || defaultTheme,
+      );
+      return (
+        <ReactIcon
+          className={svgClassString}
+          type={computedType}
+          primaryColor={twoToneColor}
+          style={svgStyle}
+        />
+      );
+    }
+  };
+
+  let iconTabIndex = tabIndex;
+  if (iconTabIndex === undefined && onClick) {
+    iconTabIndex = -1;
   }
 
   return (
-    <i {...restProps} className={classString}>
-      {innerNode}
-    </i>
+    <LocaleReceiver componentName="Icon">
+      {(locale: TransferLocale) => (
+        <i
+          aria-label={type && `${locale.icon}: ${type}`}
+          {...restProps}
+          tabIndex={iconTabIndex}
+          onClick={onClick}
+          className={classString}
+        >
+          {renderInnerNode()}
+        </i>
+      )}
+    </LocaleReceiver>
   );
 };
-
-function unstable_ChangeThemeOfIconsDangerously(theme?: ThemeType) {
-  warning(
-    false,
-    `You are using the unstable method 'Icon.unstable_ChangeThemeOfAllIconsDangerously', ` +
-      `make sure that all the icons with theme '${theme}' display correctly.`,
-  );
-  dangerousTheme = theme;
-}
-
-function unstable_ChangeDefaultThemeOfIcons(theme: ThemeType) {
-  warning(
-    false,
-    `You are using the unstable method 'Icon.unstable_ChangeDefaultThemeOfIcons', ` +
-      `make sure that all the icons with theme '${theme}' display correctly.`,
-  );
-  defaultTheme = theme;
-}
 
 Icon.createFromIconfontCN = createFromIconfontCN;
 Icon.getTwoToneColor = getTwoToneColor;

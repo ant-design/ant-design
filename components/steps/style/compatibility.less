@@ -1,14 +1,14 @@
 .@{steps-prefix-cls}-flex-not-supported {
   &.@{steps-prefix-cls}-horizontal.@{steps-prefix-cls}-label-horizontal {
     .@{steps-prefix-cls}-item {
-      background: @steps-background;
-      padding-left: 16px;
       margin-left: -16px;
+      padding-left: 16px;
+      background: @steps-background;
     }
 
     &.@{steps-prefix-cls}-small .@{steps-prefix-cls}-item {
-      padding-left: 12px;
       margin-left: -12px;
+      padding-left: 12px;
     }
   }
 
@@ -17,26 +17,26 @@
       &:last-child {
         overflow: hidden;
 
-        .@{steps-prefix-cls}-icon-dot:after {
-          width: 200px;
+        .@{steps-prefix-cls}-icon-dot::after {
           right: -200px;
+          width: 200px;
         }
       }
 
-      .@{steps-prefix-cls}-icon-dot:before,
-      .@{steps-prefix-cls}-icon-dot:after {
-        content: '';
+      .@{steps-prefix-cls}-icon-dot::before,
+      .@{steps-prefix-cls}-icon-dot::after {
         position: absolute;
-        background: @steps-background;
-        width: 10px;
-        height: 8px;
         top: 0;
         left: -10px;
+        width: 10px;
+        height: 8px;
+        background: @steps-background;
+        content: '';
       }
 
-      .@{steps-prefix-cls}-icon-dot:after {
-        left: auto;
+      .@{steps-prefix-cls}-icon-dot::after {
         right: -10px;
+        left: auto;
       }
     }
 

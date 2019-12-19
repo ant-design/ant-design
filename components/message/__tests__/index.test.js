@@ -86,7 +86,7 @@ describe('message', () => {
     });
   });
 
-  it('should be called like promise', () => {
+  it('should be called like promise', done => {
     jest.useRealTimers();
     const defaultDuration = 3;
     const now = Date.now();
@@ -94,6 +94,7 @@ describe('message', () => {
       // calculate the approximately duration value
       const aboutDuration = parseInt((Date.now() - now) / 1000, 10);
       expect(aboutDuration).toBe(defaultDuration);
+      done();
     });
   });
 
@@ -143,6 +144,49 @@ describe('message', () => {
     mount(<Test />);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(2);
     jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
+
+  it('should support update message content with a unique key', () => {
+    const key = 'updatable';
+    class Test extends React.Component {
+      componentDidMount() {
+        message.loading({ content: 'Loading...', key });
+        // Testing that content of the message should be updated.
+        setTimeout(() => message.success({ content: 'Loaded', key }), 1000);
+        setTimeout(() => message.destroy(), 3000);
+      }
+
+      render() {
+        return <div>test</div>;
+      }
+    }
+
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    jest.advanceTimersByTime(1500);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    jest.runAllTimers();
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
+
+  it('update message content with a unique key and cancel manually', () => {
+    const key = 'updatable';
+    class Test extends React.Component {
+      componentDidMount() {
+        const hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
+        // Testing that content of the message should be cancel manually.
+        setTimeout(hideLoading, 1000);
+      }
+
+      render() {
+        return <div>test</div>;
+      }
+    }
+
+    mount(<Test />);
+    expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
+    jest.advanceTimersByTime(1500);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
 });

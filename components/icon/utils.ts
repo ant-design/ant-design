@@ -7,7 +7,7 @@ export const svgBaseProps = {
   width: '1em',
   height: '1em',
   fill: 'currentColor',
-  ['aria-hidden']: 'true',
+  'aria-hidden': true,
   focusable: 'false',
 };
 
@@ -43,17 +43,36 @@ export function withThemeSuffix(type: string, theme: ThemeType) {
   } else if (theme === 'twoTone') {
     result += '-twotone';
   } else {
-    warning(false, `This icon '${type}' has unknown theme '${theme}'`);
+    warning(false, 'Icon', `This icon '${type}' has unknown theme '${theme}'`);
   }
   return result;
 }
 
 // For alias or compatibility
 export function alias(type: string) {
+  let newType = type;
   switch (type) {
     case 'cross':
-      return 'close';
+      newType = 'close';
+      break;
+    // https://github.com/ant-design/ant-design/issues/13007
+    case 'interation':
+      newType = 'interaction';
+      break;
+    // https://github.com/ant-design/ant-design/issues/16810
+    case 'canlendar':
+      newType = 'calendar';
+      break;
+    // https://github.com/ant-design/ant-design/issues/17448
+    case 'colum-height':
+      newType = 'column-height';
+      break;
     default:
   }
-  return type;
+  warning(
+    newType === type,
+    'Icon',
+    `Icon '${type}' was a typo and is now deprecated, please use '${newType}' instead.`,
+  );
+  return newType;
 }

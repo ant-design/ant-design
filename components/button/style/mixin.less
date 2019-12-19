@@ -1,13 +1,13 @@
 // mixins for button
 // ------------------------
 .button-size(@height; @padding; @font-size; @border-radius) {
+  height: @height;
   padding: @padding;
   font-size: @font-size;
   border-radius: @border-radius;
-  height: @height;
 }
 
-.button-disabled() {
+.button-disabled(@color: @btn-disable-color; @background: @btn-disable-bg; @border: @btn-disable-border) {
   &-disabled,
   &.disabled,
   &[disabled] {
@@ -16,7 +16,8 @@
     &:focus,
     &:active,
     &.active {
-      .button-color(@btn-disable-color; @btn-disable-bg; @btn-disable-border);
+      .button-color(@color; @background; @border);
+
       text-shadow: none;
       box-shadow: none;
     }
@@ -25,6 +26,7 @@
 
 .button-variant-primary(@color; @background) {
   .button-color(@color; @background; @background);
+
   text-shadow: @btn-text-shadow;
   box-shadow: @btn-primary-shadow;
 
@@ -64,36 +66,26 @@
   }
   .button-disabled();
 }
-.button-variant-danger(@color; @background; @border) {
-  .button-color(@color; @background; @border);
-  &:hover {
-    .button-color(
-      @btn-primary-color; ~`colorPalette('@{color}', 5) `; ~`colorPalette('@{color}', 5) `
-    );
-  }
-  &:focus {
-    .button-color(
-      ~`colorPalette('@{color}', 5) `; @component-background; ~`colorPalette('@{color}', 5) `
-    );
-  }
-  &:active,
-  &.active {
-    .button-color(
-      @btn-primary-color; ~`colorPalette('@{color}', 7) `; ~`colorPalette('@{color}', 7) `
-    );
-  }
-  .button-disabled();
-}
-.button-variant-ghost(@color) {
-  .button-color(@color; transparent; @color);
+.button-variant-ghost(@color; @border: @color) {
+  .button-color(@color; transparent; @border);
   text-shadow: none;
   &:hover,
   &:focus {
-    .button-color(~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `);
+    & when (@border = transparent) {
+      .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
+    }
+    & when not(@border = transparent) {
+      .button-color(~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `);
+    }
   }
   &:active,
   &.active {
-    .button-color(~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `);
+    & when (@border = transparent) {
+      .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
+    }
+    & when not(@border = transparent) {
+      .button-color(~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `);
+    }
   }
   .button-disabled();
 }
@@ -105,14 +97,14 @@
   // http://stackoverflow.com/a/17253457
   > a:only-child {
     color: currentColor;
-    &:after {
-      content: '';
+    &::after {
       position: absolute;
       top: 0;
-      left: 0;
-      bottom: 0;
       right: 0;
+      bottom: 0;
+      left: 0;
       background: transparent;
+      content: '';
     }
   }
 }
@@ -132,11 +124,19 @@
       z-index: 0;
     }
   }
+  > .@{btnClassName}-icon-only {
+    font-size: @font-size-base;
+  }
   // size
   &-lg > .@{btnClassName},
   &-lg > span > .@{btnClassName} {
     .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
     line-height: @btn-height-lg - 2px;
+  }
+  &-lg > .@{btnClassName}.@{btnClassName}-icon-only {
+    .square(@btn-height-lg);
+    padding-right: 0;
+    padding-left: 0;
   }
   &-sm > .@{btnClassName},
   &-sm > span > .@{btnClassName} {
@@ -146,23 +146,28 @@
       font-size: @font-size-base;
     }
   }
+  &-sm > .@{btnClassName}.@{btnClassName}-icon-only {
+    .square(@btn-height-sm);
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 // Base styles of buttons
 // --------------------------------------------------
 .btn() {
+  position: relative;
   display: inline-block;
   font-weight: @btn-font-weight;
-  text-align: center;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: @border-width-base @border-style-base transparent;
   white-space: nowrap;
-  .button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
-  user-select: none;
-  transition: all 0.3s @ease-in-out;
-  position: relative;
+  text-align: center;
+  background-image: none;
+  border: @btn-border-width @btn-border-style transparent;
   box-shadow: @btn-shadow;
+  cursor: pointer;
+  transition: all 0.3s @ease-in-out;
+  user-select: none;
+  touch-action: manipulation;
+  .button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
   > .@{iconfont-css-prefix} {
     line-height: 1;
   }
@@ -203,8 +208,8 @@
   &:focus,
   &:active,
   &.active {
-    background: @btn-default-bg;
     text-decoration: none;
+    background: @btn-default-bg;
   }
 }
 // ghost button style
@@ -218,22 +223,63 @@
 }
 // danger button style
 .btn-danger() {
-  .button-variant-danger(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+  .button-variant-primary(@btn-danger-color, @btn-danger-bg);
+}
+// link button style
+.btn-link() {
+  .button-variant-other(@link-color, transparent, transparent);
+  box-shadow: none;
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  .button-disabled(@disabled-color; transparent; transparent);
+}
+// round button
+.btn-round(@btnClassName: btn) {
+  .button-size(@btn-circle-size; 0 @btn-circle-size / 2; @font-size-base; @btn-circle-size);
+  &.@{btnClassName}-lg {
+    .button-size(
+      @btn-circle-size-lg; 0 @btn-circle-size-lg / 2; @btn-font-size-lg; @btn-circle-size-lg
+    );
+  }
+  &.@{btnClassName}-sm {
+    .button-size(
+      @btn-circle-size-sm; 0 @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
+    );
+  }
+}
+// square button: the content only contains icon
+.btn-square(@btnClassName: btn) {
+  .square(@btn-square-size);
+  .button-size(@btn-square-size; 0; @font-size-base + 2px; @btn-border-radius-base);
+  &.@{btnClassName}-lg {
+    .square(@btn-square-size-lg);
+    .button-size(@btn-square-size-lg; 0; @btn-font-size-lg + 2px; @btn-border-radius-base);
+  }
+  &.@{btnClassName}-sm {
+    .square(@btn-square-size-sm);
+    .button-size(@btn-square-size-sm; 0; @font-size-base; @btn-border-radius-base);
+  }
 }
 // circle button: the content only contains icon
 .btn-circle(@btnClassName: btn) {
-  .square(@btn-circle-size);
-  .button-size(@btn-circle-size; 0; @font-size-base + 2px; 50%);
+  min-width: @btn-height-base;
+  padding-right: 0;
+  padding-left: 0;
+  text-align: center;
+  border-radius: 50%;
   &.@{btnClassName}-lg {
-    .square(@btn-circle-size-lg);
-    .button-size(@btn-circle-size-lg; 0; @btn-font-size-lg + 2px; 50%);
+    min-width: @btn-height-lg;
+    border-radius: 50%;
   }
   &.@{btnClassName}-sm {
-    .square(@btn-circle-size-sm);
-    .button-size(@btn-circle-size-sm; 0; @font-size-base; 50%);
+    min-width: @btn-height-sm;
+    border-radius: 50%;
   }
 }
-// Horizontal button groups styl
+// Horizontal button groups style
 // --------------------------------------------------
 .btn-group(@btnClassName: btn) {
   .button-group-base(@btnClassName);
@@ -264,13 +310,13 @@
   }
   > .@{btnClassName}:first-child:not(:last-child),
   > span:first-child:not(:last-child) > .@{btnClassName} {
-    border-bottom-left-radius: @btn-border-radius-base;
     border-top-left-radius: @btn-border-radius-base;
+    border-bottom-left-radius: @btn-border-radius-base;
   }
   > .@{btnClassName}:last-child:not(:first-child),
   > span:last-child:not(:first-child) > .@{btnClassName} {
-    border-bottom-right-radius: @btn-border-radius-base;
     border-top-right-radius: @btn-border-radius-base;
+    border-bottom-right-radius: @btn-border-radius-base;
   }
   &-sm {
     > .@{btnClassName}:only-child {
@@ -281,13 +327,13 @@
     }
     > .@{btnClassName}:first-child:not(:last-child),
     > span:first-child:not(:last-child) > .@{btnClassName} {
-      border-bottom-left-radius: @btn-border-radius-sm;
       border-top-left-radius: @btn-border-radius-sm;
+      border-bottom-left-radius: @btn-border-radius-sm;
     }
     > .@{btnClassName}:last-child:not(:first-child),
     > span:last-child:not(:first-child) > .@{btnClassName} {
-      border-bottom-right-radius: @btn-border-radius-sm;
       border-top-right-radius: @btn-border-radius-sm;
+      border-bottom-right-radius: @btn-border-radius-sm;
     }
   }
   & > & {
@@ -298,14 +344,14 @@
   }
   & > &:first-child:not(:last-child) {
     > .@{btnClassName}:last-child {
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
       padding-right: 8px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
   }
   & > &:last-child:not(:first-child) > .@{btnClassName}:first-child {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
     padding-left: 8px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }

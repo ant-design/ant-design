@@ -5,6 +5,7 @@ import InputElement from './InputElement';
 import Input, { InputProps } from '../input';
 import Select, { AbstractSelectProps, SelectValue, OptionProps, OptGroupProps } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { Omit } from '../_util/type';
 
 export interface DataSourceItemObject {
   value: string;
@@ -26,10 +27,11 @@ export type ValidInputElement =
   | HTMLTextAreaElement
   | React.ReactElement<AutoCompleteInputProps>;
 
-export interface AutoCompleteProps extends AbstractSelectProps {
+export interface AutoCompleteProps extends Omit<AbstractSelectProps, 'loading'> {
   value?: SelectValue;
   defaultValue?: SelectValue;
   dataSource?: DataSourceItemType[];
+  dropdownMenuStyle?: React.CSSProperties;
   autoFocus?: boolean;
   backfill?: boolean;
   optionLabelProp?: string;
@@ -50,6 +52,7 @@ function isSelectOptionOrSelectOptGroup(child: any): Boolean {
 
 export default class AutoComplete extends React.Component<AutoCompleteProps, {}> {
   static Option = Option as React.ClassicComponentClass<OptionProps>;
+
   static OptGroup = OptGroup as React.ClassicComponentClass<OptGroupProps>;
 
   static defaultProps = {
@@ -62,6 +65,10 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
 
   private select: any;
 
+  saveSelect = (node: any) => {
+    this.select = node;
+  };
+
   getInputElement = () => {
     const { children } = this.props;
     const element =
@@ -70,7 +77,7 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
       ) : (
         <Input />
       );
-    const elementProps = { ...element.props };
+    const elementProps = { ...(element as React.ReactElement<any>).props };
     // https://github.com/ant-design/ant-design/pull/7742
     delete elementProps.children;
     return <InputElement {...elementProps}>{element}</InputElement>;
@@ -83,10 +90,6 @@ export default class AutoComplete extends React.Component<AutoCompleteProps, {}>
   blur() {
     this.select.blur();
   }
-
-  saveSelect = (node: any) => {
-    this.select = node;
-  };
 
   renderAutoComplete = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {

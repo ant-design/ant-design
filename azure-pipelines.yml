@@ -1,0 +1,69 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+name: ant design
+
+trigger:
+  batch: true
+  branches:
+    exclude:
+      - gh-pages
+
+jobs:
+  - job: test_
+    pool:
+      vmImage: 'Ubuntu-16.04'
+    strategy:
+      matrix:
+        Lint:
+          TEST_TYPE: lint
+        dist-react@16:
+          REACT: 16
+          TEST_TYPE: test:dist
+        lib-react@16:
+          REACT: 16
+          TEST_TYPE: test:lib
+        es-react@16:
+          REACT: 16
+          TEST_TYPE: test:es
+        dom-react@16:
+          REACT: 16
+          TEST_TYPE: test:dom
+        node-react@16:
+          REACT: 16
+          TEST_TYPE: test:node
+        dist-react@15:
+          REACT: 15
+          TEST_TYPE: test:dist
+        lib-react@15:
+          REACT: 15
+          TEST_TYPE: test:lib
+        es-react@15:
+          REACT: 15
+          TEST_TYPE: test:es
+        dom-react@15:
+          REACT: 15
+          TEST_TYPE: test:dom
+        node-react@15:
+          REACT: 15
+          TEST_TYPE: test:node
+    steps:
+      - checkout: self
+        fetchDepth: 1
+        clean: false
+      - task: NodeTool@0
+        inputs:
+          versionSpec: '10.x'
+      - script: npm install
+        displayName: install
+      - script: scripts/install-react.sh
+        displayName: install-react
+      - script: scripts/travis-script.sh
+        displayName: test
+      - task: PublishBuildArtifacts@1
+        # 主分支，并且运行成功
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+        inputs:
+          pathtoPublish: './package-lock.json'
+          artifactName: lock

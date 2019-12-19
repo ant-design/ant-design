@@ -5,7 +5,7 @@
 
 .@{table-prefix-cls}-middle {
   > .@{table-prefix-cls}-title,
-  > .@{table-prefix-cls}-footer {
+  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
     padding: @table-padding-vertical-md @table-padding-horizontal-md;
   }
   > .@{table-prefix-cls}-content {
@@ -31,7 +31,8 @@
   }
 
   tr.@{table-prefix-cls}-expanded-row td > .@{table-prefix-cls}-wrapper {
-    margin: -@table-padding-vertical-md -@table-padding-horizontal -@table-padding-vertical-md - 1px;
+    margin: -@table-padding-vertical-md -@table-padding-horizontal / 2 -@table-padding-vertical-md -
+      1px;
   }
 }
 
@@ -40,13 +41,21 @@
   border-radius: @table-border-radius-base;
 
   > .@{table-prefix-cls}-title,
-  > .@{table-prefix-cls}-footer {
+  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
     padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
   }
 
   > .@{table-prefix-cls}-title {
-    border-bottom: @border-width-base @border-style-base @border-color-split;
     top: 0;
+    border-bottom: @border-width-base @border-style-base @border-color-split;
+  }
+
+  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
+    background-color: transparent;
+    border-top: @border-width-base @border-style-base @border-color-split;
+    &::before {
+      background-color: transparent;
+    }
   }
 
   > .@{table-prefix-cls}-content {
@@ -74,7 +83,9 @@
         padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
       }
       > .@{table-prefix-cls}-thead > tr > th {
-        background-color: transparent;
+        background-color: @table-header-bg-sm;
+      }
+      > .@{table-prefix-cls}-thead > tr {
         border-bottom: @border-width-base @border-style-base @border-color-split;
       }
       > .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-sort {
@@ -98,7 +109,8 @@
     }
 
     .@{table-prefix-cls}-header {
-      background-color: @component-background;
+      background-color: @table-header-bg-sm;
+      border-radius: @table-border-radius-base @table-border-radius-base 0 0;
     }
 
     .@{table-prefix-cls}-placeholder,
@@ -112,8 +124,8 @@
 
     .@{table-prefix-cls}-title {
       border: 0;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
       border-right: @border-width-base @border-style-base @border-color-split;
+      border-bottom: @border-width-base @border-style-base @border-color-split;
     }
 
     .@{table-prefix-cls}-content {
@@ -123,19 +135,18 @@
     .@{table-prefix-cls}-footer {
       border: 0;
       border-top: @border-width-base @border-style-base @border-color-split;
-      border-right: @border-width-base @border-style-base @border-color-split;
-      &:before {
+      &::before {
         display: none;
       }
     }
 
     .@{table-prefix-cls}-placeholder {
-      border-left: 0;
-      border-bottom: 0;
       border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
     }
 
-    .@{table-prefix-cls}-thead > tr > th:last-child,
+    .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-row-cell-last,
     .@{table-prefix-cls}-tbody > tr > td:last-child {
       border-right: none;
     }
@@ -148,12 +159,21 @@
     }
 
     .@{table-prefix-cls}-fixed-right {
-      border-left: @border-width-base @border-style-base @border-color-split;
       border-right: @border-width-base @border-style-base @border-color-split;
+      border-left: @border-width-base @border-style-base @border-color-split;
     }
   }
 
   tr.@{table-prefix-cls}-expanded-row td > .@{table-prefix-cls}-wrapper {
-    margin: -@table-padding-vertical-sm -@table-padding-horizontal -@table-padding-vertical-sm - 1px;
+    margin: -@table-padding-vertical-sm -@table-padding-horizontal / 2 -@table-padding-vertical-sm -
+      1px;
+  }
+
+  // https://github.com/ant-design/ant-design/issues/19287#issuecomment-544368967
+  &.@{table-prefix-cls}-fixed-header
+    > .@{table-prefix-cls}-content
+    > .@{table-prefix-cls}-scroll
+    > .@{table-prefix-cls}-body {
+    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
   }
 }

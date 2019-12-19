@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 
 @steps-prefix-cls: ~'@{ant-prefix}-steps';
@@ -20,33 +20,41 @@
 @error-description-color: @error-color;
 @error-tail-color: @wait-tail-color;
 @steps-background: @component-background;
+@steps-nav-arrow-color: fade(@black, 25%);
+@steps-nav-active-color: @primary-color;
 
 @steps-icon-size: 32px;
 @steps-small-icon-size: 24px;
 @steps-dot-size: 8px;
 @steps-current-dot-size: 10px;
 @steps-desciption-max-width: 140px;
+@steps-nav-content-max-width: auto;
 
 .@{steps-prefix-cls} {
   .reset-component;
-  font-size: 0;
-  width: 100%;
+
   display: flex;
+  width: 100%;
+  font-size: 0;
 }
 
 .@{steps-prefix-cls}-item {
   position: relative;
   display: inline-block;
-  vertical-align: top;
   flex: 1;
   overflow: hidden;
+  vertical-align: top;
+
+  &-container {
+    outline: none;
+  }
 
   &:last-child {
     flex: none;
   }
 
-  &:last-child &-tail,
-  &:last-child &-title:after {
+  &:last-child > &-container > &-tail,
+  &:last-child > &-container > &-content > &-title::after {
     display: none;
   }
 
@@ -57,61 +65,68 @@
   }
 
   &-icon {
-    border: @border-width-base @border-style-base @wait-icon-color;
     width: @steps-icon-size;
     height: @steps-icon-size;
+    margin-right: 8px;
+    font-size: @font-size-lg;
+    font-family: @font-family;
     line-height: @steps-icon-size;
     text-align: center;
+    border: @border-width-base @border-style-base @wait-icon-color;
     border-radius: @steps-icon-size;
-    font-size: @font-size-lg;
-    margin-right: 8px;
     transition: background-color 0.3s, border-color 0.3s;
-    font-family: @font-family;
 
     > .@{steps-prefix-cls}-icon {
-      line-height: 1;
+      position: relative;
       top: -1px;
       color: @primary-color;
-      position: relative;
+      line-height: 1;
     }
   }
   &-tail {
     position: absolute;
+    top: 12px;
     left: 0;
     width: 100%;
-    top: 12px;
     padding: 0 10px;
-    &:after {
-      content: '';
+    &::after {
       display: inline-block;
-      background: @border-color-split;
-      height: 1px;
-      border-radius: 1px;
       width: 100%;
+      height: 1px;
+      background: @border-color-split;
+      border-radius: 1px;
       transition: background 0.3s;
+      content: '';
     }
   }
   &-title {
-    font-size: @font-size-lg;
-    color: @text-color;
+    position: relative;
     display: inline-block;
     padding-right: 16px;
-    position: relative;
+    color: @text-color;
+    font-size: @font-size-lg;
     line-height: @steps-icon-size;
-    &:after {
-      content: '';
-      height: 1px;
-      width: 9999px;
-      background: @wait-tail-color;
-      display: block;
+    &::after {
       position: absolute;
       top: @steps-icon-size / 2;
       left: 100%;
+      display: block;
+      width: 9999px;
+      height: 1px;
+      background: @wait-tail-color;
+      content: '';
     }
   }
-  &-description {
-    font-size: @font-size-base;
+  &-subtitle {
+    display: inline;
+    margin-left: 8px;
     color: @text-color-secondary;
+    font-weight: normal;
+    font-size: @font-size-base;
+  }
+  &-description {
+    color: @text-color-secondary;
+    font-size: @font-size-base;
   }
   .step-item-status(wait);
   .step-item-status(process);
@@ -127,8 +142,49 @@
   .step-item-status(finish);
   .step-item-status(error);
 
-  &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title:after {
+  &.@{steps-prefix-cls}-next-error .@{steps-prefix-cls}-item-title::after {
     background: @error-icon-color;
+  }
+}
+
+// ===================== Clickable =====================
+.@{steps-prefix-cls} .@{steps-prefix-cls}-item {
+  &:not(.@{steps-prefix-cls}-item-active) {
+    & > .@{steps-prefix-cls}-item-container[role='button'] {
+      cursor: pointer;
+
+      .@{steps-prefix-cls}-item {
+        &-title,
+        &-description,
+        &-icon .@{steps-prefix-cls}-icon {
+          transition: color 0.3s;
+        }
+      }
+
+      &:hover {
+        .@{steps-prefix-cls}-item {
+          &-title,
+          &-subtitle,
+          &-description {
+            color: @primary-color;
+          }
+        }
+      }
+    }
+
+    &:not(.@{steps-prefix-cls}-item-process) {
+      & > .@{steps-prefix-cls}-item-container[role='button']:hover {
+        .@{steps-prefix-cls}-item {
+          &-icon {
+            border-color: @primary-color;
+
+            .@{steps-prefix-cls}-icon {
+              color: @primary-color;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -158,8 +214,8 @@
   @description-color: '@{status}-description-color';
   @tail-color: '@{status}-tail-color';
   &-@{status} &-icon {
-    border-color: @@icon-color;
     background-color: @steps-background;
+    border-color: @@icon-color;
     > .@{steps-prefix-cls}-icon {
       color: @@icon-color;
       .@{steps-prefix-cls}-icon-dot {
@@ -167,16 +223,16 @@
       }
     }
   }
-  &-@{status} > &-content > &-title {
+  &-@{status} > &-container > &-content > &-title {
     color: @@title-color;
-    &:after {
+    &::after {
       background-color: @@tail-color;
     }
   }
-  &-@{status} > &-content > &-description {
+  &-@{status} > &-container > &-content > &-description {
     color: @@description-color;
   }
-  &-@{status} > &-tail:after {
+  &-@{status} > &-container > &-tail::after {
     background-color: @@tail-color;
   }
 }
@@ -186,4 +242,5 @@
 @import 'vertical';
 @import 'label-placement';
 @import 'progress-dot';
+@import 'nav';
 @import 'compatibility';

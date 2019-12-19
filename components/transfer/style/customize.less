@@ -1,0 +1,62 @@
+@import './index.less';
+
+@table-prefix-cls: ~'@{ant-prefix}-table';
+
+.@{transfer-prefix-cls}-customize-list {
+  display: flex;
+
+  .@{transfer-prefix-cls}-operation {
+    flex: none;
+    align-self: center;
+  }
+
+  .@{transfer-prefix-cls}-list {
+    flex: auto;
+    width: auto;
+    height: auto;
+    min-height: @transfer-list-height;
+
+    &-body {
+      &-with-search {
+        padding-top: 0;
+      }
+
+      // Search box in customize mode do not need fix top
+      &-search-wrapper {
+        position: relative;
+        padding-bottom: 0;
+      }
+
+      &-customize-wrapper {
+        padding: 12px;
+      }
+    }
+  }
+
+  // =================== Hook Components ===================
+  .@{table-prefix-cls}-wrapper {
+    .@{table-prefix-cls}-small {
+      border: 0;
+      border-radius: 0;
+
+      > .@{table-prefix-cls}-content {
+        // Header background color
+        > .@{table-prefix-cls}-body > table > .@{table-prefix-cls}-thead > tr > th {
+          background: @table-header-bg;
+        }
+
+        .@{table-prefix-cls}-row:last-child td {
+          border-bottom: @border-width-base @border-style-base @border-color-split;
+        }
+      }
+
+      .@{table-prefix-cls}-body {
+        margin: 0;
+      }
+    }
+
+    .@{table-prefix-cls}-pagination.@{ant-prefix}-pagination {
+      margin: 16px 0 4px;
+    }
+  }
+}

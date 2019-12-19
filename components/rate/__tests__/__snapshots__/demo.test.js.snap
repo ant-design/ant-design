@@ -20,6 +20,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -27,6 +28,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -41,6 +43,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -48,6 +51,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -74,6 +78,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -81,6 +86,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -95,6 +101,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -102,6 +109,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -128,6 +136,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -135,6 +144,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -149,6 +159,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -156,6 +167,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -182,6 +194,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -189,6 +202,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -203,6 +217,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -210,6 +225,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -236,6 +252,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -243,6 +260,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -257,6 +275,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -264,6 +283,7 @@ exports[`renders ./components/rate/demo/basic.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -300,6 +320,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -307,6 +328,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -321,6 +343,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -328,6 +351,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -354,6 +378,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -361,6 +386,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -375,6 +401,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -382,6 +409,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -408,6 +436,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -415,6 +444,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -429,6 +459,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -436,6 +467,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -462,6 +494,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -469,6 +502,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -483,6 +517,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -490,6 +525,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -516,6 +552,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -523,6 +560,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -537,6 +575,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: heart"
             class="anticon anticon-heart"
           >
             <svg
@@ -544,6 +583,7 @@ exports[`renders ./components/rate/demo/character.md correctly 1`] = `
               class=""
               data-icon="heart"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -816,6 +856,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -823,6 +864,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -837,6 +879,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -844,6 +887,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -870,6 +914,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -877,6 +922,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -891,6 +937,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -898,6 +945,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -924,6 +972,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -931,6 +980,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -945,6 +995,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -952,6 +1003,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -978,6 +1030,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -985,6 +1038,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -999,6 +1053,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1006,6 +1061,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1032,6 +1088,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1039,6 +1096,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1053,6 +1111,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1060,6 +1119,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1073,7 +1133,11 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
   </ul>
-   allowClear: true
+  <span
+    class="ant-rate-text"
+  >
+    allowClear: true
+  </span>
   <br />
   <ul
     class="ant-rate"
@@ -1094,6 +1158,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1101,6 +1166,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1115,6 +1181,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1122,6 +1189,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1148,6 +1216,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1155,6 +1224,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1169,6 +1239,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1176,6 +1247,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1202,6 +1274,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1209,6 +1282,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1223,6 +1297,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1230,6 +1305,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1256,6 +1332,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1263,6 +1340,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1277,6 +1355,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1284,6 +1363,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1310,6 +1390,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1317,6 +1398,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1331,6 +1413,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1338,6 +1421,7 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1351,7 +1435,11 @@ exports[`renders ./components/rate/demo/clear.md correctly 1`] = `
       </div>
     </li>
   </ul>
-   allowClear: false
+  <span
+    class="ant-rate-text"
+  >
+    allowClear: false
+  </span>
 </div>
 `;
 
@@ -1375,6 +1463,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1382,6 +1471,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1396,6 +1486,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1403,6 +1494,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1429,6 +1521,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1436,6 +1529,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1450,6 +1544,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1457,6 +1552,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1483,6 +1579,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1490,6 +1587,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1504,6 +1602,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1511,6 +1610,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1537,6 +1637,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1544,6 +1645,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1558,6 +1660,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1565,6 +1668,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1591,6 +1695,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1598,6 +1703,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1612,6 +1718,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1619,6 +1726,7 @@ exports[`renders ./components/rate/demo/disabled.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1654,6 +1762,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1661,6 +1770,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1675,6 +1785,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1682,6 +1793,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1708,6 +1820,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1715,6 +1828,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1729,6 +1843,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1736,6 +1851,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1762,6 +1878,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1769,6 +1886,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1783,6 +1901,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1790,6 +1909,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1816,6 +1936,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1823,6 +1944,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1837,6 +1959,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1844,6 +1967,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1870,6 +1994,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-first"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1877,6 +2002,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1891,6 +2017,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
         class="ant-rate-star-second"
       >
         <i
+          aria-label="icon: star"
           class="anticon anticon-star"
         >
           <svg
@@ -1898,6 +2025,7 @@ exports[`renders ./components/rate/demo/half.md correctly 1`] = `
             class=""
             data-icon="star"
             fill="currentColor"
+            focusable="false"
             height="1em"
             viewBox="64 64 896 896"
             width="1em"
@@ -1934,6 +2062,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1941,6 +2070,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1955,6 +2085,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1962,6 +2093,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -1988,6 +2120,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -1995,6 +2128,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2009,6 +2143,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -2016,6 +2151,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2042,6 +2178,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -2049,6 +2186,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2063,6 +2201,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -2070,6 +2209,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2096,6 +2236,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -2103,6 +2244,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2117,6 +2259,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -2124,6 +2267,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2150,6 +2294,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-first"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -2157,6 +2302,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -2171,6 +2317,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
           class="ant-rate-star-second"
         >
           <i
+            aria-label="icon: star"
             class="anticon anticon-star"
           >
             <svg
@@ -2178,6 +2325,7 @@ exports[`renders ./components/rate/demo/text.md correctly 1`] = `
               class=""
               data-icon="star"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"

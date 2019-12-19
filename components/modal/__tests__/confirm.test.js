@@ -1,4 +1,5 @@
 import Modal from '..';
+import { destroyFns } from '../Modal';
 
 const { confirm } = Modal;
 
@@ -25,6 +26,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       ...args,
     });
   }
+
+  it('should not render title when title not defined', () => {
+    confirm({
+      content: 'some descriptions',
+    });
+    expect(document.querySelector('.ant-modal-confirm-title')).toBe(null);
+  });
 
   it('trigger onCancel once when click on cancel button', () => {
     const onCancel = jest.fn();
@@ -66,12 +74,25 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(errorSpy).not.toHaveBeenCalled();
   });
 
+  it('should emit error when onOk return Promise.reject', () => {
+    const error = new Error('something wrong');
+    open({
+      onOk: () => Promise.reject(error),
+    });
+    // Fifth Modal
+    $$('.ant-btn-primary')[0].click();
+    // wait promise
+    return Promise.resolve().then(() => {
+      expect(errorSpy).toHaveBeenCalledWith(error);
+    });
+  });
+
   if (process.env.REACT !== '15') {
     it('shows animation when close', () => {
       jest.useFakeTimers();
       open();
-      $$('.ant-btn')[0].click();
       expect($$('.ant-modal-confirm')).toHaveLength(1);
+      $$('.ant-btn')[0].click();
       jest.runAllTimers();
       expect($$('.ant-modal-confirm')).toHaveLength(0);
       jest.useRealTimers();
@@ -91,7 +112,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.ant-btn')[1].disabled).toBe(true);
   });
 
-  it('trigger onCancel once when click on cancel button', () => {
+  it('should close modals when click confirm button', () => {
     jest.useFakeTimers();
     ['info', 'success', 'warning', 'error'].forEach(type => {
       Modal[type]({
@@ -167,5 +188,32 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect($$('.custom-modal-wrap')).toHaveLength(1);
     expect($$('.custom-modal-confirm')).toHaveLength(1);
     expect($$('.custom-modal-confirm-body-wrapper')).toHaveLength(1);
+  });
+
+  it('should be Modal.confirm without mask', () => {
+    open({ mask: false });
+    expect($$('.ant-modal-mask')).toHaveLength(0);
+  });
+
+  it('destroyFns should reduce when instance.destroy', () => {
+    jest.useFakeTimers();
+    Modal.destroyAll(); // clear destroyFns
+    jest.runAllTimers();
+    const instances = [];
+    ['info', 'success', 'warning', 'error'].forEach(type => {
+      const instance = Modal[type]({
+        title: 'title',
+        content: 'content',
+      });
+      instances.push(instance);
+    });
+    const { length } = instances;
+    instances.forEach((instance, index) => {
+      expect(destroyFns.length).toBe(length - index);
+      instance.destroy();
+      jest.runAllTimers();
+      expect(destroyFns.length).toBe(length - index - 1);
+    });
+    jest.useRealTimers();
   });
 });

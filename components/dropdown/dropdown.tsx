@@ -19,14 +19,27 @@ type Placement = (typeof Placements)[number];
 
 type OverlayFunc = () => React.ReactNode;
 
+type Align = {
+  points?: [string, string];
+  offset?: [number, number];
+  targetOffset?: [number, number];
+  overflow?: {
+    adjustX?: boolean;
+    adjustY?: boolean;
+  };
+  useCssRight?: boolean;
+  useCssBottom?: boolean;
+  useCssTransform?: boolean;
+};
+
 export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactNode | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
-  align?: Object;
-  getPopupContainer?: (triggerNode: Element) => HTMLElement;
+  align?: Align;
+  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   prefixCls?: string;
   className?: string;
   transitionName?: string;
@@ -41,6 +54,7 @@ export interface DropDownProps {
 
 export default class Dropdown extends React.Component<DropDownProps, any> {
   static Button: typeof DropdownButton;
+
   static defaultProps = {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
@@ -69,14 +83,15 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     } else {
       overlayNode = overlay;
     }
-    overlayNode = React.Children.only(overlayNode);
+    overlayNode = React.Children.only(overlayNode) as React.ReactElement<any>;
 
     const overlayProps = overlayNode.props;
 
     // Warning if use other mode
     warning(
       !overlayProps.mode || overlayProps.mode === 'vertical',
-      `mode="${overlayProps.mode}" is not supported for Dropdown\'s Menu.`,
+      'Dropdown',
+      `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
     );
 
     // menu cannot be selectable in dropdown defaultly
@@ -115,7 +130,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     } = this.props;
 
     const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
-    const child = React.Children.only(children);
+    const child = React.Children.only(children) as React.ReactElement<any>;
 
     const dropdownTrigger = React.cloneElement(child, {
       className: classNames(child.props.className, `${prefixCls}-trigger`),

@@ -1,4 +1,3 @@
-/* global Promise */
 import * as React from 'react';
 import Notification from 'rc-notification';
 import Icon from '../icon';
@@ -39,13 +38,13 @@ function getMessageInstance(callback: (i: any) => void) {
 type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 export interface ThenableArgument {
-  (_: any): any;
+  (val: any): void;
 }
 
 export interface MessageType {
   (): void;
-  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<any>;
-  promise: Promise<any>;
+  then: (fill: ThenableArgument, reject: ThenableArgument) => Promise<void>;
+  promise: Promise<void>;
 }
 
 export interface ArgsProps {
@@ -54,6 +53,7 @@ export interface ArgsProps {
   type: NoticeType;
   onClose?: () => void;
   icon?: React.ReactNode;
+  key?: string | number;
 }
 
 function notice(args: ArgsProps): MessageType {
@@ -66,7 +66,7 @@ function notice(args: ArgsProps): MessageType {
     loading: 'loading',
   }[args.type];
 
-  const target = key++;
+  const target = args.key || key++;
   const closePromise = new Promise(resolve => {
     const callback = () => {
       if (typeof args.onClose === 'function') {
@@ -78,6 +78,7 @@ function notice(args: ArgsProps): MessageType {
       const iconNode = (
         <Icon type={iconType} theme={iconType === 'loading' ? 'outlined' : 'filled'} />
       );
+      const switchIconNode = iconType ? iconNode : '';
       instance.notice({
         key: target,
         duration,
@@ -88,7 +89,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : iconType ? iconNode : ''}
+            {args.icon ? args.icon : switchIconNode}
             <span>{args.content}</span>
           </div>
         ),
@@ -109,7 +110,12 @@ function notice(args: ArgsProps): MessageType {
 
 type ConfigContent = React.ReactNode | string;
 type ConfigDuration = number | (() => void);
+type JointContent = ConfigContent | ArgsProps;
 export type ConfigOnClose = () => void;
+
+function isArgsProps(content: JointContent): content is ArgsProps {
+  return typeof content === 'object' && !!(content as ArgsProps).content;
+}
 
 export interface ConfigOptions {
   top?: number;
@@ -154,24 +160,29 @@ const api: any = {
 };
 
 ['success', 'info', 'warning', 'error', 'loading'].forEach(type => {
-  api[type] = (content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose) => {
+  api[type] = (content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose) => {
+    if (isArgsProps(content)) {
+      return api.open({ ...content, type });
+    }
+
     if (typeof duration === 'function') {
       onClose = duration;
       duration = undefined;
     }
-    return api.open({ content, duration: duration, type, onClose });
+
+    return api.open({ content, duration, type, onClose });
   };
 });
 
 api.warn = api.warning;
 
 export interface MessageApi {
-  info(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  success(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  error(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  warn(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  warning(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
-  loading(content: ConfigContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  info(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  success(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  error(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  warn(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  warning(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
+  loading(content: JointContent, duration?: ConfigDuration, onClose?: ConfigOnClose): MessageType;
   open(args: ArgsProps): MessageType;
   config(options: ConfigOptions): void;
   destroy(): void;

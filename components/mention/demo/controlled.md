@@ -13,7 +13,7 @@ title:
 
 Controlled mode, for example, to work with `Form`.
 
-````jsx
+```jsx
 import { Mention, Form, Button } from 'antd';
 
 const { toContentState, getMentions } = Mention;
@@ -22,14 +22,14 @@ const FormItem = Form.Item;
 class App extends React.Component {
   state = {
     initValue: toContentState('@afc163'),
-  }
+  };
 
-  handleReset = (e) => {
+  handleReset = e => {
     e.preventDefault();
     this.props.form.resetFields();
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((errors, values) => {
       if (errors) {
@@ -39,7 +39,7 @@ class App extends React.Component {
       console.log('Submit!!!');
       console.log(values);
     });
-  }
+  };
 
   checkMention = (rule, value, callback) => {
     const { getFieldValue } = this.props.form;
@@ -49,7 +49,7 @@ class App extends React.Component {
     } else {
       callback();
     }
-  }
+  };
 
   render() {
     const { getFieldDecorator, getFieldValue } = this.props.form;
@@ -63,18 +63,18 @@ class App extends React.Component {
           wrapperCol={{ span: 16 }}
         >
           {getFieldDecorator('mention', {
-            rules: [
-              { validator: this.checkMention },
-            ],
+            rules: [{ validator: this.checkMention }],
             initialValue: this.state.initValue,
           })(
             <Mention
               defaultSuggestions={['afc163', 'benjycui', 'yiminghe', 'RaoHai', '中文', 'にほんご']}
-            />
+            />,
           )}
         </FormItem>
         <FormItem wrapperCol={{ span: 14, offset: 6 }}>
-          <Button type="primary" onClick={this.handleSubmit}>Submit</Button>
+          <Button type="primary" onClick={this.handleSubmit}>
+            Submit
+          </Button>
           &nbsp;&nbsp;&nbsp;
           <Button onClick={this.handleReset}>Reset</Button>
         </FormItem>
@@ -86,4 +86,4 @@ class App extends React.Component {
 const FormDemo = Form.create()(App);
 
 ReactDOM.render(<FormDemo />, mountNode);
-````
+```

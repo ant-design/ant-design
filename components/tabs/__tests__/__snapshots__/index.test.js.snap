@@ -62,6 +62,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           class="ant-tabs-tab-prev-icon"
         >
           <i
+            aria-label="icon: up"
             class="anticon anticon-up ant-tabs-tab-prev-icon-target"
           >
             <svg
@@ -69,6 +70,7 @@ exports[`Tabs tabPosition remove card 1`] = `
               class=""
               data-icon="up"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"
@@ -88,6 +90,7 @@ exports[`Tabs tabPosition remove card 1`] = `
           class="ant-tabs-tab-next-icon"
         >
           <i
+            aria-label="icon: down"
             class="anticon anticon-down ant-tabs-tab-next-icon-target"
           >
             <svg
@@ -95,6 +98,7 @@ exports[`Tabs tabPosition remove card 1`] = `
               class=""
               data-icon="down"
               fill="currentColor"
+              focusable="false"
               height="1em"
               viewBox="64 64 896 896"
               width="1em"

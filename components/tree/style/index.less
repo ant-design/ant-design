@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../checkbox/style/mixin';
 @import './mixin';
@@ -6,42 +6,52 @@
 
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 @tree-showline-icon-color: @text-color-secondary;
+@tree-node-padding: 4px;
 
 .antCheckboxFn(@checkbox-prefix-cls: ~'@{ant-prefix}-tree-checkbox');
 
 .@{tree-prefix-cls} {
+  /* see https://github.com/ant-design/ant-design/issues/16259 */
+  &-checkbox-checked::after {
+    position: absolute;
+    top: 16.67%;
+    left: 0;
+    width: 100%;
+    height: 66.67%;
+  }
+
   .reset-component;
+
   margin: 0;
   padding: 0;
 
   ol,
   ul {
-    list-style: none;
     margin: 0;
     padding: 0;
+    list-style: none;
   }
 
   li {
-    padding: 4px 0;
     margin: 0;
-    list-style: none;
+    padding: @tree-node-padding 0;
     white-space: nowrap;
+    list-style: none;
     outline: 0;
     span[draggable],
     span[draggable='true'] {
-      user-select: none;
+      line-height: @tree-title-height - 4px;
       border-top: 2px transparent solid;
       border-bottom: 2px transparent solid;
+      user-select: none;
       /* Required to make elements draggable in old WebKit */
       -khtml-user-drag: element;
       -webkit-user-drag: element;
-
-      line-height: @tree-title-height - 4px;
     }
     &.drag-over {
       > span[draggable] {
-        background-color: @primary-color;
         color: white;
+        background-color: @primary-color;
         opacity: 0.8;
       }
     }
@@ -69,14 +79,14 @@
           &.@{tree-prefix-cls}-switcher_open,
           &.@{tree-prefix-cls}-switcher_close {
             .@{tree-prefix-cls}-switcher-loading-icon {
-              display: inline-block;
               position: absolute;
               left: 0;
+              display: inline-block;
               width: 24px;
-              height: 24px;
+              height: @tree-title-height;
               color: @primary-color;
-              transform: none;
               font-size: 14px;
+              transform: none;
               svg {
                 position: absolute;
                 top: 0;
@@ -87,7 +97,7 @@
               }
             }
 
-            :root &:after {
+            :root &::after {
               opacity: 0;
             }
           }
@@ -101,39 +111,46 @@
     }
     .@{tree-prefix-cls}-node-content-wrapper {
       display: inline-block;
-      padding: 0 5px;
-      border-radius: @border-radius-sm;
+      height: @tree-title-height;
       margin: 0;
-      cursor: pointer;
+      padding: 0 5px;
+      color: @text-color;
+      line-height: @tree-title-height;
       text-decoration: none;
       vertical-align: top;
-      color: @text-color;
+      border-radius: @border-radius-sm;
+      cursor: pointer;
       transition: all 0.3s;
-      height: @tree-title-height;
-      line-height: @tree-title-height;
       &:hover {
-        background-color: @item-hover-bg;
+        background-color: @tree-node-hover-bg;
       }
       &.@{tree-prefix-cls}-node-selected {
-        background-color: @primary-2;
+        background-color: @tree-node-selected-bg;
       }
     }
     span {
       &.@{tree-prefix-cls}-checkbox {
-        margin: 4px 4px 0 2px;
+        top: initial;
+        height: @tree-title-height;
+        margin: 0 4px 0 2px;
+        padding: ((@tree-title-height - 16px) / 2) 0;
       }
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
-        margin: 0;
-        width: 24px;
-        height: 24px;
-        line-height: @tree-title-height;
         display: inline-block;
+        width: 24px;
+        height: @tree-title-height;
+        margin: 0;
+        line-height: @tree-title-height;
+        text-align: center;
         vertical-align: top;
         border: 0 none;
-        cursor: pointer;
         outline: none;
-        text-align: center;
+        cursor: pointer;
+
+        &:empty {
+          display: none;
+        }
       }
 
       &.@{tree-prefix-cls}-switcher {
@@ -158,7 +175,7 @@
     &:last-child > span {
       &.@{tree-prefix-cls}-switcher,
       &.@{tree-prefix-cls}-iconEle {
-        &:before {
+        &::before {
           display: none;
         }
       }
@@ -174,9 +191,17 @@
     }
   }
   &-child-tree {
-    display: none;
-    &-open {
-      display: block;
+    // https://github.com/ant-design/ant-design/issues/14958
+    > li {
+      // Provide additional padding between top child node and parent node
+      &:first-child {
+        padding-top: 2 * @tree-node-padding;
+      }
+
+      // Hide additional padding between last child node and next parent node
+      &:last-child {
+        padding-bottom: 0;
+      }
     }
   }
   li&-treenode-disabled {
@@ -204,8 +229,8 @@
       position: relative;
       span {
         &.@{tree-prefix-cls}-switcher {
-          background: @component-background;
           color: @tree-showline-icon-color;
+          background: @component-background;
           &.@{tree-prefix-cls}-switcher-noop {
             .antTreeShowLineIcon('tree-doc-icon');
           }
@@ -218,14 +243,15 @@
         }
       }
     }
-    li:not(:last-child):before {
-      content: ' ';
-      width: 1px;
-      border-left: 1px solid @border-color-base;
-      height: 100%;
+    li:not(:last-child)::before {
       position: absolute;
       left: 12px;
-      margin: 22px 0;
+      width: 1px;
+      height: 100%;
+      height: calc(100% - 22px); // Remove additional height if support
+      margin: 22px 0 0;
+      border-left: 1px solid @border-color-base;
+      content: ' ';
     }
   }
 
@@ -233,6 +259,21 @@
     .@{tree-prefix-cls}-treenode-loading {
       .@{tree-prefix-cls}-iconEle {
         display: none;
+      }
+    }
+  }
+
+  &.@{tree-prefix-cls}-block-node {
+    li {
+      .@{tree-prefix-cls}-node-content-wrapper {
+        width: ~'calc(100% - 24px)';
+      }
+      span {
+        &.@{tree-prefix-cls}-checkbox {
+          + .@{tree-prefix-cls}-node-content-wrapper {
+            width: ~'calc(100% - 46px)';
+          }
+        }
       }
     }
   }

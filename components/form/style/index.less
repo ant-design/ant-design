@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
 @import '../../button/style/mixin';
@@ -10,51 +10,49 @@
 @form-component-max-height: @input-height-lg;
 @form-feedback-icon-size: @font-size-base;
 @form-help-margin-top: (@form-component-height - @form-component-max-height) / 2 + 2px;
+@form-explain-font-size: @font-size-base;
+// Extends additional 1px to fix precision issue.
+// https://github.com/ant-design/ant-design/issues/12803
+// https://github.com/ant-design/ant-design/issues/8220
+@form-explain-precision: 1px;
+@form-explain-height: floor(@form-explain-font-size * @line-height-base);
 
 .@{form-prefix-cls} {
   .reset-component;
   .reset-form;
 }
 
-.@{form-prefix-cls}-item-required:before {
+.@{form-prefix-cls}-item-required::before {
   display: inline-block;
   margin-right: 4px;
-  content: '*';
-  font-family: SimSun;
-  line-height: 1;
-  font-size: @font-size-base;
   color: @label-required-color;
+  font-size: @font-size-base;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+  content: '*';
   .@{form-prefix-cls}-hide-required-mark & {
     display: none;
   }
 }
 
-// Radio && Checkbox
-input[type='radio'],
-input[type='checkbox'] {
-  &[disabled],
-  &.disabled {
-    cursor: not-allowed;
-  }
-}
+.@{form-prefix-cls}-item-label > label {
+  color: @label-color;
 
-// These classes are used directly on <label>s
-.@{ant-prefix}-radio-inline,
-.@{ant-prefix}-radio-vertical,
-.@{ant-prefix}-checkbox-inline,
-.@{ant-prefix}-checkbox-vertical {
-  &.disabled {
-    cursor: not-allowed;
-  }
-}
-
-// These classes are used on elements with <label> descendants
-.@{ant-prefix}-radio,
-.@{ant-prefix}-checkbox {
-  &.disabled {
-    label {
-      cursor: not-allowed;
+  &::after {
+    & when (@form-item-trailing-colon=true) {
+      content: ':';
     }
+    & when not (@form-item-trailing-colon=true) {
+      content: ' ';
+    }
+
+    position: relative;
+    top: -0.5px;
+    margin: 0 @form-item-label-colon-margin-right 0 @form-item-label-colon-margin-left;
+  }
+
+  &.@{form-prefix-cls}-item-no-colon::after {
+    content: ' ';
   }
 }
 
@@ -65,18 +63,19 @@ input[type='checkbox'] {
     position: relative;
 
     > .@{iconfont-css-prefix} {
-      vertical-align: top;
       font-size: @font-size-base;
+      vertical-align: top;
     }
   }
 
   .reset-component;
+
   margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
   &-control {
-    line-height: @form-component-max-height - 0.0001px; // https://github.com/ant-design/ant-design/issues/8220
     position: relative;
+    line-height: @form-component-max-height;
     .clearfix;
   }
 
@@ -85,53 +84,40 @@ input[type='checkbox'] {
   }
 
   &-with-help {
-    margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
-      @form-help-margin-top;
+    margin-bottom: max(0, @form-item-margin-bottom - @form-explain-height - @form-help-margin-top);
   }
 
   &-label {
-    text-align: right;
-    vertical-align: middle;
-    line-height: @form-component-max-height - 0.0001px;
     display: inline-block;
     overflow: hidden;
+    line-height: @form-component-max-height - 0.0001px;
     white-space: nowrap;
+    text-align: right;
+    vertical-align: middle;
 
-    label {
-      color: @label-color;
-
-      &:after {
-        & when (@form-item-trailing-colon=true) {
-          content: ':';
-        }
-        & when not (@form-item-trailing-colon=true) {
-          content: ' ';
-        }
-        margin: 0 8px 0 2px;
-        position: relative;
-        top: -0.5px;
-      }
+    &-left {
+      text-align: left;
     }
   }
 
   .@{ant-prefix}-switch {
     margin: 2px 0 4px;
   }
-
-  &-no-colon &-label label:after {
-    content: ' ';
-  }
 }
 
 .@{form-prefix-cls}-explain,
 .@{form-prefix-cls}-extra {
-  color: @text-color-secondary;
-  // Magic tweak pixel number to float line-height diff in windows
-  // Fix https://github.com/ant-design/ant-design/issues/12803
-  line-height: @line-height-base + 0.024;
-  transition: color 0.3s @ease-out; // sync input color transition
-  margin-top: @form-help-margin-top;
   clear: both;
+  min-height: @form-explain-height + @form-explain-precision;
+  margin-top: @form-help-margin-top;
+  color: @text-color-secondary;
+  font-size: @form-explain-font-size;
+  line-height: @line-height-base;
+  transition: color 0.3s @ease-out; // sync input color transition
+}
+
+.@{form-prefix-cls}-explain {
+  margin-bottom: -@form-explain-precision;
 }
 
 .@{form-prefix-cls}-extra {
@@ -148,11 +134,19 @@ input[type='checkbox'] {
   text-align: center;
 }
 
-// 表单下的输入框尺寸唯一: 大尺寸
 form {
   .has-feedback {
     .@{ant-prefix}-input {
       padding-right: 24px;
+    }
+
+    // https://github.com/ant-design/ant-design/issues/19884
+    .@{ant-prefix}-input-affix-wrapper .@{ant-prefix}-input-suffix {
+      padding-right: 18px;
+    }
+
+    .@{ant-prefix}-input-password-icon {
+      margin-right: 18px;
     }
 
     // Fix overlapping between feedback icon and <Select>'s arrow.
@@ -163,7 +157,7 @@ form {
     :not(.@{ant-prefix}-input-group-addon)
       > .@{ant-prefix}-select
       .@{ant-prefix}-select-selection__clear {
-      right: 28px;
+      right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
     }
     > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
     :not(.@{ant-prefix}-input-group-addon)
@@ -174,17 +168,17 @@ form {
 
     .@{ant-prefix}-cascader-picker {
       &-arrow {
-        margin-right: 17px;
+        margin-right: (@form-component-height / 2) + @form-feedback-icon-size - 13px;
       }
       &-clear {
-        right: 28px;
+        right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
       }
     }
 
     // Fix issue: https://github.com/ant-design/ant-design/issues/7854
     .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
       .@{ant-prefix}-input-suffix {
-        right: 28px;
+        right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
       }
     }
 
@@ -193,11 +187,12 @@ form {
     .@{ant-prefix}-time-picker {
       &-icon,
       &-clear {
-        right: 28px;
+        right: (@form-component-height / 2) + @form-feedback-icon-size - 2px;
       }
     }
   }
 
+  .@{ant-prefix}-mentions,
   textarea.@{ant-prefix}-input {
     height: auto;
     margin-bottom: 4px;
@@ -218,10 +213,10 @@ form {
   .@{ant-prefix}-radio-inline,
   .@{ant-prefix}-checkbox-inline {
     display: inline-block;
-    vertical-align: middle;
-    font-weight: normal;
-    cursor: pointer;
     margin-left: 8px;
+    font-weight: normal;
+    vertical-align: middle;
+    cursor: pointer;
 
     &:first-child {
       margin-left: 0;
@@ -261,51 +256,24 @@ form {
   // fix input with addon position. https://github.com/ant-design/ant-design/issues/8243
   :not(.@{ant-prefix}-input-group-wrapper) > .@{ant-prefix}-input-group,
   .@{ant-prefix}-input-group-wrapper {
-    display: inline-block;
-    vertical-align: middle;
     position: relative;
     top: -1px;
-  }
-}
-
-// Input combined with select
-.@{ant-prefix}-input-group-wrap {
-  .@{ant-prefix}-select-selection {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    &:hover {
-      border-color: @border-color-base;
-    }
-  }
-
-  .@{ant-prefix}-select-selection--single {
-    margin-left: -1px;
-    height: @input-height-lg;
-    background-color: fade(@black, 7%);
-    .@{ant-prefix}-select-selection__rendered {
-      padding-left: 8px;
-      padding-right: 25px;
-      line-height: 30px;
-    }
-  }
-
-  .@{ant-prefix}-select-open .@{ant-prefix}-select-selection {
-    border-color: @border-color-base;
-    box-shadow: none;
+    display: inline-block;
+    vertical-align: middle;
   }
 }
 
 // Form layout
 //== Vertical Form
 .make-vertical-layout-label() {
-  padding: @form-vertical-label-padding;
-  margin: @form-vertical-label-margin;
   display: block;
-  text-align: left;
+  margin: @form-vertical-label-margin;
+  padding: @form-vertical-label-padding;
   line-height: @line-height-base;
   white-space: initial;
+  text-align: left;
 
-  label:after {
+  label::after {
     display: none;
   }
 }
@@ -335,7 +303,10 @@ form {
   .@{form-prefix-cls}-item-control {
     line-height: @line-height-base;
   }
-  .@{form-prefix-cls}-explain,
+  .@{form-prefix-cls}-explain {
+    margin-top: 2px;
+    margin-bottom: -4px - @form-explain-precision;
+  }
   .@{form-prefix-cls}-extra {
     margin-top: 2px;
     margin-bottom: -4px;
@@ -381,7 +352,7 @@ form {
     margin-bottom: 0;
 
     &-with-help {
-      margin-bottom: 24px;
+      margin-bottom: @form-item-margin-bottom;
     }
 
     > .@{form-prefix-cls}-item-control-wrapper,
@@ -409,16 +380,16 @@ form {
     position: absolute;
     top: 50%;
     right: 0;
-    visibility: visible;
-    pointer-events: none;
+    z-index: 1;
     width: @form-component-height;
     height: 20px;
-    line-height: 20px;
     margin-top: -10px;
-    text-align: center;
     font-size: @form-feedback-icon-size;
+    line-height: 20px;
+    text-align: center;
+    visibility: visible;
     animation: zoomIn 0.3s @ease-out-back;
-    z-index: 1;
+    pointer-events: none;
 
     & svg {
       position: absolute;
@@ -433,13 +404,13 @@ form {
 
 .has-success {
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
-    animation-name: diffZoomIn1 !important;
     color: @success-color;
+    animation-name: diffZoomIn1 !important;
   }
 }
 
 .has-warning {
-  .form-control-validation(@warning-color; @warning-color;);
+  .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg;);
 
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @warning-color;
@@ -461,9 +432,9 @@ form {
   }
 
   // arrow and icon
-  .@{ant-prefix}-calendar-picker-icon:after,
-  .@{ant-prefix}-time-picker-icon:after,
-  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-calendar-picker-icon::after,
+  .@{ant-prefix}-time-picker-icon::after,
+  .@{ant-prefix}-picker-icon::after,
   .@{ant-prefix}-select-arrow,
   .@{ant-prefix}-cascader-picker-arrow {
     color: @warning-color;
@@ -488,7 +459,7 @@ form {
 }
 
 .has-error {
-  .form-control-validation(@error-color; @error-color;);
+  .form-control-validation(@error-color; @error-color; @form-error-input-bg;);
 
   &.has-feedback .@{form-prefix-cls}-item-children-icon {
     color: @error-color;
@@ -523,9 +494,9 @@ form {
   }
 
   // arrow and icon
-  .@{ant-prefix}-calendar-picker-icon:after,
-  .@{ant-prefix}-time-picker-icon:after,
-  .@{ant-prefix}-picker-icon:after,
+  .@{ant-prefix}-calendar-picker-icon::after,
+  .@{ant-prefix}-time-picker-icon::after,
+  .@{ant-prefix}-picker-icon::after,
   .@{ant-prefix}-select-arrow,
   .@{ant-prefix}-cascader-picker-arrow {
     color: @error-color;
@@ -592,8 +563,7 @@ form {
     margin-bottom: @form-item-margin-bottom;
 
     &-with-help {
-      margin-bottom: @form-item-margin-bottom - @font-size-base * @line-height-base -
-        @form-help-margin-top;
+      margin-bottom: @form-item-margin-bottom - @form-explain-height - @form-help-margin-top;
     }
   }
 }
@@ -614,19 +584,19 @@ form {
 
 @keyframes antShowHelpIn {
   0% {
-    opacity: 0;
     transform: translateY(-5px);
+    opacity: 0;
   }
   100% {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
 @keyframes antShowHelpOut {
   to {
-    opacity: 0;
     transform: translateY(-5px);
+    opacity: 0;
   }
 }
 

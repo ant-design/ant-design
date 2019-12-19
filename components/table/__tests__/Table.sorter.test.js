@@ -108,6 +108,20 @@ describe('Table.sorter', () => {
     expect(actualSortOrder).toEqual('ascend');
   });
 
+  it('can update column sortOrder', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [column],
+      }),
+    );
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    wrapper.setProps({
+      columns: [{ ...column, sortOrder: 'ascend' }],
+    });
+    wrapper.update();
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
@@ -131,8 +145,8 @@ describe('Table.sorter', () => {
     const sorter3 = handleChange.mock.calls[2][2];
     expect(sorter3.column).toBe(undefined);
     expect(sorter3.order).toBe(undefined);
-    expect(sorter3.field).toBe(undefined);
-    expect(sorter3.columnKey).toBe(undefined);
+    expect(sorter3.field).toBe('name');
+    expect(sorter3.columnKey).toBe('name');
   });
 
   it('works with grouping columns in controlled mode', () => {
@@ -169,9 +183,10 @@ describe('Table.sorter', () => {
 
   // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
   it('Allow column title as render props with sortOrder argument', () => {
+    const title = ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>;
     const columns = [
       {
-        title: ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>,
+        title,
         key: 'group',
         sorter: true,
       },
@@ -339,6 +354,7 @@ describe('Table.sorter', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/12737
+  // https://github.com/ant-design/ant-design/issues/19398
   it('should toggle sort state when columns with non primitive properties are put in render', () => {
     const testData = [
       { key: 0, name: 'Jack', age: 11 },
@@ -362,6 +378,7 @@ describe('Table.sorter', () => {
             dataIndex: 'name',
             sorter: true,
             render: text => text,
+            array: ['1', '2', 3],
           },
         ];
         const { pagination } = this.state;
@@ -586,5 +603,106 @@ describe('Table.sorter', () => {
     // cancel sort
     wrapper.find('.ant-table-column-sorters').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+  });
+
+  it('pagination back', () => {
+    const onPageChange = jest.fn();
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          pageSize: 2,
+          onChange: onPageChange,
+        },
+        onChange,
+      }),
+    );
+
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(onChange.mock.calls[0][0].current).toBe(1);
+    expect(onPageChange.mock.calls[0][0]).toBe(1);
+  });
+
+  it('should support onHeaderCell in sort column', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }), sorter: true }]} />,
+    );
+    wrapper.find('th').simulate('click');
+    expect(onClick).toHaveBeenCalled();
+  });
+
+  it('could sort data with children', () => {
+    const wrapper = mount(
+      createTable(
+        {
+          dataSource: [
+            {
+              key: '1',
+              name: 'Brown',
+              children: [
+                {
+                  key: '2',
+                  name: 'Zoe',
+                },
+                {
+                  key: '3',
+                  name: 'Mike',
+                  children: [
+                    {
+                      key: '3-1',
+                      name: 'Petter',
+                    },
+                    {
+                      key: '3-2',
+                      name: 'Alex',
+                    },
+                  ],
+                },
+                {
+                  key: '4',
+                  name: 'Green',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          defaultSortOrder: 'ascend',
+        },
+      ),
+    );
+
+    expect(renderedNames(wrapper)).toEqual(['Brown', 'Green', 'Mike', 'Alex', 'Petter', 'Zoe']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/19443
+  it('should not being inifinite loop when using Table.Column with sortOrder', () => {
+    class Demo extends React.Component {
+      componentDidMount() {
+        this.setState({});
+      }
+
+      render() {
+        return (
+          <Table dataSource={[]}>
+            <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
+          </Table>
+        );
+      }
+    }
+    expect(() => {
+      mount(<Demo />);
+    }).not.toThrow();
+  });
+
+  it('should support defaultOrder in Column', () => {
+    const wrapper = mount(
+      <Table dataSource={[{ key: '1', age: 1 }]}>
+        <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
+      </Table>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

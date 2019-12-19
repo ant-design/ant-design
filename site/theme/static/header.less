@@ -2,11 +2,11 @@
 @menu-item-border: 2px;
 
 #header {
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
   position: relative;
   z-index: 10;
   max-width: 100%;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
   &.home-nav-bottom {
     background: rgba(255, 255, 255, 0.9);
     border-bottom-color: #ebedee;
@@ -28,46 +28,46 @@
 }
 
 #logo {
-  overflow: hidden;
-  padding-left: 40px;
   float: left;
   height: @header-height;
+  padding-left: 40px;
+  overflow: hidden;
   line-height: @header-height;
-  text-decoration: none;
   white-space: nowrap;
+  text-decoration: none;
   img {
     height: 32px;
     margin-right: 16px;
   }
   img + img {
-    height: 16px;
     position: relative;
     top: 1px;
+    height: 16px;
   }
 }
 
 #search-box {
-  border-left: 1px solid @site-border-color-split;
   float: left;
   height: 22px;
-  line-height: 22px;
-  padding-left: 16px;
   margin: 22px auto 0;
+  padding-left: 16px;
+  line-height: 22px;
+  border-left: 1px solid @site-border-color-split;
 }
 
 #search-box .anticon {
-  color: #ced4d9;
   position: relative;
   top: 0.5px;
+  color: #ced4d9;
 }
 
 #search-box input {
-  font-size: 14px;
-  margin-top: -5px;
   width: 200px;
+  margin-top: -5px;
+  font-size: 14px;
+  background: transparent;
   border: 0;
   box-shadow: none;
-  background: transparent;
 
   &::placeholder {
     color: #a3b1bf;
@@ -82,30 +82,36 @@
 }
 
 .header-lang-button {
+  margin-right: 40px;
   color: @text-color;
   border-color: @border-color-base;
-  margin-right: 40px;
 }
 
 #nav {
-  border: 0;
   float: right;
   font-size: 14px;
-  font-family: Avenir, @font-family;
-  font-variant: tabular-nums;
+  font-family: Avenir, @font-family, sans-serif;
+  border: 0;
+
   &.ant-menu-horizontal {
     border-bottom: none;
 
-    & > .ant-menu-item {
+    & > .ant-menu-item,
+    & > .ant-menu-submenu {
+      min-width: 72px;
       height: @header-height;
       line-height: @header-height - @menu-item-border - 2px;
-      min-width: 72px;
       border-top: @menu-item-border solid transparent;
 
       &:hover {
         border-top: @menu-item-border solid @primary-color;
         border-bottom: @menu-item-border solid transparent;
       }
+    }
+
+    & > .ant-menu-submenu-open {
+      border-top: @menu-item-border solid @primary-color;
+      border-bottom: @menu-item-border solid transparent;
     }
 
     & > .ant-menu-item-selected {
@@ -117,17 +123,18 @@
     }
   }
 
-  & > .ant-menu-item {
+  & > .ant-menu-item,
+  & > .ant-menu-submenu {
     text-align: center;
   }
 }
 
 .component-select {
   &.ant-select-dropdown {
+    font-size: 14px;
     border: 0;
     border-radius: 0;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-    font-size: 14px;
   }
   .ant-select-dropdown-menu {
     max-height: 200px;
@@ -136,9 +143,9 @@
     border-radius: 0 !important;
   }
   .ant-component-decs {
-    font-size: 12px;
     position: absolute;
-    color: #aaa;
     right: 16px;
+    color: #aaa;
+    font-size: 12px;
   }
 }

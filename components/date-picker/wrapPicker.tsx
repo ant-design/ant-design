@@ -1,10 +1,34 @@
 import * as React from 'react';
+import { polyfill } from 'react-lifecycles-compat';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
+import * as moment from 'moment';
 import enUS from './locale/en_US';
+import interopDefault from '../_util/interopDefault';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
+
+type PickerType = 'date' | 'week' | 'month';
+
+interface PickerMap {
+  [name: string]: string;
+}
+
+const DEFAULT_FORMAT: PickerMap = {
+  date: 'YYYY-MM-DD',
+  dateTime: 'YYYY-MM-DD HH:mm:ss',
+  week: 'gggg-wo',
+  month: 'YYYY-MM',
+};
+
+const LOCALE_FORMAT_MAPPING: PickerMap = {
+  date: 'dateFormat',
+  dateTime: 'dateTimeFormat',
+  week: 'weekFormat',
+  month: 'monthFormat',
+};
 
 function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
   let column = 0;
@@ -23,10 +47,22 @@ function getColumns({ showHour, showMinute, showSecond, use12Hours }: any) {
   return column;
 }
 
-export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFormat?: string): any {
-  return class PickerWrapper extends React.Component<any, any> {
+function checkValidate(value: any, propName: string) {
+  const values: any[] = Array.isArray(value) ? value : [value];
+  values.forEach(val => {
+    if (!val) return;
+
+    warning(
+      !interopDefault(moment).isMoment(val) || val.isValid(),
+      'DatePicker',
+      `\`${propName}\` provides invalidate moment time. If you want to set empty value, use \`null\` instead.`,
+    );
+  });
+}
+
+export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType: PickerType): any {
+  class PickerWrapper extends React.Component<any, any> {
     static defaultProps = {
-      format: defaultFormat || 'YYYY-MM-DD',
       transitionName: 'slide-up',
       popupStyle: {},
       onChange() {},
@@ -34,6 +70,15 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       onOpenChange() {},
       locale: {},
     };
+
+    static getDerivedStateFromProps({ value, defaultValue }: any) {
+      checkValidate(defaultValue, 'defaultValue');
+      checkValidate(value, 'value');
+      return {};
+    }
+
+    // Since we need call `getDerivedStateFromProps` for check. Need leave an empty `state` here.
+    state = {};
 
     private picker: any;
 
@@ -43,6 +88,22 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
         this.focus();
       }
     }
+
+    savePicker = (node: any) => {
+      this.picker = node;
+    };
+
+    getDefaultLocale = () => {
+      const result = {
+        ...enUS,
+        ...this.props.locale,
+      };
+      result.lang = {
+        ...result.lang,
+        ...(this.props.locale || {}).lang,
+      };
+      return result;
+    };
 
     handleOpenChange = (open: boolean) => {
       const { onOpenChange } = this.props;
@@ -85,33 +146,25 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
       this.picker.blur();
     }
 
-    savePicker = (node: any) => {
-      this.picker = node;
-    };
-
-    getDefaultLocale = () => {
-      const result = {
-        ...enUS,
-        ...this.props.locale,
-      };
-      result.lang = {
-        ...result.lang,
-        ...(this.props.locale || {}).lang,
-      };
-      return result;
-    };
-
     renderPicker = (locale: any, localeCode: string) => {
+      const { format, showTime } = this.props;
+      const mergedPickerType = showTime ? `${pickerType}Time` : pickerType;
+      const mergedFormat =
+        format ||
+        locale[LOCALE_FORMAT_MAPPING[mergedPickerType]] ||
+        DEFAULT_FORMAT[mergedPickerType];
+
       return (
         <ConfigConsumer>
-          {({ getPrefixCls }: ConfigConsumerProps) => {
+          {({ getPrefixCls, getPopupContainer: getContextPopupContainer }: ConfigConsumerProps) => {
             const {
               prefixCls: customizePrefixCls,
               inputPrefixCls: customizeInputPrefixCls,
+              getCalendarContainer,
               size,
               disabled,
-              showTime,
             } = this.props;
+            const getPopupContainer = getCalendarContainer || getContextPopupContainer;
             const prefixCls = getPrefixCls('calendar', customizePrefixCls);
             const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
             const pickerClass = classNames(`${prefixCls}-picker`, {
@@ -139,12 +192,15 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
                 className={timePickerCls}
                 placeholder={locale.timePickerLocale.placeholder}
                 transitionName="slide-up"
+                onEsc={() => {}}
               />
             ) : null;
 
             return (
               <Picker
                 {...this.props}
+                getCalendarContainer={getPopupContainer}
+                format={mergedFormat}
                 ref={this.savePicker}
                 pickerClass={pickerClass}
                 pickerInputClass={pickerInputClass}
@@ -170,5 +226,8 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, defaultFor
         </LocaleReceiver>
       );
     }
-  };
+  }
+
+  polyfill(PickerWrapper);
+  return PickerWrapper;
 }

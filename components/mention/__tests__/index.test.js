@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Mention from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { toContentState } = Mention;
 
 describe('Mention', () => {
+  mountTest(Mention);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });
@@ -24,7 +27,7 @@ describe('Mention', () => {
     );
     wrapper.instance().focus();
     jest.runAllTimers();
-    expect(handleFocus).toBeCalled();
+    expect(handleFocus).toHaveBeenCalled();
   });
 
   it('basic suggestion', () => {
@@ -36,7 +39,7 @@ describe('Mention', () => {
     const ed = wrapper.find('.public-DraftEditor-content');
     ed.simulate('beforeInput', { data: '@a' });
     jest.runAllTimers();
-    expect(handleSearch).toBeCalledWith('a', '@');
+    expect(handleSearch).toHaveBeenCalledWith('a', '@');
   });
 
   it('change suggestions', () => {
@@ -73,8 +76,8 @@ describe('Mention', () => {
     const ed = wrapper.find('.public-DraftEditor-content');
     ed.simulate('beforeInput', { data: '@' });
     jest.runAllTimers();
-    expect(onChange).toBeCalled();
-    expect(onSelect).not.toBeCalled();
+    expect(onChange).toHaveBeenCalled();
+    expect(onSelect).not.toHaveBeenCalled();
     // enzyme cannot find .ant-mention-dropdown-item in react 15
     // I don't know why
     if (process.env.REACT === '15') {
@@ -93,7 +96,7 @@ describe('Mention', () => {
       .at(0)
       .simulate('click');
     jest.runAllTimers();
-    expect(onSelect).toBeCalled();
+    expect(onSelect).toHaveBeenCalled();
     expect(wrapper.find('.public-DraftStyleDefault-block').text()).toBe('@afc163 ');
   });
 
@@ -112,5 +115,21 @@ describe('Mention', () => {
     const items = wrapper.find('div.ant-mention-dropdown-item');
     expect(items.length).toBe(1);
     expect(items.at(0).props().children).toBe('bamboo');
+  });
+
+  it('check filteredSuggestions', () => {
+    if (process.env.REACT === '15') {
+      return;
+    }
+    const wrapper = mount(
+      <Mention defaultSuggestions={[<Mention.Nav key="light" value="light" />]} />,
+    );
+    wrapper.find('DraftEditorContents').simulate('focus');
+    const ed = wrapper.find('.public-DraftEditor-content');
+    ed.simulate('beforeInput', { data: '@l' });
+    jest.runAllTimers();
+    const items = wrapper.find('div.ant-mention-dropdown-item');
+    expect(items.length).toBe(1);
+    expect(items.at(0).props().value).toBe('light');
   });
 });

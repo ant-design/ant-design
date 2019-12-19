@@ -23,7 +23,7 @@ function ariaConvert(wrapper) {
 
     // Change aria
     if (attribs && attribs['aria-controls']) {
-      attribs['aria-controls'] = 'test-uuid';
+      attribs['aria-controls'] = ''; // Remove all the aria to keep render sync in jest & jest node
     }
 
     // Loop children

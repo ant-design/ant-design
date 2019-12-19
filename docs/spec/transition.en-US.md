@@ -63,7 +63,7 @@ Calling out an Object: Click the page element and call out a new object.
 
 ## Improve Perceived Performance
 
-If actual performance can hardly improved, there is a difference between actual performance and perceived performance. Diverting the user’s attention is a good way to improve the perceived time an operation takes.
+If actual performance can hardly improved, there is a difference between actual performance and perceived performance. Diverting the user's attention is a good way to improve the perceived time an operation takes.
 
 ---
 

@@ -1,4 +1,4 @@
-@import '../../style/themes/default';
+@import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import './mixin';
 
@@ -13,6 +13,11 @@
 // -----------------------------
 .@{btn-prefix-cls} {
   // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // Fixing https://github.com/ant-design/ant-design/issues/20058
+  // Fixing https://github.com/ant-design/ant-design/issues/19972
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // Fixing https://github.com/ant-design/ant-design/issues/18107
+  // Fixing https://github.com/ant-design/ant-design/issues/13214
   // It is a render problem of chrome, which is only happened in the codesandbox demo
   // 0.001px solution works and I don't why
   line-height: @line-height-base - 0.001;
@@ -23,8 +28,9 @@
   // Ref: https://github.com/ant-design/ant-design/issues/7034
   > i,
   > span {
-    pointer-events: none;
     display: inline-block;
+    transition: margin-left 0.3s @ease-in-out;
+    pointer-events: none;
   }
 
   &-primary {
@@ -69,25 +75,44 @@
     .btn-danger;
   }
 
+  &-link {
+    .btn-link;
+  }
+
+  &-icon-only {
+    .btn-square(@btn-prefix-cls);
+
+    > i {
+      vertical-align: middle;
+    }
+  }
+
+  &-round {
+    .btn-round(@btn-prefix-cls);
+    &.@{btn-prefix-cls}-icon-only {
+      width: auto;
+    }
+  }
+
   &-circle,
   &-circle-outline {
     .btn-circle(@btn-prefix-cls);
   }
 
-  &:before {
+  &::before {
     position: absolute;
     top: -1px;
-    left: -1px;
-    bottom: -1px;
     right: -1px;
-    background: @component-background;
-    opacity: 0.35;
-    content: '';
-    border-radius: inherit;
+    bottom: -1px;
+    left: -1px;
     z-index: 1;
-    transition: opacity 0.2s;
-    pointer-events: none;
     display: none;
+    background: @component-background;
+    border-radius: inherit;
+    opacity: 0.35;
+    transition: opacity 0.2s;
+    content: '';
+    pointer-events: none;
   }
 
   .@{iconfont-css-prefix} {
@@ -103,14 +128,19 @@
     }
   }
 
-  &&-loading:before {
+  &&-loading {
+    position: relative;
+    &:not([disabled]) {
+      pointer-events: none;
+    }
+  }
+
+  &&-loading::before {
     display: block;
   }
 
   &&-loading:not(&-circle):not(&-circle-outline):not(&-icon-only) {
     padding-left: 29px;
-    pointer-events: none;
-    position: relative;
     .@{iconfont-css-prefix}:not(:last-child) {
       margin-left: -14px;
     }
@@ -127,11 +157,6 @@
     .btn-group(@btn-prefix-cls);
   }
 
-  &:not(&-circle):not(&-circle-outline)&-icon-only {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
-
   // http://stackoverflow.com/a/21281554/3040605
   &:focus > span,
   &:active > span {
@@ -145,9 +170,9 @@
   }
 
   &-background-ghost {
+    color: @component-background;
     background: transparent !important;
     border-color: @component-background;
-    color: @component-background;
   }
 
   &-background-ghost&-primary {
@@ -155,16 +180,22 @@
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-color);
+    .button-variant-ghost(@btn-danger-border);
   }
 
-  &-two-chinese-chars:first-letter {
+  &-background-ghost&-link {
+    .button-variant-ghost(@link-color; transparent);
+
+    color: @component-background;
+  }
+
+  &-two-chinese-chars::first-letter {
     letter-spacing: 0.34em;
   }
 
   &-two-chinese-chars > *:not(.@{iconfont-css-prefix}) {
-    letter-spacing: 0.34em;
     margin-right: -0.34em;
+    letter-spacing: 0.34em;
   }
 
   &-block {
@@ -178,7 +209,12 @@
 }
 
 a.@{btn-prefix-cls} {
+  // Fixing https://github.com/ant-design/ant-design/issues/12978
+  // It is a render problem of chrome, which is only happened in the codesandbox demo
+  // 0.1px for padding-top solution works and I don't why
+  padding-top: 0.1px;
   line-height: @btn-height-base - 2px;
+
   &-lg {
     line-height: @btn-height-lg - 2px;
   }

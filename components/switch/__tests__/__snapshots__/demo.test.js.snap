@@ -48,6 +48,7 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="icon: loading"
       class="anticon anticon-loading ant-switch-loading-icon"
     >
       <svg
@@ -55,6 +56,7 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
         class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="0 0 1024 1024"
         width="1em"
@@ -77,6 +79,7 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
     type="button"
   >
     <i
+      aria-label="icon: loading"
       class="anticon anticon-loading ant-switch-loading-icon"
     >
       <svg
@@ -84,6 +87,7 @@ exports[`renders ./components/switch/demo/loading.md correctly 1`] = `
         class="anticon-spin"
         data-icon="loading"
         fill="currentColor"
+        focusable="false"
         height="1em"
         viewBox="0 0 1024 1024"
         width="1em"
@@ -164,6 +168,7 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
       class="ant-switch-inner"
     >
       <i
+        aria-label="icon: check"
         class="anticon anticon-check"
       >
         <svg
@@ -171,6 +176,7 @@ exports[`renders ./components/switch/demo/text.md correctly 1`] = `
           class=""
           data-icon="check"
           fill="currentColor"
+          focusable="false"
           height="1em"
           viewBox="64 64 896 896"
           width="1em"

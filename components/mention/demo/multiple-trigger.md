@@ -13,7 +13,7 @@ title:
 
 Customize Trigger Token by `prefix` props. Default to `@`, `Array<string>` also supported.
 
-````jsx
+```jsx
 import { Mention } from 'antd';
 
 const { toString } = Mention;
@@ -43,7 +43,7 @@ class App extends React.Component {
     this.setState({
       suggestions: dataSource.filter(item => item.indexOf(value) !== -1),
     });
-  }
+  };
 
   render() {
     return (
@@ -60,8 +60,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <App />,
-  mountNode
-);
-````
+ReactDOM.render(<App />, mountNode);
+```
