@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix } from 'antd';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
@@ -25,15 +25,18 @@ function getModuleData(props) {
         .filter(item => item)
         .slice(0, 2)
         .join('/');
-  const moduleData =
-    moduleName === 'components' ||
-    moduleName === 'docs/react' ||
-    moduleName === 'changelog' ||
-    moduleName === 'changelog-cn'
-      ? [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog]
-      : props.picked[moduleName];
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
-  return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
+  let data;
+  switch (moduleName) {
+    case 'docs/react':
+    case 'changelog':
+    case 'changelog-cn':
+      data = [...props.picked['docs/react'], ...props.picked.changelog];
+      break;
+    default:
+      data = props.picked[moduleName];
+  }
+  return data.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
 }
 
 function fileNameToPath(filename) {
@@ -50,24 +53,6 @@ const getSideBarOpenKeys = nextProps => {
     .getMenuItems(moduleData, locale, themeConfig.categoryOrder, themeConfig.typeOrder)
     .map(m => (m.title && m.title[locale]) || m.title);
   return shouldOpenKeys;
-};
-
-const getSubMenuTitle = menuItem => {
-  if (menuItem.title !== 'Components') {
-    return menuItem.title;
-  }
-  let count = 0;
-  menuItem.children.forEach(item => {
-    if (item.children) {
-      count += item.children.length;
-    }
-  });
-  return (
-    <h4>
-      <FormattedMessage id="app.header.menu.components" />
-      <span className="menu-antd-components-count">{count}</span>
-    </h4>
-  );
 };
 
 class MainContent extends Component {
@@ -128,21 +113,19 @@ class MainContent extends Component {
       themeConfig.typeOrder,
     );
     return menuItems.map(menuItem => {
+      if (menuItem.type === 'type') {
+        return (
+          <Menu.ItemGroup title={menuItem.title} key={menuItem.title}>
+            {menuItem.children
+              .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+              .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+          </Menu.ItemGroup>
+        );
+      }
       if (menuItem.children) {
         return (
-          <SubMenu title={getSubMenuTitle(menuItem)} key={menuItem.title}>
-            {menuItem.children.map(child => {
-              if (child.type === 'type') {
-                return (
-                  <Menu.ItemGroup title={child.title} key={child.title}>
-                    {child.children
-                      .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
-                  </Menu.ItemGroup>
-                );
-              }
-              return this.generateMenuItem(false, child, footerNavIcons);
-            })}
+          <SubMenu title={menuItem.title} key={menuItem.title}>
+            {menuItem.children.map(child => this.generateMenuItem(false, child, footerNavIcons))}
           </SubMenu>
         );
       }
@@ -298,7 +281,7 @@ class MainContent extends Component {
     });
     const menuChild = (
       <Menu
-        inlineIndent={40}
+        inlineIndent={30}
         className="aside-container menu-site"
         mode="inline"
         openKeys={openKeys}

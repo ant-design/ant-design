@@ -127,7 +127,7 @@ class Header extends React.Component {
       .slice(0, -1)
       .join('/');
     let activeMenuItem = module || 'home';
-    if (activeMenuItem === 'components' || location.pathname === 'changelog') {
+    if (location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
     const isZhCN = locale === 'zh-CN';
@@ -176,6 +176,11 @@ class Header extends React.Component {
         </Menu.Item>
         <Menu.Item key="docs/react">
           <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+            <FormattedMessage id="app.header.menu.documentation" />
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="components">
+          <Link to={utils.getLocalizedPathname('/components/button/', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
