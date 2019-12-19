@@ -98,31 +98,39 @@ describe('Typography', () => {
 
       it('should middle ellipsis', () => {
         const suffix = '--suffix';
-        const wrapper = mount(<Base ellipsis={{ rows: 1, suffix }}>{fullStr}</Base>);
+        const wrapper = mount(
+          <Base ellipsis={{ rows: 1, suffix }} component="p">
+            {fullStr}
+          </Base>,
+        );
 
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Bamboo is...--suffix');
+        expect(wrapper.find('p').text()).toEqual('Bamboo is...--suffix');
         wrapper.unmount();
       });
 
       it('should front or middle ellipsis', () => {
         const suffix = '--The information is very important';
-        const wrapper = mount(<Base ellipsis={{ rows: 1, suffix }}>{fullStr}</Base>);
+        const wrapper = mount(
+          <Base ellipsis={{ rows: 1, suffix }} component="p">
+            {fullStr}
+          </Base>,
+        );
 
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('...s very important');
+        expect(wrapper.find('p').text()).toEqual('...s very important');
 
         wrapper.setProps({ ellipsis: { rows: 2, suffix } });
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual('Ba...--The information is very important');
+        expect(wrapper.find('p').text()).toEqual('Ba...--The information is very important');
 
         wrapper.setProps({ ellipsis: { rows: 99, suffix } });
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('span').text()).toEqual(fullStr + suffix);
+        expect(wrapper.find('p').text()).toEqual(fullStr + suffix);
 
         wrapper.unmount();
       });

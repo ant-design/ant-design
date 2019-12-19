@@ -303,16 +303,12 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
   <h3
     class="ant-typography"
   >
-    <span>
-      Ant Design 4.0
-    </span>
+    Ant Design 4.0
   </h3>
   <h4
     class="ant-typography"
   >
-    <span>
-      100000 Items
-    </span>
+    100000 Items
   </h4>
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
@@ -398,9 +394,7 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
   <h3
     class="ant-typography"
   >
-    <span>
-      Ant Design 3.0
-    </span>
+    Ant Design 3.0
   </h3>
   <iframe
     src="https://codesandbox.io/embed/beautiful-banzai-m72lv?view=preview"

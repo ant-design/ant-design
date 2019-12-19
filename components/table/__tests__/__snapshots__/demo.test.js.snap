@@ -12354,18 +12354,14 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                     <span
                       class="ant-typography ant-typography-danger"
                     >
-                      <span>
-                        195
-                      </span>
+                      195
                     </span>
                   </td>
                   <td>
                     <span
                       class="ant-typography"
                     >
-                      <span>
-                        88
-                      </span>
+                      88
                     </span>
                   </td>
                 </tr>
@@ -12379,9 +12375,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                     <span
                       class="ant-typography ant-typography-danger"
                     >
-                      <span>
-                        107
-                      </span>
+                      107
                     </span>
                   </td>
                 </tr>
