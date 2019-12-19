@@ -12,7 +12,6 @@
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 @form-font-height: ceil(@font-size-base * @line-height-base);
-@form-label-margin-top: floor((@input-height-base - @form-font-height) / 2);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -20,7 +19,6 @@
 
   .@{form-prefix-cls}-text {
     display: inline-block;
-    margin-top: @form-label-margin-top;
     padding-right: 8px;
   }
 }
@@ -54,8 +52,11 @@
 
     > label {
       position: relative;
-      display: inline-block;
-      margin-top: @form-label-margin-top;
+      // display: inline;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      max-height: @input-height-base;
       color: @label-color;
 
       > .@{iconfont-css-prefix} {
@@ -181,11 +182,15 @@
 
     // ======================== Picker =========================
     // Fix issue: https://github.com/ant-design/ant-design/issues/4783
-    .@{ant-prefix}-calendar-picker,
-    .@{ant-prefix}-time-picker {
-      &-icon,
-      &-clear {
-        right: 28px;
+    .@{ant-prefix}-picker {
+      padding-right: @input-padding-horizontal-base + @font-size-base * 1.3;
+
+      &-large {
+        padding-right: @input-padding-horizontal-lg + @font-size-base * 1.3;
+      }
+
+      &-small {
+        padding-right: @input-padding-horizontal-sm + @font-size-base * 1.3;
       }
     }
 
@@ -243,30 +248,21 @@
 
     //select
     .@{ant-prefix}-select {
-      &-selection {
+      .@{ant-prefix}-select-selector {
         border-color: @warning-color;
         &:hover {
           border-color: @warning-color;
         }
       }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@warning-color);
       }
     }
 
-    // arrow and icon
-    .@{ant-prefix}-calendar-picker-icon::after,
-    .@{ant-prefix}-time-picker-icon::after,
-    .@{ant-prefix}-picker-icon::after,
-    .@{ant-prefix}-select-arrow,
-    .@{ant-prefix}-cascader-picker-arrow {
-      color: @warning-color;
-    }
-
     //input-number, timepicker
     .@{ant-prefix}-input-number,
-    .@{ant-prefix}-time-picker-input {
+    .@{ant-prefix}-picker {
       border-color: @warning-color;
       &-focused,
       &:focus {
@@ -293,14 +289,14 @@
 
     //select
     .@{ant-prefix}-select {
-      &-selection {
+      .@{ant-prefix}-select-selector {
         border-color: @error-color;
         &:hover {
           border-color: @error-color;
         }
       }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
         .active(@error-color);
       }
     }
@@ -312,24 +308,15 @@
     }
 
     .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
-      &-selection {
+      &-selector {
         border-color: transparent;
         box-shadow: none;
       }
     }
 
-    // arrow and icon
-    .@{ant-prefix}-calendar-picker-icon::after,
-    .@{ant-prefix}-time-picker-icon::after,
-    .@{ant-prefix}-picker-icon::after,
-    .@{ant-prefix}-select-arrow,
-    .@{ant-prefix}-cascader-picker-arrow {
-      color: @error-color;
-    }
-
     //input-number, timepicker
     .@{ant-prefix}-input-number,
-    .@{ant-prefix}-time-picker-input {
+    .@{ant-prefix}-picker {
       border-color: @error-color;
       &-focused,
       &:focus {

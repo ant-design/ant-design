@@ -3,6 +3,7 @@ import TimePickerLocale from '../../time-picker/locale/sl_SI';
 // Merge into a locale object
 const locale = {
   lang: {
+    locale: 'sl',
     placeholder: 'Izberite datum',
     rangePlaceholder: ['Začetni datum', 'Končni datum'],
     today: 'Danes',

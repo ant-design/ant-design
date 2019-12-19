@@ -204,8 +204,8 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
-    const picker = wrapper.find('span.ant-calendar-picker').at(0);
+    expect(wrapper.find('.ant-picker')).toHaveLength(1);
+    const picker = wrapper.find('.ant-picker').at(0);
     picker.simulate('mouseenter');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);

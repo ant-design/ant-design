@@ -1,7 +1,5 @@
 declare module '*.svg';
 
-declare module 'rc-calendar*';
-
 declare module 'rc-time-picker*';
 
 declare module 'rc-pagination/*';
@@ -52,8 +50,6 @@ declare module 'rc-steps';
 declare module 'rc-switch';
 
 declare module 'rc-upload';
-
-declare module 'rc-form*';
 
 declare module 'react-lazy-load';
 

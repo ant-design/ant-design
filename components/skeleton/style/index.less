@@ -6,6 +6,7 @@
 @skeleton-title-prefix-cls: ~'@{skeleton-prefix-cls}-title';
 @skeleton-paragraph-prefix-cls: ~'@{skeleton-prefix-cls}-paragraph';
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
+@skeleton-input-prefix-cls: ~'@{skeleton-prefix-cls}-input';
 
 .@{skeleton-prefix-cls} {
   display: table;
@@ -86,35 +87,45 @@
     .@{skeleton-button-prefix-cls} {
       .skeleton-color();
     }
+
+    .@{skeleton-input-prefix-cls} {
+      .skeleton-color();
+    }
   }
 
   // Skeleton element
   &-element {
     display: inline-block;
-    // Button
     .@{skeleton-button-prefix-cls} {
-      display: inline-block;
-      vertical-align: top;
-      background: @skeleton-color;
-      border-radius: @border-radius-base;
-
-      .skeleton-element-button-size(@btn-height-base);
-
-      &-lg {
-        .skeleton-element-button-size(@btn-height-lg);
-      }
-
-      &-sm {
-        .skeleton-element-button-size(@btn-height-sm);
-      }
+      .skeleton-element-button();
     }
 
     .@{skeleton-avatar-prefix-cls} {
       .skeleton-element-avatar();
     }
+
+    .@{skeleton-input-prefix-cls} {
+      .skeleton-element-input();
+    }
   }
 }
+// Button
+.skeleton-element-button() {
+  display: inline-block;
+  vertical-align: top;
+  background: @skeleton-color;
+  border-radius: @border-radius-base;
 
+  .skeleton-element-button-size(@btn-height-base);
+
+  &-lg {
+    .skeleton-element-button-size(@btn-height-lg);
+  }
+
+  &-sm {
+    .skeleton-element-button-size(@btn-height-sm);
+  }
+}
 // Avatar
 .skeleton-element-avatar() {
   display: inline-block;
@@ -129,6 +140,23 @@
 
   &-sm {
     .skeleton-element-avatar-size(@avatar-size-sm);
+  }
+}
+
+// Input
+.skeleton-element-input() {
+  display: inline-block;
+  vertical-align: top;
+  background: @skeleton-color;
+
+  .skeleton-element-input-size(@input-height-base);
+
+  &-lg {
+    .skeleton-element-input-size(@input-height-lg);
+  }
+
+  &-sm {
+    .skeleton-element-input-size(@input-height-sm);
   }
 }
 
@@ -153,6 +181,11 @@
   &.@{skeleton-button-prefix-cls}-round {
     border-radius: @size;
   }
+}
+
+.skeleton-element-input-size(@size) {
+  width: 100%;
+  .skeleton-element-common-size(@size);
 }
 
 .skeleton-element-common-size(@size) {

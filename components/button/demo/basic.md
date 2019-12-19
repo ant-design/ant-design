@@ -13,7 +13,7 @@ title:
 
 There are `primary` button, `default` button, `dashed` button, `danger` button and `link` button in antd.
 
-```jsx
+```tsx
 import { Button } from 'antd';
 
 ReactDOM.render(

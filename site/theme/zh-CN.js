@@ -3,10 +3,9 @@ module.exports = {
   messages: {
     'app.header.search': '全文本搜索...',
     'app.header.menu.home': '首页',
-    'app.header.menu.practice': '实践',
-    'app.header.menu.pattern': '模式',
+    'app.header.menu.documentation': '文档',
     'app.header.menu.components': '组件',
-    'app.header.menu.spec': '设计语言',
+    'app.header.menu.spec': '设计',
     'app.header.menu.resource': '资源',
     'app.header.menu.mobile': '移动版',
     'app.header.menu.pro.v4': 'Ant Design Pro v4',

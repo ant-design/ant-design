@@ -13,7 +13,7 @@ title:
 
 `block` property will make the button fit to its parent width.
 
-```jsx
+```tsx
 import { Button } from 'antd';
 
 ReactDOM.render(
