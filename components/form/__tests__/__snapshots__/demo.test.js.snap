@@ -1543,14 +1543,21 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
         <span
           class="ant-form-item-children"
         >
-          <input
-            class="ant-input"
-            data-__field="[object Object]"
-            data-__meta="[object Object]"
-            id="register_email"
-            type="text"
-            value=""
-          />
+          <span
+            class="ant-input-affix-wrapper"
+          >
+            <input
+              class="ant-input"
+              data-__field="[object Object]"
+              data-__meta="[object Object]"
+              id="register_email"
+              type="text"
+              value=""
+            />
+            <span
+              class="ant-input-suffix"
+            />
+          </span>
         </span>
       </div>
     </div>
@@ -4608,6 +4615,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           >
             <input
               class="ant-time-picker-input"
+              id=""
               placeholder="Select time"
               type="text"
               value=""

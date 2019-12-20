@@ -195,6 +195,7 @@ class RegistrationForm extends React.Component {
           })(<Input.Password onBlur={this.handleConfirmBlur} />)}
         </Form.Item>
         <Form.Item
+          hasFeedback
           label={
             <span>
               Nickname&nbsp;

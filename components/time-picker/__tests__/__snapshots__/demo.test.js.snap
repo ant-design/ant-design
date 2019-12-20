@@ -7,6 +7,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
   >
     <input
       class="ant-time-picker-input"
+      id=""
       placeholder="Select time"
       type="text"
       value=""
@@ -43,6 +44,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
   >
     <input
       class="ant-time-picker-input"
+      id=""
       placeholder="Select time"
       type="text"
       value=""
@@ -79,6 +81,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
   >
     <input
       class="ant-time-picker-input"
+      id=""
       placeholder="Select time"
       type="text"
       value=""
@@ -119,6 +122,7 @@ exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
 >
   <input
     class="ant-time-picker-input"
+    id=""
     placeholder="Select time"
     type="text"
     value=""
@@ -158,6 +162,7 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
 >
   <input
     class="ant-time-picker-input"
+    id=""
     placeholder="Select time"
     type="text"
     value=""
@@ -198,6 +203,7 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
   <input
     class="ant-time-picker-input"
     disabled=""
+    id=""
     placeholder="Select time"
     type="text"
     value="12:08:23"
@@ -237,6 +243,7 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
 >
   <input
     class="ant-time-picker-input"
+    id=""
     placeholder="Select time"
     type="text"
     value="12:08"
@@ -296,6 +303,7 @@ exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`]
 >
   <input
     class="ant-time-picker-input"
+    id=""
     placeholder="Select time"
     type="text"
     value=""
@@ -336,6 +344,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
   >
     <input
       class="ant-time-picker-input"
+      id=""
       placeholder="Select time"
       type="text"
       value="12:08:23"
@@ -392,6 +401,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
   >
     <input
       class="ant-time-picker-input"
+      id=""
       placeholder="Select time"
       type="text"
       value="12:08:23"
@@ -448,6 +458,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
   >
     <input
       class="ant-time-picker-input"
+      id=""
       placeholder="Select time"
       type="text"
       value="12:08:23"
@@ -508,6 +519,7 @@ exports[`renders ./components/time-picker/demo/suffix.md correctly 1`] = `
 >
   <input
     class="ant-time-picker-input"
+    id=""
     placeholder="Select time"
     type="text"
     value=""
@@ -544,6 +556,7 @@ exports[`renders ./components/time-picker/demo/value.md correctly 1`] = `
 >
   <input
     class="ant-time-picker-input"
+    id=""
     placeholder="Select time"
     type="text"
     value=""
