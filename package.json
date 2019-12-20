@@ -261,11 +261,11 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "540 kB"
+      "maxSize": "300 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "60 kB"
+      "maxSize": "50 kB"
     }
   ],
   "title": "Ant Design"
