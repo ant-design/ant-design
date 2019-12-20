@@ -37,17 +37,16 @@ const shapes: Shape[] = [
         ...center,
       },
       {
-        frame: 10,
+        frame: 20,
         scaleX: 1.5,
         scaleY: 1.5,
         opacity: 0,
       },
       {
-        frame: 15,
-        scaleX: 0,
-        scaleY: 0,
+        frame: 21,
+        scaleX: 1,
+        scaleY: 1,
         opacity: 0,
-        cubic: Hitu.CUBIC_EASE,
       },
       {
         frame: 40,
@@ -67,40 +66,6 @@ const shapes: Shape[] = [
         scaleY: 1,
         ...center,
       },
-      {
-        frame: 10,
-        scaleX: 0.9,
-        scaleY: 0.9,
-        opacity: 0,
-      },
-      {
-        frame: 15,
-        scaleX: 0,
-        scaleY: 0,
-        opacity: 0,
-        cubic: Hitu.CUBIC_EASE,
-      },
-      {
-        frame: 30,
-        scaleX: 1.1,
-        scaleY: 1.1,
-        opacity: 1,
-      },
-      {
-        frame: 40,
-        scaleX: 1,
-        scaleY: 1,
-      },
-      {
-        frame: 50,
-        scaleX: 1.05,
-        scaleY: 1.05,
-      },
-      {
-        frame: 60,
-        scaleX: 1,
-        scaleY: 1,
-      },
     ],
   },
   {
@@ -111,46 +76,11 @@ const shapes: Shape[] = [
         frame: 0,
         ...center,
         cubic: Hitu.CUBIC_EASE,
-        opacity: 1,
-      },
-      {
-        frame: 10,
-        scaleX: 0.6,
-        scaleY: 0.6,
-        opacity: 0,
-      },
-      {
-        frame: 15,
-        scaleX: 0,
-        scaleY: 0,
-        opacity: 0,
-        cubic: Hitu.CUBIC_EASE,
-      },
-      {
-        frame: 30,
-        scaleX: 1.2,
-        scaleY: 1.2,
-        opacity: 1,
-      },
-      {
-        frame: 40,
-        scaleX: 1,
-        scaleY: 1,
-      },
-      {
-        frame: 50,
-        scaleX: 1.05,
-        scaleY: 1.05,
-      },
-      {
-        frame: 60,
-        scaleX: 1,
-        scaleY: 1,
       },
     ],
   },
 ];
 
 export default function Meaningful() {
-  return <InteractiveIcon shapes={shapes} frames={80} />;
+  return <InteractiveIcon shapes={shapes} frames={60} />;
 }

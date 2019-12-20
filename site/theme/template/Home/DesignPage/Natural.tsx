@@ -48,46 +48,20 @@ function getFrames(init: Partial<FrameInfo>, delay: number = 0): FrameInfo[] {
       frame: 0,
       scaleX: 1,
       scaleY: 1,
-      opacity: 1,
     },
     {
-      frame: 9,
-      scaleX: 1.2,
-      scaleY: 1.2,
-      opacity: 0,
-    },
-    {
-      frame: 10 + delay,
-      opacity: 0,
-    },
-    {
-      frame: 11 + delay,
-      scaleX: 0.5,
-      scaleY: 0.5,
-      opacity: 0,
-      cubic: Hitu.CUBIC_EASE_IN_OUT,
+      frame: 1 + delay,
+      rotate: 0,
+      cubic: Hitu.CUBIC_EASE,
     },
     {
       frame: 30 + delay,
-      scaleX: 1.1,
-      scaleY: 1.1,
-      opacity: 1,
-      cubic: Hitu.CUBIC_EASE_OUT,
-    },
-    {
-      frame: 40 + delay,
-      scaleX: 1,
-      scaleY: 1,
-    },
-    {
-      frame: 50 + delay,
-      scaleX: 1.05,
-      scaleY: 1.05,
+      rotate: 5,
+      cubic: Hitu.CUBIC_EASE,
     },
     {
       frame: 60 + delay,
-      scaleX: 1,
-      scaleY: 1,
+      rotate: 0,
     },
   ];
 }
@@ -96,20 +70,20 @@ const shapes: Shape[] = [
   {
     type: 'shape',
     source: CenterLeaf,
-    frames: getFrames({ originY: 1, x: 60, y: 62 }),
+    frames: getFrames({ originY: 1, x: 60, y: 62 }, 6),
   },
   {
     type: 'shape',
     source: LeftLeaf,
-    frames: getFrames({ originX: 1, originY: 1, x: 56, y: 96 }, 10),
+    frames: getFrames({ originX: 1, originY: 1, x: 56, y: 96 }, 0),
   },
   {
     type: 'shape',
     source: RightLeaf,
-    frames: getFrames({ originX: 0, originY: 1, x: 64, y: 96 }, 20),
+    frames: getFrames({ originX: 0, originY: 1, x: 64, y: 96 }, 12),
   },
 ];
 
 export default function Natural() {
-  return <InteractiveIcon shapes={shapes} />;
+  return <InteractiveIcon shapes={shapes} frames={80} />;
 }

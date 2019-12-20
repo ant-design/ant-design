@@ -86,7 +86,7 @@ export default function Logo() {
         loop={loop}
         defaultPlay={false}
         defaultFrame={30}
-        frames={180}
+        frames={150}
         onFrame={frame => {
           if (frame === 0) {
             const newIndex = (iconIndex + 1) % ICONS.length;
@@ -112,7 +112,7 @@ export default function Logo() {
                 cubic: Hitu.CUBIC_EASE,
               },
               {
-                frame: 150,
+                frame: 120,
                 rotate: 720,
                 opacity: 0,
               },
@@ -136,7 +136,7 @@ export default function Logo() {
                 cubic: Hitu.CUBIC_EASE,
               },
               {
-                frame: 150,
+                frame: 120,
                 rotate: 720,
                 opacity: 1,
               },
