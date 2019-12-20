@@ -136,7 +136,6 @@
     "rc-upload": "~2.9.1",
     "rc-util": "~4.16.1",
     "rc-virtual-list": "^0.0.0-alpha.25",
-    "react-lazy-load": "^3.0.13",
     "react-slick": "~0.25.2",
     "resize-observer-polyfill": "^1.5.1",
     "shallowequal": "^1.1.0",
