@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
 import { StarFilled } from '@ant-design/icons';
@@ -28,11 +27,6 @@ interface RateNodeProps {
 }
 
 export default class Rate extends React.Component<RateProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    character: PropTypes.node,
-  };
-
   static defaultProps = {
     character: <StarFilled />,
   };

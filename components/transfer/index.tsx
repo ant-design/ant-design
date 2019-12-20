@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { polyfill } from 'react-lifecycles-compat';
 import List, { TransferListProps } from './list';
@@ -85,28 +84,6 @@ class Transfer extends React.Component<TransferProps, any> {
     locale: {},
     showSearch: false,
     listStyle: () => {},
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    disabled: PropTypes.bool,
-    dataSource: PropTypes.array as PropTypes.Validator<TransferItem[]>,
-    render: PropTypes.func,
-    targetKeys: PropTypes.array,
-    onChange: PropTypes.func,
-    height: PropTypes.number,
-    style: PropTypes.object,
-    listStyle: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    operationStyle: PropTypes.object,
-    className: PropTypes.string,
-    titles: PropTypes.array,
-    operations: PropTypes.array,
-    showSearch: PropTypes.bool,
-    filterOption: PropTypes.func,
-    locale: PropTypes.object,
-    footer: PropTypes.func,
-    rowKey: PropTypes.func,
-    lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
   static getDerivedStateFromProps(nextProps: TransferProps) {
