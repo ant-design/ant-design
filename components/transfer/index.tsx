@@ -56,8 +56,7 @@ export interface TransferProps {
   footer?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
-  lazy?: {} | boolean;
-  onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
+  onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
   children?: (props: TransferListBodyProps) => React.ReactNode;
   showSelectAll?: boolean;
 }
@@ -235,16 +234,16 @@ class Transfer extends React.Component<TransferProps, any> {
   onRightItemSelect = (selectedKey: string, checked: boolean) =>
     this.onItemSelect('right', selectedKey, checked);
 
-  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => {
+  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
     const { onScroll } = this.props;
     if (onScroll) {
       onScroll(direction, e);
     }
   };
 
-  handleLeftScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('left', e);
+  handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('left', e);
 
-  handleRightScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('right', e);
+  handleRightScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('right', e);
 
   handleSelectChange(direction: TransferDirection, holder: string[]) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
@@ -311,7 +310,6 @@ class Transfer extends React.Component<TransferProps, any> {
           operationStyle,
           filterOption,
           render,
-          lazy,
           children,
           showSelectAll,
         } = this.props;
@@ -350,7 +348,6 @@ class Transfer extends React.Component<TransferProps, any> {
               showSearch={showSearch}
               renderList={children}
               footer={footer}
-              lazy={lazy}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
               direction="left"
@@ -383,7 +380,6 @@ class Transfer extends React.Component<TransferProps, any> {
               showSearch={showSearch}
               renderList={children}
               footer={footer}
-              lazy={lazy}
               onScroll={this.handleRightScroll}
               disabled={disabled}
               direction="right"
