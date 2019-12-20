@@ -15,7 +15,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 ## 自然
 
 <div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*C3v0SacCpwoAAAAAAAAAAABkARQnAQ" alt="自然" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ" alt="自然" />
 </div>
 
 数字世界的光速迭代使得产品日益复杂，而人类意识和注意力资源有限。面对这种设计矛盾，追求「自然」交互将是 Ant Design 持之以恒的方向。
@@ -28,7 +28,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 ## 确定性
 
 <div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wtMAQ6uIcykAAAAAAAAAAABkARQnAQ" alt="确定" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OCU3RKZrw8QAAAAAAAAAAABkARQnAQ" alt="确定" />
 </div>
 
 界面是用户与系统交互的媒介，是手段而非目的。在追求「自然」交互基础上，通过 Ant Design 创造的产品界面应是高确定性、低合作熵的状态。
@@ -42,7 +42,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 ## 意义感
 
 <div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xxdeTamP0fcAAAAAAAAAAABkARQnAQ" alt="意义感" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xOYlR4e8ihIAAAAAAAAAAABkARQnAQ" alt="意义感" />
 </div>
 
 一个产品或功能被设计者创造出来不只是用户的需要，而更多是承载用户的某个工作使命。产品设计应充分站在工作视角，促成用户使命的达成；同时，在「自然」、「确定」之上，兼顾用户的人性需求，为工作过程创造富有意义感的人机交互。
@@ -53,7 +53,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 ## 生长性
 
 <div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mDUiSZi59f8AAAAAAAAAAABkARQnAQ" alt="Growth" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pKz3TabovrEAAAAAAAAAAABkARQnAQ" alt="Growth" />
 </div>
 
 企业级产品功能的增长与用户系统角色的演变相生相伴。设计者应为自己创造的产品负责，提升功能、价值的可发现性。用发展的眼光做设计，充分考虑人、机两端的共同生长。
