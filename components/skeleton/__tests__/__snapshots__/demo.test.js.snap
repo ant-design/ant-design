@@ -48,7 +48,60 @@ exports[`renders ./components/skeleton/demo/basic.md correctly 1`] = `
 </div>
 `;
 
-exports[`renders ./components/skeleton/demo/button.md correctly 1`] = `
+exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
+<div
+  class="article"
+>
+  <div>
+    <h4>
+      Ant Design, a design language
+    </h4>
+    <p>
+      We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+    </p>
+  </div>
+  <button
+    class="ant-btn"
+    type="button"
+  >
+    <span>
+      Show Skeleton
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders ./components/skeleton/demo/complex.md correctly 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-with-avatar"
+>
+  <div
+    class="ant-skeleton-header"
+  >
+    <span
+      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
+    />
+  </div>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:50%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li />
+      <li />
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/skeleton/demo/element.md correctly 1`] = `
 <div>
   <div>
     <form
@@ -460,58 +513,137 @@ exports[`renders ./components/skeleton/demo/button.md correctly 1`] = `
       />
     </div>
   </div>
-</div>
-`;
-
-exports[`renders ./components/skeleton/demo/children.md correctly 1`] = `
-<div
-  class="article"
->
+  <br />
   <div>
-    <h4>
-      Ant Design, a design language
-    </h4>
-    <p>
-      We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
-    </p>
-  </div>
-  <button
-    class="ant-btn"
-    type="button"
-  >
-    <span>
-      Show Skeleton
-    </span>
-  </button>
-</div>
-`;
-
-exports[`renders ./components/skeleton/demo/complex.md correctly 1`] = `
-<div
-  class="ant-skeleton ant-skeleton-with-avatar"
->
-  <div
-    class="ant-skeleton-header"
-  >
-    <span
-      class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-circle"
-    />
-  </div>
-  <div
-    class="ant-skeleton-content"
-  >
-    <h3
-      class="ant-skeleton-title"
-      style="width:50%"
-    />
-    <ul
-      class="ant-skeleton-paragraph"
+    <form
+      class="ant-form ant-form-inline"
+      style="margin-bottom:16px"
     >
-      <li />
-      <li />
-      <li />
-      <li />
-    </ul>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="InputActive"
+          >
+            InputActive
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              role="switch"
+              type="button"
+            >
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            title="InputSize"
+          >
+            InputSize
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-radio-group ant-radio-group-outline"
+            >
+              <label
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              >
+                <span
+                  class="ant-radio-button ant-radio-button-checked"
+                >
+                  <input
+                    checked=""
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="default"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Default
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="large"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Large
+                </span>
+              </label>
+              <label
+                class="ant-radio-button-wrapper"
+              >
+                <span
+                  class="ant-radio-button"
+                >
+                  <input
+                    class="ant-radio-button-input"
+                    type="radio"
+                    value="small"
+                  />
+                  <span
+                    class="ant-radio-button-inner"
+                  />
+                </span>
+                <span>
+                  Small
+                </span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div
+      class="ant-skeleton ant-skeleton-element"
+    >
+      <span
+        class="ant-skeleton-input"
+        style="width:300px"
+      />
+    </div>
   </div>
 </div>
 `;
