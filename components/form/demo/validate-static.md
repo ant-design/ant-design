@@ -61,11 +61,11 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
-      <Input placeholder="I'm the content" id="success" allowClear />
+      <Input placeholder="I'm the content" id="success" />
     </Form.Item>
 
     <Form.Item label="Warning" hasFeedback validateStatus="warning">
-      <Input.Password placeholder="Warning" id="warning2" />
+      <Input placeholder="Warning" id="warning2" />
     </Form.Item>
 
     <Form.Item
@@ -74,7 +74,7 @@ ReactDOM.render(
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
-      <Input.Password placeholder="unavailable choice" id="error2" allowClear />
+      <Input placeholder="unavailable choice" id="error2" />
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
@@ -118,6 +118,18 @@ ReactDOM.render(
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
       <InputNumber style={{ width: '100%' }} />
+    </Form.Item>
+
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <Input allowClear placeholder="with allowClear" />
+    </Form.Item>
+
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
+      <Input.Password placeholder="with input password" />
+    </Form.Item>
+
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <Input.Password allowClear placeholder="with input password and allowClear" />
     </Form.Item>
   </Form>,
   mountNode,
