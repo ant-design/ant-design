@@ -154,7 +154,7 @@ class RegistrationForm extends React.Component {
 
     return (
       <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-        <Form.Item label="E-mail">
+        <Form.Item label="E-mail" hasFeedback>
           {getFieldDecorator('email', {
             rules: [
               {
@@ -166,7 +166,7 @@ class RegistrationForm extends React.Component {
                 message: 'Please input your E-mail!',
               },
             ],
-          })(<Input />)}
+          })(<Input allowClear />)}
         </Form.Item>
         <Form.Item label="Password" hasFeedback>
           {getFieldDecorator('password', {
@@ -179,7 +179,7 @@ class RegistrationForm extends React.Component {
                 validator: this.validateToNextPassword,
               },
             ],
-          })(<Input.Password />)}
+          })(<Input.Password allowClear />)}
         </Form.Item>
         <Form.Item label="Confirm Password" hasFeedback>
           {getFieldDecorator('confirm', {

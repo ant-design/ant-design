@@ -137,16 +137,22 @@
 form {
   .has-feedback {
     .@{ant-prefix}-input {
-      padding-right: 24px;
+      padding-right: @input-padding-horizontal-base + @input-affix-width;
     }
 
     // https://github.com/ant-design/ant-design/issues/19884
-    .@{ant-prefix}-input-affix-wrapper .@{ant-prefix}-input-suffix {
-      padding-right: 18px;
-    }
-
-    .@{ant-prefix}-input-password-icon {
-      margin-right: 18px;
+    .@{ant-prefix}-input-affix-wrapper {
+      .@{ant-prefix}-input-suffix {
+        padding-right: 18px;
+      }
+      .@{ant-prefix}-input {
+        padding-right: @input-padding-horizontal-base + @input-affix-width * 2;
+      }
+      &.@{ant-prefix}-input-affix-wrapper-input-with-clear-btn {
+        .@{ant-prefix}-input {
+          padding-right: @input-padding-horizontal-base + @input-affix-width * 3;
+        }
+      }
     }
 
     // Fix overlapping between feedback icon and <Select>'s arrow.
