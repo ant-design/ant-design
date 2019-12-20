@@ -55,3 +55,10 @@ cols: 1
 | active | 是否展示动画效果 | boolean                              | false  |
 | size   | 设置按钮的大小   | Enum{ 'large', 'small', 'default' }  | -      |
 | shape  | 指定按钮的形状   | Enum{ 'circle', 'round', 'default' } | -      |
+
+### SkeletonInputProps
+
+| 属性   | 说明             | 类型                                | 默认值 |
+| ------ | ---------------- | ----------------------------------- | ------ |
+| active | 是否展示动画效果 | boolean                             | false  |
+| size   | 设置按钮的大小   | Enum{ 'large', 'small', 'default' } | -      |

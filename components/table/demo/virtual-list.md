@@ -13,7 +13,7 @@ title:
 
 Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
 
-```jsx
+```tsx
 import { VariableSizeGrid as Grid } from 'react-window';
 import ResizeObserver from 'rc-resize-observer';
 import classNames from 'classnames';
@@ -94,11 +94,12 @@ function VirtualTable(props) {
     );
   };
 
-
   return (
-    <ResizeObserver onResize={({ width }) => {
-      setTableWidth(width);
-    }}>
+    <ResizeObserver
+      onResize={({ width }) => {
+        setTableWidth(width);
+      }}
+    >
       <Table
         {...props}
         className={classNames(className, 'virtual-table')}
@@ -110,14 +111,14 @@ function VirtualTable(props) {
       />
     </ResizeObserver>
   );
-};
+}
 
 // Usage
 const columns = [
   { title: 'A', dataIndex: 'key', width: 150 },
-  { title: 'B', dataIndex: 'key'},
-  { title: 'C', dataIndex: 'key'},
-  { title: 'D', dataIndex: 'key'},
+  { title: 'B', dataIndex: 'key' },
+  { title: 'C', dataIndex: 'key' },
+  { title: 'D', dataIndex: 'key' },
   { title: 'E', dataIndex: 'key', width: 200 },
   { title: 'F', dataIndex: 'key', width: 100 },
 ];
@@ -131,11 +132,7 @@ for (let i = 0; i < 100000; i += 1) {
 }
 
 ReactDOM.render(
-  <VirtualTable
-    columns={columns}
-    dataSource={data}
-    scroll={{ y: 300, x: '100vw' }}
-  />,
+  <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />,
   mountNode,
 );
 ```

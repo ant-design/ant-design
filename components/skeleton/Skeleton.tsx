@@ -6,6 +6,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SkeletonButton from './Button';
 import Element from './Element';
 import SkeletonAvatar, { AvatarProps } from './Avatar';
+import SkeletonInput from './Input';
 
 /* This only for skeleton internal. */
 interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
@@ -71,6 +72,8 @@ class Skeleton extends React.Component<SkeletonProps, any> {
   static Button: typeof SkeletonButton;
 
   static Avatar: typeof SkeletonAvatar;
+
+  static Input: typeof SkeletonInput;
 
   static defaultProps: Partial<SkeletonProps> = {
     avatar: false,

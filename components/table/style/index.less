@@ -7,6 +7,7 @@
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
+@table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 
 @table-selection-column-width: 60px;
 
@@ -159,6 +160,10 @@
 
     &:hover {
       background: @table-header-sort-active-bg;
+
+      .@{table-prefix-cls}-filter-trigger-container {
+        background: @table-header-sort-active-filter-bg;
+      }
     }
   }
 
@@ -226,10 +231,12 @@
     flex: none;
     align-items: stretch;
     align-self: stretch;
+    cursor: pointer;
     transition: background-color 0.3s;
 
     &-open,
-    &:hover {
+    &:hover,
+    thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
       background: @table-header-filter-active-bg;
     }
   }
