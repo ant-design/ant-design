@@ -96,7 +96,7 @@ export default function DesignPage() {
   return (
     <div style={{ marginBottom: -36 }}>
       {/* ***************************** Group 1 ***************************** */}
-      <Row gutter={[40, 72]}>
+      <Row gutter={[40, 40]}>
         {/* *********************** Design Values *********************** */}
         <Col span={24}>
           <div
@@ -233,7 +233,7 @@ export default function DesignPage() {
       </Row>
 
       {/* ***************************** Group 2 ***************************** */}
-      <Row gutter={[40, 72]}>
+      <Row gutter={[40, 40]}>
         {MINI_LIST.map(panel => (
           <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} />
         ))}
