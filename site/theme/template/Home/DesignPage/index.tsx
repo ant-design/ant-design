@@ -94,7 +94,7 @@ export default function DesignPage() {
   const isZhCN = locale === 'zh-CN';
 
   return (
-    <div style={{ marginBottom: -36 }}>
+    <div style={{ marginBottom: -28 }}>
       {/* ***************************** Group 1 ***************************** */}
       <Row gutter={[40, 40]}>
         {/* *********************** Design Values *********************** */}
