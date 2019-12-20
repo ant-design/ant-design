@@ -70,26 +70,6 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
   return formName ? `${formName}_${mergedId}` : mergedId;
 }
 
-// Source: https://github.com/react-component/form/blob/master/src/createDOMForm.js
-function getScrollableContainer(current: HTMLElement) {
-  let node: HTMLElement | null = current;
-  let nodeName;
-  /* eslint no-cond-assign:0 */
-  while (node && (nodeName = node.nodeName.toLowerCase()) !== 'body') {
-    const { overflowY } = getComputedStyle(node);
-    // https://stackoverflow.com/a/36900407/3040605
-    if (
-      node !== current &&
-      (overflowY === 'auto' || overflowY === 'scroll') &&
-      node.scrollHeight > node.clientHeight
-    ) {
-      return node;
-    }
-    node = node.parentElement;
-  }
-  return nodeName === 'body' ? node!.ownerDocument : node;
-}
-
 export interface FormInstance extends RcFormInstance {
   scrollToField: (name: string | number | InternalNamePath) => void;
   __INTERNAL__: {
