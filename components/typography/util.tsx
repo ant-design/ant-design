@@ -77,7 +77,7 @@ export default (
     lineHeight * (rows + 1) +
     pxToNumber(originStyle.paddingTop) +
     pxToNumber(originStyle.paddingBottom);
-  let isEllipsisEndFix = false;
+  let isEllipsisSuffix = false;
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
   ellipsisContainer.style.position = 'fixed';
@@ -103,12 +103,7 @@ export default (
 
   render(
     <div style={wrapperStyle}>
-      <span style={wrapperStyle}>
-        {(ellipsisStr + suffix)
-          .split('')
-          .reverse()
-          .join('')}
-      </span>
+      <span style={wrapperStyle}>{ellipsisStr + suffix}</span>
       <span style={wrapperStyle}>{fixedContent}</span>
     </div>,
     ellipsisContainer,
@@ -132,7 +127,7 @@ export default (
       return { content, text: ellipsisContainer.innerHTML, ellipsis: false };
     }
   } else {
-    isEllipsisEndFix = true;
+    isEllipsisSuffix = true;
   }
 
   // We should clone the childNode since they're controlled by React and we can't reuse it without warning
@@ -152,7 +147,7 @@ export default (
   const ellipsisContentHolder = document.createElement('span');
   ellipsisContainer.appendChild(ellipsisContentHolder);
   const ellipsisTextNode = document.createTextNode(
-    `${ellipsisStr}${isEllipsisEndFix ? '' : suffix}`,
+    `${ellipsisStr}${isEllipsisSuffix ? '' : suffix}`,
   );
   ellipsisContentHolder.appendChild(ellipsisTextNode);
 
@@ -202,6 +197,37 @@ export default (
     }
     return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
   }
+  function measureSuffixText(
+    textNode: Text,
+    fullText: string,
+    startLoc = 0,
+    endLoc = fullText.length,
+  ): MeasureResult {
+    const midLoc = Math.floor((startLoc + endLoc) / 2);
+    const currentText = fullText.slice(midLoc, fullText.length);
+    textNode.textContent = currentText;
+    if (startLoc >= endLoc - 1) {
+      for (let step = startLoc; step <= endLoc; step += 1) {
+        const currentStepText = fullText.slice(step, fullText.length);
+        textNode.textContent = currentStepText;
+        if (inRange() || !currentStepText) {
+          return step === fullText.length
+            ? {
+                finished: false,
+                reactNode: fullText,
+              }
+            : {
+                finished: true,
+                reactNode: currentStepText,
+              };
+        }
+      }
+    }
+    if (inRange()) {
+      return measureSuffixText(textNode, fullText, startLoc, midLoc);
+    }
+    return measureSuffixText(textNode, fullText, midLoc, endLoc);
+  }
 
   function measureNode(childNode: ChildNode, index: number): MeasureResult {
     const type = childNode.nodeType;
@@ -227,9 +253,10 @@ export default (
       const fullText = childNode.textContent || '';
       const textNode = document.createTextNode(fullText);
       appendChildNode(textNode);
-      return measureText(textNode, fullText);
+      return isEllipsisSuffix
+        ? measureSuffixText(textNode, fullText)
+        : measureText(textNode, fullText);
     }
-
     // Not handle other type of content
     // PS: This code should not be attached after react 16
     return {
@@ -238,25 +265,15 @@ export default (
     };
   }
 
-  function getDeleteLastCharAndReverse(str: string): string {
-    return str
-      .substring(0, str.length - 1)
-      .split('')
-      .reverse()
-      .join('');
-  }
-
   childNodes.some((childNode, index) => {
     const { finished, reactNode } = measureNode(childNode, index);
     if (reactNode) {
-      ellipsisChildren.push(
-        isEllipsisEndFix ? getDeleteLastCharAndReverse(reactNode as string) : reactNode,
-      );
+      ellipsisChildren.push(reactNode);
     }
     return finished;
   });
 
-  if (isEllipsisEndFix) {
+  if (isEllipsisSuffix) {
     ellipsisChildren.unshift(ellipsisStr);
   } else {
     ellipsisChildren.push(ellipsisStr, suffix);
