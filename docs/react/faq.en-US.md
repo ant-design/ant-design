@@ -9,7 +9,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ### Are you going to provide Sass/Stylus(etc.) style file?
 
-No, but you can convert Less to Sass/Stylus(etc.) with tools that you can find on Google.
+No plan, but you can convert Less to Sass/Stylus(etc.) with tools that you can find on Google.
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 

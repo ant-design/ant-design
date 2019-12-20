@@ -9,7 +9,7 @@ title: FAQ
 
 ### 你们会提供 Sass/Stylus 等格式的样式文件吗？
 
-不。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
+暂无计划。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
