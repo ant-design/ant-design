@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 7
 title: V3 to V4
 ---
 
