@@ -86,7 +86,7 @@
     "last 2 version",
     "Firefox ESR",
     "> 1%",
-    "ie >= 9"
+    "ie >= 11"
   ],
   "dependencies": {
     "@ant-design/create-react-context": "^0.2.4",
