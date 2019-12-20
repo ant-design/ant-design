@@ -298,6 +298,7 @@ class MainContent extends Component {
         {menuItems}
       </Menu>
     );
+    const componentPage = /^\/?components/.test(this.props.location.pathname);
 
     return (
       <div className="main-wrapper">
@@ -321,11 +322,13 @@ class MainContent extends Component {
                 <Article {...this.props} content={localizedPageData} />
               )}
             </section>
-            <div className="fixed-widgets">
-              <div>
-                <Button onClick={this.changeTheme}>{theme}</Button>
+            {componentPage && (
+              <div className="fixed-widgets">
+                <div>
+                  <Button onClick={this.changeTheme}>{theme}</Button>
+                </div>
               </div>
-            </div>
+            )}
             <PrevAndNext prev={prev} next={next} />
             <Footer />
           </Col>
