@@ -12,7 +12,7 @@ const ICON_IMAGES = [
   'https://gw.alipayobjects.com/zos/basement_prod/d7bc5cdf-07f9-4ddf-8135-78d3cc6ca009.svg',
   'https://gw.alipayobjects.com/zos/basement_prod/8737ccb7-3b5d-40ca-ae36-6a904047caa4.svg',
   'https://gw.alipayobjects.com/zos/basement_prod/1fdf5981-2d9d-4315-bb84-4590d5c5b989.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/05d820d4-fae7-4f34-bfc6-15df1036524d.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/b9d17ebc-2af1-4926-ba1b-c1376ddaa479.svg',
   'https://gw.alipayobjects.com/zos/basement_prod/dcb1b8f8-becd-4f90-ba32-574260a7b18d.svg',
   'https://gw.alipayobjects.com/zos/basement_prod/ba0958ce-b194-4910-84de-7e3274742dbb.svg',
   'https://gw.alipayobjects.com/zos/basement_prod/ad510b94-5f85-4b30-b929-2e3a34ad673c.svg',
@@ -23,25 +23,25 @@ preLoad(ICON_IMAGES);
 
 const AntDesign = () => (
   <svg>
-    <circle cx="15" cy="15" r="9" fill="#F74455" />
+    <circle cx="16" cy="16" r="9" fill="#F74455" />
   </svg>
 );
 
-AntDesign.width = 30;
-AntDesign.height = 30;
+AntDesign.width = 32;
+AntDesign.height = 32;
 
 const ICONS = ICON_IMAGES.map(href => {
   function Icon() {
     return (
-      <svg viewBox="0 0 30 30">
+      <svg viewBox="0 0 32 32">
         {/* Image size will follow outer svg size, let's cut to half here */}
-        <image href={href} height="15" width="15" />
+        <image href={href} height="16" width="16" />
       </svg>
     );
   }
 
-  Icon.width = 30;
-  Icon.height = 30;
+  Icon.width = 32;
+  Icon.height = 32;
 
   return Icon;
 });
@@ -51,7 +51,6 @@ export default function Logo() {
   const [loop, setLoop] = React.useState(false);
   const [iconIndex, setIconIndex] = React.useState(-1);
   const Icon = ICONS[iconIndex] || AntDesign;
-  const NextIcon = ICONS[(iconIndex + 1) % ICONS.length];
 
   return (
     <div
@@ -80,15 +79,14 @@ export default function Logo() {
       />
       <Hitu
         ref={hituRef}
-        width={60}
-        height={60}
+        width={64}
+        height={64}
         className="home-card-logo-icon"
         loop={loop}
         defaultPlay={false}
-        defaultFrame={30}
-        frames={150}
+        frames={80}
         onFrame={frame => {
-          if (frame === 0) {
+          if (frame === 11) {
             const newIndex = (iconIndex + 1) % ICONS.length;
             setIconIndex(newIndex);
           }
@@ -100,45 +98,41 @@ export default function Logo() {
             frames: [
               {
                 frame: 0,
-                x: 30,
-                y: 30,
-                rotate: 0,
-                cubic: Hitu.CUBIC_EASE,
-              },
-              {
-                frame: 30,
-                rotate: 0,
+                x: 32,
+                y: 32,
+                scaleX: 1,
+                scaleY: 1,
                 opacity: 1,
                 cubic: Hitu.CUBIC_EASE,
               },
               {
-                frame: 120,
-                rotate: 720,
-                opacity: 0,
-              },
-            ],
-          },
-          {
-            type: 'shape',
-            source: NextIcon,
-            frames: [
-              {
-                frame: 0,
-                x: 30,
-                y: 30,
-                rotate: 0,
+                frame: 10,
+                scaleX: 1.1,
+                scaleY: 1.1,
                 opacity: 0,
               },
               {
-                frame: 30,
-                rotate: 0,
+                frame: 11,
+                scaleX: 0.7,
+                scaleY: 0.7,
                 opacity: 0,
                 cubic: Hitu.CUBIC_EASE,
               },
               {
-                frame: 120,
-                rotate: 720,
+                frame: 30,
+                scaleX: 1.1,
+                scaleY: 1.1,
                 opacity: 1,
+              },
+              {
+                frame: 40,
+                scaleX: 0.95,
+                scaleY: 0.95,
+              },
+              {
+                frame: 50,
+                scaleX: 1,
+                scaleY: 1,
               },
             ],
           },
