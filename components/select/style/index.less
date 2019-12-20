@@ -87,6 +87,11 @@
 
     .anticon {
       transition: transform 0.3s;
+      vertical-align: top;
+
+      > svg {
+        vertical-align: top;
+      }
 
       .@{select-prefix-cls}-open &.anticon-down {
         transform: rotate(180deg);
@@ -225,6 +230,10 @@
       &-disabled {
         color: @disabled-color;
         cursor: not-allowed;
+      }
+
+      &-grouped {
+        padding-left: @control-padding-horizontal * 2;
       }
     }
   }
