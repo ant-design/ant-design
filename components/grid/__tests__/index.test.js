@@ -3,24 +3,6 @@ import { render, mount } from 'enzyme';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 
-jest.mock('enquire.js', () => {
-  let that;
-  let unmatchFun;
-  return {
-    unregister: jest.fn(),
-    register: (media, options) => {
-      if (media === '(max-width: 575px)') {
-        that = this;
-        options.match.call(that);
-        unmatchFun = options.unmatch;
-      }
-    },
-    callunmatch() {
-      unmatchFun.call(that);
-    },
-  };
-});
-
 describe('Grid', () => {
   mountTest(Row);
   mountTest(Col);
@@ -88,14 +70,11 @@ describe('Grid', () => {
   });
 
   it('should work correct when gutter is object', () => {
-    // eslint-disable-next-line global-require
-    const enquire = require('enquire.js');
     const wrapper = mount(<Row gutter={{ xs: 20 }} />);
     expect(wrapper.find('div').prop('style')).toEqual({
       marginLeft: -10,
       marginRight: -10,
     });
-    enquire.callunmatch();
     expect(
       wrapper
         .update()
@@ -103,7 +82,6 @@ describe('Grid', () => {
         .prop('style'),
     ).toEqual({});
     wrapper.unmount();
-    expect(enquire.unregister).toHaveBeenCalled();
   });
 
   it('should work currect when gutter is array', () => {
