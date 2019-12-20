@@ -5,18 +5,18 @@ import './Logo.less';
 import { preLoad } from '../util';
 
 const ICON_IMAGES = [
-  'https://gw.alipayobjects.com/zos/basement_prod/c6935869-a270-463a-8303-9273173c189f.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/b32b972c-ee21-46fc-a922-8cfcef0a9e28.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/33754f3e-96de-40a0-8a68-d678b951545b.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/4b165b8b-5664-48cd-98db-b961c80f3d44.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/b5bd8035-5f8f-4656-a352-b91bad6aae5d.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/ab4a9544-c312-4162-8047-7ef2951fe461.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/8567be3a-e343-4256-ae73-868b9b3bc11e.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/c8148987-f22d-4988-b098-34ffc52c8832.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/e821630f-e313-48ed-b5b2-5e7b2db5cf5e.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/8a155478-541c-4bf9-bdab-5448ff6c0da0.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/36871c50-fb03-4f76-9929-3c4484107b5c.svg',
-  'https://gw.alipayobjects.com/zos/basement_prod/9c2c7598-cd37-4879-ba30-2f409c9e994b.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/fef2f3d5-9326-48e3-a8f3-a99584efd425.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/95736b64-de90-4fcd-bae9-a827091a247d.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/7002f57b-bf16-4640-8373-2c4cfcfa7f8c.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/29aa8cd8-de97-42b8-a370-f901be43e18a.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/d7bc5cdf-07f9-4ddf-8135-78d3cc6ca009.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/8737ccb7-3b5d-40ca-ae36-6a904047caa4.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/1fdf5981-2d9d-4315-bb84-4590d5c5b989.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/05d820d4-fae7-4f34-bfc6-15df1036524d.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/dcb1b8f8-becd-4f90-ba32-574260a7b18d.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/ba0958ce-b194-4910-84de-7e3274742dbb.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/ad510b94-5f85-4b30-b929-2e3a34ad673c.svg',
+  'https://gw.alipayobjects.com/zos/basement_prod/43d010fa-71ac-44e3-8475-bb77d95c331c.svg',
 ];
 
 preLoad(ICON_IMAGES);
