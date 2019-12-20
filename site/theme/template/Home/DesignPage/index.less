@@ -1,10 +1,15 @@
 .design-card {
   position: relative;
-  min-height: 302px;
-  padding: 40px;
+  min-height: 278px;
+  padding: 32px 40px;
   color: #697b8c;
   line-height: 2;
   background: rgba(0, 0, 0, 0.1);
+
+  h3,
+  h4 {
+    color: #0d1a26;
+  }
 
   a {
     color: #2f54eb;
@@ -18,6 +23,7 @@
 
   .design-values {
     text-align: center;
+    margin-bottom: -100px;
 
     img {
       display: block;
@@ -27,6 +33,7 @@
     }
 
     h4 {
+      margin-top: 18px;
       font-weight: normal;
     }
   }
@@ -55,7 +62,16 @@
 }
 
 .design-mini-panel {
+  .ant-card-meta-title {
+    font-size: 20px;
+    color: #0d1a26;
+  }
+
   .ant-card-body {
-    padding: 20px 20px 24px 20px;
+    padding: 16px 20px 20px 20px;
+  }
+
+  .ant-card-meta-description {
+    color: #697b8c;
   }
 }

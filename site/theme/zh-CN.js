@@ -53,6 +53,7 @@ module.exports = {
     'app.home.product-hitu-slogan': '全新一代图形化解决方案',
     'app.home.product-kitchen-slogan': '一款为设计者提升工作效率的 Sketch 工具集',
     'app.home.product-icons-slogan': '一整套优质的图标集',
+    'app.home.view-more': '查看全部',
 
     'app.home.solution': '解决方案',
     'app.home.components-explain':

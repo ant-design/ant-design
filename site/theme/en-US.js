@@ -54,6 +54,7 @@ module.exports = {
     'app.home.product-hitu-slogan': 'A new generation of graphical solutions',
     'app.home.product-kitchen-slogan': 'A Sketch toolset to enhance designers',
     'app.home.product-icons-slogan': 'A set of premium icons',
+    'app.home.view-more': 'More articles',
 
     'app.home.solution': 'Solution',
     'app.home.components-explain':

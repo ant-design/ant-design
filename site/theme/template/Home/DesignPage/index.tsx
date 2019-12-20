@@ -67,7 +67,11 @@ const MiniPanel = ({
   isZhCN,
 }: PanelProps & { isZhCN: boolean }) => {
   let content = (
-    <Card hoverable cover={<img alt={typeof title === 'string' ? title : 'Hitu'} src={img} />}>
+    <Card
+      hoverable
+      className="design-mini-panel"
+      cover={<img alt={typeof title === 'string' ? title : 'Hitu'} src={img} />}
+    >
       <Card.Meta title={title} description={<FormattedMessage id={description} />} />
     </Card>
   );
@@ -182,7 +186,7 @@ export default function DesignPage() {
               <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
                 <img
                   alt="design guide"
-                  style={{ maxHeight: 300, maxWidth: '100%' }}
+                  style={{ maxHeight: 278, maxWidth: '100%' }}
                   src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5PRzTL4pwuYAAAAAAAAAAABkARQnAQ"
                 />
               </Col>
@@ -223,7 +227,7 @@ export default function DesignPage() {
               <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
                 <img
                   alt="components"
-                  style={{ maxHeight: 300, maxWidth: '100%' }}
+                  style={{ maxHeight: 278, maxWidth: '100%' }}
                   src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8VDFTbQn4UAAAAAAAAAAAABkARQnAQ"
                 />
               </Col>
@@ -233,7 +237,7 @@ export default function DesignPage() {
       </Row>
 
       {/* ***************************** Group 2 ***************************** */}
-      <Row gutter={[40, 40]}>
+      <Row style={{ marginTop: 40 }} gutter={[40, 40]}>
         {MINI_LIST.map(panel => (
           <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} />
         ))}

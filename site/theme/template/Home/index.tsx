@@ -1,33 +1,41 @@
 import * as React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Typography } from 'antd';
+import { Link } from 'bisheng/router';
 import Banner from './Banner';
 import RecommendPage from './RecommendPage';
 import DesignPage from './DesignPage';
 import MorePage from './MorePage';
 import Footer from '../Layout/Footer';
+import { getLocalizedPathname } from '../utils';
 import './index.less';
 
 const { Title } = Typography;
 
 interface BlockContentProps {
   title: React.ReactNode;
+  extra?: React.ReactNode;
 }
 
-const BlockContent: React.FC<BlockContentProps> = ({ title, children }) => (
+const BlockContent: React.FC<BlockContentProps> = ({ title, children, extra }) => (
   <div
     style={{
       margin: '88px 24px 124px',
     }}
   >
-    <Title level={2} style={{ fontWeight: 'lighter', marginBottom: 56 }}>
+    <Title level={2} style={{ fontWeight: 'lighter', marginBottom: 56, color: '#314659' }}>
       {title}
+
+      {extra && <div style={{ float: 'right', fontSize: 16, fontWeight: 200 }}>{extra}</div>}
     </Title>
     {children}
   </div>
 );
 
 export default function Home() {
+  const { locale } = useIntl();
+  const isZhCN = locale === 'zh-CN';
+
   return (
     <div className="home-container">
       <Banner />
@@ -41,7 +49,14 @@ export default function Home() {
           <DesignPage />
         </BlockContent>
 
-        <BlockContent title={<FormattedMessage id="app.home.more" />}>
+        <BlockContent
+          title={<FormattedMessage id="app.home.more" />}
+          extra={
+            <Link to={getLocalizedPathname('/docs/spec/article', isZhCN)}>
+              <FormattedMessage id="app.home.view-more" />
+            </Link>
+          }
+        >
           <MorePage />
         </BlockContent>
       </div>
