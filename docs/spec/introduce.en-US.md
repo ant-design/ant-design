@@ -4,6 +4,8 @@ order: 0
 title: Introduction
 ---
 
+> This article is out of date. Need help to [translate](https://github.com/ant-design/ant-design/issues/1471).
+
 <div style="text-align:center;margin:40px 0;">
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*P0S-QIRUbsUAAAAAAAAAAABkARQnAQ">
 </div>
