@@ -1,12 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import scrollIntoView from 'dom-scroll-into-view';
+import scrollIntoView from 'scroll-into-view';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
 
-jest.mock('dom-scroll-into-view');
+jest.mock('scroll-into-view');
 
 const delay = () =>
   new Promise(resolve => {

@@ -97,7 +97,6 @@
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "css-animation": "^1.5.0",
-    "dom-scroll-into-view": "^1.2.1",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "omit.js": "^1.0.2",
@@ -136,6 +135,7 @@
     "rc-virtual-list": "^0.0.0-alpha.25",
     "react-slick": "~0.25.2",
     "resize-observer-polyfill": "^1.5.1",
+    "scroll-into-view": "^1.14.0",
     "shallowequal": "^1.1.0",
     "warning": "~4.0.3"
   },
@@ -153,6 +153,7 @@
     "@types/raf": "^3.4.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.8.4",
+    "@types/scroll-into-view": "^1.6.7",
     "@types/shallowequal": "^1.1.1",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",

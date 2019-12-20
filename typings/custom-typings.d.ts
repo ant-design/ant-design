@@ -51,8 +51,6 @@ declare module 'rc-switch';
 
 declare module 'rc-upload';
 
-declare module 'dom-scroll-into-view';
-
 declare module '*.json' {
   const value: any;
   export const version: string;
