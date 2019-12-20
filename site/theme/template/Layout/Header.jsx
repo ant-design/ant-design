@@ -4,9 +4,9 @@ import GitHubButton from 'react-github-button';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
+import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
 import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
 
-import Icon from '../Icon';
 import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
@@ -264,7 +264,7 @@ class Header extends React.Component {
             arrowPointAtCenter
             onVisibleChange={this.onMenuVisibleChange}
           >
-            <Icon className="nav-phone-icon" type="menu" onClick={this.handleShowMenu} />
+            <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
           </Popover>
         )}
         <Row>
@@ -283,7 +283,7 @@ class Header extends React.Component {
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
             <div id="search-box">
-              <Icon type="search" />
+              <SearchOutlined />
               <Input
                 ref={ref => {
                   this.searchInput = ref;

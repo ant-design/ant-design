@@ -18,38 +18,38 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: '自然交互-Ant Design 设计价值观解析',
-    description: '不要在你家里放一件你不知其用，或你认为不美的东西',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OkjZQ7w-hIoAAAAAAAAAAABkARQnAQ',
-    date: '2019-12-28',
+    title: 'Ant Design 1.0 背后的故事：把艺术变成技术',
+    description: '本文将跟大家分享 Ant Design 1.0 诞生背后的故事，还原 3-4 年前那些事、那些人。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CgarRqOjr5AAAAAAAAAAAABkARQnAQ',
+    date: '2019-11-07',
+    source: 'yuque',
+    href: 'https://www.yuque.com/lyndon/daylesson/xw45g0',
+  },
+  {
+    title: '「人机自然交互」Ant Design 设计价值观解析',
+    description: '为何选择「自然」作为设计价值观？本文会详细阐述这背后的思考和实践。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ip0HR4KuScAAAAAAAAAAAABkARQnAQ',
+    date: '2019-09-26',
     source: 'zhihu',
     href: 'https://zhuanlan.zhihu.com/p/44809866',
   },
   {
     title: 'Ant Design 色板生成算法演进之路',
     description:
-      'Ant Design 三个大版本的色板生成算法各不相同，却一直在完善，本文对其三个版本的色板…',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*73YrSYdHajIAAAAAAAAAAABkARQnAQ',
-    date: '2019-10-23',
+      '「确定」 作为设计价值观之一，在调色板中发挥得淋漓尽致，既做到设计有迹可循，也提高代码的可维护性。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2iP4TLjiZMwAAAAAAAAAAABkARQnAQ',
+    date: '2018-03-13',
     source: 'zhihu',
     href: 'https://zhuanlan.zhihu.com/p/32422584',
   },
   {
-    title: '如何向开源项目提交无法解答的问题',
-    description: '开源社区里，提问和回答是最有趣的组成部分，有些你来我往，有些则石沉大海。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*hdaZR4xFtLYAAAAAAAAAAABkARQnAQ',
-    date: '2019-09-15',
-    source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/25795393',
-  },
-  {
-    title: 'Ant Design 设计工具 Kitchen 获客增长实践',
+    title: '2019，优雅的 AntV 来了',
     description:
-      '一年前，我们发布了 Ant Design 设计工具 Kitchen，一款为设计师提升工作效率的 Sketch 插件集…',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UFLvR6yPQzoAAAAAAAAAAABkARQnAQ',
-    date: '2019-04-12',
+      '对可视化系统而言，设计正是把不确定的海量、高维、非结构化的数据用准确、有效的方式传递。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9fKrTKtYNkoAAAAAAAAAAABkARQnAQ',
+    date: '2019-11-25',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/68707241',
+    href: 'https://zhuanlan.zhihu.com/p/93620507',
   },
 ];
 
