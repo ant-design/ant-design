@@ -150,6 +150,7 @@ class Header extends React.Component {
         key="version"
         className="version"
         size="small"
+        style={{ width: 110 }}
         dropdownMatchSelectWidth={false}
         defaultValue={antdVersion}
         onChange={this.handleVersionChange}
