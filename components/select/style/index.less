@@ -25,10 +25,6 @@
     }
   }
 
-  .@{select-prefix-cls}:not(.@{select-prefix-cls}-disabled):hover& {
-    .hover();
-  }
-
   .@{select-prefix-cls}-focused& {
     .active();
   }
@@ -60,6 +56,10 @@
   display: inline-block;
   width: 100px;
 
+  &:not(.@{select-prefix-cls}-disabled):hover &-selector {
+    .hover();
+  }
+
   // ======================== Selection ========================
   &-selection-item {
     overflow: hidden;
@@ -90,8 +90,8 @@
     pointer-events: none;
 
     .anticon {
-      transition: transform 0.3s;
       vertical-align: top;
+      transition: transform 0.3s;
 
       > svg {
         vertical-align: top;
