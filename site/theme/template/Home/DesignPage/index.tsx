@@ -22,36 +22,36 @@ interface PanelProps {
 
 const MINI_LIST: PanelProps[] = [
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*an6USLkxir4AAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZhzDQLMyYlYAAAAAAAAAAABkARQnAQ',
     title: 'AntV',
     description: 'app.home.product-antv-slogan',
     href: 'https://antv.vision',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*L5CSQayF2FEAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*I-ygS5prYksAAAAAAAAAAABkARQnAQ',
     title: 'Ant Design Pro',
     description: 'app.home.product-pro-slogan',
     href: 'https://pro.ant.design/',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*TwTMSbN9H40AAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mb-WQILTlSEAAAAAAAAAAABkARQnAQ',
     title: 'Ant Design Mobile',
     description: 'app.home.product-mobile-slogan',
     href: 'https://mobile.ant.design/',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2CrPS5YSep0AAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_6bRTavNfH4AAAAAAAAAAABkARQnAQ',
     title: <FormattedMessage id="app.home.product-hitu" />,
     description: 'app.home.product-hitu-slogan',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*U_IWSLxXmNgAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*MaL2SYtHPuMAAAAAAAAAAABkARQnAQ',
     title: 'Kitchen',
     description: 'app.home.product-kitchen-slogan',
     href: 'https://kitchen.alipay.com/',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6Yy1RYXPIDIAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*T_HeSIJ30IIAAAAAAAAAAABkARQnAQ',
     title: 'Icons',
     description: 'app.home.product-icons-slogan',
     link: '/components/icon/',
