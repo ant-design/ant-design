@@ -61,11 +61,11 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
-      <Input placeholder="I'm the content" id="success" />
+      <Input placeholder="I'm the content" id="success" allowClear />
     </Form.Item>
 
     <Form.Item label="Warning" hasFeedback validateStatus="warning">
-      <Input placeholder="Warning" id="warning2" />
+      <Input.Password placeholder="Warning" id="warning2" />
     </Form.Item>
 
     <Form.Item
@@ -74,7 +74,7 @@ ReactDOM.render(
       validateStatus="error"
       help="Should be combination of numbers & alphabets"
     >
-      <Input placeholder="unavailable choice" id="error2" />
+      <Input.Password placeholder="unavailable choice" id="error2" allowClear />
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
