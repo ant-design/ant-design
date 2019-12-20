@@ -13,14 +13,19 @@ If you try in local environment, Please refer to [Install and Initialization](ht
 
 ## First Example
 
-Here is a simple example to show usage of Ant Design React.
+Here is a simple codesandbox example to show the usage of Ant Design React.
 
-<iframe src="https://codesandbox.io/embed/wk04r016q8?fontsize=14" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<iframe
+  src="https://codesandbox.io/embed/antd-reproduction-template-6e93z?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="antd reproduction template"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+/>
 
 ### 1. Create one codesandbox
 
 Visit http://u.ant.design/codesandbox-repro to create a codesandbox. Don't forget to press the save button.
-
 
 ### 2. Using antd component
 

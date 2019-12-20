@@ -3,7 +3,7 @@ order: 5
 title: Customize Theme
 ---
 
-Ant Design allows you to customize our design tokens in order to meet the needs of UI diversity from business and brand, including primary color, border radius, border color, etc.
+Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
 
 ![customized themes](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
 
@@ -22,8 +22,8 @@ There are some major variables below, all less variables could be found in [Defa
 @font-size-base: 14px; // major text font size
 @heading-color: rgba(0, 0, 0, 0.85); // heading text color
 @text-color: rgba(0, 0, 0, 0.65); // major text color
-@text-color-secondary : rgba(0, 0, 0, .45); // secondary text color
-@disabled-color : rgba(0, 0, 0, .25); // disable state color
+@text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
+@disabled-color: rgba(0, 0, 0, 0.25); // disable state color
 @border-radius-base: 4px; // major border radius
 @border-color-base: #d9d9d9; // major border color
 @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
