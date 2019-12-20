@@ -77,7 +77,7 @@ export default (
     lineHeight * (rows + 1) +
     pxToNumber(originStyle.paddingTop) +
     pxToNumber(originStyle.paddingBottom);
-  let isEllipsisSuffix = false;
+
   // Set shadow
   ellipsisContainer.setAttribute('style', originCSS);
   ellipsisContainer.style.position = 'fixed';
@@ -95,39 +95,26 @@ export default (
 
   // Render in the fake container
   const contentList: React.ReactNode[] = mergeChildren(toArray(content));
+  render(
+    <div style={wrapperStyle}>
+      <span style={wrapperStyle}>
+        {contentList}
+        {suffix}
+      </span>
+      <span style={wrapperStyle}>{fixedContent}</span>
+    </div>,
+    ellipsisContainer,
+  ); // wrap in an div for old version react
 
   // Check if ellipsis in measure div is height enough for content
   function inRange() {
     return ellipsisContainer.offsetHeight < maxHeight;
   }
 
-  render(
-    <div style={wrapperStyle}>
-      <span style={wrapperStyle}>{ellipsisStr + suffix}</span>
-      <span style={wrapperStyle}>{fixedContent}</span>
-    </div>,
-    ellipsisContainer,
-  );
-
-  // suffix if ellipsis
+  // Skip ellipsis if already match
   if (inRange()) {
-    render(
-      <div style={wrapperStyle}>
-        <span style={wrapperStyle}>
-          {contentList}
-          {suffix}
-        </span>
-        <span style={wrapperStyle}>{fixedContent}</span>
-      </div>,
-      ellipsisContainer,
-    );
-
-    if (inRange()) {
-      unmountComponentAtNode(ellipsisContainer);
-      return { content, text: ellipsisContainer.innerHTML, ellipsis: false };
-    }
-  } else {
-    isEllipsisSuffix = true;
+    unmountComponentAtNode(ellipsisContainer);
+    return { content, text: ellipsisContainer.innerHTML, ellipsis: false };
   }
 
   // We should clone the childNode since they're controlled by React and we can't reuse it without warning
@@ -146,9 +133,7 @@ export default (
   // Create origin content holder
   const ellipsisContentHolder = document.createElement('span');
   ellipsisContainer.appendChild(ellipsisContentHolder);
-  const ellipsisTextNode = document.createTextNode(
-    `${ellipsisStr}${isEllipsisSuffix ? '' : suffix}`,
-  );
+  const ellipsisTextNode = document.createTextNode(ellipsisStr + suffix);
   ellipsisContentHolder.appendChild(ellipsisTextNode);
 
   fixedNodes.forEach(childNode => {
@@ -197,37 +182,6 @@ export default (
     }
     return measureText(textNode, fullText, startLoc, midLoc, lastSuccessLoc);
   }
-  function measureSuffixText(
-    textNode: Text,
-    fullText: string,
-    startLoc = 0,
-    endLoc = fullText.length,
-  ): MeasureResult {
-    const midLoc = Math.floor((startLoc + endLoc) / 2);
-    const currentText = fullText.slice(midLoc, fullText.length);
-    textNode.textContent = currentText;
-    if (startLoc >= endLoc - 1) {
-      for (let step = startLoc; step <= endLoc; step += 1) {
-        const currentStepText = fullText.slice(step, fullText.length);
-        textNode.textContent = currentStepText;
-        if (inRange() || !currentStepText) {
-          return step === fullText.length
-            ? {
-                finished: false,
-                reactNode: fullText,
-              }
-            : {
-                finished: true,
-                reactNode: currentStepText,
-              };
-        }
-      }
-    }
-    if (inRange()) {
-      return measureSuffixText(textNode, fullText, startLoc, midLoc);
-    }
-    return measureSuffixText(textNode, fullText, midLoc, endLoc);
-  }
 
   function measureNode(childNode: ChildNode, index: number): MeasureResult {
     const type = childNode.nodeType;
@@ -253,10 +207,9 @@ export default (
       const fullText = childNode.textContent || '';
       const textNode = document.createTextNode(fullText);
       appendChildNode(textNode);
-      return isEllipsisSuffix
-        ? measureSuffixText(textNode, fullText)
-        : measureText(textNode, fullText);
+      return measureText(textNode, fullText);
     }
+
     // Not handle other type of content
     // PS: This code should not be attached after react 16
     return {
@@ -272,12 +225,6 @@ export default (
     }
     return finished;
   });
-
-  if (isEllipsisSuffix) {
-    ellipsisChildren.unshift(ellipsisStr);
-  } else {
-    ellipsisChildren.push(ellipsisStr, suffix);
-  }
 
   return {
     content: ellipsisChildren,

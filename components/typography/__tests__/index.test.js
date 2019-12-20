@@ -120,7 +120,7 @@ describe('Typography', () => {
 
         jest.runAllTimers();
         wrapper.update();
-        expect(wrapper.find('p').text()).toEqual('...s very important');
+        expect(wrapper.find('p').text()).toEqual('...--The information is very important');
 
         wrapper.setProps({ ellipsis: { rows: 2, suffix } });
         jest.runAllTimers();
