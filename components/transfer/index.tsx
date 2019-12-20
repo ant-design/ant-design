@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
@@ -405,7 +404,5 @@ class Transfer extends React.Component<TransferProps, any> {
     );
   }
 }
-
-polyfill(Transfer);
 
 export default Transfer;

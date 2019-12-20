@@ -2,7 +2,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { LoadingOutlined } from '@ant-design/icons';
-import { polyfill } from 'react-lifecycles-compat';
 import omit from 'omit.js';
 
 import Group from './button-group';
@@ -303,7 +302,5 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
   }
 }
-
-polyfill(Button);
 
 export default Button;

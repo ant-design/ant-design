@@ -64,6 +64,3 @@ declare module '*.json' {
 }
 
 declare module 'react-copy-to-clipboard';
-
-// https://github.com/ant-design/ant-design/pull/19254
-declare module 'react-lifecycles-compat';

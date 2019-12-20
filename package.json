@@ -91,7 +91,6 @@
   "dependencies": {
     "@ant-design/create-react-context": "^0.2.4",
     "@ant-design/icons": "^4.0.0-alpha.11",
-    "@ant-design/icons-svg": "^4.0.0-alpha.0",
     "@types/react-slick": "^0.23.4",
     "array-tree-filter": "^2.1.0",
     "babel-runtime": "6.x",
@@ -138,7 +137,6 @@
     "rc-util": "~4.16.1",
     "rc-virtual-list": "^0.0.0-alpha.25",
     "react-lazy-load": "^3.0.13",
-    "react-lifecycles-compat": "^3.0.4",
     "react-slick": "~0.25.2",
     "resize-observer-polyfill": "^1.5.1",
     "shallowequal": "^1.1.0",

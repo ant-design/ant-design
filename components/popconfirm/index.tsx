@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import { ExclamationCircleFilled } from '@ant-design/icons';
 
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
@@ -165,7 +164,5 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     return <ConfigConsumer>{this.renderConfirm}</ConfigConsumer>;
   }
 }
-
-polyfill(Popconfirm);
 
 export default Popconfirm;

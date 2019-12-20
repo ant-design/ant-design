@@ -1,7 +1,6 @@
 import createContext, { Context } from '@ant-design/create-react-context';
 
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { BarsOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
@@ -271,8 +270,6 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     );
   }
 }
-
-polyfill(InternalSider);
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Sider extends React.Component {
