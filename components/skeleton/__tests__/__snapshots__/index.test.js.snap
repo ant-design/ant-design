@@ -310,6 +310,46 @@ exports[`Skeleton button element size 3`] = `
 </div>
 `;
 
+exports[`Skeleton input element active 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+>
+  <span
+    class="ant-skeleton-input"
+  />
+</div>
+`;
+
+exports[`Skeleton input element size 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-input ant-skeleton-input-sm"
+  />
+</div>
+`;
+
+exports[`Skeleton input element size 2`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-input"
+  />
+</div>
+`;
+
+exports[`Skeleton input element size 3`] = `
+<div
+  class="ant-skeleton ant-skeleton-element"
+>
+  <span
+    class="ant-skeleton-input ant-skeleton-input-lg"
+  />
+</div>
+`;
+
 exports[`Skeleton paragraph rows 1`] = `
 <div
   class="ant-skeleton"

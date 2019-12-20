@@ -55,4 +55,15 @@ describe('Result', () => {
     const wrapper = mount(<Result status="404" title="404" className="my-result" />);
     expect(wrapper.find('.ant-result.my-result')).toHaveLength(1);
   });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Result title="404" icon="ab" />);
+    expect(warnSpy).not.toHaveBeenCalled();
+    mount(<Result title="404" icon="smile" />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Result] \`icon\` is using ReactNode instead of string naming in v4. Please check \`smile\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
+  });
 });

@@ -13,12 +13,13 @@ subtitle: 日期选择框
 
 ## API
 
-日期类组件包括以下四种形式。
+日期类组件包括以下五种形式。
 
 - DatePicker
 - MonthPicker
 - RangePicker
 - WeekPicker
+- YearPicker
 
 ### 国际化配置
 
@@ -32,20 +33,17 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 <DatePicker locale={locale} />;
 ```
 
-**注意：**DatePicker、MonthPicker、RangePicker、WeekPicker 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
-
 ```jsx
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
 
 <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />;
 ```
 
 ### 共同的 API
 
-以下 API 为 DatePicker、MonthPicker、RangePicker, WeekPicker 共享的 API。
+以下 API 为 DatePicker、YearPicker、MonthPicker、RangePicker, WeekPicker 共享的 API。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -56,10 +54,11 @@ moment.locale('zh-cn');
 | disabled | 禁用 | boolean | false |  |
 | disabledDate | 不可选择的日期 | (currentDate: moment) => boolean | 无 |  |
 | dropdownClassName | 额外的弹出日历 className | string | - |  |
-| getCalendarContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |  |
+| getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |  |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
-| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `time|date|month|year|decade` | 'date' |  |
+| mode | 日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)） | `time|date|month|year|decade` | - |  |
 | open | 控制弹层是否展开 | boolean | - |  |
+| picker | 设置选择器类型 | `date`, `week`, `month`, `year` | `date` |  |
 | placeholder | 输入框提示文字 | string\|RangePicker\[] | - |  |
 | popupStyle | 额外的弹出日历样式 | object | {} |  |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | string | 无 |  |
@@ -92,6 +91,17 @@ moment.locale('zh-cn');
 | onOk | 点击确定按钮的回调 | function() | - |  |
 | onPanelChange | 日期面板变化时的回调 | function(value, mode) | - |  |
 
+### YearPicker
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| defaultValue | 默认日期 | [moment](http://momentjs.com/) | 无 |  |
+| defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/) | 无 |  |
+| format | 展示的日期格式，配置参考 [moment.js](http://momentjs.com/) | string | "YYYY" |  |
+| renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| value | 日期 | [moment](http://momentjs.com/) | 无 |  |
+| onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | - |  |
+
 ### MonthPicker
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -119,8 +129,10 @@ moment.locale('zh-cn');
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| allowEmpty | 允许起始项部分为空 | \[boolean, boolean] | \[false, false] |  |
 | defaultValue | 默认日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | defaultPickerValue | 默认面板日期 | [moment](http://momentjs.com/)\[] | 无 |  |
+| disabled | 禁用起始项 | [boolean, boolean] | 无 |  |
 | disabledTime | 不可选择的时间 | function(dates: \[moment, moment\], partial: `'start'|'end'`) | 无 |  |
 | format | 展示的日期格式 | string | "YYYY-MM-DD HH:mm:ss" |  |
 | ranges | 预设时间范围快捷选择 | { \[range: string]: [moment](http://momentjs.com/)\[] } \| { \[range: string]: () => [moment](http://momentjs.com/)\[] } | 无 |  |
@@ -131,10 +143,9 @@ moment.locale('zh-cn');
 | value | 日期 | [moment](http://momentjs.com/)\[] | 无 |  |
 | onCalendarChange | 待选日期发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 |  |
 | onChange | 日期范围发生变化的回调 | function(dates: \[moment, moment\], dateStrings: \[string, string\]) | 无 |  |
-| onOk | 点击确定按钮的回调 | function(dates: [moment](http://momentjs.com/)\[]) | - |  |
 
 <style>
-.code-box-demo .ant-calendar-picker {
+.code-box-demo .ant-picker {
   margin: 0 8px 12px 0;
 }
 </style>

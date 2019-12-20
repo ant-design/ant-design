@@ -639,4 +639,34 @@ describe('Table.sorter', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/20096
+  it('invalidate sorter should not display sorter button', () => {
+    const wrapper = mount(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            sorter: false,
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
+            key: 'age',
+            sorter: null,
+          },
+          {
+            title: 'Address',
+            dataIndex: 'address',
+            key: 'address',
+            sorter: undefined,
+          },
+        ]}
+      />,
+    );
+
+    expect(wrapper.find('.ant-table-column-sorter-inner')).toHaveLength(0);
+  });
 });

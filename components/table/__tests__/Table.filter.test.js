@@ -20,10 +20,7 @@ describe('Table.filter', () => {
       {
         text: 'Title',
         value: 'title',
-        children: [
-          { text: 'Designer', value: 'designer' },
-          { text: 'Coder', value: 'coder' },
-        ],
+        children: [{ text: 'Designer', value: 'designer' }, { text: 'Coder', value: 'coder' }],
       },
     ],
     onFilter: filterFn,
@@ -310,6 +307,58 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
+  it('can read defaults from defaultFilteredValue', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            defaultFilteredValue: ['Lucy'],
+          },
+        ],
+      }),
+    );
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Lucy');
+
+    // Should properly ignore further defaultFilteredValue changes
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: [],
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Lucy');
+
+    // Should properly be overidden by non-null filteredValue
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: ['Lucy'],
+          filteredValue: ['Tom'],
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Tom');
+
+    // Should properly be overidden by a null filteredValue
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: ['Lucy'],
+          filteredValue: null,
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(4);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
@@ -418,10 +467,7 @@ describe('Table.filter', () => {
   // });
 
   describe('should support value types', () => {
-    [
-      ['Light', 93],
-      ['Bamboo', false],
-    ].forEach(([text, value]) => {
+    [['Light', 93], ['Bamboo', false]].forEach(([text, value]) => {
       it(`${typeof value} type`, () => {
         const onFilter = jest.fn();
         const filters = [{ text, value }];
@@ -505,10 +551,7 @@ describe('Table.filter', () => {
               title="name"
               dataIndex="name"
               key="name"
-              filters={[
-                { text: 'Jack', value: 'Jack' },
-                { text: 'Lucy', value: 'Lucy' },
-              ]}
+              filters={[{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }]}
               filteredValue={filters.name}
               onFilter={filterFn}
             />
@@ -547,10 +590,7 @@ describe('Table.filter', () => {
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            filters: [
-              { text: 'Jack', value: 'Jack' },
-              { text: 'Lucy', value: 'Lucy' },
-            ],
+            filters: [{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }],
             onFilter: filterFn,
             filteredValue: ['Jack'],
           },
@@ -580,10 +620,7 @@ describe('Table.filter', () => {
         columns: [
           {
             ...column,
-            filters: [
-              { text: 'Jack', value: 'Jack' },
-              { text: 'Lucy', value: 'Lucy' },
-            ],
+            filters: [{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }],
           },
         ],
         onChange: handleChange,
