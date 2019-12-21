@@ -4,11 +4,7 @@
 @picker-legacy-cell-cls: ~'@{ant-prefix}-calendar-date';
 
 .@{picker-prefix-cls} {
-  @picker-basic-cell-hover-color: lighten(@primary-color, 40%);
-  @picker-basic-cell-hover-with-range-color: lighten(@primary-color, 35%);
-  @picker-border: @border-width-base @border-style-base @border-color-split;
   @picker-arrow-size: 7px;
-  @picker-date-hover-range-border: @border-width-base dashed lighten(@primary-color, 20%);
   @picker-panel-width: 280px;
   @picker-year-month-cell-width: 60px;
 
@@ -16,7 +12,7 @@
     display: inline-block;
     text-align: center;
     background: @calendar-bg;
-    border: @picker-border;
+    border: @border-width-base @border-style-base @picker-border-color;
     border-radius: @border-radius-base;
     outline: none;
 
@@ -44,7 +40,7 @@
     display: flex;
     padding: 0 @padding-xs;
     color: @heading-color;
-    border-bottom: @picker-border;
+    border-bottom: @border-width-base @border-style-base @picker-border-color;
 
     > * {
       flex: none;
@@ -246,8 +242,8 @@
         top: 50%;
         z-index: 0;
         height: 24px;
-        border-top: @picker-date-hover-range-border;
-        border-bottom: @picker-date-hover-range-border;
+        border-top: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-bottom: @border-width-base dashed @picker-date-hover-range-border-color;
         transform: translateY(-50%);
         content: '';
       }
@@ -313,7 +309,7 @@
     &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
     &-in-view&-range-hover-start::after {
       left: 6px;
-      border-left: @picker-date-hover-range-border;
+      border-left: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
     }
@@ -324,7 +320,7 @@
     &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
     &-in-view&-range-hover-end::after {
       right: 6px;
-      border-right: @picker-date-hover-range-border;
+      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
     }
@@ -339,7 +335,7 @@
       }
 
       &::before {
-        background: @disabled-bg;
+        background: @picker-basic-cell-disabled-bg;
       }
     }
     &-disabled&-today .@{cellClassName}::before {
@@ -379,7 +375,7 @@
 
     .@{picker-prefix-cls}-cell {
       &-disabled .@{picker-cell-inner-cls} {
-        background: @disabled-bg;
+        background: @picker-basic-cell-disabled-bg;
       }
     }
   }
@@ -399,7 +395,7 @@
     border-bottom: @border-width-base @border-style-base transparent;
 
     .@{picker-prefix-cls}-panel & {
-      border-top: @picker-border;
+      border-top: @border-width-base @border-style-base @picker-border-color;
     }
 
     &-extra {
@@ -408,7 +404,7 @@
       text-align: left;
 
       &:not(:last-child) {
-        border-bottom: @picker-border;
+        border-bottom: @border-width-base @border-style-base @picker-border-color;
       }
     }
   }
@@ -457,12 +453,12 @@
 
     .@{picker-prefix-cls}-cell-range-hover-start::after {
       left: @hover-cell-fixed-distance;
-      border-left: @picker-date-hover-range-border;
+      border-left: @border-width-base dashed @picker-date-hover-range-border-color;
       border-radius: @border-radius-base 0 0 @border-radius-base;
     }
     .@{picker-prefix-cls}-cell-range-hover-end::after {
       right: @hover-cell-fixed-distance;
-      border-right: @picker-date-hover-range-border;
+      border-right: @border-width-base dashed @picker-date-hover-range-border-color;
       border-radius: 0 @border-radius-base @border-radius-base 0;
     }
   }
@@ -530,7 +526,7 @@
     display: flex;
 
     .@{picker-prefix-cls}-time-panel {
-      border-left: @picker-border;
+      border-left: @border-width-base @border-style-base @picker-border-color;
     }
 
     .@{picker-prefix-cls}-date-panel,
@@ -573,7 +569,7 @@
       transition: background @animation-duration-slow;
 
       &:not(:first-child) {
-        border-left: @picker-border;
+        border-left: @border-width-base @border-style-base @picker-border-color;
       }
 
       &-active {
