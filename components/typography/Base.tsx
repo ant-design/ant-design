@@ -429,10 +429,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
-      ariaLabel = title || null;
+      ariaLabel = title || String(children);
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={title} aria-hidden="true">
+        <span title={title || String(children)} aria-hidden="true">
           {ellipsisContent}
           {ELLIPSIS_STR}
           {suffix}
