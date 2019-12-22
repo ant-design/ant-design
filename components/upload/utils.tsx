@@ -73,7 +73,10 @@ export const isImageUrl = (file: UploadFile): boolean => {
   }
   const url: string = (file.thumbUrl || file.url) as string;
   const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg)$/i.test(extension)) {
+  if (
+    /^data:image\//.test(url) ||
+    /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg|ico)$/i.test(extension)
+  ) {
     return true;
   }
   if (/^data:/.test(url)) {
