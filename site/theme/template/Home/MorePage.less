@@ -7,17 +7,23 @@
     color: #314659;
   }
 
-  .ant-card-meta-title {
-    margin-bottom: 16px;
-    white-space: normal;
-    text-overflow: initial;
-    word-break: break-word;
-    color: #0d1a26;
-  }
+  .ant-card-meta-detail {
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
 
-  .ant-card-meta-description {
-    height: 114px;
-    color: #697b8c;
+    .ant-card-meta-title {
+      margin-bottom: 16px;
+      white-space: normal;
+      text-overflow: initial;
+      word-break: break-word;
+      color: #0d1a26;
+    }
+
+    .ant-card-meta-description {
+      flex: auto;
+      color: #697b8c;
+    }
   }
 
   .more-card-source {
