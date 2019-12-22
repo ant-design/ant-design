@@ -54,6 +54,11 @@
 
   position: relative;
   display: inline-block;
+  width: 100px;
+
+  &:not(.@{select-prefix-cls}-disabled):hover &-selector {
+    .hover();
+  }
 
   // ======================== Selection ========================
   &-selection-item {
@@ -85,7 +90,12 @@
     pointer-events: none;
 
     .anticon {
+      vertical-align: top;
       transition: transform 0.3s;
+
+      > svg {
+        vertical-align: top;
+      }
 
       .@{select-prefix-cls}-open &.anticon-down {
         transform: rotate(180deg);
@@ -170,7 +180,7 @@
   }
 
   // ========================= Options =========================
-  &-item {
+  .item() {
     position: relative;
     display: block;
     min-height: 32px;
@@ -178,6 +188,15 @@
     color: @text-color;
     font-weight: normal;
     line-height: 22px;
+  }
+
+  &-item-empty {
+    .item();
+  }
+
+  &-item {
+    .item();
+
     cursor: pointer;
     transition: background 0.3s ease;
 
@@ -215,6 +234,10 @@
       &-disabled {
         color: @disabled-color;
         cursor: not-allowed;
+      }
+
+      &-grouped {
+        padding-left: @control-padding-horizontal * 2;
       }
     }
   }
