@@ -20,7 +20,7 @@ timeline: true
 `2019-12-14`
 
 - 🐞 Fix upload preview not support ico file type issue. [#20375](https://github.com/ant-design/ant-design/pull/20375) [@Rustin-Liu](https://github.com/Rustin-Liu)
-- 🐞 Fix Form feedback icon combine Input suffix display not correct. [#20363](https://github.com/ant-design/ant-design/pull/20363)
+- 🐞 Fix Form feedback icon combine Input `suffix` display not correct. [#20363](https://github.com/ant-design/ant-design/pull/20363)
 - 🐞 Fix Tag `onClick` been triggered when close it. [#20355](https://github.com/ant-design/ant-design/pull/20355)
 - 🐞 Fix Cascader component form check color trigger issue. [#20347](https://github.com/ant-design/ant-design/pull/20347) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 Disallow auto focus input after triggering `onSearch` event in mobile and tablet devices. [#20332](https://github.com/ant-design/ant-design/pull/20332) [@YaoKaiLun](https://github.com/YaoKaiLun)
