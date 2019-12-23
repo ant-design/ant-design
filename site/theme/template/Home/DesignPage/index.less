@@ -33,10 +33,10 @@
 
     img {
       display: block;
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
       display: none;
-      margin: 24px auto 0;
+      margin: 20px auto 0;
     }
 
     h4 {
@@ -87,6 +87,7 @@
 @media (max-width: @screen-sm-min) {
   .design-card {
     padding: 24px 16px;
+    height: 478px;
 
     &.main-card {
       background-image: url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ng3lTaNI4vcAAAAAAAAAAABkARQnAQ);
@@ -101,6 +102,7 @@
       position: relative;
       display: block;
       margin-top: 12px;
+      line-height: 22px;
     }
 
     .design-values {
@@ -115,6 +117,34 @@
       h4 {
         margin-top: 8px;
       }
+    }
+
+    &.sub-card {
+      background-position: left 50% bottom 0% !important;
+      background-size: contain !important;
+      background-repeat: no-repeat !important;
+      padding: 0;
+      line-height: 1.5;
+
+      h3.ant-typography {
+        margin-bottom: 4px;
+      }
+
+      .card-info {
+        padding: 24px 16px 0;
+      }
+
+      ul {
+        margin-top: auto;
+
+        li {
+          margin-top: 12px;
+        }
+      }
+    }
+
+    .design-card-img-col {
+      display: none;
     }
   }
 }

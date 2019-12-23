@@ -125,7 +125,7 @@ export default function DesignPage() {
                   <Col xs={12} sm={6}>
                     <img
                       alt="certainty"
-                      src="https://gw.alipayobjects.com/zos/basement_prod/bbeaec9b-18fc-414d-899b-9f766859f693.svg"
+                      src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*43rfS4dD0MUAAAAAAAAAAABkARQnAQ"
                     />
                     <Certainty />
                     <h4>
@@ -135,7 +135,7 @@ export default function DesignPage() {
                   <Col xs={12} sm={6}>
                     <img
                       alt="meaningful"
-                      src="https://gw.alipayobjects.com/zos/basement_prod/cbe8e1e3-e3e6-4c23-9800-105efe465cda.svg"
+                      src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*abGUQKUocSMAAAAAAAAAAABkARQnAQ"
                     />
                     <Meaningful />
                     <h4>
@@ -145,7 +145,7 @@ export default function DesignPage() {
                   <Col xs={12} sm={6}>
                     <img
                       alt="growth"
-                      src="https://gw.alipayobjects.com/zos/basement_prod/5668216e-c543-4fc7-a4a3-bb5785250106.svg"
+                      src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NvhsRKmTLwUAAAAAAAAAAABkARQnAQ"
                     />
                     <Growth />
                     <h4>
@@ -155,7 +155,7 @@ export default function DesignPage() {
                   <Col xs={12} sm={6}>
                     <img
                       alt="natural"
-                      src="https://gw.alipayobjects.com/zos/basement_prod/bf7b9fce-cb1c-4264-9596-0438b252c07e.svg"
+                      src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*cY0tTr8q3Y4AAAAAAAAAAABkARQnAQ"
                     />
                     <Natural />
                     <h4>
@@ -170,7 +170,14 @@ export default function DesignPage() {
 
         {/* *********************** Design Guides *********************** */}
         <Col xs={24} sm={12}>
-          <div className="design-card sub-card" style={{ background: '#E6F1FF' }}>
+          <div
+            className="design-card sub-card"
+            style={{
+              background: '#E6F1FF',
+              backgroundImage:
+                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*TsDpTYe6nMAAAAAAAAAAAABkARQnAQ)',
+            }}
+          >
             <Row>
               <Col xs={24} sm={9} className="card-info">
                 <Title level={3}>
@@ -192,7 +199,12 @@ export default function DesignPage() {
                   </li>
                 </ul>
               </Col>
-              <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
+              <Col
+                xs={24}
+                sm={15}
+                className="design-card-img-col"
+                style={{ alignSelf: 'flex-end', textAlign: 'right' }}
+              >
                 <img
                   alt="design guide"
                   style={{ maxHeight: 278, maxWidth: '100%' }}
@@ -205,7 +217,14 @@ export default function DesignPage() {
 
         {/* ************************* Component ************************* */}
         <Col xs={24} sm={12}>
-          <div className="design-card sub-card" style={{ background: '#DEF6FF' }}>
+          <div
+            className="design-card sub-card"
+            style={{
+              background: '#DEF6FF',
+              backgroundImage:
+                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IGKwTYeE87oAAAAAAAAAAABkARQnAQ)',
+            }}
+          >
             <Row>
               <Col xs={24} sm={9} className="card-info">
                 <Title level={3}>
@@ -236,6 +255,7 @@ export default function DesignPage() {
               <Col xs={24} sm={15} style={{ alignSelf: 'flex-end', textAlign: 'right' }}>
                 <img
                   alt="components"
+                  className="design-card-img-col"
                   style={{ maxHeight: 278, maxWidth: '100%' }}
                   src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8VDFTbQn4UAAAAAAAAAAAABkARQnAQ"
                 />
