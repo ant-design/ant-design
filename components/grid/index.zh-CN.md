@@ -112,7 +112,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 <style>
   [data-theme="dark"] #components-grid-demo-playground pre {
-    background: #1f1f1f;
+    background: rgba(255,255,255,0.08);
     color: rgba(255,255,255,.65);
   }
 </style>

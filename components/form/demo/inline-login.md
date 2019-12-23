@@ -36,17 +36,14 @@ const HorizontalLoginForm = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
-        <Input
-          prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
-          placeholder="Username"
-        />
+        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
       </Form.Item>
       <Form.Item
         name="password"
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
         <Input
-          prefix={<LockOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+          prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="Password"
         />

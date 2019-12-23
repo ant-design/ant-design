@@ -56,3 +56,9 @@ interface Option {
 | ------- | -------- | ---- |
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
+
+<style>
+.site-checkbox-all-wrapper {
+  border-bottom: 1px solid #303030;
+}
+</style>

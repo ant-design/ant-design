@@ -57,4 +57,8 @@ A single step in the step bar.
   background-color: rgba(255,255,255,0.04);
   color: rgba(255,255,255,0.65);
 }
+[data-theme="dark"] .site-navigation-steps {
+  border-bottom: 1px solid #303030;
+  box-shadow: none;
+}
 </style>

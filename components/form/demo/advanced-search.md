@@ -121,10 +121,18 @@ ReactDOM.render(
 #components-form-demo-advanced-search .search-result-list {
   margin-top: 16px;
   border: 1px dashed #e9e9e9;
-  border-radius: 6px;
+  border-radius: 2px;
   background-color: #fafafa;
   min-height: 200px;
   text-align: center;
   padding-top: 80px;
+}
+[data-theme="dark"] .ant-advanced-search-form  {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #434343;
+}
+[data-theme="dark"] #components-form-demo-advanced-search .search-result-list {
+  border: 1px dashed #434343;
+  background: rgba(255,255,255,0.04);
 }
 </style>
