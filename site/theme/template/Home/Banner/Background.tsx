@@ -137,7 +137,7 @@ Diamond1.height = (DiamondSize1 + ShadowSize) * 2;
 export default function Background() {
   const [circleFrames, setCircleFrames] = React.useState<any[]>(randomFrames(550, 200));
   const [circle2Frames, setCircle2Frames] = React.useState<any[]>(randomFrames(0, 448));
-  const [reactFrames, setReactFrames] = React.useState<any[]>(randomFrames(1400, 330));
+  const [reactFrames, setReactFrames] = React.useState<any[]>(randomFrames(1400, 300));
   const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, 0));
 
   return (
@@ -154,7 +154,7 @@ export default function Background() {
           if (frame === 0) {
             setCircleFrames(randomFrames(550, 200));
             setCircle2Frames(randomFrames(0, 448));
-            setReactFrames(randomFrames(1400, 330));
+            setReactFrames(randomFrames(1400, 300));
             setDiamondFrames(randomFrames(1100, 0));
           }
         }}

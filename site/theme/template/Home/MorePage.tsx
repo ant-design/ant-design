@@ -12,8 +12,8 @@ interface MoreProps {
 }
 
 const SourceImages = {
-  zhihu: 'https://gw.alipayobjects.com/zos/basement_prod/82ed216a-542d-4cfa-ac82-0043cd026330.svg',
-  yuque: 'https://gw.alipayobjects.com/zos/basement_prod/a94c012e-53ae-4640-ab9e-d1633dda48e0.svg',
+  zhihu: 'https://gw.alipayobjects.com/zos/basement_prod/5f4e1fd0-d255-4309-b181-a3715a720ebe.svg',
+  yuque: 'https://gw.alipayobjects.com/zos/basement_prod/53e7a5b8-c9f4-45a4-8378-cbf50f2dd0d0.svg',
 };
 
 const MORE_LIST: MoreProps[] = [
@@ -28,7 +28,7 @@ const MORE_LIST: MoreProps[] = [
   {
     title: '「人机自然交互」Ant Design 设计价值观解析',
     description: '为何选择「自然」作为设计价值观？本文会详细阐述这背后的思考和实践。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ip0HR4KuScAAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*V-w4Q6EvVWsAAAAAAAAAAABkARQnAQ',
     date: '2019-09-26',
     source: 'zhihu',
     href: 'https://zhuanlan.zhihu.com/p/44809866',
@@ -46,7 +46,7 @@ const MORE_LIST: MoreProps[] = [
     title: '2019，优雅的 AntV 来了',
     description:
       '对可视化系统而言，设计正是把不确定的海量、高维、非结构化的数据用准确、有效的方式传递。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9fKrTKtYNkoAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_9JJSpF6T6oAAAAAAAAAAABkARQnAQ',
     date: '2019-11-25',
     source: 'zhihu',
     href: 'https://zhuanlan.zhihu.com/p/93620507',
