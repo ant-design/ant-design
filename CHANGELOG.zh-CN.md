@@ -27,7 +27,7 @@ timeline: true
 - 🐞 修复 Tabs 高亮条宽度的 `transition` 过度动画失效的问题。[#20283](https://github.com/ant-design/ant-design/pull/20283)
 - 🐞 修复 TreeNode 不设置 `icon` 时会展示一个空白占位的问题。[#20274](https://github.com/ant-design/ant-design/pull/20274)
 - TypeScript
-  - ⚡️ 更新 Table onChange 中 `filters` 的定义。[#20337](https://github.com/ant-design/ant-design/pull/20337) [@MrHeer](https://github.com/MrHeer)
+  - ⚡️ 更新 Table `onChange` 中 `filters` 的定义。[#20337](https://github.com/ant-design/ant-design/pull/20337) [@MrHeer](https://github.com/MrHeer)
 
 ## 3.26.3
 

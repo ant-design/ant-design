@@ -27,7 +27,7 @@ timeline: true
 - 🐞 Fix Tabs ink bar missing transition animation. [#20283](https://github.com/ant-design/ant-design/pull/20283)
 - 🐞 Fix TreeNode without `icon` show white block in `showIcon` mode. [#20274](https://github.com/ant-design/ant-design/pull/20274)
 - TypeScript
-  - ⚡️ Update filters define in Table onChange. [#20337](https://github.com/ant-design/ant-design/pull/20337) [@MrHeer](https://github.com/MrHeer)
+  - ⚡️ Update filters define in Table `onChange`. [#20337](https://github.com/ant-design/ant-design/pull/20337) [@MrHeer](https://github.com/MrHeer)
 
 ## 3.26.3
 
