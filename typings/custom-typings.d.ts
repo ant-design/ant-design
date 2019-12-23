@@ -23,8 +23,6 @@ declare module 'rc-tabs*';
 declare module 'rc-tree';
 declare module 'rc-tree/lib/util';
 
-declare module 'rc-calendar';
-
 declare module 'rc-input-number';
 
 declare module 'rc-collapse';

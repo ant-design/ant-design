@@ -138,6 +138,7 @@
     "warning": "~4.0.3"
   },
   "devDependencies": {
+    "@ant-design/bisheng-plugin": "^2.0.1",
     "@ant-design/colors": "^3.2.2",
     "@ant-design/tools": "^8.0.4",
     "@packtracker/webpack-plugin": "^2.0.1",
@@ -160,7 +161,6 @@
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "~1.3.3",
-    "bisheng-plugin-antd": "^1.3.1",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.1.0",
     "bisheng-plugin-toc": "^0.4.4",
