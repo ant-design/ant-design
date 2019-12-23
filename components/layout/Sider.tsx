@@ -1,5 +1,3 @@
-import createContext, { Context } from '@ant-design/create-react-context';
-
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -23,7 +21,7 @@ export interface SiderContextProps {
   collapsedWidth?: string | number;
 }
 
-export const SiderContext: Context<SiderContextProps> = createContext({});
+export const SiderContext: React.Context<SiderContextProps> = React.createContext({});
 
 export type CollapseType = 'clickTrigger' | 'responsive';
 

@@ -89,11 +89,9 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/create-react-context": "^0.2.4",
     "@ant-design/icons": "^4.0.0-alpha.11",
     "@types/react-slick": "^0.23.4",
     "array-tree-filter": "^2.1.0",
-    "babel-runtime": "6.x",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "css-animation": "^1.5.0",
