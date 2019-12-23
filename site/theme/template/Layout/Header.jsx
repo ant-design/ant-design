@@ -5,6 +5,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
 
+import AntdText from './AntdText';
 import Icon from '../Icon';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
@@ -108,7 +109,7 @@ class Header extends React.Component {
 
   render() {
     const { menuVisible } = this.state;
-    const { isMobile, theme } = this.context;
+    const { isMobile } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
     const {
       location,
@@ -265,14 +266,7 @@ class Header extends React.Component {
                 alt="logo"
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               />
-              <img
-                alt="Ant Design"
-                src={
-                  theme === 'dark'
-                    ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/2Xu%245IJoP5/DkKNubTaaVsKURhcVGkh.svg'
-                    : 'https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg'
-                }
-              />
+              <AntdText />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>

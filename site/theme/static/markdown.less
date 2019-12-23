@@ -108,14 +108,14 @@
     background: fade(@white, 8%);
   }
   & when not (@theme = dark) {
-    background: #f2f4f5;
+    background: @site-markdown-code-bg;
   }
   border-radius: 3px;
 }
 
 .markdown pre {
   font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  background: #f2f4f5;
+  background: @site-markdown-code-bg;
   border-radius: @border-radius-base;
 }
 
@@ -125,7 +125,7 @@
   overflow: auto;
   color: @site-text-color;
   font-size: @font-size-base - 1px;
-  background: #f2f4f5;
+  background: @site-markdown-code-bg;
   border: none;
 }
 
