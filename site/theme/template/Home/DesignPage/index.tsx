@@ -266,7 +266,14 @@ export default function DesignPage() {
       </Row>
 
       {/* ***************************** Group 2 ***************************** */}
-      <Row style={{ marginTop: 40 }} gutter={[40, 40]}>
+      <Row
+        style={{ marginTop: 40 }}
+        gutter={[
+          { xs: 32, sm: 40 },
+          { xs: 32, sm: 40 },
+        ]}
+        className="design-mini-panels"
+      >
         {MINI_LIST.map(panel => (
           <MiniPanel key={panel.description} {...panel} isZhCN={isZhCN} />
         ))}

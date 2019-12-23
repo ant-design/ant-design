@@ -36,7 +36,9 @@ const BlockContent: React.FC<BlockContentProps> = ({ title, children, extra }) =
     <Title level={2} style={{ fontWeight: 'lighter', color: '#314659' }}>
       {title}
 
-      {extra && <div style={{ float: 'right', fontSize: 16, fontWeight: 200 }}>{extra}</div>}
+      {extra && (
+        <div style={{ float: 'right', fontSize: 16, fontWeight: 200, paddingTop: 12 }}>{extra}</div>
+      )}
     </Title>
     {children}
   </div>

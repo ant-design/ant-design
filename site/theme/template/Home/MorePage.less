@@ -1,3 +1,5 @@
+@import '../../../../components/style/themes/default.less';
+
 .more-card {
   .ant-card-cover {
     padding: 24px 24px 0 24px;
@@ -32,6 +34,27 @@
 
     > img {
       vertical-align: baseline;
+    }
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .more-card {
+    .ant-card-cover {
+      padding: 16px 16px 0 16px;
+      margin-bottom: 12px;
+    }
+
+    .ant-card-meta-title {
+      font-size: 18px;
+    }
+
+    .ant-card-body {
+      padding: 16px;
+
+      .ant-card-meta-detail {
+        min-height: 150px;
+      }
     }
   }
 }
