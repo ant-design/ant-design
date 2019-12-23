@@ -122,8 +122,12 @@ export default class Layout extends React.Component {
   }
 
   setTheme = theme => {
+    const componentPage = /^\/?components/.test(this.props.location.pathname);
     if (typeof window === 'undefined') {
       return;
+    }
+    if (!componentPage) {
+      return 'default';
     }
     if (theme !== 'dark') {
       const dom = document.getElementById('theme-style');
