@@ -103,51 +103,60 @@ export default function DesignPage() {
       <Row gutter={[40, 40]}>
         {/* *********************** Design Values *********************** */}
         <Col span={24}>
-          <div
-            className="design-card"
-            style={{
-              backgroundImage:
-                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i1EySrFVZvAAAAAAAAAAAABkARQnAQ)',
-              backgroundSize: 'cover',
-            }}
-          >
+          <div className="design-card main-card">
             <Title level={3}>
               <FormattedMessage id="app.home.design-values" />
             </Title>
 
-            <Link
-              className="design-card-detail"
-              to={getLocalizedPathname('/docs/spec/values', isZhCN)}
-            >
-              <FormattedMessage id="app.home.detail" />
-              <RightOutlined />
-            </Link>
-
-            <Row>
+            <Row align="stretch">
               <Col xs={24} sm={8}>
                 <FormattedMessage id="app.home.design-values-description" />
+
+                <Link
+                  className="design-card-detail"
+                  to={getLocalizedPathname('/docs/spec/values', isZhCN)}
+                >
+                  <FormattedMessage id="app.home.detail" />
+                  <RightOutlined />
+                </Link>
               </Col>
               <Col xs={24} sm={16}>
                 <Row className="design-values">
-                  <Col span={6}>
+                  <Col xs={12} sm={6}>
+                    <img
+                      alt="certainty"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/bbeaec9b-18fc-414d-899b-9f766859f693.svg"
+                    />
                     <Certainty />
                     <h4>
                       <FormattedMessage id="app.home.certainty" />
                     </h4>
                   </Col>
-                  <Col span={6}>
+                  <Col xs={12} sm={6}>
+                    <img
+                      alt="meaningful"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/cbe8e1e3-e3e6-4c23-9800-105efe465cda.svg"
+                    />
                     <Meaningful />
                     <h4>
                       <FormattedMessage id="app.home.meaningful" />
                     </h4>
                   </Col>
-                  <Col span={6}>
+                  <Col xs={12} sm={6}>
+                    <img
+                      alt="growth"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/5668216e-c543-4fc7-a4a3-bb5785250106.svg"
+                    />
                     <Growth />
                     <h4>
                       <FormattedMessage id="app.home.growth" />
                     </h4>
                   </Col>
-                  <Col span={6}>
+                  <Col xs={12} sm={6}>
+                    <img
+                      alt="natural"
+                      src="https://gw.alipayobjects.com/zos/basement_prod/bf7b9fce-cb1c-4264-9596-0438b252c07e.svg"
+                    />
                     <Natural />
                     <h4>
                       <FormattedMessage id="app.home.natural" />
