@@ -3,15 +3,6 @@ import { render, mount } from 'enzyme';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 
-jest.spyOn(window, 'matchMedia').mockImplementationOnce(query => ({
-  addListener: (listener) => {
-    if (query === '(max-width: 575px)') {
-      listener({ matches: true });
-    }
-  },
-  removeListener: jest.fn(),
-}));
-
 describe('Grid', () => {
   mountTest(Row);
   mountTest(Col);

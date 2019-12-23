@@ -12,10 +12,10 @@ if (typeof window !== 'undefined') {
   };
   global.window.scrollTo = () => {};
   // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!global.window.matchMedia) {
+  if (!window.matchMedia) {
     Object.defineProperty(global.window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: true,
+      value: jest.fn(query => ({
+        matches: query.includes('max-width'),
         addListener: () => {},
         removeListener: () => {},
       })),
