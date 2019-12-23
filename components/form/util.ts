@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
-import scrollIntoView from 'scroll-into-view';
+import scrollIntoView from 'scroll-into-view-if-needed';
 
 type InternalNamePath = (string | number)[];
 
@@ -87,7 +87,10 @@ export function useForm(form?: FormInstance): [FormInstance] {
       const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
 
       if (node) {
-        scrollIntoView(node);
+        scrollIntoView(node, {
+          scrollMode: 'if-needed',
+          block: 'nearest',
+        });
       }
     },
   };
