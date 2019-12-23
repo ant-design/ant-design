@@ -190,7 +190,7 @@
     pre {
       margin: 0;
       padding: 0;
-      background: @body-background;
+      background: @component-background;
     }
     &:not(:first-child) {
       border-top: 1px dashed @site-border-color-split;
@@ -236,6 +236,9 @@
     line-height: 18px;
     cursor: pointer;
     transition: all 0.24s;
+    &:hover {
+      color: @icon-color-hover;
+    }
   }
 
   &-code-copy {
@@ -245,13 +248,17 @@
     font-size: 14px;
     line-height: 20px;
     text-align: center;
+<<<<<<< ours
     background: @body-background;
+=======
+    background: @component-background;
+>>>>>>> theirs
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.24s;
 
     &:hover {
-      color: @site-text-color-secondary;
+      color: @icon-color-hover;
       transform: scale(1.2);
     }
     &.anticon-check {
@@ -264,10 +271,21 @@
     width: 20px;
     height: 20px;
     overflow: hidden;
+    opacity: 0.45;
     text-indent: -9999px;
-    background: transparent
-      url('https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg') center / 14px
-      no-repeat;
+    &:hover {
+      opacity: 0.75;
+    }
+    & when (@theme = dark) {
+      background: transparent
+        url('https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/R5sDUSunb1/OtZslpOjYXijshDERXwc.svg')
+        center / 14px no-repeat;
+    }
+    & when not (@theme = dark) {
+      background: transparent
+        url('https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg') center / 14px
+        no-repeat;
+    }
     border: 0;
     cursor: pointer;
     transition: all 0.3s;
@@ -279,9 +297,20 @@
     height: 20px;
     overflow: hidden;
     text-indent: -9999px;
-    background: transparent
-      url('https://gw.alipayobjects.com/zos/rmsportal/DlHbxMCyeuyOrqOdbgik.svg') center / 14px
-      no-repeat;
+    opacity: 0.45;
+    &:hover {
+      opacity: 0.75;
+    }
+    & when (@theme = dark) {
+      background: transparent
+        url('https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/sXMM9YD8lG/DlHbxMCyeuyOrqOdbgik.svg')
+        center / 14px no-repeat;
+    }
+    & when not (@theme = dark) {
+      background: transparent
+        url('https://gw.alipayobjects.com/zos/rmsportal/DlHbxMCyeuyOrqOdbgik.svg') center / 14px
+        no-repeat;
+    }
     border: 0;
     cursor: pointer;
     transition: all 0.3s;
@@ -292,9 +321,20 @@
     height: 20px;
     overflow: hidden;
     text-indent: -9999px;
-    background: transparent
-      url('https://gw.alipayobjects.com/zos/rmsportal/aaYmtdDyHSCkXyLZVgGK.svg') center / 14px
-      no-repeat;
+    opacity: 0.45;
+    &:hover {
+      opacity: 0.75;
+    }
+    & when (@theme = dark) {
+      background: transparent
+        url('https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/7EZvNsaBkr/aaYmtdDyHSCkXyLZVgGK.svg')
+        center / 14px no-repeat;
+    }
+    & when not (@theme = dark) {
+      background: transparent
+        url('https://gw.alipayobjects.com/zos/rmsportal/aaYmtdDyHSCkXyLZVgGK.svg') center / 14px
+        no-repeat;
+    }
     border: 0;
     cursor: pointer;
     transition: all 0.3s;
