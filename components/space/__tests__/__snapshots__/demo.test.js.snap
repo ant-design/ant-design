@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/space/demo/size.md correctly 1`] = `
+<div>
+  <p>
+    this is a space, 
+    <span
+      style="width:16px;display:inline-block"
+    />
+     size is default.
+  </p>
+  <p>
+    this is a space, 
+    <span
+      style="width:8px;display:inline-block"
+    />
+     size is small.
+  </p>
+  <p>
+    this is a space, 
+    <span
+      style="width:24px;display:inline-block"
+    />
+     size is large.
+  </p>
+  <p>
+    this is a space, 
+    <span
+      style="width:5px;display:inline-block"
+    />
+     size is 5 pixel.
+  </p>
+</div>
+`;

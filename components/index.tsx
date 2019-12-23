@@ -82,6 +82,8 @@ export { default as Mentions } from './mentions';
 
 export { default as Modal } from './modal';
 
+export { default as Space } from './space';
+
 export { default as Statistic } from './statistic';
 
 export { default as notification } from './notification';

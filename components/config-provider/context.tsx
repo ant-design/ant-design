@@ -17,6 +17,7 @@ export interface ConfigConsumerProps {
   pageHeader?: {
     ghost: boolean;
   };
+  spaceBaseSize?: number;
 }
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({

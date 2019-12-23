@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Space render Space correctly 1`] = `
+<Space>
+  <span
+    style={
+      Object {
+        "display": "inline-block",
+        "width": 16,
+      }
+    }
+  />
+</Space>
+`;
+
+exports[`Space render Space correctly 2`] = `
+<Space
+  size="default"
+>
+  <span
+    style={
+      Object {
+        "display": "inline-block",
+        "width": 16,
+      }
+    }
+  />
+</Space>
+`;
+
+exports[`Space render Space correctly 3`] = `
+<Space
+  size="large"
+>
+  <span
+    style={
+      Object {
+        "display": "inline-block",
+        "width": 24,
+      }
+    }
+  />
+</Space>
+`;
+
+exports[`Space render Space correctly 4`] = `
+<Space
+  size="small"
+>
+  <span
+    style={
+      Object {
+        "display": "inline-block",
+        "width": 8,
+      }
+    }
+  />
+</Space>
+`;
+
+exports[`Space render Space correctly 5`] = `
+<Space
+  size={7}
+>
+  <span
+    style={
+      Object {
+        "display": "inline-block",
+        "width": 7,
+      }
+    }
+  />
+</Space>
+`;

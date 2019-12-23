@@ -10935,6 +10935,24 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
 </div>
 `;
 
+exports[`ConfigProvider components Space configProvider 1`] = `
+<span
+  style="width:16px;display:inline-block"
+/>
+`;
+
+exports[`ConfigProvider components Space normal 1`] = `
+<span
+  style="width:16px;display:inline-block"
+/>
+`;
+
+exports[`ConfigProvider components Space prefixCls 1`] = `
+<span
+  style="width:16px;display:inline-block"
+/>
+`;
+
 exports[`ConfigProvider components Spin configProvider 1`] = `
 <div
   class="config-spin config-spin-spinning"

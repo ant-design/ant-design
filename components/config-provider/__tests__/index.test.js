@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import ConfigProvider from '..';
 import Button from '../../button';
+import Space from '../../space';
 import mountTest from '../../../tests/shared/mountTest';
 
 describe('ConfigProvider', () => {
@@ -30,5 +31,14 @@ describe('ConfigProvider', () => {
     );
 
     expect(wrapper.find('Button').text()).toBe('确定');
+  });
+
+  it('spaceBaseSize', () => {
+    const wrapper = mount(
+      <ConfigProvider spaceBaseSize={7}>
+        <Space />
+      </ConfigProvider>,
+    );
+    expect(getComputedStyle(wrapper.find('span').getDOMNode())).toHaveProperty('width', '14px');
   });
 });

@@ -20,6 +20,7 @@ export const configConsumerProps = [
   'autoInsertSpaceInButton',
   'locale',
   'pageHeader',
+  'spaceBaseSize',
 ];
 
 export interface ConfigProviderProps {
@@ -36,6 +37,7 @@ export interface ConfigProviderProps {
   pageHeader?: {
     ghost: boolean;
   };
+  spaceBaseSize?: number;
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
@@ -57,6 +59,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       form,
       locale,
       pageHeader,
+      spaceBaseSize,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -65,6 +68,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
+      spaceBaseSize,
     };
 
     if (getPopupContainer) {

@@ -39,6 +39,7 @@ import Rate from '../../rate';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
 import Slider from '../../slider';
+import Space from '../../space';
 import Spin from '../../spin';
 import Statistic from '../../statistic';
 import Steps from '../../steps';
@@ -432,6 +433,10 @@ describe('ConfigProvider', () => {
         myProps.tooltipPrefixCls = `${myProps.prefixCls}-tooltip`;
       }
       return <Slider tooltipVisible {...myProps} />;
+    });
+
+    testPair('Space', props => {
+      return <Space {...props} />;
     });
 
     // Spin
