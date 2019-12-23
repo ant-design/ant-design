@@ -15,32 +15,30 @@
   border: 1px solid @site-border-color-split;
   border-radius: @border-radius-base;
   transition: all 0.2s;
-  &[data-theme='dark'] {
-    .code-box-title {
-      &,
-      a {
-        background: @component-background;
-        color: @text-color;
-      }
-    }
-    p {
+  .code-box-title {
+    &,
+    a {
+      background: @component-background;
       color: @text-color;
     }
-    a.edit-button .anticon {
-      color: @icon-color;
-      &:hover {
-        color: @icon-color-hover;
-      }
+  }
+  p {
+    color: @text-color;
+  }
+  a.edit-button .anticon {
+    color: @icon-color;
+    &:hover {
+      color: @icon-color-hover;
     }
-    &,
-    .code-box-demo {
-      background-color: @component-background;
-      border-bottom: 1px solid @border-color-base;
-    }
-    .markdown {
-      code {
-        background: @popover-background;
-      }
+  }
+  &,
+  .code-box-demo {
+    background-color: @component-background;
+    border-bottom: 1px solid @border-color-base;
+  }
+  .markdown {
+    code {
+      background: @popover-background;
     }
   }
   &:target {
