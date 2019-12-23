@@ -114,6 +114,25 @@ export default class Layout extends React.Component {
   }
 
   setTheme = theme => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+    if (theme !== 'dark') {
+      const dom = document.getElementById('theme-style');
+      if (dom) {
+        dom.remove();
+      }
+      localStorage.removeItem('site-theme');
+    } else {
+      const style = document.createElement('link');
+      style.type = 'text/css';
+      style.rel = 'stylesheet';
+      style.id = 'theme-style';
+      style.href = '/dark.css';
+
+      localStorage.setItem('site-theme', 'dark');
+      document.body.append(style);
+    }
     this.setState({
       theme,
     });
