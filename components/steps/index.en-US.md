@@ -50,3 +50,11 @@ A single step in the step bar.
 | title | Title of the step | string\|ReactNode | - |  |
 | subTitle | Subtitle of the step | string\|ReactNode | - |  |
 | disabled | Disable click | boolean | false |  |
+
+<style>
+.steps-content {
+  border: 1px dashed #303030;
+  background-color: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.65);
+}
+</style>

@@ -142,9 +142,7 @@ const Content = ({ children, extraContent }) => {
 ReactDOM.render(
   <PageHeader
     title="Title"
-    style={{
-      border: '1px solid rgb(235, 237, 240)',
-    }}
+    className="site-page-header"
     subTitle="This is a subtitle"
     tags={<Tag color="blue">Running</Tag>}
     extra={[
