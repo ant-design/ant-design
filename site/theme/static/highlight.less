@@ -70,10 +70,12 @@ pre[class*='language-'] {
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  & when (@theme = dark) {
-    background: @component-background;
-  }
-  & when not (@theme = dark) {
+  background: @component-background;
+}
+
+[data-theme='dark'] {
+  :not(pre) > code[class*='language-'],
+  pre[class*='language-'] {
     background: #f2f4f5;
   }
 }

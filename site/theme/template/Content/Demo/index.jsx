@@ -227,7 +227,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
       },
     };
     return (
-      <section className={codeBoxClass} id={meta.id} data-theme={theme}>
+      <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
           {style ? (

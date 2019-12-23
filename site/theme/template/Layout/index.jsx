@@ -133,6 +133,7 @@ export default class Layout extends React.Component {
       localStorage.setItem('site-theme', 'dark');
       document.body.append(style);
     }
+    document.body.setAttribute('data-theme', theme);
     this.setState({
       theme,
     });
@@ -169,7 +170,7 @@ export default class Layout extends React.Component {
         </Helmet>
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
           <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-            <div className="page-wrapper" data-theme={theme}>
+            <div className="page-wrapper">
               <Header {...restProps} />
               {children}
             </div>

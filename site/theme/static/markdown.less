@@ -104,12 +104,7 @@
   padding: 0.2em 0.4em;
   font-size: 0.9em;
   border: 1px solid @border-color-split-popover;
-  & when (@theme = dark) {
-    background: fade(@white, 8%);
-  }
-  & when not (@theme = dark) {
-    background: @site-markdown-code-bg;
-  }
+  background: @site-markdown-code-bg;
   border-radius: 3px;
 }
 
@@ -323,7 +318,113 @@
       #f5f5f5 95.83333333%,
       transparent 95.83333333%
     );
-    & when (@theme = dark) {
+  }
+  .ant-row > div,
+  .code-box-demo .ant-row > div {
+    min-height: 30px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 5px 0;
+    color: #fff;
+    text-align: center;
+    border-radius: 0;
+  }
+  .code-box-demo .ant-row > div:not(.gutter-row) {
+    padding: 16px 0;
+    background: #00a0e9;
+    &:nth-child(2n + 1) {
+      background: fade(#00a0e9, 70%);
+    }
+  }
+  .ant-row .demo-col,
+  .code-box-demo .ant-row .demo-col {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 30px 0;
+    color: @white;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+  }
+  .ant-row .demo-col-1 {
+    background: fade(#00a0e9, 70%);
+  }
+  .ant-row .demo-col-2,
+  .code-box-demo .ant-row .demo-col-2 {
+    background: fade(#00a0e9, 50%);
+  }
+  .ant-row .demo-col-3,
+  .code-box-demo .ant-row .demo-col-3 {
+    color: #999;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .ant-row .demo-col-4,
+  .code-box-demo .ant-row .demo-col-4 {
+    background: fade(#00a0e9, 60%);
+  }
+  .ant-row .demo-col-5,
+  .code-box-demo .ant-row .demo-col-5 {
+    color: #999;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .code-box-demo .height-100 {
+    height: 100px;
+    line-height: 100px;
+  }
+  .code-box-demo .height-50 {
+    height: 50px;
+    line-height: 50px;
+  }
+  .code-box-demo .height-120 {
+    height: 120px;
+    line-height: 120px;
+  }
+  .code-box-demo .height-80 {
+    height: 80px;
+    line-height: 80px;
+  }
+}
+
+[id='components-grid-demo-playground'],
+[id='components-grid-demo-gutter'] {
+  > .code-box-demo .ant-row > div {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// For Changelog
+.markdown ul.ant-timeline {
+  line-height: 2;
+  li.ant-timeline-item {
+    margin: 0;
+    padding: 0 0 30px;
+    list-style: none;
+    .ant-timeline-item-content {
+      position: relative;
+      top: -14px;
+      padding-left: 32px;
+      font-size: 14px;
+      > h2 {
+        margin-top: 0;
+        padding-top: 4px;
+      }
+    }
+  }
+  li.ant-timeline-item:first-child {
+    margin-top: 40px;
+  }
+}
+
+[data-theme='dark'] {
+  .markdown code {
+    background: fade(@white, 8%);
+  }
+
+  .grid-demo,
+  [id^='components-grid-demo-'] {
+    .demo-row,
+    .code-box-demo .demo-row {
       background-image: linear-gradient(
         90deg,
         #1d1d1d 4.16666667%,
@@ -374,124 +475,35 @@
         transparent 95.83333333%
       );
     }
-  }
-  .ant-row > div,
-  .code-box-demo .ant-row > div {
-    min-height: 30px;
-    margin-top: 8px;
-    margin-bottom: 8px;
-    padding: 5px 0;
-    color: #fff;
-    text-align: center;
-    border-radius: 0;
-  }
-  .code-box-demo .ant-row > div:not(.gutter-row) {
-    padding: 16px 0;
-    & when (@theme = dark) {
+    .code-box-demo .ant-row > div:not(.gutter-row) {
+      padding: 16px 0;
       background: #028ac8;
-    }
-    & when not (@theme = dark) {
-      background: #00a0e9;
-    }
-    &:nth-child(2n + 1) {
-      & when (@theme = dark) {
+      &:nth-child(2n + 1) {
         background: fade(#0088c6, 70%);
       }
-      & when not (@theme = dark) {
-        background: fade(#00a0e9, 70%);
-      }
     }
-  }
-  .ant-row .demo-col,
-  .code-box-demo .ant-row .demo-col {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding: 30px 0;
-    & when (@theme = dark) {
+    .ant-row .demo-col,
+    .code-box-demo .ant-row .demo-col {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 30px 0;
       color: @black;
+      font-size: 18px;
+      text-align: center;
+      border: none;
     }
-    & when not (@theme = dark) {
-      color: @white;
-    }
-    font-size: 18px;
-    text-align: center;
-    border: none;
-  }
-  .ant-row .demo-col-1 {
-    & when (@theme = dark) {
+    .ant-row .demo-col-1 {
       background: fade(#0088c6, 70%);
     }
-    & when not (@theme = dark) {
-      background: fade(#00a0e9, 70%);
+    .ant-row .demo-col-3,
+    .code-box-demo .ant-row .demo-col-3 {
+      background: unset;
+      color: @site-text-color-secondary;
     }
-  }
-  .ant-row .demo-col-2,
-  .code-box-demo .ant-row .demo-col-2 {
-    background: fade(#00a0e9, 50%);
-  }
-  .ant-row .demo-col-3,
-  .code-box-demo .ant-row .demo-col-3 {
-    color: #999;
-    & when not (@theme = dark) {
-      background: rgba(255, 255, 255, 0.2);
+    .ant-row .demo-col-5,
+    .code-box-demo .ant-row .demo-col-5 {
+      background: unset;
+      color: @site-text-color-secondary;
     }
-  }
-  .ant-row .demo-col-4,
-  .code-box-demo .ant-row .demo-col-4 {
-    background: fade(#00a0e9, 60%);
-  }
-  .ant-row .demo-col-5,
-  .code-box-demo .ant-row .demo-col-5 {
-    color: #999;
-    & when not (@theme = dark) {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  }
-  .code-box-demo .height-100 {
-    height: 100px;
-    line-height: 100px;
-  }
-  .code-box-demo .height-50 {
-    height: 50px;
-    line-height: 50px;
-  }
-  .code-box-demo .height-120 {
-    height: 120px;
-    line-height: 120px;
-  }
-  .code-box-demo .height-80 {
-    height: 80px;
-    line-height: 80px;
-  }
-}
-
-[id='components-grid-demo-playground'],
-[id='components-grid-demo-gutter'] {
-  > .code-box-demo .ant-row > div {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-
-// For Changelog
-.markdown ul.ant-timeline {
-  line-height: 2;
-  li.ant-timeline-item {
-    margin: 0;
-    padding: 0 0 30px;
-    list-style: none;
-    .ant-timeline-item-content {
-      position: relative;
-      top: -14px;
-      padding-left: 32px;
-      font-size: 14px;
-      > h2 {
-        margin-top: 0;
-        padding-top: 4px;
-      }
-    }
-  }
-  li.ant-timeline-item:first-child {
-    margin-top: 40px;
   }
 }

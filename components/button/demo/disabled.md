@@ -58,9 +58,9 @@ ReactDOM.render(
 );
 ```
 
-<style>
-  .site-button-ghost-wrapper {
-    padding: 8px 8px 0 8px;
-    background: rgb(190, 200, 200);
-  }
-</style>
+```css
+.site-button-ghost-wrapper {
+  padding: 8px 8px 0 8px;
+  background: rgb(190, 200, 200);
+}
+```
