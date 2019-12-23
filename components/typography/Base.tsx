@@ -292,7 +292,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     if (!rows || rows < 0 || !this.content || expanded) return;
 
     // Do not measure if css already support ellipsis
-    if (this.canUseCSSEllipsis() && !suffix) return;
+    if (this.canUseCSSEllipsis()) return;
 
     warning(
       toArray(children).every((child: React.ReactNode) => typeof child === 'string'),
@@ -425,14 +425,17 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     const cssLineClamp = rows && rows > 1 && cssEllipsis;
 
     let textNode: React.ReactNode = children;
-    let ariaLabel: string | null = null;
+    let ariaLabel: string | undefined;
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
-      ariaLabel = title || String(children);
+      ariaLabel = title;
+      if (!title && (typeof children === 'string' || typeof children === 'number')) {
+        ariaLabel = String(children);
+      }
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={title || String(children)} aria-hidden="true">
+        <span title={ariaLabel} aria-hidden="true">
           {ellipsisContent}
           {ELLIPSIS_STR}
           {suffix}
