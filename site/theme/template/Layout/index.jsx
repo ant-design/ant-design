@@ -52,7 +52,6 @@ let isMobile = false;
 enquireScreen(b => {
   isMobile = b;
 });
-
 const SITE_THEME_STORE_KEY = 'site-theme';
 
 export default class Layout extends React.Component {
@@ -99,8 +98,13 @@ export default class Layout extends React.Component {
         // eslint-disable-next-line
         window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
       }
+      const { pathname } = loc;
+      const componentPage = /^\/?components/.test(pathname);
+      // only component page can use `dark` theme
+      if (!componentPage) {
+        this.setTheme('default', false);
+      }
     });
-
     this.setTheme(theme);
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
@@ -121,28 +125,28 @@ export default class Layout extends React.Component {
     clearTimeout(this.timer);
   }
 
-  setTheme = theme => {
-    const componentPage = /^\/?components/.test(this.props.location.pathname);
+  setTheme = (theme, persist = true) => {
     if (typeof window === 'undefined') {
       return;
-    }
-    if (!componentPage) {
-      return 'default';
     }
     if (theme !== 'dark') {
       const dom = document.getElementById('theme-style');
       if (dom) {
         dom.remove();
       }
-      localStorage.removeItem(SITE_THEME_STORE_KEY);
+      if (persist) {
+        localStorage.removeItem(SITE_THEME_STORE_KEY);
+      }
     } else {
       const style = document.createElement('link');
       style.type = 'text/css';
       style.rel = 'stylesheet';
       style.id = 'theme-style';
       style.href = '/dark.css';
+      if (persist) {
+        localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
+      }
 
-      localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
       document.body.append(style);
     }
     document.body.setAttribute('data-theme', theme);
