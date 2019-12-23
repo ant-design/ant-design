@@ -121,7 +121,7 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale } = this.state;
+    const { appLocale, theme } = this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
@@ -150,7 +150,7 @@ export default class Layout extends React.Component {
         </Helmet>
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
           <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-            <div className="page-wrapper">
+            <div className="page-wrapper" data-theme={theme}>
               <Header {...restProps} />
               {children}
             </div>

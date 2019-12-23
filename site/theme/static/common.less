@@ -23,7 +23,7 @@ a {
 .main-wrapper {
   position: relative;
   padding: 40px 0 0;
-  background: #fff;
+  background: @component-background;
 }
 
 .main-container {
@@ -31,7 +31,7 @@ a {
   min-height: 500px;
   padding: 0 170px 144px 64px;
   overflow: hidden;
-  background: #fff;
+  background: @component-background;
 }
 
 .main-menu {
@@ -184,8 +184,4 @@ a {
   & > div {
     display: block;
   }
-}
-
-[data-theme='dark'] {
-  @import (less) '../../../dist/antd.dark.css';
 }
