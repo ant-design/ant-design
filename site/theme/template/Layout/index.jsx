@@ -141,7 +141,7 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale, theme } = this.state;
+    const { appLocale } = this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
