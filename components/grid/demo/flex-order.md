@@ -39,6 +39,6 @@ ReactDOM.render(
 
 ```css
 #components-grid-demo-flex-order [class~='ant-row'] {
-  background: #f5f5f5;
+  background: rgba(128, 128, 128, 0.08);
 }
 ```

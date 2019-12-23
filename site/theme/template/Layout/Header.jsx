@@ -41,6 +41,7 @@ class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
+    theme: PropTypes.oneOf(['default', 'dark']),
   };
 
   state = {
@@ -107,7 +108,7 @@ class Header extends React.Component {
 
   render() {
     const { menuVisible } = this.state;
-    const { isMobile } = this.context;
+    const { isMobile, theme } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
     const {
       location,
@@ -266,7 +267,11 @@ class Header extends React.Component {
               />
               <img
                 alt="Ant Design"
-                src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
+                src={
+                  theme === 'dark'
+                    ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/2Xu%245IJoP5/DkKNubTaaVsKURhcVGkh.svg'
+                    : 'https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg'
+                }
               />
             </Link>
           </Col>
