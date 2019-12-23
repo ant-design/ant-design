@@ -20,7 +20,7 @@ title: 介绍
 
 - [设计价值观](/docs/spec/values)
 - [设计模式](/docs/spec/overview)
-- 可视化
+- [可视化](/docs/spec/visual)
 - 插画
 - [设计资源](/docs/spec/download)
 - [Sketch 工具集](http://kitchen.alipay.com/)
