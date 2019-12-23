@@ -27,7 +27,7 @@ const LIST: Recommend[] = [
     title: 'AntV·让数据栩栩如生',
     description:
       'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5hxoQ4wUm9kAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6C3USLyLwh4AAAAAAAAAAABkARQnAQ',
     href: 'https://antv.vision/zh',
   },
   {
