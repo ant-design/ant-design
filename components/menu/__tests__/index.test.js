@@ -6,13 +6,6 @@ import Layout from '../../layout';
 import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/warning';
 
-jest.mock('mutationobserver-shim', () => {
-  global.MutationObserver = function MutationObserver() {
-    this.observe = () => {};
-    this.disconnect = () => {};
-  };
-});
-
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
