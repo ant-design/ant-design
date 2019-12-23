@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
 import omit from 'omit.js';
@@ -186,7 +185,5 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     return <ConfigConsumer>{this.renderGroup}</ConfigConsumer>;
   }
 }
-
-polyfill(CheckboxGroup);
 
 export default CheckboxGroup;

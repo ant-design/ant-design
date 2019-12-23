@@ -1,6 +1,5 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import createReactContext from '@ant-design/create-react-context';
 import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -10,7 +9,7 @@ import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import { tuple } from '../_util/type';
 
-const DrawerContext = createReactContext<Drawer | null>(null);
+const DrawerContext = React.createContext<Drawer | null>(null);
 
 type EventType =
   | React.KeyboardEvent<HTMLDivElement>

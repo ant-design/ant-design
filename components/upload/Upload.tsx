@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
 import uniqBy from 'lodash/uniqBy';
@@ -376,7 +375,5 @@ class Upload extends React.Component<UploadProps, UploadState> {
     return <ConfigConsumer>{this.renderUpload}</ConfigConsumer>;
   }
 }
-
-polyfill(Upload);
 
 export default Upload;

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import { CloseOutlined } from '@ant-design/icons';
@@ -149,22 +148,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
     confirmLoading: false,
     visible: false,
     okType: 'primary' as ButtonType,
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    onOk: PropTypes.func,
-    onCancel: PropTypes.func,
-    okText: PropTypes.node,
-    cancelText: PropTypes.node,
-    centered: PropTypes.bool,
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    confirmLoading: PropTypes.bool,
-    visible: PropTypes.bool,
-    footer: PropTypes.node,
-    title: PropTypes.node,
-    closable: PropTypes.bool,
-    closeIcon: PropTypes.node,
   };
 
   handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {

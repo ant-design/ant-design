@@ -4,7 +4,6 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { polyfill } from 'react-lifecycles-compat';
 import { CloseCircleFilled, DownOutlined, RightOutlined, RedoOutlined } from '@ant-design/icons';
 
 import Input from '../input';
@@ -600,7 +599,5 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     );
   }
 }
-
-polyfill(Cascader);
 
 export default Cascader;

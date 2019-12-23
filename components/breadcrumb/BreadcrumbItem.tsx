@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
 import omit from 'omit.js';
 
@@ -19,12 +18,6 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
 
   static defaultProps = {
     separator: '/',
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    separator: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-    href: PropTypes.string,
   };
 
   renderBreadcrumbItem = ({ getPrefixCls }: ConfigConsumerProps) => {
