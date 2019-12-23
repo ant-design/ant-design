@@ -103,8 +103,13 @@
   margin: 0 1px;
   padding: 0.2em 0.4em;
   font-size: 0.9em;
-  background: #f2f4f5;
-  border: 1px solid #eee;
+  border: 1px solid @border-color-split-popover;
+  & when (@theme = dark) {
+    background: fade(@white, 8%);
+  }
+  & when not (@theme = dark) {
+    background: #f2f4f5;
+  }
   border-radius: 3px;
 }
 
@@ -406,7 +411,7 @@
       color: @black;
     }
     & when not (@theme = dark) {
-      color: @light;
+      color: @white;
     }
     font-size: 18px;
     text-align: center;
