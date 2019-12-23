@@ -20,6 +20,7 @@ genCss(
     ignoreAntd: true,
     isModule: false,
     cache: false,
+    loadAny: true,
     ignoreProLayout: true,
   },
 );
