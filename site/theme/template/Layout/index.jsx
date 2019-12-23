@@ -53,6 +53,8 @@ enquireScreen(b => {
   isMobile = b;
 });
 
+const SITE_THEME_STORE_KEY = 'site-theme';
+
 export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
@@ -72,7 +74,10 @@ export default class Layout extends React.Component {
     this.state = {
       appLocale,
       isMobile,
-      theme: 'default',
+      theme:
+        typeof localStorage !== 'undefined'
+          ? localStorage.getItem(SITE_THEME_STORE_KEY) || 'default'
+          : 'default',
       setTheme: this.setTheme,
     };
   }
@@ -83,6 +88,7 @@ export default class Layout extends React.Component {
   }
 
   componentDidMount() {
+    const { theme } = this.state;
     const { router } = this.context;
     router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
@@ -94,6 +100,8 @@ export default class Layout extends React.Component {
         window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
       }
     });
+
+    this.setTheme(theme);
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
@@ -122,7 +130,7 @@ export default class Layout extends React.Component {
       if (dom) {
         dom.remove();
       }
-      localStorage.removeItem('site-theme');
+      localStorage.removeItem(SITE_THEME_STORE_KEY);
     } else {
       const style = document.createElement('link');
       style.type = 'text/css';
@@ -130,7 +138,7 @@ export default class Layout extends React.Component {
       style.id = 'theme-style';
       style.href = '/dark.css';
 
-      localStorage.setItem('site-theme', 'dark');
+      localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
       document.body.append(style);
     }
     document.body.setAttribute('data-theme', theme);
