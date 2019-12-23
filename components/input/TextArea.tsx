@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import ResizableTextArea, { AutoSizeType } from './ResizableTextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -122,7 +121,5 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
-
-polyfill(TextArea);
 
 export default TextArea;

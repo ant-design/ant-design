@@ -4,21 +4,6 @@ import { Settings } from 'react-slick';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-// TODO: Will be removed in antd 4.0 because we will no longer support ie9
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill as any;
-}
 // Use require over import (will be lifted up)
 // make sure matchMedia polyfill run before require('react-slick')
 // Fix https://github.com/ant-design/ant-design/issues/6560
