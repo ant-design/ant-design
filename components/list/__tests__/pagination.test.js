@@ -168,6 +168,7 @@ describe('List.pagination', () => {
       .at(2)
       .simulate('click');
 
+    wrapper.find('.ant-select-selector').simulate('mousedown');
     expect(
       wrapper
         .find('Pagination')
