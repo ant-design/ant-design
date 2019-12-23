@@ -70,24 +70,34 @@
       transition: opacity 0.3s, margin 0.3s;
     }
   }
+}
 
-  &:hover {
-    .recommend-content {
-      transform: translateY(0);
-
-      h4 {
-        padding-bottom: 8px;
-      }
-
-      p {
-        opacity: 1;
-      }
+@media (max-width: @screen-sm-min) {
+  .recommend-block {
+    h4 {
+      font-size: 14px;
     }
   }
 }
 
 @media (min-width: @screen-sm-min) {
-  .recommend-block.main {
-    height: 408px;
+  .recommend-block {
+    &.main {
+      height: 408px;
+    }
+
+    &:hover {
+      .recommend-content {
+        transform: translateY(0);
+
+        h4 {
+          padding-bottom: 8px;
+        }
+
+        p {
+          opacity: 1;
+        }
+      }
+    }
   }
 }

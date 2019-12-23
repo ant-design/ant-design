@@ -32,12 +32,8 @@ interface BlockContentProps {
 }
 
 const BlockContent: React.FC<BlockContentProps> = ({ title, children, extra }) => (
-  <div
-    style={{
-      margin: '88px 24px 124px',
-    }}
-  >
-    <Title level={2} style={{ fontWeight: 'lighter', marginBottom: 56, color: '#314659' }}>
+  <div className="home-block-content">
+    <Title level={2} style={{ fontWeight: 'lighter', color: '#314659' }}>
       {title}
 
       {extra && <div style={{ float: 'right', fontSize: 16, fontWeight: 200 }}>{extra}</div>}
