@@ -65,9 +65,6 @@ const responsiveObserve = {
   register() {
     Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
       const matchMediaQuery = responsiveMap[screen]!;
-      if (matchMediaQuery) {
-        return;
-      }
       const listener = ({ matches }: { matches: boolean }) => {
         this.dispatch({
           ...screens,

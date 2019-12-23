@@ -10,6 +10,15 @@ describe('Descriptions', () => {
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
+  jest.spyOn(window, 'matchMedia').mockImplementationOnce(query => ({
+    addListener: (listener) => {
+      if (query === '(max-width: 575px)') {
+        listener({ matches: true });
+      }
+    },
+    removeListener: jest.fn(),
+  }));
+
   afterEach(() => {
     MockDate.reset();
     errorSpy.mockReset();
