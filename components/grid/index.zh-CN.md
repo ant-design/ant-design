@@ -109,3 +109,10 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | xxl | `≥1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |  |
 
 响应式栅格的断点扩展自 [BootStrap 4 的规则](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)（不包含链接里 `occasionally` 的部分)。
+
+<style>
+  [data-theme="dark"] #components-grid-demo-playground pre {
+    background: #1f1f1f;
+    color: rgba(255,255,255,.65);
+  }
+</style>
