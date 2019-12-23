@@ -25,6 +25,7 @@ cols: 1
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false | 3.14.0 |
 | ellipsis | 设置自动溢出省略 | boolean | false | 3.14.0 |
 | mark | 添加标记样式 | boolean | false | 3.14.0 |
+| code | 添加代码样式 | boolean | false | 3.14.0 |
 | underline | 添加下划线样式 | boolean | false | 3.14.0 |
 | strong | 是否加粗 | boolean | false | 3.14.0 |
 | type | 文本类型 | `secondary`, `warning`, `danger` | - | 3.14.0 |
