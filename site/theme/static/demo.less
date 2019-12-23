@@ -34,7 +34,12 @@
   &,
   .code-box-demo {
     background-color: @component-background;
-    border-bottom: 1px solid @border-color-base;
+    & when (@theme = dark) {
+      border-bottom: 1px solid @border-color-split-popover;
+    }
+    & when not (@theme = dark) {
+      border-bottom: 1px solid @border-color-base;
+    }
   }
   .markdown {
     code {
@@ -84,7 +89,7 @@
     padding-right: 6px;
     font-size: 12px;
     text-decoration: none;
-    background: #fff;
+    background: inherit;
     transform: scale(0.9);
   }
 
@@ -306,7 +311,7 @@
     width: auto;
     margin: 0;
     code {
-      background: #fff;
+      background: @component-background;
       border: none;
     }
   }
