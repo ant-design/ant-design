@@ -77,6 +77,8 @@ const responsiveObserve = {
         mql,
         listener,
       };
+
+      listener(mql);
     });
   },
 };
