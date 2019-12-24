@@ -11,6 +11,8 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
       menuItems.push(meta);
       return;
     }
+
+    // Component
     if (meta.category === 'Components' && meta.type) {
       let type = menuItems.find(i => i.title === meta.type);
       if (!type) {
@@ -25,8 +27,10 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
       type.children.push(meta);
       return;
     }
+
     const category = meta.category[locale] || meta.category;
     let group = menuItems.find(i => i.title === category);
+
     if (!group) {
       group = {
         type: 'category',
@@ -36,8 +40,26 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
       };
       menuItems.push(group);
     }
-    group.children.push(meta);
+
+    if (meta.type) {
+      let type = group.children.filter(i => i.title === meta.type)[0];
+      if (!type) {
+        type = {
+          type: 'type',
+          title: meta.type,
+          children: [],
+          order: typeOrder[meta.type],
+        };
+        group.children.push(type);
+      }
+      type.children.push(meta);
+    } else {
+      group.children.push(meta);
+    }
   });
+
+  console.warn('>>>', menuItems);
+
   return menuItems
     .map(i => {
       if (i.children) {

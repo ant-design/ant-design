@@ -1,6 +1,7 @@
 ---
-category: 原则
-order: 1
+category: 设计模式
+type: 原则
+order: 0
 title: 亲密性
 ---
 

@@ -1,5 +1,5 @@
 ---
-category: 视觉
+category: 全局样式
 order: 0
 title: 色彩
 ---

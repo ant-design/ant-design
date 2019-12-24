@@ -1,6 +1,7 @@
 ---
-category: Principles
-order: 1
+category: Design Patterns
+type: Principles
+order: 0
 title: Proximity
 ---
 

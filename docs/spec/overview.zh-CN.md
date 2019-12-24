@@ -1,5 +1,5 @@
 ---
-category: 模式
+category: 设计模式
 order: 0
 title: 概览
 ---
