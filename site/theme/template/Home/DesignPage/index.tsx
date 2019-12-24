@@ -175,7 +175,7 @@ export default function DesignPage() {
             style={{
               background: '#E6F1FF',
               backgroundImage:
-                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*TsDpTYe6nMAAAAAAAAAAAABkARQnAQ)',
+                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0oaHSYRcnT4AAAAAAAAAAABkARQnAQ)',
             }}
           >
             <Row>
@@ -222,7 +222,7 @@ export default function DesignPage() {
             style={{
               background: '#DEF6FF',
               backgroundImage:
-                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IGKwTYeE87oAAAAAAAAAAABkARQnAQ)',
+                'url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*TLJTT78n7rMAAAAAAAAAAABkARQnAQ)',
             }}
           >
             <Row>
