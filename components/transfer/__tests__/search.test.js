@@ -60,7 +60,6 @@ describe('Transfer.Search', () => {
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    jest.runAllTimers();
     expect(onSearch).toHaveBeenCalledWith('left', 'a');
 
     onSearch.mockReset();
@@ -84,7 +83,6 @@ describe('Transfer.Search', () => {
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    jest.runAllTimers();
 
     expect(errorSpy.mock.calls.length).toBe(0);
     expect(onSearchChange).not.toHaveBeenCalled();

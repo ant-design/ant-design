@@ -1,9 +1,7 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { LoadingOutlined } from '@ant-design/icons';
-import { polyfill } from 'react-lifecycles-compat';
 import omit from 'omit.js';
 
 import Group from './button-group';
@@ -122,19 +120,6 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     ghost: false,
     block: false,
     htmlType: 'button',
-  };
-
-  static propTypes = {
-    type: PropTypes.string,
-    shape: PropTypes.oneOf(ButtonShapes),
-    size: PropTypes.oneOf(ButtonSizes),
-    htmlType: PropTypes.oneOf(ButtonHTMLTypes),
-    onClick: PropTypes.func,
-    loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-    className: PropTypes.string,
-    icon: PropTypes.node,
-    block: PropTypes.bool,
-    title: PropTypes.string,
   };
 
   private delayTimeout: number;
@@ -317,7 +302,5 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
   }
 }
-
-polyfill(Button);
 
 export default Button;

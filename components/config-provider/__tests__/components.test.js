@@ -54,7 +54,6 @@ import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
-jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {

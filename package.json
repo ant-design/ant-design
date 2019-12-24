@@ -86,21 +86,15 @@
     "last 2 version",
     "Firefox ESR",
     "> 1%",
-    "ie >= 9"
+    "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/create-react-context": "^0.2.4",
     "@ant-design/icons": "^4.0.0-alpha.11",
-    "@ant-design/icons-svg": "^4.0.0-alpha.0",
     "@types/react-slick": "^0.23.4",
     "array-tree-filter": "^2.1.0",
-    "babel-runtime": "6.x",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "css-animation": "^1.5.0",
-    "dom-closest": "^0.2.0",
-    "dom-scroll-into-view": "^1.2.1",
-    "enquire.js": "^2.1.6",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "omit.js": "^1.0.2",
@@ -115,8 +109,8 @@
     "rc-dropdown": "~3.0.0-alpha.0",
     "rc-field-form": "^0.0.0-alpha.17",
     "rc-input-number": "~4.5.0",
-    "rc-mentions": "~1.0.0-alpha.0",
-    "rc-menu": "~8.0.0-alpha.4",
+    "rc-mentions": "~1.0.0-alpha.3",
+    "rc-menu": "~8.0.0-alpha.7",
     "rc-notification": "~3.3.1",
     "rc-pagination": "~1.20.11",
     "rc-picker": "^0.0.1-alpha.58",
@@ -124,27 +118,27 @@
     "rc-rate": "~2.5.0",
     "rc-resize-observer": "^0.1.0",
     "rc-select": "~10.0.0-alpha.34",
-    "rc-slider": "~8.7.1",
+    "rc-slider": "~9.0.0-alpha.0",
     "rc-steps": "~3.5.0",
     "rc-switch": "~1.9.0",
     "rc-table": "~7.0.0-alpha.20",
-    "rc-tabs": "~9.7.0",
+    "rc-tabs": "~10.0.0-alpha.0",
     "rc-time-picker": "~4.0.0-alpha.2",
     "rc-tooltip": "~4.0.0-alpha.3",
     "rc-tree": "~3.0.0-alpha.37",
     "rc-tree-select": "~3.0.0-alpha.5",
     "rc-trigger": "~4.0.0-alpha.7",
-    "rc-upload": "~2.9.1",
+    "rc-upload": "~3.0.0-alpha.0",
     "rc-util": "~4.16.1",
     "rc-virtual-list": "^0.0.0-alpha.25",
-    "react-lazy-load": "^3.0.13",
-    "react-lifecycles-compat": "^3.0.4",
     "react-slick": "~0.25.2",
     "resize-observer-polyfill": "^1.5.1",
+    "scroll-into-view-if-needed": "^2.2.20",
     "shallowequal": "^1.1.0",
     "warning": "~4.0.3"
   },
   "devDependencies": {
+    "@ant-design/bisheng-plugin": "^2.0.1",
     "@ant-design/colors": "^3.2.2",
     "@ant-design/tools": "^8.0.4",
     "@packtracker/webpack-plugin": "^2.0.1",
@@ -167,7 +161,6 @@
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
     "bisheng": "~1.3.3",
-    "bisheng-plugin-antd": "^1.3.1",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.1.0",
     "bisheng-plugin-toc": "^0.4.4",
@@ -217,7 +210,6 @@
     "rc-footer": "^0.6.0",
     "rc-queue-anim": "^1.6.12",
     "rc-scroll-anim": "^2.5.8",
-    "rc-trigger": "^4.0.0-alpha.5",
     "rc-tween-one": "^2.4.1",
     "react": "^16.9.0",
     "react-color": "^2.17.3",
@@ -262,11 +254,11 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "540 kB"
+      "maxSize": "300 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "60 kB"
+      "maxSize": "55 kB"
     }
   ],
   "title": "Ant Design"

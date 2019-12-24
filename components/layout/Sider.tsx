@@ -1,7 +1,4 @@
-import createContext, { Context } from '@ant-design/create-react-context';
-
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { BarsOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
@@ -9,22 +6,6 @@ import { BarsOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
 import { LayoutContext, LayoutContextProps } from './layout';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import isNumeric from '../_util/isNumeric';
-
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-// TODO: Will be removed in antd 4.0 because we will no longer support ie9
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill as any;
-}
 
 const dimensionMaxMap = {
   xs: '479.98px',
@@ -40,7 +21,7 @@ export interface SiderContextProps {
   collapsedWidth?: string | number;
 }
 
-export const SiderContext: Context<SiderContextProps> = createContext({});
+export const SiderContext: React.Context<SiderContextProps> = React.createContext({});
 
 export type CollapseType = 'clickTrigger' | 'responsive';
 
@@ -271,8 +252,6 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     );
   }
 }
-
-polyfill(InternalSider);
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Sider extends React.Component {

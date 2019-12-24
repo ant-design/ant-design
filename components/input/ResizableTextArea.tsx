@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'omit.js';
 import classNames from 'classnames';
@@ -114,7 +113,5 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     return this.renderTextArea();
   }
 }
-
-polyfill(ResizableTextArea);
 
 export default ResizableTextArea;

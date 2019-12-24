@@ -30,7 +30,6 @@ const listCommonProps = {
   ],
   selectedKeys: ['a'],
   targetKeys: ['b'],
-  lazy: false,
 };
 
 const listDisabledProps = {
@@ -47,7 +46,6 @@ const listDisabledProps = {
   ],
   selectedKeys: ['a', 'b'],
   targetKeys: [],
-  lazy: false,
 };
 
 const searchTransferProps = {
@@ -91,7 +89,6 @@ const searchTransferProps = {
   ],
   selectedKeys: [],
   targetKeys: ['3', '4'],
-  lazy: false,
 };
 
 describe('Transfer', () => {

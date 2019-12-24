@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcSteps from 'rc-steps';
 import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 
@@ -38,12 +37,6 @@ export default class Steps extends React.Component<StepsProps, any> {
 
   static defaultProps = {
     current: 0,
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    iconPrefix: PropTypes.string,
-    current: PropTypes.number,
   };
 
   renderSteps = ({ getPrefixCls }: ConfigConsumerProps) => {

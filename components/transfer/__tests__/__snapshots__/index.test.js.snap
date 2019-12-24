@@ -480,7 +480,6 @@ exports[`Transfer should support render value and label in item 1`] = `
         handleFilter={[Function]}
         itemUnit="item"
         itemsUnit="items"
-        lazy={Object {}}
         notFoundContent={
           <Context.Consumer>
             [Function]
@@ -593,7 +592,6 @@ exports[`Transfer should support render value and label in item 1`] = `
               }
               itemUnit="item"
               itemsUnit="items"
-              lazy={Object {}}
               notFoundContent={
                 <Context.Consumer>
                   [Function]
@@ -615,78 +613,74 @@ exports[`Transfer should support render value and label in item 1`] = `
                 ]
               }
             >
-              <Animate
-                animation={Object {}}
+              <ul
                 className="ant-transfer-list-content"
-                component="ul"
-                componentProps={
-                  Object {
-                    "onScroll": [Function],
-                  }
-                }
-                onAppear={[Function]}
-                onEnd={[Function]}
-                onEnter={[Function]}
-                onLeave={[Function]}
-                transitionAppear={false}
-                transitionEnter={true}
-                transitionLeave={false}
-                transitionName=""
+                onScroll={[Function]}
               >
-                <ul
-                  className="ant-transfer-list-content"
-                  onScroll={[Function]}
+                <ListItem
+                  checked={false}
+                  item={
+                    Object {
+                      "key": "a",
+                      "title": "title",
+                    }
+                  }
+                  key="a"
+                  onClick={[Function]}
+                  prefixCls="ant-transfer-list"
+                  renderedEl="label"
+                  renderedText="title value"
                 >
-                  <AnimateChild
-                    animation={Object {}}
-                    key="a"
-                    transitionAppear={false}
-                    transitionEnter={true}
-                    transitionLeave={false}
-                    transitionName=""
+                  <li
+                    className="ant-transfer-list-content-item"
+                    onClick={[Function]}
+                    title="title value"
                   >
-                    <ListItem
+                    <Checkbox
                       checked={false}
-                      item={
-                        Object {
-                          "key": "a",
-                          "title": "title",
-                        }
-                      }
-                      key="a"
-                      lazy={Object {}}
-                      onClick={[Function]}
-                      prefixCls="ant-transfer-list"
-                      renderedEl="label"
-                      renderedText="title value"
+                      indeterminate={false}
                     >
-                      <LazyLoad
-                        debounce={false}
-                        elementType="div"
-                        height={32}
-                        offset={500}
-                        offsetBottom={0}
-                        offsetHorizontal={0}
-                        offsetLeft={0}
-                        offsetRight={0}
-                        offsetTop={0}
-                        offsetVertical={0}
-                        throttle={0}
+                      <label
+                        className="ant-checkbox-wrapper"
                       >
-                        <div
-                          className="LazyLoad"
-                          style={
-                            Object {
-                              "height": 32,
-                              "width": undefined,
-                            }
-                          }
-                        />
-                      </LazyLoad>
-                    </ListItem>
-                  </AnimateChild>
-                </ul>
-              </Animate>
+                        <Checkbox
+                          checked={false}
+                          className=""
+                          defaultChecked={false}
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onFocus={[Function]}
+                          prefixCls="ant-checkbox"
+                          style={Object {}}
+                          type="checkbox"
+                        >
+                          <span
+                            className="ant-checkbox"
+                            style={Object {}}
+                          >
+                            <input
+                              checked={false}
+                              className="ant-checkbox-input"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              type="checkbox"
+                            />
+                            <span
+                              className="ant-checkbox-inner"
+                            />
+                          </span>
+                        </Checkbox>
+                      </label>
+                    </Checkbox>
+                    <span
+                      className="ant-transfer-list-content-item-text"
+                    >
+                      label
+                    </span>
+                  </li>
+                </ListItem>
+              </ul>
             </ListBody>
           </div>
         </div>
@@ -899,7 +893,6 @@ exports[`Transfer should support render value and label in item 1`] = `
         handleFilter={[Function]}
         itemUnit="item"
         itemsUnit="items"
-        lazy={Object {}}
         notFoundContent={
           <Context.Consumer>
             [Function]

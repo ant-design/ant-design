@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
 import { AlignType, ActionType, BuildInPlacements } from 'rc-trigger/lib/interface';
@@ -279,7 +278,5 @@ class Tooltip extends React.Component<TooltipProps, any> {
     return <ConfigConsumer>{this.renderTooltip}</ConfigConsumer>;
   }
 }
-
-polyfill(Tooltip);
 
 export default Tooltip;

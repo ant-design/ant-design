@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'omit.js';
@@ -66,12 +65,6 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
   static defaultProps = {
     separator: '/',
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    separator: PropTypes.node,
-    routes: PropTypes.array,
   };
 
   getPath = (path: string, params: any) => {

@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import omit from 'omit.js';
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import Spin from '../spin';
@@ -171,7 +170,5 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     return <ConfigConsumer>{this.renderMentions}</ConfigConsumer>;
   }
 }
-
-polyfill(Mentions);
 
 export default Mentions;
