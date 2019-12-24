@@ -67,6 +67,7 @@ Tree selection control.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | checkable | can be checked | boolean | true | 3.9.3 |
+| selectable | can be selected | boolean | true |  |
 | disableCheckbox | Disables the checkbox of the treeNode | boolean | false |  |
 | disabled | Disabled or not | boolean | false |  |
 | isLeaf | Leaf node or not | boolean | false |  |
