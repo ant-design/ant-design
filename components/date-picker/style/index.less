@@ -18,9 +18,8 @@
   .reset-component;
   display: inline-flex;
   align-items: center;
-  height: @input-height-base;
-  padding: @input-padding-vertical-base @input-padding-horizontal-base @input-padding-vertical-base +
-    @vertical-fix-base;
+  padding: (@input-height-base - floor(@font-size-base * @line-height-base) - 2) / 2
+    @input-padding-horizontal-base;
   background: @component-background;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
@@ -77,9 +76,8 @@
 
   // Size
   &-large {
-    height: @input-height-lg;
-    padding: @input-padding-vertical-lg @input-padding-horizontal-lg @input-padding-vertical-lg +
-      @vertical-fix-lg;
+    padding: (@input-height-lg - floor(@font-size-lg * @line-height-base) - 2) / 2
+      @input-padding-horizontal-lg;
 
     .@{picker-prefix-cls}-input > input {
       font-size: @font-size-lg;
@@ -87,9 +85,8 @@
   }
 
   &-small {
-    height: @input-height-sm;
-    padding: @input-padding-vertical-sm @input-padding-horizontal-sm @input-padding-vertical-sm +
-      @vertical-fix-sm;
+    padding: (@input-height-sm - floor(@font-size-base * @line-height-base) - 2) / 2
+      @input-padding-horizontal-sm;
   }
 
   &-suffix {
