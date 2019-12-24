@@ -20,7 +20,7 @@ const MORE_LIST: MoreProps[] = [
   {
     title: 'Ant Design 1.0 背后的故事：把艺术变成技术',
     description: '本文将跟大家分享 Ant Design 1.0 诞生背后的故事，还原 3-4 年前那些事、那些人。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CgarRqOjr5AAAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Cu8LRZW_AqgAAAAAAAAAAABkARQnAQ',
     date: '2019-11-07',
     source: 'yuque',
     href: 'https://www.yuque.com/lyndon/daylesson/xw45g0',
