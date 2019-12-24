@@ -60,7 +60,7 @@ exports[`Input allowClear should change type when click 1`] = `
                   "tag": "svg",
                 },
                 "name": "close-circle",
-                "theme": "fill",
+                "theme": "filled",
               }
             }
             onClick={[Function]}
@@ -93,7 +93,7 @@ exports[`Input allowClear should change type when click 1`] = `
                       "tag": "svg",
                     },
                     "name": "close-circle",
-                    "theme": "fill",
+                    "theme": "filled",
                   }
                 }
               >
@@ -532,7 +532,7 @@ exports[`Input.Search should support suffix 1`] = `
                     "tag": "svg",
                   },
                   "name": "search",
-                  "theme": "outline",
+                  "theme": "outlined",
                 }
               }
               onClick={[Function]}
@@ -564,7 +564,7 @@ exports[`Input.Search should support suffix 1`] = `
                         "tag": "svg",
                       },
                       "name": "search",
-                      "theme": "outline",
+                      "theme": "outlined",
                     }
                   }
                 >
@@ -663,7 +663,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
                 "tag": "svg",
               },
               "name": "close-circle",
-              "theme": "fill",
+              "theme": "filled",
             }
           }
           onClick={[Function]}
@@ -696,7 +696,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
                     "tag": "svg",
                   },
                   "name": "close-circle",
-                  "theme": "fill",
+                  "theme": "filled",
                 }
               }
             >

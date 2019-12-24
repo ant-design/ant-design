@@ -11286,7 +11286,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -11306,7 +11306,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -11622,7 +11622,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -11642,7 +11642,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -11958,7 +11958,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -11978,7 +11978,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
