@@ -40,7 +40,7 @@ const MINI_LIST: PanelProps[] = [
     href: 'https://mobile.ant.design/',
   },
   {
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_6bRTavNfH4AAAAAAAAAAABkARQnAQ',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PrLWSpmWZmIAAAAAAAAAAABkARQnAQ',
     title: <FormattedMessage id="app.home.product-hitu" />,
     description: 'app.home.product-hitu-slogan',
   },
