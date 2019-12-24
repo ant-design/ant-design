@@ -72,4 +72,7 @@ ReactDOM.render(
   [data-theme="dark"] .site-layout-content {
     background: #141414;
   }
+  [data-theme="dark"] #components-layout-demo-top .logo {
+    background: rgba(255,255,255,0.3);
+  }
 </style>
