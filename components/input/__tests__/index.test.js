@@ -179,7 +179,7 @@ describe('TextArea', () => {
 
   it('should trigger onResize', () => {
     const onResize = jest.fn();
-    const wrapper = mount(<TextArea onResize={onResize} autoSize />);
+    const wrapper = mount(<TextArea onResize={onResize} autosize />);
 
     wrapper.triggerResize();
 
