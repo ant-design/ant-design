@@ -11,6 +11,7 @@ interface FieldData {
 interface Operation {
   add: () => void;
   remove: (index: number) => void;
+  move: (from: number, to: number) => void;
 }
 
 interface FormListProps {
@@ -24,7 +25,10 @@ const FormList: React.FC<FormListProps> = ({ children, ...props }) => {
   return (
     <List {...props}>
       {(fields, operation) => {
-        return children(fields.map(field => ({ ...field, fieldKey: field.key })), operation);
+        return children(
+          fields.map(field => ({ ...field, fieldKey: field.key })),
+          operation,
+        );
       }}
     </List>
   );
