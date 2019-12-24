@@ -52,7 +52,7 @@ cols: 1
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| { editing: boolean, onStart: Function, onChange: Function(string) } | false |  |
-| ellipsis | 自动溢出省略，为对象时可设置省略行数与是否可展开等 | boolean \| { rows: number, expandable: boolean, onExpand: Function } | false |  |
+| ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| { rows: number, expandable: boolean, suffix: string, onExpand: Function } | false |  |
 | mark | 添加标记样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |  |
