@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Affix, Button } from 'antd';
+import { Row, Col, Menu, Affix, Avatar, Tooltip } from 'antd';
 import { injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
+import { DarkIcon, DefaultIcon } from './ThemeIcon';
 import Icon from '../Icon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
@@ -275,7 +276,7 @@ class MainContent extends Component {
   render() {
     const { isMobile, theme } = this.context;
     const { openKeys } = this.state;
-    const { localizedPageData, demos } = this.props;
+    const { localizedPageData, demos, intl } = this.props;
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
@@ -324,9 +325,14 @@ class MainContent extends Component {
             </section>
             {componentPage && (
               <div className="fixed-widgets">
-                <div>
-                  <Button onClick={this.changeTheme}>{theme}</Button>
-                </div>
+                <Tooltip title={intl.formatMessage({ id: `app.theme.switch.${theme}` })}>
+                  <Avatar
+                    className={classNames('fixed-widgets-avatar', `fixed-widgets-avatar-${theme}`)}
+                    size={44}
+                    onClick={this.changeTheme}
+                    icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
+                  />
+                </Tooltip>
               </div>
             )}
             <PrevAndNext prev={prev} next={next} />

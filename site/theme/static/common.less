@@ -179,8 +179,18 @@ a {
   position: fixed;
   z-index: 2147483640;
   bottom: 102px;
-  right: 30px;
+  right: 32px;
+  cursor: pointer;
   & > div {
     display: block;
+  }
+  & &-avatar {
+    background-color: #fff;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    &-default {
+    }
+    &-dark {
+    }
   }
 }
