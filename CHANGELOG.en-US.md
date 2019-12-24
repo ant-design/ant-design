@@ -19,6 +19,7 @@ timeline: true
 
 `2019-12-14`
 
+- 💄 Optimize Steps `subTitle` UI when `labelPlacement="vertical"`. [#20325](https://github.com/ant-design/ant-design/pull/20325)
 - 🐞 Fix upload preview not support ico file type issue. [#20375](https://github.com/ant-design/ant-design/pull/20375) [@Rustin-Liu](https://github.com/Rustin-Liu)
 - 🐞 Fix Form feedback icon combine Input `suffix` display not correct. [#20363](https://github.com/ant-design/ant-design/pull/20363)
 - 🐞 Fix Tag `onClick` been triggered when close it. [#20355](https://github.com/ant-design/ant-design/pull/20355)

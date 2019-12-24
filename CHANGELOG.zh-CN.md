@@ -19,6 +19,7 @@ timeline: true
 
 `2019-12-14`
 
+- 💄 优化 Steps `subTitle` 在 `labelPlacement="vertical"` 下的展现方式。[#20325](https://github.com/ant-design/ant-design/pull/20325)
 - 🐞 修复 Upload 组件预览不支持 `.ico` 文件问题。[#20375](https://github.com/ant-design/ant-design/pull/20375) [@Rustin-Liu](https://github.com/Rustin-Liu)
 - 🐞 修复 Form feedback 图标结合 Input `suffix` 显示不正确。[#20363](https://github.com/ant-design/ant-design/pull/20363)
 - 🐞 修复 Tag 关闭时 `onClick` 被触发的问题。[#20355](https://github.com/ant-design/ant-design/pull/20355)
