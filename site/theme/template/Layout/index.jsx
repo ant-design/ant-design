@@ -70,6 +70,9 @@ export default class Layout extends React.Component {
     const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
 
+    // for dark.css timestamp to remove cache
+    this.timestamp = new Date().getTime();
+
     this.state = {
       appLocale,
       isMobile,
@@ -142,7 +145,7 @@ export default class Layout extends React.Component {
       style.type = 'text/css';
       style.rel = 'stylesheet';
       style.id = 'theme-style';
-      style.href = `/dark.css?timestamp=${new Date().getTime()}`;
+      style.href = `/dark.css?timestamp=${this.timestamp}`;
       if (persist) {
         localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
       }
