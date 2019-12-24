@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
 
 import Icon from '../Icon';
-import Santa from './Santa';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -150,6 +149,7 @@ class Header extends React.Component {
         key="version"
         className="version"
         size="small"
+        style={{ width: 110 }}
         dropdownMatchSelectWidth={false}
         defaultValue={antdVersion}
         onChange={this.handleVersionChange}
@@ -268,7 +268,6 @@ class Header extends React.Component {
                 alt="Ant Design"
                 src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
               />
-              <Santa />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>

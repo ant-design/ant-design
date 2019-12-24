@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import ResizeObserver from 'rc-resize-observer';
@@ -298,7 +297,5 @@ class Affix extends React.Component<AffixProps, AffixState> {
     return <ConfigConsumer>{this.renderAffix}</ConfigConsumer>;
   }
 }
-
-polyfill(Affix);
 
 export default Affix;

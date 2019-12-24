@@ -7,7 +7,7 @@ debug: true
 ---
 
 ```jsx
-import { Input, AutoComplete, Form, TreeSelect } from 'antd';
+import { Input, AutoComplete, Form, TreeSelect, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
 const formItemLayout = {
@@ -54,6 +54,17 @@ ReactDOM.render(
         <AutoComplete>
           <Input.Search />
         </AutoComplete>
+      </Input.Group>
+    </Form.Item>
+    <Form.Item label="Input Group 和 Button 结合" {...formItemLayout}>
+      <Input.Group compact>
+        <TreeSelect style={{ width: '20%' }} />
+        <AutoComplete>
+          <Input.Search />
+        </AutoComplete>
+        <Button type="primary" icon={<SearchOutlined />}>
+          Search
+        </Button>
       </Input.Group>
     </Form.Item>
   </Form>,

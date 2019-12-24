@@ -548,6 +548,43 @@ exports[`renders ./components/typography/demo/paragraph-debug.md correctly 1`] =
 </div>
 `;
 
+exports[`renders ./components/typography/demo/suffix.md correctly 1`] = `
+<div>
+  <div
+    class="ant-slider"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <div
+      class="ant-slider-track"
+      style="left:0%;right:auto;width:0%"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-valuemax="10"
+      aria-valuemin="1"
+      aria-valuenow="1"
+      class="ant-slider-handle"
+      role="slider"
+      style="left:0%;right:auto;transform:translateX(-50%)"
+      tabindex="0"
+    />
+    <div
+      class="ant-slider-mark"
+    />
+  </div>
+  <div
+    class="ant-typography ant-typography-ellipsis"
+  >
+    To be, or not to be, that is a question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune--William Shakespeare
+  </div>
+</div>
+`;
+
 exports[`renders ./components/typography/demo/text.md correctly 1`] = `
 <div>
   <span

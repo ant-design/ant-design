@@ -1,4 +1,3 @@
-import * as PropTypes from 'prop-types';
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -54,20 +53,6 @@ export default class Progress extends React.Component<ProgressProps> {
     size: 'default',
     gapDegree: 0,
     strokeLinecap: 'round',
-  };
-
-  static propTypes = {
-    status: PropTypes.oneOf(ProgressStatuses),
-    type: PropTypes.oneOf(ProgressTypes),
-    showInfo: PropTypes.bool,
-    percent: PropTypes.number,
-    width: PropTypes.number,
-    strokeWidth: PropTypes.number,
-    strokeLinecap: PropTypes.oneOf(['round', 'square']),
-    strokeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    trailColor: PropTypes.string,
-    format: PropTypes.func,
-    gapDegree: PropTypes.number,
   };
 
   getPercentNumber() {

@@ -23,8 +23,6 @@ declare module 'rc-tabs*';
 declare module 'rc-tree';
 declare module 'rc-tree/lib/util';
 
-declare module 'rc-calendar';
-
 declare module 'rc-input-number';
 
 declare module 'rc-collapse';
@@ -51,12 +49,6 @@ declare module 'rc-switch';
 
 declare module 'rc-upload';
 
-declare module 'react-lazy-load';
-
-declare module 'dom-closest';
-
-declare module 'dom-scroll-into-view';
-
 declare module '*.json' {
   const value: any;
   export const version: string;
@@ -64,6 +56,3 @@ declare module '*.json' {
 }
 
 declare module 'react-copy-to-clipboard';
-
-// https://github.com/ant-design/ant-design/pull/19254
-declare module 'react-lifecycles-compat';

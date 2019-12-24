@@ -1,6 +1,5 @@
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { polyfill } from 'react-lifecycles-compat';
 import { EnterOutlined } from '@ant-design/icons';
 
 import TextArea from '../input/TextArea';
@@ -133,7 +132,5 @@ class Editable extends React.Component<EditableProps, EditableState> {
     );
   }
 }
-
-polyfill(Editable);
 
 export default Editable;

@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import { polyfill } from 'react-lifecycles-compat';
 import Radio from './radio';
 import {
   RadioGroupProps,
@@ -161,5 +160,4 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   }
 }
 
-polyfill(RadioGroup);
 export default RadioGroup;
