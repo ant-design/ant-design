@@ -68,16 +68,9 @@ pre[class*='language-'] {
   overflow: auto;
 }
 
-:not(pre) > code[class*='language-'],
+[data-theme='dark'] :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
   background: @component-background;
-}
-
-[data-theme='dark'] {
-  :not(pre) > code[class*='language-'],
-  pre[class*='language-'] {
-    background: #f2f4f5;
-  }
 }
 
 /* Inline code */

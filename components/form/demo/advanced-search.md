@@ -102,7 +102,7 @@ ReactDOM.render(
   padding: 24px;
   background: #fbfbfb;
   border: 1px solid #d9d9d9;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .ant-advanced-search-form .ant-form-item {
@@ -130,6 +130,8 @@ ReactDOM.render(
 [data-theme="dark"] .ant-advanced-search-form  {
   background: rgba(255,255,255,0.04);
   border: 1px solid #434343;
+  padding: 24px;
+  border-radius: 2px;
 }
 [data-theme="dark"] #components-form-demo-advanced-search .search-result-list {
   border: 1px dashed #434343;
