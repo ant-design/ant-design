@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.26.4
 
-`2019-12-14`
+`2019-12-22`
 
 - 💄 Optimize Steps `subTitle` UI when `labelPlacement="vertical"`. [#20325](https://github.com/ant-design/ant-design/pull/20325)
 - 🐞 Fix upload preview not support ico file type issue. [#20375](https://github.com/ant-design/ant-design/pull/20375) [@Rustin-Liu](https://github.com/Rustin-Liu)
