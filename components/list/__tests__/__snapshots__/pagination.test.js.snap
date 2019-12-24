@@ -376,7 +376,7 @@ exports[`List.pagination should change page size work 2`] = `
               style="height: 0px; overflow: hidden;"
             >
               <div
-                aria-selected="true"
+                aria-selected="false"
                 id="rc_select_TEST_OR_SSR_list_0"
                 role="option"
               >
@@ -400,8 +400,8 @@ exports[`List.pagination should change page size work 2`] = `
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-selected="true"
-                    class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                    aria-selected="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
                       class="ant-select-item-option-content"
@@ -432,8 +432,8 @@ exports[`List.pagination should change page size work 2`] = `
                     />
                   </div>
                   <div
-                    aria-selected="false"
-                    class="ant-select-item ant-select-item-option"
+                    aria-selected="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   >
                     <div
                       class="ant-select-item-option-content"

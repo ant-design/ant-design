@@ -146,7 +146,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
   />
   <div
     class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    style="margin-left:100%"
   >
     <div
       aria-hidden="false"
