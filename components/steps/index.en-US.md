@@ -52,7 +52,7 @@ A single step in the step bar.
 | disabled | Disable click | boolean | false |  |
 
 <style>
-.steps-content {
+[data-theme="dark"] .steps-content {
   border: 1px dashed #303030;
   background-color: rgba(255,255,255,0.04);
   color: rgba(255,255,255,0.65);
