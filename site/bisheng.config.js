@@ -73,6 +73,8 @@ module.exports = {
       // Design
       原则: 1,
       Principles: 1,
+      全局规则: 2,
+      'Global Rules': 2,
     },
     docVersions: {
       '0.9.x': 'http://09x.ant.design',

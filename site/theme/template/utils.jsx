@@ -7,6 +7,17 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
   const menuItems = [];
   const sortFn = (a, b) => (a.order || 0) - (b.order || 0);
   menuMeta.sort(sortFn).forEach(meta => {
+    // Format
+    if (meta.category) {
+      meta.category = meta.category[locale] || meta.category;
+    }
+    if (meta.type) {
+      meta.type = meta.type[locale] || meta.type;
+    }
+    if (meta.title) {
+      meta.title = meta.title[locale] || meta.title;
+    }
+
     if (!meta.category) {
       menuItems.push(meta);
       return;
@@ -28,15 +39,14 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
       return;
     }
 
-    const category = meta.category[locale] || meta.category;
-    let group = menuItems.find(i => i.title === category);
+    let group = menuItems.find(i => i.title === meta.category);
 
     if (!group) {
       group = {
         type: 'category',
-        title: category,
+        title: meta.category,
         children: [],
-        order: categoryOrder[category],
+        order: categoryOrder[meta.category],
       };
       menuItems.push(group);
     }
@@ -58,16 +68,20 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
     }
   });
 
-  console.warn('>>>', menuItems);
-
-  return menuItems
-    .map(i => {
-      if (i.children) {
-        i.children = i.children.sort(sortFn);
+  function nestSort(list) {
+    return list.sort(sortFn).map(item => {
+      if (item.children) {
+        return {
+          ...item,
+          children: nestSort(item.children),
+        };
       }
-      return i;
-    })
-    .sort(sortFn);
+
+      return item;
+    });
+  }
+
+  return nestSort(menuItems);
 }
 
 export function isZhCN(pathname) {

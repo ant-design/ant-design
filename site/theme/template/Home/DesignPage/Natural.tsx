@@ -70,17 +70,77 @@ const shapes: Shape[] = [
   {
     type: 'shape',
     source: CenterLeaf,
-    frames: getFrames({ originY: 1, x: 60, y: 62 }, 6),
+    frames: [
+      { frame: 0, originY: 1, x: 60, y: 62, rotate: 0 },
+      { frame: 30, rotate: -7 },
+      { frame: 60, rotate: 9 },
+      { frame: 90, rotate: -7 },
+      { frame: 120, rotate: 0 },
+    ],
   },
   {
     type: 'shape',
     source: LeftLeaf,
-    frames: getFrames({ originX: 1, originY: 1, x: 56, y: 96 }, 0),
+    frames: [
+      {
+        frame: 0,
+        originX: 1,
+        originY: 1,
+        x: 56,
+        y: 96,
+        cubic: Hitu.CUBIC_EASE_IN_OUT,
+      },
+      {
+        frame: 30,
+        rotate: -4,
+
+        cubic: Hitu.CUBIC_EASE_IN_OUT,
+      },
+      {
+        frame: 60,
+        rotate: 6,
+        cubic: Hitu.CUBIC_EASE_IN_OUT,
+      },
+      {
+        frame: 90,
+        rotate: -4,
+      },
+      {
+        frame: 120,
+        rotate: 0,
+      },
+    ],
   },
   {
     type: 'shape',
     source: RightLeaf,
-    frames: getFrames({ originX: 0, originY: 1, x: 64, y: 96 }, 12),
+    frames: [
+      {
+        frame: 0,
+        originX: 0,
+        originY: 1,
+        x: 64,
+        y: 96,
+      },
+      {
+        frame: 30,
+        rotate: -4,
+        cubic: Hitu.CUBIC_EASE_IN_OUT,
+      },
+      {
+        frame: 60,
+        rotate: 6,
+        cubic: Hitu.CUBIC_EASE_IN_OUT,
+      },
+      {
+        frame: 90,
+        rotate: -4,
+      },
+      {
+        frame: 120,
+        rotate: 0,
+      },
+    ],
   },
 ];
 
