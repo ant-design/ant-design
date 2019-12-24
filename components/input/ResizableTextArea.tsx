@@ -48,6 +48,17 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
   }
 
+  handleResize = (size: { width: number; height: number }) => {
+    const { autoSize, autosize, onResize } = this.props;
+    if (typeof onResize === 'function') {
+      onResize(size);
+    }
+    if (!(autoSize || autosize)) {
+      return;
+    }
+    this.resizeOnNextFrame();
+  };
+
   resizeOnNextFrame = () => {
     raf.cancel(this.nextFrameActionId);
     this.nextFrameActionId = raf(this.resizeTextarea);
@@ -74,7 +85,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   renderTextArea = () => {
-    const { prefixCls, autoSize, autosize, className, disabled } = this.props;
+    const { prefixCls, autosize, className, disabled } = this.props;
     const { textareaStyles, resizing } = this.state;
     warning(
       autosize === undefined,
@@ -88,6 +99,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       'autosize',
       'defaultValue',
       'allowClear',
+      'onResize',
     ]);
     const cls = classNames(prefixCls, className, {
       [`${prefixCls}-disabled`]: disabled,
@@ -103,7 +115,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       ...(resizing ? { overflow: 'hidden' } : null),
     };
     return (
-      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!(autoSize || autosize)}>
+      <ResizeObserver onResize={this.handleResize}>
         <textarea {...otherProps} className={cls} style={style} ref={this.saveTextArea} />
       </ResizeObserver>
     );

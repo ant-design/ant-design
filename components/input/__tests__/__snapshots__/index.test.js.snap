@@ -626,7 +626,6 @@ exports[`TextArea allowClear should change type when click 1`] = `
         value="111"
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -756,7 +755,6 @@ exports[`TextArea allowClear should change type when click 2`] = `
         value=""
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -808,7 +806,6 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
         value=""
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -856,7 +853,6 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
         value=""
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -908,7 +904,6 @@ exports[`TextArea allowClear should not show icon if defaultValue is undefined, 
         value=""
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -958,7 +953,6 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
         value=""
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -1006,7 +1000,6 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
         value=""
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -1056,7 +1049,6 @@ exports[`TextArea allowClear should not show icon if value is undefined, null or
         value=""
       >
         <ResizeObserver
-          disabled={true}
           onResize={[Function]}
         >
           <textarea
@@ -1100,7 +1092,6 @@ exports[`TextArea should support disabled 1`] = `
       value=""
     >
       <ResizeObserver
-        disabled={true}
         onResize={[Function]}
       >
         <textarea
@@ -1144,7 +1135,6 @@ exports[`TextArea should support maxLength 1`] = `
       value=""
     >
       <ResizeObserver
-        disabled={true}
         onResize={[Function]}
       >
         <textarea
