@@ -156,7 +156,7 @@
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "~2.9.0",
-    "antd-pro-merge-less": "^2.0.23",
+    "antd-pro-merge-less": "^2.0.24",
     "antd-theme-generator": "^1.1.6",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
