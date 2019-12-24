@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.26.4
 
-`2019-12-14`
+`2019-12-22`
 
 - 💄 优化 Steps `subTitle` 在 `labelPlacement="vertical"` 下的展现方式。[#20325](https://github.com/ant-design/ant-design/pull/20325)
 - 🐞 修复 Upload 组件预览不支持 `.ico` 文件问题。[#20375](https://github.com/ant-design/ant-design/pull/20375) [@Rustin-Liu](https://github.com/Rustin-Liu)
