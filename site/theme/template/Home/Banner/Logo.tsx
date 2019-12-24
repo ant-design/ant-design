@@ -84,9 +84,9 @@ export default function Logo() {
         className="home-card-logo-icon"
         loop={loop}
         defaultPlay={false}
-        frames={60}
+        frames={6}
         onFrame={frame => {
-          if (frame === 11) {
+          if (frame === 5) {
             const newIndex = (iconIndex + 1) % ICONS.length;
             setIconIndex(newIndex);
           }
@@ -104,35 +104,6 @@ export default function Logo() {
                 scaleY: 1,
                 opacity: 1,
                 cubic: Hitu.CUBIC_EASE,
-              },
-              {
-                frame: 10,
-                scaleX: 1.1,
-                scaleY: 1.1,
-                opacity: 0,
-              },
-              {
-                frame: 11,
-                scaleX: 0.7,
-                scaleY: 0.7,
-                opacity: 0,
-                cubic: Hitu.CUBIC_EASE,
-              },
-              {
-                frame: 20,
-                scaleX: 1.1,
-                scaleY: 1.1,
-                opacity: 1,
-              },
-              {
-                frame: 30,
-                scaleX: 0.95,
-                scaleY: 0.95,
-              },
-              {
-                frame: 40,
-                scaleX: 1,
-                scaleY: 1,
               },
             ],
           },
