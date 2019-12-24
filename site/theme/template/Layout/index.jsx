@@ -142,7 +142,7 @@ export default class Layout extends React.Component {
       style.type = 'text/css';
       style.rel = 'stylesheet';
       style.id = 'theme-style';
-      style.href = '/dark.css';
+      style.href = `/dark.css?timestamp=${new Date().getTime()}`;
       if (persist) {
         localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
       }
