@@ -67,7 +67,8 @@ title: TreeSelect
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| checkable | 是否可选 | boolean | true | 3.9.3 |
+| checkable | checkbox是否可选 | boolean | true | 3.9.3 |
+| selectable | 是否可选中 | boolean | true |  |
 | disableCheckbox | 禁掉 checkbox | boolean | false |  |
 | disabled | 是否禁用 | boolean | false |  |
 | isLeaf | 是否是叶子节点 | boolean | false |  |
