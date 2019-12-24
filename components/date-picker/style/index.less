@@ -6,6 +6,14 @@
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 @picker-text-height: 40px;
 
+.picker-padding(@input-height, @font-size, @padding-horizontal) {
+  // font height probably 22.0001， So use floor better
+  @font-height: floor(@font-size * @line-height-base) + 2;
+  @paddng-top: (@input-height - @font-height) / 2;
+  @paddng-bottom: @input-height - @font-height - @paddng-top;
+  padding: @paddng-top @padding-horizontal @paddng-bottom;
+}
+
 .@{picker-prefix-cls} {
   @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) - 2 *
     @input-padding-vertical-base - 2 * @border-width-base;
@@ -16,10 +24,9 @@
   @arrow-size: 10px;
 
   .reset-component;
+  .picker-padding(@input-height-base, @font-size-base, @input-padding-horizontal-base);
   display: inline-flex;
   align-items: center;
-  padding: (@input-height-base - floor(@font-size-base * @line-height-base) - 2) / 2
-    @input-padding-horizontal-base;
   background: @component-background;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
@@ -76,8 +83,7 @@
 
   // Size
   &-large {
-    padding: (@input-height-lg - floor(@font-size-lg * @line-height-base) - 2) / 2
-      @input-padding-horizontal-lg;
+    .picker-padding(@input-height-lg, @font-size-lg, @input-padding-horizontal-lg);
 
     .@{picker-prefix-cls}-input > input {
       font-size: @font-size-lg;
@@ -85,8 +91,7 @@
   }
 
   &-small {
-    padding: (@input-height-sm - floor(@font-size-base * @line-height-base) - 2) / 2
-      @input-padding-horizontal-sm;
+    .picker-padding(@input-height-sm, @font-size-base, @input-padding-horizontal-sm);
   }
 
   &-suffix {
