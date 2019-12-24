@@ -91,6 +91,7 @@ export default class Layout extends React.Component {
 
   componentDidMount() {
     const { theme } = this.state;
+    const { location } = this.props;
     const { router } = this.context;
     router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
@@ -108,7 +109,7 @@ export default class Layout extends React.Component {
         this.setTheme('default', false);
       }
     });
-    this.setTheme(theme);
+    this.setTheme(/^\/?components/.test(location.pathname) ? theme : 'default');
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
