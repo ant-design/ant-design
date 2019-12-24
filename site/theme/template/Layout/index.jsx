@@ -54,6 +54,9 @@ enquireScreen(b => {
 });
 const SITE_THEME_STORE_KEY = 'site-theme';
 
+// for dark.css timestamp to remove cache
+const timestamp = new Date().getTime();
+
 export default class Layout extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
@@ -69,9 +72,6 @@ export default class Layout extends React.Component {
     super(props);
     const { pathname } = props.location;
     const appLocale = utils.isZhCN(pathname) ? cnLocale : enLocale;
-
-    // for dark.css timestamp to remove cache
-    this.timestamp = new Date().getTime();
 
     this.state = {
       appLocale,
@@ -145,7 +145,7 @@ export default class Layout extends React.Component {
       style.type = 'text/css';
       style.rel = 'stylesheet';
       style.id = 'theme-style';
-      style.href = `/dark.css?timestamp=${this.timestamp}`;
+      style.href = `/dark.css?timestamp=${timestamp}`;
       if (persist) {
         localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
       }
