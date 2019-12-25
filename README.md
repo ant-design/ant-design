@@ -27,7 +27,7 @@ English | [简体中文](./README-zh_CN.md)
 - 🌈 Enterprise-class UI designed for web applications.
 - 📦 A set of high-quality React components out of the box.
 - 🛡 Written in TypeScript with predictable static types.
-- ⚙️ The whole package of development and design resources and tools.
+- ⚙️ Whole package of design resources and development tools.
 - 🌍 Internationalization support for dozens of languages.
 - 🎨 Powerful theme customization in every detail.
 
