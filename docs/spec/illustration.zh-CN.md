@@ -41,7 +41,7 @@ title: 插画
 
 <div style="text-align:center;">
   <img alt="Swatch" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yr0NQZ4ECycAAAAAAAAAAABkARQnAQ" />
-  <i>海兔色板</i>
+  <p><i>海兔色板</i></p>
 </div>
 
 ### 海兔默认资产颜色
@@ -66,31 +66,31 @@ title: 插画
 
 <div style="text-align:center;">
   <img alt="People component" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*09cDSb88sjgAAAAAAAAAAABkARQnAQ" />
-  <i>基于自然的人物头身比例</i>
+  <p><i>基于自然的人物头身比例</i></p>
 </div>
 
 同时，我们结合情感化设计，将 9 种常见的职业角色进行人物设计吗。结合职业本身的一些特质，我们也赋予了他们不同气质特质，来满足各种业务场景的使用。
 
 <div style="text-align:center;">
   <img alt="Professional role" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xjrVRoIZtYwAAAAAAAAAAABkARQnAQ" />
-  <i>9 种常见职业角色设计</i>
+  <p><i>9 种常见职业角色设计</i></p>
 </div>
 
 有了基础的人物设计，我们将人物进行分解，然后搭配设计好的骨骼系统。来为人物增加各种姿态动作的复用和延展。
 
 <div style="text-align:center;">
   <img alt="Character decomposition" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uoxQS6xUq5UAAAAAAAAAAABkARQnAQ" />
-  <i>角色设计人物分解</i>
+  <p><i>角色设计人物分解</i></p>
 </div>
 
 <div style="text-align:center;">
   <img alt="Skeletal system" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9-cATIWgPx8AAAAAAAAAAABkARQnAQ" />
-  <i>HiTu 骨骼系统</i>
+  <p><i>HiTu 骨骼系统</i></p>
 </div>
 
 <div style="text-align:center;">
   <img alt="Attitude reuse" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*F-QpQL91SvYAAAAAAAAAAABkARQnAQ" />
-  <i>人物姿态复用</i>
+  <p><i>人物姿态复用</i></p>
 </div>
 
 ### 元素组件
@@ -103,7 +103,7 @@ title: 插画
 
 <div style="text-align:center;">
   <img alt="Design by sense" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FcRKRLwPIz4AAAAAAAAAAABkARQnAQ" />
-  <i>根据业务场景设计的元素组件</i>
+  <p><i>根据业务场景设计的元素组件</i></p>
 </div>
 
 # 设计应用
