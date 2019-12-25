@@ -73,7 +73,7 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 <style>
-.site-drawer-render-in-current-wrapper {
+[data-theme="dark"] .site-drawer-render-in-current-wrapper {
   background: #000;
   border: 1px solid #303030;
 }
