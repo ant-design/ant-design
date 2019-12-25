@@ -31,7 +31,7 @@ ReactDOM.render(
 ```
 
 ```css
-.ant-input-number {
+.code-box-demo .ant-input-number {
   margin-right: 10px;
 }
 ```

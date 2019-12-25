@@ -24,7 +24,7 @@ ReactDOM.render(<Switch defaultChecked onChange={onChange} />, mountNode);
 ```
 
 <style>
-.ant-switch {
+.code-box-demo .ant-switch {
   margin-bottom: 8px;
 }
 </style>
