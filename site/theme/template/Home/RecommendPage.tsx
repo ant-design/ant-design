@@ -54,7 +54,7 @@ const RecommendBlock = ({
 }: RecommendBlockProps) => {
   return (
     <a
-      className={classNames('recommend-block', main && 'main')}
+      className={classNames('recommend-block', main && 'recommend-block-main')}
       href={href}
       target="_blank"
       rel="noopener noreferrer"

@@ -1,3 +1,5 @@
+@import '../../../components/style/themes/default.less';
+
 @header-height: 64px;
 @menu-item-border: 2px;
 
@@ -207,5 +209,11 @@
     right: 16px;
     color: #aaa;
     font-size: 12px;
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .github-btn {
+    display: none;
   }
 }
