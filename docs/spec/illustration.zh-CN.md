@@ -37,91 +37,68 @@ title: 插画
 
 ### 海兔色板
 
-海兔的色彩配色体系是基于 Ant Design 色板的场景应用，与 UI 色彩体系的应用会有所不同。图形化的配色体系会相对更加的灵活可变。基于 Ant Design 的基础色板我们进行了明度的调整，扩大图形化设计的宽容度，使用选择时候更加高效易用，由于是出自 Ant Design 的色彩体系，和其他 UI 资产完美兼容。
+<img class="preview-img" align="right" description="海兔色板" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yr0NQZ4ECycAAAAAAAAAAABkARQnAQ" />
 
-<div style="text-align:center;">
-  <img alt="Swatch" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yr0NQZ4ECycAAAAAAAAAAABkARQnAQ" />
-  <p><i>海兔色板</i></p>
-</div>
+海兔的色彩配色体系是基于 Ant Design 色板的场景应用，与 UI 色彩体系的应用会有所不同。图形化的配色体系会相对更加的灵活可变。基于 Ant Design 的基础色板我们进行了明度的调整，扩大图形化设计的宽容度，使用选择时候更加高效易用，由于是出自 Ant Design 的色彩体系，和其他 UI 资产完美兼容。
 
 ### 海兔默认资产颜色
 
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*t4D6QaFM2DAAAAAAAAAAAABkARQnAQ" />
+
 通过搜资调研，我们发现在企业级产品中。色彩的使用上蓝色，白色会占很大的比重。我们选取了色板中最具科技感，且代表着探索，钻研感的极客蓝作为我们的主色。
 
-<div style="text-align:center;">
-  <img alt="Default color" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*t4D6QaFM2DAAAAAAAAAAAABkARQnAQ" />
-</div>
+<br />
+
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fI2hSI8v0bgAAAAAAAAAAABkARQnAQ" />
 
 基于 Adobe Color 的三元取色工具，和 3D 立体马赛克球，结合我们自己的海兔色板。可以轻松得到了我们 Dedult 版本的基础色板。
 
-<div style="text-align:center;">
-  <img alt="Color panel" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fI2hSI8v0bgAAAAAAAAAAABkARQnAQ" />
-</div>
+<br />
 
 # 设计资产
 
 ### 人物组件
 
+<img class="preview-img" align="right" alt="基于自然的人物头身比例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*09cDSb88sjgAAAAAAAAAAABkARQnAQ" />
+
 基于自然的设计原则，我们不推荐使用 Q 班卡通和过于夸张艺术化的设计风格。相比之下，接近自然真人头人比例的风格更是我们所推荐的。
 
-<div style="text-align:center;">
-  <img alt="People component" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*09cDSb88sjgAAAAAAAAAAABkARQnAQ" />
-  <p><i>基于自然的人物头身比例</i></p>
-</div>
+<br />
+
+<img class="preview-img" align="right" alt="9 种常见职业角色设计" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xjrVRoIZtYwAAAAAAAAAAABkARQnAQ" />
 
 同时，我们结合情感化设计，将 9 种常见的职业角色进行人物设计吗。结合职业本身的一些特质，我们也赋予了他们不同气质特质，来满足各种业务场景的使用。
 
-<div style="text-align:center;">
-  <img alt="Professional role" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xjrVRoIZtYwAAAAAAAAAAABkARQnAQ" />
-  <p><i>9 种常见职业角色设计</i></p>
-</div>
+<br />
+
+<img class="preview-img" align="right" alt="角色设计人物分解" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uoxQS6xUq5UAAAAAAAAAAABkARQnAQ" />
+
+<img class="preview-img" align="right" alt="HiTu 骨骼系统" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9-cATIWgPx8AAAAAAAAAAABkARQnAQ" />
+
+<img class="preview-img" align="right" alt="人物姿态复用" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*F-QpQL91SvYAAAAAAAAAAABkARQnAQ" />
 
 有了基础的人物设计，我们将人物进行分解，然后搭配设计好的骨骼系统。来为人物增加各种姿态动作的复用和延展。
 
-<div style="text-align:center;">
-  <img alt="Character decomposition" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uoxQS6xUq5UAAAAAAAAAAABkARQnAQ" />
-  <p><i>角色设计人物分解</i></p>
-</div>
-
-<div style="text-align:center;">
-  <img alt="Skeletal system" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9-cATIWgPx8AAAAAAAAAAABkARQnAQ" />
-  <p><i>HiTu 骨骼系统</i></p>
-</div>
-
-<div style="text-align:center;">
-  <img alt="Attitude reuse" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*F-QpQL91SvYAAAAAAAAAAABkARQnAQ" />
-  <p><i>人物姿态复用</i></p>
-</div>
+<br />
 
 ### 元素组件
 
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-LbbSads11EAAAAAAAAAAABkARQnAQ" />
+
+<img class="preview-img" align="right" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FcRKRLwPIz4AAAAAAAAAAABkARQnAQ" />
+
 记忆点源于与众不同，专业感源于整齐划一。元素组件指代的是业务场景中一些业务元素，状态元素图形化的世界缤纷多变，我们希望在保持统一性的同时不去限时设计者的创意空间，元素组件的设计上，我们为了保持一定的韵律感，推荐设计师在 1024\*1024 的网格中绘制组件，且圆角的大小保持 8 的倍数关系。
 
-<div style="text-align:center;">
-  <img alt="Radius size" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-LbbSads11EAAAAAAAAAAABkARQnAQ" />
-</div>
-
-<div style="text-align:center;">
-  <img alt="Design by sense" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FcRKRLwPIz4AAAAAAAAAAABkARQnAQ" />
-  <p><i>根据业务场景设计的元素组件</i></p>
-</div>
+<br />
 
 # 设计应用
 
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*puHVQJEe-oIAAAAAAAAAAABkARQnAQ" />
+
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*W-PzSadIFeAAAAAAAAAAAABkARQnAQ" />
+
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OJoaQ77tczIAAAAAAAAAAABkARQnAQ" />
+
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IySSSoBaGPYAAAAAAAAAAABkARQnAQ" />
+
 有了丰富的资产组件，我们应该如何使用呢？在 HiTu 的设计使用指引中，我推荐设计者在使用资产的过程中构建 Z 轴向的空间概念，将整幅画面拆分成前景，中景以及背景三个层次，在组件的排放时候，前景凸显重要的元素（如人，核心元素组件等），中间交代所处环境，背景则渲染烘托氛围，在颜色的使用和透明上也是前景的饱和度和透明度最高，逐级降低。
-
-<div style="text-align:center;">
-  <img alt="Depth" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*puHVQJEe-oIAAAAAAAAAAABkARQnAQ" />
-</div>
-
-<div style="text-align:center;">
-  <img alt="Case 1" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*W-PzSadIFeAAAAAAAAAAAABkARQnAQ" />
-</div>
-
-<div style="text-align:center;">
-  <img alt="Case 2" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OJoaQ77tczIAAAAAAAAAAABkARQnAQ" />
-</div>
-
-<div style="text-align:center;">
-  <img alt="Case 3" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IySSSoBaGPYAAAAAAAAAAABkARQnAQ" />
-</div>
