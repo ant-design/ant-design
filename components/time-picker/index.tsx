@@ -3,6 +3,7 @@ import * as React from 'react';
 import DatePicker from '../date-picker';
 import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
 import warning from '../_util/warning';
+import { Omit } from '../_util/type';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -12,7 +13,7 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
   return <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />;
 });
 
-export interface TimePickerProps extends PickerTimeProps<Moment> {
+export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
   addon?: () => React.ReactNode;
 }
 
