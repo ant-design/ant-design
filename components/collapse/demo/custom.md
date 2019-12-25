@@ -25,19 +25,12 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const customPanelStyle = {
-  background: '#f7f7f7',
-  borderRadius: 4,
-  marginBottom: 24,
-  border: 0,
-  overflow: 'hidden',
-};
-
 ReactDOM.render(
   <Collapse
     bordered={false}
     defaultActiveKey={['1']}
     expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
+    className="site-collapse-custom-collapse"
   >
     <Panel header="This is panel header 1" key="1" className="site-collapse-custom-panel">
       <p>{text}</p>
@@ -54,7 +47,7 @@ ReactDOM.render(
 ```
 
 ```css
-.site-collapse-custom-panel {
+.site-collapse-custom-collapse .site-collapse-custom-panel {
   background: #f7f7f7;
   border-radius: 2px;
   margin-bottom: 24px;
@@ -64,7 +57,8 @@ ReactDOM.render(
 ```
 
 <style>
-  .site-collapse-custom-panel {
+  [data-theme="dark"] .site-collapse-custom-collapse .site-collapse-custom-panel {
     background: rgba(255,255,255,0.04);
+    border: 0px;
   }
 </style>
