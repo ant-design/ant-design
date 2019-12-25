@@ -9,7 +9,7 @@ import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import { categories, Categories, CategoriesKeys } from './fields';
 
-type ThemeType = 'filled' | 'outlined' | 'twoTone';
+export type ThemeType = 'filled' | 'outlined' | 'twoTone';
 
 const allIcons: {
   [key: string]: any;
@@ -84,6 +84,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
         <Category
           key={category}
           title={category}
+          theme={theme}
           icons={icons}
           newIcons={IconDisplay.newIconNames}
         />
