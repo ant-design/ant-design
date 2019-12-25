@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Avatar, Tooltip } from 'antd';
+
 import { injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import get from 'lodash/get';
@@ -270,7 +271,8 @@ class MainContent extends Component {
 
   changeTheme = () => {
     const { theme, setTheme } = this.context;
-    setTheme(theme !== 'dark' ? 'dark' : 'default');
+    const nextTheme = theme !== 'dark' ? 'dark' : 'default';
+    setTheme(nextTheme);
   };
 
   render() {

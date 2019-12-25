@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { IntlProvider } from 'react-intl';
+import { presetPalettes } from '@ant-design/colors';
+import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
@@ -157,6 +159,12 @@ export default class Layout extends React.Component {
     this.setState({
       theme,
     });
+    const iconTwoToneThemeMap = {
+      dark: ['#177ddc', '#111d2c'],
+      default: presetPalettes.blue.primary,
+    };
+    console.log('qwefqwef', iconTwoToneThemeMap[theme]);
+    setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
   };
 
   render() {
