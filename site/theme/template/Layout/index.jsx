@@ -163,7 +163,6 @@ export default class Layout extends React.Component {
       dark: ['#177ddc', '#111d2c'],
       default: presetPalettes.blue.primary,
     };
-    console.log('qwefqwef', iconTwoToneThemeMap[theme]);
     setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
   };
 
