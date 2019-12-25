@@ -223,7 +223,7 @@
 
 // Descriptions
 // ---
-@descriptions-bg: fade(@white, 4%);
+@descriptions-bg: @background-color-light;
 
 // Modal
 // ---
@@ -300,7 +300,7 @@
 
 // Table
 // --
-@table-header-bg: #1d1d1d;
+@table-header-bg: @background-color-light;
 @table-header-bg-sm: @table-header-bg;
 @table-body-sort-bg: fade(@white, 1%);
 @table-row-hover-bg: #262626;
@@ -332,7 +332,7 @@
 
 // Avatar
 // ---
-@avatar-bg: #5a5a5a;
+@avatar-bg: fade(@white, 30%);
 
 // Calendar
 // ---
@@ -353,7 +353,7 @@
 
 // Card
 // ---
-@card-actions-background: fade(@white, 4%);
+@card-actions-background: @background-color-light;
 @card-skeleton-bg: #303030;
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
   0 5px 12px 4px rgba(0, 0, 0, 0.27);
@@ -365,6 +365,12 @@
 // Comment
 // ---
 @comment-bg: @component-background;
+@comment-author-time-color: fade(@white, 30%);
+@comment-action-hover-color: fade(@white, 65%);
+
+// Rate
+// ---
+@rate-star-bg: fade(@white, 12%);
 
 // Switch
 // ---

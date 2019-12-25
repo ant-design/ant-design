@@ -19,11 +19,13 @@
     &,
     a {
       background: @component-background;
-      color: @text-color;
+      color: @site-text-color;
     }
   }
-  p {
-    color: @text-color;
+  .code-box-description {
+    p {
+      color: @site-text-color;
+    }
   }
   a.edit-button .anticon {
     color: @icon-color;
@@ -340,6 +342,17 @@
 
 [data-theme='dark'] {
   .code-box {
+    .code-box-title {
+      &,
+      a {
+        color: fade(@white, 65%);
+      }
+    }
+    .code-box-description {
+      p {
+        color: fade(@white, 65%);
+      }
+    }
     &-codepen {
       background: transparent
         url('https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/R5sDUSunb1/OtZslpOjYXijshDERXwc.svg')

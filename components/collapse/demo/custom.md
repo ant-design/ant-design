@@ -39,16 +39,32 @@ ReactDOM.render(
     defaultActiveKey={['1']}
     expandIcon={({ isActive }) => <CaretRightOutlined rotate={isActive ? 90 : 0} />}
   >
-    <Panel header="This is panel header 1" key="1" style={customPanelStyle}>
+    <Panel header="This is panel header 1" key="1" className="site-collapse-custom-panel">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 2" key="2" style={customPanelStyle}>
+    <Panel header="This is panel header 2" key="2" className="site-collapse-custom-panel">
       <p>{text}</p>
     </Panel>
-    <Panel header="This is panel header 3" key="3" style={customPanelStyle}>
+    <Panel header="This is panel header 3" key="3" className="site-collapse-custom-panel">
       <p>{text}</p>
     </Panel>
   </Collapse>,
   mountNode,
 );
 ```
+
+```css
+.site-collapse-custom-panel {
+  background: #f7f7f7;
+  border-radius: 2px;
+  margin-bottom: 24px;
+  border: 0px;
+  overflow: hidden;
+}
+```
+
+<style>
+  .site-collapse-custom-panel {
+    background: rgba(255,255,255,0.04);
+  }
+</style>
