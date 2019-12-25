@@ -6,7 +6,7 @@
 
 .@{calendar-prefix-cls} {
   .reset-component;
-  background: @calendar-bg;
+  background: @calendar-full-bg;
 
   // ========================= Header =========================
   &-header {
@@ -32,6 +32,7 @@
     border: 0;
     border-top: @border-width-base @border-style-base @border-color-split;
     border-radius: 0;
+    background: @calendar-full-panel-bg;
 
     .@{calendar-picker-prefix-cls}-month-panel,
     .@{calendar-picker-prefix-cls}-date-panel {
@@ -84,7 +85,7 @@
       width: 100%;
       text-align: right;
       border: 0;
-      background: @calendar-bg;
+      background: @calendar-full-bg;
 
       .@{calendar-picker-prefix-cls}-body {
         th,

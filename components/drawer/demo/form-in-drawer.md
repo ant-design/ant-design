@@ -142,18 +142,7 @@ class DrawerForm extends React.Component {
               </Col>
             </Row>
           </Form>
-          <div
-            style={{
-              position: 'absolute',
-              right: 0,
-              bottom: 0,
-              width: '100%',
-              borderTop: '1px solid #e9e9e9',
-              padding: '10px 16px',
-              background: '#fff',
-              textAlign: 'right',
-            }}
-          >
+          <div className="site-form-in-drawer-wrapper">
             <Button onClick={this.onClose} style={{ marginRight: 8 }}>
               Cancel
             </Button>
@@ -169,3 +158,23 @@ class DrawerForm extends React.Component {
 
 ReactDOM.render(<DrawerForm />, mountNode);
 ```
+
+```css
+.site-form-in-drawer-wrapper {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px 16px;
+  border-top: 1px solid #e9e9e9;
+  background: #fff;
+  text-align: right;
+}
+```
+
+<style>
+[data-theme="dark"] .site-form-in-drawer-wrapper {
+  border-top: 1px solid #303030;
+  background: #1f1f1f;
+}
+</style>
