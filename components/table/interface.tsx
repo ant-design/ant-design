@@ -96,7 +96,8 @@ export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
 
 export type ColumnsType<RecordType = unknown> = (
   | ColumnGroupType<RecordType>
-  | ColumnType<RecordType>)[];
+  | ColumnType<RecordType>
+)[];
 
 export interface SelectionItem {
   key: string;

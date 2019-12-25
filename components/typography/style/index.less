@@ -156,6 +156,11 @@
       color: @text-color-secondary;
       pointer-events: none;
     }
+
+    // Fix Editable Textarea flash in Firefox
+    textarea {
+      -moz-transition: none;
+    }
   }
 
   // list

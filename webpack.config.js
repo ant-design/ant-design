@@ -49,6 +49,8 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     externalMoment(config);
     addLocales(config);
     addDarkTheme(config);
+    // Reduce non-minified dist files size
+    config.optimization.usedExports = true;
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
       // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin

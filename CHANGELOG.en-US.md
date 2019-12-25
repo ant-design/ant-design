@@ -15,6 +15,56 @@ timeline: true
 
 ---
 
+## 3.26.4
+
+`2019-12-22`
+
+- 💄 Optimize Steps `subTitle` UI when `labelPlacement="vertical"`. [#20325](https://github.com/ant-design/ant-design/pull/20325)
+- 🐞 Fix upload preview not support ico file type issue. [#20375](https://github.com/ant-design/ant-design/pull/20375) [@Rustin-Liu](https://github.com/Rustin-Liu)
+- 🐞 Fix Form feedback icon combine Input `suffix` display not correct. [#20363](https://github.com/ant-design/ant-design/pull/20363)
+- 🐞 Fix Tag `onClick` been triggered when close it. [#20355](https://github.com/ant-design/ant-design/pull/20355)
+- 🐞 Fix Cascader component form check color trigger issue. [#20347](https://github.com/ant-design/ant-design/pull/20347) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 Disallow auto focus input after triggering `onSearch` event in mobile and tablet devices. [#20332](https://github.com/ant-design/ant-design/pull/20332) [@YaoKaiLun](https://github.com/YaoKaiLun)
+- 🐞 Fix Tabs ink bar missing transition animation. [#20283](https://github.com/ant-design/ant-design/pull/20283)
+- 🐞 Fix TreeNode without `icon` show white block in `showIcon` mode. [#20274](https://github.com/ant-design/ant-design/pull/20274)
+- TypeScript
+  - ⚡️ Update filters define in Table `onChange`. [#20337](https://github.com/ant-design/ant-design/pull/20337) [@MrHeer](https://github.com/MrHeer)
+
+## 3.26.3
+
+`2019-12-14`
+
+- 🛠 support `unpkg` field in `package.json`. [#20193](https://github.com/ant-design/ant-design/pull/20193)
+- 🐞 Fix Tree `showLine` and `showIcon` missing icon. [#20196](https://github.com/ant-design/ant-design/pull/20196)
+- 🐞 Fix Modal combine Drawer cause invalid scroll problem. [#20242](https://github.com/ant-design/ant-design/pull/20242)
+- 🐞 Fix Drawer `switchScrollingEffect prop on a DOM element` warning. [#20175](https://github.com/ant-design/ant-design/pull/20175)
+- 🐞 Fix Select Option `label` definition. [#20190](https://github.com/ant-design/ant-design/pull/20190) [@ZhechenLi](https://github.com/ZhechenLi)
+- 💄 Optimize Form feedback icon padding. [#20164](https://github.com/ant-design/ant-design/pull/20164) [@Satloff](https://github.com/Satloff)
+- 💄 Add less variables for Select/Cascader to optimize dropdown padding and border radius. [#20156](https://github.com/ant-design/ant-design/pull/20156) [@Satloff](https://github.com/Satloff)
+
+## 3.26.2
+
+`2019-12-10`
+
+- 🐞 Fix DatePicker `disabledTime` TypeScript definition to be optional. [#20153](https://github.com/ant-design/ant-design/pull/20153) [@khaledkhalil94](https://github.com/khaledkhalil94)
+- 🐞 Fix Transfer's `title` of `dataSource` TypeScript definition to be optional. [#20144](https://github.com/ant-design/ant-design/pull/20144) [@mraiguo](https://github.com/mraiguo)
+
+## 3.26.1
+
+`2019-12-09`
+
+- 🐞 Fix List pagination options text align. [#20037](https://github.com/ant-design/ant-design/issues/20037)
+- 🐞 Fix Button text not align well in Chrome. [#20059](https://github.com/ant-design/ant-design/pull/20059)
+- 🐞 Fix DescriptionItem `className` error applied to label. [#20067](https://github.com/ant-design/ant-design/pull/20067) [@Liu-Ya](https://github.com/Liu-Ya)
+- 🐞 Fix Tree duplicated icons when `showLine` is true. [#20090](https://github.com/ant-design/ant-design/issues/20090)
+- 🐞 Fix Editable Typography flush in Firefox. [#20118](https://github.com/ant-design/ant-design/pull/20118)
+- 🐞 Improve Icon `component` definition to be compatible with create-react-app svg component. [#20142](https://github.com/ant-design/ant-design/pull/20142)
+- Table
+  - 🐞 Fix small table header border missing. [#20030](https://github.com/ant-design/ant-design/issues/20030)
+  - 🐞 Fix `filterIcon` throws error when render string or number.
+  - 🐞 Fix `filterIcon` shows wrong title when returns Tooltip. [#20049](https://github.com/ant-design/ant-design/issues/20049)
+  - 🐞 Fix columns have 9px align issue in Windows Chrome. [#19952](https://github.com/ant-design/ant-design/issues/19952)
+
 ## 3.26.0
 
 `2019-12-01`
