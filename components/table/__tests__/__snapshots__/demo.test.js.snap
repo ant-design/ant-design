@@ -60,7 +60,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -80,7 +80,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -7316,7 +7316,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -7336,7 +7336,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -8121,7 +8121,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -8192,7 +8192,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -8212,7 +8212,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -8257,7 +8257,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -8277,7 +8277,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                                   fill="currentColor"
                                   focusable="false"
                                   height="1em"
-                                  viewBox="0 0 1024 1024"
+                                  viewBox="64 64 896 896"
                                   width="1em"
                                 >
                                   <path
@@ -8868,7 +8868,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -8888,7 +8888,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -8927,7 +8927,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -8947,7 +8947,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -8986,7 +8986,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -9006,7 +9006,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="0 0 1024 1024"
+                              viewBox="64 64 896 896"
                               width="1em"
                             >
                               <path
@@ -9607,7 +9607,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                     fill="currentColor"
                                     focusable="false"
                                     height="1em"
-                                    viewBox="0 0 1024 1024"
+                                    viewBox="64 64 896 896"
                                     width="1em"
                                   >
                                     <path
@@ -9627,7 +9627,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                     fill="currentColor"
                                     focusable="false"
                                     height="1em"
-                                    viewBox="0 0 1024 1024"
+                                    viewBox="64 64 896 896"
                                     width="1em"
                                   >
                                     <path
@@ -9698,7 +9698,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                viewBox="0 0 1024 1024"
+                                viewBox="64 64 896 896"
                                 width="1em"
                               >
                                 <path
@@ -9718,7 +9718,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                 fill="currentColor"
                                 focusable="false"
                                 height="1em"
-                                viewBox="0 0 1024 1024"
+                                viewBox="64 64 896 896"
                                 width="1em"
                               >
                                 <path
@@ -9763,7 +9763,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                     fill="currentColor"
                                     focusable="false"
                                     height="1em"
-                                    viewBox="0 0 1024 1024"
+                                    viewBox="64 64 896 896"
                                     width="1em"
                                   >
                                     <path
@@ -9783,7 +9783,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                                     fill="currentColor"
                                     focusable="false"
                                     height="1em"
-                                    viewBox="0 0 1024 1024"
+                                    viewBox="64 64 896 896"
                                     width="1em"
                                   >
                                     <path

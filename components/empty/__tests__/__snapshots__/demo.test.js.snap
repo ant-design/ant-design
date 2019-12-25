@@ -117,6 +117,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            readonly=""
             role="combobox"
             style="opacity:0"
             value=""

@@ -39,7 +39,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -109,7 +109,7 @@ exports[`Directory Tree DirectoryTree should expend all when use treeData and de
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -250,7 +250,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -410,7 +410,7 @@ exports[`Directory Tree defaultExpandAll 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -597,7 +597,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -659,7 +659,7 @@ exports[`Directory Tree defaultExpandParent 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -749,7 +749,7 @@ exports[`Directory Tree expand click 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -913,7 +913,7 @@ exports[`Directory Tree expand click 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1003,7 +1003,7 @@ exports[`Directory Tree expand click 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1065,7 +1065,7 @@ exports[`Directory Tree expand click 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1155,7 +1155,7 @@ exports[`Directory Tree expand double click 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1319,7 +1319,7 @@ exports[`Directory Tree expand double click 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1409,7 +1409,7 @@ exports[`Directory Tree expand double click 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1471,7 +1471,7 @@ exports[`Directory Tree expand double click 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1561,7 +1561,7 @@ exports[`Directory Tree expand with state control click 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1704,7 +1704,7 @@ exports[`Directory Tree expand with state control doubleClick 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1847,7 +1847,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1909,7 +1909,7 @@ exports[`Directory Tree expandedKeys update 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -2100,7 +2100,7 @@ exports[`Directory Tree group select 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -2260,7 +2260,7 @@ exports[`Directory Tree group select 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -2447,7 +2447,7 @@ exports[`Directory Tree group select 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -2607,7 +2607,7 @@ exports[`Directory Tree group select 2`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -2794,7 +2794,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -2954,7 +2954,7 @@ exports[`Directory Tree selectedKeys update 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
