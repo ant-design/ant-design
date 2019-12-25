@@ -84,9 +84,9 @@ export default function Logo() {
         className="home-card-logo-icon"
         loop={loop}
         defaultPlay={false}
-        frames={8}
+        frames={6}
         onFrame={frame => {
-          if (frame === 7) {
+          if (frame === 5) {
             const newIndex = (iconIndex + 1) % ICONS.length;
             setIconIndex(newIndex);
           }
