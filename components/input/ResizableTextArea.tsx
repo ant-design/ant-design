@@ -53,10 +53,9 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     if (typeof onResize === 'function') {
       onResize(size);
     }
-    if (!(autoSize || autosize)) {
-      return;
+    if (autoSize || autosize) {
+      this.resizeOnNextFrame();
     }
-    this.resizeOnNextFrame();
   };
 
   resizeOnNextFrame = () => {
