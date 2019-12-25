@@ -30,7 +30,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 1024 1024"
                 width="1em"
               >
                 <path
@@ -50,7 +50,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="64 64 896 896"
+                viewBox="0 0 1024 1024"
                 width="1em"
               >
                 <path
@@ -120,7 +120,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="64 64 896 896"
+                              viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
@@ -140,7 +140,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                               fill="currentColor"
                               focusable="false"
                               height="1em"
-                              viewBox="64 64 896 896"
+                              viewBox="0 0 1024 1024"
                               width="1em"
                             >
                               <path
