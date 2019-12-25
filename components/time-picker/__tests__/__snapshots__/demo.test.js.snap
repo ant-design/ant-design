@@ -137,10 +137,6 @@ exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-<<<<<<< HEAD
-=======
-      class="ant-time-picker-input"
->>>>>>> origin/master
       placeholder="Select time"
       readonly=""
       size="10"
@@ -185,10 +181,6 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-<<<<<<< HEAD
-=======
-      class="ant-time-picker-input"
->>>>>>> origin/master
       placeholder="Select time"
       readonly=""
       size="10"
@@ -233,11 +225,7 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
     class="ant-picker-input"
   >
     <input
-<<<<<<< HEAD
       disabled=""
-=======
-      class="ant-time-picker-input"
->>>>>>> origin/master
       placeholder="Select time"
       readonly=""
       size="10"
@@ -274,239 +262,14 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
 </div>
 `;
 
-<<<<<<< HEAD
-=======
-exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
-<span
-  class="ant-time-picker"
->
-  <input
-    class="ant-time-picker-input"
-    placeholder="Select time"
-    type="text"
-    value=""
-  />
-  <span
-    class="ant-time-picker-icon"
-  >
-    <i
-      aria-label="icon: clock-circle"
-      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="clock-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-        />
-      </svg>
-    </i>
-  </span>
-</span>
-`;
-
-exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
-<span
-  class="ant-time-picker"
->
-  <input
-    class="ant-time-picker-input"
-    placeholder="Select time"
-    type="text"
-    value=""
-  />
-  <span
-    class="ant-time-picker-icon"
-  >
-    <i
-      aria-label="icon: clock-circle"
-      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="clock-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-        />
-      </svg>
-    </i>
-  </span>
-</span>
-`;
-
-exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
-<span
-  class="ant-time-picker"
->
-  <input
-    class="ant-time-picker-input"
-    disabled=""
-    placeholder="Select time"
-    type="text"
-    value="12:08:23"
-  />
-  <span
-    class="ant-time-picker-icon"
-  >
-    <i
-      aria-label="icon: clock-circle"
-      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="clock-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-        />
-      </svg>
-    </i>
-  </span>
-</span>
-`;
-
->>>>>>> origin/master
 exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
 <div
   class="ant-picker"
 >
-<<<<<<< HEAD
   <div
     class="ant-picker-input"
   >
     <input
-=======
-  <input
-    class="ant-time-picker-input"
-    placeholder="Select time"
-    type="text"
-    value="12:08"
-  />
-  <span
-    class="ant-time-picker-icon"
-  >
-    <i
-      aria-label="icon: clock-circle"
-      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="clock-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-        />
-      </svg>
-    </i>
-  </span>
-  <i
-    aria-label="icon: close-circle"
-    class="anticon anticon-close-circle ant-time-picker-clear"
-    tabindex="-1"
-  >
-    <svg
-      aria-hidden="true"
-      class=""
-      data-icon="close-circle"
-      fill="currentColor"
-      focusable="false"
-      height="1em"
-      viewBox="64 64 896 896"
-      width="1em"
-    >
-      <path
-        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-      />
-    </svg>
-  </i>
-</span>
-`;
-
-exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`] = `
-<span
-  class="ant-time-picker"
->
-  <input
-    class="ant-time-picker-input"
-    placeholder="Select time"
-    type="text"
-    value=""
-  />
-  <span
-    class="ant-time-picker-icon"
-  >
-    <i
-      aria-label="icon: clock-circle"
-      class="anticon anticon-clock-circle ant-time-picker-clock-icon"
-    >
-      <svg
-        aria-hidden="true"
-        class=""
-        data-icon="clock-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
-      >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-        />
-        <path
-          d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-        />
-      </svg>
-    </i>
-  </span>
-</span>
-`;
-
-exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
-<div>
-  <span
-    class="ant-time-picker ant-time-picker-large"
-  >
-    <input
-      class="ant-time-picker-input"
->>>>>>> origin/master
       placeholder="Select time"
       readonly=""
       size="10"
@@ -575,10 +338,6 @@ exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`]
     class="ant-picker-input"
   >
     <input
-<<<<<<< HEAD
-=======
-      class="ant-time-picker-input"
->>>>>>> origin/master
       placeholder="Select time"
       readonly=""
       size="10"
@@ -636,7 +395,6 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
       <span
         class="ant-picker-separator"
       >
-<<<<<<< HEAD
         →
       </span>
     </div>
@@ -653,22 +411,6 @@ exports[`renders ./components/time-picker/demo/range-picker.md correctly 1`] = `
     <div
       class="ant-picker-active-bar"
       style="left:0;width:0;position:absolute"
-=======
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-        />
-      </svg>
-    </i>
-  </span>
-  <span
-    class="ant-time-picker ant-time-picker-small"
-  >
-    <input
-      class="ant-time-picker-input"
-      placeholder="Select time"
-      type="text"
-      value="12:08:23"
->>>>>>> origin/master
     />
     <span
       class="ant-picker-suffix"
@@ -905,19 +647,8 @@ exports[`renders ./components/time-picker/demo/suffix.md correctly 1`] = `
 <div
   class="ant-picker"
 >
-<<<<<<< HEAD
   <div
     class="ant-picker-input"
-=======
-  <input
-    class="ant-time-picker-input"
-    placeholder="Select time"
-    type="text"
-    value=""
-  />
-  <span
-    class="ant-time-picker-icon"
->>>>>>> origin/master
   >
     <input
       placeholder="Select time"
@@ -957,19 +688,8 @@ exports[`renders ./components/time-picker/demo/value.md correctly 1`] = `
 <div
   class="ant-picker"
 >
-<<<<<<< HEAD
   <div
     class="ant-picker-input"
-=======
-  <input
-    class="ant-time-picker-input"
-    placeholder="Select time"
-    type="text"
-    value=""
-  />
-  <span
-    class="ant-time-picker-icon"
->>>>>>> origin/master
   >
     <input
       placeholder="Select time"

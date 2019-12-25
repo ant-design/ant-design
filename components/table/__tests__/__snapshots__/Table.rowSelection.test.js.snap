@@ -49,7 +49,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                           <span
                             class="ant-checkbox-inner"
                           />
-<<<<<<< HEAD
                         </span>
                       </label>
                     </div>
@@ -72,13 +71,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   >
                     <label
                       class="ant-checkbox-wrapper"
-=======
-                        </div>
-                      </span>
-                    </th>
-                    <th
-                      class="ant-table-row-cell-last"
->>>>>>> origin/master
                     >
                       <span
                         class="ant-checkbox"
@@ -161,17 +153,11 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                   <td
                     class="ant-table-cell ant-table-selection-column"
                   >
-<<<<<<< HEAD
                     <label
                       class="ant-checkbox-wrapper"
                     >
                       <span
                         class="ant-checkbox"
-=======
-                    <tr>
-                      <th
-                        class="ant-table-selection-column ant-table-row-cell-last"
->>>>>>> origin/master
                       >
                         <input
                           class="ant-checkbox-input"
@@ -323,7 +309,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                           <span
                             class="ant-checkbox-inner"
                           />
-<<<<<<< HEAD
                         </span>
                       </label>
                     </div>
@@ -348,13 +333,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                   >
                     <label
                       class="ant-checkbox-wrapper"
-=======
-                        </div>
-                      </span>
-                    </th>
-                    <th
-                      class="ant-table-fixed-columns-in-body ant-table-row-cell-last"
->>>>>>> origin/master
                     >
                       <span
                         class="ant-checkbox"
@@ -443,53 +421,11 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
                     style="position:sticky;left:0"
                   >
-<<<<<<< HEAD
                     <label
                       class="ant-checkbox-wrapper"
                     >
                       <span
                         class="ant-checkbox"
-=======
-                    <tr>
-                      <th
-                        class="ant-table-selection-column"
-                      >
-                        <span
-                          class="ant-table-header-column"
-                        >
-                          <div>
-                            <span
-                              class="ant-table-column-title"
-                            >
-                              <div
-                                class="ant-table-selection"
-                              >
-                                <label
-                                  class="ant-checkbox-wrapper"
-                                >
-                                  <span
-                                    class="ant-checkbox"
-                                  >
-                                    <input
-                                      class="ant-checkbox-input"
-                                      type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
-                                  </span>
-                                </label>
-                              </div>
-                            </span>
-                            <span
-                              class="ant-table-column-sorter"
-                            />
-                          </div>
-                        </span>
-                      </th>
-                      <th
-                        class="ant-table-row-cell-last"
->>>>>>> origin/master
                       >
                         <input
                           class="ant-checkbox-input"
@@ -650,11 +586,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
               <thead>
                 <tr>
                   <th
-<<<<<<< HEAD
                     class="ant-table-cell ant-table-selection-column"
-=======
-                    class="ant-table-selection-column ant-table-row-cell-last"
->>>>>>> origin/master
                   >
                     <div
                       class="ant-table-selection"

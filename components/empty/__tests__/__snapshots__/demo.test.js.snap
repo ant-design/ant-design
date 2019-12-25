@@ -528,11 +528,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
                         Name
                       </th>
                       <th
-<<<<<<< HEAD
                         class="ant-table-cell"
-=======
-                        class="ant-table-row-cell-last"
->>>>>>> origin/master
                       >
                         Age
                       </th>

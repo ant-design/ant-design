@@ -61,46 +61,45 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table"
       >
         <div
-          class="ant-table-content"
+          class="ant-table-container"
         >
           <div
-            class="ant-table-body"
+            class="ant-table-content"
           >
             <table
-              class=""
+              style="table-layout: auto;"
             >
               <colgroup>
                 <col />
               </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
+              <thead>
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
+                    <div
+                      class="ant-table-filter-column"
                     >
-                      <div>
+                      <span
+                        class="ant-table-filter-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-filter-trigger-container"
+                      >
                         <span
-                          class="ant-table-column-title"
+                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          role="button"
+                          tabindex="-1"
                         >
-                          Name
+                          string
                         </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
-                    <span
-                      class="ant-table-filter-icon ant-dropdown-trigger"
-                    >
-                      string
-                    </span>
+                      </span>
+                    </div>
                   </th>
                 </tr>
               </thead>
@@ -109,40 +108,36 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="0"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Jack
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Lucy
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Tom
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="3"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Jerry
                   </td>
@@ -201,53 +196,51 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
               <thead>
                 <tr>
                   <th
-<<<<<<< HEAD
                     class="ant-table-cell"
                   >
                     <div
                       class="ant-table-filter-column"
-=======
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
-                  >
-                    <span
-                      class="ant-table-header-column"
                     >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
-                    <span
-                      class="ant-tooltip-open ant-table-filter-icon ant-dropdown-trigger"
-                      style=""
-                    >
-                      Tooltip
-                    </span>
-                    <div>
-                      <div
-                        class="ant-tooltip ant-tooltip-placement-top zoom-big-fast-appear"
-                        style="left: -999px; top: -1003px; transform-origin: 50% 4px;"
+                      <span
+                        class="ant-table-filter-column-title"
                       >
-                        <div
-                          class="ant-tooltip-content"
+                        Name
+                      </span>
+                      <span
+                        class="ant-table-filter-trigger-container"
+                      >
+                        <span
+                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          role="button"
+                          tabindex="-1"
                         >
-                          <div
-                            class="ant-tooltip-arrow"
-                          />
-                          <div
-                            class="ant-tooltip-inner"
-                            role="tooltip"
+                          <span
+                            class="ant-tooltip-open"
                           >
-                            title
+                            Tooltip
+                          </span>
+                          <div>
+                            <div
+                              class="ant-tooltip"
+                              style="opacity: 0;"
+                            >
+                              <div
+                                class="ant-tooltip-content"
+                              >
+                                <div
+                                  class="ant-tooltip-arrow"
+                                />
+                                <div
+                                  class="ant-tooltip-inner"
+                                  role="tooltip"
+                                >
+                                  title
+                                </div>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
+                        </span>
+                      </span>
                     </div>
                   </th>
                 </tr>
@@ -257,40 +250,36 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="0"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Jack
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Lucy
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Tom
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="3"
                 >
                   <td
-                    class="ant-table-column-has-actions ant-table-column-has-filters"
+                    class="ant-table-cell"
                   >
                     Jerry
                   </td>
@@ -316,30 +305,27 @@ exports[`Table.filter renders filter correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table"
       >
         <div
-          class="ant-table-content"
+          class="ant-table-container"
         >
           <div
-            class="ant-table-body"
+            class="ant-table-content"
           >
             <table
-              class=""
+              style="table-layout: auto;"
             >
               <colgroup>
                 <col />
               </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
+              <thead>
                 <tr>
                   <th
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
->>>>>>> origin/master
+                    <div
+                      class="ant-table-filter-column"
                     >
                       <span
                         class="ant-table-filter-column-title"
@@ -649,11 +635,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
               <thead>
                 <tr>
                   <th
-<<<<<<< HEAD
                     class="ant-table-cell"
-=======
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
->>>>>>> origin/master
                   >
                     <div
                       class="ant-table-filter-column"
@@ -868,11 +850,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
               <thead>
                 <tr>
                   <th
-<<<<<<< HEAD
                     class="ant-table-cell"
-=======
-                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
->>>>>>> origin/master
                   >
                     <div
                       class="ant-table-filter-column"
