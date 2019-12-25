@@ -26,7 +26,7 @@ export default function Banner() {
             <FormattedMessage id="app.home.introduce" />
           </p>
 
-          <a className="video">
+          <a className="banner-video">
             <PlayCircleFilled /> <FormattedMessage id="app.home.play-video" />
           </a>
 

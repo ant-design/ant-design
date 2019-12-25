@@ -55,23 +55,6 @@ module.exports = {
     'app.home.product-kitchen-slogan': 'A Sketch toolset to enhance designers',
     'app.home.product-icons-slogan': 'A set of premium icons',
     'app.home.view-more': 'More articles',
-
-    'app.home.solution': 'Solution',
-    'app.home.components-explain':
-      'Based on the Ant Design language, we have provided a suite of out-of-the-box with high quality for developing and serving enterprise background applications, including the official React UI library and Angular, Vue implementations',
-    'app.home.product-landing-slogan':
-      'Landing Pages templates and specifications based of Ant Design language',
-    'app.home.tool-title': 'Tools & Resources',
-    'app.home.tool-package-title': 'Ant Design Resources',
-    'app.home.tool-package-content': 'Ant Design Resources Download',
-    'app.home.tool-library-title': 'Axure Library',
-    'app.home.tool-library-content': 'Beautifully visual Axure library',
-    'app.home.tool-kitchen-title': 'Kitchen',
-    'app.home.tool-kitchen-content': 'A Sketch tools for designers',
-    'app.home.recommend.yuque': 'Yuque, our favorite documentation tool',
-    'app.home.recommend.antv': 'G2Plot, the new charting library',
-    'app.home.more-mobile-react': 'Ant Design Mobile of React',
-    'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',
     'app.footer.repo': 'GitHub Repository',
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.course': 'Ant Design Practical Tutorial',
