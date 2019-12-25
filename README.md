@@ -24,10 +24,12 @@ English | [简体中文](./README-zh_CN.md)
 
 ## ✨ Features
 
-- An enterprise-class UI design system for web applications.
-- A set of high-quality React components out of the box.
-- Written in TypeScript with predictable static types.
-- The whole package of development and design resources and tools.
+- 🌈 Enterprise-class UI designed for web applications.
+- 📦 A set of high-quality React components out of the box.
+- 🛡 Written in TypeScript with predictable static types.
+- ⚙️ Whole package of design resources and development tools.
+- 🌍 Internationalization support for dozens of languages.
+- 🎨 Powerful theme customization in every detail.
 
 ## 🖥 Environment Support
 
@@ -52,8 +54,14 @@ yarn add antd
 ## 🔨 Usage
 
 ```jsx
-import { DatePicker } from 'antd';
-ReactDOM.render(<DatePicker />, mountNode);
+import { Button, DatePicker } from 'antd';
+
+const App = () => (
+  <>
+    <Button type="primary">PRESS ME</Button>
+    <DatePicker />
+  </>
+);
 ```
 
 And import style manually:
@@ -62,7 +70,7 @@ And import style manually:
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
-Or [import components on demand](https://ant.design/docs/react/getting-started#Import-on-Demand).
+Or use [babel-plugin-import](https://ant.design/docs/react/getting-started#Import-on-Demand).
 
 ### TypeScript
 
