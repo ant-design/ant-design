@@ -39,7 +39,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -92,7 +92,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -215,7 +215,7 @@ exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -326,7 +326,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -379,7 +379,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -537,7 +537,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -719,7 +719,7 @@ exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1002,7 +1002,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1162,7 +1162,7 @@ exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1349,7 +1349,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1397,7 +1397,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1535,7 +1535,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1602,7 +1602,7 @@ exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1688,7 +1688,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -1726,7 +1726,7 @@ exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
                 fill="currentColor"
                 focusable="false"
                 height="1em"
-                viewBox="0 0 1024 1024"
+                viewBox="64 64 896 896"
                 width="1em"
               >
                 <path
@@ -2207,7 +2207,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path
@@ -2250,7 +2250,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
                   fill="currentColor"
                   focusable="false"
                   height="1em"
-                  viewBox="0 0 1024 1024"
+                  viewBox="64 64 896 896"
                   width="1em"
                 >
                   <path

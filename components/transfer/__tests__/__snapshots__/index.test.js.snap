@@ -714,7 +714,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 type="button"
               >
                 <RightOutlined>
-                  <AntdIcon
+                  <ForwardRef(AntdIcon)
                     icon={
                       Object {
                         "icon": Object {
@@ -733,7 +733,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                           "tag": "svg",
                         },
                         "name": "right",
-                        "theme": "outline",
+                        "theme": "outlined",
                       }
                     }
                   >
@@ -762,7 +762,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                               "tag": "svg",
                             },
                             "name": "right",
-                            "theme": "outline",
+                            "theme": "outlined",
                           }
                         }
                       >
@@ -784,7 +784,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </AntdIcon>
+                  </ForwardRef(AntdIcon)>
                 </RightOutlined>
               </button>
             </Wave>
@@ -808,7 +808,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 type="button"
               >
                 <LeftOutlined>
-                  <AntdIcon
+                  <ForwardRef(AntdIcon)
                     icon={
                       Object {
                         "icon": Object {
@@ -827,7 +827,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                           "tag": "svg",
                         },
                         "name": "left",
-                        "theme": "outline",
+                        "theme": "outlined",
                       }
                     }
                   >
@@ -856,7 +856,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                               "tag": "svg",
                             },
                             "name": "left",
-                            "theme": "outline",
+                            "theme": "outlined",
                           }
                         }
                       >
@@ -878,7 +878,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </AntdIcon>
+                  </ForwardRef(AntdIcon)>
                 </LeftOutlined>
               </button>
             </Wave>

@@ -367,7 +367,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
           focusable="false"
           height="1em"
           style="-ms-transform:rotate(90deg);transform:rotate(90deg)"
-          viewBox="0 0 1024 1024"
+          viewBox="64 64 896 896"
           width="1em"
         >
           <path
@@ -415,7 +415,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="0 0 1024 1024"
+          viewBox="64 64 896 896"
           width="1em"
         >
           <path
@@ -448,7 +448,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
           fill="currentColor"
           focusable="false"
           height="1em"
-          viewBox="0 0 1024 1024"
+          viewBox="64 64 896 896"
           width="1em"
         >
           <path
@@ -676,6 +676,7 @@ exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""

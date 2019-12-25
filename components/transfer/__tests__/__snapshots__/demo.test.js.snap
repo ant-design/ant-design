@@ -2934,7 +2934,7 @@ exports[`renders ./components/transfer/demo/tree-transfer.md correctly 1`] = `
                           fill="currentColor"
                           focusable="false"
                           height="1em"
-                          viewBox="0 0 1024 1024"
+                          viewBox="64 64 896 896"
                           width="1em"
                         >
                           <path

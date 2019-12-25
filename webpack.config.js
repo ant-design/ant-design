@@ -4,6 +4,7 @@ const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const darkVars = require('./scripts/dark-vars');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { webpack } = getWebpackConfig;
 
@@ -39,6 +40,8 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
     ignoreMomentLocale(config);
     externalMoment(config);
     addLocales(config);
+    // Reduce non-minified dist files size
+    config.optimization.usedExports = true;
     // skip codesandbox ci
     if (!process.env.CSB_REPO) {
       // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
@@ -48,6 +51,10 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
           upload: process.env.CI === 'true',
           fail_build: true,
           exclude_assets: name => !['antd.min.js', 'antd.min.css'].includes(name),
+        }),
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
         }),
       );
     }
