@@ -15,6 +15,56 @@ timeline: true
 
 ---
 
+## 3.26.4
+
+`2019-12-22`
+
+- 💄 优化 Steps `subTitle` 在 `labelPlacement="vertical"` 下的展现方式。[#20325](https://github.com/ant-design/ant-design/pull/20325)
+- 🐞 修复 Upload 组件预览不支持 `.ico` 文件问题。[#20375](https://github.com/ant-design/ant-design/pull/20375) [@Rustin-Liu](https://github.com/Rustin-Liu)
+- 🐞 修复 Form feedback 图标结合 Input `suffix` 显示不正确。[#20363](https://github.com/ant-design/ant-design/pull/20363)
+- 🐞 修复 Tag 关闭时 `onClick` 被触发的问题。[#20355](https://github.com/ant-design/ant-design/pull/20355)
+- 🐞 修复 Cascader 组件 Form 校验触发时，鼠标悬浮显示颜色问题。[#20347](https://github.com/ant-design/ant-design/pull/20347) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 修复移动端点击搜索后，自动聚焦输入框，导致弹出键盘的问题。[#20332](https://github.com/ant-design/ant-design/pull/20332) [@YaoKaiLun](https://github.com/YaoKaiLun)
+- 🐞 修复 Tabs 高亮条宽度的 `transition` 过度动画失效的问题。[#20283](https://github.com/ant-design/ant-design/pull/20283)
+- 🐞 修复 TreeNode 不设置 `icon` 时会展示一个空白占位的问题。[#20274](https://github.com/ant-design/ant-design/pull/20274)
+- TypeScript
+  - ⚡️ 更新 Table `onChange` 中 `filters` 的定义。[#20337](https://github.com/ant-design/ant-design/pull/20337) [@MrHeer](https://github.com/MrHeer)
+
+## 3.26.3
+
+`2019-12-14`
+
+- 🛠 antd `package.json` 中补充 `unpkg` 字段。[#20193](https://github.com/ant-design/ant-design/pull/20193)
+- 🐞 修复 Tree `showLine` 和 `showIcon` 同时开启时 `[+]` `[-]` 图标丢失的问题。[#20196](https://github.com/ant-design/ant-design/pull/20196)
+- 🐞 修复 Modal 和 Drawer 结合使用时导致滚动失效的问题。[#20242](https://github.com/ant-design/ant-design/pull/20242)
+- 🐞 修复 Drawer `switchScrollingEffect prop on a DOM element` 警告。[#20175](https://github.com/ant-design/ant-design/pull/20175)
+- 🐞 修复 Select Option 的 `label` 属性定义。[#20190](https://github.com/ant-design/ant-design/pull/20190) [@ZhechenLi](https://github.com/ZhechenLi)
+- 💄 优化 Form 反馈图标的间距样式。[#20164](https://github.com/ant-design/ant-design/pull/20164) [@Satloff](https://github.com/Satloff)
+- 💄 Select/Cascader 新增和优化边距 padding 和圆角的相关 less 变量。[#20156](https://github.com/ant-design/ant-design/pull/20156) [@Satloff](https://github.com/Satloff)
+
+## 3.26.2
+
+`2019-12-10`
+
+- 🐞 修正 DatePicker `disabledTime` 属性 TypeScript 定义为可选。[#20153](https://github.com/ant-design/ant-design/pull/20153) [@khaledkhalil94](https://github.com/khaledkhalil94)
+- 🐞 修正 Transfer `dataSource` 的 `title` 属性 TypeScript 定义为可选。[#20144](https://github.com/ant-design/ant-design/pull/20144) [@mraiguo](https://github.com/mraiguo)
+
+## 3.26.1
+
+`2019-12-09`
+
+- 🐞 修复 List 下分页选项文本对齐问题。[#20037](https://github.com/ant-design/ant-design/issues/20037)
+- 🐞 修复 Chrome 下 Button 文字没有垂直居中的问题。[#20059](https://github.com/ant-design/ant-design/pull/20059)
+- 🐞 修复 DescriptionItem 的 `className` 错误应用于 label。[#20067](https://github.com/ant-design/ant-design/pull/20067) [@Liu-Ya](https://github.com/Liu-Ya)
+- 🐞 修复 Tree `showLine` 为 true 时展示多余图标的问题。[#20090](https://github.com/ant-design/ant-design/issues/20090)
+- 🐞 修复 Typography 可编辑组件在 Firefox 下闪动的问题。[#20118](https://github.com/ant-design/ant-design/pull/20118)
+- 🐞 修复 Icon `component` 的定义，使其兼容于 create-react-app 的 svg 组件定义。[#20142](https://github.com/ant-design/ant-design/pull/20142)
+- Table
+  - 🐞 修复小号 Table 表头边框丢失的问题。[#20030](https://github.com/ant-design/ant-design/issues/20030)
+  - 🐞 修复 `filterIcon` 返回字符串或数字时报错的问题。
+  - 🐞 修复 `filterIcon` 返回 Tooltip 时显示了错误的 `title`。[#20049](https://github.com/ant-design/ant-design/issues/20049)
+  - 🐞 修复在 Windows Chrome 下固定列有 9px 的对齐问题。[#19952](https://github.com/ant-design/ant-design/issues/19952)
+
 ## 3.26.0
 
 `2019-12-01`

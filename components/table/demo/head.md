@@ -19,7 +19,7 @@ title:
 
 Use `filters` to generate filter menu in columns, `onFilter` to determine filtered result, and `filterMultiple` to indicate whether it's multiple or single selection.
 
-Uses `defaultFilterValues` to make a column filtered by default.
+Uses `defaultFilteredValue` to make a column filtered by default.
 
 Use `sorter` to make a column sortable. `sorter` can be a function of the type `function(a, b) { ... }` for sorting data locally.
 
@@ -60,7 +60,6 @@ const columns = [
         ],
       },
     ],
-    defaultFilterValues: ['Jim'],
     // specify the condition of filtering result
     // here is that finding the name started with `value`
     onFilter: (value, record) => record.name.indexOf(value) === 0,

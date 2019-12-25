@@ -4,7 +4,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { Row, Col, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
-import { AppstoreFilled, AppstoreOutlined } from '@ant-design/icons';
+import { CodeFilled, CodeOutlined, BugFilled, BugOutlined } from '@ant-design/icons';
 import Demo from './Demo';
 import EditButton from './EditButton';
 import { ping, getMetaDescription } from '../utils';
@@ -12,10 +12,19 @@ import { ping, getMetaDescription } from '../utils';
 class ComponentDoc extends React.Component {
   state = {
     expandAll: false,
+    visibleAll: false,
     showRiddleButton: false,
   };
 
   componentDidMount() {
+    const { demos = {}, location = {} } = this.props;
+    if (location.hash) {
+      const demoKey = location.hash.split('-demo-')[1];
+      const demoData = demos[demoKey];
+      if (demoData && demoData.meta && demoData.meta.debug) {
+        this.setState({ visibleAll: true });
+      }
+    }
     this.pingTimer = ping(status => {
       if (status !== 'timeout' && status !== 'error') {
         this.setState({
@@ -28,12 +37,17 @@ class ComponentDoc extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     const { location } = this.props;
     const { location: nextLocation } = nextProps;
-    const { expandAll, showRiddleButton } = this.state;
-    const { expandAll: nextExpandAll, showRiddleButton: nextShowRiddleButton } = nextState;
+    const { expandAll, visibleAll, showRiddleButton } = this.state;
+    const {
+      expandAll: nextExpandAll,
+      visibleAll: nextVisibleAll,
+      showRiddleButton: nextShowRiddleButton,
+    } = nextState;
 
     if (
       nextLocation.pathname === location.pathname &&
       expandAll === nextExpandAll &&
+      visibleAll === nextVisibleAll &&
       showRiddleButton === nextShowRiddleButton
     ) {
       return false;
@@ -52,6 +66,13 @@ class ComponentDoc extends React.Component {
     });
   };
 
+  handleVisibleToggle = () => {
+    const { visibleAll } = this.state;
+    this.setState({
+      visibleAll: !visibleAll,
+    });
+  };
+
   render() {
     const {
       doc,
@@ -62,14 +83,16 @@ class ComponentDoc extends React.Component {
     } = this.props;
     const { content, meta } = doc;
     const demoValues = Object.keys(demos).map(key => demos[key]);
-    const { expandAll, showRiddleButton } = this.state;
-
+    const { expandAll, visibleAll, showRiddleButton } = this.state;
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
-    const showedDemo = demoValues.some(demo => demo.meta.only)
+    let showedDemo = demoValues.some(demo => demo.meta.only)
       ? demoValues.filter(demo => demo.meta.only)
       : demoValues.filter(demo => demo.preview);
+    if (!visibleAll) {
+      showedDemo = showedDemo.filter(item => !item.meta.debug);
+    }
     showedDemo
       .sort((a, b) => a.meta.order - b.meta.order)
       .forEach((demoData, index) => {
@@ -136,17 +159,34 @@ class ComponentDoc extends React.Component {
           )}
           <h2>
             <FormattedMessage id="app.component.examples" />
-            <Tooltip
-              title={
-                <FormattedMessage
-                  id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
-                />
-              }
-            >
-              <span className={expandTriggerClass} onClick={this.handleExpandToggle}>
-                {expandAll ? <AppstoreFilled /> : <AppstoreOutlined />}
-              </span>
-            </Tooltip>
+            <span style={{ float: 'right' }}>
+              <Tooltip
+                title={
+                  <FormattedMessage
+                    id={`app.component.examples.${expandAll ? 'collapse' : 'expand'}`}
+                  />
+                }
+              >
+                {expandAll ? (
+                  <CodeFilled className={expandTriggerClass} onClick={this.handleExpandToggle} />
+                ) : (
+                  <CodeOutlined className={expandTriggerClass} onClick={this.handleExpandToggle} />
+                )}
+              </Tooltip>
+              <Tooltip
+                title={
+                  <FormattedMessage
+                    id={`app.component.examples.${visibleAll ? 'hide' : 'visible'}`}
+                  />
+                }
+              >
+                {visibleAll ? (
+                  <BugFilled className={expandTriggerClass} onClick={this.handleVisibleToggle} />
+                ) : (
+                  <BugOutlined className={expandTriggerClass} onClick={this.handleVisibleToggle} />
+                )}
+              </Tooltip>
+            </span>
           </h2>
         </section>
         <Row gutter={16}>
