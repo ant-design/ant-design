@@ -613,6 +613,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
