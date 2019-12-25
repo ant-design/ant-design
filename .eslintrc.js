@@ -88,7 +88,6 @@ const eslintrc = {
     'react/static-property-placement': 0,
     'jest/no-test-callback': 0,
     'jest/expect-expect': 0,
-    'import/extensions': 0,
   },
   globals: {
     gtag: true,
