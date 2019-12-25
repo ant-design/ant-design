@@ -40,7 +40,7 @@ exports[`Input allowClear should change type when click 1`] = `
           onClick={[Function]}
           role="button"
         >
-          <ForwardRef(AntdIcon)
+          <AntdIcon
             className="ant-input-clear-icon"
             icon={
               Object {
@@ -115,7 +115,7 @@ exports[`Input allowClear should change type when click 1`] = `
                 </svg>
               </IconReact>
             </span>
-          </ForwardRef(AntdIcon)>
+          </AntdIcon>
         </CloseCircleFilled>
       </span>
     </span>
@@ -512,7 +512,7 @@ exports[`Input.Search should support suffix 1`] = `
             key="searchIcon"
             onClick={[Function]}
           >
-            <ForwardRef(AntdIcon)
+            <AntdIcon
               className="ant-input-search-icon"
               icon={
                 Object {
@@ -586,7 +586,7 @@ exports[`Input.Search should support suffix 1`] = `
                   </svg>
                 </IconReact>
               </span>
-            </ForwardRef(AntdIcon)>
+            </AntdIcon>
           </SearchOutlined>
         </span>
       </span>
@@ -643,7 +643,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
         onClick={[Function]}
         role="button"
       >
-        <ForwardRef(AntdIcon)
+        <AntdIcon
           className="ant-input-textarea-clear-icon"
           icon={
             Object {
@@ -718,7 +718,7 @@ exports[`TextArea allowClear should change type when click 1`] = `
               </svg>
             </IconReact>
           </span>
-        </ForwardRef(AntdIcon)>
+        </AntdIcon>
       </CloseCircleFilled>
     </span>
   </ClearableLabeledInput>
