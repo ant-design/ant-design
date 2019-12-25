@@ -37,7 +37,7 @@ title: 插画
 
 ### 海兔色板
 
-<img class="preview-img" align="right" description="海兔色板" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yr0NQZ4ECycAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" align="right" description="海兔色板" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5ZE6RrjW-jQAAAAAAAAAAABkARQnAQ" />
 
 海兔的色彩配色体系是基于 Ant Design 色板的场景应用，与 UI 色彩体系的应用会有所不同。图形化的配色体系会相对更加的灵活可变。基于 Ant Design 的基础色板我们进行了明度的调整，扩大图形化设计的宽容度，使用选择时候更加高效易用，由于是出自 Ant Design 的色彩体系，和其他 UI 资产完美兼容。
 
@@ -85,7 +85,7 @@ title: 插画
 
 <img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-LbbSads11EAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FcRKRLwPIz4AAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" align="right" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7JLsQ4whNKkAAAAAAAAAAABkARQnAQ" />
 
 记忆点源于与众不同，专业感源于整齐划一。元素组件指代的是业务场景中一些业务元素，状态元素图形化的世界缤纷多变，我们希望在保持统一性的同时不去限时设计者的创意空间，元素组件的设计上，我们为了保持一定的韵律感，推荐设计师在 1024\*1024 的网格中绘制组件，且圆角的大小保持 8 的倍数关系。
 
