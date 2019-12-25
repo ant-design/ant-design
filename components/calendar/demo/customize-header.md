@@ -23,7 +23,7 @@ function onPanelChange(value, mode) {
 }
 
 ReactDOM.render(
-  <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+  <div className="site-calendar-customize-header-wrapper">
     <Calendar
       fullscreen={false}
       headerRender={({ value, type, onChange, onTypeChange }) => {
@@ -105,3 +105,17 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+```css
+.site-calendar-customize-header-wrapper {
+  width: 300px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-calendar-customize-header-wrapper {
+    border: 1px solid #303030;
+  }
+</style>
