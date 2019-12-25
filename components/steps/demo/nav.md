@@ -95,3 +95,11 @@ ReactDOM.render(<Demo />, mountNode);
   box-shadow: 0px -1px 0 0 #e8e8e8 inset;
 }
 ```
+
+<style>
+[data-theme="dark"] .site-navigation-steps {
+  border-bottom: 1px solid #303030;
+  margin-bottom: 60px;
+  box-shadow: none;
+}
+</style>

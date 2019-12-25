@@ -180,11 +180,11 @@ ReactDOM.render(<App />, mountNode);
   padding-top: 16px;
 }
 
-.example {
+.code-box-demo .example {
   margin: 16px 0;
 }
 
-.example > * {
+.code-box-demo .example > * {
   margin-right: 8px;
 }
 

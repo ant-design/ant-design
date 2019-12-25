@@ -51,15 +51,3 @@ title: Steps
 | title | 标题 | string\|ReactNode | - |  |
 | subTitle | 子标题 | string\|ReactNode | - |  |
 | disabled | 禁用点击 | boolean | false |  |
-
-<style>
-[data-theme="dark"] .steps-content {
-  border: 1px dashed #303030;
-  background-color: rgba(255,255,255,0.04);
-  color: rgba(255,255,255,0.65);
-}
-[data-theme="dark"] .site-navigation-steps {
-  border-bottom: 1px solid #303030;
-  box-shadow: none;
-}
-</style>
