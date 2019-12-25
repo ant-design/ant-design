@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
 import Input from '../../input';
+import Tooltip from '../../tooltip';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 
@@ -686,6 +687,40 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
     expect(wrapper.find('.customize-icon').render()).toMatchSnapshot();
+  });
+
+  it('renders custom filter icon as string correctly', () => {
+    const filterIcon = () => 'string';
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('renders custom filter icon with right Tooltip title', () => {
+    const filterIcon = () => (
+      <Tooltip title="title" visible>
+        Tooltip
+      </Tooltip>
+    );
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/13028

@@ -192,7 +192,7 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
                 colSpan={1}
               >
                 <span
-                  className="ant-descriptions-item-label my-class ant-descriptions-item-colon"
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
                   key="label"
                 >
                   Product

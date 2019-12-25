@@ -36,7 +36,11 @@ exports[`Table renders JSX correctly 1`] = `
                     Name
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                     rowspan="2"
                   >
                     Age

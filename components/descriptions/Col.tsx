@@ -14,7 +14,7 @@ const Col: React.SFC<ColProps> = props => {
   const { child, bordered, colon, type, layout } = props;
   const { prefixCls, label, className, children, span = 1 } = child.props;
   const labelProps: any = {
-    className: classNames(`${prefixCls}-item-label`, className, {
+    className: classNames(`${prefixCls}-item-label`, {
       [`${prefixCls}-item-colon`]: colon,
       [`${prefixCls}-item-no-label`]: !label,
     }),

@@ -34,14 +34,10 @@ describe('site test', () => {
     });
     return resp;
   };
+
   const handleComponentName = name => {
-    const componentMap = {
-      descriptions: 'description list',
-    };
-    // eslint-disable-next-line no-unused-vars
-    const [_, componentName] = name.split('/');
-    const compName = componentName.toLowerCase().replace('-', '');
-    return componentMap[compName] || compName;
+    const componentName = name.split('/')[1];
+    return componentName.toLowerCase().replace('-', '');
   };
 
   const expectComponent = async component => {

@@ -136,7 +136,11 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                     </div>
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Email
                   </th>
@@ -336,7 +340,11 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                     Tags
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Action
                   </th>
@@ -622,7 +630,11 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                     Cash Assets
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Address
                   </th>
@@ -831,7 +843,11 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                     Home phone
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Address
                   </th>
@@ -1176,7 +1192,11 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                     </div>
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     <div
                       class="ant-table-filter-column"
@@ -1423,7 +1443,11 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                     Age
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Address
                   </th>
@@ -2322,7 +2346,11 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                       Address
                     </th>
                     <th
+<<<<<<< HEAD
                       class="ant-table-cell"
+=======
+                      class="ant-table-row-cell-last"
+>>>>>>> origin/master
                     >
                       Action
                     </th>
@@ -3329,7 +3357,11 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                       address
                     </th>
                     <th
+<<<<<<< HEAD
                       class="ant-table-cell"
+=======
+                      class="ant-table-row-cell-last"
+>>>>>>> origin/master
                     >
                       operation
                     </th>
@@ -3537,7 +3569,11 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                     address
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     operation
                   </th>
@@ -4040,8 +4076,12 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                     Long Column Long Column
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell ant-table-cell-ellipsis"
                     title="Long Column"
+=======
+                    class="ant-table-row-cell-ellipsis ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Long Column
                   </th>
@@ -4306,7 +4346,11 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                     Address
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Action
                   </th>
@@ -4609,7 +4653,11 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                     Age
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-break-word ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Address
                   </th>
@@ -4906,9 +4954,219 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
+<<<<<<< HEAD
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
+=======
+                  <tr>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Full Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Age
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 1
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 2
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 3
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 4
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 5
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 6
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 7
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 8
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word ant-table-row-cell-last"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Action
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
+>>>>>>> origin/master
                   >
                     John Brown
                   </td>
@@ -4921,6 +5179,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                   <td
                     class="ant-table-cell"
                   >
+<<<<<<< HEAD
                     New York Park
                   </td>
                   <td
@@ -5033,6 +5292,158 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 </tr>
               </tbody>
             </table>
+=======
+                    <tr>
+                      <th
+                        class="ant-table-row-cell-break-word"
+                      >
+                        <span
+                          class="ant-table-header-column"
+                        >
+                          <div>
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              Full Name
+                            </span>
+                            <span
+                              class="ant-table-column-sorter"
+                            />
+                          </div>
+                        </span>
+                      </th>
+                      <th
+                        class="ant-table-row-cell-break-word ant-table-row-cell-last"
+                      >
+                        <span
+                          class="ant-table-header-column"
+                        >
+                          <div>
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              Age
+                            </span>
+                            <span
+                              class="ant-table-column-sorter"
+                            />
+                          </div>
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="1"
+                    >
+                      <td
+                        class="ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                      <td
+                        class="ant-table-row-cell-break-word"
+                      >
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="2"
+                    >
+                      <td
+                        class="ant-table-row-cell-break-word"
+                      >
+                        Jim Green
+                      </td>
+                      <td
+                        class="ant-table-row-cell-break-word"
+                      >
+                        40
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-table-fixed-right"
+          >
+            <div
+              class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0)"
+            >
+              <div
+                class="ant-table-body-inner"
+              >
+                <table
+                  class="ant-table-fixed"
+                >
+                  <colgroup>
+                    <col
+                      style="width:100px;min-width:100px"
+                    />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead"
+                  >
+                    <tr>
+                      <th
+                        class="ant-table-row-cell-break-word ant-table-row-cell-last"
+                      >
+                        <span
+                          class="ant-table-header-column"
+                        >
+                          <div>
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              Action
+                            </span>
+                            <span
+                              class="ant-table-column-sorter"
+                            />
+                          </div>
+                        </span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="1"
+                    >
+                      <td
+                        class="ant-table-row-cell-break-word"
+                      >
+                        <a>
+                          action
+                        </a>
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="2"
+                    >
+                      <td
+                        class="ant-table-row-cell-break-word"
+                      >
+                        <a>
+                          action
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+>>>>>>> origin/master
           </div>
         </div>
       </div>
@@ -5264,9 +5675,263 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
+<<<<<<< HEAD
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
+=======
+                  <tr>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Full Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Age
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 1
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 2
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 3
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 4
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 5
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 6
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 7
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Column 8
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word ant-table-row-cell-last"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Action
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div
+              class="ant-table-body"
+              style="overflow-x:scroll;-webkit-transform:translate3d (0, 0, 0);max-height:300px;overflow-y:scroll"
+              tabindex="-1"
+            >
+              <table
+                class="ant-table-fixed"
+                style="width:1500px"
+              >
+                <colgroup>
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col />
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                </colgroup>
+                <tbody
+                  class="ant-table-tbody"
+                >
+                  <tr
+                    class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
+>>>>>>> origin/master
                   >
                     Edrward 0
                   </td>
@@ -5314,6 +5979,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                   <td
                     class="ant-table-cell"
                   >
+<<<<<<< HEAD
                     London Park no. 0
                   </td>
                   <td
@@ -5327,6 +5993,141 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+=======
+                    <td
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                    >
+                      Edrward 9
+                    </td>
+                    <td
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                    >
+                      32
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-row-cell-break-word"
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class=""
+                    >
+                      London Park no. 9
+                    </td>
+                    <td
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word"
+                    >
+                      <a>
+                        action
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div
+            class="ant-table-fixed-left"
+          >
+            <div
+              class="ant-table-header"
+            >
+              <table
+                class="ant-table-fixed"
+              >
+                <colgroup>
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                </colgroup>
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Full Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word ant-table-row-cell-last"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Age
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div
+              class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0)"
+            >
+              <div
+                class="ant-table-body-inner"
+                style="max-height:300px;overflow-y:scroll"
+              >
+                <table
+                  class="ant-table-fixed"
+>>>>>>> origin/master
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5392,6 +6193,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
+<<<<<<< HEAD
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
                     style="position:sticky;left:0"
@@ -5455,6 +6257,41 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+=======
+                  <tr>
+                    <th
+                      class="ant-table-row-cell-break-word ant-table-row-cell-last"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Action
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div
+              class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0)"
+            >
+              <div
+                class="ant-table-body-inner"
+                style="max-height:300px;overflow-y:scroll"
+              >
+                <table
+                  class="ant-table-fixed"
+>>>>>>> origin/master
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -6599,6 +7436,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                 >
+<<<<<<< HEAD
                   <td
                     class="ant-table-cell"
                   >
@@ -6617,6 +7455,86 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+=======
+                  <tr>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-break-word"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Age
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-row-cell-last"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Address
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div
+              class="ant-table-body"
+              style="max-height:240px;overflow-y:scroll"
+              tabindex="-1"
+            >
+              <table
+                class=""
+              >
+                <colgroup>
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col />
+                </colgroup>
+                <tbody
+                  class="ant-table-tbody"
+>>>>>>> origin/master
                 >
                   <td
                     class="ant-table-cell"
@@ -7207,6 +8125,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             <table
               style="table-layout:fixed"
             >
+<<<<<<< HEAD
               <colgroup>
                 <col />
                 <col />
@@ -7229,6 +8148,121 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-filter-column"
+=======
+              <table
+                class="ant-table-fixed"
+                style="width:calc(700px + 50%)"
+              >
+                <colgroup>
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:150px;min-width:150px"
+                  />
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                  <col
+                    style="width:100px;min-width:100px"
+                  />
+                  <col
+                    style="width:200px;min-width:200px"
+                  />
+                  <col />
+                  <col
+                    style="width:80px;min-width:80px"
+                  />
+                </colgroup>
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      rowspan="4"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                      <i
+                        aria-label="icon: filter"
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        tabindex="-1"
+                        title="Filter menu"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                          />
+                        </svg>
+                      </i>
+                    </th>
+                    <th
+                      class=""
+                      colspan="4"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Other
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class=""
+                      colspan="2"
+                    >
+                      <span
+                        class="ant-table-header-column"
+                      >
+                        <div>
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Company
+                          </span>
+                          <span
+                            class="ant-table-column-sorter"
+                          />
+                        </div>
+                      </span>
+                    </th>
+                    <th
+                      class="ant-table-fixed-columns-in-body ant-table-row-cell-break-word ant-table-row-cell-last"
+                      rowspan="4"
+>>>>>>> origin/master
                     >
                       <span
                         class="ant-table-filter-column-title"
@@ -8000,6 +9034,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   viewBox="64 64 896 896"
                   width="1em"
                 >
+<<<<<<< HEAD
                   <path
                     d="M533.2 492.3L277.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H188c-6.7 0-10.4 7.7-6.3 12.9L447.1 512 181.7 851.1A7.98 7.98 0 00188 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5zm304 0L581.9 166.1c-3-3.9-7.7-6.1-12.6-6.1H492c-6.7 0-10.4 7.7-6.3 12.9L751.1 512 485.7 851.1A7.98 7.98 0 00492 864h77.3c4.9 0 9.6-2.3 12.6-6.1l255.3-326.1c9.1-11.7 9.1-27.9 0-39.5z"
                   />
@@ -8093,6 +9128,12 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   >
                     <div
                       class="ant-table-filter-column"
+=======
+                  <tr>
+                    <th
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word ant-table-row-cell-last"
+                      rowspan="4"
+>>>>>>> origin/master
                     >
                       <span
                         class="ant-table-filter-column-title"
@@ -8289,6 +9330,181 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                           </span>
                         </div>
                       </span>
+<<<<<<< HEAD
+=======
+                      <i
+                        aria-label="icon: filter"
+                        class="anticon anticon-filter ant-dropdown-trigger"
+                        tabindex="-1"
+                        title="Filter menu"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          class=""
+                          data-icon="filter"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                          />
+                        </svg>
+                      </i>
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div
+              class="ant-table-body-outer"
+              style="-webkit-transform:translate3d (0, 0, 0)"
+            >
+              <div
+                class="ant-table-body-inner"
+                style="max-height:240px;overflow-y:scroll"
+              >
+                <table
+                  class="ant-table-fixed"
+                >
+                  <colgroup>
+                    <col
+                      style="width:100px;min-width:100px"
+                    />
+                  </colgroup>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="0"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="1"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="2"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="3"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="4"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="5"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="6"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="7"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="8"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="9"
+                    >
+                      <td
+                        class="ant-table-column-has-actions ant-table-column-has-filters ant-table-row-cell-break-word"
+                      >
+                        John Brown
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-table-fixed-right"
+          >
+            <div
+              class="ant-table-header"
+            >
+              <table
+                class="ant-table-fixed"
+              >
+                <colgroup>
+                  <col
+                    style="width:80px;min-width:80px"
+                  />
+                </colgroup>
+                <thead
+                  class="ant-table-thead"
+                >
+                  <tr>
+                    <th
+                      class="ant-table-row-cell-break-word ant-table-row-cell-last"
+                      rowspan="4"
+                    >
+>>>>>>> origin/master
                       <span
                         class="ant-table-filter-trigger-container"
                       >
@@ -8531,8 +9747,12 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                     Age
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
                     rowspan="2"
+=======
+                    class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Address
                   </th>
@@ -8842,7 +10062,12 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                     Name
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell ant-table-column-has-sorters"
+=======
+                    class="ant-table-row-cell-last"
+                    rowspan="2"
+>>>>>>> origin/master
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -9273,7 +10498,11 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                     Date
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Action
                   </th>
@@ -9731,7 +10960,11 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                       </div>
                     </th>
                     <th
+<<<<<<< HEAD
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+=======
+                      class="ant-table-column-has-actions ant-table-column-has-filters ant-table-column-has-sorters ant-table-row-cell-ellipsis ant-table-row-cell-last"
+>>>>>>> origin/master
                     >
                       <div
                         class="ant-table-filter-column"
@@ -10077,7 +11310,11 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                     />
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Action
                   </th>
@@ -10355,6 +11592,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                           <span
                             class="ant-checkbox"
                           >
+<<<<<<< HEAD
                             <input
                               class="ant-checkbox-input"
                               type="checkbox"
@@ -10364,6 +11602,82 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                             />
                           </span>
                         </label>
+=======
+                            <label
+                              class="ant-checkbox-wrapper"
+                            >
+                              <span
+                                class="ant-checkbox"
+                              >
+                                <input
+                                  class="ant-checkbox-input"
+                                  type="checkbox"
+                                />
+                                <span
+                                  class="ant-checkbox-inner"
+                                />
+                              </span>
+                            </label>
+                          </div>
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Name
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class=""
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Age
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+                      </div>
+                    </span>
+                  </th>
+                  <th
+                    class="ant-table-row-cell-last"
+                  >
+                    <span
+                      class="ant-table-header-column"
+                    >
+                      <div>
+                        <span
+                          class="ant-table-column-title"
+                        >
+                          Address
+                        </span>
+                        <span
+                          class="ant-table-column-sorter"
+                        />
+>>>>>>> origin/master
                       </div>
                     </th>
                     <th
@@ -10719,7 +12033,11 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                       Age
                     </th>
                     <th
+<<<<<<< HEAD
                       class="ant-table-cell"
+=======
+                      class="ant-table-row-cell-last"
+>>>>>>> origin/master
                     >
                       Address
                     </th>
@@ -11324,7 +12642,11 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                     Age
                   </th>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Address
                   </th>
@@ -11878,7 +13200,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                       Age
                     </th>
                     <th
+<<<<<<< HEAD
                       class="ant-table-cell"
+=======
+                      class="ant-table-row-cell-last"
+>>>>>>> origin/master
                     >
                       Address
                     </th>
@@ -12068,7 +13394,11 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                       Age
                     </th>
                     <th
+<<<<<<< HEAD
                       class="ant-table-cell"
+=======
+                      class="ant-table-row-cell-last"
+>>>>>>> origin/master
                     >
                       Address
                     </th>

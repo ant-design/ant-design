@@ -5,6 +5,7 @@ import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
+import './type.test';
 
 jest.mock('scroll-into-view-if-needed');
 

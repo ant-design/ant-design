@@ -28,7 +28,11 @@ exports[`Table.pagination Accepts pagination as true 1`] = `
               <thead>
                 <tr>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Name
                   </th>
@@ -185,7 +189,11 @@ exports[`Table.pagination renders pagination correctly 1`] = `
               <thead>
                 <tr>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Name
                   </th>

@@ -28,7 +28,11 @@ exports[`Table.expand click to expand 1`] = `
               <thead>
                 <tr>
                   <th
+<<<<<<< HEAD
                     class="ant-table-cell"
+=======
+                    class="ant-table-row-cell-last"
+>>>>>>> origin/master
                   >
                     Name
                   </th>

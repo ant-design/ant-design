@@ -56,6 +56,11 @@ const LinksList = () => (
       <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
     </li>
     <li>
+      <a href="https://ecomfe.github.io/santd" target="_blank">
+        San UI Toolkit for Ant Design<LinkIcon />
+      </a>
+    </li>
+    <li>
       <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">
         vue-beauty (vue)<LinkIcon />
       </a>

@@ -188,7 +188,7 @@ describe('Upload', () => {
     });
   });
 
-  it('should increase percent automaticly when call autoUpdateProgress in IE', done => {
+  it('should increase percent automatically when call autoUpdateProgress in IE', done => {
     let uploadInstance;
     let lastPercent = -1;
     const props = {

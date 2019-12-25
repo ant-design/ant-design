@@ -21,7 +21,7 @@ const HorizontalLoginForm = () => {
   const [form] = Form.useForm();
   const [, forceUpdate] = React.useState();
 
-  // To disabled submit button at the beginning.
+  // To disable submit button at the beginning.
   React.useEffect(() => {
     forceUpdate({});
   }, []);
