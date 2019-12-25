@@ -3,6 +3,7 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const { webpack } = getWebpackConfig;
 
@@ -57,6 +58,10 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
           upload: process.env.CI === 'true',
           fail_build: true,
           exclude_assets: name => !['antd.min.js', 'antd.min.css'].includes(name),
+        }),
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
         }),
       );
     }
