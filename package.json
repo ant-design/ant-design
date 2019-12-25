@@ -89,7 +89,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.0.0-alpha.11",
+    "@ant-design/icons": "^4.0.0-alpha.14",
     "@types/react-slick": "^0.23.4",
     "array-tree-filter": "^2.1.0",
     "classnames": "~2.2.6",
