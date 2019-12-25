@@ -85,7 +85,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   renderTextArea = () => {
-    const { prefixCls, autosize, className, disabled } = this.props;
+    const { prefixCls, autoSize, autosize, onResize, className, disabled } = this.props;
     const { textareaStyles, resizing } = this.state;
     warning(
       autosize === undefined,
@@ -115,7 +115,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       ...(resizing ? { overflow: 'hidden' } : null),
     };
     return (
-      <ResizeObserver onResize={this.handleResize}>
+      <ResizeObserver onResize={this.handleResize} disabled={!(autoSize || autosize || onResize)}>
         <textarea {...otherProps} className={cls} style={style} ref={this.saveTextArea} />
       </ResizeObserver>
     );
