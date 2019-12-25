@@ -181,7 +181,18 @@ describe('TextArea', () => {
     const onResize = jest.fn();
     const wrapper = mount(<TextArea onResize={onResize} autosize />);
 
-    wrapper.triggerResize();
+    wrapper
+      .find('ResizeObserver')
+      .instance()
+      .onResize([
+        {
+          target: {
+            getBoundingClientRect() {
+              return {};
+            },
+          },
+        },
+      ]);
 
     expect(onResize).toHaveBeenCalledWith(
       expect.objectContaining({
