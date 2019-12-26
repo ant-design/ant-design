@@ -262,6 +262,10 @@
     {
       "path": "./dist/antd.min.css",
       "maxSize": "55 kB"
+    },
+    {
+      "path": "./dist/antd.dark.min.css",
+      "maxSize": "55 kB"
     }
   ],
   "title": "Ant Design"
