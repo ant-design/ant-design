@@ -85,7 +85,7 @@ title: 插画
 
 <img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-LbbSads11EAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7JLsQ4whNKkAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" align="right" alt="人物姿态复用" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7JLsQ4whNKkAAAAAAAAAAABkARQnAQ" />
 
 记忆点源于与众不同，专业感源于整齐划一。元素组件指代的是业务场景中一些业务元素，状态元素图形化的世界缤纷多变，我们希望在保持统一性的同时不去限时设计者的创意空间，元素组件的设计上，我们为了保持一定的韵律感，推荐设计师在 1024\*1024 的网格中绘制组件，且圆角的大小保持 8 的倍数关系。
 
@@ -102,3 +102,5 @@ title: 插画
 <img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IySSSoBaGPYAAAAAAAAAAABkARQnAQ" />
 
 有了丰富的资产组件，我们应该如何使用呢？在 HiTu 的设计使用指引中，我推荐设计者在使用资产的过程中构建 Z 轴向的空间概念，将整幅画面拆分成前景，中景以及背景三个层次，在组件的排放时候，前景凸显重要的元素（如人，核心元素组件等），中间交代所处环境，背景则渲染烘托氛围，在颜色的使用和透明上也是前景的饱和度和透明度最高，逐级降低。
+
+<br />
