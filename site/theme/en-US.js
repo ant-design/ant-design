@@ -2,7 +2,7 @@ module.exports = {
   locale: 'en-US',
   messages: {
     'app.theme.switch.dark': 'Switch default mode',
-    'app.theme.switch.default': 'Switch Dark mode',
+    'app.theme.switch.default': 'Switch dark mode',
     'app.header.search': 'Search...',
     'app.header.menu.home': 'Home',
     'app.header.menu.documentation': 'Documentation',
