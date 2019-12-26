@@ -157,6 +157,11 @@
   background: rgba(0, 0, 0, 0.02);
 }
 
+[data-theme='dark'] .markdown > table th {
+  color: fade(@white, 65%);
+  background: #1d1d1d;
+}
+
 .markdown > table th,
 .markdown > table td {
   padding: 16px 24px;
@@ -272,6 +277,16 @@
 
   hr {
     margin: 12px 0;
+  }
+}
+
+[data-theme='dark'] .markdown.api-container {
+  table {
+    tbody tr {
+      &:hover {
+        background: #262626;
+      }
+    }
   }
 }
 
