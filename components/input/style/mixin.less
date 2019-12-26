@@ -23,7 +23,7 @@
     border-color: @color;
   }
   & when not (@theme = dark) {
-    border-color: ~`colorPalette('@{color}', 5) `;
+    border-color: color-palette(@color, 5);
   }
   border-right-width: @border-width-base !important;
   outline: 0;
