@@ -13,6 +13,7 @@ export interface TextAreaProps extends HTMLTextareaProps {
   autoSize?: boolean | AutoSizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   allowClear?: boolean;
+  onResize?: (size: { width: number; height: number }) => void;
 }
 
 export interface TextAreaState {
