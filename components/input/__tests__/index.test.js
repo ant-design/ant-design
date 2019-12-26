@@ -176,6 +176,31 @@ describe('TextArea', () => {
     expect(onPressEnter).toHaveBeenCalled();
     expect(onKeyDown).toHaveBeenCalled();
   });
+
+  it('should trigger onResize', () => {
+    const onResize = jest.fn();
+    const wrapper = mount(<TextArea onResize={onResize} autosize />);
+
+    wrapper
+      .find('ResizeObserver')
+      .instance()
+      .onResize([
+        {
+          target: {
+            getBoundingClientRect() {
+              return {};
+            },
+          },
+        },
+      ]);
+
+    expect(onResize).toHaveBeenCalledWith(
+      expect.objectContaining({
+        width: expect.any(Number),
+        height: expect.any(Number),
+      }),
+    );
+  });
 });
 
 describe('As Form Control', () => {

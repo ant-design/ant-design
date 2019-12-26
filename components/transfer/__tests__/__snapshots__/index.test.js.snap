@@ -714,7 +714,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 type="button"
               >
                 <RightOutlined>
-                  <ForwardRef(AntdIcon)
+                  <AntdIcon
                     icon={
                       Object {
                         "icon": Object {
@@ -784,7 +784,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </ForwardRef(AntdIcon)>
+                  </AntdIcon>
                 </RightOutlined>
               </button>
             </Wave>
@@ -808,7 +808,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 type="button"
               >
                 <LeftOutlined>
-                  <ForwardRef(AntdIcon)
+                  <AntdIcon
                     icon={
                       Object {
                         "icon": Object {
@@ -878,7 +878,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </ForwardRef(AntdIcon)>
+                  </AntdIcon>
                 </LeftOutlined>
               </button>
             </Wave>
