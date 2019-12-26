@@ -53,7 +53,7 @@ yarn add antd
 
 ## 🔨 示例
 
-````jsx
+```jsx
 import { Button, DatePicker } from 'antd';
 
 const App = () => (
@@ -62,12 +62,13 @@ const App = () => (
     <DatePicker />
   </>
 );
+```
 
 引入样式：
 
 ```jsx
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-````
+```
 
 你也可以使用 [babel-plugin-import](https://ant.design/docs/react/getting-started-cn#按需加载)。
 

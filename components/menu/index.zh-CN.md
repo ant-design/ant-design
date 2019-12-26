@@ -16,7 +16,7 @@ subtitle: 导航菜单
 
 ## API
 
-```html
+```jsx
 <menu>
   <Menu.Item>菜单项</Menu.Item>
   <SubMenu title="子菜单">

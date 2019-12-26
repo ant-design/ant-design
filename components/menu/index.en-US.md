@@ -15,7 +15,7 @@ More layouts with navigation: [Layout](/components/layout).
 
 ## API
 
-```html
+```jsx
 <menu>
   <Menu.Item>Menu</Menu.Item>
   <SubMenu title="SubMenu">
