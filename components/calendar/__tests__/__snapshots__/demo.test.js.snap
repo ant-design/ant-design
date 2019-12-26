@@ -952,7 +952,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
 <div
-  style="width:300px;border:1px solid #f0f0f0;border-radius:4px"
+  class="site-calendar-demo-card"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"
@@ -1906,7 +1906,7 @@ exports[`renders ./components/calendar/demo/card.md correctly 1`] = `
 
 exports[`renders ./components/calendar/demo/customize-header.md correctly 1`] = `
 <div
-  style="width:300px;border:1px solid #d9d9d9;border-radius:4px"
+  class="site-calendar-customize-header-wrapper"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini"

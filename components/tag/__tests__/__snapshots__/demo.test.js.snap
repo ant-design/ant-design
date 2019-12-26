@@ -99,8 +99,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
     </div>
   </div>
   <span
-    class="ant-tag"
-    style="background:#fff;border-style:dashed"
+    class="ant-tag site-tag-plus"
   >
     <span
       aria-label="plus"
@@ -380,8 +379,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag"
-    style="background:#fff;border-style:dashed"
+    class="ant-tag site-tag-plus"
   >
     <span
       aria-label="plus"

@@ -78,7 +78,7 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
 <div
-  style="background:#ECECEC;padding:30px"
+  class="site-statistic-demo-card"
 >
   <div
     class="ant-row"

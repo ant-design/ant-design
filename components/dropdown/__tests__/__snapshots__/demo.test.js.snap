@@ -31,8 +31,8 @@ exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/dropdown/demo/context-menu.md correctly 1`] = `
 <div
-  class="ant-dropdown-trigger"
-  style="text-align:center;background:#f7f7f7;height:200px;line-height:200px;color:#777"
+  class="site-dropdown-context-menu ant-dropdown-trigger"
+  style="text-align:center;height:200px;line-height:200px"
 >
   Right Click on here
 </div>

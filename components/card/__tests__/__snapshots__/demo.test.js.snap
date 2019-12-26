@@ -87,7 +87,7 @@ exports[`renders ./components/card/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/border-less.md correctly 1`] = `
 <div
-  style="background:#ECECEC;padding:30px"
+  class="site-card-border-less-wrapper"
 >
   <div
     class="ant-card"
@@ -229,7 +229,7 @@ exports[`renders ./components/card/demo/grid-card.md correctly 1`] = `
 
 exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
 <div
-  style="background:#ECECEC;padding:30px"
+  class="site-card-wrapper"
 >
   <div
     class="ant-row"
@@ -341,7 +341,7 @@ exports[`renders ./components/card/demo/inner.md correctly 1`] = `
     class="ant-card-body"
   >
     <p
-      style="font-size:14px;color:rgba(0, 0, 0, 0.85);margin-bottom:16px;font-weight:500"
+      class="site-card-demo-inner-p"
     >
       Group title
     </p>

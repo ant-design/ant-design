@@ -2256,7 +2256,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
               >
                 <span>
                   <span
-                    style="color:#f50"
+                    class="site-tree-search-value"
                   />
                   0-0
                 </span>
@@ -2299,7 +2299,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
               >
                 <span>
                   <span
-                    style="color:#f50"
+                    class="site-tree-search-value"
                   />
                   0-1
                 </span>
@@ -2321,7 +2321,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
               >
                 <span>
                   <span
-                    style="color:#f50"
+                    class="site-tree-search-value"
                   />
                   0-2
                 </span>

@@ -24,7 +24,7 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
 exports[`renders ./components/checkbox/demo/check-all.md correctly 1`] = `
 <div>
   <div
-    style="border-bottom:1px solid #E9E9E9"
+    class="site-checkbox-all-wrapper"
   >
     <label
       class="ant-checkbox-wrapper"

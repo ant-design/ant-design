@@ -696,9 +696,8 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     <div>
       <div />
       <div
-        class="ant-tabs-bar ant-tabs-top-bar"
+        class="ant-tabs-bar site-custom-tab-bar"
         role="tablist"
-        style="z-index:1;background:#fff"
         tabindex="0"
       >
         <div

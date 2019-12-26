@@ -232,7 +232,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
     </span>
   </button>
   <div
-    style="padding:8px 8px 0 8px;background:rgb(190, 200, 200)"
+    class="site-button-ghost-wrapper"
   >
     <button
       class="ant-btn ant-btn-background-ghost"
@@ -257,7 +257,7 @@ exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
 
 exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 <div
-  style="background:rgb(190, 200, 200);padding:26px 16px 16px"
+  class="site-button-ghost-wrapper"
 >
   <button
     class="ant-btn ant-btn-primary ant-btn-background-ghost"

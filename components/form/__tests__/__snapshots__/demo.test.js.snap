@@ -1252,9 +1252,8 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
           >
             <span
               aria-label="user"
-              class="anticon anticon-user"
+              class="anticon anticon-user site-form-item-icon"
               role="img"
-              style="color:rgba(0,0,0,.25)"
             >
               <svg
                 aria-hidden="true"
@@ -1300,9 +1299,8 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
           >
             <span
               aria-label="lock"
-              class="anticon anticon-lock"
+              class="anticon anticon-lock site-form-item-icon"
               role="img"
-              style="color:rgba(0,0,0,.25)"
             >
               <svg
                 aria-hidden="true"
@@ -1788,9 +1786,8 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           >
             <span
               aria-label="user"
-              class="anticon anticon-user"
+              class="anticon anticon-user site-form-item-icon"
               role="img"
-              style="color:rgba(0,0,0,.25)"
             >
               <svg
                 aria-hidden="true"
@@ -1836,9 +1833,8 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           >
             <span
               aria-label="lock"
-              class="anticon anticon-lock"
+              class="anticon anticon-lock site-form-item-icon"
               role="img"
-              style="color:rgba(0,0,0,.25)"
             >
               <svg
                 aria-hidden="true"
