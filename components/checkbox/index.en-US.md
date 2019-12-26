@@ -45,9 +45,3 @@ Checkbox component.
 | ------- | ------------ | ------- |
 | blur()  | remove focus |         |
 | focus() | get focus    |         |
-
-<style>
-.site-checkbox-all-wrapper {
-  border-bottom: 1px solid #303030;
-}
-</style>

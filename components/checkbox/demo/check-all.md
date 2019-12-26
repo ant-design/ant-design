@@ -75,3 +75,9 @@ ReactDOM.render(<App />, mountNode);
   border-bottom: 1px solid #e9e9e9;
 }
 ```
+
+<style>
+[data-theme="dark"] .site-checkbox-all-wrapper {
+  border-bottom: 1px solid #303030;
+}
+</style>
