@@ -77,7 +77,7 @@ ReactDOM.render(<SiderDemo />, mountNode);
 ```
 
 ```css
-#components-layout-demo-custom-trigger .trigger {
+.trigger {
   font-size: 18px;
   line-height: 64px;
   padding: 0 24px;
@@ -85,11 +85,10 @@ ReactDOM.render(<SiderDemo />, mountNode);
   transition: color 0.3s;
 }
 
-#components-layout-demo-custom-trigger .trigger:hover {
+.trigger:hover {
   color: #1890ff;
 }
-
-#components-layout-demo-custom-trigger .logo {
+ .logo {
   height: 32px;
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
