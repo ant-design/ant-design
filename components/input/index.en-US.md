@@ -66,7 +66,7 @@ Supports all props of `Input`.
 | compact | Whether use compact style | boolean | false |
 | size | The size of `Input.Group` specifies the size of the included `Input` fields. Available: `large` `default` `small` | string | `default` |
 
-```html
+```jsx
 <Input.Group>
   <input />
   <input />

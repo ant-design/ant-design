@@ -14,8 +14,8 @@ A long list can be divided into several pages using `Pagination`, and only one p
 
 ## API
 
-```html
-<Pagination onChange="{onChange}" total="{50}" />
+```jsx
+<Pagination onChange={onChange} total={50} />
 ```
 
 | Property | Description | Type | Default | Version |
