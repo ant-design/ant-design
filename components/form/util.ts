@@ -38,10 +38,10 @@ function useDebounce<T>(content: T[], delay: number = 10): T[] {
 export function useCacheErrors(
   errors: React.ReactNode[],
   changeTrigger: (visible: boolean) => void,
-) {
+): [boolean, React.ReactNode[]] {
   const debounceErrors = useDebounce(errors);
   const [cacheErrors, setCacheErrors] = React.useState(debounceErrors);
-  const [visible, setVisible] = React.useState(false);
+  const [visible, setVisible] = React.useState<boolean>(false);
 
   React.useEffect(() => {
     const newVisible = !!debounceErrors.length;
