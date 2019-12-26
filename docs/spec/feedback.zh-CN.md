@@ -1,5 +1,6 @@
 ---
-category: 模式
+category: 设计模式
+type: 全局规则
 order: 11
 title: 反馈
 ---

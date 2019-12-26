@@ -58,7 +58,7 @@ a {
       text-overflow: ellipsis;
     }
 
-    .ant-menu-item-group-title {
+    > .ant-menu-item-group > .ant-menu-item-group-title {
       margin-top: 16px;
       margin-bottom: 16px;
       font-size: 13px;
@@ -77,8 +77,20 @@ a {
     > .ant-menu-item,
     > .ant-menu-submenu > .ant-menu-submenu-title,
     > .ant-menu-item-group > .ant-menu-item-group-title,
-    > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
+    > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+    &.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
       padding-left: 40px !important;
+    }
+
+    // Nest Category > Type > Article
+    &.ant-menu-inline {
+      .ant-menu-item-group-title {
+        padding-left: 56px;
+      }
+
+      .ant-menu-item-group-list > .ant-menu-item {
+        padding-left: 80px !important;
+      }
     }
 
     .ant-menu-item-group:first-child {

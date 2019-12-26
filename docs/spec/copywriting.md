@@ -1,7 +1,10 @@
 ---
 category:
-  zh-CN: 模式
-  en-US: Patterns
+  zh-CN: 设计模式
+  en-US: Design Patterns
+type:
+  zh-CN: 全局规则
+  en-US: Global Rules
 order: 6
 title:
   zh-CN: 文案
