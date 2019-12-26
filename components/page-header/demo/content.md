@@ -131,6 +131,7 @@ const Content = ({ children, extraContent }) => {
         className="extra"
         style={{
           marginLeft: 80,
+          marginTop: 16,
         }}
       >
         {extraContent}
@@ -142,9 +143,7 @@ const Content = ({ children, extraContent }) => {
 ReactDOM.render(
   <PageHeader
     title="Title"
-    style={{
-      border: '1px solid rgb(235, 237, 240)',
-    }}
+    className="site-page-header"
     subTitle="This is a subtitle"
     tags={<Tag color="blue">Running</Tag>}
     extra={[
@@ -161,7 +160,7 @@ ReactDOM.render(
     <Content
       extraContent={
         <img
-          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          src="https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/YZUAr4NUNC/pageHeader.svg"
           alt="content"
         />
       }

@@ -21,7 +21,7 @@ ReactDOM.render(
   <div>
     <Input
       placeholder="Enter your username"
-      prefix={<UserOutlined style={{ color: 'rgba(0,0,0,.25)' }} />}
+      prefix={<UserOutlined className="site-form-item-icon" />}
       suffix={
         <Tooltip title="Extra information">
           <InfoCircleOutlined style={{ color: 'rgba(0,0,0,.45)' }} />

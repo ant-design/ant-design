@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar } from 'antd';
 import { injectIntl } from 'react-intl';
+import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
-import Icon from '../Icon';
+import { DarkIcon, DefaultIcon } from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
@@ -59,6 +60,8 @@ const getSideBarOpenKeys = nextProps => {
 class MainContent extends Component {
   static contextTypes = {
     isMobile: PropTypes.bool.isRequired,
+    theme: PropTypes.oneOf(['default', 'dark']),
+    setTheme: PropTypes.func,
   };
 
   state = {
@@ -252,7 +255,7 @@ class MainContent extends Component {
         className="menu-item-link-outside"
       >
         {before}
-        {text} <Icon type="export" />
+        {text} <ExportOutlined />
         {after}
       </a>
     );
@@ -277,8 +280,14 @@ class MainContent extends Component {
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
+  changeTheme = () => {
+    const { theme, setTheme } = this.context;
+    const nextTheme = theme !== 'dark' ? 'dark' : 'default';
+    setTheme(nextTheme);
+  };
+
   render() {
-    const { isMobile } = this.context;
+    const { isMobile, theme } = this.context;
     const { openKeys } = this.state;
     const {
       localizedPageData,
@@ -289,8 +298,8 @@ class MainContent extends Component {
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
-      before: <Icon className="footer-nav-icon-before" type="left" />,
-      after: <Icon className="footer-nav-icon-after" type="right" />,
+      before: <LeftOutlined className="footer-nav-icon-before" />,
+      after: <RightOutlined className="footer-nav-icon-after" />,
     });
     const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
     const mainContainerClass = classNames('main-container', {
@@ -308,6 +317,8 @@ class MainContent extends Component {
         {menuItems}
       </Menu>
     );
+    const componentPage = /^\/?components/.test(this.props.location.pathname);
+
     return (
       <div className="main-wrapper">
         <Row>
@@ -325,7 +336,7 @@ class MainContent extends Component {
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
             <section className={mainContainerClass}>
               {demos ? (
-                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} />
+                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} theme={theme} />
               ) : (
                 <Article {...this.props} content={localizedPageData} />
               )}
@@ -356,6 +367,18 @@ class MainContent extends Component {
                 owner="ant-design"
               />
             </section>
+            {componentPage && (
+              <div className="fixed-widgets">
+                <Tooltip title={formatMessage({ id: `app.theme.switch.${theme}` })}>
+                  <Avatar
+                    className={classNames('fixed-widgets-avatar', `fixed-widgets-avatar-${theme}`)}
+                    size={44}
+                    onClick={this.changeTheme}
+                    icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
+                  />
+                </Tooltip>
+              </div>
+            )}
             <PrevAndNext prev={prev} next={next} />
             <Footer />
           </Col>

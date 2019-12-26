@@ -4,7 +4,7 @@ exports[`renders ./components/back-top/demo/basic.md correctly 1`] = `
 <div>
   Scroll down to see the bottom-right
   <strong
-    style="color:rgba(64, 64, 64, 0.6)"
+    class="site-back-top-basic"
   >
      gray 
   </strong>

@@ -37,11 +37,12 @@ class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipVisible } = this.state;
-    const { expand } = this.props;
+    const { expand, theme } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
-      copyTooltipVisible !== nextState.copyTooltipVisible
+      copyTooltipVisible !== nextState.copyTooltipVisible ||
+      nextProps.theme !== theme
     );
   }
 
@@ -114,6 +115,7 @@ class Demo extends React.Component {
       expand,
       utils,
       intl: { locale },
+      theme,
     } = props;
     const { copied, copyTooltipVisible } = state;
     if (!this.liveDemo) {
@@ -326,13 +328,21 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               <span className="code-expand-icon">
                 <img
                   alt="expand code"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
+                  src={
+                    theme === 'dark'
+                      ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/w9%264eQL2pY/wSAkBuJFbdxsosKKpqyq.svg'
+                      : 'https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg'
+                  }
                   className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />
                 <img
                   alt="expand code"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
+                  src={
+                    theme === 'dark'
+                      ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/9bKgP0%26pT8/OpROPHYqWmrMDBFMZtKF.svg'
+                      : 'https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg'
+                  }
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />

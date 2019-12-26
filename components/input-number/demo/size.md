@@ -21,7 +21,7 @@ function onChange(value) {
 }
 
 ReactDOM.render(
-  <div>
+  <div className="site-input-number-wrapper">
     <InputNumber size="large" min={1} max={100000} defaultValue={3} onChange={onChange} />
     <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />
     <InputNumber size="small" min={1} max={100000} defaultValue={3} onChange={onChange} />
@@ -31,7 +31,7 @@ ReactDOM.render(
 ```
 
 ```css
-.ant-input-number {
+.code-box-demo .ant-input-number {
   margin-right: 10px;
 }
 ```

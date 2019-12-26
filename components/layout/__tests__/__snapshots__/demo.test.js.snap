@@ -235,8 +235,8 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     class="ant-layout"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="site-layout-background ant-layout-header"
+      style="padding:0"
     >
       <span
         aria-label="menu-fold"
@@ -261,8 +261,8 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       </span>
     </header>
     <main
-      class="ant-layout-content"
-      style="margin:24px 16px;padding:24px;background:#fff;min-height:280px"
+      class="site-layout-background ant-layout-content"
+      style="margin:24px 16px;padding:24px;min-height:280px"
     >
       Content
     </main>
@@ -978,15 +978,16 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
     class="ant-layout"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="site-layout-header-background ant-layout-header"
+      style="padding:0"
     />
     <main
       class="ant-layout-content"
       style="margin:24px 16px 0"
     >
       <div
-        style="padding:24px;background:#fff;min-height:360px"
+        class="site-layout-background"
+        style="padding:24px;min-height:360px"
       >
         content
       </div>
@@ -1423,7 +1424,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       </span>
     </div>
     <div
-      style="background:#fff;padding:24px;min-height:280px"
+      class="site-layout-content"
     >
       Content
     </div>
@@ -1590,12 +1591,12 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       </span>
     </div>
     <section
-      class="ant-layout"
-      style="padding:24px 0;background:#fff"
+      class="site-layout-background ant-layout"
+      style="padding:24px 0"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
-        style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+        class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
           class="ant-layout-sider-children"
@@ -1887,8 +1888,8 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     class="ant-layout"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
-      style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+      class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
@@ -2098,8 +2099,8 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </span>
       </div>
       <main
-        class="ant-layout-content"
-        style="background:#fff;padding:24px;margin:0;min-height:280px"
+        class="site-layout-background ant-layout-content"
+        style="padding:24px;margin:0;min-height:280px"
       >
         Content
       </main>

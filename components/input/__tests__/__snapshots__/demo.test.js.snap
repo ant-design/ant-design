@@ -945,7 +945,9 @@ exports[`renders ./components/input/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/group.md correctly 1`] = `
-<div>
+<div
+  class="site-input-group-wrapper"
+>
   <span
     class="ant-input-group ant-input-group-lg"
   >
@@ -1443,10 +1445,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input ant-input-disabled"
+      class="ant-input ant-input-disabled site-input-split"
       disabled=""
       placeholder="~"
-      style="width:30px;border-left:0;pointer-events:none;background-color:#fff"
+      style="width:30px;border-left:0;border-right:0;pointer-events:none"
       type="text"
       value=""
     />
@@ -1705,9 +1707,8 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     >
       <span
         aria-label="user"
-        class="anticon anticon-user"
+        class="anticon anticon-user site-form-item-icon"
         role="img"
-        style="color:rgba(0,0,0,.25)"
       >
         <svg
           aria-hidden="true"

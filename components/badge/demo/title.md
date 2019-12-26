@@ -34,8 +34,11 @@ ReactDOM.render(
 .head-example {
   width: 42px;
   height: 42px;
-  border-radius: 4px;
+  border-radius: 2px;
   background: #eee;
   display: inline-block;
+}
+[data-theme="dark"] .head-example {
+  background: rgba(255,255,255,.12);
 }
 </style>

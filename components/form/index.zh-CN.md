@@ -328,3 +328,12 @@ const TestForm = () => {
 在线示例：
 
 [![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
+
+<style>
+  .site-form-item-icon {
+    color: rgba(0, 0, 0, 0.25);
+  }
+  [data-theme="dark"] .site-form-item-icon {
+    color: rgba(255,255,255,.3);
+  }
+</style>

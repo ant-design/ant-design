@@ -147,16 +147,16 @@
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: @blue-1; // replace tint(@primary-color, 90%)
-@primary-2: @blue-2; // replace tint(@primary-color, 80%)
-@primary-3: @blue-3; // unused
-@primary-4: @blue-4; // unused
-@primary-5: @blue-5; // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
-@primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: @blue-7; // replace shade(@primary-color, 5%)
-@primary-8: @blue-8; // unused
-@primary-9: @blue-9; // unused
-@primary-10: @blue-10; // unused
+@primary-1: mix(color(~`colorPalette('@{primary-color}', 8) `), @component-background, 15%);
+@primary-2: mix(color(~`colorPalette('@{primary-color}', 7) `), @component-background, 25%);
+@primary-3: mix(@primary-color, @component-background, 30%);
+@primary-4: mix(@primary-color, @component-background, 45%);
+@primary-5: mix(@primary-color, @component-background, 65%);
+@primary-6: @primary-color;
+@primary-7: mix(color(~`colorPalette('@{primary-color}', 5) `), @component-background, 85%);
+@primary-8: mix(color(~`colorPalette('@{primary-color}', 4) `), @component-background, 95%);
+@primary-9: mix(color(~`colorPalette('@{primary-color}', 3) `), @component-background, 95%);
+@primary-10: mix(color(~`colorPalette('@{primary-color}', 2) `), @component-background, 95%);
 
 // Layer background
 @popover-background: #1f1f1f;
@@ -178,8 +178,7 @@
 
 // Border color
 @border-color-base: #434343; // base border outline a component
-@border-color-split: @popover-background; // split border inside a component
-@border-color-split-popover: #303030; // base border in Popover Container
+@border-color-split: #303030; // split border inside a component
 
 @background-color-light: fade(@white, 4%); // background of header and selected item
 @background-color-base: fade(@white, 8%); // Default grey background color
@@ -224,14 +223,14 @@
 
 // Descriptions
 // ---
-@descriptions-bg: @component-background;
+@descriptions-bg: @background-color-light;
 
 // Modal
 // ---
 @modal-header-bg: @popover-background;
-@modal-header-border-color-split: @border-color-split-popover;
+@modal-header-border-color-split: @border-color-split;
 @modal-content-bg: @popover-background;
-@modal-footer-border-color-split: @border-color-split-popover;
+@modal-footer-border-color-split: @border-color-split;
 
 // Radio
 // ---
@@ -241,12 +240,12 @@
 // Radio buttons
 // ---
 @radio-disabled-button-checked-bg: fade(@white, 20%);
-@radio-disabled-button-checked-color: fade(@white, 25%);
+@radio-disabled-button-checked-color: @black;
 
 // Layout
 // ---
 @layout-body-background: @body-background;
-@layout-header-background: @component-background;
+@layout-header-background: @popover-background;
 @layout-sider-background: @component-background;
 @layout-trigger-background: @component-background;
 
@@ -263,12 +262,14 @@
 @select-background: transparent;
 @select-dropdown-bg: @popover-background;
 @select-clear-background: @component-background;
+@select-selection-item-bg: fade(@white, 8);
+@select-selection-item-border-color: @border-color-split;
 
 // Cascader
 // ---
 @cascader-bg: transparent;
 @cascader-menu-bg: @popover-background;
-@cascader-menu-border-color-split: @border-color-split-popover;
+@cascader-menu-border-color-split: @border-color-split;
 
 // Anchor
 // ---
@@ -282,7 +283,8 @@
 // Menu
 // ---
 // dark theme
-@menu-dark-submenu-bg: @black;
+@menu-dark-submenu-bg: @component-background;
+@menu-dark-bg: @popover-background;
 @menu-popup-bg: @popover-background;
 
 // Message
@@ -293,8 +295,8 @@
 @notification-bg: @popover-background;
 
 // LINK
-@link-hover-color: @blue-5;
-@link-active-color: @blue-7;
+@link-hover-color: @primary-5;
+@link-active-color: @primary-7;
 
 // Table
 // --
@@ -304,8 +306,10 @@
 @table-row-hover-bg: #262626;
 @table-header-sort-bg: #262626;
 @table-header-filter-active-bg: #434343;
-@table-header-sort-active-bg: #262626;
+@table-header-sort-active-bg: #303030;
 @table-filter-btns-bg: @popover-background;
+@table-expanded-row-bg: @table-header-bg;
+@table-filter-dropdown-bg: @popover-background;
 
 // TimePicker
 // ---
@@ -314,6 +318,12 @@
 @time-picker-panel-inner-bg: @popover-background;
 @month-panel-bg: @popover-background;
 @year-panel-bg: @popover-background;
+@picker-basic-cell-hover-color: @background-color-light;
+@picker-basic-cell-hover-with-range-color: #303030;
+@picker-basic-cell-disabled-bg: #303030;
+@picker-border-color: @border-color-split;
+@picker-bg: transparent;
+@picker-date-hover-range-border-color: darken(@primary-color, 20%);
 
 // Dropdown
 // ---
@@ -322,19 +332,22 @@
 
 // Steps
 // ---
-@process-tail-color: fade(@white, 20%);
 @steps-nav-arrow-color: fade(@white, 20%);
 
 // Avatar
 // ---
-@avatar-bg: #5a5a5a;
+@avatar-bg: fade(@white, 30%);
+
+// Progress
+// ---
+@progress-steps-item-bg: fade(@white, 8%);
 
 // Calendar
 // ---
 @calendar-bg: @popover-background;
 @calendar-input-bg: @calendar-bg;
 @calendar-border-color: transparent;
-@calendar-item-active-bg: @background-color-base;
+@calendar-full-bg: @component-background;
 
 // Badge
 // ---
@@ -348,7 +361,7 @@
 
 // Card
 // ---
-@card-actions-background: fade(@white, 4%);
+@card-actions-background: @background-color-light;
 @card-skeleton-bg: #303030;
 @card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
   0 5px 12px 4px rgba(0, 0, 0, 0.27);
@@ -360,6 +373,12 @@
 // Comment
 // ---
 @comment-bg: @component-background;
+@comment-author-time-color: fade(@white, 30%);
+@comment-action-hover-color: fade(@white, 65%);
+
+// Rate
+// ---
+@rate-star-bg: fade(@white, 12%);
 
 // Switch
 // ---
@@ -376,13 +395,14 @@
 // PageHeader
 // ---
 @page-header-back-color: @icon-color;
+@page-header-ghost-bg: #141414;
 
 // Slider
 // ---
-@slider-rail-background-color: fade(@white, 20%);
-@slider-rail-background-color-hover: @slider-rail-background-color;
-@slider-track-background-color: @primary-color;
-@slider-handle-color: @primary-color;
+@slider-rail-background-color: #262626;
+@slider-rail-background-color-hover: @border-color-base;
+@slider-dot-border-color: @border-color-split;
+@slider-dot-border-color-active: @primary-4;
 
 // Skeleton
 // ---
@@ -394,8 +414,8 @@
 @alert-success-border-color: @green-3;
 @alert-success-bg-color: @green-1;
 @alert-success-icon-color: @success-color;
-@alert-info-border-color: @blue-3;
-@alert-info-bg-color: @blue-1;
+@alert-info-border-color: @primary-3;
+@alert-info-bg-color: @primary-1;
 @alert-info-icon-color: @info-color;
 @alert-warning-border-color: @gold-3;
 @alert-warning-bg-color: @gold-1;

@@ -7,7 +7,7 @@
   position: relative;
   z-index: 10;
   max-width: 100%;
-  background: #fff;
+  background: @component-background;
   box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
   &.home-nav-bottom {
     background: rgba(255, 255, 255, 0.9);
@@ -89,6 +89,10 @@
   }
 }
 
+[data-theme='dark'] #header {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.65);
+}
+
 #logo {
   float: left;
   height: @header-height;
@@ -101,10 +105,13 @@
     height: 32px;
     margin-right: 16px;
   }
-  img + img {
+  svg {
     position: relative;
     top: 1px;
-    height: 16px;
+    display: inline;
+    margin-right: 16px;
+    vertical-align: middle;
+    border-style: none;
   }
 }
 

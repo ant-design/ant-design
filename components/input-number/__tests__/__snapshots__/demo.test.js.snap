@@ -427,7 +427,9 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
-<div>
+<div
+  class="site-input-number-wrapper"
+>
   <div
     class="ant-input-number ant-input-number-lg"
   >

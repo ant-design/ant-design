@@ -1131,9 +1131,8 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
       >
         <span
           aria-label="close-circle"
-          class="anticon anticon-close-circle"
+          class="anticon anticon-close-circle site-result-demo-error-icon"
           role="img"
-          style="color:red"
         >
           <svg
             aria-hidden="true"
@@ -1163,9 +1162,8 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
       >
         <span
           aria-label="close-circle"
-          class="anticon anticon-close-circle"
+          class="anticon anticon-close-circle site-result-demo-error-icon"
           role="img"
-          style="color:red"
         >
           <svg
             aria-hidden="true"

@@ -3,8 +3,7 @@
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header ant-page-header-ghost"
-    style="border:1px solid rgb(235, 237, 240)"
+    class="ant-page-header site-page-header ant-page-header-ghost"
   >
     <div
       class="ant-page-header-heading"
@@ -366,8 +365,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 <div
-  class="ant-page-header ant-page-header-ghost"
-  style="border:1px solid rgb(235, 237, 240)"
+  class="ant-page-header site-page-header ant-page-header-ghost"
 >
   <div
     class="ant-page-header-heading"
@@ -420,8 +418,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb ant-page-header-ghost"
-  style="border:1px solid rgb(235, 237, 240)"
+  class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
   <div
     class="ant-breadcrumb"
@@ -492,8 +489,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb ant-page-header-ghost"
-  style="border:1px solid rgb(235, 237, 240)"
+  class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
   <div
     class="ant-breadcrumb"
@@ -691,11 +687,11 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
       </div>
       <div
         class="extra"
-        style="margin-left:80px"
+        style="margin-left:80px;margin-top:16px"
       >
         <img
           alt="content"
-          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          src="https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/YZUAr4NUNC/pageHeader.svg"
         />
       </div>
     </div>
@@ -705,7 +701,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
 <div
-  style="background-color:#F5F5F5;padding:24px"
+  class="site-page-header-ghost-wrapper"
 >
   <div
     class="ant-page-header"

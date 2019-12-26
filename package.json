@@ -67,10 +67,10 @@
     "pretty-quick": "pretty-quick",
     "pub": "antd-tools run pub",
     "prepublish": "antd-tools run guard",
-    "site": "cross-env NODE_ICU_DATA=node_modules/full-icu bisheng build --ssr -c ./site/bisheng.config.js && node ./scripts/generateColorLess.js",
+    "site": "cross-env NODE_ICU_DATA=node_modules/full-icu concurrently \"bisheng build --ssr -c ./site/bisheng.config.js\" \"node ./scripts/generateColorLess.js\"",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
-    "start": "rimraf _site && mkdir _site && node ./scripts/generateColorLess.js && cross-env NODE_ENV=development bisheng start -c ./site/bisheng.config.js",
+    "start": "rimraf _site && mkdir _site && cross-env NODE_ENV=development concurrently \"node ./scripts/generateColorLess.js\" \"bisheng start -c ./site/bisheng.config.js\"",
     "start:preact": "node ./scripts/generateColorLess.js && cross-env NODE_ENV=development REACT_ENV=preact bisheng start -c ./site/bisheng.config.js",
     "test": "jest --config .jest.js --no-cache",
     "test-all": "./scripts/test-all.sh",
@@ -138,7 +138,7 @@
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.0.1",
-    "@ant-design/colors": "^3.2.2",
+    "@ant-design/colors": "^4.0.0-alpha.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^8.0.4",
     "@packtracker/webpack-plugin": "^2.0.1",
@@ -157,6 +157,7 @@
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.10.0",
+    "antd-pro-merge-less": "^2.0.26",
     "antd-theme-generator": "^1.1.6",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
@@ -167,6 +168,7 @@
     "bundlesize": "^0.18.0",
     "chalk": "^3.0.0",
     "cheerio": "^1.0.0-rc.3",
+    "concurrently": "^5.0.2",
     "cross-env": "^6.0.0",
     "css-split-webpack-plugin": "^0.2.6",
     "dekko": "^0.2.1",
@@ -259,6 +261,10 @@
     },
     {
       "path": "./dist/antd.min.css",
+      "maxSize": "55 kB"
+    },
+    {
+      "path": "./dist/antd.dark.min.css",
       "maxSize": "55 kB"
     }
   ],

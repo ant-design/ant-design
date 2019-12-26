@@ -3,7 +3,7 @@ body {
   font-size: 14px;
   font-family: @font-family;
   line-height: 1.5;
-  background: #fff;
+  background: @body-background;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -14,7 +14,7 @@ a {
 .main-wrapper {
   position: relative;
   padding: 40px 0 0;
-  background: #fff;
+  background: @component-background;
 }
 
 .main-container {
@@ -22,7 +22,7 @@ a {
   min-height: 500px;
   padding: 0 170px 32px 64px;
   overflow: hidden;
-  background: #fff;
+  background: @component-background;
 }
 
 .main-menu {
@@ -173,6 +173,22 @@ a {
     color: @primary-color !important;
   }
   .path2::before {
-    color: #fff !important;
+    color: @body-background !important;
+  }
+}
+
+.fixed-widgets {
+  position: fixed;
+  right: 32px;
+  bottom: 102px;
+  z-index: 2147483640;
+  cursor: pointer;
+  & > div {
+    display: block;
+  }
+  & &-avatar {
+    background-color: #fff;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
   }
 }

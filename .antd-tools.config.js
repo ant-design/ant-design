@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 // eslint-disable-next-line import/no-extraneous-dependencies
-const lessToJs = require('less-vars-to-js');
 const packageInfo = require('./package.json');
+const darkVars = require('./scripts/dark-vars');
 
 // We need compile additional content for antd user
 function finalizeCompile() {
@@ -70,20 +70,10 @@ function finalizeDist() {
     console.log('Built a entry less file to dist/antd.dark.less');
 
     // Build dark.js: dist/dark-theme.js, for less-loader
-    const stylePath = path.join(process.cwd(), 'components', 'style');
-
-    const colorLess = fs.readFileSync(path.join(stylePath, 'color', 'colors.less'), 'utf8');
-    const defaultLess = fs.readFileSync(path.join(stylePath, 'themes', 'default.less'), 'utf8');
-    const darkLess = fs.readFileSync(path.join(stylePath, 'themes', 'dark.less'), 'utf8');
-
-    const darkPaletteLess = lessToJs(`${colorLess}${defaultLess}${darkLess}`, {
-      stripPrefix: true,
-      resolveVariables: false,
-    });
 
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', 'dark-theme.js'),
-      `module.exports = ${JSON.stringify(darkPaletteLess, null, 2)};`,
+      `module.exports = ${JSON.stringify(darkVars, null, 2)};`,
     );
 
     // eslint-disable-next-line

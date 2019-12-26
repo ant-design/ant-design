@@ -6,6 +6,8 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
 import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
+
+import AntdText from './AntdText';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -41,6 +43,7 @@ class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
+    theme: PropTypes.oneOf(['default', 'dark']),
   };
 
   state = {
@@ -273,10 +276,7 @@ class Header extends React.Component {
                 alt="logo"
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               />
-              <img
-                alt="Ant Design"
-                src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
-              />
+              <AntdText />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>

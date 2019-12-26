@@ -342,11 +342,10 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left site-collapse-custom-collapse"
 >
   <div
-    class="ant-collapse-item ant-collapse-item-active"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+    class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
   >
     <div
       aria-expanded="true"
@@ -394,8 +393,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+    class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
       aria-expanded="false"
@@ -427,8 +425,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-collapse-item"
-    style="background:#f7f7f7;border-radius:4px;margin-bottom:24px;border:0;overflow:hidden"
+    class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
       aria-expanded="false"

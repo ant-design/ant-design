@@ -27,7 +27,7 @@
   .picker-padding(@input-height-base, @font-size-base, @input-padding-horizontal-base);
   display: inline-flex;
   align-items: center;
-  background: @component-background;
+  background: @picker-bg;
   border: @border-width-base @border-style-base @select-border-color;
   border-radius: @border-radius-base;
   transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
@@ -241,20 +241,11 @@
     //   display: none !important;
     // }
 
-    &::before,
     &::after {
       position: absolute;
       content: '';
     }
 
-    &::before {
-      top: 0;
-      right: 0;
-      width: @arrow-size;
-      height: @arrow-size;
-      border: @arrow-size / 2 solid @border-color-split;
-      border-color: @border-color-split @border-color-split transparent transparent;
-    }
     &::after {
       top: @border-width-base;
       right: @border-width-base;
