@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar } from 'antd';
 import { injectIntl } from 'react-intl';
+import { LeftOutlined, RightOutlined, ExpandOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
@@ -244,7 +245,7 @@ class MainContent extends Component {
         className="menu-item-link-outside"
       >
         {before}
-        {text} <Icon type="export" />
+        {text} <ExportOutlined />
         {after}
       </a>
     );
@@ -287,8 +288,8 @@ class MainContent extends Component {
     const activeMenuItem = this.getActiveMenuItem();
     const menuItems = this.getMenuItems();
     const menuItemsForFooterNav = this.getMenuItems({
-      before: <Icon className="footer-nav-icon-before" type="left" />,
-      after: <Icon className="footer-nav-icon-after" type="right" />,
+      before: <LeftOutlined className="footer-nav-icon-before" />,
+      after: <RightOutlined className="footer-nav-icon-after" />,
     });
     const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
     const mainContainerClass = classNames('main-container', {
