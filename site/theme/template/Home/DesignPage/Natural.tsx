@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Hitu, { Shape, FrameInfo } from '@ant-design/hitu';
+import Hitu, { Shape } from '@ant-design/hitu';
 import InteractiveIcon from './InteractiveIcon';
 
 const CenterLeaf = () => (
