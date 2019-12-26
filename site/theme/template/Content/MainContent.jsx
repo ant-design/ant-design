@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
 import { Row, Col, Menu, Affix, Tooltip, Avatar } from 'antd';
 import { injectIntl } from 'react-intl';
-import { LeftOutlined, RightOutlined, ExpandOutlined, ExportOutlined } from '@ant-design/icons';
+import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
 import { DarkIcon, DefaultIcon } from './ThemeIcon';
-import Icon from '../Icon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';

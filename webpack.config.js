@@ -3,8 +3,8 @@
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const PacktrackerPlugin = require('@packtracker/webpack-plugin');
 const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
-const darkVars = require('./scripts/dark-vars');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const darkVars = require('./scripts/dark-vars');
 
 const { webpack } = getWebpackConfig;
 
