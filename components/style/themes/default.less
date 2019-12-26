@@ -23,19 +23,28 @@
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: color-palette(@primary-color, 1); // replace tint(@primary-color, 90%)
-@primary-2: color-palette(@primary-color, 2); // replace tint(@primary-color, 80%)
-@primary-3: color-palette(@primary-color, 3); // unused
-@primary-4: color-palette(@primary-color, 4); // unused
-@primary-5: color-palette(
-  @primary-color,
-  5
+@primary-color-1: color-palette(@primary-color, 1);
+@primary-color-2: color-palette(@primary-color, 2);
+@primary-color-3: color-palette(@primary-color, 3);
+@primary-color-4: color-palette(@primary-color, 4);
+@primary-color-5: color-palette(@primary-color, 5);
+@primary-color-7: color-palette(@primary-color, 7);
+@primary-color-8: color-palette(@primary-color, 8);
+@primary-color-9: color-palette(@primary-color, 9);
+@primary-color-10: color-palette(@primary-color, 10);
+
+@primary-1: color(~'@{primary-color-1}'); // replace tint(@primary-color, 90%)
+@primary-2: color(~'@{primary-color-2}'); // replace tint(@primary-color, 80%)
+@primary-3: color(~'@{primary-color-3}'); // unused
+@primary-4: color(~'@{primary-color-4}'); // unused
+@primary-5: color(
+  ~'@{primary-color-5}'
 ); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
 @primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: color-palette(@primary-color, 7); // replace shade(@primary-color, 5%)
-@primary-8: color-palette(@primary-color, 8); // unused
-@primary-9: color-palette(@primary-color, 9); // unused
-@primary-10: color-palette(@primary-color, 10); // unused
+@primary-7: color(~'@{primary-color-7}'); // replace shade(@primary-color, 5%)
+@primary-8: color(~'@{primary-color-8}'); // unused
+@primary-9: color(~'@{primary-color-9}'); // unused
+@primary-10: color(~'@{primary-color-10}'); // unused
 
 // Base Scaffolding Variables
 // ---
