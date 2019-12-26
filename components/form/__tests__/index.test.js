@@ -8,9 +8,9 @@ import mountTest from '../../../tests/shared/mountTest';
 
 jest.mock('scroll-into-view-if-needed');
 
-const delay = () =>
+const delay = (timeout = 0) =>
   new Promise(resolve => {
-    setTimeout(resolve, 0);
+    setTimeout(resolve, timeout);
   });
 
 describe('Form', () => {
@@ -25,7 +25,7 @@ describe('Form', () => {
       .find(Input)
       .at(index)
       .simulate('change', { target: { value } });
-    await delay();
+    await delay(20);
     wrapper.update();
   }
 
