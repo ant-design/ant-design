@@ -139,11 +139,21 @@ export default function Page2({ isMobile, locale }) {
     const mobileContent = (
       <div className="components-button-wrapper">
         <p key="p">{item.slogan}</p>
-        <a className="more-mobile-react" href="https://mobile.ant.design" target="_blank" rel="noopener noreferrer">
+        <a
+          className="more-mobile-react"
+          href="https://mobile.ant.design"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FormattedMessage id="app.home.more-mobile-react" />
           <Icon type="right" />
         </a>
-        <a className="more-mobile-angular" href="http://ng.mobile.ant.design" target="_blank" rel="noopener noreferrer">
+        <a
+          className="more-mobile-angular"
+          href="http://ng.mobile.ant.design"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FormattedMessage id="app.home.more-mobile-angular" />
           <Icon type="right" />
         </a>

@@ -126,7 +126,18 @@ class MainContent extends Component {
       if (menuItem.children) {
         return (
           <SubMenu title={menuItem.title} key={menuItem.title}>
-            {menuItem.children.map(child => this.generateMenuItem(false, child, footerNavIcons))}
+            {menuItem.children.map(child => {
+              if (child.type === 'type') {
+                return (
+                  <Menu.ItemGroup title={child.title} key={child.title}>
+                    {child.children
+                      .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+                  </Menu.ItemGroup>
+                );
+              }
+              return this.generateMenuItem(false, child, footerNavIcons);
+            })}
           </SubMenu>
         );
       }

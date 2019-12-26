@@ -8,6 +8,8 @@ declare module '*.svg' {
   export default src;
 }
 
+declare module 'bisheng/router';
+
 declare module 'rc-pagination/*';
 
 declare module 'omit.js';

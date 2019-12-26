@@ -42,18 +42,17 @@ module.exports = {
   themeConfig: {
     categoryOrder: {
       'Ant Design': 0,
-      原则: 1,
-      Principles: 1,
-      视觉: 2,
-      Visual: 2,
-      模式: 3,
-      Patterns: 3,
+      全局样式: 1,
+      'Global Style': 1,
+      设计模式: 2,
+      'Design Patterns': 2,
       其他: 6,
       Other: 6,
       Components: 100,
       组件: 100,
     },
     typeOrder: {
+      // Component
       General: 0,
       Layout: 1,
       Navigation: 2,
@@ -70,6 +69,12 @@ module.exports = {
       反馈: 5,
       其他: 6,
       废弃: 7,
+
+      // Design
+      原则: 1,
+      Principles: 1,
+      全局规则: 2,
+      'Global Rules': 2,
     },
     docVersions: {
       '0.9.x': 'http://09x.ant.design',
