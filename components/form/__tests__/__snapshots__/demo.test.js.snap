@@ -4233,6 +4233,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           value=""
         />
       </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        Should be combination of numbers & alphabets
+      </div>
     </div>
   </div>
   <div
@@ -4314,6 +4319,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </svg>
           </span>
         </span>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        The information is being validated...
       </div>
     </div>
   </div>
@@ -4473,6 +4483,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             </svg>
           </span>
         </span>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        Should be combination of numbers & alphabets
       </div>
     </div>
   </div>
@@ -4853,6 +4868,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           </span>
         </span>
       </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        The information is being validated...
+      </div>
     </div>
   </div>
   <div
@@ -4923,6 +4943,11 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   </span>
                 </div>
               </div>
+            </div>
+            <div
+              class="ant-form-item-explain"
+            >
+              Please select the correct date
             </div>
           </div>
         </div>
@@ -5444,6 +5469,11 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
             />
           </div>
         </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
       </div>
     </div>
   </div>

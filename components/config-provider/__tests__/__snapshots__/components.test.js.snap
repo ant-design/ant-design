@@ -6760,6 +6760,11 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           value=""
         />
       </div>
+      <div
+        class="config-form-item-explain"
+      >
+        Bamboo is Light
+      </div>
     </div>
   </div>
 </form>
@@ -6784,6 +6789,11 @@ exports[`ConfigProvider components Form normal 1`] = `
           value=""
         />
       </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        Bamboo is Light
+      </div>
     </div>
   </div>
 </form>
@@ -6807,6 +6817,11 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           type="text"
           value=""
         />
+      </div>
+      <div
+        class="prefix-Form-item-explain"
+      >
+        Bamboo is Light
       </div>
     </div>
   </div>
