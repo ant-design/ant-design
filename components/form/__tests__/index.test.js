@@ -29,6 +29,10 @@ describe('Form', () => {
     wrapper.update();
   }
 
+  beforeAll(() => {
+    jest.useRealTimers();
+  });
+
   beforeEach(() => {
     scrollIntoView.mockReset();
   });
