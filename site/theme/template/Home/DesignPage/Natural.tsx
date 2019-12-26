@@ -41,31 +41,6 @@ const RightLeaf = () => (
 RightLeaf.width = 38;
 RightLeaf.height = 38;
 
-function getFrames(init: Partial<FrameInfo>, delay: number = 0): FrameInfo[] {
-  return [
-    {
-      ...init,
-      frame: 0,
-      scaleX: 1,
-      scaleY: 1,
-    },
-    {
-      frame: 1 + delay,
-      rotate: 0,
-      cubic: Hitu.CUBIC_EASE,
-    },
-    {
-      frame: 30 + delay,
-      rotate: 5,
-      cubic: Hitu.CUBIC_EASE,
-    },
-    {
-      frame: 60 + delay,
-      rotate: 0,
-    },
-  ];
-}
-
 const shapes: Shape[] = [
   {
     type: 'shape',
