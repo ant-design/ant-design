@@ -5,56 +5,33 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 type InternalNamePath = (string | number)[];
 
 /**
- * We will remove light way shake like:
- * errors -> none -> errors (in 100 ms)
- * to
- * errors (in 100 ms)
- */
-function useDebounce<T>(content: T[], delay: number = 10): T[] {
-  const [cache, setCache] = React.useState(content);
-
-  // React hooks still have bug with unmount setState
-  // https://github.com/facebook/react/issues/15057
-  React.useEffect(() => {
-    if (content.length) {
-      setCache(content);
-    } else {
-      const timeout = setTimeout(() => {
-        setCache(content);
-      }, delay);
-
-      return () => {
-        clearTimeout(timeout);
-      };
-    }
-  }, [content]);
-
-  return cache;
-}
-
-/**
- * Cache latest errors and trigger change event if visible change
+ * Always debounce error to avoid [error -> null -> error] blink
  */
 export function useCacheErrors(
   errors: React.ReactNode[],
   changeTrigger: (visible: boolean) => void,
-) {
-  const debounceErrors = useDebounce(errors);
-  const [cacheErrors, setCacheErrors] = React.useState(debounceErrors);
-  const [visible, setVisible] = React.useState(false);
+): [boolean, React.ReactNode[]] {
+  const cacheRef = React.useRef({
+    errors,
+    visible: !!errors.length,
+  });
 
   React.useEffect(() => {
-    const newVisible = !!debounceErrors.length;
-    if (debounceErrors.length) {
-      setCacheErrors(debounceErrors);
-    }
-    if (newVisible !== visible) {
-      changeTrigger(newVisible);
-    }
-    setVisible(newVisible);
-  }, [debounceErrors]);
+    const timeout = setTimeout(() => {
+      const prevVisible = cacheRef.current.visible;
+      const newVisible = !!errors.length;
 
-  return [visible, cacheErrors];
+      cacheRef.current.errors = errors;
+      cacheRef.current.visible = newVisible;
+
+      if (prevVisible !== newVisible) {
+        changeTrigger(newVisible);
+      }
+    }, 10);
+    return () => clearTimeout(timeout);
+  }, [errors]);
+
+  return [cacheRef.current.visible, cacheRef.current.errors];
 }
 
 export function toArray<T>(candidate?: T | T[] | false): T[] {

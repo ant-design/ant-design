@@ -6,6 +6,7 @@ import {
   CheckCircleFilled,
   ExclamationCircleFilled,
 } from '@ant-design/icons';
+import useMemo from 'rc-util/lib/hooks/useMemo';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
 
 import Col, { ColProps } from '../grid/col';
@@ -47,6 +48,8 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   validateStatus,
   extra,
 }) => {
+  const [, forceUpdate] = React.useState({});
+
   const baseClassName = `${prefixCls}-item`;
 
   const formContext = React.useContext(FormContext);
@@ -59,7 +62,14 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
     if (changedVisible) {
       onDomErrorVisibleChange(true);
     }
+    forceUpdate({});
   });
+
+  const memoErrors = useMemo(
+    () => cacheErrors,
+    visible,
+    (_, nextVisible) => nextVisible,
+  );
 
   // Should provides additional icon if `hasFeedback`
   const IconNode = validateStatus && iconMap[validateStatus];
@@ -94,7 +104,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           {({ className: motionClassName }: { className: string }) => {
             return (
               <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
-                {cacheErrors}
+                {memoErrors}
               </div>
             );
           }}

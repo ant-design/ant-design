@@ -128,7 +128,7 @@
     "rc-tree-select": "~3.0.0-alpha.5",
     "rc-trigger": "~4.0.0-alpha.7",
     "rc-upload": "~3.0.0-alpha.0",
-    "rc-util": "^4.16.1",
+    "rc-util": "^4.17.0",
     "rc-virtual-list": "^0.0.0-alpha.25",
     "@ant-design/react-slick": "~0.25.5",
     "resize-observer-polyfill": "^1.5.1",
