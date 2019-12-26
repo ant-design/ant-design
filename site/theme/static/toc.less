@@ -53,7 +53,13 @@ ul.toc > li {
     max-height: ~'calc(100vh - 16px)';
     overflow-x: hidden;
     overflow-y: auto;
-    background: @body-background;
+    background: #fff;
+  }
+}
+
+[data-theme='dark'] .toc-affix {
+  .ant-affix {
+    background: #141414;
   }
 }
 
