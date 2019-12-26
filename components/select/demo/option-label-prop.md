@@ -60,8 +60,8 @@ ReactDOM.render(
 );
 ```
 
-````css
-span[role="img"] {
+```css
+span[role='img'] {
   margin-right: 6px;
 }
-````
+```
