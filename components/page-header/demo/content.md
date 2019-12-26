@@ -131,6 +131,7 @@ const Content = ({ children, extraContent }) => {
         className="extra"
         style={{
           marginLeft: 80,
+          marginTop: 16,
         }}
       >
         {extraContent}
@@ -159,7 +160,7 @@ ReactDOM.render(
     <Content
       extraContent={
         <img
-          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          src="http://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/YZUAr4NUNC/pageHeader.svg"
           alt="content"
         />
       }
