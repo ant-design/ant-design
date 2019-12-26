@@ -85,7 +85,7 @@ title: 插画
 
 <img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-LbbSads11EAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" alt="人物姿态复用" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7JLsQ4whNKkAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FcRKRLwPIz4AAAAAAAAAAABkARQnAQ" />
 
 记忆点源于与众不同，专业感源于整齐划一。元素组件指代的是业务场景中一些业务元素，状态元素图形化的世界缤纷多变，我们希望在保持统一性的同时不去限时设计者的创意空间，元素组件的设计上，我们为了保持一定的韵律感，推荐设计师在 1024\*1024 的网格中绘制组件，且圆角的大小保持 8 的倍数关系。
 
