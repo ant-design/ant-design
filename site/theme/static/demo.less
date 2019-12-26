@@ -18,8 +18,8 @@
   .code-box-title {
     &,
     a {
-      background: @component-background;
       color: @site-text-color;
+      background: @component-background;
     }
   }
   .code-box-description {
@@ -266,14 +266,14 @@
     width: 20px;
     height: 20px;
     overflow: hidden;
-    opacity: 0.65;
     text-indent: -9999px;
-    &:hover {
-      opacity: 1;
-    }
     background: transparent
       url('https://gw.alipayobjects.com/zos/rmsportal/OtZslpOjYXijshDERXwc.svg') center / 14px
       no-repeat;
+    opacity: 0.65;
+    &:hover {
+      opacity: 1;
+    }
     border: 0;
     cursor: pointer;
     transition: all 0.3s;
