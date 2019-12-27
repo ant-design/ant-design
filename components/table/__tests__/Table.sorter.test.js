@@ -613,6 +613,7 @@ describe('Table.sorter', () => {
       createTable({
         pagination: {
           pageSize: 2,
+          defaultCurrent: 2,
           onChange: onPageChange,
         },
         onChange,
@@ -620,8 +621,8 @@ describe('Table.sorter', () => {
     );
 
     wrapper.find('.ant-table-column-sorters').simulate('click');
-    expect(onChange.mock.calls[0][0].current).toBe(1);
-    expect(onPageChange.mock.calls[0][0]).toBe(1);
+    expect(onChange.mock.calls[0][0].current).toBe(2);
+    expect(onPageChange).not.toHaveBeenCalled();
   });
 
   it('should support onHeaderCell in sort column', () => {

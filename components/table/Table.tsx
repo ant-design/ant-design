@@ -868,7 +868,6 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
   };
 
   toggleSortOrder(column: ColumnProps<T>) {
-    const pagination = { ...this.state.pagination };
     const sortDirections = column.sortDirections || (this.props.sortDirections as SortOrder[]);
     const { sortOrder, sortColumn } = this.state;
     // 只同时允许一列进行排序，否则会导致排序顺序的逻辑问题
@@ -883,14 +882,7 @@ class Table<T> extends React.Component<InternalTableProps<T>, TableState<T>> {
       newSortOrder = sortDirections[0];
     }
 
-    if (this.props.pagination) {
-      // Reset current prop
-      pagination.current = 1;
-      pagination.onChange!(pagination.current);
-    }
-
     const newState = {
-      pagination,
       sortOrder: newSortOrder,
       sortColumn: newSortOrder ? column : null,
     };
