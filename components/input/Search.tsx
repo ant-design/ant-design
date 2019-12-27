@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { SearchOutlined, LoadingOutlined } from '@ant-design/icons';
-
 import Input, { InputProps } from './Input';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -40,6 +39,12 @@ export default class Search extends React.Component<SearchProps, any> {
     }
   };
 
+  onMouseDown: React.MouseEventHandler<HTMLElement> = e => {
+    if (document.activeElement === this.input.input) {
+      e.preventDefault();
+    }
+  };
+
   onSearch = (e: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLInputElement>) => {
     const { onSearch, loading, disabled } = this.props;
     if (loading || disabled) {
@@ -48,7 +53,6 @@ export default class Search extends React.Component<SearchProps, any> {
     if (onSearch) {
       onSearch(this.input.input.value, e);
     }
-    this.input.focus();
   };
 
   focus() {
@@ -116,6 +120,7 @@ export default class Search extends React.Component<SearchProps, any> {
       (enterButtonAsElement.type as typeof Button).__ANT_BUTTON === true;
     if (isAntdButton || enterButtonAsElement.type === 'button') {
       button = React.cloneElement(enterButtonAsElement, {
+        onMouseDown: this.onMouseDown,
         onClick: this.onSearch,
         key: 'enterButton',
         ...(isAntdButton
@@ -133,6 +138,7 @@ export default class Search extends React.Component<SearchProps, any> {
           size={size}
           disabled={disabled}
           key="enterButton"
+          onMouseDown={this.onMouseDown}
           onClick={this.onSearch}
         >
           {enterButton === true ? <SearchOutlined /> : enterButton}

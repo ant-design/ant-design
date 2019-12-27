@@ -1075,6 +1075,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -1131,6 +1132,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -2020,6 +2022,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -2363,6 +2366,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -2419,6 +2423,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -3308,6 +3313,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -3651,6 +3657,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -3707,6 +3714,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -4596,6 +4604,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -6751,6 +6760,11 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           value=""
         />
       </div>
+      <div
+        class="config-form-item-explain"
+      >
+        Bamboo is Light
+      </div>
     </div>
   </div>
 </form>
@@ -6775,6 +6789,11 @@ exports[`ConfigProvider components Form normal 1`] = `
           value=""
         />
       </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        Bamboo is Light
+      </div>
     </div>
   </div>
 </form>
@@ -6798,6 +6817,11 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           type="text"
           value=""
         />
+      </div>
+      <div
+        class="prefix-Form-item-explain"
+      >
+        Bamboo is Light
       </div>
     </div>
   </div>
@@ -8060,6 +8084,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8203,6 +8228,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8351,6 +8377,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8494,6 +8521,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8642,6 +8670,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8785,6 +8814,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -10366,6 +10396,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="config-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -10484,6 +10515,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -10602,6 +10634,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="prefix-Select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -18124,6 +18157,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="config-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -18235,6 +18269,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -18346,6 +18381,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="prefix-TreeSelect-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""

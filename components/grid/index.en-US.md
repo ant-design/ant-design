@@ -110,3 +110,10 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | xxl | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |  |
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)(not including `occasionally part`).
+
+<style>
+  [data-theme="dark"] #components-grid-demo-playground pre {
+    background: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,.65);
+  }
+</style>

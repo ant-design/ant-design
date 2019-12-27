@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 3
 title: 可视化
 ---
 
@@ -9,7 +9,7 @@ title: 可视化
 
 ## 设计资源
 
-我们提供完善的设计原则 & 指引和设计资源文件（Sketch），此外还提供了一份完整的图表用法说明，来帮助用户快速理解图表并设计出高质量的可视化图表。
+AntV 提供完善的设计原则 & 指引和设计资源文件（Sketch），此外还提供了一份完整的图表用法说明，来帮助用户快速理解图表并设计出高质量的可视化图表。
 
 - [设计原则](https://antv.vision/zh/docs/specification/principles/basic)
 - [设计资源](https://antv.vision/zh/docs/specification/resources)
@@ -17,7 +17,7 @@ title: 可视化
 
 ## 前端实现
 
-我们基于原生 JavaScipt 封装了一套 AntV 的组件库，其包含高交互基础图表库 G2Plot，专注解决流程与关系分析的图表库 G6，适于移动端应用的图表库 F2 等，也欢迎社区其他框架的实现版本。
+AntV 基于原生 JavaScipt 封装了一套 AntV 的组件库，其包含高交互基础图表库 G2Plot，专注解决流程与关系分析的图表库 G6，适于移动端应用的图表库 F2 等，也欢迎社区其他框架的实现版本。
 
 - [G2 可视化引擎](https://g2.antv.vision/zh)
 - [G2Plot 开箱即用的图表库](https://g2plot.antv.vision/zh) 🔥

@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
 import Input from '../../input';
+import Tooltip from '../../tooltip';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 
@@ -20,7 +21,10 @@ describe('Table.filter', () => {
       {
         text: 'Title',
         value: 'title',
-        children: [{ text: 'Designer', value: 'designer' }, { text: 'Coder', value: 'coder' }],
+        children: [
+          { text: 'Designer', value: 'designer' },
+          { text: 'Coder', value: 'coder' },
+        ],
       },
     ],
     onFilter: filterFn,
@@ -467,7 +471,10 @@ describe('Table.filter', () => {
   // });
 
   describe('should support value types', () => {
-    [['Light', 93], ['Bamboo', false]].forEach(([text, value]) => {
+    [
+      ['Light', 93],
+      ['Bamboo', false],
+    ].forEach(([text, value]) => {
       it(`${typeof value} type`, () => {
         const onFilter = jest.fn();
         const filters = [{ text, value }];
@@ -551,7 +558,10 @@ describe('Table.filter', () => {
               title="name"
               dataIndex="name"
               key="name"
-              filters={[{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }]}
+              filters={[
+                { text: 'Jack', value: 'Jack' },
+                { text: 'Lucy', value: 'Lucy' },
+              ]}
               filteredValue={filters.name}
               onFilter={filterFn}
             />
@@ -590,7 +600,10 @@ describe('Table.filter', () => {
             title: 'Name',
             dataIndex: 'name',
             key: 'name',
-            filters: [{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }],
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
             onFilter: filterFn,
             filteredValue: ['Jack'],
           },
@@ -620,7 +633,10 @@ describe('Table.filter', () => {
         columns: [
           {
             ...column,
-            filters: [{ text: 'Jack', value: 'Jack' }, { text: 'Lucy', value: 'Lucy' }],
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
           },
         ],
         onChange: handleChange,
@@ -686,6 +702,40 @@ describe('Table.filter', () => {
       .first()
       .simulate('click');
     expect(wrapper.find('.customize-icon').render()).toMatchSnapshot();
+  });
+
+  it('renders custom filter icon as string correctly', () => {
+    const filterIcon = () => 'string';
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('renders custom filter icon with right Tooltip title', () => {
+    const filterIcon = () => (
+      <Tooltip title="title" visible>
+        Tooltip
+      </Tooltip>
+    );
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/13028

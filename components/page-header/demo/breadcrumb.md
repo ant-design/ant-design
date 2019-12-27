@@ -33,9 +33,7 @@ const routes = [
 
 ReactDOM.render(
   <PageHeader
-    style={{
-      border: '1px solid rgb(235, 237, 240)',
-    }}
+    className="site-page-header"
     title="Title"
     breadcrumb={{ routes }}
     subTitle="This is a subtitle"

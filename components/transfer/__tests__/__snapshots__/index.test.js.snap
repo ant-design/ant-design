@@ -733,7 +733,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                           "tag": "svg",
                         },
                         "name": "right",
-                        "theme": "outline",
+                        "theme": "outlined",
                       }
                     }
                   >
@@ -762,7 +762,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                               "tag": "svg",
                             },
                             "name": "right",
-                            "theme": "outline",
+                            "theme": "outlined",
                           }
                         }
                       >
@@ -827,7 +827,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                           "tag": "svg",
                         },
                         "name": "left",
-                        "theme": "outline",
+                        "theme": "outlined",
                       }
                     }
                   >
@@ -856,7 +856,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                               "tag": "svg",
                             },
                             "name": "left",
-                            "theme": "outline",
+                            "theme": "outlined",
                           }
                         }
                       >

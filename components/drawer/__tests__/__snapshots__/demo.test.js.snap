@@ -160,7 +160,7 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
 
 exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
 <div
-  style="height:200px;overflow:hidden;position:relative;border:1px solid #ebedf0;border-radius:2px;padding:48px;text-align:center;background:#fafafa"
+  class="site-drawer-render-in-current-wrapper"
 >
   Render in this
   <div

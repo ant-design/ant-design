@@ -15,13 +15,13 @@ More layouts with navigation: [Layout](/components/layout).
 
 ## API
 
-```html
-<menu>
+```jsx
+<Menu>
   <Menu.Item>Menu</Menu.Item>
   <SubMenu title="SubMenu">
     <Menu.Item>SubMenuItem</Menu.Item>
   </SubMenu>
-</menu>
+</Menu>
 ```
 
 ### Menu

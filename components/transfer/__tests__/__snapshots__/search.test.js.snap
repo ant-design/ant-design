@@ -64,7 +64,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
                 "tag": "svg",
               },
               "name": "search",
-              "theme": "outline",
+              "theme": "outlined",
             }
           }
         >
@@ -93,7 +93,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
                     "tag": "svg",
                   },
                   "name": "search",
-                  "theme": "outline",
+                  "theme": "outlined",
                 }
               }
             >
@@ -188,7 +188,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
                 "tag": "svg",
               },
               "name": "close-circle",
-              "theme": "fill",
+              "theme": "filled",
             }
           }
         >
@@ -217,7 +217,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
                     "tag": "svg",
                   },
                   "name": "close-circle",
-                  "theme": "fill",
+                  "theme": "filled",
                 }
               }
             >

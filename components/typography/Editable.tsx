@@ -1,7 +1,7 @@
 import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
+import classNames from 'classnames';
 import { EnterOutlined } from '@ant-design/icons';
-
 import TextArea from '../input/TextArea';
 
 interface EditableProps {
@@ -114,7 +114,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
     const { prefixCls, 'aria-label': ariaLabel, className, style } = this.props;
 
     return (
-      <div className={`${prefixCls} ${prefixCls}-edit-content ${className}`} style={style}>
+      <div className={classNames(prefixCls, `${prefixCls}-edit-content`, className)} style={style}>
         <TextArea
           ref={this.setTextarea}
           value={current}
