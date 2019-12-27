@@ -1,6 +1,6 @@
 ---
 order: 5
-title: 插画
+title: 图形化
 ---
 
 # HiTu 图形化
