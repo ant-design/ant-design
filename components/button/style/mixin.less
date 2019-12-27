@@ -96,19 +96,47 @@
   &:hover,
   &:focus {
     & when (@border = transparent) {
-      .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
+      & when (@theme = dark) {
+        .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
+      }
+      & when not (@theme = dark) {
+        .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
+      }
     }
-    & when not(@border = transparent) {
-      .button-color(~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `);
+    & when not (@border = transparent) {
+      & when (@theme = dark) {
+        .button-color(
+          ~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `
+        );
+      }
+      & when not (@theme = dark) {
+        .button-color(
+          ~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `
+        );
+      }
     }
   }
   &:active,
   &.active {
     & when (@border = transparent) {
-      .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
+      & when (@theme = dark) {
+        .button-color(~`colorPalette('@{color}', 5) `; transparent; transparent);
+      }
+      & when not (@theme = dark) {
+        .button-color(~`colorPalette('@{color}', 7) `; transparent; transparent);
+      }
     }
     & when not(@border = transparent) {
-      .button-color(~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `);
+      & when (@theme = dark) {
+        .button-color(
+          ~`colorPalette('@{color}', 5) `; transparent; ~`colorPalette('@{color}', 5) `
+        );
+      }
+      & when not (@theme = dark) {
+        .button-color(
+          ~`colorPalette('@{color}', 7) `; transparent; ~`colorPalette('@{color}', 7) `
+        );
+      }
     }
   }
   .button-disabled();
