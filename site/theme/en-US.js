@@ -57,7 +57,7 @@ module.exports = {
     'app.home.product-mobile-slogan': 'Mobile UI components with Ant Design',
     'app.home.product-hitu': 'HiTu',
     'app.home.product-hitu-slogan': 'A new generation of graphical solutions',
-    'app.home.product-kitchen-slogan': 'A Sketch plugins to enhance designers',
+    'app.home.product-kitchen-slogan': 'A Sketch plugin to enhance designers',
     'app.home.product-icons-slogan': 'A set of premium icons',
     'app.home.view-more': 'More',
     'app.footer.repo': 'GitHub Repository',

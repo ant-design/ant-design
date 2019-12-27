@@ -1,6 +1,6 @@
 ---
 category: Design Patterns
-type: Principles
+type: Global Rules
 order: 98
 title: Data Entry
 ---

@@ -3,8 +3,6 @@ order: 5
 title: 图形化
 ---
 
-# HiTu 图形化
-
 <div style="text-align:center;">
   <img alt="General" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WzMpTIP8R6gAAAAAAAAAAABkARQnAQ" />
 </div>

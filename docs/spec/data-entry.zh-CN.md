@@ -1,6 +1,6 @@
 ---
 category: 设计模式
-type: 原则
+type: 全局规则
 order: 98
 title: 数据录入
 ---

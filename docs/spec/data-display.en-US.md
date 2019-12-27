@@ -1,6 +1,6 @@
 ---
 category: Design Patterns
-type: Principles
+type: Global Rules
 order: 99
 title: Data Display
 ---
