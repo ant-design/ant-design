@@ -99,7 +99,7 @@
         &,
         .@{select-prefix-cls}-selection-item,
         .@{select-prefix-cls}-selection-placeholder {
-          padding: 0 @input-padding-horizontal-sm;
+          padding: 0 @control-padding-horizontal + @font-size-sm 0 @input-padding-horizontal-sm; // With arrow should provides `padding-right` to show the arrow
         }
       }
     }
