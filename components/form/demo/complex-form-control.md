@@ -12,11 +12,11 @@ title:
 ```diff
 - <Form.Item label="Field" name="field">
 -   <Input />
-- </Form.Item/>
+- </Form.Item>
 + <Form.Item label="Field">
-+   <Form.Item name="field" onStyle><Input /><Form.Item> // 直接包裹才会绑定表单
++   <Form.Item name="field" onStyle><Input /></Form.Item> // 直接包裹才会绑定表单
 +   <span>description</span>
-+ </Form.Item/>
++ </Form.Item>
 ```
 
 这里展示了三种典型场景：
@@ -36,11 +36,11 @@ This demo show how to use `Form.Item` with multiple controls. `<Form.Item name="
 ```diff
 - <Form.Item label="Field" name="field">
 -   <Input />
-- </Form.Item/>
+- </Form.Item>
 + <Form.Item label="Field">
-+   <Form.Item name="field" onStyle><Input /><Form.Item> // that will bind input
++   <Form.Item name="field" onStyle><Input /></Form.Item> // that will bind input
 +   <span>description</span>
-+ </Form.Item/>
++ </Form.Item>
 ```
 
 This demo show three typical usages:
