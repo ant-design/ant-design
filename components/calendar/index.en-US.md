@@ -46,3 +46,34 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | onSelect | Callback for when a date is selected | function(date: moment） | - |  |
 | onChange | Callback for when date changes | function(date: moment） | - |  |
 | headerRender | render custom header in panel | function(object:{value: moment, type: string, onChange: f(), onTypeChange: f()}) | - |  |
+
+## FAQ
+
+### How to use dayjs instead of moment
+
+custom component `Calendar`
+
+```tsx
+import { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import generateCalendar from 'antd/es/calendar/generateCalendar';
+import 'antd/es/calendar/style';
+
+const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
+
+export default Calendar;
+```
+
+using custom component `Calendar` instead of antd's `Calendar`
+
+```js
+import { Calendar } from '@/components';
+import format from 'dayjs';
+```
+
+instead
+
+```js
+import { Calendar } from 'antd';
+import format from 'moment';
+```

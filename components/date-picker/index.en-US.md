@@ -151,3 +151,32 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 ## FAQ
 
 - [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
+
+### How to use dayjs instead of moment
+
+custom component `DatePicker`
+
+```tsx
+import { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import generatePicker from 'antd/es/date-picker/generatePicker';
+import 'antd/es/date-picker/style/index';
+
+const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
+
+export default DatePicker;
+```
+
+using custom component `DatePicker` instead of antd's `DatePicker`
+
+```js
+import { DatePicker } from '@/components';
+import format from 'dayjs';
+```
+
+instead
+
+```js
+import { DatePicker } from 'antd';
+import format from 'moment';
+```

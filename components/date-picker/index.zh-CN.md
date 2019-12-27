@@ -152,4 +152,33 @@ import 'moment/locale/zh-cn';
 
 ## FAQ
 
-- [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
+- [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？) akdnsakldnsa
+
+### 如何使用 dayjs 替代 moment
+
+自定义组件 `DatePicker`
+
+```tsx
+import { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import generatePicker from 'antd/es/date-picker/generatePicker';
+import 'antd/es/date-picker/style/index';
+
+const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
+
+export default DatePicker;
+```
+
+使用自定义的 DatePicker 组件替换 antd 的 `DatePicker`
+
+```js
+import { DatePicker } from '@/components';
+import format from 'dayjs';
+```
+
+替换
+
+```js
+import { DatePicker } from 'antd';
+import format from 'moment';
+```

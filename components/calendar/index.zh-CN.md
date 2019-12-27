@@ -47,3 +47,34 @@ title: Calendar
 | onSelect | 点击选择日期回调 | function(date: moment） | 无 |  |
 | onChange | 日期变化回调 | function(date: moment） | 无 |  |
 | headerRender | 自定义头部内容 | function(object:{value: moment, type: string, onChange: f(), onTypeChange: f()}) | 无 |  |
+
+## FAQ
+
+### 如何使用 dayjs 替代 moment
+
+自定义组件 `Calendar`
+
+```tsx
+import { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import generateCalendar from 'antd/es/calendar/generateCalendar';
+import 'antd/es/calendar/style';
+
+const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
+
+export default Calendar;
+```
+
+使用自定义的 Calendar 组件替换 antd 的 `Calendar`
+
+```js
+import { Calendar } from '@/components';
+import format from 'dayjs';
+```
+
+替换
+
+```js
+import { Calendar } from 'antd';
+import format from 'moment';
+```
