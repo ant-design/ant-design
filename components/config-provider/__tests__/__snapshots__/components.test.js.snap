@@ -8617,7 +8617,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       <div
         class="config-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -8753,7 +8753,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       <div
         class="config-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -8894,7 +8894,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -9030,7 +9030,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -9171,7 +9171,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       <div
         class="prefix-Pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -9307,7 +9307,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       <div
         class="prefix-Pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
