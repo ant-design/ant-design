@@ -38,8 +38,13 @@
     background-color: @component-background;
   }
   .markdown {
-    code {
-      background: @popover-background;
+    pre {
+      margin: 0.5em 0;
+      padding: 6px 12px;
+    }
+    pre code {
+      margin: 0;
+      background: #f5f5f5;
     }
   }
   &:target {
