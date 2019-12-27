@@ -18,8 +18,8 @@ With the trend of commercialization, more and more enterprise-level products beg
 
 We provide comprehensive design guidelines, best practices, design resources, and design tools to help designers produce high-quality product prototypes.
 
-- [Design value](/docs/spec/values)
-- [Design pattern](/docs/spec/overview)
+- [Design values](/docs/spec/values)
+- [Design patterns](/docs/spec/overview)
 - [Visualization](/docs/spec/visual)
 - [Illustration](/docs/spec/illustration)
 - [Design resources](/docs/spec/download)

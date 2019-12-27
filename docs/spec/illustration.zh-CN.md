@@ -30,7 +30,7 @@ title: 图形化
 基于科技，确定，自然，未来的四层品牌策略，我们将抽象的概念具象化。代表的技术底层的科技能力为产品，体验和未来提供技术支撑和可能性。所以图例一一对应，我们具象化了人物和产品，体验及未来之间的关系。他们之间不同的组合方式可以满足不同的业务场景诉求。
 
 <div style="text-align:center;">
-  <img alt="Pyramid model" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*K0AETKiR__EAAAAAAAAAAABkARQnAQ" />
+  <img alt="Pyramid model" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gCoSS5DaCNEAAAAAAAAAAABkARQnAQ" />
 </div>
 
 ## 颜色

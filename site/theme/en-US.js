@@ -59,7 +59,7 @@ module.exports = {
     'app.home.product-hitu-slogan': 'A new generation of graphical solutions',
     'app.home.product-kitchen-slogan': 'A Sketch plugins to enhance designers',
     'app.home.product-icons-slogan': 'A set of premium icons',
-    'app.home.view-more': 'More articles',
+    'app.home.view-more': 'More',
     'app.footer.repo': 'GitHub Repository',
     'app.footer.awesome': 'Awesome Ant Design',
     'app.footer.course': 'Ant Design Practical Tutorial',
