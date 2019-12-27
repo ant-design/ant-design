@@ -4203,7 +4203,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-has-error"
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
@@ -4266,7 +4266,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-is-validating"
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
@@ -4430,7 +4430,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
@@ -4764,7 +4764,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-is-validating"
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-feedback ant-form-item-is-validating"
   >
     <div
       class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
@@ -4892,7 +4892,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control-input"
       >
         <div
-          class="ant-row ant-form-item ant-form-item-has-error"
+          class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
           style="display:inline-block;width:calc(50% - 12px)"
         >
           <div
@@ -5367,7 +5367,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item"
+    class="ant-row ant-form-item ant-form-item-with-help"
   >
     <div
       class="ant-col ant-col-7 ant-form-item-label"
