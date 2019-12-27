@@ -98,7 +98,7 @@ class Demo extends React.Component {
     ) {
       loop(data, dropKey, item => {
         item.children = item.children || [];
-        // where to insert 示例添加到尾部，可以是随意位置
+        // where to insert 示例添加到头部，可以是随意位置
         item.children.unshift(dragObj);
       });
     } else {
