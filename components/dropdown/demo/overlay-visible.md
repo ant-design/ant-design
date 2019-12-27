@@ -14,7 +14,8 @@ title:
 The default is to close the menu when you click on menu items, this feature can be turned off.
 
 ```jsx
-import { Menu, Dropdown, Icon } from 'antd';
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 class OverlayVisible extends React.Component {
   state = {
@@ -46,7 +47,7 @@ class OverlayVisible extends React.Component {
         visible={this.state.visible}
       >
         <a className="ant-dropdown-link" href="#">
-          Hover me <Icon type="down" />
+          Hover me <DownOutlined />
         </a>
       </Dropdown>
     );

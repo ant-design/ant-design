@@ -1,3 +1,5 @@
+@import '../../../components/style/themes/default.less';
+
 @header-height: 64px;
 @menu-item-border: 2px;
 
@@ -5,7 +7,7 @@
   position: relative;
   z-index: 10;
   max-width: 100%;
-  background: #fff;
+  background: @component-background;
   box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
   &.home-nav-bottom {
     background: rgba(255, 255, 255, 0.9);
@@ -25,6 +27,70 @@
   .ant-menu-item-active .header-link {
     color: @primary-color;
   }
+
+  // ===================== Home Page =====================
+  &.home-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    background: transparent;
+    box-shadow: none;
+
+    #logo {
+      padding-left: 0;
+    }
+
+    .ant-menu {
+      background: transparent;
+    }
+
+    .header-lang-button {
+      margin-right: 0;
+    }
+
+    // Adjust github button style
+    .github-btn {
+      float: right;
+      height: auto;
+      margin: 20px 0 0 16px;
+
+      .gh-btn {
+        height: auto;
+        padding: 1px 4px;
+        background: transparent;
+        border: 0;
+
+        .gh-ico {
+          width: 20px;
+          height: 20px;
+          margin: 0;
+        }
+
+        .gh-text {
+          display: none;
+        }
+      }
+
+      .gh-count {
+        height: auto;
+        padding: 4px 8px;
+        font-weight: normal;
+        background: #fff;
+
+        &:hover {
+          color: #1890ff;
+        }
+      }
+    }
+  }
+}
+
+[data-theme='dark'] #header {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.65);
 }
 
 #logo {
@@ -39,10 +105,13 @@
     height: 32px;
     margin-right: 16px;
   }
-  img + img {
+  svg {
     position: relative;
     top: 1px;
-    height: 16px;
+    display: inline;
+    margin-right: 16px;
+    vertical-align: middle;
+    border-style: none;
   }
 }
 
@@ -147,5 +216,11 @@
     right: 16px;
     color: #aaa;
     font-size: 12px;
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .github-btn {
+    display: none;
   }
 }

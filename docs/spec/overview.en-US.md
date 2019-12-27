@@ -1,5 +1,5 @@
 ---
-category: Patterns
+category: Design Patterns
 order: 0
 title: Overview
 ---

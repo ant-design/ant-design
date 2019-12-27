@@ -38,6 +38,9 @@ ReactDOM.render(
     <Select defaultValue="lucy" style={{ width: 120 }} loading>
       <Option value="lucy">Lucy</Option>
     </Select>
+    <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
+      <Option value="lucy">Lucy</Option>
+    </Select>
   </div>,
   mountNode,
 );

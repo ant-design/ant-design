@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import ResizableTextArea, { AutoSizeType } from './ResizableTextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -14,6 +13,7 @@ export interface TextAreaProps extends HTMLTextareaProps {
   autoSize?: boolean | AutoSizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   allowClear?: boolean;
+  onResize?: (size: { width: number; height: number }) => void;
 }
 
 export interface TextAreaState {
@@ -122,7 +122,5 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
-
-polyfill(TextArea);
 
 export default TextArea;

@@ -1,7 +1,6 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
-import Icon from '../icon';
+import { CloseCircleFilled } from '@ant-design/icons';
 import { tuple } from '../_util/type';
 import { InputProps, InputSizes, getInputClassName } from './Input';
 
@@ -16,7 +15,7 @@ export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
  */
 interface BasicProps {
   prefixCls: string;
-  inputType: (typeof ClearableInputType)[number];
+  inputType: typeof ClearableInputType[number];
   value?: any;
   defaultValue?: any;
   allowClear?: boolean;
@@ -31,7 +30,7 @@ interface BasicProps {
  * This props only for input.
  */
 interface ClearableInputProps extends BasicProps {
-  size?: (typeof InputSizes)[number];
+  size?: typeof InputSizes[number];
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
@@ -48,15 +47,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       inputType === ClearableInputType[0]
         ? `${prefixCls}-textarea-clear-icon`
         : `${prefixCls}-clear-icon`;
-    return (
-      <Icon
-        type="close-circle"
-        theme="filled"
-        onClick={handleReset}
-        className={className}
-        role="button"
-      />
-    );
+    return <CloseCircleFilled onClick={handleReset} className={className} role="button" />;
   }
 
   renderSuffix(prefixCls: string) {
@@ -175,7 +166,5 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return this.renderClearableLabeledInput();
   }
 }
-
-polyfill(ClearableLabeledInput);
 
 export default ClearableLabeledInput;

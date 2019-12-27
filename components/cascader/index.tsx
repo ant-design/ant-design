@@ -4,9 +4,9 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { polyfill } from 'react-lifecycles-compat';
+import { CloseCircleFilled, DownOutlined, RightOutlined, RedoOutlined } from '@ant-design/icons';
+
 import Input from '../input';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
@@ -452,12 +452,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     });
     const clearIcon =
       (allowClear && !disabled && value.length > 0) || state.inputValue ? (
-        <Icon
-          type="close-circle"
-          theme="filled"
-          className={`${prefixCls}-picker-clear`}
-          onClick={this.clearSelection}
-        />
+        <CloseCircleFilled className={`${prefixCls}-picker-clear`} onClick={this.clearSelection} />
       ) : null;
     const arrowCls = classNames({
       [`${prefixCls}-picker-arrow`]: true,
@@ -538,7 +533,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         })
       ) : (
         <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>
-      ))) || <Icon type="down" className={arrowCls} />;
+      ))) || <DownOutlined className={arrowCls} />;
 
     const input = children || (
       <span style={style} className={pickerCls}>
@@ -564,11 +559,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       </span>
     );
 
-    const expandIcon = <Icon type="right" />;
+    const expandIcon = <RightOutlined />;
 
     const loadingIcon = (
       <span className={`${prefixCls}-menu-item-loading-icon`}>
-        <Icon type="redo" spin />
+        <RedoOutlined spin />
       </span>
     );
 
@@ -604,7 +599,5 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     );
   }
 }
-
-polyfill(Cascader);
 
 export default Cascader;

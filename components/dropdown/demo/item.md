@@ -14,7 +14,8 @@ title:
 Divider and disabled menu item.
 
 ```jsx
-import { Menu, Dropdown, Icon } from 'antd';
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const menu = (
   <Menu>
@@ -38,7 +39,7 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" href="#">
-      Hover me <Icon type="down" />
+      Hover me <DownOutlined />
     </a>
   </Dropdown>,
   mountNode,

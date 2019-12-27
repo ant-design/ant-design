@@ -1,8 +1,9 @@
 import * as React from 'react';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import classNames from 'classnames';
+import { UpOutlined, LeftOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
+
 import { TabsProps } from './index';
-import Icon from '../icon';
 
 export default class TabBar extends React.Component<TabsProps> {
   static defaultProps = {
@@ -25,16 +26,20 @@ export default class TabBar extends React.Component<TabsProps> {
     const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
     const isVertical = tabPosition === 'left' || tabPosition === 'right';
-    const prevIconType = isVertical ? 'up' : 'left';
-    const nextIconType = isVertical ? 'down' : 'right';
+    const prevIconComponent = isVertical ? UpOutlined : LeftOutlined;
+    const nextIconComponent = isVertical ? DownOutlined : RightOutlined;
     const prevIcon = (
       <span className={`${prefixCls}-tab-prev-icon`}>
-        <Icon type={prevIconType} className={`${prefixCls}-tab-prev-icon-target`} />
+        {React.createElement(prevIconComponent, {
+          className: `${prefixCls}-tab-prev-icon-target`,
+        })}
       </span>
     );
     const nextIcon = (
       <span className={`${prefixCls}-tab-next-icon`}>
-        <Icon type={nextIconType} className={`${prefixCls}-tab-next-icon-target`} />
+        {React.createElement(nextIconComponent, {
+          className: `${prefixCls}-tab-next-icon-target`,
+        })}
       </span>
     );
 

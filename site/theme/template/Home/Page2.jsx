@@ -1,9 +1,11 @@
 import React from 'react';
-import { Row, Col, Icon } from 'antd';
+import { Row, Col } from 'antd';
 import QueueAnim from 'rc-queue-anim';
 import ScrollOverPack from 'rc-scroll-anim/lib/ScrollOverPack';
 import { Link } from 'bisheng/router';
 import { FormattedMessage } from 'react-intl';
+
+import Icon from '../Icon';
 import * as utils from '../utils';
 
 import svgBgToParallax from './util';
@@ -137,11 +139,21 @@ export default function Page2({ isMobile, locale }) {
     const mobileContent = (
       <div className="components-button-wrapper">
         <p key="p">{item.slogan}</p>
-        <a className="more-mobile-react" href="https://mobile.ant.design" target="_blank" rel="noopener noreferrer">
+        <a
+          className="more-mobile-react"
+          href="https://mobile.ant.design"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FormattedMessage id="app.home.more-mobile-react" />
           <Icon type="right" />
         </a>
-        <a className="more-mobile-angular" href="http://ng.mobile.ant.design" target="_blank" rel="noopener noreferrer">
+        <a
+          className="more-mobile-angular"
+          href="http://ng.mobile.ant.design"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FormattedMessage id="app.home.more-mobile-angular" />
           <Icon type="right" />
         </a>

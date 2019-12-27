@@ -11,16 +11,12 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
     data-text="123"
   >
     <div
-      class="ant-col ant-form-item-control-wrapper"
+      class="ant-col ant-form-item-control"
     >
       <div
-        class="ant-form-item-control"
+        class="ant-form-item-control-input"
       >
-        <span
-          class="ant-form-item-children"
-        >
-          text
-        </span>
+        text
       </div>
     </div>
   </div>

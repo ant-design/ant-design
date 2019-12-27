@@ -1,7 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getNumberArray(num: string | number | undefined | null) {
@@ -207,7 +206,5 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
     return <ConfigConsumer>{this.renderScrollNumber}</ConfigConsumer>;
   }
 }
-
-polyfill(ScrollNumber);
 
 export default ScrollNumber;

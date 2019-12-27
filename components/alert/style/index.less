@@ -3,11 +3,6 @@
 
 @alert-prefix-cls: ~'@{ant-prefix}-alert';
 
-@alert-message-color: @heading-color;
-@alert-text-color: @text-color;
-@alert-close-color: @text-color-secondary;
-@alert-close-hover-color: @icon-color-hover;
-
 .@{alert-prefix-cls} {
   .reset-component;
 
@@ -63,8 +58,14 @@
   &-error {
     background-color: @alert-error-bg-color;
     border: @border-width-base @border-style-base @alert-error-border-color;
+
     .@{alert-prefix-cls}-icon {
       color: @alert-error-icon-color;
+    }
+
+    .@{alert-prefix-cls}-description > pre {
+      margin: 0;
+      padding: 0;
     }
   }
 

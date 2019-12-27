@@ -36,10 +36,6 @@ function setMomentLocale(locale: Locale) {
 }
 
 export default class LocaleProvider extends React.Component<LocaleProviderProps, any> {
-  static propTypes = {
-    locale: PropTypes.object,
-  };
-
   static defaultProps = {
     locale: {},
   };

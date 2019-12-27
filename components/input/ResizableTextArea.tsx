@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'omit.js';
 import classNames from 'classnames';
@@ -49,6 +48,16 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
   }
 
+  handleResize = (size: { width: number; height: number }) => {
+    const { autoSize, autosize, onResize } = this.props;
+    if (typeof onResize === 'function') {
+      onResize(size);
+    }
+    if (autoSize || autosize) {
+      this.resizeOnNextFrame();
+    }
+  };
+
   resizeOnNextFrame = () => {
     raf.cancel(this.nextFrameActionId);
     this.nextFrameActionId = raf(this.resizeTextarea);
@@ -75,7 +84,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   renderTextArea = () => {
-    const { prefixCls, autoSize, autosize, className, disabled } = this.props;
+    const { prefixCls, autoSize, autosize, onResize, className, disabled } = this.props;
     const { textareaStyles, resizing } = this.state;
     warning(
       autosize === undefined,
@@ -89,6 +98,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       'autosize',
       'defaultValue',
       'allowClear',
+      'onResize',
     ]);
     const cls = classNames(prefixCls, className, {
       [`${prefixCls}-disabled`]: disabled,
@@ -104,7 +114,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       ...(resizing ? { overflow: 'hidden' } : null),
     };
     return (
-      <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!(autoSize || autosize)}>
+      <ResizeObserver onResize={this.handleResize} disabled={!(autoSize || autosize || onResize)}>
         <textarea {...otherProps} className={cls} style={style} ref={this.saveTextArea} />
       </ResizeObserver>
     );
@@ -114,7 +124,5 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     return this.renderTextArea();
   }
 }
-
-polyfill(ResizableTextArea);
 
 export default ResizableTextArea;

@@ -68,19 +68,7 @@ class App extends React.Component {
           >
             This is two-level drawer
           </Drawer>
-          <div
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              width: '100%',
-              borderTop: '1px solid #e8e8e8',
-              padding: '10px 16px',
-              textAlign: 'right',
-              left: 0,
-              background: '#fff',
-              borderRadius: '0 0 4px 4px',
-            }}
-          >
+          <div className="site-multi-level-drawer-footer">
             <Button
               style={{
                 marginRight: 8,
@@ -101,3 +89,24 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
+
+```css
+.site-multi-level-drawer-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #e8e8e8;
+  padding: 10px 16px;
+  text-align: right;
+  left: 0;
+  border-radius: 0 0 4px 4px;
+  background: #fff;
+}
+```
+
+<style>
+[data-theme="dark"] .site-multi-level-drawer-footer {
+  border-top: 1px solid #303030;
+  background: #1f1f1f;
+}
+</style>

@@ -14,6 +14,21 @@
     font-size: @font-size-base;
   }
 
+  &-steps {
+    display: inline-block;
+    &-outer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    &-item {
+      flex-shrink: 0;
+      min-width: 2px;
+      margin-right: 2px;
+      background: @progress-steps-item-bg;
+    }
+  }
+
   &-small&-line,
   &-small&-line &-text .@{iconfont-css-prefix} {
     font-size: @font-size-sm;

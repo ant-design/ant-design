@@ -1,10 +1,11 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
+import { RightOutlined } from '@ant-design/icons';
+
 import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import Icon from '../icon';
 import { tuple } from '../_util/type';
 
 const Placements = tuple(
@@ -15,9 +16,9 @@ const Placements = tuple(
   'bottomCenter',
   'bottomRight',
 );
-type Placement = (typeof Placements)[number];
+type Placement = typeof Placements[number];
 
-type OverlayFunc = () => React.ReactNode;
+type OverlayFunc = () => React.ReactElement;
 
 type Align = {
   points?: [string, string];
@@ -34,7 +35,7 @@ type Align = {
 
 export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
-  overlay: React.ReactNode | OverlayFunc;
+  overlay: React.ReactElement | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
@@ -100,7 +101,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
 
     const expandIcon = (
       <span className={`${prefixCls}-menu-submenu-arrow`}>
-        <Icon type="right" className={`${prefixCls}-menu-submenu-arrow-icon`} />
+        <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
       </span>
     );
 
@@ -114,7 +115,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
             expandIcon,
           });
 
-    return fixedModeOverlay;
+    return fixedModeOverlay as React.ReactElement;
   };
 
   renderDropDown = ({

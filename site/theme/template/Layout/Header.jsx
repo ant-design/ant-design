@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import GitHubButton from 'react-github-button';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Select, Menu, Row, Col, Icon, Popover, Input, Button, Badge } from 'antd';
-import Santa from './Santa';
+import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
+import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
+
+import AntdText from './AntdText';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -40,6 +43,7 @@ class Header extends React.Component {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
+    theme: PropTypes.oneOf(['default', 'dark']),
   };
 
   state = {
@@ -108,31 +112,42 @@ class Header extends React.Component {
     const { menuVisible } = this.state;
     const { isMobile } = this.context;
     const menuMode = isMobile ? 'inline' : 'horizontal';
-    const { location, themeConfig, intl: { locale } } = this.props;
+    const {
+      location,
+      themeConfig,
+      intl: { locale },
+    } = this.props;
     const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
     const versionOptions = Object.keys(docVersions).map(version => (
       <Option value={docVersions[version]} key={version}>
         {version}
       </Option>
     ));
-    const module = location.pathname
-      .replace(/(^\/|\/$)/g, '')
+
+    const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
+    const module = pathname
       .split('/')
       .slice(0, -1)
       .join('/');
     let activeMenuItem = module || 'home';
-    if (activeMenuItem === 'components' || location.pathname === 'changelog') {
+    if (location.pathname === 'changelog') {
       activeMenuItem = 'docs/react';
     }
+
+    const isHome = ['', 'index', 'index-cn'].includes(pathname);
+
     const isZhCN = locale === 'zh-CN';
 
     const headerClassName = classNames({
       clearfix: true,
+      'home-header': isHome,
     });
 
     const menu = [
+      isHome ? (
+        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
+      ) : null,
       <Button
-        ghost
         size="small"
         onClick={this.handleLangChange}
         className="header-lang-button"
@@ -144,6 +159,7 @@ class Header extends React.Component {
         key="version"
         className="version"
         size="small"
+        style={{ width: 110 }}
         dropdownMatchSelectWidth={false}
         defaultValue={antdVersion}
         onChange={this.handleVersionChange}
@@ -158,11 +174,13 @@ class Header extends React.Component {
         id="nav"
         key="nav"
       >
-        <Menu.Item key="home" className="hide-in-home-page">
-          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
-            <FormattedMessage id="app.header.menu.home" />
-          </Link>
-        </Menu.Item>
+        {isHome ? null : (
+          <Menu.Item key="home" className="hide-in-home-page">
+            <Link to={utils.getLocalizedPathname('/', isZhCN)}>
+              <FormattedMessage id="app.header.menu.home" />
+            </Link>
+          </Menu.Item>
+        )}
         <Menu.Item key="docs/spec">
           <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
             <FormattedMessage id="app.header.menu.spec" />
@@ -170,6 +188,11 @@ class Header extends React.Component {
         </Menu.Item>
         <Menu.Item key="docs/react">
           <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
+            <FormattedMessage id="app.header.menu.documentation" />
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="components">
+          <Link to={utils.getLocalizedPathname('/components/button/', isZhCN)}>
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
@@ -243,7 +266,7 @@ class Header extends React.Component {
             arrowPointAtCenter
             onVisibleChange={this.onMenuVisibleChange}
           >
-            <Icon className="nav-phone-icon" type="menu" onClick={this.handleShowMenu} />
+            <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
           </Popover>
         )}
         <Row>
@@ -253,16 +276,12 @@ class Header extends React.Component {
                 alt="logo"
                 src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
               />
-              <img
-                alt="Ant Design"
-                src="https://gw.alipayobjects.com/zos/rmsportal/DkKNubTaaVsKURhcVGkh.svg"
-              />
-              <Santa />
+              <AntdText />
             </Link>
           </Col>
           <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
             <div id="search-box">
-              <Icon type="search" />
+              <SearchOutlined />
               <Input
                 ref={ref => {
                   this.searchInput = ref;

@@ -1,9 +1,18 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
+import {
+  LoadingOutlined,
+  PaperClipOutlined,
+  PictureTwoTone,
+  FileTwoTone,
+  EyeOutlined,
+  DeleteOutlined,
+  DownloadOutlined,
+} from '@ant-design/icons';
+
 import { UploadListProps, UploadFile, UploadListType } from './interface';
 import { previewImage, isImageUrl } from './utils';
-import Icon from '../icon';
 import Tooltip from '../tooltip';
 import Progress from '../progress';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -87,15 +96,13 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
       let progress;
-      let icon = <Icon type={file.status === 'uploading' ? 'loading' : 'paper-clip'} />;
+      let icon = file.status === 'uploading' ? <LoadingOutlined /> : <PaperClipOutlined />;
 
       if (listType === 'picture' || listType === 'picture-card') {
         if (listType === 'picture-card' && file.status === 'uploading') {
           icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
         } else if (!file.thumbUrl && !file.url) {
-          icon = (
-            <Icon className={`${prefixCls}-list-item-thumbnail`} type="picture" theme="twoTone" />
-          );
+          icon = <PictureTwoTone className={`${prefixCls}-list-item-thumbnail`} />;
         } else {
           const thumbnail = isImageUrl(file) ? (
             <img
@@ -104,7 +111,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               className={`${prefixCls}-list-item-image`}
             />
           ) : (
-            <Icon type="file" className={`${prefixCls}-list-item-icon`} theme="twoTone" />
+            <FileTwoTone className={`${prefixCls}-list-item-icon`} />
           );
           icon = (
             <a
@@ -142,15 +149,12 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
       const removeIcon = showRemoveIcon ? (
-        <Icon type="delete" title={locale.removeFile} onClick={() => this.handleClose(file)} />
+        <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
+
       const downloadIcon =
         showDownloadIcon && file.status === 'done' ? (
-          <Icon
-            type="download"
-            title={locale.downloadFile}
-            onClick={() => this.handleDownload(file)}
-          />
+          <DownloadOutlined title={locale.downloadFile} onClick={() => this.handleDownload(file)} />
         ) : null;
       const downloadOrDelete = listType !== 'picture-card' && (
         <span
@@ -209,7 +213,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           onClick={e => this.handlePreview(file, e)}
           title={locale.previewFile}
         >
-          <Icon type="eye-o" />
+          <EyeOutlined />
         </a>
       ) : null;
 
@@ -220,6 +224,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
           {removeIcon}
         </span>
       );
+
       let message;
       if (file.response && typeof file.response === 'string') {
         message = file.response;

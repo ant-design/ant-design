@@ -11,101 +11,47 @@ exports[`Table renders JSX correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-default ant-table-scroll-position-left"
+        class="ant-table"
       >
         <div
-          class="ant-table-content"
+          class="ant-table-container"
         >
           <div
-            class="ant-table-body"
+            class="ant-table-content"
           >
             <table
-              class=""
+              style="table-layout: auto;"
             >
               <colgroup>
                 <col />
                 <col />
                 <col />
               </colgroup>
-              <thead
-                class="ant-table-thead"
-              >
+              <thead>
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-cell"
                     colspan="2"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Name
                   </th>
                   <th
-                    class="ant-table-row-cell-last"
+                    class="ant-table-cell"
                     rowspan="2"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Age
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Age
                   </th>
                 </tr>
                 <tr>
                   <th
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          First Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    First Name
                   </th>
                   <th
-                    class=""
+                    class="ant-table-cell"
                   >
-                    <span
-                      class="ant-table-header-column"
-                    >
-                      <div>
-                        <span
-                          class="ant-table-column-title"
-                        >
-                          Last Name
-                        </span>
-                        <span
-                          class="ant-table-column-sorter"
-                        />
-                      </div>
-                    </span>
+                    Last Name
                   </th>
                 </tr>
               </thead>
@@ -114,40 +60,38 @@ exports[`Table renders JSX correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     John
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Brown
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     32
                   </td>
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
                 >
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Jim
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     Green
                   </td>
                   <td
-                    class=""
+                    class="ant-table-cell"
                   >
                     42
                   </td>

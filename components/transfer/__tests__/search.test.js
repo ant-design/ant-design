@@ -60,7 +60,6 @@ describe('Transfer.Search', () => {
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    jest.runAllTimers();
     expect(onSearch).toHaveBeenCalledWith('left', 'a');
 
     onSearch.mockReset();
@@ -73,8 +72,7 @@ describe('Transfer.Search', () => {
     jest.useRealTimers();
   });
 
-  it('legacy onSearchChange', () => {
-    jest.useFakeTimers();
+  it('legacy props#onSearchChange doesnot work anymore', () => {
     const onSearchChange = jest.fn();
 
     const wrapper = mount(
@@ -85,13 +83,8 @@ describe('Transfer.Search', () => {
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    jest.runAllTimers();
 
-    expect(errorSpy.mock.calls[0][0]).toMatch(
-      'Warning: [antd: Transfer] `onSearchChange` is deprecated. Please use `onSearch` instead.',
-    );
-    expect(onSearchChange.mock.calls[0][0]).toEqual('left');
-    expect(onSearchChange.mock.calls[0][1].target.value).toEqual('a');
-    jest.useRealTimers();
+    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(onSearchChange).not.toHaveBeenCalled();
   });
 });

@@ -129,7 +129,7 @@
     border-color: @border-color-base !important;
     cursor: not-allowed;
     &::after {
-      background-color: fade(@black, 20%);
+      background-color: @radio-dot-disabled-color;
     }
   }
 
@@ -266,16 +266,16 @@ span.@{radio-prefix-cls} + * {
   }
 
   .@{radio-group-prefix-cls}-solid &-checked:not(&-disabled) {
-    color: @component-background;
+    color: @radtio-solid-checked-color;
     background: @radio-dot-color;
     border-color: @radio-dot-color;
     &:hover {
-      color: @component-background;
+      color: @radtio-solid-checked-color;
       background: @radio-button-hover-color;
       border-color: @radio-button-hover-color;
     }
     &:active {
-      color: @component-background;
+      color: @radtio-solid-checked-color;
       background: @radio-button-active-color;
       border-color: @radio-button-active-color;
     }
@@ -302,8 +302,8 @@ span.@{radio-prefix-cls} + * {
   }
 
   &-disabled&-checked {
-    color: @text-color-inverse;
-    background-color: tint(@black, 90%);
+    color: @radio-disabled-button-checked-color;
+    background-color: @radio-disabled-button-checked-bg;
     border-color: @border-color-base;
     box-shadow: none;
   }

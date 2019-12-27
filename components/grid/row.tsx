@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
@@ -16,9 +15,8 @@ const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-betwee
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  type?: 'flex';
-  align?: (typeof RowAligns)[number];
-  justify?: (typeof RowJustify)[number];
+  align?: typeof RowAligns[number];
+  justify?: typeof RowJustify[number];
   prefixCls?: string;
 }
 
@@ -29,16 +27,6 @@ export interface RowState {
 export default class Row extends React.Component<RowProps, RowState> {
   static defaultProps = {
     gutter: 0,
-  };
-
-  static propTypes = {
-    type: PropTypes.oneOf<'flex'>(['flex']),
-    align: PropTypes.oneOf(RowAligns),
-    justify: PropTypes.oneOf(RowJustify),
-    className: PropTypes.string,
-    children: PropTypes.node,
-    gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
-    prefixCls: PropTypes.string,
   };
 
   state: RowState = {
@@ -87,7 +75,6 @@ export default class Row extends React.Component<RowProps, RowState> {
   renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      type,
       justify,
       align,
       className,
@@ -98,11 +85,10 @@ export default class Row extends React.Component<RowProps, RowState> {
     const prefixCls = getPrefixCls('row', customizePrefixCls);
     const gutter = this.getGutter();
     const classes = classNames(
+      prefixCls,
       {
-        [prefixCls]: !type,
-        [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-${type}-${justify}`]: type && justify,
-        [`${prefixCls}-${type}-${align}`]: type && align,
+        [`${prefixCls}-${justify}`]: justify,
+        [`${prefixCls}-${align}`]: align,
       },
       className,
     );
@@ -116,7 +102,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       ...(gutter[1]! > 0
         ? {
             marginTop: gutter[1]! / -2,
-            marginBottom: gutter[1]! / -2,
+            marginBottom: gutter[1]! / 2,
           }
         : {}),
       ...style,

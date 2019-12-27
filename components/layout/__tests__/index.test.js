@@ -154,16 +154,6 @@ describe('Sider', () => {
     errorSpy.mockRestore();
   });
 
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: true,
-        addListener: () => {},
-        removeListener: () => {},
-      })),
-    });
-  });
-
   it('should trigger onBreakpoint', async () => {
     const onBreakpoint = jest.fn();
 

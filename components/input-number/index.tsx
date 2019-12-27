@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
-import Icon from '../icon';
+import { UpOutlined, DownOutlined } from '@ant-design/icons';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
 
@@ -61,8 +62,8 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
       },
       className,
     );
-    const upIcon = <Icon type="up" className={`${prefixCls}-handler-up-inner`} />;
-    const downIcon = <Icon type="down" className={`${prefixCls}-handler-down-inner`} />;
+    const upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
+    const downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
 
     return (
       <RcInputNumber

@@ -13,9 +13,35 @@
   width: 100%;
   margin: 0 0 16px;
   border: 1px solid @site-border-color-split;
-  border-radius: @border-radius-sm;
+  border-radius: @border-radius-base;
   transition: all 0.2s;
-
+  .code-box-title {
+    &,
+    a {
+      color: @site-text-color;
+      background: @component-background;
+    }
+  }
+  .code-box-description {
+    p {
+      color: @site-text-color;
+    }
+  }
+  a.edit-button .anticon {
+    color: @icon-color;
+    &:hover {
+      color: @icon-color-hover;
+    }
+  }
+  &,
+  .code-box-demo {
+    background-color: @component-background;
+  }
+  .markdown {
+    code {
+      background: @popover-background;
+    }
+  }
   &:target {
     border: 1px solid @primary-color;
   }
@@ -39,8 +65,8 @@
     margin-left: 16px;
     padding: 1px 8px;
     color: #777;
-    background: #fff;
-    border-radius: @border-radius-sm @border-radius-sm 0 0;
+    background: @body-background;
+    border-radius: @border-radius-base @border-radius-base 0 0;
     transition: background-color 0.4s;
 
     a,
@@ -62,13 +88,13 @@
     padding-right: 6px;
     font-size: 12px;
     text-decoration: none;
-    background: #fff;
+    background: inherit;
     transform: scale(0.9);
   }
 
   &-demo {
     padding: 42px 24px 50px;
-    color: rgba(0, 0, 0, 0.65);
+    color: @site-text-color;
     border-bottom: 1px solid @site-border-color-split;
   }
 
@@ -82,7 +108,7 @@
       position: relative;
       width: 100%;
       font-size: @font-size-base;
-      border-radius: 0 0 @border-radius-sm @border-radius-sm;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
       transition: background-color 0.4s;
     }
 
@@ -146,7 +172,7 @@
   .highlight-wrapper {
     display: none;
     overflow: auto;
-    border-radius: 0 0 @border-radius-sm @border-radius-sm;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
 
     &-expand {
       display: block;
@@ -155,10 +181,15 @@
 
   .highlight {
     position: relative;
+
+    .ant-tabs-nav-scroll {
+      text-align: center;
+    }
+
     pre {
       margin: 0;
       padding: 0;
-      background: #fff;
+      background: @component-background;
     }
     &:not(:first-child) {
       border-top: 1px dashed @site-border-color-split;
@@ -204,6 +235,9 @@
     line-height: 18px;
     cursor: pointer;
     transition: all 0.24s;
+    &:hover {
+      color: @icon-color-hover;
+    }
   }
 
   &-code-copy {
@@ -213,13 +247,13 @@
     font-size: 14px;
     line-height: 20px;
     text-align: center;
-    background: #fff;
+    background: @component-background;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.24s;
 
     &:hover {
-      color: @site-text-color-secondary;
+      color: @icon-color-hover;
       transform: scale(1.2);
     }
     &.anticon-check {
@@ -238,7 +272,11 @@
       no-repeat;
     border: 0;
     cursor: pointer;
+    opacity: 0.65;
     transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &-riddle {
@@ -252,7 +290,11 @@
       no-repeat;
     border: 0;
     cursor: pointer;
+    opacity: 0.65;
     transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &-codesandbox {
@@ -265,7 +307,11 @@
       no-repeat;
     border: 0;
     cursor: pointer;
+    opacity: 0.65;
     transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .highlight-wrapper:hover &-code-copy,
@@ -279,7 +325,7 @@
     width: auto;
     margin: 0;
     code {
-      background: #fff;
+      background: @component-background;
       border: none;
     }
   }
@@ -295,4 +341,56 @@
 
 .show-riddle-button .code-box-riddle {
   display: block;
+}
+
+[data-theme='dark'] {
+  .code-box {
+    border: 1px solid #303030;
+    .code-box-title {
+      &,
+      a {
+        color: fade(@white, 65%);
+      }
+    }
+    .code-box-description {
+      p {
+        color: fade(@white, 65%);
+      }
+    }
+
+    &-expand-trigger {
+      position: relative;
+      margin-left: 12px;
+      color: #fff;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0.45;
+      transition: all 0.3s;
+      &:hover {
+        opacity: 0.65;
+      }
+    }
+
+    &-demo {
+      border-bottom: 1px solid #303030;
+    }
+
+    &-codepen {
+      background: transparent
+        url('https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/R5sDUSunb1/OtZslpOjYXijshDERXwc.svg')
+        center / 14px no-repeat;
+    }
+
+    &-riddle {
+      background: transparent
+        url('https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/sXMM9YD8lG/DlHbxMCyeuyOrqOdbgik.svg')
+        center / 14px no-repeat;
+    }
+
+    &-codesandbox {
+      background: transparent
+        url('https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/7EZvNsaBkr/aaYmtdDyHSCkXyLZVgGK.svg')
+        center / 14px no-repeat;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title: Customize Theme
 ---
 
@@ -100,6 +100,41 @@ Another approach to customize theme is creating a `less` file within variables t
 
 Note: This way will load the styles of all components, regardless of your demand, which cause `style` option of `babel-plugin-import` not working.
 
+### Use dark theme
+
+![](https://gw.alipayobjects.com/zos/antfincdn/wp6GpGo%26ID/f31e18a4-2018-4e12-95c6-998e7ac5b2fa.png)
+
+include `antd/dist/antd.dark.less` in the style file:
+
+```less
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
+```
+
+Another approach to using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
+
+```diff
+const darkThemeVars = require('antd/dist/dark-theme');
+
+// webpack.config.js
+module.exports = {
+  rules: [{
+    test: /\.less$/,
+    use: [{
+      loader: 'style-loader',
+    }, {
+      loader: 'css-loader', // translates CSS into CommonJS
+    }, {
+      loader: 'less-loader', // compiles Less to CSS
++     options: {
++       modifyVars: darkThemeVars,
++       javascriptEnabled: true,
++     },
+    }],
+    // ...other rules
+  }],
+  // ...other config
+```
+
 ## How to avoid modifying global styles?
 
 Currently ant-design is designed as a whole experience and modify global styles (eg `body` etc). If you need to integrate ant-design as a part of an existing website, it's likely you want to prevent ant-design to override global styles.
@@ -133,7 +168,6 @@ You must import styles as less format. A common mistake would be importing multi
 
 We have some official themes, try them out and give us some feedback!
 
-- [Dark Theme (Beta)](https://github.com/ant-design/ant-design-dark-theme)
 - [Aliyun Console Theme (Beta)](https://github.com/ant-design/ant-design-aliyun-theme)
 
 ## Related Articles

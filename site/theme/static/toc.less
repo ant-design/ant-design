@@ -57,11 +57,17 @@ ul.toc > li {
   }
 }
 
+[data-theme='dark'] .toc-affix {
+  .ant-affix {
+    background: #141414;
+  }
+}
+
 .toc-affix-bottom {
   position: absolute;
   right: 20px;
   bottom: 88px;
   .ant-affix {
-    background: #fff;
+    background: @body-background;
   }
 }

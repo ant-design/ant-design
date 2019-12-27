@@ -169,7 +169,9 @@ describe('Input.Search', () => {
 
   it('should support addonAfter and suffix for loading', () => {
     const wrapper = mount(<Search loading suffix="suffix" addonAfter="addonAfter" />);
-    const wrapperWithEnterButton = mount(<Search loading enterButton suffix="suffix" addonAfter="addonAfter" />);
+    const wrapperWithEnterButton = mount(
+      <Search loading enterButton suffix="suffix" addonAfter="addonAfter" />,
+    );
     expect(wrapper.render()).toMatchSnapshot();
     expect(wrapperWithEnterButton.render()).toMatchSnapshot();
   });

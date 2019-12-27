@@ -103,6 +103,21 @@ describe('Breadcrumb', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('props#linkRender and props#nameRender do not warn anymore', () => {
+    const linkRender = jest.fn();
+    const nameRender = jest.fn();
+    mount(
+      <Breadcrumb linkRender={linkRender} nameRender={nameRender}>
+        <Breadcrumb.Item />
+        <Breadcrumb.Item>xxx</Breadcrumb.Item>
+      </Breadcrumb>,
+    );
+
+    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(linkRender).not.toHaveBeenCalled();
+    expect(nameRender).not.toHaveBeenCalled();
+  });
+
   it('should support custom attribute', () => {
     const wrapper = render(
       <Breadcrumb data-custom="custom">

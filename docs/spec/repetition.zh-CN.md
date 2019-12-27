@@ -1,5 +1,6 @@
 ---
-category: 原则
+category: 设计模式
+type: 原则
 order: 4
 title: 重复
 ---

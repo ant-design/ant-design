@@ -14,7 +14,13 @@ title:
 A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport.
 
 ```jsx
-import { Button, Icon, notification, Divider } from 'antd';
+import { Button, notification, Divider } from 'antd';
+import {
+  RadiusUpleftOutlined,
+  RadiusUprightOutlined,
+  RadiusBottomleftOutlined,
+  RadiusBottomrightOutlined,
+} from '@ant-design/icons';
 
 const openNotification = placement => {
   notification.info({
@@ -28,20 +34,20 @@ const openNotification = placement => {
 ReactDOM.render(
   <div>
     <Button type="primary" onClick={() => openNotification('topLeft')}>
-      <Icon type="radius-upleft" />
+      <RadiusUpleftOutlined />
       topLeft
     </Button>
     <Button type="primary" onClick={() => openNotification('topRight')}>
-      <Icon type="radius-upright" />
+      <RadiusUprightOutlined />
       topRight
     </Button>
     <Divider />
     <Button type="primary" onClick={() => openNotification('bottomLeft')}>
-      <Icon type="radius-bottomleft" />
+      <RadiusBottomleftOutlined />
       bottomLeft
     </Button>
     <Button type="primary" onClick={() => openNotification('bottomRight')}>
-      <Icon type="radius-bottomright" />
+      <RadiusBottomrightOutlined />
       bottomRight
     </Button>
   </div>,
