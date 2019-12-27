@@ -1,6 +1,7 @@
 ---
-category: Patterns
-order: 10
+category: Design Patterns
+type: Principles
+order: 99
 title: Data Display
 ---
 
