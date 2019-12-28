@@ -252,6 +252,27 @@ class Header extends React.Component {
       </Menu>,
     ];
 
+    const colProps = isHome
+      ? [{ flex: 'none' }, { flex: 'auto' }]
+      : [
+          {
+            xxl: 4,
+            xl: 5,
+            lg: 5,
+            md: 5,
+            sm: 24,
+            xs: 24,
+          },
+          {
+            xxl: 20,
+            xl: 19,
+            lg: 19,
+            md: 19,
+            sm: 0,
+            xs: 0,
+          },
+        ];
+
     const searchPlaceholder = locale === 'zh-CN' ? '在 ant.design 中搜索' : 'Search in ant.design';
     return (
       <header id="header" className={headerClassName}>
@@ -269,7 +290,7 @@ class Header extends React.Component {
           </Popover>
         )}
         <Row>
-          <Col xxl={4} xl={5} lg={5} md={5} sm={24} xs={24}>
+          <Col {...colProps[0]}>
             <h1>
               <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
                 <img
@@ -280,7 +301,7 @@ class Header extends React.Component {
               </Link>
             </h1>
           </Col>
-          <Col xxl={20} xl={19} lg={19} md={19} sm={0} xs={0}>
+          <Col {...colProps[1]}>
             <div id="search-box">
               <SearchOutlined />
               <Input

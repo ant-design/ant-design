@@ -1,5 +1,5 @@
 ---
-category: Global Style
+category: Global Styles
 order: 0
 title: Colors
 ---
