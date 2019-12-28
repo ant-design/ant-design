@@ -6746,7 +6746,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-row config-form-item config-form-item-has-error"
+    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
   >
     <div
       class="config-col config-form-item-control"
@@ -6775,7 +6775,7 @@ exports[`ConfigProvider components Form normal 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-has-error"
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-col ant-form-item-control"
@@ -6804,7 +6804,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   class="prefix-Form prefix-Form-horizontal"
 >
   <div
-    class="ant-row prefix-Form-item prefix-Form-item-has-error"
+    class="ant-row prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
   >
     <div
       class="ant-col prefix-Form-item-control"

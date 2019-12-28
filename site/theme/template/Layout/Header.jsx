@@ -7,7 +7,6 @@ import classNames from 'classnames';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
 import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
 
-import AntdText from './AntdText';
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
 
@@ -292,13 +291,15 @@ class Header extends React.Component {
         )}
         <Row>
           <Col {...colProps[0]}>
-            <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-              <img
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-              />
-              <AntdText />
-            </Link>
+            <h1>
+              <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
+                <img
+                  alt="logo"
+                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                />
+                Ant Design
+              </Link>
+            </h1>
           </Col>
           <Col {...colProps[1]}>
             <div id="search-box">
