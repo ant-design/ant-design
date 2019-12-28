@@ -104,4 +104,17 @@
       }
     }
   }
+
+  // With arrow should provides `padding-right` to show the arrow and the above style overrides this
+  &.@{select-prefix-cls}-show-arrow.@{select-prefix-cls}-sm {
+    &:not(.@{select-prefix-cls}-customize-input) {
+      .@{select-prefix-cls}-selector {
+        &,
+        .@{select-prefix-cls}-selection-item,
+        .@{select-prefix-cls}-selection-placeholder {
+          padding-right: @control-padding-horizontal + @font-size-sm;
+        }
+      }
+    }
+  }
 }
