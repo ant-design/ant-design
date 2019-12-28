@@ -124,14 +124,6 @@
   border: none;
 }
 
-[data-theme='dark'] .markdown {
-  code,
-  pre,
-  pre code {
-    background: #262626;
-  }
-}
-
 .markdown strong,
 .markdown b {
   font-weight: 500;
@@ -151,11 +143,6 @@
   font-weight: 500;
   white-space: nowrap;
   background: rgba(0, 0, 0, 0.02);
-}
-
-[data-theme='dark'] .markdown > table th {
-  color: fade(@white, 65%);
-  background: #1d1d1d;
 }
 
 .markdown > table th,
@@ -273,16 +260,6 @@
 
   hr {
     margin: 12px 0;
-  }
-}
-
-[data-theme='dark'] .markdown.api-container {
-  table {
-    tbody tr {
-      &:hover {
-        background: #262626;
-      }
-    }
   }
 }
 
@@ -436,97 +413,5 @@
   }
   li.ant-timeline-item:first-child {
     margin-top: 40px;
-  }
-}
-
-[data-theme='dark'] {
-  .markdown code {
-    background: fade(@white, 8%);
-  }
-
-  .grid-demo,
-  [id^='components-grid-demo-'] {
-    .demo-row,
-    .code-box-demo .demo-row {
-      background-image: linear-gradient(
-        90deg,
-        #1d1d1d 4.16666667%,
-        transparent 4.16666667%,
-        transparent 8.33333333%,
-        #1d1d1d 8.33333333%,
-        #1d1d1d 12.5%,
-        transparent 12.5%,
-        transparent 16.66666667%,
-        #1d1d1d 16.66666667%,
-        #1d1d1d 20.83333333%,
-        transparent 20.83333333%,
-        transparent 25%,
-        #1d1d1d 25%,
-        #1d1d1d 29.16666667%,
-        transparent 29.16666667%,
-        transparent 33.33333333%,
-        #1d1d1d 33.33333333%,
-        #1d1d1d 37.5%,
-        transparent 37.5%,
-        transparent 41.66666667%,
-        #1d1d1d 41.66666667%,
-        #1d1d1d 45.83333333%,
-        transparent 45.83333333%,
-        transparent 50%,
-        #1d1d1d 50%,
-        #1d1d1d 54.16666667%,
-        transparent 54.16666667%,
-        transparent 58.33333333%,
-        #1d1d1d 58.33333333%,
-        #1d1d1d 62.5%,
-        transparent 62.5%,
-        transparent 66.66666667%,
-        #1d1d1d 66.66666667%,
-        #1d1d1d 70.83333333%,
-        transparent 70.83333333%,
-        transparent 75%,
-        #1d1d1d 75%,
-        #1d1d1d 79.16666667%,
-        transparent 79.16666667%,
-        transparent 83.33333333%,
-        #1d1d1d 83.33333333%,
-        #1d1d1d 87.5%,
-        transparent 87.5%,
-        transparent 91.66666667%,
-        #1d1d1d 91.66666667%,
-        #1d1d1d 95.83333333%,
-        transparent 95.83333333%
-      );
-    }
-    .code-box-demo .ant-row > div:not(.gutter-row) {
-      padding: 16px 0;
-      background: #028ac8;
-      &:nth-child(2n + 1) {
-        background: fade(#0088c6, 70%);
-      }
-    }
-    .ant-row .demo-col,
-    .code-box-demo .ant-row .demo-col {
-      margin-top: 0;
-      margin-bottom: 0;
-      padding: 30px 0;
-      color: @black;
-      font-size: 18px;
-      text-align: center;
-      border: none;
-    }
-    .ant-row .demo-col-1 {
-      background: fade(#0088c6, 70%);
-    }
-    .ant-row .demo-col-3,
-    .code-box-demo .ant-row .demo-col-3 {
-      color: @site-text-color-secondary;
-      background: unset;
-    }
-    .ant-row .demo-col-5,
-    .code-box-demo .ant-row .demo-col-5 {
-      color: @site-text-color-secondary;
-      background: unset;
-    }
   }
 }

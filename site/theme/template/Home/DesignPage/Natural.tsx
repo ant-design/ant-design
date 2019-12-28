@@ -47,10 +47,10 @@ const shapes: Shape[] = [
     source: CenterLeaf,
     frames: [
       { frame: 0, originY: 1, x: 60, y: 62, rotate: 0 },
-      { frame: 30, rotate: -7 },
-      { frame: 60, rotate: 9 },
-      { frame: 90, rotate: -7 },
-      { frame: 120, rotate: 0 },
+      { frame: 20, rotate: -7 },
+      { frame: 40, rotate: 9 },
+      { frame: 60, rotate: -7 },
+      { frame: 80, rotate: 0 },
     ],
   },
   {
@@ -66,22 +66,22 @@ const shapes: Shape[] = [
         cubic: Hitu.CUBIC_EASE_IN_OUT,
       },
       {
-        frame: 30,
-        rotate: -4,
+        frame: 20,
+        rotate: 7,
 
         cubic: Hitu.CUBIC_EASE_IN_OUT,
       },
       {
-        frame: 60,
-        rotate: 6,
+        frame: 40,
+        rotate: -5,
         cubic: Hitu.CUBIC_EASE_IN_OUT,
       },
       {
-        frame: 90,
-        rotate: -4,
+        frame: 60,
+        rotate: 7,
       },
       {
-        frame: 120,
+        frame: 80,
         rotate: 0,
       },
     ],
@@ -98,21 +98,21 @@ const shapes: Shape[] = [
         y: 96,
       },
       {
-        frame: 30,
-        rotate: -4,
+        frame: 20,
+        rotate: -5,
+        cubic: Hitu.CUBIC_EASE_IN_OUT,
+      },
+      {
+        frame: 40,
+        rotate: 7,
         cubic: Hitu.CUBIC_EASE_IN_OUT,
       },
       {
         frame: 60,
-        rotate: 6,
-        cubic: Hitu.CUBIC_EASE_IN_OUT,
+        rotate: -5,
       },
       {
-        frame: 90,
-        rotate: -4,
-      },
-      {
-        frame: 120,
+        frame: 80,
         rotate: 0,
       },
     ],
