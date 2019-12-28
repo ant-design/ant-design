@@ -895,6 +895,8 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer', () => {
+    const getPopupContainer = jest.fn(node => node.parentNode);
+
     const wrapper = mount(
       createTable({
         columns: [
@@ -903,10 +905,11 @@ describe('Table.filter', () => {
             filterDropdownVisible: true,
           },
         ],
-        getPopupContainer: node => node.parentNode,
+        getPopupContainer,
       }),
     );
     expect(wrapper.render()).toMatchSnapshot();
+    expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('should support getPopupContainer from ConfigProvider', () => {
