@@ -5,9 +5,17 @@ skip: true
 
 ## How to replace momentjs to Day.js to reduce bundle size？
 
-### Normal Edition:custom component
+We provide two ways to implement replacement. You can choose any of the following ways according to your own project situation.
 
-#### DatePicker
+### Custom component
+
+The first way is to replace `moment` by customizing components.
+
+We will create three files in the public component directory (e.g. the `components` folder)of the project. `DatePicker.tsx`，`Calendar.tsx`， `TimePicker.tsx`.
+
+write they:
+
+#### DatePicker.tsx
 
 ```tsx
 import { Dayjs } from 'dayjs';
@@ -20,7 +28,7 @@ const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 export default DatePicker;
 ```
 
-#### Calendar
+#### Calendar.tsx
 
 ```tsx
 import { Dayjs } from 'dayjs';
@@ -33,7 +41,7 @@ const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 export default Calendar;
 ```
 
-#### TimePicker
+##### TimePicker.tsx
 
 ```tsx
 import { Dayjs } from 'dayjs';
@@ -95,10 +103,12 @@ type MergedTimePicker = typeof TimePicker & {
 export default TimePicker as MergedTimePicker;
 ```
 
-using custom component `DatePicker, Calendar, TimePicker` instead of antd's `DatePicker, Calendar, TimePicker`
+Then use the custom component (`DatePicker, Calendar, TimePicker`) in page to replace antd's `DatePicker, Calendar, TimePicker`.
+
+use
 
 ```js
-import { DatePicker, Calendar, TimePicker } from '@/components';
+import { DatePicker, Calendar, TimePicker } from 'src/components';
 import format from 'dayjs';
 ```
 
@@ -109,6 +119,8 @@ import { DatePicker, Calendar, TimePicker } from 'antd';
 import format from 'moment';
 ```
 
-### Friendly Edition:webpack plugin
+If you are the user of [umi](https://umijs.org/), you can ref [antd4-use-dayjs-replace-moment](https://github.com/xiaohuoni/antd4-use-dayjs-replace-moment).
 
-We provide `antd-dayjs-webpack-plugin` plugin to replace `momentjs` to `Day.js` directly without changing a line of existing code. More info at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).
+### Webpack plugin
+
+If you think it is too troublesome to replace the custom component, we also provide another implementation. We provide `antd-dayjs-webpack-plugin` plugin to replace `momentjs` to `Day.js` directly without changing a line of existing code. More info at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).

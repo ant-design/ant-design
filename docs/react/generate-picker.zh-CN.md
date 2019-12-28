@@ -1,13 +1,19 @@
 ---
-title: 自定义选择框
+title: 生成选择器
 skip: true
 ---
 
 ## 如何使用 Day.js 替换 momentjs 来减小打包大小
 
-### 普通版:组件封装
+我们提供了两种方式来实现替换，你可以根据你自己的项目情况，选择以下任意一种方式。
 
-#### DatePicker
+### 自定义组件
+
+第一种实现方式，我们通过自定义组件的方式，替换掉 moment。比如我们在项目的公共组件目录，如 `components` 文件夹下，新建三个文件，分别为 `DatePicker.tsx`，`Calendar.tsx`， `TimePicker.tsx`。
+
+编写如下代码:
+
+#### DatePicker.tsx
 
 ```tsx
 import { Dayjs } from 'dayjs';
@@ -20,7 +26,7 @@ const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 export default DatePicker;
 ```
 
-#### Calendar
+#### Calendar.tsx
 
 ```tsx
 import { Dayjs } from 'dayjs';
@@ -33,7 +39,7 @@ const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 export default Calendar;
 ```
 
-##### TimePicker
+##### TimePicker.tsx
 
 ```tsx
 import { Dayjs } from 'dayjs';
@@ -95,10 +101,12 @@ type MergedTimePicker = typeof TimePicker & {
 export default TimePicker as MergedTimePicker;
 ```
 
-使用自定义的 `DatePicker, Calendar, TimePicker` 组件替换掉 antd 的 `DatePicker, Calendar, TimePicker`
+然后在我们的页面中使用自定义的 `DatePicker, Calendar, TimePicker` 组件替换掉 antd 的 `DatePicker, Calendar, TimePicker`。
+
+使用
 
 ```js
-import { DatePicker, Calendar, TimePicker } from '@/components';
+import { DatePicker, Calendar, TimePicker } from 'src/components';
 import format from 'dayjs';
 ```
 
@@ -109,6 +117,8 @@ import { DatePicker, Calendar, TimePicker } from 'antd';
 import format from 'moment';
 ```
 
-### 友好版:webpack 配置替换
+如果你熟悉 [umi](https://umijs.org/)，那你可以参考 [antd4-use-dayjs-replace-moment](https://github.com/xiaohuoni/antd4-use-dayjs-replace-moment)。
 
-我们提供了 `antd-dayjs-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Day.js`。请参考 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin)。
+### Webpack 配置替换
+
+如果你觉的自定义组件方式替换太麻烦的话，我们还提供另一种实现方式。使用 `antd-dayjs-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Day.js`。请参考 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin)。
