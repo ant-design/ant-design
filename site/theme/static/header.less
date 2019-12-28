@@ -82,15 +82,11 @@
         background: #fff;
 
         &:hover {
-          color: #1890ff;
+          color: @primary-color;
         }
       }
     }
   }
-}
-
-[data-theme='dark'] #header {
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.65);
 }
 
 #logo {
@@ -98,20 +94,18 @@
   height: @header-height;
   padding-left: 40px;
   overflow: hidden;
+  color: @site-heading-color;
+  font-size: 18px;
+  font-family: Avenir, @font-family, sans-serif;
   line-height: @header-height;
   white-space: nowrap;
   text-decoration: none;
+
   img {
+    position: relative;
+    top: -1.5px;
     height: 32px;
     margin-right: 16px;
-  }
-  svg {
-    position: relative;
-    top: 1px;
-    display: inline;
-    margin-right: 16px;
-    vertical-align: middle;
-    border-style: none;
   }
 }
 
@@ -222,5 +216,21 @@
 @media (max-width: @screen-sm-min) {
   .github-btn {
     display: none;
+  }
+
+  #header.home-header {
+    .ant-row {
+      .ant-col {
+        margin: 0 auto;
+
+        a {
+          padding-right: 0;
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
   }
 }

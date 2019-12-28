@@ -1,6 +1,8 @@
 import * as AntdIcons from '@ant-design/icons/lib/icons';
 
-const all = Object.keys(AntdIcons);
+const all = Object.keys(AntdIcons)
+  .map(n => n.replace(/(Outlined|Filled|TwoTone)$/, ''))
+  .filter((n, i, arr) => arr.indexOf(n) === i);
 
 const direction = [
   'StepBackward',
@@ -200,12 +202,11 @@ const logo = [
   'Sketch',
 ];
 
-const other = all.filter(
-  n => ![...direction, ...suggestion, ...editor, ...data, ...logo].includes(n),
-);
+const datum = [...direction, ...suggestion, ...editor, ...data, ...logo];
+
+const other = all.filter(n => datum.includes(n));
 
 export const categories = {
-  all,
   direction,
   suggestion,
   editor,
@@ -216,14 +217,5 @@ export const categories = {
 
 export default categories;
 
-export interface Categories {
-  all: string[];
-  direction: string[];
-  suggestion: string[];
-  logo: string[];
-  data: string[];
-  editor: string[];
-  other: string[];
-}
-
+export type Categories = typeof categories;
 export type CategoriesKeys = keyof Categories;

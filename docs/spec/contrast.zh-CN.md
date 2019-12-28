@@ -22,7 +22,7 @@ title: 对比
 
 <br>
 
-<img class="preview-img" align="right" alt="不区分主次的示例" description="『通过』和『驳回』都使用次按钮，系统保持中立。" src="https://gw.alipayobjects.com/zos/rmsportal/gniiMTPEHagxaelGBjAe.png">
+<img class="preview-img" align="right" alt="不区分主次的示例" description="「通过」和「驳回」都使用次按钮，系统保持中立。" src="https://gw.alipayobjects.com/zos/rmsportal/gniiMTPEHagxaelGBjAe.png">
 
 在一些需要用户慎重决策的场景中，系统应该保持中立，不能替用户或者诱导用户做出判断。
 
@@ -46,4 +46,4 @@ title: 对比
 
 通过改变颜色、增加辅助形状等方法来实现状态关系的对比，以便用户更好的区分信息。
 
-常见类型有『静态对比』、『动态对比』。
+常见类型有「静态对比」、「动态对比」。

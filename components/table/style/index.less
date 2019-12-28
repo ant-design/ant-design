@@ -85,7 +85,7 @@
         border-bottom: @border-width-base @border-style-base @border-color-split;
         transition: background 0.3s ease;
 
-        &[colspan] {
+        &[colspan]:not([colspan='1']) {
           text-align: center;
         }
       }
