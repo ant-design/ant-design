@@ -60,3 +60,7 @@ import moment from 'moment';
 | focus() | get focus    |         |
 
 <style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>
+
+## FAQ
+
+- [How to use dayjs instead of moment](/docs/react/generate-picker#TimePicker)
