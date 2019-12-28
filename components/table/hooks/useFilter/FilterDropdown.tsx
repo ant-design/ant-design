@@ -237,6 +237,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           trigger={['click']}
           visible={mergedVisible}
           onVisibleChange={onVisibleChange}
+          getPopupContainer={getPopupContainer}
           placement="bottomRight"
         >
           <span
