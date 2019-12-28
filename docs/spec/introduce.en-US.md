@@ -10,7 +10,7 @@ title: Introduction
 
 Ant's enterprise-level products are an enormous and complex system with a large number and complex functions. Designers and developers often need to respond fast due to frequent changes and concurrency. Meanwhile, there are many similar pages and components in these products. Some stable and highly reusable content can obtain through abstraction.
 
-With the trend of commercialization, more and more enterprise-level products begin to pursue a better user experience. With such an ultimate goal, we (Ant Financial User Experience Department) have gradually polished a design system(Ant Design) for enterprise-level products through a huge quantity of project practices and summaries. Based on the four design values of 『 natural 』, 『certain』, 『meaningful』, and 『growing』, through modular solutions, reduce redundant production costs and allow designers to focus on better user experience.
+With the trend of commercialization, more and more enterprise-level products begin to pursue a better user experience. With such an ultimate goal, we (Ant Financial User Experience Department) have gradually polished a design system(Ant Design) for enterprise-level products through a huge quantity of project practices and summaries. Based on the four design values of 「 natural 」, 「certain」, 「meaningful」, and 「growing」, through modular solutions, reduce redundant production costs and allow designers to focus on better user experience.
 
 ---
 
@@ -18,8 +18,8 @@ With the trend of commercialization, more and more enterprise-level products beg
 
 We provide comprehensive design guidelines, best practices, design resources, and design tools to help designers produce high-quality product prototypes.
 
-- [Design value](/docs/spec/values)
-- [Design pattern](/docs/spec/overview)
+- [Design values](/docs/spec/values)
+- [Design patterns](/docs/spec/overview)
 - [Visualization](/docs/spec/visual)
 - [Illustration](/docs/spec/illustration)
 - [Design resources](/docs/spec/download)

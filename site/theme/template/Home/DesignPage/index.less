@@ -86,6 +86,10 @@
 
 @media (min-width: @screen-sm-min) {
   .design-card {
+    &.main-card {
+      padding-right: 0;
+    }
+
     &.sub-card {
       background-image: none !important;
     }
@@ -171,5 +175,11 @@
         }
       }
     }
+  }
+}
+
+html.en-us {
+  .design-card.main-card {
+    line-height: 22px;
   }
 }

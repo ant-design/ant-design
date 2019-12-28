@@ -1,9 +1,7 @@
 ---
 order: 5
-title: 插画
+title: 图形化
 ---
-
-# HiTu 图形化
 
 <div style="text-align:center;">
   <img alt="General" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WzMpTIP8R6gAAAAAAAAAAABkARQnAQ" />
@@ -30,7 +28,7 @@ title: 插画
 基于科技，确定，自然，未来的四层品牌策略，我们将抽象的概念具象化。代表的技术底层的科技能力为产品，体验和未来提供技术支撑和可能性。所以图例一一对应，我们具象化了人物和产品，体验及未来之间的关系。他们之间不同的组合方式可以满足不同的业务场景诉求。
 
 <div style="text-align:center;">
-  <img alt="Pyramid model" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*K0AETKiR__EAAAAAAAAAAABkARQnAQ" />
+  <img alt="Pyramid model" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*gCoSS5DaCNEAAAAAAAAAAABkARQnAQ" />
 </div>
 
 ## 颜色
@@ -75,7 +73,7 @@ title: 插画
 
 <img class="preview-img" align="right" alt="HiTu 骨骼系统" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9-cATIWgPx8AAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" alt="人物姿态复用" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*F-QpQL91SvYAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" align="right" alt="人物姿态复用" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7JLsQ4whNKkAAAAAAAAAAABkARQnAQ" />
 
 有了基础的人物设计，我们将人物进行分解，然后搭配设计好的骨骼系统。来为人物增加各种姿态动作的复用和延展。
 
@@ -85,7 +83,7 @@ title: 插画
 
 <img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-LbbSads11EAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FcRKRLwPIz4AAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" align="right" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FcRKRLwPIz4AAAAAAAAAAABkARQnAQ" />
 
 记忆点源于与众不同，专业感源于整齐划一。元素组件指代的是业务场景中一些业务元素，状态元素图形化的世界缤纷多变，我们希望在保持统一性的同时不去限时设计者的创意空间，元素组件的设计上，我们为了保持一定的韵律感，推荐设计师在 1024\*1024 的网格中绘制组件，且圆角的大小保持 8 的倍数关系。
 

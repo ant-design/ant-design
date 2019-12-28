@@ -25,15 +25,12 @@ describe('Form', () => {
       .find(Input)
       .at(index)
       .simulate('change', { target: { value } });
-    await delay(20);
+    await delay(50);
     wrapper.update();
   }
 
-  beforeAll(() => {
-    jest.useRealTimers();
-  });
-
   beforeEach(() => {
+    jest.useRealTimers();
     scrollIntoView.mockReset();
   });
 
@@ -234,5 +231,17 @@ describe('Form', () => {
     wrapper.find('input[type="checkbox"]').simulate('change', { target: { checked: true } });
     wrapper.update();
     expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
+  });
+
+  it('should show related className when customize help', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="good">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
   });
 });

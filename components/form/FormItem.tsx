@@ -135,7 +135,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         // ====================== Class Name ======================
         const itemClassName = {
           [`${prefixCls}-item`]: true,
-          [`${prefixCls}-item-with-help`]: domErrorVisible, // TODO: handle this
+          [`${prefixCls}-item-with-help`]: domErrorVisible || help,
           [`${className}`]: !!className,
 
           // Status
