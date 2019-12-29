@@ -3,17 +3,15 @@ title: generate picker
 skip: true
 ---
 
-## How to replace momentjs to Day.js to reduce bundle size？
+## How to use DatePicker with customize date library like dayjs？
 
-We provide two ways to implement replacement. You can choose any of the following ways according to your own project situation.
+Consider of bundle size, you can replace momentjs with customize date library. We provide two ways to customize date library:
 
 ### Custom component
 
-The first way is to customize the date component through the `generatepicker` method and replace the `moment`.
+The first way is use `generatePicker` (or `generateCalendar`) helps to create Picker components.
 
-We will create three files in the public component directory (e.g. the `components` folder)of the project. `DatePicker.tsx`，`Calendar.tsx`， `TimePicker.tsx`.
-
-write they:
+For example:
 
 #### DatePicker.tsx
 
@@ -41,81 +39,19 @@ const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 export default Calendar;
 ```
 
-##### TimePicker.tsx
-
-```tsx
-import { Dayjs } from 'dayjs';
-
-import * as React from 'react';
-import DatePicker from './DatePicker';
-import { PickerTimeProps, RangePickerTimeProps } from 'antd/es/date-picker/generatePicker';
-import warning from 'antd/es/_util/warning';
-import { Omit } from 'antd/es/_util/type';
-
-const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
-
-export interface TimeRangePickerProps extends RangePickerTimeProps<Dayjs> {}
-
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => {
-  return <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />;
-});
-
-export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
-  addon?: () => React.ReactNode;
-}
-
-const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, ...restProps }, ref) => {
-    const internalRenderExtraFooter = React.useMemo(() => {
-      if (renderExtraFooter) {
-        return renderExtraFooter;
-      }
-      if (addon) {
-        warning(
-          false,
-          'TimePicker',
-          '`addon` is deprecated. Please use `renderExtraFooter` instead.',
-        );
-        return addon;
-      }
-      return undefined;
-    }, [addon, renderExtraFooter]);
-
-    return (
-      <InternalTimePicker
-        {...restProps}
-        mode={undefined}
-        ref={ref}
-        renderExtraFooter={internalRenderExtraFooter}
-      />
-    );
-  },
-);
-
-TimePicker.displayName = 'TimePicker';
-
-type MergedTimePicker = typeof TimePicker & {
-  RangePicker: typeof RangePicker;
-};
-
-(TimePicker as MergedTimePicker).RangePicker = RangePicker;
-
-export default TimePicker as MergedTimePicker;
-```
-
-Then use the custom component (`DatePicker, Calendar, TimePicker`) in page to replace antd's `DatePicker, Calendar, TimePicker`.
+Then use the custom component (`DatePicker, Calendar`) in page to replace antd's `DatePicker, Calendar`, use `<DatePicker picker="time" />` to replace antd's `<TimePicker/>`.
 
 use
 
 ```js
-import { DatePicker, Calendar, TimePicker } from 'src/components';
+import { DatePicker, Calendar } from 'src/components';
 import format from 'dayjs';
 ```
 
-instead
+instead of
 
 ```js
-import { DatePicker, Calendar, TimePicker } from 'antd';
+import { DatePicker, Calendar } from 'antd';
 import format from 'moment';
 ```
 
@@ -123,4 +59,4 @@ If you are the user of [umi](https://umijs.org/), you can ref [antd4-use-dayjs-r
 
 ### Webpack plugin
 
-If you think it is too troublesome to replace the custom component, we also provide another implementation. We provide `antd-dayjs-webpack-plugin` plugin to replace `momentjs` to `Day.js` directly without changing a line of existing code. More info at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).
+We also provide another implementation. We provide `antd-dayjs-webpack-plugin` plugin to replace `momentjs` to `Day.js` directly without changing a line of existing code. More info at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).
