@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.26.5
+
+`2019-12-29`
+
+- Table
+  - 🐞 Revert the logic of return fisrt page by default after sort. [#20507](https://github.com/ant-design/ant-design/pull/20507)
+  - 🐞 Fix header wrong text align when `colspan=1`. [#20463](https://github.com/ant-design/ant-design/pull/20463)
+- 🐞 Fix Tabs ink bar disappearing when `animated` prop is false. [#20417](https://github.com/ant-design/ant-design/pull/20417) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 Fix Tree wrong indent. [#20456](https://github.com/ant-design/ant-design/pull/20456)
+
 ## 3.26.4
 
 `2019-12-22`
