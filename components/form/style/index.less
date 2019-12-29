@@ -295,6 +295,14 @@
       }
     }
 
+    // fixes https://github.com/ant-design/ant-design/issues/20482
+    .@{ant-prefix}-select {
+      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+        .@{ant-prefix}-select-selector {
+        border: 0;
+      }
+    }
+
     .@{ant-prefix}-select.@{ant-prefix}-select-auto-complete {
       .@{ant-prefix}-input:focus {
         border-color: @error-color;
