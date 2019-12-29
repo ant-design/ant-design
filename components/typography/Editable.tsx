@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import classNames from 'classnames';
 import { EnterOutlined } from '@ant-design/icons';
 import TextArea from '../input/TextArea';
 
