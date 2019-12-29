@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.26.5
+
+`2019-12-29`
+
+- Table
+  - 🐞 回滚排序后默认回到第一页的逻辑。[#20507](https://github.com/ant-design/ant-design/pull/20507)
+  - 🐞 修复分组列头在 `colspan=1` 时文本没有对齐的问题。[#20463](https://github.com/ant-design/ant-design/pull/20463)
+- 🐞 修复 Tabs 的 `animated` 属性为 false 时，高亮条消失的问题。[#20417](https://github.com/ant-design/ant-design/pull/20417) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 修复 Tree 节点缩进不正确的问题。[#20456](https://github.com/ant-design/ant-design/pull/20456)
+
 ## 3.26.4
 
 `2019-12-22`
