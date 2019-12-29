@@ -36,6 +36,10 @@ module.exports = {
     docs: './docs',
     changelog: ['CHANGELOG.zh-CN.md', 'CHANGELOG.en-US.md'],
     'components/form/v3': ['components/form/v3.zh-CN.md', 'components/form/v3.en-US.md'],
+    'docs/react/generate-picker': [
+      'docs/react/generate-picker.zh-CN.md',
+      'docs/react/generate-picker.en-US.md',
+    ],
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
