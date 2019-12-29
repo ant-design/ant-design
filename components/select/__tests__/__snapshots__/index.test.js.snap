@@ -78,6 +78,7 @@ exports[`Select rtl render component should be rendered correctly in RTL directi
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""

@@ -976,6 +976,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            readonly=""
             role="combobox"
             style="opacity:0"
             value=""
@@ -1032,6 +1033,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            readonly=""
             role="combobox"
             style="opacity:0"
             value=""
@@ -1561,11 +1563,11 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2019-12-24"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -1650,11 +1652,11 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
               class=""
             >
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today ant-picker-cell-selected"
                 title="2019-12-29"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
