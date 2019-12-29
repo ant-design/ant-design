@@ -39,7 +39,7 @@ const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 export default Calendar;
 ```
 
-然后在我们的页面中使用自定义的 `DatePicker, Calendar` 组件替换掉 antd 的 `DatePicker, Calendar`，使用 `<DatePicker picker="time" />` 替代 antd 的`<TimePicker/>`。
+`TimePicker` 是带有 `picker` 属性的 `DatePicker` 的别名： `<TimePicker />` = `<DatePicker picker="timer" />`.
 
 使用
 

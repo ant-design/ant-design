@@ -39,9 +39,7 @@ const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 export default Calendar;
 ```
 
-Then use the custom component (`DatePicker, Calendar`) in page to replace antd's `DatePicker, Calendar`, use `<DatePicker picker="time" />` to replace antd's `<TimePicker/>`.
-
-use
+`TimePicker` is the alias of `DatePicker` with `picker`: `<TimePicker />` = `<DatePicker picker="timer" />` use
 
 ```js
 import { DatePicker, Calendar } from 'src/components';
