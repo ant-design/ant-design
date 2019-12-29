@@ -1,5 +1,5 @@
 ---
-title: 生成选择器
+title: generate picker
 skip: true
 ---
 
@@ -9,7 +9,7 @@ skip: true
 
 ### 自定义组件
 
-第一种实现方式，我们通过自定义组件的方式，替换掉 moment。比如我们在项目的公共组件目录，如 `components` 文件夹下，新建三个文件，分别为 `DatePicker.tsx`，`Calendar.tsx`， `TimePicker.tsx`。
+第一种实现方式，我们通过 `generatePicker` 方法定制日期组件，替换掉 moment。比如我们在项目的公共组件目录，如 `components` 文件夹下，新建三个文件，分别为 `DatePicker.tsx`，`Calendar.tsx`， `TimePicker.tsx`。
 
 编写如下代码:
 

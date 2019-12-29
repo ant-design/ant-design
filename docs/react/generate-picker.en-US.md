@@ -9,7 +9,7 @@ We provide two ways to implement replacement. You can choose any of the followin
 
 ### Custom component
 
-The first way is to replace `moment` by customizing components.
+The first way is to customize the date component through the `generatepicker` method and replace the `moment`.
 
 We will create three files in the public component directory (e.g. the `components` folder)of the project. `DatePicker.tsx`，`Calendar.tsx`， `TimePicker.tsx`.
 

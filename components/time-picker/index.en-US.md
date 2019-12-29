@@ -63,4 +63,4 @@ import moment from 'moment';
 
 ## FAQ
 
-- [How to use dayjs instead of moment](/docs/react/generate-picker#TimePicker)
+- [How to use TimePicker with customize date library like dayjs](/docs/react/generate-picker#TimePicker)
