@@ -138,7 +138,7 @@ export default function Background() {
   const [circleFrames, setCircleFrames] = React.useState<any[]>(randomFrames(550, 200));
   const [circle2Frames, setCircle2Frames] = React.useState<any[]>(randomFrames(0, 448));
   const [reactFrames, setReactFrames] = React.useState<any[]>(randomFrames(1400, 300));
-  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, 0));
+  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, -20));
 
   return (
     <div className="home-banner-background">
@@ -155,7 +155,7 @@ export default function Background() {
             setCircleFrames(randomFrames(550, 200));
             setCircle2Frames(randomFrames(0, 448));
             setReactFrames(randomFrames(1400, 300));
-            setDiamondFrames(randomFrames(1100, 0));
+            setDiamondFrames(randomFrames(1100, -20));
           }
         }}
         shapes={[
