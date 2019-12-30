@@ -61,37 +61,6 @@ describe('Upload', () => {
     });
   });
 
-  it('should update progress in IE', done => {
-    const originSetInterval = window.setInterval;
-    process.env.TEST_IE = true;
-    Object.defineProperty(window, 'setInterval', {
-      value: fn => fn(),
-    });
-    const props = {
-      action: 'http://upload.com',
-      onChange: ({ file }) => {
-        if (file.status !== 'uploading') {
-          process.env.TEST_IE = undefined;
-          Object.defineProperty(window, 'setInterval', {
-            value: originSetInterval,
-          });
-          done();
-        }
-      },
-    };
-
-    const wrapper = mount(
-      <Upload {...props}>
-        <button type="button">upload</button>
-      </Upload>,
-    );
-    wrapper.find('input').simulate('change', {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
-    });
-  });
-
   it('beforeUpload can be falsy', done => {
     const props = {
       action: 'http://upload.com',
@@ -186,41 +155,6 @@ describe('Upload', () => {
         files: [mockFile],
       },
     });
-  });
-
-  it('should increase percent automatically when call autoUpdateProgress in IE', done => {
-    let uploadInstance;
-    let lastPercent = -1;
-    const props = {
-      action: 'http://upload.com',
-      onChange: ({ file }) => {
-        if (file.percent === 0 && file.status === 'uploading') {
-          // manually call it
-          uploadInstance.autoUpdateProgress(0, file);
-        }
-        if (file.status === 'uploading') {
-          expect(file.percent).toBeGreaterThan(lastPercent);
-          lastPercent = file.percent;
-        }
-        if (file.status === 'done' || file.status === 'error') {
-          done();
-        }
-      },
-    };
-
-    const wrapper = mount(
-      <Upload {...props}>
-        <button type="button">upload</button>
-      </Upload>,
-    );
-
-    wrapper.find('input').simulate('change', {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
-    });
-
-    uploadInstance = wrapper.instance();
   });
 
   it('should not stop upload when return value of beforeUpload is not false', done => {
