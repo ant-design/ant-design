@@ -30,7 +30,8 @@ export default function usePagination(
   pagination: TablePaginationConfig | false | undefined,
   onChange: (current: number, pageSize: number) => void,
 ): [TablePaginationConfig, () => void] {
-  const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
+  const { total: paginationTotal = 0, ...paginationObj } =
+    pagination && typeof pagination === 'object' ? pagination : {};
 
   const [innerPagination, setInnerPagination] = useState<TablePaginationConfig>(() => {
     return {
@@ -43,11 +44,11 @@ export default function usePagination(
   // ============ Basic Pagination Config ============
   const mergedPagination = {
     ...innerPagination,
-    total,
     ...paginationObj,
+    total: paginationTotal > 0 ? paginationTotal : total,
   };
 
-  if (!paginationObj.total) {
+  if (!paginationTotal) {
     // Reset `current` if data length changed. Only reset when paginationObj do not have total
     const maxPage = Math.ceil(total / mergedPagination.pageSize!);
     if (maxPage < mergedPagination.current!) {
