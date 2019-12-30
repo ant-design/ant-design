@@ -592,7 +592,9 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 `;
 
 exports[`renders ./components/select/demo/debug.md correctly 1`] = `
-<div>
+<div
+  style="width:500px;position:relative;z-index:1;border:1px solid red;background:#FFF"
+>
   <input
     class="ant-input"
     style="width:100px"
@@ -726,7 +728,9 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <span>
+  <span
+    class="debug-align"
+  >
     AntDesign
   </span>
   <button

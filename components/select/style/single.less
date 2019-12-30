@@ -4,9 +4,14 @@
   // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
     display: flex;
+    border-top-width: @border-width-base + 0.375px;
 
     .@{select-prefix-cls}-selection-search {
-      width: 100%;
+      position: absolute;
+      top: 0;
+      right: @input-padding-horizontal-base;
+      bottom: 0;
+      left: @input-padding-horizontal-base;
 
       &-input {
         width: 100%;
@@ -15,13 +20,8 @@
 
     .@{select-prefix-cls}-selection-item,
     .@{select-prefix-cls}-selection-placeholder {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      padding: 0 @input-padding-horizontal-base;
-      line-height: @input-height-base;
+      padding: 0;
+      line-height: @select-height-without-border;
       transition: all 0.3s;
       pointer-events: none;
 
@@ -32,12 +32,21 @@
         }
       }
     }
+
+    &::after,
+    .@{select-prefix-cls}-selection-placeholder::after {
+      content: '\a0';
+    }
   }
 
   // With arrow should provides `padding-right` to show the arrow
-  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selector,
-  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item {
-    padding-right: @control-padding-horizontal + @font-size-sm;
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
+    right: @input-padding-horizontal-base + @font-size-base;
+  }
+
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
+  &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
+    padding-right: @font-size-base;
   }
 
   // Opacity selection if open
@@ -95,25 +104,23 @@
   // Size small need additional set padding
   &.@{select-prefix-cls}-sm {
     &:not(.@{select-prefix-cls}-customize-input) {
-      .@{select-prefix-cls}-selector {
-        &,
-        .@{select-prefix-cls}-selection-item,
-        .@{select-prefix-cls}-selection-placeholder {
-          padding: 0 @input-padding-horizontal-sm;
-        }
+      .@{select-prefix-cls}-selection-search {
+        right: @input-padding-horizontal-sm;
+        left: @input-padding-horizontal-sm;
       }
-    }
-  }
 
-  // With arrow should provides `padding-right` to show the arrow and the above style overrides this
-  &.@{select-prefix-cls}-show-arrow.@{select-prefix-cls}-sm {
-    &:not(.@{select-prefix-cls}-customize-input) {
       .@{select-prefix-cls}-selector {
-        &,
-        .@{select-prefix-cls}-selection-item,
-        .@{select-prefix-cls}-selection-placeholder {
-          padding-right: @control-padding-horizontal + @font-size-sm;
-        }
+        padding: 0 @input-padding-horizontal-sm;
+      }
+
+      // With arrow should provides `padding-right` to show the arrow
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
+        right: @input-padding-horizontal-sm + @font-size-base * 1.5;
+      }
+
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
+      &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
+        padding-right: @font-size-base * 1.5;
       }
     }
   }
