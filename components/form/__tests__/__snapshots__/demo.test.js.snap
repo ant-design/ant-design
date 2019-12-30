@@ -1365,6 +1365,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       >
         <label
           class=""
+          for="layout"
           title="Form Layout"
         >
           Form Layout
@@ -1378,6 +1379,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
         >
           <div
             class="ant-radio-group ant-radio-group-outline"
+            id="layout"
           >
             <label
               class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -1501,7 +1503,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
       class="ant-row ant-form-item"
     >
       <div
-        class="ant-col ant-col-14 ant-form-item-control"
+        class="ant-col ant-col-14 ant-col-offset-4 ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
