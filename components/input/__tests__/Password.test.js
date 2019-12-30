@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Input.Password', () => {
   focusTest(Input.Password);
@@ -69,5 +70,22 @@ describe('Input.Password', () => {
         .at(0)
         .getDOMNode(),
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/20541
+  it('should not show value attribute in input element', async () => {
+    const wrapper = mount(<Input.Password />);
+    wrapper
+      .find('input')
+      .at('0')
+      .simulate('change', { target: { value: 'value' } });
+    await sleep();
+    expect(
+      wrapper
+        .find('input')
+        .at('0')
+        .getDOMNode()
+        .getAttribute('value'),
+    ).toBeFalsy();
   });
 });

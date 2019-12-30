@@ -17,7 +17,7 @@ export const InputSizes = tuple('small', 'default', 'large');
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   prefixCls?: string;
-  size?: (typeof InputSizes)[number];
+  size?: typeof InputSizes[number];
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -61,7 +61,7 @@ export function resolveOnChange(
 
 export function getInputClassName(
   prefixCls: string,
-  size?: (typeof InputSizes)[number],
+  size?: typeof InputSizes[number],
   disabled?: boolean,
 ) {
   return classNames(prefixCls, {
@@ -114,6 +114,8 @@ class Input extends React.Component<InputProps, InputState> {
 
   clearableInput: ClearableLabeledInput;
 
+  removePasswordTimeout: number;
+
   constructor(props: InputProps) {
     super(props);
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
@@ -144,6 +146,12 @@ class Input extends React.Component<InputProps, InputState> {
       );
     }
     return null;
+  }
+
+  componentWillUnmount() {
+    if (this.removePasswordTimeout) {
+      clearTimeout(this.removePasswordTimeout);
+    }
   }
 
   focus() {
@@ -210,7 +218,18 @@ class Input extends React.Component<InputProps, InputState> {
   };
 
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setValue(e.target.value);
+    this.setValue(e.target.value, () => {
+      // https://github.com/ant-design/ant-design/issues/20541
+      this.removePasswordTimeout = setTimeout(() => {
+        if (
+          this.input &&
+          this.input.getAttribute('type') === 'password' &&
+          this.input.hasAttribute('value')
+        ) {
+          this.input.removeAttribute('value');
+        }
+      });
+    });
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
