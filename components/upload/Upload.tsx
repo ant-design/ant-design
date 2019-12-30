@@ -15,7 +15,7 @@ import {
   UploadType,
   UploadListType,
 } from './interface';
-import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
+import { T, fileToObject, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';

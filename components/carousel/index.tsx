@@ -101,7 +101,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
       props.fade = true;
     }
 
-    let className = getPrefixCls('carousel', props.prefixCls);
+    const className = getPrefixCls('carousel', props.prefixCls);
     const dotsClass = 'slick-dots';
     const dotPosition = this.getDotPosition();
     props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;

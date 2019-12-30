@@ -7,7 +7,6 @@ import Tabs from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
 import { Omit } from '../_util/type';
 
 function getAction(actions: React.ReactNode[]) {

@@ -4,7 +4,6 @@ import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
-import warning from '../_util/warning';
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import { tuple } from '../_util/type';
