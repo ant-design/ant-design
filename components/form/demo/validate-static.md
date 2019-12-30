@@ -86,7 +86,7 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
-      <Select defaultValue="1">
+      <Select>
         <Option value="1">Option 1</Option>
         <Option value="2">Option 2</Option>
         <Option value="3">Option 3</Option>
@@ -99,7 +99,7 @@ ReactDOM.render(
       validateStatus="validating"
       help="The information is being validated..."
     >
-      <Cascader defaultValue={['1']} options={[]} />
+      <Cascader options={[]} />
     </Form.Item>
 
     <Form.Item label="inline" style={{ marginBottom: 0 }}>
