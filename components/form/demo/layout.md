@@ -27,12 +27,15 @@ const FormLayoutDemo = () => {
   const formItemLayout =
     formLayout === 'horizontal'
       ? {
-          labelCol: {
-            span: 4,
-          },
-          wrapperCol: {
-            span: 14,
-          },
+          labelCol: { span: 4 },
+          wrapperCol: { span: 14 },
+        }
+      : null;
+
+  const buttonItemLayout =
+    formLayout === 'horizontal'
+      ? {
+          wrapperCol: { span: 14, offset: 4 },
         }
       : null;
 
@@ -45,7 +48,7 @@ const FormLayoutDemo = () => {
         initialValues={{ layout: formLayout }}
         onValuesChange={onFormLayoutChange}
       >
-        <Form.Item label="Form Layout">
+        <Form.Item label="Form Layout" name="layout">
           <Radio.Group value={formLayout}>
             <Radio.Button value="horizontal">Horizontal</Radio.Button>
             <Radio.Button value="vertical">Vertical</Radio.Button>
@@ -58,7 +61,7 @@ const FormLayoutDemo = () => {
         <Form.Item label="Field B">
           <Input placeholder="input placeholder" />
         </Form.Item>
-        <Form.Item>
+        <Form.Item {...buttonItemLayout}>
           <Button type="primary">Submit</Button>
         </Form.Item>
       </Form>
