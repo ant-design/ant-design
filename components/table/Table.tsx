@@ -199,7 +199,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         sorter,
         sorterStates,
       },
-      true,
+      false,
     );
   };
 
