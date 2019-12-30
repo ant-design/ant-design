@@ -88,4 +88,17 @@ describe('Input.Password', () => {
         .getAttribute('value'),
     ).toBeFalsy();
   });
+  
+  
+  // https://github.com/ant-design/ant-design/issues/20541
+  it('could be unmount without errors', () => {
+    expect(() => {
+      const wrapper = mount(<Input.Password />);
+      wrapper
+        .find('input')
+        .at('0')
+        .simulate('change', { target: { value: 'value' } });
+      wrapper.unmount();
+    }).not.toThrow();
+  });
 });
