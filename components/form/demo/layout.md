@@ -41,7 +41,7 @@ const FormLayoutDemo = () => {
     <div>
       <Form layout={formLayout}>
         <Form.Item label="Form Layout" {...formItemLayout}>
-          <Radio.Group defaultValue="horizontal" onChange={onFormLayoutChange}>
+          <Radio.Group value={formLayout} onChange={onFormLayoutChange}>
             <Radio.Button value="horizontal">Horizontal</Radio.Button>
             <Radio.Button value="vertical">Vertical</Radio.Button>
             <Radio.Button value="inline">Inline</Radio.Button>
