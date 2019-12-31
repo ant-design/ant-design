@@ -8,12 +8,19 @@ title: 从 v3 到 v4
 ## 升级准备
 
 1. 请先升级到 3.x 的最新版本，按照控制台 warning 信息移除/修改相关的 API。
-2. 升级项目 React 16.12.0 以上。（此处给 React 升级文档链接）
+2. 升级项目 React 16.12.0 以上。
+   - 如果你仍在使用 React 15，请参考[React 16 升级文档](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes)
+   - 其余 React 16 废弃生命周期 API 请参考 [迁移导引](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path)
 
 ## 4.0 有哪些不兼容的变化
 
 - 组件样式上的变化（主要是设计改动...blah blah）
-- 兼容性上的变化（IE/React/flex/hooks...blah blah）
+
+### 兼容性调整
+
+- IE 最低支持版本为 IE 11
+- React 最低支持版本为 React 16.9
+
 - 移除了 2.x/3.x 里已废弃的哪些功能
 - 图标的改动
 - 哪些组件重构了等等
