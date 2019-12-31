@@ -2,7 +2,7 @@
 
 exports[`Carousel rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-carousel ant-carousel-rtl"
+  class="undefined-rtl"
 >
   <div
     class="slick-slider slick-initialized"
@@ -21,7 +21,7 @@ exports[`Carousel rtl render component should be rendered correctly in RTL direc
 
 exports[`Carousel should works for dotPosition bottom 1`] = `
 <div
-  class="ant-carousel"
+  class=""
 >
   <div
     class="slick-slider slick-initialized"
@@ -55,7 +55,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
 
 exports[`Carousel should works for dotPosition left 1`] = `
 <div
-  class="ant-carousel"
+  class=""
 >
   <div
     class="slick-slider slick-initialized"
@@ -89,7 +89,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
 
 exports[`Carousel should works for dotPosition right 1`] = `
 <div
-  class="ant-carousel"
+  class=""
 >
   <div
     class="slick-slider slick-initialized"
@@ -123,7 +123,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
 
 exports[`Carousel should works for dotPosition top 1`] = `
 <div
-  class="ant-carousel"
+  class=""
 >
   <div
     class="slick-slider slick-initialized"
