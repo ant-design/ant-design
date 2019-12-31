@@ -380,14 +380,6 @@
     }
   }
 
-  &-decade-panel {
-    .@{picker-prefix-cls}-cell {
-      &::before {
-        display: none;
-      }
-    }
-  }
-
   // ======================== Footer ========================
   &-footer {
     line-height: @picker-text-height - 2 * @border-width-base;
@@ -433,6 +425,10 @@
   &-decade-panel {
     .@{picker-cell-inner-cls} {
       padding: 0 (@padding-xs / 2);
+    }
+
+    .@{picker-prefix-cls}-cell::before {
+      display: none;
     }
   }
 

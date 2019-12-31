@@ -5,7 +5,6 @@ import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { throttleByAnimationFrameDecorator } from '../_util/throttleByAnimationFrame';
 
-import warning from '../_util/warning';
 import {
   addObserveTarget,
   removeObserveTarget,
@@ -24,7 +23,6 @@ export interface AffixProps {
    * 距离窗口顶部达到指定偏移量后触发
    */
   offsetTop?: number;
-  offset?: number;
   /** 距离窗口底部达到指定偏移量后触发 */
   offsetBottom?: number;
   style?: React.CSSProperties;
@@ -118,17 +116,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 
   getOffsetTop = () => {
-    const { offset, offsetBottom } = this.props;
+    const { offsetBottom } = this.props;
     let { offsetTop } = this.props;
-    if (typeof offsetTop === 'undefined') {
-      offsetTop = offset;
-      warning(
-        typeof offset === 'undefined',
-        'Affix',
-        '`offset` is deprecated. Please use `offsetTop` instead.',
-      );
-    }
-
     if (offsetBottom === undefined && offsetTop === undefined) {
       offsetTop = 0;
     }

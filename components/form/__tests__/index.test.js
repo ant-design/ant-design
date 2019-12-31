@@ -244,4 +244,11 @@ describe('Form', () => {
 
     expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
   });
+
+  it('warning when use v3 function', () => {
+    Form.create();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form] antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',
+    );
+  });
 });

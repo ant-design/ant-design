@@ -2,7 +2,7 @@
 import React from 'react';
 import AntdIcon, { createFromIconfontCN } from '@ant-design/icons';
 
-import { withThemeSuffix, removeTypeTheme, getThemeFromTypeName, alias } from './utils';
+import { withThemeSuffix, removeTypeTheme, getThemeFromTypeName } from './utils';
 import warning from '../../../../components/_util/warning';
 
 const IconFont = createFromIconfontCN({
@@ -21,7 +21,7 @@ const OldIcon = props => {
         ` the 'theme' prop '${theme}' will be ignored.`,
     );
   }
-  computedType = withThemeSuffix(removeTypeTheme(alias(computedType)), theme || 'outlined');
+  computedType = withThemeSuffix(removeTypeTheme(computedType), theme || 'outlined');
   return <IconFont {...props} type={`icon-${computedType}`} />;
 };
 

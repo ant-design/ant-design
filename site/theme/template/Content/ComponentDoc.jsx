@@ -12,7 +12,7 @@ import { ping, getMetaDescription } from '../utils';
 class ComponentDoc extends React.Component {
   state = {
     expandAll: false,
-    visibleAll: false,
+    visibleAll: process.env.NODE_ENV !== 'production',
     showRiddleButton: false,
   };
 

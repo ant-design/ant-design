@@ -17,10 +17,11 @@ There are three layout for form: `horizontal`, `vertical`, `inline`.
 import { Form, Input, Button, Radio } from 'antd';
 
 const FormLayoutDemo = () => {
+  const [form] = Form.useForm();
   const [formLayout, setFormLayout] = React.useState('horizontal');
 
-  const onFormLayoutChange = e => {
-    setFormLayout(e.target.value);
+  const onFormLayoutChange = ({ layout }) => {
+    setFormLayout(layout);
   };
 
   const formItemLayout =
@@ -30,6 +31,7 @@ const FormLayoutDemo = () => {
           wrapperCol: { span: 14 },
         }
       : null;
+
   const buttonItemLayout =
     formLayout === 'horizontal'
       ? {
@@ -39,18 +41,24 @@ const FormLayoutDemo = () => {
 
   return (
     <div>
-      <Form layout={formLayout}>
-        <Form.Item label="Form Layout" {...formItemLayout}>
-          <Radio.Group defaultValue="horizontal" onChange={onFormLayoutChange}>
+      <Form
+        {...formItemLayout}
+        layout={formLayout}
+        form={form}
+        initialValues={{ layout: formLayout }}
+        onValuesChange={onFormLayoutChange}
+      >
+        <Form.Item label="Form Layout" name="layout">
+          <Radio.Group value={formLayout}>
             <Radio.Button value="horizontal">Horizontal</Radio.Button>
             <Radio.Button value="vertical">Vertical</Radio.Button>
             <Radio.Button value="inline">Inline</Radio.Button>
           </Radio.Group>
         </Form.Item>
-        <Form.Item label="Field A" {...formItemLayout}>
+        <Form.Item label="Field A">
           <Input placeholder="input placeholder" />
         </Form.Item>
-        <Form.Item label="Field B" {...formItemLayout}>
+        <Form.Item label="Field B">
           <Input placeholder="input placeholder" />
         </Form.Item>
         <Form.Item {...buttonItemLayout}>

@@ -3,6 +3,7 @@
 
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
+@card-hover-border: transparent;
 @card-action-icon-size: 16px;
 
 @gradient-min: fade(@card-skeleton-bg, 20%);
@@ -19,6 +20,7 @@
   &-hoverable {
     cursor: pointer;
     &:hover {
+      border-color: @card-hover-border;
       box-shadow: @card-shadow;
     }
   }
@@ -120,6 +122,8 @@
       width: 100%;
     }
     img {
+      width: calc(100% + 2px);
+      margin-left: -1px;
       border-radius: @card-radius @card-radius 0 0;
     }
   }

@@ -206,6 +206,7 @@ export default class Tree extends React.Component<TreeProps, any> {
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
     return (
       <RcTree
+        itemHeight={20}
         ref={this.setTreeRef}
         {...props}
         prefixCls={prefixCls}

@@ -118,7 +118,7 @@ export default function DesignPage() {
                   to={getLocalizedPathname('/docs/spec/values', isZhCN)}
                 >
                   <FormattedMessage id="app.home.detail" />
-                  <RightOutlined />
+                  <RightOutlined className="home-link-arrow" />
                 </Link>
               </Col>
               <Col xs={24} sm={16}>
@@ -189,13 +189,13 @@ export default function DesignPage() {
                   <li>
                     <Link to={getLocalizedPathname('/docs/spec/colors', isZhCN)}>
                       <FormattedMessage id="app.home.global-style" />
-                      <RightOutlined />
+                      <RightOutlined className="home-link-arrow" />
                     </Link>
                   </li>
                   <li>
                     <Link to={getLocalizedPathname('/docs/spec/overview', isZhCN)}>
                       <FormattedMessage id="app.home.design-patterns" />
-                      <RightOutlined />
+                      <RightOutlined className="home-link-arrow" />
                     </Link>
                   </li>
                 </ul>
@@ -236,19 +236,19 @@ export default function DesignPage() {
                   <li>
                     <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>
                       Ant Design of React
-                      <RightOutlined />
+                      <RightOutlined className="home-link-arrow" />
                     </Link>
                   </li>
                   <li>
                     <a href="https://ng.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Angular
-                      <RightOutlined />
+                      <RightOutlined className="home-link-arrow" />
                     </a>
                   </li>
                   <li>
                     <a href="https://vue.ant.design/" target="_blank" rel="noopener noreferrer">
                       Ant Design of Vue
-                      <RightOutlined />
+                      <RightOutlined className="home-link-arrow" />
                     </a>
                   </li>
                 </ul>
