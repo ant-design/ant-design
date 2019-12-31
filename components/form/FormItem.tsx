@@ -2,7 +2,7 @@ import * as React from 'react';
 import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
-import { FieldProps as RcFieldProps } from 'rc-field-form/lib/Field';
+import { FieldProps } from 'rc-field-form/lib/Field';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -17,6 +17,7 @@ const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren = (form: FormInstance) => React.ReactElement;
+type RcFieldProps = Omit<FieldProps, 'children'>;
 
 export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
   prefixCls?: string;
