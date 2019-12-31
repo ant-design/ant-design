@@ -88,8 +88,7 @@ describe('Input.Password', () => {
         .getAttribute('value'),
     ).toBeFalsy();
   });
-  
-  
+
   // https://github.com/ant-design/ant-design/issues/20541
   it('could be unmount without errors', () => {
     expect(() => {
@@ -100,5 +99,18 @@ describe('Input.Password', () => {
         .simulate('change', { target: { value: 'value' } });
       wrapper.unmount();
     }).not.toThrow();
+  });
+
+  // https://github.com/ant-design/ant-design/pull/20544#issuecomment-569861679
+  it('should not contain value attribute in input element with defautValue', async () => {
+    const wrapper = mount(<Input.Password defaultValue="value" />);
+    await sleep();
+    expect(
+      wrapper
+        .find('input')
+        .at('0')
+        .getDOMNode()
+        .getAttribute('value'),
+    ).toBeFalsy();
   });
 });
