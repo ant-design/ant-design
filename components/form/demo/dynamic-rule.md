@@ -59,7 +59,7 @@ const DynamicRule = () => {
           },
         ]}
       >
-        <Input placeholder="Please input your name" />
+        <Input placeholder="Please input your name" autoComplete="off" />
       </Form.Item>
       <Form.Item
         {...formItemLayout}
@@ -72,7 +72,7 @@ const DynamicRule = () => {
           },
         ]}
       >
-        <Input placeholder="Please input your nickname" />
+        <Input placeholder="Please input your nickname" autoComplete="off" />
       </Form.Item>
       <Form.Item {...formTailLayout}>
         <Checkbox checked={checkNick} onChange={onCheckboxChange}>

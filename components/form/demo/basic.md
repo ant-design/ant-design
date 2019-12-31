@@ -46,7 +46,7 @@ const Demo = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
-        <Input />
+        <Input autoComplete="off" />
       </Form.Item>
 
       <Form.Item
@@ -54,7 +54,7 @@ const Demo = () => {
         name="password"
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
-        <Input.Password />
+        <Input.Password autoComplete="off" />
       </Form.Item>
 
       <Form.Item {...tailLayout} name="remember" valuePropName="checked">

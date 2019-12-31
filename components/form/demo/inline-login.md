@@ -36,7 +36,11 @@ const HorizontalLoginForm = () => {
         name="username"
         rules={[{ required: true, message: 'Please input your username!' }]}
       >
-        <Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Username" />
+        <Input
+          prefix={<UserOutlined className="site-form-item-icon" />}
+          placeholder="Username"
+          autoComplete="off"
+        />
       </Form.Item>
       <Form.Item
         name="password"
@@ -46,6 +50,7 @@ const HorizontalLoginForm = () => {
           prefix={<LockOutlined className="site-form-item-icon" />}
           type="password"
           placeholder="Password"
+          autoComplete="off"
         />
       </Form.Item>
       <Form.Item shouldUpdate={true}>
