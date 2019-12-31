@@ -45,6 +45,15 @@ export type CollapseType = 'clickTrigger' | 'responsive';
 
 export type SiderTheme = 'light' | 'dark';
 
+export type BreakpointMap = {
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  xxl: string;
+};
+
 export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   collapsible?: boolean;
@@ -57,6 +66,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: number | string;
   collapsedWidth?: number | string;
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  breakpointMap: BreakpointMap;
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
 }
@@ -86,6 +96,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     collapsedWidth: 80,
     style: {},
     theme: 'dark' as SiderTheme,
+    breakpointMap: dimensionMaxMap,
   };
 
   static getDerivedStateFromProps(nextProps: InternalSideProps) {
@@ -108,8 +119,8 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     if (typeof window !== 'undefined') {
       matchMedia = window.matchMedia;
     }
-    if (matchMedia && props.breakpoint && props.breakpoint in dimensionMaxMap) {
-      this.mql = matchMedia(`(max-width: ${dimensionMaxMap[props.breakpoint]})`);
+    if (matchMedia && props.breakpoint && props.breakpoint in props.breakpointMap) {
+      this.mql = matchMedia(`(max-width: ${props.breakpointMap[props.breakpoint]})`);
     }
     let collapsed;
     if ('collapsed' in props) {
@@ -197,6 +208,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       'onCollapse',
       'breakpoint',
       'onBreakpoint',
+      'breakpointMap',
       'siderHook',
       'zeroWidthTriggerStyle',
     ]);

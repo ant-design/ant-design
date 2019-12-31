@@ -88,6 +88,7 @@ The sidebar.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | breakpoint | [breakpoints](/components/grid#Col) of the responsive layout | Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' } | - |  |
+| breakpointWidth | set custom breakpoints by saying on which width does each breakpoint get activated | Object { xs: string, sm: string, md: string, lg: string, xl: string, xxl: string} | {xs: '480px', sm: '576px', md: '768px', lg: '992px', xl: '1200px', xxl: '1600px'} |  |
 | className | container className | string | - |  |
 | collapsed | to set the current status | boolean | - |  |
 | collapsedWidth | width of the collapsed sidebar, by setting to `0` a special trigger will appear | number | 80 |  |

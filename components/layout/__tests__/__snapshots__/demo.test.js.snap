@@ -266,6 +266,174 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
 </section>
 `;
 
+exports[`renders ./components/layout/demo/customBreakpoints.md correctly 1`] = `
+<section
+  class="ant-layout"
+>
+  <aside
+    class="ant-layout-sider ant-layout-sider-dark"
+    style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+  >
+    <div
+      class="ant-layout-sider-children"
+    >
+      <div
+        class="logo"
+      />
+      <ul
+        class="ant-menu ant-menu-dark ant-menu-root ant-menu-inline"
+        role="menu"
+      >
+        <li
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px"
+        >
+          <i
+            aria-label="icon: user"
+            class="anticon anticon-user"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="user"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+              />
+            </svg>
+          </i>
+          <span
+            class="nav-text"
+          >
+            nav 1
+          </span>
+        </li>
+        <li
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px"
+        >
+          <i
+            aria-label="icon: video-camera"
+            class="anticon anticon-video-camera"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="video-camera"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M912 302.3L784 376V224c0-35.3-28.7-64-64-64H128c-35.3 0-64 28.7-64 64v576c0 35.3 28.7 64 64 64h592c35.3 0 64-28.7 64-64V648l128 73.7c21.3 12.3 48-3.1 48-27.6V330c0-24.6-26.7-40-48-27.7zM712 792H136V232h576v560zm176-167l-104-59.8V458.9L888 399v226zM208 360h112c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H208c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+              />
+            </svg>
+          </i>
+          <span
+            class="nav-text"
+          >
+            nav 2
+          </span>
+        </li>
+        <li
+          class="ant-menu-item"
+          role="menuitem"
+          style="padding-left:24px"
+        >
+          <i
+            aria-label="icon: upload"
+            class="anticon anticon-upload"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="upload"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 0 0-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </i>
+          <span
+            class="nav-text"
+          >
+            nav 3
+          </span>
+        </li>
+        <li
+          class="ant-menu-item ant-menu-item-selected"
+          role="menuitem"
+          style="padding-left:24px"
+        >
+          <i
+            aria-label="icon: user"
+            class="anticon anticon-user"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="user"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+              />
+            </svg>
+          </i>
+          <span
+            class="nav-text"
+          >
+            nav 4
+          </span>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <section
+    class="ant-layout"
+  >
+    <header
+      class="ant-layout-header"
+      style="background:#fff;padding:0"
+    />
+    <main
+      class="ant-layout-content"
+      style="margin:24px 16px 0"
+    >
+      <div
+        style="padding:24px;background:#fff;min-height:360px"
+      >
+        content
+      </div>
+    </main>
+    <footer
+      class="ant-layout-footer"
+      style="text-align:center"
+    >
+      Ant Design ©2018 Created by Ant UED
+    </footer>
+  </section>
+</section>
+`;
+
 exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
 <section
   class="ant-layout"
