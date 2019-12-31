@@ -66,7 +66,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   width?: number | string;
   collapsedWidth?: number | string;
   breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-  breakpointMap: BreakpointMap;
+  breakpointMap?: BreakpointMap;
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
 }
