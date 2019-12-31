@@ -28,7 +28,7 @@ Ant Design 设计价值观为设计者提供评价设计好坏的内在标准，
 ## 确定性
 
 <div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OCU3RKZrw8QAAAAAAAAAAABkARQnAQ" alt="确定" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yHjSQKAhF5kAAAAAAAAAAABkARQnAQ" alt="确定性"/>
 </div>
 
 界面是用户与系统交互的媒介，是手段而非目的。在追求「自然」交互基础上，通过 Ant Design 创造的产品界面应是高确定性、低合作熵的状态。
