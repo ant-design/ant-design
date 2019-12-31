@@ -102,12 +102,13 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
       props.fade = true;
     }
 
+    const prefixCls = getPrefixCls('carousel', props.prefixCls);
     const dotsClass = 'slick-dots';
     const dotPosition = this.getDotPosition();
     props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
 
-    const className = classNames(props.prefixCls, {
-      [`${props.prefixCls}-rtl`]: direction === 'rtl',
+    const className = classNames(prefixCls, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     return (
