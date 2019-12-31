@@ -9205,7 +9205,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
 
 exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
 <div
-  class="ant-table-wrapper components-table-demo-nested"
+  class="ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
@@ -12391,7 +12391,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
 
 exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
 <div
-  class="ant-table-wrapper virtual-table"
+  class="ant-table-wrapper"
 >
   <div
     class="ant-spin-nested-loading"
