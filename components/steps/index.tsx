@@ -43,7 +43,9 @@ export default class Steps extends React.Component<StepsProps, any> {
   renderSteps = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const prefixCls = getPrefixCls('steps', this.props.prefixCls);
     const iconPrefix = getPrefixCls('', this.props.iconPrefix);
-    const className = classNames({ [`${prefixCls}-rtl`]: direction === 'rtl' });
+    const className = classNames(this.props.className, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     const icons = {
       finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
       error: <CloseOutlined className={`${prefixCls}-error-icon`} />,
