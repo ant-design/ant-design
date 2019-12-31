@@ -135,6 +135,7 @@ export default class Layout extends React.Component {
     if (typeof window === 'undefined') {
       return;
     }
+
     if (theme !== 'dark') {
       const dom = document.getElementById('theme-style');
       if (dom) {
@@ -156,6 +157,18 @@ export default class Layout extends React.Component {
       document.body.append(style);
     }
     document.body.setAttribute('data-theme', theme);
+
+    const iframeNodes = document.querySelectorAll('.iframe-demo');
+    for (let iframeNode of iframeNodes) {
+      iframeNode.contentWindow.postMessage(
+        JSON.stringify({
+          action: 'change.theme',
+          data: theme,
+        }),
+        '*',
+      );
+    }
+
     this.setState({
       theme,
     });
