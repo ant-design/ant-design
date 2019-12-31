@@ -4979,7 +4979,7 @@ exports[`ConfigProvider components Card prefixCls 1`] = `
 
 exports[`ConfigProvider components Carousel configProvider 1`] = `
 <div
-  class=""
+  class="config-carousel"
 >
   <div
     class="slick-slider slick-initialized"
@@ -5109,7 +5109,7 @@ exports[`ConfigProvider components Carousel configProvider 1`] = `
 
 exports[`ConfigProvider components Carousel normal 1`] = `
 <div
-  class=""
+  class="ant-carousel"
 >
   <div
     class="slick-slider slick-initialized"
