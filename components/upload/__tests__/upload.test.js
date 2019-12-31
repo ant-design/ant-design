@@ -3,7 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
 import Form from '../../form';
-import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
+import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
@@ -54,37 +54,6 @@ describe('Upload', () => {
       </Upload>,
     );
 
-    wrapper.find('input').simulate('change', {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
-    });
-  });
-
-  it('should update progress in IE', done => {
-    const originSetInterval = window.setInterval;
-    process.env.TEST_IE = true;
-    Object.defineProperty(window, 'setInterval', {
-      value: fn => fn(),
-    });
-    const props = {
-      action: 'http://upload.com',
-      onChange: ({ file }) => {
-        if (file.status !== 'uploading') {
-          process.env.TEST_IE = undefined;
-          Object.defineProperty(window, 'setInterval', {
-            value: originSetInterval,
-          });
-          done();
-        }
-      },
-    };
-
-    const wrapper = mount(
-      <Upload {...props}>
-        <button type="button">upload</button>
-      </Upload>,
-    );
     wrapper.find('input').simulate('change', {
       target: {
         files: [{ file: 'foo.png' }],
@@ -186,41 +155,6 @@ describe('Upload', () => {
         files: [mockFile],
       },
     });
-  });
-
-  it('should increase percent automatically when call autoUpdateProgress in IE', done => {
-    let uploadInstance;
-    let lastPercent = -1;
-    const props = {
-      action: 'http://upload.com',
-      onChange: ({ file }) => {
-        if (file.percent === 0 && file.status === 'uploading') {
-          // manually call it
-          uploadInstance.autoUpdateProgress(0, file);
-        }
-        if (file.status === 'uploading') {
-          expect(file.percent).toBeGreaterThan(lastPercent);
-          lastPercent = file.percent;
-        }
-        if (file.status === 'done' || file.status === 'error') {
-          done();
-        }
-      },
-    };
-
-    const wrapper = mount(
-      <Upload {...props}>
-        <button type="button">upload</button>
-      </Upload>,
-    );
-
-    wrapper.find('input').simulate('change', {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
-    });
-
-    uploadInstance = wrapper.instance();
   });
 
   it('should not stop upload when return value of beforeUpload is not false', done => {
@@ -330,24 +264,6 @@ describe('Upload', () => {
       ['uid', 'lastModified', 'lastModifiedDate', 'name', 'size', 'type'].forEach(key => {
         expect(key in copiedFile).toBe(true);
       });
-    });
-
-    it('should be able to progress from 0.1 ', () => {
-      // 0.1 -> 0.98
-      const getPercent = genPercentAdd();
-      let curPercent = 0;
-      curPercent = getPercent(curPercent);
-      expect(curPercent).toBe(0.1);
-    });
-
-    it('should be able to progress to 0.98 ', () => {
-      // 0.1 -> 0.98
-      const getPercent = genPercentAdd();
-      let curPercent = 0;
-      for (let i = 0; i < 500; i += 1) {
-        curPercent = getPercent(curPercent);
-      }
-      expect(parseFloat(curPercent.toFixed(2))).toBe(0.98);
     });
 
     it('should be able to get fileItem', () => {

@@ -4,7 +4,6 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import calculateNodeHeight from './calculateNodeHeight';
 import raf from '../_util/raf';
-import warning from '../_util/warning';
 import { TextAreaProps } from './TextArea';
 
 export interface AutoSizeType {
@@ -49,11 +48,11 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   handleResize = (size: { width: number; height: number }) => {
-    const { autoSize, autosize, onResize } = this.props;
+    const { autoSize, onResize } = this.props;
     if (typeof onResize === 'function') {
       onResize(size);
     }
-    if (autoSize || autosize) {
+    if (autoSize) {
       this.resizeOnNextFrame();
     }
   };
@@ -64,7 +63,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   };
 
   resizeTextarea = () => {
-    const autoSize = this.props.autoSize || this.props.autosize;
+    const { autoSize } = this.props;
     if (!autoSize || !this.textArea) {
       return;
     }
@@ -84,18 +83,12 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   renderTextArea = () => {
-    const { prefixCls, autoSize, autosize, onResize, className, disabled } = this.props;
+    const { prefixCls, autoSize, onResize, className, disabled } = this.props;
     const { textareaStyles, resizing } = this.state;
-    warning(
-      autosize === undefined,
-      'Input.TextArea',
-      'autosize is deprecated, please use autoSize instead.',
-    );
     const otherProps = omit(this.props, [
       'prefixCls',
       'onPressEnter',
       'autoSize',
-      'autosize',
       'defaultValue',
       'allowClear',
       'onResize',
@@ -114,7 +107,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       ...(resizing ? { overflow: 'hidden' } : null),
     };
     return (
-      <ResizeObserver onResize={this.handleResize} disabled={!(autoSize || autosize || onResize)}>
+      <ResizeObserver onResize={this.handleResize} disabled={!(autoSize || onResize)}>
         <textarea {...otherProps} className={cls} style={style} ref={this.saveTextArea} />
       </ResizeObserver>
     );

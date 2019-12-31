@@ -4,7 +4,6 @@ import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
-import warning from '../_util/warning';
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import { tuple } from '../_util/type';
@@ -35,8 +34,6 @@ export interface DrawerProps {
   visible?: boolean;
   width?: number | string;
   height?: number | string;
-  /* deprecated, use className instead */
-  wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
   push?: boolean;
@@ -209,21 +206,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const {
-      prefixCls,
-      placement,
-      className,
-      wrapClassName,
-      width,
-      height,
-      mask,
-      ...rest
-    } = this.props;
-    warning(
-      wrapClassName === undefined,
-      'Drawer',
-      'wrapClassName is deprecated, please use className instead.',
-    );
+    const { prefixCls, placement, className, width, height, mask, ...rest } = this.props;
     const haveMask = mask ? '' : 'no-mask';
     this.parentDrawer = value;
     const offsetStyle: any = {};
@@ -261,7 +244,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
           showMask={mask}
           placement={placement}
           style={this.getRcDrawerStyle()}
-          className={classNames(wrapClassName, className, haveMask)}
+          className={classNames(className, haveMask)}
         >
           {this.renderBody()}
         </RcDrawer>
