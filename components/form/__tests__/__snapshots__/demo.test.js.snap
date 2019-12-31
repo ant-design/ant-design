@@ -307,6 +307,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
         class="ant-form-item-control-input"
       >
         <input
+          autocomplete="off"
           class="ant-input"
           id="basic_username"
           type="text"
@@ -340,6 +341,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
         >
           <input
             action="click"
+            autocomplete="off"
             class="ant-input"
             id="basic_password"
             type="password"
@@ -958,6 +960,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         class="ant-form-item-control-input"
       >
         <input
+          autocomplete="off"
           class="ant-input"
           id="dynamic_rule_username"
           placeholder="Please input your name"
@@ -988,6 +991,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
         class="ant-form-item-control-input"
       >
         <input
+          autocomplete="off"
           class="ant-input"
           id="dynamic_rule_nickname"
           placeholder="Please input your nickname"
@@ -1272,6 +1276,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
             </span>
           </span>
           <input
+            autocomplete="off"
             class="ant-input"
             id="horizontal_login_username"
             placeholder="Username"
@@ -1319,6 +1324,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
             </span>
           </span>
           <input
+            autocomplete="off"
             class="ant-input"
             id="horizontal_login_password"
             placeholder="Password"
@@ -1808,6 +1814,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             </span>
           </span>
           <input
+            autocomplete="off"
             class="ant-input"
             id="normal_login_username"
             placeholder="Username"
@@ -1855,6 +1862,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
             </span>
           </span>
           <input
+            autocomplete="off"
             class="ant-input"
             id="normal_login_password"
             placeholder="Password"
@@ -5143,6 +5151,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-input-affix-wrapper"
         >
           <input
+            autocomplete="off"
             class="ant-input"
             placeholder="with allowClear"
             type="text"
@@ -5203,6 +5212,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <input
             action="click"
+            autocomplete="off"
             class="ant-input"
             placeholder="with input password"
             type="password"
@@ -5288,6 +5298,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         >
           <input
             action="click"
+            autocomplete="off"
             class="ant-input"
             placeholder="with input password and allowClear"
             type="password"
