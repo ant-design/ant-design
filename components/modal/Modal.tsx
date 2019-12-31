@@ -211,13 +211,10 @@ export default class Modal extends React.Component<ModalProps, {}> {
         {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
       </span>
     );
-    const wrapClassNameExtended = classNames(
-      { [`${prefixCls}-centered`]: !!centered },
-      wrapClassName,
-      {
-        [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
-      },
-    );
+    const wrapClassNameExtended = classNames(wrapClassName, {
+      [`${prefixCls}-centered`]: !!centered,
+      [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
+    });
     return (
       <Dialog
         {...restProps}
