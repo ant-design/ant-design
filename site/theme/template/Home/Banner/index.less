@@ -36,23 +36,29 @@
       margin-top: 72px;
       white-space: nowrap;
 
+      a {
+        margin: 0 8px;
+      }
+
       button {
         height: auto;
-        margin: 0 8px;
         padding: 8px 24px;
         font-size: 14px;
         border-color: @home-color;
+        color: @home-color;
 
         &:hover {
-          border-color: @home-color;
+          color: tint(@home-color, 20%);
+          border-color: tint(@home-color, 20%);
         }
 
         &.ant-btn-primary {
           background: @home-color;
-        }
+          color: #fff;
 
-        &:not(.ant-btn-primary) {
-          color: @home-color;
+          &:hover {
+            background-color: tint(@home-color, 20%);
+          }
         }
       }
     }

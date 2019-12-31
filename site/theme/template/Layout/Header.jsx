@@ -5,7 +5,7 @@ import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
-import { Select, Menu, Row, Col, Popover, Input, Button, Badge } from 'antd';
+import { Select, Menu, Row, Col, Popover, Input, Button } from 'antd';
 
 import * as utils from '../utils';
 import { version as antdVersion } from '../../../../package.json';
@@ -197,11 +197,7 @@ class Header extends React.Component {
         <Menu.SubMenu
           key="ecosystem"
           className="hide-in-home-page"
-          title={
-            <Badge dot>
-              <FormattedMessage id="app.header.menu.ecosystem" />
-            </Badge>
-          }
+          title={<FormattedMessage id="app.header.menu.ecosystem" />}
         >
           <Menu.Item key="pro">
             <a
@@ -210,9 +206,7 @@ class Header extends React.Component {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Badge dot>
-                <FormattedMessage id="app.header.menu.pro.v4" />
-              </Badge>
+              <FormattedMessage id="app.header.menu.pro.v4" />
             </a>
           </Menu.Item>
           <Menu.Item key="ng">
