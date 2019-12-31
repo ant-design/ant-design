@@ -261,6 +261,13 @@
           background: @popover-background;
         }
       }
+      .ds-suggestion.ds-cursor {
+        .algolia-docsearch-suggestion:not(.suggestion-layout-simple) {
+          .algolia-docsearch-suggestion--content {
+            background-color: fade(@white, 8%);
+          }
+        }
+      }
     }
     .algolia-docsearch-suggestion--category-header {
       color: rgba(255, 255, 255, 0.65);
@@ -269,8 +276,10 @@
     .algolia-docsearch-suggestion--subcategory-column::before {
       background: @border-color-split;
     }
-    .algolia-docsearch-suggestion--content::before {
-      background: @border-color-split;
+    .algolia-docsearch-suggestion--content {
+      &::before {
+        background: @border-color-split;
+      }
     }
   }
 
