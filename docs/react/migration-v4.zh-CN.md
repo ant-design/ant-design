@@ -3,9 +3,27 @@ order: 7
 title: 从 v3 到 v4
 ---
 
-我们提供了一个 codemod cli 工具 [@ant-design/codemod-v4](https://github.com/ant-design/codemod-v4) 以帮助你快速升级到 v4 版本。
+本文档将帮助你从 antd `3.x` 版本升级到 antd `4.x` 版本，如果你是 `2.x` 或者更老的版本，请先参考之前的[升级文档](链接)升级到 3.x。
 
-## 使用
+## 升级准备
+
+1. 请先升级到 3.x 的最新版本，按照控制台 warning 信息移除/修改相关的 API。
+2. 升级项目 React 16.12.0 以上。（此处给 React 升级文档链接）
+
+## 4.0 有哪些不兼容的变化
+
+- 组件样式上的变化（主要是设计改动...blah blah）
+- 兼容性上的变化（IE/React/flex/hooks...blah blah）
+- 移除了 2.x/3.x 里已废弃的哪些功能
+- 图标的改动
+- 哪些组件重构了等等
+- 其他组件的 break change...
+
+（这里详细列出所有的 break change 和修改方式，方便用户逐条排查）
+
+## 开始升级
+
+你可以手动对照上面的列表逐条检查代码进行修改，另外，我们也提供了一个 codemod cli 工具 [@ant-design/codemod-v4](https://github.com/ant-design/codemod-v4) 以帮助你快速升级到 v4 版本。
 
 在运行 codemod cli 前，请先提交你的本地代码修改。
 
@@ -23,7 +41,15 @@ yarn add -g @ant-design/codemod-v4
 antd4-codemod src
 ```
 
-## 写在前面
+（此处要补一些截图）
+
+对于无法自动修改的部分，codemod 会在命令行进行提示，建议按提示手动修改。修改后可以反复运行上述命令进行检查。
+
+（此处要补一些截图）
+
+> 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
+
+### 迁移工具修改详情
 
 `@ant-design/codemod-v4` 会帮你迁移到 antd v4, 废弃的 API 和组件则通过 `@ant-design/compatible` 保持运行, 一般来说你无需手动迁移。下方内容详细介绍了整体的迁移和变化。
 
@@ -146,3 +172,7 @@ antd4-codemod src
    },
  });
 ```
+
+## 遇到问题
+
+v4 做了非常多的细节改进和重构，我们尽可能收集了已知的所有不兼容变化和相关影响，但是有可能还是有一些场景我们没有考虑到。如果你在升级过程中遇到了问题，请到 [GitHub issues](链接) 和 [codemod Issues](链接) 进行反馈。我们会尽快响应和相应改进这篇文档。
