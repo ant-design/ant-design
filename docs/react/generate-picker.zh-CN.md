@@ -9,7 +9,7 @@ skip: true
 
 ### 自定义组件
 
-第一种方法是使用`generatePicker`（或者：`generateCalendar` ）辅助创建 Picker 组件。
+第一种方法是使用 `generatePicker`（或 `generateCalendar`）辅助创建 Picker 组件。
 
 编写如下代码:
 
