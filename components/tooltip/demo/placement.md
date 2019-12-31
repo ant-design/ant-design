@@ -21,7 +21,7 @@ const text = <span>prompt text</span>;
 const buttonWidth = 70;
 
 ReactDOM.render(
-  <div className="demo" style={{ direction: 'ltr' }}>
+  <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Tooltip placement="topLeft" title={text}>
         <Button>TL</Button>
