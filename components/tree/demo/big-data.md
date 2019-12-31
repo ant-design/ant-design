@@ -17,8 +17,6 @@ Plenty of tree nodes.
 ```jsx
 import { Tree } from 'antd';
 
-const { TreeNode } = Tree;
-
 const treeData = [];
 
 for (let i = 0; i < 100; i += 1) {
