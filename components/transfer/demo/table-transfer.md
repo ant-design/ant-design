@@ -159,9 +159,3 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
-
-<style>
-  [data-theme="dark"] .ant-transfer .ant-input[disabled] {
-    background-color: transparent;
-  }
-</style>
