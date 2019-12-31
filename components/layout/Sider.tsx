@@ -115,12 +115,13 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
   constructor(props: InternalSideProps) {
     super(props);
     this.uniqueId = generateId('ant-sider-');
+    const breakpointMap = props.breakpointMap ? props.breakpointMap : dimensionMaxMap;
     let matchMedia;
     if (typeof window !== 'undefined') {
       matchMedia = window.matchMedia;
     }
-    if (matchMedia && props.breakpoint && props.breakpoint in props.breakpointMap) {
-      this.mql = matchMedia(`(max-width: ${props.breakpointMap[props.breakpoint]})`);
+    if (matchMedia && props.breakpoint && props.breakpoint in breakpointMap) {
+      this.mql = matchMedia(`(max-width: ${breakpointMap[props.breakpoint]})`);
     }
     let collapsed;
     if ('collapsed' in props) {
