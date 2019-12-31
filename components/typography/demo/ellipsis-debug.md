@@ -16,7 +16,7 @@ Multiple line ellipsis support.
 
 ```jsx
 import { Typography, Slider, Switch } from 'antd';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const { Text, Paragraph } = Typography;
 
