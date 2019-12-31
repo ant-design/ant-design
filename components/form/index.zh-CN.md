@@ -133,7 +133,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
-| children | 渲染函数 | (fields: Field[], operation: { add, remove }) => React.ReactNode | - |
+| children | 渲染函数 | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
 
 ```tsx
 <Form.List>
