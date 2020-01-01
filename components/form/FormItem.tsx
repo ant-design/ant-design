@@ -178,7 +178,7 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
 
         let childNode;
         if (Array.isArray(children) && !!name) {
-          warning(false, 'Form.Item', '`children` is of render props cannot have `name`.');
+          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
         } else if (typeof children === 'function' && (!shouldUpdate || !!name)) {
           warning(false, 'Form.Item', '`children` of render props only work with `shouldUpdate`.');
