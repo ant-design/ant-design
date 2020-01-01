@@ -43,11 +43,35 @@ title: 从 v3 到 v4
 
 v2 移除 API 请参考[此处](https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.zh-CN.md#%E4%BB%A5%E4%B8%8B%E5%9C%A8-2x-%E4%B8%AD%E5%BA%9F%E5%BC%83%E7%9A%84%E7%89%B9%E6%80%A7%E8%A2%AB%E7%A7%BB%E9%99%A4)
 
-- 图标的改动
-- 哪些组件重构了等等
-- 其他组件的 break change...
+#### 图标的改动
 
-（这里详细列出所有的 break change 和修改方式，方便用户逐条排查）
+#### 组件重构
+
+- Form 重写
+
+  - 整体重写，不再需要 `Form.create`。迁移文档请查看[此处](/components/form/v3)
+  - 支持 `useForm` hooks 调用
+  - 性能调整，字段变化不再需要渲染整个表单
+  - 支持 `Form.List` 进行列表数据绑定
+
+- Table 重写
+
+  - 支持 `fixedColumns`、`expanded`、`scroll` 混合使用。
+  - 支持自定义 body 内容以结合虚拟滚动
+  - 支持 `summary` 设置总结栏
+
+- DatePicker 重写
+
+  - 提供 `picker` 属性用于选择器切换
+  - 范围选择器支持：年、月、日、周、时间
+  - 范围选择现在可以单独选择开始和结束时间
+
+- Tree 支持虚拟滚动
+- Select、TreeSelect 使用虚拟滚动
+
+  - `dropdownMatchSelectWidth` 支持数字类型设置下拉宽度
+
+- Grid 组件使用 flex 布局
 
 ## 开始升级
 
