@@ -21,7 +21,28 @@ title: 从 v3 到 v4
 - IE 最低支持版本为 IE 11
 - React 最低支持版本为 React 16.9
 
-- 移除了 2.x/3.x 里已废弃的哪些功能
+#### 移除废弃的 API
+
+- 移除了 LocaleProvider，请使用 `ConfigProvider` 替代。
+- 移除了 Mention，请使用 `Mentions` 替代。
+- 移除了 Alert 的 `iconType` 属性，请使用 `icon` 替代。
+- 移除了 Modal.xxx 的 `iconType` 属性，请使用 `icon` 替代。
+- 移除了 Form.create 方法，请使用 `useForm` 替代。
+- 移除了 Form.Item 的 `id` 属性，请使用 `htmlFor` 替代。
+- 移除了 Typography 的 `setContentRef` 属性，请使用 `ref` 替代。
+- 移除了 TimePicker 的 `allowEmpty` 属性，请使用 `allowClear` 替代。
+- 移除了 Tag 的 `afterClose` 属性，请使用 `onClose` 替代。
+- 移除了 Card 的 `noHovering` 属性，请使用 `hoverable` 替代。
+- 移除了 Carousel 的 `vertical` 属性，请使用 `dotPosition` 替代。
+- 移除了 Drawer 的 `wrapClassName` 属性，请使用 `className` 替代。
+- 移除了 TextArea 的 `autosize` 属性，请使用 `autoSize` 替代。
+- 移除了 Affix 的 `offset` 属性，请使用 `offsetTop` 替代。
+- 移除了 Transfer 的 `onSearchChange` 属性，请使用 `onSearch` 替代。
+- 移除了 Transfer 的 `body` 属性，请使用 `children` 替代。
+- 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
+
+v2 移除 API 请参考[此处](https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.zh-CN.md#%E4%BB%A5%E4%B8%8B%E5%9C%A8-2x-%E4%B8%AD%E5%BA%9F%E5%BC%83%E7%9A%84%E7%89%B9%E6%80%A7%E8%A2%AB%E7%A7%BB%E9%99%A4)
+
 - 图标的改动
 - 哪些组件重构了等等
 - 其他组件的 break change...
