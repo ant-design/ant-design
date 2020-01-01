@@ -369,7 +369,11 @@ class MainContent extends Component {
             </section>
             {componentPage && (
               <div className="fixed-widgets">
-                <Tooltip title={formatMessage({ id: `app.theme.switch.${theme}` })}>
+                <Tooltip
+                  getPopupContainer={node => node.parentNode}
+                  title={formatMessage({ id: `app.theme.switch.${theme}` })}
+                  overlayClassName="fixed-widgets-tooltip"
+                >
                   <Avatar
                     className={classNames('fixed-widgets-avatar', `fixed-widgets-avatar-${theme}`)}
                     size={44}
