@@ -1,13 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, mount } from 'enzyme';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { sleep } from '../../../tests/utils';
-import rtlTest from '../../../tests/shared/rtlTest';
+import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {
   mountTest(Popover);
-  rtlTest(Popover);
 
   it('should show overlay when trigger is clicked', async () => {
     const popover = mount(
@@ -40,5 +39,16 @@ describe('Popover', () => {
 
     expect(errorSpy.mock.calls.length).toBe(0);
     expect(overlay).not.toHaveBeenCalled();
+  });
+
+  it(`should be rendered correctly in RTL direction`, () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Popover title="RTL" visible>
+          <span>show me your Rtl demo</span>
+        </Popover>
+      </ConfigProvider>,
+    );
+    expect(render(wrapper)).toMatchSnapshot();
   });
 });
