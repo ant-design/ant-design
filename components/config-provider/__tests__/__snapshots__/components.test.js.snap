@@ -10850,7 +10850,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   />
   <div>
     <div
-      class="config-tooltip"
+      class="config-tooltip config-slider-tooltip"
       style="opacity:0"
     >
       <div
@@ -10900,7 +10900,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   />
   <div>
     <div
-      class="ant-tooltip"
+      class="ant-tooltip ant-slider-tooltip"
       style="opacity:0"
     >
       <div
@@ -10950,7 +10950,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   />
   <div>
     <div
-      class="prefix-Slider-tooltip"
+      class="prefix-Slider-tooltip prefix-Slider-tooltip"
       style="opacity:0"
     >
       <div
