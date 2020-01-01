@@ -19,12 +19,15 @@ export type ValidateStatus = typeof ValidateStatuses[number];
 type RenderChildren = (form: FormInstance) => React.ReactElement;
 type RcFieldProps = Omit<FieldProps, 'children'>;
 
-export interface FormItemProps extends FormItemLabelProps, FormItemInputProps, RcFieldProps {
+export interface FormItemProps
+  extends FormItemLabelProps,
+    FormItemInputProps,
+    Omit<RcFieldProps, 'children'> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  children: React.ReactElement | RenderChildren;
+  children: React.ReactElement | RenderChildren | React.ReactElement[];
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
@@ -175,7 +178,10 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
         };
 
         let childNode;
-        if (typeof children === 'function' && (!shouldUpdate || !!name)) {
+        if (Array.isArray(children) && !!name) {
+          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          childNode = children;
+        } else if (typeof children === 'function' && (!shouldUpdate || !!name)) {
           warning(false, 'Form.Item', '`children` of render props only work with `shouldUpdate`.');
         } else if (!mergedName.length && !shouldUpdate && !dependencies) {
           childNode = children;

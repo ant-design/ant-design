@@ -137,6 +137,19 @@ describe('Form', () => {
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
     );
   });
+  it('children is array has name props', () => {
+    mount(
+      <Form>
+        <Form.Item name="test">
+          <div>one</div>
+          <div>two</div>
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
+    );
+  });
 
   describe('scrollToField', () => {
     function test(name, genForm) {
