@@ -14,7 +14,7 @@ title: 从 v3 到 v4
 
 ## 4.0 有哪些不兼容的变化
 
-- 组件样式上的变化（主要是设计改动...blah blah）
+- TODO: @AntDesigners
 
 ### 兼容性调整
 
@@ -44,6 +44,8 @@ title: 从 v3 到 v4
 v2 移除 API 请参考[此处](https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.zh-CN.md#%E4%BB%A5%E4%B8%8B%E5%9C%A8-2x-%E4%B8%AD%E5%BA%9F%E5%BC%83%E7%9A%84%E7%89%B9%E6%80%A7%E8%A2%AB%E7%A7%BB%E9%99%A4)
 
 #### 图标的改动
+
+- TODO: @vagusX
 
 #### 组件重构
 
@@ -93,11 +95,11 @@ yarn add -g @ant-design/codemod-v4
 antd4-codemod src
 ```
 
-（此处要补一些截图）
+（此处要补一些截图） TODO: @vagusX
 
 对于无法自动修改的部分，codemod 会在命令行进行提示，建议按提示手动修改。修改后可以反复运行上述命令进行检查。
 
-（此处要补一些截图）
+（此处要补一些截图） TODO: @vagusX
 
 > 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
 
