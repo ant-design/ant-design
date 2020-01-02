@@ -29,6 +29,7 @@ title: Form
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | - |
 | layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
+| size | 设置字段组件的尺寸（仅限 antd 组件） | `small | default | large` | - |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) | - |
 | onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
