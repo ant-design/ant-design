@@ -1,6 +1,7 @@
 @import './index.less';
 
 @table-prefix-cls: ~'@{ant-prefix}-table';
+@input-prefix-cls: ~'@{ant-prefix}-input';
 
 .@{transfer-prefix-cls}-customize-list {
   display: flex;
@@ -57,6 +58,11 @@
 
     .@{table-prefix-cls}-pagination.@{ant-prefix}-pagination {
       margin: 16px 0 4px;
+    }
+  }
+  .@{input-prefix-cls} {
+    &[disabled] {
+      background-color: transparent;
     }
   }
 }

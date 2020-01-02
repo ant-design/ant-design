@@ -8,8 +8,6 @@ export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement
 
 export interface TextAreaProps extends HTMLTextareaProps {
   prefixCls?: string;
-  /* deprecated, use autoSize instead */
-  autosize?: boolean | AutoSizeType;
   autoSize?: boolean | AutoSizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   allowClear?: boolean;

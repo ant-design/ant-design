@@ -90,7 +90,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.0.0-alpha.16",
+    "@ant-design/icons": "^4.0.0-alpha.19",
     "array-tree-filter": "^2.1.0",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
@@ -157,11 +157,11 @@
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.10.0",
-    "antd-pro-merge-less": "^2.0.26",
+    "antd-pro-merge-less": "^2.0.28",
     "antd-theme-generator": "^1.1.6",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "~1.3.3",
+    "bisheng": "^1.4.6",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.1.0",
     "bisheng-plugin-toc": "^0.4.4",
