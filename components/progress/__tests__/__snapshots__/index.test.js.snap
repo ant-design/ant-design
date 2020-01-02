@@ -383,3 +383,30 @@ exports[`Progress render strokeColor 3`] = `
   </div>
 </Progress>
 `;
+
+exports[`Progress rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default ant-progress-rtl"
+>
+  <div>
+    <div
+      class="ant-progress-outer"
+    >
+      <div
+        class="ant-progress-inner"
+      >
+        <div
+          class="ant-progress-bg"
+          style="width:0%;height:8px;border-radius:"
+        />
+      </div>
+    </div>
+    <span
+      class="ant-progress-text"
+      title="0%"
+    >
+      0%
+    </span>
+  </div>
+</div>
+`;

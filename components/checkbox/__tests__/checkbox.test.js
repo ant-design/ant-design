@@ -4,10 +4,12 @@ import Checkbox from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Checkbox', () => {
   focusTest(Checkbox);
   mountTest(Checkbox);
+  rtlTest(Checkbox);
 
   it('responses hover events', () => {
     const onMouseEnter = jest.fn();

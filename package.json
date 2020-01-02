@@ -122,7 +122,7 @@
     "rc-steps": "~3.5.0",
     "rc-switch": "~1.9.0",
     "rc-table": "~7.0.0-alpha.20",
-    "rc-tabs": "~10.0.0-alpha.0",
+    "rc-tabs": "~10.0.0-alpha.1",
     "rc-tooltip": "~4.0.0-alpha.3",
     "rc-tree": "~3.0.0-alpha.37",
     "rc-tree-select": "~3.0.0-alpha.5",
@@ -262,11 +262,11 @@
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "55 kB"
+      "maxSize": "70 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "55 kB"
+      "maxSize": "70 kB"
     }
   ],
   "title": "Ant Design"

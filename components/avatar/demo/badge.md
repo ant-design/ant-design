@@ -19,7 +19,7 @@ import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
-    <span style={{ marginRight: 24 }}>
+    <span className="avatar-item">
       <Badge count={1}>
         <Avatar shape="square" icon={<UserOutlined />} />
       </Badge>
@@ -32,4 +32,16 @@ ReactDOM.render(
   </div>,
   mountNode,
 );
+```
+
+```css
+/* tile uploaded pictures */
+.avatar-item {
+  margin-right: 24px;
+}
+
+[class*='-col-rtl'] .avatar-item {
+  margin-right: 0;
+  margin-left: 24px;
+}
 ```

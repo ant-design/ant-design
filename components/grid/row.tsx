@@ -72,7 +72,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     return results;
   }
 
-  renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderRow = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       justify,
@@ -89,6 +89,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       {
         [`${prefixCls}-${justify}`]: justify,
         [`${prefixCls}-${align}`]: align,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

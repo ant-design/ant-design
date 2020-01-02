@@ -95,7 +95,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     (this.props.afterClose || noop)();
   };
 
-  renderAlert = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderAlert = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       description,
       prefixCls: customizePrefixCls,
@@ -133,6 +133,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         [`${prefixCls}-no-icon`]: !showIcon,
         [`${prefixCls}-banner`]: !!banner,
         [`${prefixCls}-closable`]: closable,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

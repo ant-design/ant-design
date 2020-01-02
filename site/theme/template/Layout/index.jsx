@@ -76,6 +76,7 @@ export default class Layout extends React.Component {
     isMobile: PropTypes.bool,
     theme: PropTypes.oneOf(['default', 'dark']),
     setTheme: PropTypes.func,
+    direction: PropTypes.string,
     setIframeTheme: PropTypes.func,
   };
 
@@ -92,13 +93,16 @@ export default class Layout extends React.Component {
           ? localStorage.getItem(SITE_THEME_STORE_KEY) || 'default'
           : 'default',
       setTheme: this.setTheme,
+      direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
     };
+
+    this.changeDirection = this.changeDirection.bind(this);
   }
 
   getChildContext() {
-    const { isMobile: mobile, theme, setTheme, setIframeTheme } = this.state;
-    return { isMobile: mobile, theme, setTheme, setIframeTheme };
+    const { isMobile: mobile, theme, setTheme, direction, setIframeTheme } = this.state;
+    return { isMobile: mobile, theme, setTheme, direction, setIframeTheme };
   }
 
   componentDidMount() {
@@ -180,9 +184,15 @@ export default class Layout extends React.Component {
     setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
   };
 
+  changeDirection(direction) {
+    this.setState({
+      direction,
+    });
+  }
+
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale } = this.state;
+    const { appLocale, direction } = this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
@@ -191,6 +201,10 @@ export default class Layout extends React.Component {
       appLocale.locale === 'zh-CN'
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
+    let pageWrapperClass = 'page-wrapper';
+    if (direction === 'rtl') {
+      pageWrapperClass += ' page-wrapper-rtl';
+    }
     return (
       <HelmetProvider context={helmetContext}>
         <Helmet encodeSpecialCharacters={false}>
@@ -210,9 +224,9 @@ export default class Layout extends React.Component {
           />
         </Helmet>
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
-          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-            <div className="page-wrapper">
-              <Header {...restProps} />
+          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null} direction={direction}>
+            <div className={pageWrapperClass}>
+              <Header {...restProps} changeDirection={this.changeDirection} />
               {children}
             </div>
           </ConfigProvider>

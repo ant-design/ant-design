@@ -2,9 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('AutoComplete with Custom Input Element Render', () => {
   mountTest(AutoComplete);
+  rtlTest(AutoComplete);
 
   it('AutoComplete with custom Input render perfectly', () => {
     const wrapper = mount(

@@ -206,7 +206,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const { prefixCls, placement, className, width, height, mask, ...rest } = this.props;
+    const { prefixCls, placement, className, width, height, mask, direction, ...rest } = this.props;
     const haveMask = mask ? '' : 'no-mask';
     this.parentDrawer = value;
     const offsetStyle: any = {};
@@ -215,6 +215,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     } else {
       offsetStyle.height = height;
     }
+    const drawerClassName = classNames(className, haveMask, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
@@ -244,7 +247,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
           showMask={mask}
           placement={placement}
           style={this.getRcDrawerStyle()}
-          className={classNames(className, haveMask)}
+          className={drawerClassName}
         >
           {this.renderBody()}
         </RcDrawer>

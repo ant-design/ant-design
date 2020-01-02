@@ -1,6 +1,7 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
 import { Settings } from '@ant-design/react-slick';
+import classNames from 'classnames';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 // Use require over import (will be lifted up)
@@ -92,7 +93,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     this.slick.slickGoTo(slide, dontAnimate);
   }
 
-  renderCarousel = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCarousel = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const props = {
       ...this.props,
     };
@@ -101,10 +102,14 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
       props.fade = true;
     }
 
-    const className = getPrefixCls('carousel', props.prefixCls);
+    const prefixCls = getPrefixCls('carousel', props.prefixCls);
     const dotsClass = 'slick-dots';
     const dotPosition = this.getDotPosition();
     props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
+
+    const className = classNames(prefixCls, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
 
     return (
       <div className={className}>

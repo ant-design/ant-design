@@ -186,6 +186,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   renderModal = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -210,13 +211,16 @@ export default class Modal extends React.Component<ModalProps, {}> {
         {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
       </span>
     );
-
+    const wrapClassNameExtended = classNames(wrapClassName, {
+      [`${prefixCls}-centered`]: !!centered,
+      [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
+    });
     return (
       <Dialog
         {...restProps}
         getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
         prefixCls={prefixCls}
-        wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
+        wrapClassName={wrapClassNameExtended}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}

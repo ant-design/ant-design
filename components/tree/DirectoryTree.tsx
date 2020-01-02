@@ -212,12 +212,14 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     }
   };
 
-  renderDirectoryTree = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderDirectoryTree = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, ...props } = this.props;
     const { expandedKeys, selectedKeys } = this.state;
 
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
-    const connectClassName = classNames(`${prefixCls}-directory`, className);
+    const connectClassName = classNames(`${prefixCls}-directory`, className, {
+      [`${prefixCls}-directory-rtl`]: direction === 'rtl',
+    });
 
     return (
       <Tree

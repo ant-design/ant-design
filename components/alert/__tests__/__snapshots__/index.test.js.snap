@@ -21,3 +21,17 @@ exports[`Alert ErrorBoundary 1`] = `
   </span>
 </div>
 `;
+
+exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl"
+  data-show="true"
+>
+  <span
+    class="ant-alert-message"
+  />
+  <span
+    class="ant-alert-description"
+  />
+</div>
+`;

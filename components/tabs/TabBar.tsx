@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { UpOutlined, LeftOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
 
 import { TabsProps } from './index';
+import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 
 export default class TabBar extends React.Component<TabsProps> {
   static defaultProps = {
@@ -11,7 +12,7 @@ export default class TabBar extends React.Component<TabsProps> {
     type: 'line',
   };
 
-  render() {
+  renderTabBar = ({ direction }: ConfigConsumerProps) => {
     const {
       tabBarStyle,
       animated,
@@ -26,8 +27,13 @@ export default class TabBar extends React.Component<TabsProps> {
     const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
     const isVertical = tabPosition === 'left' || tabPosition === 'right';
-    const prevIconComponent = isVertical ? UpOutlined : LeftOutlined;
-    const nextIconComponent = isVertical ? DownOutlined : RightOutlined;
+    let prevIconComponent = isVertical ? UpOutlined : LeftOutlined;
+    let nextIconComponent = isVertical ? DownOutlined : RightOutlined;
+
+    if (direction === 'rtl' && !isVertical) {
+      prevIconComponent = RightOutlined;
+      nextIconComponent = LeftOutlined;
+    }
     const prevIcon = (
       <span className={`${prefixCls}-tab-prev-icon`}>
         {React.createElement(prevIconComponent, {
@@ -73,5 +79,9 @@ export default class TabBar extends React.Component<TabsProps> {
     }
 
     return React.cloneElement(RenderTabBar);
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTabBar}</ConfigConsumer>;
   }
 }

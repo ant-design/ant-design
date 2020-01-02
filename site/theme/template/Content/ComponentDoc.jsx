@@ -165,7 +165,7 @@ class ComponentDoc extends React.Component {
           )}
           <h2>
             <FormattedMessage id="app.component.examples" />
-            <span style={{ float: 'right' }}>
+            <span className="all-code-box-controls">
               <Tooltip
                 title={
                   <FormattedMessage

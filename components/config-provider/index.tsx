@@ -36,6 +36,7 @@ export interface ConfigProviderProps {
   pageHeader?: {
     ghost: boolean;
   };
+  direction?: 'ltr' | 'rtl';
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
@@ -57,6 +58,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       form,
       locale,
       pageHeader,
+      direction,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -65,6 +67,7 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       csp,
       autoInsertSpaceInButton,
       locale: locale || legacyLocale,
+      direction,
     };
 
     if (getPopupContainer) {

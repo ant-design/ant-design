@@ -5,6 +5,7 @@ import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/warning';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -19,6 +20,7 @@ describe('TimePicker', () => {
 
   focusTest(TimePicker, true);
   mountTest(TimePicker);
+  rtlTest(TimePicker);
 
   it('warning for addon', () => {
     resetWarned();

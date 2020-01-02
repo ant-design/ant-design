@@ -92,7 +92,7 @@ export default class Progress extends React.Component<ProgressProps> {
     );
   }
 
-  renderProgress = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderProgress = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const {
       prefixCls: customizePrefixCls,
@@ -133,6 +133,7 @@ export default class Progress extends React.Component<ProgressProps> {
         [`${prefixCls}-status-${progressStatus}`]: true,
         [`${prefixCls}-show-info`]: showInfo,
         [`${prefixCls}-${size}`]: size,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

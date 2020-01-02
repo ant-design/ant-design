@@ -2,9 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Carousel', () => {
   mountTest(Carousel);
+  rtlTest(Carousel);
 
   beforeEach(() => {
     jest.useFakeTimers();

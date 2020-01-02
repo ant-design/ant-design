@@ -16,6 +16,10 @@
     border-radius: @border-radius-base;
     outline: none;
 
+    &-rtl {
+      direction: rtl;
+    }
+
     &-focused {
       border-color: @primary-color;
     }
@@ -126,11 +130,19 @@
   &-prev-icon,
   &-super-prev-icon {
     transform: rotate(-45deg);
+
+    .@{picker-prefix-cls}-panel-rtl & {
+      transform: rotate(135deg);
+    }
   }
 
   &-next-icon,
   &-super-next-icon {
     transform: rotate(135deg);
+
+    .@{picker-prefix-cls}-panel-rtl & {
+      transform: rotate(-45deg);
+    }
   }
 
   // ======================== Body ========================
@@ -226,9 +238,19 @@
 
     &-in-view&-range-start::before {
       left: 50%;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 50%;
+        left: 0;
+      }
     }
     &-in-view&-range-end::before {
       right: 50%;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 50%;
+      }
     }
 
     // >>> Range Hover
@@ -289,18 +311,38 @@
       .@{cellClassName}::after {
       right: -6px - @border-width-base;
       left: 0;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: -6px - @border-width-base;
+      }
     }
     .@{picker-prefix-cls}-date-panel &-in-view&-in-range&-range-hover-end .@{cellClassName}::after {
       right: 0;
       left: -6px - @border-width-base;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: -6px - @border-width-base;
+        left: 0;
+      }
     }
 
     // Hover with range start & end
     &-range-hover&-range-start::after {
       right: 50%;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 50%;
+      }
     }
     &-range-hover&-range-end::after {
       left: 50%;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 50%;
+        left: 0;
+      }
     }
 
     // Edge start
@@ -312,6 +354,15 @@
       border-left: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 6px;
+        left: 0;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-left: none;
+        border-top-right-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+      }
     }
 
     // Edge end
@@ -323,6 +374,15 @@
       border-right: @border-width-base dashed @picker-date-hover-range-border-color;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: 0;
+        left: 6px;
+        border-right: none;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-top-left-radius: @border-radius-base;
+        border-bottom-left-radius: @border-radius-base;
+      }
     }
 
     // >>> Disabled
@@ -451,11 +511,23 @@
       left: @hover-cell-fixed-distance;
       border-left: @border-width-base dashed @picker-date-hover-range-border-color;
       border-radius: @border-radius-base 0 0 @border-radius-base;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        right: @hover-cell-fixed-distance;
+        border-right: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-radius: 0 @border-radius-base @border-radius-base 0;
+      }
     }
     .@{picker-prefix-cls}-cell-range-hover-end::after {
       right: @hover-cell-fixed-distance;
       border-right: @border-width-base dashed @picker-date-hover-range-border-color;
       border-radius: 0 @border-radius-base @border-radius-base 0;
+
+      .@{picker-prefix-cls}-panel-rtl & {
+        left: @hover-cell-fixed-distance;
+        border-left: @border-width-base dashed @picker-date-hover-range-border-color;
+        border-radius: @border-radius-base 0 0 @border-radius-base;
+      }
     }
   }
 
@@ -547,6 +619,10 @@
   &-time-panel {
     width: auto;
     min-width: auto;
+
+    .@{picker-prefix-cls}-panel-rtl & {
+      direction: ltr;
+    }
 
     .@{picker-prefix-cls}-content {
       display: flex;

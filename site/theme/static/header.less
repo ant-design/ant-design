@@ -41,15 +41,19 @@
     box-shadow: none;
 
     #logo {
-      padding-right: 16px;
       padding-left: 0;
+
+      .page-wrapper-rtl & {
+        padding-right: 0;
+      }
     }
 
     .ant-menu {
       background: transparent;
     }
 
-    .header-lang-button {
+    .header-lang-button,
+    .header-direction-button {
       margin-right: 0;
     }
 
@@ -102,11 +106,22 @@
   white-space: nowrap;
   text-decoration: none;
 
+  .ant-row-rtl & {
+    float: right;
+    padding-right: 40px;
+    padding-left: 0;
+  }
+
   img {
     position: relative;
     top: -1.5px;
     height: 32px;
     margin-right: 16px;
+
+    .ant-row-rtl & {
+      margin-right: 0;
+      margin-left: 16px;
+    }
   }
 }
 
@@ -117,6 +132,14 @@
   padding-left: 16px;
   line-height: 22px;
   border-left: 1px solid @site-border-color-split;
+
+  .ant-row-rtl & {
+    float: right;
+    padding-right: 16px;
+    padding-left: 0;
+    border-right: 1px solid @site-border-color-split;
+    border-left: none;
+  }
 }
 
 #search-box .anticon {
@@ -139,24 +162,48 @@
 }
 
 .header-lang-button,
-.version {
+.version,
+.header-direction-button {
   float: right;
   margin-top: 20px;
   margin-left: 16px;
+
+  .ant-row-rtl & {
+    float: left;
+    margin-right: 16px;
+    margin-left: 0;
+  }
 }
 
-.header-lang-button {
+.header-lang-button,
+.header-direction-button {
   margin-right: 40px;
   color: @text-color;
   border-color: @border-color-base;
+
+  .ant-row-rtl & {
+    margin-right: 16px;
+    margin-left: 40px;
+  }
 }
 
+.header-lang-button {
+  margin-right: 0;
+
+  .ant-row-rtl & {
+    margin-right: 16px;
+    margin-left: 0;
+  }
+}
 #nav {
   float: right;
   font-size: 14px;
   font-family: Avenir, @font-family, sans-serif;
   border: 0;
 
+  .ant-row-rtl & {
+    float: left;
+  }
   &.ant-menu-horizontal {
     border-bottom: none;
 
@@ -211,6 +258,11 @@
     right: 16px;
     color: #aaa;
     font-size: 12px;
+
+    .ant-row-rtl & {
+      right: auto;
+      left: 16px;
+    }
   }
 }
 
