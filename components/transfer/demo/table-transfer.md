@@ -159,3 +159,9 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
+
+```css
+#components-transfer-demo-table-transfer .ant-table td {
+  background: transparent;
+}
+```
