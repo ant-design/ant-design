@@ -1,6 +1,8 @@
 ---
 order: 5
-title: 图形化
+title:
+  zh-CN: 图形化
+  en-US: Illustration
 ---
 
 <div style="text-align:center;">
