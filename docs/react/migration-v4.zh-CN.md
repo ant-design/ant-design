@@ -3,7 +3,7 @@ order: 7
 title: 从 v3 到 v4
 ---
 
-本文档将帮助你从 antd `3.x` 版本升级到 antd `4.x` 版本，如果你是 `2.x` 或者更老的版本，请先参考之前的[升级文档](链接)升级到 3.x。
+本文档将帮助你从 antd `3.x` 版本升级到 antd `4.x` 版本，如果你是 `2.x` 或者更老的版本，请先参考之前的[升级文档](https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.zh-CN.md#300)升级到 3.x。
 
 ## 升级准备
 
@@ -27,7 +27,7 @@ title: 从 v3 到 v4
 - 移除了 Mention，请使用 `Mentions` 替代。
 - 移除了 Alert 的 `iconType` 属性，请使用 `icon` 替代。
 - 移除了 Modal.xxx 的 `iconType` 属性，请使用 `icon` 替代。
-- 移除了 Form.create 方法，请使用 `useForm` 替代。
+- 移除了 Form.create 方法，`form` 现可由 `Form.useForm` 获取。
 - 移除了 Form.Item 的 `id` 属性，请使用 `htmlFor` 替代。
 - 移除了 Typography 的 `setContentRef` 属性，请使用 `ref` 替代。
 - 移除了 TimePicker 的 `allowEmpty` 属性，请使用 `allowClear` 替代。
@@ -93,30 +93,20 @@ const Demo = () => (
 #### 组件重构
 
 - Form 重写
-
-  - 整体重写，不再需要 `Form.create`。迁移文档请查看[此处](/components/form/v3)
-  - 支持 `useForm` hooks 调用
-  - 性能调整，字段变化不再需要渲染整个表单
-  - 支持 `Form.List` 进行列表数据绑定
-
-- Table 重写
-
-  - 支持 `fixedColumns`、`expanded`、`scroll` 混合使用。
-  - 支持自定义 body 内容以结合虚拟滚动
-  - 支持 `summary` 设置总结栏
-
+  - 整体重写，不再需要 `Form.create`。迁移文档请查看[此处](/components/form/v3)。
+  - 支持 `useForm` hooks 调用。
+  - 性能调整，字段变化不再需要渲染整个表单。
+  - 支持 `Form.List` 进行列表数据绑定。
 - DatePicker 重写
+  - 提供 `picker` 属性用于选择器切换。
+  - 范围选择现在可以单独选择开始和结束时间。
+    - 未填值时，选择完起始时间后需要选择结束时间。
+    - 有起始结束时间时，可单独更改起始或结束时间。
+- Tree、Select、TreeSelect 使用虚拟滚动。
 
-  - 提供 `picker` 属性用于选择器切换
-  - 范围选择器支持：年、月、日、周、时间
-  - 范围选择现在可以单独选择开始和结束时间
+  - `dropdownMatchSelectWidth` 支持数字类型设置下拉宽度。
 
-- Tree 支持虚拟滚动
-- Select、TreeSelect 使用虚拟滚动
-
-  - `dropdownMatchSelectWidth` 支持数字类型设置下拉宽度
-
-- Grid 组件使用 flex 布局
+- Grid 组件使用 flex 布局。
 
 ## 开始升级
 
