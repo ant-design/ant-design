@@ -888,8 +888,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
 exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header has-footer ant-page-header-ghost"
-    style="border:1px solid rgb(235, 237, 240)"
+    class="ant-page-header site-page-header-responsive has-footer ant-page-header-ghost"
   >
     <div
       class="ant-page-header-heading"

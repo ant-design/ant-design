@@ -232,7 +232,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout"
+    class="site-layout ant-layout"
   >
     <header
       class="site-layout-background ant-layout-header"
@@ -379,7 +379,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content"
+    class="site-layout ant-layout-content"
     style="padding:0 50px;margin-top:64px"
   >
     <div
@@ -424,7 +424,8 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       </span>
     </div>
     <div
-      style="background:#fff;padding:24px;min-height:380px"
+      class="site-layout-background"
+      style="padding:24px;min-height:380px"
     >
       Content
     </div>
@@ -708,19 +709,20 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout"
+    class="site-layout ant-layout"
     style="margin-left:200px"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="site-layout-background ant-layout-header"
+      style="padding:0"
     />
     <main
       class="ant-layout-content"
       style="margin:24px 16px 0;overflow:initial"
     >
       <div
-        style="padding:24px;background:#fff;text-align:center"
+        class="site-layout-background"
+        style="padding:24px;text-align:center"
       >
         ...
         <br />
@@ -978,7 +980,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
     class="ant-layout"
   >
     <header
-      class="site-layout-header-background ant-layout-header"
+      class="site-layout-sub-header-background ant-layout-header"
       style="padding:0"
     />
     <main
@@ -1216,11 +1218,11 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout"
+    class="site-layout ant-layout"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="site-layout-background ant-layout-header"
+      style="padding:0"
     />
     <main
       class="ant-layout-content"
@@ -1256,7 +1258,8 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         </span>
       </div>
       <div
-        style="padding:24px;background:#fff;min-height:360px"
+        class="site-layout-background"
+        style="padding:24px;min-height:360px"
       >
         Bill is a cat.
       </div>

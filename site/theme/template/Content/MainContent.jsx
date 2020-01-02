@@ -62,6 +62,7 @@ class MainContent extends Component {
     isMobile: PropTypes.bool.isRequired,
     theme: PropTypes.oneOf(['default', 'dark']),
     setTheme: PropTypes.func,
+    setIframeTheme: PropTypes.func,
   };
 
   state = {
@@ -287,7 +288,7 @@ class MainContent extends Component {
   };
 
   render() {
-    const { isMobile, theme } = this.context;
+    const { isMobile, theme, setIframeTheme } = this.context;
     const { openKeys } = this.state;
     const {
       localizedPageData,
@@ -336,7 +337,13 @@ class MainContent extends Component {
           <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
             <section className={mainContainerClass}>
               {demos ? (
-                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} theme={theme} />
+                <ComponentDoc
+                  {...this.props}
+                  doc={localizedPageData}
+                  demos={demos}
+                  theme={theme}
+                  setIframeTheme={setIframeTheme}
+                />
               ) : (
                 <Article {...this.props} content={localizedPageData} />
               )}

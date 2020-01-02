@@ -56,7 +56,7 @@ class SiderDemo extends React.Component {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout>
+        <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }}>
             {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
               className: 'trigger',
@@ -101,7 +101,7 @@ ReactDOM.render(<SiderDemo />, mountNode);
   margin: 16px;
 }
 
-.site-layout-background {
+.site-layout .site-layout-background {
   background: #fff;
 }
 ```
