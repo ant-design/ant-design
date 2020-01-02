@@ -41,9 +41,54 @@ title: 从 v3 到 v4
 - 移除了 Transfer 的 `body` 属性，请使用 `children` 替代。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
 
-#### 图标的改动
+#### 图标升级
 
-- TODO: @vagusX
+在 `antd@3.9.0` 中，我们引入了 svg 图标（[为何使用 svg 图标？](https://github.com/ant-design/ant-design/issues/10353)）。使用了字符串命名的图标 API 无法做到按需加载，因而全量引入了 svg 图标文件，这大大增加了打包产物的尺寸。在 4.0 中，我们进行针对性调整以优化体积。
+
+旧版 Icon 使用方式将被废弃：
+
+```jsx
+import { Icon, Button } from 'antd';
+
+const Demo = () => (
+  <div>
+    <Icon type="smile" />
+    <Button icon="smile" />
+  </div>
+);
+```
+
+4.0 中会采用按需引入的方式：
+
+```jsx
+import { Button } from 'antd';
+// whether directly import
+import SmileOutlined from '@ant-design/icons/SmileOutlined';
+
+// or tree-shaking supported
+import { SmileOutlined } from '@ant-design/icons';
+
+const Demo = () => (
+  <div>
+    <SmileOutlined />
+    <Button icon={<SmileOutlined />} />
+  </div>
+);
+```
+
+你将仍然可以通过兼容包继续使用：
+
+```jsx
+import { Button } from 'antd';
+import { Icon } from '@ant-design/compatible';
+
+const Demo = () => (
+  <div>
+    <Icon type="smile" />
+    <Button icon="smile" />
+  </div>
+);
+```
 
 #### 组件重构
 
