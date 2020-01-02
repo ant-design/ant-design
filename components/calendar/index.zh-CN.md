@@ -47,3 +47,7 @@ title: Calendar
 | onSelect | 点击选择日期回调 | function(date: moment） | 无 |  |
 | onChange | 日期变化回调 | function(date: moment） | 无 |  |
 | headerRender | 自定义头部内容 | function(object:{value: moment, type: string, onChange: f(), onTypeChange: f()}) | 无 |  |
+
+## FAQ
+
+- [如何在 Calendar 中使用自定义日期库（如 dayjs ）](/docs/react/generate-picker#Calendar)
