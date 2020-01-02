@@ -115,8 +115,6 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
 
   private mountRafId: number;
 
-  private direction: 'ltr' | 'rtl' | undefined;
-
   constructor(props: InternalMenuProps) {
     super(props);
 
@@ -309,33 +307,29 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
       menuProps.openKeys = [];
     }
 
-    this.direction = direction;
-
-    return (
-      <RcMenu
-        getPopupContainer={getPopupContainer}
-        {...passProps}
-        {...menuProps}
-        prefixCls={prefixCls}
-        onTransitionEnd={this.handleTransitionEnd}
-        onMouseEnter={this.handleMouseEnter}
-        direction={direction}
-      />
-    );
-  };
-
-  render() {
     return (
       <MenuContext.Provider
         value={{
           inlineCollapsed: this.getInlineCollapsed() || false,
           antdMenuTheme: this.props.theme,
-          direction: this.direction,
+          direction,
         }}
       >
-        <ConfigConsumer>{this.renderMenu}</ConfigConsumer>
+        <RcMenu
+          getPopupContainer={getPopupContainer}
+          {...passProps}
+          {...menuProps}
+          prefixCls={prefixCls}
+          onTransitionEnd={this.handleTransitionEnd}
+          onMouseEnter={this.handleMouseEnter}
+          direction={direction}
+        />
       </MenuContext.Provider>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderMenu}</ConfigConsumer>;
   }
 }
 

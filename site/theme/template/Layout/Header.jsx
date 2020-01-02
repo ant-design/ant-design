@@ -167,6 +167,7 @@ class Header extends React.Component {
         <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
       ) : null,
       <Button
+        ghost
         size="small"
         onClick={this.handleDirectionChange}
         className="header-direction-button"
@@ -277,23 +278,23 @@ class Header extends React.Component {
     const colProps = isHome
       ? [{ flex: 'none' }, { flex: 'auto' }]
       : [
-        {
-          xxl: 4,
-          xl: 5,
-          lg: 5,
-          md: 5,
-          sm: 24,
-          xs: 24,
-        },
-        {
-          xxl: 20,
-          xl: 19,
-          lg: 19,
-          md: 19,
-          sm: 0,
-          xs: 0,
-        },
-      ];
+          {
+            xxl: 4,
+            xl: 5,
+            lg: 5,
+            md: 5,
+            sm: 24,
+            xs: 24,
+          },
+          {
+            xxl: 20,
+            xl: 19,
+            lg: 19,
+            md: 19,
+            sm: 0,
+            xs: 0,
+          },
+        ];
 
     const searchPlaceholder = locale === 'zh-CN' ? '在 ant.design 中搜索' : 'Search in ant.design';
     return (
