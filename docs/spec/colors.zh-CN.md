@@ -46,9 +46,9 @@ import Palette from '../../site/theme/template/Color/Palette';
 ReactDOM.render(<Palette color={{ name: 'gray' }} direction="horizontal" />, mountNode);
 ```
 
-### 数据可视化色板（敬请期待）
+### 数据可视化色板
 
-数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 「有效、清晰、准确、美」的原则产生的。
+数据可视化色板是在基础色板以及中性色板的基础上，融合 AntV 「有效、清晰、准确、美」的原则产生的。[查看色板](https://antv.vision/zh/docs/specification/principles/visual/)
 
 ### 色板生成工具
 
@@ -97,19 +97,20 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 
 ### 品牌色的应用
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/msiCkgfDaDgrTUuumxlq.png">
+<img class="preview-img no-padding" align="right" src="
+https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6ReaR4ye8DwAAAAAAAAAAABkARQnAQ">
 
 品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需要先明确品牌色在界面中的使用场景及范围。在基础色板中选择主色，我们建议选择色板从浅至深的第六个颜色作为主色。 Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 `#1890FF`，应用场景包括：关键行动点，操作状态、重要信息高亮，图形化等场景。
 
 ### 功能色
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/XrBtAnEiozhuTdrifhFr.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xXQTQY1cE4EAAAAAAAAAAABkARQnAQ">
 
 功能色代表了明确的信息以及状态，比如成功、出错、失败、提醒、链接等。功能色的选取需要遵守用户对色彩的基本认知。我们建议在一套产品体系下，功能色尽量保持一致，不要有过多的自定义干扰用户的认知体验。Ant Design 的功能色板如右图：
 
 ### 中性色
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WAlfDnpYniUjaLzmnIqf.png">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UE0tRqE2hkwAAAAAAAAAAABkARQnAQ">
 
 Ant Design 的中性色主要被大量的应用在界面的文字部分，此外背景、边框、分割线、等场景中也非常常见。产品中性色的定义需要考虑深色背景以及浅色背景的差异，同时结合 WCAG 2.0 标准。Ant Design 的中性色在落地的时候是按照透明度的方式实现的，具体色板如右图：
 
