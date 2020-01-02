@@ -231,7 +231,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-col ant-col-base-12"
     >
       <div
         class="ant-slider"
@@ -262,7 +262,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-base-4"
     >
       <div
         class="ant-input-number"
@@ -351,7 +351,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     class="ant-row"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-col ant-col-base-12"
     >
       <div
         class="ant-slider"
@@ -382,7 +382,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col ant-col-4"
+      class="ant-col ant-col-base-4"
     >
       <div
         class="ant-input-number"

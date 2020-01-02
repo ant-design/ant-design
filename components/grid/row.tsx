@@ -37,13 +37,7 @@ export default class Row extends React.Component<RowProps, RowState> {
 
   componentDidMount() {
     this.token = ResponsiveObserve.subscribe(screens => {
-      const { gutter } = this.props;
-      if (
-        typeof gutter === 'object' ||
-        (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
-      ) {
-        this.setState({ screens });
-      }
+      this.setState({ screens });
     });
   }
 
@@ -73,6 +67,7 @@ export default class Row extends React.Component<RowProps, RowState> {
   }
 
   renderRow = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { screens } = this.state;
     const {
       prefixCls: customizePrefixCls,
       justify,
@@ -112,7 +107,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     delete otherProps.gutter;
 
     return (
-      <RowContext.Provider value={{ gutter }}>
+      <RowContext.Provider value={{ screens, gutter }}>
         <div {...otherProps} className={classes} style={rowStyle}>
           {children}
         </div>

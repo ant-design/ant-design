@@ -6839,7 +6839,7 @@ exports[`ConfigProvider components Grid configProvider 1`] = `
   class="config-row"
 >
   <div
-    class="config-col config-col-1"
+    class="config-col config-col-base-1"
   />
 </div>
 `;
@@ -6849,7 +6849,7 @@ exports[`ConfigProvider components Grid normal 1`] = `
   class="ant-row"
 >
   <div
-    class="ant-col ant-col-1"
+    class="ant-col ant-col-base-1"
   />
 </div>
 `;
@@ -6859,7 +6859,7 @@ exports[`ConfigProvider components Grid prefixCls 1`] = `
   class="prefix-row"
 >
   <div
-    class="prefix-col prefix-col-1"
+    class="prefix-col prefix-col-base-1"
   />
 </div>
 `;

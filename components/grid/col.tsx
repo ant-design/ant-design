@@ -1,7 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { tuple } from '../_util/type';
+import { BreakpointMap } from '../_util/responsiveObserve';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -44,63 +47,55 @@ function parseFlex(flex: FlexType): string {
   return flex;
 }
 
+const RESPONSIVE_LIST = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
+
+const ResponsiveTypes = tuple('xxl', 'xl', 'lg', 'md', 'sm', 'xs');
+export type ResponsiveType = typeof ResponsiveTypes[number];
+
+export function getScreenClassNames(
+  prefixCls: string,
+  screens: BreakpointMap,
+  { span, order, offset, push, pull, ...restProps }: ColProps,
+) {
+  let mergedScreenObj: ColSize = {
+    span,
+    order,
+    offset,
+    push,
+    pull,
+  };
+
+  for (let i = 0; i < RESPONSIVE_LIST.length; i += 1) {
+    const screen = RESPONSIVE_LIST[i] as ResponsiveType;
+    const screenObj = restProps[screen];
+    if (screens[screen] && screenObj !== undefined) {
+      mergedScreenObj = typeof screenObj === 'object' ? screenObj : { span: screenObj };
+      break;
+    }
+  }
+
+  return classNames({
+    [`${prefixCls}-base-${mergedScreenObj.span}`]: mergedScreenObj.span !== undefined,
+    [`${prefixCls}-base-order-${mergedScreenObj.order}`]: mergedScreenObj.order !== undefined,
+    [`${prefixCls}-base-offset-${mergedScreenObj.offset}`]: mergedScreenObj.offset !== undefined,
+    [`${prefixCls}-base-push-${mergedScreenObj.push}`]: mergedScreenObj.push !== undefined,
+    [`${prefixCls}-base-pull-${mergedScreenObj.pull}`]: mergedScreenObj.pull !== undefined,
+  });
+}
+
 export default class Col extends React.Component<ColProps, {}> {
   renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
-    const {
-      prefixCls: customizePrefixCls,
-      span,
-      order,
-      offset,
-      push,
-      pull,
-      className,
-      children,
-      flex,
-      style,
-      ...others
-    } = props;
+    const { prefixCls: customizePrefixCls, className, children, flex, style, ...others } = props;
     const prefixCls = getPrefixCls('col', customizePrefixCls);
-    let sizeClassObj = {};
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
-      let sizeProps: ColSize = {};
-      const propSize = (props as any)[size];
-      if (typeof propSize === 'number') {
-        sizeProps.span = propSize;
-      } else if (typeof propSize === 'object') {
-        sizeProps = propSize || {};
-      }
-
-      delete (others as any)[size];
-
-      sizeClassObj = {
-        ...sizeClassObj,
-        [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
-        [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
-        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
-          sizeProps.offset || sizeProps.offset === 0,
-        [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
-        [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      };
-    });
-    const classes = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-${span}`]: span !== undefined,
-        [`${prefixCls}-order-${order}`]: order,
-        [`${prefixCls}-offset-${offset}`]: offset,
-        [`${prefixCls}-push-${push}`]: push,
-        [`${prefixCls}-pull-${pull}`]: pull,
-      },
-      className,
-      sizeClassObj,
-    );
+    const restProps = omit(others, [...RESPONSIVE_LIST, 'span', 'order', 'offset', 'push', 'pull']);
 
     return (
       <RowContext.Consumer>
-        {({ gutter }) => {
+        {({ gutter, screens = {} }) => {
           let mergedStyle: React.CSSProperties = { ...style };
+          const screenClassNames = getScreenClassNames(prefixCls, screens, this.props);
+
           if (gutter) {
             mergedStyle = {
               ...(gutter[0]! > 0
@@ -123,7 +118,13 @@ export default class Col extends React.Component<ColProps, {}> {
           }
 
           return (
-            <div {...others} style={mergedStyle} className={classes}>
+            <div
+              {...restProps}
+              style={mergedStyle}
+              className={classNames(prefixCls, className, screenClassNames, {
+                [`${prefixCls}-rtl`]: direction === 'rtl',
+              })}
+            >
               {children}
             </div>
           );

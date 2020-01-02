@@ -32,7 +32,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-col-6 ant-form-item-label"
+      class="ant-col ant-form-item-label ant-col-base-6"
     >
       <label
         class=""
@@ -43,7 +43,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-col-16 ant-form-item-control"
+      class="ant-col ant-form-item-control ant-col-base-16"
     >
       <div
         class="ant-form-item-control-input"
@@ -63,7 +63,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-col-6 ant-form-item-label"
+      class="ant-col ant-form-item-label ant-col-base-6"
     >
       <label
         class="ant-form-item-required"
@@ -74,7 +74,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-col-16 ant-form-item-control"
+      class="ant-col ant-form-item-control ant-col-base-16"
     >
       <div
         class="ant-form-item-control-input"
@@ -95,7 +95,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
+      class="ant-col ant-form-item-control ant-col-base-14 ant-col-base-offset-6"
     >
       <div
         class="ant-form-item-control-input"

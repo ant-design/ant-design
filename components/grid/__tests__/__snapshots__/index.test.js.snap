@@ -7,12 +7,12 @@ exports[`Grid renders wrapped Col correctly 1`] = `
 >
   <div>
     <div
-      class="ant-col ant-col-12"
+      class="ant-col ant-col-base-12"
       style="padding-left:10px;padding-right:10px"
     />
   </div>
   <div
-    class="ant-col ant-col-12"
+    class="ant-col ant-col-base-12"
     style="padding-left:10px;padding-right:10px"
   />
 </div>
@@ -32,7 +32,7 @@ exports[`Grid rtl render component should be rendered correctly in RTL direction
 
 exports[`Grid should render Col 1`] = `
 <div
-  class="ant-col ant-col-2"
+  class="ant-col ant-col-base-2"
 />
 `;
 
