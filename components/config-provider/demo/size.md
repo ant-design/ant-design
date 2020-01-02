@@ -15,6 +15,7 @@ Config component default size.
 
 ```jsx
 import { ConfigProvider, Radio, Input, Button, Select, DatePicker, Divider } from 'antd';
+
 const FormSizeDemo = () => {
   const [componentSize, setComponentSize] = React.useState('default');
   return (
