@@ -89,6 +89,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       listHeight = 256,
       listItemHeight = 32,
       getPopupContainer,
+      dropdownClassName,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -126,8 +127,9 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       [`${prefixCls}-sm`]: size === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
-    const rcSelectRtlDropDownClassName =
-      direction === 'rtl' ? `${prefixCls}-dropdown-${direction}` : undefined;
+    const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+    });
     return (
       <RcSelect<ValueType>
         ref={this.selectRef}
