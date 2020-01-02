@@ -89,7 +89,7 @@ We provide Less and JavaScript usage for developers.
 
 ### Brand Color
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1c74TKxuEW4AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/diEtYItrQZpqsiPsadeU.png">
 
 The brand color is one of the most intuitive visual elements used that is used to embody product characteristics and communicate ideas. When selecting colors, it is important to understand how the brand color is used in the user interface. In the basic color palette to choose the main color, we recommend choosing the color plate from the shallow depth of the sixth color as the main color. Ant Design's brand color comes from blue of the base color palette, it's Hex value is 1890FF, application scenarios include: key action point, the operation status, important information highlighting, graphics and other scenes.
 
