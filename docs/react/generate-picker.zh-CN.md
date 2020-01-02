@@ -11,11 +11,11 @@ title: 自定义日期库
 
 第一种方法是使用 `generatePicker`（或 `generateCalendar`）辅助创建 Picker 组件。
 
-我们先初始化一个 `create-react-app` 的 antd demo，你可以参考 [在 create-react-app 中使用](/docs/react/use-with-create-react-app) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
+我们先初始化一个 `create-react-app` 的 antd demo，你可以参考 [在 TypeScript 中使用](/docs/react/use-in-typescript) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
 #### DatePicker.tsx
 
-新建 `src/components/DatePicker.tsx`
+新建 `src/components/DatePicker.tsx`。
 
 编写如下代码:
 
@@ -32,7 +32,7 @@ export default DatePicker;
 
 #### TimePicker.tsx
 
-新建 `src/components/TimePicker.tsx`
+新建 `src/components/TimePicker.tsx`。
 
 编写如下代码:
 
@@ -56,7 +56,7 @@ export default TimePicker;
 
 #### Calendar.tsx
 
-新建 `src/components/Calendar.tsx`
+新建 `src/components/Calendar.tsx`。
 
 编写如下代码:
 
@@ -73,7 +73,7 @@ export default Calendar;
 
 #### 导出自定义组件
 
-新建 `src/components/index.tsx`
+新建 `src/components/index.tsx`。
 
 编写如下代码:
 
@@ -95,9 +95,9 @@ export { default as TimePicker } from './TimePicker';
 + import format from 'dayjs';
 ```
 
-如果按照上述步骤无法正确运行的话，你可以参考[antd4-generate-picker/antd-ts](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-ts);
+如果按照上述步骤无法正确运行的话，你可以参考[antd4-generate-picker/antd-ts](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-ts)。
 
-如果你需要 JavaScript 代码，你可以参考 [antd4-generate-picker/antd-demo](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-demo)
+如果你需要 JavaScript 代码，你可以参考 [antd4-generate-picker/antd-demo](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-demo)。
 
 如果你熟悉 [umi](https://umijs.org/)，你可以参考 [antd4-use-dayjs-replace-moment](https://github.com/xiaohuoni/antd4-use-dayjs-replace-moment)。
 

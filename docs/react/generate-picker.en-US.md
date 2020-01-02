@@ -11,11 +11,11 @@ Consider of bundle size, you can replace momentjs with customize date library. W
 
 The first way is use `generatePicker` (or `generateCalendar`) helps to create Picker components.
 
-First, we initialize an antd demo of `create-react-app`. You can refer to [Use in create-react-app](/docs/react/use-with-create-react-app), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
+First, we initialize an antd demo of `create-react-app`. You can refer to [Use in TypeScript](/docs/react/use-in-typescript), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
 #### DatePicker.tsx
 
-Create `src/components/DatePicker.tsx`
+Create `src/components/DatePicker.tsx`.
 
 For example:
 
@@ -32,7 +32,7 @@ export default DatePicker;
 
 #### TimePicker.tsx
 
-Create `src/components/TimePicker.tsx`
+Create `src/components/TimePicker.tsx`.
 
 For example:
 
@@ -56,7 +56,7 @@ export default TimePicker;
 
 #### Calendar.tsx
 
-Create `src/components/Calendar.tsx`
+Create `src/components/Calendar.tsx`.
 
 For example:
 
@@ -73,7 +73,7 @@ export default Calendar;
 
 #### Export Custom component
 
-Create `src/components/index.tsx`
+Create `src/components/index.tsx`.
 
 For example:
 
@@ -85,7 +85,7 @@ export { default as TimePicker } from './TimePicker';
 
 #### Use Custom component
 
-Modify `src/App.tsx`,import `dayjs` and custom component。
+Modify `src/App.tsx`,import `dayjs` and custom component.
 
 ```diff
 - import { DatePicker, Calendar } from 'antd';
@@ -95,9 +95,9 @@ Modify `src/App.tsx`,import `dayjs` and custom component。
 + import format from 'dayjs';
 ```
 
-If the above steps do not work correctly, you can refer [antd4-generate-picker/antd-ts](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-ts);
+If the above steps do not work correctly, you can refer [antd4-generate-picker/antd-ts](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-ts).
 
-If you need JavaScript code, you can refer [antd4-generate-picker/antd-demo](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-demo)
+If you need JavaScript code, you can refer [antd4-generate-picker/antd-demo](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-demo).
 
 If you are the user of [umi](https://umijs.org/), you can ref [antd4-use-dayjs-replace-moment](https://github.com/xiaohuoni/antd4-use-dayjs-replace-moment).
 
