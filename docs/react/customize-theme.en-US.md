@@ -102,7 +102,7 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ### Use dark theme
 
-![](https://gw.alipayobjects.com/zos/antfincdn/wp6GpGo%26ID/f31e18a4-2018-4e12-95c6-998e7ac5b2fa.png)
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
 include `antd/dist/antd.dark.less` in the style file:
 
