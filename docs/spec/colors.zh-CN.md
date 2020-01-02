@@ -97,8 +97,7 @@ ReactDOM.render(<ColorPaletteTool />, mountNode);
 
 ### 品牌色的应用
 
-<img class="preview-img no-padding" align="right" src="
-https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6ReaR4ye8DwAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1c74TKxuEW4AAAAAAAAAAABkARQnAQ">
 
 品牌色是体现产品特性和传播理念最直观的视觉元素之一。在色彩选取时，需要先明确品牌色在界面中的使用场景及范围。在基础色板中选择主色，我们建议选择色板从浅至深的第六个颜色作为主色。 Ant Design 的品牌色取自基础色板的蓝色，Hex 值为 `#1890FF`，应用场景包括：关键行动点，操作状态、重要信息高亮，图形化等场景。
 
