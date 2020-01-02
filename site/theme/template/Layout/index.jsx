@@ -159,7 +159,7 @@ export default class Layout extends React.Component {
     document.body.setAttribute('data-theme', theme);
 
     const iframeNodes = document.querySelectorAll('.iframe-demo');
-    for (let iframeNode of iframeNodes) {
+    for (const iframeNode of iframeNodes) {
       iframeNode.contentWindow.postMessage(
         JSON.stringify({
           action: 'change.theme',

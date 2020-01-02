@@ -23,6 +23,7 @@ function compress(string) {
 
 class Demo extends React.Component {
   iframeRef = React.createRef();
+
   state = {
     codeExpand: false,
     copied: false,
