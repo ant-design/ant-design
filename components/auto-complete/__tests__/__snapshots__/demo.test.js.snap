@@ -170,7 +170,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -180,7 +180,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -218,7 +218,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -228,7 +228,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -295,7 +295,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -305,7 +305,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -403,7 +403,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -413,7 +413,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -480,7 +480,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -490,7 +490,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -617,7 +617,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -627,7 +627,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -755,7 +755,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-8"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -765,7 +765,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-16"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"

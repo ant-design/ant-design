@@ -89,7 +89,7 @@ export default class Col extends React.Component<ColProps, {}> {
     const { prefixCls: customizePrefixCls, className, children, flex, style, ...others } = props;
     const prefixCls = getPrefixCls('col', customizePrefixCls);
 
-    const restProps = omit(others, RESPONSIVE_LIST);
+    const restProps = omit(others, [...RESPONSIVE_LIST, 'span', 'order', 'offset', 'push', 'pull']);
 
     return (
       <RowContext.Consumer>
