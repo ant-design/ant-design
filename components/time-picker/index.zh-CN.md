@@ -61,3 +61,7 @@ import moment from 'moment';
 | focus() | 获取焦点 |      |
 
 <style>.code-box-demo .ant-picker { margin: 0 8px 12px 0; }</style>
+
+## FAQ
+
+- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/generate-picker#TimePicker)

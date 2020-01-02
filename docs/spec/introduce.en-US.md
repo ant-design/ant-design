@@ -8,15 +8,15 @@ title: Introduction
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*P0S-QIRUbsUAAAAAAAAAAABkARQnAQ">
 </div>
 
-Ant's enterprise-level products are an enormous and complex system with a large number and complex functions. Designers and developers often need to respond fast due to frequent changes and concurrency. Meanwhile, there are many similar pages and components in these products. Some stable and highly reusable content can obtain through abstraction.
+Ant Financial has a large number of enterprise-level products. With complex scenarios, designers and developers often need to respond fast due to frequent changes in product demands and concurrent R & D workflow. Many similar contents exist in the process. Through abstraction, we could obtain some stable and highly reusable components and pages.
 
-With the trend of commercialization, more and more enterprise-level products begin to pursue a better user experience. With such an ultimate goal, we (Ant Financial User Experience Department) have gradually polished a design system(Ant Design) for enterprise-level products through a huge quantity of project practices and summaries. Based on the four design values of 「 natural 」, 「certain」, 「meaningful」, and 「growing」, through modular solutions, reduce redundant production costs and allow designers to focus on better user experience.
+On the other hand, with the trend of commercialization, more and more enterprise products begin to pursue better user experiences. Under this situation, Ant User-Experience Design Team builds a design system for enterprise products based on four design values of Natural, Certain, Meaningful, and Growing. It aims to uniform the user interface specs and reduce redundancies and excessive production costs, helping product designers to focus on better user experience.
 
 ---
 
 ## Guidelines and Resources
 
-We provide comprehensive design guidelines, best practices, design resources, and design tools to help designers produce high-quality product prototypes.
+We provide comprehensive design guidelines, best practices, resources, and tools to help designers produce high-quality product prototypes.
 
 - [Design values](/docs/spec/values)
 - [Design patterns](/docs/spec/overview)
