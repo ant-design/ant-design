@@ -35,12 +35,12 @@ exports[`Input allowClear should change type when click 1`] = `
       <span
         className="ant-input-suffix"
       >
-        <CloseCircleFilled
+        <ForwardRef(CloseCircleFilled)
           className="ant-input-clear-icon"
           onClick={[Function]}
           role="button"
         >
-          <AntdIcon
+          <ForwardRef(AntdIcon)
             className="ant-input-clear-icon"
             icon={
               Object {
@@ -115,8 +115,8 @@ exports[`Input allowClear should change type when click 1`] = `
                 </svg>
               </IconReact>
             </span>
-          </AntdIcon>
-        </CloseCircleFilled>
+          </ForwardRef(AntdIcon)>
+        </ForwardRef(CloseCircleFilled)>
       </span>
     </span>
   </ClearableLabeledInput>
@@ -458,7 +458,7 @@ exports[`Input.Search should support suffix 1`] = `
     suffix={
       Array [
         null,
-        <SearchOutlined
+        <ForwardRef(SearchOutlined)
           className="ant-input-search-icon"
           onClick={[Function]}
         />,
@@ -484,7 +484,7 @@ exports[`Input.Search should support suffix 1`] = `
       suffix={
         Array [
           null,
-          <SearchOutlined
+          <ForwardRef(SearchOutlined)
             className="ant-input-search-icon"
             onClick={[Function]}
           />,
@@ -507,12 +507,12 @@ exports[`Input.Search should support suffix 1`] = `
         <span
           className="ant-input-suffix"
         >
-          <SearchOutlined
+          <ForwardRef(SearchOutlined)
             className="ant-input-search-icon"
             key="searchIcon"
             onClick={[Function]}
           >
-            <AntdIcon
+            <ForwardRef(AntdIcon)
               className="ant-input-search-icon"
               icon={
                 Object {
@@ -586,8 +586,8 @@ exports[`Input.Search should support suffix 1`] = `
                   </svg>
                 </IconReact>
               </span>
-            </AntdIcon>
-          </SearchOutlined>
+            </ForwardRef(AntdIcon)>
+          </ForwardRef(SearchOutlined)>
         </span>
       </span>
     </ClearableLabeledInput>
@@ -638,12 +638,12 @@ exports[`TextArea allowClear should change type when click 1`] = `
           />
         </ResizeObserver>
       </ResizableTextArea>
-      <CloseCircleFilled
+      <ForwardRef(CloseCircleFilled)
         className="ant-input-textarea-clear-icon"
         onClick={[Function]}
         role="button"
       >
-        <AntdIcon
+        <ForwardRef(AntdIcon)
           className="ant-input-textarea-clear-icon"
           icon={
             Object {
@@ -718,8 +718,8 @@ exports[`TextArea allowClear should change type when click 1`] = `
               </svg>
             </IconReact>
           </span>
-        </AntdIcon>
-      </CloseCircleFilled>
+        </ForwardRef(AntdIcon)>
+      </ForwardRef(CloseCircleFilled)>
     </span>
   </ClearableLabeledInput>
 </TextArea>
