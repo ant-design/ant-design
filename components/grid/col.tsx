@@ -52,7 +52,7 @@ const RESPONSIVE_LIST = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 const ResponsiveTypes = tuple('xxl', 'xl', 'lg', 'md', 'sm', 'xs');
 export type ResponsiveType = typeof ResponsiveTypes[number];
 
-function getScreenClassNames(
+export function getScreenClassNames(
   prefixCls: string,
   screens: BreakpointMap,
   { span, order, offset, push, pull, ...restProps }: ColProps,
