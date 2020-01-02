@@ -37,6 +37,10 @@ ReactDOM.render(
 .ant-badge:not(.ant-badge-not-a-wrapper) {
   margin-right: 20px;
 }
+.ant-badge.ant-badge-rtl:not(.ant-badge-not-a-wrapper) {
+  margin-right: 0;
+  margin-left: 20px;
+}
 .head-example {
   width: 42px;
   height: 42px;

@@ -37,7 +37,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
     return <div className={classNames(`${prefixCls}-nested`)}>{children}</div>;
   };
 
-  renderComment = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComment = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       actions,
       author,
@@ -86,8 +86,11 @@ export default class Comment extends React.Component<CommentProps, {}> {
       </div>
     );
 
+    const cls = classNames(prefixCls, className, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
-      <div {...otherProps} className={classNames(prefixCls, className)} style={style}>
+      <div {...otherProps} className={cls} style={style}>
         {comment}
         {children ? this.renderNested(prefixCls, children) : null}
       </div>

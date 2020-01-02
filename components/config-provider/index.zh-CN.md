@@ -46,6 +46,7 @@ return (
 | locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - |  |
 | prefixCls | 设置统一样式前缀 | string | ant |  |
 | pageHeader | 统一设置 pageHeader 的 ghost，参考 [pageHeader](<(/components/page-header)>) | { ghost: boolean } | 'true' |  |
+| direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | string: 'ltr', 'rtl' | ltr |  |
 
 ## FAQ
 

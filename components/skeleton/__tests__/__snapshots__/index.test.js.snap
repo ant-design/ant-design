@@ -426,6 +426,30 @@ exports[`Skeleton paragraph width 2`] = `
 </div>
 `;
 
+exports[`Skeleton rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-skeleton ant-skeleton-rtl"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width:38%"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width:61%"
+      />
+    </ul>
+  </div>
+</div>
+`;
+
 exports[`Skeleton should square avatar 1`] = `
 <div
   class="ant-skeleton ant-skeleton-with-avatar"

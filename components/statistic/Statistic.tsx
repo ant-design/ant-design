@@ -34,6 +34,7 @@ const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
     valueRender,
     prefix,
     suffix,
+    direction,
   } = props;
 
   let valueNode: React.ReactNode = <StatisticNumber {...props} value={value} />;
@@ -41,9 +42,11 @@ const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
   if (valueRender) {
     valueNode = valueRender(valueNode);
   }
-
+  const cls = classNames(prefixCls, className, {
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  });
   return (
-    <div className={classNames(prefixCls, className)} style={style}>
+    <div className={cls} style={style}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
       <div style={valueStyle} className={`${prefixCls}-content`}>
         {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}

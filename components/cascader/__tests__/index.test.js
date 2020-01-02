@@ -2,8 +2,10 @@ import React from 'react';
 import { render, mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
+import ConfigProvider from '../../config-provider';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const options = [
   {
@@ -47,6 +49,7 @@ function filter(inputValue, path) {
 describe('Cascader', () => {
   focusTest(Cascader);
   mountTest(Cascader);
+  rtlTest(Cascader);
 
   it('popup correctly when panel is hidden', () => {
     const wrapper = mount(<Cascader options={options} />);
@@ -441,5 +444,135 @@ describe('Cascader', () => {
       placeholder: customPlaceholder,
     });
     expect(wrapper.find('input').prop('placeholder')).toBe(customPlaceholder);
+  });
+  it('popup correctly with defaultValue RTL', () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />
+      </ConfigProvider>,
+    );
+    wrapper
+      .find('Cascader')
+      .find('input')
+      .simulate('click');
+    expect(
+      render(
+        wrapper
+          .find('Cascader')
+          .find('Trigger')
+          .instance()
+          .getComponent(),
+      ),
+    ).toMatchSnapshot();
+  });
+  it('can be selected in RTL direction', () => {
+    const options2 = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              {
+                value: 'xihu',
+                label: 'West Lake',
+              },
+            ],
+          },
+        ],
+      },
+      {
+        value: 'jiangsu',
+        label: 'Jiangsu',
+        children: [
+          {
+            value: 'nanjing',
+            label: 'Nanjing',
+            children: [
+              {
+                value: 'zhonghuamen',
+                label: 'Zhong Hua Men',
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Cascader
+          options={options2}
+          defaultValue={['zhejiang', 'hangzhou']}
+          onChange={onChange}
+          popupPlacement="bottomRight"
+        />
+      </ConfigProvider>,
+    );
+
+    wrapper
+      .find('Cascader')
+      .find('input')
+      .simulate('click');
+    let popupWrapper = mount(
+      wrapper
+        .find('Cascader')
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    popupWrapper
+      .find('.ant-cascader-menu')
+      .at(0)
+      .find('.ant-cascader-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(
+      render(
+        wrapper
+          .find('Cascader')
+          .find('Trigger')
+          .instance()
+          .getComponent(),
+      ),
+    ).toMatchSnapshot();
+    popupWrapper = mount(
+      wrapper
+        .find('Cascader')
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    popupWrapper
+      .find('.ant-cascader-menu')
+      .at(1)
+      .find('.ant-cascader-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(
+      render(
+        wrapper
+          .find('Cascader')
+          .find('Trigger')
+          .instance()
+          .getComponent(),
+      ),
+    ).toMatchSnapshot();
+    popupWrapper = mount(
+      wrapper
+        .find('Cascader')
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    popupWrapper
+      .find('.ant-cascader-menu')
+      .at(2)
+      .find('.ant-cascader-menu-item')
+      .at(0)
+      .simulate('click');
+    expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
   });
 });

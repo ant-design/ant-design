@@ -230,6 +230,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
   renderTooltip = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const { props, state } = this;
     const {
@@ -239,6 +240,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
       openClassName,
       getPopupContainer,
       getTooltipContainer,
+      overlayClassName,
     } = props;
     const children = props.children as React.ReactElement<any>;
     const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
@@ -257,10 +259,14 @@ class Tooltip extends React.Component<TooltipProps, any> {
       [openClassName || `${prefixCls}-open`]: true,
     });
 
+    const customOverlayClassName = classNames(overlayClassName, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
       <RcTooltip
         {...this.props}
         prefixCls={prefixCls}
+        overlayClassName={customOverlayClassName}
         getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
         ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}

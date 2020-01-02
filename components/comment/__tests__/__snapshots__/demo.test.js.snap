@@ -74,7 +74,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               </svg>
             </span>
             <span
-              style="padding-left:8px;cursor:auto"
+              class="comment-action"
             >
               0
             </span>
@@ -104,7 +104,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               </svg>
             </span>
             <span
-              style="padding-left:8px;cursor:auto"
+              class="comment-action"
             >
               0
             </span>

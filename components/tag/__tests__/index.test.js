@@ -2,10 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Tag', () => {
   mountTest(Tag);
   mountTest(Tag.CheckableTag);
+  rtlTest(Tag);
+  rtlTest(Tag.CheckableTag);
 
   beforeAll(() => {
     jest.useFakeTimers();

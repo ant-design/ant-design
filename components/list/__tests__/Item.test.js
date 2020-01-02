@@ -1,6 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, mount } from 'enzyme';
 import List from '..';
+import ConfigProvider from '../../config-provider';
 
 describe('List Item Layout', () => {
   const data = [
@@ -123,5 +124,28 @@ describe('List Item Layout', () => {
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should render in RTL direction', () => {
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <List
+          dataSource={data}
+          renderItem={item => (
+            <List.Item
+              key={item.title}
+              actions={[<a key="action">Action</a>]}
+              extra={<span>{item.extra}</span>}
+            >
+              <List.Item.Meta
+                title={<a href={item.href}>{item.title}</a>}
+                description={item.description}
+              />
+            </List.Item>
+          )}
+        />
+      </ConfigProvider>,
+    );
+    expect(render(wrapper)).toMatchSnapshot();
   });
 });

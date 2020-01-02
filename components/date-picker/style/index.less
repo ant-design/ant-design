@@ -32,6 +32,10 @@
   border-radius: @border-radius-base;
   transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &:hover,
   &-focused {
     .hover();
@@ -99,6 +103,11 @@
     margin-left: @padding-xs / 2;
     color: @disabled-color;
     pointer-events: none;
+
+    .@{picker-prefix-cls}-rtl & {
+      margin-right: @padding-xs / 2;
+      margin-left: 0;
+    }
   }
 
   &-clear {
@@ -115,6 +124,11 @@
     &:hover {
       color: @text-color-secondary;
     }
+
+    .@{picker-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+    }
   }
 
   &-separator {
@@ -126,6 +140,11 @@
     font-size: @font-size-lg;
     line-height: @font-size-lg;
     text-align: center;
+
+    .@{picker-prefix-cls}-rtl & {
+      transform: rotate(180deg);
+      transform-origin: 50% 60%;
+    }
   }
 
   // ======================== Range =========================
@@ -136,6 +155,11 @@
     // Clear
     .@{picker-prefix-cls}-clear {
       right: @input-padding-horizontal-base;
+
+      .@{picker-prefix-cls}-rtl& {
+        right: auto;
+        left: @input-padding-horizontal-base;
+      }
     }
 
     &:hover {
@@ -211,6 +235,10 @@
     text-align: left;
     list-style: none;
 
+    .@{picker-prefix-cls}-dropdown-rtl & {
+      text-align: right;
+    }
+
     > li {
       display: inline-block;
     }
@@ -222,6 +250,12 @@
     .@{picker-prefix-cls}-ok {
       float: right;
       margin-left: @padding-xs;
+
+      .@{picker-prefix-cls}-dropdown-rtl & {
+        float: left;
+        margin-right: @padding-xs;
+        margin-left: 0;
+      }
     }
   }
 

@@ -74,11 +74,12 @@ export default class Badge extends React.Component<BadgeProps, any> {
       : style;
   }
 
-  getBadgeClassName(prefixCls: string) {
+  getBadgeClassName(prefixCls: string, direction: string = 'ltr') {
     const { className, children } = this.props;
     return classNames(className, prefixCls, {
       [`${prefixCls}-status`]: this.hasStatus(),
       [`${prefixCls}-not-a-wrapper`]: !children,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     }) as string;
   }
 
@@ -156,7 +157,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     );
   }
 
-  renderBadge = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderBadge = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       scrollNumberPrefixCls: customizeScrollNumberPrefixCls,
@@ -200,7 +201,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
       return (
         <span
           {...omit(restProps, omitArr)}
-          className={this.getBadgeClassName(prefixCls)}
+          className={this.getBadgeClassName(prefixCls, direction)}
           style={styleWithOffset}
         >
           <span className={statusCls} style={statusStyle} />
@@ -212,7 +213,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     }
 
     return (
-      <span {...omit(restProps, omitArr)} className={this.getBadgeClassName(prefixCls)}>
+      <span {...omit(restProps, omitArr)} className={this.getBadgeClassName(prefixCls, direction)}>
         {children}
         <Animate
           component=""

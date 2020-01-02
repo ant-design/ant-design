@@ -2,7 +2,7 @@
 order: 5
 title:
   zh-CN: 图形化
-  en-US: Illustration
+  en-US: Illustrations
 ---
 
 <div style="text-align:center;">

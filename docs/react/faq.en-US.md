@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 11
 title: FAQ
 ---
 
@@ -58,7 +58,7 @@ See: https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
 
 ### How to replace momentjs to Day.js to reduce bundle size？
 
-We provide `antd-dayjs-webpack-plugin` plugin to replace `momentjs` to `Day.js` directly without changing a line of existing code. More info at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).
+Can refer to [generate picker](/docs/react/generate-picker).
 
 ### It doesn't work when I change `defaultValue` dynamically.
 

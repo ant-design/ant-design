@@ -4,13 +4,13 @@ order: 1
 title: Design Values
 ---
 
-Design values of Ant Design provide internal criteria for designers to evaluate their design quality, inspire and arouse design principles and patterns, which providing guidance and general solutions for specific design problems.
+The design values of Ant Design provide designers with internal standards for evaluation, enlighten and inspire the design principles and design patterns, and then offer guidance and general solutions for specific design problems.
 
 <div>
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sGufTKB_F5QAAAAAAAAAAABkARQnAQ" alt="General" />
 </div>
 
-Here are four design values of Ant Design：
+Here are four design values of Ant Design:
 
 ## Natural
 
@@ -20,7 +20,7 @@ Here are four design values of Ant Design：
 
 The light-speed iteration of the digital world makes products more complex. However, human consciousness and attention resources are limited. Facing this design contradiction, the pursuit of natural interaction will be the consistent direction of Ant Design.
 
-- **Natural user cognition:** According to cognitive psychology, about 80% of external information is obtained through visual channels. The most important visual elements in the interface design, including layout, colors, illustrations, icons, etc., should fully absorb the laws of nature, thereby reducing the user's cognitive cost and bringing authentic and smooth feelings. In some scenarios, opportunely adding other - sensory channels such as hearing, touch can create a richer and more natural product experience.
+- **Natural user cognition:** According to cognitive psychology, about 80% of external information is obtained through visual channels. The most important visual elements in the interface design, including layout, colors, illustrations, icons, etc., should fully absorb the laws of nature, thereby reducing the user's cognitive cost and bringing authentic and smooth feelings. In some scenarios, opportunely adding other sensory channels such as hearing, touch can create a richer and more natural product experience.
 - **Natural user behavior:** In the interaction with the system, the designer should fully understand the relationship between users, system roles, and task objectives, and also contextually organize system functions and services. At the same time, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, to save users' mental and physical resources and make human-computer interaction more natural.
 
 > To get to know the past and present of natural values, [please move to the column](https://zhuanlan.zhihu.com/p/44809866).

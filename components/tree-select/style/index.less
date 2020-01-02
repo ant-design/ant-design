@@ -13,6 +13,9 @@
   &-dropdown {
     padding: @padding-xs (@padding-xs / 2) 0;
 
+    &-rtl {
+      direction: rtl;
+    }
     // ======================== Tree ========================
     .@{select-tree-prefix-cls} {
       border-radius: 0;
@@ -34,3 +37,19 @@
 
 // ========================== Tree ==========================
 .antTreeFn(@select-tree-prefix-cls);
+
+// change switcher icon rotation in rtl direction
+.@{select-tree-prefix-cls} {
+  // >>> Switcher
+  & &-switcher {
+    &_close {
+      .@{select-tree-prefix-cls}-switcher-icon {
+        svg {
+          .@{tree-select-prefix-cls}-dropdown-rtl & {
+            transform: rotate(90deg);
+          }
+        }
+      }
+    }
+  }
+}

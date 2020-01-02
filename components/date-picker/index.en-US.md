@@ -151,3 +151,5 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 ## FAQ
 
 - [When set mode to DatePicker/RangePicker, cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?)
+
+- [How to use DatePicker with customize date library like dayjs](/docs/react/generate-picker#DatePicker)

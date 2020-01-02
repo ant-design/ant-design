@@ -59,8 +59,14 @@
     cursor: pointer;
     opacity: 0.75;
     transition: all 0.3s;
+
     &:hover {
       opacity: 1;
+    }
+
+    .ant-row-rtl & {
+      margin-right: 8px;
+      margin-left: 0;
     }
   }
 
@@ -73,6 +79,12 @@
     background: @body-background;
     border-radius: @border-radius-base @border-radius-base 0 0;
     transition: background-color 0.4s;
+
+    .ant-row-rtl & {
+      margin-right: 16px;
+      margin-left: 0;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
 
     a,
     a:hover {
@@ -95,6 +107,13 @@
     text-decoration: none;
     background: inherit;
     transform: scale(0.9);
+
+    .ant-row-rtl & {
+      right: auto;
+      left: -21px;
+      padding-right: 0;
+      padding-left: 6px;
+    }
   }
 
   &-demo {
@@ -132,6 +151,11 @@
       padding-right: 25px;
       font-size: 12px;
       word-break: break-word;
+
+      .ant-row-rtl & {
+        padding-right: 0;
+        padding-left: 25px;
+      }
     }
   }
 
@@ -155,6 +179,11 @@
     box-shadow: none;
     transition: all 0.4s;
     user-select: none;
+
+    .ant-row-rtl & {
+      right: 0;
+      left: auto;
+    }
   }
 
   .code-expand-icon-show {
@@ -222,8 +251,17 @@
       margin-left: 16px;
       vertical-align: top;
 
+      .ant-row-rtl & {
+        margin-right: 16px;
+        margin-left: 0;
+      }
+
       &:first-child {
         margin-left: 0;
+
+        .ant-row-rtl & {
+          margin-right: 0;
+        }
       }
     }
 
@@ -346,4 +384,22 @@
 
 .show-riddle-button .code-box-riddle {
   display: block;
+}
+
+.all-code-box-controls {
+  float: right;
+
+  .ant-row-rtl & {
+    float: left;
+  }
+}
+
+.ant-row-rtl {
+  #components-tooltip-demo-placement,
+  #components-popover-demo-placement,
+  #components-popconfirm-demo-placement {
+    .code-box-demo {
+      direction: ltr;
+    }
+  }
 }

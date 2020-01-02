@@ -142,7 +142,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       };
 
       renderPicker = (locale: any) => {
-        const { getPrefixCls } = this.context;
+        const { getPrefixCls, direction } = this.context;
         const { prefixCls: customizePrefixCls, className, size, ...restProps } = this.props;
         const { format, showTime } = this.props as any;
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -187,6 +187,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
             superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
             superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
             components={Components}
+            direction={direction}
           />
         );
       };
@@ -247,7 +248,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     };
 
     renderPicker = (locale: any) => {
-      const { getPrefixCls } = this.context;
+      const { getPrefixCls, direction } = this.context;
       const { prefixCls: customizePrefixCls, className, size, ...restProps } = this.props;
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -282,6 +283,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
           superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
           components={Components}
+          direction={direction}
         />
       );
     };

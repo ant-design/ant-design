@@ -84,11 +84,10 @@ export function getScreenClassNames(
 }
 
 export default class Col extends React.Component<ColProps, {}> {
-  renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const { prefixCls: customizePrefixCls, className, children, flex, style, ...others } = props;
     const prefixCls = getPrefixCls('col', customizePrefixCls);
-
     const restProps = omit(others, [...RESPONSIVE_LIST, 'span', 'order', 'offset', 'push', 'pull']);
 
     return (
@@ -122,7 +121,9 @@ export default class Col extends React.Component<ColProps, {}> {
             <div
               {...restProps}
               style={mergedStyle}
-              className={classNames(prefixCls, className, screenClassNames)}
+              className={classNames(prefixCls, className, screenClassNames, {
+                [`${prefixCls}-rtl`]: direction === 'rtl',
+              })}
             >
               {children}
             </div>

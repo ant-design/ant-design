@@ -87,7 +87,7 @@ export interface ResultType extends React.SFC<ResultProps> {
 
 const Result: ResultType = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         className: customizeClassName,
@@ -98,7 +98,9 @@ const Result: ResultType = props => (
         status,
       } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName);
+      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      });
       return (
         <div className={className} style={style}>
           {renderIcon(prefixCls, props)}

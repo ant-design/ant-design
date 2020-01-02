@@ -1,5 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Carousel rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-carousel ant-carousel-rtl"
+>
+  <div
+    class="slick-slider slick-initialized"
+  >
+    <div
+      class="slick-list"
+    >
+      <div
+        class="slick-track"
+        style="width:0%;left:NaN%"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Carousel should works for dotPosition bottom 1`] = `
 <div
   class="ant-carousel"

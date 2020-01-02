@@ -2755,6 +2755,58 @@ exports[`Directory Tree group select 2`] = `
 </div>
 `;
 
+exports[`Directory Tree rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide ant-tree-rtl"
+>
+  <div
+    role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-tree-list"
+  >
+    <div>
+      <div
+        class="ant-tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Directory Tree rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-tree ant-tree-directory ant-tree-directory-rtl ant-tree-block-node ant-tree-rtl"
+>
+  <div
+    role="tree"
+  >
+    <input
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-tree-list"
+  >
+    <div>
+      <div
+        class="ant-tree-list-holder-inner"
+        style="display:flex;flex-direction:column"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Directory Tree selectedKeys update 1`] = `
 <div
   class="ant-tree ant-tree-directory ant-tree-block-node"

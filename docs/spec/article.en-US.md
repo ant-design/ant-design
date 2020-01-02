@@ -1,7 +1,7 @@
 ---
 order: 2
 category: Other
-title: Article
+title: Articles
 ---
 
 想要了解 Ant Design 设计体系背后的故事？如何才能更好的应用 Ant Design？你可以查阅下述我们为你精挑细选的文章。也欢迎关注 [Ant Design 官方专栏](https://zhuanlan.zhihu.com/antdesign)，这里常有关于 Ant Design 设计体系下相关话题内容的最新分享和讨论，如 Ant Design、AntV 可视化、Kitchen 设计插件、B 端产品设计、SaaS 产品设计、自然交互、增长设计、智能设计、设计工程化等。

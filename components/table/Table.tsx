@@ -109,7 +109,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
   } = props;
-  const { locale: contextLocale = defaultLocale, renderEmpty } = React.useContext(ConfigContext);
+  const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
+    ConfigContext,
+  );
   const tableLocale = locale || contextLocale.Table;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
@@ -388,9 +390,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     spinProps = loading;
   }
 
+  const wrapperClassNames = classNames(`${prefixCls}-wrapper`, {
+    [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
+  });
   return (
     <div
-      className={`${prefixCls}-wrapper`}
+      className={wrapperClassNames}
       onTouchMove={e => {
         e.preventDefault();
       }}
@@ -405,6 +410,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
             [`${prefixCls}-middle`]: size === 'middle',
             [`${prefixCls}-small`]: size === 'small',
             [`${prefixCls}-bordered`]: bordered,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
           })}
           data={pageData}
           rowKey={getRowKey}
