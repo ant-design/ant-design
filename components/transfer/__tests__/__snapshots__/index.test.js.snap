@@ -700,7 +700,7 @@ exports[`Transfer should support render value and label in item 1`] = `
             disabled={true}
             ghost={false}
             htmlType="button"
-            icon={<RightOutlined />}
+            icon={<ForwardRef(RightOutlined) />}
             loading={false}
             onClick={[Function]}
             size="small"
@@ -713,8 +713,8 @@ exports[`Transfer should support render value and label in item 1`] = `
                 onClick={[Function]}
                 type="button"
               >
-                <RightOutlined>
-                  <AntdIcon
+                <ForwardRef(RightOutlined)>
+                  <ForwardRef(AntdIcon)
                     icon={
                       Object {
                         "icon": Object {
@@ -784,8 +784,8 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </AntdIcon>
-                </RightOutlined>
+                  </ForwardRef(AntdIcon)>
+                </ForwardRef(RightOutlined)>
               </button>
             </Wave>
           </Button>
@@ -794,7 +794,7 @@ exports[`Transfer should support render value and label in item 1`] = `
             disabled={true}
             ghost={false}
             htmlType="button"
-            icon={<LeftOutlined />}
+            icon={<ForwardRef(LeftOutlined) />}
             loading={false}
             onClick={[Function]}
             size="small"
@@ -807,8 +807,8 @@ exports[`Transfer should support render value and label in item 1`] = `
                 onClick={[Function]}
                 type="button"
               >
-                <LeftOutlined>
-                  <AntdIcon
+                <ForwardRef(LeftOutlined)>
+                  <ForwardRef(AntdIcon)
                     icon={
                       Object {
                         "icon": Object {
@@ -878,8 +878,8 @@ exports[`Transfer should support render value and label in item 1`] = `
                         </svg>
                       </IconReact>
                     </span>
-                  </AntdIcon>
-                </LeftOutlined>
+                  </ForwardRef(AntdIcon)>
+                </ForwardRef(LeftOutlined)>
               </button>
             </Wave>
           </Button>
