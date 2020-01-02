@@ -3,7 +3,6 @@ order: 3.1
 title:
   zh-CN: 表单尺寸
   en-US: Form size
-only: true
 ---
 
 ## zh-CN
