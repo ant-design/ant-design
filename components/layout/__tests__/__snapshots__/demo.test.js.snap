@@ -980,7 +980,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
     class="ant-layout"
   >
     <header
-      class="site-layout-header-background ant-layout-header"
+      class="site-layout-sub-header-background ant-layout-header"
       style="padding:0"
     />
     <main

@@ -121,19 +121,15 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Success" hasFeedback validateStatus="success">
-      <Input allowClear placeholder="with allowClear" autoComplete="off" />
+      <Input allowClear placeholder="with allowClear" />
     </Form.Item>
 
     <Form.Item label="Warning" hasFeedback validateStatus="warning">
-      <Input.Password placeholder="with input password" autoComplete="off" />
+      <Input.Password placeholder="with input password" />
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
-      <Input.Password
-        allowClear
-        placeholder="with input password and allowClear"
-        autoComplete="off"
-      />
+      <Input.Password allowClear placeholder="with input password and allowClear" />
     </Form.Item>
   </Form>,
   mountNode,

@@ -55,7 +55,7 @@ class DrawerForm extends React.Component {
                   label="Name"
                   rules={[{ required: true, message: 'Please enter user name' }]}
                 >
-                  <Input autoComplete="off" placeholder="Please enter user name" />
+                  <Input placeholder="Please enter user name" />
                 </Form.Item>
               </Col>
               <Col span={12}>
