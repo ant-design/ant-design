@@ -4,7 +4,6 @@ import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
-import { polyfill } from 'react-lifecycles-compat';
 import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -242,7 +241,5 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     return <ConfigConsumer>{this.renderDirectoryTree}</ConfigConsumer>;
   }
 }
-
-polyfill(DirectoryTree);
 
 export default DirectoryTree;

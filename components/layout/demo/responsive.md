@@ -56,9 +56,11 @@ ReactDOM.render(
       </Menu>
     </Sider>
     <Layout>
-      <Header style={{ background: '#fff', padding: 0 }} />
+      <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
       <Content style={{ margin: '24px 16px 0' }}>
-        <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>content</div>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+          content
+        </div>
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
@@ -73,4 +75,18 @@ ReactDOM.render(
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
+
+.site-layout-sub-header-background {
+  background: #fff;
+}
+
+.site-layout-background {
+  background: #fff;
+}
 ```
+
+<style>
+  [data-theme="dark"] .site-layout-sub-header-background {
+    background: #141414;
+  }
+</style>

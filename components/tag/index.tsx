@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
 import { CloseOutlined } from '@ant-design/icons';
 
 import CheckableTag from './CheckableTag';
@@ -88,6 +87,7 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   handleIconClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     this.setVisible(false, e);
   };
 
@@ -132,7 +132,5 @@ class Tag extends React.Component<TagProps, TagState> {
     return <ConfigConsumer>{this.renderTag}</ConfigConsumer>;
   }
 }
-
-polyfill(Tag);
 
 export default Tag;

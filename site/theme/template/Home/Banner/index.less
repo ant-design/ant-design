@@ -1,0 +1,96 @@
+@import '../../../../../components/style/themes/default.less';
+
+@home-color: #0170fe;
+
+.home-banner {
+  position: relative;
+  height: 512px;
+  overflow: hidden;
+  background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(235, 245, 255, 0.58)),
+    linear-gradient(150deg, #fbfcfd, #f8fcff);
+
+  &-holder {
+    position: relative;
+    z-index: 1;
+    margin-top: 160px;
+  }
+
+  &-content {
+    margin: 0 auto;
+    padding: 0 16px;
+    font-size: 14px;
+    text-align: center;
+
+    p {
+      margin: 16px 0 0;
+      font-weight: lighter;
+    }
+
+    .banner-video {
+      display: none;
+      margin: 20px auto 0;
+      color: @home-color;
+    }
+
+    &-operations {
+      margin-top: 72px;
+      white-space: nowrap;
+
+      a {
+        margin: 0 8px;
+      }
+
+      button {
+        height: auto;
+        padding: 8px 24px;
+        color: @home-color;
+        font-size: 14px;
+        border-color: @home-color;
+
+        &:hover {
+          color: tint(@home-color, 20%);
+          border-color: tint(@home-color, 20%);
+        }
+
+        &.ant-btn-primary {
+          color: #fff;
+          background: @home-color;
+
+          &:hover {
+            background-color: tint(@home-color, 20%);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .home-banner {
+    height: 448px;
+
+    &-holder {
+      margin-top: 130px;
+    }
+
+    &-content {
+      font-size: 16px;
+
+      p {
+        margin-top: 24px;
+      }
+
+      .video {
+        margin: 8px auto;
+      }
+
+      &-operations {
+        margin-top: 40px;
+
+        button {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

@@ -46,6 +46,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | value | 输入框内容 | string |  |
 | onPressEnter | 按下回车的回调 | function(e) |  |
 | allowClear | 可以点击清除图标删除内容 | boolean |  |
+| onResize | resize 回调 | function({ width, height }) |  |
 
 `Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 
@@ -66,7 +67,7 @@ Input 的其他属性和 React 自带的 [input](https://facebook.github.io/reac
 | compact | 是否用紧凑模式 | boolean | false |
 | size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |
 
-```html
+```jsx
 <Input.Group>
   <input />
   <input />

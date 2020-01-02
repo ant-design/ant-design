@@ -1395,11 +1395,11 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <span
         class="ant-progress-text"
@@ -1422,19 +1422,19 @@ exports[`renders ./components/progress/demo/steps.md correctly 1`] = `
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <div
         class="ant-progress-steps-item"
-        style="background-color:#f3f3f3;width:14px;height:8px"
+        style="background-color:undefined;width:14px;height:8px"
       />
       <span
         class="ant-progress-text"

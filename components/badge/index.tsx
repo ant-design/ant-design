@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import Animate from 'rc-animate';
 import omit from 'omit.js';
 import classNames from 'classnames';
@@ -38,13 +37,6 @@ export default class Badge extends React.Component<BadgeProps, any> {
     showZero: false,
     dot: false,
     overflowCount: 99,
-  };
-
-  static propTypes = {
-    count: PropTypes.node,
-    showZero: PropTypes.bool,
-    dot: PropTypes.bool,
-    overflowCount: PropTypes.number,
   };
 
   getNumberedDispayCount() {

@@ -733,8 +733,7 @@ exports[`renders ./components/steps/demo/icon.md correctly 1`] = `
 exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
 <div>
   <div
-    class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
-    style="margin-bottom:60px;box-shadow:0px -1px 0 0 #e8e8e8 inset"
+    class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -883,8 +882,7 @@ exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps ant-steps-horizontal ant-steps-label-horizontal ant-steps-navigation"
-    style="margin-bottom:60px;box-shadow:0px -1px 0 0 #e8e8e8 inset"
+    class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-label-horizontal ant-steps-navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -1031,8 +1029,7 @@ exports[`renders ./components/steps/demo/nav.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-steps ant-steps-horizontal ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
-    style="margin-bottom:60px;box-shadow:0px -1px 0 0 #e8e8e8 inset"
+    class="ant-steps ant-steps-horizontal site-navigation-steps ant-steps-small ant-steps-label-horizontal ant-steps-navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"

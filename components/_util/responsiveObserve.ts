@@ -1,23 +1,3 @@
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-let enquire: any;
-
-// TODO: Will be removed in antd 4.0 because we will no longer support ie9
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill as any;
-  // eslint-disable-next-line global-require
-  enquire = require('enquire.js');
-}
-
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;
 
@@ -42,6 +22,7 @@ let subUid = -1;
 let screens = {};
 
 const responsiveObserve = {
+  matchHandlers: {},
   dispatch(pointMap: BreakpointMap) {
     screens = pointMap;
     if (subscribers.length < 1) {
@@ -73,31 +54,32 @@ const responsiveObserve = {
     }
   },
   unregister() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.unregister(responsiveMap[screen]),
-    );
+    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+      const matchMediaQuery = responsiveMap[screen]!;
+      const handler = this.matchHandlers[matchMediaQuery];
+      if (handler && handler.mql && handler.listener) {
+        handler.mql.removeListener(handler.listener);
+      }
+    });
   },
   register() {
-    Object.keys(responsiveMap).map((screen: Breakpoint) =>
-      enquire.register(responsiveMap[screen], {
-        match: () => {
-          const pointMap = {
-            ...screens,
-            [screen]: true,
-          };
-          this.dispatch(pointMap);
-        },
-        unmatch: () => {
-          const pointMap = {
-            ...screens,
-            [screen]: false,
-          };
-          this.dispatch(pointMap);
-        },
-        // Keep a empty destory to avoid triggering unmatch when unregister
-        destroy() {},
-      }),
-    );
+    Object.keys(responsiveMap).forEach((screen: Breakpoint) => {
+      const matchMediaQuery = responsiveMap[screen]!;
+      const listener = ({ matches }: { matches: boolean }) => {
+        this.dispatch({
+          ...screens,
+          [screen]: matches,
+        });
+      };
+      const mql = window.matchMedia(matchMediaQuery);
+      mql.addListener(listener);
+      this.matchHandlers[matchMediaQuery] = {
+        mql,
+        listener,
+      };
+
+      listener(mql);
+    });
   },
 };
 

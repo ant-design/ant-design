@@ -19,6 +19,10 @@
     align-items: center;
     // Multiple is little different that horizontal is follow the vertical
     padding: 0 @select-multiple-padding @select-multiple-padding;
+
+    .@{select-prefix-cls}-show-search& {
+      cursor: text;
+    }
   }
 
   // ======================== Selections ========================
@@ -34,8 +38,8 @@
     margin-right: @input-padding-vertical-base;
     padding: 0 (@padding-xs / 2) 0 @padding-xs;
     line-height: @select-selection-height - @border-width-base * 2;
-    background: @background-color-base;
-    border: 1px solid @border-color-split;
+    background: @select-selection-item-bg;
+    border: 1px solid @select-selection-item-border-color;
     // strange align fix for chrome but works
     // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
     border-top-width: @border-width-base + 0.4px;

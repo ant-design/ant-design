@@ -7,6 +7,7 @@
 @dropdown-prefix-cls: ~'@{ant-prefix}-dropdown';
 @table-header-icon-color: #bfbfbf;
 @table-header-icon-color-hover: darken(@table-header-icon-color, 10%);
+@table-header-sort-active-filter-bg: lighten(@table-header-sort-active-bg, 2%);
 
 @table-selection-column-width: 60px;
 
@@ -71,6 +72,8 @@
   // ============================ Footer ============================
   &-footer {
     padding: @table-padding-vertical @table-padding-horizontal;
+    color: @table-footer-color;
+    background: @table-footer-bg;
   }
 
   // ============================ Header ============================
@@ -84,7 +87,7 @@
         border-bottom: @border-width-base @border-style-base @border-color-split;
         transition: background 0.3s ease;
 
-        &[colspan] {
+        &[colspan]:not([colspan='1']) {
           text-align: center;
         }
       }
@@ -122,6 +125,25 @@
           }
         }
       }
+
+      // ========================= Nest Table ===========================
+      .@{table-prefix-cls} {
+        margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
+              ceil(@font-size-sm * 1.4));
+
+        td {
+          background: transparent;
+        }
+
+        tbody > tr:last-child > td {
+          border-bottom: 0;
+
+          &:first-child,
+          &:last-child {
+            border-radius: 0;
+          }
+        }
+      }
     }
   }
 
@@ -133,13 +155,6 @@
         border-bottom: @border-width-base @border-style-base @border-color-split;
       }
     }
-  }
-
-  // ============================ Footer ============================
-  &-footer {
-    padding: @table-padding-vertical @table-padding-horizontal;
-    color: @table-footer-color;
-    background: @table-footer-bg;
   }
 
   // ========================== Pagination ==========================
@@ -159,6 +174,10 @@
 
     &:hover {
       background: @table-header-sort-active-bg;
+
+      .@{table-prefix-cls}-filter-trigger-container {
+        background: @table-header-sort-active-filter-bg;
+      }
     }
   }
 
@@ -226,10 +245,12 @@
     flex: none;
     align-items: stretch;
     align-self: stretch;
+    cursor: pointer;
     transition: background-color 0.3s;
 
     &-open,
-    &:hover {
+    &:hover,
+    thead th.@{table-prefix-cls}-column-has-sorters:hover &:hover {
       background: @table-header-filter-active-bg;
     }
   }
@@ -274,7 +295,7 @@
       }
     }
     min-width: 96px;
-    background-color: @component-background;
+    background-color: @table-filter-dropdown-bg;
 
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
@@ -501,6 +522,7 @@
       box-shadow: inset 10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
+
   &-ping-right {
     &:not(.@{table-prefix-cls}-has-fix-right) .@{table-prefix-cls}-container {
       position: relative;
@@ -514,70 +536,6 @@
       box-shadow: inset -10px 0 8px -8px darken(@shadow-color, 5%);
     }
   }
-
-  // ========================= Nest Table ===========================
-  tbody > tr > td {
-    .@{table-prefix-cls} {
-      margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-            ceil(@font-size-sm * 1.4));
-
-      td {
-        background: transparent;
-      }
-
-      tbody > tr:last-child > td {
-        border-bottom: 0;
-
-        &:first-child,
-        &:last-child {
-          border-radius: 0;
-        }
-      }
-    }
-  }
-
-  // ================================================================
-  // =                         Border Radio                         =
-  // ================================================================
-
-  /* title + table */
-  &-title {
-    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
-  }
-
-  &-title + &-container {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-
-    table > thead > tr:first-child {
-      th:first-child {
-        border-radius: 0;
-      }
-
-      th:last-child {
-        border-radius: 0;
-      }
-    }
-  }
-
-  /* table */
-  &-container {
-    border-top-left-radius: @table-border-radius-base;
-    border-top-right-radius: @table-border-radius-base;
-
-    table > thead > tr:first-child {
-      th:first-child {
-        border-top-left-radius: @table-border-radius-base;
-      }
-
-      th:last-child {
-        border-top-right-radius: @table-border-radius-base;
-      }
-    }
-  }
-
-  /* table + footer */
-  &-footer {
-    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
-  }
 }
+
+@import './radius.less';

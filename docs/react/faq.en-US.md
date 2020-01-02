@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 11
 title: FAQ
 ---
 
@@ -9,7 +9,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ### Are you going to provide Sass/Stylus(etc.) style file?
 
-No, but you can convert Less to Sass/Stylus(etc.) with tools that you can find on Google.
+No plan, but you can convert Less to Sass/Stylus(etc.) with tools that you can find on Google.
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
@@ -58,7 +58,7 @@ See: https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
 
 ### How to replace momentjs to Day.js to reduce bundle size？
 
-We provide `antd-dayjs-webpack-plugin` plugin to replace `momentjs` to `Day.js` directly without changing a line of existing code. More info at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).
+Can refer to [generate picker](/docs/react/generate-picker).
 
 ### It doesn't work when I change `defaultValue` dynamically.
 

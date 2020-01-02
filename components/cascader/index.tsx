@@ -4,7 +4,6 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { polyfill } from 'react-lifecycles-compat';
 import { CloseCircleFilled, DownOutlined, RightOutlined, RedoOutlined } from '@ant-design/icons';
 
 import Input from '../input';
@@ -96,8 +95,6 @@ export interface CascaderProps {
   popupVisible?: boolean;
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
-  /** typo props name before antd@3.7.0 */
-  filedNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
 }
 
@@ -167,11 +164,7 @@ function defaultSortFilteredOption(
   return a.findIndex(callback) - b.findIndex(callback);
 }
 
-function getFieldNames(props: CascaderProps) {
-  const { fieldNames, filedNames } = props;
-  if ('filedNames' in props) {
-    return filedNames; // For old compatibility
-  }
+function getFieldNames({ fieldNames }: CascaderProps) {
   return fieldNames;
 }
 
@@ -487,7 +480,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       'sortFilteredOption',
       'notFoundContent',
       'fieldNames',
-      'filedNames', // For old compatibility
     ]);
 
     let { options } = props;
@@ -600,7 +592,5 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     );
   }
 }
-
-polyfill(Cascader);
 
 export default Cascader;

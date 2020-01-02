@@ -115,3 +115,12 @@ title: Layout
   xxl: '1600px',
 }
 ```
+
+<style>
+  [data-theme="dark"] .site-layout-background {
+    background: #141414;
+  }
+  [data-theme="dark"] .site-layout-header-background {
+    background: #1f1f1f;
+  }
+</style>

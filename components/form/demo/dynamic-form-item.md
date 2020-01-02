@@ -121,3 +121,12 @@ ReactDOM.render(<DynamicFieldSet />, mountNode);
   opacity: 0.5;
 }
 ```
+
+<style>
+  [data-theme="dark"] .dynamic-delete-button {
+    color: rgba(255,255,255,.45);
+  }
+  [data-theme="dark"] .dynamic-delete-button:hover {
+    color: rgba(255,255,255,.65);
+  }
+</style>

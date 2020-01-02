@@ -95,19 +95,6 @@ describe('Carousel', () => {
     });
   });
 
-  it('warning', () => {
-    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
-      <Carousel vertical>
-        <div />
-      </Carousel>,
-    );
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Carousel] `vertical` is deprecated, please use `dotPosition` instead.',
-    );
-    warnSpy.mockRestore();
-  });
-
   describe('should active when children change', () => {
     it('should active', () => {
       const wrapper = mount(<Carousel />);

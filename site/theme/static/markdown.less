@@ -103,14 +103,14 @@
   margin: 0 1px;
   padding: 0.2em 0.4em;
   font-size: 0.9em;
-  background: #f2f4f5;
-  border: 1px solid #eee;
+  background: @site-markdown-code-bg;
+  border: 1px solid @border-color-split;
   border-radius: 3px;
 }
 
 .markdown pre {
   font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  background: #f2f4f5;
+  background: @site-markdown-code-bg;
   border-radius: @border-radius-base;
 }
 
@@ -120,7 +120,7 @@
   overflow: auto;
   color: @site-text-color;
   font-size: @font-size-base - 1px;
-  background: #f2f4f5;
+  background: #f5f5f5;
   border: none;
 }
 
@@ -341,7 +341,7 @@
     margin-top: 0;
     margin-bottom: 0;
     padding: 30px 0;
-    color: #fff;
+    color: @white;
     font-size: 18px;
     text-align: center;
     border: none;
@@ -365,7 +365,7 @@
   .ant-row .demo-col-5,
   .code-box-demo .ant-row .demo-col-5 {
     color: #999;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
   }
   .code-box-demo .height-100 {
     height: 100px;

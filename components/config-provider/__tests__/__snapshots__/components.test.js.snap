@@ -1075,6 +1075,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -1131,6 +1132,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -2020,6 +2022,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -2363,6 +2366,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -2419,6 +2423,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -3308,6 +3313,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -3651,6 +3657,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -3707,6 +3714,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -4596,6 +4604,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -6737,7 +6746,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
   class="config-form config-form-horizontal"
 >
   <div
-    class="config-row config-form-item config-form-item-has-error"
+    class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
   >
     <div
       class="config-col config-form-item-control"
@@ -6751,6 +6760,13 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           value=""
         />
       </div>
+      <div
+        class="config-form-item-explain"
+      >
+        <div>
+          Bamboo is Light
+        </div>
+      </div>
     </div>
   </div>
 </form>
@@ -6761,7 +6777,7 @@ exports[`ConfigProvider components Form normal 1`] = `
   class="ant-form ant-form-horizontal"
 >
   <div
-    class="ant-row ant-form-item ant-form-item-has-error"
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
   >
     <div
       class="ant-col ant-form-item-control"
@@ -6775,6 +6791,13 @@ exports[`ConfigProvider components Form normal 1`] = `
           value=""
         />
       </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Bamboo is Light
+        </div>
+      </div>
     </div>
   </div>
 </form>
@@ -6785,7 +6808,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
   class="prefix-Form prefix-Form-horizontal"
 >
   <div
-    class="ant-row prefix-Form-item prefix-Form-item-has-error"
+    class="ant-row prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
   >
     <div
       class="ant-col prefix-Form-item-control"
@@ -6798,6 +6821,13 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           type="text"
           value=""
         />
+      </div>
+      <div
+        class="prefix-Form-item-explain"
+      >
+        <div>
+          Bamboo is Light
+        </div>
       </div>
     </div>
   </div>
@@ -8060,6 +8090,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8102,7 +8133,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       <div
         class="config-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -8203,6 +8234,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="config-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8245,7 +8277,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       <div
         class="config-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -8351,6 +8383,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8393,7 +8426,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -8494,6 +8527,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8536,7 +8570,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -8642,6 +8676,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8684,7 +8719,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       <div
         class="prefix-Pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -8785,6 +8820,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -8827,7 +8863,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       <div
         class="prefix-Pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -10366,6 +10402,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="config-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -10484,6 +10521,7 @@ exports[`ConfigProvider components Select normal 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -10602,6 +10640,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="prefix-Select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -18124,6 +18163,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="config-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -18235,6 +18275,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -18346,6 +18387,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="prefix-TreeSelect-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -18444,7 +18486,20 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
 >
   <div
     class="config-upload config-upload-select config-upload-select-text"
-  />
+  >
+    <span
+      class="config-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <span />
+    </span>
+  </div>
   <div
     class="config-upload-list config-upload-list-text"
   >
@@ -18556,7 +18611,20 @@ exports[`ConfigProvider components Upload normal 1`] = `
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text"
-  />
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <span />
+    </span>
+  </div>
   <div
     class="ant-upload-list ant-upload-list-text"
   >
@@ -18668,7 +18736,20 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
 >
   <div
     class="prefix-Upload prefix-Upload-select prefix-Upload-select-text"
-  />
+  >
+    <span
+      class="prefix-Upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display:none"
+        type="file"
+      />
+      <span />
+    </span>
+  </div>
   <div
     class="ant-upload-list ant-upload-list-text"
   >

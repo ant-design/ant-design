@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 9
 title: 社区精选组件
 ---
 

@@ -295,6 +295,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -517,6 +518,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
               autocomplete="off"
               class="ant-select-selection-search-input"
               disabled=""
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -963,7 +965,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -1137,7 +1139,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           disabled=""
           type="text"
@@ -1392,6 +1394,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -1434,7 +1437,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""

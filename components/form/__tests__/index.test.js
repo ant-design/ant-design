@@ -1,16 +1,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import scrollIntoView from 'dom-scroll-into-view';
+import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
 
-jest.mock('dom-scroll-into-view');
+jest.mock('scroll-into-view-if-needed');
 
-const delay = () =>
+const delay = (timeout = 0) =>
   new Promise(resolve => {
-    setTimeout(resolve, 0);
+    setTimeout(resolve, timeout);
   });
 
 describe('Form', () => {
@@ -25,11 +25,12 @@ describe('Form', () => {
       .find(Input)
       .at(index)
       .simulate('change', { target: { value } });
-    await delay();
+    await delay(50);
     wrapper.update();
   }
 
   beforeEach(() => {
+    jest.useRealTimers();
     scrollIntoView.mockReset();
   });
 
@@ -136,6 +137,19 @@ describe('Form', () => {
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
     );
   });
+  it('children is array has name props', () => {
+    mount(
+      <Form>
+        <Form.Item name="test">
+          <div>one</div>
+          <div>two</div>
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
+    );
+  });
 
   describe('scrollToField', () => {
     function test(name, genForm) {
@@ -230,5 +244,24 @@ describe('Form', () => {
     wrapper.find('input[type="checkbox"]').simulate('change', { target: { checked: true } });
     wrapper.update();
     expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
+  });
+
+  it('should show related className when customize help', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="good">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
+  });
+
+  it('warning when use v3 function', () => {
+    Form.create();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form] antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',
+    );
   });
 });

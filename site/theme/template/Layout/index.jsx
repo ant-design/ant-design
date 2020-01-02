@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { IntlProvider } from 'react-intl';
+import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
+import themeSwitcher from 'theme-switcher';
+import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
 import { ConfigProvider } from 'antd';
@@ -52,6 +55,17 @@ let isMobile = false;
 enquireScreen(b => {
   isMobile = b;
 });
+const SITE_THEME_STORE_KEY = 'site-theme';
+
+// for dark.css timestamp to remove cache
+const timestamp = new Date().getTime();
+const themeMap = {
+  dark: `/dark.css?${timestamp}`,
+};
+const themeConfig = {
+  themeMap,
+};
+const { switcher } = themeSwitcher(themeConfig);
 
 export default class Layout extends React.Component {
   static contextTypes = {
@@ -60,6 +74,9 @@ export default class Layout extends React.Component {
 
   static childContextTypes = {
     isMobile: PropTypes.bool,
+    theme: PropTypes.oneOf(['default', 'dark']),
+    setTheme: PropTypes.func,
+    setIframeTheme: PropTypes.func,
   };
 
   constructor(props) {
@@ -70,15 +87,23 @@ export default class Layout extends React.Component {
     this.state = {
       appLocale,
       isMobile,
+      theme:
+        typeof localStorage !== 'undefined'
+          ? localStorage.getItem(SITE_THEME_STORE_KEY) || 'default'
+          : 'default',
+      setTheme: this.setTheme,
+      setIframeTheme: this.setIframeTheme,
     };
   }
 
   getChildContext() {
-    const { isMobile: mobile } = this.state;
-    return { isMobile: mobile };
+    const { isMobile: mobile, theme, setTheme, setIframeTheme } = this.state;
+    return { isMobile: mobile, theme, setTheme, setIframeTheme };
   }
 
   componentDidMount() {
+    const { theme } = this.state;
+    const { location } = this.props;
     const { router } = this.context;
     router.listen(loc => {
       if (typeof window.ga !== 'undefined') {
@@ -89,7 +114,14 @@ export default class Layout extends React.Component {
         // eslint-disable-next-line
         window._hmt.push(['_trackPageview', loc.pathname + loc.search]);
       }
+      const { pathname } = loc;
+      const componentPage = /^\/?components/.test(pathname);
+      // only component page can use `dark` theme
+      if (!componentPage) {
+        this.setTheme('default', false);
+      }
     });
+    this.setTheme(/^\/?components/.test(location.pathname) ? theme : 'default');
 
     const nprogressHiddenStyle = document.getElementById('nprogress-style');
     if (nprogressHiddenStyle) {
@@ -108,6 +140,45 @@ export default class Layout extends React.Component {
   componentWillUnmount() {
     clearTimeout(this.timer);
   }
+
+  setIframeTheme = (iframeNode, theme) => {
+    iframeNode.contentWindow.postMessage(
+      JSON.stringify({
+        action: 'change.theme',
+        data: {
+          themeConfig,
+          theme,
+        },
+      }),
+      '*',
+    );
+  };
+
+  setTheme = (theme, persist = true) => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    switcher({
+      theme,
+      useStorage: persist,
+    });
+
+    const iframeNodes = document.querySelectorAll('.iframe-demo');
+    // loop element node
+    [].forEach.call(iframeNodes, iframeNode => {
+      this.setIframeTheme(iframeNode, theme);
+    });
+
+    this.setState({
+      theme,
+    });
+    const iconTwoToneThemeMap = {
+      dark: [presetDarkPalettes.blue.primary, '#111d2c'],
+      default: presetPalettes.blue.primary,
+    };
+    setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
+  };
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;

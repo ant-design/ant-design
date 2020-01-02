@@ -87,7 +87,3 @@ title: Upload
 ### `customRequest` 怎么使用？
 
 请参考 <https://github.com/react-component/upload#customrequest>。
-
-### IE8/9 问题
-
-请参考 <https://github.com/react-component/upload#ie89-note>。

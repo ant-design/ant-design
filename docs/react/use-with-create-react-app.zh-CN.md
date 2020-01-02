@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: 在 create-react-app 中使用
 ---
 
@@ -13,6 +13,10 @@ title: 在 create-react-app 中使用
 
 ```bash
 $ yarn create react-app antd-demo
+
+# or
+
+$ npx create-react-app antd-demo
 ```
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
@@ -55,19 +59,15 @@ $ yarn add antd
 修改 `src/App.js`，引入 antd 的按钮组件。
 
 ```jsx
-import React, { Component } from 'react';
-import Button from 'antd/es/button';
+import React from 'react';
+import { Button } from 'antd';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Button type="primary">Button</Button>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <Button type="primary">Button</Button>
+  </div>
+);
 
 export default App;
 ```
@@ -86,9 +86,11 @@ export default App;
 
 好了，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 create-react-app 的[官方文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)。
 
+我们现在已经把 antd 组件成功运行起来了，开始开发你的应用吧！
+
 ## 高级配置
 
-我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（gzipped 后一共大约 60kb）。
+这个例子在实际开发中还有一些优化的空间，比如无法进行主题配置，而且上面的例子加载了全部的 antd 组件的样式（gzipped 后一共大约 60kb）。
 
 此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) （一个对 create-react-app 进行自定义配置的社区解决方案）。
 

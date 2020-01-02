@@ -33,11 +33,19 @@ const Demo = () => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <Form.Item label="Username" name="username" rules={[{ required: true }]}>
+      <Form.Item
+        label="Username"
+        name="username"
+        rules={[{ required: true, message: 'Please input your username!' }]}
+      >
         <Input placeholder="Please input" />
       </Form.Item>
 
-      <Form.Item label="Password" name="password" rules={[{ required: true }]}>
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[{ required: true, message: 'Please input your password!' }]}
+      >
         <Input.Password placeholder="Please input" />
       </Form.Item>
 

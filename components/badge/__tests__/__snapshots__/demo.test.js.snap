@@ -1306,12 +1306,11 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-not-a-wrapper"
+    class="site-badge-count-4 ant-badge ant-badge-not-a-wrapper"
   >
     <sup
       class="ant-scroll-number ant-badge-count"
       data-show="true"
-      style="background-color:#fff;color:#999;box-shadow:0 0 0 1px #d9d9d9 inset"
       title="4"
     >
       <span
@@ -1472,7 +1471,7 @@ exports[`renders ./components/badge/demo/no-wrapper.md correctly 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-not-a-wrapper"
+    class="site-badge-count-109 ant-badge ant-badge-not-a-wrapper"
   >
     <sup
       class="ant-scroll-number ant-badge-count ant-badge-multiple-words"

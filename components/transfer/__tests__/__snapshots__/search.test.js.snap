@@ -44,8 +44,8 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
     <span
       className="undefined-action"
     >
-      <SearchOutlined>
-        <AntdIcon
+      <ForwardRef(SearchOutlined)>
+        <ForwardRef(AntdIcon)
           icon={
             Object {
               "icon": Object {
@@ -64,7 +64,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
                 "tag": "svg",
               },
               "name": "search",
-              "theme": "outline",
+              "theme": "outlined",
             }
           }
         >
@@ -93,7 +93,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
                     "tag": "svg",
                   },
                   "name": "search",
-                  "theme": "outline",
+                  "theme": "outlined",
                 }
               }
             >
@@ -115,8 +115,8 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
               </svg>
             </IconReact>
           </span>
-        </AntdIcon>
-      </SearchOutlined>
+        </ForwardRef(AntdIcon)>
+      </ForwardRef(SearchOutlined)>
     </span>
   </div>
 </Search>
@@ -168,8 +168,8 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
       href="#"
       onClick={[Function]}
     >
-      <CloseCircleFilled>
-        <AntdIcon
+      <ForwardRef(CloseCircleFilled)>
+        <ForwardRef(AntdIcon)
           icon={
             Object {
               "icon": Object {
@@ -188,7 +188,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
                 "tag": "svg",
               },
               "name": "close-circle",
-              "theme": "fill",
+              "theme": "filled",
             }
           }
         >
@@ -217,7 +217,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
                     "tag": "svg",
                   },
                   "name": "close-circle",
-                  "theme": "fill",
+                  "theme": "filled",
                 }
               }
             >
@@ -239,8 +239,8 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
               </svg>
             </IconReact>
           </span>
-        </AntdIcon>
-      </CloseCircleFilled>
+        </ForwardRef(AntdIcon)>
+      </ForwardRef(CloseCircleFilled)>
     </a>
   </div>
 </Search>
