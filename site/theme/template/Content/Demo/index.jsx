@@ -22,6 +22,8 @@ function compress(string) {
 }
 
 class Demo extends React.Component {
+  iframeRef = React.createRef();
+
   state = {
     codeExpand: false,
     copied: false,
@@ -101,6 +103,13 @@ class Demo extends React.Component {
     });
   }
 
+  handleIframeReady = () => {
+    const { theme, setIframeTheme } = this.props;
+    if (this.iframeRef.current) {
+      setIframeTheme(this.iframeRef.current, theme);
+    }
+  };
+
   render() {
     const { state } = this;
     const { props } = this;
@@ -121,7 +130,14 @@ class Demo extends React.Component {
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
-          <iframe src={src} height={meta.iframe} title="demo" />
+          <iframe
+            ref={this.iframeRef}
+            onLoad={this.handleIframeReady}
+            src={src}
+            height={meta.iframe}
+            title="demo"
+            className="iframe-demo"
+          />
         </BrowserFrame>
       ) : (
         preview(React, ReactDOM)

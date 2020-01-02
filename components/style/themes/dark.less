@@ -197,14 +197,14 @@
 @shadow-color: rgba(0, 0, 0, 0.45);
 @shadow-color-inverse: @component-background;
 @box-shadow-base: @shadow-2;
-@shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.24), 0 -9px 28px 0 rgba(0, 0, 0, 0.15),
-  0 -12px 48px 16px rgba(0, 0, 0, 0.09);
-@shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.24), 0 9px 28px 0 rgba(0, 0, 0, 0.15),
-  0 12px 48px 16px rgba(0, 0, 0, 0.09);
-@shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.24), 9px 0 28px 0 rgba(0, 0, 0, 0.15),
-  12px 0 48px 16px rgba(0, 0, 0, 0.09);
-@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.36), 0 6px 16px 0 rgba(0, 0, 0, 0.24),
-  0 9px 28px 8px rgba(0, 0, 0, 0.15);
+@shadow-1-up: 0 -6px 16px -8px rgba(0, 0, 0, 0.32), 0 -9px 28px 0 rgba(0, 0, 0, 0.2),
+  0 -12px 48px 16px rgba(0, 0, 0, 0.12);
+@shadow-1-down: 0 6px 16px -8px rgba(0, 0, 0, 0.32), 0 9px 28px 0 rgba(0, 0, 0, 0.2),
+  0 12px 48px 16px rgba(0, 0, 0, 0.12);
+@shadow-1-right: 6px 0 16px -8px rgba(0, 0, 0, 0.32), 9px 0 28px 0 rgba(0, 0, 0, 0.2),
+  12px 0 48px 16px rgba(0, 0, 0, 0.12);
+@shadow-2: 0 3px 6px -4px rgba(0, 0, 0, 0.48), 0 6px 16px 0 rgba(0, 0, 0, 0.32),
+  0 9px 28px 8px rgba(0, 0, 0, 0.2);
 
 // Buttons
 // ---
@@ -216,6 +216,8 @@
 
 @btn-default-ghost-color: @text-color;
 @btn-default-ghost-border: fade(@white, 25%);
+
+@btn-link-ghost-color: @text-color;
 
 // Checkbox
 // ---
@@ -246,8 +248,7 @@
 // ---
 @layout-body-background: @body-background;
 @layout-header-background: @popover-background;
-@layout-sider-background: @component-background;
-@layout-trigger-background: @component-background;
+@layout-trigger-background: #262626;
 
 // Input
 // ---
@@ -356,8 +357,8 @@
 // ---
 @card-actions-background: @background-color-light;
 @card-skeleton-bg: #303030;
-@card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.48), 0 3px 6px 0 rgba(0, 0, 0, 0.36),
-  0 5px 12px 4px rgba(0, 0, 0, 0.27);
+@card-shadow: 0 1px 2px -2px rgba(0, 0, 0, 0.64), 0 3px 6px 0 rgba(0, 0, 0, 0.48),
+  0 5px 12px 4px rgba(0, 0, 0, 0.36);
 
 // Transfer
 // ---
@@ -388,7 +389,7 @@
 // PageHeader
 // ---
 @page-header-back-color: @icon-color;
-@page-header-ghost-bg: #141414;
+@page-header-ghost-bg: transparent;
 
 // Slider
 // ---

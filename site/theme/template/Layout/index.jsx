@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { IntlProvider } from 'react-intl';
 import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
+import themeSwitcher from 'theme-switcher';
 import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
@@ -58,6 +59,13 @@ const SITE_THEME_STORE_KEY = 'site-theme';
 
 // for dark.css timestamp to remove cache
 const timestamp = new Date().getTime();
+const themeMap = {
+  dark: `/dark.css?${timestamp}`,
+};
+const themeConfig = {
+  themeMap,
+};
+const { switcher } = themeSwitcher(themeConfig);
 
 export default class Layout extends React.Component {
   static contextTypes = {
@@ -68,6 +76,7 @@ export default class Layout extends React.Component {
     isMobile: PropTypes.bool,
     theme: PropTypes.oneOf(['default', 'dark']),
     setTheme: PropTypes.func,
+    setIframeTheme: PropTypes.func,
   };
 
   constructor(props) {
@@ -83,12 +92,13 @@ export default class Layout extends React.Component {
           ? localStorage.getItem(SITE_THEME_STORE_KEY) || 'default'
           : 'default',
       setTheme: this.setTheme,
+      setIframeTheme: this.setIframeTheme,
     };
   }
 
   getChildContext() {
-    const { isMobile: mobile, theme, setTheme } = this.state;
-    return { isMobile: mobile, theme, setTheme };
+    const { isMobile: mobile, theme, setTheme, setIframeTheme } = this.state;
+    return { isMobile: mobile, theme, setTheme, setIframeTheme };
   }
 
   componentDidMount() {
@@ -131,31 +141,35 @@ export default class Layout extends React.Component {
     clearTimeout(this.timer);
   }
 
+  setIframeTheme = (iframeNode, theme) => {
+    iframeNode.contentWindow.postMessage(
+      JSON.stringify({
+        action: 'change.theme',
+        data: {
+          themeConfig,
+          theme,
+        },
+      }),
+      '*',
+    );
+  };
+
   setTheme = (theme, persist = true) => {
     if (typeof window === 'undefined') {
       return;
     }
-    if (theme !== 'dark') {
-      const dom = document.getElementById('theme-style');
-      if (dom) {
-        dom.remove();
-      }
-      if (persist) {
-        localStorage.removeItem(SITE_THEME_STORE_KEY);
-      }
-    } else {
-      const style = document.createElement('link');
-      style.type = 'text/css';
-      style.rel = 'stylesheet';
-      style.id = 'theme-style';
-      style.href = `/dark.css?timestamp=${timestamp}`;
-      if (persist) {
-        localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
-      }
 
-      document.body.append(style);
-    }
-    document.body.setAttribute('data-theme', theme);
+    switcher({
+      theme,
+      useStorage: persist,
+    });
+
+    const iframeNodes = document.querySelectorAll('.iframe-demo');
+    // loop element node
+    [].forEach.call(iframeNodes, iframeNode => {
+      this.setIframeTheme(iframeNode, theme);
+    });
+
     this.setState({
       theme,
     });
