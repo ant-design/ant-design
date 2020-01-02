@@ -13,7 +13,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  rtlTest(Calendar);
+  rtlTest(Calendar, true);
 
   function openSelect(wrapper, className) {
     wrapper
