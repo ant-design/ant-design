@@ -450,6 +450,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       showSearch = false,
       suffixIcon,
       notFoundContent,
+      popupClassName,
       ...otherProps
     } = props;
 
@@ -586,8 +587,9 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
     const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
     const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
-    const rcCascaderRtlPopupClassName =
-      direction === 'rtl' ? `${prefixCls}-menu-${direction}` : undefined;
+    const rcCascaderRtlPopupClassName = classNames(popupClassName, {
+      [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
+    });
     return (
       <RcCascader
         {...rest}
