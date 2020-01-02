@@ -32,7 +32,7 @@ module.exports = {
     'app.demo.riddle': 'Open in Riddle',
     'app.home.slogan': "The world's second most popular React UI framework",
     'app.home.introduce':
-      'Enterprise-level product design system to create an efficient and enjoyable work experience.',
+      'A design system for enterprise-level products. Create an efficient and enjoyable work experience.',
     'app.home.recommend': 'Recommend',
     'app.home.popularize': 'Popularize',
     'app.home.design-and-framework': 'Design language and framework',
