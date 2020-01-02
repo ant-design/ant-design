@@ -82,6 +82,7 @@ class ComponentDoc extends React.Component {
       intl: { locale },
       utils,
       theme,
+      setIframeTheme,
       demos,
     } = this.props;
     const { content, meta } = doc;
@@ -107,6 +108,7 @@ class ComponentDoc extends React.Component {
             expand={expandAll}
             location={location}
             theme={theme}
+            setIframeTheme={setIframeTheme}
           />
         );
         if (index % 2 === 0 || isSingleCol) {

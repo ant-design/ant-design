@@ -104,15 +104,9 @@ class Demo extends React.Component {
   }
 
   handleIframeReady = () => {
-    const { theme } = this.props;
+    const { theme, setIframeTheme } = this.props;
     if (this.iframeRef.current) {
-      this.iframeRef.current.contentWindow.postMessage(
-        JSON.stringify({
-          action: 'change.theme',
-          data: theme,
-        }),
-        '*',
-      );
+      setIframeTheme(this.iframeRef.current, theme);
     }
   };
 
