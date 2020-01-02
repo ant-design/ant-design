@@ -566,7 +566,7 @@ ReactDOM.render(<App />, mountNode);
 ```css
 .direction-components {
   padding-top: 16px;
-  border-top: 1px solid #d9d9d9;
+  border-top: 1px solid rgba(150, 150, 150, 0.5);
 }
 
 .example {
@@ -582,7 +582,7 @@ ReactDOM.render(<App />, mountNode);
 }
 .demo-block-title {
   margin: 0 8px 18px 8px;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid rgba(150, 150, 150, 0.5);
 }
 .button-demo .ant-btn,
 .button-demo .ant-btn-group {
