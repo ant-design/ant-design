@@ -41,8 +41,6 @@ title: 从 v3 到 v4
 - 移除了 Transfer 的 `body` 属性，请使用 `children` 替代。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
 
-v2 移除 API 请参考[此处](https://github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.zh-CN.md#%E4%BB%A5%E4%B8%8B%E5%9C%A8-2x-%E4%B8%AD%E5%BA%9F%E5%BC%83%E7%9A%84%E7%89%B9%E6%80%A7%E8%A2%AB%E7%A7%BB%E9%99%A4)
-
 #### 图标的改动
 
 - TODO: @vagusX
