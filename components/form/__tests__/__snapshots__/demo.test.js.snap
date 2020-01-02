@@ -1861,6 +1861,34 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
     class="ant-row ant-form-item"
   >
     <div
+      class="ant-col ant-col-8 ant-form-item-label"
+    >
+      <label
+        class=""
+        for="nest-messages_user_miscellaneous"
+        title="Miscellaneous"
+      >
+        Miscellaneous
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-16 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <textarea
+          class="ant-input"
+          id="nest-messages_user_miscellaneous"
+          placeholder="Please input"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
       class="ant-col ant-col-16 ant-col-offset-8 ant-form-item-control"
     >
       <div
@@ -2354,9 +2382,34 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
       <label
         class="ant-form-item-required"
         for="register_phone"
-        title="Phone Number"
+        title=""
       >
-        Phone Number
+        <span>
+          Phone Number 
+          <span
+            aria-label="question-circle"
+            class="anticon anticon-question-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="question-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+              />
+            </svg>
+          </span>
+        </span>
       </label>
     </div>
     <div
@@ -5008,7 +5061,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-row ant-form-item ant-form-item-has-error"
+    class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
     style="margin-bottom:0"
   >
     <div
@@ -5028,12 +5081,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         class="ant-form-item-control-input"
       >
         <div
-<<<<<<< ours
           class="ant-picker ant-picker-range"
-=======
-          class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
-          style="display:inline-block;width:calc(50% - 12px)"
->>>>>>> theirs
         >
           <div
             class="ant-picker-input ant-picker-input-active"
@@ -5051,57 +5099,8 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
             <span
               class="ant-picker-separator"
             >
-<<<<<<< ours
               →
             </span>
-=======
-              <div
-                class="ant-picker"
-              >
-                <div
-                  class="ant-picker-input"
-                >
-                  <input
-                    placeholder="Select date"
-                    readonly=""
-                    size="12"
-                    value=""
-                  />
-                  <span
-                    class="ant-picker-suffix"
-                  >
-                    <span
-                      aria-label="calendar"
-                      class="anticon anticon-calendar"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class=""
-                        data-icon="calendar"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-form-item-explain"
-            >
-              <div>
-                Please select the correct date
-              </div>
-            </div>
->>>>>>> theirs
           </div>
           <div
             class="ant-picker-input"
@@ -5141,6 +5140,13 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </svg>
             </span>
           </span>
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div>
+          Please select the correct date
         </div>
       </div>
     </div>
@@ -5274,7 +5280,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-success"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -5284,7 +5290,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -5333,7 +5339,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-warning"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -5343,7 +5349,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
@@ -5418,7 +5424,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
     class="ant-row ant-form-item ant-form-item-has-feedback ant-form-item-has-error"
   >
     <div
-      class="ant-col ant-form-item-label ant-col-xs-24 ant-col-sm-5"
+      class="ant-col ant-form-item-label"
     >
       <label
         class=""
@@ -5428,7 +5434,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </label>
     </div>
     <div
-      class="ant-col ant-form-item-control ant-col-xs-24 ant-col-sm-12"
+      class="ant-col ant-form-item-control"
     >
       <div
         class="ant-form-item-control-input"
