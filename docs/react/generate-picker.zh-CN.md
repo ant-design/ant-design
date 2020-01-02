@@ -5,11 +5,11 @@ title: 自定义日期库
 
 ## 如何在 DatePicker 中使用自定义日期库（如 dayjs ）？
 
-考虑到包的大小，你可以用自定义日期库替换 momentjs。在这里我们提供了两种方式来实现替换:
+考虑到包的大小，你可以用自定义日期库替换 Moment。在这里我们提供了两种方式来实现替换:
 
 ### 自定义组件
 
-第一种方法是使用`generatePicker`（或者：`generateCalendar` ）辅助创建 Picker 组件。
+第一种方法是使用 `generatePicker`（或 `generateCalendar`）辅助创建 Picker 组件。
 
 我们先初始化一个 `create-react-app` 的 antd demo，你可以参考 [在 create-react-app 中使用](/docs/react/use-with-create-react-app) 进行构建，也可以直接从这里开始[init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
