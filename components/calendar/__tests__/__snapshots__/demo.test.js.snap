@@ -122,7 +122,7 @@ exports[`renders ./components/calendar/demo/basic.md correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -3005,7 +3005,7 @@ exports[`renders ./components/calendar/demo/notice-calendar.md correctly 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -4366,7 +4366,7 @@ exports[`renders ./components/calendar/demo/select.md correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
