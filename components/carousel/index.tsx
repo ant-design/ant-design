@@ -107,13 +107,10 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     const dotPosition = this.getDotPosition();
     props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
 
-    let className = classNames(prefixCls, {
+    const className = classNames(prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-vertical`]: dotPosition === 'left' || dotPosition === 'right',
     });
-
-    if (dotPosition === 'left' || dotPosition === 'right') {
-      className = `${className} ${className}-vertical`;
-    }
 
     return (
       <div className={className}>
