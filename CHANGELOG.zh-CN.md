@@ -77,7 +77,7 @@ timeline: true
   - 🌟 范围选择器可以为开始与结束时间单独设置 `disabled`。
   - 🌟 范围选择器可以允许开始与结束时间为空。
   - 🌟 优化键盘支持。
-- 💄 新增黑暗主题支持。[#19968](https://github.com/ant-design/ant-design/pull/19968)
+- 💄 新增黑暗主题支持。[#20281](https://github.com/ant-design/ant-design/pull/20281)
 - 💄 添加 `@border-color-split-popover`、`@input-icon-hover-color`、`@select-clear-background`、`@cascader-menu-border-color-split`、`@modal-header-border-color-split`、`@skeleton-to-color`、`@transfer-item-hover-bg` 等 less 变量。[#20070](https://github.com/ant-design/ant-design/pull/20070)
 
 ## 3.x
