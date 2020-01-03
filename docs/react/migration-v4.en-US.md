@@ -16,6 +16,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 
 ### Design specification
 
+- Line height changes from `1.5`(`21px`) to `1.5715`(`22px`).
 - Basic rounded corner adjustment, changed from `4px` to `2px`.
 - Global shadow optimization, adjusted to three layers of shadows to distinguish control hierarchies.
 - Icon in the bubble confirmation box has been changed from a question mark to an exclamation mark.
@@ -24,7 +25,6 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - The color brightness of the dividing line has been reduced from `#E8E8E8` to`#F0F0F0`.
 - DatePicker interactive redo, range selection can now select start and end time separately.
 - Table change default background color from transparent to white.
-- `line-height` changes from `21px` to `22px`.
 
 ### Compatibility
 
