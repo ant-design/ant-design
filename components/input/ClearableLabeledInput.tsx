@@ -2,7 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { CloseCircleFilled } from '@ant-design/icons';
 import { tuple } from '../_util/type';
-import { InputProps, InputSizes, getInputClassName } from './Input';
+import { InputProps, getInputClassName } from './Input';
+import { SizeType } from '../config-provider/SizeContext';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -31,7 +32,7 @@ interface BasicProps {
  * This props only for input.
  */
 interface ClearableInputProps extends BasicProps {
-  size?: typeof InputSizes[number];
+  size?: SizeType;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;

@@ -16,6 +16,7 @@ import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export interface CascaderOptionType {
   value?: string;
@@ -81,7 +82,7 @@ export interface CascaderProps {
   /** 输入框占位文本 */
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
-  size?: string;
+  size?: SizeType;
   /** 禁用 */
   disabled?: boolean;
   /** 是否支持清除 */
@@ -435,181 +436,189 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       direction,
     }: ConfigConsumerProps,
     locale: CascaderLocale,
-  ) => {
-    const { props, state } = this;
-    const {
-      prefixCls: customizePrefixCls,
-      inputPrefixCls: customizeInputPrefixCls,
-      children,
-      placeholder = locale.placeholder || 'Please select',
-      size,
-      disabled,
-      className,
-      style,
-      allowClear,
-      showSearch = false,
-      suffixIcon,
-      notFoundContent,
-      popupClassName,
-      ...otherProps
-    } = props;
+  ) => (
+    <SizeContext.Consumer>
+      {size => {
+        const { props, state } = this;
+        const {
+          prefixCls: customizePrefixCls,
+          inputPrefixCls: customizeInputPrefixCls,
+          children,
+          placeholder = locale.placeholder || 'Please select',
+          size: customizeSize,
+          disabled,
+          className,
+          style,
+          allowClear,
+          showSearch = false,
+          suffixIcon,
+          notFoundContent,
+          popupClassName,
+          ...otherProps
+        } = props;
+        const mergedSize = customizeSize || size;
 
-    const { value, inputFocused } = state;
+        const { value, inputFocused } = state;
 
-    const isRtlLayout = direction === 'rtl';
+        const isRtlLayout = direction === 'rtl';
 
-    const prefixCls = getPrefixCls('cascader', customizePrefixCls);
-    const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
+        const prefixCls = getPrefixCls('cascader', customizePrefixCls);
+        const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
-    const sizeCls = classNames({
-      [`${inputPrefixCls}-lg`]: size === 'large',
-      [`${inputPrefixCls}-sm`]: size === 'small',
-    });
-    const clearIcon =
-      (allowClear && !disabled && value.length > 0) || state.inputValue ? (
-        <CloseCircleFilled className={`${prefixCls}-picker-clear`} onClick={this.clearSelection} />
-      ) : null;
-    const arrowCls = classNames({
-      [`${prefixCls}-picker-arrow`]: true,
-      [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
-    });
-    const pickerCls = classNames(className, `${prefixCls}-picker`, {
-      [`${prefixCls}-picker-rtl`]: isRtlLayout,
-      [`${prefixCls}-picker-with-value`]: state.inputValue,
-      [`${prefixCls}-picker-disabled`]: disabled,
-      [`${prefixCls}-picker-${size}`]: !!size,
-      [`${prefixCls}-picker-show-search`]: !!showSearch,
-      [`${prefixCls}-picker-focused`]: inputFocused,
-    });
+        const sizeCls = classNames({
+          [`${inputPrefixCls}-lg`]: mergedSize === 'large',
+          [`${inputPrefixCls}-sm`]: mergedSize === 'small',
+        });
+        const clearIcon =
+          (allowClear && !disabled && value.length > 0) || state.inputValue ? (
+            <CloseCircleFilled
+              className={`${prefixCls}-picker-clear`}
+              onClick={this.clearSelection}
+            />
+          ) : null;
+        const arrowCls = classNames({
+          [`${prefixCls}-picker-arrow`]: true,
+          [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
+        });
+        const pickerCls = classNames(className, `${prefixCls}-picker`, {
+          [`${prefixCls}-picker-rtl`]: isRtlLayout,
+          [`${prefixCls}-picker-with-value`]: state.inputValue,
+          [`${prefixCls}-picker-disabled`]: disabled,
+          [`${prefixCls}-picker-${mergedSize}`]: !!mergedSize,
+          [`${prefixCls}-picker-show-search`]: !!showSearch,
+          [`${prefixCls}-picker-focused`]: inputFocused,
+        });
 
-    // Fix bug of https://github.com/facebook/react/pull/5004
-    // and https://fb.me/react-unknown-prop
-    const inputProps = omit(otherProps, [
-      'onChange',
-      'options',
-      'popupPlacement',
-      'transitionName',
-      'displayRender',
-      'onPopupVisibleChange',
-      'changeOnSelect',
-      'expandTrigger',
-      'popupVisible',
-      'getPopupContainer',
-      'loadData',
-      'popupClassName',
-      'filterOption',
-      'renderFilteredOption',
-      'sortFilteredOption',
-      'notFoundContent',
-      'fieldNames',
-    ]);
+        // Fix bug of https://github.com/facebook/react/pull/5004
+        // and https://fb.me/react-unknown-prop
+        const inputProps = omit(otherProps, [
+          'onChange',
+          'options',
+          'popupPlacement',
+          'transitionName',
+          'displayRender',
+          'onPopupVisibleChange',
+          'changeOnSelect',
+          'expandTrigger',
+          'popupVisible',
+          'getPopupContainer',
+          'loadData',
+          'popupClassName',
+          'filterOption',
+          'renderFilteredOption',
+          'sortFilteredOption',
+          'notFoundContent',
+          'fieldNames',
+        ]);
 
-    let { options } = props;
-    const names: FilledFieldNamesType = getFilledFieldNames(this.props);
-    if (options && options.length > 0) {
-      if (state.inputValue) {
-        options = this.generateFilteredOptions(prefixCls, renderEmpty);
-      }
-    } else {
-      options = [
-        {
-          [names.label]: notFoundContent || renderEmpty('Cascader'),
-          [names.value]: 'ANT_CASCADER_NOT_FOUND',
-          disabled: true,
-        },
-      ];
-    }
-    // Dropdown menu should keep previous status until it is fully closed.
-    if (!state.popupVisible) {
-      options = this.cachedOptions;
-    } else {
-      this.cachedOptions = options;
-    }
+        let { options } = props;
+        const names: FilledFieldNamesType = getFilledFieldNames(this.props);
+        if (options && options.length > 0) {
+          if (state.inputValue) {
+            options = this.generateFilteredOptions(prefixCls, renderEmpty);
+          }
+        } else {
+          options = [
+            {
+              [names.label]: notFoundContent || renderEmpty('Cascader'),
+              [names.value]: 'ANT_CASCADER_NOT_FOUND',
+              disabled: true,
+            },
+          ];
+        }
+        // Dropdown menu should keep previous status until it is fully closed.
+        if (!state.popupVisible) {
+          options = this.cachedOptions;
+        } else {
+          this.cachedOptions = options;
+        }
 
-    const dropdownMenuColumnStyle: { width?: number; height?: string } = {};
-    const isNotFound =
-      (options || []).length === 1 && options[0][names.value] === 'ANT_CASCADER_NOT_FOUND';
-    if (isNotFound) {
-      dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
-    }
-    // The default value of `matchInputWidth` is `true`
-    const resultListMatchInputWidth = (showSearch as ShowSearchType).matchInputWidth !== false;
-    if (resultListMatchInputWidth && (state.inputValue || isNotFound) && this.input) {
-      dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
-    }
+        const dropdownMenuColumnStyle: { width?: number; height?: string } = {};
+        const isNotFound =
+          (options || []).length === 1 && options[0][names.value] === 'ANT_CASCADER_NOT_FOUND';
+        if (isNotFound) {
+          dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
+        }
+        // The default value of `matchInputWidth` is `true`
+        const resultListMatchInputWidth = (showSearch as ShowSearchType).matchInputWidth !== false;
+        if (resultListMatchInputWidth && (state.inputValue || isNotFound) && this.input) {
+          dropdownMenuColumnStyle.width = this.input.input.offsetWidth;
+        }
 
-    const inputIcon = (suffixIcon &&
-      (React.isValidElement<{ className?: string }>(suffixIcon) ? (
-        React.cloneElement(suffixIcon, {
-          className: classNames({
-            [suffixIcon.props.className!]: suffixIcon.props.className,
-            [`${prefixCls}-picker-arrow`]: true,
-          }),
-        })
-      ) : (
-        <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>
-      ))) || <DownOutlined className={arrowCls} />;
+        const inputIcon = (suffixIcon &&
+          (React.isValidElement<{ className?: string }>(suffixIcon) ? (
+            React.cloneElement(suffixIcon, {
+              className: classNames({
+                [suffixIcon.props.className!]: suffixIcon.props.className,
+                [`${prefixCls}-picker-arrow`]: true,
+              }),
+            })
+          ) : (
+            <span className={`${prefixCls}-picker-arrow`}>{suffixIcon}</span>
+          ))) || <DownOutlined className={arrowCls} />;
 
-    const input = children || (
-      <span style={style} className={pickerCls}>
-        <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
-        <Input
-          {...inputProps}
-          tabIndex="-1"
-          ref={this.saveInput}
-          prefixCls={inputPrefixCls}
-          placeholder={value && value.length > 0 ? undefined : placeholder}
-          className={`${prefixCls}-input ${sizeCls}`}
-          value={state.inputValue}
-          disabled={disabled}
-          readOnly={!showSearch}
-          autoComplete={inputProps.autoComplete || 'off'}
-          onClick={showSearch ? this.handleInputClick : undefined}
-          onBlur={showSearch ? this.handleInputBlur : undefined}
-          onKeyDown={this.handleKeyDown}
-          onChange={showSearch ? this.handleInputChange : undefined}
-        />
-        {clearIcon}
-        {inputIcon}
-      </span>
-    );
+        const input = children || (
+          <span style={style} className={pickerCls}>
+            <span className={`${prefixCls}-picker-label`}>{this.getLabel()}</span>
+            <Input
+              {...inputProps}
+              tabIndex="-1"
+              ref={this.saveInput}
+              prefixCls={inputPrefixCls}
+              placeholder={value && value.length > 0 ? undefined : placeholder}
+              className={`${prefixCls}-input ${sizeCls}`}
+              value={state.inputValue}
+              disabled={disabled}
+              readOnly={!showSearch}
+              autoComplete={inputProps.autoComplete || 'off'}
+              onClick={showSearch ? this.handleInputClick : undefined}
+              onBlur={showSearch ? this.handleInputBlur : undefined}
+              onKeyDown={this.handleKeyDown}
+              onChange={showSearch ? this.handleInputChange : undefined}
+            />
+            {clearIcon}
+            {inputIcon}
+          </span>
+        );
 
-    let expandIcon = <RightOutlined />;
-    if (isRtlLayout) {
-      expandIcon = <LeftOutlined />;
-    }
+        let expandIcon = <RightOutlined />;
+        if (isRtlLayout) {
+          expandIcon = <LeftOutlined />;
+        }
 
-    const loadingIcon = (
-      <span className={`${prefixCls}-menu-item-loading-icon`}>
-        <RedoOutlined spin />
-      </span>
-    );
+        const loadingIcon = (
+          <span className={`${prefixCls}-menu-item-loading-icon`}>
+            <RedoOutlined spin />
+          </span>
+        );
 
-    const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
-    const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
-    const rcCascaderRtlPopupClassName = classNames(popupClassName, {
-      [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
-    });
-    return (
-      <RcCascader
-        {...rest}
-        prefixCls={prefixCls}
-        getPopupContainer={getPopupContainer}
-        options={options}
-        value={value}
-        popupVisible={state.popupVisible}
-        onPopupVisibleChange={this.handlePopupVisibleChange}
-        onChange={this.handleChange}
-        dropdownMenuColumnStyle={dropdownMenuColumnStyle}
-        expandIcon={expandIcon}
-        loadingIcon={loadingIcon}
-        popupClassName={rcCascaderRtlPopupClassName}
-        popupPlacement={this.getPopupPlacement(direction)}
-      >
-        {input}
-      </RcCascader>
-    );
-  };
+        const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
+        const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
+        const rcCascaderRtlPopupClassName = classNames(popupClassName, {
+          [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
+        });
+        return (
+          <RcCascader
+            {...rest}
+            prefixCls={prefixCls}
+            getPopupContainer={getPopupContainer}
+            options={options}
+            value={value}
+            popupVisible={state.popupVisible}
+            onPopupVisibleChange={this.handlePopupVisibleChange}
+            onChange={this.handleChange}
+            dropdownMenuColumnStyle={dropdownMenuColumnStyle}
+            expandIcon={expandIcon}
+            loadingIcon={loadingIcon}
+            popupClassName={rcCascaderRtlPopupClassName}
+            popupPlacement={this.getPopupPlacement(direction)}
+          >
+            {input}
+          </RcCascader>
+        );
+      }}
+    </SizeContext.Consumer>
+  );
 
   render() {
     return (

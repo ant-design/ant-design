@@ -15,7 +15,6 @@ import {
   SorterResult,
   Key,
   GetPopupContainer,
-  TableSize,
   ExpandableConfig,
   ExpandType,
   TablePaginationConfig,
@@ -29,6 +28,7 @@ import useTitleColumns from './hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
 import scrollTo from '../_util/scrollTo';
 import defaultLocale from '../locale/en_US';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export { ColumnsType, TablePaginationConfig };
 
@@ -65,7 +65,7 @@ export interface TableProps<RecordType>
   columns?: ColumnsType<RecordType>;
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
-  size?: TableSize;
+  size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
 
@@ -88,7 +88,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const {
     prefixCls: customizePrefixCls,
     className,
-    size,
+    size: customizeSize,
     bordered,
     dropdownPrefixCls,
     dataSource,
@@ -109,9 +109,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
   } = props;
+  const size = React.useContext(SizeContext);
   const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
     ConfigContext,
   );
+  const mergedSize = customizeSize || size;
   const tableLocale = locale || contextLocale.Table;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
@@ -354,7 +356,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
     } else {
-      paginationSize = size === 'small' || size === 'middle' ? 'small' : undefined;
+      paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
     }
 
     const renderPagination = () => (
@@ -407,8 +409,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           expandable={mergedExpandable}
           prefixCls={prefixCls}
           className={classNames(className, {
-            [`${prefixCls}-middle`]: size === 'middle',
-            [`${prefixCls}-small`]: size === 'small',
+            [`${prefixCls}-middle`]: mergedSize === 'middle',
+            [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-bordered`]: bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           })}

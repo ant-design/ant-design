@@ -49,7 +49,7 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
 
   return (
     <Select
-      size={fullscreen ? 'default' : 'small'}
+      size={fullscreen ? undefined : 'small'}
       options={options}
       value={year}
       className={`${prefixCls}-year-select`}
@@ -119,7 +119,7 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
 
   return (
     <Select
-      size={fullscreen ? 'default' : 'small'}
+      size={fullscreen ? undefined : 'small'}
       dropdownMatchSelectWidth={100}
       className={`${prefixCls}-month-select`}
       value={month}
@@ -145,7 +145,7 @@ function ModeSwitch<DateType>(props: ModeSwitchProps<DateType>) {
         onModeChange(value);
       }}
       value={mode}
-      size={fullscreen ? 'default' : 'small'}
+      size={fullscreen ? undefined : 'small'}
       className={`${prefixCls}-mode-switch`}
     >
       <Button value="month">{locale.month}</Button>

@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ButtonSize } from './button';
+import { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface ButtonGroupProps {
-  size?: ButtonSize;
+  size?: SizeType;
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;

@@ -10,8 +10,6 @@ export type RowSelectionType = 'checkbox' | 'radio';
 
 export type SelectionItemSelectFn = (currentRowKeys: Key[]) => void;
 
-export type TableSize = 'default' | 'middle' | 'small';
-
 export type ExpandType = null | 'row' | 'nest';
 
 export interface TableLocale {

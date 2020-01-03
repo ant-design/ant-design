@@ -12,9 +12,9 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import warning from '../_util/warning';
 import { AntTreeNodeProps } from '../tree';
-import { Size } from '../select';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 type RawValue = string | number;
 
@@ -31,7 +31,7 @@ export interface TreeSelectProps<T>
     RcTreeSelectProps<T>,
     'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
   > {
-  size?: Size;
+  size?: SizeType;
 }
 
 class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
@@ -80,7 +80,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      size,
+      size: customizeSize,
       className,
       treeCheckable,
       multiple,
@@ -96,16 +96,6 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
     const prefixCls = getPrefixCls('select', customizePrefixCls);
     const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
     const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
-
-    const mergedClassName = classNames(
-      !customizePrefixCls && treeSelectPrefixCls,
-      {
-        [`${prefixCls}-lg`]: size === 'large',
-        [`${prefixCls}-sm`]: size === 'small',
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-    );
 
     const mergedDropdownClassName = classNames(
       dropdownClassName,
@@ -124,7 +114,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
     });
 
     // ===================== Empty =====================
-    let mergedNotFound;
+    let mergedNotFound: React.ReactNode;
     if (notFoundContent !== undefined) {
       mergedNotFound = notFoundContent;
     } else {
@@ -143,29 +133,50 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
     ]);
 
     return (
-      <RcTreeSelect
-        {...selectProps}
-        ref={this.selectRef}
-        prefixCls={prefixCls}
-        className={mergedClassName}
-        listHeight={listHeight}
-        listItemHeight={listItemHeight}
-        treeCheckable={
-          treeCheckable ? <span className={`${prefixCls}-tree-checkbox-inner`} /> : treeCheckable
-        }
-        inputIcon={suffixIcon}
-        menuItemSelectedIcon={itemIcon}
-        removeIcon={removeIcon}
-        clearIcon={clearIcon}
-        switcherIcon={(nodeProps: AntTreeNodeProps) =>
-          renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
-        }
-        showTreeIcon={false}
-        notFoundContent={mergedNotFound}
-        getPopupContainer={getPopupContainer || getContextPopupContainer}
-        treeMotion={collapseMotion}
-        dropdownClassName={mergedDropdownClassName}
-      />
+      <SizeContext.Consumer>
+        {size => {
+          const mergedSize = customizeSize || size;
+          const mergedClassName = classNames(
+            !customizePrefixCls && treeSelectPrefixCls,
+            {
+              [`${prefixCls}-lg`]: mergedSize === 'large',
+              [`${prefixCls}-sm`]: mergedSize === 'small',
+              [`${prefixCls}-rtl`]: direction === 'rtl',
+            },
+            className,
+          );
+
+          return (
+            <RcTreeSelect
+              {...selectProps}
+              ref={this.selectRef}
+              prefixCls={prefixCls}
+              className={mergedClassName}
+              listHeight={listHeight}
+              listItemHeight={listItemHeight}
+              treeCheckable={
+                treeCheckable ? (
+                  <span className={`${prefixCls}-tree-checkbox-inner`} />
+                ) : (
+                  treeCheckable
+                )
+              }
+              inputIcon={suffixIcon}
+              menuItemSelectedIcon={itemIcon}
+              removeIcon={removeIcon}
+              clearIcon={clearIcon}
+              switcherIcon={(nodeProps: AntTreeNodeProps) =>
+                renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
+              }
+              showTreeIcon={false}
+              notFoundContent={mergedNotFound}
+              getPopupContainer={getPopupContainer || getContextPopupContainer}
+              treeMotion={collapseMotion}
+              dropdownClassName={mergedDropdownClassName}
+            />
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 

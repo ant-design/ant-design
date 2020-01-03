@@ -124,7 +124,7 @@ exports[`Calendar Calendar should support locale 1`] = `
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -1074,7 +1074,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       </span>
     </div>
     <div
-      class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-radio-group-rtl ant-picker-calendar-mode-switch"
+      class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl"

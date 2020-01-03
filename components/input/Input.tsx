@@ -5,17 +5,16 @@ import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 import Password from './Password';
-import { Omit, tuple } from '../_util/type';
+import { Omit } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import warning from '../_util/warning';
-
-export const InputSizes = tuple('small', 'default', 'large');
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   prefixCls?: string;
-  size?: typeof InputSizes[number];
+  size?: SizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -59,7 +58,7 @@ export function resolveOnChange(
 
 export function getInputClassName(
   prefixCls: string,
-  size?: typeof InputSizes[number],
+  size?: SizeType,
   disabled?: boolean,
   direction?: any,
 ) {
@@ -171,8 +170,8 @@ class Input extends React.Component<InputProps, InputState> {
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
-  renderInput = (prefixCls: string) => {
-    const { className, addonBefore, addonAfter, size, disabled } = this.props;
+  renderInput = (prefixCls: string, size?: SizeType) => {
+    const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',
@@ -193,9 +192,12 @@ class Input extends React.Component<InputProps, InputState> {
         {...otherProps}
         onChange={this.handleChange}
         onKeyDown={this.handleKeyDown}
-        className={classNames(getInputClassName(prefixCls, size, disabled, this.direction), {
-          [className!]: className && !addonBefore && !addonAfter,
-        })}
+        className={classNames(
+          getInputClassName(prefixCls, customizeSize || size, disabled, this.direction),
+          {
+            [className!]: className && !addonBefore && !addonAfter,
+          },
+        )}
         ref={this.saveInput}
       />
     );
@@ -235,16 +237,20 @@ class Input extends React.Component<InputProps, InputState> {
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
     return (
-      <ClearableLabeledInput
-        {...this.props}
-        prefixCls={prefixCls}
-        inputType="input"
-        value={fixControlledValue(value)}
-        element={this.renderInput(prefixCls)}
-        handleReset={this.handleReset}
-        ref={this.saveClearableInput}
-        direction={direction}
-      />
+      <SizeContext.Consumer>
+        {size => (
+          <ClearableLabeledInput
+            {...this.props}
+            prefixCls={prefixCls}
+            inputType="input"
+            value={fixControlledValue(value)}
+            element={this.renderInput(prefixCls, size)}
+            handleReset={this.handleReset}
+            ref={this.saveClearableInput}
+            direction={direction}
+          />
+        )}
+      </SizeContext.Consumer>
     );
   };
 
