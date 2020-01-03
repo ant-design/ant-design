@@ -11,6 +11,10 @@
   &::after {
     display: flex;
   }
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 // x轴原点
@@ -59,54 +63,12 @@
   max-width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
+
+  &&-rtl {
+    float: right;
+  }
 }
 
-.make-grid();
-
-// Extra small grid
-//
-// Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
-
-.make-grid(-xs);
-
-// Small grid
-//
-// Columns, offsets, pushes, and pulls for the small device range, from phones
-// to tablets.
-
-@media (min-width: @screen-sm-min) {
-  .make-grid(-sm);
-}
-
-// Medium grid
-//
-// Columns, offsets, pushes, and pulls for the desktop device range.
-
-@media (min-width: @screen-md-min) {
-  .make-grid(-md);
-}
-
-// Large grid
-//
-// Columns, offsets, pushes, and pulls for the large desktop device range.
-
-@media (min-width: @screen-lg-min) {
-  .make-grid(-lg);
-}
-
-// Extra Large grid
-//
-// Columns, offsets, pushes, and pulls for the full hd device range.
-
-@media (min-width: @screen-xl-min) {
-  .make-grid(-xl);
-}
-
-// Extra Extra Large grid
-//
-// Columns, offsets, pushes, and pulls for the full hd device range.
-
-@media (min-width: @screen-xxl-min) {
-  .make-grid(-xxl);
-}
+// After antd v4, we only generate one grid layout
+// since modern browser already support media query that we can reuse className
+.make-grid(-base);

@@ -3,9 +3,11 @@ import { mount } from 'enzyme';
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { sleep } from '../../../tests/utils';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Popconfirm', () => {
   mountTest(Popconfirm);
+  rtlTest(Popconfirm);
 
   const eventObject = expect.objectContaining({
     target: expect.anything(),

@@ -43,6 +43,7 @@ class Header extends React.Component {
     router: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
     theme: PropTypes.oneOf(['default', 'dark']),
+    direction: PropTypes.string,
   };
 
   state = {
@@ -72,6 +73,25 @@ class Header extends React.Component {
     this.setState({
       menuVisible: false,
     });
+  };
+
+  handleDirectionChange = () => {
+    const { changeDirection } = this.props;
+    const { direction } = this.context;
+    if (direction !== 'rtl') {
+      changeDirection('rtl');
+    } else {
+      changeDirection('ltr');
+    }
+  };
+
+  getNextDirectionText = () => {
+    const { direction } = this.context;
+
+    if (direction !== 'rtl') {
+      return 'RTL';
+    }
+    return 'LTR';
   };
 
   onMenuVisibleChange = visible => {
@@ -147,6 +167,16 @@ class Header extends React.Component {
         <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
       ) : null,
       <Button
+        ghost
+        size="small"
+        onClick={this.handleDirectionChange}
+        className="header-direction-button"
+        key="direction-button"
+      >
+        {this.getNextDirectionText()}
+      </Button>,
+      <Button
+        ghost
         size="small"
         onClick={this.handleLangChange}
         className="header-lang-button"

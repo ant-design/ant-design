@@ -1,5 +1,5 @@
 ---
-order: 11
+order: 12
 title: 贡献指南
 toc: false
 ---

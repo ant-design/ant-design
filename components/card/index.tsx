@@ -76,7 +76,7 @@ export default class Card extends React.Component<CardProps, {}> {
     return containGrid;
   }
 
-  renderCard = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCard = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -108,6 +108,7 @@ export default class Card extends React.Component<CardProps, {}> {
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
       [`${prefixCls}-${size}`]: size !== 'default',
       [`${prefixCls}-type-${type}`]: !!type,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const loadingBlockStyle =

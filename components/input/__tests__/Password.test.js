@@ -4,10 +4,12 @@ import { mount } from 'enzyme';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Input.Password', () => {
   focusTest(Input.Password);
   mountTest(Input.Password);
+  rtlTest(Input.Password);
 
   it('should get input element from ref', () => {
     const wrapper = mount(<Input.Password />);

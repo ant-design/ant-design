@@ -51,7 +51,7 @@ class App extends React.Component {
             onClick: this.like,
           })}
         </Tooltip>
-        <span style={{ paddingLeft: 8, cursor: 'auto' }}>{likes}</span>
+        <span className="comment-action">{likes}</span>
       </span>,
       <span key=' key="comment-basic-dislike"'>
         <Tooltip title="Dislike">
@@ -59,7 +59,7 @@ class App extends React.Component {
             onClick: this.dislike,
           })}
         </Tooltip>
-        <span style={{ paddingLeft: 8, cursor: 'auto' }}>{dislikes}</span>
+        <span className="comment-action">{dislikes}</span>
       </span>,
       <span key="comment-basic-reply-to">Reply to</span>,
     ];
@@ -92,4 +92,17 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
+```
+
+```css
+/* tile uploaded pictures */
+.comment-action {
+  padding-left: 8px;
+  cursor: 'auto';
+}
+
+[class*='-col-rtl'] .comment-action {
+  padding-right: 8px;
+  padding-left: 0;
+}
 ```

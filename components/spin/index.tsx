@@ -129,7 +129,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     return !!(this.props && this.props.children);
   }
 
-  renderSpin = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSpin = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -149,6 +149,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-spinning`]: spinning,
         [`${prefixCls}-show-text`]: !!tip,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

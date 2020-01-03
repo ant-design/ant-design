@@ -201,7 +201,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return React.Children.count(children) === 1 && !icon && type !== 'link';
   }
 
-  renderButton = ({ getPrefixCls, autoInsertSpaceInButton }: ConfigConsumerProps) => {
+  renderButton = ({ getPrefixCls, autoInsertSpaceInButton, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       type,
@@ -252,6 +252,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const iconNode = loading ? <LoadingOutlined /> : icon || null;

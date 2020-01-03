@@ -132,7 +132,7 @@ Provides array management for fields.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | name | Field name, support array | [NamePath](#NamePath) | - |
-| children | Render function | (fields: Field[], operation: { add, remove }) => React.ReactNode | - |
+| children | Render function | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
 
 ```tsx
 <Form.List>

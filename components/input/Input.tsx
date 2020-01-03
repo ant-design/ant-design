@@ -61,11 +61,13 @@ export function getInputClassName(
   prefixCls: string,
   size?: typeof InputSizes[number],
   disabled?: boolean,
+  direction?: any,
 ) {
   return classNames(prefixCls, {
     [`${prefixCls}-sm`]: size === 'small',
     [`${prefixCls}-lg`]: size === 'large',
     [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 }
 
@@ -89,6 +91,8 @@ class Input extends React.Component<InputProps, InputState> {
   input: HTMLInputElement;
 
   clearableInput: ClearableLabeledInput;
+
+  direction: any = 'ltr';
 
   constructor(props: InputProps) {
     super(props);
@@ -177,7 +181,7 @@ class Input extends React.Component<InputProps, InputState> {
         {...otherProps}
         onChange={this.handleChange}
         onKeyDown={this.handleKeyDown}
-        className={classNames(getInputClassName(prefixCls, size, disabled), {
+        className={classNames(getInputClassName(prefixCls, size, disabled, this.direction), {
           [className!]: className && !addonBefore && !addonAfter,
         })}
         ref={this.saveInput}
@@ -200,10 +204,11 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { value } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+    this.direction = direction;
     return (
       <ClearableLabeledInput
         {...this.props}
@@ -213,6 +218,7 @@ class Input extends React.Component<InputProps, InputState> {
         element={this.renderInput(prefixCls)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
+        direction={direction}
       />
     );
   };

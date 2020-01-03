@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Modal from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -36,6 +37,7 @@ class ModalTester extends React.Component {
 
 describe('Modal', () => {
   mountTest(Modal);
+  rtlTest(Modal);
 
   it('render correctly', () => {
     const wrapper = mount(<ModalTester />);

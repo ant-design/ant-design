@@ -24,6 +24,7 @@ interface BasicProps {
   className?: string;
   style?: object;
   disabled?: boolean;
+  direction?: any;
 }
 
 /**
@@ -81,6 +82,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
       [`${prefixCls}-affix-wrapper-input-with-clear-btn`]:
         props.suffix && props.allowClear && this.props.value,
+      [`${prefixCls}-affix-wrapper-rtl`]: props.direction === 'rtl',
     });
     return (
       <span className={affixWrapperCls} style={props.style}>
@@ -96,7 +98,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement<any>) {
-    const { addonBefore, addonAfter, style, size, className } = this.props;
+    const { addonBefore, addonAfter, style, size, className, direction } = this.props;
     // Not wrap when there is not addons
     if (!addonBefore && !addonAfter) {
       return labeledElement;
@@ -111,11 +113,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
       [wrapperClassName]: addonBefore || addonAfter,
+      [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
     const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
       [`${prefixCls}-group-wrapper-sm`]: size === 'small',
       [`${prefixCls}-group-wrapper-lg`]: size === 'large',
+      [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
     });
 
     // Need another wrapper for changing display:table to display:inline-block

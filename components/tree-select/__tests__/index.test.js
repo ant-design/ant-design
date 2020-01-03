@@ -3,10 +3,12 @@ import { mount } from 'enzyme';
 import TreeSelect, { TreeNode } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect);
   mountTest(TreeSelect);
+  rtlTest(TreeSelect);
 
   describe('TreeSelect Custom Icons', () => {
     it('should support customized icons', () => {

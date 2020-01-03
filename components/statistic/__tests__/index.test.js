@@ -6,10 +6,12 @@ import Statistic from '..';
 import { formatTimeStr } from '../utils';
 import { sleep } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Statistic', () => {
   mountTest(Statistic);
   mountTest(Statistic.Countdown);
+  rtlTest(Statistic);
 
   beforeAll(() => {
     MockDate.set(moment('2018-11-28 00:00:00'));

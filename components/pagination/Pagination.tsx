@@ -51,18 +51,18 @@ export interface PaginationConfig extends PaginationProps {
 export type PaginationLocale = any;
 
 export default class Pagination extends React.Component<PaginationProps, {}> {
-  getIconsProps = (prefixCls: string) => {
-    const prevIcon = (
+  getIconsProps = (prefixCls: string, direction: 'ltr' | 'rtl' | undefined) => {
+    let prevIcon = (
       <a className={`${prefixCls}-item-link`}>
         <LeftOutlined />
       </a>
     );
-    const nextIcon = (
+    let nextIcon = (
       <a className={`${prefixCls}-item-link`}>
         <RightOutlined />
       </a>
     );
-    const jumpPrevIcon = (
+    let jumpPrevIcon = (
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
@@ -71,7 +71,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
         </div>
       </a>
     );
-    const jumpNextIcon = (
+    let jumpNextIcon = (
       <a className={`${prefixCls}-item-link`}>
         {/* You can use transition effects in the container :) */}
         <div className={`${prefixCls}-item-container`}>
@@ -80,6 +80,18 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
         </div>
       </a>
     );
+
+    // change arrows direction in right-to-left direction
+    if (direction === 'rtl') {
+      let temp: any;
+      temp = prevIcon;
+      prevIcon = nextIcon;
+      nextIcon = temp;
+
+      temp = jumpPrevIcon;
+      jumpPrevIcon = jumpNextIcon;
+      jumpNextIcon = temp;
+    }
     return {
       prevIcon,
       nextIcon,
@@ -101,17 +113,21 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
     const isSmall = size === 'small';
     return (
       <ConfigConsumer>
-        {({ getPrefixCls }: ConfigConsumerProps) => {
+        {({ getPrefixCls, direction }: ConfigConsumerProps) => {
           const prefixCls = getPrefixCls('pagination', customizePrefixCls);
           const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
+          const extendedClassName = classNames(className, {
+            mini: isSmall,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          });
 
           return (
             <RcPagination
               {...restProps}
               prefixCls={prefixCls}
               selectPrefixCls={selectPrefixCls}
-              {...this.getIconsProps(prefixCls)}
-              className={classNames(className, { mini: isSmall })}
+              {...this.getIconsProps(prefixCls, direction)}
+              className={extendedClassName}
               selectComponentClass={isSmall ? MiniSelect : Select}
               locale={locale}
             />

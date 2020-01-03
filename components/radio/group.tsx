@@ -94,7 +94,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
     }
   };
 
-  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderGroup = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const { prefixCls: customizePrefixCls, className = '', options, buttonStyle } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -104,6 +104,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
       `${groupPrefixCls}-${buttonStyle}`,
       {
         [`${groupPrefixCls}-${props.size}`]: props.size,
+        [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

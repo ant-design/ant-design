@@ -1979,7 +1979,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
     class="ant-row ant-form-item"
   >
     <div
-      class="ant-col ant-col-4 ant-form-item-label"
+      class="ant-col ant-form-item-label ant-col-base-4"
     >
       <label
         class=""

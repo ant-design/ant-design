@@ -215,6 +215,45 @@ exports[`Button renders correctly 1`] = `
 </button>
 `;
 
+exports[`Button rtl render component should be rendered correctly in RTL direction 1`] = `
+<button
+  class="ant-btn ant-btn-rtl"
+  type="button"
+/>
+`;
+
+exports[`Button rtl render component should be rendered correctly in RTL direction 2`] = `
+<button
+  class="ant-btn ant-btn-lg ant-btn-rtl"
+  type="button"
+/>
+`;
+
+exports[`Button rtl render component should be rendered correctly in RTL direction 3`] = `
+<button
+  class="ant-btn ant-btn-sm ant-btn-rtl"
+  type="button"
+/>
+`;
+
+exports[`Button rtl render component should be rendered correctly in RTL direction 4`] = `
+<div
+  class="ant-btn-group ant-btn-group-rtl"
+/>
+`;
+
+exports[`Button rtl render component should be rendered correctly in RTL direction 5`] = `
+<div
+  class="ant-btn-group ant-btn-group-lg ant-btn-group-rtl"
+/>
+`;
+
+exports[`Button rtl render component should be rendered correctly in RTL direction 6`] = `
+<div
+  class="ant-btn-group ant-btn-group-sm ant-btn-group-rtl"
+/>
+`;
+
 exports[`Button should has click wave effect 1`] = `
 <button
   ant-click-animating-without-extra-node="true"

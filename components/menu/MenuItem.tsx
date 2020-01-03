@@ -41,7 +41,7 @@ export default class MenuItem extends React.Component<MenuItemProps> {
 
     return (
       <MenuContext.Consumer>
-        {({ inlineCollapsed }: MenuContextProps) => {
+        {({ inlineCollapsed, direction }: MenuContextProps) => {
           const tooltipProps: TooltipProps = {
             title: title || (level === 1 ? children : ''),
           };
@@ -52,11 +52,10 @@ export default class MenuItem extends React.Component<MenuItemProps> {
             // ref: https://github.com/ant-design/ant-design/issues/16742
             tooltipProps.visible = false;
           }
-
           return (
             <Tooltip
               {...tooltipProps}
-              placement="right"
+              placement={direction === 'rtl' ? 'left' : 'right'}
               overlayClassName={`${rootPrefixCls}-inline-collapsed-tooltip`}
             >
               <Item {...rest} title={title} ref={this.saveMenuItem} />

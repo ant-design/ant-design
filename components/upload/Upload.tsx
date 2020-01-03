@@ -253,7 +253,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     );
   };
 
-  renderUpload = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderUpload = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -320,6 +320,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       [`${prefixCls}-select`]: true,
       [`${prefixCls}-select-${listType}`]: true,
       [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     // Remove id to avoid open by label when trigger is hidden

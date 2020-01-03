@@ -79,6 +79,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     renderEmpty,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -88,6 +89,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       listHeight = 256,
       listItemHeight = 32,
       getPopupContainer,
+      dropdownClassName,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -123,8 +125,11 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     const mergedClassName = classNames(className, {
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
-
+    const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+    });
     return (
       <RcSelect<ValueType>
         ref={this.selectRef}
@@ -140,6 +145,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
         notFoundContent={mergedNotFound}
         className={mergedClassName}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
+        dropdownClassName={rcSelectRtlDropDownClassName}
       />
     );
   };

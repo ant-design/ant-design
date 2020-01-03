@@ -7,9 +7,11 @@ import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Upload', () => {
   mountTest(Upload);
+  rtlTest(Upload);
 
   beforeEach(() => setup());
   afterEach(() => teardown());

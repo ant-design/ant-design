@@ -22,6 +22,10 @@ a {
   padding: 0 170px 32px 64px;
   overflow: hidden;
   background: @component-background;
+
+  .ant-row-rtl & {
+    padding: 0 64px 144px 170px;
+  }
 }
 
 .main-menu {
@@ -157,6 +161,10 @@ a {
   width: 100%;
   padding: 0;
   overflow: hidden;
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 .drawer-content {
@@ -168,6 +176,9 @@ a {
 }
 
 #_hj_feedback_container {
+  > div {
+    left: 0;
+  }
   .path1::before {
     color: @primary-color !important;
   }
@@ -194,5 +205,10 @@ a {
     background-color: #fff;
     box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
       0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .ant-row-rtl & {
+    right: auto;
+    left: 32px;
   }
 }

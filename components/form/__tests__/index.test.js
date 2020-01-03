@@ -5,6 +5,7 @@ import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -16,6 +17,9 @@ const delay = (timeout = 0) =>
 describe('Form', () => {
   mountTest(Form);
   mountTest(Form.Item);
+
+  rtlTest(Form);
+  rtlTest(Form.Item);
 
   scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -135,6 +139,19 @@ describe('Form', () => {
     );
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
+    );
+  });
+  it('children is array has name props', () => {
+    mount(
+      <Form>
+        <Form.Item name="test">
+          <div>one</div>
+          <div>two</div>
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
     );
   });
 

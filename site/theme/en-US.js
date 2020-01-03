@@ -5,7 +5,7 @@ module.exports = {
     'app.theme.switch.default': 'Switch dark mode',
     'app.header.search': 'Search...',
     'app.header.menu.home': 'Home',
-    'app.header.menu.documentation': 'Documentation',
+    'app.header.menu.documentation': 'Docs',
     'app.header.menu.components': 'Components',
     'app.header.menu.spec': 'Design',
     'app.header.menu.resource': 'Resources',
@@ -32,7 +32,7 @@ module.exports = {
     'app.demo.riddle': 'Open in Riddle',
     'app.home.slogan': "The world's second most popular React UI framework",
     'app.home.introduce':
-      'Enterprise-level product design system to create an efficient and enjoyable work experience.',
+      'A design system for enterprise-level products. Create an efficient and enjoyable work experience.',
     'app.home.recommend': 'Recommend',
     'app.home.popularize': 'Popularize',
     'app.home.design-and-framework': 'Design language and framework',

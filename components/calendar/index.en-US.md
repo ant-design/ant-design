@@ -46,3 +46,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | onSelect | Callback for when a date is selected | function(date: moment） | - |  |
 | onChange | Callback for when date changes | function(date: moment） | - |  |
 | headerRender | render custom header in panel | function(object:{value: moment, type: string, onChange: f(), onTypeChange: f()}) | - |  |
+
+## FAQ
+
+- [How to use Calendar with customize date library like dayjs](/docs/react/generate-picker#Calendar)

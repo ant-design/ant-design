@@ -3,9 +3,11 @@ import { mount, render } from 'enzyme';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Badge', () => {
   mountTest(Badge);
+  rtlTest(Badge);
 
   beforeEach(() => {
     jest.useFakeTimers();
