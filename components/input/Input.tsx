@@ -92,6 +92,8 @@ class Input extends React.Component<InputProps, InputState> {
 
   clearableInput: ClearableLabeledInput;
 
+  removePasswordTimeout: number;
+
   direction: any = 'ltr';
 
   constructor(props: InputProps) {
@@ -111,6 +113,10 @@ class Input extends React.Component<InputProps, InputState> {
     return null;
   }
 
+  componentDidMount() {
+    this.clearPasswordValueAttribute();
+  }
+
   // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
   // We keep an empty function here.
   componentDidUpdate() {}
@@ -124,6 +130,12 @@ class Input extends React.Component<InputProps, InputState> {
       );
     }
     return null;
+  }
+
+  componentWillUnmount() {
+    if (this.removePasswordTimeout) {
+      clearTimeout(this.removePasswordTimeout);
+    }
   }
 
   focus() {
@@ -189,8 +201,21 @@ class Input extends React.Component<InputProps, InputState> {
     );
   };
 
+  clearPasswordValueAttribute = () => {
+    // https://github.com/ant-design/ant-design/issues/20541
+    this.removePasswordTimeout = setTimeout(() => {
+      if (
+        this.input &&
+        this.input.getAttribute('type') === 'password' &&
+        this.input.hasAttribute('value')
+      ) {
+        this.input.removeAttribute('value');
+      }
+    });
+  };
+
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setValue(e.target.value);
+    this.setValue(e.target.value, this.clearPasswordValueAttribute);
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
