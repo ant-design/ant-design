@@ -29,7 +29,7 @@ timeline: true
   - 🌟 Form 组件自带数据绑定功能。
   - 🌟 字段值改动只会影响相关组件的渲染而非整个 Form。
   - 🌟 新增 `initialValues` 以代替原 field 初始化字段。
-  - 🌟 新增 `validateMessages` 以设计校验模板。
+  - 🌟 新增 `validateMessages` 以支持修改校验模板。
   - 🌟 新增 `onFinish` 与 `onFinishFailed` 完成整体组件校验逻辑。
   - 🌟 新增 `onFieldsChange` 与 `onValuesChange` 以用于受控状态触发。
   - 🌟 提供 `useForm` 的 hook 支持。
