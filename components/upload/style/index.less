@@ -211,7 +211,7 @@
         line-height: 1;
         opacity: 1;
       }
-      .anticon {
+      .@{iconfont-css-prefix} {
         padding-right: 5px;
         color: @upload-actions-color;
 
@@ -238,11 +238,13 @@
       }
 
       .@{iconfont-css-prefix}-loading,
-      .@{iconfont-css-prefix}-paper-clip {
-        position: absolute;
-        top: @font-size-base / 2 - 2px;
-        color: @text-color-secondary;
-        font-size: @font-size-base;
+      .@{upload-prefix-cls}-text-icon {
+        .@{iconfont-css-prefix} {
+          position: absolute;
+          top: @font-size-base / 2 - 2px;
+          color: @text-color-secondary;
+          font-size: @font-size-base;
+        }
       }
     }
 
@@ -281,13 +283,13 @@
     }
 
     &-error,
-    &-error .@{iconfont-css-prefix}-paper-clip,
+    &-error .@{upload-prefix-cls}-text-icon > .@{iconfont-css-prefix},
     &-error &-name {
       color: @error-color;
     }
 
     &-error &-card-actions {
-      .anticon {
+      .@{iconfont-css-prefix} {
         padding-right: 5px;
         color: @error-color;
 
@@ -348,10 +350,13 @@
       left: 8px;
       width: 48px;
       height: 48px;
-      font-size: 26px;
       line-height: 54px;
       text-align: center;
       opacity: 0.8;
+
+      .@{iconfont-css-prefix} {
+        font-size: 26px;
+      }
 
       .@{upload-prefix-cls}-list-rtl& {
         right: 8px;
@@ -365,6 +370,10 @@
       left: 50%;
       font-size: 26px;
       transform: translate(-50%, -50%);
+
+      .@{iconfont-css-prefix} {
+        font-size: 26px;
+      }
 
       .@{upload-prefix-cls}-list-rtl& {
         right: 50%;
@@ -511,7 +520,7 @@
         transform: translate(50%, -50%);
       }
 
-      .@{iconfont-css-prefix}-eye-o,
+      .@{iconfont-css-prefix}-eye,
       .@{iconfont-css-prefix}-download,
       .@{iconfont-css-prefix}-delete {
         z-index: 10;
@@ -549,7 +558,7 @@
       text-align: center;
     }
 
-    .anticon-picture + .@{upload-item}-name {
+    .@{upload-item}-file + .@{upload-item}-name {
       position: absolute;
       bottom: 10px;
       display: block;
@@ -568,15 +577,10 @@
       .@{upload-item}-info {
         height: auto;
         &::before,
-        .@{iconfont-css-prefix}-eye-o,
+        .@{iconfont-css-prefix}-eye,
         .@{iconfont-css-prefix}-delete {
           display: none;
         }
-      }
-
-      &-text {
-        margin-top: 18px;
-        color: @text-color-secondary;
       }
     }
 

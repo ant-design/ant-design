@@ -82,6 +82,22 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     }
   };
 
+  handleIconRender = (file: UploadFile) => {
+    const { listType, locale, iconRender } = this.props;
+    if (iconRender) {
+      return iconRender(file, listType);
+    }
+    const isLoading = file.status === 'uploading';
+    const fileIcon = isImageUrl(file) ? <PictureTwoTone /> : <FileTwoTone />;
+    let icon: React.ReactNode = isLoading ? <LoadingOutlined /> : <PaperClipOutlined />;
+    if (listType === 'picture') {
+      icon = isLoading ? <LoadingOutlined /> : fileIcon;
+    } else if (listType === 'picture-card') {
+      icon = isLoading ? locale.uploading : fileIcon;
+    }
+    return icon;
+  };
+
   renderUploadList = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -96,13 +112,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     const prefixCls = getPrefixCls('upload', customizePrefixCls);
     const list = items.map(file => {
       let progress;
-      let icon = file.status === 'uploading' ? <LoadingOutlined /> : <PaperClipOutlined />;
-
+      const iconNode = this.handleIconRender(file);
+      let icon = <div className={`${prefixCls}-text-icon`}>{iconNode}</div>;
       if (listType === 'picture' || listType === 'picture-card') {
-        if (listType === 'picture-card' && file.status === 'uploading') {
-          icon = <div className={`${prefixCls}-list-item-uploading-text`}>{locale.uploading}</div>;
-        } else if (!file.thumbUrl && !file.url) {
-          icon = <PictureTwoTone className={`${prefixCls}-list-item-thumbnail`} />;
+        if (file.status === 'uploading' || (!file.thumbUrl && !file.url)) {
+          const uploadingClassName = classNames({
+            [`${prefixCls}-list-item-thumbnail`]: true,
+            [`${prefixCls}-list-item-file`]: file.status !== 'uploading',
+          });
+          icon = <div className={uploadingClassName}>{iconNode}</div>;
         } else {
           const thumbnail = isImageUrl(file) ? (
             <img
@@ -111,11 +129,15 @@ export default class UploadList extends React.Component<UploadListProps, any> {
               className={`${prefixCls}-list-item-image`}
             />
           ) : (
-            <FileTwoTone className={`${prefixCls}-list-item-icon`} />
+            iconNode
           );
+          const aClassName = classNames({
+            [`${prefixCls}-list-item-thumbnail`]: true,
+            [`${prefixCls}-list-item-file`]: !isImageUrl(file),
+          });
           icon = (
             <a
-              className={`${prefixCls}-list-item-thumbnail`}
+              className={aClassName}
               onClick={e => this.handlePreview(file, e)}
               href={file.url || file.thumbUrl}
               target="_blank"

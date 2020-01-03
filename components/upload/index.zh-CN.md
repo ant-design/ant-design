@@ -43,6 +43,7 @@ title: Upload
 | onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。               | Function(file): `boolean | Promise` | 无   |  |
 | onDownload | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页。 | Function(file): void | 跳转新标签页 |  |
 | transformFile   | 在上传之前转换文件。支持返回一个 Promise 对象   | Function(file): `string | Blob | File | Promise<string | Blob | File>` | 无   |  |
+| iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => React.ReactNode | 无 |  |
 
 ### onChange
 

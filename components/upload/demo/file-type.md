@@ -1,21 +1,30 @@
 ---
-order: 3
+order: 12
+debug: true
 title:
-  zh-CN: 照片墙
-  en-US: Pictures Wall
+  zh-CN: 自定义显示 icon
+  en-US: custom show icon
 ---
 
 ## zh-CN
 
-用户可以上传图片并在列表中显示缩略图。当上传照片数到达限制后，上传按钮消失。
+根据类型默认显示对应 icon
 
 ## en-US
 
-After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
+Displays the corresponding by default by type icon
 
 ```jsx
 import { Upload, Modal } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import {
+  LoadingOutlined,
+  PaperClipOutlined,
+  PictureTwoTone,
+  FilePdfTwoTone,
+  FileWordTwoTone,
+  FileExcelTwoTone,
+  PlusOutlined,
+} from '@ant-design/icons';
 
 function getBase64(file) {
   return new Promise((resolve, reject) => {
@@ -32,32 +41,30 @@ class PicturesWall extends React.Component {
     previewImage: '',
     fileList: [
       {
-        uid: '-1',
-        name: 'image.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      },
-      {
         uid: '-2',
-        name: 'image.png',
+        name: 'pdf.pdf',
         status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        url: 'http://cdn07.foxitsoftware.cn/pub/foxit/cpdf/FoxitCompanyProfile.pdf',
       },
       {
         uid: '-3',
-        name: 'image.png',
+        name: 'doc.doc',
         status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.doc',
       },
       {
         uid: '-4',
         name: 'image.png',
-        status: 'done',
-        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        status: 'error',
       },
       {
         uid: '-5',
-        name: 'image.png',
+        name: 'pdf.pdf',
+        status: 'error',
+      },
+      {
+        uid: '-6',
+        name: 'doc.doc',
         status: 'error',
       },
     ],
@@ -78,6 +85,32 @@ class PicturesWall extends React.Component {
 
   handleChange = ({ fileList }) => this.setState({ fileList });
 
+  handleIconRender = (file, listType) => {
+    const fileSufIconList = [
+      { type: <FilePdfTwoTone />, suf: ['.pdf'] },
+      { type: <FileExcelTwoTone />, suf: ['.xlsx', '.xls', '.csv'] },
+      { type: <FileWordTwoTone />, suf: ['.doc', '.docx'] },
+      {
+        type: <PictureTwoTone />,
+        suf: ['.webp', '.svg', '.png', '.gif', '.jpg', '.jpeg', '.jfif', '.bmp', '.dpg'],
+      },
+    ];
+    // console.log(1, file, listType);
+    let icon = file.status === 'uploading' ? <LoadingOutlined /> : <PaperClipOutlined />;
+    if (listType === 'picture' || listType === 'picture-card') {
+      if (listType === 'picture-card' && file.status === 'uploading') {
+        icon = <LoadingOutlined />; // or icon = 'uploading...';
+      } else {
+        fileSufIconList.forEach(item => {
+          if (item.suf.includes(file.name.substr(file.name.lastIndexOf('.')))) {
+            icon = item.type;
+          }
+        });
+      }
+    }
+    return icon;
+  };
+
   render() {
     const { previewVisible, previewImage, fileList } = this.state;
     const uploadButton = (
@@ -94,6 +127,7 @@ class PicturesWall extends React.Component {
           fileList={fileList}
           onPreview={this.handlePreview}
           onChange={this.handleChange}
+          iconRender={this.handleIconRender}
         >
           {fileList.length >= 8 ? null : uploadButton}
         </Upload>

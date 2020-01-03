@@ -42,6 +42,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | onRemove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when return value is `false` or a Promise which resolve(false) or reject | Function(file): `boolean | Promise` | - |  |
 | onDownload | Click the method to download the file, pass the method to perform the method logic, do not pass the default jump to the new TAB. | Function(file): void | Jump to new TAB |  |
 | transformFile   | Customize transform file before request | Function(file): `string | Blob | File | Promise<string | Blob | File>` | - |  |
+| iconRender | custom show icon | (file: UploadFile, listType?: UploadListType) => React.ReactNode | - |  |
 
 ### onChange
 
