@@ -102,9 +102,13 @@ export default class Row extends React.Component<RowProps, RowState> {
           }
         : {}),
       ...style,
-    };
+    } as React.CSSProperties;
     const otherProps = { ...others };
     delete otherProps.gutter;
+
+    if (Object.keys(screens).length === 0) {
+      rowStyle.visibility = 'hidden';
+    }
 
     return (
       <RowContext.Provider value={{ screens, gutter }}>
