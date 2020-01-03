@@ -56,6 +56,6 @@ cols: 1
     background-image: url("https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/oQFqhkmNPw/a38d2cdb-a33d-407c-8f8e-e3429699175d.png");
   }
   [data-theme="dark"] .site-empty-buildIn-default {
-    background-image: url("https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/5kgxi7xhMT/f6a34113-f417-44ea-a558-c3e50b4d441e.png");
+    background-image: url("https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rAnNTrmKNRcAAAAAAAAAAABkARQnAQ");
   }
 </style>
