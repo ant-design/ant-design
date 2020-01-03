@@ -109,6 +109,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
     const className = classNames(prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-vertical`]: dotPosition === 'left' || dotPosition === 'right',
     });
 
     return (

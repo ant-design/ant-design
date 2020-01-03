@@ -55,7 +55,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
 
 exports[`Carousel should works for dotPosition left 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel ant-carousel-vertical"
 >
   <div
     class="slick-slider slick-initialized"
@@ -89,7 +89,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
 
 exports[`Carousel should works for dotPosition right 1`] = `
 <div
-  class="ant-carousel"
+  class="ant-carousel ant-carousel-vertical"
 >
   <div
     class="slick-slider slick-initialized"
