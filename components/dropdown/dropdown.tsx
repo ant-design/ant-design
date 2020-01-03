@@ -1,10 +1,11 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
 import classNames from 'classnames';
+import { RightOutlined } from '@ant-design/icons';
+
 import DropdownButton from './dropdown-button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
-import Icon from '../icon';
 import { tuple } from '../_util/type';
 
 const Placements = tuple(
@@ -15,9 +16,9 @@ const Placements = tuple(
   'bottomCenter',
   'bottomRight',
 );
-type Placement = (typeof Placements)[number];
+type Placement = typeof Placements[number];
 
-type OverlayFunc = () => React.ReactNode;
+type OverlayFunc = () => React.ReactElement;
 
 type Align = {
   points?: [string, string];
@@ -34,7 +35,7 @@ type Align = {
 
 export interface DropDownProps {
   trigger?: ('click' | 'hover' | 'contextMenu')[];
-  overlay: React.ReactNode | OverlayFunc;
+  overlay: React.ReactElement | OverlayFunc;
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
   disabled?: boolean;
@@ -58,7 +59,6 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   static defaultProps = {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
-    placement: 'bottomLeft' as Placement,
   };
 
   getTransitionName() {
@@ -100,7 +100,7 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
 
     const expandIcon = (
       <span className={`${prefixCls}-menu-submenu-arrow`}>
-        <Icon type="right" className={`${prefixCls}-menu-submenu-arrow-icon`} />
+        <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
       </span>
     );
 
@@ -114,12 +114,21 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
             expandIcon,
           });
 
-    return fixedModeOverlay;
+    return fixedModeOverlay as React.ReactElement;
   };
+
+  getPlacement(direction: string = 'ltr') {
+    const { placement } = this.props;
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+  }
 
   renderDropDown = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -127,14 +136,21 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       trigger,
       disabled,
       getPopupContainer,
+      overlayClassName,
     } = this.props;
 
     const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
     const child = React.Children.only(children) as React.ReactElement<any>;
 
     const dropdownTrigger = React.cloneElement(child, {
-      className: classNames(child.props.className, `${prefixCls}-trigger`),
+      className: classNames(child.props.className, `${prefixCls}-trigger`, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      }),
       disabled,
+    });
+
+    const overlayClassNameCustomized = classNames(overlayClassName, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const triggerActions = disabled ? [] : trigger;
@@ -147,11 +163,13 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       <RcDropdown
         alignPoint={alignPoint}
         {...this.props}
+        overlayClassName={overlayClassNameCustomized}
         prefixCls={prefixCls}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
         transitionName={this.getTransitionName()}
         trigger={triggerActions}
         overlay={() => this.renderOverlay(prefixCls)}
+        placement={this.getPlacement(direction)}
       >
         {dropdownTrigger}
       </RcDropdown>

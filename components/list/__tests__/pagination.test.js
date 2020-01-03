@@ -162,12 +162,13 @@ describe('List.pagination', () => {
         .render(),
     ).toMatchSnapshot();
 
-    wrapper.find('.ant-select-selection-selected-value').simulate('click');
+    wrapper.find('.ant-select-selector').simulate('mousedown');
     wrapper
-      .find('.ant-select-dropdown-menu .ant-select-dropdown-menu-item')
+      .find('.ant-select-item-option')
       .at(2)
       .simulate('click');
 
+    wrapper.find('.ant-select-selector').simulate('mousedown');
     expect(
       wrapper
         .find('Pagination')

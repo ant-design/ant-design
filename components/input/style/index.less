@@ -17,6 +17,12 @@
     width: 100%;
     text-align: start;
     vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+    &-rtl {
+      direction: rtl;
+    }
+  }
+  &-rtl {
+    direction: rtl;
   }
 }
 
@@ -37,7 +43,7 @@
   transition: all 0.3s;
 
   &:hover {
-    color: #333;
+    color: @input-icon-hover-color;
   }
 }
 

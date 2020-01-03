@@ -1,15 +1,14 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import createReactContext from '@ant-design/create-react-context';
+import { CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import warning from '../_util/warning';
-import Icon from '../icon';
+
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import { tuple } from '../_util/type';
 
-const DrawerContext = createReactContext<Drawer | null>(null);
+const DrawerContext = React.createContext<Drawer | null>(null);
 
 type EventType =
   | React.KeyboardEvent<HTMLDivElement>
@@ -35,8 +34,6 @@ export interface DrawerProps {
   visible?: boolean;
   width?: number | string;
   height?: number | string;
-  /* deprecated, use className instead */
-  wrapClassName?: string;
   zIndex?: number;
   prefixCls?: string;
   push?: boolean;
@@ -166,7 +163,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
       closable && (
         // eslint-disable-next-line react/button-has-type
         <button onClick={onClose} aria-label="Close" className={`${prefixCls}-close`}>
-          <Icon type="close" />
+          <CloseOutlined />
         </button>
       )
     );
@@ -209,21 +206,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
 
   // render Provider for Multi-level drawer
   renderProvider = (value: Drawer) => {
-    const {
-      prefixCls,
-      placement,
-      className,
-      wrapClassName,
-      width,
-      height,
-      mask,
-      ...rest
-    } = this.props;
-    warning(
-      wrapClassName === undefined,
-      'Drawer',
-      'wrapClassName is deprecated, please use className instead.',
-    );
+    const { prefixCls, placement, className, width, height, mask, direction, ...rest } = this.props;
     const haveMask = mask ? '' : 'no-mask';
     this.parentDrawer = value;
     const offsetStyle: any = {};
@@ -232,6 +215,9 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     } else {
       offsetStyle.height = height;
     }
+    const drawerClassName = classNames(className, haveMask, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
       <DrawerContext.Provider value={this}>
         <RcDrawer
@@ -261,7 +247,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
           showMask={mask}
           placement={placement}
           style={this.getRcDrawerStyle()}
-          className={classNames(wrapClassName, className, haveMask)}
+          className={drawerClassName}
         >
           {this.renderBody()}
         </RcDrawer>

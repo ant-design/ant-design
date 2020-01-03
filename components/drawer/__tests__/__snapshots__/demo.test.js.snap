@@ -19,9 +19,10 @@ exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
     class="ant-btn ant-btn-primary"
     type="button"
   >
-    <i
-      aria-label="icon: plus"
+    <span
+      aria-label="plus"
       class="anticon anticon-plus"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -33,6 +34,7 @@ exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
         viewBox="64 64 896 896"
         width="1em"
       >
+        <defs />
         <path
           d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
         />
@@ -40,7 +42,7 @@ exports[`renders ./components/drawer/demo/form-in-drawer.md correctly 1`] = `
           d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
         />
       </svg>
-    </i>
+    </span>
     <span>
        New account
     </span>
@@ -158,7 +160,7 @@ exports[`renders ./components/drawer/demo/placement.md correctly 1`] = `
 
 exports[`renders ./components/drawer/demo/render-in-current.md correctly 1`] = `
 <div
-  style="height:200px;overflow:hidden;position:relative;border:1px solid #ebedf0;border-radius:2px;padding:48px;text-align:center;background:#fafafa"
+  class="site-drawer-render-in-current-wrapper"
 >
   Render in this
   <div

@@ -2,8 +2,7 @@ body {
   color: @site-text-color;
   font-size: 14px;
   font-family: @font-family;
-  line-height: 1.5;
-  background: #fff;
+  background: @body-background;
   transition: background 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
@@ -14,7 +13,7 @@ a {
 .main-wrapper {
   position: relative;
   padding: 40px 0 0;
-  background: #fff;
+  background: @component-background;
 }
 
 .main-container {
@@ -22,13 +21,18 @@ a {
   min-height: 500px;
   padding: 0 170px 32px 64px;
   overflow: hidden;
-  background: #fff;
+  background: @component-background;
+
+  .ant-row-rtl & {
+    padding: 0 64px 144px 170px;
+  }
 }
 
 .main-menu {
   z-index: 1;
 
   &-inner {
+    height: 100%;
     max-height: 100vh;
     overflow: hidden;
   }
@@ -36,22 +40,67 @@ a {
   &:hover &-inner {
     overflow-y: auto;
   }
+
+  > div,
+  > div > div {
+    height: 100%;
+  }
 }
 
 .aside-container {
+  min-height: 100%;
   padding-bottom: 48px;
   font-family: Avenir, @font-family, sans-serif;
 
-  &.ant-menu-inline .ant-menu-submenu-title h4,
-  &.ant-menu-inline > .ant-menu-item,
-  &.ant-menu-inline .ant-menu-item a {
-    overflow: hidden;
-    font-size: 14px;
-    text-overflow: ellipsis;
-  }
+  &.ant-menu-inline {
+    .ant-menu-submenu-title h4,
+    > .ant-menu-item,
+    .ant-menu-item a {
+      overflow: hidden;
+      font-size: 14px;
+      text-overflow: ellipsis;
+    }
 
-  &.ant-menu-inline .ant-menu-item-group-title {
-    padding-left: 56px;
+    > .ant-menu-item-group > .ant-menu-item-group-title {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      font-size: 13px;
+
+      &::after {
+        position: relative;
+        top: 12px;
+        display: block;
+        width: calc(100% - 20px);
+        height: 1px;
+        background: @border-color-split;
+        content: '';
+      }
+    }
+
+    > .ant-menu-item,
+    > .ant-menu-submenu > .ant-menu-submenu-title,
+    > .ant-menu-item-group > .ant-menu-item-group-title,
+    > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
+    &.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
+      padding-left: 40px !important;
+    }
+
+    // Nest Category > Type > Article
+    &.ant-menu-inline {
+      .ant-menu-item-group-title {
+        padding-left: 56px;
+      }
+
+      .ant-menu-item-group-list > .ant-menu-item {
+        padding-left: 80px !important;
+      }
+    }
+
+    .ant-menu-item-group:first-child {
+      .ant-menu-item-group-title {
+        margin-top: 0;
+      }
+    }
   }
 
   a[disabled] {
@@ -102,12 +151,6 @@ a {
   .ant-menu-item > a:hover {
     color: @primary-color;
   }
-
-  .menu-antd-components-count {
-    margin-left: 0.5em;
-    color: @disabled-color;
-    font-size: 12px;
-  }
 }
 
 #react-content {
@@ -118,6 +161,10 @@ a {
   width: 100%;
   padding: 0;
   overflow: hidden;
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 .drawer-content {
@@ -129,10 +176,39 @@ a {
 }
 
 #_hj_feedback_container {
+  > div {
+    left: 0;
+  }
   .path1::before {
     color: @primary-color !important;
   }
   .path2::before {
-    color: #fff !important;
+    color: @body-background !important;
+  }
+}
+
+.fixed-widgets {
+  position: fixed;
+  right: 32px;
+  bottom: 102px;
+  z-index: 2147483640;
+  cursor: pointer;
+  &-tooltip {
+    .ant-tooltip-inner {
+      min-width: 100px;
+    }
+  }
+  & > div {
+    display: block;
+  }
+  & &-avatar {
+    background-color: #fff;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .ant-row-rtl & {
+    right: auto;
+    left: 32px;
   }
 }

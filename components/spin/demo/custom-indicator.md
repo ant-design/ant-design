@@ -14,9 +14,10 @@ title:
 Use custom loading indicator.
 
 ```jsx
-import { Spin, Icon } from 'antd';
+import { Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 
-const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
+const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 ReactDOM.render(<Spin indicator={antIcon} />, mountNode);
 ```

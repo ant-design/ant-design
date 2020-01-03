@@ -22,6 +22,11 @@
     content: '';
   }
 
+  &-rtl {
+    direction: rtl;
+    text-align: right;
+  }
+
   &-hidden {
     display: none;
   }
@@ -94,14 +99,29 @@
     }
     &-title {
       padding-left: @font-size-base + 8px;
+
+      .@{popover-prefix-cls}-rtl & {
+        padding-right: @font-size-base + 8px;
+        padding-left: @padding-md;
+      }
     }
   }
 
   &-buttons {
     margin-bottom: 4px;
     text-align: right;
+
+    .@{popover-prefix-cls}-rtl & {
+      text-align: left;
+    }
+
     button {
       margin-left: 8px;
+
+      .@{popover-prefix-cls}-rtl & {
+        margin-right: 8px;
+        margin-left: 0;
+      }
     }
   }
 

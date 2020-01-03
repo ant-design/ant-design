@@ -1,6 +1,12 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon';
+import {
+  CloseOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
+} from '@ant-design/icons';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -112,7 +118,7 @@ function getNotificationInstance(
 
   const closeIconToRender = (
     <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <Icon className={`${prefixCls}-close-icon`} type="close" />}
+      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
     </span>
   );
 
@@ -132,10 +138,10 @@ function getNotificationInstance(
 }
 
 const typeToIcon = {
-  success: 'check-circle-o',
-  info: 'info-circle-o',
-  error: 'close-circle-o',
-  warning: 'exclamation-circle-o',
+  success: CheckCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+  warning: ExclamationCircleOutlined,
 };
 
 export interface ArgsProps {
@@ -167,10 +173,9 @@ function notice(args: ArgsProps) {
   if (args.icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{args.icon}</span>;
   } else if (args.type) {
-    const iconType = typeToIcon[args.type];
-    iconNode = (
-      <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />
-    );
+    iconNode = React.createElement(typeToIcon[args.type] || null, {
+      className: `${prefixCls}-icon ${prefixCls}-icon-${args.type}`,
+    });
   }
 
   const autoMarginTag =

@@ -1,8 +1,7 @@
 import * as React from 'react';
-import KeyCode from 'rc-util/lib/KeyCode';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
-import Icon from '../icon';
+import KeyCode from 'rc-util/lib/KeyCode';
+import { EnterOutlined } from '@ant-design/icons';
 import TextArea from '../input/TextArea';
 
 interface EditableProps {
@@ -13,6 +12,7 @@ interface EditableProps {
   onCancel: () => void;
   className?: string;
   style?: React.CSSProperties;
+  direction?: 'ltr' | 'rtl';
 }
 
 interface EditableState {
@@ -112,10 +112,13 @@ class Editable extends React.Component<EditableProps, EditableState> {
 
   render() {
     const { current } = this.state;
-    const { prefixCls, 'aria-label': ariaLabel, className, style } = this.props;
+    const { prefixCls, 'aria-label': ariaLabel, className, style, direction } = this.props;
 
+    const textAreaClassName = classNames(prefixCls, className, `${prefixCls}-edit-content`, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
-      <div className={classNames(prefixCls, `${prefixCls}-edit-content`, className)} style={style}>
+      <div className={textAreaClassName} style={style}>
         <TextArea
           ref={this.setTextarea}
           value={current}
@@ -128,12 +131,10 @@ class Editable extends React.Component<EditableProps, EditableState> {
           aria-label={ariaLabel}
           autoSize
         />
-        <Icon type="enter" className={`${prefixCls}-edit-content-confirm`} />
+        <EnterOutlined className={`${prefixCls}-edit-content-confirm`} />
       </div>
     );
   }
 }
-
-polyfill(Editable);
 
 export default Editable;

@@ -1,179 +1,41 @@
+@import './index';
+
 @table-padding-vertical-md: @table-padding-vertical * 3 / 4;
 @table-padding-horizontal-md: @table-padding-horizontal / 2;
 @table-padding-vertical-sm: @table-padding-vertical / 2;
 @table-padding-horizontal-sm: @table-padding-horizontal / 2;
 
-.@{table-prefix-cls}-middle {
-  > .@{table-prefix-cls}-title,
-  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
-    padding: @table-padding-vertical-md @table-padding-horizontal-md;
-  }
-  > .@{table-prefix-cls}-content {
-    > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-body > table,
-    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
-    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-fixed-left
-      > .@{table-prefix-cls}-body-outer
-      > .@{table-prefix-cls}-body-inner
-      > table,
-    > .@{table-prefix-cls}-fixed-right
-      > .@{table-prefix-cls}-body-outer
-      > .@{table-prefix-cls}-body-inner
-      > table {
-      > .@{table-prefix-cls}-thead > tr > th,
-      > .@{table-prefix-cls}-tbody > tr > td {
-        padding: @table-padding-vertical-md @table-padding-horizontal-md;
-      }
+.table-size(@size, @padding-vertical, @padding-horizontal) {
+  .@{table-prefix-cls}.@{table-prefix-cls}-@{size} {
+    .@{table-prefix-cls}-title,
+    .@{table-prefix-cls}-footer,
+    thead > tr > th,
+    tbody > tr > td {
+      padding: @padding-vertical @padding-horizontal;
     }
-  }
 
-  tr.@{table-prefix-cls}-expanded-row td > .@{table-prefix-cls}-wrapper {
-    margin: -@table-padding-vertical-md -@table-padding-horizontal / 2 -@table-padding-vertical-md -
-      1px;
+    .@{table-prefix-cls}-filter-column {
+      margin: -@padding-vertical -@padding-horizontal;
+    }
+
+    .@{table-prefix-cls}-expanded-row-fixed {
+      margin: -@padding-vertical -@padding-horizontal;
+    }
   }
 }
 
-.@{table-prefix-cls}-small {
-  border: @border-width-base @border-style-base @border-color-split;
-  border-radius: @table-border-radius-base;
+// ================================================================
+// =                            Middle                            =
+// ================================================================
+.table-size(~'middle', @table-padding-vertical-md, @table-padding-horizontal-md);
 
-  > .@{table-prefix-cls}-title,
-  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
-    padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
-  }
+// ================================================================
+// =                            Small                             =
+// ================================================================
+.table-size(~'small', @table-padding-vertical-sm, @table-padding-horizontal-sm);
 
-  > .@{table-prefix-cls}-title {
-    top: 0;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
-  }
-
-  > .@{table-prefix-cls}-content > .@{table-prefix-cls}-footer {
-    background-color: transparent;
-    border-top: @border-width-base @border-style-base @border-color-split;
-    &::before {
-      background-color: transparent;
-    }
-  }
-
-  > .@{table-prefix-cls}-content {
-    > .@{table-prefix-cls}-body {
-      margin: 0 @table-padding-horizontal-sm;
-    }
-
-    > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-body > table,
-    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
-    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-fixed-left
-      > .@{table-prefix-cls}-body-outer
-      > .@{table-prefix-cls}-body-inner
-      > table,
-    > .@{table-prefix-cls}-fixed-right
-      > .@{table-prefix-cls}-body-outer
-      > .@{table-prefix-cls}-body-inner
-      > table {
-      border: 0;
-      > .@{table-prefix-cls}-thead > tr > th,
-      > .@{table-prefix-cls}-tbody > tr > td {
-        padding: @table-padding-vertical-sm @table-padding-horizontal-sm;
-      }
-      > .@{table-prefix-cls}-thead > tr > th {
-        background-color: @table-header-bg-sm;
-      }
-      > .@{table-prefix-cls}-thead > tr {
-        border-bottom: @border-width-base @border-style-base @border-color-split;
-      }
-      > .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-column-sort {
-        background-color: @table-body-sort-bg;
-      }
-    }
-
-    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-scroll > .@{table-prefix-cls}-body > table,
-    > .@{table-prefix-cls}-fixed-left > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-fixed-right > .@{table-prefix-cls}-header > table,
-    > .@{table-prefix-cls}-fixed-left
-      > .@{table-prefix-cls}-body-outer
-      > .@{table-prefix-cls}-body-inner
-      > table,
-    > .@{table-prefix-cls}-fixed-right
-      > .@{table-prefix-cls}-body-outer
-      > .@{table-prefix-cls}-body-inner
-      > table {
-      padding: 0;
-    }
-
-    .@{table-prefix-cls}-header {
-      background-color: @table-header-bg-sm;
-      border-radius: @table-border-radius-base @table-border-radius-base 0 0;
-    }
-
-    .@{table-prefix-cls}-placeholder,
-    .@{table-prefix-cls}-row:last-child td {
-      border-bottom: 0;
-    }
-  }
-
-  &.@{table-prefix-cls}-bordered {
-    border-right: 0;
-
-    .@{table-prefix-cls}-title {
-      border: 0;
-      border-right: @border-width-base @border-style-base @border-color-split;
-      border-bottom: @border-width-base @border-style-base @border-color-split;
-    }
-
-    .@{table-prefix-cls}-content {
-      border-right: @border-width-base @border-style-base @border-color-split;
-    }
-
-    .@{table-prefix-cls}-footer {
-      border: 0;
-      border-top: @border-width-base @border-style-base @border-color-split;
-      &::before {
-        display: none;
-      }
-    }
-
-    .@{table-prefix-cls}-placeholder {
-      border-right: 0;
-      border-bottom: 0;
-      border-left: 0;
-    }
-
-    .@{table-prefix-cls}-thead > tr > th.@{table-prefix-cls}-row-cell-last,
-    .@{table-prefix-cls}-tbody > tr > td:last-child {
-      border-right: none;
-    }
-
-    .@{table-prefix-cls}-fixed-left {
-      .@{table-prefix-cls}-thead > tr > th:last-child,
-      .@{table-prefix-cls}-tbody > tr > td:last-child {
-        border-right: @border-width-base @border-style-base @border-color-split;
-      }
-    }
-
-    .@{table-prefix-cls}-fixed-right {
-      border-right: @border-width-base @border-style-base @border-color-split;
-      border-left: @border-width-base @border-style-base @border-color-split;
-    }
-  }
-
-  tr.@{table-prefix-cls}-expanded-row td > .@{table-prefix-cls}-wrapper {
-    margin: -@table-padding-vertical-sm -@table-padding-horizontal / 2 -@table-padding-vertical-sm -
-      1px;
-  }
-
-  // https://github.com/ant-design/ant-design/issues/19287#issuecomment-544368967
-  &.@{table-prefix-cls}-fixed-header
-    > .@{table-prefix-cls}-content
-    > .@{table-prefix-cls}-scroll
-    > .@{table-prefix-cls}-body {
-    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
+.@{table-prefix-cls}.@{table-prefix-cls}-small {
+  thead > tr > th {
+    background-color: @table-header-bg-sm;
   }
 }

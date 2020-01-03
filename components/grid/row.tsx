@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import * as PropTypes from 'prop-types';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
@@ -16,9 +15,8 @@ const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-betwee
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
-  type?: 'flex';
-  align?: (typeof RowAligns)[number];
-  justify?: (typeof RowJustify)[number];
+  align?: typeof RowAligns[number];
+  justify?: typeof RowJustify[number];
   prefixCls?: string;
 }
 
@@ -31,16 +29,6 @@ export default class Row extends React.Component<RowProps, RowState> {
     gutter: 0,
   };
 
-  static propTypes = {
-    type: PropTypes.oneOf<'flex'>(['flex']),
-    align: PropTypes.oneOf(RowAligns),
-    justify: PropTypes.oneOf(RowJustify),
-    className: PropTypes.string,
-    children: PropTypes.node,
-    gutter: PropTypes.oneOfType([PropTypes.object, PropTypes.number, PropTypes.array]),
-    prefixCls: PropTypes.string,
-  };
-
   state: RowState = {
     screens: {},
   };
@@ -49,13 +37,7 @@ export default class Row extends React.Component<RowProps, RowState> {
 
   componentDidMount() {
     this.token = ResponsiveObserve.subscribe(screens => {
-      const { gutter } = this.props;
-      if (
-        typeof gutter === 'object' ||
-        (Array.isArray(gutter) && (typeof gutter[0] === 'object' || typeof gutter[1] === 'object'))
-      ) {
-        this.setState({ screens });
-      }
+      this.setState({ screens });
     });
   }
 
@@ -84,10 +66,10 @@ export default class Row extends React.Component<RowProps, RowState> {
     return results;
   }
 
-  renderRow = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderRow = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { screens } = this.state;
     const {
       prefixCls: customizePrefixCls,
-      type,
       justify,
       align,
       className,
@@ -98,11 +80,11 @@ export default class Row extends React.Component<RowProps, RowState> {
     const prefixCls = getPrefixCls('row', customizePrefixCls);
     const gutter = this.getGutter();
     const classes = classNames(
+      prefixCls,
       {
-        [prefixCls]: !type,
-        [`${prefixCls}-${type}`]: type,
-        [`${prefixCls}-${type}-${justify}`]: type && justify,
-        [`${prefixCls}-${type}-${align}`]: type && align,
+        [`${prefixCls}-${justify}`]: justify,
+        [`${prefixCls}-${align}`]: align,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
@@ -116,7 +98,7 @@ export default class Row extends React.Component<RowProps, RowState> {
       ...(gutter[1]! > 0
         ? {
             marginTop: gutter[1]! / -2,
-            marginBottom: gutter[1]! / -2,
+            marginBottom: gutter[1]! / 2,
           }
         : {}),
       ...style,
@@ -125,7 +107,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     delete otherProps.gutter;
 
     return (
-      <RowContext.Provider value={{ gutter }}>
+      <RowContext.Provider value={{ screens, gutter }}>
         <div {...otherProps} className={classes} style={rowStyle}>
           {children}
         </div>

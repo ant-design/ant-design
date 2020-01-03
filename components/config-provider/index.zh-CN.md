@@ -38,13 +38,15 @@ return (
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| autoInsertSpaceInButton | 设置为 `false` 时，移除按钮中 2 个汉字之间的空格 | boolean | true | 3.13.0 |
-| csp | 设置 [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - | 3.13.1 |
-| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | Function(componentName: string): ReactNode | - | 3.12.2 |
-| getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | Function(triggerNode) | () => document.body | 3.11.0 |
-| locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - | 3.21.0 |
-| prefixCls | 设置统一样式前缀 | string | ant | 3.12.0 |
-| pageHeader | 统一设置 pageHeader 的 ghost，参考 [pageHeader](<(/components/page-header)>) | { ghost: boolean } | 'true' | 3.24.0 |
+| autoInsertSpaceInButton | 设置为 `false` 时，移除按钮中 2 个汉字之间的空格 | boolean | true |  |
+| csp | 设置 [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
+| form | 设置 Form 组件的通用属性 | { validateMessages?: [ValidateMessages](/components/form/#validateMessages) } | - |  |
+| renderEmpty | 自定义组件空状态。参考 [空状态](/components/empty/) | Function(componentName: string): ReactNode | - |  |
+| getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | Function(triggerNode) | () => document.body |  |
+| locale | 语言包配置，语言包可到 [antd/es/locale](http://unpkg.com/antd/es/locale/) 目录下寻找 | object | - |  |
+| prefixCls | 设置统一样式前缀 | string | ant |  |
+| pageHeader | 统一设置 pageHeader 的 ghost，参考 [pageHeader](<(/components/page-header)>) | { ghost: boolean } | 'true' |  |
+| direction | 设置文本展示方向。 [示例](#components-config-provider-demo-direction) | string: 'ltr', 'rtl' | ltr |  |
 
 ## FAQ
 

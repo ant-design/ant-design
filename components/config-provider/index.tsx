@@ -2,13 +2,14 @@
 // SFC has specified a displayName, but not worked.
 /* eslint-disable react/display-name */
 import * as React from 'react';
-
+import { FormProvider as RcFormProvider } from 'rc-field-form';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 
-export { RenderEmptyHandler, ConfigConsumer, CSPConfig, ConfigConsumerProps };
+export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
   'getPopupContainer',
@@ -28,10 +29,14 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  form?: {
+    validateMessages?: ValidateMessages;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
   };
+  direction?: 'ltr' | 'rtl';
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
@@ -50,8 +55,10 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       renderEmpty,
       csp,
       autoInsertSpaceInButton,
+      form,
       locale,
       pageHeader,
+      direction,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -59,6 +66,8 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       getPrefixCls: this.getPrefixCls,
       csp,
       autoInsertSpaceInButton,
+      locale: locale || legacyLocale,
+      direction,
     };
 
     if (getPopupContainer) {
@@ -73,10 +82,19 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       config.pageHeader = pageHeader;
     }
 
+    let childNode = children;
+
+    // Additional Form provider
+    if (form && form.validateMessages) {
+      childNode = (
+        <RcFormProvider validateMessages={form.validateMessages}>{children}</RcFormProvider>
+      );
+    }
+
     return (
       <ConfigContext.Provider value={config}>
         <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-          {children}
+          {childNode}
         </LocaleProvider>
       </ConfigContext.Provider>
     );

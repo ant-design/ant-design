@@ -50,10 +50,7 @@
     text-align: center;
     #logo {
       float: initial;
-
-      img:last-child {
-        margin-right: 0;
-      }
+      padding-right: 0;
     }
   }
   #search-box {
@@ -136,8 +133,10 @@
     border-right: 0;
   }
 
-  .main-container {
+  .main-container,
+  .ant-row-rtl .main-container {
     margin-right: 0;
+    margin-left: 0;
     padding-right: 16px;
     padding-left: 16px;
     > .markdown > * {
@@ -254,7 +253,7 @@
   }
   .page2 {
     min-height: 840px;
-    background: #fff;
+    background: @body-background;
     &-content {
       box-shadow: none;
     }
@@ -327,7 +326,7 @@
     .page3-block {
       margin-bottom: 32px;
       padding: 24px;
-      background: #fff;
+      background: @body-background;
       border-radius: 4px;
       box-shadow: 0 8px 16px rgba(174, 185, 193, 0.3);
       &:nth-child(2) {

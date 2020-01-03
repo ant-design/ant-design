@@ -1,6 +1,5 @@
 import React from 'react';
 import notification from '..';
-import Icon from '../../icon';
 
 describe('notification', () => {
   beforeAll(() => {
@@ -85,20 +84,20 @@ describe('notification', () => {
     notification.open({
       message: 'Notification Title',
       duration: 0,
-      closeIcon: <Icon type="step-backward" />,
+      closeIcon: <span className="test-customize-icon" />,
     });
-    expect(document.querySelectorAll('.anticon-step-backward').length).toBe(1);
+    expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
   });
 
   it('support config closeIcon', () => {
     notification.config({
-      closeIcon: <Icon type="step-backward" />,
+      closeIcon: <span className="test-customize-icon" />,
     });
     notification.open({
       message: 'Notification Title',
       duration: 0,
-      closeIcon: <Icon type="step-backward" />,
+      closeIcon: <span className="test-customize-icon" />,
     });
-    expect(document.querySelectorAll('.anticon-step-backward').length).toBe(1);
+    expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
   });
 });

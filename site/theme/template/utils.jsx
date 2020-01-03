@@ -2,49 +2,86 @@ import flattenDeep from 'lodash/flattenDeep';
 import flatten from 'lodash/flatten';
 
 export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
-  const menuMeta = moduleData.map(item => item.meta);
+  const menuMeta = moduleData.map(item => item.meta).filter(meta => !meta.skip);
+
   const menuItems = [];
   const sortFn = (a, b) => (a.order || 0) - (b.order || 0);
   menuMeta.sort(sortFn).forEach(meta => {
+    // Format
+    if (meta.category) {
+      meta.category = meta.category[locale] || meta.category;
+    }
+    if (meta.type) {
+      meta.type = meta.type[locale] || meta.type;
+    }
+    if (meta.title) {
+      meta.title = meta.title[locale] || meta.title;
+    }
+
     if (!meta.category) {
       menuItems.push(meta);
-    } else {
-      const category = meta.category[locale] || meta.category;
-      let group = menuItems.filter(i => i.title === category)[0];
-      if (!group) {
-        group = {
-          type: 'category',
-          title: category,
+      return;
+    }
+
+    // Component
+    if (meta.category === 'Components' && meta.type) {
+      let type = menuItems.find(i => i.title === meta.type);
+      if (!type) {
+        type = {
+          type: 'type',
+          title: meta.type,
           children: [],
-          order: categoryOrder[category],
+          order: typeOrder[meta.type],
         };
-        menuItems.push(group);
+        menuItems.push(type);
       }
-      if (meta.type) {
-        let type = group.children.filter(i => i.title === meta.type)[0];
-        if (!type) {
-          type = {
-            type: 'type',
-            title: meta.type,
-            children: [],
-            order: typeOrder[meta.type],
-          };
-          group.children.push(type);
-        }
-        type.children.push(meta);
-      } else {
-        group.children.push(meta);
+      type.children.push(meta);
+      return;
+    }
+
+    let group = menuItems.find(i => i.title === meta.category);
+
+    if (!group) {
+      group = {
+        type: 'category',
+        title: meta.category,
+        children: [],
+        order: categoryOrder[meta.category],
+      };
+      menuItems.push(group);
+    }
+
+    if (meta.type) {
+      let type = group.children.filter(i => i.title === meta.type)[0];
+      if (!type) {
+        type = {
+          type: 'type',
+          title: meta.type,
+          children: [],
+          order: typeOrder[meta.type],
+        };
+        group.children.push(type);
       }
+      type.children.push(meta);
+    } else {
+      group.children.push(meta);
     }
   });
-  return menuItems
-    .map(i => {
-      if (i.children) {
-        i.children = i.children.sort(sortFn);
+
+  function nestSort(list) {
+    return list.sort(sortFn).map(item => {
+      if (item.children) {
+        return {
+          ...item,
+          children: nestSort(item.children),
+        };
       }
-      return i;
-    })
-    .sort(sortFn);
+
+      return item;
+    });
+  }
+
+  return nestSort(menuItems);
 }
 
 export function isZhCN(pathname) {

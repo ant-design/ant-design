@@ -2,8 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { Row, Col, Icon, Affix, Tooltip } from 'antd';
+import { Row, Col, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
+import { CodeFilled, CodeOutlined, BugFilled, BugOutlined } from '@ant-design/icons';
 import Demo from './Demo';
 import EditButton from './EditButton';
 import { ping, getMetaDescription } from '../utils';
@@ -34,8 +35,8 @@ class ComponentDoc extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const { location } = this.props;
-    const { location: nextLocation } = nextProps;
+    const { location, theme } = this.props;
+    const { location: nextLocation, theme: nextTheme } = nextProps;
     const { expandAll, visibleAll, showRiddleButton } = this.state;
     const {
       expandAll: nextExpandAll,
@@ -46,6 +47,8 @@ class ComponentDoc extends React.Component {
     if (
       nextLocation.pathname === location.pathname &&
       expandAll === nextExpandAll &&
+      showRiddleButton === nextShowRiddleButton &&
+      theme === nextTheme &&
       visibleAll === nextVisibleAll &&
       showRiddleButton === nextShowRiddleButton
     ) {
@@ -78,6 +81,8 @@ class ComponentDoc extends React.Component {
       location,
       intl: { locale },
       utils,
+      theme,
+      setIframeTheme,
       demos,
     } = this.props;
     const { content, meta } = doc;
@@ -102,6 +107,8 @@ class ComponentDoc extends React.Component {
             utils={utils}
             expand={expandAll}
             location={location}
+            theme={theme}
+            setIframeTheme={setIframeTheme}
           />
         );
         if (index % 2 === 0 || isSingleCol) {
@@ -158,7 +165,7 @@ class ComponentDoc extends React.Component {
           )}
           <h2>
             <FormattedMessage id="app.component.examples" />
-            <span style={{ float: 'right' }}>
+            <span className="all-code-box-controls">
               <Tooltip
                 title={
                   <FormattedMessage
@@ -166,12 +173,11 @@ class ComponentDoc extends React.Component {
                   />
                 }
               >
-                <Icon
-                  type="code"
-                  theme={expandAll ? 'filled' : 'outlined'}
-                  className={expandTriggerClass}
-                  onClick={this.handleExpandToggle}
-                />
+                {expandAll ? (
+                  <CodeFilled className={expandTriggerClass} onClick={this.handleExpandToggle} />
+                ) : (
+                  <CodeOutlined className={expandTriggerClass} onClick={this.handleExpandToggle} />
+                )}
               </Tooltip>
               <Tooltip
                 title={
@@ -180,12 +186,11 @@ class ComponentDoc extends React.Component {
                   />
                 }
               >
-                <Icon
-                  type="bug"
-                  theme={visibleAll ? 'filled' : 'outlined'}
-                  className={expandTriggerClass}
-                  onClick={this.handleVisibleToggle}
-                />
+                {visibleAll ? (
+                  <BugFilled className={expandTriggerClass} onClick={this.handleVisibleToggle} />
+                ) : (
+                  <BugOutlined className={expandTriggerClass} onClick={this.handleVisibleToggle} />
+                )}
               </Tooltip>
             </span>
           </h2>

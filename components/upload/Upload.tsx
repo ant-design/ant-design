@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcUpload from 'rc-upload';
 import classNames from 'classnames';
 import uniqBy from 'lodash/uniqBy';
@@ -16,7 +15,7 @@ import {
   UploadType,
   UploadListType,
 } from './interface';
-import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from './utils';
+import { T, fileToObject, getFileItem, removeFileItem } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -97,10 +96,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
       file: targetItem,
       fileList: nextFileList,
     });
-    // fix ie progress
-    if (!(window as any).File || process.env.TEST_IE) {
-      this.autoUpdateProgress(0, targetItem);
-    }
   };
 
   onSuccess = (response: any, file: UploadFile, xhr: any) => {
@@ -230,21 +225,6 @@ class Upload extends React.Component<UploadProps, UploadState> {
     clearInterval(this.progressTimer);
   }
 
-  autoUpdateProgress(_: any, file: UploadFile) {
-    const getPercent = genPercentAdd();
-    let curPercent = 0;
-    this.clearProgressTimer();
-    this.progressTimer = setInterval(() => {
-      curPercent = getPercent(curPercent);
-      this.onProgress(
-        {
-          percent: curPercent * 100,
-        },
-        file,
-      );
-    }, 200);
-  }
-
   renderUploadList = (locale: UploadLocale) => {
     const {
       showUploadList,
@@ -273,7 +253,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     );
   };
 
-  renderUpload = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderUpload = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -340,6 +320,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       [`${prefixCls}-select`]: true,
       [`${prefixCls}-select-${listType}`]: true,
       [`${prefixCls}-disabled`]: disabled,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     // Remove id to avoid open by label when trigger is hidden
@@ -376,7 +357,5 @@ class Upload extends React.Component<UploadProps, UploadState> {
     return <ConfigConsumer>{this.renderUpload}</ConfigConsumer>;
   }
 }
-
-polyfill(Upload);
 
 export default Upload;

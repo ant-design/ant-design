@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 2
 title: Getting Started
 ---
 
@@ -104,23 +104,19 @@ In the real world you will need a development workflow consisting of `compile/bu
 
 ## Compatibility
 
-Ant Design React supports all modern browsers and IE9+.
+Ant Design React supports all modern browsers and IE11+.
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Opera | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)</br>Electron |
 | --- | --- | --- | --- | --- | --- |
-| IE9, IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
-
-We offer very limited support for IE9/10 which means some styles and animations will be mininal for them. Also, we use Flex layout in a few components.
-
-> Note: Different than Ant Design, Ant Design Pro supports IE11+.
+| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 Polyfills are needed for IE browsers. We recommend [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env) for it. You can set `targets` config if you are using [umi](http://umijs.org/).
 
 Ant Design 3.0 supports both React 15 and 16 but we strongly suggest React 16 for better performance and fewer bugs.
 
-#### IE8 note
+#### IE note
 
-> We don't support IE8 after `antd@2.0`.
+> We drop support of IE8 after `antd@2.0`, IE9/10 after `antd@4.0`,
 
 ## Customized Work Flow
 

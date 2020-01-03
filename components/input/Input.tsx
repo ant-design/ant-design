@@ -1,6 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import Group from './Group';
@@ -63,11 +61,13 @@ export function getInputClassName(
   prefixCls: string,
   size?: typeof InputSizes[number],
   disabled?: boolean,
+  direction?: any,
 ) {
   return classNames(prefixCls, {
     [`${prefixCls}-sm`]: size === 'small',
     [`${prefixCls}-lg`]: size === 'large',
     [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 }
 
@@ -88,33 +88,13 @@ class Input extends React.Component<InputProps, InputState> {
     type: 'text',
   };
 
-  static propTypes = {
-    type: PropTypes.string,
-    id: PropTypes.string,
-    size: PropTypes.oneOf(InputSizes),
-    maxLength: PropTypes.number,
-    disabled: PropTypes.bool,
-    value: PropTypes.any,
-    defaultValue: PropTypes.any,
-    className: PropTypes.string,
-    addonBefore: PropTypes.node,
-    addonAfter: PropTypes.node,
-    prefixCls: PropTypes.string,
-    onPressEnter: PropTypes.func,
-    onKeyDown: PropTypes.func,
-    onKeyUp: PropTypes.func,
-    onFocus: PropTypes.func,
-    onBlur: PropTypes.func,
-    prefix: PropTypes.node,
-    suffix: PropTypes.node,
-    allowClear: PropTypes.bool,
-  };
-
   input: HTMLInputElement;
 
   clearableInput: ClearableLabeledInput;
 
   removePasswordTimeout: number;
+
+  direction: any = 'ltr';
 
   constructor(props: InputProps) {
     super(props);
@@ -213,7 +193,7 @@ class Input extends React.Component<InputProps, InputState> {
         {...otherProps}
         onChange={this.handleChange}
         onKeyDown={this.handleKeyDown}
-        className={classNames(getInputClassName(prefixCls, size, disabled), {
+        className={classNames(getInputClassName(prefixCls, size, disabled, this.direction), {
           [className!]: className && !addonBefore && !addonAfter,
         })}
         ref={this.saveInput}
@@ -249,10 +229,11 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { value } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+    this.direction = direction;
     return (
       <ClearableLabeledInput
         {...this.props}
@@ -262,6 +243,7 @@ class Input extends React.Component<InputProps, InputState> {
         element={this.renderInput(prefixCls)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
+        direction={direction}
       />
     );
   };
@@ -270,7 +252,5 @@ class Input extends React.Component<InputProps, InputState> {
     return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
-
-polyfill(Input);
 
 export default Input;

@@ -27,12 +27,11 @@ const menu = (
 ReactDOM.render(
   <Dropdown overlay={menu} trigger={['contextMenu']}>
     <div
+      className="site-dropdown-context-menu"
       style={{
         textAlign: 'center',
-        background: '#f7f7f7',
         height: 200,
         lineHeight: '200px',
-        color: '#777',
       }}
     >
       Right Click on here
@@ -41,3 +40,17 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+```css
+.site-dropdown-context-menu {
+  background: #f7f7f7;
+  color: #777;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-dropdown-context-menu {
+    background: #141414;
+    color: rgba(255,255,255,.65);
+  }
+</style>

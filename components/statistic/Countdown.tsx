@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import * as moment from 'moment';
 import interopDefault from '../_util/interopDefault';
 import Statistic, { StatisticProps } from './Statistic';
@@ -85,7 +84,5 @@ class Countdown extends React.Component<CountdownProps, {}> {
     );
   }
 }
-
-polyfill(Countdown);
 
 export default Countdown;

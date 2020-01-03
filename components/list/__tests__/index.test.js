@@ -2,10 +2,14 @@ import React from 'react';
 import { mount } from 'enzyme';
 import List from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('List', () => {
   mountTest(List);
   mountTest(List.Item);
+
+  rtlTest(List);
+  rtlTest(List.Item);
 
   it('locale not passed to internal div', async () => {
     const locale = { emptyText: 'Custom text' };

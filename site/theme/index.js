@@ -48,7 +48,7 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-antd?injectProvider',
+    '@ant-design/bisheng-plugin?injectProvider',
     'bisheng-plugin-react?lang=__react',
   ],
   routes: {
@@ -74,6 +74,14 @@ module.exports = {
       },
       {
         path: 'changelog-cn',
+        component: contentTmpl,
+      },
+      {
+        path: 'components/form/v3',
+        component: contentTmpl,
+      },
+      {
+        path: 'components/form/v3-cn',
         component: contentTmpl,
       },
       {

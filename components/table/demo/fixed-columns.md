@@ -1,5 +1,5 @@
 ---
-order: 18
+order: 19
 title:
   en-US: Fixed Columns
   zh-CN: 固定列
@@ -13,6 +13,8 @@ title:
 >
 > 建议指定 `scroll.x` 为大于表格宽度的固定值或百分比。注意，且非固定列宽度之和不要超过 `scroll.x`。
 
+**注意：v4 版本固定列通过 sticky 实现，IE 11 会降级成横向滚动。**
+
 ## en-US
 
 To fix some columns and scroll inside other columns, and you must set `scroll.x` meanwhile.
@@ -20,6 +22,8 @@ To fix some columns and scroll inside other columns, and you must set `scroll.x`
 > Specify the width of columns if header and cell do not align properly. If specified width is not working or have gutter between columns, please try to leave one column at least without width to fit fluid layout, or make sure no [long word to break table layout](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241).
 >
 > A fixed value which is greater than table width for `scroll.x` is recommended. The sum of unfixed columns should not greater than `scroll.x`.
+
+**Note: v4 using sticky to implement fixed effect. IE 11 will downgrade to horizontal scroll.**
 
 ```jsx
 import { Table } from 'antd';

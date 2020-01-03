@@ -39,7 +39,7 @@
     padding: @notification-padding;
     overflow: hidden;
     line-height: 1.5;
-    background: @component-background;
+    background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
 
@@ -116,7 +116,12 @@
       outline: none;
 
       &:hover {
-        color: shade(@text-color-secondary, 40%);
+        & when (@theme = dark) {
+          color: fade(@white, 85%);
+        }
+        & when not (@theme = dark) {
+          color: shade(@text-color-secondary, 40%);
+        }
       }
     }
 
