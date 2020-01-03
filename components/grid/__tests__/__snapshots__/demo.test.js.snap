@@ -973,17 +973,17 @@ exports[`renders ./components/grid/demo/responsive.md correctly 1`] = `
   class="ant-row"
 >
   <div
-    class="ant-col"
+    class="ant-col ant-col-base-10"
   >
     Col
   </div>
   <div
-    class="ant-col"
+    class="ant-col ant-col-base-4"
   >
     Col
   </div>
   <div
-    class="ant-col"
+    class="ant-col ant-col-base-10"
   >
     Col
   </div>
@@ -995,17 +995,17 @@ exports[`renders ./components/grid/demo/responsive-more.md correctly 1`] = `
   class="ant-row"
 >
   <div
-    class="ant-col"
+    class="ant-col ant-col-base-6 ant-col-base-offset-2"
   >
     Col
   </div>
   <div
-    class="ant-col"
+    class="ant-col ant-col-base-6 ant-col-base-offset-2"
   >
     Col
   </div>
   <div
-    class="ant-col"
+    class="ant-col ant-col-base-6 ant-col-base-offset-2"
   >
     Col
   </div>
