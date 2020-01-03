@@ -174,7 +174,7 @@ antd4-codemod src
 
 **注意：从 `@ant-design/compatible` 引入的老版本 Form 组件，样式类名会从 `.ant-form` 变成 `.ant-legacy-form`，如果你对其进行了样式覆盖，也需要相应修改。**
 
-#### 用新的 `@ant-design/icons` 替换组件的字符串 icon prop
+#### 用新的 `@ant-design/icons` 替换字符串类型的 `icon` 属性值
 
 ```diff
   import { Avatar, Button, Result } from 'antd';
