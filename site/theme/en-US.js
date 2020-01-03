@@ -54,6 +54,7 @@ module.exports = {
     'app.home.recommend': 'Recommend',
     'app.home.recommend.yuque': 'Yuque, our favorite documentation tool',
     'app.home.recommend.antv.g2plot': 'G2Plot, the new charting library',
+    'app.home.recommend.antd.next': 'Ant Design 4.0: Creating happy work',
     'app.home.more': 'Learn more',
     'app.home.more-mobile-react': 'Ant Design Mobile of React',
     'app.home.more-mobile-angular': 'Ant Design Mobile of Angular',
