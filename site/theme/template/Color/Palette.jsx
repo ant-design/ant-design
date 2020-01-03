@@ -32,12 +32,12 @@ export default class Palette extends React.Component {
     const {
       showTitle,
       direction,
-      color: { name, description, english, chinese },
+      color: { name, description, english, chinese, count = 10 },
     } = this.props;
     const className = direction === 'horizontal' ? 'color-palette-horizontal' : 'color-palette';
     const colors = [];
     const colorName = `${english} / ${chinese}`;
-    for (let i = 1; i <= 10; i += 1) {
+    for (let i = 1; i <= count; i += 1) {
       const colorText = `${name}-${i}`;
       colors.push(
         <CopyToClipboard

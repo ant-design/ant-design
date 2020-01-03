@@ -56,41 +56,6 @@
     .header-direction-button {
       margin-right: 0;
     }
-
-    // Adjust github button style
-    .github-btn {
-      float: right;
-      height: auto;
-      margin: 20px 0 0 16px;
-
-      .gh-btn {
-        height: auto;
-        padding: 1px 4px;
-        background: transparent;
-        border: 0;
-
-        .gh-ico {
-          width: 20px;
-          height: 20px;
-          margin: 0;
-        }
-
-        .gh-text {
-          display: none;
-        }
-      }
-
-      .gh-count {
-        height: auto;
-        padding: 4px 8px;
-        font-weight: normal;
-        background: #fff;
-
-        &:hover {
-          color: @primary-color;
-        }
-      }
-    }
   }
 }
 
@@ -168,7 +133,7 @@
   margin-top: 20px;
   margin-left: 16px;
 
-  .ant-row-rtl & {
+  #header .ant-row-rtl & {
     float: left;
     margin-right: 16px;
     margin-left: 0;
@@ -181,20 +146,64 @@
   color: @text-color;
   border-color: @border-color-base;
 
-  .ant-row-rtl & {
+  #header .ant-row-rtl & {
     margin-right: 16px;
-    margin-left: 40px;
+    margin-left: 16px;
   }
 }
 
 .header-lang-button {
   margin-right: 0;
 
-  .ant-row-rtl & {
+  #header .ant-row-rtl & {
     margin-right: 16px;
     margin-left: 0;
   }
 }
+
+// Adjust github button style
+.github-btn {
+  float: right;
+  height: auto;
+  margin: 20px 0 0 16px;
+
+  #header .ant-row-rtl & {
+    float: left;
+
+    .gh-count {
+      display: none !important;
+    }
+  }
+
+  .gh-btn {
+    height: auto;
+    padding: 1px 4px;
+    background: transparent;
+    border: 0;
+
+    .gh-ico {
+      width: 20px;
+      height: 20px;
+      margin: 0;
+    }
+
+    .gh-text {
+      display: none;
+    }
+  }
+
+  .gh-count {
+    height: auto;
+    padding: 4px 8px;
+    font-weight: normal;
+    background: #fff;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}
+
 #nav {
   float: right;
   font-size: 14px;
