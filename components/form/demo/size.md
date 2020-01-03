@@ -27,7 +27,7 @@ import {
   Switch,
 } from 'antd';
 const FormSizeDemo = () => {
-  const [componentSize, setComponentSize] = React.useState('default');
+  const [componentSize, setComponentSize] = React.useState('small');
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };
@@ -44,7 +44,7 @@ const FormSizeDemo = () => {
         <Form.Item label="Form Size" name="size">
           <Radio.Group>
             <Radio.Button value="small">Small</Radio.Button>
-            <Radio.Button value="default">Default</Radio.Button>
+            <Radio.Button value="middle">Middle</Radio.Button>
             <Radio.Button value="large">Large</Radio.Button>
           </Radio.Group>
         </Form.Item>

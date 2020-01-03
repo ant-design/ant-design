@@ -2522,16 +2522,17 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <div
-            class="ant-radio-group ant-radio-group-outline ant-radio-group-default"
+            class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
             id="size"
           >
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
             >
               <span
-                class="ant-radio-button"
+                class="ant-radio-button ant-radio-button-checked"
               >
                 <input
+                  checked=""
                   class="ant-radio-button-input"
                   type="radio"
                   value="small"
@@ -2545,23 +2546,22 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              class="ant-radio-button-wrapper"
             >
               <span
-                class="ant-radio-button ant-radio-button-checked"
+                class="ant-radio-button"
               >
                 <input
-                  checked=""
                   class="ant-radio-button-input"
                   type="radio"
-                  value="default"
+                  value="middle"
                 />
                 <span
                   class="ant-radio-button-inner"
                 />
               </span>
               <span>
-                Default
+                Middle
               </span>
             </label>
             <label
@@ -2607,7 +2607,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-sm"
             type="text"
             value=""
           />
@@ -2634,7 +2634,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <div
-            class="ant-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -2711,7 +2711,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <div
-            class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+            class="ant-select ant-tree-select ant-select-sm ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -2788,7 +2788,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <span
-            class="ant-cascader-picker ant-cascader-picker-default"
+            class="ant-cascader-picker ant-cascader-picker-small"
             tabindex="0"
           >
             <span
@@ -2796,7 +2796,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             />
             <input
               autocomplete="off"
-              class="ant-input ant-cascader-input "
+              class="ant-input ant-input-sm ant-cascader-input ant-input-sm"
               placeholder="Please select"
               readonly=""
               tabindex="-1"
@@ -2847,7 +2847,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <div
-            class="ant-picker ant-picker-default"
+            class="ant-picker ant-picker-small"
           >
             <div
               class="ant-picker-input"
@@ -2907,7 +2907,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <div
-            class="ant-input-number"
+            class="ant-input-number ant-input-number-sm"
           >
             <div
               class="ant-input-number-handler-wrap"
@@ -3007,7 +3007,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
         >
           <button
             aria-checked="false"
-            class="ant-switch"
+            class="ant-switch-small ant-switch"
             role="switch"
             type="button"
           >
@@ -3038,7 +3038,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input"
         >
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-sm"
             type="button"
           >
             <span>
