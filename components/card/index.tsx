@@ -8,6 +8,7 @@ import Row from '../row';
 import Col from '../col';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';
+import SizeContext from '../config-provider/SizeContext';
 
 function getAction(actions: React.ReactNode[]) {
   const actionList = actions.map((action, index) => (
@@ -86,7 +87,7 @@ export default class Card extends React.Component<CardProps, {}> {
       title,
       loading,
       bordered = true,
-      size = 'default',
+      size: customizeSize,
       type,
       cover,
       actions,
@@ -100,16 +101,6 @@ export default class Card extends React.Component<CardProps, {}> {
     } = this.props;
 
     const prefixCls = getPrefixCls('card', customizePrefixCls);
-    const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-loading`]: loading,
-      [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-hoverable`]: hoverable,
-      [`${prefixCls}-contain-grid`]: this.isContainGrid(),
-      [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
-      [`${prefixCls}-${size}`]: size !== 'default',
-      [`${prefixCls}-type-${type}`]: !!type,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
 
     const loadingBlockStyle =
       bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
@@ -167,7 +158,7 @@ export default class Card extends React.Component<CardProps, {}> {
       tabBarExtraContent,
     };
 
-    let head;
+    let head: React.ReactNode;
     const tabs =
       tabList && tabList.length ? (
         <Tabs
@@ -204,12 +195,30 @@ export default class Card extends React.Component<CardProps, {}> {
       ) : null;
     const divProps = omit(others, ['onTabChange']);
     return (
-      <div {...divProps} className={classString}>
-        {head}
-        {coverDom}
-        {body}
-        {actionDom}
-      </div>
+      <SizeContext.Consumer>
+        {size => {
+          const mergedSize = customizeSize || size;
+          const classString = classNames(prefixCls, className, {
+            [`${prefixCls}-loading`]: loading,
+            [`${prefixCls}-bordered`]: bordered,
+            [`${prefixCls}-hoverable`]: hoverable,
+            [`${prefixCls}-contain-grid`]: this.isContainGrid(),
+            [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
+            [`${prefixCls}-${mergedSize}`]: mergedSize,
+            [`${prefixCls}-type-${type}`]: !!type,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          });
+
+          return (
+            <div {...divProps} className={classString}>
+              {head}
+              {coverDom}
+              {body}
+              {actionDom}
+            </div>
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 
