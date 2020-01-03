@@ -115,10 +115,9 @@ const Demo = () => (
     - 未填值时，选择完起始时间后需要选择结束时间。
     - 有起始结束时间时，可单独更改起始或结束时间。
 - Tree、Select、TreeSelect 使用虚拟滚动。
-
   - `dropdownMatchSelectWidth` 支持数字类型设置下拉宽度。
-
 - Grid 组件使用 flex 布局。
+- Table 添加默认背景颜色为主题颜色。
 
 ## 开始升级
 
