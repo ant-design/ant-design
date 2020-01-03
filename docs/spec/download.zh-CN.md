@@ -9,7 +9,7 @@ title: 设计资源
 - 新版本 Sketch Symbols 组件反馈地址：[🦜 反馈地址](https://www.yuque.com/kitchen/topics/51)
 
 <div class="resource-cards">
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.3.12.0.sketch" class="resource-card">
+  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.4.0.Beta.sketch" class="resource-card">
     <div class="resource-card-icon">
       <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*XsDPQrwQZwEAAAAAAAAAAABkARQnAQ">
     </div>

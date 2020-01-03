@@ -104,13 +104,13 @@ module.exports = {
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
-一种方式是在样式文件全量引入 `antd/dist/antd.dark.less`：
+方式一：是在样式文件全量引入 `antd/dist/antd.dark.less`：
 
 ```less
 @import '~antd/dist/antd.dark.less'; // 引入官方提供的暗色 less 样式入口文件
 ```
 
-另一种是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
+方式二：是用在 `webpack.config.js` 使用 [less-loader](https://github.com/webpack-contrib/less-loader) 按需引入：
 
 ```diff
 const darkThemeVars = require('antd/dist/dark-theme');
@@ -126,13 +126,22 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: darkThemeVars,
++       modifyVars: {
++          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`
++          ...darkThemeVars,
++       },
 +       javascriptEnabled: true,
 +     },
     }],
     // ...other rules
   }],
   // ...other config
+```
+
+方式三：如果项目不使用 Less，可在 CSS 文件中，全量引入 `antd.dark.css`：
+
+```css
+@import '~antd/dist/antd.dark.css';
 ```
 
 ## 没有生效？

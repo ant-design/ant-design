@@ -139,6 +139,12 @@
     .@{ant-prefix}-input {
       padding-right: 24px;
     }
+    // https://github.com/ant-design/ant-design/issues/19884
+    .@{ant-prefix}-input-affix-wrapper {
+      .@{ant-prefix}-input-suffix {
+        padding-right: 18px;
+      }
+    }
 
     // Fix issue: https://github.com/ant-design/ant-design/issues/7854
     .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
@@ -153,8 +159,6 @@
     }
 
     .@{ant-prefix}-input-password-icon {
-      margin-right: 18px;
-
       .@{form-prefix-cls}-rtl & {
         margin-right: 0;
         margin-left: 18px;

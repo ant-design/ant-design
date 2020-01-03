@@ -208,7 +208,7 @@ export default class Layout extends React.Component {
     return (
       <HelmetProvider context={helmetContext}>
         <Helmet encodeSpecialCharacters={false}>
-          <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} />
+          <html lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'} data-direction={direction} />
           <title>{title}</title>
           <link
             rel="apple-touch-icon-precomposed"

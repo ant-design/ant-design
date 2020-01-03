@@ -830,7 +830,7 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
       class="ant-switch-inner"
     />
   </button>
-   Change Theme
+   Change Style
   <br />
   <br />
   <ul
