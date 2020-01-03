@@ -135,11 +135,9 @@ yarn add -g @ant-design/codemod-v4
 antd4-codemod src
 ```
 
-（此处要补一些截图） TODO: @vagusX
-
 For parts that cannot be modified automatically, codemod will prompt on the command line, and it is recommended to modify them manually as prompted. After modification, you can run the above command repeatedly to check.
 
-（此处要补一些截图） TODO: @vagusX
+![contains an invalid icon](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ)
 
 > Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
 

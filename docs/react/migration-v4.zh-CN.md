@@ -135,11 +135,9 @@ yarn add -g @ant-design/codemod-v4
 antd4-codemod src
 ```
 
-（此处要补一些截图） TODO: @vagusX
-
 对于无法自动修改的部分，codemod 会在命令行进行提示，建议按提示手动修改。修改后可以反复运行上述命令进行检查。
 
-（此处要补一些截图） TODO: @vagusX
+![contains an invalid icon](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ)
 
 > 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
 
