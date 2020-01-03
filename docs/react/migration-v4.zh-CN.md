@@ -57,7 +57,7 @@ title: 从 v3 到 v4
 
 #### 图标升级
 
-在 `antd@3.9.0` 中，我们引入了 svg 图标（[为何使用 svg 图标？](https://github.com/ant-design/ant-design/issues/10353)）。使用了字符串命名的图标 API 无法做到按需加载，因而全量引入了 svg 图标文件，这大大增加了打包产物的尺寸。在 4.0 中，我们调整了图标的使用 API 从而支持 tree shaking，大大优化了打包体积（~700KB）。
+在 `antd@3.9.0` 中，我们引入了 svg 图标（[为何使用 svg 图标？](https://github.com/ant-design/ant-design/issues/10353)）。使用了字符串命名的图标 API 无法做到按需加载，因而全量引入了 svg 图标文件，这大大增加了打包产物的尺寸。在 4.0 中，我们调整了图标的使用 API 从而支持 tree shaking，大大优化了打包体积约 150 KB(Gzipped)。
 
 旧版 Icon 使用方式将被废弃：
 
