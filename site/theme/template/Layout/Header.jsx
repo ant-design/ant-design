@@ -167,7 +167,6 @@ class Header extends React.Component {
         <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
       ) : null,
       <Button
-        ghost
         size="small"
         onClick={this.handleDirectionChange}
         className="header-direction-button"
@@ -176,7 +175,6 @@ class Header extends React.Component {
         {this.getNextDirectionText()}
       </Button>,
       <Button
-        ghost
         size="small"
         onClick={this.handleLangChange}
         className="header-lang-button"
