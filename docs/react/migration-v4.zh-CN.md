@@ -146,7 +146,7 @@ antd4-codemod src
 
 ### 迁移工具修改详情
 
-`@ant-design/codemod-v4` 会帮你迁移到 antd v4, 废弃的 API 和组件则通过 `@ant-design/compatible` 保持运行, 一般来说你无需手动迁移。下方内容详细介绍了整体的迁移和变化。
+`@ant-design/codemod-v4` 会帮你迁移到 antd v4, 废弃的组件则通过 `@ant-design/compatible` 保持运行, 一般来说你无需手动迁移。下方内容详细介绍了整体的迁移和变化。
 
 #### 将已废弃的 `Form` 和 `Mention` 组件通过 `@ant-design/compatible` 包引入
 
