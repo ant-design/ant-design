@@ -21,6 +21,7 @@ title: 从 v3 到 v4
 - 气泡确认框中图标的使用改变，由问号改为感叹号。
 - 部分组件选中颜色统一改为 `@blue-1: #E6F7FF`，对应 `hover` 颜色改为 `@gray-2: #FAFAFA`。
 - 报错色色值调整，由 `@red-5: #F5222D` 改为 `@red-5: #FF4D4F`。
+- 分割线颜色明度降低，由 `#E8E8E8` 改为 `#F0F0F0`。
 - DatePicker
   - 范围选择现在可以单独选择开始和结束时间。
     - 未填值时，选择完起始时间后需要选择结束时间。
@@ -51,6 +52,7 @@ title: 从 v3 到 v4
 - 移除了 Affix 的 `offset` 属性，请使用 `offsetTop` 替代。
 - 移除了 Transfer 的 `onSearchChange` 属性，请使用 `onSearch` 替代。
 - 移除了 Transfer 的 `body` 属性，请使用 `children` 替代。
+- 移除了 Transfer 的 `lazy` 属性，它并没有起到真正的优化效果。
 - 移除了 Select 的 `combobox` 模式，请使用 `AutoComplete` 替代。
 
 #### 图标升级
