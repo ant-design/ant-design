@@ -7,15 +7,7 @@ interface StepsProps extends ProgressProps {
 }
 
 const Steps: React.SFC<StepsProps> = props => {
-  const {
-    size = 'default',
-    steps,
-    percent = 0,
-    strokeWidth = 8,
-    strokeColor,
-    prefixCls,
-    children,
-  } = props;
+  const { size = 'default', steps, percent = 0, strokeWidth = 8, strokeColor, prefixCls, children } = props;
   const getStyledSteps = () => {
     const current = Math.floor(steps * (percent / 100));
     const stepWidth = size === 'small' ? 2 : 14;
