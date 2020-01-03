@@ -71,4 +71,4 @@ title: 巧用过渡
 
 ## 自然运动
 
-参见 [Ant Motion 动画语言](http://motion.ant.design/language/time)。
+参见 [Ant Motion 动画语言](https://motion.ant.design/language/basic-cn)。
