@@ -21,13 +21,11 @@ title: 从 v3 到 v4
 - 气泡确认框中图标的使用改变，由问号改为感叹号。
 - 部分组件选中颜色统一改为 `@blue-1: #E6F7FF`，对应 `hover` 颜色改为 `@gray-2: #FAFAFA`。
 - 报错色色值调整，由 `@red-5: #F5222D` 改为 `@red-5: #FF4D4F`。
-- 中性色使用规则变化：
-  1. 分割线颜色明度降低，由 `hsv(0, 0, 91%)` 改为 `hsv(0, 0, 94%)`。
 - DatePicker
   - 范围选择现在可以单独选择开始和结束时间。
     - 未填值时，选择完起始时间后需要选择结束时间。
     - 有起始结束时间时，可单独更改起始或结束时间。
-- Table 添加默认背景颜色为主题背景颜色。
+- Table 添加默认背景颜色为白色。
 - Button 提供 Danger default 和 Danger link 样式。
 
 ### 兼容性调整
@@ -57,7 +55,7 @@ title: 从 v3 到 v4
 
 #### 图标升级
 
-在 `antd@3.9.0` 中，我们引入了 svg 图标（[为何使用 svg 图标？](https://github.com/ant-design/ant-design/issues/10353)）。使用了字符串命名的图标 API 无法做到按需加载，因而全量引入了 svg 图标文件，这大大增加了打包产物的尺寸。在 4.0 中，我们调整了图标的使用 API 从而支持 tree shaking，大大优化了打包体积（xxxKB）。
+在 `antd@3.9.0` 中，我们引入了 svg 图标（[为何使用 svg 图标？](https://github.com/ant-design/ant-design/issues/10353)）。使用了字符串命名的图标 API 无法做到按需加载，因而全量引入了 svg 图标文件，这大大增加了打包产物的尺寸。在 4.0 中，我们调整了图标的使用 API 从而支持 tree shaking，大大优化了打包体积（~700KB）。
 
 旧版 Icon 使用方式将被废弃：
 
@@ -76,10 +74,8 @@ const Demo = () => (
 
 ```jsx
 import { Button } from 'antd';
-// whether directly import
-import SmileOutlined from '@ant-design/icons/SmileOutlined';
 
-// or tree-shaking supported
+// tree-shaking supported
 import { SmileOutlined } from '@ant-design/icons';
 
 const Demo = () => (
@@ -88,6 +84,9 @@ const Demo = () => (
     <Button icon={<SmileOutlined />} />
   </div>
 );
+
+// or directly import
+import SmileOutlined from '@ant-design/icons/SmileOutlined';
 ```
 
 你将仍然可以通过兼容包继续使用：
