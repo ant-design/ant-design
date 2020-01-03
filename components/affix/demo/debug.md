@@ -25,7 +25,10 @@ const Demo: FC = () => {
       <div>Top</div>
       <Affix offsetTop={top}>
         <div style={{ background: 'red' }}>
-          <Button type="primary" onClick={() => setTop(top + 10)}>
+          <Button
+            type="primary"
+            onClick={() => setTop(top + 10)}
+          >
             Affix top
           </Button>
         </div>
@@ -33,7 +36,7 @@ const Demo: FC = () => {
       <div>Bottom</div>
     </div>
   );
-};
+}
 
 ReactDOM.render(<Demo />, mountNode);
 ```

@@ -27,8 +27,9 @@ const Demo: FC = () => {
         </Affix>
       </div>
     </div>
-  );
+  )
 };
+
 
 ReactDOM.render(<Demo />, mountNode);
 ```
