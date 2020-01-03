@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 
 @drawer-prefix-cls: ~'@{ant-prefix}-drawer';
+@picker-prefix-cls: ~'@{ant-prefix}-picker';
 
 .@{drawer-prefix-cls} {
   position: fixed;
@@ -229,6 +230,13 @@
   &-open {
     &-content {
       box-shadow: @shadow-2;
+    }
+  }
+
+  // =================== Hook Components ===================
+  .@{picker-prefix-cls} {
+    &-clear {
+      background: @popover-background;
     }
   }
 }
