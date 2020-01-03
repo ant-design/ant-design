@@ -16,22 +16,24 @@ title: 从 v3 到 v4
 
 ### 设计规范调整
 
-- 全局阴影改变，调整为三层阴影区分控件层次关系。
 - 基础圆角调整，由`4px` 改为 `2px`。
+- 全局阴影优化，调整为三层阴影区分控件层次关系。
 - 气泡确认框中图标的使用改变，由问号改为感叹号。
 - 部分组件选中颜色统一改为 `@blue-1: #E6F7FF`，对应 `hover` 颜色改为 `@gray-2: #FAFAFA`。
-- 报错色色值调整，由 `#F5222D` 改为 `#FF4D4F`。
+- 报错色色值调整，由 `@red-5: #F5222D` 改为 `@red-5: #FF4D4F`。
 - 中性色使用规则变化：
   1. 分割线颜色明度降低，由 `hsv(0, 0, 91%)` 改为 `hsv(0, 0, 94%)`。
-  2. 在深色背景下使用规则变化。
-- 灰色色板更新：
-  1. `@gary-4` 色值改变，由 `#E8E8E8` 改为 `#F0F0F0`。
-  2. 新增三个灰色。
+- DatePicker
+  - 范围选择现在可以单独选择开始和结束时间。
+    - 未填值时，选择完起始时间后需要选择结束时间。
+    - 有起始结束时间时，可单独更改起始或结束时间。
+- Table 添加默认背景颜色为主题背景颜色。
+- Button 提供 Danger default 和 Danger link 样式。
 
 ### 兼容性调整
 
-- IE 最低支持版本为 IE 11
-- React 最低支持版本为 React 16.9
+- IE 最低支持版本为 IE 11。
+- React 最低支持版本为 React 16.9，部分组件开始使用 hooks 进行重构。
 
 #### 移除废弃的 API
 
@@ -55,7 +57,7 @@ title: 从 v3 到 v4
 
 #### 图标升级
 
-在 `antd@3.9.0` 中，我们引入了 svg 图标（[为何使用 svg 图标？](https://github.com/ant-design/ant-design/issues/10353)）。使用了字符串命名的图标 API 无法做到按需加载，因而全量引入了 svg 图标文件，这大大增加了打包产物的尺寸。在 4.0 中，我们进行针对性调整以优化体积。
+在 `antd@3.9.0` 中，我们引入了 svg 图标（[为何使用 svg 图标？](https://github.com/ant-design/ant-design/issues/10353)）。使用了字符串命名的图标 API 无法做到按需加载，因而全量引入了 svg 图标文件，这大大增加了打包产物的尺寸。在 4.0 中，我们调整了图标的使用 API 从而支持 tree shaking，大大优化了打包体积（xxxKB）。
 
 旧版 Icon 使用方式将被废弃：
 
@@ -106,18 +108,12 @@ const Demo = () => (
 
 - Form 重写
   - 整体重写，不再需要 `Form.create`。迁移文档请查看[此处](/components/form/v3)。
-  - 支持 `useForm` hooks 调用。
-  - 性能调整，字段变化不再需要渲染整个表单。
-  - 支持 `Form.List` 进行列表数据绑定。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
-    - 未填值时，选择完起始时间后需要选择结束时间。
-    - 有起始结束时间时，可单独更改起始或结束时间。
-- Tree、Select、TreeSelect 使用虚拟滚动。
-  - `dropdownMatchSelectWidth` 支持数字类型设置下拉宽度。
+- Tree、Select、TreeSelect、AutoComplete 使用虚拟滚动。
+  - `dropdownMatchSelectWidth` 不再自动适应内容宽度，请用数字设置下拉宽度。
 - Grid 组件使用 flex 布局。
-- Table 添加默认背景颜色为主题颜色。
 
 ## 开始升级
 
