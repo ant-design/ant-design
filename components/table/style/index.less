@@ -595,4 +595,19 @@
   }
 }
 
+@media all and (-ms-high-contrast: none) {
+  .@{table-prefix-cls} {
+    &-ping-left {
+      .@{table-prefix-cls}-cell-fix-left-last::after {
+        box-shadow: none !important;
+      }
+    }
+    &-ping-right {
+      .@{table-prefix-cls}-cell-fix-right-first::after {
+        box-shadow: none !important;
+      }
+    }
+  }
+}
+
 @import './radius.less';
