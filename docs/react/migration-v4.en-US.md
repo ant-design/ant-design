@@ -22,12 +22,9 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - The color of selected components is changed to `@blue-1: #E6F7FF`, and the corresponding hover color is changed to `@gray-2: #FAFAFA`.
 - The color of the error was adjusted from `@red-5: #F5222D` to`@red-5: #FF4D4F`.
 - The color brightness of the dividing line has been reduced from `#E8E8E8` to`#F0F0F0`.
-- DatePicker
-  - Range selection can now select start and end times individually.
-    - If the value is not filled, you need to select the end time after selecting the start time.
-    - When there is a start and end time, the start or end time can be changed individually.
-- Table adds default background color to white.
-- Button provides Danger default and Danger link styles.
+- DatePicker interactive redo, range selection can now select start and end time separately.
+- Table change default background color from transparent to white.
+- `line-height` changes from `21px` to `22px`.
 
 ### Compatibility
 
@@ -74,15 +71,17 @@ const Demo = () => (
 
 It will be imported on demand in v4:
 
-```jsx
+```diff
 import { Button } from 'antd';
 
 // tree-shaking supported
-import { SmileOutlined } from '@ant-design/icons';
+- import { Icon } from 'antd';
++ import { SmileOutlined } from '@ant-design/icons';
 
 const Demo = () => (
   <div>
-    <SmileOutlined />
+-    <Icon type="smile" />
++    <SmileOutlined />
     <Button icon={<SmileOutlined />} />
   </div>
 );
@@ -107,14 +106,14 @@ const Demo = () => (
 
 #### Component refactoring
 
-- Form rewrite
-  - No need to use `Form.create`. See [here](/components/form/v3) for migration documentation.
+- Form rewrite. No need to use `Form.create`. See [here](/components/form/v3) for migration documentation.
 - DatePicker rewrite
   - Provide the `picker` property for selector switching.
   - Range selection can now select start and end times individually.
 - Tree, Select, TreeSelect, AutoComplete use virtual scrolling.
   - `dropdownMatchSelectWidth` no longer automatically adapts to the content width, please set the dropdown width with numbers.
 - The Grid component uses flex layout.
+- Button's `danger` is now treated as a property instead of a button type.
 
 ## Start upgrading
 

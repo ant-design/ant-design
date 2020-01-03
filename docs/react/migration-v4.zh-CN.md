@@ -22,12 +22,9 @@ title: 从 v3 到 v4
 - 部分组件选中颜色统一改为 `@blue-1: #E6F7FF`，对应 `hover` 颜色改为 `@gray-2: #FAFAFA`。
 - 报错色色值调整，由 `@red-5: #F5222D` 改为 `@red-5: #FF4D4F`。
 - 分割线颜色明度降低，由 `#E8E8E8` 改为 `#F0F0F0`。
-- DatePicker
-  - 范围选择现在可以单独选择开始和结束时间。
-    - 未填值时，选择完起始时间后需要选择结束时间。
-    - 有起始结束时间时，可单独更改起始或结束时间。
-- Table 添加默认背景颜色为白色。
-- Button 提供 Danger default 和 Danger link 样式。
+- DatePicker 交互重做，面板和输入框分离，范围选择现可单独选择开始和结束时间。
+- Table 默认背景颜色从透明修改为白色。
+- `line-height` 从 `21px` 调整为 `22px`。
 
 ### 兼容性调整
 
@@ -74,15 +71,17 @@ const Demo = () => (
 
 4.0 中会采用按需引入的方式：
 
-```jsx
+```diff
 import { Button } from 'antd';
 
 // tree-shaking supported
-import { SmileOutlined } from '@ant-design/icons';
+- import { Icon } from 'antd';
++ import { SmileOutlined } from '@ant-design/icons';
 
 const Demo = () => (
   <div>
-    <SmileOutlined />
+-    <Icon type="smile" />
++    <SmileOutlined />
     <Button icon={<SmileOutlined />} />
   </div>
 );
@@ -107,14 +106,14 @@ const Demo = () => (
 
 #### 组件重构
 
-- Form 重写
-  - 整体重写，不再需要 `Form.create`。迁移文档请查看[此处](/components/form/v3)。
+- Form 重写，不再需要 `Form.create`，迁移文档请查看[此处](/components/form/v3)。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
 - Tree、Select、TreeSelect、AutoComplete 使用虚拟滚动。
   - `dropdownMatchSelectWidth` 不再自动适应内容宽度，请用数字设置下拉宽度。
 - Grid 组件使用 flex 布局。
+- Button 的 `danger` 现在作为一个属性而不是按钮类型。
 
 ## 开始升级
 
