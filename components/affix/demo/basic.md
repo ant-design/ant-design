@@ -23,20 +23,21 @@ const Demo: FC = () => {
 
   return (
     <div>
-      <Affix offsetTop={top}>
-        <Button type="primary" onClick={() => setTop(top + 10)}>
-          Affix top
-        </Button>
-      </Affix>
-      <br />
-      <Affix offsetBottom={bottom}>
-        <Button type="primary" onClick={() => setBottom(bottom + 10)}>
-          Affix bottom
-        </Button>
-      </Affix>
-    </div>
-  );
-};
+        <Affix offsetTop={top}>
+          <Button type="primary" onClick={() => setTop(top + 10)}>
+            Affix top
+          </Button>
+        </Affix>
+        <br />
+        <Affix offsetBottom={bottom}>
+          <Button type="primary" onClick={() =>setBottom(bottom + 10)}>
+            Affix bottom
+          </Button>
+        </Affix>
+      </div>
+  )
+}
+
 
 ReactDOM.render(<Demo />, mountNode);
 ```
