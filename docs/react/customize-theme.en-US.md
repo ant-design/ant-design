@@ -104,13 +104,13 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
-include `antd/dist/antd.dark.less` in the style file:
+Method 1: include `antd/dist/antd.dark.less` in the style file:
 
 ```less
 @import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
 ```
 
-Another approach to using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
+Method 2: using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
 ```diff
 const darkThemeVars = require('antd/dist/dark-theme');
@@ -126,13 +126,22 @@ module.exports = {
     }, {
       loader: 'less-loader', // compiles Less to CSS
 +     options: {
-+       modifyVars: darkThemeVars,
++       modifyVars: {
++          'hack': `true;@import "${require.resolve('antd/lib/style/color/colorPalette.less')}";`
++          ...darkThemeVars,
++       },
 +       javascriptEnabled: true,
 +     },
     }],
     // ...other rules
   }],
   // ...other config
+```
+
+Method 3: If the project does not use Less, you can include `antd.dark.css` in the CSS file in full:
+
+```css
+@import '~antd/dist/antd.dark.css';
 ```
 
 ## How to avoid modifying global styles?
