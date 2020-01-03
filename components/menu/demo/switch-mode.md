@@ -47,7 +47,7 @@ class Sider extends React.Component {
       <div>
         <Switch onChange={this.changeMode} /> Change Mode
         <span className="ant-divider" style={{ margin: '0 1em' }} />
-        <Switch onChange={this.changeTheme} /> Change Theme
+        <Switch onChange={this.changeTheme} /> Change Style
         <br />
         <br />
         <Menu
