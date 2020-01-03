@@ -111,7 +111,7 @@ class Demo extends React.Component {
               </Radio.Group>
             </Form.Item>
           </Form>
-          <Skeleton.Input style={{ width: '300px' }} active={inputActive} size={inputSize} />
+          <Skeleton.Input style ={{width:'300px'}} active={inputActive} size={inputSize}/>
         </div>
       </div>
     );
