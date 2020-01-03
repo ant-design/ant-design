@@ -34,7 +34,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     visible: false,
   };
 
-  onVisibleChange = () => {
+  onChange = () => {
     const { disabled } = this.props;
     if (disabled) {
       return;
@@ -48,7 +48,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     const iconTrigger = ActionMap[action!] || '';
     const icon = this.state.visible ? EyeOutlined : EyeInvisibleOutlined;
     const iconProps = {
-      [iconTrigger]: this.onVisibleChange,
+      [iconTrigger]: this.onChange,
       className: `${prefixCls}-icon`,
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {

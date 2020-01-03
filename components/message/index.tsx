@@ -118,10 +118,7 @@ type JointContent = ConfigContent | ArgsProps;
 export type ConfigOnClose = () => void;
 
 function isArgsProps(content: JointContent): content is ArgsProps {
-  return (
-    Object.prototype.toString.call(content) === '[object Object]' &&
-    !!(content as ArgsProps).content
-  );
+  return typeof content === 'object' && !!(content as ArgsProps).content;
 }
 
 export interface ConfigOptions {

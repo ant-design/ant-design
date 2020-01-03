@@ -190,8 +190,4 @@ describe('message', () => {
     jest.advanceTimersByTime(1500);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
   });
-
-  it('should not throw error when pass null', () => {
-    message.error(null);
-  });
 });
