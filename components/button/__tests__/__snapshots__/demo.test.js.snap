@@ -27,30 +27,6 @@ exports[`renders ./components/button/demo/basic.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Default
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-link ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Link
-    </span>
-  </button>
-  <button
     class="ant-btn ant-btn-link"
     type="button"
   >
@@ -88,30 +64,6 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-block ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-block ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Default
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-link ant-btn-block ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Link
-    </span>
-  </button>
-  <button
     class="ant-btn ant-btn-link ant-btn-block"
     type="button"
   >
@@ -120,6 +72,43 @@ exports[`renders ./components/button/demo/block.md correctly 1`] = `
     </span>
   </button>
 </div>
+`;
+
+exports[`renders ./components/button/demo/danger.md correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-primary ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Primary
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      Default
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-dashed ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      link
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-link ant-btn-dangerous"
+    type="button"
+  >
+    <span>
+      link
+    </span>
+  </button>,
+]
 `;
 
 exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
@@ -276,27 +265,11 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-primary ant-btn-background-ghost ant-btn-dangerous"
+    class="ant-btn ant-btn-dashed ant-btn-background-ghost"
     type="button"
   >
     <span>
-      danger
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-background-ghost ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Default
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-link ant-btn-background-ghost ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Link
+      link
     </span>
   </button>
   <button
@@ -774,30 +747,6 @@ exports[`renders ./components/button/demo/size.md correctly 1`] = `
     </span>
   </button>
   <br />
-  <button
-    class="ant-btn ant-btn-primary ant-btn-lg ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-lg ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Default
-    </span>
-  </button>
-  <button
-    class="ant-btn ant-btn-link ant-btn-lg ant-btn-dangerous"
-    type="button"
-  >
-    <span>
-      Danger Link
-    </span>
-  </button>
   <button
     class="ant-btn ant-btn-link ant-btn-lg"
     type="button"

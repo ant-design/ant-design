@@ -1,6 +1,11 @@
 @import '../../../../components/style/themes/default.less';
 
 .more-card {
+  &:hover {
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  }
+
   .ant-card-cover {
     padding: 24px 24px 0 24px;
   }
@@ -32,6 +37,10 @@
 
   .more-card-source {
     float: right;
+
+    .ant-row-rtl & {
+      float: left;
+    }
 
     > img {
       vertical-align: baseline;

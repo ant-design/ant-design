@@ -2,9 +2,11 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Checkbox from '../index';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
+  rtlTest(Checkbox.Group);
 
   it('should work basically', () => {
     const onChange = jest.fn();

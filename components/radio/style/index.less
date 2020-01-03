@@ -11,6 +11,11 @@
   .reset-component;
 
   display: inline-block;
+  line-height: unset;
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 // 一般状态
@@ -22,6 +27,11 @@
   margin-right: 8px;
   white-space: nowrap;
   cursor: pointer;
+
+  &-rtl {
+    margin-right: 0;
+    margin-left: 8px;
+  }
 }
 
 .@{radio-prefix-cls} {
@@ -202,10 +212,19 @@ span.@{radio-prefix-cls} + * {
   &:first-child {
     border-left: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base 0 0 @border-radius-base;
+
+    .@{radio-prefix-cls}-button-wrapper-rtl& {
+      border-right: @border-width-base @border-style-base @border-color-base;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
   }
 
   &:last-child {
     border-radius: 0 @border-radius-base @border-radius-base 0;
+
+    .@{radio-prefix-cls}-button-wrapper-rtl& {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
   }
 
   &:first-child:last-child {
@@ -297,6 +316,10 @@ span.@{radio-prefix-cls} + * {
     }
     &:first-child {
       border-left-color: @border-color-base;
+
+      .@{radio-prefix-cls}-button-wrapper-rtl& {
+        border-right-color: @border-color-base;
+      }
     }
   }
 

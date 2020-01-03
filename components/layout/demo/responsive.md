@@ -56,7 +56,7 @@ ReactDOM.render(
       </Menu>
     </Sider>
     <Layout>
-      <Header className="site-layout-header-background" style={{ padding: 0 }} />
+      <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
       <Content style={{ margin: '24px 16px 0' }}>
         <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
           content
@@ -76,7 +76,7 @@ ReactDOM.render(
   margin: 16px;
 }
 
-.site-layout-header-background {
+.site-layout-sub-header-background {
   background: #fff;
 }
 
@@ -84,3 +84,9 @@ ReactDOM.render(
   background: #fff;
 }
 ```
+
+<style>
+  [data-theme="dark"] .site-layout-sub-header-background {
+    background: #141414;
+  }
+</style>

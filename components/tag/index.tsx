@@ -56,7 +56,7 @@ class Tag extends React.Component<TagProps, TagState> {
     };
   }
 
-  getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
+  getTagClassName({ getPrefixCls, direction }: ConfigConsumerProps) {
     const { prefixCls: customizePrefixCls, className, color } = this.props;
     const { visible } = this.state;
     const isPresetColor = this.isPresetColor();
@@ -67,6 +67,7 @@ class Tag extends React.Component<TagProps, TagState> {
         [`${prefixCls}-${color}`]: isPresetColor,
         [`${prefixCls}-has-color`]: color && !isPresetColor,
         [`${prefixCls}-hidden`]: !visible,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

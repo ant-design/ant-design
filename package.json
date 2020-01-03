@@ -122,7 +122,7 @@
     "rc-steps": "~3.5.0",
     "rc-switch": "~1.9.0",
     "rc-table": "~7.0.0-alpha.20",
-    "rc-tabs": "~10.0.0-alpha.0",
+    "rc-tabs": "~10.0.0-alpha.1",
     "rc-tooltip": "~4.0.0-alpha.3",
     "rc-tree": "~3.0.0-alpha.37",
     "rc-tree-select": "~3.0.0-alpha.5",
@@ -137,7 +137,7 @@
     "warning": "~4.0.3"
   },
   "devDependencies": {
-    "@ant-design/bisheng-plugin": "^2.0.1",
+    "@ant-design/bisheng-plugin": "^2.1.0",
     "@ant-design/colors": "^4.0.0-alpha.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^8.0.4",
@@ -240,7 +240,8 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
-    "stylelint-order": "^3.0.0",
+    "stylelint-order": "^4.0.0",
+    "theme-switcher": "^1.0.2",
     "typescript": "~3.7.2",
     "webpack-bundle-analyzer": "^3.6.0",
     "xhr-mock": "^2.4.1",
@@ -261,11 +262,11 @@
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "55 kB"
+      "maxSize": "65 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "55 kB"
+      "maxSize": "65 kB"
     }
   ],
   "title": "Ant Design"

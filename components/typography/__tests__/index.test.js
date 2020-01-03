@@ -6,6 +6,7 @@ import Title from '../Title';
 import Paragraph from '../Paragraph';
 import Base from '../Base'; // eslint-disable-line import/no-named-as-default
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
 
 jest.mock('copy-to-clipboard');
@@ -14,6 +15,10 @@ describe('Typography', () => {
   mountTest(Paragraph);
   mountTest(Base);
   mountTest(Title);
+
+  rtlTest(Paragraph);
+  rtlTest(Base);
+  rtlTest(Title);
 
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

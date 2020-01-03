@@ -360,6 +360,243 @@ exports[`Cascader can be selected 3`] = `
 </div>
 `;
 
+exports[`Cascader can be selected in RTL direction 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Zhejiang"
+        >
+          Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Jiangsu"
+        >
+          Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Hangzhou"
+        >
+          Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader can be selected in RTL direction 2`] = `
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Zhejiang"
+        >
+          Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Jiangsu"
+        >
+          Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Hangzhou"
+        >
+          Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title="West Lake"
+        >
+          West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
 <div>
   <div
@@ -639,6 +876,170 @@ exports[`Cascader popup correctly with defaultValue 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`Cascader popup correctly with defaultValue RTL 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus ant-cascader-menu-rtl"
+    style="opacity:0"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Zhejiang"
+        >
+          Zhejiang
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+          role="menuitem"
+          title="Jiangsu"
+        >
+          Jiangsu
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+          role="menuitem"
+          title="Hangzhou"
+        >
+          Hangzhou
+          <span
+            class="ant-cascader-menu-item-expand-icon"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                class=""
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </span>
+        </li>
+      </ul>
+      <ul
+        class="ant-cascader-menu"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title="West Lake"
+        >
+          West Lake
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Cascader rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-cascader-picker ant-cascader-picker-rtl"
+  tabindex="0"
+>
+  <span
+    class="ant-cascader-picker-label"
+  />
+  <input
+    autocomplete="off"
+    class="ant-input ant-input-rtl ant-cascader-input "
+    placeholder="Please select"
+    readonly=""
+    tabindex="-1"
+    type="text"
+    value=""
+  />
+  <span
+    aria-label="down"
+    class="anticon anticon-down ant-cascader-picker-arrow"
+    role="img"
+  >
+    <svg
+      aria-hidden="true"
+      class=""
+      data-icon="down"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+      />
+    </svg>
+  </span>
+</span>
 `;
 
 exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `

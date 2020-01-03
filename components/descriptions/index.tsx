@@ -224,7 +224,7 @@ class Descriptions extends React.Component<
   render() {
     return (
       <ConfigConsumer>
-        {({ getPrefixCls }: ConfigConsumerProps) => {
+        {({ getPrefixCls, direction }: ConfigConsumerProps) => {
           const {
             className,
             prefixCls: customizePrefixCls,
@@ -258,6 +258,7 @@ class Descriptions extends React.Component<
               className={classNames(prefixCls, className, {
                 [`${prefixCls}-${size}`]: size !== 'default',
                 [`${prefixCls}-bordered`]: !!bordered,
+                [`${prefixCls}-rtl`]: direction === 'rtl',
               })}
               style={style}
             >

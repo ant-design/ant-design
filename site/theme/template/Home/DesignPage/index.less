@@ -53,6 +53,10 @@
       flex-direction: column;
       padding: 40px 0 32px 40px;
 
+      .ant-row-rtl & {
+        padding: 40px 40px 32px 0;
+      }
+
       ul {
         margin-top: auto;
 
@@ -69,6 +73,11 @@
 }
 
 .design-mini-panel {
+  &:hover {
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  }
+
   .ant-card-meta-title {
     color: #0d1a26;
     font-weight: 400;
@@ -88,6 +97,11 @@
   .design-card {
     &.main-card {
       padding-right: 0;
+
+      .ant-row-rtl & {
+        padding-right: 40px;
+        padding-left: 0;
+      }
     }
 
     &.sub-card {

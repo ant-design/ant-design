@@ -176,6 +176,8 @@ exports[`Modal render without footer 1`] = `
 </div>
 `;
 
+exports[`Modal rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
 exports[`Modal support closeIcon 1`] = `
 <div
   class="ant-modal-root"

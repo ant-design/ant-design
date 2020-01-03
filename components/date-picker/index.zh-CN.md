@@ -153,3 +153,5 @@ import 'moment/locale/zh-cn';
 ## FAQ
 
 - [当我指定了 DatePicker/RangePicker 的 mode 属性后，点击后无法选择年份/月份？](/docs/react/faq#当我指定了-DatePicker/RangePicker-的-mode-属性后，点击后无法选择年份/月份？)
+
+- [如何在 DatePicker 中使用自定义日期库（如 dayjs ）](/docs/react/generate-picker#DatePicker)

@@ -59,7 +59,6 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
   static defaultProps = {
     mouseEnterDelay: 0.15,
     mouseLeaveDelay: 0.1,
-    placement: 'bottomLeft' as Placement,
   };
 
   getTransitionName() {
@@ -118,9 +117,18 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     return fixedModeOverlay as React.ReactElement;
   };
 
+  getPlacement(direction: string = 'ltr') {
+    const { placement } = this.props;
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl' ? ('bottomRight' as Placement) : ('bottomLeft' as Placement);
+  }
+
   renderDropDown = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -128,14 +136,21 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       trigger,
       disabled,
       getPopupContainer,
+      overlayClassName,
     } = this.props;
 
     const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
     const child = React.Children.only(children) as React.ReactElement<any>;
 
     const dropdownTrigger = React.cloneElement(child, {
-      className: classNames(child.props.className, `${prefixCls}-trigger`),
+      className: classNames(child.props.className, `${prefixCls}-trigger`, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      }),
       disabled,
+    });
+
+    const overlayClassNameCustomized = classNames(overlayClassName, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const triggerActions = disabled ? [] : trigger;
@@ -148,11 +163,13 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
       <RcDropdown
         alignPoint={alignPoint}
         {...this.props}
+        overlayClassName={overlayClassNameCustomized}
         prefixCls={prefixCls}
         getPopupContainer={getPopupContainer || getContextPopupContainer}
         transitionName={this.getTransitionName()}
         trigger={triggerActions}
         overlay={() => this.renderOverlay(prefixCls)}
+        placement={this.getPlacement(direction)}
       >
         {dropdownTrigger}
       </RcDropdown>

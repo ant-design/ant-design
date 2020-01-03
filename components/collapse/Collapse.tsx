@@ -59,7 +59,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       : icon;
   };
 
-  renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCollapse = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -71,6 +71,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       {
         [`${prefixCls}-borderless`]: !bordered,
         [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

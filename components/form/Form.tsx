@@ -8,6 +8,7 @@ import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { FormContext } from './context';
 import { FormLabelAlign } from './interface';
 import { useForm, FormInstance } from './util';
+import { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
@@ -21,10 +22,11 @@ export interface FormProps extends Omit<RcFormProps, 'form'> {
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   form?: FormInstance;
+  size?: SizeType;
 }
 
 const InternalForm: React.FC<FormProps> = (props, ref) => {
-  const { getPrefixCls }: ConfigConsumerProps = React.useContext(ConfigContext);
+  const { getPrefixCls, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
 
   const {
     form,
@@ -37,6 +39,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     hideRequiredMark,
     className = '',
     layout = 'horizontal',
+    size,
   } = props;
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -45,6 +48,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     {
       [`${prefixCls}-${layout}`]: true,
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
   );
@@ -66,18 +70,20 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
   React.useImperativeHandle(ref, () => wrapForm);
 
   return (
-    <FormContext.Provider
-      value={{
-        name,
-        labelAlign,
-        labelCol,
-        wrapperCol,
-        vertical: layout === 'vertical',
-        colon,
-      }}
-    >
-      <FieldForm id={name} {...formProps} form={wrapForm} className={formClassName} />
-    </FormContext.Provider>
+    <SizeContextProvider size={size}>
+      <FormContext.Provider
+        value={{
+          name,
+          labelAlign,
+          labelCol,
+          wrapperCol,
+          vertical: layout === 'vertical',
+          colon,
+        }}
+      >
+        <FieldForm id={name} {...formProps} form={wrapForm} className={formClassName} />
+      </FormContext.Provider>
+    </SizeContextProvider>
   );
 };
 

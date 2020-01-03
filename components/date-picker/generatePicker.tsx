@@ -21,6 +21,7 @@ import enUS from './locale/en_US';
 import { getPlaceholder, getRangePlaceholder } from './util';
 import PickerButton from './PickerButton';
 import PickerTag from './PickerTag';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -76,7 +77,7 @@ type InjectDefaultProps<Props> = Omit<
   | 'components'
 > & {
   locale?: typeof enUS;
-  size?: 'large' | 'default' | 'small';
+  size?: SizeType;
 };
 
 // Picker Props
@@ -142,8 +143,13 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       };
 
       renderPicker = (locale: any) => {
-        const { getPrefixCls } = this.context;
-        const { prefixCls: customizePrefixCls, className, size, ...restProps } = this.props;
+        const { getPrefixCls, direction } = this.context;
+        const {
+          prefixCls: customizePrefixCls,
+          className,
+          size: customizeSize,
+          ...restProps
+        } = this.props;
         const { format, showTime } = this.props as any;
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
@@ -166,28 +172,39 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         };
 
         return (
-          <RCPicker<DateType>
-            ref={this.pickerRef}
-            placeholder={getPlaceholder(mergedPicker, locale)}
-            suffixIcon={mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-            clearIcon={<CloseCircleFilled />}
-            allowClear
-            transitionName="slide-up"
-            {...additionalProps}
-            {...restProps}
-            {...additionalOverrideProps}
-            locale={locale!.lang}
-            className={classNames(className, {
-              [`${prefixCls}-${size}`]: size,
-            })}
-            prefixCls={prefixCls}
-            generateConfig={generateConfig}
-            prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-            nextIcon={<span className={`${prefixCls}-next-icon`} />}
-            superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-            superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-            components={Components}
-          />
+          <SizeContext.Consumer>
+            {size => {
+              const mergedSize = customizeSize || size;
+
+              return (
+                <RCPicker<DateType>
+                  ref={this.pickerRef}
+                  placeholder={getPlaceholder(mergedPicker, locale)}
+                  suffixIcon={
+                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
+                  }
+                  clearIcon={<CloseCircleFilled />}
+                  allowClear
+                  transitionName="slide-up"
+                  {...additionalProps}
+                  {...restProps}
+                  {...additionalOverrideProps}
+                  locale={locale!.lang}
+                  className={classNames(className, {
+                    [`${prefixCls}-${mergedSize}`]: mergedSize,
+                  })}
+                  prefixCls={prefixCls}
+                  generateConfig={generateConfig}
+                  prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                  nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                  superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                  superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                  components={Components}
+                  direction={direction}
+                />
+              );
+            }}
+          </SizeContext.Consumer>
         );
       };
 
@@ -247,7 +264,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     };
 
     renderPicker = (locale: any) => {
-      const { getPrefixCls } = this.context;
+      const { getPrefixCls, direction } = this.context;
       const { prefixCls: customizePrefixCls, className, size, ...restProps } = this.props;
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
@@ -282,6 +299,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
           superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
           components={Components}
+          direction={direction}
         />
       );
     };

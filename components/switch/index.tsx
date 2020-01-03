@@ -7,6 +7,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import Wave from '../_util/wave';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
+import SizeContext from '../config-provider/SizeContext';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
@@ -56,27 +57,41 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     this.rcSwitch.blur();
   }
 
-  renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
+  renderSwitch = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const {
+      prefixCls: customizePrefixCls,
+      size: customizeSize,
+      loading,
+      className = '',
+      disabled,
+    } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
-    const classes = classNames(className, {
-      [`${prefixCls}-small`]: size === 'small',
-      [`${prefixCls}-loading`]: loading,
-    });
     const loadingIcon = loading ? (
       <LoadingOutlined className={`${prefixCls}-loading-icon`} />
     ) : null;
     return (
-      <Wave insertExtraNode>
-        <RcSwitch
-          {...omit(this.props, ['loading'])}
-          prefixCls={prefixCls}
-          className={classes}
-          disabled={disabled || loading}
-          ref={this.saveSwitch}
-          loadingIcon={loadingIcon}
-        />
-      </Wave>
+      <SizeContext.Consumer>
+        {size => {
+          const classes = classNames(className, {
+            [`${prefixCls}-small`]: (customizeSize || size) === 'small',
+            [`${prefixCls}-loading`]: loading,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          });
+
+          return (
+            <Wave insertExtraNode>
+              <RcSwitch
+                {...omit(this.props, ['loading'])}
+                prefixCls={prefixCls}
+                className={classes}
+                disabled={disabled || loading}
+                ref={this.saveSwitch}
+                loadingIcon={loadingIcon}
+              />
+            </Wave>
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 

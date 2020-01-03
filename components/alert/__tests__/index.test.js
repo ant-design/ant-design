@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Alert from '..';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { ErrorBoundary } = Alert;
 
 describe('Alert', () => {
+  rtlTest(Alert);
+
   beforeAll(() => {
     jest.useFakeTimers();
   });

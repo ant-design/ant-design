@@ -59,6 +59,10 @@
     .hover();
   }
 
+  &-rtl {
+    direction: rtl;
+  }
+
   // ======================== Selection ========================
   &-selection-item {
     overflow: hidden;
@@ -100,6 +104,11 @@
         transform: rotate(180deg);
       }
     }
+
+    .@{select-prefix-cls}-rtl & {
+      right: initial;
+      left: @control-padding-horizontal - 1px;
+    }
   }
 
   // ========================== Clear ==========================
@@ -133,12 +142,20 @@
     .@{select-prefix-cls}:hover & {
       opacity: 1;
     }
+
+    .@{select-prefix-cls}-rtl & {
+      right: initial;
+      left: @control-padding-horizontal - 1px;
+    }
   }
 
   // ========================== Popup ==========================
   &-dropdown {
     .reset-component;
 
+    &-rtl {
+      direction: rtl;
+    }
     position: absolute;
     top: -9999px;
     left: -9999px;

@@ -11,6 +11,10 @@
   &::after {
     display: flex;
   }
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 // x轴原点
@@ -59,6 +63,10 @@
   max-width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
+
+  &&-rtl {
+    float: right;
+  }
 }
 
 .make-grid();

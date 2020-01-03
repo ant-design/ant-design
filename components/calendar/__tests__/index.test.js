@@ -9,9 +9,11 @@ import Select from '../../select';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Calendar', () => {
   mountTest(Calendar);
+  rtlTest(Calendar, true);
 
   function openSelect(wrapper, className) {
     wrapper

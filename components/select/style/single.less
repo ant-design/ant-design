@@ -31,6 +31,11 @@
           line-height: @select-height-without-border;
         }
       }
+      .@{select-prefix-cls}-rtl& {
+        right: 0;
+        left: 9px;
+        text-align: right;
+      }
     }
 
     &::after,
@@ -42,11 +47,21 @@
   // With arrow should provides `padding-right` to show the arrow
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
     right: @input-padding-horizontal-base + @font-size-base;
+
+    .@{select-prefix-cls}-rtl& {
+      right: @input-padding-horizontal-base;
+      left: @input-padding-horizontal-base + @font-size-base;
+    }
   }
 
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
     padding-right: @font-size-base;
+
+    .@{select-prefix-cls}-rtl& {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: @font-size-base;
+    }
   }
 
   // Opacity selection if open
@@ -67,6 +82,9 @@
       height: @input-height-base;
       padding: 0 @input-padding-horizontal-base;
 
+      .@{select-prefix-cls}-rtl& {
+        padding: 0 @input-padding-horizontal-base;
+      }
       .@{select-prefix-cls}-selection-search-input {
         height: @select-height-without-border;
       }

@@ -33,6 +33,11 @@
 
   .subtitle {
     margin-left: 12px;
+
+    .ant-row-rtl & {
+      margin-right: 12px;
+      margin-left: 0;
+    }
   }
 }
 
@@ -83,6 +88,13 @@
   margin-left: 20px;
   padding-left: 4px;
   list-style-type: circle;
+
+  .ant-row-rtl & {
+    margin-right: 20px;
+    margin-left: 0;
+    padding-right: 4px;
+    padding-left: 0;
+  }
   &:empty {
     display: none;
   }
@@ -92,6 +104,13 @@
   margin-left: 20px;
   padding-left: 4px;
   list-style-type: decimal;
+
+  .ant-row-rtl & {
+    margin-right: 20px;
+    margin-left: 0;
+    padding-right: 4px;
+    padding-left: 0;
+  }
 }
 
 .markdown ul > li > p,
@@ -158,6 +177,13 @@
   color: @site-text-color-secondary;
   font-size: 90%;
   border-left: 4px solid @site-border-color-split;
+
+  .ant-row-rtl & {
+    padding-right: 0.8em;
+    padding-left: 0;
+    border-right: 4px solid @site-border-color-split;
+    border-left: none;
+  }
 }
 
 .markdown blockquote p {
@@ -168,6 +194,11 @@
   margin-left: 8px;
   opacity: 0;
   transition: opacity 0.3s ease;
+
+  .ant-row-rtl & {
+    margin-right: 8px;
+    margin-left: 0;
+  }
 }
 
 .markdown .waiting {
@@ -180,6 +211,10 @@
   margin-left: 8px;
   text-decoration: none;
 
+  .ant-row-rtl & {
+    margin-right: 8px;
+    margin-left: 0;
+  }
   i {
     color: @site-text-color-secondary;
 

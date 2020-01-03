@@ -9,9 +9,11 @@ import Input from '../../input';
 import Group from '../../input/Group';
 import { sleep } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
+  rtlTest(Tooltip);
 
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();

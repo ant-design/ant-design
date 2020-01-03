@@ -1173,7 +1173,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </span>
       </div>
       <div
-        class="config-radio-group config-radio-group-outline config-radio-group-default config-picker-calendar-mode-switch"
+        class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked"
@@ -2063,7 +2063,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         </span>
       </div>
       <div
-        class="config-radio-group config-radio-group-outline config-radio-group-default config-picker-calendar-mode-switch"
+        class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch"
       >
         <label
           class="config-radio-button-wrapper"
@@ -2464,7 +2464,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -3354,7 +3354,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-default ant-picker-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch"
       >
         <label
           class="ant-radio-button-wrapper"
@@ -3755,7 +3755,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-default prefix-Calendar-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -4645,7 +4645,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         </span>
       </div>
       <div
-        class="ant-radio-group ant-radio-group-outline ant-radio-group-default prefix-Calendar-calendar-mode-switch"
+        class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch"
       >
         <label
           class="ant-radio-button-wrapper"

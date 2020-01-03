@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Skeleton from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Skeleton', () => {
   const genSkeleton = props =>
@@ -15,6 +16,7 @@ describe('Skeleton', () => {
   const genSkeletonInput = props => mount(<Skeleton.Input {...props} />);
 
   mountTest(Skeleton);
+  rtlTest(Skeleton);
 
   it('should without avatar and paragraph', () => {
     const wrapperSmall = genSkeleton({ avatar: false, paragraph: false });

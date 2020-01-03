@@ -5,6 +5,7 @@ import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
 
 const { TextArea } = Input;
@@ -23,6 +24,9 @@ describe('Input', () => {
   focusTest(Input);
   mountTest(Input);
   mountTest(Input.Group);
+
+  rtlTest(Input);
+  rtlTest(Input.Group);
 
   it('should support maxLength', () => {
     const wrapper = mount(<Input maxLength={3} />);

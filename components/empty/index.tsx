@@ -32,7 +32,7 @@ interface EmptyType extends React.FC<EmptyProps> {
 
 const Empty: EmptyType = (props: EmptyProps) => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         className,
         prefixCls: customizePrefixCls,
@@ -64,6 +64,7 @@ const Empty: EmptyType = (props: EmptyProps) => (
                   prefixCls,
                   {
                     [`${prefixCls}-normal`]: image === simpleEmptyImg,
+                    [`${prefixCls}-rtl`]: direction === 'rtl',
                   },
                   className,
                 )}

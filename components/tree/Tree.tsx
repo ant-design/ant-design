@@ -191,7 +191,7 @@ export default class Tree extends React.Component<TreeProps, any> {
     this.tree = node;
   };
 
-  renderTree = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTree = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const {
       prefixCls: customizePrefixCls,
@@ -213,6 +213,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         className={classNames(className, {
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         })}
         checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
         switcherIcon={(nodeProps: AntTreeNodeProps) =>

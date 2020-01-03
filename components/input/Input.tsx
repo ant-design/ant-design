@@ -5,17 +5,16 @@ import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 import Password from './Password';
-import { Omit, tuple } from '../_util/type';
+import { Omit } from '../_util/type';
 import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import warning from '../_util/warning';
-
-export const InputSizes = tuple('small', 'default', 'large');
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix'> {
   prefixCls?: string;
-  size?: typeof InputSizes[number];
+  size?: SizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
@@ -59,13 +58,15 @@ export function resolveOnChange(
 
 export function getInputClassName(
   prefixCls: string,
-  size?: typeof InputSizes[number],
+  size?: SizeType,
   disabled?: boolean,
+  direction?: any,
 ) {
   return classNames(prefixCls, {
     [`${prefixCls}-sm`]: size === 'small',
     [`${prefixCls}-lg`]: size === 'large',
     [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 }
 
@@ -90,6 +91,10 @@ class Input extends React.Component<InputProps, InputState> {
 
   clearableInput: ClearableLabeledInput;
 
+  removePasswordTimeout: number;
+
+  direction: any = 'ltr';
+
   constructor(props: InputProps) {
     super(props);
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
@@ -107,6 +112,10 @@ class Input extends React.Component<InputProps, InputState> {
     return null;
   }
 
+  componentDidMount() {
+    this.clearPasswordValueAttribute();
+  }
+
   // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
   // We keep an empty function here.
   componentDidUpdate() {}
@@ -120,6 +129,12 @@ class Input extends React.Component<InputProps, InputState> {
       );
     }
     return null;
+  }
+
+  componentWillUnmount() {
+    if (this.removePasswordTimeout) {
+      clearTimeout(this.removePasswordTimeout);
+    }
   }
 
   focus() {
@@ -155,8 +170,8 @@ class Input extends React.Component<InputProps, InputState> {
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
-  renderInput = (prefixCls: string) => {
-    const { className, addonBefore, addonAfter, size, disabled } = this.props;
+  renderInput = (prefixCls: string, size?: SizeType) => {
+    const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
     // Fix https://fb.me/react-unknown-prop
     const otherProps = omit(this.props, [
       'prefixCls',
@@ -177,16 +192,32 @@ class Input extends React.Component<InputProps, InputState> {
         {...otherProps}
         onChange={this.handleChange}
         onKeyDown={this.handleKeyDown}
-        className={classNames(getInputClassName(prefixCls, size, disabled), {
-          [className!]: className && !addonBefore && !addonAfter,
-        })}
+        className={classNames(
+          getInputClassName(prefixCls, customizeSize || size, disabled, this.direction),
+          {
+            [className!]: className && !addonBefore && !addonAfter,
+          },
+        )}
         ref={this.saveInput}
       />
     );
   };
 
+  clearPasswordValueAttribute = () => {
+    // https://github.com/ant-design/ant-design/issues/20541
+    this.removePasswordTimeout = setTimeout(() => {
+      if (
+        this.input &&
+        this.input.getAttribute('type') === 'password' &&
+        this.input.hasAttribute('value')
+      ) {
+        this.input.removeAttribute('value');
+      }
+    });
+  };
+
   handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setValue(e.target.value);
+    this.setValue(e.target.value, this.clearPasswordValueAttribute);
     resolveOnChange(this.input, e, this.props.onChange);
   };
 
@@ -200,20 +231,26 @@ class Input extends React.Component<InputProps, InputState> {
     }
   };
 
-  renderComponent = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { value } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
+    this.direction = direction;
     return (
-      <ClearableLabeledInput
-        {...this.props}
-        prefixCls={prefixCls}
-        inputType="input"
-        value={fixControlledValue(value)}
-        element={this.renderInput(prefixCls)}
-        handleReset={this.handleReset}
-        ref={this.saveClearableInput}
-      />
+      <SizeContext.Consumer>
+        {size => (
+          <ClearableLabeledInput
+            {...this.props}
+            prefixCls={prefixCls}
+            inputType="input"
+            value={fixControlledValue(value)}
+            element={this.renderInput(prefixCls, size)}
+            handleReset={this.handleReset}
+            ref={this.saveClearableInput}
+            direction={direction}
+          />
+        )}
+      </SizeContext.Consumer>
     );
   };
 

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { enquireScreen } from 'enquire-js';
 import { IntlProvider } from 'react-intl';
 import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
+import themeSwitcher from 'theme-switcher';
 import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'moment/locale/zh-cn';
@@ -58,6 +59,13 @@ const SITE_THEME_STORE_KEY = 'site-theme';
 
 // for dark.css timestamp to remove cache
 const timestamp = new Date().getTime();
+const themeMap = {
+  dark: `/dark.css?${timestamp}`,
+};
+const themeConfig = {
+  themeMap,
+};
+const { switcher } = themeSwitcher(themeConfig);
 
 export default class Layout extends React.Component {
   static contextTypes = {
@@ -68,6 +76,8 @@ export default class Layout extends React.Component {
     isMobile: PropTypes.bool,
     theme: PropTypes.oneOf(['default', 'dark']),
     setTheme: PropTypes.func,
+    direction: PropTypes.string,
+    setIframeTheme: PropTypes.func,
   };
 
   constructor(props) {
@@ -83,12 +93,16 @@ export default class Layout extends React.Component {
           ? localStorage.getItem(SITE_THEME_STORE_KEY) || 'default'
           : 'default',
       setTheme: this.setTheme,
+      direction: 'ltr',
+      setIframeTheme: this.setIframeTheme,
     };
+
+    this.changeDirection = this.changeDirection.bind(this);
   }
 
   getChildContext() {
-    const { isMobile: mobile, theme, setTheme } = this.state;
-    return { isMobile: mobile, theme, setTheme };
+    const { isMobile: mobile, theme, setTheme, direction, setIframeTheme } = this.state;
+    return { isMobile: mobile, theme, setTheme, direction, setIframeTheme };
   }
 
   componentDidMount() {
@@ -131,31 +145,35 @@ export default class Layout extends React.Component {
     clearTimeout(this.timer);
   }
 
+  setIframeTheme = (iframeNode, theme) => {
+    iframeNode.contentWindow.postMessage(
+      JSON.stringify({
+        action: 'change.theme',
+        data: {
+          themeConfig,
+          theme,
+        },
+      }),
+      '*',
+    );
+  };
+
   setTheme = (theme, persist = true) => {
     if (typeof window === 'undefined') {
       return;
     }
-    if (theme !== 'dark') {
-      const dom = document.getElementById('theme-style');
-      if (dom) {
-        dom.remove();
-      }
-      if (persist) {
-        localStorage.removeItem(SITE_THEME_STORE_KEY);
-      }
-    } else {
-      const style = document.createElement('link');
-      style.type = 'text/css';
-      style.rel = 'stylesheet';
-      style.id = 'theme-style';
-      style.href = `/dark.css?timestamp=${timestamp}`;
-      if (persist) {
-        localStorage.setItem(SITE_THEME_STORE_KEY, 'dark');
-      }
 
-      document.body.append(style);
-    }
-    document.body.setAttribute('data-theme', theme);
+    switcher({
+      theme,
+      useStorage: persist,
+    });
+
+    const iframeNodes = document.querySelectorAll('.iframe-demo');
+    // loop element node
+    [].forEach.call(iframeNodes, iframeNode => {
+      this.setIframeTheme(iframeNode, theme);
+    });
+
     this.setState({
       theme,
     });
@@ -166,9 +184,15 @@ export default class Layout extends React.Component {
     setTwoToneColor(iconTwoToneThemeMap[theme] || iconTwoToneThemeMap.default);
   };
 
+  changeDirection(direction) {
+    this.setState({
+      direction,
+    });
+  }
+
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale } = this.state;
+    const { appLocale, direction } = this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
@@ -177,6 +201,10 @@ export default class Layout extends React.Component {
       appLocale.locale === 'zh-CN'
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
+    let pageWrapperClass = 'page-wrapper';
+    if (direction === 'rtl') {
+      pageWrapperClass += ' page-wrapper-rtl';
+    }
     return (
       <HelmetProvider context={helmetContext}>
         <Helmet encodeSpecialCharacters={false}>
@@ -196,9 +224,9 @@ export default class Layout extends React.Component {
           />
         </Helmet>
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
-          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null}>
-            <div className="page-wrapper">
-              <Header {...restProps} />
+          <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null} direction={direction}>
+            <div className={pageWrapperClass}>
+              <Header {...restProps} changeDirection={this.changeDirection} />
               {children}
             </div>
           </ConfigProvider>

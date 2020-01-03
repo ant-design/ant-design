@@ -2,11 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Column, ColumnGroup } = Table;
 
 describe('Table', () => {
   mountTest(Table);
+  rtlTest(Table);
 
   const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

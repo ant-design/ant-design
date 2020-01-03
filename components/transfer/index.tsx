@@ -297,7 +297,7 @@ class Transfer extends React.Component<TransferProps, any> {
 
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
-      {({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+      {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
         const {
           prefixCls: customizePrefixCls,
           className,
@@ -328,6 +328,7 @@ class Transfer extends React.Component<TransferProps, any> {
         const cls = classNames(className, prefixCls, {
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-customize-list`]: !!children,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         });
 
         const titles = this.props.titles || locale.titles;
@@ -364,6 +365,7 @@ class Transfer extends React.Component<TransferProps, any> {
               moveToLeft={this.moveToLeft}
               style={operationStyle}
               disabled={disabled}
+              direction={direction}
             />
             <List
               prefixCls={`${prefixCls}-list`}

@@ -69,14 +69,7 @@ class App extends React.Component {
             This is two-level drawer
           </Drawer>
           <div className="site-multi-level-drawer-footer">
-            <Button
-              style={{
-                marginRight: 8,
-              }}
-              onClick={this.onClose}
-            >
-              Cancel
-            </Button>
+            <Button onClick={this.onClose}>Cancel</Button>
             <Button onClick={this.onClose} type="primary">
               Submit
             </Button>
@@ -101,6 +94,21 @@ ReactDOM.render(<App />, mountNode);
   left: 0;
   border-radius: 0 0 4px 4px;
   background: #fff;
+}
+
+.site-multi-level-drawer-footer button:first-child {
+  margin-right: 8px;
+}
+
+[class*='-drawer-rtl'] .site-multi-level-drawer-footer {
+  text-align: left;
+  right: 0;
+  left: auto;
+}
+
+[class*='-drawer-rtl'] .site-multi-level-drawer-footer button:first-child {
+  margin-right: 0;
+  margin-left: 8px;
 }
 ```
 

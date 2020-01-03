@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
+<ul
+  class="ant-menu ant-menu-light ant-menu-root ant-menu-rtl ant-menu-vertical"
+  direction="rtl"
+  role="menu"
+>
+  <li
+    class="ant-menu-item"
+    role="menuitem"
+  />
+  <li
+    class=" ant-menu-item-group"
+  >
+    <div
+      class="ant-menu-item-group-title"
+    />
+    <ul
+      class="ant-menu-item-group-list"
+    />
+  </li>
+  <li
+    class="ant-menu-submenu ant-menu-submenu-vertical"
+    role="menuitem"
+  >
+    <div
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="ant-menu-submenu-title"
+      title=""
+    >
+      <i
+        class="ant-menu-submenu-arrow"
+      />
+    </div>
+  </li>
+</ul>
+`;
+
 exports[`Menu should controlled collapse work 1`] = `
 <ul
   class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
