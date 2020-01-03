@@ -15,7 +15,6 @@ import {
   SorterResult,
   Key,
   GetPopupContainer,
-  TableSize,
   ExpandableConfig,
   ExpandType,
   TablePaginationConfig,
@@ -29,6 +28,7 @@ import useTitleColumns from './hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
 import scrollTo from '../_util/scrollTo';
 import defaultLocale from '../locale/en_US';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export { ColumnsType, TablePaginationConfig };
 
@@ -65,7 +65,7 @@ export interface TableProps<RecordType>
   columns?: ColumnsType<RecordType>;
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
-  size?: TableSize;
+  size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
 

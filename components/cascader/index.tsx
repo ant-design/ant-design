@@ -438,7 +438,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     locale: CascaderLocale,
   ) => (
     <SizeContext.Consumer>
-      {({ size }) => {
+      {size => {
         const { props, state } = this;
         const {
           prefixCls: customizePrefixCls,

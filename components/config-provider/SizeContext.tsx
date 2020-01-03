@@ -1,23 +1,18 @@
 import * as React from 'react';
 
-export type SizeType = 'small' | 'default' | 'large';
+export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
-export interface sizeContextProps {
+const SizeContext = React.createContext<SizeType>(undefined);
+
+export interface SizeContextProps {
   size?: SizeType;
 }
 
-const SizeContext = React.createContext<sizeContextProps>({});
-
-export const SizeContextProvider: React.FC<sizeContextProps> = ({ children, size }) => (
+export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => (
   <SizeContext.Consumer>
-    {sizeProps => {
-      const mergedProps = { ...sizeProps };
-      if (size) {
-        mergedProps.size = size;
-      }
-
-      return <SizeContext.Provider value={mergedProps}>{children}</SizeContext.Provider>;
-    }}
+    {originSize => (
+      <SizeContext.Provider value={size || originSize}>{children}</SizeContext.Provider>
+    )}
   </SizeContext.Consumer>
 );
 

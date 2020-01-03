@@ -213,7 +213,7 @@ class Input extends React.Component<InputProps, InputState> {
     this.direction = direction;
     return (
       <SizeContext.Consumer>
-        {({ size }) => (
+        {size => (
           <ClearableLabeledInput
             {...this.props}
             prefixCls={prefixCls}

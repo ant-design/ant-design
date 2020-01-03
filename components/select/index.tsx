@@ -126,7 +126,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     });
     return (
       <SizeContext.Consumer>
-        {({ size }) => {
+        {size => {
           const mergedSize = customizeSize || size;
           const mergedClassName = classNames(className, {
             [`${prefixCls}-lg`]: mergedSize === 'large',

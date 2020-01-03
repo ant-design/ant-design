@@ -61,7 +61,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
 
     return (
       <SizeContext.Consumer>
-        {({ size }) => {
+        {size => {
           const mergeSize = customizeSize || size;
           const inputNumberClass = classNames(
             {

@@ -202,7 +202,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   renderButton = ({ getPrefixCls, autoInsertSpaceInButton, direction }: ConfigConsumerProps) => (
     <SizeContext.Consumer>
-      {({ size }) => {
+      {size => {
         const {
           prefixCls: customizePrefixCls,
           type,

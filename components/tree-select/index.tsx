@@ -134,7 +134,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
 
     return (
       <SizeContext.Consumer>
-        {({ size }) => {
+        {size => {
           const mergedSize = customizeSize || size;
           const mergedClassName = classNames(
             !customizePrefixCls && treeSelectPrefixCls,

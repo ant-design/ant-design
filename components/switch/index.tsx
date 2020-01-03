@@ -71,7 +71,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     ) : null;
     return (
       <SizeContext.Consumer>
-        {({ size }) => {
+        {size => {
           const classes = classNames(className, {
             [`${prefixCls}-small`]: (customizeSize || size) === 'small',
             [`${prefixCls}-loading`]: loading,

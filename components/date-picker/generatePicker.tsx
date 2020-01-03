@@ -173,7 +173,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
         return (
           <SizeContext.Consumer>
-            {({ size }) => {
+            {size => {
               const mergedSize = customizeSize || size;
 
               return (

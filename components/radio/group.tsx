@@ -142,7 +142,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
 
     return (
       <SizeContext.Consumer>
-        {({ size }) => {
+        {size => {
           const mergedSize = customizeSize || size;
           const classString = classNames(
             groupPrefixCls,
