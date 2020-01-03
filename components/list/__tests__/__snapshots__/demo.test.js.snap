@@ -182,7 +182,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
-          class="ant-col ant-col-base-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -213,7 +213,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col ant-col-base-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -244,7 +244,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col ant-col-base-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -275,7 +275,7 @@ exports[`renders ./components/list/demo/grid.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col ant-col-base-6"
+          class="ant-col ant-col-6"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -451,7 +451,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
-          class="ant-col"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -482,7 +482,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -513,7 +513,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -544,7 +544,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -575,7 +575,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div
@@ -606,7 +606,7 @@ exports[`renders ./components/list/demo/resposive.md correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-col"
+          class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-6 ant-col-lg-6 ant-col-xl-4 ant-col-xxl-8"
           style="padding-left:8px;padding-right:8px"
         >
           <div

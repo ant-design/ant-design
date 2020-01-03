@@ -24,12 +24,7 @@ describe('AutoComplete with Custom Input Element Render', () => {
 
   it('AutoComplete should work when dataSource is object array', () => {
     const wrapper = mount(
-      <AutoComplete
-        dataSource={[
-          { text: 'text', value: 'value' },
-          { text: 'abc', value: 'xxx' },
-        ]}
-      >
+      <AutoComplete dataSource={[{ text: 'text', value: 'value' }, { text: 'abc', value: 'xxx' }]}>
         <input />
       </AutoComplete>,
     );
