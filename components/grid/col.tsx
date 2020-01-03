@@ -65,10 +65,12 @@ export function getScreenClassNames(
     pull,
   };
 
+  const init = Object.keys(screens).length === 0;
+
   for (let i = 0; i < RESPONSIVE_LIST.length; i += 1) {
     const screen = RESPONSIVE_LIST[i] as ResponsiveType;
     const screenObj = restProps[screen];
-    if (screens[screen] && screenObj !== undefined) {
+    if ((init || screens[screen]) && screenObj !== undefined) {
       mergedScreenObj = typeof screenObj === 'object' ? screenObj : { span: screenObj };
       break;
     }
