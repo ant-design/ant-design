@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.26.6
+
+`2019-01-03`
+
+- 💄 优化 Steps `type="navigation"` 在小屏幕下的样式。[#20545](https://github.com/ant-design/ant-design/pull/20545)
+- 🐞 修复 `message.xxx` 传入 `null` 会报错的问题。[#20546](https://github.com/ant-design/ant-design/pull/20546)
+- 🐞 优化 Input.Password 在 dom 中明文显示 `value` 属性的问题。[#20544](https://github.com/ant-design/ant-design/pull/20544)
+
 ## 3.26.5
 
 `2019-12-29`

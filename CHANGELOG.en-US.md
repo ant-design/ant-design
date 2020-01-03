@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.26.6
+
+`2019-01-03`
+
+- 💄 Improve Steps `type="navigation"` UI in small screen. [#20545](https://github.com/ant-design/ant-design/pull/20545)
+- 🐞 Fix `message.xxx` pass `null` will failed. [#20546](https://github.com/ant-design/ant-design/pull/20546)
+- 🐞 Remove Input.Password `value` attribute from dom. [#20544](https://github.com/ant-design/ant-design/pull/20544)
+
 ## 3.26.5
 
 `2019-12-29`
