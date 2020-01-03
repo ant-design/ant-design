@@ -172,6 +172,8 @@ For parts that cannot be modified automatically, codemod will prompt on the comm
   );
 ```
 
+**Note: Old Form imported from `@ ant-design / compatible` has change the class name from `.ant-form` to `.ant-legacy-form`. Need to be modified accordingly if override the style.**
+
 #### Replace component's string icon prop with the new `@ant-design/icons`
 
 ```diff
