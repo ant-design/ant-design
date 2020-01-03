@@ -214,4 +214,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
     jest.useRealTimers();
   });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    confirm({
+      content: 'some descriptions',
+      icon: 'ab',
+    });
+    expect(warnSpy).not.toHaveBeenCalled();
+    confirm({
+      content: 'some descriptions',
+      icon: 'question',
+    });
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Modal] \`icon\` is using ReactNode instead of string naming in v4. Please check \`question\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
+  });
 });

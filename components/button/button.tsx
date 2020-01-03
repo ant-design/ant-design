@@ -1,15 +1,14 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { LoadingOutlined } from '@ant-design/icons';
-import { polyfill } from 'react-lifecycles-compat';
 import omit from 'omit.js';
 
 import Group from './button-group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
+import warning from '../_util/warning';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -123,19 +122,6 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     htmlType: 'button',
   };
 
-  static propTypes = {
-    type: PropTypes.string,
-    shape: PropTypes.oneOf(ButtonShapes),
-    size: PropTypes.oneOf(ButtonSizes),
-    htmlType: PropTypes.oneOf(ButtonHTMLTypes),
-    onClick: PropTypes.func,
-    loading: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-    className: PropTypes.string,
-    icon: PropTypes.node,
-    block: PropTypes.bool,
-    title: PropTypes.string,
-  };
-
   private delayTimeout: number;
 
   private buttonNode: HTMLElement | null;
@@ -215,7 +201,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return React.Children.count(children) === 1 && !icon && type !== 'link';
   }
 
-  renderButton = ({ getPrefixCls, autoInsertSpaceInButton }: ConfigConsumerProps) => {
+  renderButton = ({ getPrefixCls, autoInsertSpaceInButton, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       type,
@@ -230,6 +216,12 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       ...rest
     } = this.props;
     const { loading, hasTwoCNChar } = this.state;
+
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'Button',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
 
     const prefixCls = getPrefixCls('btn', customizePrefixCls);
     const autoInsertSpace = autoInsertSpaceInButton !== false;
@@ -260,6 +252,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
       [`${prefixCls}-dangerous`]: !!danger,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const iconNode = loading ? <LoadingOutlined /> : icon || null;
@@ -310,7 +303,5 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
   }
 }
-
-polyfill(Button);
 
 export default Button;

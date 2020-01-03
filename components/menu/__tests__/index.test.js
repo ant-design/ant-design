@@ -4,19 +4,21 @@ import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { resetWarned } from '../../_util/warning';
-
-jest.mock('mutationobserver-shim', () => {
-  global.MutationObserver = function MutationObserver() {
-    this.observe = () => {};
-    this.disconnect = () => {};
-  };
-});
 
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
   mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <Menu.ItemGroup />
+      <Menu.SubMenu />
+    </Menu>
+  ));
+
+  rtlTest(() => (
     <Menu>
       <Menu.Item />
       <Menu.ItemGroup />
@@ -725,7 +727,12 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-menu-submenu-popup:not(.ant-menu-submenu-hidden)').length).toBe(0);
+    expect(
+      wrapper
+        .find('Trigger')
+        .map(node => node.prop('popupVisible'))
+        .findIndex(node => !!node),
+    ).toBe(-1);
     wrapper.setProps({ inlineCollapsed: false });
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();

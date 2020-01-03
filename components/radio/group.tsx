@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import { polyfill } from 'react-lifecycles-compat';
 import Radio from './radio';
 import {
   RadioGroupProps,
@@ -95,7 +94,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
     }
   };
 
-  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderGroup = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const { prefixCls: customizePrefixCls, className = '', options, buttonStyle } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
@@ -105,6 +104,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
       `${groupPrefixCls}-${buttonStyle}`,
       {
         [`${groupPrefixCls}-${props.size}`]: props.size,
+        [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
@@ -161,5 +161,4 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   }
 }
 
-polyfill(RadioGroup);
 export default RadioGroup;

@@ -31,8 +31,31 @@ cols: 1
 
 - Empty.PRESENTED_IMAGE_SIMPLE
 
-  <img src="https://user-images.githubusercontent.com/507615/54591679-b0ceb580-4a65-11e9-925c-ad15b4eae93d.png" height="35px">
+  <div class="site-empty-buildIn-img site-empty-buildIn-simple"><div>
 
 - Empty.PRESENTED_IMAGE_DEFAULT
 
-  <img src="https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png" height="100px">
+  <div class="site-empty-buildIn-img site-empty-buildIn-default"></div>
+
+<style>
+  .site-empty-buildIn-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .site-empty-buildIn-simple {
+    width: 55px;
+    height: 35px;
+    background-image: url("https://user-images.githubusercontent.com/507615/54591679-b0ceb580-4a65-11e9-925c-ad15b4eae93d.png");
+  }
+  .site-empty-buildIn-default {
+    width: 121px;
+    height: 100px;
+    background-image: url("https://user-images.githubusercontent.com/507615/54591670-ac0a0180-4a65-11e9-846c-e55ffce0fe7b.png");
+  }
+  [data-theme="dark"] .site-empty-buildIn-simple {
+    background-image: url("https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/oQFqhkmNPw/a38d2cdb-a33d-407c-8f8e-e3429699175d.png");
+  }
+  [data-theme="dark"] .site-empty-buildIn-default {
+    background-image: url("https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/5kgxi7xhMT/f6a34113-f417-44ea-a558-c3e50b4d441e.png");
+  }
+</style>

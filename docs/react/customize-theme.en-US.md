@@ -1,9 +1,9 @@
 ---
-order: 5
+order: 7
 title: Customize Theme
 ---
 
-Ant Design allows you to customize our design tokens in order to meet the needs of UI diversity from business and brand, including primary color, border radius, border color, etc.
+Ant Design allows you to customize our design tokens to satisfy UI diversity from business or brand requirements, including primary color, border radius, border color, etc.
 
 ![customized themes](https://zos.alipayobjects.com/rmsportal/zTFoszBtDODhXfLAazfSpYbSLSEeytoG.png)
 
@@ -22,8 +22,8 @@ There are some major variables below, all less variables could be found in [Defa
 @font-size-base: 14px; // major text font size
 @heading-color: rgba(0, 0, 0, 0.85); // heading text color
 @text-color: rgba(0, 0, 0, 0.65); // major text color
-@text-color-secondary : rgba(0, 0, 0, .45); // secondary text color
-@disabled-color : rgba(0, 0, 0, .25); // disable state color
+@text-color-secondary: rgba(0, 0, 0, 0.45); // secondary text color
+@disabled-color: rgba(0, 0, 0, 0.25); // disable state color
 @border-radius-base: 4px; // major border radius
 @border-color-base: #d9d9d9; // major border color
 @box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
@@ -102,28 +102,18 @@ Note: This way will load the styles of all components, regardless of your demand
 
 ### Use dark theme
 
-![](https://gw.alipayobjects.com/zos/antfincdn/wp6GpGo%26ID/f31e18a4-2018-4e12-95c6-998e7ac5b2fa.png)
+![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mYU9R4YFxscAAAAAAAAAAABkARQnAQ)
 
-include `antd/dist/antd-dark.less` in the style file:
+include `antd/dist/antd.dark.less` in the style file:
 
 ```less
-@import '~antd/dist/antd-dark.less'; // Introduce the official dark less style entry file
+@import '~antd/dist/antd.dark.less'; // Introduce the official dark less style entry file
 ```
 
 Another approach to using [less-loader](https://github.com/webpack-contrib/less-loader) in `webpack.config.js` to introduce as needed:
 
-```js
-const lessToJs = require('less-vars-to-js');
-const fs = require('fs');
-
-const colorLess = fs.readFileSync(require.resolve('antd/lib/style/color/colors.less'), 'utf8');
-const defaultLess = fs.readFileSync(require.resolve('antd/lib/style/themes/default.less'), 'utf8');
-const darkLess = fs.readFileSync(require.resolve('antd/lib/style/themes/dark.less'), 'utf8');
-
-const darkThemeVars = lessToJs(`${colorLess}${defaultLess}${darkLess}`, {
-  resolveVariables: false,
-  stripPrefix: false,
-})
+```diff
+const darkThemeVars = require('antd/dist/dark-theme');
 
 // webpack.config.js
 module.exports = {
@@ -143,7 +133,7 @@ module.exports = {
     // ...other rules
   }],
   // ...other config
-`` `
+```
 
 ## How to avoid modifying global styles?
 

@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 12
 title: Contributing
 toc: false
 ---

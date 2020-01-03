@@ -94,7 +94,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   };
 
-  renderTabs = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTabs = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -180,6 +180,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         prefixCls={prefixCls}
         className={cls}
         tabBarPosition={tabPosition}
+        direction={direction}
         renderTabBar={() => (
           <TabBar {...omit(tabBarProps, ['className'])} tabBarExtraContent={tabBarExtraContent} />
         )}

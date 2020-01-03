@@ -116,7 +116,7 @@ class SearchTree extends React.Component {
           index > -1 ? (
             <span>
               {beforeStr}
-              <span style={{ color: '#f50' }}>{searchValue}</span>
+              <span className="site-tree-search-value">{searchValue}</span>
               {afterStr}
             </span>
           ) : (
@@ -147,3 +147,15 @@ class SearchTree extends React.Component {
 
 ReactDOM.render(<SearchTree />, mountNode);
 ```
+
+```css
+.site-tree-search-value {
+  color: #f50;
+}
+```
+
+<style>
+[data-theme="dark"] .site-tree-search-value {
+  color: #d84a1b;
+}
+</style>

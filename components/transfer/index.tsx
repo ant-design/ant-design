@@ -1,7 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
@@ -27,7 +25,7 @@ type TransferRender = (item: TransferItem) => RenderResult;
 
 export interface TransferItem {
   key: string;
-  title: string;
+  title?: string;
   description?: string;
   disabled?: boolean;
   [name: string]: any;
@@ -58,8 +56,7 @@ export interface TransferProps {
   footer?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
-  lazy?: {} | boolean;
-  onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
+  onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
   children?: (props: TransferListBodyProps) => React.ReactNode;
   showSelectAll?: boolean;
 }
@@ -85,28 +82,6 @@ class Transfer extends React.Component<TransferProps, any> {
     locale: {},
     showSearch: false,
     listStyle: () => {},
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    disabled: PropTypes.bool,
-    dataSource: PropTypes.array as PropTypes.Validator<TransferItem[]>,
-    render: PropTypes.func,
-    targetKeys: PropTypes.array,
-    onChange: PropTypes.func,
-    height: PropTypes.number,
-    style: PropTypes.object,
-    listStyle: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-    operationStyle: PropTypes.object,
-    className: PropTypes.string,
-    titles: PropTypes.array,
-    operations: PropTypes.array,
-    showSearch: PropTypes.bool,
-    filterOption: PropTypes.func,
-    locale: PropTypes.object,
-    footer: PropTypes.func,
-    rowKey: PropTypes.func,
-    lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
   };
 
   static getDerivedStateFromProps(nextProps: TransferProps) {
@@ -259,16 +234,16 @@ class Transfer extends React.Component<TransferProps, any> {
   onRightItemSelect = (selectedKey: string, checked: boolean) =>
     this.onItemSelect('right', selectedKey, checked);
 
-  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => {
+  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
     const { onScroll } = this.props;
     if (onScroll) {
       onScroll(direction, e);
     }
   };
 
-  handleLeftScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('left', e);
+  handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('left', e);
 
-  handleRightScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('right', e);
+  handleRightScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('right', e);
 
   handleSelectChange(direction: TransferDirection, holder: string[]) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
@@ -322,7 +297,7 @@ class Transfer extends React.Component<TransferProps, any> {
 
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
-      {({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+      {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
         const {
           prefixCls: customizePrefixCls,
           className,
@@ -335,7 +310,6 @@ class Transfer extends React.Component<TransferProps, any> {
           operationStyle,
           filterOption,
           render,
-          lazy,
           children,
           showSelectAll,
         } = this.props;
@@ -354,6 +328,7 @@ class Transfer extends React.Component<TransferProps, any> {
         const cls = classNames(className, prefixCls, {
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-customize-list`]: !!children,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         });
 
         const titles = this.props.titles || locale.titles;
@@ -374,7 +349,6 @@ class Transfer extends React.Component<TransferProps, any> {
               showSearch={showSearch}
               renderList={children}
               footer={footer}
-              lazy={lazy}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
               direction="left"
@@ -391,6 +365,7 @@ class Transfer extends React.Component<TransferProps, any> {
               moveToLeft={this.moveToLeft}
               style={operationStyle}
               disabled={disabled}
+              direction={direction}
             />
             <List
               prefixCls={`${prefixCls}-list`}
@@ -407,7 +382,6 @@ class Transfer extends React.Component<TransferProps, any> {
               showSearch={showSearch}
               renderList={children}
               footer={footer}
-              lazy={lazy}
               onScroll={this.handleRightScroll}
               disabled={disabled}
               direction="right"
@@ -428,7 +402,5 @@ class Transfer extends React.Component<TransferProps, any> {
     );
   }
 }
-
-polyfill(Transfer);
 
 export default Transfer;

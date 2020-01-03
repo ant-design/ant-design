@@ -86,7 +86,7 @@ class EditableTagGroup extends React.Component {
           />
         )}
         {!inputVisible && (
-          <Tag onClick={this.showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
+          <Tag className="site-tag-plus" onClick={this.showInput}>
             <PlusOutlined /> New Tag
           </Tag>
         )}
@@ -97,3 +97,17 @@ class EditableTagGroup extends React.Component {
 
 ReactDOM.render(<EditableTagGroup />, mountNode);
 ```
+
+```css
+.site-tag-plus {
+  background: #fff;
+  border-style: dashed;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-tag-plus {
+    background: transparent;
+    border-style: dashed;
+  }
+</style>

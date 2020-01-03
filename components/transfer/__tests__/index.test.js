@@ -9,6 +9,7 @@ import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -30,7 +31,6 @@ const listCommonProps = {
   ],
   selectedKeys: ['a'],
   targetKeys: ['b'],
-  lazy: false,
 };
 
 const listDisabledProps = {
@@ -47,7 +47,6 @@ const listDisabledProps = {
   ],
   selectedKeys: ['a', 'b'],
   targetKeys: [],
-  lazy: false,
 };
 
 const searchTransferProps = {
@@ -91,11 +90,11 @@ const searchTransferProps = {
   ],
   selectedKeys: [],
   targetKeys: ['3', '4'],
-  lazy: false,
 };
 
 describe('Transfer', () => {
   mountTest(Transfer);
+  rtlTest(Transfer);
 
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);

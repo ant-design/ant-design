@@ -95,3 +95,9 @@ ReactDOM.render(
   margin-top: 16px;
 }
 ```
+
+<style>
+  [data-theme="dark"] .demo-nav {
+    background: #141414;
+  }
+</style>

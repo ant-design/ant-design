@@ -75,10 +75,10 @@ ReactDOM.render(
         </Menu.Item>
       </Menu>
     </Sider>
-    <Layout style={{ marginLeft: 200 }}>
-      <Header style={{ background: '#fff', padding: 0 }} />
+    <Layout className="site-layout" style={{ marginLeft: 200 }}>
+      <Header className="site-layout-background" style={{ padding: 0 }} />
       <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-        <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+        <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
           ...
           <br />
           Really
@@ -189,4 +189,13 @@ ReactDOM.render(
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
+.site-layout .site-layout-background {
+  background: #fff;
+}
 ```
+
+<style>
+  [data-theme="dark"] .site-layout .site-layout-background {
+    background: #141414;
+  }
+</style>

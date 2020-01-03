@@ -5,13 +5,14 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip } from 'antd';
+import { Tooltip, Alert } from 'antd';
 import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
-import ErrorBoundary from '../ErrorBoundary';
 import BrowserFrame from '../../BrowserFrame';
+
+const { ErrorBoundary } = Alert;
 
 function compress(string) {
   return LZString.compressToBase64(string)
@@ -21,6 +22,8 @@ function compress(string) {
 }
 
 class Demo extends React.Component {
+  iframeRef = React.createRef();
+
   state = {
     codeExpand: false,
     copied: false,
@@ -36,19 +39,20 @@ class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipVisible } = this.state;
-    const { expand } = this.props;
+    const { expand, theme } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
-      copyTooltipVisible !== nextState.copyTooltipVisible
+      copyTooltipVisible !== nextState.copyTooltipVisible ||
+      nextProps.theme !== theme
     );
   }
 
   getSourceCode() {
-    const { highlightedCode } = this.props;
+    const { highlightedCodes } = this.props;
     if (typeof document !== 'undefined') {
       const div = document.createElement('div');
-      div.innerHTML = highlightedCode[1].highlighted;
+      div.innerHTML = highlightedCodes.jsx;
       return div.textContent;
     }
     return '';
@@ -99,6 +103,13 @@ class Demo extends React.Component {
     });
   }
 
+  handleIframeReady = () => {
+    const { theme, setIframeTheme } = this.props;
+    if (this.iframeRef.current) {
+      setIframeTheme(this.iframeRef.current, theme);
+    }
+  };
+
   render() {
     const { state } = this;
     const { props } = this;
@@ -113,12 +124,20 @@ class Demo extends React.Component {
       expand,
       utils,
       intl: { locale },
+      theme,
     } = props;
     const { copied, copyTooltipVisible } = state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
-          <iframe src={src} height={meta.iframe} title="demo" />
+          <iframe
+            ref={this.iframeRef}
+            onLoad={this.handleIframeReady}
+            src={src}
+            height={meta.iframe}
+            title="demo"
+            className="iframe-demo"
+          />
         </BrowserFrame>
       ) : (
         preview(React, ReactDOM)
@@ -192,7 +211,8 @@ class Demo extends React.Component {
         }
         return acc;
       },
-      { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
+      // eslint-disable-next-line no-undef
+      { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
     const indexJsContent = `
 import React from 'react';
@@ -324,13 +344,21 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               <span className="code-expand-icon">
                 <img
                   alt="expand code"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
+                  src={
+                    theme === 'dark'
+                      ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/w9%264eQL2pY/wSAkBuJFbdxsosKKpqyq.svg'
+                      : 'https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg'
+                  }
                   className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />
                 <img
                   alt="expand code"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
+                  src={
+                    theme === 'dark'
+                      ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/9bKgP0%26pT8/OpROPHYqWmrMDBFMZtKF.svg'
+                      : 'https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg'
+                  }
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />

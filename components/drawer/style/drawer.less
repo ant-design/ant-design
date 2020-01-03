@@ -1,10 +1,6 @@
 @import '../../style/themes/index';
 
-// Preserve the typo for compatibility
-// https://github.com/ant-design/ant-design/issues/14628
-@dawer-prefix-cls: ~'@{ant-prefix}-drawer';
-
-@drawer-prefix-cls: @dawer-prefix-cls;
+@drawer-prefix-cls: ~'@{ant-prefix}-drawer';
 
 .@{drawer-prefix-cls} {
   position: fixed;
@@ -16,6 +12,10 @@
   > * {
     transition: transform @animation-duration-slow @ease-base-out,
       box-shadow @animation-duration-slow @ease-base-out;
+  }
+
+  &-rtl {
+    direction: rtl;
   }
 
   &-content-wrapper {
@@ -44,6 +44,14 @@
   }
 
   &-left {
+    left: 0;
+
+    .@{drawer-prefix-cls} {
+      &-content-wrapper {
+        left: 0;
+      }
+    }
+
     &.@{drawer-prefix-cls}-open {
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-right;
@@ -169,6 +177,11 @@
     cursor: pointer;
     transition: color @animation-duration-slow;
     text-rendering: auto;
+
+    .@{drawer-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+    }
 
     &:focus,
     &:hover {

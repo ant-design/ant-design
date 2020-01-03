@@ -14,7 +14,7 @@ cols: 1
 
 ## API
 
-```html
+```jsx
 <Card title="卡片标题">卡片内容</Card>
 ```
 

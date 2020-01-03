@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
@@ -33,16 +32,6 @@ export interface SwitchProps {
 export default class Switch extends React.Component<SwitchProps, {}> {
   static __ANT_SWITCH = true;
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    // HACK: https://github.com/ant-design/ant-design/issues/5368
-    // size=default and size=large are the same
-    size: PropTypes.oneOf(['small', 'default', 'large']) as PropTypes.Requireable<
-      SwitchProps['size']
-    >,
-    className: PropTypes.string,
-  };
-
   private rcSwitch: typeof RcSwitch;
 
   constructor(props: SwitchProps) {
@@ -67,12 +56,13 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     this.rcSwitch.blur();
   }
 
-  renderSwitch = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSwitch = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, size, loading, className = '', disabled } = this.props;
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const classes = classNames(className, {
       [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-loading`]: loading,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     const loadingIcon = loading ? (
       <LoadingOutlined className={`${prefixCls}-loading-icon`} />

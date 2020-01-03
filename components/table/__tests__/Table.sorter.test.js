@@ -546,6 +546,7 @@ describe('Table.sorter', () => {
       createTable({
         pagination: {
           pageSize: 2,
+          defaultCurrent: 2,
           onChange: onPageChange,
         },
         onChange,
@@ -553,8 +554,8 @@ describe('Table.sorter', () => {
     );
 
     wrapper.find('.ant-table-column-sorters').simulate('click');
-    expect(onChange.mock.calls[0][0].current).toBe(1);
-    expect(onPageChange.mock.calls[0][0]).toBe(1);
+    expect(onChange.mock.calls[0][0].current).toBe(2);
+    expect(onPageChange).not.toHaveBeenCalled();
   });
 
   it('should support onHeaderCell in sort column', () => {
@@ -638,5 +639,35 @@ describe('Table.sorter', () => {
       </Table>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/20096
+  it('invalidate sorter should not display sorter button', () => {
+    const wrapper = mount(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+            sorter: false,
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
+            key: 'age',
+            sorter: null,
+          },
+          {
+            title: 'Address',
+            dataIndex: 'address',
+            key: 'address',
+            sorter: undefined,
+          },
+        ]}
+      />,
+    );
+
+    expect(wrapper.find('.ant-table-column-sorter-inner')).toHaveLength(0);
   });
 });

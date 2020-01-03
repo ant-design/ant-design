@@ -350,6 +350,8 @@ exports[`Drawer render top drawer 1`] = `
 </div>
 `;
 
+exports[`Drawer rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
 exports[`Drawer style/drawerStyle/headerStyle/bodyStyle should work 1`] = `
 <div
   class=""

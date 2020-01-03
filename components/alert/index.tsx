@@ -16,6 +16,7 @@ import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import ErrorBoundary from './ErrorBoundary';
 
 function noop() {}
 
@@ -65,6 +66,8 @@ const iconMapOutlined = {
 };
 
 export default class Alert extends React.Component<AlertProps, AlertState> {
+  static ErrorBoundary = ErrorBoundary;
+
   state = {
     closing: false,
     closed: false,
@@ -92,7 +95,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
     (this.props.afterClose || noop)();
   };
 
-  renderAlert = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderAlert = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       description,
       prefixCls: customizePrefixCls,
@@ -130,6 +133,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
         [`${prefixCls}-no-icon`]: !showIcon,
         [`${prefixCls}-banner`]: !!banner,
         [`${prefixCls}-closable`]: closable,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

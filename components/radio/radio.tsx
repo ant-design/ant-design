@@ -55,7 +55,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
     this.rcCheckbox.blur();
   }
 
-  renderRadio = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderRadio = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props, context } = this;
     const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
     const { radioGroup } = context;
@@ -71,6 +71,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
+      [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     });
 
     return (

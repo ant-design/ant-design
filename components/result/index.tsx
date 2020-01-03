@@ -8,6 +8,7 @@ import {
 } from '@ant-design/icons';
 
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
+import warning from '../_util/warning';
 
 import noFound from './noFound';
 import serverError from './serverError';
@@ -53,6 +54,12 @@ const ExceptionStatus = Object.keys(ExceptionMap);
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
 
+  warning(
+    !(typeof icon === 'string' && icon.length > 2),
+    'Result',
+    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+  );
+
   if (ExceptionStatus.includes(status as ResultStatusType)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
@@ -80,7 +87,7 @@ export interface ResultType extends React.SFC<ResultProps> {
 
 const Result: ResultType = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         className: customizeClassName,
@@ -91,7 +98,9 @@ const Result: ResultType = props => (
         status,
       } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName);
+      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      });
       return (
         <div className={className} style={style}>
           {renderIcon(prefixCls, props)}

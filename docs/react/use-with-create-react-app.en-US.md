@@ -1,5 +1,5 @@
 ---
-order: 3
+order: 4
 title: Use in create-react-app
 ---
 
@@ -13,6 +13,10 @@ Before all start, you may need install [yarn](https://github.com/yarnpkg/yarn/).
 
 ```bash
 $ yarn create react-app antd-demo
+
+# or
+
+$ npx create-react-app antd-demo
 ```
 
 The tool will create and initialize environment and dependencies automatically, please try config your proxy setting or use another npm registry if any network errors happen during it.
@@ -55,19 +59,15 @@ $ yarn add antd
 Modify `src/App.js`, import Button component from `antd`.
 
 ```jsx
-import React, { Component } from 'react';
-import Button from 'antd/es/button';
+import React from 'react';
+import { Button } from 'antd';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Button type="primary">Button</Button>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <Button type="primary">Button</Button>
+  </div>
+);
 
 export default App;
 ```
@@ -86,9 +86,11 @@ Add `antd/dist/antd.css` at the top of `src/App.css`.
 
 Ok, you should now see a blue primary button displayed on the page. Next you can choose any components of `antd` to develop your application. Visit other workflows of `create-react-app` at its [User Guide ](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+We are successfully running antd components now, go build your own application!
+
 ## Advanced Guides
 
-We are successfully running antd components now but in the real world, there are still lots of problems about antd-demo. For instance, we actually import styles of all components in the project which may be a css bundle size issue (It is OK then if you don't care the gzipped 60kb css file size).
+In the real world, there are still lots of problems about antd-demo. For instance, we actually import styles of all components in the project which may be a css bundle size issue (It is OK then if you don't care the gzipped 60kb css file size).
 
 Now we need to customize the default webpack config. We can achieve that by using [react-app-rewired](https://github.com/timarney/react-app-rewired) which is one of create-react-app's custom config solutions.
 

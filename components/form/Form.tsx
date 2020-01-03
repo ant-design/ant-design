@@ -11,7 +11,7 @@ import { useForm, FormInstance } from './util';
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
-interface FormProps extends Omit<RcFormProps, 'form'> {
+export interface FormProps extends Omit<RcFormProps, 'form'> {
   prefixCls?: string;
   hideRequiredMark?: boolean;
   colon?: boolean;
@@ -24,7 +24,7 @@ interface FormProps extends Omit<RcFormProps, 'form'> {
 }
 
 const InternalForm: React.FC<FormProps> = (props, ref) => {
-  const { getPrefixCls }: ConfigConsumerProps = React.useContext(ConfigContext);
+  const { getPrefixCls, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
 
   const {
     form,
@@ -45,6 +45,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     {
       [`${prefixCls}-${layout}`]: true,
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
   );

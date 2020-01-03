@@ -4,6 +4,7 @@ import renderer from 'react-test-renderer';
 import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
 
 describe('Button', () => {
@@ -13,6 +14,13 @@ describe('Button', () => {
   mountTest(Button.Group);
   mountTest(() => <Button.Group size="large" />);
   mountTest(() => <Button.Group size="small" />);
+
+  rtlTest(Button);
+  rtlTest(() => <Button size="large" />);
+  rtlTest(() => <Button size="small" />);
+  rtlTest(Button.Group);
+  rtlTest(() => <Button.Group size="large" />);
+  rtlTest(() => <Button.Group size="small" />);
 
   it('renders correctly', () => {
     const wrapper = render(<Button>Follow</Button>);
@@ -232,5 +240,16 @@ describe('Button', () => {
     expect(() => {
       wrapper.unmount();
     }).not.toThrow();
+  });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Button type="primary" icon="ab" />);
+    expect(warnSpy).not.toHaveBeenCalled();
+    mount(<Button type="primary" icon="search" />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Button] \`icon\` is using ReactNode instead of string naming in v4. Please check \`search\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
   });
 });

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
+import classNames from 'classnames';
 import { StarFilled } from '@ant-design/icons';
 
 import Tooltip from '../tooltip';
@@ -28,11 +28,6 @@ interface RateNodeProps {
 }
 
 export default class Rate extends React.Component<RateProps, any> {
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    character: PropTypes.node,
-  };
-
   static defaultProps = {
     character: <StarFilled />,
   };
@@ -58,17 +53,22 @@ export default class Rate extends React.Component<RateProps, any> {
     this.rcRate.blur();
   }
 
-  renderRate = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls, ...restProps } = this.props;
+  renderRate = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+    const { prefixCls, className, ...restProps } = this.props;
 
     const rateProps = omit(restProps, ['tooltips']);
+    const ratePrefixCls = getPrefixCls('rate', prefixCls);
+    const rateClassNames = classNames(className, {
+      [`${ratePrefixCls}-rtl`]: direction === 'rtl',
+    });
 
     return (
       <RcRate
         ref={this.saveRate}
         characterRender={this.characterRender}
         {...rateProps}
-        prefixCls={getPrefixCls('rate', prefixCls)}
+        prefixCls={ratePrefixCls}
+        className={rateClassNames}
       />
     );
   };

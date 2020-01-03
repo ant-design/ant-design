@@ -55,6 +55,14 @@
   position: relative;
   display: inline-block;
 
+  &:not(.@{select-prefix-cls}-disabled):hover &-selector {
+    .hover();
+  }
+
+  &-rtl {
+    direction: rtl;
+  }
+
   // ======================== Selection ========================
   &-selection-item {
     overflow: hidden;
@@ -85,11 +93,21 @@
     pointer-events: none;
 
     .anticon {
+      vertical-align: top;
       transition: transform 0.3s;
+
+      > svg {
+        vertical-align: top;
+      }
 
       .@{select-prefix-cls}-open &.anticon-down {
         transform: rotate(180deg);
       }
+    }
+
+    .@{select-prefix-cls}-rtl & {
+      right: initial;
+      left: @control-padding-horizontal - 1px;
     }
   }
 
@@ -109,7 +127,7 @@
     line-height: 1;
     text-align: center;
     text-transform: none;
-    background: @select-background;
+    background: @select-clear-background;
     cursor: pointer;
     opacity: 0;
     transition: color 0.3s ease, opacity 0.15s ease;
@@ -124,12 +142,20 @@
     .@{select-prefix-cls}:hover & {
       opacity: 1;
     }
+
+    .@{select-prefix-cls}-rtl & {
+      right: initial;
+      left: @control-padding-horizontal - 1px;
+    }
   }
 
   // ========================== Popup ==========================
   &-dropdown {
     .reset-component;
 
+    &-rtl {
+      direction: rtl;
+    }
     position: absolute;
     top: -9999px;
     left: -9999px;
@@ -170,14 +196,24 @@
   }
 
   // ========================= Options =========================
-  &-item {
+  .item() {
     position: relative;
     display: block;
     min-height: 32px;
-    padding: 5px @control-padding-horizontal;
+    padding: @select-dropdown-vertical-padding @control-padding-horizontal;
     color: @text-color;
     font-weight: normal;
-    line-height: 22px;
+    font-size: @select-dropdown-font-size;
+    line-height: @select-dropdown-line-height;
+  }
+
+  &-item-empty {
+    .item();
+  }
+
+  &-item {
+    .item();
+
     cursor: pointer;
     transition: background 0.3s ease;
 
@@ -210,11 +246,19 @@
         color: @text-color;
         font-weight: @select-item-selected-font-weight;
         background-color: @select-item-selected-bg;
+
+        .@{select-prefix-cls}-item-option-state {
+          color: @primary-color;
+        }
       }
 
       &-disabled {
         color: @disabled-color;
         cursor: not-allowed;
+      }
+
+      &-grouped {
+        padding-left: @control-padding-horizontal * 2;
       }
     }
   }

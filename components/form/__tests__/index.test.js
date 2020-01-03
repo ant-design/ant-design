@@ -1,21 +1,25 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import scrollIntoView from 'dom-scroll-into-view';
+import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
-jest.mock('dom-scroll-into-view');
+jest.mock('scroll-into-view-if-needed');
 
-const delay = () =>
+const delay = (timeout = 0) =>
   new Promise(resolve => {
-    setTimeout(resolve, 0);
+    setTimeout(resolve, timeout);
   });
 
 describe('Form', () => {
   mountTest(Form);
   mountTest(Form.Item);
+
+  rtlTest(Form);
+  rtlTest(Form.Item);
 
   scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -25,11 +29,12 @@ describe('Form', () => {
       .find(Input)
       .at(index)
       .simulate('change', { target: { value } });
-    await delay();
+    await delay(50);
     wrapper.update();
   }
 
   beforeEach(() => {
+    jest.useRealTimers();
     scrollIntoView.mockReset();
   });
 
@@ -136,6 +141,19 @@ describe('Form', () => {
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
     );
   });
+  it('children is array has name props', () => {
+    mount(
+      <Form>
+        <Form.Item name="test">
+          <div>one</div>
+          <div>two</div>
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `children` is array of render props cannot have `name`.',
+    );
+  });
 
   describe('scrollToField', () => {
     function test(name, genForm) {
@@ -195,5 +213,59 @@ describe('Form', () => {
       </Form>,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('warning when use `name` but children is not validate element', () => {
+    mount(
+      <Form>
+        <Form.Item name="warning">text</Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
+    );
+  });
+
+  it('dynamic change required', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item label="light" name="light" valuePropName="checked">
+          <input type="checkbox" />
+        </Form.Item>
+        <Form.Item
+          label="bamboo"
+          name="bamboo"
+          dependencies={['light']}
+          rules={[({ getFieldValue }) => ({ required: getFieldValue('light') })]}
+        >
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('.ant-form-item-required')).toHaveLength(0);
+
+    wrapper.find('input[type="checkbox"]').simulate('change', { target: { checked: true } });
+    wrapper.update();
+    expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
+  });
+
+  it('should show related className when customize help', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="good">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
+  });
+
+  it('warning when use v3 function', () => {
+    Form.create();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form] antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',
+    );
   });
 });

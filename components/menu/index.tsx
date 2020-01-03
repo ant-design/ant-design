@@ -2,7 +2,6 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -274,7 +273,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
   }
 
-  renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+  renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
@@ -309,32 +308,30 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
 
     return (
-      <RcMenu
-        getPopupContainer={getPopupContainer}
-        {...passProps}
-        {...menuProps}
-        prefixCls={prefixCls}
-        onTransitionEnd={this.handleTransitionEnd}
-        onMouseEnter={this.handleMouseEnter}
-      />
-    );
-  };
-
-  render() {
-    return (
       <MenuContext.Provider
         value={{
           inlineCollapsed: this.getInlineCollapsed() || false,
           antdMenuTheme: this.props.theme,
+          direction,
         }}
       >
-        <ConfigConsumer>{this.renderMenu}</ConfigConsumer>
+        <RcMenu
+          getPopupContainer={getPopupContainer}
+          {...passProps}
+          {...menuProps}
+          prefixCls={prefixCls}
+          onTransitionEnd={this.handleTransitionEnd}
+          onMouseEnter={this.handleMouseEnter}
+          direction={direction}
+        />
       </MenuContext.Provider>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderMenu}</ConfigConsumer>;
   }
 }
-
-polyfill(InternalMenu);
 
 // We should keep this as ref-able
 export default class Menu extends React.Component<MenuProps, {}> {

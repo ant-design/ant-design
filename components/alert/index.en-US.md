@@ -25,3 +25,10 @@ Alert component for feedback.
 | showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |
 | onClose | Callback when Alert is closed | (e: MouseEvent) => void | - |
+
+### Alert.ErrorBoundary
+
+| Property    | Description                      | Type      | Default             | Version |
+| ----------- | -------------------------------- | --------- | ------------------- | ------- |
+| message     | custom error message to show     | ReactNode | `{{ error }}`       |         |
+| description | custom error description to show | ReactNode | `{{ error stack }}` |         |

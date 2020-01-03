@@ -73,3 +73,9 @@ ReactDOM.render(
   padding: 5px 0;
 }
 ```
+
+<style>
+[data-theme="dark"] .gutter-box {
+  background: #028ac8;
+}
+</style>

@@ -696,9 +696,8 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     <div>
       <div />
       <div
-        class="ant-tabs-bar ant-tabs-top-bar"
+        class="ant-tabs-bar site-custom-tab-bar"
         role="tablist"
-        style="z-index:1;background:#fff"
         tabindex="0"
       >
         <div
@@ -1788,6 +1787,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -1843,6 +1843,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -1898,6 +1899,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -1953,6 +1955,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -2534,6 +2537,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            readonly=""
             role="combobox"
             style="opacity:0"
             value=""

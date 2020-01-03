@@ -133,7 +133,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
-| children | 渲染函数 | (fields: Field[], operation: { add, remove }) => React.ReactNode | - |
+| children | 渲染函数 | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
 
 ```tsx
 <Form.List>
@@ -237,6 +237,12 @@ validateFields()
 
 #### Rule
 
+Rule 支持接收 object 进行配置，也支持 function 来动态获取 from 的数据：
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
 | enum | 是否匹配枚举中的值 | any[] |
@@ -322,3 +328,12 @@ const TestForm = () => {
 在线示例：
 
 [![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
+
+<style>
+  .site-form-item-icon {
+    color: rgba(0, 0, 0, 0.25);
+  }
+  [data-theme="dark"] .site-form-item-icon {
+    color: rgba(255,255,255,.3);
+  }
+</style>

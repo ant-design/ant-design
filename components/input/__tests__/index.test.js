@@ -5,6 +5,7 @@ import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
 
 const { TextArea } = Input;
@@ -23,6 +24,9 @@ describe('Input', () => {
   focusTest(Input);
   mountTest(Input);
   mountTest(Input.Group);
+
+  rtlTest(Input);
+  rtlTest(Input.Group);
 
   it('should support maxLength', () => {
     const wrapper = mount(<Input maxLength={3} />);
@@ -175,6 +179,31 @@ describe('TextArea', () => {
     wrapper.instance().handleKeyDown({ keyCode: 13 });
     expect(onPressEnter).toHaveBeenCalled();
     expect(onKeyDown).toHaveBeenCalled();
+  });
+
+  it('should trigger onResize', () => {
+    const onResize = jest.fn();
+    const wrapper = mount(<TextArea onResize={onResize} autosize />);
+
+    wrapper
+      .find('ResizeObserver')
+      .instance()
+      .onResize([
+        {
+          target: {
+            getBoundingClientRect() {
+              return {};
+            },
+          },
+        },
+      ]);
+
+    expect(onResize).toHaveBeenCalledWith(
+      expect.objectContaining({
+        width: expect.any(Number),
+        height: expect.any(Number),
+      }),
+    );
   });
 });
 

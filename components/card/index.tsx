@@ -7,7 +7,6 @@ import Tabs from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import warning from '../_util/warning';
 import { Omit } from '../_util/type';
 
 function getAction(actions: React.ReactNode[]) {
@@ -41,7 +40,6 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   bodyStyle?: React.CSSProperties;
   style?: React.CSSProperties;
   loading?: boolean;
-  noHovering?: boolean;
   hoverable?: boolean;
   children?: React.ReactNode;
   id?: string;
@@ -62,30 +60,6 @@ export default class Card extends React.Component<CardProps, {}> {
 
   static Meta: typeof Meta = Meta;
 
-  componentDidMount() {
-    if ('noHovering' in this.props) {
-      warning(
-        !this.props.noHovering,
-        'Card',
-        '`noHovering` is deprecated, you can remove it safely or use `hoverable` instead.',
-      );
-      warning(
-        !!this.props.noHovering,
-        'Card',
-        '`noHovering={false}` is deprecated, use `hoverable` instead.',
-      );
-    }
-  }
-
-  // For 2.x compatible
-  getCompatibleHoverable() {
-    const { noHovering, hoverable } = this.props;
-    if ('noHovering' in this.props) {
-      return !noHovering || hoverable;
-    }
-    return !!hoverable;
-  }
-
   onTabChange = (key: string) => {
     if (this.props.onTabChange) {
       this.props.onTabChange(key);
@@ -102,7 +76,7 @@ export default class Card extends React.Component<CardProps, {}> {
     return containGrid;
   }
 
-  renderCard = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCard = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -121,6 +95,7 @@ export default class Card extends React.Component<CardProps, {}> {
       activeTabKey,
       defaultActiveTabKey,
       tabBarExtraContent,
+      hoverable,
       ...others
     } = this.props;
 
@@ -128,11 +103,12 @@ export default class Card extends React.Component<CardProps, {}> {
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: loading,
       [`${prefixCls}-bordered`]: bordered,
-      [`${prefixCls}-hoverable`]: this.getCompatibleHoverable(),
+      [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: this.isContainGrid(),
       [`${prefixCls}-contain-tabs`]: tabList && tabList.length,
       [`${prefixCls}-${size}`]: size !== 'default',
       [`${prefixCls}-type-${type}`]: !!type,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     const loadingBlockStyle =
@@ -226,7 +202,7 @@ export default class Card extends React.Component<CardProps, {}> {
       actions && actions.length ? (
         <ul className={`${prefixCls}-actions`}>{getAction(actions)}</ul>
       ) : null;
-    const divProps = omit(others, ['onTabChange', 'noHovering', 'hoverable']);
+    const divProps = omit(others, ['onTabChange']);
     return (
       <div {...divProps} className={classString}>
         {head}

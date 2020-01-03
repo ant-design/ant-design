@@ -26,3 +26,10 @@ title: Alert
 | showIcon | 是否显示辅助图标 | boolean | false，`banner` 模式下默认值为 true |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | string | `info`，`banner` 模式下默认值为 `warning` |
 | onClose | 关闭时触发的回调函数 | (e: MouseEvent) => void | 无 |
+
+### Alert.ErrorBoundary
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| message | 自定义错误标题，如果未指定会展示原生报错信息 | ReactNode | `{{ error }}` |  |
+| description | 自定义错误内容，如果未指定会展示报错堆栈 | ReactNode | `{{ error stack }}` |  |

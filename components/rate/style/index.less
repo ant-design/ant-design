@@ -15,6 +15,10 @@
   list-style: none;
   outline: none;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-disabled &-star {
     cursor: default;
     &:hover {
@@ -33,6 +37,11 @@
 
     &:not(:last-child) {
       margin-right: 8px;
+
+      .@{rate-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 8px;
+      }
     }
 
     > div {
@@ -64,6 +73,11 @@
       height: 100%;
       overflow: hidden;
       opacity: 0;
+
+      .@{rate-prefix-cls}-rtl & {
+        right: 0;
+        left: auto;
+      }
     }
 
     &-half &-first,
@@ -81,5 +95,10 @@
     display: inline-block;
     margin-left: 8px;
     font-size: @font-size-base;
+
+    .@{rate-prefix-cls}-rtl & {
+      margin-right: 8px;
+      margin-left: 0;
+    }
   }
 }

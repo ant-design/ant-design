@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
 import { CloseOutlined } from '@ant-design/icons';
 
 import CheckableTag from './CheckableTag';
@@ -57,7 +56,7 @@ class Tag extends React.Component<TagProps, TagState> {
     };
   }
 
-  getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
+  getTagClassName({ getPrefixCls, direction }: ConfigConsumerProps) {
     const { prefixCls: customizePrefixCls, className, color } = this.props;
     const { visible } = this.state;
     const isPresetColor = this.isPresetColor();
@@ -68,6 +67,7 @@ class Tag extends React.Component<TagProps, TagState> {
         [`${prefixCls}-${color}`]: isPresetColor,
         [`${prefixCls}-has-color`]: color && !isPresetColor,
         [`${prefixCls}-hidden`]: !visible,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
@@ -88,6 +88,7 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   handleIconClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     this.setVisible(false, e);
   };
 
@@ -132,7 +133,5 @@ class Tag extends React.Component<TagProps, TagState> {
     return <ConfigConsumer>{this.renderTag}</ConfigConsumer>;
   }
 }
-
-polyfill(Tag);
 
 export default Tag;

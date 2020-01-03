@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
@@ -7,7 +6,6 @@ import Checkbox from '../checkbox';
 import { TransferItem, TransferDirection, RenderResult, RenderResultObject } from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
-import triggerEvent from '../_util/triggerEvent';
 
 const defaultRender = () => null;
 
@@ -46,8 +44,7 @@ export interface TransferListProps {
   itemsUnit: string;
   renderList?: RenderListFunction;
   footer?: (props: TransferListProps) => React.ReactNode;
-  lazy?: boolean | {};
-  onScroll: Function;
+  onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
   showSelectAll?: boolean;
@@ -75,7 +72,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     dataSource: [],
     titleText: '',
     showSearch: false,
-    lazy: {},
   };
 
   timer: number;
@@ -220,18 +216,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     } = e;
     this.setState({ filterValue });
     handleFilter(e);
-    if (!filterValue) {
-      return;
-    }
-    // Manually trigger scroll event for lazy search bug
-    // https://github.com/ant-design/ant-design/issues/5631
-    this.triggerScrollTimer = window.setTimeout(() => {
-      const transferNode = ReactDOM.findDOMNode(this) as Element;
-      const listNode = transferNode.querySelectorAll('.ant-transfer-list-content')[0];
-      if (listNode) {
-        triggerEvent(listNode, 'scroll');
-      }
-    }, 0);
   };
 
   handleClear = () => {

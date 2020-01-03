@@ -26,3 +26,12 @@ PageHeader can be used to highlight the page topic, display important informatio
 | breadcrumb | Breadcrumb configuration | [breadcrumb](https://ant.design/components/breadcrumb-cn/) | - |  |
 | footer | PageHeader's footer, generally used to render TabBar | ReactNode | - |  |
 | onBack | Back icon click event | `()=>void` | `()=>history.back()` |  |
+
+<style>
+  [data-theme="dark"] .site-page-header {
+    border: 1px solid #303030;
+  }
+  [data-theme="dark"]  .site-page-header-ghost-wrapper {
+    background-color: rgba(255,255,255,0.08);
+  }
+</style>

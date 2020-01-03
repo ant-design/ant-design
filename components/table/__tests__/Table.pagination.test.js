@@ -315,4 +315,9 @@ describe('Table.pagination', () => {
       wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active'),
     ).toBeTruthy();
   });
+
+  it('pagination should ignore invalidate total', () => {
+    const wrapper = mount(createTable({ pagination: { total: null } }));
+    expect(wrapper.find('.ant-pagination-item-1').length).toBeTruthy();
+  });
 });

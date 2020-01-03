@@ -2,9 +2,11 @@ import React from 'react';
 import { render } from 'enzyme';
 import Drawer from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Drawer', () => {
   mountTest(Drawer);
+  rtlTest(Drawer);
 
   it('render correctly', () => {
     const wrapper = render(

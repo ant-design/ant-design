@@ -4,8 +4,13 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { polyfill } from 'react-lifecycles-compat';
-import { CloseCircleFilled, DownOutlined, RightOutlined, RedoOutlined } from '@ant-design/icons';
+import {
+  CloseCircleFilled,
+  DownOutlined,
+  RightOutlined,
+  RedoOutlined,
+  LeftOutlined,
+} from '@ant-design/icons';
 
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
@@ -96,8 +101,6 @@ export interface CascaderProps {
   popupVisible?: boolean;
   /** use this after antd@3.7.0 */
   fieldNames?: FieldNamesType;
-  /** typo props name before antd@3.7.0 */
-  filedNames?: FieldNamesType;
   suffixIcon?: React.ReactNode;
 }
 
@@ -167,11 +170,7 @@ function defaultSortFilteredOption(
   return a.findIndex(callback) - b.findIndex(callback);
 }
 
-function getFieldNames(props: CascaderProps) {
-  const { fieldNames, filedNames } = props;
-  if ('filedNames' in props) {
-    return filedNames; // For old compatibility
-  }
+function getFieldNames({ fieldNames }: CascaderProps) {
   return fieldNames;
 }
 
@@ -218,7 +217,6 @@ function warningValueNotExist(list: CascaderOptionType[], fieldNames: FieldNames
 class Cascader extends React.Component<CascaderProps, CascaderState> {
   static defaultProps = {
     transitionName: 'slide-up',
-    popupPlacement: 'bottomLeft',
     options: [],
     disabled: false,
     allowClear: true,
@@ -421,8 +419,21 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     this.input.blur();
   }
 
+  getPopupPlacement(direction: string = 'ltr') {
+    const { popupPlacement } = this.props;
+    if (popupPlacement !== undefined) {
+      return popupPlacement;
+    }
+    return direction === 'rtl' ? 'bottomRight' : 'bottomLeft';
+  }
+
   renderCascader = (
-    { getPopupContainer: getContextPopupContainer, getPrefixCls, renderEmpty }: ConfigConsumerProps,
+    {
+      getPopupContainer: getContextPopupContainer,
+      getPrefixCls,
+      renderEmpty,
+      direction,
+    }: ConfigConsumerProps,
     locale: CascaderLocale,
   ) => {
     const { props, state } = this;
@@ -439,10 +450,13 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       showSearch = false,
       suffixIcon,
       notFoundContent,
+      popupClassName,
       ...otherProps
     } = props;
 
     const { value, inputFocused } = state;
+
+    const isRtlLayout = direction === 'rtl';
 
     const prefixCls = getPrefixCls('cascader', customizePrefixCls);
     const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
@@ -460,6 +474,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
     });
     const pickerCls = classNames(className, `${prefixCls}-picker`, {
+      [`${prefixCls}-picker-rtl`]: isRtlLayout,
       [`${prefixCls}-picker-with-value`]: state.inputValue,
       [`${prefixCls}-picker-disabled`]: disabled,
       [`${prefixCls}-picker-${size}`]: !!size,
@@ -487,7 +502,6 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       'sortFilteredOption',
       'notFoundContent',
       'fieldNames',
-      'filedNames', // For old compatibility
     ]);
 
     let { options } = props;
@@ -560,7 +574,10 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
       </span>
     );
 
-    const expandIcon = <RightOutlined />;
+    let expandIcon = <RightOutlined />;
+    if (isRtlLayout) {
+      expandIcon = <LeftOutlined />;
+    }
 
     const loadingIcon = (
       <span className={`${prefixCls}-menu-item-loading-icon`}>
@@ -570,7 +587,9 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
     const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
     const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
-
+    const rcCascaderRtlPopupClassName = classNames(popupClassName, {
+      [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
+    });
     return (
       <RcCascader
         {...rest}
@@ -584,6 +603,8 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         dropdownMenuColumnStyle={dropdownMenuColumnStyle}
         expandIcon={expandIcon}
         loadingIcon={loadingIcon}
+        popupClassName={rcCascaderRtlPopupClassName}
+        popupPlacement={this.getPopupPlacement(direction)}
       >
         {input}
       </RcCascader>
@@ -600,7 +621,5 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     );
   }
 }
-
-polyfill(Cascader);
 
 export default Cascader;

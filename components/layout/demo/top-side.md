@@ -41,8 +41,8 @@ ReactDOM.render(
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
       </Breadcrumb>
-      <Layout style={{ padding: '24px 0', background: '#fff' }}>
-        <Sider width={200} style={{ background: '#fff' }}>
+      <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
+        <Sider className="site-layout-background" width={200}>
           <Menu
             mode="inline"
             defaultSelectedKeys={['1']}
@@ -109,5 +109,9 @@ ReactDOM.render(
   background: rgba(255, 255, 255, 0.2);
   margin: 16px 28px 16px 0;
   float: left;
+}
+
+.site-layout-background {
+  background: #fff;
 }
 ```

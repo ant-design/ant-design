@@ -3,6 +3,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
 import Input from '../../input';
+import Tooltip from '../../tooltip';
 import Button from '../../button';
 import ConfigProvider from '../../config-provider';
 
@@ -310,6 +311,58 @@ describe('Table.filter', () => {
     expect(wrapper.find('tbody tr').length).toBe(4);
   });
 
+  it('can read defaults from defaultFilteredValue', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            defaultFilteredValue: ['Lucy'],
+          },
+        ],
+      }),
+    );
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Lucy');
+
+    // Should properly ignore further defaultFilteredValue changes
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: [],
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Lucy');
+
+    // Should properly be overidden by non-null filteredValue
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: ['Lucy'],
+          filteredValue: ['Tom'],
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Tom');
+
+    // Should properly be overidden by a null filteredValue
+    wrapper.setProps({
+      columns: [
+        {
+          ...column,
+          defaultFilteredValue: ['Lucy'],
+          filteredValue: null,
+        },
+      ],
+    });
+    expect(wrapper.find('tbody tr').length).toBe(4);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const wrapper = mount(createTable({ onChange: handleChange }));
@@ -451,6 +504,14 @@ describe('Table.filter', () => {
         wrapper.find('.confirm').simulate('click');
         wrapper.update();
 
+        expect(
+          wrapper
+            .find('FilterDropdown')
+            .find('Checkbox')
+            .at(0)
+            .props().checked,
+        ).toEqual(true);
+
         expect(typeof wrapper.find('FilterDropdown').props().filterState.filteredKeys[0]).toEqual(
           'string',
         );
@@ -471,7 +532,7 @@ describe('Table.filter', () => {
             .find('Checkbox')
             .at(0)
             .props().checked,
-        ).toEqual(true);
+        ).toEqual(false);
         jest.useRealTimers();
       });
     });
@@ -643,6 +704,40 @@ describe('Table.filter', () => {
     expect(wrapper.find('.customize-icon').render()).toMatchSnapshot();
   });
 
+  it('renders custom filter icon as string correctly', () => {
+    const filterIcon = () => 'string';
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('renders custom filter icon with right Tooltip title', () => {
+    const filterIcon = () => (
+      <Tooltip title="title" visible>
+        Tooltip
+      </Tooltip>
+    );
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterIcon,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   // https://github.com/ant-design/ant-design/issues/13028
   it('reset dropdown filter correctly', () => {
     class Demo extends React.Component {
@@ -800,6 +895,8 @@ describe('Table.filter', () => {
   });
 
   it('should support getPopupContainer', () => {
+    const getPopupContainer = jest.fn(node => node.parentNode);
+
     const wrapper = mount(
       createTable({
         columns: [
@@ -808,10 +905,11 @@ describe('Table.filter', () => {
             filterDropdownVisible: true,
           },
         ],
-        getPopupContainer: node => node.parentNode,
+        getPopupContainer,
       }),
     );
     expect(wrapper.render()).toMatchSnapshot();
+    expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('should support getPopupContainer from ConfigProvider', () => {
