@@ -10,7 +10,7 @@ import interopDefault from '../_util/interopDefault';
 import InputIcon from './InputIcon';
 
 function formatValue(value: moment.Moment | null, format: string): string {
-  return (value && value.format(format)) || '';
+  return (value && value.endOf('week').format(format)) || '';
 }
 
 interface WeekPickerState {
