@@ -3,31 +3,149 @@ order: 8
 title: V3 to V4
 ---
 
-We provide a codemod cli tool [@ant-design/codemod-v4](https://github.com/ant-design/codemod-v4) to help you quickly upgrade to antd v4.
+This document will help you upgrade from antd `3.x` version to antd `4.x` version. If you are using `2.x` or older version, please refer to the previous [upgrade document] (https: / /github.com/ant-design/ant-design/blob/2adf8ced24da7b3cb46a3475854a83d76a98c536/CHANGELOG.zh-CN.md#300) to 3.x.
 
-## Usage
+## Upgrade preparation
 
-Before running the codemod cli, please submit your local code changes.
+1. Please upgrade to the latest version of 3.x first, and remove / modify related APIs according to the console warning message.
+2. Upgrade project React 16.12.0 or above.
+   - If you are still using React 15, please refer to [React 16 Upgrade Documentation](https://reactjs.org/blog/2017/09/26/react-v16.0.html#breaking-changes).
+   - For the remaining React 16 obsolete lifecycle APIs, please refer to [Migration Guide](https://reactjs.org/blog/2018/03/27/update-on-async-rendering.html#gradual-migration-path).
+
+## Incompatible changes in v4
+
+### Design specification
+
+- Line height changes from `1.5`(`21px`) to `1.5715`(`22px`).
+- Basic rounded corner adjustment, changed from `4px` to `2px`.
+- Global shadow optimization, adjusted to three layers of shadows to distinguish control hierarchies.
+- Icon in the bubble confirmation box has been changed from a question mark to an exclamation mark.
+- The color of selected components is changed to `@blue-1: #E6F7FF`, and the corresponding hover color is changed to `@gray-2: #FAFAFA`.
+- The color of the error was adjusted from `@red-5: #F5222D` to`@red-5: #FF4D4F`.
+- The color brightness of the dividing line has been reduced from `#E8E8E8` to`#F0F0F0`.
+- DatePicker interactive redo, range selection can now select start and end time separately.
+- Table change default background color from transparent to white.
+
+### Compatibility
+
+- The minimum supported version of IE is IE 11.
+- The minimum supported version of React is React 16.9, and some components have started to refactor using hooks.
+
+#### Remove deprecated API
+
+- LocaleProvider has been removed, please use `ConfigProvider` instead.
+- Mention removed, use `Mentions` instead.
+- Removed the `iconType` property of Alert. Please use `icon` instead.
+- Removed the `iconType` attribute of Modal.xxx. Please use `icon` instead.
+- Removed the Form.create method, `form` is now available in `Form.useForm`.
+- Removed the `id` attribute of Form.Item. Please use `htmlFor` instead.
+- The `setContentRef` property of Typography has been removed, please use `ref` instead.
+- Removed the `allowEmpty` property of TimePicker, please use `allowClear` instead.
+- Removed `AfterClose` attribute of Tag, please use `OnClose` instead.
+- Removed the `noHovering` property of Card, please use `hoverable` instead.
+- Removed the `vertical` property of Carousel. Please use `dotPosition` instead.
+- Removed `wrapClassName` property of Drawer, please use `className` instead.
+- Removed the `autosize` property of TextArea. Please use `autoSize` instead.
+- Removed the `offset` attribute of Affix. Please use `offsetTop` instead.
+- Removed the `onSearchChange` property of Transfer. Please use `onSearch` instead.
+- Removed the `body` attribute of Transfer. Please use `children` instead.
+- Removed the `lazy` attribute of Transfer, which did not really optimize the effect.
+- Removed `combobox` mode, please use `AutoComplete` instead.
+
+#### Icon upgrade
+
+In `antd @ 3.9.0`, we introduced the svg icon ([Why use the svg icon?](Https://github.com/ant-design/ant-design/issues/10353)). The icon API using the string name cannot be loaded on demand, so the svg icon file is fully introduced, which greatly increases the size of the packaged product. In 4.0, we adjusted the icon usage API to support tree shaking, reducing the default package size of antd by about 150 KB (Gzipped).
+
+Legacy Icon usage will be discarded:
+
+```jsx
+import { Icon, Button } from 'antd';
+
+const Demo = () => (
+  <div>
+    <Icon type="smile" />
+    <Button icon="smile" />
+  </div>
+);
+```
+
+It will be imported on demand in v4:
+
+```diff
+import { Button } from 'antd';
+
+// tree-shaking supported
+- import { Icon } from 'antd';
++ import { SmileOutlined } from '@ant-design/icons';
+
+const Demo = () => (
+  <div>
+-    <Icon type="smile" />
++    <SmileOutlined />
+    <Button icon={<SmileOutlined />} />
+  </div>
+);
+
+// or directly import
+import SmileOutlined from '@ant-design/icons/SmileOutlined';
+```
+
+You will still be able to continue using the compatibility pack:
+
+```jsx
+import { Button } from 'antd';
+import { Icon } from '@ant-design/compatible';
+
+const Demo = () => (
+  <div>
+    <Icon type="smile" />
+    <Button icon="smile" />
+  </div>
+);
+```
+
+#### Component refactoring
+
+- Form rewrite. No need to use `Form.create`. See [here](/components/form/v3) for migration documentation.
+- DatePicker rewrite
+  - Provide the `picker` property for selector switching.
+  - Range selection can now select start and end times individually.
+- Tree, Select, TreeSelect, AutoComplete use virtual scrolling.
+  - `dropdownMatchSelectWidth` no longer automatically adapts to the content width, please set the dropdown width with numbers.
+- The Grid component uses flex layout.
+- Button's `danger` is now treated as a property instead of a button type.
+
+## Start upgrading
+
+You can manually check the code one by one against the above list for modification. In addition, we also provide a codemod cli tool [@ant-design/codemod-v4](https://github.com/ant-design/codemod-v4) To help you quickly upgrade to v4.
+
+Before running codemod cli, please submit your local code changes.
 
 ```shell
-# run directly with npx
+# Run directly through npx
 npx -p @ant-design/codemod-v4 antd4-codemod src
 
-# or global installation
-# use npm
+# Or global installation
+# Use npm
 npm i -g @ant-design/codemod-v4
-# or use yarn
+# Use yarn
 yarn add -g @ant-design/codemod-v4
 
-# run
+# Execute
 antd4-codemod src
 ```
 
-## TL;DR
+For parts that cannot be modified automatically, codemod will prompt on the command line, and it is recommended to modify them manually as prompted. After modification, you can run the above command repeatedly to check.
 
-`@ant-design/codemod-v4` will help you migrate to antd v4, `@ant-design/compatible` is the workaround for the deprecated APIs and components, so you don't need to do it yourself in general. The blew content is the migration detail.
+![contains an invalid icon](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ)
 
-#### Replace deprecated `Form` and `Mention` from `@ant-design/compatible`
+> Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
+
+### Migration tool modification details
+
+`@ant-design/codemod-v4` will help you migrate to antd v4. Obsolete components will be kept running through @ant-design/compatible. Generally, you don't need to migrate manually. The following sections detail the overall migration and changes.
+
+#### Import the obsolete Form and Mention components via @ant-design/compatible package
 
 ```diff
 - import { Form, Input, Button, Mention } from 'antd';
@@ -52,7 +170,9 @@ antd4-codemod src
   );
 ```
 
-#### Replace components string icon prop with new `@ant-design/icons`
+> **Note:** Old Form imported from `@ ant-design / compatible` has change the class name from `.ant-form` to `.ant-legacy-form`. Need to be modified accordingly if override the style.
+
+#### Replace component's string icon prop with the new `@ant-design/icons`
 
 ```diff
   import { Avatar, Button, Result } from 'antd';
@@ -76,7 +196,7 @@ antd4-codemod src
 
 ```
 
-#### Replace v3 Icon with the new `@ant-design/icons`
+#### Replace v3 Icon with `@ant-design/icons`
 
 ```diff
 - import { Icon, Input } from 'antd';
@@ -111,7 +231,7 @@ antd4-codemod src
 
 ```
 
-#### Replace v3 LocaleProvider with v4 ConfigProvider component
+#### Replace v3 LocaleProvider with v4 ConfigProvider
 
 ```diff
 - import { LocaleProvider } from 'antd';
@@ -127,7 +247,7 @@ antd4-codemod src
   );
 ```
 
-#### Replace `Modal.method()` string icon property with the new `@ant-design/icons`
+#### Replace `Modal.method()` icon string with `@ant-design/icons`
 
 ```diff
   import { Modal } from 'antd';
@@ -146,3 +266,7 @@ antd4-codemod src
    },
  });
 ```
+
+## Encounter problems
+
+v4 made a lot of detailed improvements and refactoring. We collected all known incompatible changes and related impacts as much as possible, but there may be some scenarios we have not considered. If you encounter problems during the upgrade, please go to [GitHub issues](http://new-issue.ant.design/) and [codemod Issues](https://github.com/ant-design/codemod-v4/issues) for feedback. We will respond and improve this document as soon as possible.
