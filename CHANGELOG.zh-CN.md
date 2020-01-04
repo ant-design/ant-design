@@ -19,6 +19,8 @@ timeline: true
 
 `2020-01-04`
 
+Ant Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/ant-design/ant-design/issues/20661)。
+
 ⚠️ 从 v3 迁移到 v4 请参考[迁移文档](/docs/react/migration-v4)。
 
 ### 新增功能及改进

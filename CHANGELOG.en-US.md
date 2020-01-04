@@ -19,6 +19,8 @@ timeline: true
 
 `2020-01-04`
 
+Ant Design 4.0-rc released! Here is the release [document](https://github.com/ant-design/ant-design/issues/20661).
+
 ⚠️ Migrate from v3 to v4 please ref to [migration document](/docs/react/migration-v4)。
 
 ### New features and improvements
