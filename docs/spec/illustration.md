@@ -67,7 +67,7 @@ title:
 
 <img class="preview-img" align="right" alt="9 种常见职业角色设计" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Zt7BSI2OL7gAAAAAAAAAAABkARQnAQ" />
 
-同时，我们结合情感化设计，将 9 种常见的职业角色进行人物设计吗。结合职业本身的一些特质，我们也赋予了他们不同气质特质，来满足各种业务场景的使用。
+同时，我们结合情感化设计，将 9 种常见的职业角色进行人物设计。结合职业本身的一些特质，我们也赋予了他们不同气质特质，来满足各种业务场景的使用。
 
 <br />
 
