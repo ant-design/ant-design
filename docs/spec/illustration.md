@@ -61,7 +61,7 @@ title:
 
 <img class="preview-img" align="right" alt="基于自然的人物头身比例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rm9JRIqTmPgAAAAAAAAAAABkARQnAQ" />
 
-基于自然的设计原则，我们不推荐使用 Q 班卡通和过于夸张艺术化的设计风格。相比之下，接近自然真人头人比例的风格更是我们所推荐的。
+基于自然的设计原则，我们不推荐使用 Q 版卡通和过于夸张艺术化的设计风格。相比之下，接近自然真人头人比例的风格更是我们所推荐的。
 
 <br />
 
