@@ -17,7 +17,7 @@ timeline: true
 
 ## 3.26.6
 
-`2019-01-03`
+`2020-01-03`
 
 - 📢 v3 分支由 `master` 进入 `3.x-stable`，v4 合入 `master`。
 - 💄 优化 Steps `type="navigation"` 在小屏幕下的样式。[#20545](https://github.com/ant-design/ant-design/pull/20545)
