@@ -1,16 +1,24 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import {
+  CheckCircleFilled,
+  CloseCircleFilled,
+  ExclamationCircleFilled,
+  WarningFilled,
+} from '@ant-design/icons';
+
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
-import Icon from '../icon';
+import warning from '../_util/warning';
+
 import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';
 
 export const IconMap = {
-  success: 'check-circle',
-  error: 'close-circle',
-  info: 'exclamation-circle',
-  warning: 'warning',
+  success: CheckCircleFilled,
+  error: CloseCircleFilled,
+  info: ExclamationCircleFilled,
+  warning: WarningFilled,
 };
 
 export const ExceptionMap = {
@@ -46,6 +54,12 @@ const ExceptionStatus = Object.keys(ExceptionMap);
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classnames(`${prefixCls}-icon`);
 
+  warning(
+    !(typeof icon === 'string' && icon.length > 2),
+    'Result',
+    `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+  );
+
   if (ExceptionStatus.includes(status as ResultStatusType)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
@@ -55,10 +69,11 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
     );
   }
 
-  const iconString: string = IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>];
-  const iconNode = icon || <Icon type={iconString} theme="filled" />;
+  const iconNode = React.createElement(
+    IconMap[status as Exclude<ResultStatusType, ExceptionStatusType>],
+  );
 
-  return <div className={className}>{iconNode}</div>;
+  return <div className={className}>{icon || iconNode}</div>;
 };
 
 const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
@@ -72,7 +87,7 @@ export interface ResultType extends React.SFC<ResultProps> {
 
 const Result: ResultType = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         className: customizeClassName,
@@ -83,7 +98,9 @@ const Result: ResultType = props => (
         status,
       } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName);
+      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      });
       return (
         <div className={className} style={style}>
           {renderIcon(prefixCls, props)}

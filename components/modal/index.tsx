@@ -1,7 +1,13 @@
 import * as React from 'react';
+import {
+  InfoCircleOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+} from '@ant-design/icons';
+
 import Modal, { ModalFuncProps, destroyFns } from './Modal';
 import confirm from './confirm';
-import Icon from '../icon';
 
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
@@ -9,7 +15,7 @@ export { ModalProps, ModalFuncProps } from './Modal';
 function modalWarn(props: ModalFuncProps) {
   const config = {
     type: 'warning',
-    icon: <Icon type="exclamation-circle" />,
+    icon: <ExclamationCircleOutlined />,
     okCancel: false,
     ...props,
   };
@@ -19,7 +25,7 @@ function modalWarn(props: ModalFuncProps) {
 Modal.info = function infoFn(props: ModalFuncProps) {
   const config = {
     type: 'info',
-    icon: <Icon type="info-circle" />,
+    icon: <InfoCircleOutlined />,
     okCancel: false,
     ...props,
   };
@@ -29,7 +35,7 @@ Modal.info = function infoFn(props: ModalFuncProps) {
 Modal.success = function successFn(props: ModalFuncProps) {
   const config = {
     type: 'success',
-    icon: <Icon type="check-circle" />,
+    icon: <CheckCircleOutlined />,
     okCancel: false,
     ...props,
   };
@@ -39,7 +45,7 @@ Modal.success = function successFn(props: ModalFuncProps) {
 Modal.error = function errorFn(props: ModalFuncProps) {
   const config = {
     type: 'error',
-    icon: <Icon type="close-circle" />,
+    icon: <CloseCircleOutlined />,
     okCancel: false,
     ...props,
   };

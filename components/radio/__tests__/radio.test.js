@@ -3,12 +3,17 @@ import { mount, render } from 'enzyme';
 import Radio, { Group, Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Radio', () => {
   focusTest(Radio);
   mountTest(Radio);
   mountTest(Group);
   mountTest(Button);
+
+  rtlTest(Radio);
+  rtlTest(Group);
+  rtlTest(Button);
 
   it('should render correctly', () => {
     const wrapper = render(<Radio className="customized">Test</Radio>);

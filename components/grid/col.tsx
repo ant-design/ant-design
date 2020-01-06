@@ -1,13 +1,12 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-const objectOrNumber = PropTypes.oneOfType([PropTypes.object, PropTypes.number]);
-
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
+
+type FlexType = number | 'none' | 'auto' | string;
 
 export interface ColSize {
   span?: ColSpanType;
@@ -30,26 +29,23 @@ export interface ColProps extends React.HTMLAttributes<HTMLDivElement> {
   xl?: ColSpanType | ColSize;
   xxl?: ColSpanType | ColSize;
   prefixCls?: string;
+  flex?: FlexType;
+}
+
+function parseFlex(flex: FlexType): string {
+  if (typeof flex === 'number') {
+    return `${flex} ${flex} auto`;
+  }
+
+  if (/^\d+(\.\d+)?(px|em|rem|%)$/.test(flex)) {
+    return `0 0 ${flex}`;
+  }
+
+  return flex;
 }
 
 export default class Col extends React.Component<ColProps, {}> {
-  static propTypes = {
-    span: PropTypes.number,
-    order: PropTypes.number,
-    offset: PropTypes.number,
-    push: PropTypes.number,
-    pull: PropTypes.number,
-    className: PropTypes.string,
-    children: PropTypes.node,
-    xs: objectOrNumber,
-    sm: objectOrNumber,
-    md: objectOrNumber,
-    lg: objectOrNumber,
-    xl: objectOrNumber,
-    xxl: objectOrNumber,
-  };
-
-  renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCol = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
     const {
       prefixCls: customizePrefixCls,
@@ -60,6 +56,8 @@ export default class Col extends React.Component<ColProps, {}> {
       pull,
       className,
       children,
+      flex,
+      style,
       ...others
     } = props;
     const prefixCls = getPrefixCls('col', customizePrefixCls);
@@ -83,6 +81,7 @@ export default class Col extends React.Component<ColProps, {}> {
           sizeProps.offset || sizeProps.offset === 0,
         [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
         [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       };
     });
     const classes = classNames(
@@ -101,10 +100,9 @@ export default class Col extends React.Component<ColProps, {}> {
     return (
       <RowContext.Consumer>
         {({ gutter }) => {
-          let { style } = others;
-
+          let mergedStyle: React.CSSProperties = { ...style };
           if (gutter) {
-            style = {
+            mergedStyle = {
               ...(gutter[0]! > 0
                 ? {
                     paddingLeft: gutter[0]! / 2,
@@ -117,12 +115,15 @@ export default class Col extends React.Component<ColProps, {}> {
                     paddingBottom: gutter[1]! / 2,
                   }
                 : {}),
-              ...style,
+              ...mergedStyle,
             };
+          }
+          if (flex) {
+            mergedStyle.flex = parseFlex(flex);
           }
 
           return (
-            <div {...others} style={style} className={classes}>
+            <div {...others} style={mergedStyle} className={classes}>
               {children}
             </div>
           );

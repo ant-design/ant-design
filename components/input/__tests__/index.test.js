@@ -5,6 +5,7 @@ import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
 
 const { TextArea } = Input;
@@ -23,6 +24,9 @@ describe('Input', () => {
   focusTest(Input);
   mountTest(Input);
   mountTest(Input.Group);
+
+  rtlTest(Input);
+  rtlTest(Input.Group);
 
   it('should support maxLength', () => {
     const wrapper = mount(<Input maxLength={3} />);
@@ -176,33 +180,57 @@ describe('TextArea', () => {
     expect(onPressEnter).toHaveBeenCalled();
     expect(onKeyDown).toHaveBeenCalled();
   });
+
+  it('should trigger onResize', () => {
+    const onResize = jest.fn();
+    const wrapper = mount(<TextArea onResize={onResize} autosize />);
+
+    wrapper
+      .find('ResizeObserver')
+      .instance()
+      .onResize([
+        {
+          target: {
+            getBoundingClientRect() {
+              return {};
+            },
+          },
+        },
+      ]);
+
+    expect(onResize).toHaveBeenCalledWith(
+      expect.objectContaining({
+        width: expect.any(Number),
+        height: expect.any(Number),
+      }),
+    );
+  });
 });
 
 describe('As Form Control', () => {
   it('should be reset when wrapped in form.getFieldDecorator without initialValue', () => {
-    class Demo extends React.Component {
-      reset = () => {
-        const { form } = this.props;
+    const Demo = () => {
+      const [form] = Form.useForm();
+      const reset = () => {
         form.resetFields();
       };
 
-      render() {
-        const {
-          form: { getFieldDecorator },
-        } = this.props;
-        return (
-          <Form>
-            <Form.Item>{getFieldDecorator('input')(<Input />)}</Form.Item>
-            <Form.Item>{getFieldDecorator('textarea')(<Input.TextArea />)}</Form.Item>
-            <button type="button" onClick={this.reset}>
-              reset
-            </button>
-          </Form>
-        );
-      }
-    }
-    const DemoForm = Form.create()(Demo);
-    const wrapper = mount(<DemoForm />);
+      return (
+        <Form form={form}>
+          <Form.Item name="input">
+            <Input />
+          </Form.Item>
+          <Form.Item name="textarea">
+            <Input.TextArea />
+          </Form.Item>
+          <button type="button" onClick={reset}>
+            reset
+          </button>
+        </Form>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     wrapper.find('textarea').simulate('change', { target: { value: '222' } });
     expect(wrapper.find('input').prop('value')).toBe('111');

@@ -1,19 +1,19 @@
 ---
 order: 4
 title:
-  zh-CN: Flex 布局
-  en-US: Flex Layout
+  zh-CN: 排版
+  en-US: Typesetting
 ---
 
 ## zh-CN
 
-Flex 布局基础。
+布局基础。
 
-使用 `row-flex` 定义 `flex` 布局，其子元素根据不同的值 `start`,`center`,`end`,`space-between`,`space-around`，分别定义其在父节点里面的排版方式。
+子元素根据不同的值 `start`,`center`,`end`,`space-between`,`space-around`，分别定义其在父节点里面的排版方式。
 
 ## en-US
 
-Use `row-flex` define `flex` layout, its child elements depending on the value of the `start`,`center`, `end`,`space-between`, `space-around`, which are defined in its parent node layout mode.
+Child elements depending on the value of the `start`,`center`, `end`,`space-between`, `space-around`, which are defined in its parent node typesetting mode.
 
 ```jsx
 import { Row, Col } from 'antd';
@@ -21,7 +21,7 @@ import { Row, Col } from 'antd';
 ReactDOM.render(
   <div>
     <p>sub-element align left</p>
-    <Row type="flex" justify="start">
+    <Row justify="start">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -29,7 +29,7 @@ ReactDOM.render(
     </Row>
 
     <p>sub-element align center</p>
-    <Row type="flex" justify="center">
+    <Row justify="center">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -37,7 +37,7 @@ ReactDOM.render(
     </Row>
 
     <p>sub-element align right</p>
-    <Row type="flex" justify="end">
+    <Row justify="end">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -45,7 +45,7 @@ ReactDOM.render(
     </Row>
 
     <p>sub-element monospaced arrangement</p>
-    <Row type="flex" justify="space-between">
+    <Row justify="space-between">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -53,7 +53,7 @@ ReactDOM.render(
     </Row>
 
     <p>sub-element align full</p>
-    <Row type="flex" justify="space-around">
+    <Row justify="space-around">
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
@@ -62,4 +62,10 @@ ReactDOM.render(
   </div>,
   mountNode,
 );
+```
+
+```css
+#components-grid-demo-flex [class~='ant-row'] {
+  background: rgba(128, 128, 128, 0.08);
+}
 ```

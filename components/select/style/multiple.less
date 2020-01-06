@@ -1,0 +1,174 @@
+@import './index';
+
+@select-selection-height: @input-height-base - @input-padding-vertical-base * 2;
+@select-multiple-padding: @input-padding-vertical-base - @border-width-base;
+
+/**
+ * Do not merge `height` & `line-height` under style with `selection` & `search`,
+ * since chrome may update to redesign with its align logic.
+ */
+
+.@{select-prefix-cls}-multiple {
+  // ========================= Selector =========================
+  .@{select-prefix-cls}-selector {
+    .select-selector();
+    .select-search-input-without-border();
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    // Multiple is little different that horizontal is follow the vertical
+    padding: 0 @select-multiple-padding @select-multiple-padding;
+
+    .@{select-prefix-cls}-show-search& {
+      cursor: text;
+    }
+  }
+
+  // ======================== Selections ========================
+  .@{select-prefix-cls}-selection-item {
+    position: relative;
+    display: flex;
+    flex: none;
+    box-sizing: border-box;
+    max-width: 100%;
+
+    height: @select-selection-height;
+    margin-top: @select-multiple-padding;
+    margin-right: @input-padding-vertical-base;
+    padding: 0 (@padding-xs / 2) 0 @padding-xs;
+    line-height: @select-selection-height - @border-width-base * 2;
+    background: @select-selection-item-bg;
+    border: 1px solid @select-selection-item-border-color;
+    // strange align fix for chrome but works
+    // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
+    border-top-width: @border-width-base + 0.4px;
+    border-radius: @border-radius-base;
+    cursor: default;
+    transition: font-size 0.3s, line-height 0.3s, height 0.3s;
+    user-select: none;
+
+    .@{select-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: @input-padding-vertical-base;
+      text-align: right;
+    }
+    // It's ok not to do this, but 24px makes bottom narrow in view should adjust
+    &-content {
+      display: inline-block;
+      margin-right: @padding-xs / 2;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      transform: translateY(-1px);
+
+      .@{select-prefix-cls}-rtl& {
+        margin-right: 0;
+        margin-left: @padding-xs / 2;
+        text-align: right;
+      }
+    }
+
+    &-remove {
+      .iconfont-mixin();
+
+      display: inline-block;
+      color: @text-color-secondary;
+      font-weight: bold;
+      font-size: @font-size-sm;
+      line-height: inherit;
+      cursor: pointer;
+      .iconfont-size-under-12px(10px);
+      &:hover {
+        color: @icon-color-hover;
+      }
+    }
+  }
+
+  // ========================== Input ==========================
+  .@{select-prefix-cls}-selection-search {
+    position: relative;
+    margin-left: @select-multiple-padding / 2;
+
+    .@{select-prefix-cls}-rtl& {
+      margin-right: @select-multiple-padding / 2;
+      margin-left: @input-padding-vertical-base;
+    }
+
+    &-input,
+    &-mirror {
+      height: @select-selection-height;
+      font-family: @font-family;
+      line-height: @select-selection-height - @border-width-base * 2;
+      transition: all 0.3s;
+    }
+
+    &-input {
+      width: 100%;
+      margin-top: @select-multiple-padding;
+    }
+
+    &-mirror {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 999;
+      white-space: nowrap;
+      visibility: hidden;
+
+      .@{select-prefix-cls}-rtl& {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+
+  // ======================= Placeholder =======================
+  .@{select-prefix-cls}-selection-placeholder {
+    position: absolute;
+    top: 0;
+    left: @control-padding-horizontal;
+    height: @select-height-without-border;
+    line-height: @select-height-without-border;
+    transition: all 0.3s;
+
+    .@{select-prefix-cls}-rtl& {
+      right: @control-padding-horizontal;
+      left: auto;
+    }
+  }
+
+  // ============================================================
+  // ==                          Size                          ==
+  // ============================================================
+  .select-size(@suffix, @input-height) {
+    @merged-cls: ~'@{select-prefix-cls}-@{suffix}';
+    &.@{merged-cls} {
+      @select-selection-height: @input-height - @input-padding-vertical-base * 2;
+      @select-height-without-border: @input-height - @border-width-base * 2;
+
+      .@{select-prefix-cls}-selection-item {
+        height: @select-selection-height;
+        line-height: @select-selection-height - @border-width-base * 2;
+      }
+
+      .@{select-prefix-cls}-selection-search {
+        height: @select-selection-height + @select-multiple-padding;
+
+        &-input,
+        &-mirror {
+          height: @select-selection-height;
+          line-height: @select-selection-height - @border-width-base * 2;
+        }
+      }
+
+      .@{select-prefix-cls}-selection-placeholder {
+        height: @select-height-without-border;
+        line-height: @select-height-without-border;
+      }
+    }
+  }
+
+  .select-size('lg', @input-height-lg);
+  .select-size('sm', @input-height-sm);
+}

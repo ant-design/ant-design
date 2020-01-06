@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 12
 title: Contributing
 toc: false
 ---
@@ -54,7 +54,6 @@ The core team is monitoring for pull requests. We will review your pull request 
 1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
 1. Run `npm test -- -u` to update the [jest snapshots](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and commit these changes as well (if there are any updates).
 1. Make sure your code lints (npm run lint). Tip: Lint runs automatically when you `git commit` (Use [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)).
-
 
 Sending a Pull Request to [react-component](https://github.com/react-component/):
 

@@ -1,3 +1,5 @@
+@import '../../../components/style/themes/default.less';
+
 @header-height: 64px;
 @menu-item-border: 2px;
 
@@ -5,7 +7,7 @@
   position: relative;
   z-index: 10;
   max-width: 100%;
-  background: #fff;
+  background: @component-background;
   box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
   &.home-nav-bottom {
     background: rgba(255, 255, 255, 0.9);
@@ -25,6 +27,38 @@
   .ant-menu-item-active .header-link {
     color: @primary-color;
   }
+
+  // ===================== Home Page =====================
+  &.home-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    max-width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    background: transparent;
+    box-shadow: none;
+
+    #logo {
+      padding-right: 16px;
+      padding-left: 0;
+
+      .page-wrapper-rtl & {
+        padding-right: 0;
+        padding-left: 16px;
+      }
+    }
+
+    .ant-menu {
+      background: transparent;
+    }
+
+    .header-lang-button,
+    .header-direction-button {
+      margin-right: 0;
+    }
+  }
 }
 
 #logo {
@@ -32,17 +66,29 @@
   height: @header-height;
   padding-left: 40px;
   overflow: hidden;
+  color: @site-heading-color;
+  font-size: 18px;
+  font-family: Avenir, @font-family, sans-serif;
   line-height: @header-height;
   white-space: nowrap;
   text-decoration: none;
+
+  .ant-row-rtl & {
+    float: right;
+    padding-right: 40px;
+    padding-left: 0;
+  }
+
   img {
+    position: relative;
+    top: -1.5px;
     height: 32px;
     margin-right: 16px;
-  }
-  img + img {
-    position: relative;
-    top: 1px;
-    height: 16px;
+
+    .ant-row-rtl & {
+      margin-right: 0;
+      margin-left: 16px;
+    }
   }
 }
 
@@ -53,6 +99,14 @@
   padding-left: 16px;
   line-height: 22px;
   border-left: 1px solid @site-border-color-split;
+
+  .ant-row-rtl & {
+    float: right;
+    padding-right: 16px;
+    padding-left: 0;
+    border-right: 1px solid @site-border-color-split;
+    border-left: none;
+  }
 }
 
 #search-box .anticon {
@@ -75,16 +129,81 @@
 }
 
 .header-lang-button,
-.version {
+.version,
+.header-direction-button {
   float: right;
   margin-top: 20px;
   margin-left: 16px;
+
+  #header .ant-row-rtl & {
+    float: left;
+    margin-right: 16px;
+    margin-left: 0;
+  }
 }
 
-.header-lang-button {
+.header-lang-button,
+.header-direction-button {
   margin-right: 40px;
   color: @text-color;
   border-color: @border-color-base;
+
+  #header .ant-row-rtl & {
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+}
+
+.header-lang-button {
+  margin-right: 0;
+
+  #header .ant-row-rtl & {
+    margin-right: 16px;
+    margin-left: 0;
+  }
+}
+
+// Adjust github button style
+.github-btn {
+  float: right;
+  height: auto;
+  margin: 20px 0 0 16px;
+
+  #header .ant-row-rtl & {
+    float: left;
+
+    .gh-count {
+      display: none !important;
+    }
+  }
+
+  .gh-btn {
+    height: auto;
+    padding: 1px 4px;
+    background: transparent;
+    border: 0;
+
+    .gh-ico {
+      width: 20px;
+      height: 20px;
+      margin: 0;
+    }
+
+    .gh-text {
+      display: none;
+    }
+  }
+
+  .gh-count {
+    height: auto;
+    padding: 4px 8px;
+    font-weight: normal;
+    background: #fff;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
 }
 
 #nav {
@@ -93,6 +212,9 @@
   font-family: Avenir, @font-family, sans-serif;
   border: 0;
 
+  .ant-row-rtl & {
+    float: left;
+  }
   &.ant-menu-horizontal {
     border-bottom: none;
 
@@ -147,5 +269,33 @@
     right: 16px;
     color: #aaa;
     font-size: 12px;
+
+    .ant-row-rtl & {
+      right: auto;
+      left: 16px;
+    }
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .github-btn {
+    display: none;
+  }
+
+  #header.home-header {
+    .ant-row {
+      .ant-col {
+        margin: 0 auto;
+
+        a {
+          padding-right: 0;
+          padding-left: 0;
+        }
+
+        &:last-child {
+          display: none;
+        }
+      }
+    }
   }
 }

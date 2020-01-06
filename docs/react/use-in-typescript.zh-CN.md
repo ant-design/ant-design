@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title: 在 TypeScript 中使用
 ---
 

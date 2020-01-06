@@ -8,6 +8,10 @@
 @descriptions-small-padding: 8px 16px;
 
 .@{descriptions-prefix-cls} {
+  &-rtl {
+    direction: rtl;
+  }
+
   &-title {
     margin-bottom: 20px;
     color: @heading-color;
@@ -48,6 +52,10 @@
       top: -0.5px;
       margin: 0 8px 0 2px;
       content: ' ';
+
+      .@{descriptions-prefix-cls}-rtl & {
+        margin: 0 2px 0 8px;
+      }
     }
   }
 

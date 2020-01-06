@@ -20,29 +20,6 @@ export function fileToObject(file: RcFile): UploadFile {
   } as UploadFile;
 }
 
-/**
- * 生成Progress percent: 0.1 -> 0.98
- *   - for ie
- */
-export function genPercentAdd() {
-  let k = 0.1;
-  const i = 0.01;
-  const end = 0.98;
-  return (s: number) => {
-    let start = s;
-    if (start >= end) {
-      return start;
-    }
-
-    start += k;
-    k -= i;
-    if (k < 0.001) {
-      k = 0.001;
-    }
-    return start;
-  };
-}
-
 export function getFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   return fileList.filter(item => item[matchKey] === file[matchKey])[0];

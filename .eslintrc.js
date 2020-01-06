@@ -37,6 +37,7 @@ const eslintrc = {
     'react/forbid-prop-types': 0,
     'react/jsx-indent': 0,
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
+    'import/extensions': 0,
     'import/no-extraneous-dependencies': [
       'error',
       {
@@ -87,7 +88,6 @@ const eslintrc = {
     'react/static-property-placement': 0,
     'jest/no-test-callback': 0,
     'jest/expect-expect': 0,
-    'import/extensions': 0,
   },
   globals: {
     gtag: true,

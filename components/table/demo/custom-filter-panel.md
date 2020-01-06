@@ -1,5 +1,5 @@
 ---
-order: 8
+order: 9
 title:
   en-US: Customized filter panel
   zh-CN: 自定义筛选菜单
@@ -14,8 +14,9 @@ title:
 Implement a customized column search example via `filterDropdown`.
 
 ```jsx
-import { Table, Input, Button, Icon } from 'antd';
+import { Table, Input, Button } from 'antd';
 import Highlighter from 'react-highlight-words';
+import { SearchOutlined } from '@ant-design/icons';
 
 const data = [
   {
@@ -66,7 +67,7 @@ class App extends React.Component {
         <Button
           type="primary"
           onClick={() => this.handleSearch(selectedKeys, confirm, dataIndex)}
-          icon="search"
+          icon={<SearchOutlined />}
           size="small"
           style={{ width: 90, marginRight: 8 }}
         >
@@ -77,9 +78,7 @@ class App extends React.Component {
         </Button>
       </div>
     ),
-    filterIcon: filtered => (
-      <Icon type="search" style={{ color: filtered ? '#1890ff' : undefined }} />
-    ),
+    filterIcon: filtered => <SearchOutlined style={{ color: filtered ? '#1890ff' : undefined }} />,
     onFilter: (value, record) =>
       record[dataIndex]
         .toString()

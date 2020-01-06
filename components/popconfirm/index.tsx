@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
+import { ExclamationCircleFilled } from '@ant-design/icons';
+
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
-import Icon from '../icon';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -37,7 +37,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     placement: 'top' as PopconfirmProps['placement'],
     trigger: 'click' as PopconfirmProps['trigger'],
     okType: 'primary' as PopconfirmProps['okType'],
-    icon: <Icon type="exclamation-circle" theme="filled" />,
+    icon: <ExclamationCircleFilled />,
     disabled: false,
   };
 
@@ -164,7 +164,5 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
     return <ConfigConsumer>{this.renderConfirm}</ConfigConsumer>;
   }
 }
-
-polyfill(Popconfirm);
 
 export default Popconfirm;

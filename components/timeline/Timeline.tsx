@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { LoadingOutlined } from '@ant-design/icons';
+
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
-import Icon from '../icon';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface TimelineProps {
@@ -23,7 +24,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     mode: '',
   };
 
-  renderTimeline = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTimeline = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       pending = null,
@@ -42,12 +43,13 @@ export default class Timeline extends React.Component<TimelineProps, any> {
         [`${prefixCls}-pending`]: !!pending,
         [`${prefixCls}-reverse`]: !!reverse,
         [`${prefixCls}-${mode}`]: !!mode,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
 
     const pendingItem = pending ? (
-      <TimelineItem pending={!!pending} dot={pendingDot || <Icon type="loading" />}>
+      <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
         {pendingNode}
       </TimelineItem>
     ) : null;

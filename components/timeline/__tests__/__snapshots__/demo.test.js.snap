@@ -43,9 +43,10 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
     <div
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
-      <i
-        aria-label="icon: clock-circle-o"
-        class="anticon anticon-clock-circle-o"
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
         style="font-size:16px"
       >
         <svg
@@ -65,7 +66,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
             d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
           />
         </svg>
-      </i>
+      </span>
     </div>
     <div
       class="ant-timeline-item-content"
@@ -112,9 +113,10 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
     <div
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
     >
-      <i
-        aria-label="icon: clock-circle-o"
-        class="anticon anticon-clock-circle-o"
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
         style="font-size:16px"
       >
         <svg
@@ -134,7 +136,7 @@ exports[`renders ./components/timeline/demo/alternate.md correctly 1`] = `
             d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
           />
         </svg>
-      </i>
+      </span>
     </div>
     <div
       class="ant-timeline-item-content"
@@ -384,9 +386,10 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
     <div
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
-      <i
-        aria-label="icon: clock-circle-o"
-        class="anticon anticon-clock-circle-o"
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
         style="font-size:16px"
       >
         <svg
@@ -406,7 +409,7 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
             d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
           />
         </svg>
-      </i>
+      </span>
     </div>
     <div
       class="ant-timeline-item-content"
@@ -491,9 +494,10 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
       <div
         class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-blue"
       >
-        <i
-          aria-label="icon: loading"
+        <span
+          aria-label="loading"
           class="anticon anticon-loading"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -506,10 +510,10 @@ exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
             />
           </svg>
-        </i>
+        </span>
       </div>
       <div
         class="ant-timeline-item-content"
@@ -573,9 +577,10 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
     <div
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-red"
     >
-      <i
-        aria-label="icon: clock-circle-o"
-        class="anticon anticon-clock-circle-o"
+      <span
+        aria-label="clock-circle"
+        class="anticon anticon-clock-circle"
+        role="img"
         style="font-size:16px"
       >
         <svg
@@ -595,7 +600,7 @@ exports[`renders ./components/timeline/demo/right.md correctly 1`] = `
             d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
           />
         </svg>
-      </i>
+      </span>
     </div>
     <div
       class="ant-timeline-item-content"

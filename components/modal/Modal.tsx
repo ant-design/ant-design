@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import { CloseOutlined } from '@ant-design/icons';
+
 import { getConfirmLocale } from './locale';
-import Icon from '../icon';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -99,8 +99,6 @@ export interface ModalFuncProps {
   okType?: ButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  /* Deprecated */
-  iconType?: string;
   mask?: boolean;
   maskClosable?: boolean;
   zIndex?: number;
@@ -152,22 +150,6 @@ export default class Modal extends React.Component<ModalProps, {}> {
     okType: 'primary' as ButtonType,
   };
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    onOk: PropTypes.func,
-    onCancel: PropTypes.func,
-    okText: PropTypes.node,
-    cancelText: PropTypes.node,
-    centered: PropTypes.bool,
-    width: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    confirmLoading: PropTypes.bool,
-    visible: PropTypes.bool,
-    footer: PropTypes.node,
-    title: PropTypes.node,
-    closable: PropTypes.bool,
-    closeIcon: PropTypes.node,
-  };
-
   handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = this.props;
     if (onCancel) {
@@ -204,6 +186,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
   renderModal = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -225,16 +208,19 @@ export default class Modal extends React.Component<ModalProps, {}> {
 
     const closeIconToRender = (
       <span className={`${prefixCls}-close-x`}>
-        {closeIcon || <Icon className={`${prefixCls}-close-icon`} type="close" />}
+        {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
       </span>
     );
-
+    const wrapClassNameExtended = classNames(wrapClassName, {
+      [`${prefixCls}-centered`]: !!centered,
+      [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
+    });
     return (
       <Dialog
         {...restProps}
         getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
         prefixCls={prefixCls}
-        wrapClassName={classNames({ [`${prefixCls}-centered`]: !!centered }, wrapClassName)}
+        wrapClassName={wrapClassNameExtended}
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}

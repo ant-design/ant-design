@@ -33,21 +33,6 @@ jobs:
         node-react@16:
           REACT: 16
           TEST_TYPE: test:node
-        dist-react@15:
-          REACT: 15
-          TEST_TYPE: test:dist
-        lib-react@15:
-          REACT: 15
-          TEST_TYPE: test:lib
-        es-react@15:
-          REACT: 15
-          TEST_TYPE: test:es
-        dom-react@15:
-          REACT: 15
-          TEST_TYPE: test:dom
-        node-react@15:
-          REACT: 15
-          TEST_TYPE: test:node
     steps:
       - checkout: self
         fetchDepth: 1
@@ -57,8 +42,6 @@ jobs:
           versionSpec: '10.x'
       - script: npm install
         displayName: install
-      - script: scripts/install-react.sh
-        displayName: install-react
       - script: scripts/travis-script.sh
         displayName: test
       - task: PublishBuildArtifacts@1

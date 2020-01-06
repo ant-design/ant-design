@@ -1,24 +1,24 @@
 ---
 order: 6
 title:
-  zh-CN: Flex 排序
-  en-US: Flex Order
+  zh-CN: 排序
+  en-US: Order
 ---
 
 ## zh-CN
 
-通过 Flex 布局的 Order 来改变元素的排序。
+通过 Order 来改变元素的排序。
 
 ## en-US
 
-To change the element sort by Flex layout order.
+To change the element sort by order.
 
 ```jsx
 import { Row, Col } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Row type="flex">
+    <Row>
       <Col span={6} order={4}>
         1 col-order-4
       </Col>
@@ -35,4 +35,10 @@ ReactDOM.render(
   </div>,
   mountNode,
 );
+```
+
+```css
+#components-grid-demo-flex-order [class~='ant-row'] {
+  background: rgba(128, 128, 128, 0.08);
+}
 ```

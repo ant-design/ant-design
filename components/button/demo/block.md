@@ -1,8 +1,8 @@
 ---
-order: 9
+order: 10
 title:
-  zh-CN: block 按钮
-  en-US: block Button
+  zh-CN: Block 按钮
+  en-US: Block Button
 ---
 
 ## zh-CN
@@ -24,9 +24,6 @@ ReactDOM.render(
     <Button block>Default</Button>
     <Button type="dashed" block>
       Dashed
-    </Button>
-    <Button type="danger" block>
-      Danger
     </Button>
     <Button type="link" block>
       Link

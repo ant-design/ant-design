@@ -1,6 +1,7 @@
 ---
-category: Patterns
-order: 10
+category: Design Patterns
+type: Global Rules
+order: 99
 title: Data Display
 ---
 
