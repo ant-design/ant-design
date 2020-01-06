@@ -104,6 +104,10 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
         key={index}
         overlayClassName={`${prefixCls}-tooltip`}
         getPopupContainer={getTooltipPopupContainer || (() => document.body)}
+        {
+          // For slider only, it's a prop from `rc-trigger`
+          ...{ keepAlign: true }
+        }
       >
         <RcHandle
           {...restProps}
