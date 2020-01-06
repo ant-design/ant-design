@@ -3,7 +3,7 @@ on:
   release:
     types: [published]
     branches:
-      - master
+      - 3.x-stable
 
 jobs:
   build-and-deploy:
