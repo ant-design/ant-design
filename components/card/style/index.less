@@ -131,14 +131,15 @@
   }
 
   &-cover {
+    margin-right: -1px;
+    margin-left: -1px;
+
     > * {
       display: block;
       width: 100%;
     }
+
     img {
-      width: calc(100% + 2px);
-      margin-right: -1px;
-      margin-left: -1px;
       border-radius: @card-radius @card-radius 0 0;
     }
   }
