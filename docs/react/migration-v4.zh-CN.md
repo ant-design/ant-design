@@ -130,7 +130,7 @@ npx -p @ant-design/codemod-v4 antd4-codemod src
 # 使用 npm
 npm i -g @ant-design/codemod-v4
 # 或者使用 yarn
-yarn add -g @ant-design/codemod-v4
+yarn global add @ant-design/codemod-v4
 
 # 运行
 antd4-codemod src

@@ -130,7 +130,7 @@ npx -p @ant-design/codemod-v4 antd4-codemod src
 # Use npm
 npm i -g @ant-design/codemod-v4
 # Use yarn
-yarn add -g @ant-design/codemod-v4
+yarn global add @ant-design/codemod-v4
 
 # Execute
 antd4-codemod src
