@@ -80,4 +80,13 @@ describe('Drawer', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('have a footer', () => {
+    const wrapper = render(
+      <Drawer visible footer="Test Footer" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });
