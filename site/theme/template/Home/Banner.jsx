@@ -97,23 +97,23 @@ const Banner = ({ isMobile }) => {
               <FormattedMessage id="app.home.recommend" />
             </Divider>
             <a
-              href="https://next.ant.design/"
+              href="https://www.yuque.com/e/que?chInfo=antd"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => {
                 if (window.gtag) {
                   window.gtag('event', '点击', {
                     event_category: '首页推广',
-                    event_label: `https://next.ant.design/?from=antd`,
+                    event_label: `https://www.yuque.com/e/que?chInfo=antd`,
                   });
                 }
               }}
             >
               <img
-                src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                alt="antd logo"
+                src="https://gw.alipayobjects.com/zos/rmsportal/XuVpGqBFxXplzvLjJBZB.svg"
+                alt="yuque logo"
               />
-              <FormattedMessage id="app.home.recommend.antd.next" />
+              <FormattedMessage id="app.home.recommend.yuque" />
               <Icon type="right" style={{ marginLeft: 6, fontSize: 12, opacity: 0.6 }} />
             </a>
           </div>

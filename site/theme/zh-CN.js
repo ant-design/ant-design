@@ -49,7 +49,7 @@ module.exports = {
     'app.home.tool-kitchen-content': '一个为设计师提效的 Sketch 工具集',
     'app.home.getting-started': '开始使用',
     'app.home.recommend': '推荐',
-    'app.home.recommend.yuque': '语雀，我们都喜欢的文档工具',
+    'app.home.recommend.yuque': '语雀：2020 领福蛋有大奖',
     'app.home.recommend.antv.g2plot': 'G2Plot：全新企业级图表',
     'app.home.recommend.antd.next': 'Ant Design 4.0：创造快乐工作',
     'app.home.more': '查看更多',
