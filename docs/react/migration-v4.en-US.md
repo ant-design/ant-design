@@ -18,6 +18,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 
 - Line height changes from `1.5`(`21px`) to `1.5715`(`22px`).
 - Basic rounded corner adjustment, changed from `4px` to `2px`.
+- Exchanged Selected and Hovered color.
 - Global shadow optimization, adjusted to three layers of shadows to distinguish control hierarchies.
 - Icon in the bubble confirmation box has been changed from a question mark to an exclamation mark.
 - The color of selected components is changed to `@blue-1: #E6F7FF`, and the corresponding hover color is changed to `@gray-2: #FAFAFA`.

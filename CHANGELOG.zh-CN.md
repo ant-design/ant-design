@@ -49,6 +49,7 @@ Ant Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/ant-
   - 🌟 现在 `fixedColumn`、`expandable`、`scroll` 可以混合使用。
   - 🌟 支持多列排序。
   - 🌟 支持自定义 `body` 并添加虚拟滚动例子。
+  - 🌟 展开相关功能归入 `expandable` 属性并添加 `rowExpandable` 支持。
   - 🎉 使用 css `sticky` 实现固定效果以优化性能。
   - 💄 优化 `expand` 动画效果。
 - 🌟 全新 DatePicker、 TimePicker 与 Calendar 组件。[#20023](https://github.com/ant-design/ant-design/pull/20023)
@@ -58,7 +59,7 @@ Ant Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/ant-
   - 🌟 范围选择器现在可以单独选择开始与结束时间。
   - 🌟 范围选择器可以为开始与结束时间单独设置 `disabled`。
   - 🌟 范围选择器可以允许开始与结束时间为空。
-  - 🌟 优化键盘支持。
+  - 🌟 优化手工输入与键盘交互支持。
 - 🌟 移除 Icon，使用 `@ant-design/icons` 代替。[#18217](https://github.com/ant-design/ant-design/pull/18217)
 - Skeleton
   - 🌟 支持 Skeleton.Avatar 占位组件。[#19898](https://github.com/ant-design/ant-design/pull/19898) [@Rustin-Liu](https://github.com/Rustin-Liu)

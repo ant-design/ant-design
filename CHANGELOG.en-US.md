@@ -49,6 +49,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
   - 🌟 Now `fixedColumn`,`expandable`, and `scroll` can be mixed.
   - 🌟 Support multi-column sort.
   - 🌟 Support custom `body` and add virtual scrolling example.
+  - 🌟 Expansion-related props moved into the `expandable` attribute and add `rowExpandable` prop.
   - 🎉 Use css `sticky` to achieve fixed effects to optimize performance.
   - 💄 Optimized `expand` animation effect.
 - 🌟 New DatePicker, TimePicker and Calendar components. [#20023](https://github.com/ant-design/ant-design/pull/20023)
@@ -58,7 +59,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
   - 🌟 Range selector can now select start and end times individually.
   - 🌟 The range selector can be set to `disabled` separately for the start and end time.
   - 🌟 The range selector allows empty start and end times.
-  - 🌟 Optimize keyboard support.
+  - 🌟 Optimized manual input and keyboard interaction support.
 - 🌟 Remove Icon and use `@ ant-design / icons` instead. [#18217](https://github.com/ant-design/ant-design/pull/18217)
 - Skeleton
   - 🌟 Support Skeleton.Avatar placeholder component. [#19898](https://github.com/ant-design/ant-design/pull/19898) [@Rustin-Liu](https://github.com/Rustin-Liu)
