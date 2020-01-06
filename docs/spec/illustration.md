@@ -83,7 +83,7 @@ title:
 
 ### 元素组件
 
-<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-LbbSads11EAAAAAAAAAAABkARQnAQ" />
+<img class="preview-img" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ph0YSZmq-ekAAAAAAAAAAABkARQnAQ" />
 
 <img class="preview-img" align="right" alt="根据业务场景设计的元素组件" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Z8oxS5ym3PIAAAAAAAAAAABkARQnAQ" />
 
