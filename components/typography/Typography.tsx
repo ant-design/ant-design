@@ -40,13 +40,15 @@ const Typography: React.RefForwardingComponent<{}, InternalTypographyProps> = (
 
   return (
     <ConfigConsumer>
-      {({ getPrefixCls }: ConfigConsumerProps) => {
+      {({ getPrefixCls, direction }: ConfigConsumerProps) => {
         const Component = component as any;
         const prefixCls = getPrefixCls('typography', customizePrefixCls);
-
+        const componentClassName = classNames(prefixCls, className, {
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+        });
         return (
           <Component
-            className={classNames(prefixCls, className)}
+            className={componentClassName}
             aria-label={ariaLabel}
             ref={mergedRef}
             {...restProps}

@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert ErrorBoundary 1`] = `
+<div
+  class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon"
+  data-show="true"
+>
+  <span
+    class="ant-alert-message"
+  >
+    ReferenceError: NotExisted is not defined
+  </span>
+  <span
+    class="ant-alert-description"
+  >
+    <pre>
+          in ThrowError
+    in ErrorBoundary (created by WrapperComponent)
+    in WrapperComponent
+    </pre>
+  </span>
+</div>
+`;
+
+exports[`Alert rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl"
+  data-show="true"
+>
+  <span
+    class="ant-alert-message"
+  />
+  <span
+    class="ant-alert-description"
+  />
+</div>
+`;

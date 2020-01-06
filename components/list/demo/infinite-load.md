@@ -125,3 +125,9 @@ ReactDOM.render(<InfiniteListExample />, mountNode);
   text-align: center;
 }
 ```
+
+<style>
+  [data-theme="dark"] .demo-infinite-container {
+    border: 1px solid #303030;
+  }
+</style>

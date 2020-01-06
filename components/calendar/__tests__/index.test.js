@@ -1,5 +1,6 @@
 import React from 'react';
 import Moment from 'moment';
+import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import Calendar from '..';
@@ -8,16 +9,34 @@ import Select from '../../select';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Calendar', () => {
   mountTest(Calendar);
-  mountTest(() => <Header value={Moment()} />);
+  rtlTest(Calendar, true);
+
+  function openSelect(wrapper, className) {
+    wrapper
+      .find(className)
+      .find('.ant-select-selector')
+      .simulate('mousedown');
+  }
+
+  function findSelectItem(wrapper) {
+    return wrapper.find('.ant-select-item-option');
+  }
+
+  function clickSelectItem(wrapper, index = 0) {
+    findSelectItem(wrapper)
+      .at(index)
+      .simulate('click');
+  }
 
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
     const wrapper = mount(<Calendar onSelect={onSelect} />);
     wrapper
-      .find('.ant-fullcalendar-cell')
+      .find('.ant-picker-cell')
       .at(0)
       .simulate('click');
     expect(onSelect).toHaveBeenCalledWith(expect.anything());
@@ -32,11 +51,11 @@ describe('Calendar', () => {
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
     );
     wrapper
-      .find('[title="February 1, 2018"]')
+      .find('[title="2018-02-01"]')
       .at(0)
       .simulate('click');
     wrapper
-      .find('[title="February 2, 2018"]')
+      .find('[title="2018-02-02"]')
       .at(0)
       .simulate('click');
     expect(onSelect.mock.calls.length).toBe(1);
@@ -49,12 +68,10 @@ describe('Calendar', () => {
       <Calendar onSelect={onSelect} validRange={validRange} defaultValue={Moment('2018-02-02')} />,
     );
     wrapper
-      .find('[title="February 20, 2018"]')
+      .find('[title="2018-02-20"]')
       .at(0)
       .simulate('click');
-    const elem = wrapper
-      .find('[title="February 20, 2018"]')
-      .hasClass('ant-fullcalendar-disabled-cell');
+    const elem = wrapper.find('[title="2018-02-20"]').hasClass('ant-picker-cell-disabled');
     expect(elem).toEqual(true);
     expect(onSelect.mock.calls.length).toBe(0);
   });
@@ -72,28 +89,28 @@ describe('Calendar', () => {
     );
     expect(
       wrapper
-        .find('[title="Jan"]')
+        .find('[title="2018-01"]')
         .at(0)
-        .hasClass('ant-fullcalendar-month-panel-cell-disabled'),
+        .hasClass('ant-picker-cell-disabled'),
     ).toBe(true);
     expect(
       wrapper
-        .find('[title="Feb"]')
+        .find('[title="2018-02"]')
         .at(0)
-        .hasClass('ant-fullcalendar-month-panel-cell-disabled'),
+        .hasClass('ant-picker-cell-disabled'),
     ).toBe(false);
     expect(
       wrapper
-        .find('[title="Jun"]')
+        .find('[title="2018-06"]')
         .at(0)
-        .hasClass('ant-fullcalendar-month-panel-cell-disabled'),
+        .hasClass('ant-picker-cell-disabled'),
     ).toBe(true);
     wrapper
-      .find('[title="Jan"]')
+      .find('[title="2018-01"]')
       .at(0)
       .simulate('click');
     wrapper
-      .find('[title="Mar"]')
+      .find('[title="2018-03"]')
       .at(0)
       .simulate('click');
     expect(onSelect.mock.calls.length).toBe(1);
@@ -102,27 +119,17 @@ describe('Calendar', () => {
   it('months other than in valid range should not be shown in header', () => {
     const validRange = [Moment('2017-02-02'), Moment('2018-05-18')];
     const wrapper = mount(<Calendar validRange={validRange} />);
-    wrapper
-      .find('.ant-fullcalendar-year-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .first()
-      .simulate('click');
-    wrapper
-      .find('.ant-fullcalendar-month-select')
-      .hostNodes()
-      .simulate('click');
+    openSelect(wrapper, '.ant-picker-calendar-year-select');
+    clickSelectItem(wrapper);
+    openSelect(wrapper, '.ant-picker-calendar-month-select');
     // 2 years and 11 months
-    expect(wrapper.find('.ant-select-dropdown-menu-item').length).toBe(13);
+    expect(wrapper.find('.ant-select-item-option').length).toBe(13);
   });
 
   it('getDateRange should returns a disabledDate function', () => {
     const validRange = [Moment('2018-02-02'), Moment('2018-05-18')];
     const wrapper = mount(<Calendar validRange={validRange} defaultValue={Moment('2018-02-02')} />);
-    const instance = wrapper.instance();
-    const disabledDate = instance.getDateRange(validRange);
+    const { disabledDate } = wrapper.find('PickerPanel').props();
     expect(disabledDate(Moment('2018-06-02'))).toBe(true);
     expect(disabledDate(Moment('2018-04-02'))).toBe(false);
   });
@@ -131,9 +138,9 @@ describe('Calendar', () => {
     const monthMode = 'month';
     const yearMode = 'year';
     const wrapper = mount(<Calendar />);
-    expect(wrapper.state().mode).toEqual(monthMode);
-    wrapper.setProps({ mode: 'year' });
-    expect(wrapper.state().mode).toEqual(yearMode);
+    expect(wrapper.find('CalendarHeader').props().mode).toEqual(monthMode);
+    wrapper.setProps({ mode: yearMode });
+    expect(wrapper.find('CalendarHeader').props().mode).toEqual(yearMode);
   });
 
   it('Calendar should switch mode', () => {
@@ -141,9 +148,9 @@ describe('Calendar', () => {
     const yearMode = 'year';
     const onPanelChangeStub = jest.fn();
     const wrapper = mount(<Calendar mode={yearMode} onPanelChange={onPanelChangeStub} />);
-    expect(wrapper.state().mode).toEqual(yearMode);
+    expect(wrapper.find('CalendarHeader').props().mode).toEqual(yearMode);
     wrapper.setProps({ mode: monthMode });
-    expect(wrapper.state().mode).toEqual(monthMode);
+    expect(wrapper.find('CalendarHeader').props().mode).toEqual(monthMode);
     expect(onPanelChangeStub).toHaveBeenCalledTimes(0);
   });
 
@@ -162,7 +169,7 @@ describe('Calendar', () => {
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
 
     wrapper
-      .find('.ant-fullcalendar-cell')
+      .find('.ant-picker-cell')
       .at(0)
       .simulate('click');
 
@@ -174,12 +181,14 @@ describe('Calendar', () => {
     const onPanelChange = jest.fn();
     const date = new Moment(new Date(Date.UTC(2017, 7, 9, 8)));
     const wrapper = mount(<Calendar onPanelChange={onPanelChange} value={date} />);
-    expect(wrapper.state().mode).toBe('month');
-    expect(wrapper.find('.ant-fullcalendar-table').length).toBe(1);
-    expect(wrapper.find('.ant-fullcalendar-month-panel-table').length).toBe(0);
+
+    expect(wrapper.find('CalendarHeader').props().mode).toBe('month');
+    expect(wrapper.find('.ant-picker-date-panel').length).toBe(1);
+    expect(wrapper.find('.ant-picker-month-panel').length).toBe(0);
+
     wrapper.find('.ant-radio-button-input[value="year"]').simulate('change');
-    expect(wrapper.find('.ant-fullcalendar-table').length).toBe(0);
-    expect(wrapper.find('.ant-fullcalendar-month-panel-table').length).toBe(1);
+    expect(wrapper.find('.ant-picker-date-panel').length).toBe(0);
+    expect(wrapper.find('.ant-picker-month-panel').length).toBe(1);
     expect(onPanelChange).toHaveBeenCalled();
     expect(onPanelChange.mock.calls[0][1]).toEqual('year');
   });
@@ -187,20 +196,16 @@ describe('Calendar', () => {
   const createWrapper = (start, end, value, onValueChange) => {
     const wrapper = mount(
       <Header
-        onValueChange={onValueChange}
+        prefixCls="ant-picker-calendar"
+        generateConfig={momentGenerateConfig}
+        onChange={onValueChange}
         value={value}
         validRange={[start, end]}
         locale={{ year: '年' }}
       />,
     );
-    wrapper
-      .find('.ant-fullcalendar-year-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .at(0)
-      .simulate('click');
+    openSelect(wrapper, '.ant-picker-calendar-year-select');
+    clickSelectItem(wrapper);
   };
 
   it('if value.month > end.month, set value.month to end.month', () => {
@@ -221,6 +226,29 @@ describe('Calendar', () => {
     expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('10'));
   });
 
+  it('if change year and new month > end month, set value.month to end.month ', () => {
+    const value = new Moment('2018-11-03');
+    const start = new Moment('2000-01-01');
+    const end = new Moment('2019-03-01');
+    const onValueChange = jest.fn();
+    const wrapper = mount(
+      <Header
+        prefixCls="ant-picker-calendar"
+        generateConfig={momentGenerateConfig}
+        onChange={onValueChange}
+        value={value}
+        validRange={[start, end]}
+        locale={{ year: '年' }}
+      />,
+    );
+    openSelect(wrapper, '.ant-picker-calendar-year-select');
+    wrapper
+      .find('.ant-select-item-option')
+      .last()
+      .simulate('click');
+    expect(onValueChange).toHaveBeenCalledWith(value.year('2019').month('2'));
+  });
+
   it('onMonthChange should work correctly', () => {
     const start = new Moment('2018-11-01');
     const end = new Moment('2019-03-01');
@@ -228,21 +256,17 @@ describe('Calendar', () => {
     const onValueChange = jest.fn();
     const wrapper = mount(
       <Header
-        onValueChange={onValueChange}
+        prefixCls="ant-picker-calendar"
+        generateConfig={momentGenerateConfig}
+        onChange={onValueChange}
         value={value}
         validRange={[start, end]}
-        locale={{ year: '年' }}
-        type="month"
+        locale={{ year: '年', locale: 'zh_CN' }}
+        mode="month"
       />,
     );
-    wrapper
-      .find('.ant-fullcalendar-month-select')
-      .hostNodes()
-      .simulate('click');
-    wrapper
-      .find('.ant-select-dropdown-menu-item')
-      .at(0)
-      .simulate('click');
+    openSelect(wrapper, '.ant-picker-calendar-month-select');
+    clickSelectItem(wrapper);
     expect(onValueChange).toHaveBeenCalledWith(value.month(10));
   });
 
@@ -251,14 +275,16 @@ describe('Calendar', () => {
     const value = new Moment('2018-12-03');
     const wrapper = mount(
       <Header
-        onTypeChange={onTypeChange}
-        locale={{ year: '年', month: '月' }}
+        prefixCls="ant-picker-calendar"
+        generateConfig={momentGenerateConfig}
+        onModeChange={onTypeChange}
+        locale={{ year: '年', month: '月', locale: 'zh_CN' }}
         value={value}
         type="date"
       />,
     );
     wrapper
-      .find('input')
+      .find('input[type="radio"]')
       .at(1)
       .simulate('change');
     expect(onTypeChange).toHaveBeenCalledWith('year');
@@ -268,6 +294,8 @@ describe('Calendar', () => {
     const onMonthChange = jest.fn();
     const onYearChange = jest.fn();
     const onTypeChange = jest.fn();
+
+    // Year
     const headerRender = jest.fn(({ value }) => {
       const year = value.year();
       const options = [];
@@ -293,15 +321,16 @@ describe('Calendar', () => {
     });
     const wrapperWithYear = mount(<Calendar fullscreen={false} headerRender={headerRender} />);
 
-    wrapperWithYear.find('.ant-select').simulate('click');
+    openSelect(wrapperWithYear, '.ant-select');
     wrapperWithYear.update();
 
-    wrapperWithYear
-      .find('.year-item')
+    findSelectItem(wrapperWithYear)
       .last()
       .simulate('click');
 
     expect(onYearChange).toHaveBeenCalled();
+
+    // Month
     const headerRenderWithMonth = jest.fn(({ value }) => {
       const start = 0;
       const end = 12;
@@ -321,14 +350,15 @@ describe('Calendar', () => {
           </Select.Option>,
         );
       }
+
       const month = value.month();
       return (
         <Select
           size="small"
           dropdownMatchSelectWidth={false}
-          value={String(month)}
-          className="my-mont-select"
+          className="my-month-select"
           onChange={onMonthChange}
+          value={String(month)}
         >
           {monthOptions}
         </Select>
@@ -338,15 +368,16 @@ describe('Calendar', () => {
       <Calendar fullscreen={false} headerRender={headerRenderWithMonth} />,
     );
 
-    wrapperWithMonth.find('.ant-select').simulate('click');
+    openSelect(wrapperWithMonth, '.ant-select');
     wrapperWithMonth.update();
 
-    wrapperWithMonth
-      .find('.month-item')
+    findSelectItem(wrapperWithMonth)
       .last()
       .simulate('click');
+
     expect(onMonthChange).toHaveBeenCalled();
 
+    // Type
     const headerRenderWithTypeChange = jest.fn(({ type }) => {
       return (
         <Group size="small" onChange={onTypeChange} value={type}>
@@ -365,5 +396,29 @@ describe('Calendar', () => {
       .last()
       .simulate('change');
     expect(onTypeChange).toHaveBeenCalled();
+  });
+
+  it('dateFullCellRender', () => {
+    const wrapper = mount(
+      <Calendar dateFullCellRender={() => <div className="light">Bamboo</div>} />,
+    );
+    expect(
+      wrapper
+        .find('.light')
+        .first()
+        .text(),
+    ).toEqual('Bamboo');
+  });
+
+  it('monthFullCellRender', () => {
+    const wrapper = mount(
+      <Calendar mode="year" monthFullCellRender={() => <div className="bamboo">Light</div>} />,
+    );
+    expect(
+      wrapper
+        .find('.bamboo')
+        .first()
+        .text(),
+    ).toEqual('Light');
   });
 });

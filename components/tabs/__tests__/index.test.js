@@ -2,11 +2,17 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import Tabs from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { TabPane } = Tabs;
 
 describe('Tabs', () => {
   mountTest(() => (
+    <Tabs>
+      <TabPane tab="xx" key="xx" />
+    </Tabs>
+  ));
+  rtlTest(() => (
     <Tabs>
       <TabPane tab="xx" key="xx" />
     </Tabs>

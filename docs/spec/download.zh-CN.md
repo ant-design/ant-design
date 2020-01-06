@@ -9,9 +9,9 @@ title: 设计资源
 - 新版本 Sketch Symbols 组件反馈地址：[🦜 反馈地址](https://www.yuque.com/kitchen/topics/51)
 
 <div class="resource-cards">
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.3.12.0.sketch" class="resource-card">
+  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.4.0.Beta.sketch" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*XsDPQrwQZwEAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
@@ -22,7 +22,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="http://p.tb.cn/rmsportal_3436_AntDesignMobile_20Template_20V1.0.sketch" class="resource-card">
     <div class="resource-card-icon">
-      <img width="41" src="https://gw.alipayobjects.com/zos/rmsportal/rFMdPVzabtQwxONUuVFr.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CBq9R5XenxEAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Mobile Components</span>
@@ -31,7 +31,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ibCZMxKsTUzDbwTEdcTC.svg">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JL4NSrPh8QsAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design Pro</span>
@@ -40,7 +40,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="http://library.ant.design" class="resource-card">
     <div class="resource-card-icon">
-      <img width="50" src="https://gw.alipayobjects.com/zos/rmsportal/TXrKQUJBTuwSTGimGYYn.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7-yRTpL6l0MAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design Library @Axure</span>
@@ -49,7 +49,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="http://kitchen.alipay.com" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ATYZYtJhchhONKObIwXT.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JSzfToJBU_8AAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
@@ -61,7 +61,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="https://landing.ant.design/docs/download-cn" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*On5cQ7NoNL8AAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
@@ -72,7 +72,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="http://ux.ant.design" class="resource-card">
     <div class="resource-card-icon">
-      <img width="64" src="https://gw.alipayobjects.com/zos/rmsportal/yMULSUQQyhoEGrCXlovN.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*l_PmRLizBTMAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant UX</span>
@@ -81,7 +81,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design" class="resource-card">
     <div class="resource-card-icon">
-      <img width="72" src="https://img.xiaopiu.com/userImages/img753167822272f8.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zPTWTLt72YIAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design 原型（xiaopiu）</span>
@@ -90,7 +90,7 @@ title: 设计资源
   </a>
   <a target="_blank" href="https://www.antforfigma.com" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://antforfigma.com/images/antforfigma-icon.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*W5TbRLtV1YYAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">

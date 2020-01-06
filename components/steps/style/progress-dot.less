@@ -9,14 +9,29 @@
       width: 100%;
       margin: 0 0 0 @steps-desciption-max-width / 2;
       padding: 0;
+
+      .@{steps-prefix-cls}-rtl& {
+        margin: 0 @steps-desciption-max-width / 2 0 0;
+      }
+
       &::after {
         width: ~'calc(100% - 20px)';
         height: 3px;
         margin-left: 12px;
+
+        .@{steps-prefix-cls}-rtl& {
+          margin-right: 12px;
+          margin-left: 0;
+        }
       }
     }
     &:first-child .@{steps-prefix-cls}-icon-dot {
       left: 2px;
+
+      .@{steps-prefix-cls}-rtl& {
+        right: 2px;
+        left: auto;
+      }
     }
     &-icon {
       width: @steps-dot-size;
@@ -26,6 +41,12 @@
       line-height: @steps-dot-size;
       background: transparent;
       border: 0;
+
+      .@{steps-prefix-cls}-rtl& {
+        margin-right: 67px;
+        margin-left: 0;
+      }
+
       .@{steps-prefix-cls}-icon-dot {
         position: relative;
         float: left;
@@ -33,6 +54,10 @@
         height: 100%;
         border-radius: 100px;
         transition: all 0.3s;
+
+        .@{steps-prefix-cls}-rtl& {
+          float: right;
+        }
         /* expand hover area */
         &::after {
           position: absolute;
@@ -42,6 +67,11 @@
           height: 32px;
           background: fade(@black, 0.1%);
           content: '';
+
+          .@{steps-prefix-cls}-rtl& {
+            right: -26px;
+            left: auto;
+          }
         }
       }
     }
@@ -63,6 +93,11 @@
   .@{steps-prefix-cls}-item-icon {
     margin-top: 8px;
     margin-left: 0;
+
+    .@{steps-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: 16px;
+    }
   }
   // https://github.com/ant-design/ant-design/issues/18354
   .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
@@ -70,11 +105,26 @@
     left: -9px;
     margin: 0;
     padding: 22px 0 4px;
+
+    .@{steps-prefix-cls}-rtl& {
+      right: -9px;
+      left: auto;
+    }
   }
   .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
     left: 0;
+
+    .@{steps-prefix-cls}-rtl& {
+      right: 0;
+      left: auto;
+    }
   }
   .@{steps-prefix-cls}-item-process .@{steps-prefix-cls}-icon-dot {
     left: -2px;
+
+    .@{steps-prefix-cls}-rtl& {
+      right: -2px;
+      left: auto;
+    }
   }
 }

@@ -1,0 +1,74 @@
+@import '../../../../components/style/themes/default.less';
+
+.more-card {
+  &:hover {
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .ant-card-cover {
+    padding: 24px 24px 0 24px;
+  }
+
+  .ant-card-body {
+    color: #314659;
+  }
+
+  .ant-card-meta-detail {
+    display: flex;
+    flex-direction: column;
+    min-height: 170px;
+
+    .ant-card-meta-title {
+      min-height: 50px;
+      margin-bottom: 16px;
+      color: #0d1a26;
+      font-weight: 400;
+      white-space: normal;
+      text-overflow: initial;
+      word-break: break-word;
+    }
+
+    .ant-card-meta-description {
+      flex: auto;
+      color: #697b8c;
+    }
+  }
+
+  .more-card-source {
+    float: right;
+
+    .ant-row-rtl & {
+      float: left;
+    }
+
+    > img {
+      vertical-align: baseline;
+    }
+  }
+}
+
+@media (max-width: @screen-sm-min) {
+  .more-card {
+    .ant-card-cover {
+      margin-bottom: 12px;
+      padding: 16px 16px 0 16px;
+
+      img {
+        height: 184px;
+      }
+    }
+
+    .ant-card-meta-title {
+      font-size: 18px;
+    }
+
+    .ant-card-body {
+      padding: 16px;
+
+      .ant-card-meta-detail {
+        min-height: 150px;
+      }
+    }
+  }
+}

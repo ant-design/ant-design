@@ -1,5 +1,5 @@
 ---
-order: 26
+order: 27
 title:
   en-US: Resizable column
   zh-CN: 可伸缩列

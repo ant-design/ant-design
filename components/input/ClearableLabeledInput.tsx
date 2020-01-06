@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
-import Icon from '../icon';
+import { CloseCircleFilled } from '@ant-design/icons';
 import { tuple } from '../_util/type';
-import { InputProps, InputSizes, getInputClassName } from './Input';
+import { InputProps, getInputClassName } from './Input';
+import { SizeType } from '../config-provider/SizeContext';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -16,7 +16,7 @@ export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
  */
 interface BasicProps {
   prefixCls: string;
-  inputType: (typeof ClearableInputType)[number];
+  inputType: typeof ClearableInputType[number];
   value?: any;
   defaultValue?: any;
   allowClear?: boolean;
@@ -25,13 +25,14 @@ interface BasicProps {
   className?: string;
   style?: object;
   disabled?: boolean;
+  direction?: any;
 }
 
 /**
  * This props only for input.
  */
 interface ClearableInputProps extends BasicProps {
-  size?: (typeof InputSizes)[number];
+  size?: SizeType;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
@@ -48,15 +49,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       inputType === ClearableInputType[0]
         ? `${prefixCls}-textarea-clear-icon`
         : `${prefixCls}-clear-icon`;
-    return (
-      <Icon
-        type="close-circle"
-        theme="filled"
-        onClick={handleReset}
-        className={className}
-        role="button"
-      />
-    );
+    return <CloseCircleFilled onClick={handleReset} className={className} role="button" />;
   }
 
   renderSuffix(prefixCls: string) {
@@ -90,6 +83,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
       [`${prefixCls}-affix-wrapper-input-with-clear-btn`]:
         props.suffix && props.allowClear && this.props.value,
+      [`${prefixCls}-affix-wrapper-rtl`]: props.direction === 'rtl',
     });
     return (
       <span className={affixWrapperCls} style={props.style}>
@@ -105,7 +99,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement<any>) {
-    const { addonBefore, addonAfter, style, size, className } = this.props;
+    const { addonBefore, addonAfter, style, size, className, direction } = this.props;
     // Not wrap when there is not addons
     if (!addonBefore && !addonAfter) {
       return labeledElement;
@@ -120,11 +114,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
       [wrapperClassName]: addonBefore || addonAfter,
+      [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
     const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
       [`${prefixCls}-group-wrapper-sm`]: size === 'small',
       [`${prefixCls}-group-wrapper-lg`]: size === 'large',
+      [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
     });
 
     // Need another wrapper for changing display:table to display:inline-block
@@ -175,7 +171,5 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return this.renderClearableLabeledInput();
   }
 }
-
-polyfill(ClearableLabeledInput);
 
 export default ClearableLabeledInput;

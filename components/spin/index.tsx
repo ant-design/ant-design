@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
@@ -72,15 +71,6 @@ class Spin extends React.Component<SpinProps, SpinState> {
     wrapperClassName: '',
   };
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    className: PropTypes.string,
-    spinning: PropTypes.bool,
-    size: PropTypes.oneOf(SpinSizes),
-    wrapperClassName: PropTypes.string,
-    indicator: PropTypes.element,
-  };
-
   static setDefaultIndicator(indicator: React.ReactNode) {
     defaultIndicator = indicator;
   }
@@ -139,7 +129,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     return !!(this.props && this.props.children);
   }
 
-  renderSpin = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSpin = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className,
@@ -159,6 +149,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
         [`${prefixCls}-lg`]: size === 'large',
         [`${prefixCls}-spinning`]: spinning,
         [`${prefixCls}-show-text`]: !!tip,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

@@ -22,14 +22,14 @@ A list can be used to display content related to a single subject. The content c
 | grid | The grid type of list. You can set grid to something like {gutter: 16, column: 4} | object | - |  |
 | header | List header renderer | string\|ReactNode | - |  |
 | itemLayout | The layout of list, default is `horizontal`, If a vertical list is desired, set the itemLayout property to `vertical` | string | - |  |
-| rowKey | Item's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` | 3.12.0 |
+| rowKey | Item's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |  |
 | loading | Shows a loading indicator while the contents of the list are being fetched | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/8659)) | false |  |
 | loadMore | Shows a load more content | string\|ReactNode | - |  |
-| locale | i18n text including empty text | object | emptyText: 'No Data' <br> | 3.4.2 |
+| locale | i18n text including empty text | object | emptyText: 'No Data' <br> |  |
 | pagination | Pagination [config](https://ant.design/components/pagination/), hide it by setting it to false | boolean \| object | false |  |
 | split | Toggles rendering of the split under the list item | boolean | true |  |
-| dataSource | dataSource array for list | any[] | - | 3.20.1 |
-| renderItem | customize list item when using `dataSource` | `item => ReactNode` | - | 3.20.1 |
+| dataSource | dataSource array for list | any[] | - |  |
+| renderItem | customize list item when using `dataSource` | `item => ReactNode` | - |  |
 
 ### pagination
 
@@ -37,7 +37,7 @@ Properties for pagination.
 
 | Property | Description                          | Type                        | Default  |
 | -------- | ------------------------------------ | --------------------------- | -------- |
-| position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' | 3.6.0 |
+| position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 

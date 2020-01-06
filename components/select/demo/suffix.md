@@ -15,10 +15,11 @@ title:
 Basic Usage.
 
 ```jsx
-import { Select, Icon } from 'antd';
+import { Select } from 'antd';
+import { SmileOutlined, MehOutlined } from '@ant-design/icons';
 
-const smileIcon = <Icon type="smile" />;
-const mehIcon = <Icon type="meh" />;
+const smileIcon = <SmileOutlined />;
+const mehIcon = <MehOutlined />;
 const { Option } = Select;
 
 function handleChange(value) {

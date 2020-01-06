@@ -2,13 +2,15 @@
 // SFC has specified a displayName, but not worked.
 /* eslint-disable react/display-name */
 import * as React from 'react';
-
+import { FormProvider as RcFormProvider } from 'rc-field-form';
+import { ValidateMessages } from 'rc-field-form/lib/interface';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
+import { SizeType, SizeContextProvider } from './SizeContext';
 
-export { RenderEmptyHandler, ConfigConsumer, CSPConfig, ConfigConsumerProps };
+export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
 export const configConsumerProps = [
   'getPopupContainer',
@@ -28,10 +30,15 @@ export interface ConfigProviderProps {
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
+  form?: {
+    validateMessages?: ValidateMessages;
+  };
   locale?: Locale;
   pageHeader?: {
     ghost: boolean;
   };
+  componentSize?: SizeType;
+  direction?: 'ltr' | 'rtl';
 }
 
 class ConfigProvider extends React.Component<ConfigProviderProps> {
@@ -50,8 +57,11 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       renderEmpty,
       csp,
       autoInsertSpaceInButton,
+      form,
       locale,
       pageHeader,
+      componentSize,
+      direction,
     } = this.props;
 
     const config: ConfigConsumerProps = {
@@ -59,6 +69,8 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       getPrefixCls: this.getPrefixCls,
       csp,
       autoInsertSpaceInButton,
+      locale: locale || legacyLocale,
+      direction,
     };
 
     if (getPopupContainer) {
@@ -73,12 +85,23 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
       config.pageHeader = pageHeader;
     }
 
+    let childNode = children;
+
+    // Additional Form provider
+    if (form && form.validateMessages) {
+      childNode = (
+        <RcFormProvider validateMessages={form.validateMessages}>{children}</RcFormProvider>
+      );
+    }
+
     return (
-      <ConfigContext.Provider value={config}>
-        <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-          {children}
-        </LocaleProvider>
-      </ConfigContext.Provider>
+      <SizeContextProvider size={componentSize}>
+        <ConfigContext.Provider value={config}>
+          <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+            {childNode}
+          </LocaleProvider>
+        </ConfigContext.Provider>
+      </SizeContextProvider>
     );
   };
 

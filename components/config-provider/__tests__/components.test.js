@@ -27,7 +27,6 @@ import Input from '../../input';
 import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
-import Mention from '../../mention';
 import Menu from '../../menu';
 import Modal from '../../modal';
 import Pagination from '../../pagination';
@@ -55,7 +54,6 @@ import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
-jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
@@ -340,9 +338,6 @@ describe('ConfigProvider', () => {
         )}
       />
     ));
-
-    // Mention
-    testPair('Mention', props => <Mention {...props} />);
 
     // Menu
     testPair('Menu', props => (

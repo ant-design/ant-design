@@ -65,10 +65,12 @@ export default class BackTop extends React.Component<BackTopProps, any> {
     });
   };
 
-  renderBackTop = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderBackTop = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', children } = this.props;
     const prefixCls = getPrefixCls('back-top', customizePrefixCls);
-    const classString = classNames(prefixCls, className);
+    const classString = classNames(prefixCls, className, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
 
     const defaultElement = (
       <div className={`${prefixCls}-content`}>
