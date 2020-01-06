@@ -63,7 +63,6 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   title?: ColumnTitle<RecordType>;
 
   // Sorter
-  // TODO: Doc this update
   sorter?:
     | boolean
     | CompareFn<RecordType>

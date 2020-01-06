@@ -142,4 +142,18 @@ describe('Table', () => {
     wrapper.find('th').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('should not crash when column children is empty', () => {
+    mount(
+      <Table
+        columns={[
+          {
+            dataIndex: 'name',
+            children: undefined,
+          },
+        ]}
+        dataSource={[]}
+      />,
+    );
+  });
 });

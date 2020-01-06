@@ -27,7 +27,7 @@ function collectFilterStates<RecordType>(
 ): FilterState<RecordType>[] {
   let filterStates: FilterState<RecordType>[] = [];
 
-  columns.forEach((column, index) => {
+  (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
 
     if ('children' in column) {
