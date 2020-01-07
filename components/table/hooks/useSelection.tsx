@@ -75,6 +75,7 @@ export default function useSelection<RecordType>(
     columnWidth: selectionColWidth = 60,
     type: selectionType,
     selections,
+    fixed,
   } = rowSelection || {};
 
   const { locale = defaultLocale } = React.useContext(ConfigContext);
@@ -416,11 +417,11 @@ export default function useSelection<RecordType>(
         const [expandColumn, ...restColumns] = columns;
         return [
           expandColumn,
-          { ...selectionColumn, fixed: getFixedType(restColumns[0]) },
+          { ...selectionColumn, fixed: fixed || getFixedType(restColumns[0]) },
           ...restColumns,
         ];
       }
-      return [{ ...selectionColumn, fixed: getFixedType(columns[0]) }, ...columns];
+      return [{ ...selectionColumn, fixed: fixed || getFixedType(columns[0]) }, ...columns];
     },
     [
       getRowKey,
