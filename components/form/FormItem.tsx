@@ -181,7 +181,16 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
         } else if (typeof children === 'function' && (!shouldUpdate || !!name)) {
-          warning(false, 'Form.Item', '`children` of render props only work with `shouldUpdate`.');
+          warning(
+            !!shouldUpdate,
+            'Form.Item',
+            '`children` of render props only work with `shouldUpdate`.',
+          );
+          warning(
+            !name,
+            'Form.Item',
+            "Do not use `name` with `children` of render props since it's not a field.",
+          );
         } else if (!mergedName.length && !shouldUpdate && !dependencies) {
           childNode = children;
         } else if (React.isValidElement(children)) {
