@@ -141,6 +141,18 @@ describe('Form', () => {
       'Warning: [antd: Form.Item] `children` of render props only work with `shouldUpdate`.',
     );
   });
+  it('`name` should not work with render props', () => {
+    mount(
+      <Form>
+        <Form.Item name="test" shouldUpdate>
+          {() => null}
+        </Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      "Warning: [antd: Form.Item] Do not use `name` with `children` of render props since it's not a field.",
+    );
+  });
   it('children is array has name props', () => {
     mount(
       <Form>
