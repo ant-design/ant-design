@@ -229,6 +229,14 @@
       background: @primary-color;
     }
 
+    &-in-view&-range-start:not(&-range-end) .@{cellClassName} {
+      border-radius: 2px 0 0 2px;
+    }
+
+    &-in-view&-range-end:not(&-range-start) .@{cellClassName} {
+      border-radius: 0 2px 2px 0;
+    }
+
     &-in-view&-range-start:not(&-range-start-single),
     &-in-view&-range-end:not(&-range-end-single) {
       &::before {
