@@ -268,4 +268,48 @@ describe('Form', () => {
       'Warning: [antd: Form] antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',
     );
   });
+
+  // https://github.com/ant-design/ant-design/issues/20706
+  it('Error change should work', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item
+          name="name"
+          rules={[
+            { required: true },
+            {
+              validator: (_, value) => {
+                if (value === 'p') {
+                  return Promise.reject(new Error('not a p'));
+                }
+                return Promise.resolve();
+              },
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+
+    /* eslint-disable no-await-in-loop */
+    for (let i = 0; i < 3; i += 1) {
+      await change(wrapper, 0, '');
+      expect(
+        wrapper
+          .find('.ant-form-item-explain')
+          .first()
+          .text(),
+      ).toEqual("'name' is required");
+
+      await change(wrapper, 0, 'p');
+      expect(
+        wrapper
+          .find('.ant-form-item-explain')
+          .first()
+          .text(),
+      ).toEqual('not a p');
+    }
+    /* eslint-enable */
+  });
 });
