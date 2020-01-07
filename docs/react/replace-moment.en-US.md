@@ -1,6 +1,6 @@
 ---
 order: 5
-title: Generate picker
+title: Replace Moment.js
 ---
 
 ## How to use DatePicker with customize date library like dayjs？
