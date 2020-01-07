@@ -606,7 +606,6 @@ exports[`Cascader have a notFoundContent that fit trigger input width 1`] = `
     <div>
       <ul
         class="ant-cascader-menu"
-        style="height: auto;"
       >
         <li
           class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
@@ -1246,6 +1245,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                     Object {
                       "__IS_FILTERED_OPTION": true,
                       "disabled": false,
+                      "isEmptyNode": true,
                       "label": Array [
                         "Jiangsu",
                         Array [
@@ -1298,6 +1298,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
                     Object {
                       "__IS_FILTERED_OPTION": true,
                       "disabled": false,
+                      "isEmptyNode": true,
                       "label": Array [
                         "Zhejiang",
                         Array [
@@ -1429,6 +1430,49 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
     </ForwardRef>
   </div>
 </Popup>
+`;
+
+exports[`Cascader should highlight keyword and filter when search in Cascader with same field name of label and value 1`] = `
+<div>
+  <div
+    class="ant-cascader-menus"
+    style="opacity: 0;"
+  >
+    <div>
+      <ul
+        class="ant-cascader-menu"
+        style="width: 0px;"
+      >
+        <li
+          class="ant-cascader-menu-item"
+          role="menuitem"
+          title=""
+        >
+          Zhejiang / Hang
+          <span
+            class="ant-cascader-menu-item-keyword"
+          >
+            z
+          </span>
+          hou / West Lake
+        </li>
+        <li
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          role="menuitem"
+          title=""
+        >
+          Zhejiang / Hang
+          <span
+            class="ant-cascader-menu-item-keyword"
+          >
+            z
+          </span>
+          hou / Xia Sha
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`Cascader should render not found content 1`] = `
@@ -1635,6 +1679,7 @@ exports[`Cascader should render not found content 1`] = `
                   Array [
                     Object {
                       "disabled": true,
+                      "isEmptyNode": true,
                       "label": <Context.Consumer>
                         [Function]
                       </Context.Consumer>,
@@ -1917,12 +1962,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                   }
                 }
                 disabled={false}
-                dropdownMenuColumnStyle={
-                  Object {
-                    "height": "auto",
-                    "width": 0,
-                  }
-                }
+                dropdownMenuColumnStyle={Object {}}
                 expandIcon={<ForwardRef(RightOutlined) />}
                 expandTrigger="click"
                 fieldNames={
@@ -1968,12 +2008,7 @@ exports[`Cascader should show not found content when options.length is 0 1`] = `
                   <ul
                     className="ant-cascader-menu"
                     key="0"
-                    style={
-                      Object {
-                        "height": "auto",
-                        "width": 0,
-                      }
-                    }
+                    style={Object {}}
                   >
                     <li
                       className="ant-cascader-menu-item ant-cascader-menu-item-disabled"
