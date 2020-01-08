@@ -452,11 +452,11 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
 
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
-  <h6
-    style="margin-right:8px;display:inline"
+  <span
+    style="margin-right:8px"
   >
     Categories:
-  </h6>
+  </span>
   <span
     class="ant-tag ant-tag-checkable"
   >
