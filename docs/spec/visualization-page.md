@@ -21,7 +21,7 @@ title:
 
 ## 设计原则
 
-<div class="inline-cards">
+<div class="design-inline-cards">
   <div>
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*v6FAS7wJ4TUAAAAAAAAAAABkARQnAQ" />
     <div>
@@ -44,24 +44,6 @@ title:
     </div>
   </div>
 </div>
-
-<style>
-.inline-cards {
-  display: flex;
-  margin: 0 -20px;
-}
-.inline-cards > * {
-  flex: 10%;
-  margin: 0 20px;
-}
-.inline-cards img {
-  width: 100%;
-  max-width: 100%;
-}
-.inline-cards h4 {
-  margin-bottom: 0;
-}
-</style>
 
 ### Do&Don’t
 
