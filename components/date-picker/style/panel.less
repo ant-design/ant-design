@@ -295,11 +295,11 @@
 
     // range start border-radius
     &-in-view&-range-start:not(&-range-start-single):not(&-range-end) .@{cellClassName} {
-      border-radius: 2px 0 0 2px;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
     }
     // range end border-radius
     &-in-view&-range-end:not(&-range-end-single):not(&-range-start) .@{cellClassName} {
-      border-radius: 0 2px 2px 0;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
     }
 
     // DatePanel only
