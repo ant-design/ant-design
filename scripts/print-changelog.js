@@ -14,6 +14,8 @@ const $ = jQuery(window);
 
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
+const QUERY_AUTHOR = '.timeline-comment-header-text  .author';
+const MAINTAINERS = ['zombiej', 'afc163', 'chenshuai2144'];
 
 const fromVersion = process.argv[process.argv.length - 2];
 const toVersion = process.argv[process.argv.length - 1];
@@ -73,6 +75,10 @@ async function printLog() {
         .find(QUERY_TITLE)
         .text()
         .trim();
+      const prAuthor = $html
+        .find(QUERY_AUTHOR)
+        .text()
+        .trim();
       const prLines = $html.find(QUERY_DESCRIPTION_LINES);
 
       const lines = [];
@@ -91,6 +97,7 @@ async function printLog() {
         pr,
         hash,
         title: prTitle,
+        author: prAuthor,
         english: english || prTitle,
         chinese: chinese || prTitle,
       });
@@ -114,15 +121,21 @@ async function printLog() {
 
   function printPR(lang, postLang) {
     prList.forEach(entity => {
-      const { pr, hash, title } = entity;
+      const { pr, author, hash, title } = entity;
       if (pr) {
         const str = postLang(entity[lang]);
         let icon = '';
         if (str.toLowerCase().includes('fix') || str.includes('修复')) {
           icon = '🐞';
         }
+
+        let authorText = '';
+        if (!MAINTAINERS.includes(author)) {
+          authorText = ` [@${author}](https://github.com/${author})`;
+        }
+
         console.log(
-          `- ${icon} ${str}[#${pr}](https://github.com/ant-design/ant-design/pull/${pr})`,
+          `- ${icon} ${str}[#${pr}](https://github.com/ant-design/ant-design/pull/${pr})${authorText}`,
         );
       } else {
         console.log(
