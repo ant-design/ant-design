@@ -6,6 +6,10 @@ import calculateNodeHeight from './calculateNodeHeight';
 import raf from '../_util/raf';
 import { TextAreaProps } from './TextArea';
 
+const RESIZE_STATUS_NONE = 0;
+const RESIZE_STATUS_RESIZING = 1;
+const RESIZE_STATUS_RESIZED = 2;
+
 export interface AutoSizeType {
   minRows?: number;
   maxRows?: number;
@@ -14,7 +18,10 @@ export interface AutoSizeType {
 export interface TextAreaState {
   textareaStyles?: React.CSSProperties;
   /** We need add process style to disable scroll first and then add back to avoid unexpected scrollbar  */
-  resizing?: boolean;
+  resizeStatus?:
+    | typeof RESIZE_STATUS_NONE
+    | typeof RESIZE_STATUS_RESIZING
+    | typeof RESIZE_STATUS_RESIZED;
 }
 
 class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
@@ -26,7 +33,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     super(props);
     this.state = {
       textareaStyles: {},
-      resizing: false,
+      resizeStatus: RESIZE_STATUS_NONE,
     };
   }
 
@@ -48,7 +55,13 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
   }
 
   handleResize = (size: { width: number; height: number }) => {
+    const { resizeStatus } = this.state;
     const { autoSize, onResize } = this.props;
+
+    if (resizeStatus !== RESIZE_STATUS_NONE) {
+      return;
+    }
+
     if (typeof onResize === 'function') {
       onResize(size);
     }
@@ -69,10 +82,14 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
     const { minRows, maxRows } = autoSize as AutoSizeType;
     const textareaStyles = calculateNodeHeight(this.textArea, false, minRows, maxRows);
-    this.setState({ textareaStyles, resizing: true }, () => {
+    this.setState({ textareaStyles, resizeStatus: RESIZE_STATUS_RESIZING }, () => {
       raf.cancel(this.resizeFrameId);
       this.resizeFrameId = raf(() => {
-        this.setState({ resizing: false });
+        this.setState({ resizeStatus: RESIZE_STATUS_RESIZED }, () => {
+          this.resizeFrameId = raf(() => {
+            this.setState({ resizeStatus: RESIZE_STATUS_NONE });
+          });
+        });
       });
     });
   };
@@ -84,7 +101,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
 
   renderTextArea = () => {
     const { prefixCls, autoSize, onResize, className, disabled } = this.props;
-    const { textareaStyles, resizing } = this.state;
+    const { textareaStyles, resizeStatus } = this.state;
     const otherProps = omit(this.props, [
       'prefixCls',
       'onPressEnter',
@@ -104,7 +121,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     const style = {
       ...this.props.style,
       ...textareaStyles,
-      ...(resizing ? { overflow: 'hidden' } : null),
+      ...(resizeStatus === RESIZE_STATUS_RESIZING ? { overflow: 'hidden' } : null),
     };
     return (
       <ResizeObserver onResize={this.handleResize} disabled={!(autoSize || onResize)}>

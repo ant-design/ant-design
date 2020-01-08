@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import RcTable, { Column, ColumnGroup } from 'rc-table';
+import RcTable from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import Spin, { SpinProps } from '../spin';
 import Pagination, { PaginationConfig } from '../pagination';
@@ -29,6 +29,8 @@ import renderExpandIcon from './ExpandIcon';
 import scrollTo from '../_util/scrollTo';
 import defaultLocale from '../locale/en_US';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import Column from './Column';
+import ColumnGroup from './ColumnGroup';
 
 export { ColumnsType, TablePaginationConfig };
 

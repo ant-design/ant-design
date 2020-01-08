@@ -208,6 +208,52 @@ describe('Cascader', () => {
     expect(popupWrapper).toMatchSnapshot();
   });
 
+  it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
+    const customOptions = [
+      {
+        name: 'Zhejiang',
+        value: 'Zhejiang',
+        children: [
+          {
+            name: 'Hangzhou',
+            value: 'Hangzhou',
+            children: [
+              {
+                name: 'West Lake',
+                value: 'West Lake',
+              },
+              {
+                name: 'Xia Sha',
+                value: 'Xia Sha',
+                disabled: true,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    function customFilter(inputValue, path) {
+      return path.some(option => option.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+    }
+    const wrapper = mount(
+      <Cascader
+        options={customOptions}
+        fieldNames={{ label: 'name', value: 'name' }}
+        showSearch={{ filter: customFilter }}
+      />,
+    );
+    wrapper.find('input').simulate('click');
+    wrapper.find('input').simulate('change', { target: { value: 'z' } });
+    expect(wrapper.state('inputValue')).toBe('z');
+    const popupWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(popupWrapper.render()).toMatchSnapshot();
+  });
+
   it('should render not found content', () => {
     const wrapper = mount(<Cascader options={options} showSearch={{ filter }} />);
     wrapper.find('input').simulate('click');

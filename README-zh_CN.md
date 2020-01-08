@@ -18,7 +18,7 @@
 
 </div>
 
-[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](http://ant.design/index-cn)
+[![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](http://ant.design/index-cn)
 
 [English](./README.md) | 简体中文
 

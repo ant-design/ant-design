@@ -3,7 +3,8 @@ import RcSlider from 'rc-slider/lib/Slider';
 import RcRange from 'rc-slider/lib/Range';
 import RcHandle from 'rc-slider/lib/Handle';
 import classNames from 'classnames';
-import Tooltip, { TooltipPlacement } from '../tooltip';
+import { TooltipPlacement } from '../tooltip';
+import SliderTooltip from './SliderTooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SliderMarks {
@@ -95,7 +96,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
     return (
-      <Tooltip
+      <SliderTooltip
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
         visible={visible}
@@ -111,7 +112,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
           onMouseEnter={() => this.toggleTooltipVisible(index, true)}
           onMouseLeave={() => this.toggleTooltipVisible(index, false)}
         />
-      </Tooltip>
+      </SliderTooltip>
     );
   };
 

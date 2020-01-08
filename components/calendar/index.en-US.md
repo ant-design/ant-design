@@ -49,4 +49,4 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ## FAQ
 
-- [How to use Calendar with customize date library like dayjs](/docs/react/generate-picker#Calendar)
+- [How to use Calendar with customize date library like dayjs](/docs/react/replace-moment#Calendar)

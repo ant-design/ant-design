@@ -16,16 +16,24 @@ export function useCacheErrors(
     visible: !!errors.length,
   });
 
+  const [, forceUpdate] = React.useState({});
+
   React.useEffect(() => {
     const timeout = setTimeout(() => {
       const prevVisible = cacheRef.current.visible;
       const newVisible = !!errors.length;
 
+      const prevErrors = cacheRef.current.errors;
       cacheRef.current.errors = errors;
       cacheRef.current.visible = newVisible;
 
       if (prevVisible !== newVisible) {
         changeTrigger(newVisible);
+      } else if (
+        prevErrors.length !== errors.length ||
+        prevErrors.some((prevErr, index) => prevErr !== errors[index])
+      ) {
+        forceUpdate({});
       }
     }, 10);
     return () => clearTimeout(timeout);

@@ -50,4 +50,4 @@ title: Calendar
 
 ## FAQ
 
-- [如何在 Calendar 中使用自定义日期库（如 dayjs ）](/docs/react/generate-picker#Calendar)
+- [如何在 Calendar 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#Calendar)

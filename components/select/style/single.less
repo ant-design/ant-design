@@ -91,6 +91,30 @@
     }
   }
 
+  &.@{select-prefix-cls}-customize-input {
+    .@{select-prefix-cls}-selector {
+      &::after {
+        display: none;
+      }
+
+      .@{select-prefix-cls}-selection-search {
+        position: static;
+        width: 100%;
+      }
+
+      .@{select-prefix-cls}-selection-placeholder {
+        position: absolute;
+        right: 0;
+        left: 0;
+        padding: 0 @input-padding-horizontal-base;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+
   // ============================================================
   // ==                          Size                          ==
   // ============================================================

@@ -54,7 +54,7 @@ function collectSortStates<RecordType>(
 ): SortState<RecordType>[] {
   let sortStates: SortState<RecordType>[] = [];
 
-  columns.forEach((column, index) => {
+  (columns || []).forEach((column, index) => {
     const columnPos = getColumnPos(index, pos);
 
     if ('children' in column) {
@@ -91,7 +91,7 @@ function injectSorter<RecordType>(
   defaultSortDirections: SortOrder[],
   pos?: string,
 ): ColumnsType<RecordType> {
-  return columns.map((column, index) => {
+  return (columns || []).map((column, index) => {
     const columnPos = getColumnPos(index, pos);
     let newColumn: ColumnsType<RecordType>[number] = column;
 

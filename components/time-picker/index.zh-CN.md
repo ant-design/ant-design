@@ -64,4 +64,4 @@ import moment from 'moment';
 
 ## FAQ
 
-- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/generate-picker#TimePicker)
+- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#TimePicker)

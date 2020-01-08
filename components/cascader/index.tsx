@@ -397,17 +397,19 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         return {
           __IS_FILTERED_OPTION: true,
           path,
-          [names.label]: render(inputValue, path, prefixCls, names),
           [names.value]: path.map((o: CascaderOptionType) => o[names.value]),
+          [names.label]: render(inputValue, path, prefixCls, names),
           disabled: path.some((o: CascaderOptionType) => !!o.disabled),
+          isEmptyNode: true,
         } as CascaderOptionType;
       });
     }
     return [
       {
-        [names.label]: notFoundContent || renderEmpty('Cascader'),
         [names.value]: 'ANT_CASCADER_NOT_FOUND',
+        [names.label]: notFoundContent || renderEmpty('Cascader'),
         disabled: true,
+        isEmptyNode: true,
       },
     ];
   }
@@ -534,8 +536,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         }
 
         const dropdownMenuColumnStyle: { width?: number; height?: string } = {};
-        const isNotFound =
-          (options || []).length === 1 && options[0][names.value] === 'ANT_CASCADER_NOT_FOUND';
+        const isNotFound = (options || []).length === 1 && options[0].isEmptyNode;
         if (isNotFound) {
           dropdownMenuColumnStyle.height = 'auto'; // Height of one row.
         }

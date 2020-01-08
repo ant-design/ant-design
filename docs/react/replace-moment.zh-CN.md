@@ -1,6 +1,6 @@
 ---
 order: 5
-title: 自定义日期库
+title: 替换 Moment.js
 ---
 
 ## 如何在 DatePicker 中使用自定义日期库（如 dayjs ）？

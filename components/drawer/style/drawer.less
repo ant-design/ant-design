@@ -205,15 +205,27 @@
     background: @drawer-bg;
   }
 
+  &-wrapper-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
+  }
+
   &-body {
+    flex-grow: 1;
     padding: @drawer-body-padding;
+    overflow: auto;
     font-size: @font-size-base;
     line-height: @line-height-base;
     word-wrap: break-word;
   }
-  &-wrapper-body {
-    height: 100%;
-    overflow: auto;
+
+  &-footer {
+    flex-shrink: 0;
+    padding: @drawer-footer-padding-vertical @drawer-footer-padding-vertical;
+    border-top: @border-width-base @border-style-base @border-color-split;
   }
 
   &-mask {

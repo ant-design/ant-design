@@ -19,16 +19,12 @@ export default function renderSwitcherIcon(
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
   if (isLeaf) {
-    if (showLine) {
-      return <FileOutlined className={`${prefixCls}-switcher-line-icon`} />;
-    }
-    return null;
+    return showLine ? <FileOutlined className={`${prefixCls}-switcher-line-icon`} /> : null;
   }
   const switcherCls = `${prefixCls}-switcher-icon`;
   if (React.isValidElement(switcherIcon)) {
-    const switcherOriginCls = switcherIcon.props.className || '';
     return React.cloneElement(switcherIcon, {
-      className: classNames(switcherOriginCls, switcherCls),
+      className: classNames(switcherIcon.props.className || '', switcherCls),
     });
   }
 
