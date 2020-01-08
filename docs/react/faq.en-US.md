@@ -52,13 +52,9 @@ or (ES6 way with tree shaking):
 import { Menu, Breadcrumb, Icon } from 'antd';
 ```
 
-### How can I optimize momentjs bundle size with webpack?
+### How to replace Moment.js to Day.js to reduce bundle size？
 
-See: https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
-
-### How to replace momentjs to Day.js to reduce bundle size？
-
-Can refer to [generate picker](/docs/react/generate-picker).
+Please refer to [Replace Moment.js](/docs/react/replace-moment).
 
 ### It doesn't work when I change `defaultValue` dynamically.
 
