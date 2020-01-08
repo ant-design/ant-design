@@ -21,9 +21,9 @@ title: 字体
 优秀的字体系统首先是要选择合适的字体家族。Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。
 
 ```css
-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
-  'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
-  'Segoe UI Emoji', 'Segoe UI Symbol';
+@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
 ```
 
 > 参考自 https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ 和 http://markdotto.com/2018/02/07/github-system-fonts/
