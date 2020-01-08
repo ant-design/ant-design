@@ -14,7 +14,7 @@ title:
 ## 设计目标
 
 - 指导用户采取你希望他们采取的行动。
-- 帮助用户避免犯错；
+- 帮助用户避免犯错。
 
 ## 类型
 
@@ -82,19 +82,21 @@ title:
 
 #### 行动号召按钮 Call to action
 
-经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味。通常出现在 landing page 或者 一些引导性场景，最大可以将按钮放宽到与父区域等宽。
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*32zdRqTjDhYAAAAAAAAAAABkARQnAQ">
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1573226823838-469cd4b3-2774-4457-bd2e-41648b75f346.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_VGVjaCBVSSDorr7orqHotYTkuqfkvb_nlKjmjIfljZc=,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10#align=left&display=inline&height=500&name=image.png&originHeight=1400&originWidth=2088&size=168363&status=done&style=none&width=746)
+经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味。通常出现在 landing page 或者 一些引导性场景，最大可以将按钮放宽到与父区域等宽。
 
 ## 位置
 
-将按钮区放置于用户浏览路径中，便于被用户发现。
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wAoYQZGNsR0AAAAAAAAAAABkARQnAQ">
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1573704393028-76639a56-f330-495d-9ce8-70a3ea0d9dd5.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_VGVjaCBVSSDorr7orqHotYTkuqfkvb_nlKjmjIfljZc=,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10#align=left&display=inline&height=558&name=image.png&originHeight=1116&originWidth=1488&size=85882&status=done&style=none&width=744)
+将按钮区放置于用户浏览路径中，便于被用户发现。
 
 ### 按钮应放置在哪个区域？
 
 #### 页面/卡片/一组信息都能够呈现一个主题，主题的描述可以抽象为三个区域：
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iVZpRpdN_2AAAAAAAAAAAABkARQnAQ">
 
 - Header（可选）：主题的标题和摘要信息内容区的导航等
 - Body：具体内容
@@ -102,26 +104,24 @@ title:
 
 将按钮放置在不同的区域，有不同的含义：
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1573638557919-85d9da6d-0015-48fe-9e6b-1e8c0242e8e6.png#align=left&display=inline&height=255&name=image.png&originHeight=510&originWidth=1488&size=38130&status=done&style=none&width=744)
-
 也存在一些特殊情况，将“完成”主题类的动作放在 Header 区。例如，编辑器中为了最大化编辑空间，将“完成”类动作放到了右上角。
 
 ### 什么时候需要在 Footer 中放置按钮？
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VolZTIKEgw4AAAAAAAAAAABkARQnAQ">
 
 - Body 区部分内容被折叠或隐藏，例如单屏无法展示完整内容；
 - Body 区的内容复杂度高，例如有多个分组，分组中又有独立的按钮区，这时候需要将该主题的“完成”操作从 body 区区分出来，避免混淆按钮所能影响的内容范围。
 
 简而言之，Footer 的存在就是为了要和 Body 区区分开来。
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1573227856811-8141d073-16a6-40a8-8c58-79d2dff6f1e7.png?x-oss-process=image/watermark,type_d3F5LW1pY3JvaGVp,size_10,text_VGVjaCBVSSDorr7orqHotYTkuqfkvb_nlKjmjIfljZc=,color_FFFFFF,shadow_50,t_80,g_se,x_10,y_10#align=left&display=inline&height=473&name=image.png&originHeight=945&originWidth=1440&size=130073&status=done&style=none&width=720)
-
 ## 排放顺序
 
 ### 按钮顺序
 
-推荐操作是阅读的起点，折叠内容始终在最右侧。
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NcPDQI3IX8YAAAAAAAAAAABkARQnAQ">
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1573637864220-5611f77d-69b2-4eec-85c2-a2f20dc8309d.png#align=left&display=inline&height=299&name=image.png&originHeight=597&originWidth=1488&size=69808&status=done&style=none&width=744)
+推荐操作是阅读的起点，折叠内容始终在最右侧。
 
 **如何确定按钮顺序？**
 
@@ -130,32 +130,37 @@ title:
 
 ### 按钮组
 
-多个按钮形成一组时，将按钮按照一定的间距排列在一起即可。
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tK-AQaE5h1YAAAAAAAAAAABkARQnAQ" alt="正确示范">
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1571278785151-c8f233ec-51c4-418d-a80d-1a2fe4e49a9d.png#align=left&display=inline&height=206&name=image.png&originHeight=413&originWidth=1488&size=27832&status=done&style=none&width=744)
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_gU7ToHiZz4AAAAAAAAAAABkARQnAQ" alt="错误示范" description="连在一起的按钮组在外观上易与 Toggle Button 切换按钮混淆。">
+
+多个按钮形成一组时，将按钮按照一定的间距排列在一起即可。
 
 ### 按钮分组
 
 当需要布置的按钮数量过多，可以把相关的动作组成一组按钮，并采用相似的视觉设计，当某一个按钮是首要动作时仍可使用主按钮强调。
 
-#### 折叠部分按钮：
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*x7YsTafH5osAAAAAAAAAAABkARQnAQ">
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1571279075932-3a2a8fd1-4d19-4dab-895a-659fbd820099.png#align=left&display=inline&height=145&name=image.png&originHeight=289&originWidth=1488&size=43095&status=done&style=none&width=744)
+**折叠部分按钮：**
+
+<br />
+
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qn-mQKxaQ5kAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3bUZRbPiVBEAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
 **每个按钮都需要展示**：通过分割线来区分组与组。
 
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1571278918849-1ff4a396-d379-42e6-b68c-187e18f90032.png#align=left&display=inline&height=21&name=image.png&originHeight=42&originWidth=1492&size=9942&status=done&style=none&width=746)
-
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1573227159690-376dafcf-a990-4547-8b2e-78e84fc8ad48.png#align=left&display=inline&height=206&name=image.png&originHeight=413&originWidth=1488&size=32646&status=done&style=none&width=744)
-
 ## 文案
+
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*33KsR66zTY8AAAAAAAAAAABkARQnAQ" alt="正确示范">
+
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*238RTb4kaPwAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
 文案需清楚传达用户按下按钮时系统将执行的操作。
 
 - 必须使用动词。（下拉按钮除外）
 - 与语境紧密关联，用语简练。
-
-![image.png](https://intranetproxy.alipay.com/skylark/lark/0/2019/png/101/1573227612240-8b670cb5-8a9f-4295-8507-1d3d02d939e5.png#align=left&display=inline&height=216&name=image.png&originHeight=432&originWidth=1488&size=28410&status=done&style=none&width=744)
 
 Ant Design 组件中默认使用 “确定 / 取消”文案 ，但你仍然可以通过以下方式优化按钮文案：
 
