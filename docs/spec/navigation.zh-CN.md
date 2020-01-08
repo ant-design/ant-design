@@ -1,7 +1,7 @@
 ---
 category: 设计模式
 type: 全局规则
-order: 8
+order: 2
 title: 导航
 ---
 
