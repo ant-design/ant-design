@@ -4,7 +4,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import warning from '../_util/warning';
 import ResponsiveObserve, {
   Breakpoint,
-  BreakpointMap,
+  ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -168,7 +168,7 @@ const defaultColumnMap = {
 class Descriptions extends React.Component<
   DescriptionsProps,
   {
-    screens: BreakpointMap;
+    screens: ScreenMap;
   }
 > {
   static defaultProps: DescriptionsProps = {
@@ -179,7 +179,7 @@ class Descriptions extends React.Component<
   static Item: typeof DescriptionsItem = DescriptionsItem;
 
   state: {
-    screens: BreakpointMap;
+    screens: ScreenMap;
   } = {
     screens: {},
   };

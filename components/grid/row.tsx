@@ -5,7 +5,7 @@ import RowContext from './RowContext';
 import { tuple } from '../_util/type';
 import ResponsiveObserve, {
   Breakpoint,
-  BreakpointMap,
+  ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
 
@@ -21,7 +21,7 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export interface RowState {
-  screens: BreakpointMap;
+  screens: ScreenMap;
 }
 
 export default class Row extends React.Component<RowProps, RowState> {
@@ -30,7 +30,14 @@ export default class Row extends React.Component<RowProps, RowState> {
   };
 
   state: RowState = {
-    screens: {},
+    screens: {
+      xs: true,
+      sm: true,
+      md: true,
+      lg: true,
+      xl: true,
+      xxl: true,
+    },
   };
 
   token: string;

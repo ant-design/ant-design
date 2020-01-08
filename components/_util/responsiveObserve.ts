@@ -1,5 +1,6 @@
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type BreakpointMap = Partial<Record<Breakpoint, string>>;
+export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
 
 export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 
@@ -12,7 +13,7 @@ export const responsiveMap: BreakpointMap = {
   xxl: '(min-width: 1600px)',
 };
 
-type SubscribeFunc = (screens: BreakpointMap) => void;
+type SubscribeFunc = (screens: ScreenMap) => void;
 
 let subscribers: Array<{
   token: string;
@@ -23,7 +24,7 @@ let screens = {};
 
 const responsiveObserve = {
   matchHandlers: {},
-  dispatch(pointMap: BreakpointMap) {
+  dispatch(pointMap: ScreenMap) {
     screens = pointMap;
     if (subscribers.length < 1) {
       return false;
