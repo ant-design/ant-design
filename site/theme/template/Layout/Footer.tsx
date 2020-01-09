@@ -331,18 +331,23 @@ class Footer extends React.Component<WrappedComponentProps> {
   }
 
   handleColorChange = (color: string) => {
+    const {
+      intl: { messages },
+    } = this.props;
+    message.loading({
+      content: messages['app.footer.primary-color-changing'],
+      key: 'change-primary-color',
+    });
     const changeColor = () => {
-      const {
-        intl: { messages },
-      } = this.props;
-      const hide = message.loading(messages['app.footer.primary-color-changing']);
       (window as any).less
         .modifyVars({
           '@primary-color': color,
         })
         .then(() => {
-          hide();
-          message.success(messages['app.footer.primary-color-changed']);
+          message.success({
+            content: messages['app.footer.primary-color-changed'],
+            key: 'change-primary-color',
+          });
           this.setState({ color });
         });
     };
