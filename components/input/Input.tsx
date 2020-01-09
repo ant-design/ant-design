@@ -104,7 +104,7 @@ class Input extends React.Component<InputProps, InputState> {
   }
 
   static getDerivedStateFromProps(nextProps: InputProps) {
-    if ('value' in nextProps) {
+    if (nextProps.value !== undefined) {
       return {
         value: nextProps.value,
       };
@@ -158,7 +158,7 @@ class Input extends React.Component<InputProps, InputState> {
   };
 
   setValue(value: string, callback?: () => void) {
-    if (!('value' in this.props)) {
+    if (this.props.value === undefined) {
       this.setState({ value }, callback);
     }
   }

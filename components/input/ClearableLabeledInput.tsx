@@ -18,7 +18,6 @@ interface BasicProps {
   prefixCls: string;
   inputType: typeof ClearableInputType[number];
   value?: any;
-  defaultValue?: any;
   allowClear?: boolean;
   element: React.ReactElement<any>;
   handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
