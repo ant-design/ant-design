@@ -23,6 +23,7 @@ Tag for categorizing or markup.
 | color | Color of the Tag | string | - |  |
 | onClose | Callback executed when tag is closed | (e) => void | - |  |
 | visible | Whether the Tag is closed or not | boolean | `true` | 3.7.0 |
+| icon | set the icon of tag, see: Icon component | string | - |  |
 
 ### Tag.CheckableTag
 

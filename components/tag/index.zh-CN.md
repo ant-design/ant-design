@@ -23,6 +23,7 @@ title: Tag
 | color | 标签色 | string | - |  |
 | onClose | 关闭时的回调 | (e) => void | - |  |
 | visible | 是否显示标签 | boolean | `true` | 3.7.0 |
+| icon | 设置标签图标类型 | string | - |  |
 
 ### Tag.CheckableTag
 
