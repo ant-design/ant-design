@@ -442,4 +442,15 @@ describe('TextArea allowClear', () => {
     const wrapper = mount(<TextArea allowClear defaultValue="111" disabled />);
     expect(wrapper.find('.ant-input-textarea-clear-icon').length).toBe(0);
   });
+
+  it('not block input when `value` is undefined', () => {
+    const wrapper = mount(<Input value={undefined} />);
+    wrapper.find('input').simulate('change', { target: { value: 'Bamboo' } });
+    expect(wrapper.find('input').props().value).toEqual('Bamboo');
+
+    // Controlled
+    wrapper.setProps({ value: 'Light' });
+    wrapper.find('input').simulate('change', { target: { value: 'Bamboo' } });
+    expect(wrapper.find('input').props().value).toEqual('Light');
+  });
 });
