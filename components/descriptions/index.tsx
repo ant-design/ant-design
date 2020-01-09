@@ -92,7 +92,7 @@ const generateChildrenRows = (
       warning(
         leftSpans === 0 && lastSpanSame,
         'Descriptions',
-        'Sum of column `span` in a line exceeds or not enough `column` of Descriptions.',
+        'Sum of column `span` in a line not match `column` of Descriptions.',
       );
     }
   });
