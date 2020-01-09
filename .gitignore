@@ -44,6 +44,4 @@ components/**/*.jsx
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
 site/theme/template/IconDisplay/fields.js
-
 site/theme/template/Home/**/*.jsx
-
