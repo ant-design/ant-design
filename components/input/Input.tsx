@@ -103,7 +103,7 @@ class Input extends React.Component<InputProps, InputState> {
     this.state = {
       value,
       // eslint-disable-next-line react/no-unused-state
-      prevValue: value,
+      prevValue: props.value,
     };
   }
 
