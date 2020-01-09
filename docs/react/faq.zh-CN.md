@@ -52,13 +52,9 @@ import 'antd/es/menu/style/css';
 import { Menu, Breadcrumb, Icon } from 'antd';
 ```
 
-### 如何配置 webpack 以优化 momentjs 的打包大小？
+### 如何使用 Day.js 替换 Moment.js 来减小打包大小？
 
-参考：https://github.com/jmblog/how-to-optimize-momentjs-with-webpack 。
-
-### 如何使用 Day.js 替换 momentjs 来减小打包大小？
-
-可以参考[自定义选择框](/docs/react/generate-picker)。
+可以参考[替换 Moment.js](/docs/react/replace-moment)。
 
 ### 当我动态改变 `defaultValue` 的时候它并没有生效。
 

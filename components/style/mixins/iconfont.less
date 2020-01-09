@@ -29,8 +29,7 @@
 
 // for iconfont font size
 // fix chrome 12px bug
-.iconfont-size-under-12px(@size, @rotate: 0deg) {
+.iconfont-size-under-12px(@size) {
   display: inline-block;
-  @font-scale: unit(@size / 12px);
-  font-size: 12px;
+  font-size: @size;
 }
