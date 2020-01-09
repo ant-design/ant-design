@@ -18,7 +18,7 @@ import { Empty, Button } from 'antd';
 
 ReactDOM.render(
   <Empty
-    image="https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/ncyfsLONGK/empty.svg"
+    image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
     imageStyle={{
       height: 60,
     }}

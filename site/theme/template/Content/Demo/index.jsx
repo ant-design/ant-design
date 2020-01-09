@@ -346,7 +346,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                   alt="expand code"
                   src={
                     theme === 'dark'
-                      ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/w9%264eQL2pY/wSAkBuJFbdxsosKKpqyq.svg'
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
                       : 'https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg'
                   }
                   className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
@@ -356,7 +356,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                   alt="expand code"
                   src={
                     theme === 'dark'
-                      ? 'https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/9bKgP0%26pT8/OpROPHYqWmrMDBFMZtKF.svg'
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
                       : 'https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg'
                   }
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}

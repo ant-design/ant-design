@@ -55,7 +55,7 @@ subtitle: 按钮
 
 根据 Ant Design 设计规范要求，我们会在按钮内只有两个汉字时自动添加空格，如果你不需要这个特性，可以设置 [ConfigProvider](/components/config-provider/#API) 的 `autoInsertSpaceInButton` 为 `false`。
 
-<img src="http://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/NstpRYFrCr/f29f170d-b78d-4d2b-aa71-0da6a9ead4d9.png" style="box-shadow: none" alt="移除两个汉字之间的空格" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none" alt="移除两个汉字之间的空格" />
 
 <style>
 [id^="components-button-demo-"] .ant-btn {

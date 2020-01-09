@@ -52,7 +52,7 @@ It accepts all props which native buttons support.
 
 Following the Ant Design specification, we will add one space between if Button contains two Chinese characters only. If you don't need that, you can use [ConfigProvider](/components/config-provider/#API) to set `autoInsertSpaceInButton` as `false`.
 
-<img src="http://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/NstpRYFrCr/f29f170d-b78d-4d2b-aa71-0da6a9ead4d9.png" style="box-shadow: none" alt="Button with two Chinese characters" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/MY%26THAPZrW/38f06cb9-293a-4b42-b183-9f443e79ffea.png" style="box-shadow: none" alt="Button with two Chinese characters" />
 
 <style>
 [id^=components-button-demo-] .ant-btn {
