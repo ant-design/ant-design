@@ -98,8 +98,8 @@ async function printLog() {
         hash,
         title: prTitle,
         author: prAuthor,
-        english: english || prTitle,
-        chinese: chinese || prTitle,
+        english: english || chinese || prTitle,
+        chinese: chinese || english || prTitle,
       });
     }
 
