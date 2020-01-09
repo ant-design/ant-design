@@ -24,6 +24,7 @@
   position: relative;
   z-index: 0;
   clear: both;
+  background: @table-bg;
 
   // https://github.com/ant-design/ant-design/issues/17611
   table {
@@ -46,11 +47,6 @@
     position: relative;
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
-  }
-
-  // weak priority
-  td {
-    background: @table-bg;
   }
 
   &-cell-ellipsis {
@@ -520,6 +516,7 @@
   &-cell-fix-left,
   &-cell-fix-right {
     z-index: 2;
+    background: @table-bg;
   }
 
   &-cell-fix-left-last::after {
