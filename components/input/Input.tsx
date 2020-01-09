@@ -72,6 +72,8 @@ export function getInputClassName(
 
 export interface InputState {
   value: any;
+  /** `value` from prev props */
+  prevValue: any;
 }
 
 class Input extends React.Component<InputProps, InputState> {
@@ -100,16 +102,17 @@ class Input extends React.Component<InputProps, InputState> {
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
     this.state = {
       value,
+      // eslint-disable-next-line react/no-unused-state
+      prevValue: value,
     };
   }
 
-  static getDerivedStateFromProps(nextProps: InputProps) {
-    if (nextProps.value !== undefined) {
-      return {
-        value: nextProps.value,
-      };
+  static getDerivedStateFromProps(nextProps: InputProps, { prevValue }: InputState) {
+    const newState: Partial<InputState> = { prevValue: nextProps.value };
+    if (nextProps.value !== undefined || prevValue !== nextProps.value) {
+      newState.value = nextProps.value;
     }
-    return null;
+    return newState;
   }
 
   componentDidMount() {
