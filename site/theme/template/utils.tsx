@@ -1,11 +1,28 @@
 import flattenDeep from 'lodash/flattenDeep';
 import flatten from 'lodash/flatten';
 
-export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
+interface Meta {
+  skip?: boolean;
+  category?: any;
+  type?: any;
+  title?: any;
+  order?: number;
+  children?: Meta[];
+}
+
+interface ModuleDataItem {
+  meta: Meta;
+}
+
+interface Orders {
+  [key: string]: number;
+}
+
+export function getMenuItems(moduleData: ModuleDataItem[], locale: string, categoryOrder: Orders, typeOrder: Orders) {
   const menuMeta = moduleData.map(item => item.meta).filter(meta => !meta.skip);
 
-  const menuItems = [];
-  const sortFn = (a, b) => (a.order || 0) - (b.order || 0);
+  const menuItems: Meta[] = [];
+  const sortFn = (a: Meta, b: Meta) => (a.order || 0) - (b.order || 0);
   menuMeta.sort(sortFn).forEach(meta => {
     // Format
     if (meta.category) {
@@ -35,6 +52,7 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
         };
         menuItems.push(type);
       }
+      type.children = type.children || [];
       type.children.push(meta);
       return;
     }
@@ -51,6 +69,8 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
       menuItems.push(group);
     }
 
+    group.children = group.children || [];
+
     if (meta.type) {
       let type = group.children.filter(i => i.title === meta.type)[0];
       if (!type) {
@@ -62,13 +82,14 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
         };
         group.children.push(type);
       }
+      type.children = type.children || [];
       type.children.push(meta);
     } else {
       group.children.push(meta);
     }
   });
 
-  function nestSort(list) {
+  function nestSort(list: Meta[]): Meta[] {
     return list.sort(sortFn).map(item => {
       if (item.children) {
         return {
@@ -84,11 +105,11 @@ export function getMenuItems(moduleData, locale, categoryOrder, typeOrder) {
   return nestSort(menuItems);
 }
 
-export function isZhCN(pathname) {
+export function isZhCN(pathname: string) {
   return /-cn\/?$/.test(pathname);
 }
 
-export function getLocalizedPathname(path, zhCN) {
+export function getLocalizedPathname(path: string, zhCN: boolean) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
   if (!zhCN) {
     // to enUS
@@ -103,7 +124,7 @@ export function getLocalizedPathname(path, zhCN) {
   return `${pathname}-cn`;
 }
 
-export function ping(callback) {
+export function ping(callback: (status: string) => void) {
   // eslint-disable-next-line
   const url =
     'https://private-a' +
@@ -112,8 +133,8 @@ export function ping(callback) {
     'ay.com/alip' +
     'ay-rmsdeploy-image/rmsportal/RKuAiriJqrUhyqW.png';
   const img = new Image();
-  let done;
-  const finish = status => {
+  let done: boolean;
+  const finish = (status: string) => {
     if (!done) {
       done = true;
       img.src = '';
@@ -138,20 +159,22 @@ export function isLocalStorageNameSupported() {
   }
 }
 
-export function loadScript(src) {
+export function loadScript(src: string) {
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
     script.type = 'text/javascript';
     script.src = src;
     script.onload = resolve;
     script.onerror = reject;
-    document.head.appendChild(script);
+    document.head!.appendChild(script);
   });
 }
 
-export function getMetaDescription(jml) {
+export function getMetaDescription(jml: any[]) {
   const COMMON_TAGS = ['h1', 'h2', 'h3', 'p', 'img', 'a', 'code', 'strong'];
-  if (!Array.isArray(jml)) return '';
+  if (!Array.isArray(jml)) {
+    return '';
+  }
   const paragraph = flattenDeep(
     jml
       .filter(item => {

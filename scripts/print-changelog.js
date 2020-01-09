@@ -1,4 +1,5 @@
 /* eslint-disable no-await-in-loop */
+/* eslint-disable no-console */
 const chalk = require('chalk');
 const jsdom = require('jsdom');
 const jQuery = require('jquery');

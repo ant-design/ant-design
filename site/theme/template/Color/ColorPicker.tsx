@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import { ChromePicker, SketchPicker } from 'react-color';
+import { SketchPicker } from 'react-color';
 
 const noop = () => {};
 
-const pickers = {
-  chrome: ChromePicker,
-  sketch: SketchPicker,
-};
+interface ColorPickerProps {
+  color?: string;
+  small: boolean;
+  position: string;
+  presetColors?: string[];
+  onChange: (hex: string, color: { hex: string }) => void;
+  onChangeComplete: (hex: string) => void;
+}
 
-export default class ColorPicker extends Component {
+export default class ColorPicker extends Component<ColorPickerProps> {
   static defaultProps = {
     onChange: noop,
     onChangeComplete: noop,
     position: 'bottom',
   };
 
-  static getDerivedStateFromProps(props) {
+  static getDerivedStateFromProps(props: ColorPickerProps) {
     if ('color' in props) {
       return {
         color: props.color,
@@ -26,6 +30,7 @@ export default class ColorPicker extends Component {
 
   state = {
     displayColorPicker: false,
+    color: undefined,
   };
 
   handleClick = () => {
@@ -37,29 +42,28 @@ export default class ColorPicker extends Component {
     this.setState({ displayColorPicker: false });
   };
 
-  handleChange = color => {
+  handleChange = (color: { hex: string }) => {
     const { onChange } = this.props;
     this.setState({ color: color.hex });
     onChange(color.hex, color);
   };
 
-  handleChangeComplete = color => {
+  handleChangeComplete = (color: { hex: string }) => {
     const { onChangeComplete } = this.props;
     this.setState({ color: color.hex });
     onChangeComplete(color.hex);
   };
 
   render() {
-    const { small, type, position } = this.props;
+    const { small, position, presetColors } = this.props;
     const { color, displayColorPicker } = this.state;
-    const Picker = pickers[type];
     const styles = {
       color: {
         width: small ? '80px' : '120px',
         height: small ? '16px' : '24px',
         borderRadius: '2px',
         background: color,
-      },
+      } as React.CSSProperties,
       swatch: {
         padding: '4px',
         background: '#fff',
@@ -67,22 +71,22 @@ export default class ColorPicker extends Component {
         boxShadow: '0 0 0 1px rgba(0,0,0,.1)',
         display: 'inline-block',
         cursor: 'pointer',
-      },
+      } as React.CSSProperties,
       popover: {
         position: 'absolute',
-        zIndex: '2',
-      },
+        zIndex: 2,
+      } as React.CSSProperties,
       cover: {
         position: 'fixed',
         top: '0px',
         right: '0px',
         bottom: '0px',
         left: '0px',
-      },
+      } as React.CSSProperties,
       wrapper: {
         position: 'inherit',
-        zIndex: '100',
-      },
+        zIndex: 100,
+      } as React.CSSProperties,
     };
 
     if (position === 'top') {
@@ -99,8 +103,8 @@ export default class ColorPicker extends Component {
       <div style={styles.popover}>
         <div style={styles.cover} onClick={this.handleClose} />
         <div style={styles.wrapper}>
-          <Picker
-            {...this.props}
+          <SketchPicker
+            presetColors={presetColors}
             color={color}
             onChange={this.handleChange}
             onChangeComplete={this.handleChangeComplete}
