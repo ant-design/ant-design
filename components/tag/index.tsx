@@ -20,6 +20,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   onClose?: Function;
   afterClose?: Function;
   style?: React.CSSProperties;
+  icon?: string;
 }
 
 interface TagState {
@@ -118,7 +119,7 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   renderTag = (configProps: ConfigConsumerProps) => {
-    const { children, ...otherProps } = this.props;
+    const { children, icon, ...otherProps } = this.props;
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
     const tagProps = omit(otherProps, [
@@ -129,6 +130,8 @@ class Tag extends React.Component<TagProps, TagState> {
       'closable',
       'prefixCls',
     ]);
+    const iconNode = icon ? <Icon type={icon} /> : null;
+
     return isNeedWave ? (
       <Wave>
         <span
@@ -142,7 +145,14 @@ class Tag extends React.Component<TagProps, TagState> {
       </Wave>
     ) : (
       <span {...tagProps} className={this.getTagClassName(configProps)} style={this.getTagStyle()}>
-        {children}
+        {iconNode ? (
+          <>
+            {iconNode}
+            <span>{children}</span>
+          </>
+        ) : (
+          children
+        )}
         {this.renderCloseIcon()}
       </span>
     );
