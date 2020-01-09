@@ -187,7 +187,7 @@ class ComponentDoc extends React.Component {
                 }
               >
                 {visibleAll ? (
-                  <BugFilled className={expandTriggerClass} onClick={this.handleVisibleToggle} />
+                  <BugFilled style={{ display: 'none' }} className={expandTriggerClass} onClick={this.handleVisibleToggle} />
                 ) : (
                   <BugOutlined className={expandTriggerClass} onClick={this.handleVisibleToggle} />
                 )}
