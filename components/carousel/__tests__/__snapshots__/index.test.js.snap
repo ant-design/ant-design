@@ -58,7 +58,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
   class="ant-carousel ant-carousel-vertical"
 >
   <div
-    class="slick-slider slick-initialized"
+    class="slick-slider slick-vertical slick-initialized"
   >
     <div
       class="slick-list"
@@ -92,7 +92,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
   class="ant-carousel ant-carousel-vertical"
 >
   <div
-    class="slick-slider slick-initialized"
+    class="slick-slider slick-vertical slick-initialized"
   >
     <div
       class="slick-list"
