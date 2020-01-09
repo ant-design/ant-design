@@ -75,7 +75,7 @@ const generateChildrenRows = (
     const lastItem = index === itemNodes.length - 1;
     let lastSpanSame = true;
     if (lastItem) {
-      lastSpanSame = !itemNode.props.span || itemNode.props.span === leftSpans;
+      lastSpanSame = !itemNode.props.span || itemNode.props.span <= leftSpans;
       itemNode = React.cloneElement(itemNode, {
         span: leftSpans,
       });
