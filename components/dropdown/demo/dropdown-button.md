@@ -58,7 +58,9 @@ ReactDOM.render(
     <Dropdown.Button
       overlay={menu}
       buttonsRender={([leftButton, rightButton]) => [
-        <Tooltip title="tooltip">{leftButton}</Tooltip>,
+        <Tooltip title="tooltip" key="leftButton">
+          {leftButton}
+        </Tooltip>,
         rightButton,
       ]}
     >
