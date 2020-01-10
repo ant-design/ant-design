@@ -47,4 +47,4 @@ title: Dropdown
 | visible | 菜单是否显示 | boolean | - |  |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | Function | - |  |
 | onVisibleChange | 菜单显示状态改变时调用，参数为 visible | Function | - |  |
-| tooltip | 给左侧按钮添加 tooltip | [TooltipProps](/components/tooltip-cn#API) | - |  |
+| buttonsRender | 自定义左右两个按钮 | `([buttons: ReactNode[]]) => ReactNode` | - |  |
