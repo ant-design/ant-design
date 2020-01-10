@@ -37,7 +37,7 @@ Tree selection control.
 | showCheckedStrategy | The way show selected item in box. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode). | enum { TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |  |
 | showSearch | Support search or not | boolean | single: `false` \| multiple: `true` |  |
 | size | To set the size of the select input, options: `large` `small` | string | 'default' |  |
-| showArrow | Whether to show the `suffixIcon`，when Non-multiple selection mode, default `true` | boolean |  |  |
+| showArrow | Whether to show the `suffixIcon`，when single selection mode, default `true` | boolean |  |  |
 | suffixIcon | The custom suffix icon,you must set `showArrow` to `true` manually in multiple selection mode | ReactNode | - |  |
 | treeCheckable | Whether to show checkbox on the treeNodes | boolean | false |  |
 | treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false |  |
