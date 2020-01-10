@@ -1,7 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { SmileOutlined } from '@ant-design/icons';
+
 import message from '..';
-import Icon from '../../icon';
 
 describe('message', () => {
   beforeEach(() => {
@@ -118,8 +119,8 @@ describe('message', () => {
   });
 
   it('should allow custom icon', () => {
-    message.open({ content: 'Message', icon: <Icon type="smile-o" /> });
-    expect(document.querySelectorAll('.anticon-smile-o').length).toBe(1);
+    message.open({ content: 'Message', icon: <SmileOutlined /> });
+    expect(document.querySelectorAll('.anticon-smile').length).toBe(1);
   });
 
   it('should have no icon', () => {
@@ -188,5 +189,9 @@ describe('message', () => {
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(1);
     jest.advanceTimersByTime(1500);
     expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
+  });
+
+  it('should not throw error when pass null', () => {
+    message.error(null);
   });
 });

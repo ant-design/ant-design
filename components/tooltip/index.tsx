@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
+import { AlignType, ActionType, BuildInPlacements } from 'rc-trigger/lib/interface';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -20,8 +20,6 @@ export type TooltipPlacement =
   | 'leftBottom'
   | 'rightTop'
   | 'rightBottom';
-
-export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
 
 // https://github.com/react-component/tooltip
 // https://github.com/yiminghe/dom-align
@@ -42,14 +40,14 @@ export interface AbstractTooltipProps {
   className?: string;
   overlayStyle?: React.CSSProperties;
   placement?: TooltipPlacement;
-  builtinPlacements?: Object;
+  builtinPlacements?: BuildInPlacements;
   defaultVisible?: boolean;
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   transitionName?: string;
-  trigger?: TooltipTrigger;
+  trigger?: ActionType;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
@@ -58,7 +56,7 @@ export interface AbstractTooltipProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
   // align is a more higher api
-  align?: TooltipAlignConfig;
+  align?: AlignType;
   /** Internal. Hide tooltip when hidden. This will be renamed in future. */
   destroyTooltipOnHide?: boolean;
 }
@@ -174,7 +172,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
   };
 
   getPopupDomNode() {
-    return this.tooltip.getPopupDomNode();
+    return (this.tooltip as any).getPopupDomNode();
   }
 
   getPlacements() {
@@ -232,6 +230,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
   renderTooltip = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const { props, state } = this;
     const {
@@ -241,6 +240,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
       openClassName,
       getPopupContainer,
       getTooltipContainer,
+      overlayClassName,
     } = props;
     const children = props.children as React.ReactElement<any>;
     const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
@@ -259,10 +259,14 @@ class Tooltip extends React.Component<TooltipProps, any> {
       [openClassName || `${prefixCls}-open`]: true,
     });
 
+    const customOverlayClassName = classNames(overlayClassName, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
       <RcTooltip
         {...this.props}
         prefixCls={prefixCls}
+        overlayClassName={customOverlayClassName}
         getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
         ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}
@@ -280,7 +284,5 @@ class Tooltip extends React.Component<TooltipProps, any> {
     return <ConfigConsumer>{this.renderTooltip}</ConfigConsumer>;
   }
 }
-
-polyfill(Tooltip);
 
 export default Tooltip;

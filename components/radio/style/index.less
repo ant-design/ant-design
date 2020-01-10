@@ -12,6 +12,10 @@
 
   display: inline-block;
   line-height: unset;
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 // 一般状态
@@ -23,6 +27,11 @@
   margin-right: 8px;
   white-space: nowrap;
   cursor: pointer;
+
+  &-rtl {
+    margin-right: 0;
+    margin-left: 8px;
+  }
 }
 
 .@{radio-prefix-cls} {
@@ -129,7 +138,7 @@
     border-color: @border-color-base !important;
     cursor: not-allowed;
     &::after {
-      background-color: fade(@black, 20%);
+      background-color: @radio-dot-disabled-color;
     }
   }
 
@@ -203,10 +212,19 @@ span.@{radio-prefix-cls} + * {
   &:first-child {
     border-left: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base 0 0 @border-radius-base;
+
+    .@{radio-prefix-cls}-button-wrapper-rtl& {
+      border-right: @border-width-base @border-style-base @border-color-base;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
   }
 
   &:last-child {
     border-radius: 0 @border-radius-base @border-radius-base 0;
+
+    .@{radio-prefix-cls}-button-wrapper-rtl& {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
   }
 
   &:first-child:last-child {
@@ -266,16 +284,16 @@ span.@{radio-prefix-cls} + * {
   }
 
   .@{radio-group-prefix-cls}-solid &-checked:not(&-disabled) {
-    color: @component-background;
+    color: @radtio-solid-checked-color;
     background: @radio-dot-color;
     border-color: @radio-dot-color;
     &:hover {
-      color: @component-background;
+      color: @radtio-solid-checked-color;
       background: @radio-button-hover-color;
       border-color: @radio-button-hover-color;
     }
     &:active {
-      color: @component-background;
+      color: @radtio-solid-checked-color;
       background: @radio-button-active-color;
       border-color: @radio-button-active-color;
     }
@@ -298,12 +316,16 @@ span.@{radio-prefix-cls} + * {
     }
     &:first-child {
       border-left-color: @border-color-base;
+
+      .@{radio-prefix-cls}-button-wrapper-rtl& {
+        border-right-color: @border-color-base;
+      }
     }
   }
 
   &-disabled&-checked {
-    color: @text-color-inverse;
-    background-color: tint(@black, 90%);
+    color: @radio-disabled-button-checked-color;
+    background-color: @radio-disabled-button-checked-bg;
     border-color: @border-color-base;
     box-shadow: none;
   }

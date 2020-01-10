@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 10
 title:
   zh-CN: 栅格配置器
   en-US: Playground
@@ -133,3 +133,9 @@ ReactDOM.render(<App />, mountNode);
   padding: 8px 16px;
 }
 ```
+
+<style>
+[data-theme="dark"] #components-grid-demo-playground [class~='ant-col'] > div {
+  background: #028ac8;
+}
+</style>

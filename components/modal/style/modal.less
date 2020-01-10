@@ -1,7 +1,6 @@
 @dialog-prefix-cls: ~'@{ant-prefix}-modal';
 @table-prefix-cls: ~'@{ant-prefix}-table';
-@modal-footer-padding-vertical: 10px;
-@modal-footer-padding-horizontal: 16px;
+@dialog-wrap-rtl-cls: ~'@{dialog-prefix-cls}-wrap-rtl';
 
 .@{dialog-prefix-cls} {
   .reset-component;
@@ -23,6 +22,10 @@
     overflow: auto;
     outline: 0;
     -webkit-overflow-scrolling: touch;
+
+    &-rtl {
+      direction: rtl;
+    }
   }
 
   &-title {
@@ -36,7 +39,7 @@
 
   &-content {
     position: relative;
-    background-color: @component-background;
+    background-color: @modal-content-bg;
     background-clip: padding-box;
     border: 0;
     border-radius: @border-radius-base;
@@ -59,6 +62,11 @@
     outline: 0;
     cursor: pointer;
     transition: color 0.3s;
+
+    .@{dialog-wrap-rtl-cls} & {
+      right: initial;
+      left: 0;
+    }
 
     &-x {
       display: block;
@@ -83,7 +91,7 @@
     padding: 16px 24px;
     color: @text-color;
     background: @modal-header-bg;
-    border-bottom: @border-width-base @border-style-base @border-color-split;
+    border-bottom: @border-width-base @border-style-base @modal-header-border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
@@ -100,9 +108,18 @@
     background: @modal-footer-bg;
     border-top: @border-width-base @border-style-base @modal-footer-border-color-split;
     border-radius: 0 0 @border-radius-base @border-radius-base;
+
+    .@{dialog-wrap-rtl-cls} & {
+      text-align: left;
+    }
     button + button {
       margin-bottom: 0;
       margin-left: 8px;
+
+      .@{dialog-wrap-rtl-cls} & {
+        margin-right: 8px;
+        margin-left: 0;
+      }
     }
   }
 
@@ -149,6 +166,10 @@
     display: inline-block;
     text-align: left;
     vertical-align: middle;
+
+    .@{dialog-wrap-rtl-cls}& {
+      text-align: right;
+    }
   }
 }
 

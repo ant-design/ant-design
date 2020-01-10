@@ -14,8 +14,8 @@ A long list can be divided into several pages using `Pagination`, and only one p
 
 ## API
 
-```html
-<Pagination onChange="{onChange}" total="{50}" />
+```jsx
+<Pagination onChange={onChange} total={50} />
 ```
 
 | Property | Description | Type | Default | Version |
@@ -23,12 +23,12 @@ A long list can be divided into several pages using `Pagination`, and only one p
 | current | Current page number | number | - |  |
 | defaultCurrent | Default initial page number | number | 1 |  |
 | defaultPageSize | Default number of data items per page | number | 10 |  |
-| disabled | Disable pagination | boolean | - | 3.18.0 |
-| hideOnSinglePage | Whether to hide pager on single page | boolean | false | 3.1.0 |
+| disabled | Disable pagination | boolean | - |  |
+| hideOnSinglePage | Whether to hide pager on single page | boolean | false |  |
 | itemRender | To customize item's innerHTML | (page, type: 'page' \| 'prev' \| 'next', originalElement) => React.ReactNode | - |  |
 | pageSize | Number of data items per page | number | - |  |
 | pageSizeOptions | Specify the sizeChanger options | string\[] | \['10', '20', '30', '40'] |  |
-| showLessItems | Show less page items | boolean | false | 3.16.3 |
+| showLessItems | Show less page items | boolean | false |  |
 | showQuickJumper | Determine whether you can jump to pages directly | boolean \| `{ goButton: ReactNode }` | false |  |
 | showSizeChanger | Determine whether `pageSize` can be changed | boolean | false |  |
 | showTitle | Show page item's title | boolean | true |  |

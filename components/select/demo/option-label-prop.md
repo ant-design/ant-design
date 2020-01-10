@@ -32,36 +32,44 @@ ReactDOM.render(
     optionLabelProp="label"
   >
     <Option value="china" label="China">
-      <span role="img" aria-label="China">
-        🇨🇳
-      </span>
-      China (中国)
+      <div className="demo-option-label-item">
+        <span role="img" aria-label="China">
+          🇨🇳
+        </span>
+        China (中国)
+      </div>
     </Option>
     <Option value="usa" label="USA">
-      <span role="img" aria-label="USA">
-        🇺🇸
-      </span>
-      USA (美国)
+      <div className="demo-option-label-item">
+        <span role="img" aria-label="USA">
+          🇺🇸
+        </span>
+        USA (美国)
+      </div>
     </Option>
     <Option value="japan" label="Japan">
-      <span role="img" aria-label="Japan">
-        🇯🇵
-      </span>
-      Japan (日本)
+      <div className="demo-option-label-item">
+        <span role="img" aria-label="Japan">
+          🇯🇵
+        </span>
+        Japan (日本)
+      </div>
     </Option>
     <Option value="korea" label="Korea">
-      <span role="img" aria-label="Korea">
-        🇰🇷
-      </span>
-      Korea (韩国)
+      <div className="demo-option-label-item">
+        <span role="img" aria-label="Korea">
+          🇰🇷
+        </span>
+        Korea (韩国)
+      </div>
     </Option>
   </Select>,
   mountNode,
 );
 ```
 
-````css
-span[role="img"] {
+```css
+.demo-option-label-item > span {
   margin-right: 6px;
 }
-````
+```

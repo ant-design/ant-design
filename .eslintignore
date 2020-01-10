@@ -4,8 +4,13 @@ components/**/*.jsx
 !components/*/demo/*
 !.*.js
 # Docs templates
+site/theme/template/Color/ColorPicker.jsx
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
+site/theme/template/IconDisplay/fields.js
+site/theme/template/Home/**/*.jsx
+site/theme/template/utils.jsx
+site/theme/template/Layout/Footer.jsx
 typings
 es/**/*
 lib/**/*

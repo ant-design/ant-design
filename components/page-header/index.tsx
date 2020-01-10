@@ -1,8 +1,8 @@
 import * as React from 'react';
 import classnames from 'classnames';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Icon from '../icon';
 import Tag from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
@@ -58,10 +58,18 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
   return <Breadcrumb {...breadcrumb} />;
 };
 
-const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
-  const { title, avatar, subTitle, tags, extra, backIcon, onBack } = props;
+const getBackIcon = (props: PageHeaderProps, direction: string = 'ltr') => {
+  if (props.backIcon !== undefined) {
+    return props.backIcon;
+  }
+  return direction === 'rtl' ? <ArrowRightOutlined /> : <ArrowLeftOutlined />;
+};
+
+const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: string = 'ltr') => {
+  const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
+    const backIcon = getBackIcon(props, direction);
     const backIconDom = renderBack(prefixCls, backIcon, onBack);
     return (
       <div className={headingPrefixCls}>
@@ -90,7 +98,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
 
 const PageHeader: React.SFC<PageHeaderProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls, pageHeader }: ConfigConsumerProps) => {
+    {({ getPrefixCls, pageHeader, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         style,
@@ -114,12 +122,13 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
         [`${prefixCls}-ghost`]: ghost,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       });
 
       return (
         <div className={className} style={style}>
           {breadcrumbDom}
-          {renderTitle(prefixCls, props)}
+          {renderTitle(prefixCls, props, direction)}
           {children && renderChildren(prefixCls, children)}
           {renderFooter(prefixCls, footer)}
         </div>
@@ -127,9 +136,5 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
     }}
   </ConfigConsumer>
 );
-
-PageHeader.defaultProps = {
-  backIcon: <Icon type="arrow-left" />,
-};
 
 export default PageHeader;

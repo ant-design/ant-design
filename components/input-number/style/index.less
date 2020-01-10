@@ -3,6 +3,7 @@
 @import '../../input/style/mixin';
 
 @input-number-prefix-cls: ~'@{ant-prefix}-input-number';
+@form-item-prefix-cls: ~'@{ant-prefix}-form-item';
 
 .@{input-number-prefix-cls} {
   .reset-component;
@@ -51,6 +52,10 @@
 
   &:hover {
     .hover(@input-number-hover-border-color);
+    & + .@{form-item-prefix-cls}-children-icon {
+      opacity: 0;
+      transition: opacity 0.24s linear 0.24s;
+    }
   }
 
   &-focused {

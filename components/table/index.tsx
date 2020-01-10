@@ -1,5 +1,6 @@
-import Table from './Table';
+import Table, { TableProps, TablePaginationConfig } from './Table';
 
-export * from './interface';
+export { ColumnsType, ColumnType, ColumnGroupType } from './interface';
+export { TableProps, TablePaginationConfig };
 
 export default Table;

@@ -42,56 +42,62 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-enabled"
+            class="ant-select ant-select-single ant-select-show-arrow"
             style="width:90px"
           >
             <div
-              aria-autocomplete="list"
-              aria-controls=""
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-            ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-select-selector"
             >
-              <div
-                class="ant-select-selection__rendered"
-              >
-                <div
-                  class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1"
-                  title="Http://"
-                >
-                  Http://
-                </div>
-              </div>
               <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+                class="ant-select-selection-search"
               >
-                <i
-                  aria-label="icon: down"
-                  class="anticon anticon-down ant-select-arrow-icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </i>
+                <input
+                  aria-activedescendant="undefined_list_0"
+                  aria-autocomplete="list"
+                  aria-controls="undefined_list"
+                  aria-haspopup="listbox"
+                  aria-owns="undefined_list"
+                  autocomplete="off"
+                  class="ant-select-selection-search-input"
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-select-selection-item"
+              >
+                Http://
               </span>
             </div>
+            <span
+              aria-hidden="true"
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="down"
+                class="anticon anticon-down"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
           </div>
         </span>
         <input
@@ -103,56 +109,62 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <div
-            class="ant-select ant-select-enabled"
+            class="ant-select ant-select-single ant-select-show-arrow"
             style="width:80px"
           >
             <div
-              aria-autocomplete="list"
-              aria-controls=""
-              aria-expanded="false"
-              aria-haspopup="true"
-              class="ant-select-selection
-            ant-select-selection--single"
-              role="combobox"
-              tabindex="0"
+              class="ant-select-selector"
             >
-              <div
-                class="ant-select-selection__rendered"
-              >
-                <div
-                  class="ant-select-selection-selected-value"
-                  style="display:block;opacity:1"
-                  title=".com"
-                >
-                  .com
-                </div>
-              </div>
               <span
-                class="ant-select-arrow"
-                style="user-select:none;-webkit-user-select:none"
-                unselectable="on"
+                class="ant-select-selection-search"
               >
-                <i
-                  aria-label="icon: down"
-                  class="anticon anticon-down ant-select-arrow-icon"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class=""
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </i>
+                <input
+                  aria-activedescendant="undefined_list_0"
+                  aria-autocomplete="list"
+                  aria-controls="undefined_list"
+                  aria-haspopup="listbox"
+                  aria-owns="undefined_list"
+                  autocomplete="off"
+                  class="ant-select-selection-search-input"
+                  readonly=""
+                  role="combobox"
+                  style="opacity:0"
+                  value=""
+                />
+              </span>
+              <span
+                class="ant-select-selection-item"
+              >
+                .com
               </span>
             </div>
+            <span
+              aria-hidden="true"
+              class="ant-select-arrow"
+              style="user-select:none;-webkit-user-select:none"
+              unselectable="on"
+            >
+              <span
+                aria-label="down"
+                class="anticon anticon-down"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
           </div>
         </span>
       </span>
@@ -175,9 +187,10 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
         <span
           class="ant-input-group-addon"
         >
-          <i
-            aria-label="icon: setting"
+          <span
+            aria-label="setting"
             class="anticon anticon-setting"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -190,10 +203,10 @@ exports[`renders ./components/input/demo/addon.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 0 0 9.3-35.2l-.9-2.6a443.74 443.74 0 0 0-79.7-137.9l-1.8-2.1a32.12 32.12 0 0 0-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 0 0-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 0 0-25.8 25.7l-15.8 85.4a351.86 351.86 0 0 0-99 57.4l-81.9-29.1a32 32 0 0 0-35.1 9.5l-1.8 2.1a446.02 446.02 0 0 0-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 0 0-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0 0 35.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0 0 25.8 25.7l2.7.5a449.4 449.4 0 0 0 159 0l2.7-.5a32.05 32.05 0 0 0 25.8-25.7l15.7-85a350 350 0 0 0 99.7-57.6l81.3 28.9a32 32 0 0 0 35.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 0 1-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 0 1-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 0 1 512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 0 1 400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 0 1 624 502c0 29.9-11.7 58-32.8 79.2z"
+                d="M924.8 625.7l-65.5-56c3.1-19 4.7-38.4 4.7-57.8s-1.6-38.8-4.7-57.8l65.5-56a32.03 32.03 0 009.3-35.2l-.9-2.6a443.74 443.74 0 00-79.7-137.9l-1.8-2.1a32.12 32.12 0 00-35.1-9.5l-81.3 28.9c-30-24.6-63.5-44-99.7-57.6l-15.7-85a32.05 32.05 0 00-25.8-25.7l-2.7-.5c-52.1-9.4-106.9-9.4-159 0l-2.7.5a32.05 32.05 0 00-25.8 25.7l-15.8 85.4a351.86 351.86 0 00-99 57.4l-81.9-29.1a32 32 0 00-35.1 9.5l-1.8 2.1a446.02 446.02 0 00-79.7 137.9l-.9 2.6c-4.5 12.5-.8 26.5 9.3 35.2l66.3 56.6c-3.1 18.8-4.6 38-4.6 57.1 0 19.2 1.5 38.4 4.6 57.1L99 625.5a32.03 32.03 0 00-9.3 35.2l.9 2.6c18.1 50.4 44.9 96.9 79.7 137.9l1.8 2.1a32.12 32.12 0 0035.1 9.5l81.9-29.1c29.8 24.5 63.1 43.9 99 57.4l15.8 85.4a32.05 32.05 0 0025.8 25.7l2.7.5a449.4 449.4 0 00159 0l2.7-.5a32.05 32.05 0 0025.8-25.7l15.7-85a350 350 0 0099.7-57.6l81.3 28.9a32 32 0 0035.1-9.5l1.8-2.1c34.8-41.1 61.6-87.5 79.7-137.9l.9-2.6c4.5-12.3.8-26.3-9.3-35zM788.3 465.9c2.5 15.1 3.8 30.6 3.8 46.1s-1.3 31-3.8 46.1l-6.6 40.1 74.7 63.9a370.03 370.03 0 01-42.6 73.6L721 702.8l-31.4 25.8c-23.9 19.6-50.5 35-79.3 45.8l-38.1 14.3-17.9 97a377.5 377.5 0 01-85 0l-17.9-97.2-37.8-14.5c-28.5-10.8-55-26.2-78.7-45.7l-31.4-25.9-93.4 33.2c-17-22.9-31.2-47.6-42.6-73.6l75.5-64.5-6.5-40c-2.4-14.9-3.7-30.3-3.7-45.5 0-15.3 1.2-30.6 3.7-45.5l6.5-40-75.5-64.5c11.3-26.1 25.6-50.7 42.6-73.6l93.4 33.2 31.4-25.9c23.7-19.5 50.2-34.9 78.7-45.7l37.9-14.3 17.9-97.2c28.1-3.2 56.8-3.2 85 0l17.9 97 38.1 14.3c28.7 10.8 55.4 26.2 79.3 45.8l31.4 25.8 92.8-32.9c17 22.9 31.2 47.6 42.6 73.6L781.8 426l6.5 39.9zM512 326c-97.2 0-176 78.8-176 176s78.8 176 176 176 176-78.8 176-176-78.8-176-176-176zm79.2 255.2A111.6 111.6 0 01512 614c-29.9 0-58-11.7-79.2-32.8A111.6 111.6 0 01400 502c0-29.9 11.7-58 32.8-79.2C454 401.6 482.1 390 512 390c29.9 0 58 11.6 79.2 32.8A111.6 111.6 0 01624 502c0 29.9-11.7 58-32.8 79.2z"
               />
             </svg>
-          </i>
+          </span>
         </span>
       </span>
     </span>
@@ -241,10 +254,10 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
       tabindex="0"
     >
-      <i
-        aria-label="icon: copy"
+      <span
+        aria-label="copy"
         class="anticon anticon-copy"
-        role="button"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -260,7 +273,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
             d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
           />
         </svg>
-      </i>
+      </span>
     </div>
   </span>
   <span
@@ -321,9 +334,10 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         role="button"
         unselectable="unselectable"
       >
-        <i
-          aria-label="icon: up"
+        <span
+          aria-label="up"
           class="anticon anticon-up ant-input-number-handler-up-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -336,10 +350,10 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
       <span
         aria-disabled="false"
@@ -348,9 +362,10 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         role="button"
         unselectable="unselectable"
       >
-        <i
-          aria-label="icon: down"
+        <span
+          aria-label="down"
           class="anticon anticon-down ant-input-number-handler-down-inner"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -366,7 +381,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
               d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
+        </span>
       </span>
     </div>
     <div
@@ -383,222 +398,259 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       />
     </div>
   </div>
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
     style="width:100px"
   >
-    <div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-picker-input ant-input"
         placeholder="Select date"
         readonly=""
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <span
-    class="ant-time-picker"
-    style="width:100px"
-  >
-    <input
-      class="ant-time-picker-input"
-      placeholder="Select time"
-      type="text"
-      value=""
-    />
-    <span
-      class="ant-time-picker-icon"
-    >
-      <i
-        aria-label="icon: clock-circle"
-        class="anticon anticon-clock-circle ant-time-picker-clock-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="clock-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-          />
-          <path
-            d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
-          />
-        </svg>
-      </i>
-    </span>
-  </span>
-  <div
-    class="ant-select ant-select-enabled"
-    style="width:100px"
-  >
-    <div
-      aria-autocomplete="list"
-      aria-controls=""
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-select-selection
-            ant-select-selection--single"
-      role="combobox"
-      tabindex="0"
-    >
-      <div
-        class="ant-select-selection__rendered"
-      >
-        <div
-          class="ant-select-selection-selected-value"
-          style="display:block;opacity:1"
-          title="Jack"
-        >
-          Jack
-        </div>
-      </div>
       <span
-        class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      >
-        <i
-          aria-label="icon: down"
-          class="anticon anticon-down ant-select-arrow-icon"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </i>
-      </span>
-    </div>
-  </div>
-  <div
-    class="ant-select ant-select-enabled"
-    style="width:100px"
-  >
-    <div
-      aria-autocomplete="list"
-      aria-controls=""
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-select-selection
-            ant-select-selection--single"
-      role="combobox"
-      tabindex="0"
-    >
-      <div
-        class="ant-select-selection__rendered"
-      >
-        <div
-          class="ant-select-selection-selected-value"
-          style="display:block;opacity:1"
-          title="jack"
-        >
-          jack
-        </div>
-      </div>
-      <span
-        class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
-      >
-        <i
-          aria-label="icon: down"
-          class="anticon anticon-down ant-select-arrow-icon"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </i>
-      </span>
-    </div>
-  </div>
-  <span
-    aria-haspopup="listbox"
-    class="ant-select ant-select-enabled"
-    role="combobox"
-    style="width:100px"
-    tabindex="0"
-  >
-    <span
-      class="ant-select-selection ant-select-selection--single"
-    >
-      <span
-        class="ant-select-selection__rendered"
+        class="ant-picker-suffix"
       >
         <span
-          class="ant-select-selection__placeholder"
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-picker"
+    style="width:100px"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select time"
+        readonly=""
+        size="10"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select ant-select-single ant-select-show-arrow"
+    style="width:100px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          value=""
         />
       </span>
       <span
-        class="ant-select-arrow"
-        style="outline:none"
+        class="ant-select-selection-item"
       >
-        <i
-          aria-label="icon: down"
-          class="anticon anticon-down ant-select-arrow-icon"
+        Jack
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </i>
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
       </span>
     </span>
-  </span>
+  </div>
+  <div
+    class="ant-select ant-select-single ant-select-show-arrow"
+    style="width:100px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-item"
+      >
+        jack
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
+    style="width:100px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
+      />
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
   <span
     class="ant-cascader-picker"
     tabindex="0"
@@ -616,9 +668,10 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       type="text"
       value=""
     />
-    <i
-      aria-label="icon: close-circle"
+    <span
+      aria-label="close-circle"
       class="anticon anticon-close-circle ant-cascader-picker-clear"
+      role="img"
       tabindex="-1"
     >
       <svg
@@ -632,13 +685,14 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         width="1em"
       >
         <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
         />
       </svg>
-    </i>
-    <i
-      aria-label="icon: down"
+    </span>
+    <span
+      aria-label="down"
       class="anticon anticon-down ant-cascader-picker-arrow"
+      role="img"
     >
       <svg
         aria-hidden="true"
@@ -654,86 +708,107 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
           d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
         />
       </svg>
-    </i>
+    </span>
   </span>
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
+  <div
+    class="ant-picker ant-picker-range"
   >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input ant-picker-input-active"
     >
       <input
-        class="ant-calendar-range-picker-input"
         placeholder="Start date"
         readonly=""
-        tabindex="-1"
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select month"
+        readonly=""
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
       </span>
-      <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
-        readonly=""
-        tabindex="-1"
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </span>
-  </span>
-  <span
-    class="ant-calendar-picker"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
     </div>
-  </span>
+  </div>
   <div
     class="ant-radio-group ant-radio-group-outline"
   >
@@ -778,73 +853,31 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+    class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
     style="width:100px"
   >
     <div
-      aria-autocomplete="list"
-      aria-controls=""
-      aria-expanded="false"
-      aria-haspopup="true"
-      class="ant-select-selection
-            ant-select-selection--single"
-      role="combobox"
+      class="ant-select-selector"
     >
-      <div
-        class="ant-select-selection__rendered"
-      >
-        <div
-          class="ant-select-selection__placeholder"
-          style="display:block;user-select:none;-webkit-user-select:none"
-          unselectable="on"
-        >
-          input here
-        </div>
-        <ul>
-          <li
-            class="ant-select-search ant-select-search--inline"
-          >
-            <div
-              class="ant-select-search__field__wrap"
-            >
-              <input
-                class="ant-input ant-select-search__field"
-                type="text"
-                value=""
-              />
-              <span
-                class="ant-select-search__field__mirror"
-              >
-                 
-              </span>
-            </div>
-          </li>
-        </ul>
-      </div>
       <span
-        class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
-        unselectable="on"
+        class="ant-select-selection-search"
       >
-        <i
-          aria-label="icon: down"
-          class="anticon anticon-down ant-select-arrow-icon"
-        >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="down"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-            />
-          </svg>
-        </i>
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          role="combobox"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-placeholder"
+      >
+        input here
       </span>
     </div>
   </div>
@@ -912,7 +945,9 @@ exports[`renders ./components/input/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/group.md correctly 1`] = `
-<div>
+<div
+  class="site-input-group-wrapper"
+>
   <span
     class="ant-input-group ant-input-group-lg"
   >
@@ -964,55 +999,61 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-enabled"
+      class="ant-select ant-select-single ant-select-show-arrow"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="Zhejiang"
-          >
-            Zhejiang
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          Zhejiang
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
     <input
       class="ant-input"
@@ -1026,55 +1067,61 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-enabled"
+      class="ant-select ant-select-single ant-select-show-arrow"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="Option1"
-          >
-            Option1
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          Option1
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
     <input
       class="ant-input"
@@ -1095,9 +1142,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           role="button"
           unselectable="unselectable"
         >
-          <i
-            aria-label="icon: up"
+          <span
+            aria-label="up"
             class="anticon anticon-up ant-input-number-handler-up-inner"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -1110,10 +1158,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 0 0 140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </span>
         <span
           aria-disabled="false"
@@ -1122,9 +1170,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           role="button"
           unselectable="unselectable"
         >
-          <i
-            aria-label="icon: down"
+          <span
+            aria-label="down"
             class="anticon anticon-down ant-input-number-handler-down-inner"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -1140,7 +1189,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
                 d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
               />
             </svg>
-          </i>
+          </span>
         </span>
       </div>
       <div
@@ -1168,25 +1217,94 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       type="text"
       value="input content"
     />
-    <span
-      class="ant-calendar-picker"
+    <div
+      class="ant-picker"
       style="width:50%"
     >
-      <div>
+      <div
+        class="ant-picker-input"
+      >
         <input
-          class="ant-calendar-picker-input ant-input"
           placeholder="Select date"
           readonly=""
+          size="12"
           value=""
         />
-        <i
-          aria-label="icon: calendar"
-          class="anticon anticon-calendar ant-calendar-picker-icon"
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              class=""
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </span>
+  <br />
+  <span
+    class="ant-input-group ant-input-group-compact"
+  >
+    <div
+      class="ant-select ant-select-single ant-select-show-arrow"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          Option1-1
+        </span>
+      </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
         >
           <svg
             aria-hidden="true"
             class=""
-            data-icon="calendar"
+            data-icon="down"
             fill="currentColor"
             focusable="false"
             height="1em"
@@ -1194,118 +1312,68 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
             />
           </svg>
-        </i>
-      </div>
-    </span>
-  </span>
-  <br />
-  <span
-    class="ant-input-group ant-input-group-compact"
-  >
-    <div
-      class="ant-select ant-select-enabled"
-    >
-      <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
-      >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="Option1-1"
-          >
-            Option1-1
-          </div>
-        </div>
-        <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
-        >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
         </span>
-      </div>
+      </span>
     </div>
     <div
-      class="ant-select ant-select-enabled"
+      class="ant-select ant-select-single ant-select-show-arrow"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="Option2-2"
-          >
-            Option2-2
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          Option2-2
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </span>
   <br />
@@ -1313,55 +1381,61 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-enabled"
+      class="ant-select ant-select-single ant-select-show-arrow"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="Between"
-          >
-            Between
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          Between
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
     <input
       class="ant-input"
@@ -1371,10 +1445,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input ant-input-disabled"
+      class="ant-input ant-input-disabled site-input-split"
       disabled=""
       placeholder="~"
-      style="width:30px;border-left:0;pointer-events:none;background-color:#fff"
+      style="width:30px;border-left:0;border-right:0;pointer-events:none"
       type="text"
       value=""
     />
@@ -1391,124 +1465,88 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-enabled"
+      class="ant-select ant-select-single ant-select-show-arrow"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="Sign Up"
-          >
-            Sign Up
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          Sign Up
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
     <div
-      class="ant-select-show-search ant-select-auto-complete ant-select ant-select-combobox ant-select-enabled"
+      class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
       style="width:200px"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection__placeholder"
-            style="display:block;user-select:none;-webkit-user-select:none"
-            unselectable="on"
-          >
-            Email
-          </div>
-          <ul>
-            <li
-              class="ant-select-search ant-select-search--inline"
-            >
-              <div
-                class="ant-select-search__field__wrap"
-              >
-                <input
-                  class="ant-input ant-select-search__field"
-                  type="text"
-                  value=""
-                />
-                <span
-                  class="ant-select-search__field__mirror"
-                >
-                   
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        >
+          Email
         </span>
       </div>
     </div>
@@ -1518,56 +1556,62 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
     class="ant-input-group ant-input-group-compact"
   >
     <div
-      class="ant-select ant-select-enabled"
+      class="ant-select ant-select-single ant-select-show-arrow"
       style="width:30%"
     >
       <div
-        aria-autocomplete="list"
-        aria-controls=""
-        aria-expanded="false"
-        aria-haspopup="true"
-        class="ant-select-selection
-            ant-select-selection--single"
-        role="combobox"
-        tabindex="0"
+        class="ant-select-selector"
       >
-        <div
-          class="ant-select-selection__rendered"
-        >
-          <div
-            class="ant-select-selection-selected-value"
-            style="display:block;opacity:1"
-            title="Home"
-          >
-            Home
-          </div>
-        </div>
         <span
-          class="ant-select-arrow"
-          style="user-select:none;-webkit-user-select:none"
-          unselectable="on"
+          class="ant-select-selection-search"
         >
-          <i
-            aria-label="icon: down"
-            class="anticon anticon-down ant-select-arrow-icon"
-          >
-            <svg
-              aria-hidden="true"
-              class=""
-              data-icon="down"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
-            >
-              <path
-                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-              />
-            </svg>
-          </i>
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            readonly=""
+            role="combobox"
+            style="opacity:0"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-item"
+        >
+          Home
         </span>
       </div>
+      <span
+        aria-hidden="true"
+        class="ant-select-arrow"
+        style="user-select:none;-webkit-user-select:none"
+        unselectable="on"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
     <span
       class="ant-cascader-picker"
@@ -1586,9 +1630,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
         type="text"
         value=""
       />
-      <i
-        aria-label="icon: down"
+      <span
+        aria-label="down"
         class="anticon anticon-down ant-cascader-picker-arrow"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1604,7 +1649,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
             d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
 </div>
@@ -1624,9 +1669,10 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
   <span
     class="ant-input-suffix"
   >
-    <i
-      aria-label="icon: eye-invisible"
+    <span
+      aria-label="eye-invisible"
       class="anticon anticon-eye-invisible ant-input-password-icon"
+      role="img"
       tabindex="-1"
     >
       <svg
@@ -1640,13 +1686,13 @@ exports[`renders ./components/input/demo/password-input.md correctly 1`] = `
         width="1em"
       >
         <path
-          d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 0 0 0-51.5zm-63.57-320.64L836 122.88a8 8 0 0 0-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 0 0 0 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 0 0 0 11.31L155.17 889a8 8 0 0 0 11.31 0l712.15-712.12a8 8 0 0 0 0-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 0 0-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 0 1 146.2-106.69L401.31 546.2A112 112 0 0 1 396 512z"
+          d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
         />
         <path
-          d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 0 0 227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 0 1-112 112z"
+          d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
         />
       </svg>
-    </i>
+    </span>
   </span>
 </span>
 `;
@@ -1659,10 +1705,10 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     <span
       class="ant-input-prefix"
     >
-      <i
-        aria-label="icon: user"
-        class="anticon anticon-user"
-        style="color:rgba(0,0,0,.25)"
+      <span
+        aria-label="user"
+        class="anticon anticon-user site-form-item-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1675,10 +1721,10 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M858.5 763.6a374 374 0 0 0-80.6-119.5 375.63 375.63 0 0 0-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 0 0-80.6 119.5A371.7 371.7 0 0 0 136 901.8a8 8 0 0 0 8 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 0 0 8-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+            d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
           />
         </svg>
-      </i>
+      </span>
     </span>
     <input
       class="ant-input"
@@ -1689,9 +1735,10 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <i
-        aria-label="icon: info-circle"
+      <span
+        aria-label="info-circle"
         class="anticon anticon-info-circle"
+        role="img"
         style="color:rgba(0,0,0,.45)"
       >
         <svg
@@ -1708,10 +1755,10 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
             d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
           />
           <path
-            d="M464 336a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+            d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
   <br />
@@ -1753,9 +1800,10 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
     <span
       class="ant-input-suffix"
     >
-      <i
-        aria-label="icon: search"
+      <span
+        aria-label="search"
         class="anticon anticon-search ant-input-search-icon"
+        role="img"
         tabindex="-1"
       >
         <svg
@@ -1769,10 +1817,10 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
   <br />
@@ -1796,9 +1844,10 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           class="ant-btn ant-input-search-button ant-btn-primary"
           type="button"
         >
-          <i
-            aria-label="icon: search"
+          <span
+            aria-label="search"
             class="anticon anticon-search"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -1811,10 +1860,10 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
               />
             </svg>
-          </i>
+          </span>
         </button>
       </span>
     </span>
@@ -1864,9 +1913,10 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
     <span
       class="ant-input-suffix"
     >
-      <i
-        aria-label="icon: loading"
+      <span
+        aria-label="loading"
         class="anticon anticon-loading ant-input-search-icon"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1879,10 +1929,10 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
           width="1em"
         >
           <path
-            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
           />
         </svg>
-      </i>
+      </span>
     </span>
   </span>
   <br />
@@ -1906,9 +1956,10 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
           class="ant-btn ant-input-search-button ant-btn-primary"
           type="button"
         >
-          <i
-            aria-label="icon: loading"
+          <span
+            aria-label="loading"
             class="anticon anticon-loading"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -1921,10 +1972,10 @@ exports[`renders ./components/input/demo/search-input-loading.md correctly 1`] =
               width="1em"
             >
               <path
-                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 0 0-94.3-139.9 437.71 437.71 0 0 0-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
               />
             </svg>
-          </i>
+          </span>
         </button>
       </span>
     </span>

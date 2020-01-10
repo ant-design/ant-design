@@ -5,24 +5,6 @@ import Descriptions from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/warning';
 
-jest.mock('enquire.js', () => {
-  let that;
-  let unmatchFun;
-  return {
-    unregister: jest.fn(),
-    register: (media, options) => {
-      if (media === '(max-width: 575px)') {
-        that = this;
-        options.match.call(that);
-        unmatchFun = options.unmatch;
-      }
-    },
-    callunmatch() {
-      unmatchFun.call(that);
-    },
-  };
-});
-
 describe('Descriptions', () => {
   mountTest(Descriptions);
 
@@ -38,8 +20,6 @@ describe('Descriptions', () => {
   });
 
   it('when max-width: 575px，column=1', () => {
-    // eslint-disable-next-line global-require
-    const enquire = require('enquire.js');
     const wrapper = mount(
       <Descriptions>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -51,14 +31,11 @@ describe('Descriptions', () => {
     );
     expect(wrapper.find('tr')).toHaveLength(5);
     expect(wrapper.find('.ant-descriptions-item-no-label')).toHaveLength(1);
-
-    enquire.callunmatch();
     wrapper.unmount();
   });
 
   it('when max-width: 575px，column=2', () => {
     // eslint-disable-next-line global-require
-    const enquire = require('enquire.js');
     const wrapper = mount(
       <Descriptions column={{ xs: 2 }}>
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -68,8 +45,6 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.find('tr')).toHaveLength(2);
-
-    enquire.callunmatch();
     wrapper.unmount();
   });
 
@@ -114,7 +89,7 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Descriptions] Sum of column `span` in a line exceeds `column` of Descriptions.',
+      'Warning: [antd: Descriptions] Sum of column `span` in a line not match `column` of Descriptions.',
     );
   });
 

@@ -4,8 +4,9 @@ import RcTabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import omit from 'omit.js';
+import { CloseOutlined, PlusOutlined } from '@ant-design/icons';
 import TabBar from './TabBar';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { isFlexSupported } from '../_util/styleChecker';
@@ -93,7 +94,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     }
   };
 
-  renderTabs = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderTabs = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -135,8 +136,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         let { closable } = child.props;
         closable = typeof closable === 'undefined' ? true : closable;
         const closeIcon = closable ? (
-          <Icon
-            type="close"
+          <CloseOutlined
             className={`${prefixCls}-close-x`}
             onClick={e => this.removeTab(child.key as string, e)}
           />
@@ -157,7 +157,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       if (!hideAdd) {
         tabBarExtraContent = (
           <span>
-            <Icon type="plus" className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
+            <PlusOutlined className={`${prefixCls}-new-tab`} onClick={this.createNewTab} />
             {tabBarExtraContent}
           </span>
         );
@@ -180,6 +180,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
         prefixCls={prefixCls}
         className={cls}
         tabBarPosition={tabPosition}
+        direction={direction}
         renderTabBar={() => (
           <TabBar {...omit(tabBarProps, ['className'])} tabBarExtraContent={tabBarExtraContent} />
         )}

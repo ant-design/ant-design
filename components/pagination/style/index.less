@@ -7,6 +7,10 @@
 .@{pagination-prefix-cls} {
   .reset-component;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   ul,
   ol {
     margin: 0;
@@ -29,6 +33,11 @@
     margin-right: 8px;
     line-height: @pagination-item-size - 2px;
     vertical-align: middle;
+
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
   }
 
   &-item {
@@ -41,12 +50,17 @@
     text-align: center;
     vertical-align: middle;
     list-style: none;
-    background-color: @component-background;
+    background-color: @pagination-item-bg;
     border: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base;
     outline: 0;
     cursor: pointer;
     user-select: none;
+
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
 
     a {
       display: block;
@@ -96,9 +110,8 @@
       position: relative;
 
       .@{pagination-prefix-cls}-item-link-icon {
-        .iconfont-size-under-12px(12px);
-
         color: @primary-color;
+        font-size: @font-size-sm;
         letter-spacing: -1px;
         opacity: 0;
         transition: all 0.2s;
@@ -143,6 +156,11 @@
   &-jump-prev,
   &-jump-next {
     margin-right: 8px;
+
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
   }
   &-prev,
   &-next,
@@ -180,7 +198,7 @@
       height: 100%;
       font-size: 12px;
       text-align: center;
-      background-color: @component-background;
+      background-color: @pagination-item-link-bg;
       border: @border-width-base @border-style-base @border-color-base;
       border-radius: @border-radius-base;
       outline: none;
@@ -217,10 +235,20 @@
     margin-left: 16px;
     vertical-align: middle;
 
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 16px;
+      margin-left: 0;
+    }
+
     &-size-changer.@{ant-prefix}-select {
       display: inline-block;
       width: auto;
       margin-right: 8px;
+
+      .@{pagination-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 8px;
+      }
     }
 
     &-quick-jumper {
@@ -258,6 +286,11 @@
     height: @pagination-item-size-sm;
     margin-right: 8px;
 
+    .@{pagination-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 8px;
+    }
+
     input {
       box-sizing: border-box;
       height: 100%;
@@ -272,6 +305,11 @@
 
       &:hover {
         border-color: @primary-color;
+      }
+
+      .@{pagination-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 8px;
       }
     }
   }
@@ -350,10 +388,10 @@
       }
 
       &-active {
-        background: darken(@disabled-bg, 10%);
+        background: @pagination-item-disabled-bg-active;
         border-color: transparent;
         a {
-          color: #fff;
+          color: @pagination-item-disabled-color-active;
         }
       }
     }

@@ -45,7 +45,7 @@ ReactDOM.render(
         <Breadcrumb.Item>List</Breadcrumb.Item>
         <Breadcrumb.Item>App</Breadcrumb.Item>
       </Breadcrumb>
-      <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>Content</div>
+      <div className="site-layout-content">Content</div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
   </Layout>,
@@ -54,6 +54,11 @@ ReactDOM.render(
 ```
 
 ```css
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+}
 #components-layout-demo-top .logo {
   width: 120px;
   height: 31px;
@@ -62,3 +67,12 @@ ReactDOM.render(
   float: left;
 }
 ```
+
+<style>
+  [data-theme="dark"] .site-layout-content {
+    background: #141414;
+  }
+  [data-theme="dark"] #components-layout-demo-top .logo {
+    background: rgba(255,255,255,0.3);
+  }
+</style>

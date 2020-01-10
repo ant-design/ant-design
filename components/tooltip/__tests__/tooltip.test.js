@@ -9,9 +9,11 @@ import Input from '../../input';
 import Group from '../../input/Group';
 import { sleep } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
+  rtlTest(Tooltip);
 
   it('check `onVisibleChange` arguments', () => {
     const onVisibleChange = jest.fn();
@@ -204,8 +206,8 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(wrapper.find('span.ant-calendar-picker')).toHaveLength(1);
-    const picker = wrapper.find('span.ant-calendar-picker').at(0);
+    expect(wrapper.find('.ant-picker')).toHaveLength(1);
+    const picker = wrapper.find('.ant-picker').at(0);
     picker.simulate('mouseenter');
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);

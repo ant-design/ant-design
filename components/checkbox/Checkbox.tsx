@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
@@ -173,7 +172,5 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
     return <ConfigConsumer>{this.renderCheckbox}</ConfigConsumer>;
   }
 }
-
-polyfill(Checkbox);
 
 export default Checkbox;

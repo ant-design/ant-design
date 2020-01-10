@@ -36,6 +36,13 @@
     padding: 0 8px;
   }
 
+  &-rtl {
+    margin-right: 0;
+    margin-left: 8px;
+    direction: rtl;
+    text-align: right;
+  }
+
   .@{iconfont-css-prefix}-close {
     .iconfont-size-under-12px(10px);
 
@@ -44,6 +51,11 @@
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s @ease-in-out-circ;
+
+    .@{tag-prefix-cls}-rtl& {
+      margin-right: 3px;
+      margin-left: 0;
+    }
 
     &:hover {
       color: @heading-color;
@@ -102,5 +114,21 @@
     }
   }
 
+  .make-status-color-classes(@color, @status) {
+    @lightColor: '@{color}-1';
+    @lightBorderColor: '@{color}-3';
+    @darkColor: '@{color}-6';
+    &-@{status} {
+      color: @@darkColor;
+      background: @@lightColor;
+      border-color: @@lightBorderColor;
+    }
+  }
+
   .make-color-classes();
+
+  .make-status-color-classes('green', success);
+  .make-status-color-classes('cyan', processing);
+  .make-status-color-classes('red', error);
+  .make-status-color-classes('orange', warning);
 }

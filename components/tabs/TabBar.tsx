@@ -1,8 +1,10 @@
 import * as React from 'react';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
 import classNames from 'classnames';
+import { UpOutlined, LeftOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
+
 import { TabsProps } from './index';
-import Icon from '../icon';
+import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 
 export default class TabBar extends React.Component<TabsProps> {
   static defaultProps = {
@@ -10,7 +12,7 @@ export default class TabBar extends React.Component<TabsProps> {
     type: 'line',
   };
 
-  render() {
+  renderTabBar = ({ direction }: ConfigConsumerProps) => {
     const {
       tabBarStyle,
       animated,
@@ -25,16 +27,25 @@ export default class TabBar extends React.Component<TabsProps> {
     const inkBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
     const isVertical = tabPosition === 'left' || tabPosition === 'right';
-    const prevIconType = isVertical ? 'up' : 'left';
-    const nextIconType = isVertical ? 'down' : 'right';
+    let prevIconComponent = isVertical ? UpOutlined : LeftOutlined;
+    let nextIconComponent = isVertical ? DownOutlined : RightOutlined;
+
+    if (direction === 'rtl' && !isVertical) {
+      prevIconComponent = RightOutlined;
+      nextIconComponent = LeftOutlined;
+    }
     const prevIcon = (
       <span className={`${prefixCls}-tab-prev-icon`}>
-        <Icon type={prevIconType} className={`${prefixCls}-tab-prev-icon-target`} />
+        {React.createElement(prevIconComponent, {
+          className: `${prefixCls}-tab-prev-icon-target`,
+        })}
       </span>
     );
     const nextIcon = (
       <span className={`${prefixCls}-tab-next-icon`}>
-        <Icon type={nextIconType} className={`${prefixCls}-tab-next-icon-target`} />
+        {React.createElement(nextIconComponent, {
+          className: `${prefixCls}-tab-next-icon-target`,
+        })}
       </span>
     );
 
@@ -68,5 +79,9 @@ export default class TabBar extends React.Component<TabsProps> {
     }
 
     return React.cloneElement(RenderTabBar);
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderTabBar}</ConfigConsumer>;
   }
 }
