@@ -487,11 +487,11 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
   </div>
   <div
     class="ant-row"
-    style="margin-top:-10px;margin-bottom:10px"
+    style="margin-left:-16px;margin-right:-16px;margin-top:-10px;margin-bottom:10px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-top:10px;padding-bottom:10px"
+      style="padding-left:16px;padding-right:16px;padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"
@@ -501,7 +501,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-top:10px;padding-bottom:10px"
+      style="padding-left:16px;padding-right:16px;padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"
@@ -511,7 +511,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-top:10px;padding-bottom:10px"
+      style="padding-left:16px;padding-right:16px;padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"
@@ -521,7 +521,7 @@ exports[`renders ./components/grid/demo/gutter.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-top:10px;padding-bottom:10px"
+      style="padding-left:16px;padding-right:16px;padding-top:10px;padding-bottom:10px"
     >
       <div
         class="gutter-box"

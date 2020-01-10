@@ -217,7 +217,7 @@
       position: relative;
 
       &::before {
-        background: @picker-basic-cell-hover-color;
+        background: @picker-basic-cell-active-with-range-color;
       }
     }
 
@@ -232,7 +232,7 @@
     &-in-view&-range-start:not(&-range-start-single),
     &-in-view&-range-end:not(&-range-end-single) {
       &::before {
-        background: @picker-basic-cell-hover-color;
+        background: @picker-basic-cell-active-with-range-color;
       }
     }
 
@@ -291,7 +291,16 @@
     .@{picker-prefix-cls}-panel
       > :not(.@{picker-prefix-cls}-date-panel)
       &-in-view&-in-range&-range-hover-end::before {
-      background: @picker-basic-cell-hover-with-range-color;
+      background: @picker-date-hover-range-color;
+    }
+
+    // range start border-radius
+    &-in-view&-range-start:not(&-range-start-single):not(&-range-end) .@{cellClassName} {
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
+    // range end border-radius
+    &-in-view&-range-end:not(&-range-end-single):not(&-range-start) .@{cellClassName} {
+      border-radius: 0 @border-radius-base @border-radius-base 0;
     }
 
     // DatePanel only
@@ -302,7 +311,7 @@
         top: 0;
         bottom: 0;
         z-index: -1;
-        background: @picker-basic-cell-hover-with-range-color;
+        background: @picker-date-hover-range-color;
         content: '';
       }
     }
