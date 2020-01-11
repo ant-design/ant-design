@@ -20,6 +20,12 @@
   }
 }
 
+.make-vertical-layout() {
+  .@{form-prefix-cls}-item .@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+}
+
 .@{form-prefix-cls}-vertical {
   .@{form-item-prefix-cls} {
     flex-direction: column;
@@ -34,6 +40,7 @@
 }
 
 @media (max-width: @screen-xs-max) {
+  .make-vertical-layout();
   .@{ant-prefix}-col-xs-24.@{form-item-prefix-cls}-label {
     .make-vertical-layout-label();
   }
