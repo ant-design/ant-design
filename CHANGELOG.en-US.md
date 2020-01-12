@@ -29,7 +29,7 @@ timeline: true
   - 🐞 Fix crash when columns with empty children. [#20703](https://github.com/ant-design/ant-design/pull/20703)
 - 💄 Tweak Calendar basic style month drop-down box width and notice items of word order and card mode, select the size of the box. [#20790](https://github.com/ant-design/ant-design/pull/20790) [@xrkffgg](https://github.com/xrkffgg)
 - DatePicker
-  - 💄 Optimize the `border-radius` of the connection and change it to rounded corners. [#20736](https://github.com/ant-design/ant-design/pull/20736)
+  - 💄 Optimize the `border-radius` of the rounded corners connection. [#20736](https://github.com/ant-design/ant-design/pull/20736)
   - 🐞 Fix selected style overlap. [#20736](https://github.com/ant-design/ant-design/pull/20736)
   - 🐞 Fix extra dividing line at the bottom. [#20736](https://github.com/ant-design/ant-design/pull/20736)
   - 🐞 Fix button style for DatePicker's default range. [#20760](https://github.com/ant-design/ant-design/pull/20760) [@xrkffgg](https://github.com/xrkffgg)
