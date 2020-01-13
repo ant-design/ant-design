@@ -19,7 +19,7 @@ timeline: true
 
 `2020-01-13`
 
-- 💄 Optimize Table fixed columns blank problem in one situation. [#20821](https://github.com/ant-design/ant-design/pull/20821) [@AshoneA](https://github.com/AshoneA)
+- 💄 Optimize Table fixed columns blank problem in some case. [#20821](https://github.com/ant-design/ant-design/pull/20821) [@AshoneA](https://github.com/AshoneA)
 - 🐞 Fix Tree `switcherIcon` shown in leaf node problem. [#20753](https://github.com/ant-design/ant-design/pull/20753)
 - 🐞 Fix Badge `z-index` higher than Table fixed columns. [#20751](https://github.com/ant-design/ant-design/pull/20751)
 - 🐞 Fix Cascader search bug when `fieldNames` is existed and label/value share same name. [#20720](https://github.com/ant-design/ant-design/pull/20720)
