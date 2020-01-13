@@ -127,7 +127,7 @@
   .@{select-prefix-cls}-selection-placeholder {
     position: absolute;
     top: 0;
-    left: @control-padding-horizontal;
+    left: @input-padding-horizontal;
     height: @select-height-without-border;
     line-height: @select-height-without-border;
     transition: all 0.3s;
@@ -171,4 +171,11 @@
 
   .select-size('lg', @input-height-lg);
   .select-size('sm', @input-height-sm);
+
+  // Size small need additional set padding
+  &.@{select-prefix-cls}-sm {
+    .@{select-prefix-cls}-selection-placeholder {
+      left: @input-padding-horizontal-sm;
+    }
+  }
 }
