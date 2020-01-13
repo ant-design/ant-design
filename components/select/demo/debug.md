@@ -4,6 +4,7 @@ title:
   zh-CN: 4.0 Debug
   en-US: 4.0 Debug
 debug: true
+only: true
 ---
 
 ## zh-CN
