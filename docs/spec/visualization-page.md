@@ -68,7 +68,7 @@ title:
 
 ### 概览
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yc0dQJxTP8kAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wM0lTJPh4tcAAAAAAAAAAABkARQnAQ">
 
 将全局视角中最关键的指标，以平铺的方式展现在整个页面中，帮助决策者做决策。当指标重要性平均时采用左图布局，需要强调主题时采用右图布局
 
@@ -98,7 +98,7 @@ title:
 
 ### 分析
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Wl0fQbkQRc0AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*FSvoSbvL89YAAAAAAAAAAABkARQnAQ">
 
 将数据分析类型页面拆解为多个部分，通常为“总 - 分”的结构，多维度地展示数据的全貌，帮助使用者发现当前问题。
 
@@ -151,7 +151,7 @@ title:
 
 #### 卡片的组合方式
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tiuIS4h6CXgAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0UoySagZKGsAAAAAAAAAAABkARQnAQ">
 
 1、一张卡片放置一个主题内容。
 
@@ -163,7 +163,7 @@ title:
 
 #### 选择正确的可视化组件
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*68GPTblH5CQAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tNIuSJ2T0NYAAAAAAAAAAABkARQnAQ">
 
 当设计者对页面的结构有初步的思路之后，可根据信息粒度的大小来选择不同的可视化组件。信息粒度从大到小对应：指标卡和排行榜、图表、文本明细。
 
