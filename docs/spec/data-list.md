@@ -19,7 +19,7 @@ title:
 ## 列表类型
 
 <div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qwxZQa3glMMAAAAAAAAAAABkARQnAQ" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*60WRRKpliSIAAAAAAAAAAABkARQnAQ" />
 </div>
 
 ### 表格 Table
@@ -65,7 +65,7 @@ title:
 
 #### 筛选
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Zm_LQaKP160AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*oECHSpfxwPAAAAAAAAAAAABkARQnAQ">
 
 用户调整筛选项，结果即随之调整。
 
@@ -87,7 +87,7 @@ title:
 
 #### 同页加载
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VjfhR77Z1loAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ejtTTo4E0A4AAAAAAAAAAABkARQnAQ">
 
 当用户常常能够在列表靠前位置找到所需条目，且无定位特定列表项的需求时可以考虑使用这种模式，如动态、邮件。
 
@@ -110,7 +110,7 @@ title:
 
 ### 批量操作
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*UP0MRbqxbzUAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*28GbQISdcnwAAAAAAAAAAABkARQnAQ">
 
 当用户勾选条目后，触发批量操作模式，列表工具栏呼出批量操作工具条。[更多模式](https://yuque.antfin-inc.com/bigfish/fqm0ux/hya8hw)
 
@@ -118,13 +118,13 @@ title:
 
 #### 右上角新建按钮
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1oC_Tay1k5gAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*HeQwR4Dc5aEAAAAAAAAAAABkARQnAQ">
 
 点击触发新建表单弹窗、抽屉、页面等，完成创建后新创建的内容出现在列表的第一条，并短暂地高亮展示。
 
 #### 虚线新建按钮
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4weZTr6FX5MAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2OsyRpOCCIYAAAAAAAAAAABkARQnAQ">
 
 点击新建，在按钮位置出现对象编辑区，完成新建后即在该位置展示该新建对象。虚线新建按钮位置放在列表首或尾（参考[虚线按钮用法](https://yuque.antfin-inc.com/ui-assets/bgt2gr/ars4mz#jws7v),[可编辑列表模板](https://yuque.antfin-inc.com/docs/share/9a86324a-8e0e-45fa-9e28-9d4949668456)）。
 
@@ -132,7 +132,7 @@ title:
 
 #### 直接删除
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4weZTr6FX5MAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rPUVTqeMzzgAAAAAAAAAAABkARQnAQ">
 
 删除后，允许用户撤销。
 
