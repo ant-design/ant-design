@@ -623,7 +623,10 @@
       // https://github.com/ant-design/ant-design/issues/14545
       // https://github.com/ant-design/ant-design/issues/19491
       .@{table-prefix-cls}-fixed-columns-in-body:not([colspan]) {
-        visibility: hidden;
+        color: transparent;
+        & > * {
+          visibility: hidden;
+        }
       }
     }
   }
