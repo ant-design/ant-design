@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.26.7
+
+`2020-01-13`
+
+- 💄 优化 Table 固定列在某些情况下出现空白间隔的问题。[#20821](https://github.com/ant-design/ant-design/pull/20821) [@AshoneA](https://github.com/AshoneA)
+- 🐞 修复 Tree `switcherIcon` 在叶子节点上展示的问题。[#20753](https://github.com/ant-design/ant-design/pull/20753)
+- 🐞 修复 Badge 在 Table 固定列中穿透的问题。[#20751](https://github.com/ant-design/ant-design/pull/20751)
+- 🐞 修复 Cascader `fieldNames` 中 label 和 value 共用一个值时搜索功能失效的问题。[#20720](https://github.com/ant-design/ant-design/pull/20720)
+- 🐞 修复 Collapse 背景使用错误的 less 变量。[#20718](https://github.com/ant-design/ant-design/pull/20718) [@kuitos](https://github.com/kuitos)
+- 🐞 修复 `<Form layout="vertical" >` 内 Input.Group 偏上一像素的问题。[#20685](https://github.com/ant-design/ant-design/pull/20685)
+
 ## 3.26.6
 
 `2020-01-03`
