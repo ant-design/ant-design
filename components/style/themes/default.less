@@ -178,11 +178,11 @@
 @btn-default-ghost-bg: transparent;
 @btn-default-ghost-border: @component-background;
 
-@btn-padding-base: 0 @padding-md - 1px;
 @btn-font-size-lg: @font-size-lg;
 @btn-font-size-sm: @font-size-base;
-@btn-padding-lg: @btn-padding-base;
-@btn-padding-sm: 0 @padding-xs - 1px;
+@btn-padding-horizontal-base: @padding-md - 1px;
+@btn-padding-horizontal-lg: @btn-padding-horizontal-base;
+@btn-padding-horizontal-sm: @padding-xs - 1px;
 
 @btn-height-base: 32px;
 @btn-height-lg: 40px;
@@ -340,9 +340,13 @@
 @input-padding-horizontal-base: @input-padding-horizontal;
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
-@input-padding-vertical-base: 4px;
-@input-padding-vertical-sm: 1px;
-@input-padding-vertical-lg: 6px;
+@input-padding-vertical-base: round(
+    (@input-height-base - @font-size-base * @line-height-base) / 2 * 10
+  ) / 10 - @border-width-base;
+@input-padding-vertical-sm: round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) /
+  10 - @border-width-base;
+@input-padding-vertical-lg: round((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
+  10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
 @input-icon-color: @input-color;

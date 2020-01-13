@@ -1,8 +1,11 @@
 // mixins for button
 // ------------------------
-.button-size(@height; @padding; @font-size; @border-radius) {
+.button-size(@height; @padding-horizontal; @font-size; @border-radius) {
+  @padding-vertical: round((@height - @font-size * @line-height-base) / 2 * 10) / 10 -
+    @border-width-base;
+
   height: @height;
-  padding: @padding;
+  padding: @padding-vertical @padding-horizontal;
   font-size: @font-size;
   border-radius: @border-radius;
 }
@@ -181,7 +184,7 @@
   // size
   &-lg > .@{btnClassName},
   &-lg > span > .@{btnClassName} {
-    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; 0);
+    .button-size(@btn-height-lg; @btn-padding-horizontal-lg; @btn-font-size-lg; 0);
     line-height: @btn-height-lg - 2px;
   }
   &-lg > .@{btnClassName}.@{btnClassName}-icon-only {
@@ -191,7 +194,7 @@
   }
   &-sm > .@{btnClassName},
   &-sm > span > .@{btnClassName} {
-    .button-size(@btn-height-sm; @btn-padding-sm; @font-size-base; 0);
+    .button-size(@btn-height-sm; @btn-padding-horizontal-sm; @font-size-base; 0);
     line-height: @btn-height-sm - 2px;
     > .@{iconfont-css-prefix} {
       font-size: @font-size-base;
@@ -218,7 +221,9 @@
   transition: all 0.3s @ease-in-out;
   user-select: none;
   touch-action: manipulation;
-  .button-size(@btn-height-base; @btn-padding-base; @font-size-base; @btn-border-radius-base);
+  .button-size(
+    @btn-height-base; @btn-padding-horizontal-base; @font-size-base; @btn-border-radius-base
+  );
   > .@{iconfont-css-prefix} {
     line-height: 1;
   }
@@ -242,10 +247,14 @@
     }
   }
   &-lg {
-    .button-size(@btn-height-lg; @btn-padding-lg; @btn-font-size-lg; @btn-border-radius-base);
+    .button-size(
+      @btn-height-lg; @btn-padding-horizontal-lg; @btn-font-size-lg; @btn-border-radius-base
+    );
   }
   &-sm {
-    .button-size(@btn-height-sm; @btn-padding-sm; @btn-font-size-sm; @btn-border-radius-sm);
+    .button-size(
+      @btn-height-sm; @btn-padding-horizontal-sm; @btn-font-size-sm; @btn-border-radius-sm
+    );
   }
 }
 // primary button style
@@ -347,15 +356,15 @@
 }
 // round button
 .btn-round(@btnClassName: btn) {
-  .button-size(@btn-circle-size; 0 @btn-circle-size / 2; @font-size-base; @btn-circle-size);
+  .button-size(@btn-circle-size; @btn-circle-size / 2; @font-size-base; @btn-circle-size);
   &.@{btnClassName}-lg {
     .button-size(
-      @btn-circle-size-lg; 0 @btn-circle-size-lg / 2; @btn-font-size-lg; @btn-circle-size-lg
+      @btn-circle-size-lg; @btn-circle-size-lg / 2; @btn-font-size-lg; @btn-circle-size-lg
     );
   }
   &.@{btnClassName}-sm {
     .button-size(
-      @btn-circle-size-sm; 0 @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
+      @btn-circle-size-sm; @btn-circle-size-sm / 2; @font-size-base; @btn-circle-size-sm
     );
   }
 }
