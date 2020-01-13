@@ -33,6 +33,11 @@ ReactDOM.render(
     <br />
 
     <Input prefix="￥" suffix="RMB" />
+
+    <br />
+    <br />
+
+    <Input prefix="￥" suffix="RMB" disabled />
   </div>,
   mountNode,
 );
