@@ -99,7 +99,9 @@ title:
 
 ### 导航至详情
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eMxHQqV30h8AAAAAAAAAAABkARQnAQ">
+<div>
+  <img alt="mainly" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eMxHQqV30h8AAAAAAAAAAABkARQnAQ">
+<div>
 
 #### 默认点击标题导航至详情，可以从以下几个角度判断如何打开详情：
 

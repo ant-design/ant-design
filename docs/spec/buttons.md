@@ -20,7 +20,9 @@ title:
 
 ### 常规按钮
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wztLSpK6sUcAAAAAAAAAAABkARQnAQ">
+<div>
+  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wsXrT7yQH2MAAAAAAAAAAABkARQnAQ">
+</div>
 
 #### ① 次按钮
 
