@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.26.7
+
+`2020-01-13`
+
+- 💄 Optimize Table fixed columns blank problem in some case. [#20821](https://github.com/ant-design/ant-design/pull/20821) [@AshoneA](https://github.com/AshoneA)
+- 🐞 Fix Tree `switcherIcon` shown in leaf node problem. [#20753](https://github.com/ant-design/ant-design/pull/20753)
+- 🐞 Fix Badge `z-index` higher than Table fixed columns. [#20751](https://github.com/ant-design/ant-design/pull/20751)
+- 🐞 Fix Cascader search bug when `fieldNames` is existed and label/value share same name. [#20720](https://github.com/ant-design/ant-design/pull/20720)
+- 🐞 Fix Collapse background color with wrong less variable. [#20718](https://github.com/ant-design/ant-design/pull/20718) [@kuitos](https://github.com/kuitos)
+- 🐞 Fix Input.Group inside `<Form layout="vertical" >` 1px bug. [#20685](https://github.com/ant-design/ant-design/pull/20685)
+
 ## 3.26.6
 
 `2020-01-03`
