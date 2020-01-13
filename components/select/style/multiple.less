@@ -133,7 +133,7 @@
     transition: all 0.3s;
 
     .@{select-prefix-cls}-rtl& {
-      right: @control-padding-horizontal;
+      right: @input-padding-horizontal;
       left: auto;
     }
   }
@@ -176,6 +176,10 @@
   &.@{select-prefix-cls}-sm {
     .@{select-prefix-cls}-selection-placeholder {
       left: @input-padding-horizontal-sm;
+
+      .@{select-prefix-cls}-rtl& {
+        right: @input-padding-horizontal-sm;
+      }
     }
   }
 }
