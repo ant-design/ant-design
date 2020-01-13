@@ -28,10 +28,8 @@ ReactDOM.render(
         </Tooltip>
       }
     />
-
     <br />
     <br />
-
     <Input prefix="￥" suffix="RMB" />
   </div>,
   mountNode,
