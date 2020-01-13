@@ -49,7 +49,7 @@ title:
 
 ### 基础布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dzpzTr8RbP0AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tKooSqMRdTEAAAAAAAAAAABkARQnAQ">
 
 基础详情单页直接平铺所有需要展示的的信息，推荐使用这种详情展示方式。
 
@@ -79,7 +79,7 @@ title:
 
 ### 复杂布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CaRTTo-By8kAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*BBAlT7zwS0gAAAAAAAAAAABkARQnAQ">
 
 将信息复杂度较高、相关性较弱的信息拆分为多个部分，并通过 页签 、分步、卡片分区、卡片内分组等形式按照相关性分组，用来处理复杂度较高的详情内容。
 
@@ -122,7 +122,7 @@ title:
 
 #### 内容组件
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WtLgTbrtrLIAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tcpgR5NFL14AAAAAAAAAAABkARQnAQ">
 
 根据不同的信息类型和复杂度选用对应的信息呈现方式。按复杂度由低至高，提供以下组件供选择：
 
