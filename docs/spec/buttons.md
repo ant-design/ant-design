@@ -78,7 +78,7 @@ title:
 
 置于复杂或较深的背景中，避免按钮突兀地破坏背景的整体性，该场景下可灵活定制样式。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GnxqQo0dZmAAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-wORTrNJ6YUAAAAAAAAAAABkARQnAQ">
 
 #### 行动号召按钮 Call to action
 
@@ -88,7 +88,7 @@ title:
 
 ## 位置
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wAoYQZGNsR0AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ZBxBQJ4OnnAAAAAAAAAAAABkARQnAQ">
 
 将按钮区放置于用户浏览路径中，便于被用户发现。
 
@@ -108,7 +108,7 @@ title:
 
 ### 什么时候需要在 Footer 中放置按钮？
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VolZTIKEgw4AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KGGWQLCBfm0AAAAAAAAAAABkARQnAQ">
 
 - Body 区部分内容被折叠或隐藏，例如单屏无法展示完整内容；
 - Body 区的内容复杂度高，例如有多个分组，分组中又有独立的按钮区，这时候需要将该主题的“完成”操作从 body 区区分出来，避免混淆按钮所能影响的内容范围。
