@@ -155,6 +155,43 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
       </span>
     </button>
   </div>
+  <div
+    class="ant-btn-group ant-dropdown-button"
+  >
+    <button
+      class="ant-btn ant-btn-default"
+      type="button"
+    >
+      <span>
+        With Tooltip
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-dropdown-trigger ant-btn-default"
+      type="button"
+    >
+      <span
+        aria-label="ellipsis"
+        class="anticon anticon-ellipsis"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="ellipsis"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
   <button
     class="ant-btn ant-dropdown-trigger"
     type="button"
