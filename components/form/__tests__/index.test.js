@@ -188,8 +188,16 @@ describe('Form', () => {
         mount(<Demo />, { attachTo: document.body });
 
         expect(scrollIntoView).not.toHaveBeenCalled();
-        callGetForm().scrollToField('test');
-        expect(scrollIntoView).toHaveBeenCalled();
+        const form = callGetForm();
+        form.scrollToField('test', {
+          block: 'start',
+        });
+
+        const inputNode = document.getElementById('scroll_test');
+        expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
+          block: 'start',
+          scrollMode: 'if-needed',
+        });
       });
     }
 
