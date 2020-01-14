@@ -163,8 +163,10 @@
       }
 
       .@{select-prefix-cls}-selection-placeholder {
-        height: @select-height-without-border;
-        line-height: @select-height-without-border;
+        height: @select-selection-height + @select-multiple-padding + @select-multiple-padding * 2 +
+          @border-width-base;
+        line-height: @select-selection-height + @select-multiple-padding + @select-multiple-padding *
+          2 + @border-width-base;
       }
     }
   }
