@@ -1903,6 +1903,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                         >
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="0"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -1946,6 +1947,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="1"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -1988,6 +1990,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="3"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2030,6 +2033,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="4"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2073,6 +2077,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="6"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2115,6 +2120,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="7"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2157,6 +2163,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="9"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2199,6 +2206,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="10"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2241,6 +2249,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="12"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2284,6 +2293,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="13"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2562,6 +2572,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                         >
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="2"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2590,6 +2601,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="5"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2618,6 +2630,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="8"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2647,6 +2660,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="11"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2675,6 +2689,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="14"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
@@ -2703,6 +2718,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                           </tr>
                           <tr
                             class="ant-table-row ant-table-row-level-0"
+                            data-row-key="17"
                           >
                             <td
                               class="ant-table-cell ant-table-selection-column"
