@@ -324,4 +324,24 @@ describe('Form', () => {
     }
     /* eslint-enable */
   });
+
+  // https://github.com/ant-design/ant-design/issues/20813
+  it('should update help directly when provided', () => {
+    function App() {
+      const [message, updateMessage] = React.useState('');
+      return (
+        <Form>
+          <Form.Item label="hello" help={message}>
+            <Input />
+          </Form.Item>
+          <Button onClick={() => updateMessage('bamboo')} />
+        </Form>
+      );
+    }
+
+    const wrapper = mount(<App />);
+    wrapper.find('button').simulate('click');
+    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-with-help')).toBeTruthy();
+    expect(wrapper.find('.ant-form-item-explain').text()).toEqual('bamboo');
+  });
 });
