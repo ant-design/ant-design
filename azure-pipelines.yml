@@ -39,5 +39,5 @@ stages:
             npx surge --project ./_site --domain $DEPLOY_DOMAIN
           displayName: 'Deploy Site'
         - script: |
-            node ./scripts/azure-github-comment.js "Preview deploy to https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh"
+            node ./scripts/azure-github-comment.js "Preview deployed to https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh"
           displayName: 'Update comment on github'
