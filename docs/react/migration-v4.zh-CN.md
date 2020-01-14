@@ -116,6 +116,7 @@ const Demo = () => (
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
+- Table 在没有 `columns` 时仍然会保留一列。
 
 ## 开始升级
 

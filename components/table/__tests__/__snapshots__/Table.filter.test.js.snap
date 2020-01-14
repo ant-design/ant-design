@@ -108,6 +108,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -117,6 +118,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -126,6 +128,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -135,6 +138,7 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -250,6 +254,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -259,6 +264,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -268,6 +274,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -277,6 +284,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -371,6 +379,7 @@ exports[`Table.filter renders filter correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -380,6 +389,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -389,6 +399,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -398,6 +409,7 @@ exports[`Table.filter renders filter correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -784,6 +796,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -793,6 +806,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -802,6 +816,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -811,6 +826,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -1005,6 +1021,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -1014,6 +1031,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -1023,6 +1041,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -1032,6 +1051,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"

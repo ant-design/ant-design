@@ -66,6 +66,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -95,6 +96,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -124,6 +126,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -153,6 +156,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -331,6 +335,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
@@ -361,6 +366,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
@@ -391,6 +397,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
@@ -421,6 +428,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
@@ -625,6 +633,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -653,6 +662,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -681,6 +691,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -709,6 +720,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
