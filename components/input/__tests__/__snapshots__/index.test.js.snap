@@ -10,11 +10,14 @@ exports[`Input allowClear should change type when click 1`] = `
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -26,7 +29,9 @@ exports[`Input allowClear should change type when click 1`] = `
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -133,11 +138,14 @@ exports[`Input allowClear should change type when click 2`] = `
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -149,7 +157,9 @@ exports[`Input allowClear should change type when click 2`] = `
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -175,11 +185,14 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -191,7 +204,9 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -215,11 +230,14 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -231,7 +249,9 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -257,11 +277,14 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -273,7 +296,9 @@ exports[`Input allowClear should not show icon if defaultValue is undefined, nul
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -298,12 +323,15 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
         value={null}
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -315,7 +343,9 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -339,11 +369,14 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -355,7 +388,9 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -380,12 +415,15 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     element={
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
         value=""
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     prefixCls="ant-input"
@@ -397,7 +435,9 @@ exports[`Input allowClear should not show icon if value is undefined, null or em
     >
       <input
         className="ant-input"
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         style={null}
         type="text"
@@ -435,11 +475,14 @@ exports[`Input should support maxLength 1`] = `
       <input
         className="ant-input"
         maxLength={3}
+        onBlur={[Function]}
         onChange={[Function]}
+        onFocus={[Function]}
         onKeyDown={[Function]}
         type="text"
       />
     }
+    focused={false}
     handleReset={[Function]}
     inputType="input"
     maxLength={3}
@@ -450,7 +493,9 @@ exports[`Input should support maxLength 1`] = `
     <input
       className="ant-input"
       maxLength={3}
+      onBlur={[Function]}
       onChange={[Function]}
+      onFocus={[Function]}
       onKeyDown={[Function]}
       type="text"
       value=""
@@ -485,11 +530,14 @@ exports[`Input.Search should support suffix 1`] = `
       element={
         <input
           className="ant-input ant-input-search"
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           type="text"
         />
       }
+      focused={false}
       handleReset={[Function]}
       inputType="input"
       onChange={[Function]}
@@ -512,7 +560,9 @@ exports[`Input.Search should support suffix 1`] = `
       >
         <input
           className="ant-input"
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           style={null}
           type="text"

@@ -16,13 +16,16 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
         element={
           <input
             className="ant-input"
+            onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder=""
             type="text"
             value=""
           />
         }
+        focused={false}
         handleReset={[Function]}
         inputType="input"
         onChange={[Function]}
@@ -33,7 +36,9 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
       >
         <input
           className="ant-input"
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder=""
           type="text"
@@ -138,13 +143,16 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
         element={
           <input
             className="ant-input"
+            onBlur={[Function]}
             onChange={[Function]}
+            onFocus={[Function]}
             onKeyDown={[Function]}
             placeholder=""
             type="text"
             value="a"
           />
         }
+        focused={false}
         handleReset={[Function]}
         inputType="input"
         onChange={[Function]}
@@ -155,7 +163,9 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
       >
         <input
           className="ant-input"
+          onBlur={[Function]}
           onChange={[Function]}
+          onFocus={[Function]}
           onKeyDown={[Function]}
           placeholder=""
           type="text"

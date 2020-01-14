@@ -1782,6 +1782,28 @@ exports[`renders ./components/input/demo/presuffix.md correctly 1`] = `
       RMB
     </span>
   </span>
+  <br />
+  <br />
+  <span
+    class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
+  >
+    <span
+      class="ant-input-prefix"
+    >
+      ￥
+    </span>
+    <input
+      class="ant-input ant-input-disabled"
+      disabled=""
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      RMB
+    </span>
+  </span>
 </div>
 `;
 

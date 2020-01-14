@@ -25,6 +25,7 @@ interface BasicProps {
   style?: object;
   disabled?: boolean;
   direction?: any;
+  focused?: boolean;
 }
 
 /**
@@ -65,34 +66,44 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderLabeledIcon(prefixCls: string, element: React.ReactElement<any>) {
-    const props = this.props;
-    const suffix = this.renderSuffix(prefixCls);
-    if (!hasPrefixSuffix(props)) {
+    const {
+      focused,
+      value,
+      prefix,
+      className,
+      size,
+      suffix,
+      disabled,
+      allowClear,
+      direction,
+      style,
+    } = this.props;
+    const suffixNode = this.renderSuffix(prefixCls);
+    if (!hasPrefixSuffix(this.props)) {
       return React.cloneElement(element, {
-        value: props.value,
+        value,
       });
     }
 
-    const prefix = props.prefix ? (
-      <span className={`${prefixCls}-prefix`}>{props.prefix}</span>
-    ) : null;
+    const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
-    const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
-      [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
-      [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
-      [`${prefixCls}-affix-wrapper-input-with-clear-btn`]:
-        props.suffix && props.allowClear && this.props.value,
-      [`${prefixCls}-affix-wrapper-rtl`]: props.direction === 'rtl',
+    const affixWrapperCls = classNames(className, `${prefixCls}-affix-wrapper`, {
+      [`${prefixCls}-affix-wrapper-focused`]: focused,
+      [`${prefixCls}-affix-wrapper-disabled`]: disabled,
+      [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+      [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+      [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
+      [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
     });
     return (
-      <span className={affixWrapperCls} style={props.style}>
-        {prefix}
+      <span className={affixWrapperCls} style={style}>
+        {prefixNode}
         {React.cloneElement(element, {
           style: null,
-          value: props.value,
-          className: getInputClassName(prefixCls, props.size, props.disabled),
+          value,
+          className: getInputClassName(prefixCls, size, disabled),
         })}
-        {suffix}
+        {suffixNode}
       </span>
     );
   }
