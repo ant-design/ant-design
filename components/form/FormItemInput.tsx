@@ -42,6 +42,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   prefixCls,
   wrapperCol,
   children,
+  help,
   errors,
   onDomErrorVisibleChange,
   hasFeedback,
@@ -63,7 +64,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
       onDomErrorVisibleChange(true);
     }
     forceUpdate({});
-  });
+  }, !!help);
 
   const memoErrors = useMemo(
     () => cacheErrors,
