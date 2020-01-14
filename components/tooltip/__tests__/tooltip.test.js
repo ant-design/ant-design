@@ -243,4 +243,14 @@ describe('Tooltip', () => {
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(wrapper.instance().tooltip.props.visible).toBe(false);
   });
+
+  // https://github.com/ant-design/ant-design/issues/20891
+  it('should display zero', async () => {
+    const wrapper = mount(
+      <Tooltip title={0} visible>
+        <div />
+      </Tooltip>,
+    );
+    expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
+  });
 });

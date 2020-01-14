@@ -3,6 +3,10 @@
 // Placeholder text
 .placeholder(@color: @input-placeholder-color) {
   // Firefox
+  &::-moz-placeholder {
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+
   &::placeholder {
     color: @color;
   }

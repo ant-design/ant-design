@@ -347,6 +347,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -398,6 +399,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -444,6 +446,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -633,6 +636,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -654,6 +658,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -675,6 +680,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -842,6 +848,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -873,6 +880,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -904,6 +912,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -936,6 +945,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell"
@@ -962,6 +972,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="5"
                 >
                   <td
                     class="ant-table-cell"
@@ -1225,6 +1236,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -1244,6 +1256,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -1263,6 +1276,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -1282,6 +1296,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell"
@@ -1434,6 +1449,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                   index="0"
                   style="cursor:move"
                 >
@@ -1455,6 +1471,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                   index="1"
                   style="cursor:move"
                 >
@@ -1476,6 +1493,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                   index="2"
                   style="cursor:move"
                 >
@@ -2333,6 +2351,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -2418,6 +2437,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -2503,6 +2523,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -2588,6 +2609,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -2673,6 +2695,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="5"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -2758,6 +2781,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="6"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -2843,6 +2867,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="7"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -2928,6 +2953,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="8"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -3013,6 +3039,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="9"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -3098,6 +3125,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="10"
                   >
                     <td
                       class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -3340,6 +3368,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0 editable-row"
+                    data-row-key="0"
                   >
                     <td
                       class="ant-table-cell"
@@ -3371,6 +3400,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0 editable-row"
+                    data-row-key="1"
                   >
                     <td
                       class="ant-table-cell"
@@ -3548,6 +3578,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -3574,6 +3605,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -3600,6 +3632,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -3626,6 +3659,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -3652,6 +3686,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell"
@@ -3678,6 +3713,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="5"
                 >
                   <td
                     class="ant-table-cell"
@@ -3704,6 +3740,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="6"
                 >
                   <td
                     class="ant-table-cell"
@@ -3730,6 +3767,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="7"
                 >
                   <td
                     class="ant-table-cell"
@@ -3756,6 +3794,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="8"
                 >
                   <td
                     class="ant-table-cell"
@@ -3782,6 +3821,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0 editable-row"
+                  data-row-key="9"
                 >
                   <td
                     class="ant-table-cell"
@@ -4052,6 +4092,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -4092,6 +4133,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -4132,6 +4174,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -4317,6 +4360,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -4352,6 +4396,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -4387,6 +4432,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -4422,6 +4468,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -4620,6 +4667,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -4667,6 +4715,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -4905,6 +4954,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -4969,6 +5019,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5263,6 +5314,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5327,6 +5379,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5391,6 +5444,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5455,6 +5509,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5519,6 +5574,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5583,6 +5639,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="5"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5647,6 +5704,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="6"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5711,6 +5769,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="7"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5775,6 +5834,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="8"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -5839,6 +5899,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="9"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left"
@@ -6142,6 +6203,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -6161,6 +6223,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -6180,6 +6243,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -6199,6 +6263,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -6218,6 +6283,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell"
@@ -6237,6 +6303,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="5"
                 >
                   <td
                     class="ant-table-cell"
@@ -6256,6 +6323,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="6"
                 >
                   <td
                     class="ant-table-cell"
@@ -6275,6 +6343,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="7"
                 >
                   <td
                     class="ant-table-cell"
@@ -6294,6 +6363,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="8"
                 >
                   <td
                     class="ant-table-cell"
@@ -6313,6 +6383,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="9"
                 >
                   <td
                     class="ant-table-cell"
@@ -6332,6 +6403,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="10"
                 >
                   <td
                     class="ant-table-cell"
@@ -6351,6 +6423,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="11"
                 >
                   <td
                     class="ant-table-cell"
@@ -6370,6 +6443,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="12"
                 >
                   <td
                     class="ant-table-cell"
@@ -6389,6 +6463,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="13"
                 >
                   <td
                     class="ant-table-cell"
@@ -6408,6 +6483,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="14"
                 >
                   <td
                     class="ant-table-cell"
@@ -6427,6 +6503,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="15"
                 >
                   <td
                     class="ant-table-cell"
@@ -6446,6 +6523,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="16"
                 >
                   <td
                     class="ant-table-cell"
@@ -6465,6 +6543,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="17"
                 >
                   <td
                     class="ant-table-cell"
@@ -6484,6 +6563,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="18"
                 >
                   <td
                     class="ant-table-cell"
@@ -6503,6 +6583,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="19"
                 >
                   <td
                     class="ant-table-cell"
@@ -6522,6 +6603,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="20"
                 >
                   <td
                     class="ant-table-cell"
@@ -6541,6 +6623,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="21"
                 >
                   <td
                     class="ant-table-cell"
@@ -6560,6 +6643,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="22"
                 >
                   <td
                     class="ant-table-cell"
@@ -6579,6 +6663,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="23"
                 >
                   <td
                     class="ant-table-cell"
@@ -6598,6 +6683,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="24"
                 >
                   <td
                     class="ant-table-cell"
@@ -6617,6 +6703,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="25"
                 >
                   <td
                     class="ant-table-cell"
@@ -6636,6 +6723,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="26"
                 >
                   <td
                     class="ant-table-cell"
@@ -6655,6 +6743,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="27"
                 >
                   <td
                     class="ant-table-cell"
@@ -6674,6 +6763,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="28"
                 >
                   <td
                     class="ant-table-cell"
@@ -6693,6 +6783,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="29"
                 >
                   <td
                     class="ant-table-cell"
@@ -6712,6 +6803,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="30"
                 >
                   <td
                     class="ant-table-cell"
@@ -6731,6 +6823,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="31"
                 >
                   <td
                     class="ant-table-cell"
@@ -6750,6 +6843,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="32"
                 >
                   <td
                     class="ant-table-cell"
@@ -6769,6 +6863,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="33"
                 >
                   <td
                     class="ant-table-cell"
@@ -6788,6 +6883,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="34"
                 >
                   <td
                     class="ant-table-cell"
@@ -6807,6 +6903,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="35"
                 >
                   <td
                     class="ant-table-cell"
@@ -6826,6 +6923,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="36"
                 >
                   <td
                     class="ant-table-cell"
@@ -6845,6 +6943,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="37"
                 >
                   <td
                     class="ant-table-cell"
@@ -6864,6 +6963,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="38"
                 >
                   <td
                     class="ant-table-cell"
@@ -6883,6 +6983,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="39"
                 >
                   <td
                     class="ant-table-cell"
@@ -6902,6 +7003,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="40"
                 >
                   <td
                     class="ant-table-cell"
@@ -6921,6 +7023,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="41"
                 >
                   <td
                     class="ant-table-cell"
@@ -6940,6 +7043,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="42"
                 >
                   <td
                     class="ant-table-cell"
@@ -6959,6 +7063,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="43"
                 >
                   <td
                     class="ant-table-cell"
@@ -6978,6 +7083,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="44"
                 >
                   <td
                     class="ant-table-cell"
@@ -6997,6 +7103,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="45"
                 >
                   <td
                     class="ant-table-cell"
@@ -7016,6 +7123,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="46"
                 >
                   <td
                     class="ant-table-cell"
@@ -7035,6 +7143,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="47"
                 >
                   <td
                     class="ant-table-cell"
@@ -7054,6 +7163,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="48"
                 >
                   <td
                     class="ant-table-cell"
@@ -7073,6 +7183,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="49"
                 >
                   <td
                     class="ant-table-cell"
@@ -7432,6 +7543,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7478,6 +7590,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7524,6 +7637,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7570,6 +7684,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7616,6 +7731,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7662,6 +7778,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="5"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7708,6 +7825,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="6"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7754,6 +7872,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="7"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7800,6 +7919,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="8"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -7846,6 +7966,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="9"
                 >
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
@@ -8328,6 +8449,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -8347,6 +8469,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -8366,6 +8489,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -8385,6 +8509,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell"
@@ -8567,6 +8692,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -8621,6 +8747,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -8670,6 +8797,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -9025,6 +9153,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -9049,6 +9178,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -9073,6 +9203,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -9097,6 +9228,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell"
@@ -9284,6 +9416,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -9334,6 +9467,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -9384,6 +9518,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell"
@@ -9834,6 +9969,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
                   >
                     <td
                       class="ant-table-cell ant-table-cell-ellipsis"
@@ -9855,6 +9991,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
                   >
                     <td
                       class="ant-table-cell ant-table-cell-ellipsis"
@@ -9876,6 +10013,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
                   >
                     <td
                       class="ant-table-cell ant-table-cell-ellipsis"
@@ -9897,6 +10035,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
                   >
                     <td
                       class="ant-table-cell ant-table-cell-ellipsis"
@@ -10088,6 +10227,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell"
@@ -10119,6 +10259,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -10150,6 +10291,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -10388,6 +10530,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10429,6 +10572,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10470,6 +10614,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10511,6 +10656,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10730,6 +10876,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="0"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10768,6 +10915,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10806,6 +10954,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10844,6 +10993,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10882,6 +11032,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="4"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10920,6 +11071,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="5"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10958,6 +11110,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="6"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -10996,6 +11149,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="7"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -11034,6 +11188,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="8"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -11072,6 +11227,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="9"
                   >
                     <td
                       class="ant-table-cell ant-table-selection-column"
@@ -11335,6 +11491,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="0"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11373,6 +11530,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11411,6 +11569,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11449,6 +11608,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11487,6 +11647,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11525,6 +11686,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="5"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11563,6 +11725,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="6"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11601,6 +11764,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="7"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11639,6 +11803,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="8"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11677,6 +11842,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="9"
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column"
@@ -11889,6 +12055,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
                   >
                     <td
                       class="ant-table-cell"
@@ -11908,6 +12075,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
                   >
                     <td
                       class="ant-table-cell"
@@ -11927,6 +12095,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
                   >
                     <td
                       class="ant-table-cell"
@@ -12079,6 +12248,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                 >
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="1"
                   >
                     <td
                       class="ant-table-cell"
@@ -12098,6 +12268,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="2"
                   >
                     <td
                       class="ant-table-cell"
@@ -12117,6 +12288,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
                   </tr>
                   <tr
                     class="ant-table-row ant-table-row-level-0"
+                    data-row-key="3"
                   >
                     <td
                       class="ant-table-cell"
@@ -12270,6 +12442,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
               >
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
                 >
                   <td
                     class="ant-table-cell"
@@ -12289,6 +12462,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
                 >
                   <td
                     class="ant-table-cell"
@@ -12308,6 +12482,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
                 >
                   <td
                     class="ant-table-cell"
@@ -12327,6 +12502,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
                 </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
                 >
                   <td
                     class="ant-table-cell"

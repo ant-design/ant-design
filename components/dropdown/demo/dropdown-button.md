@@ -14,7 +14,7 @@ title:
 A button is on the left, and a related functional menu is on the right. You can set the icon property to modify the icon of right.
 
 ```jsx
-import { Menu, Dropdown, Button, message } from 'antd';
+import { Menu, Dropdown, Button, message, Tooltip } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
 function handleButtonClick(e) {
@@ -54,6 +54,17 @@ ReactDOM.render(
     </Dropdown.Button>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>
       Dropdown
+    </Dropdown.Button>
+    <Dropdown.Button
+      overlay={menu}
+      buttonsRender={([leftButton, rightButton]) => [
+        <Tooltip title="tooltip" key="leftButton">
+          {leftButton}
+        </Tooltip>,
+        rightButton,
+      ]}
+    >
+      With Tooltip
     </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button>

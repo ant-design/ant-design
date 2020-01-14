@@ -149,7 +149,7 @@ class Header extends React.Component {
       .slice(0, -1)
       .join('/');
     let activeMenuItem = module || 'home';
-    if (location.pathname === 'changelog') {
+    if (location.pathname === 'changelog' || location.pathname === 'changelog-cn') {
       activeMenuItem = 'docs/react';
     }
 

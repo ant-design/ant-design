@@ -1,52 +1,38 @@
-# Node.js
-# Build a general Node.js project with npm.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-name: ant design
+name: Ant Design
 
-trigger:
-  batch: true
+trigger: none
+
+pr:
+  autoCancel: true
   branches:
     exclude:
       - gh-pages
 
-jobs:
-  - job: test_
-    pool:
-      vmImage: 'Ubuntu-16.04'
-    strategy:
-      matrix:
-        Lint:
-          TEST_TYPE: lint
-        dist-react@16:
-          REACT: 16
-          TEST_TYPE: test:dist
-        lib-react@16:
-          REACT: 16
-          TEST_TYPE: test:lib
-        es-react@16:
-          REACT: 16
-          TEST_TYPE: test:es
-        dom-react@16:
-          REACT: 16
-          TEST_TYPE: test:dom
-        node-react@16:
-          REACT: 16
-          TEST_TYPE: test:node
-    steps:
-      - checkout: self
-        fetchDepth: 1
-        clean: false
-      - task: NodeTool@0
-        inputs:
-          versionSpec: '10.x'
-      - script: npm install
-        displayName: install
-      - script: scripts/travis-script.sh
-        displayName: test
-      - task: PublishBuildArtifacts@1
-        # 主分支，并且运行成功
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-        inputs:
-          pathtoPublish: './package-lock.json'
-          artifactName: lock
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+- stage: site
+  jobs:
+    - job: Build_Site
+      steps:
+        - checkout: self
+          displayName: 'Checkout'
+          clean: true
+          fetchDepth: 1
+        - task: NodeTool@0
+          displayName: 'Install Node.js'
+          inputs:
+            versionSpec: '12.13.1'
+        - script: npm install
+          displayName: 'Install modules'
+        - script: npm run site
+          displayName: 'Build sites'
+        - script: ls -al _site/
+          displayName: 'List build'
+        - script: |
+            export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
+            echo "Deploy to $DEPLOY_DOMAIN"
+            npx surge --project ./_site --domain $DEPLOY_DOMAIN
+            curl -X POST -u ${ACCESS_TOKEN} -H "Accept: application/json" -H "Content-Type:application/json" https://api.github.com/repos/ant-design/ant-design/issues/${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}/comments -d '{ "body": "Preview deploy to '${DEPLOY_DOMAIN}'" }'
+          displayName: 'Deploy Site'

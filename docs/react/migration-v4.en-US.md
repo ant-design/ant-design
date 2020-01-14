@@ -116,6 +116,7 @@ const Demo = () => (
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
+- Table will keep at least one column even if `columns` is empty.
 
 ## Start upgrading
 

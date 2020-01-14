@@ -14,7 +14,7 @@ title:
 -   <Input />
 - </Form.Item>
 + <Form.Item label="Field">
-+   <Form.Item name="field" onStyle><Input /></Form.Item> // 直接包裹才会绑定表单
++   <Form.Item name="field" noStyle><Input /></Form.Item> // 直接包裹才会绑定表单
 +   <span>description</span>
 + </Form.Item>
 ```
@@ -38,7 +38,7 @@ This demo show how to use `Form.Item` with multiple controls. `<Form.Item name="
 -   <Input />
 - </Form.Item>
 + <Form.Item label="Field">
-+   <Form.Item name="field" onStyle><Input /></Form.Item> // that will bind input
++   <Form.Item name="field" noStyle><Input /></Form.Item> // that will bind input
 +   <span>description</span>
 + </Form.Item>
 ```

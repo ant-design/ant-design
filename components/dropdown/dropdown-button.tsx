@@ -17,19 +17,18 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  /**
-   * @since 3.17.0
-   */
   icon?: React.ReactNode;
   href?: string;
   children?: React.ReactNode;
   title?: string;
+  buttonsRender?: (buttons: React.ReactNode[]) => React.ReactNode[];
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
   static defaultProps = {
     placement: 'bottomRight' as DropDownProps['placement'],
     type: 'default' as DropdownButtonType,
+    buttonsRender: (buttons: React.ReactNode[]) => buttons,
   };
 
   renderButton = ({
@@ -54,6 +53,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       href,
       icon = <EllipsisOutlined />,
       title,
+      buttonsRender,
       ...restProps
     } = this.props;
 
@@ -67,25 +67,32 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
       placement,
       getPopupContainer: getPopupContainer || getContextPopupContainer,
     } as DropDownProps;
+
     if ('visible' in this.props) {
       dropdownProps.visible = visible;
     }
 
+    const leftButton = (
+      <Button
+        type={type}
+        disabled={disabled}
+        onClick={onClick}
+        htmlType={htmlType}
+        href={href}
+        title={title}
+      >
+        {children}
+      </Button>
+    );
+
+    const rightButton = <Button type={type}>{icon}</Button>;
+
+    const [leftButtonToRender, rightButtonToRender] = buttonsRender!([leftButton, rightButton]);
+
     return (
       <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
-        <Button
-          type={type}
-          disabled={disabled}
-          onClick={onClick}
-          htmlType={htmlType}
-          href={href}
-          title={title}
-        >
-          {children}
-        </Button>
-        <Dropdown {...dropdownProps}>
-          <Button type={type}>{icon}</Button>
-        </Dropdown>
+        {leftButtonToRender}
+        <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
       </ButtonGroup>
     );
   };
