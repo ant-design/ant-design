@@ -75,7 +75,7 @@ All the icons will render to `<svg>`. You can still set `style` and `className` 
 
 ### Set TwoTone Color
 
-When using the two-tone icons, you can use the static methods `getTwoToneColor()` and `setTwoToneColor(colorString)` to spicify the primary color.
+When using the two-tone icons, you can use the static methods `getTwoToneColor()` and `setTwoToneColor(colorString)` to specify the primary color.
 
 ```jsx
 import { getTwoToneColor, setTwoToneColor } from '@ant-design/icons';
