@@ -1,5 +1,5 @@
 import * as React from 'react';
-import RcTree, { TreeNode } from 'rc-tree';
+import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
 import classNames from 'classnames';
 import { DataNode } from 'rc-tree/lib/interface';
 
@@ -98,7 +98,7 @@ export interface TreeNodeNormal {
   children?: TreeNodeNormal[];
 }
 
-export interface TreeProps {
+export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
   showLine?: boolean;
   className?: string;
   /** 是否支持多选 */
@@ -128,50 +128,23 @@ export interface TreeProps {
   /** 默认选中的树节点 */
   defaultSelectedKeys?: string[];
   selectable?: boolean;
-  /** 展开/收起节点时触发 */
-  onExpand?: (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => void | PromiseLike<void>;
-  /** 点击复选框触发 */
-  onCheck?: (
-    checkedKeys: string[] | { checked: string[]; halfChecked: string[] },
-    e: AntTreeNodeCheckedEvent,
-  ) => void;
   /** 点击树节点触发 */
-  onSelect?: (selectedKeys: string[], e: AntTreeNodeSelectedEvent) => void;
-  /** 单击树节点触发 */
-  onClick?: (e: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
-  /** 双击树节点触发 */
-  onDoubleClick?: (e: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
-  /** filter some AntTreeNodes as you need. it should return true */
   filterAntTreeNode?: (node: AntTreeNode) => boolean;
-  /** 异步加载数据 */
-  loadData?: (node: AntTreeNode) => PromiseLike<void>;
   loadedKeys?: string[];
-  onLoad?: (loadedKeys: string[], info: { event: 'load'; node: AntTreeNode }) => void;
-  /** 响应右键点击 */
-  onRightClick?: (options: AntTreeNodeMouseEvent) => void;
   /** 设置节点可拖拽（IE>8） */
   draggable?: boolean;
-  onDragStart?: (options: AntTreeNodeMouseEvent) => void;
-  onDragEnter?: (options: AntTreeNodeDragEnterEvent) => void;
-  onDragOver?: (options: AntTreeNodeMouseEvent) => void;
-  onDragLeave?: (options: AntTreeNodeMouseEvent) => void;
-  onDragEnd?: (options: AntTreeNodeMouseEvent) => void;
-  onMouseEnter?: (options: AntTreeNodeMouseEvent) => void;
-  onMouseLeave?: (options: AntTreeNodeMouseEvent) => void;
-  onDrop?: (options: AntTreeNodeDropEvent) => void;
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
   switcherIcon?: React.ReactElement<any>;
   prefixCls?: string;
-  filterTreeNode?: (node: AntTreeNode) => boolean;
   children?: React.ReactNode;
   blockNode?: boolean;
   treeData?: Array<TreeNodeNormal>;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {
-  static TreeNode: React.ComponentClass<AntTreeNodeProps> = TreeNode;
+  static TreeNode = TreeNode;
 
   static DirectoryTree = DirectoryTree;
 
