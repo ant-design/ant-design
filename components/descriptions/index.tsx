@@ -4,11 +4,25 @@ import toArray from 'rc-util/lib/Children/toArray';
 import warning from '../_util/warning';
 import ResponsiveObserve, {
   Breakpoint,
-  BreakpointMap,
+  ScreenMap,
   responsiveArray,
 } from '../_util/responsiveObserve';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Col from './Col';
+
+// https://github.com/smooth-code/react-flatten-children/
+function flattenChildren(children: React.ReactNode): JSX.Element[] {
+  if (!children) {
+    return [];
+  }
+  return toArray(children).reduce((flatChildren: JSX.Element[], child: JSX.Element) => {
+    if (child && child.type === React.Fragment) {
+      return flatChildren.concat(flattenChildren(child.props.children));
+    }
+    flatChildren.push(child);
+    return flatChildren;
+  }, []);
+}
 
 export interface DescriptionsItemProps {
   prefixCls?: string;
@@ -47,7 +61,7 @@ const generateChildrenRows = (
   let columns: React.ReactElement<DescriptionsItemProps>[] | null = null;
   let leftSpans: number;
 
-  const itemNodes = toArray(children);
+  const itemNodes = flattenChildren(children);
   itemNodes.forEach((node: React.ReactElement<DescriptionsItemProps>, index: number) => {
     let itemNode = node;
 
@@ -78,7 +92,7 @@ const generateChildrenRows = (
       warning(
         leftSpans === 0 && lastSpanSame,
         'Descriptions',
-        'Sum of column `span` in a line exceeds `column` of Descriptions.',
+        'Sum of column `span` in a line not match `column` of Descriptions.',
       );
     }
   });
@@ -113,7 +127,7 @@ const renderRow = (
 
   const cloneChildren: JSX.Element[] = [];
   const cloneContentChildren: JSX.Element[] = [];
-  toArray(children).forEach(
+  flattenChildren(children).forEach(
     (childrenItem: React.ReactElement<DescriptionsItemProps>, idx: number) => {
       cloneChildren.push(renderCol(childrenItem, 'label', idx));
       if (layout === 'vertical') {
@@ -154,7 +168,7 @@ const defaultColumnMap = {
 class Descriptions extends React.Component<
   DescriptionsProps,
   {
-    screens: BreakpointMap;
+    screens: ScreenMap;
   }
 > {
   static defaultProps: DescriptionsProps = {
@@ -165,7 +179,7 @@ class Descriptions extends React.Component<
   static Item: typeof DescriptionsItem = DescriptionsItem;
 
   state: {
-    screens: BreakpointMap;
+    screens: ScreenMap;
   } = {
     screens: {},
   };
@@ -210,7 +224,7 @@ class Descriptions extends React.Component<
   render() {
     return (
       <ConfigConsumer>
-        {({ getPrefixCls }: ConfigConsumerProps) => {
+        {({ getPrefixCls, direction }: ConfigConsumerProps) => {
           const {
             className,
             prefixCls: customizePrefixCls,
@@ -225,7 +239,7 @@ class Descriptions extends React.Component<
           const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
 
           const column = this.getColumn();
-          const cloneChildren = toArray(children)
+          const cloneChildren = flattenChildren(children)
             .map((child: React.ReactElement<DescriptionsItemProps>) => {
               if (React.isValidElement(child)) {
                 return React.cloneElement(child, {
@@ -236,14 +250,15 @@ class Descriptions extends React.Component<
             })
             .filter((node: React.ReactElement) => node);
 
-          const childrenArray: Array<
-            React.ReactElement<DescriptionsItemProps>[]
-          > = generateChildrenRows(cloneChildren, column);
+          const childrenArray: Array<React.ReactElement<
+            DescriptionsItemProps
+          >[]> = generateChildrenRows(cloneChildren, column);
           return (
             <div
               className={classNames(prefixCls, className, {
                 [`${prefixCls}-${size}`]: size !== 'default',
                 [`${prefixCls}-bordered`]: !!bordered,
+                [`${prefixCls}-rtl`]: direction === 'rtl',
               })}
               style={style}
             >

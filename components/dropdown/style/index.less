@@ -12,6 +12,10 @@
   z-index: @zindex-dropdown;
   display: block;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &::before {
     position: absolute;
     top: -7px;
@@ -21,6 +25,11 @@
     z-index: -9999;
     opacity: 0.0001;
     content: ' ';
+
+    .@{dropdown-prefix-cls}-rtl& {
+      right: -7px;
+      left: 0;
+    }
   }
 
   &-wrap {
@@ -49,10 +58,10 @@
   &-menu {
     position: relative;
     margin: 0;
-    padding: 4px 0;
+    padding: @dropdown-edge-child-vertical-padding 0;
     text-align: left;
     list-style-type: none;
-    background-color: @component-background;
+    background-color: @dropdown-menu-bg;
     background-clip: padding-box;
     border-radius: @border-radius-base;
     outline: none;
@@ -76,6 +85,10 @@
       ul,
       li {
         list-style: none;
+
+        .@{dropdown-prefix-cls}-rtl & {
+          text-align: right;
+        }
       }
 
       ul {
@@ -98,11 +111,20 @@
       cursor: pointer;
       transition: all 0.3s;
 
+      .@{dropdown-prefix-cls}-rtl & {
+        text-align: right;
+      }
+
       > .anticon:first-child,
       > span > .anticon:first-child {
         min-width: 12px;
         margin-right: 8px;
         font-size: @font-size-sm;
+
+        .@{dropdown-prefix-cls}-rtl & {
+          margin-right: 0;
+          margin-left: 8px;
+        }
       }
 
       > a {
@@ -111,6 +133,21 @@
         padding: 5px @control-padding-horizontal;
         color: @text-color;
         transition: all 0.3s;
+        &:hover {
+          color: @text-color;
+        }
+      }
+
+      &:first-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
+      }
+
+      &:last-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
       }
 
       &-selected,
@@ -129,7 +166,7 @@
 
         &:hover {
           color: @disabled-color;
-          background-color: @component-background;
+          background-color: @dropdown-menu-submenu-disabled-bg;
           cursor: not-allowed;
         }
       }
@@ -145,6 +182,12 @@
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
         right: @padding-xs;
+
+        .@{dropdown-prefix-cls}-rtl & {
+          right: auto;
+          left: @padding-xs;
+        }
+
         &-icon {
           color: @text-color-secondary;
           font-style: normal;
@@ -161,6 +204,11 @@
 
     &-submenu-title {
       padding-right: 26px;
+
+      .@{dropdown-prefix-cls}-rtl & {
+        padding-right: @control-padding-horizontal;
+        padding-left: 26px;
+      }
     }
 
     &-submenu-vertical {
@@ -174,13 +222,20 @@
       min-width: 100%;
       margin-left: 4px;
       transform-origin: 0 0;
+
+      .@{dropdown-prefix-cls}-rtl & {
+        right: 100%;
+        left: 0;
+        margin-right: 4px;
+        margin-left: 0;
+      }
     }
 
     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
       &,
       .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
         color: @disabled-color;
-        background-color: @component-background;
+        background-color: @dropdown-menu-submenu-disabled-bg;
         cursor: not-allowed;
       }
     }

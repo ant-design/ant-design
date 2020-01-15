@@ -5,32 +5,38 @@ title: Introduction
 ---
 
 <div style="text-align:center;margin:40px 0;">
-  <img width="600" src="https://gw.alipayobjects.com/zos/rmsportal/lcamFWetlMgLkLmDUgmZ.png">
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*P0S-QIRUbsUAAAAAAAAAAABkARQnAQ">
 </div>
 
-In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development. After massive project practice and summaries, Ant Design, a design language for background applications, is refined by Ant UED Team, which aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development.
+Ant Financial has a large number of enterprise-level products. With complex scenarios, designers and developers often need to respond fast due to frequent changes in product demands and concurrent R & D workflow. Many similar contents exist in the process. Through abstraction, we could obtain some stable and highly reusable components and pages.
 
-Ant Design which is specially created for internal desktop applications, is committed to improving the experience of users and product designers. User interface designers and user experience designers, collectively, are considered as product designers, and the boundaries of product managers, interaction designers, visual designers, front-end developers and develop engineers are blurred. Taking advantage of unitary specifications, Ant Design makes design and prototype more simple and accessible for all project members, which comprehensively promotes experience and development efficiency of background applications and products.
+On the other hand, with the trend of commercialization, more and more enterprise products begin to pursue better user experiences. Under this situation, Ant User-Experience Design Team builds a design system for enterprise products based on four design values of Natural, Certain, Meaningful, and Growing. It aims to uniform the user interface specs and reduce redundancies and excessive production costs, helping product designers to focus on better user experience.
 
 ---
 
 ## Guidelines and Resources
 
-We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.
+We provide comprehensive design guidelines, best practices, resources, and tools to help designers produce high-quality product prototypes.
 
-- [Principles](/docs/spec/proximity)
-- [Patterns](/docs/pattern/navigation)
-- [Resource Download](/docs/resource/download)
+- [Design values](/docs/spec/values)
+- [Design patterns](/docs/spec/overview)
+- [Visualization](/docs/spec/visual)
+- [Illustrations](/docs/spec/illustration)
+- [Design resources](/docs/spec/download)
+- [Sketch toolbox](http://kitchen.alipay.com/)
+- [Articles](/docs/spec/article)
 
 ## Front-end Implementation
 
 [React](http://facebook.github.io/react/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](https://ant.design/docs/spec/introduce) in other front-end frameworks of their choice.
 
 ```__react
-import { Icon } from 'antd';
+import {
+  ExportOutlined,
+} from '@ant-design/icons';
 
 const LinkIcon = () => (
-  <Icon type="export" className="outside-link-icon" />
+  <ExportOutlined className="outside-link-icon" />
 );
 
 const LinksList = () => (
@@ -51,6 +57,11 @@ const LinksList = () => (
     </li>
     <li>
       <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
+    </li>
+    <li>
+      <a href="https://ecomfe.github.io/santd" target="_blank">
+        San UI Toolkit for Ant Design<LinkIcon />
+      </a>
     </li>
     <li>
       <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">

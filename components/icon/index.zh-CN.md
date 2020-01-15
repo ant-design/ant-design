@@ -21,19 +21,37 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 ## API
 
+从 4.0 开始，antd 不再内置 Icon 组件，请使用独立的包 `@ant-design/icons`。
+
+### 通用图标
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| type | 图标类型。遵循图标的命名规范 | string | - |  |
 | style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
-| theme | 图标主题风格。可选实心、描线、双色等主题风格，适用于官方图标 | 'filled' \| 'outlined' \| 'twoTone' | 'outlined' | 3.9.0 |
 | spin | 是否有旋转动画 | boolean | false |  |
-| rotate | 图标旋转角度（3.13.0 后新增，IE9 无效） | number | - | 3.13.0 |
-| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件，**会使 `type` 属性失效** | ComponentType<CustomIconComponentProps\> | - | 3.9.0 |
-| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - | 3.9.0 |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色 | string (十六进制颜色) | - |  |
 
-> 注意：Icon 组件中图标渲染的优先级为 component > children > type, 传入 props 时，优先级高的直接生效，优先级低的则失效。
+其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
-### SVG 图标
+```jsx
+import { StarOutlined, StarFilled, StarTwoTone } from '@ant-design/icons';
+
+<StarOutlined />
+<StarFilled />
+<StarTwoTone twoToneColor="#eb2f96" />
+```
+
+### 自定义 Icon/Custom Icon
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - |  |
+| spin | 是否有旋转动画 | boolean | false |  |
+| rotate | 图标旋转角度（IE9 无效） | number | - |  |
+| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 `React` 组件 | ComponentType<CustomIconComponentProps\> | - |  |
+
+### 关于 SVG 图标
 
 在 `3.9.0` 之后，我们使用了 SVG 图标替换了原先的 font 图标，从而带来了以下优势：
 
@@ -44,29 +62,23 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 更多讨论可参考：[#10353](https://github.com/ant-design/ant-design/issues/10353)。
 
-> ⚠️ 3.9.0 之后我们全量引入了所有图标，导致 antd 默认的包体积有一定增加，我们会在不远的未来增加新的 API 来实现图标的按需使用，更多相关讨论可关注：[#12011](https://github.com/ant-design/ant-design/issues/12011)。
->
-> 在此之前，你可以通过来自社区同学的 [webpack 插件](https://github.com/Beven91/webpack-ant-icon-loader)将图标文件拆分。
-
-其中 `theme`, `component`, `twoToneColor` 是 `3.9.x` 版本新增加的属性。最佳实践是给使用的 `<Icon />` 组件传入属性 `theme` 以明确图标的主题风格。例如：
-
-```jsx
-<Icon type="star" theme="filled" />
-```
-
 所有的图标都会以 `<svg>` 标签渲染，可以使用 `style` 和 `className` 设置图标的大小和单色图标的颜色。例如：
 
 ```jsx
-<Icon type="message" style={{ fontSize: '16px', color: '#08c' }} />
+import { MessageOutlined } from '@ant-design/icons';
+
+<MessageOutlined style={{ fontSize: '16px', color: '#08c' }} />;
 ```
 
 ### 双色图标主色
 
-对于双色图标，可以通过使用 `Icon.getTwoToneColor()` 和 `Icon.setTwoToneColor(colorString)` 来全局设置图标主色。
+对于双色图标，可以通过使用 `getTwoToneColor()` 和 `setTwoToneColor(colorString)` 来全局设置图标主色。
 
 ```jsx
-Icon.setTwoToneColor('#eb2f96');
-Icon.getTwoToneColor(); // #eb2f96
+import { getTwoToneColor, setTwoToneColor } from '@ant-design/icons';
+
+setTwoToneColor('#eb2f96');
+getTwoToneColor(); // #eb2f96
 ```
 
 ### 自定义 font 图标
@@ -74,7 +86,9 @@ Icon.getTwoToneColor(); // #eb2f96
 在 `3.9.0` 之后，我们提供了一个 `createFromIconfontCN` 方法，方便开发者调用在 [iconfont.cn](http://iconfont.cn/) 上自行管理的图标。
 
 ```js
-const MyIcon = Icon.createFromIconfontCN({
+import { createFromIconfontCN } from '@ant-design/icons';
+
+const MyIcon = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js', // 在 iconfont.cn 上生成
 });
 
@@ -87,8 +101,8 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址 | string | - | 3.9.3 |
-| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ [key: string]: any }` | {} | 3.9.3 |
+| scriptUrl | [iconfont.cn](http://iconfont.cn/) 项目在线生成的 `js` 地址 | string | - |  |
+| extraCommonProps | 给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性 | `{ [key: string]: any }` | {} |  |
 
 在 `scriptUrl` 都设置有效的情况下，组件在渲染前会自动引入 [iconfont.cn](http://iconfont.cn/) 项目中的图标符号集，无需手动引入。
 
@@ -118,7 +132,7 @@ ReactDOM.render(<MyIcon type="icon-example" />, mountedNode);
 ```
 
 ```jsx
-import { Icon } from 'antd';
+import Icon from '@ant-design/icons';
 import MessageSvg from 'path/to/message.svg'; // path to your '*.svg' file.
 
 ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
@@ -126,10 +140,10 @@ ReactDOM.render(<Icon component={MessageSvg} />, mountNode);
 
 `Icon` 中的 `component` 组件的接受的属性如下：
 
-| 字段      | 说明                    | 类型             | 只读值         | 版本   |
-| --------- | ----------------------- | ---------------- | -------------- | ------ |
-| width     | `svg` 元素宽度          | string \| number | '1em'          | 3.10.0 |
-| height    | `svg` 元素高度          | string \| number | '1em'          | 3.10.0 |
-| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' | 3.10.0 |
-| className | 计算后的 `svg` 类名     | string           | -              | 3.10.0 |
-| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              | 3.10.0 |
+| 字段      | 说明                    | 类型             | 只读值         | 版本 |
+| --------- | ----------------------- | ---------------- | -------------- | ---- |
+| width     | `svg` 元素宽度          | string \| number | '1em'          |      |
+| height    | `svg` 元素高度          | string \| number | '1em'          |      |
+| fill      | `svg` 元素填充的颜色    | string           | 'currentColor' |      |
+| className | 计算后的 `svg` 类名     | string           | -              |      |
+| style     | 计算后的 `svg` 元素样式 | CSSProperties    | -              |      |

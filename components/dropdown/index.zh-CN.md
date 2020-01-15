@@ -20,8 +20,8 @@ title: Dropdown
 | disabled | 菜单是否禁用 | boolean | - |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | `() => document.body` |  |
 | overlay | 菜单 | [Menu](/components/menu) \| () => Menu | - |  |
-| overlayClassName | 下拉根元素的类名称 | string | - | 3.11.0 |
-| overlayStyle | 下拉根元素的样式 | object | - | 3.11.0 |
+| overlayClassName | 下拉根元素的类名称 | string | - |  |
+| overlayStyle | 下拉根元素的样式 | object | - |  |
 | placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |  |
 | trigger | 触发下拉的行为, 移动端不支持 hover | Array&lt;`click`\|`hover`\|`contextMenu`> | `['hover']` |  |
 | visible | 菜单是否显示 | boolean | - |  |
@@ -38,7 +38,7 @@ title: Dropdown
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | disabled | 菜单是否禁用 | boolean | - |  |
-| icon | 右侧的 icon | ReactNode | - | 3.17.0 |
+| icon | 右侧的 icon | ReactNode | - |  |
 | overlay | 菜单 | [Menu](/components/menu/) | - |  |
 | placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |  |
 | size | 按钮大小，和 [Button](/components/button/) 一致 | string | 'default' |  |
@@ -47,3 +47,4 @@ title: Dropdown
 | visible | 菜单是否显示 | boolean | - |  |
 | onClick | 点击左侧按钮的回调，和 [Button](/components/button/) 一致 | Function | - |  |
 | onVisibleChange | 菜单显示状态改变时调用，参数为 visible | Function | - |  |
+| buttonsRender | 自定义左右两个按钮 | `([buttons: ReactNode[]]) => ReactNode` | - |  |

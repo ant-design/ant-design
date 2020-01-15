@@ -14,7 +14,7 @@ title:
 Simple table with actions.
 
 ```jsx
-import { Table, Divider, Tag } from 'antd';
+import { Table, Tag } from 'antd';
 
 const columns = [
   {
@@ -58,8 +58,7 @@ const columns = [
     key: 'action',
     render: (text, record) => (
       <span>
-        <a>Invite {record.name}</a>
-        <Divider type="vertical" />
+        <a style={{ marginRight: 16 }}>Invite {record.name}</a>
         <a>Delete</a>
       </span>
     ),

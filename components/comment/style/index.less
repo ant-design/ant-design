@@ -5,6 +5,11 @@
 
 .@{comment-prefix-cls} {
   position: relative;
+  background-color: @comment-bg;
+
+  &-rtl {
+    direction: rtl;
+  }
 
   &-inner {
     display: flex;
@@ -16,6 +21,11 @@
     flex-shrink: 0;
     margin-right: 12px;
     cursor: pointer;
+
+    .@{comment-prefix-cls}-rtl & {
+      margin-right: 0;
+      margin-left: 12px;
+    }
     img {
       width: 32px;
       height: 32px;
@@ -41,6 +51,11 @@
         padding-right: 8px;
         font-size: @comment-font-size-sm;
         line-height: 18px;
+
+        .@{comment-prefix-cls}-rtl & {
+          padding-right: 0;
+          padding-left: 8px;
+        }
       }
 
       &-name {
@@ -70,6 +85,10 @@
   &-actions {
     margin-top: 12px;
     padding-left: 0;
+
+    .@{comment-prefix-cls}-rtl & {
+      padding-right: 0;
+    }
     > li {
       display: inline-block;
       color: @comment-action-color;
@@ -80,6 +99,12 @@
         cursor: pointer;
         transition: color 0.3s;
         user-select: none;
+
+        .@{comment-prefix-cls}-rtl & {
+          padding-right: 0;
+          padding-left: 10px;
+        }
+
         &:hover {
           color: @comment-action-hover-color;
         }
@@ -89,5 +114,10 @@
 
   &-nested {
     margin-left: @comment-nest-indent;
+
+    .@{comment-prefix-cls}-rtl & {
+      margin-right: @comment-nest-indent;
+      margin-left: 0;
+    }
   }
 }

@@ -3,10 +3,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import {
-  LocaleProvider,
   Pagination,
   DatePicker,
   TimePicker,
@@ -17,6 +15,7 @@ import {
   Select,
   Transfer,
 } from '../..';
+import LocaleProvider from '..';
 import arEG from '../ar_EG';
 import bgBG from '../bg_BG';
 import caES from '../ca_ES';
@@ -43,6 +42,7 @@ import jaJP from '../ja_JP';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kuIQ from '../ku_IQ';
+import mkMK from '../mk_MK';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
@@ -95,6 +95,7 @@ const locales = [
   knIN,
   koKR,
   kuIQ,
+  mkMK,
   msMY,
   mnMN,
   nbNO,
@@ -246,21 +247,5 @@ describe('Locale Provider', () => {
     expect(wrapper.render()).toMatchSnapshot();
     wrapper.setState({ locale: null });
     expect(wrapper.render()).toMatchSnapshot();
-  });
-
-  it('warning if use LocaleProvider', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    resetWarned();
-
-    mount(
-      <LocaleProvider locale={{}}>
-        <div />
-      </LocaleProvider>,
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: LocaleProvider] `LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
-    );
-
-    errorSpy.mockRestore();
   });
 });

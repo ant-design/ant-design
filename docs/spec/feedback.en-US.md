@@ -1,5 +1,6 @@
 ---
-category: Patterns
+category: Design Patterns
+type: Global Rules
 order: 11
 title: Feedback
 ---

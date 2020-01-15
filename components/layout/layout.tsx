@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import createContext from '@ant-design/create-react-context';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -19,7 +18,7 @@ export interface LayoutContextProps {
     removeSider: (id: string) => void;
   };
 }
-export const LayoutContext = createContext<LayoutContextProps>({
+export const LayoutContext = React.createContext<LayoutContextProps>({
   siderHook: {
     addSider: () => null,
     removeSider: () => null,
@@ -83,11 +82,12 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
     };
   }
 
-  render() {
+  renderComponent = ({ direction }: ConfigConsumerProps) => {
     const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
     const classString = classNames(className, prefixCls, {
       [`${prefixCls}-has-sider`]:
         typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 
     return (
@@ -97,6 +97,10 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
         </Tag>
       </LayoutContext.Provider>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
 

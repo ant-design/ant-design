@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-带有搜索按钮的输入框，`2.5.0` 时新增。
+带有搜索按钮的输入框。
 
 ## en-US
 
-Example of creating a search box by grouping a standard input with a search button, added in `2.5.0`.
+Example of creating a search box by grouping a standard input with a search button.
 
 ```jsx
 import { Input } from 'antd';

@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Dropdown from '..';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('DropdownButton', () => {
   mountTest(() => (
@@ -11,6 +12,13 @@ describe('DropdownButton', () => {
     </Dropdown>
   ));
   mountTest(Dropdown.Button);
+
+  rtlTest(() => (
+    <Dropdown menu={<Menu />}>
+      <span />
+    </Dropdown>
+  ));
+  rtlTest(Dropdown.Button);
 
   it('pass appropriate props to Dropdown', () => {
     const props = {

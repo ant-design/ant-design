@@ -7,9 +7,9 @@ title: Resources
 Please find below some of the design resources and tools about Ant Design that we consider valuable. More of this is still being collected.
 
 <div class="resource-cards">
-  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.3.12.0.sketch" class="resource-card">
+  <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.4.0.Beta.sketch" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/pKfDZnzocrbAOSzDQOQq.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*XsDPQrwQZwEAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
@@ -20,7 +20,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Mobile.Template.sketch" class="resource-card">
     <div class="resource-card-icon">
-      <img width="41" src="https://gw.alipayobjects.com/zos/rmsportal/rFMdPVzabtQwxONUuVFr.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*CBq9R5XenxEAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Mobile Components</span>
@@ -29,7 +29,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Pro.sketch" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ibCZMxKsTUzDbwTEdcTC.svg">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JL4NSrPh8QsAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design Pro</span>
@@ -38,7 +38,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="http://library.ant.design" class="resource-card">
     <div class="resource-card-icon">
-      <img width="50" src="https://gw.alipayobjects.com/zos/rmsportal/TXrKQUJBTuwSTGimGYYn.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7-yRTpL6l0MAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design Library</span>
@@ -47,7 +47,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="http://kitchen.alipay.com" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/ATYZYtJhchhONKObIwXT.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*JSzfToJBU_8AAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
@@ -59,7 +59,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="https://landing.ant.design/docs/download" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*On5cQ7NoNL8AAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">
@@ -70,7 +70,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="http://ux.ant.design" class="resource-card">
     <div class="resource-card-icon">
-      <img width="64" src="https://gw.alipayobjects.com/zos/rmsportal/yMULSUQQyhoEGrCXlovN.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*l_PmRLizBTMAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant UX</span>
@@ -79,7 +79,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="https://www.xiaopiu.com/topic/ant-design" class="resource-card">
     <div class="resource-card-icon">
-      <img width="72" src="https://img.xiaopiu.com/userImages/img753167822272f8.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zPTWTLt72YIAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">Ant Design Prototype (xiaopiu)</span>
@@ -100,7 +100,7 @@ Please find below some of the design resources and tools about Ant Design that w
   </a>
   <a target="_blank" href="https://store.framer.com/package/bhaveshchow/ant-design-system" class="resource-card">
     <div class="resource-card-icon">
-      <img width="65" src="https://raw.githubusercontent.com/bhaveshc20/antdesign-framer/master/framerant-icon.png">
+      <img width="65" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*W5TbRLtV1YYAAAAAAAAAAABkARQnAQ">
     </div>
     <div class="resource-card-content">
       <span class="resource-card-title">

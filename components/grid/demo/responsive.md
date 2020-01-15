@@ -1,5 +1,5 @@
 ---
-order: 7
+order: 8
 title:
   zh-CN: 响应式布局
   en-US: Responsive

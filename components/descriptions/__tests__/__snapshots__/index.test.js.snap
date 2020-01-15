@@ -192,7 +192,7 @@ exports[`Descriptions Descriptions.Item support className 1`] = `
                 colSpan={1}
               >
                 <span
-                  className="ant-descriptions-item-label my-class ant-descriptions-item-colon"
+                  className="ant-descriptions-item-label ant-descriptions-item-colon"
                   key="label"
                 >
                   Product
@@ -374,6 +374,78 @@ exports[`Descriptions column is number 1`] = `
     </div>
   </div>
 </Descriptions>
+`;
+
+exports[`Descriptions should work with React Fragment 1`] = `
+<div
+  class="ant-descriptions"
+>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            >
+              bamboo
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              bamboo
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            >
+              bamboo
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              bamboo
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <span
+              class="ant-descriptions-item-label ant-descriptions-item-colon"
+            >
+              bamboo
+            </span>
+            <span
+              class="ant-descriptions-item-content"
+            >
+              bamboo
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 `;
 
 exports[`Descriptions vertical layout 1`] = `

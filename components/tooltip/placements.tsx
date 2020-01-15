@@ -1,4 +1,5 @@
-import { placements as rcPlacements } from 'rc-tooltip/lib/placements';
+import { placements } from 'rc-tooltip/lib/placements';
+import { BuildInPlacements } from 'rc-trigger';
 
 const autoAdjustOverflowEnabled = {
   adjustX: 1,
@@ -42,7 +43,7 @@ export default function getPlacements(config: PlacementsConfig = {}) {
     verticalArrowShift = 12,
     autoAdjustOverflow = true,
   } = config;
-  const placementMap: any = {
+  const placementMap: BuildInPlacements = {
     left: {
       points: ['cr', 'cl'],
       offset: [-4, 0],
@@ -100,7 +101,7 @@ export default function getPlacements(config: PlacementsConfig = {}) {
           targetOffset,
         }
       : {
-          ...rcPlacements[key],
+          ...placements[key],
           overflow: getOverflowOptions(autoAdjustOverflow),
         };
 

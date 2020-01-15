@@ -4,13 +4,6 @@
 
 // Grid system
 .@{ant-prefix}-row {
-  .make-row();
-
-  display: block;
-  box-sizing: border-box;
-}
-
-.@{ant-prefix}-row-flex {
   display: flex;
   flex-flow: row wrap;
 
@@ -18,55 +11,64 @@
   &::after {
     display: flex;
   }
+
+  &-rtl {
+    direction: rtl;
+  }
 }
 
 // x轴原点
-.@{ant-prefix}-row-flex-start {
+.@{ant-prefix}-row-start {
   justify-content: flex-start;
 }
 
 // x轴居中
-.@{ant-prefix}-row-flex-center {
+.@{ant-prefix}-row-center {
   justify-content: center;
 }
 
 // x轴反方向
-.@{ant-prefix}-row-flex-end {
+.@{ant-prefix}-row-end {
   justify-content: flex-end;
 }
 
 // x轴平分
-.@{ant-prefix}-row-flex-space-between {
+.@{ant-prefix}-row-space-between {
   justify-content: space-between;
 }
 
 // x轴有间隔地平分
-.@{ant-prefix}-row-flex-space-around {
+.@{ant-prefix}-row-space-around {
   justify-content: space-around;
 }
 
 // 顶部对齐
-.@{ant-prefix}-row-flex-top {
+.@{ant-prefix}-row-top {
   align-items: flex-start;
 }
 
 // 居中对齐
-.@{ant-prefix}-row-flex-middle {
+.@{ant-prefix}-row-middle {
   align-items: center;
 }
 
 // 底部对齐
-.@{ant-prefix}-row-flex-bottom {
+.@{ant-prefix}-row-bottom {
   align-items: flex-end;
 }
 
 .@{ant-prefix}-col {
   position: relative;
+  flex: 0 1 auto;
+  max-width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
+
+  &&-rtl {
+    float: right;
+  }
 }
 
-.make-grid-columns();
 .make-grid();
 
 // Extra small grid

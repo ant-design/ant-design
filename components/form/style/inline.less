@@ -1,0 +1,36 @@
+@import './index';
+
+.@{form-prefix-cls}-inline {
+  display: flex;
+  flex-wrap: wrap;
+
+  .@{form-prefix-cls}-item {
+    flex: none;
+    flex-wrap: nowrap;
+    margin-right: 16px;
+    margin-bottom: 0;
+
+    .@{form-prefix-cls}-rtl& {
+      margin-right: 0;
+      margin-left: 16px;
+    }
+
+    &-with-help {
+      margin-bottom: @form-item-margin-bottom;
+    }
+
+    > .@{form-item-prefix-cls}-label,
+    > .@{form-item-prefix-cls}-control {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .@{form-prefix-cls}-text {
+      display: inline-block;
+    }
+
+    .@{form-item-prefix-cls}-has-feedback {
+      display: inline-block;
+    }
+  }
+}

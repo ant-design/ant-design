@@ -1,6 +1,12 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import Icon from '../icon';
+import {
+  CloseOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
+} from '@ant-design/icons';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
@@ -12,6 +18,7 @@ let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
+let defaultCloseIcon: React.ReactNode;
 
 export interface ConfigProps {
   top?: number;
@@ -19,10 +26,11 @@ export interface ConfigProps {
   duration?: number;
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
+  closeIcon?: React.ReactNode;
 }
 
 function setNotificationConfig(options: ConfigProps) {
-  const { duration, placement, bottom, top, getContainer } = options;
+  const { duration, placement, bottom, top, getContainer, closeIcon } = options;
   if (duration !== undefined) {
     defaultDuration = duration;
   }
@@ -37,6 +45,9 @@ function setNotificationConfig(options: ConfigProps) {
   }
   if (getContainer !== undefined) {
     defaultGetContainer = getContainer;
+  }
+  if (closeIcon !== undefined) {
+    defaultCloseIcon = closeIcon;
   }
 }
 
@@ -85,6 +96,7 @@ type NotificationInstanceProps = {
   getContainer?: () => HTMLElement;
   top?: number;
   bottom?: number;
+  closeIcon?: React.ReactNode;
 };
 
 function getNotificationInstance(
@@ -94,6 +106,7 @@ function getNotificationInstance(
     getContainer = defaultGetContainer,
     top,
     bottom,
+    closeIcon = defaultCloseIcon,
   }: NotificationInstanceProps,
   callback: (n: any) => void,
 ) {
@@ -102,13 +115,20 @@ function getNotificationInstance(
     callback(notificationInstance[cacheKey]);
     return;
   }
+
+  const closeIconToRender = (
+    <span className={`${prefixCls}-close-x`}>
+      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+    </span>
+  );
+
   (Notification as any).newInstance(
     {
       prefixCls,
       className: `${prefixCls}-${placement}`,
       style: getPlacementStyle(placement, top, bottom),
       getContainer,
-      closeIcon: <Icon className={`${prefixCls}-close-icon`} type="close" />,
+      closeIcon: closeIconToRender,
     },
     (notification: any) => {
       notificationInstance[cacheKey] = notification;
@@ -118,10 +138,10 @@ function getNotificationInstance(
 }
 
 const typeToIcon = {
-  success: 'check-circle-o',
-  info: 'info-circle-o',
-  error: 'close-circle-o',
-  warning: 'exclamation-circle-o',
+  success: CheckCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+  warning: ExclamationCircleOutlined,
 };
 
 export interface ArgsProps {
@@ -141,6 +161,7 @@ export interface ArgsProps {
   top?: number;
   bottom?: number;
   getContainer?: () => HTMLElement;
+  closeIcon?: React.ReactNode;
 }
 
 function notice(args: ArgsProps) {
@@ -152,10 +173,9 @@ function notice(args: ArgsProps) {
   if (args.icon) {
     iconNode = <span className={`${prefixCls}-icon`}>{args.icon}</span>;
   } else if (args.type) {
-    const iconType = typeToIcon[args.type];
-    iconNode = (
-      <Icon className={`${prefixCls}-icon ${prefixCls}-icon-${args.type}`} type={iconType} />
-    );
+    iconNode = React.createElement(typeToIcon[args.type] || null, {
+      className: `${prefixCls}-icon ${prefixCls}-icon-${args.type}`,
+    });
   }
 
   const autoMarginTag =
@@ -163,7 +183,7 @@ function notice(args: ArgsProps) {
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
-  const { placement, top, bottom, getContainer } = args;
+  const { placement, top, bottom, getContainer, closeIcon } = args;
 
   getNotificationInstance(
     {
@@ -172,6 +192,7 @@ function notice(args: ArgsProps) {
       top,
       bottom,
       getContainer,
+      closeIcon,
     },
     (notification: any) => {
       notification.notice({

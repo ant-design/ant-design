@@ -1,12 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
-import Icon from '../icon';
+import { CloseOutlined } from '@ant-design/icons';
+
 import CheckableTag from './CheckableTag';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import { PresetColorTypes } from '../_util/colors';
-import warning from '../_util/warning';
+import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
 import Wave from '../_util/wave';
 
 export { CheckableTagProps } from './CheckableTag';
@@ -18,7 +17,6 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   closable?: boolean;
   visible?: boolean;
   onClose?: Function;
-  afterClose?: Function;
   style?: React.CSSProperties;
 }
 
@@ -27,6 +25,7 @@ interface TagState {
 }
 
 const PresetColorRegex = new RegExp(`^(${PresetColorTypes.join('|')})(-inverse)?$`);
+const PresetStatusColorRegex = new RegExp(`^(${PresetStatusColorTypes.join('|')})$`);
 
 class Tag extends React.Component<TagProps, TagState> {
   static CheckableTag = CheckableTag;
@@ -48,15 +47,6 @@ class Tag extends React.Component<TagProps, TagState> {
     visible: true,
   };
 
-  constructor(props: TagProps) {
-    super(props);
-    warning(
-      !('afterClose' in props),
-      'Tag',
-      "'afterClose' will be deprecated, please use 'onClose', we will remove this in the next version.",
-    );
-  }
-
   getTagStyle() {
     const { color, style } = this.props;
     const isPresetColor = this.isPresetColor();
@@ -66,7 +56,7 @@ class Tag extends React.Component<TagProps, TagState> {
     };
   }
 
-  getTagClassName({ getPrefixCls }: ConfigConsumerProps) {
+  getTagClassName({ getPrefixCls, direction }: ConfigConsumerProps) {
     const { prefixCls: customizePrefixCls, className, color } = this.props;
     const { visible } = this.state;
     const isPresetColor = this.isPresetColor();
@@ -77,20 +67,18 @@ class Tag extends React.Component<TagProps, TagState> {
         [`${prefixCls}-${color}`]: isPresetColor,
         [`${prefixCls}-has-color`]: color && !isPresetColor,
         [`${prefixCls}-hidden`]: !visible,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );
   }
 
   setVisible(visible: boolean, e: React.MouseEvent<HTMLElement>) {
-    const { onClose, afterClose } = this.props;
+    const { onClose } = this.props;
     if (onClose) {
       onClose(e);
     }
-    if (afterClose && !onClose) {
-      // next version remove.
-      afterClose();
-    }
+
     if (e.defaultPrevented) {
       return;
     }
@@ -100,6 +88,7 @@ class Tag extends React.Component<TagProps, TagState> {
   }
 
   handleIconClick = (e: React.MouseEvent<HTMLElement>) => {
+    e.stopPropagation();
     this.setVisible(false, e);
   };
 
@@ -108,26 +97,19 @@ class Tag extends React.Component<TagProps, TagState> {
     if (!color) {
       return false;
     }
-    return PresetColorRegex.test(color);
+    return PresetColorRegex.test(color) || PresetStatusColorRegex.test(color);
   }
 
   renderCloseIcon() {
     const { closable } = this.props;
-    return closable ? <Icon type="close" onClick={this.handleIconClick} /> : null;
+    return closable ? <CloseOutlined onClick={this.handleIconClick} /> : null;
   }
 
   renderTag = (configProps: ConfigConsumerProps) => {
     const { children, ...otherProps } = this.props;
     const isNeedWave =
       'onClick' in otherProps || (children && (children as React.ReactElement<any>).type === 'a');
-    const tagProps = omit(otherProps, [
-      'onClose',
-      'afterClose',
-      'color',
-      'visible',
-      'closable',
-      'prefixCls',
-    ]);
+    const tagProps = omit(otherProps, ['onClose', 'color', 'visible', 'closable', 'prefixCls']);
     return isNeedWave ? (
       <Wave>
         <span
@@ -151,7 +133,5 @@ class Tag extends React.Component<TagProps, TagState> {
     return <ConfigConsumer>{this.renderTag}</ConfigConsumer>;
   }
 }
-
-polyfill(Tag);
 
 export default Tag;

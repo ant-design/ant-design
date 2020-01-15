@@ -38,8 +38,13 @@ components/**/*.jsx
 !components/**/__tests__/**/*.js
 !components/**/__tests__/**/*.js.snap
 /.history
+*.tmp
+
 # Docs templates
+site/theme/template/Color/ColorPicker.jsx
 site/theme/template/IconDisplay/*.js
 site/theme/template/IconDisplay/*.jsx
 site/theme/template/IconDisplay/fields.js
-*.tmp
+site/theme/template/Home/**/*.jsx
+site/theme/template/utils.jsx
+site/theme/template/Layout/Footer.jsx

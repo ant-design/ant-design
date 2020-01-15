@@ -23,6 +23,9 @@ import { Row, Col } from 'antd';
 ReactDOM.render(
   <div>
     <Row>
+      <Col span={24}>col</Col>
+    </Row>
+    <Row>
       <Col span={12}>col-12</Col>
       <Col span={12}>col-12</Col>
     </Row>

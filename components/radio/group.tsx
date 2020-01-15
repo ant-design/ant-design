@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import shallowEqual from 'shallowequal';
-import { polyfill } from 'react-lifecycles-compat';
 import Radio from './radio';
 import {
   RadioGroupProps,
@@ -11,6 +10,7 @@ import {
   RadioGroupButtonStyle,
 } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import SizeContext from '../config-provider/SizeContext';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -95,20 +95,17 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
     }
   };
 
-  renderGroup = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderGroup = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { props } = this;
-    const { prefixCls: customizePrefixCls, className = '', options, buttonStyle } = props;
+    const {
+      prefixCls: customizePrefixCls,
+      className = '',
+      options,
+      buttonStyle,
+      size: customizeSize,
+    } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
-    const classString = classNames(
-      groupPrefixCls,
-      `${groupPrefixCls}-${buttonStyle}`,
-      {
-        [`${groupPrefixCls}-${props.size}`]: props.size,
-      },
-      className,
-    );
-
     let { children } = props;
 
     // 如果存在 options, 优先使用
@@ -144,15 +141,32 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
     }
 
     return (
-      <div
-        className={classString}
-        style={props.style}
-        onMouseEnter={props.onMouseEnter}
-        onMouseLeave={props.onMouseLeave}
-        id={props.id}
-      >
-        {children}
-      </div>
+      <SizeContext.Consumer>
+        {size => {
+          const mergedSize = customizeSize || size;
+          const classString = classNames(
+            groupPrefixCls,
+            `${groupPrefixCls}-${buttonStyle}`,
+            {
+              [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
+              [`${groupPrefixCls}-rtl`]: direction === 'rtl',
+            },
+            className,
+          );
+
+          return (
+            <div
+              className={classString}
+              style={props.style}
+              onMouseEnter={props.onMouseEnter}
+              onMouseLeave={props.onMouseLeave}
+              id={props.id}
+            >
+              {children}
+            </div>
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 
@@ -161,5 +175,4 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   }
 }
 
-polyfill(RadioGroup);
 export default RadioGroup;

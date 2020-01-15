@@ -2,12 +2,17 @@
 @import '../../style/mixins/index';
 
 @empty-prefix-cls: ~'@{ant-prefix}-empty';
+@empty-img-prefix-cls: ~'@{ant-prefix}-empty-img';
 
 .@{empty-prefix-cls} {
   margin: 0 8px;
   font-size: @empty-font-size;
   line-height: 22px;
   text-align: center;
+
+  &-rtl {
+    direction: rtl;
+  }
 
   &-image {
     height: 100px;
@@ -47,6 +52,90 @@
 
     .@{empty-prefix-cls}-image {
       height: 35px;
+    }
+  }
+}
+
+.@{empty-img-prefix-cls}-default {
+  // not support the definition because the less variables have no meaning
+  & when (@theme = dark) {
+    &-ellipse {
+      fill-opacity: 0.08;
+      fill: @white;
+    }
+    &-path {
+      &-1 {
+        fill: #262626;
+      }
+      &-2 {
+        fill: url(#linearGradient-1);
+      }
+      &-3 {
+        fill: #595959;
+      }
+      &-4 {
+        fill: #434343;
+      }
+      &-5 {
+        fill: #595959;
+      }
+    }
+    &-g {
+      fill: #434343;
+    }
+  }
+  & when not (@theme = dark) {
+    &-ellipse {
+      fill-opacity: 0.8;
+      fill: #f5f5f5;
+    }
+    &-path {
+      &-1 {
+        fill: #aeb8c2;
+      }
+      &-2 {
+        fill: url(#linearGradient-1);
+      }
+      &-3 {
+        fill: #f5f5f7;
+      }
+      &-4 {
+        fill: #dce0e6;
+      }
+      &-5 {
+        fill: #dce0e6;
+      }
+    }
+    &-g {
+      fill: @white;
+    }
+  }
+}
+
+.@{empty-img-prefix-cls}-simple {
+  // not support the definition because the less variables have no meaning
+  & when (@theme = dark) {
+    &-ellipse {
+      fill: @white;
+      fill-opacity: 0.08;
+    }
+    &-g {
+      stroke: #434343;
+    }
+    &-path {
+      fill: #262626;
+      stroke: #434343;
+    }
+  }
+  & when not (@theme = dark) {
+    &-ellipse {
+      fill: #f5f5f5;
+    }
+    &-g {
+      stroke: #d9d9d9;
+    }
+    &-path {
+      fill: #fafafa;
     }
   }
 }
