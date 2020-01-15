@@ -125,11 +125,10 @@
   // ======================= Placeholder =======================
   .@{select-prefix-cls}-selection-placeholder {
     position: absolute;
-    top: 0;
+    top: 50%;
     right: @input-padding-horizontal;
     left: @input-padding-horizontal;
-    height: @select-height-without-border;
-    line-height: @select-height-without-border;
+    transform: translateY(-50%);
     transition: all 0.3s;
 
     .@{select-prefix-cls}-rtl& {
@@ -160,11 +159,6 @@
           height: @select-selection-height;
           line-height: @select-selection-height - @border-width-base * 2;
         }
-      }
-
-      .@{select-prefix-cls}-selection-placeholder {
-        height: @select-height-without-border;
-        line-height: @select-height-without-border;
       }
     }
   }

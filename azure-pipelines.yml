@@ -26,6 +26,9 @@ stages:
             versionSpec: '12.13.1'
         - script: npm install
           displayName: 'Install modules'
+        - script: |
+            node ./scripts/azure-github-comment.js '![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)'
+          displayName: 'Comment on github'
         - script: npm run site
           displayName: 'Build sites'
         - script: ls -al _site/
@@ -34,5 +37,8 @@ stages:
             export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
             echo "Deploy to $DEPLOY_DOMAIN"
             npx surge --project ./_site --domain $DEPLOY_DOMAIN
-            curl -X POST -u ${ACCESS_TOKEN} -H "Accept: application/json" -H "Content-Type:application/json" https://api.github.com/repos/ant-design/ant-design/issues/${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}/comments -d '{ "body": "Preview deploy to '${DEPLOY_DOMAIN}'" }'
           displayName: 'Deploy Site'
+        - script: |
+            export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
+            node ./scripts/azure-github-comment.js "[<img width="306" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">]($DEPLOY_DOMAIN)"
+          displayName: 'Update comment on github'
