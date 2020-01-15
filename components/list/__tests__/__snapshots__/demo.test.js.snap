@@ -764,27 +764,27 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
           class="ant-list-items"
         >
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Racing car sprays burning fuel into crowd.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Japanese princess to wed commoner.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Australian walks 100km after outback crash.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Man charged over missing wedding girl.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Los Angeles battles huge wildfires.
           </li>
@@ -824,27 +824,27 @@ exports[`renders ./components/list/demo/simple.md correctly 1`] = `
           class="ant-list-items"
         >
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Racing car sprays burning fuel into crowd.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Japanese princess to wed commoner.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Australian walks 100km after outback crash.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Man charged over missing wedding girl.
           </li>
           <li
-            class="ant-list-item ant-list-item-no-flex"
+            class="ant-list-item"
           >
             Los Angeles battles huge wildfires.
           </li>
