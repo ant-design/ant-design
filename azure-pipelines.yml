@@ -39,5 +39,6 @@ stages:
             npx surge --project ./_site --domain $DEPLOY_DOMAIN
           displayName: 'Deploy Site'
         - script: |
-            node ./scripts/azure-github-comment.js "Preview deployed to https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh"
+            export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
+            node ./scripts/azure-github-comment.js "[<img width="306" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">]($DEPLOY_DOMAIN)"
           displayName: 'Update comment on github'
