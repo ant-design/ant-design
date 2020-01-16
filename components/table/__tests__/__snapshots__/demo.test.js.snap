@@ -5187,7 +5187,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
             style="overflow-x:scroll;margin-bottom:0"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup>
                 <col />
@@ -6151,7 +6151,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
             class="ant-table-header"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup>
                 <col />
@@ -7316,7 +7316,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
             style="overflow-x:scroll;margin-bottom:0"
           >
             <table
-              style="table-layout:fixed"
+              style="table-layout:fixed;visibility:hidden"
             >
               <colgroup>
                 <col />
