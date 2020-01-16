@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import { CloseOutlined } from '@ant-design/icons';
 
+import useModal from './useModal';
 import { getConfirmLocale } from './locale';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
@@ -140,6 +141,8 @@ export default class Modal extends React.Component<ModalProps, {}> {
   static confirm: ModalFunc;
 
   static destroyAll: () => void;
+
+  static useModal = useModal;
 
   static defaultProps = {
     width: 520,

@@ -13,8 +13,6 @@ interface ConfirmDialogProps extends ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
 }
 
-const IS_REACT_16 = !!ReactDOM.createPortal;
-
 const ConfirmDialog = (props: ConfirmDialogProps) => {
   const {
     icon,
@@ -155,11 +153,7 @@ export default function confirm(config: ModalFuncProps) {
       visible: false,
       afterClose: destroy.bind(this, ...args),
     };
-    if (IS_REACT_16) {
-      render(currentConfig);
-    } else {
-      destroy(...args);
-    }
+    render(currentConfig);
   }
 
   function update(newConfig: ModalFuncProps) {
