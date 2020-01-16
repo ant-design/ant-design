@@ -13,7 +13,7 @@ import {
 
 let uuid = 0;
 
-export default function useModal(): [ModalStaticFunctions, React.ReactElement] {
+export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.ReactElement] {
   const [elements, patchElement] = usePatchElement();
 
   function getConfirmFunc(withFunc: (config: ModalFuncProps) => ModalFuncProps) {
@@ -51,15 +51,12 @@ export default function useModal(): [ModalStaticFunctions, React.ReactElement] {
     };
   }
 
-  const warnFunc = getConfirmFunc(withWarn);
-
   return [
     {
       info: getConfirmFunc(withInfo),
       success: getConfirmFunc(withSuccess),
       error: getConfirmFunc(withError),
-      warn: warnFunc,
-      warning: warnFunc,
+      warning: getConfirmFunc(withWarn),
       confirm: getConfirmFunc(withConfirm),
     },
     <>{elements}</>,
