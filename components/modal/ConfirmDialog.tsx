@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
-import { getConfirmLocale } from './locale';
 import warning from '../_util/warning';
 
 interface ConfirmDialogProps extends ModalFuncProps {
@@ -24,7 +23,9 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     centered,
     getContainer,
     maskStyle,
+    okText,
     okButtonProps,
+    cancelText,
     cancelButtonProps,
   } = props;
 
@@ -45,9 +46,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const mask = props.mask === undefined ? true : props.mask;
   // 默认为 false，保持旧版默认行为
   const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
-  const runtimeLocale = getConfirmLocale();
-  const okText = props.okText || (okCancel ? runtimeLocale.okText : runtimeLocale.justOkText);
-  const cancelText = props.cancelText || runtimeLocale.cancelText;
   const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
   const transitionName = props.transitionName || 'zoom';
   const maskTransitionName = props.maskTransitionName || 'fade';

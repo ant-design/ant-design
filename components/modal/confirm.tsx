@@ -6,6 +6,7 @@ import {
   CloseCircleOutlined,
   ExclamationCircleOutlined,
 } from '@ant-design/icons';
+import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 
@@ -50,8 +51,16 @@ export default function confirm(config: ModalFuncProps) {
     }
   }
 
-  function render(props: any) {
-    ReactDOM.render(<ConfirmDialog {...props} />, div);
+  function render({ okText, cancelText, ...props }: any) {
+    const runtimeLocale = getConfirmLocale();
+    ReactDOM.render(
+      <ConfirmDialog
+        {...props}
+        okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
+        cancelText={cancelText || runtimeLocale.cancelText}
+      />,
+      div,
+    );
   }
 
   function close(...args: any[]) {
