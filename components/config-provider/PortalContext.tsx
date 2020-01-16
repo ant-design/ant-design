@@ -20,7 +20,7 @@ export function usePatchElement(): [
 
 interface PortalContextProps {
   hasParent: boolean;
-  patchElement: (element: React.ReactElement) => void;
+  patchElement: (element: React.ReactElement) => Function;
 }
 
 const PortalContext = React.createContext<PortalContextProps>({
@@ -31,6 +31,7 @@ const PortalContext = React.createContext<PortalContextProps>({
       'ConfigProvider',
       'You are using function with the ability of ConfigProvider. Please wrapper your App with at least one ConfigProvider.',
     );
+    return () => {};
   },
 });
 

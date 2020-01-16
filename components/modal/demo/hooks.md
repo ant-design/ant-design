@@ -31,19 +31,19 @@ const config = {
 const Context = React.createContext();
 
 const App = () => {
-  // const [modal] = Modal.useModal();
+  const [modal] = Modal.useModal();
   const [inlineModal, inlineHolder] = Modal.useModal();
 
   return (
     <div>
-      {/*<Button
+      <Button
         type="primary"
         onClick={() => {
           modal.confirm(config);
         }}
       >
         Use ConfigProvider
-      </Button>*/}
+      </Button>
 
       <Context.Provider value="Light">
         <Button

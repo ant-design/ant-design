@@ -2,6 +2,7 @@ import * as React from 'react';
 import Modal, { ModalFuncProps } from '../Modal';
 import PortalContext, { usePatchElement } from '../../config-provider/PortalContext';
 import Holder from './Holder';
+import HookModal from './HookModal';
 
 let uuid = 0;
 
@@ -10,33 +11,24 @@ export default function useModal(): [{ confirm: any }, React.ReactElement] {
   const [holderPatched, setHolderPatched] = React.useState(false);
   const [elements, patchElement] = usePatchElement();
 
-  function hookConfirm({ content, onOk, onCancel, ...restProps }: ModalFuncProps) {
+  function hookConfirm(config: ModalFuncProps) {
     uuid += 1;
 
+    let closeFunc: Function;
     const modal = (
-      <Modal
+      <HookModal
         key={`modal-${uuid}`}
-        {...restProps}
-        visible
-        onOk={(...args) => {
-          Promise.resolve(onOk ? onOk(...args) : undefined).then(() => {
-            // Close this!!
-          });
+        {...config}
+        afterClose={() => {
+          closeFunc();
         }}
-        onCancel={(...args) => {
-          Promise.resolve(onCancel ? onCancel(...args) : undefined).then(() => {
-            // Close this!!
-          });
-        }}
-      >
-        {content}
-      </Modal>
+      />
     );
 
     if (holderPatched) {
-      patchElement(modal);
+      closeFunc = patchElement(modal);
     } else {
-      patchPortalElement(modal);
+      closeFunc = patchPortalElement(modal);
     }
   }
 
