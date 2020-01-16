@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { ModalFuncProps } from '../Modal';
-import Modal from '../Modal';
+import Modal, { ModalFuncProps } from '../Modal';
 
 export interface HookModalProps extends ModalFuncProps {
-  afterClose: Function;
+  afterClose: () => void;
 }
 
 const HookModal: React.FC<HookModalProps> = ({ content, onOk, onCancel, ...restProps }) => {

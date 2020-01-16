@@ -1,14 +1,16 @@
 import * as React from 'react';
-import Modal, { ModalFuncProps } from '../Modal';
-import PortalContext, { usePatchElement } from '../../config-provider/PortalContext';
-import Holder from './Holder';
+import { ModalFuncProps } from '../Modal';
+import usePatchElement from '../../_util/usePatchElement';
 import HookModal from './HookModal';
+import { ConfirmReturn } from '../confirm';
 
 let uuid = 0;
 
-export default function useModal(): [{ confirm: any }, React.ReactElement] {
-  const { patchElement: patchPortalElement } = React.useContext(PortalContext);
-  const [holderPatched, setHolderPatched] = React.useState(false);
+export interface ModalHooker {
+  confirm: (config: ModalFuncProps) => ConfirmReturn;
+}
+
+export default function useModal(): [ModalHooker, React.ReactElement] {
   const [elements, patchElement] = usePatchElement();
 
   function hookConfirm(config: ModalFuncProps) {
@@ -25,30 +27,15 @@ export default function useModal(): [{ confirm: any }, React.ReactElement] {
       />
     );
 
-    if (holderPatched) {
-      closeFunc = patchElement(modal);
-    } else {
-      closeFunc = patchPortalElement(modal);
-    }
-  }
+    closeFunc = patchElement(modal);
 
-  const holder = (
-    <Holder
-      onMount={() => {
-        setHolderPatched(true);
-      }}
-      onUnmount={() => {
-        setHolderPatched(false);
-      }}
-    >
-      {elements}
-    </Holder>
-  );
+    return {} as any;
+  }
 
   return [
     {
       confirm: hookConfirm,
     },
-    holder,
+    <>{elements}</>,
   ];
 }

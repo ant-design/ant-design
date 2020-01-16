@@ -7,6 +7,11 @@ import ActionButton from './ActionButton';
 import { getConfirmLocale } from './locale';
 import warning from '../_util/warning';
 
+export interface ConfirmReturn {
+  destroy: () => void;
+  update: (config: ModalFuncProps) => void;
+}
+
 interface ConfirmDialogProps extends ModalFuncProps {
   afterClose?: () => void;
   close: (...args: any[]) => void;
@@ -118,7 +123,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 };
 
-export default function confirm(config: ModalFuncProps) {
+export default function confirm(config: ModalFuncProps): ConfirmReturn {
   const div = document.createElement('div');
   document.body.appendChild(div);
   // eslint-disable-next-line no-use-before-define

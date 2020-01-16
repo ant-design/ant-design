@@ -9,7 +9,6 @@ import LocaleProvider, { Locale, ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, CSPConfig, ConfigConsumerProps } from './context';
 import { SizeType, SizeContextProvider } from './SizeContext';
-import { PortalContextProvider } from './PortalContext';
 
 export { RenderEmptyHandler, ConfigContext, ConfigConsumer, CSPConfig, ConfigConsumerProps };
 
@@ -96,15 +95,13 @@ class ConfigProvider extends React.Component<ConfigProviderProps> {
     }
 
     return (
-      <PortalContextProvider>
-        <SizeContextProvider size={componentSize}>
-          <ConfigContext.Provider value={config}>
-            <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
-              {childNode}
-            </LocaleProvider>
-          </ConfigContext.Provider>
-        </SizeContextProvider>
-      </PortalContextProvider>
+      <SizeContextProvider size={componentSize}>
+        <ConfigContext.Provider value={config}>
+          <LocaleProvider locale={locale || legacyLocale} _ANT_MARK__={ANT_MARK}>
+            {childNode}
+          </LocaleProvider>
+        </ConfigContext.Provider>
+      </SizeContextProvider>
     );
   };
 
