@@ -217,10 +217,10 @@ class PicSearcher extends Component<PicSearcherProps, PicSearcherState> {
                 <tbody>
                   {icons.map((icon: iconObject) => {
                     const { type } = icon;
-                    const iconName = type
+                    const iconName = `${type
                       .split('-')
                       .map(str => `${str[0].toUpperCase()}${str.slice(1)}`)
-                      .join('');
+                      .join('')}Outlined`;
 
                     return (
                       <tr key={iconName}>
