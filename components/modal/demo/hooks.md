@@ -15,7 +15,6 @@ Use `Modal.useModal` to get `contextHolder` with context accessible issue.
 
 ```jsx
 import { Modal, Button } from 'antd';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const ReachableContext = React.createContext();
 const UnreachableContext = React.createContext();
