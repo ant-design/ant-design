@@ -114,13 +114,6 @@ export interface ModalFuncProps {
   maskTransitionName?: string;
 }
 
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
-  destroy: () => void;
-  update: (newConfig: ModalFuncProps) => void;
-};
-
 export interface ModalLocale {
   okText: string;
   cancelText: string;
@@ -128,18 +121,6 @@ export interface ModalLocale {
 }
 
 export default class Modal extends React.Component<ModalProps, {}> {
-  static info: ModalFunc;
-
-  static success: ModalFunc;
-
-  static error: ModalFunc;
-
-  static warn: ModalFunc;
-
-  static warning: ModalFunc;
-
-  static confirm: ModalFunc;
-
   static destroyAll: () => void;
 
   static useModal = useModal;

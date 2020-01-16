@@ -3,7 +3,6 @@ order: 12
 title:
   zh-CN: 使用 hooks
   en-US: Use hooks
-only: true
 ---
 
 ## zh-CN
@@ -16,9 +15,21 @@ Use `Modal.useModal` to get `contextHolder` with context accessible issue.
 
 ```jsx
 import { Modal, Button } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const ReachableContext = React.createContext();
 const UnreachableContext = React.createContext();
+
+const config = {
+  title: 'Use Hook!',
+  content: (
+    <div>
+      <ReachableContext.Consumer>{name => `Reachable: ${name}!`}</ReachableContext.Consumer>
+      <br />
+      <UnreachableContext.Consumer>{name => `Unreachable: ${name}!`}</UnreachableContext.Consumer>
+    </div>
+  ),
+};
 
 const App = () => {
   const [modal, contextHolder] = Modal.useModal();
@@ -26,25 +37,32 @@ const App = () => {
   return (
     <ReachableContext.Provider value="Light">
       <Button
-        type="primary"
         onClick={() => {
-          modal.confirm({
-            title: 'Use Hook!',
-            content: (
-              <div>
-                <ReachableContext.Consumer>
-                  {name => `Reachable: ${name}!`}
-                </ReachableContext.Consumer>
-                <br />
-                <UnreachableContext.Consumer>
-                  {name => `Unreachable: ${name}!`}
-                </UnreachableContext.Consumer>
-              </div>
-            ),
-          });
+          modal.confirm(config);
         }}
       >
-        useModal
+        Confirm
+      </Button>
+      <Button
+        onClick={() => {
+          modal.warning(config);
+        }}
+      >
+        Warning
+      </Button>
+      <Button
+        onClick={() => {
+          modal.info(config);
+        }}
+      >
+        Info
+      </Button>
+      <Button
+        onClick={() => {
+          modal.error(config);
+        }}
+      >
+        Error
       </Button>
 
       {/* `contextHolder` should always under the context you want to access */}

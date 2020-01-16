@@ -1,14 +1,31 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import {
+  InfoCircleOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+} from '@ant-design/icons';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 
-export interface ConfirmReturn {
+export type ModalFunc = (
+  props: ModalFuncProps,
+) => {
   destroy: () => void;
-  update: (config: ModalFuncProps) => void;
+  update: (newConfig: ModalFuncProps) => void;
+};
+
+export interface ModalStaticFunctions {
+  info: ModalFunc;
+  success: ModalFunc;
+  error: ModalFunc;
+  warn: ModalFunc;
+  warning: ModalFunc;
+  confirm: ModalFunc;
 }
 
-export default function confirm(config: ModalFuncProps): ConfirmReturn {
+export default function confirm(config: ModalFuncProps) {
   const div = document.createElement('div');
   document.body.appendChild(div);
   // eslint-disable-next-line no-use-before-define
@@ -61,5 +78,49 @@ export default function confirm(config: ModalFuncProps): ConfirmReturn {
   return {
     destroy: close,
     update,
+  };
+}
+
+export function withWarn(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'warning',
+    icon: <ExclamationCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withInfo(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'info',
+    icon: <InfoCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withSuccess(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'success',
+    icon: <CheckCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withError(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'error',
+    icon: <CloseCircleOutlined />,
+    okCancel: false,
+    ...props,
+  };
+}
+
+export function withConfirm(props: ModalFuncProps): ModalFuncProps {
+  return {
+    type: 'confirm',
+    okCancel: true,
+    ...props,
   };
 }
