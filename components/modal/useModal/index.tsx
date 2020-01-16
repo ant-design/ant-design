@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ModalFuncProps } from '../Modal';
 import usePatchElement from '../../_util/usePatchElement';
-import HookModal from './HookModal';
+import HookModal, { HookModalRef } from './HookModal';
 import { ConfirmReturn } from '../confirm';
 
 let uuid = 0;
@@ -13,14 +13,17 @@ export interface ModalHooker {
 export default function useModal(): [ModalHooker, React.ReactElement] {
   const [elements, patchElement] = usePatchElement();
 
-  function hookConfirm(config: ModalFuncProps) {
+  function hookConfirm(config: ModalFuncProps): ConfirmReturn {
     uuid += 1;
+
+    const modalRef = React.createRef<HookModalRef>();
 
     let closeFunc: Function;
     const modal = (
       <HookModal
         key={`modal-${uuid}`}
-        {...config}
+        config={config}
+        ref={modalRef}
         afterClose={() => {
           closeFunc();
         }}
@@ -29,7 +32,18 @@ export default function useModal(): [ModalHooker, React.ReactElement] {
 
     closeFunc = patchElement(modal);
 
-    return {} as any;
+    return {
+      destroy: () => {
+        if (modalRef.current) {
+          modalRef.current.destroy();
+        }
+      },
+      update: (newConfig: ModalFuncProps) => {
+        if (modalRef.current) {
+          modalRef.current.update(newConfig);
+        }
+      },
+    };
   }
 
   return [

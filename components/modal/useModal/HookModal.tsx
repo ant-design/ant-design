@@ -1,31 +1,39 @@
 import * as React from 'react';
-import Modal, { ModalFuncProps } from '../Modal';
+import { ModalFuncProps } from '../Modal';
+import ConfirmDialog from '../ConfirmDialog';
 
-export interface HookModalProps extends ModalFuncProps {
+export interface HookModalProps {
   afterClose: () => void;
+  config: ModalFuncProps;
 }
 
-const HookModal: React.FC<HookModalProps> = ({ content, onOk, onCancel, ...restProps }) => {
-  const [visible, setVisible] = React.useState(true);
+export interface HookModalRef {
+  destroy: () => void;
+  update: (config: ModalFuncProps) => void;
+}
 
-  return (
-    <Modal
-      {...restProps}
-      visible={visible}
-      onOk={(...args) => {
-        Promise.resolve(onOk ? onOk(...args) : undefined).then(() => {
-          setVisible(false);
-        });
-      }}
-      onCancel={(...args) => {
-        Promise.resolve(onCancel ? onCancel(...args) : undefined).then(() => {
-          setVisible(false);
-        });
-      }}
-    >
-      {content}
-    </Modal>
-  );
+const HookModal: React.RefForwardingComponent<HookModalRef, HookModalProps> = (
+  { afterClose, config },
+  ref,
+) => {
+  const [visible, setVisible] = React.useState(true);
+  const [innerConfig, setInnerConfig] = React.useState(config);
+
+  function close() {
+    setVisible(false);
+  }
+
+  React.useImperativeHandle(ref, () => ({
+    destroy: close,
+    update: (newConfig: ModalFuncProps) => {
+      setInnerConfig(originConfig => ({
+        ...originConfig,
+        ...newConfig,
+      }));
+    },
+  }));
+
+  return <ConfirmDialog {...innerConfig} close={close} visible={visible} afterClose={afterClose} />;
 };
 
-export default HookModal;
+export default React.forwardRef(HookModal);
