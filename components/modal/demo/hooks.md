@@ -17,17 +17,6 @@ Use `Modal.useModal` to get `contextHolder` with context accessible issue.
 ```jsx
 import { Modal, Button } from 'antd';
 
-const config = {
-  title: 'Do you Want to delete these items?',
-  content: 'Some descriptions',
-  onOk() {
-    console.log('OK');
-  },
-  onCancel() {
-    console.log('Cancel');
-  },
-};
-
 const ReachableContext = React.createContext();
 const UnreachableContext = React.createContext();
 
@@ -40,7 +29,7 @@ const App = () => {
         type="primary"
         onClick={() => {
           modal.confirm({
-            ...config,
+            title: 'Use Hook!',
             content: (
               <div>
                 <ReachableContext.Consumer>
@@ -55,7 +44,7 @@ const App = () => {
           });
         }}
       >
-        Use inline holder
+        useModal
       </Button>
 
       {/* `contextHolder` should always under the context you want to access */}
