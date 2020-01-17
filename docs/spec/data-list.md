@@ -100,7 +100,7 @@ title:
 ### 导航至详情
 
 <div>
-  <img alt="mainly" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eMxHQqV30h8AAAAAAAAAAABkARQnAQ">
+  <img alt="mainly" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*nSsBTZlxihsAAAAAAAAAAABkARQnAQ">
 <div>
 
 #### 默认点击标题导航至详情，可以从以下几个角度判断如何打开详情：
@@ -112,7 +112,7 @@ title:
 
 ### 批量操作
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*28GbQISdcnwAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*i6PJT6ArtcgAAAAAAAAAAABkARQnAQ">
 
 当用户勾选条目后，触发批量操作模式，列表工具栏呼出批量操作工具条。[更多模式](https://yuque.antfin-inc.com/bigfish/fqm0ux/hya8hw)
 
@@ -146,7 +146,7 @@ title:
 
 #### 安全校验
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qCvJQbMjgZEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vkUuTYWLRCMAAAAAAAAAAABkARQnAQ">
 
 破坏性操作需高安全级别验证确认操作。
 
@@ -158,7 +158,7 @@ title:
 
 ## 布局
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DO0-Qbi7Ca4AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y6PZQpyrFXUAAAAAAAAAAABkARQnAQ">
 
 列表布局通常从上往下平铺，按照以下顺序排列。其中独占式区域提供了一个扩展空间，用于解决无法集成于工具栏中的复杂数据搜寻、数据统计类内容。
 
