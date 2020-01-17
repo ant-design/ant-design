@@ -50,7 +50,7 @@ class Complete extends React.Component {
     return (
       <div>
         <AutoComplete
-          options={[]}
+          options={options}
           style={{ width: 200 }}
           onSelect={onSelect}
           onSearch={this.onSearch}
