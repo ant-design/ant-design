@@ -55,18 +55,6 @@ class App extends React.Component {
           closable={false}
           onClose={this.onClose}
           visible={this.state.visible}
-          footer={
-            <div
-              style={{
-                textAlign: 'right',
-              }}
-            >
-              <Button onClick={this.onClose}>Cancel</Button>
-              <Button onClick={this.onClose} type="primary">
-                Submit
-              </Button>
-            </div>
-          }
         >
           <Button type="primary" onClick={this.showChildrenDrawer}>
             Two-level drawer
@@ -87,35 +75,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(<App />, mountNode);
-```
-
-```css
-.site-multi-level-drawer-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid #e8e8e8;
-  padding: 10px 16px;
-  text-align: right;
-  left: 0;
-  border-radius: 0 0 4px 4px;
-  background: #fff;
-}
-
-.site-multi-level-drawer-footer button:first-child {
-  margin-right: 8px;
-}
-
-[class*='-drawer-rtl'] .site-multi-level-drawer-footer {
-  text-align: left;
-  right: 0;
-  left: auto;
-}
-
-[class*='-drawer-rtl'] .site-multi-level-drawer-footer button:first-child {
-  margin-right: 0;
-  margin-left: 8px;
-}
 ```
 
 <style>
