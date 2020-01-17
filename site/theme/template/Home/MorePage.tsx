@@ -26,7 +26,7 @@ const MORE_LIST: MoreProps[] = [
     href: 'https://zhuanlan.zhihu.com/p/103016912',
   },
   {
-    title: 'Ant Design｜设计资产的秩序之美',
+    title: 'Ant Design 设计资产的秩序之美',
     description: '希望通过这套方法和资产能够赋能给更多的用户，提高设计生产效率的同时更好的保障产品体验的内在一致性。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*a7OXQpgmA-YAAAAAAAAAAABkARQnAQ',
     date: '2020-01-15',
