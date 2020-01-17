@@ -165,7 +165,6 @@ exports[`Drawer have a footer 1`] = `
 >
   <div
     class="ant-drawer ant-drawer-right"
-    footer="Test Footer"
     tabindex="-1"
   >
     <div
