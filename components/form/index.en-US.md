@@ -29,7 +29,7 @@ High performance Form component with data scope management. Including data colle
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |
 | name | Form name. Will be the prefix of Field `id` | string | - |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |
-| validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
+| validateMessages | Validation prompt template, description [see below](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
 | wrapperCol | The layout for input controls, same as `labelCol` | [object](https://ant.design/components/grid/#Col) | - |
 | onFinish | Trigger after submitting the form and verifying data successfully | Function(values) | - |
 | onFinishFailed | Trigger after submitting the form and verifying data failed | Function({ values, errorFields, outOfDate }) | - |
