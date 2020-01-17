@@ -26,7 +26,7 @@ When need to mention someone or something.
 | defaultValue | Default value | string |  |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) => boolean |  |
 | notFoundContent | Set mentions content when not match | ReactNode | 'Not Found' |
-| placement | Set popup placement | 'top' \| 'bottom' | 'bottom' |
+| placement | Set popup placement | `top` \| `bottom` | `bottom` |
 | prefix | Set trigger prefix keyword | string \| string[] | '@' |
 | split | Set split string before and after selected mention | string | ' ' |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void |  |

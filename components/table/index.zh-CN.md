@@ -64,7 +64,7 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| 'auto' \| 'fixed' | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |
+| tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |
 | bordered | 是否展示外边框和列边框 | boolean | false |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnProps](#Column)\[] | - |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |
@@ -79,7 +79,7 @@ const columns = [
 | rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |
 | scroll | 表格是否可滚动，[配置项](#scroll) | object | - |
 | showHeader | 是否显示表头 | boolean | true |
-| size | 表格大小 | default \| middle \| small | default |
+| size | 表格大小 | `default` \| `middle` \| `small` | default |
 | summary | 总结栏 | (currentData) => ReactNode | - |
 | title | 表格标题 | Function(currentPageData) | - |
 | onChange | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter, extra: { currentDataSource: [] }) | - |
@@ -116,13 +116,13 @@ const columns = [
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| align | 设置列的对齐方式 | 'left' \| 'right' \| 'center' | 'left' |
+| align | 设置列的对齐方式 | `left` \| `right` \| `center` | `left` |
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean | false |
 | className | 列样式类名 | string | - |
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |
 | defaultFilteredValue | 默认筛选值 | string\[] | - |
-| defaultSortOrder | 默认排序顺序 | 'ascend' \| 'descend' | - |
+| defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |
 | filtered | 标识数据是否经过过滤，筛选图标会高亮 | boolean | false |
@@ -155,7 +155,7 @@ const columns = [
 
 | 参数     | 说明               | 类型                        | 默认值   |
 | -------- | ------------------ | --------------------------- | -------- |
-| position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' |
+| position | 指定分页显示的位置 | `top` \| `bottom` \| `both` | `bottom` |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
 
