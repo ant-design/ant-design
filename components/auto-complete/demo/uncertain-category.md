@@ -15,7 +15,6 @@ Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/s
 
 ```jsx
 import { Input, AutoComplete } from 'antd';
-import { SearchOutlined } from '@ant-design/icons';
 
 function onSelect(value) {
   console.log('onSelect', value);

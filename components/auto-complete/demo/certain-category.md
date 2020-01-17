@@ -15,7 +15,7 @@ Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spe
 
 ```tsx
 import { Input, AutoComplete } from 'antd';
-import { SearchOutlined, UserOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 
 const { Option, OptGroup } = AutoComplete;
 
