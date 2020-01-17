@@ -54,7 +54,7 @@ title:
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*V3s4Ta84UAUAAAAAAAAAAABkARQnAQ" alt="正确示范">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*YhWnS73vVvIAAAAAAAAAAABkARQnAQ" alt="正确示范">
 
 尽量在一屏中突出核心指示，将总模块数量控制在 5-9 个，避免信息过载。
 
@@ -163,7 +163,7 @@ title:
 
 #### 选择正确的可视化组件
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tNIuSJ2T0NYAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J1P7TbuZ5O8AAAAAAAAAAABkARQnAQ">
 
 当设计者对页面的结构有初步的思路之后，可根据信息粒度的大小来选择不同的可视化组件。信息粒度从大到小对应：指标卡和排行榜、图表、文本明细。
 
