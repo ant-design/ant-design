@@ -31,8 +31,8 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | active | Show animation effect, only valid when used avatar independently. | boolean | false |
-| size | Set the size of avatar | number \| Enum{ 'large', 'small', 'default' } | - |
-| shape | Set the shape of avatar | Enum{ 'circle', 'square' } | - |
+| size | Set the size of avatar | number \| `large` \| `small` \| `default` } | - |
+| shape | Set the shape of avatar | `circle` \| `square` | - |
 
 ### SkeletonTitleProps
 
@@ -49,15 +49,15 @@ Provide a placeholder while you wait for content to load, or to visualise conten
 
 ### SkeletonButtonProps
 
-| Property | Description             | Type                                 | Default |
-| -------- | ----------------------- | ------------------------------------ | ------- |
-| active   | Show animation effect   | boolean                              | false   |
-| size     | Set the size of button  | Enum{ 'large', 'small', 'default' }  | -       |
-| shape    | Set the shape of button | Enum{ 'circle', 'round', 'default' } | -       |
+| Property | Description             | Type                             | Default |
+| -------- | ----------------------- | -------------------------------- | ------- |
+| active   | Show animation effect   | boolean                          | false   |
+| size     | Set the size of button  | `large` \| `small` \| `default`  | -       |
+| shape    | Set the shape of button | `circle` \| `round` \| `default` | -       |
 
 ### SkeletonInputProps
 
-| Property | Description            | Type                                | Default |
-| -------- | ---------------------- | ----------------------------------- | ------- |
-| active   | Show animation effect  | boolean                             | false   |
-| size     | Set the size of button | Enum{ 'large', 'small', 'default' } | -       |
+| Property | Description            | Type                            | Default |
+| -------- | ---------------------- | ------------------------------- | ------- |
+| active   | Show animation effect  | boolean                         | false   |
+| size     | Set the size of button | `large` \| `small` \| `default` | -       |

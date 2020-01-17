@@ -28,7 +28,7 @@ cols: 1
 | code | 添加代码样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
 | strong | 是否加粗 | boolean | false |  |
-| type | 文本类型 | `secondary`, `warning`, `danger` | - |  |
+| type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
 
 ### Typography.Title
 
@@ -43,7 +43,7 @@ cols: 1
 | mark | 添加标记样式 | boolean | false |  |
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |  |
-| type | 文本类型 | `secondary`, `warning`, `danger` | - |  |
+| type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |
 
 ### Typography.Paragraph
 
@@ -58,4 +58,4 @@ cols: 1
 | underline | 添加下划线样式 | boolean | false |  |
 | onChange | 当用户提交编辑内容时触发 | Function(string) | - |  |
 | strong | 是否加粗 | boolean | false |  |
-| type | 文本类型 | `secondary`, `warning`, `danger` | - |  |
+| type | 文本类型 | `secondary` \| `warning` \| `danger` | - |  |

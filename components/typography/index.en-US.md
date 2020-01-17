@@ -28,7 +28,7 @@ Basic text writing, including headings, body text, lists, and more.
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | Function(string) | - |  |
 | strong | Bold style | boolean | false |  |
-| type | Content type | `secondary`, `warning`, `danger` | - |  |
+| type | Content type | `secondary` \| `warning` \| `danger` | - |  |
 
 ### Typography.Title
 
@@ -44,7 +44,7 @@ Basic text writing, including headings, body text, lists, and more.
 | mark | Marked style | boolean | false |  |
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | Function(string) | - |  |
-| type | Content type | `secondary`, `warning`, `danger` | - |  |
+| type | Content type | `secondary` \| `warning` \| `danger` | - |  |
 
 ### Typography.Paragraph
 
@@ -60,4 +60,4 @@ Basic text writing, including headings, body text, lists, and more.
 | underline | Underlined style | boolean | false |  |
 | onChange | Trigger when user edits the content | Function(string) | - |  |
 | strong | Bold style | boolean | false |  |
-| type | Content type | `secondary`, `warning`, `danger` | - |  |
+| type | Content type | `secondary` \| `warning` \| `danger` | - |  |
