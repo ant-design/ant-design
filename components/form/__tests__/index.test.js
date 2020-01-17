@@ -89,9 +89,11 @@ describe('Form', () => {
         expect(wrapper.find(Input).length).toBe(2);
 
         await change(wrapper, 1, '');
+        wrapper.update();
         expect(wrapper.find('.ant-form-item-explain').length).toBe(1);
 
         await operate('.remove');
+        wrapper.update();
         expect(wrapper.find(Input).length).toBe(1);
         expect(wrapper.find('.ant-form-item-explain').length).toBe(0);
       });
