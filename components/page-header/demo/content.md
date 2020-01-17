@@ -160,7 +160,7 @@ ReactDOM.render(
     <Content
       extraContent={
         <img
-          src="https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/YZUAr4NUNC/pageHeader.svg"
+          src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
           alt="content"
         />
       }

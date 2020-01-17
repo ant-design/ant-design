@@ -3,18 +3,15 @@
 
 @input-rtl-cls: ~'@{ant-prefix}-input-rtl';
 
-@input-affix-width: 19px;
 @input-affix-with-clear-btn-width: 38px;
 
 // size mixins for input
 .input-lg() {
-  height: @input-height-lg;
   padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
   font-size: @font-size-lg;
 }
 
 .input-sm() {
-  height: @input-height-sm;
   padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
 }
 
@@ -64,7 +61,6 @@
   position: relative;
   display: inline-block;
   width: 100%;
-  height: @input-height-base;
   padding: @input-padding-vertical-base @input-padding-horizontal-base;
   color: @input-color;
   font-size: @font-size-base;
@@ -80,7 +76,8 @@
     .hover();
   }
 
-  &:focus {
+  &:focus,
+  &-focused {
     .active();
   }
 
@@ -420,101 +417,6 @@
     & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
       vertical-align: top;
     }
-  }
-}
-
-.input-affix-wrapper(@inputClass) {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  text-align: start;
-
-  &:hover .@{inputClass}:not(.@{inputClass}-disabled) {
-    .hover();
-  }
-
-  .@{inputClass} {
-    position: relative;
-    text-align: inherit;
-  }
-
-  // Should not break align of icon & text
-  // https://github.com/ant-design/ant-design/issues/18087
-  // https://github.com/ant-design/ant-design/issues/17414
-  // https://github.com/ant-design/ant-design/pull/17684
-  // https://codesandbox.io/embed/pensive-paper-di2wk
-  // https://codesandbox.io/embed/nifty-benz-gb7ml
-  .@{inputClass}-prefix,
-  .@{inputClass}-suffix {
-    position: absolute;
-    top: 50%;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    color: @input-icon-color;
-    line-height: 0;
-    transform: translateY(-50%);
-
-    :not(.anticon) {
-      line-height: @line-height-base;
-    }
-  }
-
-  .@{inputClass}-disabled ~ .@{inputClass}-suffix {
-    .anticon {
-      color: @disabled-color;
-      cursor: not-allowed;
-    }
-  }
-
-  .@{inputClass}-prefix {
-    left: @input-padding-horizontal-base + 1px;
-
-    .@{inputClass}-affix-wrapper-rtl& {
-      right: @input-padding-horizontal-base + 1px;
-      left: auto;
-    }
-  }
-
-  .@{inputClass}-suffix {
-    right: @input-padding-horizontal-base + 1px;
-
-    .@{inputClass}-affix-wrapper-rtl& {
-      right: auto;
-      left: @input-padding-horizontal-base + 1px;
-    }
-  }
-
-  .@{inputClass}:not(:first-child) {
-    padding-left: @input-padding-horizontal-base + @input-affix-width;
-  }
-
-  .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal-base + @input-affix-width;
-  }
-
-  // Needed to change priority of classes in rtl direction (last-child comes before first-child)
-  .@{inputClass}-affix-wrapper-rtl& .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal-base;
-    padding-left: @input-padding-horizontal-base + @input-affix-width;
-  }
-
-  .@{inputClass}-affix-wrapper-rtl& .@{inputClass}:not(:first-child) {
-    padding-right: @input-padding-horizontal-base + @input-affix-width;
-    padding-left: @input-padding-horizontal-base;
-  }
-
-  &.@{inputClass}-affix-wrapper-input-with-clear-btn .@{inputClass}:not(:last-child) {
-    padding-right: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
-
-    .@{inputClass}-affix-wrapper-rtl& {
-      padding-right: @input-padding-horizontal-base;
-      padding-left: @input-padding-horizontal-base + @input-affix-with-clear-btn-width;
-    }
-  }
-
-  &.@{inputClass}-affix-wrapper-textarea-with-clear-btn .@{inputClass} {
-    padding-right: 22px;
   }
 }
 

@@ -1,5 +1,5 @@
-import InternalForm, { useForm, FormInstance } from './Form';
-import Item from './FormItem';
+import InternalForm, { useForm, FormInstance, FormProps } from './Form';
+import Item, { FormItemProps } from './FormItem';
 import List from './FormList';
 import { FormProvider } from './context';
 import warning from '../_util/warning';
@@ -29,6 +29,6 @@ Form.create = () => {
   );
 };
 
-export { FormInstance };
+export { FormInstance, FormProps, FormItemProps };
 
 export default Form;

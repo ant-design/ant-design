@@ -4,7 +4,6 @@
   // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
     display: flex;
-    border-top-width: @border-width-base + 0.375px;
 
     .@{select-prefix-cls}-selection-search {
       position: absolute;
@@ -59,7 +58,7 @@
     padding-right: @font-size-base;
 
     .@{select-prefix-cls}-rtl& {
-      padding-right: @input-padding-horizontal-base;
+      padding-right: 0;
       padding-left: @font-size-base;
     }
   }
@@ -158,11 +157,19 @@
       // With arrow should provides `padding-right` to show the arrow
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-search {
         right: @input-padding-horizontal-sm + @font-size-base * 1.5;
+
+        .@{select-prefix-cls}-rtl& {
+          right: 0;
+        }
       }
 
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
       &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
         padding-right: @font-size-base * 1.5;
+
+        .@{select-prefix-cls}-rtl& {
+          padding-right: 0;
+        }
       }
     }
   }

@@ -18,8 +18,6 @@ interface FormItemInputMiscProps {
   prefixCls: string;
   children: React.ReactNode;
   errors: React.ReactNode[];
-  touched: boolean;
-  validating: boolean;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   onDomErrorVisibleChange: (visible: boolean) => void;
@@ -42,6 +40,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   prefixCls,
   wrapperCol,
   children,
+  help,
   errors,
   onDomErrorVisibleChange,
   hasFeedback,
@@ -58,12 +57,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
-  const [visible, cacheErrors] = useCacheErrors(errors, changedVisible => {
-    if (changedVisible) {
-      onDomErrorVisibleChange(true);
-    }
-    forceUpdate({});
-  });
+  const [visible, cacheErrors] = useCacheErrors(
+    errors,
+    changedVisible => {
+      if (changedVisible) {
+        onDomErrorVisibleChange(true);
+      }
+      forceUpdate({});
+    },
+    !!help,
+  );
 
   const memoErrors = useMemo(
     () => cacheErrors,

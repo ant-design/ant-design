@@ -1104,4 +1104,71 @@ describe('Table.filter', () => {
 
     mount(<TestTable />);
   });
+
+  // https://github.com/ant-design/ant-design/issues/20854
+  it('Not cache for onChange state', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            sorter: true,
+          },
+          {
+            title: 'Gender',
+            dataIndex: 'gender',
+            filters: [
+              { text: 'Male', value: 'male' },
+              { text: 'Female', value: 'female' },
+            ],
+          },
+        ]}
+        dataSource={[]}
+        onChange={onChange}
+      />,
+    );
+
+    // Sort it
+    wrapper.find('.ant-table-column-sorters').simulate('click');
+    expect(onChange).toHaveBeenCalledWith(
+      expect.anything(),
+      {
+        gender: null,
+      },
+      expect.objectContaining({
+        column: {
+          dataIndex: 'name',
+          sorter: true,
+          title: 'Name',
+        },
+      }),
+      expect.anything(),
+    );
+
+    // Filter it
+    onChange.mockReset();
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    wrapper
+      .find('.ant-dropdown-menu-item')
+      .first()
+      .simulate('click');
+    wrapper.find('.ant-table-filter-dropdown-link.confirm').simulate('click');
+    expect(onChange).toHaveBeenCalledWith(
+      expect.anything(),
+      {
+        gender: ['male'],
+      },
+      expect.objectContaining({
+        column: {
+          dataIndex: 'name',
+          sorter: true,
+          title: 'Name',
+        },
+      }),
+      expect.anything(),
+    );
+  });
 });

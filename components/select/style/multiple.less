@@ -1,7 +1,10 @@
 @import './index';
 
 @select-selection-height: @input-height-base - @input-padding-vertical-base * 2;
-@select-multiple-padding: @input-padding-vertical-base - @border-width-base;
+@select-multiple-padding: @input-padding-vertical-base;
+@select-multiple-item-margin-vertical: round(
+    (@select-selection-height - @font-size-base * @line-height-base) / 2 * 10
+  ) / 10;
 
 /**
  * Do not merge `height` & `line-height` under style with `selection` & `search`,
@@ -18,11 +21,15 @@
     flex-wrap: wrap;
     align-items: center;
     // Multiple is little different that horizontal is follow the vertical
-    padding: 0 @select-multiple-padding @select-multiple-padding;
+    padding: @select-multiple-padding @select-multiple-padding;
 
     .@{select-prefix-cls}-show-search& {
       cursor: text;
     }
+  }
+
+  &.@{select-prefix-cls}-allow-clear .@{select-prefix-cls}-selector {
+    padding-right: @font-size-sm + @control-padding-horizontal;
   }
 
   // ======================== Selections ========================
@@ -34,15 +41,13 @@
     max-width: 100%;
 
     height: @select-selection-height;
-    margin-top: @select-multiple-padding;
+    margin-top: -@select-multiple-item-margin-vertical;
     margin-right: @input-padding-vertical-base;
+    margin-bottom: -@select-multiple-item-margin-vertical;
     padding: 0 (@padding-xs / 2) 0 @padding-xs;
     line-height: @select-selection-height - @border-width-base * 2;
     background: @select-selection-item-bg;
     border: 1px solid @select-selection-item-border-color;
-    // strange align fix for chrome but works
-    // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
-    border-top-width: @border-width-base + 0.4px;
     border-radius: @border-radius-base;
     cursor: default;
     transition: font-size 0.3s, line-height 0.3s, height 0.3s;
@@ -97,15 +102,13 @@
 
     &-input,
     &-mirror {
-      height: @select-selection-height;
       font-family: @font-family;
-      line-height: @select-selection-height - @border-width-base * 2;
+      line-height: @line-height-base;
       transition: all 0.3s;
     }
 
     &-input {
       width: 100%;
-      margin-top: @select-multiple-padding;
     }
 
     &-mirror {
@@ -126,14 +129,14 @@
   // ======================= Placeholder =======================
   .@{select-prefix-cls}-selection-placeholder {
     position: absolute;
-    top: 0;
-    left: @control-padding-horizontal;
-    height: @select-height-without-border;
-    line-height: @select-height-without-border;
+    top: 50%;
+    right: @input-padding-horizontal;
+    left: @input-padding-horizontal;
+    transform: translateY(-50%);
     transition: all 0.3s;
 
     .@{select-prefix-cls}-rtl& {
-      right: @control-padding-horizontal;
+      right: @input-padding-horizontal;
       left: auto;
     }
   }
@@ -161,14 +164,20 @@
           line-height: @select-selection-height - @border-width-base * 2;
         }
       }
-
-      .@{select-prefix-cls}-selection-placeholder {
-        height: @select-height-without-border;
-        line-height: @select-height-without-border;
-      }
     }
   }
 
   .select-size('lg', @input-height-lg);
   .select-size('sm', @input-height-sm);
+
+  // Size small need additional set padding
+  &.@{select-prefix-cls}-sm {
+    .@{select-prefix-cls}-selection-placeholder {
+      left: @input-padding-horizontal-sm;
+
+      .@{select-prefix-cls}-rtl& {
+        right: @input-padding-horizontal-sm;
+      }
+    }
+  }
 }

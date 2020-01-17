@@ -72,6 +72,9 @@ export function getInputClassName(
 
 export interface InputState {
   value: any;
+  focused: boolean;
+  /** `value` from prev props */
+  prevValue: any;
 }
 
 class Input extends React.Component<InputProps, InputState> {
@@ -100,16 +103,18 @@ class Input extends React.Component<InputProps, InputState> {
     const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
     this.state = {
       value,
+      focused: false,
+      // eslint-disable-next-line react/no-unused-state
+      prevValue: props.value,
     };
   }
 
-  static getDerivedStateFromProps(nextProps: InputProps) {
-    if ('value' in nextProps) {
-      return {
-        value: nextProps.value,
-      };
+  static getDerivedStateFromProps(nextProps: InputProps, { prevValue }: InputState) {
+    const newState: Partial<InputState> = { prevValue: nextProps.value };
+    if (nextProps.value !== undefined || prevValue !== nextProps.value) {
+      newState.value = nextProps.value;
     }
-    return null;
+    return newState;
   }
 
   componentDidMount() {
@@ -157,8 +162,24 @@ class Input extends React.Component<InputProps, InputState> {
     this.input = input;
   };
 
+  onFocus: React.FocusEventHandler<HTMLInputElement> = e => {
+    const { onFocus } = this.props;
+    this.setState({ focused: true });
+    if (onFocus) {
+      onFocus(e);
+    }
+  };
+
+  onBlur: React.FocusEventHandler<HTMLInputElement> = e => {
+    const { onBlur } = this.props;
+    this.setState({ focused: false });
+    if (onBlur) {
+      onBlur(e);
+    }
+  };
+
   setValue(value: string, callback?: () => void) {
-    if (!('value' in this.props)) {
+    if (this.props.value === undefined) {
       this.setState({ value }, callback);
     }
   }
@@ -191,6 +212,8 @@ class Input extends React.Component<InputProps, InputState> {
       <input
         {...otherProps}
         onChange={this.handleChange}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
         onKeyDown={this.handleKeyDown}
         className={classNames(
           getInputClassName(prefixCls, customizeSize || size, disabled, this.direction),
@@ -232,7 +255,7 @@ class Input extends React.Component<InputProps, InputState> {
   };
 
   renderComponent = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const { value } = this.state;
+    const { value, focused } = this.state;
     const { prefixCls: customizePrefixCls } = this.props;
     const prefixCls = getPrefixCls('input', customizePrefixCls);
     this.direction = direction;
@@ -248,6 +271,7 @@ class Input extends React.Component<InputProps, InputState> {
             handleReset={this.handleReset}
             ref={this.saveClearableInput}
             direction={direction}
+            focused={focused}
           />
         )}
       </SizeContext.Consumer>

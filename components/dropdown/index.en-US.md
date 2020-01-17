@@ -46,3 +46,4 @@ You should use [Menu](/components/menu/) as `overlay`. The menu items and divide
 | visible | Whether the dropdown menu is currently visible | boolean | - |  |
 | onClick | The same as [Button](/components/button): called when you click the button on the left | Function | - |  |
 | onVisibleChange | Called when the visible state is changed | Function | - |  |
+| buttonsRender | custom buttons inside Dropdown.Button | `([buttons: ReactNode[]]) => ReactNode` | - |  |

@@ -208,18 +208,16 @@ function useFilter<RecordType>({
     onFilterChange(generateFilterInfo(newFilterStates), newFilterStates);
   };
 
-  const transformColumns = React.useMemo(() => {
-    return (innerColumns: ColumnsType<RecordType>) =>
-      injectFilter(
-        prefixCls,
-        dropdownPrefixCls,
-        innerColumns,
-        mergedFilterStates,
-        triggerFilter,
-        getPopupContainer,
-        tableLocale,
-      );
-  }, [mergedFilterStates]);
+  const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
+    injectFilter(
+      prefixCls,
+      dropdownPrefixCls,
+      innerColumns,
+      mergedFilterStates,
+      triggerFilter,
+      getPopupContainer,
+      tableLocale,
+    );
 
   return [transformColumns, mergedFilterStates, getFilters];
 }

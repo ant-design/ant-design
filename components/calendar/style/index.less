@@ -15,11 +15,11 @@
     padding: 11px 16px 11px 0;
 
     .@{calendar-prefix-cls}-year-select {
-      width: 85px;
+      min-width: 85px;
     }
 
     .@{calendar-prefix-cls}-month-select {
-      width: 70px;
+      min-width: 70px;
       margin-left: @padding-xs;
     }
 
@@ -150,6 +150,7 @@
           height: 86px;
           overflow-y: auto;
           line-height: @line-height-base;
+          text-align: left;
         }
 
         &-today {

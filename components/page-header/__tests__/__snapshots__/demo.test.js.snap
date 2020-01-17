@@ -691,7 +691,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
       >
         <img
           alt="content"
-          src="https://alipay-rmsdeploy-image.cn-hangzhou.alipay.aliyun-inc.com/antfincdn/YZUAr4NUNC/pageHeader.svg"
+          src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
         />
       </div>
     </div>

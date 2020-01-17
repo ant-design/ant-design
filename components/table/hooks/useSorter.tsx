@@ -362,11 +362,8 @@ export default function useFilterSorter<RecordType>({
     onSorterChange(generateSorterInfo(newSorterStates), newSorterStates);
   }
 
-  const transformColumns = React.useCallback(
-    (innerColumns: ColumnsType<RecordType>) =>
-      injectSorter(prefixCls, innerColumns, mergedSorterStates, triggerSorter, sortDirections),
-    [mergedSorterStates],
-  );
+  const transformColumns = (innerColumns: ColumnsType<RecordType>) =>
+    injectSorter(prefixCls, innerColumns, mergedSorterStates, triggerSorter, sortDirections);
 
   const getSorters = () => {
     return generateSorterInfo(mergedSorterStates);

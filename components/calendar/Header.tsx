@@ -120,7 +120,6 @@ function MonthSelect<DateType>(props: SharedProps<DateType>) {
   return (
     <Select
       size={fullscreen ? undefined : 'small'}
-      dropdownMatchSelectWidth={100}
       className={`${prefixCls}-month-select`}
       value={month}
       options={options}

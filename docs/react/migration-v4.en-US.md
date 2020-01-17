@@ -115,6 +115,8 @@ const Demo = () => (
   - `dropdownMatchSelectWidth` no longer automatically adapts to the content width, please set the dropdown width with numbers.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
+- Input, Select set `value` to `undefined` is uncontrolled mode now.
+- Table will keep at least one column even if `columns` is empty.
 
 ## Start upgrading
 
