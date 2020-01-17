@@ -25,6 +25,8 @@ export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
 }
 
 export default class DropdownButton extends React.Component<DropdownButtonProps, any> {
+  static __ANT_BUTTON = true;
+
   static defaultProps = {
     placement: 'bottomRight' as DropDownProps['placement'],
     type: 'default' as DropdownButtonType,
