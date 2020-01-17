@@ -132,7 +132,7 @@ export default class Item extends React.Component<ListItemProps, any> {
                 {extra}
               </div>,
             ]
-          : [children, actionsContent, cloneElement(extra, { key: 'extra' })]}
+          : [children, cloneElement(extra, { key: 'extra' }), actionsContent]}
       </Tag>
     );
 
