@@ -274,9 +274,9 @@ If you are the user of v3, you can ref [migrate doc](/components/form/v3)。
 
 ## FAQ
 
-### Customize validator do not working
+### Custom validator not working
 
-It caused by your `validator` with some error that `callback` can not be called. You can use `async` instead or use `try...catch` to catch the error:
+It may be caused by your `validator` if it has some errors that prevents `callback` to be called. You can use `async` instead or use `try...catch` to catch the error:
 
 ```jsx
 validator: async (rule, value) => {
