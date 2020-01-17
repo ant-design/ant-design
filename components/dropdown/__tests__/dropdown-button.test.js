@@ -65,4 +65,14 @@ describe('DropdownButton', () => {
     const wrapper = mount(<Dropdown.Button overlay={menu} href="https://ant.design" />);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('have static property for type detecting', () => {
+    const menu = (
+      <Menu>
+        <Menu.Item>foo</Menu.Item>
+      </Menu>
+    );
+    const wrapper = mount(<Dropdown.Button overlay={menu} />);
+    expect(wrapper.type().__ANT_BUTTON).toBe(true);
+  });
 });
