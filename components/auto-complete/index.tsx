@@ -25,7 +25,7 @@ export interface DataSourceItemObject {
 export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface AutoCompleteProps
-  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp'> {
+  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'> {
   dataSource?: DataSourceItemType[];
 }
 
