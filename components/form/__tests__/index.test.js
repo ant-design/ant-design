@@ -89,9 +89,11 @@ describe('Form', () => {
         expect(wrapper.find(Input).length).toBe(2);
 
         await change(wrapper, 1, '');
+        wrapper.update();
         expect(wrapper.find('.ant-form-item-explain').length).toBe(1);
 
         await operate('.remove');
+        wrapper.update();
         expect(wrapper.find(Input).length).toBe(1);
         expect(wrapper.find('.ant-form-item-explain').length).toBe(0);
       });
@@ -341,7 +343,61 @@ describe('Form', () => {
 
     const wrapper = mount(<App />);
     wrapper.find('button').simulate('click');
-    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-with-help')).toBeTruthy();
+    expect(
+      wrapper
+        .find('.ant-form-item')
+        .first()
+        .hasClass('ant-form-item-with-help'),
+    ).toBeTruthy();
     expect(wrapper.find('.ant-form-item-explain').text()).toEqual('bamboo');
+  });
+
+  it('warning when use `dependencies` but `name` is empty & children is not a render props', () => {
+    mount(
+      <Form>
+        <Form.Item dependencies={[]}>text</Form.Item>
+      </Form>,
+    );
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] Must set `name` or use render props when `dependencies` is set.',
+    );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/20948
+  it('not repeat render when Form.Item is not a real Field', async () => {
+    const shouldNotRender = jest.fn();
+    const StaticInput = () => {
+      shouldNotRender();
+      return <Input />;
+    };
+
+    const shouldRender = jest.fn();
+    const DynamicInput = () => {
+      shouldRender();
+      return <Input />;
+    };
+
+    const formRef = React.createRef();
+
+    mount(
+      <div>
+        <Form ref={formRef}>
+          <Form.Item>
+            <StaticInput />
+          </Form.Item>
+          <Form.Item name="light">
+            <DynamicInput />
+          </Form.Item>
+        </Form>
+      </div>,
+    );
+
+    expect(shouldNotRender).toHaveBeenCalledTimes(1);
+    expect(shouldRender).toHaveBeenCalledTimes(1);
+
+    formRef.current.setFieldsValue({ light: 'bamboo' });
+    await Promise.resolve();
+    expect(shouldNotRender).toHaveBeenCalledTimes(1);
+    expect(shouldRender).toHaveBeenCalledTimes(2);
   });
 });
