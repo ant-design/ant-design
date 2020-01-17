@@ -248,6 +248,8 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
             'headerStyle',
             'bodyStyle',
             'footerStyle',
+            'footer',
+            'locale',
             'title',
             'push',
             'visible',
