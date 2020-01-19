@@ -84,7 +84,7 @@
     }
   },
   "browserslist": [
-    "last 2 version",
+    "last 2 versions",
     "Firefox ESR",
     "> 1%",
     "ie >= 11"
