@@ -89,6 +89,8 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       listItemHeight = 32,
       getPopupContainer,
       dropdownClassName,
+      disabled,
+      open,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -119,7 +121,9 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       'removeIcon',
       'clearIcon',
       'size',
+      'open',
     ]);
+    const openValidated = disabled ? false : open;
 
     const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
@@ -138,6 +142,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
             <RcSelect<ValueType>
               ref={this.selectRef}
               {...selectProps}
+              open={openValidated}
               listHeight={listHeight}
               listItemHeight={listItemHeight}
               mode={mode}
