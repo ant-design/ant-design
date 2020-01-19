@@ -152,15 +152,15 @@ title:
 <br />
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qn-mQKxaQ5kAAAAAAAAAAABkARQnAQ" alt="正确示范">
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3bUZRbPiVBEAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3bUZRbPiVBEAAAAAAAAAAABkARQnAQ" alt="错误示范" description="无需分组时不要使用短竖线分割">
 
-**平铺每个按钮**：优先推荐通过间距来区割分组，也可以使用分割线来区视觉相似的按钮组。
+**平铺每个按钮**：优先推荐通过间距来区割分组，也可以使用分割线来区割视觉相似的按钮组。
 
 ## 文案
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*33KsR66zTY8AAAAAAAAAAABkARQnAQ" alt="正确示范">
 
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*238RTb4kaPwAAAAAAAAAAABkARQnAQ" alt="错误示范" description="无需分组时不要使用短竖线分割。">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*238RTb4kaPwAAAAAAAAAAABkARQnAQ" alt="错误示范" description="应使用动词">
 
 文案需清楚传达用户按下按钮时系统将执行的操作。
 
