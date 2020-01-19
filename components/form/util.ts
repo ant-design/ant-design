@@ -21,7 +21,7 @@ export function useCacheErrors(
 
   const update = () => {
     const prevVisible = cacheRef.current.visible;
-    const newVisible = !!errors.length;
+    const newVisible = !!errors.filter(item => item !== '').length;
 
     const prevErrors = cacheRef.current.errors;
     cacheRef.current.errors = errors;
