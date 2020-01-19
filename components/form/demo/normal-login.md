@@ -59,7 +59,6 @@ const NormalLoginForm = () => {
         <Button type="primary" htmlType="submit" className="login-form-button">
           Log in
         </Button>
-        Or <a href="">register now!</a>
       </Form.Item>
     </Form>
   );
