@@ -63,7 +63,7 @@ title:
 
 需要展示内容量少，复杂度低的信息。
 
-#### [模板 - 单据详情](http://preview-techui.dockerlab.alipay.net/approvaldetail)
+#### 模板 - 单据详情
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*51LGQopcBQgAAAAAAAAAAABkARQnAQ">
 
@@ -93,7 +93,7 @@ title:
 
 当详情页内容量大复杂度高时，不得不拆分为多个页签，作为辅助导航引导用户浏览信息。
 
-#### [模板 - 发布流程](http://preview-techui.dockerlab.alipay.net/processoverview)
+#### 模板 - 发布流程
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0IGLSaqstRoAAAAAAAAAAABkARQnAQ">
 

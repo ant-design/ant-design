@@ -102,7 +102,7 @@ title:
 
 将数据分析类型页面拆解为多个部分，通常为“总 - 分”的结构，多维度地展示数据的全貌，帮助使用者发现当前问题。
 
-#### [模板 - 多维分析](http://preview-techui.dockerlab.alipay.net/analysis)
+#### 模板 - 多维分析
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IljpTbaOEOoAAAAAAAAAAABkARQnAQ">
 
@@ -120,7 +120,7 @@ title:
 
 数据明细用来展示单个指标总览和明细。常用于数据报表细节信息的展示，根据业务诉求可配置文本、列表、可视化图表等。
 
-#### [模板 - 数据明细](http://preview-techui.dockerlab.alipay.net/datadetail)
+#### 模板 - 数据明细
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DjmzQKHxa9AAAAAAAAAAAABkARQnAQ">
 
