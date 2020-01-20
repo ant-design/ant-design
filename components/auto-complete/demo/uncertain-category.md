@@ -49,9 +49,7 @@ function searchResult(query) {
                 {category}
               </a>
             </span>
-            <span>
-              {getRandomInt(200, 100)} results
-             </span>
+            <span>{getRandomInt(200, 100)} results</span>
           </div>
         ),
       };
@@ -79,11 +77,7 @@ class Complete extends React.Component {
         onSelect={onSelect}
         onSearch={this.handleSearch}
       >
-        <Input.Search
-          size="large"
-          placeholder="input here"
-          enterButton
-        />
+        <Input.Search size="large" placeholder="input here" enterButton />
       </AutoComplete>
     );
   }

@@ -1,7 +1,7 @@
 ---
 category: Design Patterns
 type: Global Rules
-order: 98
+order: 3
 title: Data Entry
 ---
 

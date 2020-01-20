@@ -5,7 +5,7 @@ category:
 type:
   zh-CN: 全局规则
   en-US: Global Rules
-order: 6
+order: 5
 title:
   zh-CN: 文案
   en-US: Copywriting

@@ -1,7 +1,7 @@
 ---
 category: 设计模式
 type: 全局规则
-order: 98
+order: 3
 title: 数据录入
 ---
 

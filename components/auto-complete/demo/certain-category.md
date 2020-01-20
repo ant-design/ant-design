@@ -77,10 +77,7 @@ function Complete() {
       style={{ width: 250 }}
       options={options}
     >
-      <Input.Search
-        size="large"
-        placeholder="input here"
-      />
+      <Input.Search size="large" placeholder="input here" />
     </AutoComplete>
   );
 }
