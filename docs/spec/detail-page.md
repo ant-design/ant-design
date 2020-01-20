@@ -132,13 +132,11 @@ title:
 
 ### 会用到哪些全局规则
 
-- [数据列表](https://yuque.antfin-inc.com/ui-assets/bgt2gr/bu13q7)
-- [数据格式](https://yuque.antfin-inc.com/ui-assets/bgt2gr/bu13q7)
-- [按钮](https://yuque.antfin-inc.com/ui-assets/bgt2gr/ars4mz)
+- [数据格式](/docs/spec/data-format)
+- [按钮](/docs/spec/buttons)
 
 ### 会用到哪些模块或组件
 
-- [卡片列表](https://ant.design/components/list-cn/#header)（[新版未完成开发](https://yuque.antfin-inc.com/bigfish/fqm0ux/cwtl6v)）
 - [描述列表](https://ant.design/components/descriptions-cn/#header)
 - [折叠面板](https://ant.design/components/collapse-cn/)
 - [表格](https://ant.design/components/table-cn/)
@@ -149,6 +147,4 @@ title:
 - [SAP Fiori 2.0: The Object Page —— Part 1： Its History](https://experience.sap.com/skillup/sap-fiori-2-0-the-object-page-part-1-its-history/)
 - [Fiori 详情页汇总](https://experience.sap.com/fiori-design-web/?s=Details+page)
 - [Object Page Floorplan](https://experience.sap.com/fiori-design-web/object-page/)
-- [宜家平面布局视图动线](https://www.90percentofeverything.com/2011/04/10/alan-penn-on-shop-floor-plan-design-ikea-and-dark-patterns/)
 - [超市商品陈列原则](https://wiki.mbalib.com/wiki/%E8%B6%85%E5%B8%82%E5%95%86%E5%93%81%E9%99%88%E5%88%97%E5%8E%9F%E5%88%99)
-- [Five Hat Racks「LATCH 模型」](http://www.calmface.com/2016/10/21/five-hat-racks-%E4%BA%94%E5%B8%BD%E6%9E%B6/)
