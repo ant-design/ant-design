@@ -78,8 +78,7 @@ title:
 
 #### 幽灵按钮 Ghost button
 
-置于复杂或较深的背景中，避免按钮突兀地破坏背景的整体性。
-该场景下可灵活定制样式。
+置于复杂或较深的背景中，避免按钮突兀地破坏背景的整体性。该场景下可灵活定制样式。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*-wORTrNJ6YUAAAAAAAAAAABkARQnAQ">
 
@@ -87,8 +86,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*32zdRqTjDhYAAAAAAAAAAABkARQnAQ">
 
-经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。
-最大可以将按钮放宽到与父区域等宽。
+经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。
 
 ## 位置
 
@@ -142,8 +140,7 @@ title:
 
 ### 按钮分组
 
-当需要布置的按钮数量过多，可以把相关的动作组成一组，并采用相似的视觉设计。
-当某一个按钮是首要动作时仍可使用主按钮强调。
+当需要布置的按钮数量过多，可以把相关的动作组成一组，并采用相似的视觉设计。当某一个按钮是首要动作时仍可使用主按钮强调。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*x7YsTafH5osAAAAAAAAAAABkARQnAQ">
 
@@ -154,7 +151,7 @@ title:
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qn-mQKxaQ5kAAAAAAAAAAABkARQnAQ" alt="正确示范">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3bUZRbPiVBEAAAAAAAAAAABkARQnAQ" alt="错误示范" description="无需分组时不要使用短竖线分割">
 
-**平铺每个按钮**：优先推荐通过间距来区割分组，也可以使用分割线来区割视觉相似的按钮组。
+**平铺每个按钮**：优先推荐通过间距来区隔分组，也可以使用分割线来区隔视觉相似的按钮组。
 
 ## 文案
 

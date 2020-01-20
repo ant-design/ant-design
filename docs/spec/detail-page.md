@@ -111,7 +111,7 @@ title:
 
 根据信息的复杂度和相关性模型，选用相应的信息呈现方式，选用合理的布局方案来承载详情页的内容。
 
-#### 区割方式
+#### 区隔方式
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3jPZSa8n2g4AAAAAAAAAAABkARQnAQ">
 
