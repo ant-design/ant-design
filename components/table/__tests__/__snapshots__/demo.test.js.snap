@@ -4953,6 +4953,44 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
                 class="ant-table-tbody"
               >
                 <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                </tr>
+                <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="1"
                 >
@@ -5312,6 +5350,44 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
               <tbody
                 class="ant-table-tbody"
               >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
@@ -6201,6 +6277,20 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
               <tbody
                 class="ant-table-tbody"
               >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"
@@ -7541,6 +7631,35 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
               <tbody
                 class="ant-table-tbody"
               >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                >
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                  <td
+                    style="padding:0;border:0;height:0"
+                  />
+                </tr>
                 <tr
                   class="ant-table-row ant-table-row-level-0"
                   data-row-key="0"

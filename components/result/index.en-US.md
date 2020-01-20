@@ -18,6 +18,6 @@ Use when important operations need to inform the user to process the results and
 | --- | --- | --- | --- |
 | title | title string | ReactNode | - |
 | subTitle | subTitle string | ReactNode | - |
-| status | result status,decide icons and colors | `'success' | 'error' | 'info' | 'warning'| '404' | '403' | '500'` | 'info' |
+| status | result status,decide icons and colors | `success` \| `error` \| `info` \| `warning` \| `404` \| `403` \| `500` | `info` |
 | icon | custom back icon | ReactNode | - |
 | extra | operating area | ReactNode | - |

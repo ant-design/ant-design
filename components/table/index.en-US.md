@@ -59,7 +59,7 @@ const columns = [
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| 'auto' \| 'fixed' | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |
+| tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` |
 | bordered | Whether to show all table borders | boolean | `false` |
 | columns | Columns of table | [ColumnProps](#Column)\[] | - |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |
@@ -111,13 +111,13 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' |
+| align | specify which way that column is aligned | `left` \| `right` \| `center` | `left` |
 | ellipsis | ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is true. | boolean | false |
 | className | className of this column | string | - |
 | colSpan | Span of this column's title | number | - |
 | dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |
 | defaultFilteredValue | Default filtered values | string\[] | - |  |
-| defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |
+| defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |
 | filterDropdown | Customized filter overlay | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |
 | filtered | Whether the `dataSource` is filtered | boolean | `false` |
@@ -150,7 +150,7 @@ Properties for pagination.
 
 | Property | Description                          | Type                        | Default  |
 | -------- | ------------------------------------ | --------------------------- | -------- |
-| position | specify the position of `Pagination` | 'top' \| 'bottom' \| 'both' | 'bottom' |
+| position | specify the position of `Pagination` | `top` \| `bottom` \| `both` | `bottom` |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
@@ -195,8 +195,8 @@ Properties for row selection.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| x | Set horizontal scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
-| y | Set vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
+| x | Set horizontal scrolling, can also be used to specify the width of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |
+| y | Set vertical scrolling, can also be used to specify the height of the scroll area, could be number | number | - |
 | scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - |
 
 ### selection

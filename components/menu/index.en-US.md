@@ -33,7 +33,7 @@ More layouts with navigation: [Layout](/components/layout).
 | forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
 | inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
-| mode | Type of menu; `vertical`, `horizontal`, or `inline` | string: `vertical` \| `horizontal` \| `inline` | `vertical` |  |
+| mode | Type of menu; `vertical`, `horizontal`, or `inline` | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] |  |  |
 | selectable | Allows selecting menu items | boolean | true |  |
@@ -41,7 +41,7 @@ More layouts with navigation: [Layout](/components/layout).
 | style | Style of the root node | object |  |  |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 |  |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 |  |
-| theme | Color theme of the menu | string: `light` \| `dark` | `light` |  |
+| theme | Color theme of the menu | `light` \| `dark` | `light` |  |
 | onClick | Called when a menu item is clicked | function({ item, key, keyPath, domEvent }) | - |  |
 | onDeselect | Called when a menu item is deselected (multiple mode only) | function({ item, key, keyPath, selectedKeys, domEvent }) | - |  |
 | onOpenChange | Called when sub-menus are opened or closed | function(openKeys: string\[]) | noop |  |

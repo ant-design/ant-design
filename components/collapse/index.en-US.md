@@ -24,7 +24,7 @@ A content area which can be collapsed and expanded.
 | accordion | If `true`, `Collapse` renders as `Accordion` | boolean | `false` |  |
 | onChange | Callback function executed when active panel is changed | Function | - |  |
 | expandIcon | allow to customize collapse icon | (panelProps) => ReactNode | - |  |
-| expandIconPosition | Set expand icon position: `left`, `right` | `left` | - |  |
+| expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | `false` |  |
 
 ### Collapse.Panel

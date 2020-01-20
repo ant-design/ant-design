@@ -88,9 +88,9 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | vertical alignment | `top` `middle` `bottom` | `top` |  |
+| align | vertical alignment | `top` \| `middle` \| `bottom` | `top` |  |
 | gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number/object/array | 0 |  |  |
-| justify | horizontal arrangement | `start` `end` `center` `space-around` `space-between` | `start` |  |
+| justify | horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` | `start` |  |
 
 ### Col
 
