@@ -6,6 +6,7 @@ type:
   zh-CN: 模板文档
   en-US: Template Document
 order: 1
+skip: true
 title:
   zh-CN: 表单页
   en-US: Form Page

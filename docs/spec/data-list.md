@@ -6,6 +6,7 @@ type:
   zh-CN: 全局规则
   en-US: Global Rules
 order: 7
+skip: true
 title:
   zh-CN: 数据列表
   en-US: Data List
