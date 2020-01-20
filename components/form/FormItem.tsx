@@ -105,7 +105,7 @@ function FormItem(props: FormItemProps): React.ReactNode {
 
     // ======================== Errors ========================
     let mergedErrors: React.ReactNode[];
-    if (help) {
+    if (help !== undefined && help !== null) {
       mergedErrors = toArray(help);
     } else {
       mergedErrors = meta ? meta.errors : [];

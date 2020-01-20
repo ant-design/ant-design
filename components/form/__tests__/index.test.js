@@ -400,4 +400,13 @@ describe('Form', () => {
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
     expect(shouldRender).toHaveBeenCalledTimes(2);
   });
+
+  it('empty help should also render', () => {
+    const wrapper = mount(
+      <Form.Item help="">
+        <input />
+      </Form.Item>,
+    );
+    expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
+  });
 });
