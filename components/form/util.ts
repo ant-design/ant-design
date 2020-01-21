@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useForm as useRcForm, FormInstance as RcFormInstance } from 'rc-field-form';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import { ScrollOptions } from './interface';
 
 type InternalNamePath = (string | number)[];
 
@@ -65,7 +66,7 @@ export function getFieldId(namePath: InternalNamePath, formName?: string): strin
 }
 
 export interface FormInstance extends RcFormInstance {
-  scrollToField: (name: string | number | InternalNamePath) => void;
+  scrollToField: (name: string | number | InternalNamePath, options?: ScrollOptions) => void;
   __INTERNAL__: {
     name?: string;
   };
@@ -75,7 +76,7 @@ export function useForm(form?: FormInstance): [FormInstance] {
   const wrapForm: FormInstance = form || {
     ...useRcForm()[0],
     __INTERNAL__: {},
-    scrollToField: name => {
+    scrollToField: (name: string, options: ScrollOptions = {}) => {
       const namePath = toArray(name);
       const fieldId = getFieldId(namePath, wrapForm.__INTERNAL__.name);
       const node: HTMLElement | null = fieldId ? document.getElementById(fieldId) : null;
@@ -84,6 +85,7 @@ export function useForm(form?: FormInstance): [FormInstance] {
         scrollIntoView(node, {
           scrollMode: 'if-needed',
           block: 'nearest',
+          ...options,
         });
       }
     },
