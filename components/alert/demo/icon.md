@@ -14,7 +14,6 @@ title:
 A relevant icon will make information clearer and more friendly.
 
 ```tsx
-import React from 'react';
 import { Alert } from 'antd';
 
 ReactDOM.render(

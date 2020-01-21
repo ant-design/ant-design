@@ -14,11 +14,10 @@ title:
 Set a `target` for 'Affix', which is listen to scroll event of target element (default is `window`).
 
 ```tsx
-import React, { useState, FC } from 'react';
 import { Affix, Button } from 'antd';
 
-const Demo: FC = () => {
-  const [container, setContainer] = useState(null);
+const Demo: React.FC = () => {
+  const [container, setContainer] = React.useState(null);
   return (
     <div className="scrollable-container" ref={setContainer}>
       <div className="background">

@@ -14,7 +14,6 @@ title:
 To show close button.
 
 ```tsx
-import React from 'react';
 import { Alert } from 'antd';
 
 const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

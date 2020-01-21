@@ -14,7 +14,6 @@ title:
 Customize the anchor highlight.
 
 ```tsx
-import React from 'react';
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;

@@ -14,7 +14,6 @@ title:
 The simplest usage.
 
 ```tsx
-import React from 'react';
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;

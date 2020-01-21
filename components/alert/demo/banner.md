@@ -15,7 +15,6 @@ title:
 Display Alert as a banner at top of page.
 
 ```tsx
-import React from 'react';
 import { Alert } from 'antd';
 
 ReactDOM.render(

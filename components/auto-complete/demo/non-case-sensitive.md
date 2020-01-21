@@ -14,7 +14,6 @@ title:
 A non-case-sensitive AutoComplete
 
 ```tsx
-import React, { FC } from 'react';
 import { AutoComplete } from 'antd';
 
 const options = [
@@ -23,7 +22,7 @@ const options = [
   { value: 'Wall Street' },
 ];
 
-const Complete: FC = () => {
+const Complete: React.FC = () => {
   return (
     <AutoComplete
       style={{ width: 200 }}

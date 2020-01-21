@@ -14,7 +14,6 @@ title:
 Clicking on an anchor does not record history.
 
 ```tsx
-import React from 'react';
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;

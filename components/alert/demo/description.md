@@ -14,7 +14,6 @@ title:
 Additional description for alert message.
 
 ```tsx
-import React from 'react';
 import { Alert } from 'antd';
 
 ReactDOM.render(

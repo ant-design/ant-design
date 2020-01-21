@@ -15,14 +15,13 @@ debug: true
 Text inside Avatar should be set a proper font size when toggle it's visibility.
 
 ```tsx
-import React, { useState, FC } from 'react';
 import { Avatar, Button } from 'antd';
 
 type SizeType = 'large' | 'small' | 'default' | number;
-const App: FC = () => {
-  const [hide, setHide] = useState(true);
-  const [size, setSize] = useState<SizeType>('large');
-  const [scale, setScale] = useState(1);
+const App: React.FC = () => {
+  const [hide, setHide] = React.useState(true);
+  const [size, setSize] = React.useState<SizeType>('large');
+  const [scale, setScale] = React.useState(1);
   const toggle = () => {
     setHide(!hide);
   };

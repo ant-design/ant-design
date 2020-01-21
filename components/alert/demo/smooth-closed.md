@@ -14,11 +14,10 @@ title:
 Smoothly unmount Alert upon close.
 
 ```tsx
-import React, { useState, FC } from 'react';
 import { Alert } from 'antd';
 
-const App: FC = () => {
-  const [visible, setVisible] = useState(true);
+const App: React.FC = () => {
+  const [visible, setVisible] = React.useState(true);
   const handleClose = () => {
     setVisible(false);
   };

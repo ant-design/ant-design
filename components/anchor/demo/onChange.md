@@ -14,7 +14,6 @@ title:
 Listening for anchor link change.
 
 ```tsx
-import React from 'react';
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;
