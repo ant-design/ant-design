@@ -285,20 +285,19 @@ export default function useSelection<RecordType>(
           );
         }
 
+        const allDisabled = flattedData.every((record, index) => {
+          const key = getRowKey(record, index);
+          const checkboxProps = checkboxPropsMap.get(key) || {};
+          return checkboxProps.disabled;
+        });
+
         title = (
           <div className={`${prefixCls}-selection`}>
             <Checkbox
-              checked={!!flattedData.length && checkedCurrentAll}
+              checked={!allDisabled && !!flattedData.length && checkedCurrentAll}
               indeterminate={!checkedCurrentAll && checkedCurrentSome}
               onChange={onSelectAllChange}
-              disabled={
-                flattedData.length === 0 ||
-                flattedData.every((record, index) => {
-                  const key = getRowKey(record, index);
-                  const checkboxProps = checkboxPropsMap.get(key) || {};
-                  return checkboxProps.disabled;
-                })
-              }
+              disabled={flattedData.length === 0 || allDisabled}
             />
             {customizeSelections}
           </div>

@@ -1,7 +1,7 @@
 ---
 category: Design Patterns
 type: Global Rules
-order: 99
+order: 4
 title: Data Display
 ---
 

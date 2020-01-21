@@ -25,11 +25,11 @@ title: Form
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |
-| labelAlign | label 标签的文本对齐方式 | 'left' \| 'right' | 'right' |
+| labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | - |
-| layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
+| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
-| size | 设置字段组件的尺寸（仅限 antd 组件） | `small | middle | large` | - |
+| size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) | - |
 | onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
@@ -78,7 +78,7 @@ const validateMessages = {
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |
 | label | `label` 标签的文本 | string\|ReactNode | - |
-| labelAlign | 标签文本对齐方式 | 'left' \| 'right' | 'right' |
+| labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
 | normalize | 转换字段值给控件 | (value, prevValue, prevValues) => any | - |

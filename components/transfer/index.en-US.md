@@ -47,7 +47,7 @@ Transfer accept `children` to customize render list, using follow props:
 
 | Property        | Description             | Type                                | Version |
 | --------------- | ----------------------- | ----------------------------------- | ------- |
-| direction       | List render direction   | 'left' \| 'right'                   |         |
+| direction       | List render direction   | `left` \| `right`                   |         |
 | disabled        | Disable list or not     | boolean                             |         |
 | filteredItems   | Filtered items          | TransferItem[]                      |         |
 | onItemSelect    | Select item             | (key: string, selected: boolean)    |         |

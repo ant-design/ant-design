@@ -18,38 +18,38 @@ const SourceImages = {
 
 const MORE_LIST: MoreProps[] = [
   {
-    title: 'Ant Design 1.0 背后的故事：把艺术变成技术',
-    description: '本文将跟大家分享 Ant Design 1.0 诞生背后的故事，还原 3-4 年前那些事、那些人。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Cu8LRZW_AqgAAAAAAAAAAABkARQnAQ',
-    date: '2019-11-07',
-    source: 'yuque',
-    href: 'https://www.yuque.com/lyndon/daylesson/xw45g0',
-  },
-  {
-    title: '「人机自然交互」Ant Design 设计价值观解析',
-    description: '为何选择「自然」作为设计价值观？本文会详细阐述这背后的思考和实践。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*V-w4Q6EvVWsAAAAAAAAAAABkARQnAQ',
-    date: '2019-09-26',
+    title: 'Ant Design 4.0：创造快乐工作',
+    description: '本篇文章将和大家一起聊聊 Ant Design 4.0，以及穿插一些 4.0 背后的故事。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yQqmQ514NNIAAAAAAAAAAABkARQnAQ',
+    date: '2020-01-16',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/44809866',
+    href: 'https://zhuanlan.zhihu.com/p/103016912',
   },
   {
-    title: 'Ant Design 色板生成算法演进之路',
+    title: 'Ant Design 设计资产的秩序之美',
+    description: '希望通过这套方法和资产能够赋能给更多的用户，提高设计生产效率的同时更好的保障产品体验的内在一致性。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*a7OXQpgmA-YAAAAAAAAAAABkARQnAQ',
+    date: '2020-01-15',
+    source: 'zhihu',
+    href: 'https://zhuanlan.zhihu.com/p/102696372',
+  },
+  {
+    title: '围绕应用生命周期的编排设计',
     description:
-      '「确定」 作为设计价值观之一，在调色板中发挥得淋漓尽致，既做到设计有迹可循，也提高代码的可维护性。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2iP4TLjiZMwAAAAAAAAAAABkARQnAQ',
-    date: '2018-03-13',
+      '我们是企业级技术产品领域的设计师，同时也是掘金者，这篇分享即是我们探索的一些方法总结。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*jwQGT7HifmcAAAAAAAAAAABkARQnAQ',
+    date: '2020-01-14',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/32422584',
+    href: 'https://zhuanlan.zhihu.com/p/102546649',
   },
   {
-    title: '2019，优雅的 AntV 来了',
+    title: '解放图形化设计生产力 - HiTu',
     description:
-      '对可视化系统而言，设计正是把不确定的海量、高维、非结构化的数据用准确、有效的方式传递。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_9JJSpF6T6oAAAAAAAAAAABkARQnAQ',
-    date: '2019-11-25',
+      'HiTu 目前以图形化设计资产的形式和大家见面，使用 ETCG 的思路设计，让人人都是插画设计师。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Up8ARYnOd_AAAAAAAAAAAABkARQnAQ',
+    date: '2020-01-10',
     source: 'zhihu',
-    href: 'https://zhuanlan.zhihu.com/p/93620507',
+    href: 'https://zhuanlan.zhihu.com/p/100925117',
   },
 ];
 

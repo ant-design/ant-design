@@ -3,6 +3,7 @@ import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
+import { Meta } from 'rc-field-form/lib/interface';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -18,6 +19,8 @@ export type ValidateStatus = typeof ValidateStatuses[number];
 
 type RenderChildren = (form: FormInstance) => React.ReactElement;
 type RcFieldProps = Omit<FieldProps, 'children'>;
+type ChildrenType = React.ReactElement | RenderChildren | React.ReactElement[] | null;
+type ChildrenNodeType = Exclude<ChildrenType, RenderChildren>;
 
 export interface FormItemProps
   extends FormItemLabelProps,
@@ -27,7 +30,7 @@ export interface FormItemProps
   noStyle?: boolean;
   style?: React.CSSProperties;
   className?: string;
-  children: React.ReactElement | RenderChildren | React.ReactElement[];
+  children: ChildrenType;
   id?: string;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
@@ -37,7 +40,7 @@ export interface FormItemProps
   fieldKey?: number;
 }
 
-const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
+function FormItem(props: FormItemProps): React.ReactNode {
   const {
     name,
     fieldKey,
@@ -77,6 +80,119 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
+  // ======================== Errors ========================
+  // Collect noStyle Field error to the top FormItem
+  const updateChildItemErrors = noStyle
+    ? updateItemErrors
+    : (subName: string, subErrors: string[]) => {
+        if (!isEqual(inlineErrors[subName], subErrors)) {
+          setInlineErrors({
+            ...inlineErrors,
+            [subName]: subErrors,
+          });
+        }
+      };
+
+  function renderLayout(
+    baseChildren: ChildrenNodeType,
+    fieldId?: string,
+    meta?: Meta,
+    isRequired?: boolean,
+  ) {
+    if (noStyle) {
+      return baseChildren;
+    }
+
+    // ======================== Errors ========================
+    let mergedErrors: React.ReactNode[];
+    if (help !== undefined && help !== null) {
+      mergedErrors = toArray(help);
+    } else {
+      mergedErrors = meta ? meta.errors : [];
+      Object.keys(inlineErrors).forEach(subName => {
+        const subErrors = inlineErrors[subName] || [];
+        if (subErrors.length) {
+          mergedErrors = [...mergedErrors, ...subErrors];
+        }
+      });
+    }
+
+    // ======================== Status ========================
+    let mergedValidateStatus: ValidateStatus = '';
+    if (validateStatus !== undefined) {
+      mergedValidateStatus = validateStatus;
+    } else if (meta && meta.validating) {
+      mergedValidateStatus = 'validating';
+    } else if (!help && mergedErrors.length) {
+      mergedValidateStatus = 'error';
+    } else if (meta && meta.touched) {
+      mergedValidateStatus = 'success';
+    }
+
+    const itemClassName = {
+      [`${prefixCls}-item`]: true,
+      [`${prefixCls}-item-with-help`]: domErrorVisible || help,
+      [`${className}`]: !!className,
+
+      // Status
+      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
+      [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
+      [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
+      [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
+      [`${prefixCls}-item-has-error-leave`]:
+        !help && domErrorVisible && mergedValidateStatus !== 'error',
+      [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
+    };
+
+    // ======================= Children =======================
+    return (
+      <Row
+        className={classNames(itemClassName)}
+        style={style}
+        key="row"
+        {...omit(restProps, [
+          'colon',
+          'extra',
+          'getValueFromEvent',
+          'hasFeedback',
+          'help',
+          'htmlFor',
+          'id', // It is deprecated because `htmlFor` is its replacement.
+          'label',
+          'labelAlign',
+          'labelCol',
+          'normalize',
+          'required',
+          'validateStatus',
+          'valuePropName',
+          'wrapperCol',
+        ])}
+      >
+        {/* Label */}
+        <FormItemLabel htmlFor={fieldId} {...props} required={isRequired} prefixCls={prefixCls} />
+        {/* Input Group */}
+        <FormItemInput
+          {...props}
+          {...meta}
+          errors={mergedErrors}
+          prefixCls={prefixCls}
+          onDomErrorVisibleChange={setDomErrorVisible}
+          validateStatus={mergedValidateStatus}
+        >
+          <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
+            {baseChildren}
+          </FormItemContext.Provider>
+        </FormItemInput>
+      </Row>
+    );
+  }
+
+  const isRenderProps = typeof children === 'function';
+
+  if (!name && !isRenderProps && !dependencies) {
+    return renderLayout(children as ChildrenNodeType);
+  }
+
   return (
     <Field
       {...props}
@@ -87,21 +203,10 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
       }}
     >
       {(control, meta, context) => {
-        const { errors, name: metaName } = meta;
-        const mergedName = toArray(name).length ? metaName : [];
+        const { errors } = meta;
 
-        // ======================== Errors ========================
-        // Collect noStyle Field error to the top FormItem
-        const updateChildItemErrors = noStyle
-          ? updateItemErrors
-          : (subName: string, subErrors: string[]) => {
-              if (!isEqual(inlineErrors[subName], subErrors)) {
-                setInlineErrors({
-                  ...inlineErrors,
-                  [subName]: subErrors,
-                });
-              }
-            };
+        const mergedName = toArray(name).length && meta ? meta.name : [];
+        const fieldId = getFieldId(mergedName, formName);
 
         if (noStyle) {
           nameRef.current = [...mergedName];
@@ -110,47 +215,6 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           }
           updateItemErrors(nameRef.current.join('__SPLIT__'), errors);
         }
-
-        let mergedErrors: React.ReactNode[];
-        if (help) {
-          mergedErrors = toArray(help);
-        } else {
-          mergedErrors = errors;
-          Object.keys(inlineErrors).forEach(subName => {
-            const subErrors = inlineErrors[subName] || [];
-            if (subErrors.length) {
-              mergedErrors = [...mergedErrors, ...subErrors];
-            }
-          });
-        }
-
-        // ======================== Status ========================
-        let mergedValidateStatus: ValidateStatus = '';
-        if (validateStatus !== undefined) {
-          mergedValidateStatus = validateStatus;
-        } else if (meta.validating) {
-          mergedValidateStatus = 'validating';
-        } else if (!help && mergedErrors.length) {
-          mergedValidateStatus = 'error';
-        } else if (meta.touched) {
-          mergedValidateStatus = 'success';
-        }
-
-        // ====================== Class Name ======================
-        const itemClassName = {
-          [`${prefixCls}-item`]: true,
-          [`${prefixCls}-item-with-help`]: domErrorVisible || help,
-          [`${className}`]: !!className,
-
-          // Status
-          [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
-          [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
-          [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
-          [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
-          [`${prefixCls}-item-has-error-leave`]:
-            !help && domErrorVisible && mergedValidateStatus !== 'error',
-          [`${prefixCls}-item-is-validating`]: mergedValidateStatus === 'validating',
-        };
 
         const isRequired =
           required !== undefined
@@ -170,17 +234,16 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
               );
 
         // ======================= Children =======================
-        const fieldId = getFieldId(mergedName, formName);
         const mergedControl: typeof control = {
           ...control,
           id: fieldId,
         };
 
-        let childNode;
+        let childNode: ChildrenNodeType = null;
         if (Array.isArray(children) && !!name) {
           warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
-        } else if (typeof children === 'function' && (!shouldUpdate || !!name)) {
+        } else if (isRenderProps && (!shouldUpdate || !!name)) {
           warning(
             !!shouldUpdate,
             'Form.Item',
@@ -191,8 +254,12 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
             'Form.Item',
             "Do not use `name` with `children` of render props since it's not a field.",
           );
-        } else if (!mergedName.length && !shouldUpdate && !dependencies) {
-          childNode = children;
+        } else if (dependencies && !isRenderProps && !name) {
+          warning(
+            false,
+            'Form.Item',
+            'Must set `name` or use render props when `dependencies` is set.',
+          );
         } else if (React.isValidElement(children)) {
           const childProps = { ...children.props, ...mergedControl };
 
@@ -212,69 +279,21 @@ const FormItem: React.FC<FormItemProps> = (props: FormItemProps) => {
           });
 
           childNode = React.cloneElement(children, childProps);
-        } else if (typeof children === 'function' && shouldUpdate && !name) {
-          childNode = children(context);
+        } else if (isRenderProps && shouldUpdate && !name) {
+          childNode = (children as RenderChildren)(context);
         } else {
           warning(
             !mergedName.length,
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children;
+          childNode = children as any;
         }
 
-        if (noStyle) {
-          return childNode;
-        }
-
-        return (
-          <Row
-            className={classNames(itemClassName)}
-            style={style}
-            key="row"
-            {...omit(restProps, [
-              'colon',
-              'extra',
-              'getValueFromEvent',
-              'hasFeedback',
-              'help',
-              'htmlFor',
-              'id', // It is deprecated because `htmlFor` is its replacement.
-              'label',
-              'labelAlign',
-              'labelCol',
-              'normalize',
-              'required',
-              'validateStatus',
-              'valuePropName',
-              'wrapperCol',
-            ])}
-          >
-            {/* Label */}
-            <FormItemLabel
-              htmlFor={fieldId}
-              {...props}
-              required={isRequired}
-              prefixCls={prefixCls}
-            />
-            {/* Input Group */}
-            <FormItemInput
-              {...props}
-              {...meta}
-              errors={mergedErrors}
-              prefixCls={prefixCls}
-              onDomErrorVisibleChange={setDomErrorVisible}
-              validateStatus={mergedValidateStatus}
-            >
-              <FormItemContext.Provider value={{ updateItemErrors: updateChildItemErrors }}>
-                {childNode}
-              </FormItemContext.Provider>
-            </FormItemInput>
-          </Row>
-        );
+        return renderLayout(childNode, fieldId, meta, isRequired);
       }}
     </Field>
   );
-};
+}
 
 export default FormItem;

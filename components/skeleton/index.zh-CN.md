@@ -32,8 +32,8 @@ cols: 1
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | active | 是否展示动画效果，仅在单独使用头像骨架时生效 | boolean | false |
-| size | 设置头像占位图的大小 | number \| Enum{ 'large', 'small', 'default' } | - |
-| shape | 指定头像的形状 | Enum{ 'circle', 'square' } | - |
+| size | 设置头像占位图的大小 | number \| `large` \| `small` \| `default` | - |
+| shape | 指定头像的形状 | `circle` \| `square` | - |
 
 ### SkeletonTitleProps
 
@@ -50,15 +50,15 @@ cols: 1
 
 ### SkeletonButtonProps
 
-| 属性   | 说明             | 类型                                 | 默认值 |
-| ------ | ---------------- | ------------------------------------ | ------ |
-| active | 是否展示动画效果 | boolean                              | false  |
-| size   | 设置按钮的大小   | Enum{ 'large', 'small', 'default' }  | -      |
-| shape  | 指定按钮的形状   | Enum{ 'circle', 'round', 'default' } | -      |
+| 属性   | 说明             | 类型                             | 默认值 |
+| ------ | ---------------- | -------------------------------- | ------ |
+| active | 是否展示动画效果 | boolean                          | false  |
+| size   | 设置按钮的大小   | `large` \| `small` \| `default`  | -      |
+| shape  | 指定按钮的形状   | `circle` \| `round` \| `default` | -      |
 
 ### SkeletonInputProps
 
-| 属性   | 说明             | 类型                                | 默认值 |
-| ------ | ---------------- | ----------------------------------- | ------ |
-| active | 是否展示动画效果 | boolean                             | false  |
-| size   | 设置按钮的大小   | Enum{ 'large', 'small', 'default' } | -      |
+| 属性   | 说明             | 类型                            | 默认值 |
+| ------ | ---------------- | ------------------------------- | ------ |
+| active | 是否展示动画效果 | boolean                         | false  |
+| size   | 设置按钮的大小   | `large` \| `small` \| `default` | -      |

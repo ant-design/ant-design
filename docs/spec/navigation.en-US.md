@@ -1,7 +1,7 @@
 ---
 category: Design Patterns
 type: Global Rules
-order: 8
+order: 2
 title: Navigation
 ---
 

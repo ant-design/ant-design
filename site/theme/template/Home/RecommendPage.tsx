@@ -31,10 +31,10 @@ const LIST: Recommend[] = [
     href: 'https://antv.vision/zh',
   },
   {
-    title: 'Kitchen·让你的设计秀色可餐',
-    description: '一款为设计者提升工作效率的 Sketch 工具集',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2b-XQJuyRSwAAAAAAAAAAABkARQnAQ',
-    href: 'https://kitchen.alipay.com/',
+    title: 'HiTu·让人人都是插画师',
+    description: '图形化设计资产「海兔」帮助大家解决通用层面的需求，把设计师从重复劳动中解放出来。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sybfTLM-CA8AAAAAAAAAAABkARQnAQ',
+    href: 'https://next.ant.design/docs/spec/illustration-cn',
   },
 ];
 

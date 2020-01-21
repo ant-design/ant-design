@@ -27,7 +27,7 @@ cols: 1
 | loadMore | 加载更多 | string\|ReactNode | - |  |
 | locale | 默认文案设置，目前包括空数据文案 | object | emptyText: '暂无数据' |  |
 | pagination | 对应的 `pagination` 配置, 设置 `false` 不显示 | boolean\|object | false |  |
-| size | list 的尺寸 | `default` \| `middle` \| `small` | `default` |  |
+| size | list 的尺寸 | `default` \| `large` \| `small` | `default` |  |
 | split | 是否展示分割线 | boolean | true |  |
 | dataSource | 列表数据源 | any[] | - |  |
 | renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项 | `item => ReactNode` | - |  |
@@ -38,7 +38,7 @@ cols: 1
 
 | 参数     | 说明               | 类型                        | 默认值   |
 | -------- | ------------------ | --------------------------- | -------- |
-| position | 指定分页显示的位置 | 'top' \| 'bottom' \| 'both' | 'bottom' |
+| position | 指定分页显示的位置 | `top` \| `bottom` \| `both` | `bottom` |
 
 更多配置项，请查看 [`Pagination`](/components/pagination/)。
 

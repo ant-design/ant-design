@@ -1,6 +1,6 @@
 ---
 category: Global Styles
-order: 4
+order: 5
 title: Icons
 ---
 

@@ -20,7 +20,7 @@
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](http://ant.design/index-cn)
 
-[English](./README.md) | 简体中文
+[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文
 
 ## ✨ 特性
 

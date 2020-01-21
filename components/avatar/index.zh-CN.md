@@ -16,8 +16,8 @@ title: Avatar
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | icon | 设置头像的自定义图标 | ReactNode | - |  |
-| shape | 指定头像的形状 | Enum{ 'circle', 'square' } | `circle` |  |
-| size | 设置头像的大小 | number \| Enum{ 'large', 'small', 'default' } | `default` |  |
+| shape | 指定头像的形状 | `circle` \| `square` | `circle` |  |
+| size | 设置头像的大小 | number \| `large` \| `small` \| `default` | `default` |  |
 | src | 图片类头像的资源地址 | string | - |  |
 | srcSet | 设置图片类头像响应式资源地址 | string | - |  |
 | alt | 图像无法显示时的替代文本 | string | - |  |
