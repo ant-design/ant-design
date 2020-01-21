@@ -214,13 +214,15 @@ class Demo extends React.Component {
       // eslint-disable-next-line no-undef
       { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
+    const importReactReg = /import(\D*)from 'react'/;
+    const importReactContent = importReactReg.test(sourceCode) ? '' : "import React from 'react';";
     const indexJsContent = `
-import React from 'react';
+${importReactContent}
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 ${sourceCode.replace('mountNode', "document.getElementById('container')")}
-          `;
+`;
     const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
     const codesanboxPrefillConfig = {
       files: {
