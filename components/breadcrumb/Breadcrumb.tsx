@@ -119,7 +119,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     });
   };
 
-  renderBreadcrumb = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
+  renderBreadcrumb = ({ getPrefixCls }: ConfigConsumerProps) => {
     let crumbs;
     const {
       prefixCls: customizePrefixCls,
@@ -154,12 +154,9 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         });
       });
     }
-    const breadcrumbClassName = classNames(className, prefixCls, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
     return (
       <div
-        className={breadcrumbClassName}
+        className={classNames(className, prefixCls)}
         style={style}
         {...omit(restProps, ['itemRender', 'linkRender', 'nameRender', 'params'])}
       >
