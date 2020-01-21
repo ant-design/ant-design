@@ -232,7 +232,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="site-layout ant-layout"
+    class="ant-layout site-layout"
   >
     <header
       class="site-layout-background ant-layout-header"
@@ -709,7 +709,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="site-layout ant-layout"
+    class="ant-layout site-layout"
     style="margin-left:200px"
   >
     <header
@@ -1218,7 +1218,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="site-layout ant-layout"
+    class="ant-layout site-layout"
   >
     <header
       class="site-layout-background ant-layout-header"
@@ -1276,7 +1276,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/top.md correctly 1`] = `
 <section
-  class="layout ant-layout"
+  class="ant-layout layout"
 >
   <header
     class="ant-layout-header"
@@ -1594,7 +1594,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       </span>
     </div>
     <section
-      class="site-layout-background ant-layout"
+      class="ant-layout site-layout-background"
       style="padding:24px 0"
     >
       <aside
