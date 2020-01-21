@@ -13,7 +13,7 @@ title:
 
 Customize the anchor highlight.
 
-```jsx
+```tsx
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;

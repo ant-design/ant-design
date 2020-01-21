@@ -14,12 +14,11 @@ title:
 The simplest usage.
 
 ```tsx
-import React, { useState, FC } from 'react';
 import { Affix, Button } from 'antd';
 
-const Demo: FC = () => {
-  const [top, setTop] = useState(10);
-  const [bottom, setBottom] = useState(10);
+const Demo: React.FC = () => {
+  const [top, setTop] = React.useState(10);
+  const [bottom, setBottom] = React.useState(10);
 
   return (
     <div>

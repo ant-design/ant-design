@@ -13,7 +13,7 @@ title:
 
 Callback with affixed state.
 
-```jsx
+```tsx
 import { Affix, Button } from 'antd';
 
 ReactDOM.render(
