@@ -84,11 +84,15 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
 
   renderComponent = ({ direction }: ConfigConsumerProps) => {
     const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
-    const classString = classNames(className, prefixCls, {
-      [`${prefixCls}-has-sider`]:
-        typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-has-sider`]:
+          typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     return (
       <LayoutContext.Provider value={{ siderHook: this.getSiderHook() }}>
