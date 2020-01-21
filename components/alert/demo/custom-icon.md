@@ -14,7 +14,8 @@ title:
 
 A relevant icon makes information clearer and more friendly.
 
-```jsx
+```tsx
+import React from 'react';
 import { Alert } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 

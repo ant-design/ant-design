@@ -13,18 +13,16 @@ title:
 
 Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
 
-```jsx
+```tsx
+import React, { useState, FC } from 'react';
 import { Input, AutoComplete } from 'antd';
+import { SelectProps } from 'antd/es/select';
 
-function onSelect(value) {
-  console.log('onSelect', value);
-}
-
-function getRandomInt(max, min = 0) {
+function getRandomInt(max: number, min: number = 0) {
   return Math.floor(Math.random() * (max - min + 1)) + min; // eslint-disable-line no-mixed-operators
 }
 
-function searchResult(query) {
+const searchResult = (query: string) => {
   return new Array(getRandomInt(5))
     .join('.')
     .split('.')
@@ -54,34 +52,31 @@ function searchResult(query) {
         ),
       };
     });
-}
+};
 
-class Complete extends React.Component {
-  state = {
-    options: [],
+const Complete: FC = () => {
+  const [options, setOptions] = useState<SelectProps<object>['options']>([]);
+
+  const handleSearch = (value: string) => {
+    setOptions(value ? searchResult(value) : []);
   };
 
-  handleSearch = value => {
-    this.setState({
-      options: value ? searchResult(value) : [],
-    });
+  const onSelect = (value: string) => {
+    console.log('onSelect', value);
   };
 
-  render() {
-    const { options } = this.state;
-    return (
-      <AutoComplete
-        dropdownMatchSelectWidth={252}
-        style={{ width: 300 }}
-        options={options}
-        onSelect={onSelect}
-        onSearch={this.handleSearch}
-      >
-        <Input.Search size="large" placeholder="input here" enterButton />
-      </AutoComplete>
-    );
-  }
-}
+  return (
+    <AutoComplete
+      dropdownMatchSelectWidth={252}
+      style={{ width: 300 }}
+      options={options}
+      onSelect={onSelect}
+      onSearch={handleSearch}
+    >
+      <Input.Search size="large" placeholder="input here" enterButton />
+    </AutoComplete>
+  );
+};
 
 ReactDOM.render(<Complete />, mountNode);
 ```

@@ -13,7 +13,9 @@ title:
 
 Callback with affixed state.
 
-```jsx
+```tsx
+import React, { useState, FC } from 'react';
+import React from 'react';
 import { Affix, Button } from 'antd';
 
 ReactDOM.render(

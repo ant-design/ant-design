@@ -13,7 +13,8 @@ title:
 
 Image, Icon and letter are supported, and the latter two kinds of avatar can have custom colors and background colors.
 
-```jsx
+```tsx
+import React from 'react';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 

@@ -14,63 +14,51 @@ title:
 Basic Usage, set data source of autocomplete with `options` property.
 
 ```tsx
+import React, { useState, FC } from 'react';
 import { AutoComplete } from 'antd';
 
-function onSelect(value) {
-  console.log('onSelect', value);
-}
-
-function mockVal(str: string, repeat: number = 1) {
+const mockVal = (str: string, repeat: number = 1) => {
   return {
     value: str.repeat(repeat),
   };
-}
-
-class Complete extends React.Component {
-  state = {
-    value: '',
-    options: [],
-  };
-
-  onSearch = searchText => {
-    this.setState({
-      options: !searchText
-        ? []
-        : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)],
-    });
-  };
-
-  onChange = value => {
-    this.setState({ value });
-  };
-
-  render() {
-    const { options, value } = this.state;
-
-    return (
-      <div>
-        <AutoComplete
-          options={options}
-          style={{ width: 200 }}
-          onSelect={onSelect}
-          onSearch={this.onSearch}
-          placeholder="input here"
-        />
-        <br />
-        <br />
-        <AutoComplete
-          value={value}
-          options={options}
-          style={{ width: 200 }}
-          onSelect={onSelect}
-          onSearch={this.onSearch}
-          onChange={this.onChange}
-          placeholder="control mode"
-        />
-      </div>
+};
+const Complete: FC = () => {
+  const [value, setValue] = useState('');
+  const [options, setOptions] = useState<{ value: string }[]>([]);
+  const onSearch = (searchText: string) => {
+    setOptions(
+      !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)],
     );
-  }
-}
+  };
+  const onSelect = (data: string) => {
+    console.log('onSelect', data);
+  };
+  const onChange = (data: string) => {
+    setValue(data);
+  };
+  return (
+    <div>
+      <AutoComplete
+        options={options}
+        style={{ width: 200 }}
+        onSelect={onSelect}
+        onSearch={onSearch}
+        placeholder="input here"
+      />
+      <br />
+      <br />
+      <AutoComplete
+        value={value}
+        options={options}
+        style={{ width: 200 }}
+        onSelect={onSelect}
+        onSearch={onSearch}
+        onChange={onChange}
+        placeholder="control mode"
+      />
+    </div>
+  );
+};
 
 ReactDOM.render(<Complete />, mountNode);
 ```

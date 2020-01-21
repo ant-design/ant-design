@@ -13,10 +13,11 @@ title:
 
 To show close button.
 
-```jsx
+```tsx
+import React from 'react';
 import { Alert } from 'antd';
 
-const onClose = e => {
+const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
   console.log(e, 'I was closed.');
 };
 

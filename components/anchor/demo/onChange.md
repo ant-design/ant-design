@@ -13,12 +13,13 @@ title:
 
 Listening for anchor link change.
 
-```jsx
+```tsx
+import React from 'react';
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;
 
-const onChange = link => {
+const onChange = (link: string) => {
   console.log('Anchor:OnChange', link);
 };
 

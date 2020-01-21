@@ -13,7 +13,8 @@ title:
 
 Customize the anchor highlight.
 
-```jsx
+```tsx
+import React from 'react';
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;
