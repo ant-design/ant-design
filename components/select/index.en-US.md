@@ -41,6 +41,7 @@ Select component to select value from options.
 | maxTagCount | Max tag count to show | number | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |  |
+| tagRender | Customize tag content | (props) => ReactNode | - |  |
 | mode | Set mode of Select | `multiple` \| `tags` | - |  |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |  |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |  |
