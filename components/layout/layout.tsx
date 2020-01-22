@@ -56,7 +56,7 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
 
 const Basic = (props: BasicPropsWithTagName) => {
   const { prefixCls, className, children, tagName, ...others } = props;
-  const classString = classNames(className, prefixCls);
+  const classString = classNames(prefixCls, className);
   return React.createElement(tagName, { className: classString, ...others }, children);
 };
 
