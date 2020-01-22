@@ -14,6 +14,7 @@ title:
 Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
 
 ```tsx
+import React, { useState, useEffect, useRef } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 import ResizeObserver from 'rc-resize-observer';
 import classNames from 'classnames';
@@ -21,7 +22,7 @@ import { Table } from 'antd';
 
 function VirtualTable(props) {
   const { columns, scroll, className } = props;
-  const [tableWidth, setTableWidth] = React.useState(0);
+  const [tableWidth, setTableWidth] = useState(0);
 
   const widthColumnCount = columns.filter(({ width }) => !width).length;
   const mergedColumns = columns.map(column => {
@@ -35,8 +36,8 @@ function VirtualTable(props) {
     };
   });
 
-  const gridRef = React.useRef<any>();
-  const [connectObject] = React.useState<any>(() => {
+  const gridRef = useRef<any>();
+  const [connectObject] = useState<any>(() => {
     const obj = {};
     Object.defineProperty(obj, 'scrollLeft', {
       get: () => null,
@@ -57,8 +58,8 @@ function VirtualTable(props) {
     });
   };
 
-  React.useEffect(() => resetVirtualGrid, []);
-  React.useEffect(() => resetVirtualGrid, [tableWidth]);
+  useEffect(() => resetVirtualGrid, []);
+  useEffect(() => resetVirtualGrid, [tableWidth]);
 
   const renderVirtualList = (rawData: object[], { scrollbarSize, ref, onScroll }: any) => {
     ref.current = connectObject;

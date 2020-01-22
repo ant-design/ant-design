@@ -14,6 +14,7 @@ title:
 Basic Usage, set data source of autocomplete with `options` property.
 
 ```tsx
+import React, { useState } from 'react';
 import { AutoComplete } from 'antd';
 
 const mockVal = (str: string, repeat: number = 1) => {
@@ -22,8 +23,8 @@ const mockVal = (str: string, repeat: number = 1) => {
   };
 };
 const Complete: React.FC = () => {
-  const [value, setValue] = React.useState('');
-  const [options, setOptions] = React.useState<{ value: string }[]>([]);
+  const [value, setValue] = useState('');
+  const [options, setOptions] = useState<{ value: string }[]>([]);
   const onSearch = (searchText: string) => {
     setOptions(
       !searchText ? [] : [mockVal(searchText), mockVal(searchText, 2), mockVal(searchText, 3)],
