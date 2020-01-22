@@ -14,13 +14,14 @@ title:
 Anchor target scroll to screen center.
 
 ```tsx
+import React, { useState, useEffect } from 'react';
 import { Anchor } from 'antd';
 
 const { Link } = Anchor;
 
 const AnchorExample: React.FC = () => {
-  const [targetOffset, setTargetOffset] = React.useState<number | undefined>(undefined);
-  React.useEffect(() => {
+  const [targetOffset, setTargetOffset] = useState<number | undefined>(undefined);
+  useEffect(() => {
     setTargetOffset(window.innerHeight / 2);
   }, []);
   return (

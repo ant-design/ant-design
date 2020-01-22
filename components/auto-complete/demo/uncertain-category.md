@@ -14,6 +14,7 @@ title:
 Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
 
 ```tsx
+import React, { useState } from 'react';
 import { Input, AutoComplete } from 'antd';
 import { SelectProps } from 'antd/es/select';
 
@@ -54,7 +55,7 @@ const searchResult = (query: string) => {
 };
 
 const Complete: React.FC = () => {
-  const [options, setOptions] = React.useState<SelectProps<object>['options']>([]);
+  const [options, setOptions] = useState<SelectProps<object>['options']>([]);
 
   const handleSearch = (value: string) => {
     setOptions(value ? searchResult(value) : []);

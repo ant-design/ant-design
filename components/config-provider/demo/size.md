@@ -14,6 +14,7 @@ title:
 Config component default size.
 
 ```jsx
+import React, { useState } from 'react';
 import {
   ConfigProvider,
   Radio,
@@ -27,7 +28,7 @@ import {
 } from 'antd';
 
 const FormSizeDemo = () => {
-  const [componentSize, setComponentSize] = React.useState('small');
+  const [componentSize, setComponentSize] = useState('small');
   return (
     <div>
       <Radio.Group

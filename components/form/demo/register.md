@@ -14,6 +14,7 @@ title:
 Fill in this form to create a new account for you.
 
 ```tsx
+import React, { useState } from 'react';
 import {
   Form,
   Input,
@@ -109,7 +110,7 @@ const RegistrationForm = () => {
     </Form.Item>
   );
 
-  const [autoCompleteResult, setAutoCompleteResult] = React.useState([]);
+  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   const onWebsiteChange = value => {
     if (!value) {
