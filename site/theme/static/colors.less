@@ -24,6 +24,15 @@
 
 .color-palettes {
   margin: 0 1%;
+  &-dark {
+    background-color: #141414;
+    .color-title {
+      color: fade(@white, 85);
+    }
+    .color-description {
+      color: fade(@white, 45);
+    }
+  }
 }
 .color-palette {
   display: inline-block;
@@ -141,6 +150,17 @@
 
 .color-palette-horizontal {
   width: 100%;
+  &-dark {
+    padding: 32px 26px;
+    background-color: #141414;
+    .color-palette-pick {
+      color: fade(@white, 65);
+      text-align: left;
+      &-hex {
+        color: fade(@white, 65);
+      }
+    }
+  }
 
   .main-color {
     display: flex;
