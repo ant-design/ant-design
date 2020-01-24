@@ -46,7 +46,7 @@ export default class Palette extends React.Component {
     const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
     for (let i = 1; i <= count; i += 1) {
       const colorText = `${name}-${i}`;
-      const defaultBgStyle = dark ? presetDarkPalettes[name][i - 1] : 'unset';
+      const defaultBgStyle = dark ? presetDarkPalettes[name][i - 1] : '';
       colors.push(
         <CopyToClipboard
           text={this.hexColors ? this.hexColors[colorText] : ''}
