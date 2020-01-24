@@ -72,7 +72,7 @@ export interface AntTreeNodeExpandedEvent extends AntTreeNodeBaseEvent {
 
 export interface AntTreeNodeMouseEvent {
   node: AntTreeNode;
-  event: React.MouseEvent<HTMLElement>;
+  event: React.DragEvent<HTMLElement>;
 }
 
 export interface AntTreeNodeDragEnterEvent extends AntTreeNodeMouseEvent {
