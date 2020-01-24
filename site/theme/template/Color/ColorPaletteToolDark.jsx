@@ -74,7 +74,7 @@ export default class ColorPaletteTool extends Component {
             </Col>
             <Col span={12}>
               <div className="color-palette-pick">
-                选择你的背景色
+                <FormattedMessage id="app.docs.color.pick-background" />
               </div>
               <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                 <Row>
