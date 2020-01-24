@@ -235,7 +235,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     class="ant-layout site-layout"
   >
     <header
-      class="site-layout-background ant-layout-header"
+      class="ant-layout-header site-layout-background"
       style="padding:0"
     >
       <span
@@ -261,7 +261,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       </span>
     </header>
     <main
-      class="site-layout-background ant-layout-content"
+      class="ant-layout-content site-layout-background"
       style="margin:24px 16px;padding:24px;min-height:280px"
     >
       Content
@@ -379,7 +379,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="site-layout ant-layout-content"
+    class="ant-layout-content site-layout"
     style="padding:0 50px;margin-top:64px"
   >
     <div
@@ -713,7 +713,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
     style="margin-left:200px"
   >
     <header
-      class="site-layout-background ant-layout-header"
+      class="ant-layout-header site-layout-background"
       style="padding:0"
     />
     <main
@@ -980,7 +980,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
     class="ant-layout"
   >
     <header
-      class="site-layout-sub-header-background ant-layout-header"
+      class="ant-layout-header site-layout-sub-header-background"
       style="padding:0"
     />
     <main
@@ -1221,7 +1221,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     class="ant-layout site-layout"
   >
     <header
-      class="site-layout-background ant-layout-header"
+      class="ant-layout-header site-layout-background"
       style="padding:0"
     />
     <main
@@ -1446,7 +1446,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
   class="ant-layout"
 >
   <header
-    class="header ant-layout-header"
+    class="ant-layout-header header"
   >
     <div
       class="logo"
@@ -1785,7 +1785,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
   class="ant-layout"
 >
   <header
-    class="header ant-layout-header"
+    class="ant-layout-header header"
   >
     <div
       class="logo"
@@ -2102,7 +2102,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </span>
       </div>
       <main
-        class="site-layout-background ant-layout-content"
+        class="ant-layout-content site-layout-background"
         style="padding:24px;margin:0;min-height:280px"
       >
         Content
