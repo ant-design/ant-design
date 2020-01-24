@@ -85,7 +85,7 @@ const ColorPalettes = (props) => {
   return (
     <div className={colorCls}>
       {colors.map(color => (
-        <Palette key={color.name} color={color} dark showTitle />
+        <Palette key={color.name} color={color} dark={dark} showTitle />
       ))}
     </div>
   );

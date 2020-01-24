@@ -13,6 +13,7 @@ export default class ColorPaletteTool extends Component {
     primaryColor: '#1890ff',
     backgroundColor: '#141414',
     primaryColorInstance: null,
+    // eslint-disable-next-line react/no-unused-state
     backgroundColorInstance: null,
   };
 
