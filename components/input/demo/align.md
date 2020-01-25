@@ -93,6 +93,10 @@ ReactDOM.render(
       <RadioButton value="b">Shanghai</RadioButton>
     </RadioGroup>
     <AutoComplete style={{ width: 100 }} placeholder="input here" />
+
+    <br />
+
+    <Input prefix="$" addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />
   </div>,
   mountNode,
 );
