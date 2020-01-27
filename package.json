@@ -112,7 +112,7 @@
     "rc-mentions": "~1.0.0-alpha.3",
     "rc-menu": "~8.0.0-alpha.7",
     "rc-notification": "~3.3.1",
-    "rc-pagination": "~1.20.11",
+    "rc-pagination": "~1.20.13",
     "rc-picker": "^0.0.1-alpha.63",
     "rc-progress": "~2.5.0",
     "rc-rate": "~2.5.0",
