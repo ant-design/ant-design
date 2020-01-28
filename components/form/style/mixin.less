@@ -6,19 +6,27 @@
     color: @text-color;
   }
   // 输入框的不同校验状态
-  .@{ant-prefix}-input {
+  .@{ant-prefix}-input,
+  .@{ant-prefix}-input-affix-wrapper {
     &,
     &:hover {
       background-color: @background-color;
       border-color: @border-color;
     }
 
-    &:focus {
+    &:focus,
+    &-focused {
       .active(@border-color);
     }
 
     &:not([disabled]):hover {
       border-color: @border-color;
+    }
+  }
+
+  .@{ant-prefix}-input-affix-wrapper {
+    input:focus {
+      box-shadow: none !important;
     }
   }
 
