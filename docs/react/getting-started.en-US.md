@@ -5,15 +5,23 @@ title: Getting Started
 
 Ant Design React is dedicated to providing a **good development experience** for programmers. Make sure that you have installed [Node.js](https://nodejs.org/)(> 8.0.0) correctly.
 
+If you try in local environment, Please refer to [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app".
+
 > Before delving into Ant Design React, a good knowledge base of [React](https://reactjs.org) and [JavaScript ES2015](http://babeljs.io/docs/learn-es2015/) is needed.
 
 ---
 
 ## First Example
 
-Here is a simple example to show usage of Ant Design React.
+Here is a simple codesandbox example to show the usage of Ant Design React.
 
-<iframe src="https://codesandbox.io/embed/wk04r016q8?fontsize=14" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+<iframe
+  src="https://codesandbox.io/embed/antd-reproduction-template-6e93z?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="antd reproduction template"
+  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
+  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+/>
 
 ### 1. Create one codesandbox
 
@@ -22,6 +30,8 @@ Visit http://u.ant.design/codesandbox-repro to create a codesandbox. Don't forge
 ### 2. Using antd component
 
 Replace the content of `index.js` with the following code. As you can see, there is no difference between antd's components and typical React components.
+
+If you already set up by [Install and Initialization](https://ant.design/docs/react/use-with-create-react-app#Install-and-Initialization) section of "Use in create-react-app", Please replace the content of /src/index.js
 
 ```jsx
 import React from 'react';
@@ -135,13 +145,13 @@ You are using a whole package of antd, please use https://www.npmjs.com/package/
 However, we can import individual components on demand:
 
 ```jsx
-import Button from 'antd/lib/button';
-import 'antd/lib/button/style'; // or antd/lib/button/style/css for css format file
+import Button from 'antd/es/button';
+import 'antd/es/button/style'; // or antd/es/button/style/css for css format file
 ```
 
-> `antd/es/button` to import es version module for tree shaking.
+> Note: antd supports ES6 tree shaking, so `import { Button } from 'antd';` will drop the js code you don't use too.
 
-We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/lib/xxx' way:
+We strongly recommend using [babel-plugin-import](https://github.com/ant-design/babel-plugin-import), which can convert the following code to the 'antd/es/xxx' way:
 
 ```jsx
 import { Button } from 'antd';
@@ -150,6 +160,20 @@ import { Button } from 'antd';
 And this plugin can load styles too. Read [usage](https://github.com/ant-design/babel-plugin-import#usage) for more details.
 
 > FYI, babel-plugin-import's `style` option will importing some global reset styles, don't use it if you don't need those styles. You can import styles manually via `import 'antd/dist/antd.css'` and override the global reset styles.
+
+## Replace momentjs to Day.js
+
+You can use [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) plugin to replace momentjs to Day.js to reduce bundle size dramatically. You need to update your webpack config file like this:
+
+```js
+// webpack-config.js
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+
+module.exports = {
+  // ...
+  plugins: [new AntdDayjsWebpackPlugin()],
+};
+```
 
 ## Customization
 

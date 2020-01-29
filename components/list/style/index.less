@@ -15,6 +15,11 @@
   &-pagination {
     margin-top: 24px;
     text-align: right;
+
+    // https://github.com/ant-design/ant-design/issues/20037
+    .@{ant-prefix}-pagination-options {
+      text-align: left;
+    }
   }
 
   &-more {
@@ -200,7 +205,7 @@
     }
   }
 
-  &-grid &-item {
+  &-grid .@{ant-prefix}-col > &-item {
     display: block;
     max-width: 100%;
     margin-bottom: 16px;

@@ -16,7 +16,7 @@ Select your favourite topics.
 ```jsx
 import { Tag } from 'antd';
 
-const CheckableTag = Tag.CheckableTag;
+const { CheckableTag } = Tag;
 
 const tagsFromServer = ['Movies', 'Books', 'Music', 'Sports'];
 
@@ -36,7 +36,7 @@ class HotTags extends React.Component {
     const { selectedTags } = this.state;
     return (
       <div>
-        <h6 style={{ marginRight: 8, display: 'inline' }}>Categories:</h6>
+        <span style={{ marginRight: 8 }}>Categories:</span>
         {tagsFromServer.map(tag => (
           <CheckableTag
             key={tag}

@@ -7,7 +7,7 @@ export const svgBaseProps = {
   width: '1em',
   height: '1em',
   fill: 'currentColor',
-  ['aria-hidden']: true,
+  'aria-hidden': true,
   focusable: 'false',
 };
 
@@ -63,12 +63,16 @@ export function alias(type: string) {
     case 'canlendar':
       newType = 'calendar';
       break;
+    // https://github.com/ant-design/ant-design/issues/17448
+    case 'colum-height':
+      newType = 'column-height';
+      break;
     default:
   }
   warning(
     newType === type,
     'Icon',
-    `Icon '${type}' is typo and depracated, please use '${newType}' instead.`,
+    `Icon '${type}' was a typo and is now deprecated, please use '${newType}' instead.`,
   );
   return newType;
 }

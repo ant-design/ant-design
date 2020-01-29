@@ -143,7 +143,9 @@ describe('Test utils function', () => {
     it('bindAnimationEvent should return when node is null', () => {
       const wrapper = mount(
         <Wave>
-          <button type="button" disabled />
+          <button type="button" disabled>
+            button
+          </button>
         </Wave>,
       ).instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
@@ -152,7 +154,9 @@ describe('Test utils function', () => {
     it('bindAnimationEvent.onClick should return when children is hidden', () => {
       const wrapper = mount(
         <Wave>
-          <button type="button" style={{ display: 'none' }} />
+          <button type="button" style={{ display: 'none' }}>
+            button
+          </button>
         </Wave>,
       ).instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);

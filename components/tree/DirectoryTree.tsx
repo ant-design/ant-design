@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent, convertTreeToEntities } from 'rc-tree/lib/util';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { polyfill } from 'react-lifecycles-compat';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 import Tree, {
   TreeProps,
@@ -13,7 +13,12 @@ import Tree, {
   AntTreeNodeSelectedEvent,
   AntTreeNode,
 } from './Tree';
-import { calcRangeKeys, getFullKeyList, convertDirectoryKeysToNodes } from './util';
+import {
+  calcRangeKeys,
+  getFullKeyList,
+  convertDirectoryKeysToNodes,
+  getFullKeyListByTreeData,
+} from './util';
 import Icon from '../icon';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -53,11 +58,14 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   }
 
   state: DirectoryTreeState;
+
   tree: Tree;
+
   onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
 
   // Shift click usage
   lastSelectedKey?: string;
+
   cachedSelectedKeys?: string[];
 
   constructor(props: DirectoryTreeProps) {
@@ -79,7 +87,11 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
     // Expanded keys
     if (defaultExpandAll) {
-      this.state.expandedKeys = getFullKeyList(props.children);
+      if (props.treeData) {
+        this.state.expandedKeys = getFullKeyListByTreeData(props.treeData);
+      } else {
+        this.state.expandedKeys = getFullKeyList(props.children);
+      }
     } else if (defaultExpandParent) {
       this.state.expandedKeys = conductExpandParent(
         expandedKeys || defaultExpandedKeys,

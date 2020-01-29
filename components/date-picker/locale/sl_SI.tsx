@@ -20,7 +20,7 @@ const locale = {
     yearFormat: 'YYYY',
     dateFormat: 'D.M.YYYY',
     dayFormat: 'D',
-    dateTimeFormat: 'D.M.YYYY HH:mm:ss',
+    dateTimeFormat: 'D.M.YYYY HH:mm',
     monthFormat: 'MMMM',
     monthBeforeYear: true,
     previousMonth: 'Prejšnji mesec (PageUp)',

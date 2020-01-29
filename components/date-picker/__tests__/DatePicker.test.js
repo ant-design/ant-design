@@ -57,7 +57,7 @@ describe('DatePicker', () => {
         yearFormat: 'YYYY',
         dateFormat: 'D M YYYY',
         dayFormat: 'D',
-        dateTimeFormat: 'D M YYYY HH:mm:ss',
+        dateTimeFormat: 'D M YYYY HH:mm',
         monthBeforeYear: true,
       },
       timePickerLocale: {
@@ -96,12 +96,7 @@ describe('DatePicker', () => {
       render() {
         const { value } = this.state;
         return (
-          <DatePicker
-            showTime
-            value={value}
-            format="YYYY-MM-DD HH:mm:ss"
-            onChange={this.onChange}
-          />
+          <DatePicker showTime value={value} format="YYYY-MM-DD HH:mm" onChange={this.onChange} />
         );
       }
     }

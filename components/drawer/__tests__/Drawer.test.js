@@ -1,8 +1,11 @@
 import React from 'react';
 import { render } from 'enzyme';
 import Drawer from '..';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Drawer', () => {
+  mountTest(Drawer);
+
   it('render correctly', () => {
     const wrapper = render(
       <Drawer visible width={400} getContainer={false}>
@@ -51,6 +54,25 @@ describe('Drawer', () => {
   it('className is test_drawer', () => {
     const wrapper = render(
       <Drawer destroyOnClose visible={false} className="test_drawer" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('style/drawerStyle/headerStyle/bodyStyle should work', () => {
+    const style = {
+      backgroundColor: '#08c',
+    };
+    const wrapper = render(
+      <Drawer
+        visible
+        style={style}
+        drawerStyle={style}
+        headerStyle={style}
+        bodyStyle={style}
+        getContainer={false}
+      >
         Here is content of Drawer
       </Drawer>,
     );

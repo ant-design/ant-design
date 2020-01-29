@@ -1,12 +1,12 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
 import { Icon, Tooltip } from 'antd';
+import stackblitzSdk from '@stackblitz/sdk';
 import EditButton from './EditButton';
 import ErrorBoundary from './ErrorBoundary';
 import BrowserFrame from '../BrowserFrame';
@@ -18,11 +18,7 @@ function compress(string) {
     .replace(/=+$/, ''); // Remove ending '='
 }
 
-export default class Demo extends React.Component {
-  static contextTypes = {
-    intl: PropTypes.object,
-  };
-
+class Demo extends React.Component {
   state = {
     codeExpand: false,
     copied: false,
@@ -102,10 +98,19 @@ export default class Demo extends React.Component {
   }
 
   render() {
-    const { state } = this;
-    const { props } = this;
-    const { meta, src, content, preview, highlightedCode, style, highlightedStyle, expand } = props;
-    const { copied } = state;
+    const {
+      meta,
+      src,
+      content,
+      preview,
+      highlightedCode,
+      style,
+      highlightedStyle,
+      expand,
+      utils,
+      intl: { locale },
+    } = this.props;
+    const { copied, copyTooltipVisible } = this.state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
@@ -115,17 +120,14 @@ export default class Demo extends React.Component {
         preview(React, ReactDOM)
       );
     }
-    const codeExpand = state.codeExpand || expand;
+    const codeExpand = this.state.codeExpand || expand;
     const codeBoxClass = classNames('code-box', {
       expand: codeExpand,
       'code-box-debug': meta.debug,
     });
-    const {
-      intl: { locale },
-    } = this.context;
     const localizedTitle = meta.title[locale] || meta.title;
     const localizeIntro = content[locale] || content;
-    const introChildren = props.utils.toReactComponent(['div'].concat(localizeIntro));
+    const introChildren = utils.toReactComponent(['div'].concat(localizeIntro));
 
     const highlightClass = classNames({
       'highlight-wrapper': true,
@@ -188,28 +190,32 @@ export default class Demo extends React.Component {
       },
       { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
     );
-    const codesanboxPrefillConfig = {
-      files: {
-        'package.json': {
-          content: {
-            dependencies,
-          },
-        },
-        'index.css': {
-          content: (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), ''),
-        },
-        'index.js': {
-          content: `
+    const indexJsContent = `
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
 ${sourceCode.replace('mountNode', "document.getElementById('container')")}
-          `,
-        },
+          `;
+    const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const codesanboxPrefillConfig = {
+      files: {
+        'package.json': { content: { dependencies } },
+        'index.css': { content: indexCssContent },
+        'index.js': { content: indexJsContent },
         'index.html': {
           content: html,
         },
+      },
+    };
+    const stackblitzPrefillConfig = {
+      title: `${localizedTitle} - Ant Design Demo`,
+      template: 'create-react-app',
+      dependencies,
+      files: {
+        'index.css': indexCssContent,
+        'index.js': indexJsContent,
+        'index.html': html,
       },
     };
     return (
@@ -283,14 +289,25 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  this.track({ type: 'stackblitz', demo: meta.id });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig);
+                }}
+              >
+                <Icon type="thunderbolt" />
+              </span>
+            </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
-                visible={state.copyTooltipVisible}
+                visible={copyTooltipVisible}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
                 <Icon
-                  type={state.copied && state.copyTooltipVisible ? 'check' : 'snippets'}
+                  type={copied && copyTooltipVisible ? 'check' : 'snippets'}
                   className="code-box-code-copy"
                 />
               </Tooltip>
@@ -316,7 +333,7 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
           </div>
         </section>
         <section className={highlightClass} key="code">
-          <div className="highlight">{props.utils.toReactComponent(highlightedCode)}</div>
+          <div className="highlight">{utils.toReactComponent(highlightedCode)}</div>
           {highlightedStyle ? (
             <div key="style" className="highlight">
               <pre>
@@ -329,3 +346,5 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
     );
   }
 }
+
+export default injectIntl(Demo);

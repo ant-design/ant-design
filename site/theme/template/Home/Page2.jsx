@@ -28,7 +28,7 @@ const page2Data = [
     img: 'https://gw.alipayobjects.com/zos/rmsportal/slVtnOCcgeAcLEPwtewY.svg',
     name: 'AntV',
     slogan: <FormattedMessage id="app.home.product-antv-slogan" />,
-    link: 'https://antv.alipay.com/zh-cn/index.html',
+    link: 'https://antv.vision',
   },
   {
     img: 'https://gw.alipayobjects.com/zos/rmsportal/EAHlyTmYeDtTkZIPbUnP.svg',
@@ -41,6 +41,7 @@ const page2Data = [
 
 const svgBgChild = [
   <svg
+    key="svg-0"
     width="100%"
     height="100%"
     viewBox="0 0 1401 1109"
@@ -85,6 +86,7 @@ const svgBgChild = [
     </g>
   </svg>,
   <svg
+    key="svg-1"
     width="1311px"
     height="920px"
     viewBox="0 0 1311 920"
@@ -120,10 +122,10 @@ export default function Page2({ isMobile, locale }) {
       <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
         Ant Design of React <Icon type="right" />
       </Link>
-      <a href="https://ng.ant.design/" target="_black">
+      <a href="https://ng.ant.design/" target="_blank" rel="noopener noreferrer">
         Ant Design of Angular <Icon type="right" />
       </a>
-      <a href="https://vue.ant.design/" target="_black">
+      <a href="https://vue.ant.design/" target="_blank" rel="noopener noreferrer">
         Ant Design of Vue <Icon type="right" />
       </a>
     </div>
@@ -135,11 +137,21 @@ export default function Page2({ isMobile, locale }) {
     const mobileContent = (
       <div className="components-button-wrapper">
         <p key="p">{item.slogan}</p>
-        <a className="more-mobile-react" href="https://mobile.ant.design" target="_black">
+        <a
+          className="more-mobile-react"
+          href="https://mobile.ant.design"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FormattedMessage id="app.home.more-mobile-react" />
           <Icon type="right" />
         </a>
-        <a className="more-mobile-angular" href="http://ng.mobile.ant.design" target="_black">
+        <a
+          className="more-mobile-angular"
+          href="http://ng.mobile.ant.design"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FormattedMessage id="app.home.more-mobile-angular" />
           <Icon type="right" />
         </a>

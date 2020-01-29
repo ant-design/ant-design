@@ -34,9 +34,10 @@
     position: relative;
     display: inline-block;
     width: 100%;
+    overflow: hidden;
     vertical-align: middle;
     background-color: @progress-remaining-color;
-    border-radius: 100px;
+    border-radius: @progress-radius;
   }
 
   &-circle-trail {
@@ -45,13 +46,19 @@
 
   &-circle-path {
     animation: ~'@{ant-prefix}-progress-appear' 0.3s;
-    stroke: @progress-default-color;
+  }
+
+  &-inner:not(.@{ant-prefix}-progress-circle-gradient) {
+    .@{ant-prefix}-progress-circle-path {
+      stroke: @progress-default-color;
+    }
   }
 
   &-success-bg,
   &-bg {
     position: relative;
     background-color: @progress-default-color;
+    border-radius: @progress-radius;
     transition: all 0.4s @ease-out-circ 0s;
   }
 
@@ -100,6 +107,9 @@
     .@{progress-prefix-cls}-text {
       color: @error-color;
     }
+  }
+
+  &-status-exception &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
       stroke: @error-color;
     }
@@ -112,6 +122,9 @@
     .@{progress-prefix-cls}-text {
       color: @success-color;
     }
+  }
+
+  &-status-success &-inner:not(.@{progress-prefix-cls}-circle-gradient) {
     .@{progress-prefix-cls}-circle-path {
       stroke: @success-color;
     }

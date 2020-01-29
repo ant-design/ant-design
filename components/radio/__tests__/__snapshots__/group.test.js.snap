@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Radio passes prefixCls down to radio 1`] = `
+exports[`Radio Group passes prefixCls down to radio 1`] = `
 <div
   class="my-radio-group my-radio-group-outline"
 >

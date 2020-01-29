@@ -15,12 +15,12 @@ A breadcrumb displays the current location within a hierarchy. It allows going b
 
 ## API
 
-| Property | Description | Type | Optional | Default |
-| --- | --- | --- | --- | --- |
-| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode |  | - |
-| params | Routing parameters | object |  | - |
-| routes | The routing stack information of router | [routes\[\]](#routes) |  | - |
-| separator | Custom separator | string\|ReactNode |  | `/` |
+| Property | Description | Type | Optional | Default | Version |
+| --- | --- | --- | --- | --- | --- |
+| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode |  | - |  |
+| params | Routing parameters | object |  | - |  |
+| routes | The routing stack information of router | [routes\[\]](#routes) |  | - |  |
+| separator | Custom separator | string\|ReactNode |  | `/` |  |
 
 ### Use with browserHistory
 

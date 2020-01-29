@@ -13,6 +13,10 @@ title: 在 create-react-app 中使用
 
 ```bash
 $ yarn create react-app antd-demo
+
+# or
+
+$ npx create-react-app antd-demo
 ```
 
 工具会自动初始化一个脚手架并安装 React 项目的各种必要依赖，如果在过程中出现网络问题，请尝试配置代理或使用其他 npm registry。
@@ -55,19 +59,15 @@ $ yarn add antd
 修改 `src/App.js`，引入 antd 的按钮组件。
 
 ```jsx
-import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import React from 'react';
+import { Button } from 'antd';
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Button type="primary">Button</Button>
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <Button type="primary">Button</Button>
+  </div>
+);
 
 export default App;
 ```
@@ -86,9 +86,11 @@ export default App;
 
 好了，现在你应该能看到页面上已经有了 antd 的蓝色按钮组件，接下来就可以继续选用其他组件开发应用了。其他开发流程你可以参考 create-react-app 的[官方文档](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md)。
 
+我们现在已经把 antd 组件成功运行起来了，开始开发你的应用吧！
+
 ## 高级配置
 
-我们现在已经把组件成功运行起来了，但是在实际开发过程中还有很多问题，例如上面的例子实际上加载了全部的 antd 组件的样式（对前端性能是个隐患）。
+这个例子在实际开发中还有一些优化的空间，比如无法进行主题配置，而且上面的例子加载了全部的 antd 组件的样式（gzipped 后一共大约 60kb）。
 
 此时我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 [react-app-rewired](https://github.com/timarney/react-app-rewired) （一个对 create-react-app 进行自定义配置的社区解决方案）。
 
@@ -121,6 +123,8 @@ module.exports = function override(config, env) {
 
 ### 使用 babel-plugin-import
 
+> 注意：antd 默认支持基于 ES module 的 tree shaking，js 代码部分不使用这个插件也会有按需加载的效果。
+
 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 是一个用于按需加载组件代码和样式的 babel 插件（[原理](/docs/react/getting-started#按需加载)），现在我们尝试安装它并修改 `config-overrides.js` 文件。
 
 ```bash
@@ -148,7 +152,7 @@ $ yarn add babel-plugin-import
 ```diff
   // src/App.js
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 
@@ -199,9 +203,24 @@ module.exports = override(
 
 > 你也可以使用 [craco](https://github.com/sharegate/craco) 和 [craco-antd](https://github.com/FormAPI/craco-antd) 来实现和 customize-cra 一样的修改 create-react-app 配置的功能。
 
+## 使用 Day.js 替换 momentjs 优化打包大小
+
+你可以使用 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin) 插件用 Day.js 替换 momentjs 来大幅减小打包大小。
+
+```bash
+$ yarn add antd-dayjs-webpack-plugin
+```
+
+```js
+const { override, addWebpackPlugin } = require('customize-cra');
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
+
+module.exports = override(addWebpackPlugin(new AntdDayjsWebpackPlugin()));
+```
+
 ## eject
 
-你也可以使用 create-react-app 提供的 [yarn run eject](https://github.com/facebookincubator/create-react-app#converting-to-a-custom-setup) 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。
+你也可以使用 create-react-app 提供的 [yarn run eject](https://facebook.github.io/create-react-app/docs/available-scripts#npm-run-eject) 命令将所有内建的配置暴露出来。不过这种配置方式需要你自行探索，不在本文讨论范围内。
 
 ## 源码和其他脚手架
 

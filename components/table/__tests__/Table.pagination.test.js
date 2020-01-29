@@ -70,6 +70,43 @@ describe('Table.pagination', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 
+  it('should accept pagination size', () => {
+    const wrapper = mount(
+      createTable({
+        pagination: { size: 'small' },
+      }),
+    );
+    expect(wrapper.find('.ant-pagination.mini')).toHaveLength(1);
+  });
+
+  it('should scroll to first row when page change', () => {
+    const wrapper = mount(
+      createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
+    );
+    const scrollToSpy = jest.spyOn(
+      wrapper
+        .find('Table')
+        .first()
+        .instance(),
+      'scrollToFirstRow',
+    );
+    expect(scrollToSpy).toHaveBeenCalledTimes(0);
+
+    wrapper
+      .find('Pager')
+      .last()
+      .simulate('click');
+    expect(scrollToSpy).toHaveBeenCalledTimes(1);
+
+    wrapper.find('.ant-select').simulate('click');
+    wrapper
+      .find('MenuItem')
+      .find('li')
+      .last()
+      .simulate('click');
+    expect(scrollToSpy).toHaveBeenCalledTimes(2);
+  });
+
   it('fires change event', () => {
     const handleChange = jest.fn();
     const handlePaginationChange = jest.fn();
@@ -149,6 +186,17 @@ describe('Table.pagination', () => {
     );
   });
 
+  it('should not change page when pagination current is specified', () => {
+    const wrapper = mount(createTable({ pagination: { current: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
+    wrapper.find('.ant-pagination-item-3').simulate('click');
+    expect(wrapper.find('.ant-pagination-item-2').hasClass('ant-pagination-item-active')).toBe(
+      true,
+    );
+  });
+
   it('specify the position of pagination', () => {
     const wrapper = mount(createTable({ pagination: { position: 'top' } }));
     expect(wrapper.find('.ant-spin-container').children()).toHaveLength(2);
@@ -210,5 +258,52 @@ describe('Table.pagination', () => {
     expect(onChange.mock.calls[0][0].current).toBe(2);
 
     expect(wrapper.find('.ant-table-tbody tr.ant-table-row')).toHaveLength(data.length);
+  });
+
+  it('select by checkbox to trigger stopPropagation', () => {
+    jest.useFakeTimers();
+    const onShowSizeChange = jest.fn();
+    const onChange = jest.fn();
+    const wrapper = mount(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+          onShowSizeChange,
+        },
+        onChange,
+      }),
+    );
+    wrapper.find('.ant-select').simulate('click');
+    jest.runAllTimers();
+    const dropdownWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(dropdownWrapper.find('MenuItem').length).toBe(4);
+    dropdownWrapper
+      .find('MenuItem')
+      .at(3)
+      .simulate('click');
+    expect(onShowSizeChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenCalled();
+    jest.useRealTimers();
+  });
+
+  it('should support current in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { current: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('2');
+  });
+
+  it('should support defaultCurrent in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { defaultCurrent: 2, pageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item-active').text()).toBe('2');
+  });
+
+  it('should support defaultPageSize in pagination', () => {
+    const wrapper = mount(createTable({ pagination: { defaultPageSize: 1 } }));
+    expect(wrapper.find('.ant-pagination-item')).toHaveLength(4);
   });
 });

@@ -49,7 +49,7 @@
   &-menu {
     position: relative;
     margin: 0;
-    padding: 4px 0;
+    padding: @dropdown-edge-child-vertical-padding 0;
     text-align: left;
     list-style-type: none;
     background-color: @component-background;
@@ -72,24 +72,37 @@
       > .@{dropdown-prefix-cls}-menu {
         transform-origin: 0 0;
       }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      ul {
+        margin-right: 0.3em;
+        margin-left: 0.3em;
+        padding: 0;
+      }
     }
 
     &-item,
     &-submenu-title {
       clear: both;
       margin: 0;
-      padding: 5px @control-padding-horizontal;
+      padding: @dropdown-vertical-padding @control-padding-horizontal;
       color: @text-color;
       font-weight: normal;
-      font-size: @font-size-base;
-      line-height: 22px;
+      font-size: @dropdown-font-size;
+      line-height: @dropdown-line-height;
       white-space: nowrap;
       cursor: pointer;
       transition: all 0.3s;
 
-      > .anticon:first-child {
+      > .anticon:first-child,
+      > span > .anticon:first-child {
         min-width: 12px;
         margin-right: 8px;
+        font-size: @font-size-sm;
       }
 
       > a {
@@ -98,6 +111,18 @@
         padding: 5px @control-padding-horizontal;
         color: @text-color;
         transition: all 0.3s;
+      }
+
+      &:first-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
+      }
+
+      &:last-child {
+        & when (@dropdown-edge-child-vertical-padding = 0) {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
       }
 
       &-selected,
@@ -128,6 +153,7 @@
         line-height: 0;
         background-color: @border-color-split;
       }
+
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
         right: @padding-xs;
@@ -137,6 +163,12 @@
           .iconfont-size-under-12px(10px);
         }
       }
+    }
+
+    &-item-group-list {
+      margin: 0 8px;
+      padding: 0;
+      list-style: none;
     }
 
     &-submenu-title {
@@ -163,6 +195,11 @@
         background-color: @component-background;
         cursor: not-allowed;
       }
+    }
+
+    // https://github.com/ant-design/ant-design/issues/19264
+    &-submenu-selected &-submenu-title {
+      color: @primary-color;
     }
   }
 

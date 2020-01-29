@@ -13,6 +13,7 @@
   height: auto;
   padding: 0;
   overflow: hidden;
+  line-height: @line-height-base;
   white-space: pre-wrap;
   vertical-align: bottom;
 
@@ -30,10 +31,11 @@
   // ================= Input Area =================
   > textarea,
   &-measure {
+    min-height: @input-height-base - 2px;
     margin: 0;
     padding: @input-padding-vertical-base @input-padding-horizontal-base;
     overflow: inherit;
-    overflow-x: initial;
+    overflow-x: hidden;
     overflow-y: auto;
     font-weight: inherit;
     font-size: inherit;
@@ -58,6 +60,7 @@
     border: none;
     outline: none;
     resize: none;
+    .placeholder();
 
     &:read-only {
       cursor: default;
@@ -73,6 +76,11 @@
     z-index: -1;
     color: transparent;
     pointer-events: none;
+
+    > span {
+      display: inline-block;
+      min-height: 1em;
+    }
   }
 
   // ================== Dropdown ==================

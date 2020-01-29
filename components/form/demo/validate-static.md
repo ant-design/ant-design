@@ -119,6 +119,18 @@ ReactDOM.render(
     <Form.Item label="Success" hasFeedback validateStatus="success">
       <InputNumber style={{ width: '100%' }} />
     </Form.Item>
+
+    <Form.Item label="Success" hasFeedback validateStatus="success">
+      <Input allowClear placeholder="with allowClear" />
+    </Form.Item>
+
+    <Form.Item label="Warning" hasFeedback validateStatus="warning">
+      <Input.Password placeholder="with input password" />
+    </Form.Item>
+
+    <Form.Item label="Error" hasFeedback validateStatus="error">
+      <Input.Password allowClear placeholder="with input password and allowClear" />
+    </Form.Item>
   </Form>,
   mountNode,
 );

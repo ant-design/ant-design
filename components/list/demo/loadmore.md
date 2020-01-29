@@ -98,7 +98,9 @@ class LoadMoreList extends React.Component {
         loadMore={loadMore}
         dataSource={list}
         renderItem={item => (
-          <List.Item actions={[<a>edit</a>, <a>more</a>]}>
+          <List.Item
+            actions={[<a key="list-loadmore-edit">edit</a>, <a key="list-loadmore-more">more</a>]}
+          >
             <Skeleton avatar title={false} loading={item.loading} active>
               <List.Item.Meta
                 avatar={

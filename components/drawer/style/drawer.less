@@ -11,14 +11,15 @@
   z-index: @zindex-modal;
   width: 0%;
   height: 100%;
-
+  transition: transform @animation-duration-slow @ease-base-out,
+    height 0s ease @animation-duration-slow, width 0s ease @animation-duration-slow;
   > * {
-    transition: transform @animation-duration-slow @ease-base-in,
-      box-shadow @animation-duration-slow @ease-base-in;
+    transition: transform @animation-duration-slow @ease-base-out,
+      box-shadow @animation-duration-slow @ease-base-out;
   }
 
   &-content-wrapper {
-    position: fixed;
+    position: absolute;
   }
   .@{drawer-prefix-cls}-content {
     width: 100%;
@@ -35,6 +36,7 @@
     }
     &.@{drawer-prefix-cls}-open {
       width: 100%;
+      transition: transform @animation-duration-slow @ease-base-out;
     }
     &.@{drawer-prefix-cls}-open.no-mask {
       width: 0%;
@@ -61,6 +63,11 @@
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-left;
       }
+      // https://github.com/ant-design/ant-design/issues/18607, Avoid edge alignment bug.
+      &.no-mask {
+        right: 1px;
+        transform: translateX(1px);
+      }
     }
   }
 
@@ -75,6 +82,7 @@
     }
     &.@{drawer-prefix-cls}-open {
       height: 100%;
+      transition: transform @animation-duration-slow @ease-base-out;
     }
     &.@{drawer-prefix-cls}-open.no-mask {
       height: 0%;
@@ -103,6 +111,10 @@
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-up;
       }
+      &.no-mask {
+        bottom: 1px;
+        transform: translateY(1px);
+      }
     }
   }
 
@@ -110,7 +122,7 @@
     .@{drawer-prefix-cls} {
       &-mask {
         height: 100%;
-        opacity: 0.3;
+        opacity: 1;
         transition: none;
         animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
       }
@@ -128,6 +140,7 @@
   &-content {
     position: relative;
     z-index: 1;
+    overflow: auto;
     background-color: @component-background;
     background-clip: padding-box;
     border: 0;
@@ -184,20 +197,23 @@
     line-height: @line-height-base;
     word-wrap: break-word;
   }
+  &-wrapper-body {
+    height: 100%;
+    overflow: auto;
+  }
 
   &-mask {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 0;
     background-color: @modal-mask-bg;
     opacity: 0;
-    filter: ~'alpha(opacity=50)';
+    filter: ~'alpha(opacity=45)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
   }
   &-open {
-    transition: transform @animation-duration-slow @ease-base-out;
     &-content {
       box-shadow: @shadow-2;
     }
@@ -209,6 +225,6 @@
     opacity: 0;
   }
   100% {
-    opacity: 0.3;
+    opacity: 1;
   }
 }

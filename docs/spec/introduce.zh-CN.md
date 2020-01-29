@@ -16,7 +16,7 @@ title: 介绍
 
 ## 设计资源
 
-我们提供完善的设计原则、最佳实践和设计资源文件（Sketch 和 Axure），来帮助业务快速设计出高质量的产品原型。
+我们提供完善的设计原则、最佳实践和设计资源文件（[Sketch](https://ant.design/docs/spec/download-cn) 和 [Axure](https://ant.design/docs/spec/download-cn)），来帮助业务快速设计出高质量的产品原型。
 
 - [设计原则](/docs/spec/proximity)
 - [设计模式](/docs/spec/overview)
@@ -52,6 +52,11 @@ const LinksList = () => (
     </li>
     <li>
       <a href="http://vue.ant.design" target="_blank">Ant Design of Vue<LinkIcon /></a>
+    </li>
+    <li>
+      <a href="https://ecomfe.github.io/santd" target="_blank">
+        San UI Toolkit for Ant Design<LinkIcon />
+      </a>
     </li>
     <li>
       <a href="https://github.com/FE-Driver/vue-beauty" target="_blank">

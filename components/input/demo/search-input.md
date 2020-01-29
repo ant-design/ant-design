@@ -16,7 +16,7 @@ Example of creating a search box by grouping a standard input with a search butt
 ```jsx
 import { Input } from 'antd';
 
-const Search = Input.Search;
+const { Search } = Input;
 
 ReactDOM.render(
   <div>

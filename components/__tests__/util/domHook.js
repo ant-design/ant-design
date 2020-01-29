@@ -1,10 +1,12 @@
+const __NULL__ = { notExist: true };
+
 export function spyElementPrototypes(Element, properties) {
   const propNames = Object.keys(properties);
   const originDescriptors = {};
 
   propNames.forEach(propName => {
     const originDescriptor = Object.getOwnPropertyDescriptor(Element.prototype, propName);
-    originDescriptors[propName] = originDescriptor;
+    originDescriptors[propName] = originDescriptor || __NULL__;
 
     const spyProp = properties[propName];
 
@@ -37,7 +39,9 @@ export function spyElementPrototypes(Element, properties) {
     mockRestore() {
       propNames.forEach(propName => {
         const originDescriptor = originDescriptors[propName];
-        if (typeof originDescriptor === 'function') {
+        if (originDescriptor === __NULL__) {
+          delete Element.prototype[propName];
+        } else if (typeof originDescriptor === 'function') {
           Element.prototype[propName] = originDescriptor;
         } else {
           Object.defineProperty(Element.prototype, propName, originDescriptor);

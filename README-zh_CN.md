@@ -8,9 +8,9 @@
 
 <div align="center">
 
-一套企业级的 UI 设计语言和 React 实现。
+一套企业级 UI 设计语言和 React 组件库。
 
-[![Build Status](https://dev.azure.com/ant-design/ant-design/_apis/build/status/ant-design.ant-design?branchName=master)](https://dev.azure.com/ant-design/ant-design/_build/latest?definitionId=2?branchName=master) [![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design) [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master) [![npm package](https://img.shields.io/npm/v/antd.svg?style=flat-square)](https://www.npmjs.org/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design) ![CI Status](https://github.com/ant-design/ant-design/workflows/Node%20CI/badge.svg) [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master) [![](https://flat.badgen.net/npm/v/antd?icon=npm)](https://www.npmjs.com/package/antd) [![](https://badgen.net/npm/v/antd/next)](https://www.npmjs.com/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
 
 [![Dependencies](https://img.shields.io/david/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design) [![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design?type=dev) [![Total alerts](https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design)](https://lgtm.com/projects/g/ant-design/ant-design/alerts/) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fant-design%2Fant-design.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fant-design%2Fant-design?ref=badge_shield) [![Issues need help](https://flat.badgen.net/github/label-issues/ant-design/ant-design/help%20wanted/open)](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
 
@@ -24,10 +24,12 @@
 
 ## ✨ 特性
 
-- 提炼自企业级中后台产品的交互语言和视觉风格。
-- 开箱即用的高质量 React 组件。
-- 使用 TypeScript 构建，提供完整的类型定义文件。
-- 全链路开发和设计工具体系。
+- 🌈 提炼自企业级中后台产品的交互语言和视觉风格。
+- 📦 开箱即用的高质量 React 组件。
+- 🛡 使用 TypeScript 开发，提供完整的类型定义文件。
+- ⚙️ 全链路开发和设计工具体系。
+- 🌍 数十个国际化语言支持。
+- 🎨 深入每个细节的主题定制能力。
 
 ## 🖥 支持环境
 
@@ -51,20 +53,25 @@ yarn add antd
 
 ## 🔨 示例
 
-```jsx
-import { DatePicker } from 'antd';
-ReactDOM.render(<DatePicker />, mountNode);
-```
+````jsx
+import { Button, DatePicker } from 'antd';
+
+const App = () => (
+  <>
+    <Button type="primary">PRESS ME</Button>
+    <DatePicker />
+  </>
+);
 
 引入样式：
 
 ```jsx
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-```
+````
 
-你也可以 [按需加载组件](https://ant.design/docs/react/getting-started-cn#按需加载)。
+你也可以使用 [babel-plugin-import](https://ant.design/docs/react/getting-started-cn#按需加载)。
 
-### TypeScript
+### 🛡 TypeScript
 
 参考 [在 TypeScript 中使用](https://ant.design/docs/react/use-in-typescript-cn)
 
@@ -80,6 +87,11 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 - [更新日志](CHANGELOG.en-US.md)
 - [React 底层基础组件](http://react-component.github.io/)
 - [移动端组件](http://mobile.ant.design)
+- [Ant Design 图标](https://github.com/ant-design/ant-design-icons)
+- [Ant Design 色彩](https://github.com/ant-design/ant-design-colors)
+- [Ant Design Pro 布局组件](https://github.com/ant-design/ant-design-pro-layout)
+- [Ant Design Pro 区块集](https://github.com/ant-design/pro-blocks)
+- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
 - [首页模板集](https://landing.ant.design)
 - [动效](https://motion.ant.design)
 - [脚手架市场](http://scaffold.ant.design)
@@ -116,7 +128,7 @@ $ npm start
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
-## 社区互助
+## 👥 社区互助
 
 如果您在使用的过程中碰到问题，可以通过下面几个途径寻求帮助，同时我们也鼓励资深用户通过下面的途径给新人提供帮助。
 
@@ -125,3 +137,9 @@ $ npm start
 1. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
 2. [Segment Fault](https://segmentfault.com/t/antd)（中文）
 3. [![Join the chat at https://gitter.im/ant-design/ant-design](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ant-design/ant-design?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+## ❤️ 赞助者 ![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen) ![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)
+
+[![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
+
+[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)

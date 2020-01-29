@@ -188,6 +188,17 @@ exports[`Button renders Chinese characters correctly 6`] = `
 </button>
 `;
 
+exports[`Button renders Chinese characters correctly 7`] = `
+<button
+  class="ant-btn"
+  type="button"
+>
+  <span>
+    按 钮
+  </span>
+</button>
+`;
+
 exports[`Button renders correctly 1`] = `
 <button
   class="ant-btn"
@@ -222,6 +233,17 @@ exports[`Button should merge text if children using variable 1`] = `
 </button>
 `;
 
+exports[`Button should not insert space to link button 1`] = `
+<button
+  class="ant-btn ant-btn-link"
+  type="button"
+>
+  <span>
+    按钮
+  </span>
+</button>
+`;
+
 exports[`Button should not render as link button when href is undefined 1`] = `
 <button
   class="ant-btn ant-btn-primary"
@@ -231,6 +253,23 @@ exports[`Button should not render as link button when href is undefined 1`] = `
     button
   </span>
 </button>
+`;
+
+exports[`Button should render empty button without errors 1`] = `
+<Button
+  block={false}
+  ghost={false}
+  htmlType="button"
+  loading={false}
+>
+  <Wave>
+    <button
+      className="ant-btn"
+      onClick={[Function]}
+      type="button"
+    />
+  </Wave>
+</Button>
 `;
 
 exports[`Button should support link button 1`] = `

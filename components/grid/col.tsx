@@ -50,7 +50,7 @@ export default class Col extends React.Component<ColProps, {}> {
   };
 
   renderCol = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const props: any = this.props;
+    const { props } = this;
     const {
       prefixCls: customizePrefixCls,
       span,
@@ -66,13 +66,14 @@ export default class Col extends React.Component<ColProps, {}> {
     let sizeClassObj = {};
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
       let sizeProps: ColSize = {};
-      if (typeof props[size] === 'number') {
-        sizeProps.span = props[size];
-      } else if (typeof props[size] === 'object') {
-        sizeProps = props[size] || {};
+      const propSize = (props as any)[size];
+      if (typeof propSize === 'number') {
+        sizeProps.span = propSize;
+      } else if (typeof propSize === 'object') {
+        sizeProps = propSize || {};
       }
 
-      delete others[size];
+      delete (others as any)[size];
 
       sizeClassObj = {
         ...sizeClassObj,
@@ -100,14 +101,26 @@ export default class Col extends React.Component<ColProps, {}> {
     return (
       <RowContext.Consumer>
         {({ gutter }) => {
-          let style = others.style;
-          if (gutter! > 0) {
+          let { style } = others;
+
+          if (gutter) {
             style = {
-              paddingLeft: gutter! / 2,
-              paddingRight: gutter! / 2,
+              ...(gutter[0]! > 0
+                ? {
+                    paddingLeft: gutter[0]! / 2,
+                    paddingRight: gutter[0]! / 2,
+                  }
+                : {}),
+              ...(gutter[1]! > 0
+                ? {
+                    paddingTop: gutter[1]! / 2,
+                    paddingBottom: gutter[1]! / 2,
+                  }
+                : {}),
               ...style,
             };
           }
+
           return (
             <div {...others} style={style} className={classes}>
               {children}

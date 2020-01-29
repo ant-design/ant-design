@@ -16,7 +16,7 @@ Multiple and checkable.
 ```jsx
 import { TreeSelect } from 'antd';
 
-const SHOW_PARENT = TreeSelect.SHOW_PARENT;
+const { SHOW_PARENT } = TreeSelect;
 
 const treeData = [
   {
@@ -74,7 +74,7 @@ class Demo extends React.Component {
       showCheckedStrategy: SHOW_PARENT,
       searchPlaceholder: 'Please select',
       style: {
-        width: 300,
+        width: '100%',
       },
     };
     return <TreeSelect {...tProps} />;

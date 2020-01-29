@@ -41,7 +41,7 @@
 @body-background: #fff;
 // Base background color for most components
 @component-background: #fff;
-@font-family: PTSans, sans-serif;
+@font-family: 'PTSans', sans-serif;
 @code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
 @text-color: fade(@black, 65%);
 @text-color-secondary: fade(@black, 45%);
@@ -178,6 +178,10 @@
 @btn-circle-size-lg: @btn-height-lg;
 @btn-circle-size-sm: @btn-height-sm;
 
+@btn-square-size: @btn-height-base;
+@btn-square-size-lg: @btn-height-lg;
+@btn-square-size-sm: @btn-height-sm;
+
 @btn-group-border: @primary-5;
 
 // Checkbox
@@ -186,8 +190,10 @@
 @checkbox-check-color: #fff;
 @checkbox-border-width: @border-width-base;
 
-// Dropdown
+// Descriptions
+@descriptions-bg: #fafafa;
 
+// Dropdown
 @dropdown-selected-color: @primary-color;
 
 // Empty
@@ -198,9 +204,9 @@
 @radio-dot-color: @primary-color;
 
 // Radio buttons
-@radio-button-bg: @btn-secondary-bg;
-@radio-button-checked-bg: @btn-secondary-bg;
-@radio-button-color: @btn-secondary-color;
+@radio-button-bg: @btn-default-bg;
+@radio-button-checked-bg: @btn-default-bg;
+@radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
 
@@ -259,10 +265,10 @@
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
+@zindex-badge: auto;
 @zindex-table-fixed: auto;
 @zindex-affix: 10;
 @zindex-back-top: 10;
-@zindex-badge: 10;
 @zindex-picker-panel: 10;
 @zindex-popup-close: 10;
 @zindex-modal: 1000;
@@ -279,6 +285,15 @@
 @animation-duration-base: 0.2s;
 @animation-duration-fast: 0.1s; // Tooltip
 
+//CollapsePanel
+@collapse-panel-border-radius: @border-radius-base;
+
+//Dropdown
+@dropdown-vertical-padding: 5px;
+@dropdown-edge-child-vertical-padding: 4px;
+@dropdown-font-size: @font-size-base;
+@dropdown-line-height: 22px;
+
 // Form
 // ---
 @label-required-color: @highlight-color;
@@ -289,6 +304,8 @@
 @form-item-trailing-colon: true;
 @form-vertical-label-padding: 0 0 3px;
 @form-vertical-label-margin: 0;
+@form-item-label-colon-margin-right: 8px;
+@form-item-label-colon-margin-left: 2px;
 @form-error-input-bg: @input-bg;
 
 // Input
@@ -307,9 +324,13 @@
 @input-color: @text-color;
 @input-border-color: @border-color-base;
 @input-bg: @component-background;
+@input-number-hover-border-color: @input-hover-border-color;
 @input-number-handler-active-bg: #f4f4f4;
+@input-number-handler-hover-bg: @primary-5;
+@input-number-handler-bg: @component-background;
+@input-number-handler-border-color: @border-color-base;
 @input-addon-bg: @background-color-light;
-@input-hover-border-color: @primary-color;
+@input-hover-border-color: @primary-5;
 @input-disabled-bg: @disabled-bg;
 @input-outline-offset: 0 0;
 
@@ -317,6 +338,25 @@
 // ---
 @select-border-color: @border-color-base;
 @select-item-selected-font-weight: 600;
+@select-dropdown-bg: @component-background;
+@select-dropdown-vertical-padding: @dropdown-vertical-padding;
+@select-dropdown-edge-child-vertical-padding: @dropdown-edge-child-vertical-padding;
+@select-dropdown-font-size: @dropdown-font-size;
+@select-dropdown-line-height: @dropdown-line-height;
+@select-item-selected-bg: @background-color-light;
+@select-item-active-bg: @item-active-bg;
+@select-background: @component-background;
+
+// Cascader
+// ----
+@cascader-dropdown-vertical-padding: @dropdown-vertical-padding;
+@cascader-dropdown-edge-child-vertical-padding: @dropdown-edge-child-vertical-padding;
+@cascader-dropdown-font-size: @dropdown-font-size;
+@cascader-dropdown-line-height: @dropdown-line-height;
+
+// Anchor
+// ---
+@anchor-border-color: @border-color-split;
 
 // Tooltip
 // ---
@@ -356,7 +396,9 @@
 @modal-body-padding: 24px;
 @modal-right-left-padding: 32px;
 @modal-header-bg: @component-background;
+@modal-heading-color: @heading-color;
 @modal-footer-bg: transparent;
+@modal-footer-border-color-split: @border-color-split;
 @modal-mask-bg: fade(@black, 65%);
 
 // Progress
@@ -364,6 +406,7 @@
 @progress-default-color: @processing-color;
 @progress-remaining-color: @background-color-base;
 @progress-text-color: @text-color;
+@progress-radius: 100px;
 
 // Menu
 // ---
@@ -377,6 +420,12 @@
 @menu-item-active-bg: @item-active-bg;
 @menu-item-active-border-width: 3px;
 @menu-item-group-title-color: @text-color-secondary;
+@menu-icon-size: @font-size-base;
+@menu-icon-size-lg: @font-size-lg;
+
+@menu-item-vertical-margin: 4px;
+@menu-item-font-size: @font-size-base;
+@menu-item-boundary-margin: 8px;
 
 // dark theme
 @menu-dark-color: @text-color-secondary-dark;
@@ -385,7 +434,9 @@
 @menu-dark-submenu-bg: #000c17;
 @menu-dark-highlight-color: #fff;
 @menu-dark-item-active-bg: @primary-color;
-
+@menu-dark-selected-item-icon-color: @white;
+@menu-dark-selected-item-text-color: @white;
+@menu-dark-item-hover-bg: transparent;
 // Spin
 // ---
 @spin-dot-size-sm: 14px;
@@ -401,10 +452,15 @@
 @table-row-hover-bg: @primary-1;
 @table-selected-row-color: inherit;
 @table-selected-row-bg: #fafafa;
+@table-body-selected-sort-bg: @table-selected-row-bg;
+@table-selected-row-hover-bg: @table-selected-row-bg;
 @table-expanded-row-bg: #fbfbfb;
 @table-padding-vertical: 16px;
 @table-padding-horizontal: 16px;
 @table-border-radius-base: @border-radius-base;
+@table-footer-bg: @background-color-light;
+@table-footer-color: @heading-color;
+@table-header-bg-sm: transparent;
 
 // Tag
 // --
@@ -446,7 +502,8 @@
 @card-inner-head-padding: 12px;
 @card-padding-base: 24px;
 @card-actions-background: @background-color-light;
-@card-background: #cfd8dc;
+@card-skeleton-bg: #cfd8dc;
+@card-background: @component-background;
 @card-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
 @card-radius: @border-radius-sm;
 
@@ -481,6 +538,8 @@
 @tabs-highlight-color: @primary-color;
 @tabs-hover-color: @primary-5;
 @tabs-active-color: @primary-7;
+@tabs-card-gutter: 2px;
+@tabs-card-tab-active-border-top: 2px solid transparent;
 
 // BackTop
 // ---
@@ -519,8 +578,10 @@
 
 // PageHeader
 // ---
-@page-header-padding-horizontal: 24px;
+@page-header-padding: 24px;
 @page-header-padding-vertical: 16px;
+@page-header-padding-breadcrumb: 12px;
+@page-header-back-color: #000;
 
 // Breadcrumb
 // ---
@@ -540,11 +601,14 @@
 @slider-rail-background-color-hover: #e1e1e1;
 @slider-track-background-color: @primary-3;
 @slider-track-background-color-hover: @primary-4;
+@slider-handle-border-width: 2px;
+@slider-handle-background-color: @component-background;
 @slider-handle-color: @primary-3;
 @slider-handle-color-hover: @primary-4;
 @slider-handle-color-focus: tint(@primary-color, 20%);
 @slider-handle-color-focus-shadow: fade(@primary-color, 20%);
 @slider-handle-color-tooltip-open: @primary-color;
+@slider-handle-shadow: 0;
 @slider-dot-border-color: @border-color-split;
 @slider-dot-border-color-active: tint(@primary-color, 50%);
 @slider-disabled-color: @disabled-color;
@@ -556,6 +620,8 @@
 @tree-child-padding: 18px;
 @tree-directory-selected-color: #fff;
 @tree-directory-selected-bg: @primary-color;
+@tree-node-hover-bg: @item-hover-bg;
+@tree-node-selected-bg: @primary-2;
 
 // Collapse
 // ---
@@ -613,9 +679,24 @@
 @statistic-title-font-size: @font-size-base;
 @statistic-content-font-size: 24px;
 @statistic-unit-font-size: 16px;
-@statistic-font-family: Tahoma, 'Helvetica Neue', @font-family;
+@statistic-font-family: @font-family;
 
 // Drawer
 // ---
 @drawer-header-padding: 16px 24px;
 @drawer-body-padding: 24px;
+
+// Timeline
+// ---
+@timeline-width: 2px;
+@timeline-color: @border-color-split;
+@timeline-dot-border-width: 2px;
+@timeline-dot-color: @primary-color;
+@timeline-dot-bg: @component-background;
+
+// Typography
+// ---
+@typography-title-font-weight: bold;
+@typography-title-font-family: 'PTSans-Bold', sans-serif;
+@typography-title-margin-top: 1.2em;
+@typography-title-margin-bottom: 0.5em;

@@ -3,6 +3,7 @@ import { render, mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
 import Cascader from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import mountTest from '../../../tests/shared/mountTest';
 
 const options = [
   {
@@ -45,6 +46,7 @@ function filter(inputValue, path) {
 
 describe('Cascader', () => {
   focusTest(Cascader);
+  mountTest(Cascader);
 
   it('popup correctly when panel is hidden', () => {
     const wrapper = mount(<Cascader options={options} />);
@@ -201,6 +203,52 @@ describe('Cascader', () => {
         .getComponent(),
     );
     expect(popupWrapper).toMatchSnapshot();
+  });
+
+  it('should highlight keyword and filter when search in Cascader with same field name of label and value', () => {
+    const customOptions = [
+      {
+        name: 'Zhejiang',
+        value: 'Zhejiang',
+        children: [
+          {
+            name: 'Hangzhou',
+            value: 'Hangzhou',
+            children: [
+              {
+                name: 'West Lake',
+                value: 'West Lake',
+              },
+              {
+                name: 'Xia Sha',
+                value: 'Xia Sha',
+                disabled: true,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    function customFilter(inputValue, path) {
+      return path.some(option => option.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
+    }
+    const wrapper = mount(
+      <Cascader
+        options={customOptions}
+        fieldNames={{ label: 'name', value: 'name' }}
+        showSearch={{ filter: customFilter }}
+      />,
+    );
+    wrapper.find('input').simulate('click');
+    wrapper.find('input').simulate('change', { target: { value: 'z' } });
+    expect(wrapper.state('inputValue')).toBe('z');
+    const popupWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(popupWrapper.render()).toMatchSnapshot();
   });
 
   it('should render not found content', () => {
@@ -398,6 +446,19 @@ describe('Cascader', () => {
     errorSpy.mockReset();
   });
 
+  it('should show not found content when options.length is 0', () => {
+    const customerOptions = [];
+    const wrapper = mount(<Cascader options={customerOptions} />);
+    wrapper.find('input').simulate('click');
+    const popupWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(popupWrapper).toMatchSnapshot();
+  });
+
   describe('limit filtered item count', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -428,5 +489,63 @@ describe('Cascader', () => {
         "Warning: [antd: Cascader] 'limit' of showSearch should be positive number or false.",
       );
     });
+  });
+
+  it('should warning if not find `value` in `options`', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Cascader options={[{ label: 'a', value: 'a', children: [{ label: 'b' }] }]} />);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Cascader] Not found `value` in `options`.',
+    );
+    errorSpy.mockRestore();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/17690
+  it('should not breaks when children is null', () => {
+    const optionsWithChildrenNull = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: null,
+          },
+        ],
+      },
+    ];
+    expect(() => {
+      mount(<Cascader options={optionsWithChildrenNull} />);
+    }).not.toThrow();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18176
+  it('have a notFoundContent that fit trigger input width', () => {
+    const wrapper = mount(
+      <Cascader
+        popupVisible
+        options={[]}
+        fieldNames={{ label: 'name', value: 'code', children: 'items' }}
+      />,
+    );
+    const popupWrapper = mount(
+      wrapper
+        .find('Trigger')
+        .instance()
+        .getComponent(),
+    );
+    expect(popupWrapper.render()).toMatchSnapshot();
+  });
+
+  it('placeholder works correctly', () => {
+    const wrapper = mount(<Cascader options={[]} />);
+    expect(wrapper.find('input').prop('placeholder')).toBe('Please select');
+
+    const customPlaceholder = 'Custom placeholder';
+    wrapper.setProps({
+      placeholder: customPlaceholder,
+    });
+    expect(wrapper.find('input').prop('placeholder')).toBe(customPlaceholder);
   });
 });

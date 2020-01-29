@@ -72,7 +72,7 @@
   &-selection {
     display: block;
     box-sizing: border-box;
-    background-color: @component-background;
+    background-color: @select-background;
     border: @border-width-base @border-style-base @select-border-color;
     // strange align fix for chrome but works
     // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
@@ -103,7 +103,6 @@
     &-selected-value {
       float: left;
       max-width: 100%;
-      padding-right: 20px;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
@@ -148,6 +147,16 @@
     position: relative;
     height: @input-height-base;
     cursor: pointer;
+
+    .@{select-prefix-cls}-selection__rendered {
+      margin-right: 24px;
+    }
+  }
+
+  &-no-arrow {
+    .@{select-prefix-cls}-selection__rendered {
+      margin-right: @control-padding-horizontal - 1px;
+    }
   }
 
   &-selection__rendered {
@@ -373,10 +382,6 @@
     }
   }
 
-  &-allow-clear &-selection--single &-selection-selected-value {
-    padding-right: 16px;
-  }
-
   &-allow-clear &-selection--multiple &-selection__rendered,
   &-show-arrow &-selection--multiple &-selection__rendered {
     margin-right: 20px; // In case that clear button will overlap content
@@ -434,7 +439,7 @@
   // https://github.com/ant-design/ant-design/issues/11456
   // https://github.com/ant-design/ant-design/issues/11843
   font-variant: initial;
-  background-color: @component-background;
+  background-color: @select-dropdown-bg;
   border-radius: @border-radius-base;
   outline: none;
   box-shadow: @box-shadow-base;
@@ -464,6 +469,7 @@
   &-menu {
     max-height: 250px;
     margin-bottom: 0;
+    padding: @select-dropdown-edge-child-vertical-padding 0; //Change
     padding-left: 0; // Override default ul/ol
     overflow: auto;
     list-style: none;
@@ -494,11 +500,12 @@
     &-item {
       position: relative;
       display: block;
-      padding: 5px @control-padding-horizontal;
+      padding: @select-dropdown-vertical-padding @control-padding-horizontal;
       overflow: hidden;
       color: @text-color;
       font-weight: normal;
-      line-height: 22px;
+      font-size: @select-dropdown-font-size;
+      line-height: @select-dropdown-line-height;
       white-space: nowrap;
       text-overflow: ellipsis;
       cursor: pointer;
@@ -509,17 +516,21 @@
       }
 
       &:first-child {
-        border-radius: @border-radius-base @border-radius-base 0 0;
+        & when (@select-dropdown-edge-child-vertical-padding = 0) {
+          border-radius: @border-radius-base @border-radius-base 0 0;
+        }
       }
 
       &:last-child {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
+        & when (@select-dropdown-edge-child-vertical-padding = 0) {
+          border-radius: 0 0 @border-radius-base @border-radius-base;
+        }
       }
 
       &-selected {
         color: @text-color;
         font-weight: @select-item-selected-font-weight;
-        background-color: @background-color-light;
+        background-color: @select-item-selected-bg;
       }
 
       &-disabled {
@@ -533,7 +544,7 @@
       }
 
       &-active:not(&-disabled) {
-        background-color: @item-active-bg;
+        background-color: @select-item-active-bg;
       }
 
       &-divider {

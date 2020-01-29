@@ -21,7 +21,7 @@ const Demo = () => {
     <div>
       <Descriptions
         title="Responsive Descriptions"
-        border
+        bordered
         column={{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }}
       >
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
@@ -39,7 +39,7 @@ const Demo = () => {
           <br />
           Storage space: 10 GB
           <br />
-          Replication_factor:3
+          Replication factor: 3
           <br />
           Region: East China 1
         </Descriptions.Item>

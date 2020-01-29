@@ -34,7 +34,10 @@ const columns = [
   {
     title: 'Gender',
     dataIndex: 'gender',
-    filters: [{ text: 'Male', value: 'male' }, { text: 'Female', value: 'female' }],
+    filters: [
+      { text: 'Male', value: 'male' },
+      { text: 'Female', value: 'female' },
+    ],
     width: '20%',
   },
   {

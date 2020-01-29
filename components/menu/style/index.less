@@ -74,6 +74,14 @@
     }
   }
 
+  // https://github.com/ant-design/ant-design/issues/19809
+  &-item > .@{ant-prefix}-badge > a {
+    color: @menu-item-color;
+    &:hover {
+      color: @menu-highlight-color;
+    }
+  }
+
   &-item-divider {
     height: 1px;
     overflow: hidden;
@@ -160,7 +168,7 @@
     .@{iconfont-css-prefix} {
       min-width: 14px;
       margin-right: 10px;
-      font-size: @font-size-base;
+      font-size: @menu-icon-size;
       transition: font-size 0.15s @ease-out, margin 0.3s @ease-in-out;
       + span {
         opacity: 1;
@@ -353,22 +361,22 @@
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
       height: @menu-item-height;
-      margin-top: 4px;
-      margin-bottom: 4px;
+      margin-top: @menu-item-vertical-margin;
+      margin-bottom: @menu-item-vertical-margin;
       padding: 0 16px;
       overflow: hidden;
-      font-size: @font-size-base;
+      font-size: @menu-item-font-size;
       line-height: @menu-item-height;
       text-overflow: ellipsis;
     }
 
     // disable margin collapsed
     .@{menu-prefix-cls}-submenu {
-      padding-bottom: 0.01px;
+      padding-bottom: 0.02px;
     }
 
     .@{menu-prefix-cls}-item:not(:last-child) {
-      margin-bottom: 8px;
+      margin-bottom: @menu-item-boundary-margin;
     }
 
     > .@{menu-prefix-cls}-item,
@@ -411,14 +419,14 @@
       > .@{menu-prefix-cls}-submenu-title,
     > .@{menu-prefix-cls}-submenu > .@{menu-prefix-cls}-submenu-title {
       left: 0;
-      padding: 0 (@menu-collapsed-width - 16px) / 2 !important;
+      padding: 0 (@menu-collapsed-width - @menu-icon-size-lg) / 2 !important;
       text-overflow: clip;
       .@{menu-prefix-cls}-submenu-arrow {
         display: none;
       }
       .@{iconfont-css-prefix} {
         margin: 0;
-        font-size: 16px;
+        font-size: @menu-icon-size-lg;
         line-height: @menu-item-height;
         + span {
           display: inline-block;

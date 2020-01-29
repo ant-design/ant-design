@@ -1611,7 +1611,7 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
     <div>
       <input
         class="ant-calendar-picker-input ant-input"
-        placeholder="Time"
+        placeholder="Select Time"
         readonly=""
         value=""
       />

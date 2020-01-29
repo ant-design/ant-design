@@ -8,9 +8,9 @@
 
 <div align="center">
 
-An enterprise-class UI design language and React implementation.
+An enterprise-class UI design language and React UI library.
 
-[![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design) [![Build Status](https://dev.azure.com/ant-design/ant-design/_apis/build/status/ant-design.ant-design?branchName=master)](https://dev.azure.com/ant-design/ant-design/_build/latest?definitionId=2?branchName=master) [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master) [![](https://flat.badgen.net/npm/v/antd?icon=npm)](https://www.npmjs.com/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
+[![CircleCI branch](https://img.shields.io/circleci/project/github/ant-design/ant-design/master.svg?style=flat-square)](https://circleci.com/gh/ant-design/ant-design) ![CI Status](https://github.com/ant-design/ant-design/workflows/test/badge.svg) [![Codecov](https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square)](https://codecov.io/gh/ant-design/ant-design/branch/master) [![](https://flat.badgen.net/npm/v/antd?icon=npm)](https://www.npmjs.com/package/antd) [![](https://badgen.net/npm/v/antd/next)](https://www.npmjs.com/package/antd) [![NPM downloads](http://img.shields.io/npm/dm/antd.svg?style=flat-square)](http://npmjs.com/antd)
 
 [![Dependencies](https://img.shields.io/david/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design) [![DevDependencies](https://img.shields.io/david/dev/ant-design/ant-design.svg?style=flat-square)](https://david-dm.org/ant-design/ant-design?type=dev) [![Total alerts](https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design)](https://lgtm.com/projects/g/ant-design/ant-design/alerts/) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fant-design%2Fant-design.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fant-design%2Fant-design?ref=badge_shield) [![Issues need help](https://flat.badgen.net/github/label-issues/ant-design/ant-design/help%20wanted/open)](https://github.com/ant-design/ant-design/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
 
@@ -24,10 +24,12 @@ English | [简体中文](./README-zh_CN.md)
 
 ## ✨ Features
 
-- An enterprise-class UI design system for web applications.
-- A set of high-quality React components out of the box.
-- Written in TypeScript with predictable static types.
-- The whole package of development and design resources and tools.
+- 🌈 Enterprise-class UI designed for web applications.
+- 📦 A set of high-quality React components out of the box.
+- 🛡 Written in TypeScript with predictable static types.
+- ⚙️ Whole package of design resources and development tools.
+- 🌍 Internationalization support for dozens of languages.
+- 🎨 Powerful theme customization in every detail.
 
 ## 🖥 Environment Support
 
@@ -52,8 +54,14 @@ yarn add antd
 ## 🔨 Usage
 
 ```jsx
-import { DatePicker } from 'antd';
-ReactDOM.render(<DatePicker />, mountNode);
+import { Button, DatePicker } from 'antd';
+
+const App = () => (
+  <>
+    <Button type="primary">PRESS ME</Button>
+    <DatePicker />
+  </>
+);
 ```
 
 And import style manually:
@@ -62,7 +70,7 @@ And import style manually:
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
-Or [import components on demand](https://ant.design/docs/react/getting-started#Import-on-Demand).
+Or use [babel-plugin-import](https://ant.design/docs/react/getting-started#Import-on-Demand).
 
 ### TypeScript
 
@@ -80,6 +88,11 @@ See [i18n](http://ant.design/docs/react/i18n).
 - [Change Log](CHANGELOG.en-US.md)
 - [rc-components](http://react-component.github.io/)
 - [Mobile UI](http://mobile.ant.design)
+- [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
+- [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
+- [Ant Design Pro Layout](https://github.com/ant-design/ant-design-pro-layout)
+- [Ant Design Pro Blocks](https://github.com/ant-design/pro-blocks)
+- [Dark Theme](https://github.com/ant-design/ant-design-dark-theme)
 - [Landing Pages](https://landing.ant.design)
 - [Motion](https://motion.ant.design)
 - [Scaffold Market](http://scaffold.ant.design)
@@ -116,3 +129,9 @@ We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.c
 If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request by [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
+
+## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
+
+[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
+
+[![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)

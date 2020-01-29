@@ -3,10 +3,14 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
 import Statistic from '..';
-
-const delay = timeout => new Promise(resolve => setTimeout(resolve, timeout));
+import { formatTimeStr } from '../utils';
+import { sleep } from '../../../tests/utils';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Statistic', () => {
+  mountTest(Statistic);
+  mountTest(Statistic.Countdown);
+
   beforeAll(() => {
     MockDate.set(moment('2018-11-28 00:00:00'));
   });
@@ -49,10 +53,10 @@ describe('Statistic', () => {
         .add(3, 'ms');
 
       [
-        ['H:m:s', '59:28:9'],
-        ['HH:mm:ss', '59:28:09'],
-        ['HH:mm:ss:SSS', '59:28:09:003'],
-        ['DD-HH:mm:ss', '02-11:28:09'],
+        ['H:m', '59:28'],
+        ['HH:mm', '59:28'],
+        ['HH:mm', '59:28'],
+        ['DD-HH:mm', '02-11:28'],
       ].forEach(([format, value]) => {
         const wrapper = mount(<Statistic.Countdown format={format} value={now} />);
         expect(wrapper.find('.ant-statistic-content-value').text()).toEqual(value);
@@ -69,7 +73,7 @@ describe('Statistic', () => {
       const instance = wrapper.instance();
       expect(instance.countdownId).not.toBe(undefined);
 
-      await delay(10);
+      await sleep(10);
 
       wrapper.unmount();
       expect(instance.countdownId).toBe(undefined);
@@ -102,6 +106,12 @@ describe('Statistic', () => {
         expect(onFinish).toHaveBeenCalled();
         jest.useFakeTimers();
       });
+    });
+  });
+
+  describe('utils', () => {
+    it('format should support escape', () => {
+      expect(formatTimeStr(1000 * 60 * 60 * 24, 'D [Day]')).toBe('1 Day');
     });
   });
 });

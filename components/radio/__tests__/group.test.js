@@ -4,7 +4,7 @@ import Radio from '../radio';
 import RadioGroup from '../group';
 import RadioButton from '../radioButton';
 
-describe('Radio', () => {
+describe('Radio Group', () => {
   function createRadioGroup(props) {
     return (
       <RadioGroup {...props}>
@@ -170,7 +170,10 @@ describe('Radio', () => {
   });
 
   it('passes prefixCls down to radio', () => {
-    const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Orange', value: 'Orange' }];
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange' },
+    ];
 
     const wrapper = render(<RadioGroup prefixCls="my-radio" options={options} />);
 

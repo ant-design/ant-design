@@ -101,3 +101,15 @@ export function convertDirectoryKeysToNodes(
   });
   return nodes;
 }
+
+export function getFullKeyListByTreeData(treeData: any[]): any[] {
+  let keys: string[] = [];
+
+  (treeData || []).forEach(item => {
+    keys.push(item.key);
+    if (item.children) {
+      keys = [...keys, ...getFullKeyListByTreeData(item.children)];
+    }
+  });
+  return keys;
+}

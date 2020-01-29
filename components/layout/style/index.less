@@ -96,6 +96,7 @@
         position: absolute;
         top: @layout-header-height;
         right: -@layout-zero-trigger-width;
+        z-index: 1;
         width: @layout-zero-trigger-width;
         height: @layout-zero-trigger-height;
         color: @layout-trigger-color;
@@ -113,6 +114,7 @@
 
         &-right {
           left: -@layout-zero-trigger-width;
+          border-radius: @border-radius-base 0 0 @border-radius-base;
         }
       }
     }

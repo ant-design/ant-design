@@ -55,6 +55,10 @@ ReactDOM.render(
       <Button type="primary" icon="cloud" />
       <Button type="primary" icon="cloud-download" />
     </ButtonGroup>
+    <ButtonGroup>
+      <Button type="primary" size="small" icon="cloud" />
+      <Button type="primary" size="small" icon="cloud-download" />
+    </ButtonGroup>
   </div>,
   mountNode,
 );

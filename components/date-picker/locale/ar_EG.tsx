@@ -13,7 +13,7 @@ const locale = {
   },
   dateFormat: 'DD-MM-YYYY',
   monthFormat: 'MM-YYYY',
-  dateTimeFormat: 'DD-MM-YYYY HH:mm:ss',
+  dateTimeFormat: 'DD-MM-YYYY HH:mm',
   weekFormat: 'wo-YYYY',
 };
 

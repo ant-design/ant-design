@@ -59,9 +59,10 @@ const columns = [
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| tableLayout | [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| 'auto' \| 'fixed' | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis` | 3.24.0 |
 | bordered | Whether to show all table borders | boolean | `false` |  |
 | childrenColumnName | The column contains children to display | string\[] | children | 3.4.2 |
-| columns | Columns of table | [ColumnProps](https://git.io/vMMXC)\[] | - |  |
+| columns | Columns of table | [ColumnProps](https://git.io/JeKZW)\[] | - |  |
 | components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |  |
 | dataSource | Data record array to be displayed | any\[] | - |  |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |  |
@@ -78,7 +79,7 @@ const columns = [
 | rowClassName | Row's className | Function(record, index):string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string\|Function(record):string | `key` |  |
 | rowSelection | Row selection [config](#rowSelection) | object | null |  |
-| scroll | Set horizontal or vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, `true` and ['max-content'](https://developer.mozilla.org/en-US/docs/Web/CSS/width) | { x: number \| true, y: number } | - |  |
+| scroll | Whether the table can be scrollable, [config](#scroll) | object | - |  |
 | showHeader | Whether to show table header | boolean | `true` |  |
 | size | Size of table | `default` \| `middle` \| `small` | `default` |  |
 | title | Table title renderer | Function(currentPageData) |  |  |
@@ -87,6 +88,7 @@ const columns = [
 | onExpandedRowsChange | Callback executed when the expanded rows change | Function(expandedRows) |  |  |
 | onHeaderRow | Set props on per header row | Function(column, index) | - |  |
 | onRow | Set props on per row | Function(record, index) | - |  |
+| getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` | 3.21.0 |
 
 #### onRow usage
 
@@ -118,11 +120,13 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | align | specify which way that column is aligned | 'left' \| 'right' \| 'center' | 'left' | 3.3.2 |
+| ellipsis | ellipsize cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is true. | boolean | false | 3.24.0 |
 | className | className of this column | string | - |  |
 | colSpan | Span of this column's title | number |  |  |
 | dataIndex | Display field of the data record, could be set like `a.b.c`, `a[0].b.c[1]` | string | - |  |
+| defaultFilteredValue | Default filtered values | string\[] | - |  |
 | defaultSortOrder | Default order of sorted values | 'ascend' \| 'descend' | - |  |
-| filterDropdown | Customized filter overlay | ReactNode | - |  |
+| filterDropdown | Customized filter overlay | React.ReactNode \| (props: [FilterDropdownProps](https://git.io/fjP5h)) => React.ReactNode | - |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
 | filtered | Whether the `dataSource` is filtered | boolean | `false` |  |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - |  |
@@ -135,7 +139,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |  |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |  |
 | sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` | 3.15.2 |
-| title | Title of this column | ReactNode\|({ sortOrder, filters }) => ReactNode | - |  |
+| title | Title of this column | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |  |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string\|number | - |  |
 | onCell | Set props on per cell | Function(record, rowIndex) | - |  |
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |  |
@@ -177,6 +181,14 @@ Properties for row selection.
 | onSelectAll | Callback executed when select/deselect all rows | Function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | Callback executed when row selection is inverted | Function(selectedRows) | - |  |
 
+### scroll
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| x | Set horizontal scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| y | Set vertical scrolling, can also be used to specify the width and height of the scroll area, could be number, percent value, true and ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content) | number \| true | - |  |
+| scrollToFirstRowOnChange | Whether to scroll to the top of the table when paging, sorting, filtering changes | boolean | - | 3.24.0 |
+
 ### selection
 
 | Property | Description | Type | Default | Version |
@@ -189,7 +201,7 @@ Properties for row selection.
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnProps } from 'antd/lib/table';
+import { ColumnProps } from 'antd/es/table';
 
 interface User {
   key: number,
@@ -228,11 +240,11 @@ class NameColumn extends Table.Column<User> {}
 
 ## Note
 
-According to [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in array should be assigned a unique key. The values inside `dataSource` and `columns` should follow this in Table, and `dataSource[i].key` would be treated as key value default for `dataSource`.
-
-If `dataSource[i].key` is not provided, then you should specify the primary key of dataSource value via `rowKey`. If not, warnings like above will show in browser console.
+According to the [React documentation](https://facebook.github.io/react/docs/lists-and-keys.html#keys), every child in an array should be assigned a unique key. The values inside the Table's `dataSource` and `columns` should follow this rule. By default, `dataSource[i].key` will be treated as the key value for `dataSource`.
 
 ![console warning](https://os.alipayobjects.com/rmsportal/luLdLvhPOiRpyss.png)
+
+If `dataSource[i].key` is not provided, then you should specify the primary key of dataSource value via `rowKey`, as shown below. If not, warnings like the one above will show in browser console.
 
 ```jsx
 // primary key is uid

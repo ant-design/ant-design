@@ -83,6 +83,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   };
 
   timer: number;
+
   triggerScrollTimer: number;
 
   constructor(props: TransferListProps) {
@@ -92,19 +93,20 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     };
   }
 
-  componentWillUnmount() {
-    clearTimeout(this.triggerScrollTimer);
-  }
-
   shouldComponentUpdate(...args: any[]) {
     return PureRenderMixin.shouldComponentUpdate.apply(this, args);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.triggerScrollTimer);
   }
 
   getCheckStatus(filteredItems: TransferItem[]) {
     const { checkedKeys } = this.props;
     if (checkedKeys.length === 0) {
       return 'none';
-    } else if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
+    }
+    if (filteredItems.every(item => checkedKeys.indexOf(item.key) >= 0 || !!item.disabled)) {
       return 'all';
     }
     return 'part';
@@ -222,11 +224,12 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   }
 
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { handleFilter } = this.props;
     const {
       target: { value: filterValue },
     } = e;
     this.setState({ filterValue });
-    this.props.handleFilter(e);
+    handleFilter(e);
     if (!filterValue) {
       return;
     }
@@ -242,8 +245,9 @@ export default class TransferList extends React.Component<TransferListProps, Tra
   };
 
   handleClear = () => {
+    const { handleClear } = this.props;
     this.setState({ filterValue: '' });
-    this.props.handleClear();
+    handleClear();
   };
 
   matchFilter = (text: string, item: TransferItem) => {

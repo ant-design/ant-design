@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface TimeLineItemProps {
@@ -21,7 +22,6 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
         color = '',
         children,
         pending,
-        position,
         dot,
         ...restProps
       } = props;
@@ -42,11 +42,11 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
       });
 
       return (
-        <li {...restProps} className={itemClassName}>
+        <li {...omit(restProps, ['position'])} className={itemClassName}>
           <div className={`${prefixCls}-item-tail`} />
           <div
             className={dotClassName}
-            style={{ borderColor: /blue|red|green/.test(color) ? undefined : color }}
+            style={{ borderColor: /blue|red|green|gray/.test(color) ? undefined : color }}
           >
             {dot}
           </div>

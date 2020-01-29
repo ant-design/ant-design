@@ -31,7 +31,7 @@
       border-radius: @border-radius-sm;
       visibility: hidden;
       animation: antCheckboxEffect 0.36s ease-in-out;
-      animation-fill-mode: both;
+      animation-fill-mode: backwards;
       content: '';
     }
 
@@ -61,7 +61,7 @@
 
         position: absolute;
         top: 50%;
-        left: 21%;
+        left: 22%;
         display: table;
         width: @check-width;
         height: @check-height;
@@ -137,6 +137,12 @@
       color: @disabled-color;
       cursor: not-allowed;
     }
+
+    // Not show highlight border of checkbox when disabled
+    &:hover::after,
+    .@{checkbox-prefix-cls}-wrapper:hover &::after {
+      visibility: hidden;
+    }
   }
 
   .@{checkbox-prefix-cls}-wrapper {
@@ -145,12 +151,14 @@
     display: inline-block;
     line-height: unset;
     cursor: pointer;
+    &.@{checkbox-prefix-cls}-wrapper-disabled {
+      cursor: not-allowed;
+    }
     & + & {
       margin-left: 8px;
     }
   }
 
-  .@{checkbox-prefix-cls}-wrapper + span,
   .@{checkbox-prefix-cls} + span {
     padding-right: 8px;
     padding-left: 8px;

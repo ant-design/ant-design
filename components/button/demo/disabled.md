@@ -31,11 +31,6 @@ ReactDOM.render(
       Dashed(disabled)
     </Button>
     <br />
-    <Button type="secondary">Secondary</Button>
-    <Button type="secondary" disabled>
-      Secondary(disabled)
-    </Button>
-    <br />
     <Button type="link">Link</Button>
     <Button type="link" disabled>
       Link(disabled)

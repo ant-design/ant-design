@@ -7,8 +7,12 @@ import Header from '../Header';
 import Select from '../../select';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
+import mountTest from '../../../tests/shared/mountTest';
 
 describe('Calendar', () => {
+  mountTest(Calendar);
+  mountTest(() => <Header value={Moment()} />);
+
   it('Calendar should be selectable', () => {
     const onSelect = jest.fn();
     const wrapper = mount(<Calendar onSelect={onSelect} />);
@@ -312,7 +316,7 @@ describe('Calendar', () => {
 
       for (let index = start; index < end; index += 1) {
         monthOptions.push(
-          <Select.Option className="month-item" key={`${index}`}>
+          <Select.Option className="month-item" key={`${index}`} value={index}>
             {months[index]}
           </Select.Option>,
         );

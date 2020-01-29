@@ -1,8 +1,8 @@
 import * as React from 'react';
-import Icon from '../icon';
 import classNames from 'classnames';
+import Icon from '../icon';
 
-export default function InputIcon(props: { suffixIcon: any; prefixCls: string }) {
+export default function InputIcon(props: { suffixIcon: React.ReactNode; prefixCls: string }) {
   const { suffixIcon, prefixCls } = props;
   return (
     (suffixIcon &&

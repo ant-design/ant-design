@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Animate from 'rc-animate';
+import omit from 'omit.js';
 import Row from '../grid/row';
 import Col, { ColProps } from '../grid/col';
 import Icon from '../icon';
@@ -10,11 +11,13 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { tuple } from '../_util/type';
 import { FIELD_META_PROP, FIELD_DATA_PROP } from './constants';
-import { FormContext, FormContextProps } from './context';
+import FormContext, { FormContextProps } from './context';
 
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 
-export type FormLabelAlign = 'left' | 'right';
+const FormLabelAligns = tuple('left', 'right');
+
+export type FormLabelAlign = typeof FormLabelAligns[number];
 
 export interface FormItemProps {
   prefixCls?: string;
@@ -27,7 +30,7 @@ export interface FormItemProps {
   wrapperCol?: ColProps;
   help?: React.ReactNode;
   extra?: React.ReactNode;
-  validateStatus?: (typeof ValidateStatuses)[number];
+  validateStatus?: typeof ValidateStatuses[number];
   hasFeedback?: boolean;
   required?: boolean;
   style?: React.CSSProperties;
@@ -46,7 +49,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   static propTypes = {
     prefixCls: PropTypes.string,
     label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    labelAlign: PropTypes.string,
     labelCol: PropTypes.object,
     help: PropTypes.oneOfType([PropTypes.node, PropTypes.bool]),
     validateStatus: PropTypes.oneOf(ValidateStatuses),
@@ -64,7 +66,8 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     const { children, help, validateStatus, id } = this.props;
     warning(
       this.getControls(children, true).length <= 1 ||
-        (help !== undefined || validateStatus !== undefined),
+        help !== undefined ||
+        validateStatus !== undefined,
       'Form.Item',
       'Cannot generate `validateStatus` and `help` automatically, ' +
         'while there are more than one `getFieldDecorator` in it.',
@@ -91,7 +94,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
             } else if (React.isValidElement(e.message)) {
               node = e.message;
             }
-
+            // eslint-disable-next-line react/no-array-index-key
             return node ? React.cloneElement(node, { key: index }) : e.message;
           }),
         );
@@ -151,12 +154,64 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     return this.getChildProp(FIELD_DATA_PROP);
   }
 
+  getValidateStatus() {
+    const onlyControl = this.getOnlyControl();
+    if (!onlyControl) {
+      return '';
+    }
+    const field = this.getField();
+    if (field.validating) {
+      return 'validating';
+    }
+    if (field.errors) {
+      return 'error';
+    }
+    const fieldValue = 'value' in field ? field.value : this.getMeta().initialValue;
+    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
+      return 'success';
+    }
+    return '';
+  }
+
+  // Resolve duplicated ids bug between different forms
+  // https://github.com/ant-design/ant-design/issues/7351
+  onLabelClick = () => {
+    const id = this.props.id || this.getId();
+    if (!id) {
+      return;
+    }
+
+    const formItemNode = ReactDOM.findDOMNode(this) as Element;
+    const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
+    if (control && control.focus) {
+      control.focus();
+    }
+  };
+
   onHelpAnimEnd = (_key: string, helpShow: boolean) => {
     this.helpShow = helpShow;
     if (!helpShow) {
       this.setState({});
     }
   };
+
+  isRequired() {
+    const { required } = this.props;
+    if (required !== undefined) {
+      return required;
+    }
+    if (this.getOnlyControl()) {
+      const meta = this.getMeta() || {};
+      const validate = meta.validate || [];
+
+      return validate
+        .filter((item: any) => !!item.rules)
+        .some((item: any) => {
+          return item.rules.some((rule: any) => rule.required);
+        });
+    }
+    return false;
+  }
 
   renderHelp(prefixCls: string) {
     const help = this.getHelpMessage();
@@ -184,25 +239,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   renderExtra(prefixCls: string) {
     const { extra } = this.props;
     return extra ? <div className={`${prefixCls}-extra`}>{extra}</div> : null;
-  }
-
-  getValidateStatus() {
-    const onlyControl = this.getOnlyControl();
-    if (!onlyControl) {
-      return '';
-    }
-    const field = this.getField();
-    if (field.validating) {
-      return 'validating';
-    }
-    if (field.errors) {
-      return 'error';
-    }
-    const fieldValue = 'value' in field ? field.value : this.getMeta().initialValue;
-    if (fieldValue !== undefined && fieldValue !== null && fieldValue !== '') {
-      return 'success';
-    }
-    return '';
   }
 
   renderValidateWrapper(
@@ -293,39 +329,6 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     );
   }
 
-  isRequired() {
-    const { required } = this.props;
-    if (required !== undefined) {
-      return required;
-    }
-    if (this.getOnlyControl()) {
-      const meta = this.getMeta() || {};
-      const validate = meta.validate || [];
-
-      return validate
-        .filter((item: any) => !!item.rules)
-        .some((item: any) => {
-          return item.rules.some((rule: any) => rule.required);
-        });
-    }
-    return false;
-  }
-
-  // Resolve duplicated ids bug between different forms
-  // https://github.com/ant-design/ant-design/issues/7351
-  onLabelClick = () => {
-    const id = this.props.id || this.getId();
-    if (!id) {
-      return;
-    }
-
-    const formItemNode = ReactDOM.findDOMNode(this) as Element;
-    const control = formItemNode.querySelector(`[id="${id}"]`) as HTMLElement;
-    if (control && control.focus) {
-      control.focus();
-    }
-  };
-
   renderLabel(prefixCls: string) {
     return (
       <FormContext.Consumer key="label">
@@ -399,7 +402,7 @@ export default class FormItem extends React.Component<FormItemProps, any> {
   }
 
   renderFormItem = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, style, className } = this.props;
+    const { prefixCls: customizePrefixCls, style, className, ...restProps } = this.props;
     const prefixCls = getPrefixCls('form', customizePrefixCls);
     const children = this.renderChildren(prefixCls);
     const itemClassName = {
@@ -409,7 +412,25 @@ export default class FormItem extends React.Component<FormItemProps, any> {
     };
 
     return (
-      <Row className={classNames(itemClassName)} style={style} key="row">
+      <Row
+        className={classNames(itemClassName)}
+        style={style}
+        {...omit(restProps, [
+          'id', // It is deprecated because `htmlFor` is its replacement.
+          'htmlFor',
+          'label',
+          'labelAlign',
+          'labelCol',
+          'wrapperCol',
+          'help',
+          'extra',
+          'validateStatus',
+          'hasFeedback',
+          'required',
+          'colon',
+        ])}
+        key="row"
+      >
         {children}
       </Row>
     );

@@ -5,9 +5,10 @@ if (
   ENV !== 'production' &&
   ENV !== 'test' &&
   typeof console !== 'undefined' &&
-  console.warn &&
+  console.warn && // eslint-disable-line no-console
   typeof window !== 'undefined'
 ) {
+  // eslint-disable-next-line no-console
   console.warn(
     'You are using a whole package of antd, ' +
       'please use https://www.npmjs.com/package/babel-plugin-import to reduce app bundle size.',
@@ -102,6 +103,8 @@ export { default as Progress } from './progress';
 export { default as Radio } from './radio';
 
 export { default as Rate } from './rate';
+
+export { default as Result } from './result';
 
 export { default as Row } from './row';
 

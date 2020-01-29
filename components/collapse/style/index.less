@@ -9,7 +9,7 @@
   background-color: @collapse-header-bg;
   border: @border-width-base @border-style-base @border-color-base;
   border-bottom: 0;
-  border-radius: @border-radius-base;
+  border-radius: @collapse-panel-border-radius;
 
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
@@ -17,7 +17,7 @@
     &:last-child {
       &,
       & > .@{collapse-prefix-cls}-header {
-        border-radius: 0 0 @border-radius-base @border-radius-base;
+        border-radius: 0 0 @collapse-panel-border-radius @collapse-panel-border-radius;
       }
     }
 
@@ -70,7 +70,7 @@
 
         .@{collapse-prefix-cls}-arrow {
           right: @padding-md;
-          left: initial;
+          left: auto;
         }
       }
     }
@@ -97,12 +97,12 @@
 
   &-item:last-child {
     > .@{collapse-prefix-cls}-content {
-      border-radius: 0 0 @border-radius-base @border-radius-base;
+      border-radius: 0 0 @collapse-panel-border-radius @collapse-panel-border-radius;
     }
   }
 
   &-borderless {
-    background-color: @component-background;
+    background-color: @collapse-header-bg;
     border: 0;
   }
 

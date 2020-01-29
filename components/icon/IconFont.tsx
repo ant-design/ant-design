@@ -1,5 +1,5 @@
-import Icon, { IconProps } from './index';
 import * as React from 'react';
+import Icon, { IconProps } from './index';
 
 const customCache = new Set<string>();
 
@@ -44,7 +44,7 @@ export default function create(options: CustomIconOptions = {}): React.SFC<IconP
       content = children;
     }
     return (
-      <Icon {...restProps} {...extraCommonProps}>
+      <Icon {...extraCommonProps} {...restProps}>
         {content}
       </Icon>
     );

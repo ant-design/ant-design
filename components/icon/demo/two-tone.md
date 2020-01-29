@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Specific them property `theme` to `twoTone` to render two-tone icons. You can also set the primary color.
+Specify the property `theme` to `twoTone` to render two-tone icons. You can also set the primary color.
 
 ```jsx
 import { Icon } from 'antd';

@@ -1,10 +1,4 @@
-html,
 body {
-  height: 100%;
-}
-
-body {
-  overflow-x: hidden;
   color: @site-text-color;
   font-size: 14px;
   font-family: @font-family;
@@ -26,7 +20,7 @@ a {
 .main-container {
   position: relative;
   min-height: 500px;
-  padding: 0 170px 144px 64px;
+  padding: 0 170px 32px 64px;
   overflow: hidden;
   background: #fff;
 }
@@ -36,8 +30,7 @@ a {
 
   &-inner {
     max-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
   }
 
   &:hover &-inner {
@@ -100,13 +93,21 @@ a {
 }
 
 // reset menu text color
-.menu-site .ant-menu-item > a {
-  color: @site-text-color;
-}
+.menu-site {
+  .ant-menu-item > a {
+    color: @site-text-color;
+  }
 
-.menu-site .ant-menu-item-selected > a,
-.menu-site .ant-menu-item > a:hover {
-  color: @primary-color;
+  .ant-menu-item-selected > a,
+  .ant-menu-item > a:hover {
+    color: @primary-color;
+  }
+
+  .menu-antd-components-count {
+    margin-left: 0.5em;
+    color: @disabled-color;
+    font-size: 12px;
+  }
 }
 
 #react-content {

@@ -230,6 +230,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                 class="ant-comment-avatar"
               >
                 <img
+                  alt="comment-avatar"
                   src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                 />
               </div>
@@ -283,6 +284,7 @@ exports[`renders ./components/comment/demo/list.md correctly 1`] = `
                 class="ant-comment-avatar"
               >
                 <img
+                  alt="comment-avatar"
                   src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                 />
               </div>

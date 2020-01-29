@@ -12,6 +12,8 @@ export interface PickerProps {
   disabled?: boolean;
   allowClear?: boolean;
   className?: string;
+  pickerClass?: string;
+  pickerInputClass?: string;
   suffixIcon?: React.ReactNode;
   style?: React.CSSProperties;
   popupStyle?: React.CSSProperties;
@@ -21,56 +23,64 @@ export interface PickerProps {
   getCalendarContainer?: (triggerNode: Element) => HTMLElement;
   open?: boolean;
   onOpenChange?: (status: boolean) => void;
-  disabledDate?: (current: moment.Moment | undefined) => boolean;
+  disabledDate?: (current: moment.Moment | null) => boolean;
   dateRender?: (current: moment.Moment, today: moment.Moment) => React.ReactNode;
   autoFocus?: boolean;
+  onFocus?: React.FocusEventHandler;
+  onBlur?: (e: React.SyntheticEvent) => void;
 }
 
 export interface SinglePickerProps {
-  value?: moment.Moment;
-  defaultValue?: moment.Moment;
-  defaultPickerValue?: moment.Moment;
+  value?: moment.Moment | null;
+  defaultValue?: moment.Moment | null;
+  defaultPickerValue?: moment.Moment | null;
   placeholder?: string;
   renderExtraFooter?: (mode: DatePickerMode) => React.ReactNode;
-  onChange?: (date: moment.Moment, dateString: string) => void;
+  onChange?: (date: moment.Moment | null, dateString: string) => void;
 }
 
 const DatePickerModes = tuple('time', 'date', 'month', 'year', 'decade');
-export type DatePickerMode = (typeof DatePickerModes)[number];
+export type DatePickerMode = typeof DatePickerModes[number];
 
 export interface DatePickerProps extends PickerProps, SinglePickerProps {
   showTime?: TimePickerProps | boolean;
   showToday?: boolean;
   open?: boolean;
   disabledTime?: (
-    current: moment.Moment | undefined,
+    current?: moment.Moment | null,
   ) => {
     disabledHours?: () => number[];
     disabledMinutes?: () => number[];
     disabledSeconds?: () => number[];
   };
   onOpenChange?: (status: boolean) => void;
-  onPanelChange?: (value: moment.Moment | undefined, mode: DatePickerMode) => void;
-  onOk?: (selectedTime: moment.Moment) => void;
+  onPanelChange?: (value: moment.Moment | null, mode: DatePickerMode) => void;
+  onOk?: (selectedTime: moment.Moment | null) => void;
   mode?: DatePickerMode;
 }
 
 export interface MonthPickerProps extends PickerProps, SinglePickerProps {
-  // - currently no own props -
+  monthCellContentRender?: (date: moment.Moment, locale: any) => React.ReactNode;
 }
 
 export type RangePickerValue =
   | undefined[]
+  | null[]
   | [moment.Moment]
   | [undefined, moment.Moment]
+  | [moment.Moment, undefined]
+  | [null, moment.Moment]
+  | [moment.Moment, null]
   | [moment.Moment, moment.Moment];
 export type RangePickerPresetRange = RangePickerValue | (() => RangePickerValue);
 
 export interface RangePickerProps extends PickerProps {
   className?: string;
+  tagPrefixCls?: string;
   value?: RangePickerValue;
   defaultValue?: RangePickerValue;
   defaultPickerValue?: RangePickerValue;
+  timePicker?: React.ReactNode;
   onChange?: (dates: RangePickerValue, dateStrings: [string, string]) => void;
   onCalendarChange?: (dates: RangePickerValue, dateStrings: [string, string]) => void;
   onOk?: (selectedTime: RangePickerPresetRange) => void;
@@ -83,7 +93,7 @@ export interface RangePickerProps extends PickerProps {
   mode?: string | string[];
   separator?: React.ReactNode;
   disabledTime?: (
-    current: moment.Moment | undefined,
+    current: RangePickerValue,
     type: string,
   ) => {
     disabledHours?: () => number[];
@@ -92,6 +102,8 @@ export interface RangePickerProps extends PickerProps {
   };
   onPanelChange?: (value?: RangePickerValue, mode?: string | string[]) => void;
   renderExtraFooter?: () => React.ReactNode;
+  onMouseEnter?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  onMouseLeave?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
 }
 
 export interface WeekPickerProps extends PickerProps, SinglePickerProps {

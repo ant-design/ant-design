@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-`ghost` property will make button's background transparent, it is common used in colored background.
+`ghost` property will make button's background transparent, it is commonly used in colored background.
 
 ```jsx
 import { Button } from 'antd';
@@ -25,8 +25,8 @@ ReactDOM.render(
     <Button type="dashed" ghost>
       Dashed
     </Button>
-    <Button type="Secondary" ghost>
-      secondary
+    <Button type="secondary" ghost>
+      Secondary
     </Button>
     <Button type="link" ghost>
       link

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CustomIconComponentProps } from 'antd/lib/icon';
+import { CustomIconComponentProps } from 'antd/es/icon';
 
 export const FilledIcon: React.SFC<CustomIconComponentProps> = props => {
   const path =

@@ -2,12 +2,16 @@ import React from 'react';
 import { mount, render } from 'enzyme';
 import debounce from 'lodash/debounce';
 import Tree from '../index';
+import mountTest from '../../../tests/shared/mountTest';
 
 const { DirectoryTree, TreeNode } = Tree;
 
 jest.mock('lodash/debounce');
 
 describe('Directory Tree', () => {
+  mountTest(Tree);
+  mountTest(DirectoryTree);
+
   debounce.mockImplementation(fn => fn);
 
   beforeAll(() => {
@@ -112,6 +116,30 @@ describe('Directory Tree', () => {
 
   it('defaultExpandAll', () => {
     const wrapper = render(createTree({ defaultExpandAll: true }));
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('DirectoryTree should expend all when use treeData and defaultExpandAll is true', () => {
+    const treeData = [
+      {
+        key: '0-0-0',
+        title: 'Folder',
+        children: [
+          {
+            title: 'Folder2',
+            key: '0-0-1',
+            children: [
+              {
+                title: 'File',
+                key: '0-0-2',
+                isLeaf: true,
+              },
+            ],
+          },
+        ],
+      },
+    ];
+    const wrapper = render(createTree({ defaultExpandAll: true, treeData }));
     expect(wrapper).toMatchSnapshot();
   });
 

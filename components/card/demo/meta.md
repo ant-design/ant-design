@@ -27,7 +27,11 @@ ReactDOM.render(
         src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
       />
     }
-    actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+    actions={[
+      <Icon type="setting" key="setting" />,
+      <Icon type="edit" key="edit" />,
+      <Icon type="ellipsis" key="ellipsis" />,
+    ]}
   >
     <Meta
       avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}

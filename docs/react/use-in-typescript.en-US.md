@@ -11,10 +11,14 @@ Let's create a TypeScript project by using `create-react-app`, then import `antd
 
 Ensure your system has installed latest version of [yarn](https://yarnpkg.com) or [npm](https://www.npmjs.com/).
 
-Create a new project named `antd-demo-ts` using yarn.
+Create a new [cra-template-typescript](https://github.com/facebook/create-react-app/tree/master/packages/cra-template-typescript) project named `antd-demo-ts` using yarn.
 
 ```bash
-$ yarn create react-app antd-demo-ts --typescript
+$ yarn create react-app antd-demo-ts --template typescript
+
+# or
+
+npx create-react-app my-app --template typescript
 ```
 
 If you are using npm (we will use yarn in the following instructions, it's ok to replace yarn with npm)
@@ -42,7 +46,7 @@ Modify `src/App.tsx`, import Button component from `antd`.
 
 ```jsx
 import React, { Component } from 'react';
-import Button from 'antd/lib/button';
+import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
@@ -134,7 +138,7 @@ Remove the `@import '~antd/dist/antd.css';` statement added before because `babe
 ```diff
   // src/App.js
   import React, { Component } from 'react';
-- import Button from 'antd/lib/button';
+- import Button from 'antd/es/button';
 + import { Button } from 'antd';
   import './App.css';
 
