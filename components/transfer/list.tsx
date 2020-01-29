@@ -3,7 +3,13 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
-import { TransferItem, TransferDirection, RenderResult, RenderResultObject } from './index';
+import {
+  TransferItem,
+  TransferDirection,
+  RenderResult,
+  RenderResultObject,
+  CheckboxLabel,
+} from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
 
@@ -48,6 +54,7 @@ export interface TransferListProps {
   disabled?: boolean;
   direction: TransferDirection;
   showSelectAll?: boolean;
+  checkboxLabel?: CheckboxLabel;
 }
 
 interface TransferListState {
@@ -246,6 +253,19 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     };
   };
 
+  getCheckboxLabel = (checked: number, filtered: number): React.ReactNode => {
+    const { itemsUnit, itemUnit, checkboxLabel } = this.props;
+    if (checkboxLabel) {
+      return typeof checkboxLabel === 'function' ? checkboxLabel(checked, filtered) : checkboxLabel;
+    }
+    const unit = filtered > 1 ? itemsUnit : itemUnit;
+    return (
+      <>
+        {(checked > 0 ? `${checked}/` : '') + filtered} {unit}
+      </>
+    );
+  };
+
   render() {
     const { filterValue } = this.state;
     const {
@@ -259,8 +279,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       style,
       searchPlaceholder,
       notFoundContent,
-      itemUnit,
-      itemsUnit,
       renderList,
       onItemSelectAll,
       showSelectAll,
@@ -278,7 +296,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
 
     // ================================= List Body =================================
-    const unit = filteredItems.length > 1 ? itemsUnit : itemUnit;
 
     const listBody = this.getListBody(
       prefixCls,
@@ -310,10 +327,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         <div className={`${prefixCls}-header`}>
           {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
-            <span>
-              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + filteredItems.length}{' '}
-              {unit}
-            </span>
+            <span>{this.getCheckboxLabel(checkedKeys.length, filteredItems.length)}</span>
             <span className={`${prefixCls}-header-title`}>{titleText}</span>
           </span>
         </div>

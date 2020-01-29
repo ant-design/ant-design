@@ -519,4 +519,22 @@ describe('Transfer', () => {
     );
     expect(component).toMatchSnapshot();
   });
+
+  it('should render correct checkbox label when checkboxLabel is defined', () => {
+    const checkboxLabels = ['Checkbox Label'];
+    const wrapper = mount(<Transfer {...listCommonProps} checkboxLabels={checkboxLabels} />);
+    expect(headerText(wrapper)).toEqual('Checkbox Label');
+  });
+
+  it('should render correct checkbox label when checkboxLabel is a function', () => {
+    const checkboxLabels = [
+      (checked, filtered) => (
+        <span>
+          {checked} of {filtered}
+        </span>
+      ),
+    ];
+    const wrapper = mount(<Transfer {...listCommonProps} checkboxLabels={checkboxLabels} />);
+    expect(headerText(wrapper)).toEqual('1 of 2');
+  });
 });
