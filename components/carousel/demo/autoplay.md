@@ -17,7 +17,7 @@ Timing of scrolling to the next card/picture.
 import { Carousel } from 'antd';
 
 ReactDOM.render(
-  <Carousel autoplay>
+  <Carousel autoplay dotsClass="krishan">
     <div>
       <h3>1</h3>
     </div>
