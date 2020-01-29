@@ -3,7 +3,7 @@ import { List } from 'rc-field-form';
 import warning from '../_util/warning';
 
 interface FieldData {
-  name: number;
+  name: string;
   key: number;
   fieldKey: number;
 }
@@ -26,7 +26,10 @@ const FormList: React.FC<FormListProps> = ({ children, ...props }) => {
     <List {...props}>
       {(fields, operation) => {
         return children(
-          fields.map(field => ({ ...field, fieldKey: field.key })),
+          fields.map(field => {
+            const name = typeof field.name === 'number' ? field.name.toString() : field.name;
+            return { ...field, name, fieldKey: field.key }
+          }),
           operation,
         );
       }}
