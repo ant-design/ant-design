@@ -6,6 +6,7 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 export interface GeneratorProps {
   suffixCls: string;
   tagName: 'header' | 'footer' | 'main' | 'section';
+  displayName: string;
 }
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -29,9 +30,11 @@ interface BasicPropsWithTagName extends BasicProps {
   tagName: 'header' | 'footer' | 'main' | 'section';
 }
 
-function generator({ suffixCls, tagName }: GeneratorProps) {
+function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
     return class Adapter extends React.Component<BasicProps, any> {
+      static displayName: string = displayName;
+
       static Header: any;
 
       static Footer: any;
@@ -56,7 +59,7 @@ function generator({ suffixCls, tagName }: GeneratorProps) {
 
 const Basic = (props: BasicPropsWithTagName) => {
   const { prefixCls, className, children, tagName, ...others } = props;
-  const classString = classNames(className, prefixCls);
+  const classString = classNames(prefixCls, className);
   return React.createElement(tagName, { className: classString, ...others }, children);
 };
 
@@ -84,11 +87,15 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
 
   renderComponent = ({ direction }: ConfigConsumerProps) => {
     const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
-    const classString = classNames(className, prefixCls, {
-      [`${prefixCls}-has-sider`]:
-        typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-has-sider`]:
+          typeof hasSider === 'boolean' ? hasSider : this.state.siders.length > 0,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     return (
       <LayoutContext.Provider value={{ siderHook: this.getSiderHook() }}>
@@ -112,21 +119,25 @@ const Layout: React.ComponentClass<BasicProps> & {
 } = generator({
   suffixCls: 'layout',
   tagName: 'section',
+  displayName: 'Layout',
 })(BasicLayout);
 
 const Header = generator({
   suffixCls: 'layout-header',
   tagName: 'header',
+  displayName: 'Header',
 })(Basic);
 
 const Footer = generator({
   suffixCls: 'layout-footer',
   tagName: 'footer',
+  displayName: 'Footer',
 })(Basic);
 
 const Content = generator({
   suffixCls: 'layout-content',
   tagName: 'main',
+  displayName: 'Content',
 })(Basic);
 
 Layout.Header = Header;

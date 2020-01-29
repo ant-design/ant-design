@@ -17,9 +17,7 @@ Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spe
 import { Input, AutoComplete } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const { Option, OptGroup } = AutoComplete;
-
-function renderTitle(title: string) {
+const renderTitle = (title: string) => {
   return (
     <span>
       {title}
@@ -33,9 +31,9 @@ function renderTitle(title: string) {
       </a>
     </span>
   );
-}
+};
 
-function renderItem(title: string, count: number) {
+const renderItem = (title: string, count: number) => {
   return {
     value: title,
     label: (
@@ -52,7 +50,7 @@ function renderItem(title: string, count: number) {
       </div>
     ),
   };
-}
+};
 
 const options = [
   {
@@ -69,7 +67,7 @@ const options = [
   },
 ];
 
-function Complete() {
+const Complete: React.FC = () => {
   return (
     <AutoComplete
       dropdownClassName="certain-category-search-dropdown"
@@ -80,7 +78,7 @@ function Complete() {
       <Input.Search size="large" placeholder="input here" />
     </AutoComplete>
   );
-}
+};
 
 ReactDOM.render(<Complete />, mountNode);
 ```

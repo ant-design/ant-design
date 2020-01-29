@@ -147,11 +147,13 @@ async function printLog() {
   }
 
   // Chinese
+  console.log(chalk.yellow('Chinese changelog:'));
   printPR('chinese', chinese => (chinese[chinese.length - 1] === '。' ? chinese : `${chinese}。`));
 
-  console.log('-----');
+  console.log('\n-----\n');
 
   // English
+  console.log(chalk.yellow('English changelog:'));
   printPR('english', english => {
     english = english.trim();
     if (english[english.length - 1] !== '.') {

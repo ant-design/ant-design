@@ -40,7 +40,7 @@ export interface FormItemProps
   fieldKey?: number;
 }
 
-function FormItem(props: FormItemProps): React.ReactNode {
+function FormItem(props: FormItemProps): React.ReactElement {
   const {
     name,
     fieldKey,
@@ -98,7 +98,7 @@ function FormItem(props: FormItemProps): React.ReactNode {
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean,
-  ) {
+  ): any {
     if (noStyle) {
       return baseChildren;
     }

@@ -329,6 +329,12 @@ Online demo:
 
 [![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
 
+### Why get form warning when used in Modal?
+
+> Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
+
+Before Modal open, children element do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view example.
+
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);

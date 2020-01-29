@@ -278,7 +278,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
 
     // ================================= List Body =================================
-    const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
+    const unit = filteredItems.length > 1 ? itemsUnit : itemUnit;
 
     const listBody = this.getListBody(
       prefixCls,

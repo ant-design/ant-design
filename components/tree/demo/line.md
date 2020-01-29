@@ -14,6 +14,7 @@ title:
 Tree with connected line between nodes, turn on by `showLine`, customize the preseted icon by `switcherIcon`.
 
 ```tsx
+import React, { useState } from 'react';
 import { Tree, Switch } from 'antd';
 import { CarryOutOutlined, FormOutlined } from '@ant-design/icons';
 
@@ -58,8 +59,8 @@ const treeData = [
 ];
 
 const Demo: React.FC<{}> = () => {
-  const [showLine, setShowLine] = React.useState(true);
-  const [showIcon, setShowIcon] = React.useState(false);
+  const [showLine, setShowLine] = useState(true);
+  const [showIcon, setShowIcon] = useState(false);
 
   const onSelect = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
