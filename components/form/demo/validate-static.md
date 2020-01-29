@@ -22,6 +22,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ```tsx
+import { SmileOutlined } from '@ant-design/icons';
 import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber } from 'antd';
 
 const { Option } = Select;
@@ -48,7 +49,7 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Warning" validateStatus="warning">
-      <Input placeholder="Warning" id="warning" />
+      <Input placeholder="Warning" id="warning" prefix={<SmileOutlined />} />
     </Form.Item>
 
     <Form.Item
