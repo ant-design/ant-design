@@ -126,4 +126,18 @@ describe('Carousel', () => {
       ).toBeTruthy();
     });
   });
+  describe('when add custom dotsClass', () => {
+    //https://github.com/ant-design/ant-design/issues/21131
+    it('have dotClass', () => {
+      const wrapper = mount(
+        <Carousel dotsClass="customDots">
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      wrapper.update();
+      expect(wrapper.find('.slick-dots').hasClass('customDots')).toBeTruthy();
+    });
+  });
 });

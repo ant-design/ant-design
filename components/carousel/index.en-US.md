@@ -23,6 +23,7 @@ A carousel component. Scales with its container.
 | dots | Whether to show the dots at the bottom of the gallery | boolean | `true` |  |
 | easing | Transition interpolation function name | string | `linear` |  |
 | effect | Transition effect | `scrollx` \| `fade` | `scrollx` |  |
+| dotsClass | Add custom className for dots | string | - |  |
 
 ## Methods
 
