@@ -21,6 +21,7 @@ export interface CarouselProps extends Settings {
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
+  dotsClass?: string;
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
@@ -28,6 +29,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     dots: true,
     arrows: false,
     draggable: false,
+    dotsClass: '',
   };
 
   innerSlider: any;
@@ -106,7 +108,11 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     const dotsClass = 'slick-dots';
     const dotPosition = this.getDotPosition();
     props.vertical = dotPosition === 'left' || dotPosition === 'right';
-    props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
+    props.dotsClass = classNames(
+      dotsClass,
+      this.props.dotsClass,
+      dotsClass + '-' + dotPosition || 'bottom',
+    );
 
     const className = classNames(prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
