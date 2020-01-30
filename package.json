@@ -196,7 +196,7 @@
     "ignore-emit-webpack-plugin": "^2.0.2",
     "immutability-helper": "^3.0.0",
     "intersection-observer": "^0.7.0",
-    "jest": "^24.8.0",
+    "jest": "^25.1.0",
     "jquery": "^3.4.1",
     "jsdom": "^16.0.0",
     "jsonml.js": "^0.1.0",
