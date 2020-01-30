@@ -9,10 +9,6 @@ import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
 
-function getDefaultContainer() {
-  return window;
-}
-
 function getOffsetTop(element: HTMLElement, container: AnchorContainer): number {
   if (!element) {
     return 0;
@@ -94,7 +90,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
   static defaultProps = {
     affix: true,
     showInkInFixed: false,
-    getContainer: getDefaultContainer,
+    getContainer: () => window,
   };
 
   static childContextTypes = {

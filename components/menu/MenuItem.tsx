@@ -4,7 +4,7 @@ import { ClickParam } from '.';
 import MenuContext, { MenuContextProps } from './MenuContext';
 import Tooltip, { TooltipProps } from '../tooltip';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
-
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export interface MenuItemProps
   extends Omit<
     React.HTMLAttributes<HTMLLIElement>,

@@ -15,10 +15,6 @@ import {
   getFixedBottom,
 } from './utils';
 
-function getDefaultTarget() {
-  return typeof window !== 'undefined' ? window : null;
-}
-
 // Affix
 export interface AffixProps {
   /**
@@ -54,7 +50,7 @@ export interface AffixState {
 
 class Affix extends React.Component<AffixProps, AffixState> {
   static defaultProps = {
-    target: getDefaultTarget,
+    target: () => (typeof window !== 'undefined' ? window : null),
   };
 
   state: AffixState = {
