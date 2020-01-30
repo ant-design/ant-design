@@ -44,6 +44,10 @@ export interface CheckboxGroupContext {
   };
 }
 
+export const GroupContext = React.createContext<{ checkboxGroup: any }>({
+  checkboxGroup: undefined,
+});
+
 class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
@@ -54,10 +58,6 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     value: PropTypes.array,
     options: PropTypes.array.isRequired,
     onChange: PropTypes.func,
-  };
-
-  static childContextTypes = {
-    checkboxGroup: PropTypes.any,
   };
 
   static getDerivedStateFromProps(nextProps: CheckboxGroupProps) {
@@ -74,21 +74,6 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     this.state = {
       value: props.value || props.defaultValue || [],
       registeredValues: [],
-    };
-  }
-
-  getChildContext() {
-    return {
-      checkboxGroup: {
-        toggleOption: this.toggleOption,
-        value: this.state.value,
-        disabled: this.props.disabled,
-        name: this.props.name,
-
-        // https://github.com/ant-design/ant-design/issues/16376
-        registerValue: this.registerValue,
-        cancelValue: this.cancelValue,
-      },
     };
   }
 
@@ -174,10 +159,23 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       ));
     }
 
+    const context = {
+      checkboxGroup: {
+        toggleOption: this.toggleOption,
+        value: this.state.value,
+        disabled: this.props.disabled,
+        name: this.props.name,
+
+        // https://github.com/ant-design/ant-design/issues/16376
+        registerValue: this.registerValue,
+        cancelValue: this.cancelValue,
+      },
+    };
+
     const classString = classNames(groupPrefixCls, className);
     return (
       <div className={classString} style={style} {...domProps}>
-        {children}
+        <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
       </div>
     );
   };

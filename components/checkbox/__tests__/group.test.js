@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
+import Collapse from '../../collapse';
 import Checkbox from '../index';
 import mountTest from '../../../tests/shared/mountTest';
 
@@ -36,7 +37,10 @@ describe('CheckboxGroup', () => {
   it('does not trigger onChange callback of both Checkbox and CheckboxGroup when CheckboxGroup is disabled', () => {
     const onChangeGroup = jest.fn();
 
-    const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Pear', value: 'Pear' }];
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Pear', value: 'Pear' },
+    ];
 
     const groupWrapper = mount(
       <Checkbox.Group options={options} onChange={onChangeGroup} disabled />,
@@ -82,7 +86,10 @@ describe('CheckboxGroup', () => {
   });
 
   it('passes prefixCls down to checkbox', () => {
-    const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Orange', value: 'Orange' }];
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange' },
+    ];
 
     const wrapper = render(<Checkbox.Group prefixCls="my-checkbox" options={options} />);
 
@@ -90,7 +97,10 @@ describe('CheckboxGroup', () => {
   });
 
   it('should be controlled by value', () => {
-    const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Orange', value: 'Orange' }];
+    const options = [
+      { label: 'Apple', value: 'Apple' },
+      { label: 'Orange', value: 'Orange' },
+    ];
 
     const wrapper = mount(<Checkbox.Group options={options} />);
 
@@ -169,5 +179,45 @@ describe('CheckboxGroup', () => {
       .at(0)
       .simulate('change');
     expect(onChange).toHaveBeenCalledWith([1, 2]);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/21134
+  it('should work when checkbox is wrapped by other components', () => {
+    const wrapper = mount(
+      <Checkbox.Group>
+        <Collapse bordered={false}>
+          <Collapse.Panel header="test panel">
+            <div>
+              <Checkbox value="1">item</Checkbox>
+            </div>
+          </Collapse.Panel>
+        </Collapse>
+      </Checkbox.Group>,
+    );
+    wrapper
+      .find('.ant-collapse-item')
+      .at(0)
+      .find('.ant-collapse-header')
+      .simulate('click');
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change');
+    expect(
+      wrapper
+        .find(Checkbox.Group)
+        .at(0)
+        .state('value'),
+    ).toEqual(['1']);
+    wrapper
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change');
+    expect(
+      wrapper
+        .find(Checkbox.Group)
+        .at(0)
+        .state('value'),
+    ).toEqual([]);
   });
 });
