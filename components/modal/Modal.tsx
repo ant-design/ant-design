@@ -6,7 +6,7 @@ import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import { getConfirmLocale } from './locale';
 import Icon from '../icon';
 import Button from '../button';
-import { ButtonType, NativeButtonProps } from '../button/button';
+import { ButtonType, ButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -60,8 +60,8 @@ export interface ModalProps {
   maskClosable?: boolean;
   /** 强制渲染 Modal */
   forceRender?: boolean;
-  okButtonProps?: NativeButtonProps;
-  cancelButtonProps?: NativeButtonProps;
+  okButtonProps?: ButtonProps;
+  cancelButtonProps?: ButtonProps;
   destroyOnClose?: boolean;
   style?: React.CSSProperties;
   wrapClassName?: string;
@@ -90,8 +90,8 @@ export interface ModalFuncProps {
   // TODO: find out exact types
   onOk?: (...args: any[]) => any;
   onCancel?: (...args: any[]) => any;
-  okButtonProps?: NativeButtonProps;
-  cancelButtonProps?: NativeButtonProps;
+  okButtonProps?: ButtonProps;
+  cancelButtonProps?: ButtonProps;
   centered?: boolean;
   width?: string | number;
   iconClassName?: string;
