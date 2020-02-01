@@ -91,7 +91,7 @@ describe('Table.expand', () => {
     const wrapper = mount(
       <Table
         columns={[{ dataIndex: 'key' }]}
-        data={[{ key: 233 }]}
+        dataSource={[{ key: 233 }]}
         expandable={{
           expandIcon: () => <div className="expand-icon" />,
         }}
