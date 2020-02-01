@@ -169,7 +169,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
         ])}
       >
         {/* Label */}
-        <FormItemLabel htmlFor={fieldId} {...props} required={isRequired} prefixCls={prefixCls} />
+        <FormItemLabel htmlFor={fieldId} required={isRequired} {...props} prefixCls={prefixCls} />
         {/* Input Group */}
         <FormItemInput
           {...props}
