@@ -11,7 +11,7 @@ Handling the overall layout of a page.
 
 ### Size
 
-The first level navigation is inclined left near a logo, and the secondary menu is inclined right.
+The first level navigation is left aligned near a logo, and the secondary menu is right aligned.
 
 - Top Navigation: the height of the first level navigation `64px`, the second level navigation `48px`.
 - Top Navigation (for landing pages): the height of the first level navigation `80px`, the second level navigation `56px`.

@@ -417,4 +417,15 @@ describe('Form', () => {
     );
     expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
   });
+
+  // https://github.com/ant-design/ant-design/issues/21167
+  it('`require` without `name`', () => {
+    const wrapper = mount(
+      <Form.Item label="test" required>
+        <input />
+      </Form.Item>,
+    );
+
+    expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
+  });
 });

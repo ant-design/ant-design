@@ -5,7 +5,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import omit from 'omit.js';
 
 import Group from './button-group';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import Wave from '../_util/wave';
 import { Omit, tuple } from '../_util/type';
 import warning from '../_util/warning';
@@ -114,6 +114,8 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
   static __ANT_BUTTON = true;
 
+  static contextType = ConfigContext;
+
   static defaultProps = {
     loading: false,
     ghost: false,
@@ -177,8 +179,10 @@ class Button extends React.Component<ButtonProps, ButtonState> {
   };
 
   fixTwoCNChar() {
+    const { autoInsertSpaceInButton }: ConfigConsumerProps = this.context;
+
     // Fix for HOC usage like <FormatMessage />
-    if (!this.buttonNode) {
+    if (!this.buttonNode || autoInsertSpaceInButton === false) {
       return;
     }
     const buttonText = this.buttonNode.textContent || this.buttonNode.innerText;
@@ -200,110 +204,110 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     return React.Children.count(children) === 1 && !icon && type !== 'link';
   }
 
-  renderButton = ({ getPrefixCls, autoInsertSpaceInButton, direction }: ConfigConsumerProps) => (
-    <SizeContext.Consumer>
-      {size => {
-        const {
-          prefixCls: customizePrefixCls,
-          type,
-          danger,
-          shape,
-          size: customizeSize,
-          className,
-          children,
-          icon,
-          ghost,
-          block,
-          ...rest
-        } = this.props;
-        const { loading, hasTwoCNChar } = this.state;
+  render() {
+    const { getPrefixCls, autoInsertSpaceInButton, direction }: ConfigConsumerProps = this.context;
 
-        warning(
-          !(typeof icon === 'string' && icon.length > 2),
-          'Button',
-          `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
-        );
+    return (
+      <SizeContext.Consumer>
+        {size => {
+          const {
+            prefixCls: customizePrefixCls,
+            type,
+            danger,
+            shape,
+            size: customizeSize,
+            className,
+            children,
+            icon,
+            ghost,
+            block,
+            ...rest
+          } = this.props;
+          const { loading, hasTwoCNChar } = this.state;
 
-        const prefixCls = getPrefixCls('btn', customizePrefixCls);
-        const autoInsertSpace = autoInsertSpaceInButton !== false;
+          warning(
+            !(typeof icon === 'string' && icon.length > 2),
+            'Button',
+            `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+          );
 
-        // large => lg
-        // small => sm
-        let sizeCls = '';
-        switch (customizeSize || size) {
-          case 'large':
-            sizeCls = 'lg';
-            break;
-          case 'small':
-            sizeCls = 'sm';
-            break;
-          default:
-            break;
-        }
+          const prefixCls = getPrefixCls('btn', customizePrefixCls);
+          const autoInsertSpace = autoInsertSpaceInButton !== false;
 
-        const iconType = loading ? 'loading' : icon;
+          // large => lg
+          // small => sm
+          let sizeCls = '';
+          switch (customizeSize || size) {
+            case 'large':
+              sizeCls = 'lg';
+              break;
+            case 'small':
+              sizeCls = 'sm';
+              break;
+            default:
+              break;
+          }
 
-        const classes = classNames(prefixCls, className, {
-          [`${prefixCls}-${type}`]: type,
-          [`${prefixCls}-${shape}`]: shape,
-          [`${prefixCls}-${sizeCls}`]: sizeCls,
-          [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
-          [`${prefixCls}-loading`]: !!loading,
-          [`${prefixCls}-background-ghost`]: ghost,
-          [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
-          [`${prefixCls}-block`]: block,
-          [`${prefixCls}-dangerous`]: !!danger,
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-        });
+          const iconType = loading ? 'loading' : icon;
 
-        const iconNode = loading ? <LoadingOutlined /> : icon || null;
-        const kids =
-          children || children === 0
-            ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
-            : null;
+          const classes = classNames(prefixCls, className, {
+            [`${prefixCls}-${type}`]: type,
+            [`${prefixCls}-${shape}`]: shape,
+            [`${prefixCls}-${sizeCls}`]: sizeCls,
+            [`${prefixCls}-icon-only`]: !children && children !== 0 && iconType,
+            [`${prefixCls}-loading`]: !!loading,
+            [`${prefixCls}-background-ghost`]: ghost,
+            [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
+            [`${prefixCls}-block`]: block,
+            [`${prefixCls}-dangerous`]: !!danger,
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+          });
 
-        const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
-        if (linkButtonRestProps.href !== undefined) {
-          return (
-            <a
-              {...linkButtonRestProps}
+          const iconNode = loading ? <LoadingOutlined /> : icon || null;
+          const kids =
+            children || children === 0
+              ? spaceChildren(children, this.isNeedInserted() && autoInsertSpace)
+              : null;
+
+          const linkButtonRestProps = omit(rest as AnchorButtonProps, ['htmlType', 'loading']);
+          if (linkButtonRestProps.href !== undefined) {
+            return (
+              <a
+                {...linkButtonRestProps}
+                className={classes}
+                onClick={this.handleClick}
+                ref={this.saveButtonRef}
+              >
+                {iconNode}
+                {kids}
+              </a>
+            );
+          }
+
+          // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
+          const { htmlType, ...otherProps } = rest as NativeButtonProps;
+
+          const buttonNode = (
+            <button
+              {...(omit(otherProps, ['loading']) as NativeButtonProps)}
+              type={htmlType}
               className={classes}
               onClick={this.handleClick}
               ref={this.saveButtonRef}
             >
               {iconNode}
               {kids}
-            </a>
+            </button>
           );
-        }
 
-        // React does not recognize the `htmlType` prop on a DOM element. Here we pick it out of `rest`.
-        const { htmlType, ...otherProps } = rest as NativeButtonProps;
+          if (type === 'link') {
+            return buttonNode;
+          }
 
-        const buttonNode = (
-          <button
-            {...(omit(otherProps, ['loading']) as NativeButtonProps)}
-            type={htmlType}
-            className={classes}
-            onClick={this.handleClick}
-            ref={this.saveButtonRef}
-          >
-            {iconNode}
-            {kids}
-          </button>
-        );
-
-        if (type === 'link') {
-          return buttonNode;
-        }
-
-        return <Wave>{buttonNode}</Wave>;
-      }}
-    </SizeContext.Consumer>
-  );
-
-  render() {
-    return <ConfigConsumer>{this.renderButton}</ConfigConsumer>;
+          return <Wave>{buttonNode}</Wave>;
+        }}
+      </SizeContext.Consumer>
+    );
   }
 }
 
