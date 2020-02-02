@@ -159,6 +159,10 @@
       @select-selection-height: @input-height - @input-padding-vertical-base * 2;
       @select-height-without-border: @input-height - @border-width-base * 2;
 
+      .@{select-prefix-cls}-selector::after {
+        line-height: @select-selection-height;
+      }
+
       .@{select-prefix-cls}-selection-item {
         height: @select-selection-height;
         line-height: @select-selection-height - @border-width-base * 2;
