@@ -189,7 +189,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
   const isRenderProps = typeof children === 'function';
 
-  if (!name && !isRenderProps && !dependencies) {
+  if (name === undefined && !isRenderProps && !dependencies) {
     return renderLayout(children as ChildrenNodeType);
   }
 
