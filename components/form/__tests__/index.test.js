@@ -428,4 +428,14 @@ describe('Form', () => {
 
     expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
   });
+
+  it('0 is a validate Field', () => {
+    const wrapper = mount(
+      <Form.Item name={0}>
+        <input />
+      </Form.Item>,
+    );
+
+    expect(wrapper.find('Field')).toHaveLength(1);
+  });
 });
