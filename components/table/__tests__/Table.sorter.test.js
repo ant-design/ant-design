@@ -670,4 +670,35 @@ describe('Table.sorter', () => {
 
     expect(wrapper.find('.ant-table-column-sorter-inner')).toHaveLength(0);
   });
+
+  // https://github.com/ant-design/ant-design/issues/21193
+  it('table with sugar column', () => {
+    const wrapper = mount(
+      <Table>
+        <Table.Column
+          title="Chinese Score"
+          dataIndex="chinese"
+          sorter={{
+            compare: (a, b) => a.chinese - b.chinese,
+            multiple: 3,
+          }}
+        />
+        <Table.Column
+          title="Math Score"
+          dataIndex="math"
+          sorter={{
+            compare: (a, b) => a.math - b.math,
+            multiple: 2,
+          }}
+        />
+      </Table>,
+    );
+
+    wrapper
+      .find('th')
+      .first()
+      .simulate('click');
+
+    expect(wrapper.find('th.ant-table-column-sort')).toHaveLength(1);
+  });
 });
