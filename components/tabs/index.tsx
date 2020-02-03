@@ -102,12 +102,15 @@ export default class Tabs extends React.Component<TabsProps, any> {
       type = 'line',
       tabPosition,
       children,
-      animated = true,
+      animated = false,
       hideAdd,
     } = this.props;
     let { tabBarExtraContent } = this.props;
 
     let tabPaneAnimated = typeof animated === 'object' ? animated.tabPane : animated;
+
+    // this is a fix that we should propose to antd
+    const tabBarAnimated = typeof animated === 'object' ? animated.inkBar : animated;
 
     // card tabs should not have animation
     if (type !== 'line') {
@@ -182,7 +185,8 @@ export default class Tabs extends React.Component<TabsProps, any> {
         tabBarPosition={tabPosition}
         direction={direction}
         renderTabBar={() => (
-          <TabBar {...omit(tabBarProps, ['className'])} tabBarExtraContent={tabBarExtraContent} />
+          // this is a fix that we should propose to antd
+          <TabBar {...omit(tabBarProps, ['className'])} animated={tabBarAnimated} tabBarExtraContent={tabBarExtraContent} />
         )}
         renderTabContent={() => (
           <TabContent className={contentCls} animated={tabPaneAnimated} animatedWithMargin />

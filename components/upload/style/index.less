@@ -177,13 +177,13 @@
     &-name {
       display: inline-block;
       width: 100%;
-      padding-left: @font-size-base + 8px;
+      padding-left: @font-size-base + (8 * @pxToRem);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
 
       .@{upload-prefix-cls}-list-rtl & {
-        padding-right: @font-size-base + 8px;
+        padding-right: @font-size-base + (8 * @pxToRem);
         padding-left: 0;
       }
     }
@@ -241,7 +241,7 @@
       .@{upload-prefix-cls}-text-icon {
         .@{iconfont-css-prefix} {
           position: absolute;
-          top: @font-size-base / 2 - 2px;
+          top: @font-size-base / 2 - (2 * @pxToRem);
           color: @text-color-secondary;
           font-size: @font-size-base;
         }
@@ -305,12 +305,12 @@
       position: absolute;
       bottom: -12px;
       width: 100%;
-      padding-left: @font-size-base + 12px;
+      padding-left: @font-size-base + (12 * @pxToRem);
       font-size: @font-size-base;
       line-height: 0;
 
       .@{upload-prefix-cls}-list-rtl & {
-        padding-right: @font-size-base + 12px;
+        padding-right: @font-size-base + (12 * @pxToRem);
         padding-left: 0;
       }
     }

@@ -2,6 +2,14 @@
 @import './colors';
 
 .rc-footer {
+  background: @v-palette-background-light;
+
+  &-column h2,
+  &-item-description,
+  &-item-separator {
+    color: @v-palette-text-primary;
+  }
+
   &-container {
     max-width: unset;
     padding: 60px;

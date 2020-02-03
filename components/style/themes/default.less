@@ -1,5 +1,34 @@
+/* Get varnish styles */
+@import './varnish';
+/* This file has all overrides from the ant less overrides in Varnish; however, we should do a
+pass of this file, and make more overrides as they make sense */
+
 /* stylelint-disable at-rule-empty-line-before,at-rule-name-space-after,at-rule-no-unknown */
 @import '../color/colors';
+
+/* to convert rem to px and back again: https://codepen.io/janogarcia/pen/bNrKEP */
+@pxToRem: 0.0625rem;
+@remToPx: 16px;
+
+/* color overrides to ant design variables .. TODO: consider replacing all colors in ant directly
+with varnish... would make code cleaner, but merges harder */
+@gold-6: @v-color-o6;
+@gold-3: @v-color-o3;
+@blue-6: @v-color-b6;
+@green-6: @v-color-g6;
+@red-6: @v-color-r6;
+@cyan-6: @v-color-a6;
+@purple-6: @v-color-p6;
+@purple-3: @v-color-p3;
+@pink-6: @v-color-p6;
+@magenta-6: @v-color-m6;
+@magenta-7: @v-color-m7;
+@yellow-6: @v-color-o6;
+@orange-6: @v-color-o6;
+@volcano-6: @v-color-r6;
+@geekblue-6: @v-color-b6;
+@lime-6: @v-color-g6;
+/* NOTE: I made some changes above that should be back-ported to varnish if we dont go this route */
 
 @theme: default;
 
@@ -10,31 +39,29 @@
 @html-selector: html;
 
 // -------- Colors -----------
-@primary-color: @blue-6;
-@info-color: @blue-6;
-@success-color: @green-6;
-@processing-color: @blue-6;
-@error-color: @red-5;
-@highlight-color: @red-5;
-@warning-color: @gold-6;
-@normal-color: #d9d9d9;
+@primary-color: @v-color-b7;
+@info-color: @v-palette-text-info;
+@success-color: @v-palette-text-success;
+@processing-color: @v-color-b7;
+@error-color: @v-palette-text-error;
+@highlight-color: @v-color-r6;
+@warning-color: @v-palette-text-warning;
+@normal-color: @v-color-n5;
 @white: #fff;
 @black: #000;
 
 // Color used by default to control hover and active backgrounds and for
 // alert info backgrounds.
-@primary-1: color(~`colorPalette('@{primary-color}', 1) `); // replace tint(@primary-color, 90%)
-@primary-2: color(~`colorPalette('@{primary-color}', 2) `); // replace tint(@primary-color, 80%)
-@primary-3: color(~`colorPalette('@{primary-color}', 3) `); // unused
-@primary-4: color(~`colorPalette('@{primary-color}', 4) `); // unused
-@primary-5: color(
-  ~`colorPalette('@{primary-color}', 5) `
-); // color used to control the text color in many active and hover states, replace tint(@primary-color, 20%)
-@primary-6: @primary-color; // color used to control the text color of active buttons, don't use, use @primary-color
-@primary-7: color(~`colorPalette('@{primary-color}', 7) `); // replace shade(@primary-color, 5%)
-@primary-8: color(~`colorPalette('@{primary-color}', 8) `); // unused
-@primary-9: color(~`colorPalette('@{primary-color}', 9) `); // unused
-@primary-10: color(~`colorPalette('@{primary-color}', 10) `); // unused
+@primary-1: @v-color-b1;
+@primary-2: @v-color-b2;
+@primary-3: @v-color-b3;
+@primary-4: @v-color-b4;
+@primary-5: @v-color-b5;
+@primary-6: @v-color-b6;
+@primary-7: @v-color-b7;
+@primary-8: @v-color-b8;
+@primary-9: @v-color-b9;
+@primary-10: @v-color-b10;
 
 // Base Scaffolding Variables
 // ---
@@ -45,13 +72,11 @@
 @component-background: #fff;
 // Popover background color
 @popover-background: @component-background;
-@font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji';
-@code-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-@text-color: fade(@black, 65%);
-@text-color-secondary: fade(@black, 45%);
-@text-color-inverse: @white;
+@font-family: @v-typography-body-font-family;
+@code-family: @v-typography-code-font-family;
+@text-color: @v-palette-text-primary;
+@text-color-secondary: @v-palette-text-secondary;
+@text-color-inverse: @v-palette-text-contrast;
 @icon-color: inherit;
 @icon-color-hover: fade(@black, 75%);
 @heading-color: fade(#000, 85%);
@@ -61,42 +86,42 @@
 @text-selection-bg: @primary-color;
 @font-variant-base: tabular-nums;
 @font-feature-settings-base: 'tnum';
-@font-size-base: 14px;
-@font-size-lg: @font-size-base + 2px;
-@font-size-sm: 12px;
-@heading-1-size: ceil(@font-size-base * 2.71);
-@heading-2-size: ceil(@font-size-base * 2.14);
-@heading-3-size: ceil(@font-size-base * 1.71);
-@heading-4-size: ceil(@font-size-base * 1.42);
+@font-size-base: @v-typography-body-font-size;
+@font-size-lg: @font-size-base + (2 * @pxToRem);
+@font-size-sm: @font-size-base - (2 * @pxToRem);
+@heading-1-size: @v-typography-h1-font-size;
+@heading-2-size: @v-typography-h2-font-size;
+@heading-3-size: @v-typography-h3-font-size;
+@heading-4-size: @v-typography-h4-font-size;
 // https://github.com/ant-design/ant-design/issues/20210
 @line-height-base: 1.5715;
-@border-radius-base: 2px;
+@border-radius-base: @v-shape-border-radius;
 @border-radius-sm: @border-radius-base;
 
-// vertical paddings
-@padding-lg: 24px; // containers
-@padding-md: 16px; // small containers and buttons
-@padding-sm: 12px; // Form controls and items
-@padding-xs: 8px; // small items
+// paddings
+@padding-lg: @v-spacing-lg; // containers
+@padding-md: @v-spacing-md; // small containers and buttons
+@padding-sm: @v-spacing-sm; // Form controls and items
+@padding-xs: @v-spacing-xs; // small items
 
-// vertical padding for all form controls
-@control-padding-horizontal: @padding-sm;
-@control-padding-horizontal-sm: @padding-xs;
+// horizontal padding for all form controls
+@control-padding-horizontal: @padding-md;
+@control-padding-horizontal-sm: @padding-sm;
 
 // The background colors for active and hover states for things like
 // list items or table cells.
 @item-active-bg: @primary-1;
-@item-hover-bg: #f5f5f5;
+@item-hover-bg: @v-color-n3;
 
 // ICONFONT
 @iconfont-css-prefix: anticon;
 
 // LINK
-@link-color: @primary-color;
-@link-hover-color: color(~`colorPalette('@{link-color}', 5) `);
-@link-active-color: color(~`colorPalette('@{link-color}', 7) `);
-@link-decoration: none;
-@link-hover-decoration: none;
+@link-color: @v-link-color;
+@link-hover-color: @v-link-hover-color;
+@link-active-color: @v-link-active-color;
+@link-decoration: @v-link-decoration;
+@link-hover-decoration: @v-link-hover-decoration;
 
 // Animation
 @ease-base-out: cubic-bezier(0.7, 0.3, 0.1, 1);
@@ -115,8 +140,8 @@
 @ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
 // Border color
-@border-color-base: hsv(0, 0, 85%); // base border outline a component
-@border-color-split: hsv(0, 0, 94%); // split border inside a component
+@border-color-base: @v-palette-border-dark; // base border outline a component
+@border-color-split: @v-palette-border-main; // split border inside a component
 @border-color-inverse: @white;
 @border-width-base: 1px; // width of the border for a component
 @border-style-base: solid; // style of a components border
@@ -126,8 +151,8 @@
 @outline-width: 2px;
 @outline-color: @primary-color;
 
-@background-color-light: hsv(0, 0, 98%); // background of header and selected item
-@background-color-base: hsv(0, 0, 96%); // Default grey background color
+@background-color-light: @v-color-n2; // background of header and selected item
+@background-color-base: @v-color-n3; // Default grey background color
 
 // Disabled states
 @disabled-color: fade(#000, 25%);
@@ -150,7 +175,7 @@
   0 9px 28px 8px rgba(0, 0, 0, 0.05);
 
 // Buttons
-@btn-font-weight: 400;
+@btn-font-weight: @v-typography-font-weight-regular;
 @btn-border-radius-base: @border-radius-base;
 @btn-border-radius-sm: @border-radius-base;
 @btn-border-width: @border-width-base;
@@ -184,9 +209,9 @@
 @btn-padding-horizontal-lg: @btn-padding-horizontal-base;
 @btn-padding-horizontal-sm: @padding-xs - 1px;
 
-@btn-height-base: 32px;
-@btn-height-lg: 40px;
-@btn-height-sm: 24px;
+@btn-height-base: 32px; // TODO: add to varnish theme
+@btn-height-lg: @btn-height-base + 8px;
+@btn-height-sm: @btn-height-base - 8px;
 
 @btn-circle-size: @btn-height-base;
 @btn-circle-size-lg: @btn-height-lg;
@@ -235,27 +260,27 @@
 
 // Media queries breakpoints
 // Extra small screen / phone
-@screen-xs: 480px;
+@screen-xs: @v-breakpoints-xs;
 @screen-xs-min: @screen-xs;
 
 // Small screen / tablet
-@screen-sm: 576px;
+@screen-sm: @v-breakpoints-sm;
 @screen-sm-min: @screen-sm;
 
 // Medium screen / desktop
-@screen-md: 768px;
+@screen-md: @v-breakpoints-md;
 @screen-md-min: @screen-md;
 
 // Large screen / wide desktop
-@screen-lg: 992px;
+@screen-lg: @v-breakpoints-lg;
 @screen-lg-min: @screen-lg;
 
 // Extra large screen / full hd
-@screen-xl: 1200px;
+@screen-xl: @v-breakpoints-xl;
 @screen-xl-min: @screen-xl;
 
 // Extra extra large screen / large desktop
-@screen-xxl: 1600px;
+@screen-xxl: @v-breakpoints-xxl;
 @screen-xxl-min: @screen-xxl;
 
 // provide a maximum
@@ -289,25 +314,26 @@
 @layout-trigger-color-light: @text-color;
 
 // z-index list, order by `z-index`
-@zindex-badge: auto;
-@zindex-table-fixed: auto;
-@zindex-affix: 10;
-@zindex-back-top: 10;
-@zindex-picker-panel: 10;
-@zindex-popup-close: 10;
-@zindex-modal: 1000;
-@zindex-modal-mask: 1000;
-@zindex-message: 1010;
-@zindex-notification: 1010;
-@zindex-popover: 1030;
-@zindex-dropdown: 1050;
-@zindex-picker: 1050;
-@zindex-tooltip: 1060;
+@zindex-table-fixed: @v-z-index-fixed-table;
+@zindex-affix: @v-z-index-affix;
+@zindex-back-top: @v-z-index-back-top;
+@zindex-badge: @v-z-index-badge;
+@zindex-picker-panel: @v-z-index-picker-panel;
+@zindex-popup-close: @v-z-index-popup-close;
+@zindex-modal: @v-z-index-modal;
+@zindex-modal-mask: @v-z-index-modal-mask;
+@zindex-message: @v-z-index-message;
+@zindex-notification: @v-z-index-notification;
+@zindex-popover: @v-z-index-popover;
+@zindex-dropdown: @v-z-index-dropdown;
+@zindex-picker: @v-z-index-picker;
+@zindex-tooltip: @v-z-index-tooltip;
 
 // Animation
-@animation-duration-slow: 0.3s; // Modal
-@animation-duration-base: 0.2s;
-@animation-duration-fast: 0.1s; // Tooltip
+// TODO: set these in varnish
+@animation-duration-slow: 0.0s; // Modal
+@animation-duration-base: 0.0s;
+@animation-duration-fast: 0.0s; // Tooltip
 
 //CollapsePanel
 @collapse-panel-border-radius: @border-radius-base;
@@ -316,7 +342,7 @@
 @dropdown-menu-bg: @component-background;
 @dropdown-vertical-padding: 5px;
 @dropdown-edge-child-vertical-padding: 4px;
-@dropdown-font-size: @font-size-base;
+@dropdown-font-size: @font-size-sm;
 @dropdown-line-height: 22px;
 
 // Form
@@ -334,19 +360,19 @@
 
 // Input
 // ---
-@input-height-base: 32px;
-@input-height-lg: 40px;
-@input-height-sm: 24px;
+@input-height-base: 39px; // todo, add to varnish
+@input-height-lg: @input-height-base + 8px;
+@input-height-sm: @input-height-base - 8px;
 @input-padding-horizontal: @control-padding-horizontal - 1px;
 @input-padding-horizontal-base: @input-padding-horizontal;
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
 @input-padding-vertical-base: round(
-    (@input-height-base - @font-size-base * @line-height-base) / 2 * 10
+    (@input-height-base - (@font-size-base * @remToPx) * @line-height-base) / 2 * 10
   ) / 10 - @border-width-base;
-@input-padding-vertical-sm: round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) /
+@input-padding-vertical-sm: round((@input-height-sm - (@font-size-base * @remToPx) * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
-@input-padding-vertical-lg: round((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
+@input-padding-vertical-lg: round((@input-height-lg - (@font-size-lg * @remToPx) * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
@@ -438,15 +464,16 @@
 
 // Modal
 // --
-@modal-body-padding: 24px;
-@modal-header-bg: @component-background;
-@modal-header-border-color-split: @border-color-split;
+@modal-body-padding: @v-spacing-md;
+@modal-header-padding: @v-spacing-md;
+@modal-header-bg: @v-palette-background-light;
+@modal-header-border-color-split: @v-palette-border-main;
 @modal-content-bg: @component-background;
 @modal-heading-color: @heading-color;
 @modal-footer-bg: transparent;
 @modal-footer-border-color-split: @border-color-split;
-@modal-footer-padding-vertical: 10px;
-@modal-footer-padding-horizontal: 16px;
+@modal-footer-padding-vertical: @v-spacing-md;
+@modal-footer-padding-horizontal: @v-spacing-md;
 @modal-mask-bg: fade(@black, 45%);
 
 // Progress
@@ -494,7 +521,7 @@
 
 // Table
 // --
-@table-bg: @component-background;
+@table-bg: @v-palette-background-light;
 @table-header-bg: @background-color-light;
 @table-header-color: @heading-color;
 @table-header-sort-bg: @background-color-base;
@@ -511,6 +538,7 @@
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
 @table-header-bg-sm: transparent;
+
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);
@@ -614,6 +642,7 @@
 @tabs-active-color: @primary-7;
 @tabs-card-gutter: 2px;
 @tabs-card-tab-active-border-top: 2px solid transparent;
+@tabs-pane-transition-time: 0s;
 
 // BackTop
 // ---
@@ -626,9 +655,9 @@
 @avatar-size-base: 32px;
 @avatar-size-lg: 40px;
 @avatar-size-sm: 24px;
-@avatar-font-size-base: 18px;
-@avatar-font-size-lg: 24px;
-@avatar-font-size-sm: 14px;
+@avatar-font-size-base: (18 * @pxToRem);
+@avatar-font-size-lg: (24 * @pxToRem);
+@avatar-font-size-sm: (14 * @pxToRem);
 @avatar-bg: #ccc;
 @avatar-color: #fff;
 @avatar-border-radius: @border-radius-base;
@@ -736,17 +765,17 @@
 
 // Alert
 // ---
-@alert-success-border-color: ~`colorPalette('@{success-color}', 3) `;
-@alert-success-bg-color: ~`colorPalette('@{success-color}', 1) `;
+@alert-success-border-color: @v-palette-border-success;
+@alert-success-bg-color: @v-palette-background-success;
 @alert-success-icon-color: @success-color;
-@alert-info-border-color: ~`colorPalette('@{info-color}', 3) `;
-@alert-info-bg-color: ~`colorPalette('@{info-color}', 1) `;
+@alert-info-border-color: @v-palette-border-info;
+@alert-info-bg-color: @v-palette-background-info;
 @alert-info-icon-color: @info-color;
-@alert-warning-border-color: ~`colorPalette('@{warning-color}', 3) `;
-@alert-warning-bg-color: ~`colorPalette('@{warning-color}', 1) `;
+@alert-warning-border-color: @v-palette-border-warning;
+@alert-warning-bg-color: @v-palette-background-warning;
 @alert-warning-icon-color: @warning-color;
-@alert-error-border-color: ~`colorPalette('@{error-color}', 3) `;
-@alert-error-bg-color: ~`colorPalette('@{error-color}', 1) `;
+@alert-error-border-color: @v-palette-border-error;
+@alert-error-bg-color: @v-palette-background-error;
 @alert-error-icon-color: @error-color;
 @alert-message-color: @heading-color;
 @alert-text-color: @text-color;
@@ -766,8 +795,8 @@
 // Statistic
 // ---
 @statistic-title-font-size: @font-size-base;
-@statistic-content-font-size: 24px;
-@statistic-unit-font-size: 16px;
+@statistic-content-font-size: (24 * @pxToRem);
+@statistic-unit-font-size: (16 * @pxToRem);
 @statistic-font-family: @font-family;
 
 // Drawer
