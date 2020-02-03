@@ -521,20 +521,20 @@ describe('Transfer', () => {
   });
 
   it('should render correct checkbox label when checkboxLabel is defined', () => {
-    const checkboxLabels = ['Checkbox Label'];
-    const wrapper = mount(<Transfer {...listCommonProps} checkboxLabels={checkboxLabels} />);
+    const selectAllLabels = ['Checkbox Label'];
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
     expect(headerText(wrapper)).toEqual('Checkbox Label');
   });
 
   it('should render correct checkbox label when checkboxLabel is a function', () => {
-    const checkboxLabels = [
+    const selectAllLabels = [
       (checked, filtered) => (
         <span>
           {checked} of {filtered}
         </span>
       ),
     ];
-    const wrapper = mount(<Transfer {...listCommonProps} checkboxLabels={checkboxLabels} />);
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
     expect(headerText(wrapper)).toEqual('1 of 2');
   });
 });

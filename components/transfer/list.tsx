@@ -8,7 +8,7 @@ import {
   TransferDirection,
   RenderResult,
   RenderResultObject,
-  CheckboxLabel,
+  SelectAllLabel,
 } from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
@@ -54,7 +54,7 @@ export interface TransferListProps {
   disabled?: boolean;
   direction: TransferDirection;
   showSelectAll?: boolean;
-  checkboxLabel?: CheckboxLabel;
+  selectAllLabel?: SelectAllLabel;
 }
 
 interface TransferListState {
@@ -253,10 +253,12 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     };
   };
 
-  getCheckboxLabel = (checked: number, filtered: number): React.ReactNode => {
-    const { itemsUnit, itemUnit, checkboxLabel } = this.props;
-    if (checkboxLabel) {
-      return typeof checkboxLabel === 'function' ? checkboxLabel(checked, filtered) : checkboxLabel;
+  getSelectAllLabel = (checked: number, filtered: number): React.ReactNode => {
+    const { itemsUnit, itemUnit, selectAllLabel } = this.props;
+    if (selectAllLabel) {
+      return typeof selectAllLabel === 'function'
+        ? selectAllLabel(checked, filtered)
+        : selectAllLabel;
     }
     const unit = filtered > 1 ? itemsUnit : itemUnit;
     return (
@@ -327,7 +329,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         <div className={`${prefixCls}-header`}>
           {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
-            <span>{this.getCheckboxLabel(checkedKeys.length, filteredItems.length)}</span>
+            <span>{this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}</span>
             <span className={`${prefixCls}-header-title`}>{titleText}</span>
           </span>
         </div>
