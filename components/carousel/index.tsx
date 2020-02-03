@@ -111,7 +111,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     props.dotsClass = classNames(
       dotsClass,
       this.props.dotsClass,
-      dotsClass + '-' + dotPosition || 'bottom',
+      `${dotsClass}-${dotPosition || 'bottom'}`,
     );
 
     const className = classNames(prefixCls, {
