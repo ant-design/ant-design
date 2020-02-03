@@ -528,9 +528,9 @@ describe('Transfer', () => {
 
   it('should render correct checkbox label when checkboxLabel is a function', () => {
     const selectAllLabels = [
-      (checked, filtered) => (
+      ({ selectedCount, totalCount }) => (
         <span>
-          {checked} of {filtered}
+          {selectedCount} of {totalCount}
         </span>
       ),
     ];

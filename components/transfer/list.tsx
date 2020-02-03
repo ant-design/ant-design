@@ -253,17 +253,17 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     };
   };
 
-  getSelectAllLabel = (checked: number, filtered: number): React.ReactNode => {
+  getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
     const { itemsUnit, itemUnit, selectAllLabel } = this.props;
     if (selectAllLabel) {
       return typeof selectAllLabel === 'function'
-        ? selectAllLabel(checked, filtered)
+        ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;
     }
-    const unit = filtered > 1 ? itemsUnit : itemUnit;
+    const unit = totalCount > 1 ? itemsUnit : itemUnit;
     return (
       <>
-        {(checked > 0 ? `${checked}/` : '') + filtered} {unit}
+        {(selectedCount > 0 ? `${selectedCount}/` : '') + totalCount} {unit}
       </>
     );
   };

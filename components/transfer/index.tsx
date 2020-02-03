@@ -35,9 +35,9 @@ export interface ListStyle {
   direction: TransferDirection;
 }
 
-type RenderSelectAllLabelFunction = (checked: number, filtered: number) => React.ReactNode;
-
-export type SelectAllLabel = RenderSelectAllLabelFunction | React.ReactNode;
+export type SelectAllLabel =
+  | React.ReactNode
+  | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
 
 export interface TransferProps {
   prefixCls?: string;
@@ -63,7 +63,7 @@ export interface TransferProps {
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
   children?: (props: TransferListBodyProps) => React.ReactNode;
   showSelectAll?: boolean;
-  selectAllLabels?: [SelectAllLabel?, SelectAllLabel?];
+  selectAllLabels?: SelectAllLabel[];
 }
 
 export interface TransferLocale {
