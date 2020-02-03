@@ -326,13 +326,13 @@ class MainContent extends Component {
               {menuChild}
             </MobileMenu>
           ) : (
-            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
+            <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
               <Affix>
                 <section className="main-menu-inner">{menuChild}</section>
               </Affix>
             </Col>
           )}
-          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
+          <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
             <section className={mainContainerClass}>
               {demos ? (
                 <ComponentDoc
