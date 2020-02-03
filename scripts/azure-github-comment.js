@@ -33,7 +33,6 @@ async function withGithub(url, json, method) {
 
   // Find my comment
   const updateComment = comments.find(({ body }) => body.includes(REPLACE_MARK));
-  console.log('Origin comment:', updateComment);
 
   // Update
   let res;
@@ -50,6 +49,4 @@ async function withGithub(url, json, method) {
       'PATCH',
     );
   }
-
-  console.log(res);
 })();
