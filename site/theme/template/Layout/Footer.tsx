@@ -319,12 +319,6 @@ class Footer extends React.Component<WrappedComponentProps> {
             url: 'https://xtech.antfin.com/',
             openExternal: true,
           },
-          {
-            title: this.renderThemeChanger(),
-            style: {
-              marginTop: 20,
-            },
-          },
         ],
       },
     ];

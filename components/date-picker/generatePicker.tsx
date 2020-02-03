@@ -14,7 +14,7 @@ import {
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
 import { PickerMode } from 'rc-picker/lib/interface';
-import { CalendarOutlined, ClockCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
+import { ClockCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';
@@ -22,6 +22,7 @@ import { getPlaceholder, getRangePlaceholder } from './util';
 import PickerButton from './PickerButton';
 import PickerTag from './PickerTag';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { FormCalendarIcon } from '../icons';
 
 const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -181,7 +182,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
                   ref={this.pickerRef}
                   placeholder={getPlaceholder(mergedPicker, locale)}
                   suffixIcon={
-                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />
+                    mergedPicker === 'time' ? <ClockCircleOutlined /> : <FormCalendarIcon />
                   }
                   clearIcon={<CloseCircleFilled />}
                   allowClear
@@ -282,7 +283,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           separator={<span className={`${prefixCls}-separator`}>→</span>}
           ref={this.pickerRef}
           placeholder={getRangePlaceholder(picker, locale)}
-          suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+          suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <FormCalendarIcon />}
           clearIcon={<CloseCircleFilled />}
           allowClear
           transitionName="slide-up"

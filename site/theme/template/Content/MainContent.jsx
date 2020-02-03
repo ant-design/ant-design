@@ -9,7 +9,6 @@ import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
-import { DarkIcon, DefaultIcon } from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
@@ -316,7 +315,6 @@ class MainContent extends Component {
         {menuItems}
       </Menu>
     );
-    const componentPage = /^\/?components/.test(this.props.location.pathname);
 
     return (
       <div className="main-wrapper">
@@ -372,22 +370,6 @@ class MainContent extends Component {
                 owner="ant-design"
               />
             </section>
-            {componentPage && (
-              <div className="fixed-widgets">
-                <Tooltip
-                  getPopupContainer={node => node.parentNode}
-                  title={formatMessage({ id: `app.theme.switch.${theme}` })}
-                  overlayClassName="fixed-widgets-tooltip"
-                >
-                  <Avatar
-                    className={classNames('fixed-widgets-avatar', `fixed-widgets-avatar-${theme}`)}
-                    size={44}
-                    onClick={this.changeTheme}
-                    icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
-                  />
-                </Tooltip>
-              </div>
-            )}
             <PrevAndNext prev={prev} next={next} />
             <Footer />
           </Col>
