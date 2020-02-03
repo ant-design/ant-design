@@ -14,6 +14,7 @@ title:
 Perform different check rules according to different situations.
 
 ```tsx
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 
 const formItemLayout = {
@@ -27,9 +28,9 @@ const formTailLayout = {
 
 const DynamicRule = () => {
   const [form] = Form.useForm();
-  const [checkNick, setCheckNick] = React.useState(false);
+  const [checkNick, setCheckNick] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     form.validateFields(['nickname']);
   }, [checkNick]);
 

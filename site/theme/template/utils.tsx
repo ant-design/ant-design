@@ -18,7 +18,12 @@ interface Orders {
   [key: string]: number;
 }
 
-export function getMenuItems(moduleData: ModuleDataItem[], locale: string, categoryOrder: Orders, typeOrder: Orders) {
+export function getMenuItems(
+  moduleData: ModuleDataItem[],
+  locale: string,
+  categoryOrder: Orders,
+  typeOrder: Orders,
+) {
   const menuMeta = moduleData.map(item => item.meta).filter(meta => !meta.skip);
 
   const menuItems: Meta[] = [];

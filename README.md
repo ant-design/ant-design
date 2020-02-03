@@ -20,7 +20,7 @@ An enterprise-class UI design language and React UI library.
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](http://ant.design)
 
-English | [简体中文](./README-zh_CN.md)
+English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md)
 
 ## ✨ Features
 

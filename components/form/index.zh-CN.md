@@ -25,11 +25,11 @@ title: Form
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |
-| labelAlign | label 标签的文本对齐方式 | 'left' \| 'right' | 'right' |
+| labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |
 | labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | - |
-| layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
+| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
-| size | 设置字段组件的尺寸（仅限 antd 组件） | `small | middle | large` | - |
+| size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) | - |
 | onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
@@ -78,7 +78,7 @@ const validateMessages = {
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |
 | label | `label` 标签的文本 | string\|ReactNode | - |
-| labelAlign | 标签文本对齐方式 | 'left' \| 'right' | 'right' |
+| labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
 | normalize | 转换字段值给控件 | (value, prevValue, prevValues) => any | - |
@@ -86,6 +86,7 @@ const validateMessages = {
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |
 | trigger | 设置收集字段值变更的时机 | string | onChange |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |
 | validateTrigger | 设置字段校验的时机 | string \| string[] | onChange |
 | valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
@@ -329,6 +330,12 @@ const TestForm = () => {
 在线示例：
 
 [![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
+
+### 为何在 Modal 中调用 form 控制台会报错？
+
+> Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
+
+这是因为你在调用 form 方法时，Modal 还未初始化导致 form 没有关联任何 Form 组件。你可以通过给 Modal 设置 `forceRender` 将其预渲染。示例点击[此处](https://codesandbox.io/s/antd-reproduction-template-ibu5c)。
 
 <style>
   .site-form-item-icon {

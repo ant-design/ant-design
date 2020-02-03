@@ -329,6 +329,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     ...expandable,
   };
 
+  // Pass origin render status into `rc-table`, this can be removed when refactor with `rc-table`
+  (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
+
   // Customize expandable icon
   mergedExpandable.expandIcon =
     mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
@@ -419,7 +422,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={renderEmpty('Table')}
+          emptyText={(locale && locale.emptyText) || renderEmpty('Table')}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}

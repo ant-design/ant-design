@@ -25,7 +25,7 @@ cols: 1
 | accordion | 手风琴模式 | boolean | `false` |  |
 | onChange | 切换面板的回调 | Function | 无 |  |
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
-| expandIconPosition | 设置图标位置： `left`, `right` | `left` | - |  |
+| expandIconPosition | 设置图标位置 | `left` \| `right` | - |  |
 | destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | `false` |  |
 
 ### Collapse.Panel

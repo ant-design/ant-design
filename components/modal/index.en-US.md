@@ -59,7 +59,7 @@ The items listed above are all functions, expecting a settings object as paramet
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| autoFocusButton | Specify which button to autofocus | null\|string: `ok` `cancel` | `ok` |
+| autoFocusButton | Specify which button to autofocus | null\| `ok` \| `cancel` | `ok` |
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |
 | centered | Centered Modal | Boolean | `false` |
 | className | className of container | string | - |

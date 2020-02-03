@@ -75,6 +75,8 @@ module.exports = {
       Principles: 1,
       全局规则: 2,
       'Global Rules': 2,
+      模板文档: 3,
+      'Template Document': 3,
     },
     docVersions: {
       '0.9.x': 'http://09x.ant.design',

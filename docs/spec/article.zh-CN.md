@@ -8,6 +8,7 @@ title: 文章
 
 ## 设计
 
+- [解放图形化设计生产力 - HiTu](https://zhuanlan.zhihu.com/p/100925117)
 - [「自然交互」Ant Design 设计价值观解析](https://zhuanlan.zhihu.com/p/44809866)
 - [「自然交互 1」前馈：让功能找到用户；让用户体验美好](https://zhuanlan.zhihu.com/p/41952711)
 - [「自然交互 4」理解元数据，让人机自然交互](https://zhuanlan.zhihu.com/p/43613398)

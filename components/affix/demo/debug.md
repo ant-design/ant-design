@@ -15,10 +15,10 @@ DEBUG
 DEBUG
 
 ```tsx
-import React, { useState, FC } from 'react';
+import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-const Demo: FC = () => {
+const Demo: React.FC = () => {
   const [top, setTop] = useState(10);
   return (
     <div style={{ height: 10000 }}>

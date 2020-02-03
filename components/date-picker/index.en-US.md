@@ -54,9 +54,9 @@ The following APIs are shared by DatePicker, YearPicker, MonthPicker, RangePicke
 | dropdownClassName | to customize the className of the popup calendar | string | - |  |
 | getPopupContainer | to set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | locale | localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
-| mode | picker panel mode（[Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) | `time|date|month|year|decade` | - |  |
+| mode | picker panel mode（[Cannot select year or month anymore?](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cannot-select-year-or-month-anymore?) | `time` \| `date` \| `month` \| `year` \| `decade` | - |  |
 | open | open state of picker | boolean | - |  |
-| picker | Set picker type | `date`, `week`, `month`, `year` | `date` |  |
+| picker | Set picker type | `date` \| `week` \| `month` \| `year` | `date` |  |
 | placeholder | placeholder of date input | string\|RangePicker\[] | - |  |
 | popupStyle | to customize the style of the popup calendar | object | {} |  |
 | size | determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | string | - |  |

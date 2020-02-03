@@ -12,7 +12,7 @@ export interface FormItemLabelProps {
   labelCol?: ColProps;
 }
 
-const FormItemLabel: React.FC<FormItemLabelProps & { required: boolean; prefixCls: string }> = ({
+const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixCls: string }> = ({
   prefixCls,
   label,
   htmlFor,

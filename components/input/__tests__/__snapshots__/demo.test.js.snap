@@ -881,6 +881,39 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
       </span>
     </div>
   </div>
+  <br />
+  <span
+    class="ant-input-group-wrapper"
+  >
+    <span
+      class="ant-input-wrapper ant-input-group"
+    >
+      <span
+        class="ant-input-group-addon"
+      >
+        Http://
+      </span>
+      <span
+        class="ant-input-affix-wrapper"
+      >
+        <span
+          class="ant-input-prefix"
+        >
+          $
+        </span>
+        <input
+          class="ant-input"
+          type="text"
+          value="mysite"
+        />
+      </span>
+      <span
+        class="ant-input-group-addon"
+      >
+        .com
+      </span>
+    </span>
+  </span>
 </div>
 `;
 

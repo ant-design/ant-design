@@ -14,6 +14,7 @@ title:
 Table with editable cells.
 
 ```tsx
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
 
 const EditableContext = React.createContext<any>();
@@ -58,11 +59,11 @@ const EditableCell: React.FC<EditableCellProps> = ({
   handleSave,
   ...restProps
 }) => {
-  const [editing, setEditing] = React.useState(false);
-  const inputRef = React.useRef();
-  const form = React.useContext(EditableContext);
+  const [editing, setEditing] = useState(false);
+  const inputRef = useRef();
+  const form = useContext(EditableContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (editing) {
       inputRef.current.focus();
     }

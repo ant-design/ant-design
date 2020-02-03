@@ -764,4 +764,19 @@ describe('Table.rowSelection', () => {
         .simulate('click');
     }).not.toThrow();
   });
+
+  it('all disabled should not make select all checked', () => {
+    const wrapper = mount(
+      createTable({
+        rowSelection: {
+          getCheckboxProps: () => ({
+            disabled: true,
+          }),
+        },
+      }),
+    );
+
+    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeTruthy();
+    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
+  });
 });
