@@ -1,8 +1,8 @@
 ---
 order: 12
 title:
-  zh-CN: 使用 hooks
-  en-US: Use hooks
+  zh-CN: 使用 hooks 获得上下文
+  en-US: Use hooks to get context
 ---
 
 ## zh-CN
