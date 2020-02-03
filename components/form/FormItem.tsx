@@ -3,7 +3,7 @@ import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
-import { Meta } from 'rc-field-form/lib/interface';
+import {Meta, NamePath} from 'rc-field-form/lib/interface';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -40,6 +40,17 @@ export interface FormItemProps
   fieldKey?: number;
 }
 
+function hasValidName(name?: NamePath): Boolean {
+  if (name === null) {
+    warning(
+      false,
+      'Form.Item',
+      '`null` is passed as `name` property',
+    );
+  }
+  return !(name === undefined || name === null);
+}
+
 function FormItem(props: FormItemProps): React.ReactElement {
   const {
     name,
@@ -67,6 +78,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const [inlineErrors, setInlineErrors] = React.useState<Record<string, string[]>>({});
 
   const { name: formName } = formContext;
+  const hasName = hasValidName(name);
 
   // Cache Field NamePath
   const nameRef = React.useRef<(string | number)[]>([]);
@@ -189,7 +201,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
   const isRenderProps = typeof children === 'function';
 
-  if (name === undefined && !isRenderProps && !dependencies) {
+  if (!hasName && !isRenderProps && !dependencies) {
     return renderLayout(children as ChildrenNodeType);
   }
 
@@ -240,21 +252,21 @@ function FormItem(props: FormItemProps): React.ReactElement {
         };
 
         let childNode: ChildrenNodeType = null;
-        if (Array.isArray(children) && !!name) {
+        if (Array.isArray(children) && hasName) {
           warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
-        } else if (isRenderProps && (!shouldUpdate || !!name)) {
+        } else if (isRenderProps && (!shouldUpdate || hasName)) {
           warning(
             !!shouldUpdate,
             'Form.Item',
             '`children` of render props only work with `shouldUpdate`.',
           );
           warning(
-            !name,
+            !hasName,
             'Form.Item',
             "Do not use `name` with `children` of render props since it's not a field.",
           );
-        } else if (dependencies && !isRenderProps && !name) {
+        } else if (dependencies && !isRenderProps && !hasName) {
           warning(
             false,
             'Form.Item',
@@ -279,7 +291,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           });
 
           childNode = React.cloneElement(children, childProps);
-        } else if (isRenderProps && shouldUpdate && !name) {
+        } else if (isRenderProps && shouldUpdate && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
           warning(
