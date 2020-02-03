@@ -112,6 +112,77 @@ describe('Form', () => {
         </Form.Item>
       </Form.Item>
     ));
+
+    it('correct onFinish values', async () => {
+      async function click(wrapper, className) {
+        wrapper
+          .find(className)
+          .last()
+          .simulate('click');
+        await delay();
+        wrapper.update();
+      }
+
+      const onFinish = jest.fn().mockImplementation(() => {});
+
+      const wrapper = mount(
+        <Form
+          onFinish={(v) => {
+            if (typeof v.list[0] === 'object') {
+              /* old version led to SyntheticEvent be passed as an value here
+                that led to weird infinite loop somewhere and OutOfMemory crash */
+              v = new Error('We expect value to be a primitive here');
+            }
+            onFinish(v);
+          }}
+        >
+          <Form.List name="list">
+            {(fields, { add, remove }) => (
+              <>
+                {fields.map(field => (
+                  // key is in a field
+                  // eslint-disable-next-line react/jsx-key
+                  <Form.Item {...field}>
+                    <Input />
+                  </Form.Item>
+                ))}
+                <Button
+                  className="add"
+                  onClick={add}
+                >
+                  Add
+                </Button>
+                <Button
+                  className="remove"
+                  onClick={() => remove(0)}
+                >
+                  Remove
+                </Button>
+              </>
+            )}
+          </Form.List>
+        </Form>,
+      );
+
+      await click(wrapper, '.add');
+      await change(wrapper, 0, 'input1');
+      wrapper.find('form').simulate('submit');
+      await delay();
+      expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1'] });
+
+      await click(wrapper, '.add');
+      await change(wrapper, 1, 'input2');
+      await click(wrapper, '.add');
+      await change(wrapper, 2, 'input3');
+      wrapper.find('form').simulate('submit');
+      await delay();
+      expect(onFinish).toHaveBeenLastCalledWith({ list: ['input1', 'input2', 'input3'] });
+
+      await click(wrapper, '.remove'); // will remove first input
+      wrapper.find('form').simulate('submit');
+      await delay();
+      expect(onFinish).toHaveBeenLastCalledWith({ list: ['input2', 'input3'] });
+    });
   });
 
   it('noStyle Form.Item', async () => {
@@ -437,5 +508,18 @@ describe('Form', () => {
     );
 
     expect(wrapper.find('Field')).toHaveLength(1);
+  });
+
+  it('`null` triggers warning and is treated as `undefined`', () => {
+    const wrapper = mount(
+      <Form.Item name={null}>
+        <input />
+      </Form.Item>,
+    );
+
+    expect(wrapper.find('Field')).toHaveLength(0);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `null` is passed as `name` property',
+    );
   });
 });
