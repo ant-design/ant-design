@@ -509,4 +509,17 @@ describe('Form', () => {
 
     expect(wrapper.find('Field')).toHaveLength(1);
   });
+
+  it('`null` triggers warning and is treated as `undefined`', () => {
+    const wrapper = mount(
+      <Form.Item name={null}>
+        <input />
+      </Form.Item>,
+    );
+
+    expect(wrapper.find('Field')).toHaveLength(0);
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Form.Item] `null` is passed as `name` property',
+    );
+  });
 });
