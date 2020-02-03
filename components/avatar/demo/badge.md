@@ -13,7 +13,7 @@ title:
 
 Usually used for reminders and notifications.
 
-```jsx
+```tsx
 import { Avatar, Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 

@@ -6,7 +6,7 @@ title:
 debug: true
 ---
 
-```jsx
+```tsx
 import { Input, AutoComplete, Form, TreeSelect, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 

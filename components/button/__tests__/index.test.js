@@ -3,6 +3,7 @@ import { render, mount } from 'enzyme';
 import renderer from 'react-test-renderer';
 import { SearchOutlined } from '@ant-design/icons';
 import Button from '..';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
@@ -251,5 +252,24 @@ describe('Button', () => {
       `Warning: [antd: Button] \`icon\` is using ReactNode instead of string naming in v4. Please check \`search\` at https://ant.design/components/icon`,
     );
     warnSpy.mockRestore();
+  });
+
+  it('skip check 2 words when ConfigProvider disable this', () => {
+    const wrapper = mount(
+      <ConfigProvider autoInsertSpaceInButton={false}>
+        <Button>test</Button>
+      </ConfigProvider>,
+    );
+
+    const btn = wrapper.find('button').instance();
+    Object.defineProperty(btn, 'textContent', {
+      get() {
+        throw new Error('Should not called!!!');
+      },
+    });
+    wrapper
+      .find('Button')
+      .instance()
+      .forceUpdate();
   });
 });

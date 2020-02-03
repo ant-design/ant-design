@@ -9,6 +9,14 @@
   color: @breadcrumb-base-color;
   font-size: @breadcrumb-font-size;
 
+  &-rtl {
+    direction: rtl;
+
+    > span {
+      float: right;
+    }
+  }
+
   .@{iconfont-css-prefix} {
     font-size: @breadcrumb-icon-font-size;
   }
@@ -40,12 +48,22 @@
   &-link {
     > .@{iconfont-css-prefix} + span {
       margin-left: 4px;
+
+      .@{breadcrumb-prefix-cls}-rtl & {
+        margin-right: 4px;
+        margin-left: 0;
+      }
     }
   }
 
   &-overlay-link {
     > .@{iconfont-css-prefix} {
       margin-left: 4px;
+
+      .@{breadcrumb-prefix-cls}-rtl & {
+        margin-right: 4px;
+        margin-left: 0;
+      }
     }
   }
 }

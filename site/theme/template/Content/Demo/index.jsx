@@ -214,13 +214,25 @@ class Demo extends React.Component {
       // eslint-disable-next-line no-undef
       { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
+
+    // Reorder source code
+    let parsedSourceCode = sourceCode;
+    let importReactContent = "import React from 'react';";
+
+    const importReactReg = /import(\D*)from 'react';/;
+    const matchImportReact = parsedSourceCode.match(importReactReg);
+    if (matchImportReact) {
+      importReactContent = matchImportReact[0];
+      parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
+    }
+
     const indexJsContent = `
-import React from 'react';
+${importReactContent}
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-${sourceCode.replace('mountNode', "document.getElementById('container')")}
-          `;
+${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
+`.trim();
     const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
     const codesanboxPrefillConfig = {
       files: {

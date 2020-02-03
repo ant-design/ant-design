@@ -15,6 +15,62 @@ timeline: true
 
 ---
 
+## 4.0.0-rc.3
+
+`2020-01-27`
+
+- 🛠 Use native Date instead of moment to get timestamp in Countdown component. [#21108](https://github.com/ant-design/ant-design/pull/21108) [@morenyang](https://github.com/morenyang)
+- 🐞 Fix Input `suffix / prefix` style issue with `addonBefore / addonAfter`. [#21105](https://github.com/ant-design/ant-design/pull/21105) [@zombieJ](https://github.com/zombieJ)
+- 💄 Improved Timeline component style in RTL mode. [#21068](https://github.com/ant-design/ant-design/pull/21068) [@xrkffgg](https://github.com/xrkffgg)
+- 💄 Update `clearfix` mixin to remove legacy `zoom` descriptor. [#21109](https://github.com/ant-design/ant-design/pull/21109) [@morenyang](https://github.com/morenyang)
+- 💄Card component use `@font-size-base` instead of inline `14px`. [#21107](https://github.com/ant-design/ant-design/pull/21107) [@morenyang](https://github.com/morenyang)
+- 💄 Adjust Layout component to let `className` get higher priority. [#21074](https://github.com/ant-design/ant-design/pull/21074) [@yoyo837](https://github.com/yoyo837)
+- Typescript
+  - 🐞 Fix Tree wrong event type of AntTreeNodeMouseEvent. [#21102](https://github.com/ant-design/ant-design/pull/21102) [@Jirka-Lhotka](https://github.com/Jirka-Lhotka)
+  - 🐞 Fix Form.Item return type define. [#21067](https://github.com/ant-design/ant-design/pull/21067) [@zombieJ](https://github.com/zombieJ)
+
+## 4.0.0-rc.2
+
+`2020-01-21`
+
+- 🛠 Refactor some demos to React hooks and TypeScript. [#21045](https://github.com/ant-design/ant-design/pull/21045)
+- 🐞 Fixed Input/Select components align issue. [#20869](https://github.com/ant-design/ant-design/pull/20869)
+- Dropdown
+  - 🆕 Support `buttonsRender` to customize buttons. [#20815](https://github.com/ant-design/ant-design/pull/20815)
+  - 🐞 Tooltip doesn't disappear on `disabled` Dropdown.Button in Chrome. [#20960](https://github.com/ant-design/ant-design/pull/20960)
+- Input
+  - 🐞 Fixed Input `prefix` and `suffix` overlap with content issue. [#20872](https://github.com/ant-design/ant-design/pull/20872)
+  - 🐞 Fixed Input `placeholder` color in Firefox. [#20850](https://github.com/ant-design/ant-design/issues/20850)
+- Table
+  - 🐞 Fixed `onChange` return cached fresh sorter & filter state. [#20858](https://github.com/ant-design/ant-design/pull/20858)
+  - 🐞 Fixed problem that all-checkbox is checked when all the checkboxes are disabled. [#20968](https://github.com/ant-design/ant-design/pull/20968)
+  - 🐞 Fixed `locale.emptyText` not working. [#21024](https://github.com/ant-design/ant-design/pull/21024)
+- Select
+  - 🐞 Fixed `placeholder` wrap and align issue. [#20883](https://github.com/ant-design/ant-design/pull/20883) [#20884](https://github.com/ant-design/ant-design/pull/20884)
+  - 🐞 Fixed multiple Select left padding. [#20861](https://github.com/ant-design/ant-design/pull/20861)
+  - 🐞 Fixed multiple Select clean icon overlap issue. [#20914](https://github.com/ant-design/ant-design/pull/20914)
+- Form
+  - 🆕 Added scroll options as `scrollToField` argument. [#20774](https://github.com/ant-design/ant-design/pull/20774)
+  - 🐞 Fixed Form.Item update `help` makes layout shake. [#20886](https://github.com/ant-design/ant-design/pull/20886)
+  - 🐞 Fixed unexpected extra rerender when Form.Item is not a real Field. [#20963](https://github.com/ant-design/ant-design/pull/20963)
+  - 🐞 Fixed Form.Item ignore `help=""` issue. [#21026](https://github.com/ant-design/ant-design/pull/21026)
+  - 🐞 Fixed Form.Item `label` align bug in small screen. [#20836](https://github.com/ant-design/ant-design/issues/20836)
+- 🐞 Fixed message cut shadow issue. [#20856](https://github.com/ant-design/ant-design/issues/20856)
+- 🐞 Fixed Tooltip hidden when `title` is `0`. [#20894](https://github.com/ant-design/ant-design/pull/20894)
+- 🐞 Fixed List `actions` inconsistent position. [#20897](https://github.com/ant-design/ant-design/pull/20897)
+- 🆕 Add a visual list example for Tree. [#20911](https://github.com/ant-design/ant-design/pull/20911)
+- 🐞 Fixed AutoComplete example styling issue. [#20946](https://github.com/ant-design/ant-design/pull/20946)
+- 🗑 Removed AutoComplete useless `labelInValue`. [#20967](https://github.com/ant-design/ant-design/pull/20967)
+- 🐞 Fixed Drawer `footerStyle` prop cause react warning. [#20983](https://github.com/ant-design/ant-design/pull/20983)
+- 🐞 Fixed Breadcrumb style in `rtl` mode. [#21054](https://github.com/ant-design/ant-design/pull/21054)
+- 💄 Tweak Layout `className` order to end. [#21041](https://github.com/ant-design/ant-design/pull/21041)
+- TypeScript
+  - 🐞 Export DatePicker related interface. [#20900](https://github.com/ant-design/ant-design/pull/20900)
+- Less variables
+  - 🆕 Readded `@border-radius-sm`. [#20818](https://github.com/ant-design/ant-design/pull/20818)
+  - 🆕 Added `@timeline-item-padding-bottom`. [#21013](https://github.com/ant-design/ant-design/pull/21013)
+  - 🆕 Added `@layout-header-color`. [#21033](https://github.com/ant-design/ant-design/pull/21033)
+
 ## 4.0.0-rc.1
 
 `2020-01-11`

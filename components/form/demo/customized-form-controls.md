@@ -20,6 +20,7 @@ Customized or third-party form controls can be used in Form, too. Controls must 
 > - It has event `onChange` or an event which name is equal to the value of [`trigger`](http://ant.design/components/form/?locale=en-US#getFieldDecorator's-parameters).
 
 ```tsx
+import React, { useState } from 'react';
 import { Form, Input, Select, Button } from 'antd';
 
 const { Option } = Select;
@@ -35,8 +36,8 @@ interface PriceInputProps {
 }
 
 const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
-  const [number, setNumber] = React.useState(0);
-  const [currency, setCurrency] = React.useState('rmb');
+  const [number, setNumber] = useState(0);
+  const [currency, setCurrency] = useState('rmb');
 
   const triggerChange = changedValue => {
     if (onChange) {

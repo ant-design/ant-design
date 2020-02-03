@@ -86,4 +86,18 @@ describe('Table.expand', () => {
         .hasClass('ant-table-row-expand-icon-collapsed'),
     ).toBeTruthy();
   });
+
+  it('show expandIcon', () => {
+    const wrapper = mount(
+      <Table
+        columns={[{ dataIndex: 'key' }]}
+        dataSource={[{ key: 233 }]}
+        expandable={{
+          expandIcon: () => <div className="expand-icon" />,
+        }}
+      />,
+    );
+
+    expect(wrapper.find('.expand-icon')).toHaveLength(1);
+  });
 });

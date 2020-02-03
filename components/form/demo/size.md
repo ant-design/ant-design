@@ -14,6 +14,7 @@ title:
 Set component size, only works for antd components.
 
 ```tsx
+import React, { useState } from 'react';
 import {
   Form,
   Input,
@@ -27,7 +28,7 @@ import {
   Switch,
 } from 'antd';
 const FormSizeDemo = () => {
-  const [componentSize, setComponentSize] = React.useState('small');
+  const [componentSize, setComponentSize] = useState('small');
   const onFormLayoutChange = ({ size }) => {
     setComponentSize(size);
   };

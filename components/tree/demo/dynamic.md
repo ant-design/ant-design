@@ -14,6 +14,7 @@ title:
 To load data asynchronously when click to expand a treeNode.
 
 ```tsx
+import React, { useState } from 'react';
 import { Tree } from 'antd';
 
 const { TreeNode } = Tree;
@@ -25,7 +26,7 @@ const initTreeDate = [
 ];
 
 const Demo: React.FC<{}> = () => {
-  const [treeData, setTreeData] = React.useState(initTreeDate);
+  const [treeData, setTreeData] = useState(initTreeDate);
 
   function onLoadData({ props: { data } }) {
     return new Promise(resolve => {
