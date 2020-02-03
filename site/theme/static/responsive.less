@@ -28,14 +28,13 @@
   }
 }
 
-@media only screen and (max-width: 991.99px) {
-  .main-menu {
-    > div > .ant-affix {
-      position: static !important;
-    }
-    .main-menu-inner {
-      max-height: none;
-      overflow: hidden;
+@media only screen and (max-width: @screen-lg) {
+  .main-container {
+    padding-right: 48px;
+    padding-left: 48px;
+
+    .toc-affix {
+      display: none;
     }
   }
   .code-boxes-col-2-1,
