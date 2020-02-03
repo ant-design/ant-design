@@ -12771,7 +12771,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -12992,7 +12992,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -13537,7 +13537,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -14099,7 +14099,6 @@ Array [
               >
                 <button
                   class="config-btn config-btn-primary config-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>
@@ -14182,7 +14181,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -14403,7 +14402,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -14948,7 +14947,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -15510,7 +15509,6 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>
@@ -15593,7 +15591,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -15814,7 +15812,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -16359,7 +16357,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -16921,7 +16919,6 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>
