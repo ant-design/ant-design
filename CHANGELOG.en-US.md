@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.26.8
+
+`2020-02-03`
+
+- 🐞 Fix Tooltip hidden when `title` is `0`. [#20894](https://github.com/ant-design/ant-design/pull/20894)
+- 🐞 Fix List `actions` inconsistent position. [#20897](https://github.com/ant-design/ant-design/pull/20897)
+- 🐞 Fix Card `font-size` of `actions` not in less theme variables. [#21106](https://github.com/ant-design/ant-design/pull/21106)
+- 🐞 Fix Layout components `displayName`. [#21124](https://github.com/ant-design/ant-design/pull/21124)
+- 🐞 Fix Modal.confirm `okButtonProps` and `cancelButtonProps` interface. [#21165](https://github.com/ant-design/ant-design/pull/21165)
+
 ## 3.26.7
 
 `2020-01-13`

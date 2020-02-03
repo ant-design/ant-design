@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.26.8
+
+`2020-02-03`
+
+- 🐞 修复 Tooltip `title` 为 `0` 时没有显示的问题。[#20894](https://github.com/ant-design/ant-design/pull/20894)
+- 🐞 修复 List `actions` 位置不在右边的问题。[#20897](https://github.com/ant-design/ant-design/pull/20897)
+- 🐞 修复 Card `actions` 字体大小不受 less 变量影响的问题。[#21106](https://github.com/ant-design/ant-design/pull/21106)
+- 🐞 修正 Layout 各组件的 `displayName`。[#21124](https://github.com/ant-design/ant-design/pull/21124)
+- 🐞 优化 Modal.confirm 的 `okButtonProps` 和 `cancelButtonProps` 的 TypeScript 类型。[#21165](https://github.com/ant-design/ant-design/pull/21165)
+
 ## 3.26.7
 
 `2020-01-13`
