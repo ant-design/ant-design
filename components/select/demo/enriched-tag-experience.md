@@ -71,7 +71,7 @@ const EmailInput = () => {
         onClose={onClose}
         style={{
           marginRight: 3,
-          cursor: closable ? 'pointer': undefined
+          cursor: closable ? 'pointer': undefined,
         }}
       >
         {label}
