@@ -127,7 +127,7 @@ describe('Carousel', () => {
     });
   });
   describe('when add custom dotsClass', () => {
-    //https://github.com/ant-design/ant-design/issues/21131
+    // https://github.com/ant-design/ant-design/issues/21131
     it('have dotClass', () => {
       const wrapper = mount(
         <Carousel dotsClass="customDots">

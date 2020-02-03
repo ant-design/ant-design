@@ -35,7 +35,6 @@ async function withGithub(url, json, method) {
   const updateComment = comments.find(({ body }) => body.includes(REPLACE_MARK));
 
   // Update
-  let res;
   if (!updateComment) {
     res = await withGithub(`https://api.github.com/repos/${REPO}/issues/${PR}/comments`, {
       body: wrappedComment,
