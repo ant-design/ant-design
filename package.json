@@ -91,6 +91,7 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0-rc.0",
+    "@ant-design/react-slick": "~0.25.5",
     "array-tree-filter": "^2.1.0",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
@@ -130,7 +131,6 @@
     "rc-upload": "~3.0.0-alpha.0",
     "rc-util": "^4.17.0",
     "rc-virtual-list": "^0.0.0-alpha.25",
-    "@ant-design/react-slick": "~0.25.5",
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
     "shallowequal": "^1.1.0",
