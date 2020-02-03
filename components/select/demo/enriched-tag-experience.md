@@ -43,7 +43,7 @@ const EmailInput = () => {
     setCurrentSearch(value)
   };
 
-  const handleChange = (values) => {
+  const handleChange = () => {
     setCurrentSearch('')
   }
 
