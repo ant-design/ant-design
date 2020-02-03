@@ -1,55 +1,33 @@
-import * as React from 'react';
-import {
-  InfoCircleOutlined,
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  ExclamationCircleOutlined,
-} from '@ant-design/icons';
-
-import Modal, { ModalFuncProps, destroyFns } from './Modal';
-import confirm from './confirm';
+import OriginModal, { ModalFuncProps, destroyFns } from './Modal';
+import confirm, {
+  withWarn,
+  withInfo,
+  withSuccess,
+  withError,
+  withConfirm,
+  ModalStaticFunctions,
+} from './confirm';
 
 export { ActionButtonProps } from './ActionButton';
 export { ModalProps, ModalFuncProps } from './Modal';
 
 function modalWarn(props: ModalFuncProps) {
-  const config = {
-    type: 'warning',
-    icon: <ExclamationCircleOutlined />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withWarn(props));
 }
 
+type Modal = typeof OriginModal & ModalStaticFunctions;
+const Modal = OriginModal as Modal;
+
 Modal.info = function infoFn(props: ModalFuncProps) {
-  const config = {
-    type: 'info',
-    icon: <InfoCircleOutlined />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withInfo(props));
 };
 
 Modal.success = function successFn(props: ModalFuncProps) {
-  const config = {
-    type: 'success',
-    icon: <CheckCircleOutlined />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withSuccess(props));
 };
 
 Modal.error = function errorFn(props: ModalFuncProps) {
-  const config = {
-    type: 'error',
-    icon: <CloseCircleOutlined />,
-    okCancel: false,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withError(props));
 };
 
 Modal.warning = modalWarn;
@@ -57,12 +35,7 @@ Modal.warning = modalWarn;
 Modal.warn = modalWarn;
 
 Modal.confirm = function confirmFn(props: ModalFuncProps) {
-  const config = {
-    type: 'confirm',
-    okCancel: true,
-    ...props,
-  };
-  return confirm(config);
+  return confirm(withConfirm(props));
 };
 
 Modal.destroyAll = function destroyAllFn() {
