@@ -11,6 +11,7 @@ export type CheckboxValueType = string | number | boolean;
 export interface CheckboxOptionType {
   label: React.ReactNode;
   value: CheckboxValueType;
+  style?: React.CSSProperties;
   disabled?: boolean;
   onChange?: (e: CheckboxChangeEvent) => void;
 }
@@ -152,6 +153,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
           checked={state.value.indexOf(option.value) !== -1}
           onChange={option.onChange}
           className={`${groupPrefixCls}-item`}
+          style={option.style}
         >
           {option.label}
         </Checkbox>
