@@ -194,7 +194,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
     if (!this.buttonNode) {
       return;
     }
-    const buttonText = this.buttonNode.textContent || this.buttonNode.innerText;
+    const buttonText = this.buttonNode.textContent;
     if (this.isNeedInserted() && isTwoCNChar(buttonText)) {
       if (!this.state.hasTwoCNChar) {
         this.setState({
