@@ -137,8 +137,6 @@ function FormItem(props: FormItemProps): React.ReactElement {
       mergedValidateStatus = 'success';
     }
 
-    console.log('===>', domErrorVisible, help);
-
     const itemClassName = {
       [`${prefixCls}-item`]: true,
       [`${prefixCls}-item-with-help`]: domErrorVisible || help,
