@@ -28,7 +28,6 @@ import moment from 'moment';
 | autoFocus | 自动获取焦点 | boolean | false |  |
 | className | 选择器类名 | string | '' |  |
 | clearText | 清除按钮的提示文案 | string | clear |  |
-| defaultOpenValue | 当 defaultValue/value 不存在时，可以设置面板打开时默认选中的值 | [moment](http://momentjs.com/) | moment() |  |
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | 无 |  |
 | disabled | 禁用全部操作 | boolean | false |  |
 | disabledHours | 禁止选择部分小时选项 | function() | 无 |  |

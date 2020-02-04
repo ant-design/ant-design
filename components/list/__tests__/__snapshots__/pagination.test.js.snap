@@ -518,6 +518,9 @@ exports[`List.pagination should change page size work 2`] = `
       <div
         style="position: absolute; top: 0px; left: 0px; width: 100%;"
       />
+      <div
+        style="position: absolute; top: 0px; left: 0px; width: 100%;"
+      />
     </div>
   </li>
 </ul>

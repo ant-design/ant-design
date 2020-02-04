@@ -7511,6 +7511,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="config-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7564,6 +7565,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7617,6 +7619,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="prefix-Menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -11423,6 +11426,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -11759,6 +11763,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -12095,6 +12100,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -12771,7 +12777,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -12992,7 +12998,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -13537,7 +13543,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -14099,7 +14105,6 @@ Array [
               >
                 <button
                   class="config-btn config-btn-primary config-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>
@@ -14182,7 +14187,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -14403,7 +14408,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -14948,7 +14953,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -15510,7 +15515,6 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>
@@ -15593,7 +15597,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -15814,7 +15818,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -16359,7 +16363,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -16921,7 +16925,6 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>

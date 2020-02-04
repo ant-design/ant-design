@@ -114,6 +114,7 @@ module.exports = {
     'app.publish.old-version-guide': '如果您还需要使用旧版，请查阅 ',
     'app.publish.old-version-tips': '，也可通过页面右上角的文档版本选择框进行切换。',
     'app.docs.color.pick-primary': '选择你的主色',
+    'app.docs.color.pick-background': '选择你的背景色',
     'app.docs.components.icon.search.placeholder': '在此搜索图标，点击图标可复制代码',
     'app.docs.components.icon.outlined': '线框风格',
     'app.docs.components.icon.filled': '实底风格',
