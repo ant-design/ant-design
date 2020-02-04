@@ -7511,6 +7511,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="config-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7564,6 +7565,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7617,6 +7619,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="prefix-Menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -9226,26 +9229,24 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
 <div
   class="config-progress config-progress-line config-progress-status-normal config-progress-show-info config-progress-default"
 >
-  <div>
+  <div
+    class="config-progress-outer"
+  >
     <div
-      class="config-progress-outer"
+      class="config-progress-inner"
     >
       <div
-        class="config-progress-inner"
-      >
-        <div
-          class="config-progress-bg"
-          style="width:0%;height:8px;border-radius:"
-        />
-      </div>
+        class="config-progress-bg"
+        style="width:0%;height:8px;border-radius:"
+      />
     </div>
-    <span
-      class="config-progress-text"
-      title="0%"
-    >
-      0%
-    </span>
   </div>
+  <span
+    class="config-progress-text"
+    title="0%"
+  >
+    0%
+  </span>
 </div>
 `;
 
@@ -9253,26 +9254,24 @@ exports[`ConfigProvider components Progress normal 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
 >
-  <div>
+  <div
+    class="ant-progress-outer"
+  >
     <div
-      class="ant-progress-outer"
+      class="ant-progress-inner"
     >
       <div
-        class="ant-progress-inner"
-      >
-        <div
-          class="ant-progress-bg"
-          style="width:0%;height:8px;border-radius:"
-        />
-      </div>
+        class="ant-progress-bg"
+        style="width:0%;height:8px;border-radius:"
+      />
     </div>
-    <span
-      class="ant-progress-text"
-      title="0%"
-    >
-      0%
-    </span>
   </div>
+  <span
+    class="ant-progress-text"
+    title="0%"
+  >
+    0%
+  </span>
 </div>
 `;
 
@@ -9280,26 +9279,24 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
 <div
   class="prefix-Progress prefix-Progress-line prefix-Progress-status-normal prefix-Progress-show-info prefix-Progress-default"
 >
-  <div>
+  <div
+    class="prefix-Progress-outer"
+  >
     <div
-      class="prefix-Progress-outer"
+      class="prefix-Progress-inner"
     >
       <div
-        class="prefix-Progress-inner"
-      >
-        <div
-          class="prefix-Progress-bg"
-          style="width:0%;height:8px;border-radius:"
-        />
-      </div>
+        class="prefix-Progress-bg"
+        style="width:0%;height:8px;border-radius:"
+      />
     </div>
-    <span
-      class="prefix-Progress-text"
-      title="0%"
-    >
-      0%
-    </span>
   </div>
+  <span
+    class="prefix-Progress-text"
+    title="0%"
+  >
+    0%
+  </span>
 </div>
 `;
 
@@ -11429,6 +11426,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -11765,6 +11763,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -12101,6 +12100,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -12777,7 +12777,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -12998,7 +12998,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -13543,7 +13543,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="config-picker-time-panel-cell"
+                  class="config-picker-time-panel-cell config-picker-time-panel-cell-selected"
                 >
                   <div
                     class="config-picker-time-panel-cell-inner"
@@ -14105,7 +14105,6 @@ Array [
               >
                 <button
                   class="config-btn config-btn-primary config-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>
@@ -14188,7 +14187,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -14409,7 +14408,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -14954,7 +14953,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="ant-picker-time-panel-cell"
+                  class="ant-picker-time-panel-cell ant-picker-time-panel-cell-selected"
                 >
                   <div
                     class="ant-picker-time-panel-cell-inner"
@@ -15516,7 +15515,6 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>
@@ -15599,7 +15597,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -15820,7 +15818,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -16365,7 +16363,7 @@ Array [
                 style="position:relative"
               >
                 <li
-                  class="prefix-TimePicker-time-panel-cell"
+                  class="prefix-TimePicker-time-panel-cell prefix-TimePicker-time-panel-cell-selected"
                 >
                   <div
                     class="prefix-TimePicker-time-panel-cell-inner"
@@ -16927,7 +16925,6 @@ Array [
               >
                 <button
                   class="ant-btn ant-btn-primary ant-btn-sm"
-                  disabled=""
                   type="button"
                 >
                   <span>

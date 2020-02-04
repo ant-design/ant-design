@@ -1,10 +1,11 @@
 @import './index';
 
-@select-selection-height: @input-height-base - @input-padding-vertical-base * 2;
-@select-multiple-padding: @input-padding-vertical-base;
-@select-multiple-item-margin-vertical: round(
-    (@select-selection-height - @font-size-base * @line-height-base) / 2 * 10
-  ) / 10;
+@select-multiple-item-border-width: 1px;
+@select-multiple-item-height: @input-height-base - @input-padding-vertical-base * 2; // Normal 24px
+
+@select-multiple-item-spacing-half: ceil(@input-padding-vertical-base / 2);
+@select-multiple-padding: @input-padding-vertical-base - @select-multiple-item-border-width -
+  @select-multiple-item-spacing-half;
 
 /**
  * Do not merge `height` & `line-height` under style with `selection` & `search`,
@@ -21,10 +22,18 @@
     flex-wrap: wrap;
     align-items: center;
     // Multiple is little different that horizontal is follow the vertical
-    padding: @select-multiple-padding @select-multiple-padding;
+    padding: @select-multiple-padding @input-padding-vertical-base;
 
     .@{select-prefix-cls}-show-search& {
       cursor: text;
+    }
+
+    &::after {
+      display: inline-block;
+      width: 0;
+      margin: @select-multiple-item-spacing-half 0;
+      line-height: @select-multiple-item-height;
+      content: '\a0';
     }
   }
 
@@ -40,12 +49,12 @@
     box-sizing: border-box;
     max-width: 100%;
 
-    height: @select-selection-height;
-    margin-top: -@select-multiple-item-margin-vertical;
+    height: @select-multiple-item-height;
+    margin-top: @select-multiple-item-spacing-half;
     margin-right: @input-padding-vertical-base;
-    margin-bottom: -@select-multiple-item-margin-vertical;
+    margin-bottom: @select-multiple-item-spacing-half;
     padding: 0 (@padding-xs / 2) 0 @padding-xs;
-    line-height: @select-selection-height - @border-width-base * 2;
+    line-height: @select-multiple-item-height - @select-multiple-item-border-width * 2;
     background: @select-selection-item-bg;
     border: 1px solid @select-selection-item-border-color;
     border-radius: @border-radius-base;
@@ -149,6 +158,10 @@
     &.@{merged-cls} {
       @select-selection-height: @input-height - @input-padding-vertical-base * 2;
       @select-height-without-border: @input-height - @border-width-base * 2;
+
+      .@{select-prefix-cls}-selector::after {
+        line-height: @select-selection-height;
+      }
 
       .@{select-prefix-cls}-selection-item {
         height: @select-selection-height;

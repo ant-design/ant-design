@@ -133,6 +133,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
             disabled={option.disabled || this.props.disabled}
             value={option.value}
             checked={this.state.value === option.value}
+            style={option.style}
           >
             {option.label}
           </Radio>

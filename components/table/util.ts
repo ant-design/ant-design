@@ -2,7 +2,7 @@
 import { ColumnType, ColumnTitle, ColumnTitleProps, Key } from './interface';
 
 export function getColumnKey<RecordType>(column: ColumnType<RecordType>, defaultKey: string): Key {
-  if ('key' in column && column.key !== undefined) {
+  if ('key' in column && column.key !== undefined && column.key !== null) {
     return column.key;
   }
   if (column.dataIndex) {
