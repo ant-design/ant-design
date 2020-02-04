@@ -24,6 +24,29 @@
 
 .color-palettes {
   margin: 0 1%;
+  &-dark {
+    margin: 0;
+    padding: 0 28px;
+    background-color: #141414;
+    .color-title {
+      color: fade(@white, 85);
+    }
+    .color-description {
+      color: fade(@white, 45);
+    }
+    .color-palette {
+      margin: 45px 3.5% 45px 0;
+      &:nth-of-type(3n) {
+        margin-right: 0;
+      }
+      .main-color-item {
+        margin-right: 0;
+        &:hover {
+          margin-right: -8px;
+        }
+      }
+    }
+  }
 }
 .color-palette {
   display: inline-block;
@@ -49,6 +72,9 @@
       margin-left: 16px;
       color: @error-color;
       font-size: 13px;
+      &-dark {
+        margin-left: 0;
+      }
     }
   }
 }
@@ -141,6 +167,21 @@
 
 .color-palette-horizontal {
   width: 100%;
+  &-dark {
+    height: 303px;
+    padding: 32px 28px;
+    background-color: #141414;
+    .color-palette-picker {
+      margin-bottom: 0;
+    }
+    .color-palette-pick {
+      color: fade(@white, 65);
+      text-align: left;
+      &-hex {
+        color: fade(@white, 65);
+      }
+    }
+  }
 
   .main-color {
     display: flex;
