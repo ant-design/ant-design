@@ -519,4 +519,22 @@ describe('Transfer', () => {
     );
     expect(component).toMatchSnapshot();
   });
+
+  it('should render correct checkbox label when checkboxLabel is defined', () => {
+    const selectAllLabels = ['Checkbox Label'];
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
+    expect(headerText(wrapper)).toEqual('Checkbox Label');
+  });
+
+  it('should render correct checkbox label when checkboxLabel is a function', () => {
+    const selectAllLabels = [
+      ({ selectedCount, totalCount }) => (
+        <span>
+          {selectedCount} of {totalCount}
+        </span>
+      ),
+    ];
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
+    expect(headerText(wrapper)).toEqual('1 of 2');
+  });
 });
