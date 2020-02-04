@@ -19,6 +19,8 @@ subtitle: 走马灯
 | --- | --- | --- | --- | --- |
 | afterChange | 切换面板的回调 | function(current) | 无 |  |  |
 | autoplay | 是否自动切换 | boolean | false |  |  |
+| autoplaySpeed | 轮播间隔时长 | number | 3000 |  |  |
+| speed | 图片切换速度 | number | 500 |  |  |
 | beforeChange | 切换面板的回调 | function(from, to) | 无 |  |  |
 | dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | bottom |  |
 | dots | 是否显示面板指示点 | boolean | true |  |  |
