@@ -35,9 +35,15 @@
       color: fade(@white, 45);
     }
     .color-palette {
-      margin: 45px 3% 45px 0;
+      margin: 45px 3.5% 45px 0;
       &:nth-of-type(3n) {
         margin-right: 0;
+      }
+      .main-color-item {
+        margin-right: 0;
+        &:hover {
+          margin-right: -8px;
+        }
       }
     }
   }
@@ -66,6 +72,9 @@
       margin-left: 16px;
       color: @error-color;
       font-size: 13px;
+      &-dark {
+        margin-left: 0;
+      }
     }
   }
 }

@@ -4,8 +4,8 @@ import { Row, Col } from 'antd';
 import ColorPicker from './ColorPicker';
 import ColorPatterns from './ColorPatterns';
 
-const primaryMinSaturation = 60; // 主色推荐最小饱和度
-const primaryMinBrightness = 60; // 主色推荐最小亮度
+const primaryMinSaturation = 70; // 主色推荐最小饱和度
+const primaryMinBrightness = 70; // 主色推荐最小亮度
 
 // eslint-disable-next-line
 export default class ColorPaletteTool extends Component {
@@ -49,7 +49,7 @@ export default class ColorPaletteTool extends Component {
         ).toFixed(2)}）`;
       }
     }
-    return <span className="color-palette-picker-validation">{text.trim()}</span>;
+    return <span className="color-palette-picker-validation color-palette-picker-validation-dark">{text.trim()}</span>;
   }
 
   render() {
@@ -92,7 +92,6 @@ export default class ColorPaletteTool extends Component {
               </span>
             </Col>
           </Row>
-          <span className="color-palette-picker-value">{primaryColor}</span>
           {this.renderColorValidation()}
         </div>
       </div>
