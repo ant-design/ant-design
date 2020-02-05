@@ -30,13 +30,13 @@ class IconSlider extends React.Component {
     const { max, min } = this.props;
     const { value } = this.state;
     const mid = ((max - min) / 2).toFixed(5);
-    const preColor = value >= mid ? '' : 'rgba(0, 0, 0, .45)';
-    const nextColor = value >= mid ? 'rgba(0, 0, 0, .45)' : '';
+    const preColorCls = value >= mid ? '' : 'icon-wrapper-active';
+    const nextColorCls = value >= mid ? 'icon-wrapper-active' : '';
     return (
       <div className="icon-wrapper">
-        <FrownOutlined style={{ color: preColor }} />
+        <FrownOutlined className={preColorCls} />
         <Slider {...this.props} onChange={this.handleChange} value={value} />
-        <SmileOutlined style={{ color: nextColor }} />
+        <SmileOutlined className={nextColorCls} />
       </div>
     );
   }
@@ -61,6 +61,10 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
   color: rgba(0, 0, 0, 0.25);
 }
 
+.icon-wrapper .icon-wrapper-active {
+  color: rgba(0, 0, 0, .45);
+}
+
 .icon-wrapper .anticon:first-child {
   left: 0;
 }
@@ -69,3 +73,12 @@ ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
   right: 0;
 }
 ```
+
+<style>
+  [data-theme="dark"] .icon-wrapper .anticon {
+    color: rgba(255, 255, 255, 0.25);
+  }
+  [data-theme="dark"] .icon-wrapper .icon-wrapper-active {
+    color: rgba(255, 255, 255, .45);
+  }
+</style>

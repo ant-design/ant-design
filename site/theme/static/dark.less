@@ -55,12 +55,12 @@
     .code-box-title {
       &,
       a {
-        color: fade(@white, 65%);
+        color: @heading-color;
       }
     }
     .code-box-description {
       p {
-        color: fade(@white, 65%);
+        color: @heading-color
       }
     }
 
@@ -112,6 +112,10 @@
         }
       }
     }
+  }
+
+  .markdown {
+    color: @heading-color;
   }
 
   .markdown {
