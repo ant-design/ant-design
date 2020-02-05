@@ -155,9 +155,8 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
 >
   <span
     aria-label="frown"
-    class="anticon anticon-frown"
+    class="anticon anticon-frown icon-wrapper-active"
     role="img"
-    style="color:rgba(0, 0, 0, .45)"
   >
     <svg
       aria-hidden="true"
@@ -205,7 +204,6 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
     aria-label="smile"
     class="anticon anticon-smile"
     role="img"
-    style="color:"
   >
     <svg
       aria-hidden="true"
