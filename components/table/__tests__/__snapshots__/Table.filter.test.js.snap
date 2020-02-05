@@ -495,6 +495,7 @@ exports[`Table.filter renders menu correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-dropdown-menu-submenu-title"
+            role="button"
             title="Title"
           >
             Title
@@ -591,6 +592,7 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-dropdown-menu-submenu-title"
+            role="button"
             title="Title"
           >
             Title
@@ -754,6 +756,7 @@ exports[`Table.filter should support getPopupContainer 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Title"
                                   >
                                     Title
@@ -979,6 +982,7 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Title"
                                   >
                                     Title

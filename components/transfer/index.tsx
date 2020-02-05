@@ -35,6 +35,10 @@ export interface ListStyle {
   direction: TransferDirection;
 }
 
+export type SelectAllLabel =
+  | React.ReactNode
+  | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
+
 export interface TransferProps {
   prefixCls?: string;
   className?: string;
@@ -59,6 +63,7 @@ export interface TransferProps {
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
   children?: (props: TransferListBodyProps) => React.ReactNode;
   showSelectAll?: boolean;
+  selectAllLabels?: SelectAllLabel[];
 }
 
 export interface TransferLocale {
@@ -332,6 +337,7 @@ class Transfer extends React.Component<TransferProps, any> {
         });
 
         const titles = this.props.titles || locale.titles;
+        const selectAllLabels = this.props.selectAllLabels || [];
         return (
           <div className={cls} style={style}>
             <List
@@ -353,6 +359,7 @@ class Transfer extends React.Component<TransferProps, any> {
               disabled={disabled}
               direction="left"
               showSelectAll={showSelectAll}
+              selectAllLabel={selectAllLabels[0]}
               {...locale}
             />
             <Operation
@@ -386,6 +393,7 @@ class Transfer extends React.Component<TransferProps, any> {
               disabled={disabled}
               direction="right"
               showSelectAll={showSelectAll}
+              selectAllLabel={selectAllLabels[1]}
               {...locale}
             />
           </div>

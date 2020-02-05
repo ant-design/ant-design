@@ -170,7 +170,7 @@ describe('Radio Group', () => {
   });
 
   it('passes prefixCls down to radio', () => {
-    const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Orange', value: 'Orange' }];
+    const options = [{ label: 'Apple', value: 'Apple' }, { label: 'Orange', value: 'Orange', style: { fontSize: 12 } }];
 
     const wrapper = render(<RadioGroup prefixCls="my-radio" options={options} />);
 

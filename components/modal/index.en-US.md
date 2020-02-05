@@ -109,3 +109,19 @@ browserHistory.listen(() => {
   Modal.destroyAll();
 });
 ```
+
+### Modal.useModal()
+
+When you need using Context, you can use `contextHolder` which created by `Modal.useModal` to insert into children. Modal created by hooks will get all the context where `contextHolder` are. Created `modal` has the same creating function with `Modal.method`](<#Modal.method()>).
+
+```jsx
+const [modal, contextHolder] = Modal.useModal();
+
+React.useEffect(() => {
+  modal.confirm({
+    // ...
+  });
+}, []);
+
+return <div>{contextHolder}</div>;
+```

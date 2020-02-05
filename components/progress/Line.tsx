@@ -1,6 +1,8 @@
 import * as React from 'react';
+
+import { ProgressGradient, ProgressProps, StringGradients } from './progress';
+
 import { validProgress } from './utils';
-import { ProgressProps, ProgressGradient, StringGradients } from './progress';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -92,7 +94,7 @@ const Line: React.SFC<LineProps> = props => {
       <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
     ) : null;
   return (
-    <div>
+    <>
       <div className={`${prefixCls}-outer`}>
         <div className={`${prefixCls}-inner`}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
@@ -100,7 +102,7 @@ const Line: React.SFC<LineProps> = props => {
         </div>
       </div>
       {children}
-    </div>
+    </>
   );
 };
 
