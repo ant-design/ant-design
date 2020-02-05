@@ -18,6 +18,7 @@ Tree selection control.
 | --- | --- | --- | --- | --- |
 | allowClear | Whether allow clear | boolean | false |  |
 | autoClearSearchValue | auto clear search input value when multiple select is selected/deselected | boolean | true |  |
+| bordered | whether has border style | boolean | true |  |
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |

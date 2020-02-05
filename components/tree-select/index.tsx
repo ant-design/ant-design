@@ -32,6 +32,7 @@ export interface TreeSelectProps<T>
     'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
   > {
   size?: SizeType;
+  bordered?: boolean;
 }
 
 class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
@@ -46,6 +47,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
   static defaultProps = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
+    bordered: true,
   };
 
   selectRef = React.createRef<RcTreeSelect>();
@@ -91,6 +93,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
       treeLine,
       getPopupContainer,
       dropdownClassName,
+      bordered,
     } = this.props;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -130,6 +133,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
       'clearIcon',
       'switcherIcon',
       'size',
+      'bordered',
     ]);
 
     return (
@@ -142,6 +146,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
               [`${prefixCls}-lg`]: mergedSize === 'large',
               [`${prefixCls}-sm`]: mergedSize === 'small',
               [`${prefixCls}-rtl`]: direction === 'rtl',
+              [`${prefixCls}-borderless`]: !bordered,
             },
             className,
           );

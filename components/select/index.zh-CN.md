@@ -70,6 +70,7 @@ title: Select
 | open | 是否展开下拉菜单 | boolean | - |  |
 | onDropdownVisibleChange | 展开下拉菜单的回调 | function(open) | - |  |
 | loading | 加载中状态 | Boolean | false |  |
+| bordered | 是否有边框 | Boolean | true |  |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentElement}` 将下拉弹层渲染节点固定在触发器的父元素中。
 
