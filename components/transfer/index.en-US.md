@@ -36,6 +36,7 @@ One or more elements can be selected from either column, one click on the proper
 | style | A custom CSS style used for rendering wrapper element. | object |  |  |
 | targetKeys | A set of keys of elements that are listed on the right column. | string\[] | \[] |  |
 | titles | A set of titles that are sorted from left to right. | ReactNode\[] | - |  |
+| selectAllLabels | A set of customized labels for select all checkboxs on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)[] |  |  |
 | onChange | A callback function that is executed when the transfer between columns is complete. | (targetKeys, direction, moveKeys): void |  |  |
 | onScroll | A callback function which is executed when scroll options list | (direction, event): void |  |  |
 | onSearch | A callback function which is executed when search field are changed | (direction: 'left'\|'right', value: string): void | - |  |

@@ -25,6 +25,7 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
   </label>
   <label
     class="my-checkbox-group-item my-checkbox-wrapper"
+    style="font-size:12px"
   >
     <span
       class="my-checkbox"

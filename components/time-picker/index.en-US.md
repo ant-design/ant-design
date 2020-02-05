@@ -27,7 +27,6 @@ import moment from 'moment';
 | autoFocus | get focus when component mounted | boolean | false |  |
 | className | className of picker | string | '' |  |
 | clearText | clear tooltip of icon | string | clear |  |
-| defaultOpenValue | default open panel value, used to set utcOffset,locale if value/defaultValue absent | [moment](http://momentjs.com/) | moment() |  |
 | defaultValue | to set default time | [moment](http://momentjs.com/) | - |  |
 | disabled | determine whether the TimePicker is disabled | boolean | false |  |
 | disabledHours | to specify the hours that cannot be selected | function() | - |  |

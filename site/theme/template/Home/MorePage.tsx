@@ -27,7 +27,8 @@ const MORE_LIST: MoreProps[] = [
   },
   {
     title: 'Ant Design 设计资产的秩序之美',
-    description: '希望通过这套方法和资产能够赋能给更多的用户，提高设计生产效率的同时更好的保障产品体验的内在一致性。',
+    description:
+      '希望通过这套方法和资产能够赋能给更多的用户，提高设计生产效率的同时更好的保障产品体验的内在一致性。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*a7OXQpgmA-YAAAAAAAAAAABkARQnAQ',
     date: '2020-01-15',
     source: 'zhihu',
@@ -56,7 +57,19 @@ const MORE_LIST: MoreProps[] = [
 const MoreCard = ({ title, description, date, img, source, href }: MoreProps) => {
   return (
     <Col xs={24} sm={6}>
-      <a href={href} target="_blank" rel="noopener noreferrer">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => {
+          if (window.gtag) {
+            window.gtag('event', '点击', {
+              event_category: '首页文章',
+              event_label: href,
+            });
+          }
+        }}
+      >
         <Card hoverable cover={<img alt={title} src={img} />} className="more-card">
           <Card.Meta title={title} description={description} />
           <div>

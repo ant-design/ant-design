@@ -16,6 +16,14 @@
   &-rtl {
     direction: rtl;
   }
+
+  .@{ant-prefix}-badge-count {
+    z-index: 1;
+  }
+
+  > .@{ant-prefix}-badge:not(:first-child) > .@{radio-prefix-cls}-button-wrapper {
+    border-left: none;
+  }
 }
 
 // 一般状态
@@ -209,6 +217,7 @@ span.@{radio-prefix-cls} + * {
       content: '';
     }
   }
+
   &:first-child {
     border-left: @border-width-base @border-style-base @border-color-base;
     border-radius: @border-radius-base 0 0 @border-radius-base;

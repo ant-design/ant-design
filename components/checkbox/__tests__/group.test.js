@@ -90,7 +90,7 @@ describe('CheckboxGroup', () => {
   it('passes prefixCls down to checkbox', () => {
     const options = [
       { label: 'Apple', value: 'Apple' },
-      { label: 'Orange', value: 'Orange' },
+      { label: 'Orange', value: 'Orange', style: { fontSize: 12 } },
     ];
 
     const wrapper = render(<Checkbox.Group prefixCls="my-checkbox" options={options} />);

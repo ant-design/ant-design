@@ -28,6 +28,7 @@ exports[`Menu rtl render component should be rendered correctly in RTL direction
       aria-expanded="false"
       aria-haspopup="true"
       class="ant-menu-submenu-title"
+      role="button"
       title=""
     >
       <i
