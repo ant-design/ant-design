@@ -127,7 +127,7 @@ describe('Form', () => {
 
       const wrapper = mount(
         <Form
-          onFinish={v => {
+          onFinish={(v) => {
             if (typeof v.list[0] === 'object') {
               /* old version led to SyntheticEvent be passed as an value here
                 that led to weird infinite loop somewhere and OutOfMemory crash */
@@ -146,10 +146,16 @@ describe('Form', () => {
                     <Input />
                   </Form.Item>
                 ))}
-                <Button className="add" onClick={add}>
+                <Button
+                  className="add"
+                  onClick={add}
+                >
                   Add
                 </Button>
-                <Button className="remove" onClick={() => remove(0)}>
+                <Button
+                  className="remove"
+                  onClick={() => remove(0)}
+                >
                   Remove
                 </Button>
               </>

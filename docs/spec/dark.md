@@ -17,11 +17,11 @@ skip: true
 
 ## 设计原则
 
-1. **内容的舒适性**
+1. **内容的舒适性** 
 
    暗黑模式下避免使用对比很强的色彩或内容，长时间使用会带来疲劳感。
 
-2. **信息的一致性**
+2. **信息的一致性** 
 
    暗黑模式下的信息内容需要和浅色模式保持一致性，不应该打破原有的层级关系。
 
@@ -30,6 +30,7 @@ skip: true
 颜色的应用上，我们基于 12 套基础色板，并结合透明度规则处理，来让色彩在不同的环境色下可以更好融合。
 
 ### 基础色板
+
 
 ```__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
@@ -46,3 +47,4 @@ import ColorPaletteToolDark from '../../site/theme/template/Color/ColorPaletteTo
 
 ReactDOM.render(<ColorPaletteToolDark />, mountNode);
 ```
+

@@ -51,9 +51,7 @@ describe('Input.Password', () => {
   });
 
   it('should keep focus state', () => {
-    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />, {
-      attachTo: document.body,
-    });
+    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />, { attachTo: document.body });
     expect(document.activeElement).toBe(
       wrapper
         .find('input')
