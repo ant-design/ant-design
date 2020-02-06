@@ -13,6 +13,7 @@ export interface TimelineProps {
   style?: React.CSSProperties;
   reverse?: boolean;
   mode?: 'left' | 'alternate' | 'right';
+  children?: React.ReactNode;
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {

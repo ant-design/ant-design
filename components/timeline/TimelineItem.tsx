@@ -11,6 +11,7 @@ export interface TimeLineItemProps {
   pending?: boolean;
   position?: string;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 const TimelineItem: React.SFC<TimeLineItemProps> = props => (
