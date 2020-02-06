@@ -70,6 +70,7 @@ Select component to select value from options.
 | open | Controlled open state of dropdown | boolean | - |  |
 | onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
 | loading | indicate loading state | Boolean | false |  |
+| bordered | whether has border style | Boolean | true |  |
 
 ### Select Methods
 

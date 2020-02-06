@@ -26,6 +26,7 @@ import moment from 'moment';
 | --- | --- | --- | --- | --- |
 | allowClear | 是否展示清除按钮 | boolean | true |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
+| bordered | 是否有 | boolean | true |  |
 | className | 选择器类名 | string | '' |  |
 | clearText | 清除按钮的提示文案 | string | clear |  |
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | 无 |  |
