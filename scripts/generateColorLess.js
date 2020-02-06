@@ -12,6 +12,7 @@ genCss(
       fileName: './_site/dark.css',
       modifyVars: {
         ...dark,
+        '@site-text-color': '@heading-color',
         '@site-markdown-code-bg': '@input-bg',
       },
     },
