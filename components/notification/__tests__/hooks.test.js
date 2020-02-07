@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import notification from '..';
+import ConfigProvider from '../../config-provider';
 
 describe('notification.hooks', () => {
   beforeAll(() => {
@@ -23,28 +24,30 @@ describe('notification.hooks', () => {
       const [api, holder] = notification.useNotification();
 
       return (
-        <Context.Provider value="bamboo">
-          <button
-            type="button"
-            onClick={() => {
-              api.open({
-                description: (
-                  <Context.Consumer>
-                    {name => <span className="hook-test-result">{name}</span>}
-                  </Context.Consumer>
-                ),
-                duration: 0,
-              });
-            }}
-          />
-          {holder}
-        </Context.Provider>
+        <ConfigProvider prefixCls="my-test">
+          <Context.Provider value="bamboo">
+            <button
+              type="button"
+              onClick={() => {
+                api.open({
+                  description: (
+                    <Context.Consumer>
+                      {name => <span className="hook-test-result">{name}</span>}
+                    </Context.Consumer>
+                  ),
+                  duration: 0,
+                });
+              }}
+            />
+            {holder}
+          </Context.Provider>
+        </ConfigProvider>
       );
     };
 
     const wrapper = mount(<Demo />);
     wrapper.find('button').simulate('click');
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(1);
+    expect(document.querySelectorAll('.my-test-notification-notice').length).toBe(1);
     expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
   });
 });

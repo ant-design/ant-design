@@ -1,9 +1,11 @@
+import * as React from 'react';
 import useRCNotification from 'rc-notification/lib/useNotification';
 import {
   NotificationInstance as RCNotificationInstance,
   NoticeContent as RCNoticeContent,
   HolderReadyCallback as RCHolderReadyCallback,
 } from 'rc-notification/lib/Notification';
+import { ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
 import { NotificationInstance, ArgsProps } from '..';
 
 export default function createUseNotification(
@@ -14,6 +16,9 @@ export default function createUseNotification(
   getRCNoticeProps: (args: ArgsProps, prefixCls: string) => RCNoticeContent,
 ) {
   const useNotification = (): [NotificationInstance, React.ReactElement] => {
+    // We can only get content by render
+    let getPrefixCls: ConfigConsumerProps['getPrefixCls'];
+
     // We create a proxy to handle delay created instance
     let innerInstance: RCNotificationInstance | null = null;
     const proxy = {
@@ -27,10 +32,19 @@ export default function createUseNotification(
     const [hookNotify, holder] = useRCNotification(proxy);
 
     function notify(args: ArgsProps) {
-      getNotificationInstance(args, ({ prefixCls, instance }) => {
-        innerInstance = instance;
-        hookNotify(getRCNoticeProps(args, prefixCls));
-      });
+      const { prefixCls: customizePrefixCls } = args;
+      const mergedPrefixCls = getPrefixCls('notification', customizePrefixCls);
+
+      getNotificationInstance(
+        {
+          ...args,
+          prefixCls: mergedPrefixCls,
+        },
+        ({ prefixCls, instance }) => {
+          innerInstance = instance;
+          hookNotify(getRCNoticeProps(args, prefixCls));
+        },
+      );
     }
 
     // Fill functions
@@ -45,7 +59,15 @@ export default function createUseNotification(
         });
     });
 
-    return [hookAPI, holder];
+    return [
+      hookAPI,
+      <ConfigConsumer key="holder">
+        {(context: ConfigConsumerProps) => {
+          ({ getPrefixCls } = context);
+          return holder;
+        }}
+      </ConfigConsumer>,
+    ];
   };
 
   return useNotification;
