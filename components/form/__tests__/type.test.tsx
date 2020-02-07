@@ -6,11 +6,15 @@ import Input from '../../input';
 
 describe('Form.typescript', () => {
   it('Form.Item', () => {
-    <Form>
-      <Form.Item name="test">
-        <Input />
-      </Form.Item>
-    </Form>;
+    const form = (
+      <Form>
+        <Form.Item name="test">
+          <Input />
+        </Form.Item>
+      </Form>
+    );
+
+    expect(form).toBeTruthy();
   });
 });
 
