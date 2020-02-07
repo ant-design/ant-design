@@ -42,7 +42,7 @@ export default class Palette extends React.Component {
     const colorPaletteMap = {
       dark: ['#fff', 'unset'],
       default: ['rgba(0,0,0,0.85)', '#fff'],
-    }
+    };
     const [lastColor, firstColor] = dark ? colorPaletteMap.dark : colorPaletteMap.default;
     for (let i = 1; i <= count; i += 1) {
       const colorText = `${name}-${i}`;

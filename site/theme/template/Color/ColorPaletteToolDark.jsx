@@ -13,8 +13,6 @@ export default class ColorPaletteTool extends Component {
     primaryColor: '#1890ff',
     backgroundColor: '#141414',
     primaryColorInstance: null,
-    // eslint-disable-next-line react/no-unused-state
-    backgroundColorInstance: null,
   };
 
   handleChangeColor = (e, color) => {
@@ -25,12 +23,10 @@ export default class ColorPaletteTool extends Component {
     });
   };
 
-  handleChangeBackgroundColor = (e, color) => {
+  handleChangeBackgroundColor = (e) => {
     const value = e.target ? e.target.value : e;
     this.setState({
       backgroundColor: value,
-      // eslint-disable-next-line react/no-unused-state
-      backgroundColorInstance: color,
     });
   }
 
