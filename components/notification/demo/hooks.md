@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通过 `Modal.useModal` 创建支持读取 context 的 `contextHolder`。
+通过 `notification.useNotification` 创建支持读取 context 的 `contextHolder`。
 
 ## en-US
 
-Use `Modal.useModal` to get `contextHolder` with context accessible issue.
+Use `notification.useNotification` to get `contextHolder` with context accessible issue.
 
 ```jsx
 import { Button, notification, Divider } from 'antd';
@@ -25,7 +25,7 @@ import {
 const Context = React.createContext({ name: 'Default' });
 
 const Demo = () => {
-  const [instance, holder] = notification.useNotification();
+  const [instance, contextHolder] = notification.useNotification();
 
   const openNotification = placement => {
     instance.info({
@@ -37,7 +37,7 @@ const Demo = () => {
 
   return (
     <Context.Provider value={{ name: 'Ant Design' }}>
-      {holder}
+      {contextHolder}
       <Button type="primary" onClick={() => openNotification('topLeft')}>
         <RadiusUpleftOutlined />
         topLeft

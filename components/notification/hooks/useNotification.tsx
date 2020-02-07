@@ -23,9 +23,7 @@ export default function createUseNotification(
     let innerInstance: RCNotificationInstance | null = null;
     const proxy = {
       add: (noticeProps: RCNoticeContent, holderCallback?: RCHolderReadyCallback) => {
-        if (innerInstance) {
-          innerInstance.component.add(noticeProps, holderCallback);
-        }
+        innerInstance?.component.add(noticeProps, holderCallback);
       },
     } as any;
 
