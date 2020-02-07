@@ -25,10 +25,10 @@ import {
 const Context = React.createContext({ name: 'Default' });
 
 const Demo = () => {
-  const [instance, contextHolder] = notification.useNotification();
+  const [api, contextHolder] = notification.useNotification();
 
   const openNotification = placement => {
-    instance.info({
+    api.info({
       message: `Notification ${placement}`,
       description: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
       placement,

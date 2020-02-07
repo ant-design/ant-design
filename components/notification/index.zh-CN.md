@@ -67,3 +67,26 @@ notification.config({
 | getContainer | 配置渲染节点的输出位置 | () => HTMLNode | () => document.body |
 | placement | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string | topRight |
 | top | 消息从顶部弹出时，距离顶部的位置，单位像素。 | number | 24 |
+
+## FAQ
+
+### hooks 和直接调用的区别是什么？
+
+直接调用 notification 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
+
+当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `notification.useNotification` 方法会返回 `api` 实体以及 `contextHolder` 节点。将其插入到你需要获取 context 位置即可：
+
+```tsx
+const [api, contextHolder] = notification.useNotification();
+
+return (
+  <Context1.Provider value="Ant">
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder 在 Context2 外，因而不会获得此 context */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。
