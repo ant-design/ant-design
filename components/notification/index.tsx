@@ -94,10 +94,8 @@ function getPlacementStyle(
 
 function getNotificationInstance(
   args: ArgsProps,
-): Promise<{
-  prefixCls: string;
-  instance: RCNotificationInstance;
-}> {
+  callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+) {
   const {
     placement = defaultPlacement,
     top,
@@ -108,36 +106,34 @@ function getNotificationInstance(
   const outerPrefixCls = args.prefixCls || 'ant-notification';
   const prefixCls = `${outerPrefixCls}-notice`;
 
-  return new Promise(resolve => {
-    const cacheKey = `${outerPrefixCls}-${placement}`;
-    if (notificationInstance[cacheKey]) {
-      resolve({ prefixCls, instance: notificationInstance[cacheKey] });
-      return;
-    }
+  const cacheKey = `${outerPrefixCls}-${placement}`;
+  if (notificationInstance[cacheKey]) {
+    callback({ prefixCls, instance: notificationInstance[cacheKey] });
+    return;
+  }
 
-    const closeIconToRender = (
-      <span className={`${outerPrefixCls}-close-x`}>
-        {closeIcon || <CloseOutlined className={`${outerPrefixCls}-close-icon`} />}
-      </span>
-    );
+  const closeIconToRender = (
+    <span className={`${outerPrefixCls}-close-x`}>
+      {closeIcon || <CloseOutlined className={`${outerPrefixCls}-close-icon`} />}
+    </span>
+  );
 
-    Notification.newInstance(
-      {
-        prefixCls: outerPrefixCls,
-        className: `${outerPrefixCls}-${placement}`,
-        style: getPlacementStyle(placement, top, bottom),
-        getContainer,
-        closeIcon: closeIconToRender,
-      },
-      notification => {
-        notificationInstance[cacheKey] = notification;
-        resolve({
-          prefixCls,
-          instance: notification,
-        });
-      },
-    );
-  });
+  Notification.newInstance(
+    {
+      prefixCls: outerPrefixCls,
+      className: `${outerPrefixCls}-${placement}`,
+      style: getPlacementStyle(placement, top, bottom),
+      getContainer,
+      closeIcon: closeIconToRender,
+    },
+    notification => {
+      notificationInstance[cacheKey] = notification;
+      callback({
+        prefixCls,
+        instance: notification,
+      });
+    },
+  );
 }
 
 const typeToIcon = {
@@ -208,7 +204,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
 
 const api: any = {
   open: (args: ArgsProps) => {
-    getNotificationInstance(args).then(({ prefixCls, instance }) => {
+    getNotificationInstance(args, ({ prefixCls, instance }) => {
       instance.notice(getRCNoticeProps(args, prefixCls));
     });
   },

@@ -9,10 +9,8 @@ import { NotificationInstance, ArgsProps } from '..';
 export default function createUseNotification(
   getNotificationInstance: (
     args: ArgsProps,
-  ) => Promise<{
-    prefixCls: string;
-    instance: RCNotificationInstance;
-  }>,
+    callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+  ) => void,
   getRCNoticeProps: (args: ArgsProps, prefixCls: string) => RCNoticeContent,
 ) {
   const useNotification = (): [NotificationInstance, React.ReactElement] => {
@@ -29,7 +27,7 @@ export default function createUseNotification(
     const [hookNotify, holder] = useRCNotification(proxy);
 
     function notify(args: ArgsProps) {
-      getNotificationInstance(args).then(({ prefixCls, instance }) => {
+      getNotificationInstance(args, ({ prefixCls, instance }) => {
         innerInstance = instance;
         hookNotify(getRCNoticeProps(args, prefixCls));
       });
