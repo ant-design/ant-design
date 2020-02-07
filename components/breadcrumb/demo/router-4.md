@@ -9,11 +9,11 @@ title:
 
 ## zh-CN
 
-和 `react-router@4`，或其他路由进行结合使用。
+和 `react-router@4+`，或其他路由进行结合使用。
 
 ## en-US
 
-Used together with `react-router@4` or other router.
+Used together with `react-router@4+` or other router.
 
 ```jsx
 import { HashRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
