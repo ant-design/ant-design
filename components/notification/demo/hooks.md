@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-通知从右上角、右下角、左下角、左上角弹出。
+通过 `Modal.useModal` 创建支持读取 context 的 `contextHolder`。
 
 ## en-US
 
-A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport.
+Use `Modal.useModal` to get `contextHolder` with context accessible issue.
 
 ```jsx
 import { Button, notification, Divider } from 'antd';
