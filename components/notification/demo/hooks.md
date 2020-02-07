@@ -23,20 +23,21 @@ import {
   RadiusBottomrightOutlined,
 } from '@ant-design/icons';
 
+const Context = React.createContext({ name: 'Default' });
+
 const Demo = () => {
   const [instance, holder] = notification.useNotification();
 
   const openNotification = placement => {
     instance.info({
       message: `Notification ${placement}`,
-      description:
-        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+      description: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
       placement,
     });
   };
 
   return (
-    <div>
+    <Context.Provider value={{ name: 'Ant Design' }}>
       {holder}
       <Button type="primary" onClick={() => openNotification('topLeft')}>
         <RadiusUpleftOutlined />
@@ -55,7 +56,7 @@ const Demo = () => {
         <RadiusBottomrightOutlined />
         bottomRight
       </Button>
-    </div>
+    </Context.Provider>
   );
 };
 
