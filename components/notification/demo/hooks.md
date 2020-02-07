@@ -37,6 +37,7 @@ const Demo = () => {
 
   return (
     <div>
+      {holder}
       <Button type="primary" onClick={() => openNotification('topLeft')}>
         <RadiusUpleftOutlined />
         topLeft

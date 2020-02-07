@@ -1,6 +1,11 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/useNotification';
+import {
+  NotificationInstance as RCNotificationInstance,
+  NoticeContent as RCNoticeContent,
+  HolderReadyCallback as RCHolderReadyCallback,
+} from 'rc-notification/lib/Notification';
+import useRCNotification from 'rc-notification/lib/useNotification';
 import {
   CloseOutlined,
   CheckCircleOutlined,
@@ -180,16 +185,7 @@ function getNoticeProps(args: ArgsProps) {
   };
 }
 
-function notice(args: ArgsProps) {
-  const {
-    outerPrefixCls,
-    prefixCls,
-    placement,
-    top,
-    bottom,
-    getContainer,
-    closeIcon,
-  } = getNoticeProps(args);
+function triggerNotice(instance: RCNotificationInstance, args: ArgsProps, prefixCls: string) {
   const duration = args.duration === undefined ? defaultDuration : args.duration;
 
   let iconNode: React.ReactNode = null;
@@ -206,39 +202,51 @@ function notice(args: ArgsProps) {
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
-  getNotificationInstance({
-    prefixCls: outerPrefixCls,
-    placement,
-    top,
-    bottom,
-    getContainer,
-    closeIcon,
-  }).then(instance => {
-    instance.notice({
-      content: (
-        <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
-          {iconNode}
-          <div className={`${prefixCls}-message`}>
-            {autoMarginTag}
-            {args.message}
-          </div>
-          <div className={`${prefixCls}-description`}>{args.description}</div>
-          {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+  instance.notice({
+    content: (
+      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+        {iconNode}
+        <div className={`${prefixCls}-message`}>
+          {autoMarginTag}
+          {args.message}
         </div>
-      ),
-      duration,
-      closable: true,
-      onClose: args.onClose,
-      onClick: args.onClick,
-      key: args.key,
-      style: args.style || {},
-      className: args.className,
-    });
+        <div className={`${prefixCls}-description`}>{args.description}</div>
+        {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+      </div>
+    ),
+    duration,
+    closable: true,
+    onClose: args.onClose,
+    onClick: args.onClick,
+    key: args.key,
+    style: args.style || {},
+    className: args.className,
   });
 }
 
 const api: any = {
-  open: notice,
+  open: (args: ArgsProps) => {
+    const {
+      outerPrefixCls,
+      prefixCls,
+      placement,
+      top,
+      bottom,
+      getContainer,
+      closeIcon,
+    } = getNoticeProps(args);
+
+    getNotificationInstance({
+      prefixCls: outerPrefixCls,
+      placement,
+      top,
+      bottom,
+      getContainer,
+      closeIcon,
+    }).then(instance => {
+      triggerNotice(instance, args, prefixCls);
+    });
+  },
   close(key: string) {
     Object.keys(notificationInstance).forEach(cacheKey =>
       notificationInstance[cacheKey].removeNotice(key),
@@ -263,23 +271,57 @@ const api: any = {
 
 api.warn = api.warning;
 api.useNotification = (): [NotificationInstance, React.ReactElement] => {
+  // We create a proxy to handle delay created instance
+  let instance: RCNotificationInstance | null = null;
+  const proxy = {
+    add: (noticeProps: RCNoticeContent, holderCallback?: RCHolderReadyCallback) => {
+      if (instance) {
+        instance.component.add(noticeProps, holderCallback);
+      }
+    },
+  } as any;
+
+  const [hookNotify, holder] = useRCNotification(proxy);
+
   function notify(args: ArgsProps) {
-    notice(args);
+    // notice(args);
+
+    const {
+      outerPrefixCls,
+      prefixCls,
+      placement,
+      top,
+      bottom,
+      getContainer,
+      closeIcon,
+    } = getNoticeProps(args);
+
+    getNotificationInstance({
+      prefixCls: outerPrefixCls,
+      placement,
+      top,
+      bottom,
+      getContainer,
+      closeIcon,
+    }).then(inst => {
+      instance = inst;
+      // triggerNotice(instance, args, prefixCls);
+    });
   }
 
   // Fill functions
-  const instance: any = {
+  const hookAPI: any = {
     open: notify,
   };
   ['success', 'info', 'warning', 'error'].forEach(type => {
-    instance[type] = (args: ArgsProps) =>
-      instance.open({
+    hookAPI[type] = (args: ArgsProps) =>
+      hookAPI.open({
         ...args,
         type,
       });
   });
 
-  return [instance, <></>];
+  return [hookAPI, holder];
 };
 
 export interface NotificationInstance {
