@@ -3,7 +3,6 @@ order: 8
 title:
   zh-CN: 通过 Hooks 获取上下文
   en-US: Get context with hooks
-only: true
 ---
 
 ## zh-CN
