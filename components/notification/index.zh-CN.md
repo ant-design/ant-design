@@ -70,7 +70,7 @@ notification.config({
 
 ## FAQ
 
-### hooks 和直接调用的区别是什么？
+### 为什么 notification 不能获取 context、redux 的内容？
 
 直接调用 notification 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
@@ -81,9 +81,10 @@ const [api, contextHolder] = notification.useNotification();
 
 return (
   <Context1.Provider value="Ant">
+    {/* contextHolder 在 Context1 内，它可以获得 Context1 的 context */}
     {contextHolder}
     <Context2.Provider value="Design">
-      {/* contextHolder 在 Context2 外，因而不会获得此 context */}
+      {/* contextHolder 在 Context2 外，因而不会获得 Context2 的 context */}
     </Context2.Provider>
   </Context1.Provider>
 );

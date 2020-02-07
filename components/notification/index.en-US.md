@@ -69,9 +69,9 @@ notification.config({
 
 ## FAQ
 
-### What's different between hooks and directly call?
+### Why I can not access context, redux in notification?
 
-antd will dynamic create React instance by `ReactDOM.render` when directly call notification methods. Whose context is different with origin code located context.
+antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
 
 When you need context info (like ConfigProvider context), you can use `notification.useNotification` to get `api` instance and `contextHolder` node. And put it in your children:
 
@@ -80,6 +80,7 @@ const [api, contextHolder] = notification.useNotification();
 
 return (
   <Context1.Provider value="Ant">
+    {/* contextHolder is in Context1 which mean api will not get context of Context1 */}
     {contextHolder}
     <Context2.Provider value="Design">
       {/* contextHolder is out of Context2 which mean api will not get context of Context2 */}
