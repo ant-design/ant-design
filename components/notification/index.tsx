@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
+import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/useNotification';
 import {
   CloseOutlined,
   CheckCircleOutlined,
@@ -99,42 +100,41 @@ type NotificationInstanceProps = {
   closeIcon?: React.ReactNode;
 };
 
-function getNotificationInstance(
-  {
-    prefixCls,
-    placement = defaultPlacement,
-    getContainer = defaultGetContainer,
-    top,
-    bottom,
-    closeIcon = defaultCloseIcon,
-  }: NotificationInstanceProps,
-  callback: (n: any) => void,
-) {
-  const cacheKey = `${prefixCls}-${placement}`;
-  if (notificationInstance[cacheKey]) {
-    callback(notificationInstance[cacheKey]);
-    return;
-  }
+function getNotificationInstance({
+  prefixCls,
+  placement = defaultPlacement,
+  getContainer = defaultGetContainer,
+  top,
+  bottom,
+  closeIcon = defaultCloseIcon,
+}: NotificationInstanceProps): Promise<RCNotificationInstance> {
+  return new Promise(resolve => {
+    const cacheKey = `${prefixCls}-${placement}`;
+    if (notificationInstance[cacheKey]) {
+      resolve(notificationInstance[cacheKey]);
+      return;
+    }
 
-  const closeIconToRender = (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
+    const closeIconToRender = (
+      <span className={`${prefixCls}-close-x`}>
+        {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+      </span>
+    );
 
-  (Notification as any).newInstance(
-    {
-      prefixCls,
-      className: `${prefixCls}-${placement}`,
-      style: getPlacementStyle(placement, top, bottom),
-      getContainer,
-      closeIcon: closeIconToRender,
-    },
-    (notification: any) => {
-      notificationInstance[cacheKey] = notification;
-      callback(notification);
-    },
-  );
+    Notification.newInstance(
+      {
+        prefixCls,
+        className: `${prefixCls}-${placement}`,
+        style: getPlacementStyle(placement, top, bottom),
+        getContainer,
+        closeIcon: closeIconToRender,
+      },
+      notification => {
+        notificationInstance[cacheKey] = notification;
+        resolve(notification);
+      },
+    );
+  });
 }
 
 const typeToIcon = {
@@ -164,9 +164,32 @@ export interface ArgsProps {
   closeIcon?: React.ReactNode;
 }
 
-function notice(args: ArgsProps) {
+function getNoticeProps(args: ArgsProps) {
+  const { placement, top, bottom, getContainer, closeIcon } = args;
   const outerPrefixCls = args.prefixCls || 'ant-notification';
   const prefixCls = `${outerPrefixCls}-notice`;
+
+  return {
+    prefixCls,
+    outerPrefixCls,
+    placement,
+    top,
+    bottom,
+    getContainer,
+    closeIcon,
+  };
+}
+
+function notice(args: ArgsProps) {
+  const {
+    outerPrefixCls,
+    prefixCls,
+    placement,
+    top,
+    bottom,
+    getContainer,
+    closeIcon,
+  } = getNoticeProps(args);
   const duration = args.duration === undefined ? defaultDuration : args.duration;
 
   let iconNode: React.ReactNode = null;
@@ -183,40 +206,35 @@ function notice(args: ArgsProps) {
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
-  const { placement, top, bottom, getContainer, closeIcon } = args;
-
-  getNotificationInstance(
-    {
-      prefixCls: outerPrefixCls,
-      placement,
-      top,
-      bottom,
-      getContainer,
-      closeIcon,
-    },
-    (notification: any) => {
-      notification.notice({
-        content: (
-          <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
-            {iconNode}
-            <div className={`${prefixCls}-message`}>
-              {autoMarginTag}
-              {args.message}
-            </div>
-            <div className={`${prefixCls}-description`}>{args.description}</div>
-            {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+  getNotificationInstance({
+    prefixCls: outerPrefixCls,
+    placement,
+    top,
+    bottom,
+    getContainer,
+    closeIcon,
+  }).then(instance => {
+    instance.notice({
+      content: (
+        <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+          {iconNode}
+          <div className={`${prefixCls}-message`}>
+            {autoMarginTag}
+            {args.message}
           </div>
-        ),
-        duration,
-        closable: true,
-        onClose: args.onClose,
-        onClick: args.onClick,
-        key: args.key,
-        style: args.style || {},
-        className: args.className,
-      });
-    },
-  );
+          <div className={`${prefixCls}-description`}>{args.description}</div>
+          {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+        </div>
+      ),
+      duration,
+      closable: true,
+      onClose: args.onClose,
+      onClick: args.onClick,
+      key: args.key,
+      style: args.style || {},
+      className: args.className,
+    });
+  });
 }
 
 const api: any = {
@@ -244,17 +262,42 @@ const api: any = {
 });
 
 api.warn = api.warning;
+api.useNotification = (): [NotificationInstance, React.ReactElement] => {
+  function notify(args: ArgsProps) {
+    notice(args);
+  }
 
-export interface NotificationApi {
+  // Fill functions
+  const instance: any = {
+    open: notify,
+  };
+  ['success', 'info', 'warning', 'error'].forEach(type => {
+    instance[type] = (args: ArgsProps) =>
+      instance.open({
+        ...args,
+        type,
+      });
+  });
+
+  return [instance, <></>];
+};
+
+export interface NotificationInstance {
   success(args: ArgsProps): void;
   error(args: ArgsProps): void;
   info(args: ArgsProps): void;
-  warn(args: ArgsProps): void;
   warning(args: ArgsProps): void;
   open(args: ArgsProps): void;
+}
+
+export interface NotificationApi extends NotificationInstance {
+  warn(args: ArgsProps): void;
   close(key: string): void;
   config(options: ConfigProps): void;
   destroy(): void;
+
+  // Hooks
+  useNotification: () => [NotificationInstance, React.ReactElement];
 }
 
 export default api as NotificationApi;

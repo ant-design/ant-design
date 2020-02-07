@@ -34,8 +34,6 @@ declare module 'rc-input-number';
 
 declare module 'rc-collapse';
 
-declare module 'rc-notification';
-
 declare module 'rc-dialog';
 
 declare module 'rc-rate';
