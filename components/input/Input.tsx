@@ -263,6 +263,7 @@ class Input extends React.Component<InputProps, InputState> {
       <SizeContext.Consumer>
         {size => (
           <ClearableLabeledInput
+            size={size}
             {...this.props}
             prefixCls={prefixCls}
             inputType="input"
