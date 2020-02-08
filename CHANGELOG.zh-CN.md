@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+`2020-02-08`
+
+- 🐞 修复 Badge 在 Typography 下数字错位的问题。[#21237](https://github.com/ant-design/ant-design/pull/21237)
+- 🐞 修复 Steps 在 `size="small"` 和 `labelPlacement="vertical"` 时图标没有对齐的问题。[#21258](https://github.com/ant-design/ant-design/pull/21258)
+- 🐞 修复 Typography 在可编辑状态时光标没有在输入框末位的问题。[#21268](https://github.com/ant-design/ant-design/pull/21268)
+- TypeScript
+  - 💄 完善 Form 中校验规则类型的类型定义。[#21250](https://github.com/ant-design/ant-design/pull/21250) [@hansololai](https://github.com/hansololai)
+  - 🐞 修复 Tree 中事件类型定义不正确的问题。[#21200](https://github.com/ant-design/ant-design/pull/21200) [@Jirka-Lhotka](https://github.com/Jirka-Lhotka)
+
 ## 3.26.8
 
 `2020-02-03`
