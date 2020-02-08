@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.26.9
+
+`2020-02-08`
+
+- 🐞 Fix Badge that count is not align when wrapped by Typography. [#21237](https://github.com/ant-design/ant-design/pull/21237)
+- 🐞 Fix Steps that icon is not align when `size="small"` and `labelPlacement="vertical"`. [#21258](https://github.com/ant-design/ant-design/pull/21258)
+- 🐞 Fix Typography not focus at the end of textarea when `editable` is true. [#21268](https://github.com/ant-design/ant-design/pull/21268)
+- TypeScript
+  - 💄 Improve type definition of validation rule's type for Form. [#21250](https://github.com/ant-design/ant-design/pull/21250) [@hansololai](https://github.com/hansololai)
+  - 🐞 Fix type definition of `event` for Tree. [#21200](https://github.com/ant-design/ant-design/pull/21200) [@Jirka-Lhotka](https://github.com/Jirka-Lhotka)
+
 ## 3.26.8
 
 `2020-02-03`
