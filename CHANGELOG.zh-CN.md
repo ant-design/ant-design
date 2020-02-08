@@ -15,6 +15,8 @@ timeline: true
 
 ---
 
+## 3.26.9
+
 `2020-02-08`
 
 - 🐞 修复 Badge 在 Typography 下数字错位的问题。[#21237](https://github.com/ant-design/ant-design/pull/21237)
