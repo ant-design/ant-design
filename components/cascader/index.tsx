@@ -83,6 +83,8 @@ export interface CascaderProps {
   placeholder?: string;
   /** 输入框大小，可选 `large` `default` `small` */
   size?: SizeType;
+  /** whether has border style */
+  bordered?: boolean;
   /** 禁用 */
   disabled?: boolean;
   /** 是否支持清除 */
@@ -221,6 +223,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
     options: [],
     disabled: false,
     allowClear: true,
+    bordered: true,
   };
 
   static getDerivedStateFromProps(nextProps: CascaderProps, { prevProps }: CascaderState) {
@@ -456,6 +459,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           suffixIcon,
           notFoundContent,
           popupClassName,
+          bordered,
           ...otherProps
         } = props;
         const mergedSize = customizeSize || size;
@@ -489,6 +493,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           [`${prefixCls}-picker-${mergedSize}`]: !!mergedSize,
           [`${prefixCls}-picker-show-search`]: !!showSearch,
           [`${prefixCls}-picker-focused`]: inputFocused,
+          [`${prefixCls}-picker-borderless`]: !bordered,
         });
 
         // Fix bug of https://github.com/facebook/react/pull/5004
@@ -511,6 +516,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
           'sortFilteredOption',
           'notFoundContent',
           'fieldNames',
+          'bordered',
         ]);
 
         let { options } = props;
@@ -594,7 +600,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         );
 
         const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
-        const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon']);
+        const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon', 'bordered']);
         const rcCascaderRtlPopupClassName = classNames(popupClassName, {
           [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
         });

@@ -66,3 +66,27 @@ notification.config({
 | getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
 | placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
 | top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |
+
+## FAQ
+
+### Why I can not access context, redux in notification?
+
+antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
+
+When you need context info (like ConfigProvider context), you can use `notification.useNotification` to get `api` instance and `contextHolder` node. And put it in your children:
+
+```tsx
+const [api, contextHolder] = notification.useNotification();
+
+return (
+  <Context1.Provider value="Ant">
+    {/* contextHolder is in Context1 which mean api will not get context of Context1 */}
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder is out of Context2 which mean api will not get context of Context2 */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.

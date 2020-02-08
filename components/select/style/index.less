@@ -272,4 +272,11 @@
   &-lg {
     font-size: @font-size-lg;
   }
+
+  // no border style
+  &-borderless &-selector {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
 }

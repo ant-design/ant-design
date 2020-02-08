@@ -19,6 +19,7 @@ title: TreeSelect
 | --- | --- | --- | --- | --- |
 | allowClear | 显示清除按钮 | boolean | false |  |
 | autoClearSearchValue | 当多选模式下值被选择，自动清空搜索框 | boolean | true |  |
+| bordered | 是否显示边框 | boolean | true |  |
 | defaultValue | 指定默认选中的条目 | string/string\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
