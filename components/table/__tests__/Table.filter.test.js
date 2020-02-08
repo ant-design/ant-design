@@ -407,6 +407,7 @@ describe('Table.filter', () => {
 
   // enzyme not correct update function component under mini store.
   // It's correct in `instance().props` but failed in `props()`
+  // eslint-disable-next-line jest/no-commented-out-tests
   // it.skip('three levels menu', () => {
   //   const filters = [
   //     { text: 'Upper', value: 'Upper' },

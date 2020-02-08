@@ -5,12 +5,9 @@ import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
-import { Select, Menu, Row, Col, Popover, Input, Button } from 'antd';
+import { Menu, Row, Col, Popover, Input } from 'antd';
 
 import * as utils from '../utils';
-import { version as antdVersion } from '../../../../package.json';
-
-const { Option } = Select;
 
 let docsearch;
 if (typeof window !== 'undefined') {
@@ -133,15 +130,8 @@ class Header extends React.Component {
     const menuMode = isMobile ? 'inline' : 'horizontal';
     const {
       location,
-      themeConfig,
       intl: { locale },
     } = this.props;
-    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
-    const versionOptions = Object.keys(docVersions).map(version => (
-      <Option value={docVersions[version]} key={version}>
-        {version}
-      </Option>
-    ));
 
     const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
     const module = pathname

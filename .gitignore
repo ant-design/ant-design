@@ -48,3 +48,6 @@ site/theme/template/IconDisplay/fields.js
 site/theme/template/Home/**/*.jsx
 site/theme/template/utils.jsx
 site/theme/template/Layout/Footer.jsx
+
+shellac/*.js
+dist_varnish

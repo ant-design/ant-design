@@ -98,10 +98,10 @@
       font-size: @font-size-base;
     }
     &-title {
-      padding-left: @font-size-base + (8 * @pxToRem);
+      padding-left: @font-size-base + (@pxToRem * 8);
 
       .@{popover-prefix-cls}-rtl & {
-        padding-right: @font-size-base + (8 * @pxToRem);
+        padding-right: @font-size-base + (@pxToRem * 8);
         padding-left: @padding-md;
       }
     }

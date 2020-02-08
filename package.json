@@ -43,11 +43,11 @@
   "scripts": {
     "api-collection": "antd-tools run api-collection",
     "authors": "git log --format='%aN <%aE>' | sort -u | grep -v 'users.noreply.github.com' | grep -v 'gitter.im' | grep -v '.local>' | grep -v 'alibaba-inc.com' | grep -v 'alipay.com' | grep -v 'taobao.com' > AUTHORS.txt",
-    "build": "npm run compile && npm run dist",
+    "build": "yarn shellac-build && npm run compile && npm run dist",
     "bundlesize": "bundlesize",
     "check-commit": "node ./scripts/check-commit.js",
     "compile": "antd-tools run compile",
-    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp -r .circleci/ _site && npm run site:test",
+    "predeploy": "antd-tools run clean && npm run site && cp netlify.toml CNAME _site && cp -r .circleci/ _site && npm run site-test",
     "deploy": "bisheng gh-pages --push-only",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages",
     "dist": "antd-tools run dist",
@@ -76,7 +76,9 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false"
+    "site-test": "jest --config .jest.site.js --cache=false",
+    "shellac-build": "yarn tsc --project shellac/tsconfig.json && node shellac/build.js && yarn shellac-optimize",
+    "shellac-optimize": "postcss dist_varnish/shellac.css > dist_varnish/shellac.min.css"
   },
   "husky": {
     "hooks": {
@@ -93,6 +95,7 @@
     "@ant-design/icons": "^4.0.0-rc.0",
     "@ant-design/react-slick": "~0.25.5",
     "array-tree-filter": "^2.1.0",
+    "cssnano": "^4.1.10",
     "classnames": "~2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "css-animation": "^1.5.0",
@@ -134,6 +137,7 @@
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
     "shallowequal": "^1.1.0",
+    "styled-components": "^4.3.2",
     "warning": "~4.0.3"
   },
   "devDependencies": {
@@ -155,6 +159,7 @@
     "@types/react-color": "^3.0.1",
     "@types/react-dom": "^16.8.4",
     "@types/shallowequal": "^1.1.1",
+    "@types/styled-components": "^4.1.19",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.0.0",
     "@typescript-eslint/parser": "^2.10.0",
@@ -206,6 +211,8 @@
     "lz-string": "^1.4.4",
     "mockdate": "^2.0.2",
     "node-fetch": "^2.6.0",
+    "postcss": "^7.0.18",
+    "postcss-cli": "^6.1.3",
     "preact": "^10.0.0",
     "preact-compat": "^3.18.5",
     "prettier": "^1.17.1",

@@ -1,7 +1,7 @@
 // mixins for button
 // ------------------------
 .button-size(@height; @padding-horizontal; @font-size; @border-radius) {
-  @padding-vertical: max(0, round((@height - (@font-size * @remToPx) * @line-height-base) / 2 * 10) / 10 -
+  @padding-vertical: max(0, round((@height - (@remToPx * @font-size) * @line-height-base) / 2 * 10) / 10 -
     @border-width-base);
 
   height: @height;
@@ -372,10 +372,10 @@
 // square button: the content only contains icon
 .btn-square(@btnClassName: btn) {
   .square(@btn-square-size);
-  .button-size(@btn-square-size; 0; @font-size-base + (2 * @pxToRem); @btn-border-radius-base);
+  .button-size(@btn-square-size; 0; @font-size-base + (@pxToRem * 2); @btn-border-radius-base);
   &.@{btnClassName}-lg {
     .square(@btn-square-size-lg);
-    .button-size(@btn-square-size-lg; 0; @btn-font-size-lg + (2 * @pxToRem); @btn-border-radius-base);
+    .button-size(@btn-square-size-lg; 0; @btn-font-size-lg + (@pxToRem * 2); @btn-border-radius-base);
   }
   &.@{btnClassName}-sm {
     .square(@btn-square-size-sm);

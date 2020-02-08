@@ -141,10 +141,10 @@
       // ========================= Nest Table ===========================
       .@{table-prefix-cls} {
         margin: -@table-padding-vertical -@table-padding-horizontal -@table-padding-vertical (@table-padding-horizontal +
-              ceil((@font-size-sm * @remToPx) * 1.4));
+              ceil((@remToPx * @font-size-sm) * 1.4));
 
         &.@{table-prefix-cls}-rtl {
-          margin: -@table-padding-vertical (@table-padding-horizontal + ceil((@font-size-sm * @remToPx) * 1.4)) -@table-padding-vertical -@table-padding-horizontal;
+          margin: -@table-padding-vertical (@table-padding-horizontal + ceil((@remToPx * @font-size-sm) * 1.4)) -@table-padding-vertical -@table-padding-horizontal;
         }
         td {
           background: transparent;
@@ -422,7 +422,7 @@
     height: ceil(@font-size-sm * 1.4);
     color: inherit;
     line-height: @font-size-sm;
-    vertical-align: floor(((@font-size-base * @remToPx) - ceil((@font-size-sm * @remToPx) * 1.4)) / 2);
+    vertical-align: floor(((@remToPx * @font-size-base) - ceil((@remToPx * @font-size-sm) * 1.4)) / 2);
     background: @component-background;
     border: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base;

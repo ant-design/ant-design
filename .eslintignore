@@ -18,3 +18,5 @@ node_modules
 _site
 dist
 **/*.d.ts
+shellac/*.js
+dist_varnish
