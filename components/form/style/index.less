@@ -27,13 +27,6 @@
   }
 }
 
-.explainAndExtraDistance(@num) when (@a>=0) {
-  padding-top: floor(@num);
-}
-.explainAndExtraDistance(@num) when (@a<0) {
-  margin-top: floor(@num);
-}
-
 // ================================================================
 // =                             Item                             =
 // ================================================================
@@ -130,7 +123,7 @@
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
-    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
+    padding-top: floor((@form-item-margin-bottom - @form-font-height) / 2);
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
