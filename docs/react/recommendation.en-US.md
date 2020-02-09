@@ -18,7 +18,7 @@ title: Third-Party Libraries
 | Media Query | [react-responsive](https://github.com/contra/react-responsive) [react-media](https://github.com/ReactTraining/react-media) |
 | Copy to clipboard | [react-copy-to-clipboard](https://github.com/nkbt/react-copy-to-clipboard) |
 | Document head manager | [react-helmet](https://github.com/nfl/react-helmet) [react-helmet-async](https://github.com/staylor/react-helmet-async) |
-| Icons | [react-fa](https://github.com/andreypopp/react-fa) [react-icons](https://github.com/gorangajic/react-icons) |
+| Icons | [react-fontawesome](https://github.com/FortAwesome/react-fontawesome) [react-icons](https://github.com/gorangajic/react-icons) |
 | QR Code | [qrcode.react](https://github.com/zpao/qrcode.react) |
 | Visual Graph Editor | [GGEditor](https://github.com/gaoli/GGEditor) |
 | Top Progress Bar | [nprogress](https://github.com/rstacruz/nprogress) |
@@ -51,18 +51,18 @@ There are some products to recommend for developer/designer/product manager.
 
 <style>
 .markdown table td:first-child {
+  width: 20%;
   font-weight: 500;
-  width: 25%;
   background: #fcfcfc;
 }
 .markdown table td > a:not(:last-child) {
   margin-right: 18px;
 }
-.markdown table td > a:not(:last-child):after {
-  content: '|';
-  color: #bbb;
-  margin: 0 6px 0 8px;
-  pointer-events: none;
+.markdown table td > a:not(:last-child)::after {
   position: absolute;
+  margin: 0 6px 0 8px;
+  color: #bbb;
+  content: '|';
+  pointer-events: none;
 }
 </style>
