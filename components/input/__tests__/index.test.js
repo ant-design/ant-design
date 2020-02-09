@@ -38,6 +38,24 @@ describe('Input', () => {
     wrapper.instance().select();
   });
 
+  it('should support size', () => {
+    const wrapper = mount(<Input size="large" />);
+    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support size in form', () => {
+    const wrapper = mount(
+      <Form size="large">
+        <Form.Item>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('focus trigger warning', () => {
     it('not trigger', () => {
       const wrapper = mount(<Input suffix="bamboo" />);
