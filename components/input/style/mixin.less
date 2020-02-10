@@ -426,24 +426,3 @@
     }
   }
 }
-
-.clear-icon() {
-  color: @disabled-color;
-  font-size: @font-size-sm;
-  // https://github.com/ant-design/ant-design/pull/18151
-  // https://codesandbox.io/s/wizardly-sun-u10br
-  cursor: pointer;
-  transition: color 0.3s;
-
-  &:hover {
-    color: @text-color-secondary;
-  }
-
-  &:active {
-    color: @text-color;
-  }
-
-  + i {
-    margin-left: 6px;
-  }
-}
