@@ -3,7 +3,6 @@
 exports[`renders ./components/dropdown/demo/basic.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#"
 >
   Hover me 
   <i
@@ -184,7 +183,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#"
 >
   Hover me, Click menu item 
   <i
@@ -212,7 +210,6 @@ exports[`renders ./components/dropdown/demo/event.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#"
 >
   Hover me 
   <i
@@ -240,7 +237,6 @@ exports[`renders ./components/dropdown/demo/item.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#"
 >
   Hover to check menu style 
   <i
@@ -268,7 +264,6 @@ exports[`renders ./components/dropdown/demo/menu-full.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/overlay-visible.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#"
 >
   Hover me 
   <i
@@ -350,7 +345,6 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#"
 >
   Cascading menu 
   <i
@@ -378,7 +372,6 @@ exports[`renders ./components/dropdown/demo/sub-menu.md correctly 1`] = `
 exports[`renders ./components/dropdown/demo/trigger.md correctly 1`] = `
 <a
   class="ant-dropdown-link ant-dropdown-trigger"
-  href="#"
 >
   Click me 
   <i
