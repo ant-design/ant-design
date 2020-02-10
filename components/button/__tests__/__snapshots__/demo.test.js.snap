@@ -509,6 +509,77 @@ exports[`renders ./components/button/demo/icon.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/button/demo/legacy-group.md correctly 1`] = `
+<div>
+  <div>
+    <div
+      class="ant-btn-group ant-btn-group-sm"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Button 1
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Button 2
+        </span>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-btn-group"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Button 1
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Button 2
+        </span>
+      </button>
+    </div>
+  </div>
+  <div>
+    <div
+      class="ant-btn-group ant-btn-group-lg"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Button 1
+        </span>
+      </button>
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          Button 2
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/button/demo/loading.md correctly 1`] = `
 <div>
   <button
