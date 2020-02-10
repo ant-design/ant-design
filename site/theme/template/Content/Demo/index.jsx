@@ -187,7 +187,8 @@ class Demo extends React.Component {
         'react@16.x/umd/react.development.js',
         'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
-        'antd/dist/antd-with-locales.js',
+        // eslint-disable-next-line no-undef
+        `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
       ]
@@ -204,8 +205,10 @@ class Demo extends React.Component {
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
         if (matches && matches[1] && !line.includes('antd')) {
-          const [dep] = matches[1].split('/');
-          if (dep) {
+          const paths = matches[1].split('/');
+
+          if (paths.length) {
+            const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
             acc[dep] = 'latest';
           }
         }
@@ -291,21 +294,23 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <form
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <input
-                  type="submit"
-                  value="Create New Pen with Prefilled Data"
-                  className="code-box-codepen"
-                />
-              </Tooltip>
-            </form>
+            {!dependencies['@ant-design/icons'] && (
+              <form
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+                onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                  <input
+                    type="submit"
+                    value="Create New Pen with Prefilled Data"
+                    className="code-box-codepen"
+                  />
+                </Tooltip>
+              </form>
+            )}
             <form
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
