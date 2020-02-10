@@ -7,17 +7,23 @@ const { Column, ColumnGroup } = Table;
 
 describe('Table.typescript', () => {
   it('Column', () => {
-    <Table>
-      <Column dataIndex="test" title="test" sorter />
-    </Table>;
+    const table = (
+      <Table>
+        <Column dataIndex="test" title="test" sorter />
+      </Table>
+    );
+    expect(table).toBeTruthy();
   });
   it('ColumnGroup', () => {
-    <Table>
-      <Column dataIndex="test" title="test" sorter />
-      <ColumnGroup>
+    const table = (
+      <Table>
         <Column dataIndex="test" title="test" sorter />
-      </ColumnGroup>
-    </Table>;
+        <ColumnGroup>
+          <Column dataIndex="test" title="test" sorter />
+        </ColumnGroup>
+      </Table>
+    );
+    expect(table).toBeTruthy();
   });
 });
 
