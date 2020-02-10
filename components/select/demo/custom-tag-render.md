@@ -1,17 +1,17 @@
 ---
 order: 24
 title:
-  zh-CN: 允许自定义选择标签的样式
+  zh-CN: 自定义tag内容render
   en-US: Custom Tag Render
 ---
 
 ## zh-CN
 
-...
+允许自定义选择标签的样式
 
 ## en-US
 
-Allows a custom render function can be provided for tags
+Allows for custom render of tags
 
 ```jsx
 import { Select, Tag } from 'antd';
