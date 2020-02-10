@@ -336,8 +336,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   mergedExpandable.expandIcon =
     mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
 
-  // Adjust expand icon index
-  if (expandType === 'nest') {
+  // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
+  if (expandType === 'nest' && !('expandIconColumnIndex' in mergedExpandable)) {
     mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
   }
 
