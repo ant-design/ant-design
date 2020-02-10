@@ -109,7 +109,7 @@
     "rc-dialog": "~7.6.0",
     "rc-drawer": "~3.1.1",
     "rc-dropdown": "~3.0.0-alpha.0",
-    "rc-field-form": "^0.0.0-rc.1",
+    "rc-field-form": "~0.0.0-rc.4",
     "rc-input-number": "~4.5.0",
     "rc-mentions": "~1.0.0-alpha.3",
     "rc-menu": "~8.0.0-alpha.7",
