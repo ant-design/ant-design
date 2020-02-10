@@ -2,6 +2,7 @@
 
 import * as React from 'react';
 import Table from '../Table';
+import { ColumnProps } from '..';
 
 const { Column, ColumnGroup } = Table;
 
@@ -27,4 +28,20 @@ describe('Table.typescript', () => {
   });
 });
 
+describe('Table.typescript types', () => {
+  it('ColumnProps', () => {
+    interface User {
+      name: string;
+    }
+
+    const columns: ColumnProps<User>[] = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+      },
+    ];
+
+    expect(columns).toBeTruthy();
+  });
+});
 /* eslint-enable */
