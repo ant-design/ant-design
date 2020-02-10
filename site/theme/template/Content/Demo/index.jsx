@@ -182,7 +182,8 @@ class Demo extends React.Component {
         .replace(/([a-zA-Z]*)\s+as\s+([a-zA-Z]*)/, '$1:$2'),
       css: prefillStyle,
       editors: '001',
-      css_external: 'https://unpkg.com/antd/dist/antd.css',
+      // eslint-disable-next-line no-undef
+      css_external: `https://unpkg.com/antd@${antdReproduceVersion}/dist/antd.css`,
       js_external: [
         'react@16.x/umd/react.development.js',
         'react-dom@16.x/umd/react-dom.development.js',
@@ -217,6 +218,11 @@ class Demo extends React.Component {
       // eslint-disable-next-line no-undef
       { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
+
+    if (dependencies['@ant-design/icons']) {
+      // eslint-disable-next-line no-undef
+      dependencies['@ant-design/icons'] = antdReproduceVersion;
+    }
 
     // Reorder source code
     let parsedSourceCode = sourceCode;
