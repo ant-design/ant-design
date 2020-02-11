@@ -113,4 +113,22 @@ describe('Badge', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/21331
+  it('render Badge status/color when contains children', () => {
+    const wrapper = render(
+      <>
+        <Badge count={5} status="success">
+          <a />
+        </Badge>
+        <Badge count={5} color="blue">
+          <a />
+        </Badge>
+        <Badge count={5} color="#08c">
+          <a />
+        </Badge>
+      </>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
 });

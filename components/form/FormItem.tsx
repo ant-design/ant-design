@@ -171,6 +171,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'labelCol',
           'normalize',
           'required',
+          'validateFirst',
           'validateStatus',
           'valuePropName',
           'wrapperCol',
