@@ -62,7 +62,19 @@
   }
   .button-disabled(@color; @background; @background);
 }
+.button-ghost-variant(@color; @background; @border) {
+  .button-color(@color; @background; @border);
 
+  &:hover,
+  &:focus {
+    .button-color(@color; @background; #999);
+  }
+  &:active,
+  &.active {
+    .button-color(@color; @background; #999);
+  }
+  .button-disabled(@color; @background; @border);
+}
 .button-variant-other(@color; @background; @border) {
   .button-color(@color; @background; @border);
 
@@ -182,7 +194,7 @@
 .btn() {
   position: relative;
   display: inline-block;
-  font-weight: @btn-font-weight;
+  font-family: @btn-font-family;
   white-space: nowrap;
   text-align: center;
   background-image: none;
@@ -243,7 +255,7 @@
 }
 // ghost button style
 .btn-ghost() {
-  .button-variant-other(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
+  .button-ghost-variant(@btn-ghost-color, @btn-ghost-bg, @btn-ghost-border);
 }
 // dashed button style
 .btn-dashed() {

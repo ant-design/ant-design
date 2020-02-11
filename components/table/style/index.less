@@ -207,9 +207,13 @@
       user-select: none;
     }
   }
+  &-thead > tr > th:first-child {
+    padding-left: 32px !important;
+  }
 
   &-thead > tr:first-child > th {
     &:first-child {
+      padding-left: 32px !important;
       border-top-left-radius: @table-border-radius-base;
     }
 
@@ -335,6 +339,9 @@
     padding: @table-padding-vertical @table-padding-horizontal;
     overflow-wrap: break-word;
   }
+  &-tbody > tr > td:first-child {
+    padding-left: 32px !important;
+  }
 
   &-expand-icon-th,
   &-row-expand-icon-cell {
@@ -423,7 +430,7 @@
     margin-top: -1px;
     padding: @table-padding-vertical @table-padding-horizontal;
     color: @disabled-color;
-    font-size: @font-size-base;
+    font-size: @font-size-lg;
     text-align: center;
     background: @component-background;
     border-top: @border-width-base @border-style-base @border-color-split;
