@@ -129,7 +129,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
   }
 
   renderBadgeNumber(prefixCls: string, scrollNumberPrefixCls: string) {
-    const { status, count } = this.props;
+    const { status, count, color } = this.props;
 
     const displayCount = this.getDisplayCount();
     const isDot = this.isDot();
@@ -140,8 +140,15 @@ export default class Badge extends React.Component<BadgeProps, any> {
       [`${prefixCls}-count`]: !isDot,
       [`${prefixCls}-multiple-words`]:
         !isDot && count && count.toString && count.toString().length > 1,
-      [`${prefixCls}-status-${status}`]: this.hasStatus(),
+      [`${prefixCls}-status-${status}`]: !!status,
+      [`${prefixCls}-status-${color}`]: isPresetColor(color),
     });
+
+    let statusStyle: React.CSSProperties | undefined = this.getStyleWithOffset();
+    if (color && !isPresetColor(color)) {
+      statusStyle = statusStyle || {};
+      statusStyle.background = color;
+    }
 
     return hidden ? null : (
       <ScrollNumber
@@ -151,7 +158,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         count={displayCount}
         displayComponent={this.renderDisplayComponent()} // <Badge status="success" count={<Icon type="xxx" />}></Badge>
         title={this.getScrollNumberTitle()}
-        style={this.getStyleWithOffset()}
+        style={statusStyle}
         key="scrollNumber"
       />
     );
