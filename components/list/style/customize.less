@@ -3,8 +3,10 @@
 @card-prefix-cls: ~'@{ant-prefix}-card';
 
 .@{list-prefix-cls} {
-  // =================== Hook Components ===================
+  // =================== Dard Hook Components ===================
   .@{card-prefix-cls} {
-    background: @list-customize-card-bg;
+    & when (@theme = dark) {
+      background: @list-customize-card-bg;
+    }
   }
 }

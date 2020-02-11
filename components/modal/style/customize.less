@@ -1,0 +1,34 @@
+@import './index.less';
+
+@picker-prefix-cls: ~'@{ant-prefix}-picker';
+@slider-prefix-cls: ~'@{ant-prefix}-slider';
+@anchor-prefix-cls: ~'@{ant-prefix}-anchor';
+@collapse-prefix-cls: ~'@{ant-prefix}-collapse';
+@tab-prefix-cls: ~'@{ant-prefix}-tabs';
+@timeline-prefix-cls: ~'@{ant-prefix}-timeline';
+@tree-prefix-cls: ~'@{ant-prefix}-tree';
+@card-prefix-cls: ~'@{ant-prefix}-card';
+
+.@{dialog-prefix-cls} {
+  .@{picker-prefix-cls}-clear, .@{slider-prefix-cls}-handle, .@{anchor-prefix-cls}-wrapper, .@{collapse-prefix-cls}-content, .@{timeline-prefix-cls}-item-head, .@{card-prefix-cls} {
+    & when (@theme = dark) {
+      background-color: @popover-background;
+    }
+  }
+  .@{tab-prefix-cls} {
+    &&-card &-card-bar &-tab-active {
+      & when (@theme = dark) {
+        background-color: @popover-background;
+      }
+    }
+  }
+  .@{tree-prefix-cls} {
+    &-show-line {
+      .@{tree-prefix-cls}-switcher {
+        & when (@theme = dark) {
+          background: @popover-background;
+        }
+      }
+    }
+  }
+}
