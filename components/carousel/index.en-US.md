@@ -18,6 +18,8 @@ A carousel component. Scales with its container.
 | --- | --- | --- | --- | --- |
 | afterChange | Callback function called after the current index changes | function(current) | - |  |
 | autoplay | Whether to scroll automatically | boolean | `false` |  |
+| autoplaySpeed | The interval of carousel | number | 3000 |  |  
+| speed | The speed of picture switching | number | 500 |  |  
 | beforeChange | Callback function called before the current index changes | function(from, to) | - |  |
 | dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` | string | bottom |  |
 | dots | Whether to show the dots at the bottom of the gallery | boolean | `true` |  |
