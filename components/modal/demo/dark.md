@@ -84,7 +84,7 @@ class App extends React.Component {
     })
   }
 
-   handleTransferChange = (nextTargetKeys, direction, moveKeys) => {
+   handleTransferChange = (nextTargetKeys) => {
     this.setState({ targetKeys: nextTargetKeys });
   };
 
