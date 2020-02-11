@@ -3,6 +3,7 @@ order: 10
 title:
   zh-CN: 暗背景
   en-US: Dark Bg
+debug: true
 ---
 
 ## zh-CN
