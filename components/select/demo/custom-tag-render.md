@@ -16,7 +16,12 @@ Allows for custom rendering of tags
 ```jsx
 import { Select, Tag } from 'antd';
 
-const OPTIONS = ['gold', 'cyan'];
+const options = [
+  {value: 'gold'},
+  {value: 'lime'},
+  {value: 'green'},
+  {value: 'cyan'},
+];
 
 function tagRender(props) {
   const { label, value, closable, onClose } = props;
@@ -35,13 +40,12 @@ function tagRender(props) {
 
 ReactDOM.render(
   <Select
-    mode="tags"
+    mode="multiple"
     tagRender={tagRender}
-    defaultValue={OPTIONS}
+    defaultValue={['gold', 'cyan']}
     style={{ width: '100%' }}
-  >
-    {OPTIONS}
-  </Select>,
+    options={options}
+  />,
   mountNode,
 );
 ```
