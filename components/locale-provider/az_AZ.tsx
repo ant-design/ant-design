@@ -13,7 +13,7 @@ export default {
     prev_5: 'Əvvəlki 5 Səhifə',
     next_5: 'Növbəti 5 Səhifə',
     prev_3: 'Əvvəlki 3 Səhifə',
-    next_3: 'Növbəti 3 Səhifə'
+    next_3: 'Növbəti 3 Səhifə',
   },
   DatePicker: {
     lang: {
@@ -44,14 +44,14 @@ export default {
       previousDecade: 'Sonuncu onillik',
       nextDecade: 'Növbəti onillik',
       previousCentury: 'Sonuncu əsr',
-      nextCentury: 'Növbəti əsr'
+      nextCentury: 'Növbəti əsr',
     },
     timePickerLocale: {
-      placeholder: 'Vaxtı seç'
+      placeholder: 'Vaxtı seç',
     }
   },
   TimePicker: {
-    placeholder: 'Vaxtı seç'
+    placeholder: 'Vaxtı seç',
   },
   Calendar: {
     today: 'Bugün',
@@ -79,7 +79,7 @@ export default {
     previousDecade: 'Sonuncu onillik',
     nextDecade: 'Növbəti onillik',
     previousCentury: 'Sonuncu əsr',
-    nextCentury: 'Növbəti əsr'
+    nextCentury: 'Növbəti əsr',
   },
   Table: {
     filterTitle: 'Filter menyu',
@@ -87,31 +87,31 @@ export default {
     filterReset: 'Sıfırla',
     emptyText: 'Məlumat yoxdur',
     selectAll: 'Cari səhifəni seç',
-    selectInvert: 'Invert current page'
+    selectInvert: 'Invert current page',
   },
   Modal: {
     okText: 'Bəli',
     cancelText: 'Ləğv et',
-    justOkText: 'Bəli'
+    justOkText: 'Bəli',
   },
   Popconfirm: {
     okText: 'Bəli',
-    cancelText: 'Ləğv et'
+    cancelText: 'Ləğv et',
   },
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'Tapılmadı',
     searchPlaceholder: 'Burda axtar',
     itemUnit: 'item',
-    itemsUnit: 'items'
+    itemsUnit: 'items',
   },
   Select: {
-    notFoundContent: 'Tapılmadı'
+    notFoundContent: 'Tapılmadı',
   },
   Upload: {
     uploading: 'Yüklənir...',
     removeFile: 'Faylı sil',
     uploadError: 'Yükləmə xətası',
-    previewFile: 'Fayla önbaxış'
+    previewFile: 'Fayla önbaxış',
   }
 };
