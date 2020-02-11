@@ -48,7 +48,7 @@ export default {
     },
     timePickerLocale: {
       placeholder: 'Vaxtı seç',
-    }
+    },
   },
   TimePicker: {
     placeholder: 'Vaxtı seç',
@@ -101,7 +101,7 @@ export default {
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'Tapılmadı',
-    searchPlaceholder: 'Burda axtar',
+    searchPlaceholder: 'Burada axtar',
     itemUnit: 'item',
     itemsUnit: 'items',
   },
@@ -113,5 +113,5 @@ export default {
     removeFile: 'Faylı sil',
     uploadError: 'Yükləmə xətası',
     previewFile: 'Fayla önbaxış',
-  }
+  },
 };
