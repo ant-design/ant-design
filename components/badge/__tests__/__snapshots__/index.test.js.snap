@@ -69,6 +69,42 @@ exports[`Badge badge should support float number 2`] = `
 </Badge>
 `;
 
+exports[`Badge render Badge status/color when contains children 1`] = `
+Array [
+  <span
+    class="ant-badge ant-badge-status"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-dot ant-badge-status-success"
+      data-show="true"
+      title="5"
+    />
+  </span>,
+  <span
+    class="ant-badge ant-badge-status"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-dot ant-badge-status-blue"
+      data-show="true"
+      title="5"
+    />
+  </span>,
+  <span
+    class="ant-badge ant-badge-status"
+  >
+    <a />
+    <sup
+      class="ant-scroll-number ant-badge-dot"
+      data-show="true"
+      style="background:#08c"
+      title="5"
+    />
+  </span>,
+]
+`;
+
 exports[`Badge render correct with negative number 1`] = `
 <div>
   <span
