@@ -302,16 +302,6 @@ validator(rule, value, callback) => {
 
 这是因为你在调用 form 方法时，Modal 还未初始化导致 form 没有关联任何 Form 组件。你可以通过给 Modal 设置 `forceRender` 将其预渲染。示例点击[此处](https://codesandbox.io/s/antd-reproduction-template-ibu5c)。
 
-### 为何 onFinish 会获得已经移除的字段数据？
-
-新版 Form 会保留所有用户操作的数据，如果你只需要当前页面中的字段数据，可以通过过滤方式获取：
-
-```jsx
-onFinish = () => {
-  const pureValues = form.getFieldsValue(null, () => true);
-};
-```
-
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);

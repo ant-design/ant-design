@@ -301,16 +301,6 @@ validator(rule, value, callback) => {
 
 Before Modal open, children element do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view example.
 
-### Why onFinish still get removed field values?
-
-New Form will keep all the data user modified. If only want to get values by fields, you can use filter:
-
-```jsx
-onFinish = () => {
-  const pureValues = form.getFieldsValue(null, () => true);
-};
-```
-
 <style>
   .site-form-item-icon {
     color: rgba(0, 0, 0, 0.25);
