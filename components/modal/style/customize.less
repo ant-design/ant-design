@@ -47,6 +47,18 @@
         }
       }
     }
+    tbody {
+      > tr {
+        &.@{table-prefix-cls}-row:hover {
+          > td {
+            background: @table-header-sort-active-bg;
+          }
+        }
+      }
+    }
+    .@{table-prefix-cls}-filter-trigger-container-open {
+      background-color: #525252;
+    }
   }
 
   .@{calendar-prefix-cls}-full {
