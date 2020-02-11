@@ -39,20 +39,20 @@ export default class Badge extends React.Component<BadgeProps, any> {
     overflowCount: 99,
   };
 
-  getNumberedDispayCount() {
+  getNumberedDisplayCount() {
     const { count, overflowCount } = this.props;
     const displayCount =
       (count as number) > (overflowCount as number) ? `${overflowCount}+` : count;
     return displayCount as string | number | null;
   }
 
-  getDispayCount() {
+  getDisplayCount() {
     const isDot = this.isDot();
     // dot mode don't need count
     if (isDot) {
       return '';
     }
-    return this.getNumberedDispayCount();
+    return this.getNumberedDisplayCount();
   }
 
   getScrollNumberTitle() {
@@ -89,8 +89,8 @@ export default class Badge extends React.Component<BadgeProps, any> {
   }
 
   isZero() {
-    const numberedDispayCount = this.getNumberedDispayCount();
-    return numberedDispayCount === '0' || numberedDispayCount === 0;
+    const numberedDisplayCount = this.getNumberedDisplayCount();
+    return numberedDisplayCount === '0' || numberedDisplayCount === 0;
   }
 
   isDot() {
@@ -101,7 +101,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
 
   isHidden() {
     const { showZero } = this.props;
-    const displayCount = this.getDispayCount();
+    const displayCount = this.getDisplayCount();
     const isZero = this.isZero();
     const isDot = this.isDot();
     const isEmpty = displayCount === null || displayCount === undefined || displayCount === '';
@@ -114,7 +114,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     return hidden || !text ? null : <span className={`${prefixCls}-status-text`}>{text}</span>;
   }
 
-  renderDispayComponent() {
+  renderDisplayComponent() {
     const { count } = this.props;
     const customNode = count as React.ReactElement<any>;
     if (!customNode || typeof customNode !== 'object') {
@@ -131,7 +131,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
   renderBadgeNumber(prefixCls: string, scrollNumberPrefixCls: string) {
     const { status, count } = this.props;
 
-    const displayCount = this.getDispayCount();
+    const displayCount = this.getDisplayCount();
     const isDot = this.isDot();
     const hidden = this.isHidden();
 
@@ -149,7 +149,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
         data-show={!hidden}
         className={scrollNumberCls}
         count={displayCount}
-        displayComponent={this.renderDispayComponent()} // <Badge status="success" count={<Icon type="xxx" />}></Badge>
+        displayComponent={this.renderDisplayComponent()} // <Badge status="success" count={<Icon type="xxx" />}></Badge>
         title={this.getScrollNumberTitle()}
         style={this.getStyleWithOffset()}
         key="scrollNumber"
