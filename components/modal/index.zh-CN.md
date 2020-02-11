@@ -111,3 +111,43 @@ browserHistory.listen(() => {
   Modal.destroyAll();
 });
 ```
+
+### Modal.useModal()
+
+当你需要使用 Context 时，可以通过 `Modal.useModal` 创建一个 `contextHolder` 插入子节点中。通过 hooks 创建的临时 Modal 将会得到 `contextHolder` 所在位置的所有上下文。创建的 `modal` 对象拥有与 [`Modal.method`](<#Modal.method()>) 相同的创建通知方法。
+
+```jsx
+const [modal, contextHolder] = Modal.useModal();
+
+React.useEffect(() => {
+  modal.confirm({
+    // ...
+  });
+}, []);
+
+return <div>{contextHolder}</div>;
+```
+
+## FAQ
+
+### 为什么 Modal 方法不能获取 context、redux 的内容？
+
+直接调用 Modal 方法，antd 会通过 `ReactDOM.render` 动态创建新的 React 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
+
+当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法会返回 `modal` 实体以及 `contextHolder` 节点。将其插入到你需要获取 context 位置即可：
+
+```tsx
+const [modal, contextHolder] = Modal.useModal();
+
+return (
+  <Context1.Provider value="Ant">
+    {/* contextHolder 在 Context1 内，它可以获得 Context1 的 context */}
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder 在 Context2 外，因而不会获得 Context2 的 context */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**异同：**通过 hooks 创建的 `contextHolder` 必须插入到子元素节点中才会生效，当你不需要上下文信息时请直接调用。

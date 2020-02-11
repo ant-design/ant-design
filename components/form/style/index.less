@@ -62,9 +62,10 @@
       height: 100%;
       max-height: @input-height-base;
       color: @label-color;
+      font-size: @form-item-label-font-size;
 
       > .@{iconfont-css-prefix} {
-        font-size: @font-size-base;
+        font-size: @form-item-label-font-size;
         vertical-align: top;
       }
 
@@ -72,7 +73,7 @@
         display: inline-block;
         margin-right: 4px;
         color: @label-required-color;
-        font-size: @font-size-base;
+        font-size: @form-item-label-font-size;
         font-family: SimSun, sans-serif;
         line-height: 1;
         content: '*';

@@ -33,15 +33,24 @@
     cursor: pointer;
   }
 
+  &-hook-holder,
   &-notice {
     position: relative;
     margin-bottom: @notification-margin-bottom;
-    padding: @notification-padding;
     overflow: hidden;
-    line-height: 1.5;
     background: @notification-bg;
     border-radius: @border-radius-base;
     box-shadow: @shadow-2;
+  }
+
+  &-hook-holder > &-notice {
+    margin-bottom: 0;
+    box-shadow: none;
+  }
+
+  &-notice {
+    padding: @notification-padding;
+    line-height: @line-height-base;
 
     &-message {
       display: inline-block;

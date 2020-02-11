@@ -504,6 +504,174 @@ exports[`Input should support maxLength 1`] = `
 </Input>
 `;
 
+exports[`Input should support size 1`] = `
+<Input
+  size="large"
+  type="text"
+>
+  <ClearableLabeledInput
+    element={
+      <input
+        className="ant-input ant-input-lg"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        type="text"
+      />
+    }
+    focused={false}
+    handleReset={[Function]}
+    inputType="input"
+    prefixCls="ant-input"
+    size="large"
+    type="text"
+    value=""
+  >
+    <input
+      className="ant-input ant-input-lg"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      type="text"
+      value=""
+    />
+  </ClearableLabeledInput>
+</Input>
+`;
+
+exports[`Input should support size in form 1`] = `
+<ForwardRef(InternalForm)
+  size="large"
+>
+  <SizeContextProvider
+    size="large"
+  >
+    <ForwardRef(Form)
+      className="ant-form ant-form-horizontal"
+      form={
+        Object {
+          "__INTERNAL__": Object {
+            "name": undefined,
+          },
+          "getFieldError": [Function],
+          "getFieldValue": [Function],
+          "getFieldsError": [Function],
+          "getFieldsValue": [Function],
+          "getInternalHooks": [Function],
+          "isFieldTouched": [Function],
+          "isFieldValidating": [Function],
+          "isFieldsTouched": [Function],
+          "isFieldsValidating": [Function],
+          "resetFields": [Function],
+          "scrollToField": [Function],
+          "setFields": [Function],
+          "setFieldsValue": [Function],
+          "submit": [Function],
+          "validateFields": [Function],
+        }
+      }
+      size="large"
+    >
+      <form
+        className="ant-form ant-form-horizontal"
+        onSubmit={[Function]}
+        size="large"
+      >
+        <FormItem>
+          <Row
+            className="ant-form-item"
+            gutter={0}
+            key="row"
+          >
+            <div
+              className="ant-row ant-form-item"
+              style={Object {}}
+            >
+              <FormItemLabel
+                prefixCls="ant-form"
+              />
+              <FormItemInput
+                errors={Array []}
+                onDomErrorVisibleChange={[Function]}
+                prefixCls="ant-form"
+                validateStatus=""
+              >
+                <Col
+                  className="ant-form-item-control"
+                >
+                  <div
+                    className="ant-col ant-form-item-control"
+                    style={Object {}}
+                  >
+                    <div
+                      className="ant-form-item-control-input"
+                    >
+                      <Input
+                        type="text"
+                      >
+                        <ClearableLabeledInput
+                          element={
+                            <input
+                              className="ant-input ant-input-lg"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onFocus={[Function]}
+                              onKeyDown={[Function]}
+                              type="text"
+                            />
+                          }
+                          focused={false}
+                          handleReset={[Function]}
+                          inputType="input"
+                          prefixCls="ant-input"
+                          size="large"
+                          type="text"
+                          value=""
+                        >
+                          <input
+                            className="ant-input ant-input-lg"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onFocus={[Function]}
+                            onKeyDown={[Function]}
+                            type="text"
+                            value=""
+                          />
+                        </ClearableLabeledInput>
+                      </Input>
+                    </div>
+                    <ForwardRef
+                      motionAppear={true}
+                      motionName="show-help"
+                      onLeaveEnd={[Function]}
+                      removeOnLeave={true}
+                      visible={false}
+                    >
+                      <CSSMotion
+                        internalRef={null}
+                        motionAppear={true}
+                        motionEnter={true}
+                        motionLeave={true}
+                        motionName="show-help"
+                        onLeaveEnd={[Function]}
+                        removeOnLeave={true}
+                        visible={false}
+                      />
+                    </ForwardRef>
+                  </div>
+                </Col>
+              </FormItemInput>
+            </div>
+          </Row>
+        </FormItem>
+      </form>
+    </ForwardRef(Form)>
+  </SizeContextProvider>
+</ForwardRef(InternalForm)>
+`;
+
 exports[`Input.Search should support suffix 1`] = `
 <Search
   enterButton={false}

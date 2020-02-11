@@ -347,6 +347,7 @@ with varnish... would make code cleaner, but merges harder */
 @form-item-trailing-colon: true;
 @form-vertical-label-padding: 0 0 8px;
 @form-vertical-label-margin: 0;
+@form-item-label-font-size: @font-size-base;
 @form-item-label-colon-margin-right: 8px;
 @form-item-label-colon-margin-left: 2px;
 @form-error-input-bg: @input-bg;
@@ -365,7 +366,7 @@ with varnish... would make code cleaner, but merges harder */
   ) / 10 - @border-width-base;
 @input-padding-vertical-sm: round((@input-height-sm - (@remToPx * @font-size-base) * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
-@input-padding-vertical-lg: round((@input-height-lg - (@remToPx * @font-size-lg) * @line-height-base) / 2 * 10) /
+@input-padding-vertical-lg: ceil((@input-height-lg - (@remToPx * @font-size-lg) * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
@@ -624,9 +625,9 @@ with varnish... would make code cleaner, but merges harder */
 @tabs-bar-margin: 0 0 16px 0;
 @tabs-horizontal-margin: 0 32px 0 0;
 @tabs-horizontal-margin-rtl: 0 0 0 32px;
-@tabs-horizontal-padding: 12px 16px;
-@tabs-horizontal-padding-lg: 16px;
-@tabs-horizontal-padding-sm: 8px 16px;
+@tabs-horizontal-padding: 12px 0;
+@tabs-horizontal-padding-lg: 16px 0;
+@tabs-horizontal-padding-sm: 8px 0;
 @tabs-vertical-padding: 8px 24px;
 @tabs-vertical-margin: 0 0 16px 0;
 @tabs-scrolling-size: 32px;

@@ -86,6 +86,7 @@ const validateMessages = {
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |
 | trigger | 设置收集字段值变更的时机 | string | onChange |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |
 | validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |
 | validateTrigger | 设置字段校验的时机 | string \| string[] | onChange |
 | valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
@@ -177,7 +178,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[]) => any |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |
 | getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |
@@ -267,7 +268,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 600px;
 }
-.markdown.api-container table td:last-child {
+.markdown.api-container table td:nth-of-type(4) {
   white-space: nowrap;
   word-wrap: break-word;
 }
@@ -294,41 +295,6 @@ validator(rule, value, callback) => {
   }
 }
 ```
-
-### 如何在函数组件中拿到 form 实例？
-
-你需要通过 `forwardRef` 和 `useImperativeHandle` 的组合使用来实现在函数组件中正确拿到 form 实例：
-
-```tsx
-import React, { forwardRef, useImperativeHandle } from 'react';
-import Form, { FormComponentProps } from 'antd/lib/form/Form';
-
-const FCForm = forwardRef<FormComponentProps, FCFormProps>(({ form, onSubmit }, ref) => {
-  useImperativeHandle(ref, () => ({
-    form,
-  }));
-  `...the rest of your form`;
-});
-const EnhancedFCForm = Form.create<FCFormProps>()(FCForm);
-```
-
-使用表单组件可以写成这样：
-
-```tsx
-const TestForm = () => {
-  const formRef = createRef<Ref>();
-  return (
-    <EnhancedFCForm
-      onSubmit={() => console.log(formRef.current!.form.getFieldValue('name'))}
-      wrappedComponentRef={formRef}
-    />
-  );
-};
-```
-
-在线示例：
-
-[![Edit wrappedComponentRef-in-function-component](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/wrappedcomponentref-in-function-component-fj43c?fontsize=14&hidenavigation=1&theme=dark)
 
 ### 为何在 Modal 中调用 form 控制台会报错？
 

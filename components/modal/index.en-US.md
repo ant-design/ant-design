@@ -109,3 +109,43 @@ browserHistory.listen(() => {
   Modal.destroyAll();
 });
 ```
+
+### Modal.useModal()
+
+When you need using Context, you can use `contextHolder` which created by `Modal.useModal` to insert into children. Modal created by hooks will get all the context where `contextHolder` are. Created `modal` has the same creating function with `Modal.method`](<#Modal.method()>).
+
+```jsx
+const [modal, contextHolder] = Modal.useModal();
+
+React.useEffect(() => {
+  modal.confirm({
+    // ...
+  });
+}, []);
+
+return <div>{contextHolder}</div>;
+```
+
+## FAQ
+
+### Why I can not access context, redux in Modal.xxx?
+
+antd will dynamic create React instance by `ReactDOM.render` when call Modal methods. Whose context is different with origin code located context.
+
+When you need context info (like ConfigProvider context), you can use `Modal.useModal` to get `modal` instance and `contextHolder` node. And put it in your children:
+
+```tsx
+const [modal, contextHolder] = Modal.useModal();
+
+return (
+  <Context1.Provider value="Ant">
+    {/* contextHolder is in Context1 which mean modal will not get context of Context1 */}
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder is out of Context2 which mean modal will not get context of Context2 */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.

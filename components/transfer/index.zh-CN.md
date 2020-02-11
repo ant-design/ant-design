@@ -38,6 +38,7 @@ title: Transfer
 | style | 容器的自定义样式 | object |  |  |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | \['', ''] |  |
+| selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)[] |  |  |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void |  |  |
 | onScroll | 选项列表滚动时的回调函数 | (direction, event): void |  |  |
 | onSearch | 搜索框内容时改变时的回调函数 | (direction: 'left'\|'right', value: string): void | - |  |

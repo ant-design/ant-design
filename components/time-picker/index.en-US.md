@@ -25,6 +25,7 @@ import moment from 'moment';
 | --- | --- | --- | --- | --- |
 | allowClear | allow clearing text | boolean | true |  |
 | autoFocus | get focus when component mounted | boolean | false |  |
+| bordered | whether has border style | boolean | true |  |
 | className | className of picker | string | '' |  |
 | clearText | clear tooltip of icon | string | clear |  |
 | defaultValue | to set default time | [moment](http://momentjs.com/) | - |  |

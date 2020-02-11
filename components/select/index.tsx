@@ -24,6 +24,7 @@ export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'>
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  bordered?: boolean;
 }
 
 export interface SelectProps<VT>
@@ -44,6 +45,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
   static defaultProps = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
+    bordered: true,
   };
 
   selectRef = React.createRef<RcSelect<ValueType>>();
@@ -89,6 +91,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       listItemHeight = 32,
       getPopupContainer,
       dropdownClassName,
+      bordered,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -119,6 +122,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       'removeIcon',
       'clearIcon',
       'size',
+      'bordered',
     ]);
 
     const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
@@ -132,6 +136,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-borderless`]: !bordered,
           });
 
           return (

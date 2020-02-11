@@ -27,7 +27,7 @@ stages:
         - script: npm install
           displayName: 'Install modules'
         - script: |
-            node ./scripts/azure-github-comment.js '![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)'
+            node ./scripts/azure-github-comment.js "[![Prepare preview](https://user-images.githubusercontent.com/5378891/72351368-2c979e00-371b-11ea-9652-eb4e825d745e.gif)](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
           displayName: 'Comment on github'
         - script: npm run site
           displayName: 'Build sites'

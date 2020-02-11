@@ -3,7 +3,7 @@ import isEqual from 'lodash/isEqual';
 import classNames from 'classnames';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
-import {Meta, NamePath} from 'rc-field-form/lib/interface';
+import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import omit from 'omit.js';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -42,11 +42,7 @@ export interface FormItemProps
 
 function hasValidName(name?: NamePath): Boolean {
   if (name === null) {
-    warning(
-      false,
-      'Form.Item',
-      '`null` is passed as `name` property',
-    );
+    warning(false, 'Form.Item', '`null` is passed as `name` property');
   }
   return !(name === undefined || name === null);
 }
@@ -74,7 +70,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
-  const [domErrorVisible, setDomErrorVisible] = React.useState(false);
+  const [domErrorVisible, setDomErrorVisible] = React.useState(!!help);
   const [inlineErrors, setInlineErrors] = React.useState<Record<string, string[]>>({});
 
   const { name: formName } = formContext;
@@ -175,6 +171,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'labelCol',
           'normalize',
           'required',
+          'validateFirst',
           'validateStatus',
           'valuePropName',
           'wrapperCol',

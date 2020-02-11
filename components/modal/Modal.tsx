@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import { CloseOutlined } from '@ant-design/icons';
 
+import useModal from './useModal';
 import { getConfirmLocale } from './locale';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
@@ -113,13 +114,6 @@ export interface ModalFuncProps {
   maskTransitionName?: string;
 }
 
-export type ModalFunc = (
-  props: ModalFuncProps,
-) => {
-  destroy: () => void;
-  update: (newConfig: ModalFuncProps) => void;
-};
-
 export interface ModalLocale {
   okText: string;
   cancelText: string;
@@ -127,19 +121,9 @@ export interface ModalLocale {
 }
 
 export default class Modal extends React.Component<ModalProps, {}> {
-  static info: ModalFunc;
-
-  static success: ModalFunc;
-
-  static error: ModalFunc;
-
-  static warn: ModalFunc;
-
-  static warning: ModalFunc;
-
-  static confirm: ModalFunc;
-
   static destroyAll: () => void;
+
+  static useModal = useModal;
 
   static defaultProps = {
     width: 520,

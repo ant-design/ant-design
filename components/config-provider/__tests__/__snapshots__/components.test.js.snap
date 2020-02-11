@@ -334,152 +334,152 @@ exports[`ConfigProvider components Badge configProvider 1`] = `
         style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class="current"
+          class="config-scroll-number-only-unit current"
         >
           5
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="config-scroll-number-only-unit"
         >
           9
         </p>
@@ -514,152 +514,152 @@ exports[`ConfigProvider components Badge normal 1`] = `
         style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class="current"
+          class="ant-scroll-number-only-unit current"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="ant-scroll-number-only-unit"
         >
           9
         </p>
@@ -694,152 +694,152 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
         style="transition:none;-ms-transform:translateY(-1500%);-webkit-transform:translateY(-1500%);transform:translateY(-1500%)"
       >
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class="current"
+          class="prefix-scroll-number-only-unit current"
         >
           5
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           9
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           0
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           1
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           2
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           3
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           4
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           5
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           6
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           7
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           8
         </p>
         <p
-          class=""
+          class="prefix-scroll-number-only-unit"
         >
           9
         </p>
@@ -7511,6 +7511,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="config-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7564,6 +7565,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="ant-menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7617,6 +7619,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="prefix-Menu-submenu-title"
+      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -11423,6 +11426,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -11759,6 +11763,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -12095,6 +12100,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
+                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu

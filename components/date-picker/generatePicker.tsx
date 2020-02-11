@@ -79,6 +79,7 @@ type InjectDefaultProps<Props> = Omit<
 > & {
   locale?: typeof enUS;
   size?: SizeType;
+  bordered?: boolean;
 };
 
 // Picker Props
@@ -149,6 +150,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           prefixCls: customizePrefixCls,
           className,
           size: customizeSize,
+          bordered = true,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
@@ -193,6 +195,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
                   locale={locale!.lang}
                   className={classNames(className, {
                     [`${prefixCls}-${mergedSize}`]: mergedSize,
+                    [`${prefixCls}-borderless`]: !bordered,
                   })}
                   prefixCls={prefixCls}
                   generateConfig={generateConfig}
@@ -266,7 +269,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     renderPicker = (locale: any) => {
       const { getPrefixCls, direction } = this.context;
-      const { prefixCls: customizePrefixCls, className, size, ...restProps } = this.props;
+      const { prefixCls: customizePrefixCls, className, size, bordered = true, ...restProps } = this.props;
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
@@ -290,6 +293,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           {...restProps}
           className={classNames(className, {
             [`${prefixCls}-${size}`]: size,
+            [`${prefixCls}-borderless`]: !bordered,
           })}
           {...additionalOverrideProps}
           locale={locale!.lang}

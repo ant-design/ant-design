@@ -23,6 +23,7 @@ subtitle: 级联选择
 | --- | --- | --- | --- | --- |
 | allowClear | 是否支持清除 | boolean | true |  |
 | autoFocus | 自动获取焦点 | boolean | false |  |
+| bordered | 是否有边框 | boolean | true |  |
 | changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |  |
 | className | 自定义类名 | string | - |  |
 | defaultValue | 默认的选中项 | string\[] | \[] |  |

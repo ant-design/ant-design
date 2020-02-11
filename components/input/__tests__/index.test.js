@@ -38,6 +38,24 @@ describe('Input', () => {
     wrapper.instance().select();
   });
 
+  it('should support size', () => {
+    const wrapper = mount(<Input size="large" />);
+    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should support size in form', () => {
+    const wrapper = mount(
+      <Form size="large">
+        <Form.Item>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper).toMatchSnapshot();
+  });
+
   describe('focus trigger warning', () => {
     it('not trigger', () => {
       const wrapper = mount(<Input suffix="bamboo" />);
@@ -51,7 +69,7 @@ describe('Input', () => {
       expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {
-      const wrapper = mount(<Input />);
+      const wrapper = mount(<Input />, { attachTo: document.body });
       wrapper
         .find('input')
         .instance()
@@ -62,6 +80,7 @@ describe('Input', () => {
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
       );
+      wrapper.unmount();
     });
   });
 });
@@ -327,7 +346,7 @@ describe('Input allowClear', () => {
   });
 
   it('should focus input after clear', () => {
-    const wrapper = mount(<Input allowClear defaultValue="111" />);
+    const wrapper = mount(<Input allowClear defaultValue="111" />, { attachTo: document.body });
     wrapper
       .find('.ant-input-clear-icon')
       .at(0)
@@ -338,6 +357,7 @@ describe('Input allowClear', () => {
         .at(0)
         .getDOMNode(),
     );
+    wrapper.unmount();
   });
 
   it('should not support allowClear when it is disabled', () => {
@@ -425,7 +445,7 @@ describe('TextArea allowClear', () => {
   });
 
   it('should focus textarea after clear', () => {
-    const wrapper = mount(<TextArea allowClear defaultValue="111" />);
+    const wrapper = mount(<TextArea allowClear defaultValue="111" />, { attachTo: document.body });
     wrapper
       .find('.ant-input-textarea-clear-icon')
       .at(0)
@@ -436,6 +456,7 @@ describe('TextArea allowClear', () => {
         .at(0)
         .getDOMNode(),
     );
+    wrapper.unmount();
   });
 
   it('should not support allowClear when it is disabled', () => {

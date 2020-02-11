@@ -18,6 +18,7 @@ Tree selection control.
 | --- | --- | --- | --- | --- |
 | allowClear | Whether allow clear | boolean | false |  |
 | autoClearSearchValue | auto clear search input value when multiple select is selected/deselected | boolean | true |  |
+| bordered | whether has border style | boolean | true |  |
 | defaultValue | To set the initial selected treeNode(s). | string\|string\[] | - |  |
 | disabled | Disabled or not | boolean | false |  |
 | dropdownClassName | className of dropdown menu | string | - |  |
@@ -31,7 +32,6 @@ Tree selection control.
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |  |
 | multiple | Support multiple or not, will be `true` when enable `treeCheckable`. | boolean | false |  |
 | placeholder | Placeholder of the select input | string | - |  |
-| searchPlaceholder | Placeholder of the search input | string | - |  |
 | searchValue | work with `onSearch` to make search value controlled. | string | - |  |
 | treeIcon | Shows the icon before a TreeNode's title. There is no default style; you must set a custom style for it if set to `true` | boolean | false |  |
 | showCheckedStrategy | The way show selected item in box. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode). | enum { TreeSelect.SHOW_ALL, TreeSelect.SHOW_PARENT, TreeSelect.SHOW_CHILD } | TreeSelect.SHOW_CHILD |  |

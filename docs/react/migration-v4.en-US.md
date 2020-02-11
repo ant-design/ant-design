@@ -26,6 +26,7 @@ This document will help you upgrade from antd `3.x` version to antd `4.x` versio
 - The color brightness of the dividing line has been reduced from `#E8E8E8` to`#F0F0F0`.
 - DatePicker interactive redo, range selection can now select start and end time separately.
 - Table change default background color from transparent to white.
+- Smaller Tabs bar width.
 
 ### Compatibility
 
