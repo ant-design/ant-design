@@ -130,5 +130,5 @@ describe('Badge', () => {
       </>,
     );
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 });
