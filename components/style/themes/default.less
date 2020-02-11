@@ -347,7 +347,7 @@
   ) / 10 - @border-width-base;
 @input-padding-vertical-sm: round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
-@input-padding-vertical-lg: round((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
+@input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
 @input-placeholder-color: hsv(0, 0, 75%);
 @input-color: @text-color;
