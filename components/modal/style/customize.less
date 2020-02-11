@@ -8,6 +8,8 @@
 @timeline-prefix-cls: ~'@{ant-prefix}-timeline';
 @tree-prefix-cls: ~'@{ant-prefix}-tree';
 @card-prefix-cls: ~'@{ant-prefix}-card';
+@badge-prefix-cls: ~'@{ant-prefix}-badge';
+@transfer-prefix-cls: ~'@{ant-prefix}-transfer';
 
 .@{dialog-prefix-cls} {
   .@{picker-prefix-cls}-clear, .@{slider-prefix-cls}-handle, .@{anchor-prefix-cls}-wrapper, .@{collapse-prefix-cls}-content, .@{timeline-prefix-cls}-item-head, .@{card-prefix-cls} {
@@ -15,13 +17,36 @@
       background-color: @popover-background;
     }
   }
-  .@{tab-prefix-cls} {
-    &&-card &-card-bar &-tab-active {
-      & when (@theme = dark) {
-        background-color: @popover-background;
+
+  .@{transfer-prefix-cls} {
+    &-list {
+      &-header {
+        background: @popover-background;
+        border-bottom: @border-width-base @border-style-base @modal-customize-transfer-border-color;
+      }
+      &-content-item:not(.@{transfer-prefix-cls}-list-content-item-disabled):hover {
+        background-color: @item-hover-bg;
       }
     }
   }
+
+  .@{tab-prefix-cls} {
+    &.@{tab-prefix-cls}-card .@{tab-prefix-cls}-card-bar .@{tab-prefix-cls}-tab-active {
+      & when (@theme = dark) {
+        background-color: @popover-background;
+        border-bottom: @border-width-base solid @popover-background;
+      }
+    }
+  }
+
+  .@{badge-prefix-cls} {
+    &-count {
+      & when (@theme = dark) {
+        box-shadow: 0 0 0 1px @popover-background;
+      }
+    }
+  }
+
   .@{tree-prefix-cls} {
     &-show-line {
       .@{tree-prefix-cls}-switcher {

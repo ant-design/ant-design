@@ -14,7 +14,7 @@ title:
 Basic modal.
 
 ```jsx
-import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button } from 'antd';
+import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch } from 'antd';
 import moment from 'moment';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
@@ -30,6 +30,17 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
+const mockData = [];
+for (let i = 0; i < 20; i++) {
+  mockData.push({
+    key: i.toString(),
+    title: `content${i + 1}`,
+    description: `description of content${i + 1}`,
+    disabled: i % 3 < 1,
+  });
+}
+
+const oriTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
 
 const data = [
   {
@@ -59,7 +70,26 @@ const data = [
 ];
 
 class App extends React.Component {
-  state = { visible: false };
+  state = {
+    visible: false,
+    targetKeys: oriTargetKeys,
+    selectedKeys: [],
+    disabled: false,
+  };
+
+  handleDisable = (disabled) => {
+    this.setState({
+      disabled,
+    })
+  }
+
+   handleTransferChange = (nextTargetKeys, direction, moveKeys) => {
+    this.setState({ targetKeys: nextTargetKeys });
+  };
+
+  handleTransferSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
+    this.setState({ selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys] });
+  };
 
   showModal = () => {
     this.setState({
@@ -82,6 +112,7 @@ class App extends React.Component {
   };
 
   render() {
+    const { disabled, selectedKeys, targetKeys } = this.state;
      const columns = [
       {
         title: 'Name',
@@ -131,6 +162,13 @@ class App extends React.Component {
           onOk={this.handleOk}
           onCancel={this.handleCancel}
         >
+          <Switch
+            unCheckedChildren="disabled"
+            checkedChildren="disabled"
+            checked={disabled}
+            onChange={this.handleDisable}
+            style={{ marginBottom: 16 }}
+          />
            <Collapse defaultActiveKey={['1']}>
             <Panel header="This is panel header 1" key="1">
               <p>{text}</p>
@@ -139,6 +177,16 @@ class App extends React.Component {
               <p>{text}</p>
             </Panel>
           </Collapse>
+           <Transfer
+            dataSource={mockData}
+            titles={['Source', 'Target']}
+            targetKeys={targetKeys}
+            selectedKeys={selectedKeys}
+            onChange={this.handleTransferChange}
+            onSelectChange={this.handleTransferSelectChange}
+            render={item => item.title}
+            disabled={disabled}
+          />
           <Anchor>
             <Link href="#components-anchor-demo-basic" title="Basic demo" />
             <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -167,6 +215,7 @@ class App extends React.Component {
             </Timeline.Item>
             <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
           </Timeline>
+          <Calendar />
           <Tree
             showLine
             switcherIcon={<DownOutlined />}
