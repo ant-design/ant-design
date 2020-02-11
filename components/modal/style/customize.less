@@ -10,6 +10,9 @@
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @badge-prefix-cls: ~'@{ant-prefix}-badge';
 @transfer-prefix-cls: ~'@{ant-prefix}-transfer';
+@calendar-prefix-cls: ~'@{ant-prefix}-picker-calendar';
+@calendar-picker-prefix-cls: ~'@{ant-prefix}-picker';
+@table-prefix-cls: ~'@{ant-prefix}-table';
 
 .@{dialog-prefix-cls} {
   .@{picker-prefix-cls}-clear, .@{slider-prefix-cls}-handle, .@{anchor-prefix-cls}-wrapper, .@{collapse-prefix-cls}-content, .@{timeline-prefix-cls}-item-head, .@{card-prefix-cls} {
@@ -21,11 +24,43 @@
   .@{transfer-prefix-cls} {
     &-list {
       &-header {
-        background: @popover-background;
-        border-bottom: @border-width-base @border-style-base @modal-customize-transfer-border-color;
+        & when (@theme = dark) {
+          background: @popover-background;
+          border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+        }
       }
       &-content-item:not(.@{transfer-prefix-cls}-list-content-item-disabled):hover {
-        background-color: @item-hover-bg;
+        & when (@theme = dark) {
+          background-color: @item-hover-bg;
+        }
+      }
+    }
+  }
+
+  .@{table-prefix-cls} {
+    background-color: @popover-background;
+    thead {
+      > tr {
+        > th {
+          border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+          background-color: #272727;
+        }
+      }
+    }
+  }
+
+  .@{calendar-prefix-cls}-full {
+    & when (@theme = dark) {
+      background-color: @popover-background;
+    }
+    .@{calendar-picker-prefix-cls}-panel {
+      & when (@theme = dark) {
+        background-color: @popover-background;
+      }
+      .@{calendar-prefix-cls}-date {
+        & when (@theme = dark) {
+          border-top: 2px solid @popover-customize-border-color;
+        }
       }
     }
   }
