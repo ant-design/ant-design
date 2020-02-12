@@ -175,7 +175,7 @@ export function loadScript(src: string) {
   });
 }
 
-export function getMetaDescription(jml: any[]) {
+export function getMetaDescription(jml?: any[] | null) {
   const COMMON_TAGS = ['h1', 'h2', 'h3', 'p', 'img', 'a', 'code', 'strong'];
   if (!Array.isArray(jml)) {
     return '';

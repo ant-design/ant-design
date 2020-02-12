@@ -22,7 +22,7 @@ export interface ArticleProps {
       subtitle?: string;
       filename?: string;
     };
-    description: any[];
+    description?: any[];
     toc: string[];
     content: string[];
     api?: any;
@@ -160,4 +160,4 @@ class Article extends React.Component<ArticleProps> {
   }
 }
 
-export default injectIntl(Article as any);
+export default (injectIntl(Article as any) as any) as React.ComponentClass<ArticleProps>;
