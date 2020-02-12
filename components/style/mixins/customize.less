@@ -1,0 +1,90 @@
+// customize dark components background in popover containers(like Modal, Drawer, Card, Popover, Popconfirm, Notification, ...)
+// for dark theme
+.popover-customize-bg(@containerClass, @background: @popover-background, @prefix: @ant-prefix) when (@theme = dark) {
+  @picker-prefix-cls: ~'@{prefix}-picker';
+  @slider-prefix-cls: ~'@{prefix}-slider';
+  @anchor-prefix-cls: ~'@{prefix}-anchor';
+  @collapse-prefix-cls: ~'@{prefix}-collapse';
+  @tab-prefix-cls: ~'@{prefix}-tabs';
+  @timeline-prefix-cls: ~'@{prefix}-timeline';
+  @tree-prefix-cls: ~'@{prefix}-tree';
+  @card-prefix-cls: ~'@{prefix}-card';
+  @badge-prefix-cls: ~'@{prefix}-badge';
+  @transfer-prefix-cls: ~'@{prefix}-transfer';
+  @calendar-prefix-cls: ~'@{prefix}-picker-calendar';
+  @calendar-picker-prefix-cls: ~'@{prefix}-picker';
+  @table-prefix-cls: ~'@{prefix}-table';
+
+  .@{containerClass} {
+    .@{picker-prefix-cls}-clear, .@{slider-prefix-cls}-handle, .@{anchor-prefix-cls}-wrapper, .@{collapse-prefix-cls}-content, .@{timeline-prefix-cls}-item-head, .@{card-prefix-cls} {
+      background-color: @background;
+    }
+
+    .@{transfer-prefix-cls} {
+      &-list {
+        &-header {
+          background: @background;
+          border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+        }
+        &-content-item:not(.@{transfer-prefix-cls}-list-content-item-disabled):hover {
+          background-color: @item-hover-bg;
+        }
+      }
+    }
+
+    .@{table-prefix-cls} {
+      background-color: @background;
+      thead {
+        > tr {
+          > th {
+            background-color: #272727;
+            border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+          }
+        }
+      }
+      tbody {
+        > tr {
+          &.@{table-prefix-cls}-row:hover {
+            > td {
+              background: @table-header-sort-active-bg;
+            }
+          }
+        }
+      }
+      .@{table-prefix-cls}-filter-trigger-container-open {
+        background-color: #525252;
+      }
+    }
+
+    .@{calendar-prefix-cls}-full {
+      background-color: @background;
+      .@{calendar-picker-prefix-cls}-panel {
+        background-color: @background;
+        .@{calendar-prefix-cls}-date {
+          border-top: 2px solid @popover-customize-border-color;
+        }
+      }
+    }
+
+    .@{tab-prefix-cls} {
+      &.@{tab-prefix-cls}-card .@{tab-prefix-cls}-card-bar .@{tab-prefix-cls}-tab-active {
+        background-color: @background;
+        border-bottom: @border-width-base solid @background;
+      }
+    }
+
+    .@{badge-prefix-cls} {
+      &-count {
+        box-shadow: 0 0 0 1px @background;
+      }
+    }
+
+    .@{tree-prefix-cls} {
+      &-show-line {
+        .@{tree-prefix-cls}-switcher {
+          background: @background;
+        }
+      }
+    }
+  }
+}

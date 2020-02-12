@@ -1,21 +1,21 @@
 ---
-order: 10
+order: 3
 title:
-  zh-CN: 暗背景
-  en-US: Dark Bg
+  zh-CN: 抽屉表单
+  en-US: Submit form in drawer
 debug: true
 ---
 
 ## zh-CN
 
-第一个对话框。
+暗色容器
 
 ## en-US
 
-Basic modal.
+Dark Container
 
 ```jsx
-import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch } from 'antd';
+import { Drawer, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch } from 'antd';
 import moment from 'moment';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
@@ -70,7 +70,7 @@ const data = [
   },
 ];
 
-class App extends React.Component {
+class DrawerForm extends React.Component {
   state = {
     visible: false,
     targetKeys: oriTargetKeys,
@@ -78,38 +78,31 @@ class App extends React.Component {
     disabled: false,
   };
 
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
+  };
+
+
   handleDisable = (disabled) => {
     this.setState({
       disabled,
     })
   }
 
-   handleTransferChange = (nextTargetKeys) => {
+  handleTransferChange = (nextTargetKeys) => {
     this.setState({ targetKeys: nextTargetKeys });
   };
 
   handleTransferSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
     this.setState({ selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys] });
-  };
-
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleOk = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
-
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
   };
 
   render() {
@@ -154,14 +147,32 @@ class App extends React.Component {
     ];
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal
+        <Button type="primary" onClick={this.showDrawer}>
+          Dark
         </Button>
-        <Modal
-          title="Basic Modal"
+        <Drawer
+          title="Create a new account"
+          width={720}
+          onClose={this.onClose}
           visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
+          bodyStyle={{ paddingBottom: 80 }}
+          footer={
+            <div
+              style={{
+                textAlign: 'right',
+              }}
+            >
+              <Button
+                onClick={this.onClose}
+                style={{ marginRight: 8 }}
+              >
+                Cancel
+              </Button>
+              <Button onClick={this.onClose} type="primary">
+                Submit
+              </Button>
+            </div>
+          }
         >
           <Switch
             unCheckedChildren="disabled"
@@ -250,13 +261,11 @@ class App extends React.Component {
           <Badge count={5}>
             <a href="#" className="head-example" />
           </Badge>
-        </Modal>
+        </Drawer>
       </div>
     );
   }
 }
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<DrawerForm />, mountNode);
 ```
-
->
