@@ -2,6 +2,7 @@ const path = require('path');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
+const resourcesTmpl = './template/Resources/index';
 const appShellTmpl = './template/AppShell';
 
 function pickerGenerator(module) {
@@ -94,11 +95,11 @@ module.exports = {
       },
       {
         path: 'docs/resources',
-        component: contentTmpl,
+        component: resourcesTmpl,
       },
       {
         path: 'docs/resources-cn',
-        component: contentTmpl,
+        component: resourcesTmpl,
       },
     ],
   },
