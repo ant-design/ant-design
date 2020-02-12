@@ -92,6 +92,14 @@ module.exports = {
         path: 'docs/spec/:children',
         component: contentTmpl,
       },
+      {
+        path: 'docs/resources',
+        component: contentTmpl,
+      },
+      {
+        path: 'docs/resources-cn',
+        component: contentTmpl,
+      },
     ],
   },
 };
