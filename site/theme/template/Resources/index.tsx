@@ -1,6 +1,8 @@
 import * as React from 'react';
+import collect from 'bisheng/collect';
 import { useIntl } from 'react-intl';
 import Article from '../Content/Article';
+import * as utils from '../utils';
 
 interface PageData {
   meta: {
@@ -12,44 +14,45 @@ interface PageData {
   toc: any[];
 }
 
+interface PagesData {
+  'docs/resources': {
+    docs: {
+      resources: {
+        [locale: string]: () => Promise<PageData>;
+      };
+    };
+  };
+}
+
 interface ResourcesProps {
   location: {
     pathname: string;
   };
-  data: {
-    'docs/resources': {
-      docs: {
-        resources: {
-          [locale: string]: () => Promise<PageData>;
-        };
-      };
-    };
-  };
+  data: PagesData;
+  localizedPageData: PageData;
   utils: {
     toReactComponent: (content: any[]) => React.ReactElement;
+    get: (data: PagesData, path: string[]) => any;
   };
 }
 
 const Resources = (props: ResourcesProps) => {
+  const { localizedPageData } = props;
   const { locale } = useIntl();
-  const { data } = props;
-  const [pageData, setPageData] = React.useState<PageData | null>(null);
 
-  React.useEffect(() => {
-    data['docs/resources'].docs.resources[locale]().then(localeData => {
-      setPageData(localeData);
-    });
-  }, [data, locale]);
-
-  if (pageData) {
-    return (
-      <div>
-        <Article {...props} content={pageData} intl={{ locale }} />
-      </div>
-    );
-  }
-
-  return <div>null</div>;
+  return (
+    <div>
+      <Article {...props} content={localizedPageData} intl={{ locale }} />
+    </div>
+  );
 };
 
-export default Resources;
+export default collect(async (nextProps: ResourcesProps) => {
+  const { pathname } = nextProps.location;
+  const pageDataPath = pathname.replace('-cn', '').split('/');
+  const pageData = nextProps.utils.get(nextProps.data, pageDataPath);
+
+  const locale = utils.isZhCN(pathname) ? 'zh-CN' : 'en-US';
+  const pageDataPromise = pageData[locale]();
+  return { localizedPageData: await pageDataPromise };
+})(Resources);
