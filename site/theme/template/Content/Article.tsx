@@ -11,6 +11,7 @@ interface LocaleString {
 }
 
 export interface ArticleProps {
+  titleRegionClassName?: string;
   location: {
     pathname: string;
   };
@@ -94,6 +95,7 @@ class Article extends React.Component<ArticleProps> {
 
   render() {
     const {
+      titleRegionClassName,
       content,
       intl: { locale },
       utils,
@@ -127,16 +129,21 @@ class Article extends React.Component<ArticleProps> {
             }
           />
         )}
-        <h1>
-          {(title as LocaleString)[locale] || title}
-          {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
-          <EditButton title={<FormattedMessage id="app.content.edit-page" />} filename={filename} />
-        </h1>
-        {!description
-          ? null
-          : utils.toReactComponent(
-              ['section', { className: 'markdown' }].concat(getChildren(description)),
-            )}
+        <div className={titleRegionClassName}>
+          <h1>
+            {(title as LocaleString)[locale] || title}
+            {!subtitle || locale === 'en-US' ? null : <span className="subtitle">{subtitle}</span>}
+            <EditButton
+              title={<FormattedMessage id="app.content.edit-page" />}
+              filename={filename}
+            />
+          </h1>
+          {!description
+            ? null
+            : utils.toReactComponent(
+                ['section', { className: 'markdown' }].concat(getChildren(description)),
+              )}
+        </div>
         {!content.toc || content.toc.length <= 1 || meta.toc === false ? null : (
           <Affix className="toc-affix" offsetTop={16}>
             {utils.toReactComponent(['ul', { className: 'toc' }].concat(getChildren(content.toc)))}

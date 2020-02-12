@@ -1,8 +1,12 @@
 import * as React from 'react';
 import collect from 'bisheng/collect';
 import { useIntl } from 'react-intl';
+import { Typography } from 'antd';
 import Article from '../Content/Article';
 import * as utils from '../utils';
+import './index.less';
+
+const { Title } = Typography;
 
 interface PageData {
   meta: {
@@ -40,9 +44,16 @@ const Resources = (props: ResourcesProps) => {
   const { localizedPageData } = props;
   const { locale } = useIntl();
 
+  console.log('>>>', props);
+
   return (
-    <div>
-      <Article {...props} content={localizedPageData} intl={{ locale }} />
+    <div id="resources-page">
+      <Article
+        {...props}
+        content={localizedPageData}
+        intl={{ locale }}
+        titleRegionClassName="title-region"
+      />
     </div>
   );
 };
