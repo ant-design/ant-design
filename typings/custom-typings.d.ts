@@ -12,6 +12,8 @@ declare module 'bisheng/collect';
 
 declare module 'bisheng/router';
 
+declare module 'jsonml.js/*';
+
 declare module 'rc-pagination/*';
 
 declare module 'omit.js';
