@@ -1,3 +1,3 @@
-import tr_TR from '../../date-picker/locale/az_AZ';
+import az_AZ from '../../date-picker/locale/az_AZ';
 
-export default tr_TR;
+export default az_AZ;
