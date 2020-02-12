@@ -11,7 +11,7 @@ import MobileMenu from 'rc-drawer';
 
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
-import Footer from '../Layout/Footer';
+import { Footer } from '../../../../components/footer';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 

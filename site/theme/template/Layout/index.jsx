@@ -17,6 +17,8 @@ import Header from './Header';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+import { DefaultLayoutProvider } from '../../../../components/layout';
+import { ThemeProvider } from '../../../../components/style/themes/varnish';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -225,10 +227,14 @@ export default class Layout extends React.Component {
         </Helmet>
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
           <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null} direction={direction}>
-            <div className={pageWrapperClass}>
-              <Header {...restProps} changeDirection={this.changeDirection} />
-              {children}
-            </div>
+            <ThemeProvider>
+              <DefaultLayoutProvider layoutVariant="app">
+                <div className={pageWrapperClass}>
+                  <Header {...restProps} changeDirection={this.changeDirection} />
+                  {children}
+                </div>
+                </DefaultLayoutProvider>
+            </ThemeProvider>
           </ConfigProvider>
         </IntlProvider>
       </HelmetProvider>

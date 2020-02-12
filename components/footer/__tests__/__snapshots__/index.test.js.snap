@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer rtl render component should be rendered correctly in RTL direction 1`] = `
+<footer
+  class="ant-layout-footer sc-bdVaJa iKpkG"
+  layout="hcenter"
+>
+  <span>
+    <a
+      href="https://allenai.org"
+    >
+      © The Allen Institute for Artificial Intelligence
+    </a>
+     - All Rights Reserved | 
+    <a
+      href="https://allenai.org/privacy-policy.html"
+    >
+      Privacy Policy
+    </a>
+     | 
+    <a
+      href="https://allenai.org/terms.html"
+    >
+      Terms of Use
+    </a>
+  </span>
+</footer>
+`;
+
+exports[`Footer variants dark 1`] = `
+<footer
+  class="ant-layout-footer sc-bdVaJa eaIiYz"
+  layout="hcenter"
+>
+  <span>
+    <a
+      href="https://allenai.org"
+    >
+      © The Allen Institute for Artificial Intelligence
+    </a>
+     - All Rights Reserved | 
+    <a
+      href="https://allenai.org/privacy-policy.html"
+    >
+      Privacy Policy
+    </a>
+     | 
+    <a
+      href="https://allenai.org/terms.html"
+    >
+      Terms of Use
+    </a>
+  </span>
+</footer>
+`;
+
+exports[`Footer variants default 1`] = `
+<footer
+  class="ant-layout-footer sc-bdVaJa iohWRW"
+  layout="app"
+>
+  <span>
+    <a
+      href="https://allenai.org"
+    >
+      © The Allen Institute for Artificial Intelligence
+    </a>
+     - All Rights Reserved | 
+    <a
+      href="https://allenai.org/privacy-policy.html"
+    >
+      Privacy Policy
+    </a>
+     | 
+    <a
+      href="https://allenai.org/terms.html"
+    >
+      Terms of Use
+    </a>
+  </span>
+</footer>
+`;

@@ -1,7 +1,9 @@
+import React from 'react';
 import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { ThemeProvider } from '../../components/style/themes/varnish';
 
 // We should avoid use it in 4.0. Reopen if can not handle this.
 const USE_REPLACEMENT = false;
@@ -52,7 +54,7 @@ export default function demoTest(component, options = {}) {
     testMethod(`renders ${file} correctly`, () => {
       MockDate.set(moment('2016-11-22'));
       const demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-      const wrapper = render(demo);
+      const wrapper = render(<ThemeProvider>{demo}</ThemeProvider>);
 
       // Convert aria related content
       ariaConvert(wrapper);

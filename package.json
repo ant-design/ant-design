@@ -138,7 +138,6 @@
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
     "shallowequal": "^1.1.0",
-    "styled-components": "^4.3.2",
     "warning": "~4.0.3"
   },
   "devDependencies": {
@@ -244,6 +243,7 @@
     "rimraf": "^3.0.0",
     "scrollama": "^2.0.0",
     "simple-git": "^1.113.0",
+    "styled-components": "^4.3.2",
     "stylelint": "^13.0.0",
     "stylelint-config-prettier": "^8.0.0",
     "stylelint-config-rational-order": "^0.1.2",
@@ -259,7 +259,8 @@
   },
   "peerDependencies": {
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "styled-components": "^4.3.2"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

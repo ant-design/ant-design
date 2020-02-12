@@ -64,8 +64,8 @@ main > *:last-child {
 }
 
 .banner .content {
-    padding-top: ${vars.getRefOrError('spacing.xs2')};
-    padding-bottom: ${vars.getRefOrError('spacing.xs2')};
+    padding-top: ${vars.getRefOrError('spacing.xxs')};
+    padding-bottom: ${vars.getRefOrError('spacing.xxs')};
 }
 
 .banner .content a {
@@ -206,14 +206,14 @@ fieldset,
     margin: ${vars.getRefOrError('spacing.md')} 0;
     padding: 0 ${vars.getRefOrError('spacing.md')};
     display: grid;
-    grid-gap: ${vars.getRefOrError('spacing.xs2')};
+    grid-gap: ${vars.getRefOrError('spacing.xxs')};
 }
 
 .checklist li,
 .radiolist li {
     display: grid;
     grid-template-columns: min-content auto;
-    grid-gap: ${vars.getRefOrError('spacing.xs2')};
+    grid-gap: ${vars.getRefOrError('spacing.xxs')};
     align-items: center;
 }
 
@@ -221,7 +221,7 @@ input[type="text"],
 input[type="search"],
 textarea {
     display: block;
-    margin: ${vars.getRefOrError('spacing.xs2')} 0;
+    margin: ${vars.getRefOrError('spacing.xxs')} 0;
     padding: ${vars.getRefOrError('spacing.xs')} ${vars.getRefOrError('spacing.sm')};
     border-radius: ${vars.getRefOrError('shape.borderRadius')};
     border: 1px solid ${vars.getRefOrError('color.N5')};

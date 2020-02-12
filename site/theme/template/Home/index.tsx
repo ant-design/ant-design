@@ -6,7 +6,7 @@ import Banner from './Banner';
 import RecommendPage from './RecommendPage';
 import DesignPage from './DesignPage';
 import MorePage from './MorePage';
-import Footer from '../Layout/Footer';
+import { Footer } from '../../../../components/footer';
 import { getLocalizedPathname } from '../utils';
 import './index.less';
 

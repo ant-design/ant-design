@@ -5853,24 +5853,13 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
         class="config-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -5896,24 +5885,13 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -5939,24 +5917,13 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
         class="prefix-DatePicker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -5982,24 +5949,13 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
         class="config-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -6025,24 +5981,13 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -6068,24 +6013,13 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
         class="prefix-MonthPicker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -6135,24 +6069,13 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-suffix"
     >
       <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
+        class="anticon"
         role="img"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
+        <img
+          alt=""
+          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+        />
       </span>
     </span>
   </div>
@@ -6201,24 +6124,13 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-suffix"
     >
       <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
+        class="anticon"
         role="img"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
+        <img
+          alt=""
+          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+        />
       </span>
     </span>
   </div>
@@ -6267,24 +6179,13 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-suffix"
     >
       <span
-        aria-label="calendar"
-        class="anticon anticon-calendar"
+        class="anticon"
         role="img"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
+        <img
+          alt=""
+          src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+        />
       </span>
     </span>
   </div>
@@ -6309,24 +6210,13 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
         class="config-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -6352,24 +6242,13 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
         class="ant-picker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -6395,24 +6274,13 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
         class="prefix-WeekPicker-suffix"
       >
         <span
-          aria-label="calendar"
-          class="anticon anticon-calendar"
+          class="anticon"
           role="img"
         >
-          <svg
-            aria-hidden="true"
-            class=""
-            data-icon="calendar"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-            />
-          </svg>
+          <img
+            alt=""
+            src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSJub25lIiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgMTQgMTQiIHdpZHRoPSIxNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSIjOGQ5MzljIj48cGF0aCBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Im0xMyAyaC0xMnYxMWgxMnptLTEgMWgtMTB2OWgxMHoiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjxwYXRoIGQ9Im0xIDVoMTJ2MWgtMTJ6Ii8+PHBhdGggZD0ibTQgMWgxdjNoLTF6Ii8+PHBhdGggZD0ibTkgMWgxdjNoLTF6Ii8+PC9nPjwvc3ZnPg=="
+          />
         </span>
       </span>
     </div>
@@ -7511,7 +7379,6 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="config-menu-submenu-title"
-      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7565,7 +7432,6 @@ exports[`ConfigProvider components Menu normal 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="ant-menu-submenu-title"
-      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -7619,7 +7485,6 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
       aria-haspopup="true"
       aria-owns="bamboo$Menu"
       class="prefix-Menu-submenu-title"
-      role="button"
       style="padding-left:24px"
       title="bamboo"
     >
@@ -11426,7 +11291,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -11763,7 +11627,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -12100,7 +11963,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     aria-expanded="false"
                                     aria-haspopup="true"
                                     class="ant-dropdown-menu-submenu-title"
-                                    role="button"
                                     title="Submenu"
                                   >
                                     Submenu
@@ -12275,7 +12137,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
 
 exports[`ConfigProvider components Tabs configProvider 1`] = `
 <div
-  class="config-tabs config-tabs-top config-tabs-line"
+  class="config-tabs config-tabs-top config-tabs-line config-tabs-no-animation"
 >
   <div
     class="config-tabs-bar config-tabs-top-bar"
@@ -12363,7 +12225,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
               </div>
             </div>
             <div
-              class="config-tabs-ink-bar config-tabs-ink-bar-animated"
+              class="config-tabs-ink-bar config-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -12376,8 +12238,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
     tabindex="0"
   />
   <div
-    class="config-tabs-content config-tabs-content-animated config-tabs-top-content"
-    style="margin-left:0%"
+    class="config-tabs-content config-tabs-content-no-animated config-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -12406,7 +12267,7 @@ exports[`ConfigProvider components Tabs configProvider 1`] = `
 
 exports[`ConfigProvider components Tabs normal 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
@@ -12494,7 +12355,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -12507,8 +12368,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -12537,7 +12397,7 @@ exports[`ConfigProvider components Tabs normal 1`] = `
 
 exports[`ConfigProvider components Tabs prefixCls 1`] = `
 <div
-  class="prefix-Tabs prefix-Tabs-top prefix-Tabs-line"
+  class="prefix-Tabs prefix-Tabs-top prefix-Tabs-line prefix-Tabs-no-animation"
 >
   <div
     class="prefix-Tabs-bar prefix-Tabs-top-bar"
@@ -12625,7 +12485,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
               </div>
             </div>
             <div
-              class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-animated"
+              class="prefix-Tabs-ink-bar prefix-Tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -12638,8 +12498,7 @@ exports[`ConfigProvider components Tabs prefixCls 1`] = `
     tabindex="0"
   />
   <div
-    class="prefix-Tabs-content prefix-Tabs-content-animated prefix-Tabs-top-content"
-    style="margin-left:0%"
+    class="prefix-Tabs-content prefix-Tabs-content-no-animated prefix-Tabs-top-content"
   >
     <div
       aria-hidden="false"

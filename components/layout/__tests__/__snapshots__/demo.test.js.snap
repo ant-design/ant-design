@@ -295,7 +295,6 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -320,7 +319,6 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -345,7 +343,6 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -370,7 +367,6 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1093,7 +1089,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            role="button"
             style="padding-left:24px"
           >
             <span>
@@ -1135,7 +1130,6 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
-            role="button"
             style="padding-left:24px"
           >
             <span>
@@ -1304,7 +1298,6 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1329,7 +1322,6 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1354,7 +1346,6 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1379,7 +1370,6 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1475,7 +1465,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1500,7 +1489,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1525,7 +1513,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1550,7 +1537,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1632,7 +1618,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 aria-haspopup="true"
                 aria-owns="sub1$Menu"
                 class="ant-menu-submenu-title"
-                role="button"
                 style="padding-left:24px"
               >
                 <span>
@@ -1705,7 +1690,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
                 style="padding-left:24px"
               >
                 <span>
@@ -1745,7 +1729,6 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
                 style="padding-left:24px"
               >
                 <span>
@@ -1821,7 +1804,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1846,7 +1828,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1871,7 +1852,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1896,7 +1876,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          role="button"
         >
           <span>
             ···
@@ -1932,7 +1911,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               aria-haspopup="true"
               aria-owns="sub1$Menu"
               class="ant-menu-submenu-title"
-              role="button"
               style="padding-left:24px"
             >
               <span>
@@ -2005,7 +1983,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
-              role="button"
               style="padding-left:24px"
             >
               <span>
@@ -2045,7 +2022,6 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
-              role="button"
               style="padding-left:24px"
             >
               <span>

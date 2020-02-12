@@ -841,7 +841,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
+        class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line ant-tabs-no-animation"
       >
         <div
           class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
@@ -937,7 +937,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                    class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
                   />
                 </div>
               </div>
@@ -950,8 +950,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-          style="margin-left:0%"
+          class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
         >
           <div
             aria-hidden="false"
@@ -1003,7 +1002,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line"
+        class="ant-tabs ant-tabs-top ant-card-head-tabs ant-tabs-large ant-tabs-line ant-tabs-no-animation"
       >
         <div
           class="ant-tabs-bar ant-tabs-top-bar ant-tabs-large-bar"
@@ -1117,7 +1116,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
                     </div>
                   </div>
                   <div
-                    class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                    class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
                   />
                 </div>
               </div>
@@ -1130,8 +1129,7 @@ exports[`renders ./components/card/demo/tabs.md correctly 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-          style="margin-left:-100%"
+          class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
         >
           <div
             aria-hidden="true"

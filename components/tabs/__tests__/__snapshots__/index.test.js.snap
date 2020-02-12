@@ -2,7 +2,7 @@
 
 exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
 >
   <div>
     custom-tab-bar
@@ -13,8 +13,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -44,7 +43,7 @@ exports[`Tabs renderTabBar custom-tab-bar 1`] = `
 
 exports[`Tabs rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-rtl"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation ant-tabs-rtl"
 >
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
@@ -132,7 +131,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -145,8 +144,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:100%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -175,7 +173,7 @@ exports[`Tabs rtl render component should be rendered correctly in RTL direction
 
 exports[`Tabs tabPosition remove card 1`] = `
 <div
-  class="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line"
+  class="ant-tabs ant-tabs-left ant-tabs-vertical ant-tabs-line ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar ant-tabs-left-bar"
@@ -263,7 +261,7 @@ exports[`Tabs tabPosition remove card 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -281,8 +279,7 @@ exports[`Tabs tabPosition remove card 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-left-content"
-    style="margin-top:0%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-left-content"
   >
     <div
       aria-hidden="false"

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./components/footer/demo/custom.md correctly 1`] = `
+<footer
+  class="ant-layout-footer sc-bdVaJa iKpkG"
+  layout="hcenter"
+>
+  Custom footer content - 😜
+</footer>
+`;
+
+exports[`renders ./components/footer/demo/dark.md correctly 1`] = `
+<footer
+  class="ant-layout-footer sc-bdVaJa eaIiYz"
+  layout="hcenter"
+>
+  <span>
+    <a
+      href="https://allenai.org"
+    >
+      © The Allen Institute for Artificial Intelligence
+    </a>
+     - All Rights Reserved | 
+    <a
+      href="https://allenai.org/privacy-policy.html"
+    >
+      Privacy Policy
+    </a>
+     | 
+    <a
+      href="https://allenai.org/terms.html"
+    >
+      Terms of Use
+    </a>
+  </span>
+</footer>
+`;
+
+exports[`renders ./components/footer/demo/default.md correctly 1`] = `
+<footer
+  class="ant-layout-footer sc-bdVaJa iKpkG"
+  layout="hcenter"
+>
+  <span>
+    <a
+      href="https://allenai.org"
+    >
+      © The Allen Institute for Artificial Intelligence
+    </a>
+     - All Rights Reserved | 
+    <a
+      href="https://allenai.org/privacy-policy.html"
+    >
+      Privacy Policy
+    </a>
+     | 
+    <a
+      href="https://allenai.org/terms.html"
+    >
+      Terms of Use
+    </a>
+  </span>
+</footer>
+`;

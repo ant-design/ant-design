@@ -126,7 +126,7 @@ li:last-child {
 blockquote {
     margin: ${vars.getRefOrError('spacing.lg')} ${vars.getRefOrError('spacing.xs')};
     padding: ${vars.getRefOrError('spacing.md')} ${vars.getRefOrError('spacing.xs')};
-    border-left: ${vars.getRefOrError('spacing.xs2')} solid ${vars.getRefOrError('color.N5')};
+    border-left: ${vars.getRefOrError('spacing.xxs')} solid ${vars.getRefOrError('color.N5')};
 }
 
 /**

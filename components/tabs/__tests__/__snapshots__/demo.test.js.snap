@@ -2,7 +2,7 @@
 
 exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
@@ -106,7 +106,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -119,8 +119,7 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -264,7 +263,7 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -424,7 +423,7 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
               />
             </div>
           </div>
@@ -641,7 +640,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
               />
             </div>
           </div>
@@ -691,7 +690,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
 exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
 <div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-line"
+    class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
   >
     <div>
       <div />
@@ -797,7 +796,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                  class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
                 />
               </div>
             </div>
@@ -811,8 +810,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-      style="margin-left:0%"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
     >
       <div
         aria-hidden="false"
@@ -854,7 +852,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
 
 exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
@@ -958,7 +956,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -971,8 +969,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -1012,7 +1009,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
 
 exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
@@ -1116,7 +1113,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -1129,8 +1126,7 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -1356,7 +1352,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -1409,7 +1405,7 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
 
 exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
@@ -1526,7 +1522,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -1539,8 +1535,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:0%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="false"
@@ -1580,7 +1575,7 @@ exports[`renders ./components/tabs/demo/extra.md correctly 1`] = `
 
 exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
 <div
-  class="ant-tabs ant-tabs-top ant-tabs-line"
+  class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
 >
   <div
     class="ant-tabs-bar ant-tabs-top-bar"
@@ -1720,7 +1715,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
               </div>
             </div>
             <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
             />
           </div>
         </div>
@@ -1733,8 +1728,7 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
     tabindex="0"
   />
   <div
-    class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-    style="margin-left:-100%"
+    class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
   >
     <div
       aria-hidden="true"
@@ -1994,7 +1988,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-line"
+    class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
   >
     <div
       class="ant-tabs-bar ant-tabs-top-bar"
@@ -2090,7 +2084,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
               />
             </div>
           </div>
@@ -2103,8 +2097,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-      style="margin-left:0%"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
     >
       <div
         aria-hidden="false"
@@ -2117,7 +2110,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
           tabindex="0"
         />
         <div
-          class="ant-tabs ant-tabs-top ant-tabs-line"
+          class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
           style="height:300px"
         >
           <div
@@ -2358,7 +2351,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                       </div>
                     </div>
                     <div
-                      class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                      class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
                     />
                   </div>
                 </div>
@@ -2371,8 +2364,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             tabindex="0"
           />
           <div
-            class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-            style="margin-left:-100%"
+            class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
           >
             <div
               aria-hidden="true"
@@ -2579,7 +2571,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-line"
+    class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
   >
     <div
       class="ant-tabs-bar ant-tabs-top-bar"
@@ -2683,7 +2675,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
               />
             </div>
           </div>
@@ -2696,8 +2688,7 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-      style="margin-left:0%"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
     >
       <div
         aria-hidden="false"
@@ -2802,7 +2793,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-line"
+    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-line ant-tabs-no-animation"
   >
     <div
       class="ant-tabs-bar ant-tabs-top-bar ant-tabs-small-bar"
@@ -2906,7 +2897,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
               />
             </div>
           </div>
@@ -2919,8 +2910,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-      style="margin-left:0%"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
     >
       <div
         aria-hidden="false"
@@ -3006,7 +2996,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
     </label>
   </div>
   <div
-    class="ant-tabs ant-tabs-top ant-tabs-line"
+    class="ant-tabs ant-tabs-top ant-tabs-line ant-tabs-no-animation"
     style="height:220px"
   >
     <div
@@ -3327,7 +3317,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+                class="ant-tabs-ink-bar ant-tabs-ink-bar-no-animated"
               />
             </div>
           </div>
@@ -3340,8 +3330,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       tabindex="0"
     />
     <div
-      class="ant-tabs-content ant-tabs-content-animated ant-tabs-top-content"
-      style="margin-left:-100%"
+      class="ant-tabs-content ant-tabs-content-no-animated ant-tabs-top-content"
     >
       <div
         aria-hidden="true"

@@ -3,6 +3,7 @@ import Moment from 'moment';
 import MockDate from 'mockdate';
 import { render, mount } from 'enzyme';
 import ConfigProvider from '../../components/config-provider';
+import { ThemeProvider } from '../../components/style/themes/varnish';
 
 // eslint-disable-next-line jest/no-export
 export default function rtlTest(Component, mockDate) {
@@ -12,9 +13,11 @@ export default function rtlTest(Component, mockDate) {
         MockDate.set(Moment('2000-09-28'));
       }
       const wrapper = mount(
-        <ConfigProvider direction="rtl">
-          <Component />
-        </ConfigProvider>,
+        <ThemeProvider>
+          <ConfigProvider direction="rtl">
+            <Component />
+          </ConfigProvider>
+        </ThemeProvider>,
       );
       expect(render(wrapper)).toMatchSnapshot();
       if (mockDate) {
