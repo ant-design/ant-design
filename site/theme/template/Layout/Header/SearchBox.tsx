@@ -3,6 +3,8 @@ import { Input } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import { SharedProps } from './interface';
 
+import './SearchBox.less';
+
 export default ({ isZhCN }: SharedProps) => {
   const inputRef = React.useRef<any>(null);
   const searchPlaceholder = isZhCN ? '在 ant.design 中搜索' : 'Search in ant.design';

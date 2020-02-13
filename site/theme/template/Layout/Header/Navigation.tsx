@@ -5,6 +5,8 @@ import { Menu } from 'antd';
 import * as utils from '../../utils';
 import { SharedProps } from './interface';
 
+import './Navigation.less';
+
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
   isHome: boolean;

@@ -1,5 +1,69 @@
+@import '../../../static/theme.less';
+@import '../../../../../components/style/themes/default.less';
+
+@header-height: 64px;
+@menu-item-border: 2px;
+
 #header {
+  position: relative;
+  z-index: 10;
+  max-width: 100%;
+  background: @component-background;
+  box-shadow: 0 2px 8px rgba(240, 241, 242, 65);
+
   .menu-row {
     display: flex;
+    align-items: center;
+
+    > * {
+      margin: 0 8px;
+    }
+  }
+
+  // Adjust github button style
+  .github-btn {
+    height: auto;
+    display: flex;
+    flex-flow: nowrap;
+
+    .gh-btn {
+      height: auto;
+      padding: 1px 4px;
+      background: transparent;
+      border: 0;
+
+      .gh-ico {
+        width: 20px;
+        height: 20px;
+        margin: 0;
+      }
+
+      .gh-text {
+        display: none;
+      }
+    }
+
+    .gh-count {
+      height: auto;
+      padding: 4px 8px;
+      font-weight: normal;
+      background: #fff;
+
+      &:hover {
+        color: @primary-color;
+      }
+    }
+  }
+
+  .ant-row-rtl {
+    .gh-count {
+      display: none !important;
+    }
+  }
+
+  // Buttons
+  .header-button {
+    color: @text-color;
+    border-color: @border-color-base;
   }
 }

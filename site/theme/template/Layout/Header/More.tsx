@@ -4,6 +4,8 @@ import { FormattedMessage } from 'react-intl';
 import { DownOutlined } from '@ant-design/icons';
 import { SharedProps } from './interface';
 
+import './More.less';
+
 export default ({ isZhCN }: SharedProps) => {
   const menu = (
     <Menu>
@@ -63,26 +65,3 @@ export default ({ isZhCN }: SharedProps) => {
     </Dropdown>
   );
 };
-
-// .menu-site-more {
-//   float: right;
-//   height: auto;
-//   line-height: 24px;
-//   margin-top: 19px;
-
-//   &,
-//   .ant-menu-submenu {
-//     border-bottom: none !important;
-
-//     .ant-menu-submenu-title {
-//       line-height: 24px;
-//       padding: 0 0 0 16px;
-//     }
-//   }
-
-//   .header-button {
-//     .anticon {
-//       margin: 0 0 0 8px;
-//     }
-//   }
-// }

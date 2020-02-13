@@ -1,0 +1,64 @@
+@import '../../../static/theme.less';
+@import '../../../../../components/style/themes/default.less';
+
+#search-box {
+  height: 22px;
+  margin: 0 auto 0 0;
+  padding-left: 16px;
+  line-height: 22px;
+  border-left: 1px solid @site-border-color-split;
+  white-space: nowrap;
+
+  .ant-row-rtl & {
+    padding-right: 16px;
+    padding-left: 0;
+    border-right: 1px solid @site-border-color-split;
+    border-left: none;
+    margin: 0 0 0 auto;
+  }
+}
+
+#search-box .anticon {
+  position: relative;
+  top: 0.5px;
+  color: #ced4d9;
+}
+
+#search-box input {
+  width: 200px;
+  margin-top: -5px;
+  font-size: 14px;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+
+  &::placeholder {
+    color: #a3b1bf;
+  }
+}
+
+.component-select {
+  &.ant-select-dropdown {
+    font-size: 14px;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  }
+  .ant-select-dropdown-menu {
+    max-height: 200px;
+  }
+  .ant-select-dropdown-menu-item {
+    border-radius: 0 !important;
+  }
+  .ant-component-decs {
+    position: absolute;
+    right: 16px;
+    color: #aaa;
+    font-size: 12px;
+
+    .ant-row-rtl & {
+      right: auto;
+      left: 16px;
+    }
+  }
+}

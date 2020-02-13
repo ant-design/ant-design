@@ -3,6 +3,8 @@ import { Link } from 'bisheng/router';
 import * as utils from '../../utils';
 import { SharedProps } from './interface';
 
+import './Logo.less';
+
 export default ({ isZhCN }: SharedProps) => (
   <h1>
     <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
