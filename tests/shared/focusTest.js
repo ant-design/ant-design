@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
 export default function focusTest(Component, refFocus = false) {
@@ -10,7 +11,6 @@ export default function focusTest(Component, refFocus = false) {
     let blurred = false;
 
     beforeAll(() => {
-      jest.useFakeTimers();
       if (refFocus) {
         domSpy = spyElementPrototypes(HTMLElement, {
           focus() {
@@ -35,7 +35,6 @@ export default function focusTest(Component, refFocus = false) {
       if (domSpy) {
         domSpy.mockRestore();
       }
-      jest.useRealTimers();
     });
 
     afterEach(() => {
@@ -99,20 +98,20 @@ export default function focusTest(Component, refFocus = false) {
         expect(handleFocus).toHaveBeenCalled();
       });
 
-      it('blur() and onBlur', () => {
+      it('blur() and onBlur', async () => {
+        jest.useRealTimers();
         const handleBlur = jest.fn();
         const wrapper = mount(<Component onBlur={handleBlur} />, { attachTo: container });
         wrapper.instance().focus();
-        jest.runAllTimers();
+        await sleep(0);
         wrapper.instance().blur();
-        jest.runAllTimers();
+        await sleep(0);
         expect(handleBlur).toHaveBeenCalled();
       });
 
       it('autoFocus', () => {
         const handleFocus = jest.fn();
         mount(<Component autoFocus onFocus={handleFocus} />, { attachTo: container });
-        jest.runAllTimers();
         expect(handleFocus).toHaveBeenCalled();
       });
     }
