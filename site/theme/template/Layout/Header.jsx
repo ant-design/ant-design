@@ -151,7 +151,14 @@ class Header extends React.Component {
     let activeMenuItem = module || 'home';
     if (location.pathname === 'changelog' || location.pathname === 'changelog-cn') {
       activeMenuItem = 'docs/react';
+    } else if (
+      location.pathname === 'docs/resources' ||
+      location.pathname === 'docs/resources-cn'
+    ) {
+      activeMenuItem = 'docs/resources';
     }
+
+    console.log('>>>>>', activeMenuItem);
 
     const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
@@ -222,7 +229,12 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.components" />
           </Link>
         </Menu.Item>
-        <Menu.SubMenu
+        <Menu.Item key="docs/resources">
+          <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN)}>
+            <FormattedMessage id="app.header.menu.resource" />
+          </Link>
+        </Menu.Item>
+        {/* <Menu.SubMenu
           key="ecosystem"
           className="hide-in-home-page"
           title={<FormattedMessage id="app.header.menu.ecosystem" />}
@@ -269,7 +281,7 @@ class Header extends React.Component {
               </a>
             </Menu.Item>
           ) : null}
-        </Menu.SubMenu>
+        </Menu.SubMenu> */}
       </Menu>,
     ];
 
