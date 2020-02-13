@@ -1,3 +1,5 @@
+@ArticleMaxWidth: 1208px;
+
 #resources-page {
   article {
     // Title
@@ -8,7 +10,7 @@
 
       h1 {
         margin: 48px auto 16px;
-        max-width: 1208px;
+        max-width: @ArticleMaxWidth;
         line-height: 53px;
       }
 
@@ -16,7 +18,7 @@
         font-size: 16px;
         line-height: 24px;
         font-weight: 200;
-        max-width: 1208px;
+        max-width: @ArticleMaxWidth;
         margin: 0 auto 56px;
       }
     }
@@ -24,31 +26,31 @@
     // Content
     > .markdown {
       margin: 0 auto;
-      max-width: 1208px;
+      max-width: @ArticleMaxWidth;
     }
-  }
 
-  h2 {
-    font-size: 30px;
-    line-height: 38px;
-    font-weight: 200;
-    margin-top: 124px;
-    color: #314659;
+    h2 {
+      font-size: 30px;
+      line-height: 38px;
+      font-weight: 200;
+      margin-top: 124px;
+      color: #314659;
 
-    &:first-child {
-      margin-top: 88px;
+      &:first-child {
+        margin-top: 88px;
+      }
     }
-  }
 
-  h3 {
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 400;
-    margin-top: 56px;
-  }
+    h3 {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 400;
+      margin-top: 56px;
+    }
 
-  p {
-    color: #697b8c;
+    p {
+      color: #697b8c;
+    }
   }
 
   .resource-cards {
@@ -87,6 +89,17 @@
         margin: 0 0 20px 20px;
         color: #697b8c;
       }
+    }
+  }
+
+  footer {
+    margin-top: 176px;
+
+    .rc-footer-container {
+      max-width: @ArticleMaxWidth;
+      padding-left: 0;
+      padding-right: 0;
+      margin: 0 auto;
     }
   }
 }

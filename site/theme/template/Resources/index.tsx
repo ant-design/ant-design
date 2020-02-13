@@ -2,6 +2,7 @@ import * as React from 'react';
 import collect from 'bisheng/collect';
 import { useIntl } from 'react-intl';
 import Article from '../Content/Article';
+import Footer from '../Layout/Footer';
 import * as utils from '../utils';
 import './index.less';
 
@@ -119,6 +120,8 @@ const Resources = (props: ResourcesProps) => {
         intl={{ locale }}
         titleRegionClassName="title-region"
       />
+
+      <Footer />
     </div>
   );
 };
