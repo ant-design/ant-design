@@ -47,8 +47,6 @@ module.exports = {
       'Global Styles': 1,
       设计模式: 2,
       'Design Patterns': 2,
-      其他: 6,
-      Other: 6,
       Components: 100,
       组件: 100,
     },
