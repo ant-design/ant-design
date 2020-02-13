@@ -7,17 +7,17 @@ import classNames from 'classnames';
 import { SearchOutlined, MenuOutlined, DownOutlined } from '@ant-design/icons';
 import { Select, Menu, Row, Col, Popover, Input, Button } from 'antd';
 
-import * as utils from '../utils';
-import { version as antdVersion } from '../../../../package.json';
+import * as utils from '../../utils';
+import { version as antdVersion } from '../../../../../package.json';
 
 const { Option } = Select;
 
-let docsearch;
+let docsearch: any;
 if (typeof window !== 'undefined') {
   docsearch = require('docsearch.js'); // eslint-disable-line
 }
 
-function initDocSearch(locale) {
+function initDocSearch(locale: string) {
   if (!docsearch) {
     return;
   }
@@ -27,7 +27,7 @@ function initDocSearch(locale) {
     indexName: 'ant_design',
     inputSelector: '#search-box input',
     algoliaOptions: { facetFilters: [`tags:${lang}`] },
-    transformData(hits) {
+    transformData(hits: { url: string }[]) {
       hits.forEach(hit => {
         hit.url = hit.url.replace('ant.design', window.location.host); // eslint-disable-line
         hit.url = hit.url.replace('https:', window.location.protocol); // eslint-disable-line
@@ -38,7 +38,16 @@ function initDocSearch(locale) {
   });
 }
 
-class Header extends React.Component {
+export interface HeaderProps {
+  intl: {
+    locale: string;
+  };
+  location: { pathname: string };
+  themeConfig: { docVersions: Record<string, string> };
+  changeDirection: (direction: string) => void;
+}
+
+class Header extends React.Component<HeaderProps> {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
@@ -49,6 +58,8 @@ class Header extends React.Component {
   state = {
     menuVisible: false,
   };
+
+  searchInput: any;
 
   componentDidMount() {
     const { intl } = this.props;
@@ -94,13 +105,13 @@ class Header extends React.Component {
     return 'LTR';
   };
 
-  onMenuVisibleChange = visible => {
+  onMenuVisibleChange = (visible: boolean) => {
     this.setState({
       menuVisible: visible,
     });
   };
 
-  handleVersionChange = url => {
+  handleVersionChange = (url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
     window.location.href = currentUrl
@@ -245,7 +256,6 @@ class Header extends React.Component {
         key="version"
         className="version"
         size="small"
-        dropdownMatchSelectWidth={false}
         defaultValue={antdVersion}
         onChange={this.handleVersionChange}
         getPopupContainer={trigger => trigger.parentNode}
@@ -359,4 +369,4 @@ class Header extends React.Component {
   }
 }
 
-export default injectIntl(Header);
+export default injectIntl(Header as any);

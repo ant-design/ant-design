@@ -114,7 +114,7 @@ export function isZhCN(pathname: string) {
   return /-cn\/?$/.test(pathname);
 }
 
-export function getLocalizedPathname(path: string, zhCN: boolean) {
+export function getLocalizedPathname(path: string, zhCN?: boolean) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
   if (!zhCN) {
     // to enUS
