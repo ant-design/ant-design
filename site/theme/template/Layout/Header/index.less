@@ -14,10 +14,15 @@
   .menu-row {
     display: flex;
     align-items: center;
-    margin: 0 -8px;
+    margin: 0 0 0 -8px;
 
     > * {
       margin: 0 8px;
+      flex: none;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 
@@ -57,6 +62,18 @@
   }
 
   .ant-row-rtl {
+    .menu-row {
+      margin: 0 -8px;
+
+      > * {
+        margin: 0 8px;
+
+        &:last-child {
+          margin-right: 8px;
+        }
+      }
+    }
+
     .gh-count {
       display: none !important;
     }
