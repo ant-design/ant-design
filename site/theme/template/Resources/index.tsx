@@ -49,7 +49,7 @@ function getUnitString(unit: ContentUnit[]): string {
 function toList([, ...items]: ContentUnit[]) {
   return [
     'div',
-    { className: 'ant-row resource-cards', style: 'margin-left: -12px; margin-right: -12px;' },
+    { className: 'ant-row resource-cards', style: 'margin: -12px -12px 0 -12px' },
     ...items.map(([, title, [, image, description, link]]: any) => {
       const titleStr = getUnitString(title);
       const imageStr = getUnitString(image);
@@ -59,7 +59,7 @@ function toList([, ...items]: ContentUnit[]) {
         'div',
         {
           className: 'ant-col ant-col-6 gutter-row',
-          style: 'padding-left: 12px; padding-right: 12px;',
+          style: 'padding: 12px;',
         },
         [
           'a',
