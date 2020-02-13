@@ -36,6 +36,8 @@
       display: flex;
       flex-direction: column;
       cursor: pointer;
+      transition: box-shadow 0.3s;
+      color: inherit;
 
       &:hover {
         box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
@@ -44,7 +46,8 @@
 
       .resource-card-image {
         height: 184px;
-        width: 100%;
+        margin: -1px -1px 0 -1px;
+        width: calc(100% + 2px);
         max-width: none;
         object-fit: cover;
       }

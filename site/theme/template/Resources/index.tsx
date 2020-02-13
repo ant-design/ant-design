@@ -40,6 +40,8 @@ interface ResourcesProps {
 type ContentUnit = string | Record<string, string> | ContentUnit[];
 
 function getUnitString(unit: ContentUnit[]): string {
+  if (!unit) return '';
+
   const last = unit[unit.length - 1];
   return Array.isArray(last) ? getUnitString(last) : (last as string);
 }
@@ -48,10 +50,11 @@ function toList([, ...items]: ContentUnit[]) {
   return [
     'div',
     { className: 'ant-row resource-cards', style: 'margin-left: -12px; margin-right: -12px;' },
-    ...items.map(([, title, [, image, description]]: any) => {
+    ...items.map(([, title, [, image, description, link]]: any) => {
       const titleStr = getUnitString(title);
       const imageStr = getUnitString(image);
       const descStr = getUnitString(description);
+      const linkStr = getUnitString(link);
       return [
         'div',
         {
@@ -59,8 +62,8 @@ function toList([, ...items]: ContentUnit[]) {
           style: 'padding-left: 12px; padding-right: 12px;',
         },
         [
-          'div',
-          { className: 'resource-card' },
+          'a',
+          { className: 'resource-card', target: '_blank', href: linkStr },
           [
             'img',
             {
