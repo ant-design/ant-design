@@ -13,6 +13,8 @@ import SearchBox from './SearchBox';
 import More from './More';
 import Navigation from './Navigation';
 
+import './index.less';
+
 const { Option } = Select;
 
 let docsearch: any;
@@ -164,23 +166,17 @@ class Header extends React.Component<HeaderProps> {
     };
 
     const menu = [
-      <More key="more" {...sharedProps} />,
-      <Button
-        size="small"
-        onClick={this.handleDirectionChange}
-        className="header-button header-direction-button"
-        key="direction-button"
-      >
-        {this.getNextDirectionText()}
-      </Button>,
-      <Button
-        size="small"
-        onClick={this.handleLangChange}
-        className="header-button header-lang-button"
-        key="lang-button"
-      >
-        <FormattedMessage id="app.header.lang" />
-      </Button>,
+      <SearchBox key="search" {...sharedProps} />,
+      <Navigation
+        key="nav"
+        {...sharedProps}
+        isHome={isHome}
+        isMobile={isMobile}
+        pathname={pathname}
+      />,
+      isHome ? (
+        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
+      ) : null,
       <Select
         key="version"
         className="version"
@@ -191,16 +187,23 @@ class Header extends React.Component<HeaderProps> {
       >
         {versionOptions}
       </Select>,
-      isHome ? (
-        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
-      ) : null,
-      <Navigation
-        key="nav"
-        {...sharedProps}
-        isHome={isHome}
-        isMobile={isMobile}
-        pathname={pathname}
-      />,
+      <Button
+        size="small"
+        onClick={this.handleLangChange}
+        className="header-button header-lang-button"
+        key="lang-button"
+      >
+        <FormattedMessage id="app.header.lang" />
+      </Button>,
+      <Button
+        size="small"
+        onClick={this.handleDirectionChange}
+        className="header-button header-direction-button"
+        key="direction-button"
+      >
+        {this.getNextDirectionText()}
+      </Button>,
+      <More key="more" {...sharedProps} />,
     ];
 
     const colProps = isHome
@@ -243,8 +246,7 @@ class Header extends React.Component<HeaderProps> {
           <Col {...colProps[0]}>
             <Logo {...sharedProps} />
           </Col>
-          <Col {...colProps[1]}>
-            <SearchBox {...sharedProps} />
+          <Col {...colProps[1]} className="menu-row">
             {!isMobile && menu}
           </Col>
         </Row>
