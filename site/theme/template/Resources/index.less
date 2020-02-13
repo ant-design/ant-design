@@ -27,4 +27,39 @@
       max-width: 1208px;
     }
   }
+
+  .resource-cards {
+    .resource-card {
+      list-style: none;
+      border: 1px solid #e6e6e6;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+
+      &:hover {
+        box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+          0 9px 28px 8px rgba(0, 0, 0, 0.05);
+      }
+
+      .resource-card-image {
+        height: 184px;
+        width: 100%;
+        max-width: none;
+        object-fit: cover;
+      }
+
+      .resource-card-title {
+        font-size: 20px;
+        line-height: 28px;
+        margin: 16px 0 8px 20px;
+      }
+      .resource-card-description {
+        font-size: 14px;
+        line-height: 22px;
+        margin: 0 0 20px 20px;
+        color: #697b8c;
+      }
+    }
+  }
 }

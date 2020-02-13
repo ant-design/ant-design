@@ -25,7 +25,7 @@ export interface ArticleProps {
     };
     description?: any[];
     toc: string[];
-    content: string[];
+    content: any[];
     api?: any;
   };
   intl: { locale: string };
