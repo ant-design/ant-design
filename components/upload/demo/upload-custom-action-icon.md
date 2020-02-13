@@ -50,7 +50,7 @@ const props = {
     downloadIcon: <SmileOutlined />,
     showRemoveIcon: true,
     removeIcon: <StarOutlined />,
-  }
+  },
 };
 
 ReactDOM.render(
