@@ -40,6 +40,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
       >
         <a
           class="ant-pagination-item-link"
+          disabled=""
         >
           <span
             aria-label="left"
@@ -129,6 +130,7 @@ exports[`List.pagination should change page size work 1`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="left"
@@ -168,6 +170,7 @@ exports[`List.pagination should change page size work 1`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="right"
@@ -268,6 +271,7 @@ exports[`List.pagination should change page size work 2`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="left"
@@ -307,6 +311,7 @@ exports[`List.pagination should change page size work 2`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="right"
@@ -587,6 +592,7 @@ exports[`List.pagination should default work 1`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="right"

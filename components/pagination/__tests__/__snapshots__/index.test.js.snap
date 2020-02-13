@@ -12,6 +12,7 @@ exports[`Pagination rtl render component should be rendered correctly in RTL dir
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="right"
@@ -51,6 +52,7 @@ exports[`Pagination rtl render component should be rendered correctly in RTL dir
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="left"
@@ -89,6 +91,7 @@ exports[`Pagination should be rendered correctly in RTL 1`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="right"

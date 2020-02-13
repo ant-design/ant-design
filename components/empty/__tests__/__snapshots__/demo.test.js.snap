@@ -608,6 +608,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             >
               <a
                 class="ant-pagination-item-link"
+                disabled=""
               >
                 <span
                   aria-label="left"
@@ -647,6 +648,7 @@ exports[`renders ./components/empty/demo/config-provider.md correctly 1`] = `
             >
               <a
                 class="ant-pagination-item-link"
+                disabled=""
               >
                 <span
                   aria-label="right"
