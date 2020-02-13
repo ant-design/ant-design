@@ -1,6 +1,6 @@
 ---
 order: 1
-title: resources
+title: Resources
 toc: false
 ---
 

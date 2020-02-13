@@ -9,32 +9,32 @@
       background-size: cover;
 
       h1 {
-        margin: 48px auto 16px;
         max-width: @ArticleMaxWidth;
+        margin: 48px auto 16px;
         line-height: 53px;
       }
 
       .markdown {
-        font-size: 16px;
-        line-height: 24px;
-        font-weight: 200;
         max-width: @ArticleMaxWidth;
         margin: 0 auto 56px;
+        font-weight: 200;
+        font-size: 16px;
+        line-height: 24px;
       }
     }
 
     // Content
     > .markdown {
-      margin: 0 auto;
       max-width: @ArticleMaxWidth;
+      margin: 0 auto;
     }
 
     h2 {
-      font-size: 30px;
-      line-height: 38px;
-      font-weight: 200;
       margin-top: 124px;
       color: #314659;
+      font-weight: 200;
+      font-size: 30px;
+      line-height: 38px;
 
       &:first-child {
         margin-top: 88px;
@@ -42,10 +42,10 @@
     }
 
     h3 {
+      margin-top: 56px;
+      font-weight: 400;
       font-size: 24px;
       line-height: 32px;
-      font-weight: 400;
-      margin-top: 56px;
     }
 
     p {
@@ -55,14 +55,15 @@
 
   .resource-cards {
     .resource-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      color: inherit;
       list-style: none;
       border: 1px solid #e6e6e6;
       border-radius: 2px;
-      display: flex;
-      flex-direction: column;
       cursor: pointer;
       transition: box-shadow 0.3s;
-      color: inherit;
 
       &:hover {
         box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
@@ -70,24 +71,24 @@
       }
 
       .resource-card-image {
-        height: 184px;
-        margin: -1px -1px 0 -1px;
         width: calc(100% + 2px);
         max-width: none;
+        height: 184px;
+        margin: -1px -1px 0 -1px;
         object-fit: cover;
       }
 
       .resource-card-title {
+        margin: 16px 20px 8px 20px;
+        color: #0d1a26;
         font-size: 20px;
         line-height: 28px;
-        margin: 16px 0 8px 20px;
-        color: #0d1a26;
       }
       .resource-card-description {
+        margin: 0 20px 20px 20px;
+        color: #697b8c;
         font-size: 14px;
         line-height: 22px;
-        margin: 0 0 20px 20px;
-        color: #697b8c;
       }
     }
   }
@@ -97,9 +98,9 @@
 
     .rc-footer-container {
       max-width: @ArticleMaxWidth;
-      padding-left: 0;
-      padding-right: 0;
       margin: 0 auto;
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 }
