@@ -172,20 +172,20 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const linkProps =
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
-      const removeIcon = showRemoveIcon ? customRemoveIcon ? (
-        <span title={locale.removeFile} className="anticon-delete" onClick={() => this.handleClose(file)}>
+      const removeIcon = showRemoveIcon ? customRemoveIcon && (
+        <span title={locale.removeFile} onClick={() => this.handleClose(file)}>
           {customRemoveIcon}
         </span>
-      ) : (
+      ) || (
         <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
 
       const downloadIcon =
-        showDownloadIcon && file.status === 'done' ? customDownloadIcon ? (
-          <span title={locale.downloadFile} className="anticon-download" onClick={() => this.handleDownload(file)}>
+        showDownloadIcon && file.status === 'done' ? customDownloadIcon && (
+          <span title={locale.downloadFile} onClick={() => this.handleDownload(file)}>
             {customDownloadIcon}
           </span>
-        ) : (
+        ) || (
           <DownloadOutlined title={locale.downloadFile} onClick={() => this.handleDownload(file)}/>
         ) : null;
       const downloadOrDelete = listType !== 'picture-card' && (
