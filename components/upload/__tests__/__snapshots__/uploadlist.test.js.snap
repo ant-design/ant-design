@@ -1485,7 +1485,6 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 >
                   <span
                     class="anticon-delete"
-                    role="img"
                     title="Remove file"
                   >
                     <i>
@@ -1542,7 +1541,6 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 >
                   <span
                     class="anticon-download"
-                    role="img"
                     title="Download file"
                   >
                     <i>
@@ -1555,7 +1553,6 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 >
                   <span
                     class="anticon-delete"
-                    role="img"
                     title="Remove file"
                   >
                     <i>
