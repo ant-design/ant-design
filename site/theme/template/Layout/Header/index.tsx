@@ -4,11 +4,13 @@ import GitHubButton from 'react-github-button';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { SearchOutlined, MenuOutlined, DownOutlined } from '@ant-design/icons';
-import { Select, Menu, Row, Col, Popover, Input, Button } from 'antd';
+import { MenuOutlined, DownOutlined } from '@ant-design/icons';
+import { Select, Menu, Row, Col, Popover, Button } from 'antd';
 
 import * as utils from '../../utils';
 import { version as antdVersion } from '../../../../../package.json';
+import Logo from './Logo';
+import SearchBox from './SearchBox';
 
 const { Option } = Select;
 
@@ -59,18 +61,10 @@ class Header extends React.Component<HeaderProps> {
     menuVisible: false,
   };
 
-  searchInput: any;
-
   componentDidMount() {
     const { intl } = this.props;
     const { router } = this.context;
     router.listen(this.handleHideMenu);
-    const { searchInput } = this;
-    document.addEventListener('keyup', event => {
-      if (event.keyCode === 83 && event.target === document.body) {
-        searchInput.focus();
-      }
-    });
     initDocSearch(intl.locale);
   }
 
@@ -323,7 +317,10 @@ class Header extends React.Component<HeaderProps> {
           },
         ];
 
-    const searchPlaceholder = locale === 'zh-CN' ? '在 ant.design 中搜索' : 'Search in ant.design';
+    const sharedProps = {
+      isZhCN,
+    };
+
     return (
       <header id="header" className={headerClassName}>
         {isMobile && (
@@ -341,26 +338,10 @@ class Header extends React.Component<HeaderProps> {
         )}
         <Row style={{ flexFlow: 'nowrap' }}>
           <Col {...colProps[0]}>
-            <h1>
-              <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
-                <img
-                  alt="logo"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-                />
-                Ant Design
-              </Link>
-            </h1>
+            <Logo {...sharedProps} />
           </Col>
           <Col {...colProps[1]}>
-            <div id="search-box">
-              <SearchOutlined />
-              <Input
-                ref={ref => {
-                  this.searchInput = ref;
-                }}
-                placeholder={searchPlaceholder}
-              />
-            </div>
+            <SearchBox {...sharedProps} />
             {!isMobile && menu}
           </Col>
         </Row>
