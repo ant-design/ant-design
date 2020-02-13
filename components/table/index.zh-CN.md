@@ -76,7 +76,7 @@ const columns = [
 | pagination | 分页器，参考[配置项](#pagination)或 [pagination](/components/pagination/) 文档，设为 false 时不展示和进行分页 | object | - |
 | rowClassName | 表格行的类名 | Function(record, index):string | - |
 | rowKey | 表格行 key 的取值，可以是字符串或一个函数 | string\|Function(record):string | 'key' |
-| rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | null |
+| rowSelection | 表格行是否可选择，[配置项](#rowSelection) | object | - |
 | scroll | 表格是否可滚动，[配置项](#scroll) | object | - |
 | showHeader | 是否显示表头 | boolean | true |
 | size | 表格大小 | `default` \| `middle` \| `small` | default |
