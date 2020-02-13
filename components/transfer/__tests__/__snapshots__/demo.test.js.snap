@@ -2745,6 +2745,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   >
                     <a
                       class="ant-pagination-item-link"
+                      disabled=""
                     >
                       <span
                         aria-label="left"
@@ -3156,6 +3157,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   >
                     <a
                       class="ant-pagination-item-link"
+                      disabled=""
                     >
                       <span
                         aria-label="left"
@@ -3195,6 +3197,7 @@ exports[`renders ./components/transfer/demo/table-transfer.md correctly 1`] = `
                   >
                     <a
                       class="ant-pagination-item-link"
+                      disabled=""
                     >
                       <span
                         aria-label="right"

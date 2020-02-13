@@ -12,6 +12,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="left"
@@ -689,7 +690,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     class="ant-pagination-disabled ant-pagination-prev"
     title="Previous Page"
   >
-    <a>
+    <a
+      disabled=""
+    >
       Previous
     </a>
   </li>
@@ -1165,6 +1168,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1276,6 +1280,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1462,6 +1467,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1879,6 +1885,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1996,6 +2003,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
