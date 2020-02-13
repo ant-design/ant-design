@@ -2710,7 +2710,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   title="Download file"
                 >
                   <span
-                    class="anticon-download"
                     title="Download file"
                   >
                     <span
@@ -2739,7 +2738,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   title="Remove file"
                 >
                   <span
-                    class="anticon-delete"
                     title="Remove file"
                   >
                     <span
@@ -2821,7 +2819,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   title="Download file"
                 >
                   <span
-                    class="anticon-download"
                     title="Download file"
                   >
                     <span
@@ -2850,7 +2847,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                   title="Remove file"
                 >
                   <span
-                    class="anticon-delete"
                     title="Remove file"
                   >
                     <span
@@ -2931,7 +2927,6 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 title="Remove file"
               >
                 <span
-                  class="anticon-delete"
                   title="Remove file"
                 >
                   <span
