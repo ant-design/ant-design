@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import GitHubButton from 'react-github-button';
-import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { MenuOutlined, DownOutlined } from '@ant-design/icons';
-import { Select, Menu, Row, Col, Popover, Button } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
+import { Select, Row, Col, Popover, Button } from 'antd';
 
 import * as utils from '../../utils';
 import { version as antdVersion } from '../../../../../package.json';
 import Logo from './Logo';
 import SearchBox from './SearchBox';
+import More from './More';
+import Navigation from './Navigation';
 
 const { Option } = Select;
 
@@ -135,7 +136,6 @@ class Header extends React.Component<HeaderProps> {
   render() {
     const { menuVisible } = this.state;
     const { isMobile } = this.context;
-    const menuMode = isMobile ? 'inline' : 'horizontal';
     const {
       location,
       themeConfig,
@@ -149,19 +149,6 @@ class Header extends React.Component<HeaderProps> {
     ));
 
     const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
-    const module = pathname
-      .split('/')
-      .slice(0, -1)
-      .join('/');
-    let activeMenuItem = module || 'home';
-    if (location.pathname === 'changelog' || location.pathname === 'changelog-cn') {
-      activeMenuItem = 'docs/react';
-    } else if (
-      location.pathname === 'docs/resources' ||
-      location.pathname === 'docs/resources-cn'
-    ) {
-      activeMenuItem = 'docs/resources';
-    }
 
     const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
@@ -172,64 +159,12 @@ class Header extends React.Component<HeaderProps> {
       'home-header': isHome,
     });
 
+    const sharedProps = {
+      isZhCN,
+    };
+
     const menu = [
-      <Menu className="menu-site-more" mode={menuMode} id="nav-more" key="nav-more">
-        <Menu.SubMenu
-          key="ecosystem"
-          className="hide-in-home-page"
-          title={
-            <Button size="small" className="header-button">
-              <FormattedMessage id="app.header.menu.more" />
-              <DownOutlined />
-            </Button>
-          }
-        >
-          <Menu.ItemGroup title={<FormattedMessage id="app.header.menu.ecosystem" />}>
-            <Menu.Item key="pro">
-              <a
-                href="http://pro.ant.design"
-                className="header-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FormattedMessage id="app.header.menu.pro.v4" />
-              </a>
-            </Menu.Item>
-            <Menu.Item key="ng">
-              <a
-                href="http://ng.ant.design"
-                className="header-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ant Design of Angular
-              </a>
-            </Menu.Item>
-            <Menu.Item key="vue">
-              <a
-                href="http://vue.ant.design"
-                className="header-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ant Design of Vue
-              </a>
-            </Menu.Item>
-            {isZhCN ? (
-              <Menu.Item key="course" className="hide-in-home-page">
-                <a
-                  href="https://www.yuque.com/ant-design/course"
-                  className="header-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Ant Design 实战教程
-                </a>
-              </Menu.Item>
-            ) : null}
-          </Menu.ItemGroup>
-        </Menu.SubMenu>
-      </Menu>,
+      <More key="more" {...sharedProps} />,
       <Button
         size="small"
         onClick={this.handleDirectionChange}
@@ -259,41 +194,13 @@ class Header extends React.Component<HeaderProps> {
       isHome ? (
         <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
       ) : null,
-      <Menu
-        className="menu-site"
-        mode={menuMode}
-        selectedKeys={[activeMenuItem]}
-        id="nav"
+      <Navigation
         key="nav"
-      >
-        {isHome ? null : (
-          <Menu.Item key="home" className="hide-in-home-page">
-            <Link to={utils.getLocalizedPathname('/', isZhCN)}>
-              <FormattedMessage id="app.header.menu.home" />
-            </Link>
-          </Menu.Item>
-        )}
-        <Menu.Item key="docs/spec">
-          <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
-            <FormattedMessage id="app.header.menu.spec" />
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="docs/react">
-          <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN)}>
-            <FormattedMessage id="app.header.menu.documentation" />
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="components">
-          <Link to={utils.getLocalizedPathname('/components/button/', isZhCN)}>
-            <FormattedMessage id="app.header.menu.components" />
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="docs/resources">
-          <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN)}>
-            <FormattedMessage id="app.header.menu.resource" />
-          </Link>
-        </Menu.Item>
-      </Menu>,
+        {...sharedProps}
+        isHome={isHome}
+        isMobile={isMobile}
+        pathname={pathname}
+      />,
     ];
 
     const colProps = isHome
@@ -316,10 +223,6 @@ class Header extends React.Component<HeaderProps> {
             xs: 0,
           },
         ];
-
-    const sharedProps = {
-      isZhCN,
-    };
 
     return (
       <header id="header" className={headerClassName}>
