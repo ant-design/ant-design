@@ -9,6 +9,7 @@ module.exports = {
     'app.header.menu.components': 'Components',
     'app.header.menu.spec': 'Design',
     'app.header.menu.resource': 'Resources',
+    'app.header.menu.more': 'More',
     'app.header.menu.mobile': 'Mobile',
     'app.header.menu.pro.v4': 'Ant Design Pro v4',
     'app.header.menu.ecosystem': 'Ecosystem',

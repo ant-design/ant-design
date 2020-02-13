@@ -4,7 +4,7 @@ import GitHubButton from 'react-github-button';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
+import { SearchOutlined, MenuOutlined, DownOutlined } from '@ant-design/icons';
 import { Select, Menu, Row, Col, Popover, Input, Button } from 'antd';
 
 import * as utils from '../utils';
@@ -158,8 +158,6 @@ class Header extends React.Component {
       activeMenuItem = 'docs/resources';
     }
 
-    console.log('>>>>>', activeMenuItem);
-
     const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
     const isZhCN = locale === 'zh-CN';
@@ -170,13 +168,67 @@ class Header extends React.Component {
     });
 
     const menu = [
-      isHome ? (
-        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
-      ) : null,
+      <Menu className="menu-site-more" mode={menuMode} id="nav-more" key="nav-more">
+        <Menu.SubMenu
+          key="ecosystem"
+          className="hide-in-home-page"
+          title={
+            <Button size="small" className="header-button">
+              <FormattedMessage id="app.header.menu.more" />
+              <DownOutlined />
+            </Button>
+          }
+        >
+          <Menu.ItemGroup title={<FormattedMessage id="app.header.menu.ecosystem" />}>
+            <Menu.Item key="pro">
+              <a
+                href="http://pro.ant.design"
+                className="header-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FormattedMessage id="app.header.menu.pro.v4" />
+              </a>
+            </Menu.Item>
+            <Menu.Item key="ng">
+              <a
+                href="http://ng.ant.design"
+                className="header-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ant Design of Angular
+              </a>
+            </Menu.Item>
+            <Menu.Item key="vue">
+              <a
+                href="http://vue.ant.design"
+                className="header-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ant Design of Vue
+              </a>
+            </Menu.Item>
+            {isZhCN ? (
+              <Menu.Item key="course" className="hide-in-home-page">
+                <a
+                  href="https://www.yuque.com/ant-design/course"
+                  className="header-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Ant Design 实战教程
+                </a>
+              </Menu.Item>
+            ) : null}
+          </Menu.ItemGroup>
+        </Menu.SubMenu>
+      </Menu>,
       <Button
         size="small"
         onClick={this.handleDirectionChange}
-        className="header-direction-button"
+        className="header-button header-direction-button"
         key="direction-button"
       >
         {this.getNextDirectionText()}
@@ -184,7 +236,7 @@ class Header extends React.Component {
       <Button
         size="small"
         onClick={this.handleLangChange}
-        className="header-lang-button"
+        className="header-button header-lang-button"
         key="lang-button"
       >
         <FormattedMessage id="app.header.lang" />
@@ -200,6 +252,9 @@ class Header extends React.Component {
       >
         {versionOptions}
       </Select>,
+      isHome ? (
+        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
+      ) : null,
       <Menu
         className="menu-site"
         mode={menuMode}
@@ -234,54 +289,6 @@ class Header extends React.Component {
             <FormattedMessage id="app.header.menu.resource" />
           </Link>
         </Menu.Item>
-        {/* <Menu.SubMenu
-          key="ecosystem"
-          className="hide-in-home-page"
-          title={<FormattedMessage id="app.header.menu.ecosystem" />}
-        >
-          <Menu.Item key="pro">
-            <a
-              href="http://pro.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FormattedMessage id="app.header.menu.pro.v4" />
-            </a>
-          </Menu.Item>
-          <Menu.Item key="ng">
-            <a
-              href="http://ng.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ant Design of Angular
-            </a>
-          </Menu.Item>
-          <Menu.Item key="vue">
-            <a
-              href="http://vue.ant.design"
-              className="header-link"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ant Design of Vue
-            </a>
-          </Menu.Item>
-          {isZhCN ? (
-            <Menu.Item key="course" className="hide-in-home-page">
-              <a
-                href="https://www.yuque.com/ant-design/course"
-                className="header-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Ant Design 实战教程
-              </a>
-            </Menu.Item>
-          ) : null}
-        </Menu.SubMenu> */}
       </Menu>,
     ];
 
@@ -322,7 +329,7 @@ class Header extends React.Component {
             <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
           </Popover>
         )}
-        <Row>
+        <Row style={{ flexFlow: 'nowrap' }}>
           <Col {...colProps[0]}>
             <h1>
               <Link to={utils.getLocalizedPathname('/', isZhCN)} id="logo">
