@@ -416,11 +416,12 @@ class App extends React.Component {
               </TreeNode>
             </TreeNode>
           </Tree>
-          <Table columns={columns} dataSource={data} />
+          <Table columns={columns} dataSource={data} footer={() => 'Footer'} />
            <Table
             columns={columnsTable}
             dataSource={dataTable}
             pagination={false}
+            id="table-demo-summary"
             bordered
             summary={pageData => {
               let totalBorrow = 0;
@@ -452,6 +453,7 @@ class App extends React.Component {
               );
             }}
           />
+          <br />
           <Table
             columns={columnsNest}
             expandable={{ expandedRowRender }}
@@ -479,4 +481,9 @@ class App extends React.Component {
 ReactDOM.render(<App />, mountNode);
 ```
 
->
+<style>
+  [data-theme="dark"] #table-demo-summary tfoot th,
+  [data-theme="dark"] #table-demo-summary tfoot td {
+    background: #272727;
+  }
+</style>
