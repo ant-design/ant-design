@@ -464,7 +464,7 @@ class App extends React.Component {
             expandable={{ expandedRowRender }}
             dataSource={dataNest}
           />
-          <Table columns={columnsFixed} dataSource={dataFixed} scroll={{ x: 1300 }} />
+          <Table columns={columnsFixed} dataSource={dataFixed} scroll={{ x: 1300, y: 100 }} />
           <Card
             hoverable
             style={{ width: 240 }}
