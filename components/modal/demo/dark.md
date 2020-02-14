@@ -15,7 +15,7 @@ debug: true
 Basic modal.
 
 ```jsx
-import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch, Typography } from 'antd';
+import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch, Typography, Dropdown } from 'antd';
 import moment from 'moment';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
@@ -365,14 +365,7 @@ class App extends React.Component {
             disabled={disabled}
           />
           <Transfer disabled={disabled}>
-             {({
-                direction,
-                filteredItems,
-                onItemSelectAll,
-                onItemSelect,
-                selectedKeys: listSelectedKeys,
-                disabled: listDisabled,
-              }) => <Table columns={columns} dataSource={data} />}
+             {() => <Table columns={columns} dataSource={data} />}
           </Transfer>
           <Anchor>
             <Link href="#components-anchor-demo-basic" title="Basic demo" />
