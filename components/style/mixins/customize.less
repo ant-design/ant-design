@@ -33,7 +33,9 @@
     }
 
     .@{table-prefix-cls} {
-      background-color: @background;
+      &, .@{table-prefix-cls}-row-expand-icon {
+        background-color: @background;
+      }
       thead {
         > tr {
           > th {
