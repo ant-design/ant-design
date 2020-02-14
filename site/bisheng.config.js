@@ -47,6 +47,8 @@ module.exports = {
       'Global Styles': 1,
       设计模式: 2,
       'Design Patterns': 2,
+      '设计模式 - 探索': 3,
+      'Design Patterns (Research)': 3,
       Components: 100,
       组件: 100,
     },
