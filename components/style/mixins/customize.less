@@ -46,6 +46,9 @@
         > tr {
           > td {
             border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+            &.@{table-prefix-cls}-cell-fix-left, &.@{table-prefix-cls}-cell-fix-right {
+              background-color: @background;
+            }
           }
           &.@{table-prefix-cls}-row:hover {
             > td {

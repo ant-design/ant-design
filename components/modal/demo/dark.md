@@ -15,7 +15,7 @@ debug: true
 Basic modal.
 
 ```jsx
-import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch } from 'antd';
+import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch, Typography } from 'antd';
 import moment from 'moment';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
@@ -24,6 +24,7 @@ const { TreeNode } = Tree;
 const { TabPane } = Tabs;
 const { Meta } = Card;
 const { Link } = Anchor;
+const { Text } = Typography;
 
 const text = `
   A dog is a type of domesticated animal.
@@ -67,6 +68,163 @@ const data = [
     name: 'Jim Red',
     age: 32,
     address: 'London No. 2 Lake Park',
+  },
+];
+
+const columnsTable = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+  },
+  {
+    title: 'Borrow',
+    dataIndex: 'borrow',
+  },
+  {
+    title: 'Repayment',
+    dataIndex: 'repayment',
+  },
+];
+
+const dataTable = [
+  {
+    key: '1',
+    name: 'John Brown',
+    borrow: 10,
+    repayment: 33,
+  },
+  {
+    key: '2',
+    name: 'Jim Green',
+    borrow: 100,
+    repayment: 0,
+  },
+  {
+    key: '3',
+    name: 'Joe Black',
+    borrow: 10,
+    repayment: 10,
+  },
+  {
+    key: '4',
+    name: 'Jim Red',
+    borrow: 75,
+    repayment: 45,
+  },
+];
+
+const expandedRowRender = () => {
+  const columns = [
+    { title: 'Date', dataIndex: 'date', key: 'date' },
+    { title: 'Name', dataIndex: 'name', key: 'name' },
+    {
+      title: 'Status',
+      key: 'state',
+      render: () => (
+        <span>
+          <Badge status="success" />
+          Finished
+        </span>
+      ),
+    },
+    { title: 'Upgrade Status', dataIndex: 'upgradeNum', key: 'upgradeNum' },
+    {
+      title: 'Action',
+      dataIndex: 'operation',
+      key: 'operation',
+      render: () => (
+        <span className="table-operation">
+          <a>Pause</a>
+          <a>Stop</a>
+          <Dropdown overlay={menu}>
+            <a>
+              More <DownOutlined />
+            </a>
+          </Dropdown>
+        </span>
+      ),
+    },
+  ];
+
+  const data = [];
+  for (let i = 0; i < 3; ++i) {
+    data.push({
+      key: i,
+      date: '2014-12-24 23:12:00',
+      name: 'This is production name',
+      upgradeNum: 'Upgraded: 56',
+    });
+  }
+  return <Table columns={columns} dataSource={data} pagination={false} />;
+};
+
+const columnsNest = [
+  { title: 'Name', dataIndex: 'name', key: 'name' },
+  { title: 'Platform', dataIndex: 'platform', key: 'platform' },
+  { title: 'Version', dataIndex: 'version', key: 'version' },
+  { title: 'Upgraded', dataIndex: 'upgradeNum', key: 'upgradeNum' },
+  { title: 'Creator', dataIndex: 'creator', key: 'creator' },
+  { title: 'Date', dataIndex: 'createdAt', key: 'createdAt' },
+  { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
+];
+
+const dataNest = [];
+for (let i = 0; i < 3; ++i) {
+  dataNest.push({
+    key: i,
+    name: 'Screem',
+    platform: 'iOS',
+    version: '10.3.4.5654',
+    upgradeNum: 500,
+    creator: 'Jack',
+    createdAt: '2014-12-24 23:12:00',
+  });
+}
+
+const columnsFixed = [
+  {
+    title: 'Full Name',
+    width: 100,
+    dataIndex: 'name',
+    key: 'name',
+    fixed: 'left',
+  },
+  {
+    title: 'Age',
+    width: 100,
+    dataIndex: 'age',
+    key: 'age',
+    fixed: 'left',
+  },
+  { title: 'Column 1', dataIndex: 'address', key: '1' },
+  { title: 'Column 2', dataIndex: 'address', key: '2' },
+  { title: 'Column 3', dataIndex: 'address', key: '3' },
+  { title: 'Column 4', dataIndex: 'address', key: '4' },
+  { title: 'Column 5', dataIndex: 'address', key: '5' },
+  { title: 'Column 6', dataIndex: 'address', key: '6' },
+  { title: 'Column 7', dataIndex: 'address', key: '7' },
+  { title: 'Column 8', dataIndex: 'address', key: '8' },
+  {
+    title: 'Action',
+    key: 'operation',
+    fixed: 'right',
+    width: 100,
+    render: () => <a>action</a>,
+  },
+];
+
+const dataFixed = [
+  {
+    key: '1',
+    name: 'John Brown',
+    age: 32,
+    address: 'New York Park',
+  },
+  {
+    key: '2',
+    name: 'Jim Green',
+    age: 40,
+    address: 'London Park',
   },
 ];
 
@@ -170,6 +328,17 @@ class App extends React.Component {
             onChange={this.handleDisable}
             style={{ marginBottom: 16 }}
           />
+           <Card title="Card Title">
+            <Card.Grid>Content</Card.Grid>
+            <Card.Grid hoverable={false}>
+              Content
+            </Card.Grid>
+            <Card.Grid>Content</Card.Grid>
+            <Card.Grid>Content</Card.Grid>
+            <Card.Grid>Content</Card.Grid>
+            <Card.Grid>Content</Card.Grid>
+            <Card.Grid>Content</Card.Grid>
+          </Card>
           <Collapse>
             <Panel header="This is panel header 1" key="1">
               <Collapse defaultActiveKey="1">
@@ -255,6 +424,47 @@ class App extends React.Component {
             </TreeNode>
           </Tree>
           <Table columns={columns} dataSource={data} />
+           <Table
+            columns={columnsTable}
+            dataSource={dataTable}
+            pagination={false}
+            bordered
+            summary={pageData => {
+              let totalBorrow = 0;
+              let totalRepayment = 0;
+
+              pageData.forEach(({ borrow, repayment }) => {
+                totalBorrow += borrow;
+                totalRepayment += repayment;
+              });
+
+              return (
+                <>
+                  <tr>
+                    <th>Total</th>
+                    <td>
+                      <Text type="danger">{totalBorrow}</Text>
+                    </td>
+                    <td>
+                      <Text>{totalRepayment}</Text>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Balance</th>
+                    <td colSpan={2}>
+                      <Text type="danger">{totalBorrow - totalRepayment}</Text>
+                    </td>
+                  </tr>
+                </>
+              );
+            }}
+          />
+          <Table
+            columns={columnsNest}
+            expandable={{ expandedRowRender }}
+            dataSource={dataNest}
+          />
+          <Table columns={columnsFixed} dataSource={dataFixed} scroll={{ x: 1300 }} />
           <Card
             hoverable
             style={{ width: 240 }}
