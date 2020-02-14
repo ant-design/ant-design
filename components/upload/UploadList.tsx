@@ -98,6 +98,27 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return icon;
   };
 
+  handleActionIconRender = (customIcon: React.ReactNode, callback: () => void, title?: string) => {
+    if(React.isValidElement(customIcon)) {
+      return React.cloneElement(customIcon,
+        {
+          onClick: () => {
+            callback();
+            if (customIcon.props.onClick) {
+              customIcon.props.onClick();
+            }
+          },
+          title,
+        },
+      );
+    }
+    return (
+      <span title={title} onClick={() => callback()}>
+        {customIcon}
+      </span>
+    );
+  };
+
   renderUploadList = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -173,18 +194,14 @@ export default class UploadList extends React.Component<UploadListProps, any> {
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
       const removeIcon = showRemoveIcon ? customRemoveIcon && (
-        <span title={locale.removeFile} onClick={() => this.handleClose(file)}>
-          {customRemoveIcon}
-        </span>
+        this.handleActionIconRender(customRemoveIcon, () => this.handleClose(file), locale.removeFile)
       ) || (
         <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
 
       const downloadIcon =
         showDownloadIcon && file.status === 'done' ? customDownloadIcon && (
-          <span title={locale.downloadFile} onClick={() => this.handleDownload(file)}>
-            {customDownloadIcon}
-          </span>
+          this.handleActionIconRender(customDownloadIcon, () => this.handleDownload(file), locale.downloadFile)
         ) || (
           <DownloadOutlined title={locale.downloadFile} onClick={() => this.handleDownload(file)}/>
         ) : null;
