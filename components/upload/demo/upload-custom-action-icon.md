@@ -49,7 +49,7 @@ const props = {
     showDownloadIcon: true,
     downloadIcon: 'download ',
     showRemoveIcon: true,
-    removeIcon: <StarOutlined onClick={() => console.log('custom removeIcon')} />,
+    removeIcon: <StarOutlined onClick={e => console.log(e, 'custom removeIcon event')} />,
   },
 };
 
