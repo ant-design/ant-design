@@ -15,6 +15,8 @@
   @calendar-picker-prefix-cls: ~'@{prefix}-picker';
   @table-prefix-cls: ~'@{prefix}-table';
 
+  @popover-border: @border-width-base @border-style-base @popover-customize-border-color;
+
   .@{containerClass} {
     .@{picker-prefix-cls}-clear, .@{slider-prefix-cls}-handle, .@{anchor-prefix-cls}-wrapper, .@{collapse-prefix-cls}-content, .@{timeline-prefix-cls}-item-head, .@{card-prefix-cls} {
       background-color: @background;
@@ -24,7 +26,7 @@
       &-list {
         &-header {
           background: @background;
-          border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+          border-bottom: @popover-border;
         }
         &-content-item:not(.@{transfer-prefix-cls}-list-content-item-disabled):hover {
           background-color: @item-hover-bg;
@@ -32,20 +34,36 @@
       }
     }
 
+    tr.@{table-prefix-cls}-expanded-row {
+      &,
+      &:hover {
+        > td {
+          background: #272727;
+        }
+      }
+    }
     .@{table-prefix-cls} {
       background-color: @background;
+      tfoot {
+        > tr {
+          > th,
+          > td {
+            border-bottom: @popover-border;
+          }
+        }
+      }
       thead {
         > tr {
           > th {
             background-color: #272727;
-            border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+            border-bottom: @popover-border;
           }
         }
       }
       tbody {
         > tr {
           > td {
-            border-bottom: @border-width-base @border-style-base @popover-customize-border-color;
+            border-bottom: @popover-border;
             &.@{table-prefix-cls}-cell-fix-left, &.@{table-prefix-cls}-cell-fix-right {
               background-color: @background;
             }
@@ -55,6 +73,82 @@
               background: @table-header-sort-active-bg;
             }
           }
+        }
+      }
+      &.@{table-prefix-cls}-bordered {
+        .@{table-prefix-cls}-title {
+          border: @popover-border;
+        }
+
+        // ============================= Cell =============================
+        thead > tr > th,
+        tbody > tr > td,
+        tfoot > tr > th,
+        tfoot > tr > td {
+          border-right: @popover-border;
+        }
+
+        // Fixed right should provides additional border
+        .@{table-prefix-cls}-cell-fix-right-first::after {
+          border-right: @popover-border;
+        }
+
+        // ============================ Header ============================
+        table > {
+          thead {
+            > tr:not(:last-child) > th {
+              border-bottom: @border-width-base @border-style-base @border-color-split;
+            }
+          }
+        }
+
+        // =========================== Content ============================
+        .@{table-prefix-cls}-container {
+          border: @popover-border;
+          border-right: 0;
+          border-bottom: 0;
+        }
+
+        // ========================== Expandable ==========================
+        .@{table-prefix-cls}-expanded-row-fixed {
+          margin: -@table-padding-vertical (-@table-padding-horizontal - @border-width-base);
+
+          &::after {
+            position: absolute;
+            top: 0;
+            right: @border-width-base;
+            bottom: 0;
+            border-right: @popover-border;
+            content: '';
+          }
+        }
+
+        &.@{table-prefix-cls}-fixed-column {
+          tr.@{table-prefix-cls}-expanded-row,
+          tr.@{table-prefix-cls}-placeholder {
+            > td {
+              border-right: 0;
+            }
+          }
+        }
+
+        // Size related
+        &.@{table-prefix-cls}-middle {
+          .@{table-prefix-cls}-expanded-row-fixed {
+            margin: -@table-padding-vertical-md (-@table-padding-horizontal-md - @border-width-base);
+          }
+        }
+
+        &.@{table-prefix-cls}-small {
+          .@{table-prefix-cls}-expanded-row-fixed {
+            margin: -@table-padding-vertical-sm (-@table-padding-horizontal-sm - @border-width-base);
+          }
+        }
+
+        // ============================ Footer ============================
+        .@{table-prefix-cls}-footer {
+          border: @popover-border;
+          border-top: 0;
         }
       }
       .@{table-prefix-cls}-filter-trigger-container-open {
