@@ -51,3 +51,4 @@ site/theme/template/Layout/Footer.jsx
 site/theme/template/Layout/Header/**/*.jsx
 site/theme/template/Content/Article.jsx
 site/theme/template/Content/EditButton.jsx
+site/theme/template/Resources/**/*.jsx
