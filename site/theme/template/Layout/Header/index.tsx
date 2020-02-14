@@ -15,6 +15,10 @@ import Navigation from './Navigation';
 
 import './index.less';
 
+const RESPONSIVE_XS = 1100;
+const RESPONSIVE_SM = 1100;
+const RESPONSIVE_MD = 1100;
+
 const { Option } = Select;
 
 let docsearch: any;
@@ -52,7 +56,13 @@ export interface HeaderProps {
   changeDirection: (direction: string) => void;
 }
 
-class Header extends React.Component<HeaderProps> {
+interface HeaderState {
+  menuVisible: boolean;
+  windowWidth: number;
+  searching: boolean;
+}
+
+class Header extends React.Component<HeaderProps, HeaderState> {
   static contextTypes = {
     router: PropTypes.object.isRequired,
     isMobile: PropTypes.bool.isRequired,
@@ -62,6 +72,8 @@ class Header extends React.Component<HeaderProps> {
 
   state = {
     menuVisible: false,
+    windowWidth: window.innerWidth,
+    searching: false,
   };
 
   componentDidMount() {
@@ -69,7 +81,23 @@ class Header extends React.Component<HeaderProps> {
     const { router } = this.context;
     router.listen(this.handleHideMenu);
     initDocSearch(intl.locale);
+
+    window.addEventListener('resize', this.onWindowResize);
   }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
+  }
+
+  onWindowResize = () => {
+    this.setState({
+      windowWidth: window.innerWidth,
+    });
+  };
+
+  onTriggerSearching = (searching: boolean) => {
+    this.setState({ searching });
+  };
 
   handleShowMenu = () => {
     this.setState({
@@ -136,7 +164,7 @@ class Header extends React.Component<HeaderProps> {
   };
 
   render() {
-    const { menuVisible } = this.state;
+    const { menuVisible, windowWidth, searching } = this.state;
     const { isMobile } = this.context;
     const {
       location,
@@ -165,46 +193,57 @@ class Header extends React.Component<HeaderProps> {
       isZhCN,
     };
 
-    const menu = [
-      <SearchBox key="search" {...sharedProps} />,
-      <Navigation
-        key="nav"
+    const searchNode = (
+      <SearchBox
+        key="search"
         {...sharedProps}
-        isHome={isHome}
-        isMobile={isMobile}
-        pathname={pathname}
-      />,
-      isHome ? (
-        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
-      ) : null,
-      <Select
-        key="version"
-        className="version"
-        size="small"
-        defaultValue={antdVersion}
-        onChange={this.handleVersionChange}
-        getPopupContainer={trigger => trigger.parentNode}
-      >
-        {versionOptions}
-      </Select>,
-      <Button
-        size="small"
-        onClick={this.handleLangChange}
-        className="header-button header-lang-button"
-        key="lang-button"
-      >
-        <FormattedMessage id="app.header.lang" />
-      </Button>,
-      <Button
-        size="small"
-        onClick={this.handleDirectionChange}
-        className="header-button header-direction-button"
-        key="direction-button"
-      >
-        {this.getNextDirectionText()}
-      </Button>,
-      <More key="more" {...sharedProps} />,
-    ];
+        narrow={windowWidth < RESPONSIVE_MD}
+        onTriggerFocus={this.onTriggerSearching}
+      />
+    );
+
+    const menu = searching
+      ? [searchNode]
+      : [
+          searchNode,
+          <Navigation
+            key="nav"
+            {...sharedProps}
+            isHome={isHome}
+            isMobile={isMobile}
+            pathname={pathname}
+          />,
+          isHome ? (
+            <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
+          ) : null,
+          <Select
+            key="version"
+            className="version"
+            size="small"
+            defaultValue={antdVersion}
+            onChange={this.handleVersionChange}
+            getPopupContainer={trigger => trigger.parentNode}
+          >
+            {versionOptions}
+          </Select>,
+          <Button
+            size="small"
+            onClick={this.handleLangChange}
+            className="header-button header-lang-button"
+            key="lang-button"
+          >
+            <FormattedMessage id="app.header.lang" />
+          </Button>,
+          <Button
+            size="small"
+            onClick={this.handleDirectionChange}
+            className="header-button header-direction-button"
+            key="direction-button"
+          >
+            {this.getNextDirectionText()}
+          </Button>,
+          <More key="more" {...sharedProps} />,
+        ];
 
     const colProps = isHome
       ? [{ flex: 'none' }, { flex: 'auto' }]
