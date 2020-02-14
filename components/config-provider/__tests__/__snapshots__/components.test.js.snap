@@ -8011,6 +8011,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <a
         class="config-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -8050,6 +8051,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <a
         class="config-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="right"
@@ -8155,6 +8157,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <a
         class="config-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -8194,6 +8197,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     >
       <a
         class="config-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="right"
@@ -8304,6 +8308,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -8343,6 +8348,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="right"
@@ -8448,6 +8454,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -8487,6 +8494,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="right"
@@ -8597,6 +8605,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <a
         class="prefix-Pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -8636,6 +8645,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <a
         class="prefix-Pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="right"
@@ -8741,6 +8751,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <a
         class="prefix-Pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -8780,6 +8791,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     >
       <a
         class="prefix-Pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="right"
@@ -11531,6 +11543,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
         >
           <a
             class="config-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -11570,6 +11583,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
         >
           <a
             class="config-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -11868,6 +11882,7 @@ exports[`ConfigProvider components Table normal 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -11907,6 +11922,7 @@ exports[`ConfigProvider components Table normal 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -12205,6 +12221,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -12244,6 +12261,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
