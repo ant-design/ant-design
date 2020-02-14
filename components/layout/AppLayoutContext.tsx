@@ -9,14 +9,14 @@ import React from 'react';
  *  - The "default" variant is a standard, horizontally centered application. This
  *    is a fairly conventional layout used for content  rich websites.
  */
-export type LayoutVariant = 'app' | 'hcenter';
+export type AppLayoutVariant = 'app' | 'hcenter';
 
 /**
  * Information captured about the current layout.
  */
-interface LayoutSettings {
+interface AppLayoutSettings {
     /* The current, active variant. */
-    layoutVariant: LayoutVariant;
+    appLayoutVariant: AppLayoutVariant;
     /* The current height of the header, which by default in Varnish collapses
        as the user scrolls. */
     currentHeaderHeight: number;
@@ -28,17 +28,17 @@ interface LayoutSettings {
  * This context is intended to allow information about the current, active
  * layout to be shared across various components at different levels of the tree.
  *
- * Generally speaking a single `<LayoutContext.Provider />` should be used
+ * Generally speaking a single `<AppLayoutContext.Provider />` should be used
  * per page. More complex scenarios, however, might necessitate using multiple.
  */
-export const LayoutContext = React.createContext<LayoutSettings>({
-    layoutVariant: 'hcenter',
+export const AppLayoutContext = React.createContext<AppLayoutSettings>({
+    appLayoutVariant: 'hcenter',
     currentHeaderHeight: 0,
     setHeaderHeight() {},
 });
 
-interface LayoutProviderProps {
-    layoutVariant: LayoutVariant;
+interface AppLayoutProviderProps {
+    appLayoutVariant: AppLayoutVariant;
     children: React.ReactNode | React.ReactNodeArray;
 }
 
@@ -47,16 +47,16 @@ interface LayoutProviderProps {
  *
  * Most of the time you should use this.
  */
-export const DefaultLayoutProvider = ({ layoutVariant, children }: LayoutProviderProps) => {
+export const DefaultAppLayoutProvider = ({ appLayoutVariant, children }: AppLayoutProviderProps) => {
     const [currentHeaderHeight, setHeaderHeight] = React.useState(0);
     return (
-        <LayoutContext.Provider
+        <AppLayoutContext.Provider
             value={{
-                layoutVariant,
+                appLayoutVariant,
                 currentHeaderHeight,
                 setHeaderHeight,
             }}>
             {children}
-        </LayoutContext.Provider>
+        </AppLayoutContext.Provider>
     );
 };

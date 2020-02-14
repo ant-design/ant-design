@@ -17,7 +17,7 @@ import Header from './Header';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
-import { DefaultLayoutProvider } from '../../../../components/layout';
+import { DefaultAppLayoutProvider } from '../../../../components/layout';
 import { ThemeProvider } from '../../../../components/style/themes/varnish';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
@@ -228,12 +228,12 @@ export default class Layout extends React.Component {
         <IntlProvider locale={appLocale.locale} messages={appLocale.messages} defaultLocale="en-US">
           <ConfigProvider locale={appLocale.locale === 'zh-CN' ? zhCN : null} direction={direction}>
             <ThemeProvider>
-              <DefaultLayoutProvider layoutVariant="app">
+              <DefaultAppLayoutProvider appLayoutVariant="app">
                 <div className={pageWrapperClass}>
                   <Header {...restProps} changeDirection={this.changeDirection} />
                   {children}
                 </div>
-                </DefaultLayoutProvider>
+                </DefaultAppLayoutProvider>
             </ThemeProvider>
           </ConfigProvider>
         </IntlProvider>

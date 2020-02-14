@@ -48,6 +48,8 @@ export { default as Checkbox } from './checkbox';
 
 export { default as Col } from './col';
 
+export * from './columns';
+
 export { default as Comment } from './comment';
 
 export { default as ConfigProvider } from './config-provider';
@@ -64,7 +66,11 @@ export { default as Drawer } from './drawer';
 
 export { default as Empty } from './empty';
 
+export * from './footer';
+
 export { default as Form } from './form';
+
+export * from './header';
 
 export { default as Input } from './input';
 
@@ -73,6 +79,8 @@ export { default as InputNumber } from './input-number';
 export { default as Layout } from './layout';
 
 export { default as List } from './list';
+
+export * from './logos';
 
 export { default as message } from './message';
 

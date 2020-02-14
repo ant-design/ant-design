@@ -9,7 +9,7 @@ import { getFontImportsURL } from '../components/style/themes/varnish/typography
 export function generateLESS() {
     const vars = StyleVariables.fromTheme(Theme.default, Style.LESS);
     return `
-@import (css) "${getFontImportsURL()}";
+@import (css) url(${getFontImportsURL()});
 
 ${vars.toVariables()}
 

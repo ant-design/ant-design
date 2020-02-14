@@ -64,5 +64,11 @@ Array [
   "Typography",
   "Upload",
   "version",
+  "Columns",
+  "Footer",
+  "Header",
+  "HeaderColumns",
+  "HeaderTitle",
+  "AI2Logo",
 ]
 `;

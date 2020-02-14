@@ -1,7 +1,9 @@
 import * as React from 'react';
+import styled from 'styled-components';
 import classNames from 'classnames';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { AppLayoutVariant, AppLayoutContext }  from './AppLayoutContext';
 
 export interface GeneratorProps {
   suffixCls: string;
@@ -111,16 +113,22 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
   }
 }
 
-const Layout: React.ComponentClass<BasicProps> & {
+const AntdLayout: React.ComponentClass<BasicProps> & {
   Header: React.ComponentClass<BasicProps>;
   Footer: React.ComponentClass<BasicProps>;
-  Content: React.ComponentClass<BasicProps>;
+  Content: React.FunctionComponent<BasicProps>;
   Sider: React.ComponentClass<SiderProps>;
 } = generator({
-  suffixCls: 'layout',
-  tagName: 'section',
-  displayName: 'Layout',
-})(BasicLayout);
+    suffixCls: 'layout',
+    tagName: 'section',
+    displayName: 'Layout',
+  })(BasicLayout);
+
+const Layout = styled(AntdLayout)<{ bgcolor?: string }>`
+  && {
+      background: ${({ theme, bgcolor }) => (bgcolor ? theme.color[bgcolor] : 'none')};
+  }
+`;
 
 const Header = generator({
   suffixCls: 'layout-header',
@@ -134,11 +142,36 @@ const Footer = generator({
   displayName: 'Footer',
 })(Basic);
 
-const Content = generator({
+const AntdContent = generator({
   suffixCls: 'layout-content',
   tagName: 'main',
   displayName: 'Content',
 })(Basic);
+
+interface ContentProps extends BasicProps {
+  children: React.ReactNode | React.ReactNodeArray;
+  className?: string;
+}
+
+export const Content = ({ children, className, ...basicProps }: ContentProps) => (
+  <AppLayoutContext.Consumer>
+      {({ appLayoutVariant }) => (
+          <ContentContainer layout={appLayoutVariant} className={className} {...basicProps}>
+              {children}
+          </ContentContainer>
+      )}
+  </AppLayoutContext.Consumer>
+);
+
+const ContentContainer = styled(AntdContent)<{ layout?: AppLayoutVariant }>`
+  max-width: ${({ theme, layout }) => (layout === 'hcenter' ? theme.breakpoints.xl : null)};
+  ${({ layout }) => (layout === 'hcenter' ? 'margin: 0 auto;' : '')}
+  padding: ${({ theme }) => theme.spacing.lg};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      padding: ${({ theme }) => theme.spacing.sm};
+  }
+`;
 
 Layout.Header = Header;
 Layout.Footer = Footer;

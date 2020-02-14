@@ -3,21 +3,23 @@ import { render } from 'enzyme';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-import { Footer } from '..';
+import { Header, HeaderColumns, HeaderTitle } from '..';
 import { DefaultAppLayoutProvider } from '../../layout';
 import { ThemeProvider } from '../../style/themes/varnish';
 
-describe('Footer', () => {
-  mountTest(Footer);
-  rtlTest(Footer);
+describe('Header', () => {
+  mountTest(Header);
+  rtlTest(Header);
 
   describe('variants', () => {
     it('default', () => {
       const wrapper = render(
         <ThemeProvider>
-          <DefaultAppLayoutProvider layoutVariant="app">
-            <Footer/>
-          </DefaultAppLayoutProvider>
+          <Header>
+            <HeaderColumns gridTemplateColumns="auto 1fr">
+              <HeaderTitle>Title</HeaderTitle>
+            </HeaderColumns>
+          </Header>
         </ThemeProvider>,
       );
       expect(wrapper).toMatchSnapshot();
@@ -26,8 +28,14 @@ describe('Footer', () => {
     it('dark', () => {
       const wrapper = render(
         <ThemeProvider>
-          <Footer variant='dark'/>
-        </ThemeProvider>,
+          <DefaultAppLayoutProvider layoutVariant="app">
+            <Header>
+              <HeaderColumns gridTemplateColumns="auto 1fr">
+                <HeaderTitle>Title</HeaderTitle>
+              </HeaderColumns>
+            </Header>
+          </DefaultAppLayoutProvider>
+      </ThemeProvider>,
       );
       expect(wrapper).toMatchSnapshot();
     });

@@ -5,6 +5,7 @@ import Icon from '../../icon';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { ThemeProvider } from '../../style/themes/varnish';
 
 const { Sider, Content } = Layout;
 
@@ -19,46 +20,54 @@ describe('Layout', () => {
 
   it('detect the sider as children', async () => {
     const wrapper = mount(
-      <Layout>
-        <Sider>Sider</Sider>
-        <Content>Content</Content>
-      </Layout>,
+      <ThemeProvider>
+        <Layout>
+          <Sider>Sider</Sider>
+          <Content>Content</Content>
+        </Layout>
+      </ThemeProvider>,
     );
     expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
   });
 
   it('detect the sider inside the children', async () => {
     const wrapper = mount(
-      <Layout>
-        <div>
-          <Sider>Sider</Sider>
-        </div>
-        <Content>Content</Content>
-      </Layout>,
+      <ThemeProvider>
+        <Layout>
+          <div>
+            <Sider>Sider</Sider>
+          </div>
+          <Content>Content</Content>
+        </Layout>
+      </ThemeProvider>,
     );
     expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(true);
   });
 
   it('detect ant-layout-sider-has-trigger class in sider when ant-layout-sider-trigger div tag exists', async () => {
     const wrapper = mount(
-      <Layout>
-        <div>
-          <Sider collapsible>Sider</Sider>
-        </div>
-        <Content>Content</Content>
-      </Layout>,
+      <ThemeProvider>
+        <Layout>
+          <div>
+            <Sider collapsible>Sider</Sider>
+          </div>
+          <Content>Content</Content>
+        </Layout>
+      </ThemeProvider>,
     );
     expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-has-trigger')).toBe(true);
   });
 
   it('should have 50% width of sidebar', async () => {
     const wrapper = mount(
-      <Layout>
-        <div>
-          <Sider width="50%">Sider</Sider>
-        </div>
-        <Content>Content</Content>
-      </Layout>,
+      <ThemeProvider>
+        <Layout>
+          <div>
+            <Sider width="50%">Sider</Sider>
+          </div>
+          <Content>Content</Content>
+        </Layout>
+      </ThemeProvider>,
     );
     expect(
       wrapper
@@ -76,12 +85,14 @@ describe('Layout', () => {
 
   it('detect ant-layout-sider-zero-width class in sider when its width is 0%', async () => {
     const wrapper = mount(
-      <Layout>
-        <div>
-          <Sider width="0%">Sider</Sider>
-        </div>
-        <Content>Content</Content>
-      </Layout>,
+      <ThemeProvider>
+        <Layout>
+          <div>
+            <Sider width="0%">Sider</Sider>
+          </div>
+          <Content>Content</Content>
+        </Layout>
+      </ThemeProvider>,
     );
     expect(wrapper.find('.ant-layout-sider').hasClass('ant-layout-sider-zero-width')).toBe(true);
   });
@@ -110,9 +121,11 @@ describe('Layout', () => {
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
     const wrapper = mount(
-      <Layout hasSider={false}>
-        <Sider>Sider</Sider>
-      </Layout>,
+      <ThemeProvider>
+        <Layout hasSider={false}>
+          <Sider>Sider</Sider>
+        </Layout>
+      </ThemeProvider>,
     );
     expect(wrapper.find('.ant-layout').hasClass('ant-layout-has-sider')).toBe(false);
   });

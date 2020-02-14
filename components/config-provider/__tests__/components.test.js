@@ -53,6 +53,7 @@ import Transfer from '../../transfer';
 import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
+import { ThemeProvider } from '../../style/themes/varnish';
 
 jest.mock('rc-util/lib/Portal');
 
@@ -307,14 +308,16 @@ describe('ConfigProvider', () => {
       }
 
       return (
-        <Layout {...props}>
-          <Layout.Sider {...siderProps} />
+        <ThemeProvider>
           <Layout {...props}>
-            <Layout.Header {...headerProps} />
-            <Layout.Content {...contentProps} />
-            <Layout.Footer {...footerProps} />
+            <Layout.Sider {...siderProps} />
+            <Layout {...props}>
+              <Layout.Header {...headerProps} />
+              <Layout.Content {...contentProps} />
+              <Layout.Footer {...footerProps} />
+            </Layout>
           </Layout>
-        </Layout>
+        </ThemeProvider>
       );
     });
 

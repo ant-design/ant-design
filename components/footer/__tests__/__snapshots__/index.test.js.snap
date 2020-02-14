@@ -2,7 +2,7 @@
 
 exports[`Footer rtl render component should be rendered correctly in RTL direction 1`] = `
 <footer
-  class="ant-layout-footer sc-bdVaJa iKpkG"
+  class="ant-layout-footer sc-htpNat evgISr"
   layout="hcenter"
 >
   <span>
@@ -29,7 +29,7 @@ exports[`Footer rtl render component should be rendered correctly in RTL directi
 
 exports[`Footer variants dark 1`] = `
 <footer
-  class="ant-layout-footer sc-bdVaJa eaIiYz"
+  class="ant-layout-footer sc-htpNat eUjNmj"
   layout="hcenter"
 >
   <span>
@@ -56,8 +56,7 @@ exports[`Footer variants dark 1`] = `
 
 exports[`Footer variants default 1`] = `
 <footer
-  class="ant-layout-footer sc-bdVaJa iohWRW"
-  layout="app"
+  class="ant-layout-footer sc-htpNat evgISr"
 >
   <span>
     <a

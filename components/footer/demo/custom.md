@@ -7,7 +7,7 @@ title:
 Footer with custom content.
 
 ```jsx
-import { Footer } from ".."; // TODO: point this at varnish
+import { Footer } from '..'; // TODO: point this at varnish
 
 ReactDOM.render(
   <Footer>

@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import { palette } from '../style/themes/varnish/palette';
 import { Color } from '../style/themes/varnish/colors';
 import { contrastLinkColorStyles } from '../link';
-import Layout, { LayoutVariant, LayoutContext }  from '../layout';
+import Layout, { AppLayoutVariant, AppLayoutContext }  from '../layout';
 
 export type FooterVariant = 'default' | 'dark';
 
@@ -14,7 +14,7 @@ interface Props {
     /* If true, the background of the parent "page" (the body and html elements)
        is adjusted to match that of the footer. */
     setPageBackground?: boolean;
-    layout?: LayoutVariant;
+    layout?: AppLayoutVariant;
     className?: string;
 }
 
@@ -26,11 +26,11 @@ export class Footer extends React.PureComponent<Props> {
     render() {
         const contrast = this.props.variant === 'dark' ? true : undefined;
         return (
-            <LayoutContext.Consumer>
-                {({ layoutVariant }) => (
+            <AppLayoutContext.Consumer>
+                {({ appLayoutVariant }) => (
                     <StyledFooter
                         contrast={contrast}
-                        layout={layoutVariant}
+                        layout={appLayoutVariant}
                         className={this.props.className}>
                         {this.props.setPageBackground ? (
                             <WithPageBackground
@@ -58,7 +58,7 @@ export class Footer extends React.PureComponent<Props> {
                         )}
                     </StyledFooter>
                 )}
-            </LayoutContext.Consumer>
+            </AppLayoutContext.Consumer>
         );
     }
 }
@@ -69,7 +69,7 @@ const WithPageBackground = createGlobalStyle<{ color: Color }>`
     }
 `;
 
-const StyledFooter = styled(Layout.Footer)<{ contrast?: boolean; layout?: LayoutVariant }>`
+const StyledFooter = styled(Layout.Footer)<{ contrast?: boolean; layout?: AppLayoutVariant }>`
     && {
         background: ${({ theme, contrast }) =>
             contrast ? theme.palette.background.dark : theme.palette.background.light};

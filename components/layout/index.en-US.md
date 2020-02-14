@@ -78,6 +78,7 @@ The wrapper.
 | className | container className | string | - |
 | hasSider | whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
 | style | to customize the styles | object | - |
+| bgcolor | to set the background color | string | - |
 
 > APIs of `Layout.Header` `Layout.Footer` `Layout.Content` are the same as that of `Layout`.
 

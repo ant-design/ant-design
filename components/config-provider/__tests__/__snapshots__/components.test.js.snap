@@ -7127,7 +7127,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
 
 exports[`ConfigProvider components Layout configProvider 1`] = `
 <section
-  class="config-layout"
+  class="config-layout sc-bdVaJa Sxpmm"
 >
   <aside
     class="config-layout-sider config-layout-sider-dark"
@@ -7138,13 +7138,14 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
     />
   </aside>
   <section
-    class="config-layout"
+    class="config-layout sc-bdVaJa Sxpmm"
   >
     <header
       class="config-layout-header"
     />
     <main
-      class="config-layout-content"
+      class="config-layout-content sc-bwzfXH izaQno"
+      layout="hcenter"
     />
     <footer
       class="config-layout-footer"
@@ -7155,7 +7156,7 @@ exports[`ConfigProvider components Layout configProvider 1`] = `
 
 exports[`ConfigProvider components Layout normal 1`] = `
 <section
-  class="ant-layout"
+  class="ant-layout sc-bdVaJa Sxpmm"
 >
   <aside
     class="ant-layout-sider ant-layout-sider-dark"
@@ -7166,13 +7167,14 @@ exports[`ConfigProvider components Layout normal 1`] = `
     />
   </aside>
   <section
-    class="ant-layout"
+    class="ant-layout sc-bdVaJa Sxpmm"
   >
     <header
       class="ant-layout-header"
     />
     <main
-      class="ant-layout-content"
+      class="ant-layout-content sc-bwzfXH izaQno"
+      layout="hcenter"
     />
     <footer
       class="ant-layout-footer"
@@ -7183,7 +7185,7 @@ exports[`ConfigProvider components Layout normal 1`] = `
 
 exports[`ConfigProvider components Layout prefixCls 1`] = `
 <section
-  class="prefix-Layout"
+  class="prefix-Layout sc-bdVaJa Sxpmm"
 >
   <aside
     class="prefix-sider prefix-sider-dark"
@@ -7194,13 +7196,14 @@ exports[`ConfigProvider components Layout prefixCls 1`] = `
     />
   </aside>
   <section
-    class="prefix-Layout"
+    class="prefix-Layout sc-bdVaJa Sxpmm"
   >
     <header
       class="prefix-header"
     />
     <main
-      class="prefix-content"
+      class="prefix-content sc-bwzfXH izaQno"
+      layout="hcenter"
     />
     <footer
       class="prefix-footer"
