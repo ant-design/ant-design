@@ -472,6 +472,41 @@ describe('Upload List', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+  it('should support custom onClick in custom icon', () => {
+    const myClick = jest.fn();
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: true,
+          removeIcon: <i className="custom-delete" onClick={myClick}>RM</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper
+      .find('.custom-delete')
+      .at(0)
+      .simulate('click');
+    expect(myClick).toHaveBeenCalled();
+  });
   it('should support removeIcon and downloadIcon', () => {
     const list = [
       {
