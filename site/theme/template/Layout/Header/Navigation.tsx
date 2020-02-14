@@ -14,6 +14,7 @@ export interface NavigationProps extends SharedProps {
   isHome: boolean;
   pathname: string;
   narrow: boolean;
+  location: { pathname: string };
   directionText: string;
   onLangChange: () => void;
   onDirectionChange: () => void;
@@ -25,6 +26,7 @@ export default ({
   isHome,
   pathname,
   narrow,
+  location,
   directionText,
   onLangChange,
   onDirectionChange,

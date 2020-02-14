@@ -206,6 +206,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <Navigation
         key="nav"
         {...sharedProps}
+        location={location}
         narrow={false}
         isHome={isHome}
         isMobile={isMobile}
