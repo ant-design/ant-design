@@ -49,7 +49,7 @@ const props = {
     showDownloadIcon: true,
     downloadIcon: <SmileOutlined />,
     showRemoveIcon: true,
-    removeIcon: <StarOutlined />,
+    removeIcon: <StarOutlined onClick={() => console.log('custom removeIcon')} />,
   },
 };
 

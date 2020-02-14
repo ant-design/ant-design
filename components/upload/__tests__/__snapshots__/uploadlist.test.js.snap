@@ -1483,13 +1483,11 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 <a
                   title="Remove file"
                 >
-                  <span
+                  <i
                     title="Remove file"
                   >
-                    <i>
-                      RM
-                    </i>
-                  </span>
+                    RM
+                  </i>
                 </a>
               </span>
             </span>
@@ -1538,24 +1536,20 @@ exports[`Upload List should support removeIcon and downloadIcon 1`] = `
                 <a
                   title="Download file"
                 >
-                  <span
+                  <i
                     title="Download file"
                   >
-                    <i>
-                      DL
-                    </i>
-                  </span>
+                    DL
+                  </i>
                 </a>
                 <a
                   title="Remove file"
                 >
-                  <span
+                  <i
                     title="Remove file"
                   >
-                    <i>
-                      RM
-                    </i>
-                  </span>
+                    RM
+                  </i>
                 </a>
               </span>
             </span>
