@@ -21,7 +21,7 @@ exports[`Layout rtl render component should be rendered correctly in RTL directi
 
 exports[`Layout rtl render component should be rendered correctly in RTL direction 2`] = `
 <main
-  class="ant-layout-content sc-bwzfXH izaQno"
+  class="ant-layout-content sc-bwzfXH jcXvYR"
   layout="hcenter"
 />
 `;

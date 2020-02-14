@@ -11,7 +11,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       Header
     </header>
     <main
-      class="ant-layout-content sc-bwzfXH izaQno"
+      class="ant-layout-content sc-bwzfXH jcXvYR"
       layout="hcenter"
     >
       Content
@@ -44,7 +44,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         </div>
       </aside>
       <main
-        class="ant-layout-content sc-bwzfXH izaQno"
+        class="ant-layout-content sc-bwzfXH jcXvYR"
         layout="hcenter"
       >
         Content
@@ -68,7 +68,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
       class="ant-layout sc-bdVaJa Sxpmm"
     >
       <main
-        class="ant-layout-content sc-bwzfXH izaQno"
+        class="ant-layout-content sc-bwzfXH jcXvYR"
         layout="hcenter"
       >
         Content
@@ -112,7 +112,7 @@ exports[`renders ./components/layout/demo/basic.md correctly 1`] = `
         Header
       </header>
       <main
-        class="ant-layout-content sc-bwzfXH izaQno"
+        class="ant-layout-content sc-bwzfXH jcXvYR"
         layout="hcenter"
       >
         Content
@@ -265,7 +265,7 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       </span>
     </header>
     <main
-      class="ant-layout-content sc-bwzfXH izaQno site-layout-background"
+      class="ant-layout-content sc-bwzfXH jcXvYR site-layout-background"
       layout="hcenter"
       style="margin:24px 16px;padding:24px;min-height:280px"
     >
@@ -384,7 +384,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content sc-bwzfXH izaQno site-layout"
+    class="ant-layout-content sc-bwzfXH jcXvYR site-layout"
     layout="hcenter"
     style="padding:0 50px;margin-top:64px"
   >
@@ -723,7 +723,7 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
       style="padding:0"
     />
     <main
-      class="ant-layout-content sc-bwzfXH izaQno"
+      class="ant-layout-content sc-bwzfXH jcXvYR"
       layout="hcenter"
       style="margin:24px 16px 0;overflow:initial"
     >
@@ -1006,7 +1006,7 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
       style="padding:0"
     />
     <main
-      class="ant-layout-content sc-bwzfXH izaQno"
+      class="ant-layout-content sc-bwzfXH jcXvYR"
       layout="hcenter"
       style="margin:24px 16px 0"
     >
@@ -1248,7 +1248,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       style="padding:0"
     />
     <main
-      class="ant-layout-content sc-bwzfXH izaQno"
+      class="ant-layout-content sc-bwzfXH jcXvYR"
       layout="hcenter"
       style="margin:0 16px"
     >
@@ -1406,7 +1406,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content sc-bwzfXH izaQno"
+    class="ant-layout-content sc-bwzfXH jcXvYR"
     layout="hcenter"
     style="padding:0 50px"
   >
@@ -1574,7 +1574,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content sc-bwzfXH izaQno"
+    class="ant-layout-content sc-bwzfXH jcXvYR"
     layout="hcenter"
     style="padding:0 50px"
   >
@@ -1790,7 +1790,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </div>
       </aside>
       <main
-        class="ant-layout-content sc-bwzfXH izaQno"
+        class="ant-layout-content sc-bwzfXH jcXvYR"
         layout="hcenter"
         style="padding:0 24px;min-height:280px"
       >
@@ -2129,7 +2129,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </span>
       </div>
       <main
-        class="ant-layout-content sc-bwzfXH izaQno site-layout-background"
+        class="ant-layout-content sc-bwzfXH jcXvYR site-layout-background"
         layout="hcenter"
         style="padding:24px;margin:0;min-height:280px"
       >

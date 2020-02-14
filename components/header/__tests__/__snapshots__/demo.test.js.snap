@@ -9,7 +9,7 @@ exports[`renders ./components/header/demo/default.md correctly 1`] = `
     class="sc-bZQynM ffNbko"
   >
     <main
-      class="ant-layout-content sc-htpNat fJOKRa sc-EHOje udYLg"
+      class="ant-layout-content sc-htpNat gjscvY sc-EHOje udYLg"
       layout="hcenter"
     >
       <a
@@ -27,7 +27,7 @@ exports[`renders ./components/header/demo/default.md correctly 1`] = `
     </main>
   </div>
   <main
-    class="ant-layout-content sc-htpNat fJOKRa sc-gzVnrw huFDCz"
+    class="ant-layout-content sc-htpNat gjscvY sc-gzVnrw huFDCz"
     layout="hcenter"
   >
     <div
@@ -56,7 +56,7 @@ exports[`renders ./components/header/demo/withLogo.md correctly 1`] = `
       class="sc-bZQynM ffNbko"
     >
       <main
-        class="ant-layout-content sc-htpNat fJOKRa sc-EHOje udYLg"
+        class="ant-layout-content sc-htpNat gjscvY sc-EHOje udYLg"
         layout="hcenter"
       >
         <a
@@ -74,7 +74,7 @@ exports[`renders ./components/header/demo/withLogo.md correctly 1`] = `
       </main>
     </div>
     <main
-      class="ant-layout-content sc-htpNat fJOKRa sc-gzVnrw huFDCz"
+      class="ant-layout-content sc-htpNat gjscvY sc-gzVnrw huFDCz"
       layout="hcenter"
     >
       <div
@@ -96,7 +96,7 @@ exports[`renders ./components/header/demo/withLogo.md correctly 1`] = `
     </main>
   </header>
   <main
-    class="ant-layout-content sc-htpNat fJOKRa"
+    class="ant-layout-content sc-htpNat gjscvY"
     layout="hcenter"
   >
     Content!
@@ -117,7 +117,7 @@ exports[`renders ./components/header/demo/withMenu.md correctly 1`] = `
       class="sc-bZQynM ffNbko"
     >
       <main
-        class="ant-layout-content sc-htpNat fJOKRa sc-EHOje udYLg"
+        class="ant-layout-content sc-htpNat gjscvY sc-EHOje udYLg"
         layout="hcenter"
       >
         <a
@@ -135,7 +135,7 @@ exports[`renders ./components/header/demo/withMenu.md correctly 1`] = `
       </main>
     </div>
     <main
-      class="ant-layout-content sc-htpNat fJOKRa sc-gzVnrw huFDCz"
+      class="ant-layout-content sc-htpNat gjscvY sc-gzVnrw huFDCz"
       layout="hcenter"
     >
       <div
@@ -276,7 +276,7 @@ exports[`renders ./components/header/demo/withMenu.md correctly 1`] = `
     </main>
   </header>
   <main
-    class="ant-layout-content sc-htpNat fJOKRa"
+    class="ant-layout-content sc-htpNat gjscvY"
     layout="hcenter"
   >
     Content!

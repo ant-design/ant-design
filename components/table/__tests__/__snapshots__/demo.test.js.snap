@@ -216,6 +216,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -255,6 +256,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -512,6 +514,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -551,6 +554,7 @@ exports[`renders ./components/table/demo/basic.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -721,6 +725,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -760,6 +765,7 @@ exports[`renders ./components/table/demo/bordered.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -999,6 +1005,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -1038,6 +1045,7 @@ exports[`renders ./components/table/demo/colspan-rowspan.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -1330,6 +1338,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -1369,6 +1378,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -1529,6 +1539,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -1568,6 +1579,7 @@ exports[`renders ./components/table/demo/drag-sorting.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -3230,6 +3242,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="left"
@@ -3269,6 +3282,7 @@ exports[`renders ./components/table/demo/dynamic-settings.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="right"
@@ -3446,6 +3460,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="left"
@@ -3485,6 +3500,7 @@ exports[`renders ./components/table/demo/edit-cell.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="right"
@@ -3862,6 +3878,7 @@ exports[`renders ./components/table/demo/edit-row.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -4229,6 +4246,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -4268,6 +4286,7 @@ exports[`renders ./components/table/demo/ellipsis.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -4518,6 +4537,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -4557,6 +4577,7 @@ exports[`renders ./components/table/demo/expand.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -4777,6 +4798,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -4816,6 +4838,7 @@ exports[`renders ./components/table/demo/expand-children.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -5136,6 +5159,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -5175,6 +5199,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -6054,6 +6079,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md correctly 1`] =
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -7308,6 +7334,7 @@ exports[`renders ./components/table/demo/fixed-header.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -8147,6 +8174,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -8663,6 +8691,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -8702,6 +8731,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -8986,6 +9016,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -9025,6 +9056,7 @@ exports[`renders ./components/table/demo/jsx.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -9387,6 +9419,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -9426,6 +9459,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -9703,6 +9737,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -9742,6 +9777,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -10191,6 +10227,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="left"
@@ -10230,6 +10267,7 @@ exports[`renders ./components/table/demo/reset-filter.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="right"
@@ -10457,6 +10495,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -10496,6 +10535,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -10833,6 +10873,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="left"
@@ -10872,6 +10913,7 @@ exports[`renders ./components/table/demo/row-selection.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="right"
@@ -11400,6 +11442,7 @@ exports[`renders ./components/table/demo/row-selection-and-operation.md correctl
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="left"
@@ -12015,6 +12058,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md correctly 1`] =
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -12249,6 +12293,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="left"
@@ -12288,6 +12333,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="right"
@@ -12442,6 +12488,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="left"
@@ -12481,6 +12528,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           >
             <a
               class="ant-pagination-item-link"
+              disabled=""
             >
               <span
                 aria-label="right"

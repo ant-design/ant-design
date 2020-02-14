@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Footer rtl render component should be rendered correctly in RTL direction 1`] = `
+exports[`Header rtl render component should be rendered correctly in RTL direction 1`] = `
 <header
   class="ant-layout-header sc-htoDjs iheMYj"
   style="top:0px"
@@ -9,7 +9,7 @@ exports[`Footer rtl render component should be rendered correctly in RTL directi
     class="sc-bZQynM ffNbko"
   >
     <main
-      class="ant-layout-content sc-htpNat fJOKRa sc-EHOje udYLg"
+      class="ant-layout-content sc-htpNat gjscvY sc-EHOje udYLg"
       layout="hcenter"
     >
       <a
@@ -27,13 +27,13 @@ exports[`Footer rtl render component should be rendered correctly in RTL directi
     </main>
   </div>
   <main
-    class="ant-layout-content sc-htpNat fJOKRa sc-gzVnrw huFDCz"
+    class="ant-layout-content sc-htpNat gjscvY sc-gzVnrw huFDCz"
     layout="hcenter"
   />
 </header>
 `;
 
-exports[`Footer variants dark 1`] = `
+exports[`Header variants dark 1`] = `
 <header
   class="ant-layout-header sc-htoDjs iheMYj"
   style="top:0px"
@@ -42,7 +42,7 @@ exports[`Footer variants dark 1`] = `
     class="sc-bZQynM ffNbko"
   >
     <main
-      class="ant-layout-content sc-htpNat fOuhWg sc-EHOje udYLg"
+      class="ant-layout-content sc-htpNat Nropg sc-EHOje udYLg"
     >
       <a
         class="sc-ifAKCX hCNZCW"
@@ -59,7 +59,7 @@ exports[`Footer variants dark 1`] = `
     </main>
   </div>
   <main
-    class="ant-layout-content sc-htpNat fOuhWg sc-gzVnrw huFDCz"
+    class="ant-layout-content sc-htpNat Nropg sc-gzVnrw huFDCz"
   >
     <div
       class="sc-bdVaJa sc-dnqmqq bikvUi"
@@ -74,7 +74,7 @@ exports[`Footer variants dark 1`] = `
 </header>
 `;
 
-exports[`Footer variants default 1`] = `
+exports[`Header variants default 1`] = `
 <header
   class="ant-layout-header sc-htoDjs iheMYj"
   style="top:0px"
@@ -83,7 +83,7 @@ exports[`Footer variants default 1`] = `
     class="sc-bZQynM ffNbko"
   >
     <main
-      class="ant-layout-content sc-htpNat fJOKRa sc-EHOje udYLg"
+      class="ant-layout-content sc-htpNat gjscvY sc-EHOje udYLg"
       layout="hcenter"
     >
       <a
@@ -101,7 +101,7 @@ exports[`Footer variants default 1`] = `
     </main>
   </div>
   <main
-    class="ant-layout-content sc-htpNat fJOKRa sc-gzVnrw huFDCz"
+    class="ant-layout-content sc-htpNat gjscvY sc-gzVnrw huFDCz"
     layout="hcenter"
   >
     <div
