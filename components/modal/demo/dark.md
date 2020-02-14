@@ -170,11 +170,18 @@ class App extends React.Component {
             onChange={this.handleDisable}
             style={{ marginBottom: 16 }}
           />
-           <Collapse defaultActiveKey={['1']}>
+          <Collapse>
             <Panel header="This is panel header 1" key="1">
-              <p>{text}</p>
+              <Collapse defaultActiveKey="1">
+                <Panel header="This is panel nest panel" key="1">
+                  <p>{text}</p>
+                </Panel>
+              </Collapse>
             </Panel>
             <Panel header="This is panel header 2" key="2">
+              <p>{text}</p>
+            </Panel>
+            <Panel header="This is panel header 3" key="3">
               <p>{text}</p>
             </Panel>
           </Collapse>
@@ -188,6 +195,16 @@ class App extends React.Component {
             render={item => item.title}
             disabled={disabled}
           />
+          <Transfer disabled={disabled}>
+             {({
+                direction,
+                filteredItems,
+                onItemSelectAll,
+                onItemSelect,
+                selectedKeys: listSelectedKeys,
+                disabled: listDisabled,
+              }) => <Table columns={columns} dataSource={data} />}
+          </Transfer>
           <Anchor>
             <Link href="#components-anchor-demo-basic" title="Basic demo" />
             <Link href="#components-anchor-demo-static" title="Static demo" />
