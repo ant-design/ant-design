@@ -136,7 +136,7 @@ const expandedRowRender = () => {
         <span className="table-operation">
           <a>Pause</a>
           <a>Stop</a>
-          <Dropdown overlay={menu}>
+          <Dropdown>
             <a>
               More <DownOutlined />
             </a>
