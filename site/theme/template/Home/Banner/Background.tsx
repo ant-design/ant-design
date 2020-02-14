@@ -144,7 +144,7 @@ export default function Background() {
     <div className="home-banner-background">
       <img
         alt="background"
-        src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_fCZRqKuJBgAAAAAAAAAAABkARQnAQ"
+        src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kJM2Q6uPXCAAAAAAAAAAAABkARQnAQ"
       />
       <Hitu
         width={1440}
