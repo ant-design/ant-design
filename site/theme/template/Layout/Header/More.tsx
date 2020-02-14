@@ -4,8 +4,6 @@ import { FormattedMessage } from 'react-intl';
 import { DownOutlined } from '@ant-design/icons';
 import { SharedProps } from './interface';
 
-import './More.less';
-
 export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
   return (
     <Menu.ItemGroup title={<FormattedMessage id="app.header.menu.ecosystem" />}>

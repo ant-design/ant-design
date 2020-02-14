@@ -5,24 +5,24 @@
 @search-icon-color: #ced4d9;
 
 #search-box {
+  position: relative;
+  display: flex;
+  flex: auto;
+  align-items: center;
   height: 22px;
   margin: 0 auto 0 0 !important;
   padding-left: 16px;
   line-height: 22px;
-  border-left: 1px solid @site-border-color-split;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
-  position: relative;
-  flex: auto;
+  border-left: 1px solid @site-border-color-split;
   transition: width 0.5s;
 
   .ant-row-rtl & {
+    margin: 0 0 0 auto !important;
     padding-right: 16px;
     padding-left: 0;
     border-right: 1px solid @site-border-color-split;
     border-left: none;
-    margin: 0 0 0 auto !important;
   }
 
   > * {
@@ -30,23 +30,23 @@
   }
 
   .anticon {
-    flex: none;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    color: @search-icon-color;
-    pointer-events: none;
     z-index: 1;
+    flex: none;
+    color: @search-icon-color;
+    transform: translateY(-50%);
+    pointer-events: none;
   }
 
   input {
-    max-width: 200px;
     width: 100%;
+    max-width: 200px;
+    padding-left: 20px;
     font-size: 14px;
     background: transparent;
     border: 0;
     box-shadow: none;
-    padding-left: 20px;
 
     &::placeholder {
       color: #a3b1bf;
@@ -65,24 +65,24 @@
     }
 
     .anticon {
-      left: auto;
       right: 0;
+      left: auto;
 
       .ant-row-rtl & {
-        left: 0;
         right: auto;
+        left: 0;
       }
     }
 
     input {
       max-width: none;
-      cursor: pointer;
-      padding-left: 11px;
       padding-right: 20px;
+      padding-left: 11px;
+      cursor: pointer;
 
       .ant-row-rtl & {
-        padding-left: 20px;
         padding-right: 11px;
+        padding-left: 20px;
       }
     }
 
