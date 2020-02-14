@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'bisheng/router';
+import { UnorderedListOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
+import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
 import { SharedProps } from './interface';
 
@@ -11,9 +13,22 @@ export interface NavigationProps extends SharedProps {
   isMobile: boolean;
   isHome: boolean;
   pathname: string;
+  narrow: boolean;
+  directionText: string;
+  onLangChange: () => void;
+  onDirectionChange: () => void;
 }
 
-export default ({ isZhCN, isMobile, isHome, pathname }: NavigationProps) => {
+export default ({
+  isZhCN,
+  isMobile,
+  isHome,
+  pathname,
+  narrow,
+  directionText,
+  onLangChange,
+  onDirectionChange,
+}: NavigationProps) => {
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
   const module = pathname
@@ -56,6 +71,26 @@ export default ({ isZhCN, isMobile, isHome, pathname }: NavigationProps) => {
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       </Menu.Item>
+      {narrow ? (
+        <Menu.SubMenu title={<UnorderedListOutlined />}>
+          <Menu.Item key="github">
+            <a
+              href="https://github.com/ant-design/ant-design"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Github
+            </a>
+          </Menu.Item>
+          <Menu.Item key="switch-lang" onClick={onLangChange}>
+            <FormattedMessage id="app.header.lang" />
+          </Menu.Item>
+          <Menu.Item key="switch-direction" onClick={onDirectionChange}>
+            {directionText}
+          </Menu.Item>
+          {getEcosystemGroup({ isZhCN })}
+        </Menu.SubMenu>
+      ) : null}
     </Menu>
   );
 };

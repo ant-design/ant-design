@@ -66,6 +66,11 @@
     .anticon {
       left: auto;
       right: 0;
+
+      .ant-row-rtl & {
+        left: 0;
+        right: auto;
+      }
     }
 
     input {
@@ -73,6 +78,11 @@
       cursor: pointer;
       padding-left: 11px;
       padding-right: 20px;
+
+      .ant-row-rtl & {
+        padding-left: 20px;
+        padding-right: 11px;
+      }
     }
 
     &.focused {

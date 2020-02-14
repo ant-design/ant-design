@@ -15,9 +15,9 @@ import Navigation from './Navigation';
 
 import './index.less';
 
-const RESPONSIVE_XS = 1100;
-const RESPONSIVE_SM = 1100;
-const RESPONSIVE_MD = 1100;
+const RESPONSIVE_XS = 500;
+const RESPONSIVE_SM = 1050;
+const RESPONSIVE_MD = 1200;
 
 const { Option } = Select;
 
@@ -111,7 +111,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   };
 
-  handleDirectionChange = () => {
+  onDirectionChange = () => {
     const { changeDirection } = this.props;
     const { direction } = this.context;
     if (direction !== 'rtl') {
@@ -144,7 +144,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       .replace(currentPathname, utils.getLocalizedPathname(currentPathname));
   };
 
-  handleLangChange = () => {
+  onLangChange = () => {
     const {
       location: { pathname },
     } = this.props;
@@ -202,48 +202,68 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       />
     );
 
-    const menu = searching
-      ? [searchNode]
-      : [
-          searchNode,
-          <Navigation
-            key="nav"
-            {...sharedProps}
-            isHome={isHome}
-            isMobile={isMobile}
-            pathname={pathname}
-          />,
-          isHome ? (
-            <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
-          ) : null,
-          <Select
-            key="version"
-            className="version"
-            size="small"
-            defaultValue={antdVersion}
-            onChange={this.handleVersionChange}
-            getPopupContainer={trigger => trigger.parentNode}
-          >
-            {versionOptions}
-          </Select>,
-          <Button
-            size="small"
-            onClick={this.handleLangChange}
-            className="header-button header-lang-button"
-            key="lang-button"
-          >
-            <FormattedMessage id="app.header.lang" />
-          </Button>,
-          <Button
-            size="small"
-            onClick={this.handleDirectionChange}
-            className="header-button header-direction-button"
-            key="direction-button"
-          >
-            {this.getNextDirectionText()}
-          </Button>,
-          <More key="more" {...sharedProps} />,
-        ];
+    const navigationNode = (
+      <Navigation
+        key="nav"
+        {...sharedProps}
+        narrow={false}
+        isHome={isHome}
+        isMobile={isMobile}
+        pathname={pathname}
+        directionText={this.getNextDirectionText()}
+        onLangChange={this.onLangChange}
+        onDirectionChange={this.onDirectionChange}
+      />
+    );
+
+    let menu: (React.ReactElement | null)[] = [
+      searchNode,
+      navigationNode,
+      isHome ? (
+        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
+      ) : null,
+      <Select
+        key="version"
+        className="version"
+        size="small"
+        defaultValue={antdVersion}
+        onChange={this.handleVersionChange}
+        getPopupContainer={trigger => trigger.parentNode}
+      >
+        {versionOptions}
+      </Select>,
+      <Button
+        size="small"
+        onClick={this.onLangChange}
+        className="header-button header-lang-button"
+        key="lang-button"
+      >
+        <FormattedMessage id="app.header.lang" />
+      </Button>,
+      <Button
+        size="small"
+        onClick={this.onDirectionChange}
+        className="header-button header-direction-button"
+        key="direction-button"
+      >
+        {this.getNextDirectionText()}
+      </Button>,
+      <More key="more" {...sharedProps} />,
+    ];
+
+    if (windowWidth < RESPONSIVE_XS) {
+    } else if (windowWidth < RESPONSIVE_SM) {
+      menu = searching
+        ? [searchNode]
+        : [
+            searchNode,
+            React.cloneElement(navigationNode, {
+              narrow: true,
+            }),
+          ];
+    } else if (windowWidth < RESPONSIVE_MD) {
+      menu = searching ? [searchNode] : menu;
+    }
 
     const colProps = isHome
       ? [{ flex: 'none' }, { flex: 'auto' }]
