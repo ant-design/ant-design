@@ -15,9 +15,8 @@ import Navigation from './Navigation';
 
 import './index.less';
 
-const RESPONSIVE_XS = 500;
-const RESPONSIVE_SM = 1050;
-const RESPONSIVE_MD = 1200;
+const RESPONSIVE_XS = 1050;
+const RESPONSIVE_SM = 1200;
 
 const { Option } = Select;
 
@@ -193,11 +192,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       isZhCN,
     };
 
-    const searchNode = (
+    const searchBox = (
       <SearchBox
         key="search"
         {...sharedProps}
-        narrow={windowWidth < RESPONSIVE_MD}
+        narrow={windowWidth < RESPONSIVE_SM}
         onTriggerFocus={this.onTriggerSearching}
       />
     );
@@ -217,7 +216,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     );
 
     let menu: (React.ReactElement | null)[] = [
-      searchNode,
       navigationNode,
       isHome ? (
         <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
@@ -252,17 +250,15 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     ];
 
     if (windowWidth < RESPONSIVE_XS) {
-    } else if (windowWidth < RESPONSIVE_SM) {
       menu = searching
-        ? [searchNode]
+        ? []
         : [
-            searchNode,
             React.cloneElement(navigationNode, {
               narrow: true,
             }),
           ];
-    } else if (windowWidth < RESPONSIVE_MD) {
-      menu = searching ? [searchNode] : menu;
+    } else if (windowWidth < RESPONSIVE_SM) {
+      menu = searching ? [] : menu;
     }
 
     const colProps = isHome
@@ -306,6 +302,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             <Logo {...sharedProps} />
           </Col>
           <Col {...colProps[1]} className="menu-row">
+            {searchBox}
             {!isMobile && menu}
           </Col>
         </Row>

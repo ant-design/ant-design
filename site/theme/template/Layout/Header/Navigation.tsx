@@ -42,6 +42,28 @@ export default ({
     activeMenuItem = 'docs/resources';
   }
 
+  let additional: React.ReactNode = null;
+  const additionalItems = [
+    <Menu.Item key="github">
+      <a href="https://github.com/ant-design/ant-design" target="_blank" rel="noopener noreferrer">
+        Github
+      </a>
+    </Menu.Item>,
+    <Menu.Item key="switch-lang" onClick={onLangChange}>
+      <FormattedMessage id="app.header.lang" />
+    </Menu.Item>,
+    <Menu.Item key="switch-direction" onClick={onDirectionChange}>
+      {directionText}
+    </Menu.Item>,
+    getEcosystemGroup({ isZhCN }),
+  ];
+
+  if (isMobile) {
+    additional = additionalItems;
+  } else if (narrow) {
+    additional = <Menu.SubMenu title={<UnorderedListOutlined />}>{additionalItems}</Menu.SubMenu>;
+  }
+
   return (
     <Menu className="menu-site" mode={menuMode} selectedKeys={[activeMenuItem]} id="nav">
       {isHome ? null : (
@@ -71,26 +93,7 @@ export default ({
           <FormattedMessage id="app.header.menu.resource" />
         </Link>
       </Menu.Item>
-      {narrow ? (
-        <Menu.SubMenu title={<UnorderedListOutlined />}>
-          <Menu.Item key="github">
-            <a
-              href="https://github.com/ant-design/ant-design"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </a>
-          </Menu.Item>
-          <Menu.Item key="switch-lang" onClick={onLangChange}>
-            <FormattedMessage id="app.header.lang" />
-          </Menu.Item>
-          <Menu.Item key="switch-direction" onClick={onDirectionChange}>
-            {directionText}
-          </Menu.Item>
-          {getEcosystemGroup({ isZhCN })}
-        </Menu.SubMenu>
-      ) : null}
+      {additional}
     </Menu>
   );
 };

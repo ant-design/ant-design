@@ -6,7 +6,7 @@ import { SharedProps } from './interface';
 
 import './More.less';
 
-export function getEcosystemGroup({ isZhCN }: SharedProps) {
+export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
   return (
     <Menu.ItemGroup title={<FormattedMessage id="app.header.menu.ecosystem" />}>
       <Menu.Item key="pro">

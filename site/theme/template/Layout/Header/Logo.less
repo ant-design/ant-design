@@ -3,7 +3,6 @@
 @import './index.less';
 
 #logo {
-  float: left;
   height: @header-height;
   padding-left: 40px;
   overflow: hidden;
@@ -30,5 +29,12 @@
       margin-right: 0;
       margin-left: 16px;
     }
+  }
+}
+
+@media only screen and (max-width: @mobile-max-width) {
+  #logo {
+    padding-right: 0;
+    padding-left: 0;
   }
 }

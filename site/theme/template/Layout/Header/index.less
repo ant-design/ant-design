@@ -3,6 +3,7 @@
 
 @header-height: 64px;
 @menu-item-border: 2px;
+@mobile-max-width: 767.99px;
 
 #header {
   position: relative;
@@ -83,5 +84,11 @@
   .header-button {
     color: @text-color;
     border-color: @border-color-base;
+  }
+}
+
+@media only screen and (max-width: @mobile-max-width) {
+  #header {
+    text-align: center;
   }
 }

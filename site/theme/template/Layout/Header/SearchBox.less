@@ -1,5 +1,6 @@
 @import '../../../static/theme.less';
 @import '../../../../../components/style/themes/default.less';
+@import './index.less';
 
 @search-icon-color: #ced4d9;
 
@@ -122,5 +123,11 @@
       right: auto;
       left: 16px;
     }
+  }
+}
+
+@media only screen and (max-width: @mobile-max-width) {
+  #search-box {
+    display: none;
   }
 }
