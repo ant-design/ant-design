@@ -70,7 +70,7 @@ exports[`Badge badge should support float number 2`] = `
 `;
 
 exports[`Badge render Badge status/color when contains children 1`] = `
-Array [
+<div>
   <span
     class="ant-badge ant-badge-status"
   >
@@ -80,7 +80,7 @@ Array [
       data-show="true"
       title="5"
     />
-  </span>,
+  </span>
   <span
     class="ant-badge ant-badge-status"
   >
@@ -90,7 +90,7 @@ Array [
       data-show="true"
       title="5"
     />
-  </span>,
+  </span>
   <span
     class="ant-badge ant-badge-status"
   >
@@ -101,8 +101,8 @@ Array [
       style="background:#08c"
       title="5"
     />
-  </span>,
-]
+  </span>
+</div>
 `;
 
 exports[`Badge render correct with negative number 1`] = `
