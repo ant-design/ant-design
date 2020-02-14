@@ -102,10 +102,10 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     if(React.isValidElement(customIcon)) {
       return React.cloneElement(customIcon,
         {
-          onClick: () => {
+          onClick: (e: React.MouseEventHandler) => {
             callback();
             if (customIcon.props.onClick) {
-              customIcon.props.onClick();
+              customIcon.props.onClick(e);
             }
           },
           title,
@@ -113,7 +113,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       );
     }
     return (
-      <span title={title} onClick={() => callback()}>
+      <span title={title} onClick={callback}>
         {customIcon}
       </span>
     );
