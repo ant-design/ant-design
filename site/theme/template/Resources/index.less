@@ -1,3 +1,5 @@
+@import '../../../../components/style/themes/default.less';
+
 @ArticleMaxWidth: 1208px;
 
 #resources-page {
@@ -66,8 +68,7 @@
       transition: box-shadow 0.3s;
 
       &:hover {
-        box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-          0 9px 28px 8px rgba(0, 0, 0, 0.05);
+        box-shadow: @shadow-2;
       }
 
       .resource-card-image {
