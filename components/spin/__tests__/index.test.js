@@ -45,4 +45,11 @@ describe('Spin', () => {
     const wrapper = mount(<Spin indicator={null} />);
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('should support static method Spin.setDefaultIndicator', () => {
+    Spin.setDefaultIndicator(<em className="custom-spinner" />);
+    const wrapper = mount(<Spin />);
+    expect(wrapper).toMatchSnapshot();
+    Spin.setDefaultIndicator(null);
+  })
 });
