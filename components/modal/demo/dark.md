@@ -114,7 +114,7 @@ const dataTable = [
 ];
 
 const expandedRowRender = () => {
-  const columns = [
+  const columnsExpand = [
     { title: 'Date', dataIndex: 'date', key: 'date' },
     { title: 'Name', dataIndex: 'name', key: 'name' },
     {
@@ -146,7 +146,7 @@ const expandedRowRender = () => {
     },
   ];
 
-  const data = [];
+  const dataExpand = [];
   for (let i = 0; i < 3; ++i) {
     data.push({
       key: i,
@@ -155,7 +155,7 @@ const expandedRowRender = () => {
       upgradeNum: 'Upgraded: 56',
     });
   }
-  return <Table columns={columns} dataSource={data} pagination={false} />;
+  return <Table columns={columnsExpand} dataSource={dataExpand} pagination={false} />;
 };
 
 const columnsNest = [
