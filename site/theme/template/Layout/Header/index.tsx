@@ -71,7 +71,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   state = {
     menuVisible: false,
-    windowWidth: window.innerWidth,
+    windowWidth: 1400,
     searching: false,
   };
 
@@ -82,6 +82,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     initDocSearch(intl.locale);
 
     window.addEventListener('resize', this.onWindowResize);
+    this.onWindowResize();
   }
 
   componentWillUnmount() {
