@@ -210,7 +210,7 @@ Note: if Form.Item has multiple children that had been decorated by `getFieldDec
 
 | Property | Description | Type | Default Value | Version |
 | --- | --- | --- | --- | --- |
-| enum | validate a value from a list of possible values | string[] | - |  |
+| enum | validate a value from a list of possible values | string | - |  |
 | len | validate an exact length of a field | number | - |  |
 | max | validate a max length of a field | number | - |  |
 | message | validation error message | string\|ReactNode | - |  |

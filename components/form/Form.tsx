@@ -29,7 +29,7 @@ export interface FormCreateOption<T> {
 }
 
 const FormLayouts = tuple('horizontal', 'inline', 'vertical');
-export type FormLayout = typeof FormLayouts[number];
+export type FormLayout = (typeof FormLayouts)[number];
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   layout?: FormLayout;
@@ -51,28 +51,11 @@ export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
   labelAlign?: FormLabelAlign;
 }
 
-export type ValidationRuleType =
-  | 'string'
-  | 'number'
-  | 'boolean'
-  | 'method'
-  | 'regexp'
-  | 'integer'
-  | 'float'
-  | 'array'
-  | 'object'
-  | 'enum'
-  | 'date'
-  | 'url'
-  | 'hex'
-  | 'email'
-  | 'any';
-
 export type ValidationRule = {
   /** validation error message */
   message?: React.ReactNode;
   /** built-in validation type, available options: https://github.com/yiminghe/async-validator#type */
-  type?: ValidationRuleType;
+  type?: string;
   /** indicates whether field is required */
   required?: boolean;
   /** treat required fields that only contain whitespace as errors */
@@ -84,7 +67,7 @@ export type ValidationRule = {
   /** validate the max length of a field */
   max?: number;
   /** validate the value from a list of possible values */
-  enum?: (string | number | boolean)[];
+  enum?: string | string[];
   /** validate from a regular expression */
   pattern?: RegExp;
   /** transform a value before validation */
