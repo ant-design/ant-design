@@ -1,0 +1,33 @@
+@import '../../../../components/style/themes/default.less';
+
+.resource-affix-tabs {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: #fff;
+  z-index: 11;
+  box-shadow: @shadow-2;
+  transition: opacity 0.3s, transform 0.3s;
+  opacity: 0;
+  transform: translateY(-100%);
+
+  &-fixed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ant-tabs {
+    max-width: 1208px;
+    margin: 0 auto;
+
+    .ant-tabs-bar {
+      margin: 0;
+      border-bottom-color: transparent;
+
+      .ant-tabs-tab {
+        padding: 21px 0;
+      }
+    }
+  }
+}

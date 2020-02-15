@@ -5,6 +5,7 @@ import Article from '../Content/Article';
 import Footer from '../Layout/Footer';
 import * as utils from '../utils';
 import './index.less';
+import AffixTabs from './AffixTabs';
 
 interface PageData {
   meta: {
@@ -83,13 +84,11 @@ function toList([, ...items]: ContentUnit[]) {
 
 function injectCards(content: ContentUnit[]): ContentUnit[] {
   const newContent: ContentUnit = [];
-  console.log('>>>', content);
 
   for (let i = 0; i < content.length; i += 1) {
     const unit = content[i];
 
     if (Array.isArray(unit) && (unit[1] as any).class === 'next-block-use-cards') {
-      console.log('Bingo!', content[i + 1]);
       newContent.push(toList(content[i + 1] as any));
 
       i += 1;
@@ -111,6 +110,8 @@ const Resources = (props: ResourcesProps) => {
 
   return (
     <div id="resources-page">
+      <AffixTabs />
+
       <Article
         {...props}
         content={{
