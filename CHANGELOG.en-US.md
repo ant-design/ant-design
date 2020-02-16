@@ -32,7 +32,7 @@ timeline: true
 - 💄 Fix legacy Button.Group `large` size style issue. [#21307](https://github.com/ant-design/ant-design/pull/21307)
 - 💄 Fix Input border radius with suffix, style in Firefox, TextArea allowClear style issues. [#21316](https://github.com/ant-design/ant-design/pull/21316)
 - 🐞 Pagination will pass `disabled` prop to prev/next buttons return by `itemRender`. [#21361](https://github.com/ant-design/ant-design/pull/21361)
-- 🌎 Added Azerbaijani translation. [#21387](https://github.com/ant-design/ant-design/pull/21387)
+- 🌎 Added Azerbaijani translation. [#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
 - Typescript
   - 🔷 add MenuItemGroupProps export. [#21356](https://github.com/ant-design/ant-design/pull/21356)
   - 🔷 Table export `ColumnProps`. [#21321](https://github.com/ant-design/ant-design/pull/21321)
