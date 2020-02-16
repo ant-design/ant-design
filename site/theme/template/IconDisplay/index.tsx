@@ -110,7 +110,7 @@ class IconDisplay extends React.Component<IconDisplayProps, IconDisplayState> {
           </Radio.Group>
           <Input.Search
             placeholder={messages['app.docs.components.icon.search.placeholder']}
-            style={{ marginLeft: 10, flex: 1, height: 40 }}
+            style={{ marginLeft: 10, flex: 1 }}
             allowClear
             onChange={e => this.handleSearchIcon(e.currentTarget.value)}
             size="large"
