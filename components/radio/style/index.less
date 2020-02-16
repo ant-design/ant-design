@@ -212,8 +212,10 @@ span.@{radio-prefix-cls} + * {
       top: @border-width-base * -1;
       left: -1px;
       display: block;
+      box-sizing: content-box;
       width: 1px;
-      height: calc(100% + @border-width-base * 2);
+      height: 100%;
+      padding: @border-width-base 0;
       background-color: @border-color-base;
       content: '';
       transition: background-color 0.3s;
