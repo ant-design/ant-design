@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.26.10
+
+`2020-02-16`
+
+- 🐞 Fix Input.Group inside `<Form layout="vertical" >` 1px bug. [#20685](https://github.com/ant-design/ant-design/pull/20685)
+- 🐞 Fix Badge color not working when contains children. [#21333](https://github.com/ant-design/ant-design/pull/21333)
+- 🐞 Fix Alert close button extra padding. [#21325](https://github.com/ant-design/ant-design/pull/21325)
+- 🐞 Fix Affix throws `Cannot read property getBoundingClientRect in mobile device`. [#21350](https://github.com/ant-design/ant-design/pull/21350)
+
 ## 3.26.9
 
 `2020-02-08`

@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 3.26.10
+
+`2020-02-16`
+
+- 🐞 修复 `<Form layout="vertical" >` 内 Input.Group 偏上一像素的问题。[#20685](https://github.com/ant-design/ant-design/pull/20685)
+- 🐞 修复 Badge 包裹模式下 `color` 属性失效的问题。[#21333](https://github.com/ant-design/ant-design/pull/21333)
+- 🐞 修复 Alert 关闭按钮额外的 padding。[#21325](https://github.com/ant-design/ant-design/pull/21325)
+- 🐞 修复 Affix 在移动设备下抛错 `Cannot read property getBoundingClientRect` 的问题。[#21350](https://github.com/ant-design/ant-design/pull/21350)
+
 ## 3.26.9
 
 `2020-02-08`
