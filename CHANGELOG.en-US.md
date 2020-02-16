@@ -19,7 +19,7 @@ timeline: true
 
 `2020-02-16`
 
-- 🐞 Fix Form.Item validateFirst prevent finial submit. [#21329](https://github.com/ant-design/ant-design/pull/21329)
+- 🐞 Fix Form.Item `validateFirst` prevent finial submit. [#21329](https://github.com/ant-design/ant-design/pull/21329)
 - 🐞 Fixed cursor position issue when deleting consecutive identical numbers. [#21344](https://github.com/ant-design/ant-design/pull/21344)
 - 💄 Remove excess background color. [#21365](https://github.com/ant-design/ant-design/pull/21365)
 - 💄 Optimize the mouse style for the `disabled` state of the DatePicker component. [#21352](https://github.com/ant-design/ant-design/pull/21352)
