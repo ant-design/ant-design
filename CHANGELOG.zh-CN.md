@@ -24,7 +24,7 @@ timeline: true
 - 💄 Menu 移除掉多余的背景色。[#21365](https://github.com/ant-design/ant-design/pull/21365)
 - 💄 优化 DatePicker 组件 `disabled` 状态的鼠标样式。[#21352](https://github.com/ant-design/ant-design/pull/21352)
 - 🐞 修复 Affix 在移动设备下抛错 `Cannot read property getBoundingClientRect` 的问题。[#21350](https://github.com/ant-design/ant-design/pull/21350)
-- 🐞 修复 Form 在屏幕小于 xs 时标签宽度不正确的问题。[#21222](https://github.com/ant-design/ant-design/pull/21222)
+- 🐞 修复 Form 在屏幕小于 `xs` 时标签宽度不正确的问题。[#21222](https://github.com/ant-design/ant-design/pull/21222)
 - 🐞 修复 Input 在 `size` 为 `large` 时的高度问题。[#21338](https://github.com/ant-design/ant-design/pull/21338)
 - 🐞 修复 Badge 包裹模式下 `color` 属性失效的问题。[#21333](https://github.com/ant-design/ant-design/pull/21333)
 - 🐞 修复 Alert 关闭按钮额外的 `padding`。[#21325](https://github.com/ant-design/ant-design/pull/21325)
