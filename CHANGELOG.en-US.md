@@ -34,7 +34,7 @@ timeline: true
 - 🐞 Pagination will pass `disabled` prop to prev/next buttons return by `itemRender`. [#21361](https://github.com/ant-design/ant-design/pull/21361)
 - 🇦🇿 Added Azerbaijani translation. [#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
 - Typescript
-  - 🔷 Export `MenuItemGroupProps` export. [#21356](https://github.com/ant-design/ant-design/pull/21356)
+  - 🔷 Menu export `MenuItemGroupProps` export. [#21356](https://github.com/ant-design/ant-design/pull/21356)
   - 🔷 Table export `ColumnProps`. [#21321](https://github.com/ant-design/ant-design/pull/21321)
 
 ## 4.0.0-rc.4
