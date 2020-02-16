@@ -181,7 +181,7 @@ span.@{radio-prefix-cls} + * {
   border-top-width: @border-width-base + 0.02px;
   border-left: 0;
   cursor: pointer;
-  transition: color 0.3s, background 0.3s, border-color 0.3s;
+  transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
 
   a {
     color: @radio-button-color;
@@ -216,6 +216,7 @@ span.@{radio-prefix-cls} + * {
       height: calc(100% + @border-width-base * 2);
       background-color: @border-color-base;
       content: '';
+      transition: background-color 0.3s;
     }
   }
 
