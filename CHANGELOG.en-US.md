@@ -20,11 +20,11 @@ timeline: true
 `2020-02-16`
 
 - 🐞 Fix Form.Item `validateFirst` prevent finial submit. [#21329](https://github.com/ant-design/ant-design/pull/21329)
-- 🐞 Fixed cursor position issue when deleting consecutive identical numbers. [#21344](https://github.com/ant-design/ant-design/pull/21344)
-- 💄 Remove excess background color. [#21365](https://github.com/ant-design/ant-design/pull/21365)
+- 🐞 Fix InputNumber cursor position issue when deleting consecutive identical numbers. [#21344](https://github.com/ant-design/ant-design/pull/21344)
+- 💄 Menu remove excess background color. [#21365](https://github.com/ant-design/ant-design/pull/21365)
 - 💄 Optimize the mouse style for the `disabled` state of the DatePicker component. [#21352](https://github.com/ant-design/ant-design/pull/21352)
 - 🐞 Fix Affix throws `Cannot read property getBoundingClientRect` in mobile device. [#21350](https://github.com/ant-design/ant-design/pull/21350)
-- 🐞 Fix incorrect label width when screen is less than xs. [#21222](https://github.com/ant-design/ant-design/pull/21222)
+- 🐞 Fix the problem that the label width is incorrect when the screen is less than xs. [#21222](https://github.com/ant-design/ant-design/pull/21222)
 - 🐞 Fix Input size is large height style. [#21338](https://github.com/ant-design/ant-design/pull/21338)
 - 🐞 Fix Badge `color` not working when contains children. [#21333](https://github.com/ant-design/ant-design/pull/21333)
 - 🐞 Fix Alert close button extra padding. [#21325](https://github.com/ant-design/ant-design/pull/21325)
@@ -34,7 +34,7 @@ timeline: true
 - 🐞 Pagination will pass `disabled` prop to prev/next buttons return by `itemRender`. [#21361](https://github.com/ant-design/ant-design/pull/21361)
 - 🌎 Added Azerbaijani translation. [#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
 - Typescript
-  - 🔷 add MenuItemGroupProps export. [#21356](https://github.com/ant-design/ant-design/pull/21356)
+  - 🔷 Export `MenuItemGroupProps` export. [#21356](https://github.com/ant-design/ant-design/pull/21356)
   - 🔷 Table export `ColumnProps`. [#21321](https://github.com/ant-design/ant-design/pull/21321)
 
 ## 4.0.0-rc.4
