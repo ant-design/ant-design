@@ -21,7 +21,7 @@ timeline: true
 
 - 🐞 Fix Form.Item `validateFirst` prevent finial submit. [#21329](https://github.com/ant-design/ant-design/pull/21329)
 - 🐞 Fix InputNumber cursor position issue when deleting consecutive identical numbers. [#21344](https://github.com/ant-design/ant-design/pull/21344)
-- 💄 Menu remove excess background color. [#21365](https://github.com/ant-design/ant-design/pull/21365)
+- 💄 remove Menu excess background color. [#21365](https://github.com/ant-design/ant-design/pull/21365)
 - 💄 Optimize the mouse style for the `disabled` state of the DatePicker component. [#21352](https://github.com/ant-design/ant-design/pull/21352)
 - 🐞 Fix Affix throws `Cannot read property getBoundingClientRect` in mobile device. [#21350](https://github.com/ant-design/ant-design/pull/21350)
 - 🐞 Fix the problem that the label width is incorrect when the screen is less than xs. [#21222](https://github.com/ant-design/ant-design/pull/21222)
@@ -32,7 +32,7 @@ timeline: true
 - 💄 Fix legacy Button.Group `large` size style issue. [#21307](https://github.com/ant-design/ant-design/pull/21307)
 - 💄 Fix Input border radius with suffix, style in Firefox, TextArea allowClear style issues. [#21316](https://github.com/ant-design/ant-design/pull/21316)
 - 🐞 Pagination will pass `disabled` prop to prev/next buttons return by `itemRender`. [#21361](https://github.com/ant-design/ant-design/pull/21361)
-- 🌎 Added Azerbaijani translation. [#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
+- 🇦🇿 Added Azerbaijani translation. [#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
 - Typescript
   - 🔷 Export `MenuItemGroupProps` export. [#21356](https://github.com/ant-design/ant-design/pull/21356)
   - 🔷 Table export `ColumnProps`. [#21321](https://github.com/ant-design/ant-design/pull/21321)

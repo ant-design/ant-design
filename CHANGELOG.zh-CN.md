@@ -32,7 +32,7 @@ timeline: true
 - 💄 修复遗留的 Button.Group `large` 尺寸的样式问题。[#21307](https://github.com/ant-design/ant-design/pull/21307)
 - 💄 修正 TextArea `allowClear` 中的输入边框半径的样式问题和 Input `Suffix` 在 Firefox 下的样式问题。[#21316](https://github.com/ant-design/ant-design/pull/21316)
 - 🐞 Pagination 自定义 `itemRender` 返回的上一页下一页现在会补充 `disabled` 属性。[#21361](https://github.com/ant-design/ant-design/pull/21361)
-- 🌎 添加了阿塞拜疆语翻译。[#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
+- 🇦🇿 添加了阿塞拜疆语翻译。[#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
 - Typescript
   - 🔷 添加 `MenuItemGroupProps` 导出。[#21356](https://github.com/ant-design/ant-design/pull/21356)
   - 🔷 Table 导出 `ColumnProps`。[#21321](https://github.com/ant-design/ant-design/pull/21321)
