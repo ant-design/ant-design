@@ -23,6 +23,8 @@ timeline: true
 - 🐞 Fix Badge color not working when contains children. [#21333](https://github.com/ant-design/ant-design/pull/21333)
 - 🐞 Fix Alert close button extra padding. [#21325](https://github.com/ant-design/ant-design/pull/21325)
 - 🐞 Fix Affix throws `Cannot read property getBoundingClientRect in mobile device`. [#21350](https://github.com/ant-design/ant-design/pull/21350)
+- 💄 Tweak Steps 1px align issue. [#21306](https://github.com/ant-design/ant-design/pull/21306)
+- 💄 Fix Row component affect next element style issue. [#21310](https://github.com/ant-design/ant-design/pull/21310)
 
 ## 3.26.9
 
