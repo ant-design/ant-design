@@ -26,7 +26,7 @@ timeline: true
 - 💄 微调 Steps 文本 1px 使其居中对齐。[#21306](https://github.com/ant-design/ant-design/pull/21306)
 - 💄 修复 Row 组件影响下一个元素样式问题。[#21310](https://github.com/ant-design/ant-design/pull/21310)
 - Typescript
-  - 🔷 回滚 [#21250](https://github.com/ant-design/ant-design/pull/21250)的类型定义更新。[#21356](https://github.com/ant-design/ant-design/pull/21356)
+  - 🔷 回滚 [#21250](https://github.com/ant-design/ant-design/pull/21250) 的类型定义更新。[#21356](https://github.com/ant-design/ant-design/pull/21356)
 
 ## 3.26.9
 
