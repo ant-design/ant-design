@@ -25,6 +25,8 @@ timeline: true
 - 🐞 Fix Affix throws `Cannot read property getBoundingClientRect in mobile device`. [#21350](https://github.com/ant-design/ant-design/pull/21350)
 - 💄 Tweak Steps 1px align issue. [#21306](https://github.com/ant-design/ant-design/pull/21306)
 - 💄 Fix Row component affect next element style issue. [#21310](https://github.com/ant-design/ant-design/pull/21310)
+- Typescript
+  - 🔷 Rollback [#21250](https://github.com/ant-design/ant-design/pull/21250) Type Definition Update.[#21356](https://github.com/ant-design/ant-design/pull/21356)
 
 ## 3.26.9
 
