@@ -12,6 +12,7 @@ const SlickCarousel = require('@ant-design/react-slick').default;
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
+export type dots = boolean | { className?: string };
 
 // Carousel
 export interface CarouselProps extends Settings {
@@ -21,7 +22,7 @@ export interface CarouselProps extends Settings {
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
-  dotsClass?: string;
+  dotsClass?: dots;
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
