@@ -1,7 +1,7 @@
 import { ColumnType } from './interface';
 
 export interface ColumnProps<RecordType> extends ColumnType<RecordType> {
-  children?: ColumnTitle<RecordType>;
+  children?: ColumnTitle<RecordType>[];
 }
 
 /* istanbul ignore next */
