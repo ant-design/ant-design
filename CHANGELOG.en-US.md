@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.26.11
+
+`2020-02-17`
+
+- 🐞 Rollback misc `clearfix` style to breaks flex layout (mainly affect Row, Form, Layout style). [#21406](https://github.com/ant-design/ant-design/pull/21406)
+
 ## 3.26.10
 
 `2020-02-16`
