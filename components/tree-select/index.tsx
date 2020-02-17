@@ -9,7 +9,6 @@ import RcTreeSelect, {
 import classNames from 'classnames';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import collapseMotion from '../_util/motion';
 import warning from '../_util/warning';
 import { AntTreeNodeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
@@ -176,7 +175,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
               showTreeIcon={false}
               notFoundContent={mergedNotFound}
               getPopupContainer={getPopupContainer || getContextPopupContainer}
-              treeMotion={collapseMotion}
+              treeMotion={null}
               dropdownClassName={mergedDropdownClassName}
             />
           );
