@@ -46,9 +46,9 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
   }
 
-  focus() {
+  focus = () => {
     this.resizableTextArea.textArea.focus();
-  }
+  };
 
   blur() {
     this.resizableTextArea.textArea.blur();
@@ -112,6 +112,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
         element={this.renderTextArea(prefixCls)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
+        triggerFocus={this.focus}
       />
     );
   };
