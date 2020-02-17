@@ -19,7 +19,7 @@ timeline: true
 
 `2020-02-17`
 
-- 🐞 Fix misc `clearfix` breaks flex layout (mainly affect Row with flex layout). [#21403](https://github.com/ant-design/ant-design/commit/e35663065c2ac5fec3aff801dda1fe49ba299e20)
+- 🐞 Rollback misc `clearfix` style to breaks flex layout (mainly affect Row with flex layout). [#21403](https://github.com/ant-design/ant-design/commit/e35663065c2ac5fec3aff801dda1fe49ba299e20)
 
 ## 3.26.10
 
