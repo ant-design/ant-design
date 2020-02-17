@@ -33,7 +33,7 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 | multiple | Whether to support selected multiple file. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false |  |
 | name | The name of uploading file | string | 'file' |  |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise<dataURL: string> | - |  |
-| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon` and `showDownloadIcon` individually | Boolean or { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean } | true |  |
+| showUploadList | Whether to show default upload list, could be an object to specify `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | Boolean or { showPreviewIcon?: boolean, showDownloadIcon?: boolean, showRemoveIcon?: boolean, removeIcon?: React.ReactNode, downloadIcon?: React.ReactNode } | true |  |
 | supportServerRender | Need to be turned on while the server side is rendering | boolean | false |  |
 | withCredentials | ajax upload with cookie sent | boolean | false |  |
 | openFileDialogOnClick | click open file dialog | boolean | true |  |
