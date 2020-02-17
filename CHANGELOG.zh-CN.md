@@ -15,6 +15,12 @@ timeline: true
 
 ---
 
+## 3.26.11
+
+`2020-02-17`
+
+- 🐞 修复原子样式 `clearfix` 破坏 flex 布局的问题（主要影响 Row 的 flex 布局）。[#21403](https://github.com/ant-design/ant-design/commit/e35663065c2ac5fec3aff801dda1fe49ba299e20)
+
 ## 3.26.10
 
 `2020-02-16`
