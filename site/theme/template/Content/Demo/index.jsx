@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import LZString from 'lz-string';
 import { Tooltip, Alert } from 'antd';
 import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
@@ -144,7 +144,7 @@ class Demo extends React.Component {
       );
     }
     const codeExpand = this.state.codeExpand || expand;
-    const codeBoxClass = classNames('code-box', {
+    const codeBoxClass = cnb('code-box', {
       expand: codeExpand,
       'code-box-debug': meta.debug,
     });
@@ -152,7 +152,7 @@ class Demo extends React.Component {
     const localizeIntro = content[locale] || content;
     const introChildren = utils.toReactComponent(['div'].concat(localizeIntro));
 
-    const highlightClass = classNames({
+    const highlightClass = cnb({
       'highlight-wrapper': true,
       'highlight-wrapper-expand': codeExpand,
     });

@@ -5,7 +5,7 @@ import { Row, Col, Menu, Affix, Tooltip, Avatar } from 'antd';
 import { injectIntl } from 'react-intl';
 import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
 import ContributorsList from '@qixian.cs/github-contributors-list';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
 
@@ -301,7 +301,7 @@ class MainContent extends Component {
       after: <RightOutlined className="footer-nav-icon-after" />,
     });
     const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
-    const mainContainerClass = classNames('main-container', {
+    const mainContainerClass = cnb('main-container', {
       'main-container-component': !!demos,
     });
     const menuChild = (
@@ -380,7 +380,7 @@ class MainContent extends Component {
                   overlayClassName="fixed-widgets-tooltip"
                 >
                   <Avatar
-                    className={classNames('fixed-widgets-avatar', `fixed-widgets-avatar-${theme}`)}
+                    className={cnb('fixed-widgets-avatar', `fixed-widgets-avatar-${theme}`)}
                     size={44}
                     onClick={this.changeTheme}
                     icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}

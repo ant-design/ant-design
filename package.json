@@ -95,6 +95,7 @@
     "@ant-design/react-slick": "~0.25.5",
     "array-tree-filter": "^2.1.0",
     "classnames": "~2.2.6",
+    "cnbuilder": "^2.2.1",
     "copy-to-clipboard": "^3.2.0",
     "css-animation": "^1.5.0",
     "lodash": "^4.17.13",

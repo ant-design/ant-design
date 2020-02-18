@@ -1,7 +1,7 @@
 import * as React from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { Badge } from 'antd';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import * as AntdIcons from '@ant-design/icons';
 import { ThemeType } from './index';
 
@@ -24,7 +24,7 @@ const CopyableIcon: React.SFC<CopyableIconProps> = ({
   onCopied,
   theme,
 }) => {
-  const className = classNames({
+  const className = cnb({
     copied: justCopied === name,
     [theme]: !!theme,
   });

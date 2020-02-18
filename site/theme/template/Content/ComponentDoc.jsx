@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { Row, Col, Affix, Tooltip } from 'antd';
 import { getChildren } from 'jsonml.js/lib/utils';
 import { CodeFilled, CodeOutlined, BugFilled, BugOutlined } from '@ant-design/icons';
@@ -117,7 +117,7 @@ class ComponentDoc extends React.Component {
           rightChildren.push(demoElem);
         }
       });
-    const expandTriggerClass = classNames({
+    const expandTriggerClass = cnb({
       'code-box-expand-trigger': true,
       'code-box-expand-trigger-active': expandAll,
     });
@@ -133,7 +133,7 @@ class ComponentDoc extends React.Component {
     });
 
     const { title, subtitle, filename } = meta;
-    const articleClassName = classNames({
+    const articleClassName = cnb({
       'show-riddle-button': showRiddleButton,
     });
     const helmetTitle = `${subtitle || ''} ${title[locale] || title} - Ant Design`;

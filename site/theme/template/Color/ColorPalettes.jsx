@@ -1,8 +1,8 @@
 import React from 'react';
-import cls from 'classnames';
+import { cnb } from 'cnbuilder';
 import Palette from './Palette';
 
-const ColorPalettes = (props) => {
+const ColorPalettes = props => {
   const { dark } = props;
 
   const colors = [
@@ -79,9 +79,9 @@ const ColorPalettes = (props) => {
       description: '明快、感性',
     },
   ];
-  const colorCls = cls('color-palettes', {
+  const colorCls = cnb('color-palettes', {
     'color-palettes-dark': !!dark,
-  })
+  });
   return (
     <div className={colorCls}>
       {colors.map(color => (

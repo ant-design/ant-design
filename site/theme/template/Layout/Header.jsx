@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GitHubButton from 'react-github-button';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, injectIntl } from 'react-intl';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { SearchOutlined, MenuOutlined } from '@ant-design/icons';
 import { Select, Menu, Row, Col, Popover, Input, Button } from 'antd';
 
@@ -157,7 +157,7 @@ class Header extends React.Component {
 
     const isZhCN = locale === 'zh-CN';
 
-    const headerClassName = classNames({
+    const headerClassName = cnb({
       clearfix: true,
       'home-header': isHome,
     });

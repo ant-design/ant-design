@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { FormattedMessage } from 'react-intl';
 import { Row, Col, Typography } from 'antd';
 import './RecommendPage.less';
@@ -54,7 +54,7 @@ const RecommendBlock = ({
 }: RecommendBlockProps) => {
   return (
     <a
-      className={classNames('recommend-block', main && 'recommend-block-main')}
+      className={cnb('recommend-block', main && 'recommend-block-main')}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
