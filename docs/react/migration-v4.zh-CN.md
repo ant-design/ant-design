@@ -111,7 +111,7 @@ const Demo = () => (
 - Form 重写
   - 不再需要 `Form.create`。
   - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
-  - 迁移文档请查看[此处](/components/form/v3)。
+  - 迁移文档请查看[此处](/components/form/v3-cn)。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
@@ -129,8 +129,8 @@ const Demo = () => (
   columns={[
     {
       title: 'Age',
----      dataIndex: 'user.age',
-+++      dataIndex: ['user', 'age'],
+-      dataIndex: 'user.age',
++      dataIndex: ['user', 'age'],
     },
   ]}
 />
