@@ -15,14 +15,14 @@
   .menu-row {
     display: flex;
     align-items: center;
-    margin: 0 0 0 -8px;
+    margin: 0;
 
-    > *:not(#search-box) {
+    > * {
       flex: none;
-      margin: 0 8px;
+      margin: 0 16px 0 0;
 
       &:last-child {
-        margin-right: 0;
+        margin-right: 40px;
       }
     }
   }
@@ -64,13 +64,10 @@
 
   .ant-row-rtl {
     .menu-row {
-      margin: 0 -8px;
-
       > * {
-        margin: 0 8px;
-
         &:last-child {
-          margin-right: 8px;
+          margin-left: 40px;
+          margin-right: 16px;
         }
       }
     }

@@ -218,9 +218,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
     let menu: (React.ReactElement | null)[] = [
       navigationNode,
-      isHome ? (
-        <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />
-      ) : null,
       <Select
         key="version"
         className="version"
@@ -248,6 +245,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         {this.getNextDirectionText()}
       </Button>,
       <More key="more" {...sharedProps} />,
+      <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />,
     ];
 
     if (windowWidth < RESPONSIVE_XS) {
