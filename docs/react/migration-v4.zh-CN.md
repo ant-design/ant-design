@@ -108,7 +108,10 @@ const Demo = () => (
 
 #### 组件重构
 
-- Form 重写，不再需要 `Form.create`，迁移文档请查看[此处](/components/form/v3)。
+- Form 重写
+  - 不再需要 `Form.create`。
+  - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+  - 迁移文档请查看[此处](/components/form/v3)。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
@@ -117,7 +120,9 @@ const Demo = () => (
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
-- Table 在没有 `columns` 时仍然会保留一列。
+- Table 重写
+  - 在没有 `columns` 时仍然会保留一列。
+  - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
 
 ## 开始升级
 
