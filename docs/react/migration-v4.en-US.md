@@ -123,6 +123,17 @@ const Demo = () => (
 - Table rewrite.
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+  
+```diff
+<Table
+  columns={[
+    {
+      title: 'Age',
+---      dataIndex: 'user.age',
++++      dataIndex: ['user', 'age'],
+    },
+  ]}
+/>
 
 ## Start upgrading
 
