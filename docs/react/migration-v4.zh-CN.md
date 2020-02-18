@@ -74,22 +74,22 @@ const Demo = () => (
 4.0 中会采用按需引入的方式：
 
 ```diff
-import { Button } from 'antd';
+  import { Button } from 'antd';
 
-// tree-shaking supported
+  // tree-shaking supported
 - import { Icon } from 'antd';
 + import { SmileOutlined } from '@ant-design/icons';
 
-const Demo = () => (
-  <div>
--    <Icon type="smile" />
-+    <SmileOutlined />
-    <Button icon={<SmileOutlined />} />
-  </div>
-);
+  const Demo = () => (
+    <div>
+-     <Icon type="smile" />
++     <SmileOutlined />
+      <Button icon={<SmileOutlined />} />
+    </div>
+  );
 
-// or directly import
-import SmileOutlined from '@ant-design/icons/SmileOutlined';
+  // or directly import
+  import SmileOutlined from '@ant-design/icons/SmileOutlined';
 ```
 
 你将仍然可以通过兼容包继续使用：
@@ -108,7 +108,10 @@ const Demo = () => (
 
 #### 组件重构
 
-- Form 重写，不再需要 `Form.create`，迁移文档请查看[此处](/components/form/v3)。
+- Form 重写
+  - 不再需要 `Form.create`。
+  - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+  - 迁移文档请查看[此处](/components/form/v3)。
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
@@ -117,7 +120,21 @@ const Demo = () => (
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
-- Table 在没有 `columns` 时仍然会保留一列。
+- Table 重写
+  - 在没有 `columns` 时仍然会保留一列。
+  - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+
+```diff
+<Table
+  columns={[
+    {
+      title: 'Age',
+-     dataIndex: 'user.age',
++     dataIndex: ['user', 'age'],
+    },
+  ]}
+/>
+```
 
 ## 开始升级
 
@@ -139,11 +156,11 @@ yarn global add @ant-design/codemod-v4
 antd4-codemod src
 ```
 
-![codemod running](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QdcbQoLC-cQAAAAAAAAAAABkARQnAQ)
+<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QdcbQoLC-cQAAAAAAAAAAABkARQnAQ" alt="codemod running" width="720" />
 
 对于无法自动修改的部分，codemod 会在命令行进行提示，建议按提示手动修改。修改后可以反复运行上述命令进行检查。
 
-![contains an invalid icon](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ)
+<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ" alt="contains an invalid icon" width="720" />
 
 > 注意 codemod 不能涵盖所有场景，建议还是要按不兼容的变化逐条排查。
 

@@ -74,22 +74,22 @@ const Demo = () => (
 It will be imported on demand in v4:
 
 ```diff
-import { Button } from 'antd';
+  import { Button } from 'antd';
 
-// tree-shaking supported
+  // tree-shaking supported
 - import { Icon } from 'antd';
 + import { SmileOutlined } from '@ant-design/icons';
 
-const Demo = () => (
-  <div>
--    <Icon type="smile" />
-+    <SmileOutlined />
-    <Button icon={<SmileOutlined />} />
-  </div>
-);
+  const Demo = () => (
+      <div>
+-       <Icon type="smile" />
++       <SmileOutlined />
+      <Button icon={<SmileOutlined />} />
+    </div>
+  );
 
-// or directly import
-import SmileOutlined from '@ant-design/icons/SmileOutlined';
+  // or directly import
+  import SmileOutlined from '@ant-design/icons/SmileOutlined';
 ```
 
 You will still be able to continue using the compatibility pack:
@@ -108,7 +108,10 @@ const Demo = () => (
 
 #### Component refactoring
 
-- Form rewrite. No need to use `Form.create`. See [here](/components/form/v3) for migration documentation.
+- Form rewrite.
+  - No need to use `Form.create`.
+  - Nest fields definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+  - See [here](/components/form/v3) for migration documentation.
 - DatePicker rewrite
   - Provide the `picker` property for selector switching.
   - Range selection can now select start and end times individually.
@@ -117,7 +120,20 @@ const Demo = () => (
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
-- Table will keep at least one column even if `columns` is empty.
+- Table rewrite.
+  - will keep at least one column even if `columns` is empty.
+  - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+  
+```diff
+<Table
+  columns={[
+    {
+      title: 'Age',
+-     dataIndex: 'user.age',
++     dataIndex: ['user', 'age'],
+    },
+  ]}
+/>
 
 ## Start upgrading
 
@@ -139,11 +155,11 @@ yarn global add @ant-design/codemod-v4
 antd4-codemod src
 ```
 
-![codemod running](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QdcbQoLC-cQAAAAAAAAAAABkARQnAQ)
+<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QdcbQoLC-cQAAAAAAAAAAABkARQnAQ" alt="codemod running" width="720" />
 
 For parts that cannot be modified automatically, codemod will prompt on the command line, and it is recommended to modify them manually as prompted. After modification, you can run the above command repeatedly to check.
 
-![contains an invalid icon](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ)
+<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KQwWSrPirlUAAAAAAAAAAABkARQnAQ" alt="contains an invalid icon" width="720" />
 
 > Note that codemod cannot cover all scenarios, and it is recommended to check for incompatible changes one by one.
 
