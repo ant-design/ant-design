@@ -129,8 +129,8 @@ const Demo = () => (
   columns={[
     {
       title: 'Age',
----      dataIndex: 'user.age',
-+++      dataIndex: ['user', 'age'],
+-        dataIndex: 'user.age',
++        dataIndex: ['user', 'age'],
     },
   ]}
 />
