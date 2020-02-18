@@ -3,7 +3,6 @@ category: 设计模式 - 探索
 type: 模板文档
 order: 4
 title: 结果页
-skip: true
 ---
 
 结果页是用一个页面反馈操作结果，是反馈模式中最强的一种。
