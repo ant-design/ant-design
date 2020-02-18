@@ -122,7 +122,7 @@ const Demo = () => (
 - Input、Select 的 `value` 为 `undefined` 时改为非受控状态。
 - Table 重写
   - 在没有 `columns` 时仍然会保留一列。
-  - 嵌套字段支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
+  - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
 
 ## 开始升级
 
