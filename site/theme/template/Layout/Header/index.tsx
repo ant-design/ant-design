@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GitHubButton from 'react-github-button';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
@@ -12,6 +11,7 @@ import Logo from './Logo';
 import SearchBox from './SearchBox';
 import More from './More';
 import Navigation from './Navigation';
+import Github from './Github';
 
 import './index.less';
 
@@ -183,6 +183,12 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
     const isZhCN = locale === 'zh-CN';
+    let responsive: null | 'narrow' | 'crowded' = null;
+    if (windowWidth < RESPONSIVE_XS) {
+      responsive = 'crowded';
+    } else if (windowWidth < RESPONSIVE_SM) {
+      responsive = 'narrow';
+    }
 
     const headerClassName = classNames({
       clearfix: true,
@@ -197,7 +203,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       <SearchBox
         key="search"
         {...sharedProps}
-        narrow={windowWidth < RESPONSIVE_SM}
+        responsive={responsive}
         onTriggerFocus={this.onTriggerSearching}
       />
     );
@@ -207,7 +213,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         key="nav"
         {...sharedProps}
         location={location}
-        narrow={false}
+        responsive={responsive}
         isMobile={isMobile}
         pathname={pathname}
         directionText={this.getNextDirectionText()}
@@ -245,17 +251,11 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         {this.getNextDirectionText()}
       </Button>,
       <More key="more" {...sharedProps} />,
-      <GitHubButton key="github" type="stargazers" namespace="ant-design" repo="ant-design" />,
+      <Github key="github" responsive={responsive} />,
     ];
 
     if (windowWidth < RESPONSIVE_XS) {
-      menu = searching
-        ? []
-        : [
-            React.cloneElement(navigationNode, {
-              narrow: true,
-            }),
-          ];
+      menu = searching ? [] : [navigationNode];
     } else if (windowWidth < RESPONSIVE_SM) {
       menu = searching ? [] : menu;
     }

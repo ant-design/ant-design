@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'bisheng/router';
 import { UnorderedListOutlined } from '@ant-design/icons';
@@ -12,7 +13,7 @@ import './Navigation.less';
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
   pathname: string;
-  narrow: boolean;
+  responsive: null | 'narrow' | 'crowded';
   location: { pathname: string };
   directionText: string;
   onLangChange: () => void;
@@ -23,7 +24,7 @@ export default ({
   isZhCN,
   isMobile,
   pathname,
-  narrow,
+  responsive,
   location,
   directionText,
   onLangChange,
@@ -60,12 +61,21 @@ export default ({
 
   if (isMobile) {
     additional = additionalItems;
-  } else if (narrow) {
-    additional = <Menu.SubMenu title={<UnorderedListOutlined />}>{additionalItems}</Menu.SubMenu>;
+  } else if (responsive === 'crowded') {
+    additional = (
+      <Menu.SubMenu key="additional" title={<UnorderedListOutlined />}>
+        {additionalItems}
+      </Menu.SubMenu>
+    );
   }
 
   return (
-    <Menu className="menu-site" mode={menuMode} selectedKeys={[activeMenuItem]} id="nav">
+    <Menu
+      className={classNames('menu-site')}
+      mode={menuMode}
+      selectedKeys={[activeMenuItem]}
+      id="nav"
+    >
       <Menu.Item key="docs/spec">
         <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
           <FormattedMessage id="app.header.menu.spec" />

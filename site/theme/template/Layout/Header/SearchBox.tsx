@@ -8,10 +8,10 @@ import './SearchBox.less';
 
 export interface SearchBoxProps extends SharedProps {
   onTriggerFocus?: (focus: boolean) => void;
-  narrow: boolean;
+  responsive: null | 'narrow' | 'crowded';
 }
 
-export default ({ isZhCN, narrow, onTriggerFocus }: SearchBoxProps) => {
+export default ({ isZhCN, responsive, onTriggerFocus }: SearchBoxProps) => {
   const inputRef = React.useRef<any>(null);
   const [focused, setFocused] = React.useState(false);
   const searchPlaceholder = isZhCN ? '在 ant.design 中搜索' : 'Search in ant.design';
@@ -33,7 +33,7 @@ export default ({ isZhCN, narrow, onTriggerFocus }: SearchBoxProps) => {
     <div
       id="search-box"
       className={classNames({
-        'narrow-mode': narrow,
+        'narrow-mode': responsive,
         focused,
       })}
       onClick={() => {
