@@ -11,7 +11,6 @@ import './Navigation.less';
 
 export interface NavigationProps extends SharedProps {
   isMobile: boolean;
-  isHome: boolean;
   pathname: string;
   narrow: boolean;
   location: { pathname: string };
@@ -23,7 +22,6 @@ export interface NavigationProps extends SharedProps {
 export default ({
   isZhCN,
   isMobile,
-  isHome,
   pathname,
   narrow,
   location,
@@ -68,13 +66,6 @@ export default ({
 
   return (
     <Menu className="menu-site" mode={menuMode} selectedKeys={[activeMenuItem]} id="nav">
-      {isHome ? null : (
-        <Menu.Item key="home" className="hide-in-home-page">
-          <Link to={utils.getLocalizedPathname('/', isZhCN)}>
-            <FormattedMessage id="app.header.menu.home" />
-          </Link>
-        </Menu.Item>
-      )}
       <Menu.Item key="docs/spec">
         <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN)}>
           <FormattedMessage id="app.header.menu.spec" />

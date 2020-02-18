@@ -208,7 +208,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         {...sharedProps}
         location={location}
         narrow={false}
-        isHome={isHome}
         isMobile={isMobile}
         pathname={pathname}
         directionText={this.getNextDirectionText()}

@@ -4,7 +4,6 @@ module.exports = {
     'app.theme.switch.dark': 'Switch default mode',
     'app.theme.switch.default': 'Switch dark mode',
     'app.header.search': 'Search...',
-    'app.header.menu.home': 'Home',
     'app.header.menu.documentation': 'Docs',
     'app.header.menu.components': 'Components',
     'app.header.menu.spec': 'Design',
