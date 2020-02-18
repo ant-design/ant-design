@@ -124,6 +124,18 @@ const Demo = () => (
   - 在没有 `columns` 时仍然会保留一列。
   - 嵌套 `dataIndex` 支持从 `'xxx.yyy'` 改成 `['xxx', 'yyy']`。
 
+```diff
+<Table
+  columns={[
+    {
+      title: 'Age',
+---      dataIndex: 'user.age',
++++      dataIndex: ['user', 'age'],
+    },
+  ]}
+/>
+```
+
 ## 开始升级
 
 你可以手动对照上面的列表逐条检查代码进行修改，另外，我们也提供了一个 codemod cli 工具 [@ant-design/codemod-v4](https://github.com/ant-design/codemod-v4) 以帮助你快速升级到 v4 版本。
