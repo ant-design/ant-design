@@ -98,6 +98,28 @@ export default class UploadList extends React.Component<UploadListProps, any> {
     return icon;
   };
 
+  handleActionIconRender = (customIcon: React.ReactNode, callback: () => void, title?: string) => {
+    if(React.isValidElement(customIcon)) {
+      return React.cloneElement(customIcon,
+        {
+          ...customIcon.props,
+          title,
+          onClick: (e: React.MouseEvent<HTMLElement>) => {
+            callback();
+            if (customIcon.props.onClick) {
+              customIcon.props.onClick(e);
+            }
+          },
+        },
+      );
+    }
+    return (
+      <span title={title} onClick={callback}>
+        {customIcon}
+      </span>
+    );
+  };
+
   renderUploadList = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
@@ -106,6 +128,8 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showPreviewIcon,
       showRemoveIcon,
       showDownloadIcon,
+      removeIcon: customRemoveIcon,
+      downloadIcon: customDownloadIcon,
       locale,
       progressAttr,
     } = this.props;
@@ -170,13 +194,17 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       const linkProps =
         typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
-      const removeIcon = showRemoveIcon ? (
+      const removeIcon = showRemoveIcon ? customRemoveIcon && (
+        this.handleActionIconRender(customRemoveIcon, () => this.handleClose(file), locale.removeFile)
+      ) || (
         <DeleteOutlined title={locale.removeFile} onClick={() => this.handleClose(file)} />
       ) : null;
 
       const downloadIcon =
-        showDownloadIcon && file.status === 'done' ? (
-          <DownloadOutlined title={locale.downloadFile} onClick={() => this.handleDownload(file)} />
+        showDownloadIcon && file.status === 'done' ? customDownloadIcon && (
+          this.handleActionIconRender(customDownloadIcon, () => this.handleDownload(file), locale.downloadFile)
+        ) || (
+          <DownloadOutlined title={locale.downloadFile} onClick={() => this.handleDownload(file)}/>
         ) : null;
       const downloadOrDelete = listType !== 'picture-card' && (
         <span

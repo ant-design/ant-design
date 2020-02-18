@@ -23,17 +23,17 @@ describe('Input.Password', () => {
   it('should change type when click', () => {
     const wrapper = mount(<Input.Password />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper
       .find('.ant-input-password-icon')
       .at(0)
       .simulate('click');
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper
       .find('.ant-input-password-icon')
       .at(0)
       .simulate('click');
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('visibilityToggle should work', () => {
@@ -51,7 +51,9 @@ describe('Input.Password', () => {
   });
 
   it('should keep focus state', () => {
-    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />, { attachTo: document.body });
+    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />, {
+      attachTo: document.body,
+    });
     expect(document.activeElement).toBe(
       wrapper
         .find('input')

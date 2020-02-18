@@ -1,3 +1,4 @@
+import { Rule } from 'rc-field-form/lib/interface';
 import InternalForm, { useForm, FormInstance, FormProps } from './Form';
 import Item, { FormItemProps } from './FormItem';
 import List from './FormList';
@@ -29,6 +30,6 @@ Form.create = () => {
   );
 };
 
-export { FormInstance, FormProps, FormItemProps };
+export { FormInstance, FormProps, FormItemProps, Rule };
 
 export default Form;

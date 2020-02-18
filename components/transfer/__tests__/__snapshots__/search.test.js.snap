@@ -31,6 +31,7 @@ exports[`Transfer.Search should show cross icon when input value exists 1`] = `
         onChange={[Function]}
         placeholder=""
         prefixCls="ant-input"
+        triggerFocus={[Function]}
         type="text"
         value=""
       >
@@ -158,6 +159,7 @@ exports[`Transfer.Search should show cross icon when input value exists 2`] = `
         onChange={[Function]}
         placeholder=""
         prefixCls="ant-input"
+        triggerFocus={[Function]}
         type="text"
         value="a"
       >
