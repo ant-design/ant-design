@@ -81,3 +81,7 @@ Tree selection control.
 ### How to get parent node in onChange?
 
 We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/wk080nn81k>
+
+### Why sometime customize Option cause scroll break?
+
+You can ref Select [FAQ](/components/select).

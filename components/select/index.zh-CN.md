@@ -103,3 +103,13 @@ title: Select
 ### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
 
 看下 [dropdownRender 例子](/components/select-cn/#components-select-demo-custom-dropdown-menu) 里的说明。
+
+### 自定义 Option 样式导致滚动异常怎么办？
+
+这是由于虚拟滚动默认选项高度为 `32px`，如果你的选项高度小于该值则需要通过 `listItemHeight` 属性调整，而 `listHeight` 用于设置滚动容器高度：
+
+```tsx
+<Select listItemHeight={10} listHeight={250} />
+```
+
+注意：`listItemHeight` 和 `listHeight` 为内部属性，如无必要，请勿修改该值。
