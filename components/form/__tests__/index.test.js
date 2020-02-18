@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { mount } from 'enzyme';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
@@ -521,5 +521,29 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `null` is passed as `name` property',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/21415
+  it('Component.props.onChange is null', () => {
+    // eslint-disable-next-line
+    class CustomComponent extends Component {
+      static defaultProps = {
+        onChange: null,
+      };
+
+      render() {
+        return <input {...this.props} />;
+      }
+    }
+    expect(() => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item name="custom">
+            <CustomComponent />
+          </Form.Item>
+        </Form>,
+      );
+      wrapper.find(CustomComponent).simulate('change', { value: '123' });
+    }).not.toThrow();
   });
 });
