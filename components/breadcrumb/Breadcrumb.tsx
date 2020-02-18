@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'omit.js';
 import BreadcrumbItem from './BreadcrumbItem';
@@ -154,7 +154,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         });
       });
     }
-    const breadcrumbClassName = classNames(className, prefixCls, {
+    const breadcrumbClassName = cnb(className, prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     return (

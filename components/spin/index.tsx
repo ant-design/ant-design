@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -40,18 +40,18 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
 
   if (React.isValidElement(indicator)) {
     return React.cloneElement(indicator, {
-      className: classNames(indicator.props.className, dotClassName),
+      className: cnb(indicator.props.className, dotClassName),
     });
   }
 
   if (React.isValidElement(defaultIndicator)) {
     return React.cloneElement(defaultIndicator as SpinIndicator, {
-      className: classNames((defaultIndicator as SpinIndicator).props.className, dotClassName),
+      className: cnb((defaultIndicator as SpinIndicator).props.className, dotClassName),
     });
   }
 
   return (
-    <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
+    <span className={cnb(dotClassName, `${prefixCls}-dot-spin`)}>
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
@@ -142,7 +142,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
     const { spinning } = this.state;
 
     const prefixCls = getPrefixCls('spin', customizePrefixCls);
-    const spinClassName = classNames(
+    const spinClassName = cnb(
       prefixCls,
       {
         [`${prefixCls}-sm`]: size === 'small',
@@ -164,11 +164,11 @@ class Spin extends React.Component<SpinProps, SpinState> {
       </div>
     );
     if (this.isNestedPattern()) {
-      const containerClassName = classNames(`${prefixCls}-container`, {
+      const containerClassName = cnb(`${prefixCls}-container`, {
         [`${prefixCls}-blur`]: spinning,
       });
       return (
-        <div {...divProps} className={classNames(`${prefixCls}-nested-loading`, wrapperClassName)}>
+        <div {...divProps} className={cnb(`${prefixCls}-nested-loading`, wrapperClassName)}>
           {spinning && <div key="loading">{spinElement}</div>}
           <div className={containerClassName} key="container">
             {this.props.children}

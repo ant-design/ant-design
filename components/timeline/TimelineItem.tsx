@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -27,7 +27,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
       } = props;
 
       const prefixCls = getPrefixCls('timeline', customizePrefixCls);
-      const itemClassName = classNames(
+      const itemClassName = cnb(
         {
           [`${prefixCls}-item`]: true,
           [`${prefixCls}-item-pending`]: pending,
@@ -35,7 +35,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
         className,
       );
 
-      const dotClassName = classNames({
+      const dotClassName = cnb({
         [`${prefixCls}-item-head`]: true,
         [`${prefixCls}-item-head-custom`]: dot,
         [`${prefixCls}-item-head-${color}`]: true,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -150,7 +150,7 @@ class Skeleton extends React.Component<SkeletonProps, any> {
         );
       }
 
-      const cls = classNames(prefixCls, className, {
+      const cls = cnb(prefixCls, className, {
         [`${prefixCls}-with-avatar`]: hasAvatar,
         [`${prefixCls}-active`]: active,
         [`${prefixCls}-rtl`]: direction === 'rtl',

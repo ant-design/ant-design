@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcRate from 'rc-rate';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { StarFilled } from '@ant-design/icons';
 
 import Tooltip from '../tooltip';
@@ -58,7 +58,7 @@ export default class Rate extends React.Component<RateProps, any> {
 
     const rateProps = omit(restProps, ['tooltips']);
     const ratePrefixCls = getPrefixCls('rate', prefixCls);
-    const rateClassNames = classNames(className, {
+    const rateClassNames = cnb(className, {
       [`${ratePrefixCls}-rtl`]: direction === 'rtl',
     });
 

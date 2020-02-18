@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
@@ -282,7 +282,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     const menuOpenMotion = this.getOpenMotionProps(menuMode!);
 
     const prefixCls = getPrefixCls('menu', customizePrefixCls);
-    const menuClassName = classNames(className, `${prefixCls}-${theme}`, {
+    const menuClassName = cnb(className, `${prefixCls}-${theme}`, {
       [`${prefixCls}-inline-collapsed`]: this.getInlineCollapsed(),
     });
 

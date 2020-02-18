@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 
 export interface SkeletonTitleProps {
   prefixCls?: string;
@@ -10,7 +10,7 @@ export interface SkeletonTitleProps {
 }
 
 const Title = ({ prefixCls, className, width, style }: SkeletonTitleProps) => (
-  <h3 className={classNames(prefixCls, className)} style={{ width, ...style }} />
+  <h3 className={cnb(prefixCls, className)} style={{ width, ...style }} />
 );
 
 export default Title;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import DefaultEmptyImg from './empty';
@@ -60,7 +60,7 @@ const Empty: EmptyType = (props: EmptyProps) => (
 
             return (
               <div
-                className={classNames(
+                className={cnb(
                   prefixCls,
                   {
                     [`${prefixCls}-normal`]: image === simpleEmptyImg,

@@ -17,7 +17,7 @@ Integrate virtual scroll with `react-window` to achieve a high performance table
 import React, { useState, useEffect, useRef } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 import ResizeObserver from 'rc-resize-observer';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { Table } from 'antd';
 
 function VirtualTable(props) {
@@ -83,7 +83,7 @@ function VirtualTable(props) {
       >
         {({ columnIndex, rowIndex, style }) => (
           <div
-            className={classNames('virtual-table-cell', {
+            className={cnb('virtual-table-cell', {
               'virtual-table-cell-last': columnIndex === mergedColumns.length - 1,
             })}
             style={style}
@@ -103,7 +103,7 @@ function VirtualTable(props) {
     >
       <Table
         {...props}
-        className={classNames(className, 'virtual-table')}
+        className={cnb(className, 'virtual-table')}
         columns={mergedColumns}
         pagination={false}
         components={{

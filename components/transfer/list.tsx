@@ -1,6 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
 import {
@@ -180,7 +180,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     return (
       <div
-        className={classNames(
+        className={cnb(
           showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
         )}
       >
@@ -289,7 +289,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     // Custom Layout
     const footerDom = footer && footer(this.props);
 
-    const listCls = classNames(prefixCls, {
+    const listCls = cnb(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,
     });
 

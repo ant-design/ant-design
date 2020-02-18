@@ -1,6 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Element, { SkeletonElementProps } from './Element';
 
@@ -19,7 +19,7 @@ class SkeletonAvatar extends React.Component<AvatarProps, any> {
     const { prefixCls: customizePrefixCls, className, active } = this.props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
     const otherProps = omit(this.props, ['prefixCls']);
-    const cls = classNames(prefixCls, className, `${prefixCls}-element`, {
+    const cls = cnb(prefixCls, className, `${prefixCls}-element`, {
       [`${prefixCls}-active`]: active,
     });
     return (

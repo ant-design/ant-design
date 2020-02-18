@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
 
@@ -11,7 +11,7 @@ export default class ListItem extends React.Component<any, any> {
   render() {
     const { renderedText, renderedEl, item, checked, disabled, prefixCls, onClick } = this.props;
 
-    const className = classNames({
+    const className = cnb({
       [`${prefixCls}-content-item`]: true,
       [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
       [`${prefixCls}-content-item-checked`]: checked,

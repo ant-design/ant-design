@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import { cnb } from 'cnbuilder';
 import {
   CheckCircleFilled,
   CloseCircleFilled,
@@ -52,7 +52,7 @@ const ExceptionStatus = Object.keys(ExceptionMap);
  * @param {status, icon}
  */
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
-  const className = classnames(`${prefixCls}-icon`);
+  const className = cnb(`${prefixCls}-icon`);
 
   warning(
     !(typeof icon === 'string' && icon.length > 2),
@@ -98,7 +98,7 @@ const Result: ResultType = props => (
         status,
       } = props;
       const prefixCls = getPrefixCls('result', customizePrefixCls);
-      const className = classnames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
+      const className = cnb(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       });
       return (

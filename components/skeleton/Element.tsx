@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 
 export interface SkeletonElementProps {
   prefixCls?: string;
@@ -15,12 +15,12 @@ class Element extends React.Component<SkeletonElementProps, any> {
   render() {
     const { prefixCls, className, style, size, shape } = this.props;
 
-    const sizeCls = classNames({
+    const sizeCls = cnb({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
     });
 
-    const shapeCls = classNames({
+    const shapeCls = cnb({
       [`${prefixCls}-circle`]: shape === 'circle',
       [`${prefixCls}-square`]: shape === 'square',
       [`${prefixCls}-round`]: shape === 'round',
@@ -36,7 +36,7 @@ class Element extends React.Component<SkeletonElementProps, any> {
         : {};
     return (
       <span
-        className={classNames(prefixCls, className, sizeCls, shapeCls)}
+        className={cnb(prefixCls, className, sizeCls, shapeCls)}
         style={{ ...sizeStyle, ...style }}
       />
     );

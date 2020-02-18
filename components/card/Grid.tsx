@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CardGridProps {
@@ -14,7 +14,7 @@ const Grid: React.SFC<CardGridProps> = props => (
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, className, hoverable = true, ...others } = props;
       const prefixCls = getPrefixCls('card', customizePrefixCls);
-      const classString = classNames(`${prefixCls}-grid`, className, {
+      const classString = cnb(`${prefixCls}-grid`, className, {
         [`${prefixCls}-grid-hoverable`]: hoverable,
       });
       return <div {...others} className={classString} />;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcDropdown from 'rc-dropdown';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { RightOutlined } from '@ant-design/icons';
 
 import DropdownButton from './dropdown-button';
@@ -143,13 +143,13 @@ export default class Dropdown extends React.Component<DropDownProps, any> {
     const child = React.Children.only(children) as React.ReactElement<any>;
 
     const dropdownTrigger = React.cloneElement(child, {
-      className: classNames(child.props.className, `${prefixCls}-trigger`, {
+      className: cnb(child.props.className, `${prefixCls}-trigger`, {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       }),
       disabled,
     });
 
-    const overlayClassNameCustomized = classNames(overlayClassName, {
+    const overlayClassNameCustomized = cnb(overlayClassName, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 

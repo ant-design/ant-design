@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
@@ -330,7 +330,7 @@ class Transfer extends React.Component<TransferProps, any> {
         const leftActive = targetSelectedKeys.length > 0;
         const rightActive = sourceSelectedKeys.length > 0;
 
-        const cls = classNames(className, prefixCls, {
+        const cls = cnb(className, prefixCls, {
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-customize-list`]: !!children,
           [`${prefixCls}-rtl`]: direction === 'rtl',

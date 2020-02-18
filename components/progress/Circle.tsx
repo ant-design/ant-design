@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Circle as RCCircle } from 'rc-progress';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { validProgress } from './utils';
 import { ProgressProps } from './progress';
 
@@ -53,7 +53,7 @@ const Circle: React.SFC<CircleProps> = props => {
   const strokeColor = getStrokeColor(props) as string | string[] | object;
   const isGradient = Object.prototype.toString.call(strokeColor) === '[object Object]';
 
-  const wrapperClassName = classNames(`${prefixCls}-inner`, {
+  const wrapperClassName = cnb(`${prefixCls}-inner`, {
     [`${prefixCls}-circle-gradient`]: isGradient,
   });
 

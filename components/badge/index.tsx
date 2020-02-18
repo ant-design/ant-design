@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import ScrollNumber from './ScrollNumber';
 import { PresetColorTypes } from '../_util/colors';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -76,7 +76,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
 
   getBadgeClassName(prefixCls: string, direction: string = 'ltr') {
     const { className, children } = this.props;
-    return classNames(className, prefixCls, {
+    return cnb(className, prefixCls, {
       [`${prefixCls}-status`]: this.hasStatus(),
       [`${prefixCls}-not-a-wrapper`]: !children,
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -135,7 +135,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const isDot = this.isDot();
     const hidden = this.isHidden();
 
-    const scrollNumberCls = classNames({
+    const scrollNumberCls = cnb({
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-count`]: !isDot,
       [`${prefixCls}-multiple-words`]:
@@ -191,7 +191,7 @@ export default class Badge extends React.Component<BadgeProps, any> {
     const scrollNumber = this.renderBadgeNumber(prefixCls, scrollNumberPrefixCls);
     const statusText = this.renderStatusText(prefixCls);
 
-    const statusCls = classNames({
+    const statusCls = cnb({
       [`${prefixCls}-status-dot`]: this.hasStatus(),
       [`${prefixCls}-status-${status}`]: !!status,
       [`${prefixCls}-status-${color}`]: isPresetColor(color),

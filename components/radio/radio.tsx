@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import RcCheckbox from 'rc-checkbox';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import shallowEqual from 'shallowequal';
 import RadioGroup from './group';
 import RadioButton from './radioButton';
@@ -67,7 +67,7 @@ export default class Radio extends React.Component<RadioProps, {}> {
       radioProps.checked = props.value === radioGroup.value;
       radioProps.disabled = props.disabled || radioGroup.disabled;
     }
-    const wrapperClassString = classNames(className, {
+    const wrapperClassString = cnb(className, {
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,

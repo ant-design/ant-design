@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { SubMenu as RcSubMenu } from 'rc-menu';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 
 import MenuContext, { MenuContextProps } from './MenuContext';
 
@@ -49,7 +49,7 @@ class SubMenu extends React.Component<SubMenuProps, any> {
           <RcSubMenu
             {...this.props}
             ref={this.saveSubMenu}
-            popupClassName={classNames(`${rootPrefixCls}-${antdMenuTheme}`, popupClassName)}
+            popupClassName={cnb(`${rootPrefixCls}-${antdMenuTheme}`, popupClassName)}
           />
         )}
       </MenuContext.Consumer>

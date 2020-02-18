@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { DescriptionsItemProps } from './index';
 
 interface ColProps {
@@ -14,7 +14,7 @@ const Col: React.SFC<ColProps> = props => {
   const { child, bordered, colon, type, layout } = props;
   const { prefixCls, label, className, children, span = 1 } = child.props;
   const labelProps: any = {
-    className: classNames(`${prefixCls}-item-label`, {
+    className: cnb(`${prefixCls}-item-label`, {
       [`${prefixCls}-item-colon`]: colon,
       [`${prefixCls}-item-no-label`]: !label,
     }),
@@ -30,7 +30,7 @@ const Col: React.SFC<ColProps> = props => {
     }
     return (
       <td
-        className={classNames(`${prefixCls}-item-content`, className)}
+        className={cnb(`${prefixCls}-item-content`, className)}
         key="content"
         colSpan={span * 2 - 1}
       >
@@ -41,7 +41,7 @@ const Col: React.SFC<ColProps> = props => {
   if (layout === 'vertical') {
     if (type === 'content') {
       return (
-        <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
+        <td colSpan={span} className={cnb(`${prefixCls}-item`, className)}>
           <span className={`${prefixCls}-item-content`} key="content">
             {children}
           </span>
@@ -49,9 +49,9 @@ const Col: React.SFC<ColProps> = props => {
       );
     }
     return (
-      <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
+      <td colSpan={span} className={cnb(`${prefixCls}-item`, className)}>
         <span
-          className={classNames(`${prefixCls}-item-label`, { [`${prefixCls}-item-colon`]: colon })}
+          className={cnb(`${prefixCls}-item-label`, { [`${prefixCls}-item-colon`]: colon })}
           key="label"
         >
           {label}
@@ -60,7 +60,7 @@ const Col: React.SFC<ColProps> = props => {
     );
   }
   return (
-    <td colSpan={span} className={classNames(`${prefixCls}-item`, className)}>
+    <td colSpan={span} className={cnb(`${prefixCls}-item`, className)}>
       <span {...labelProps}>{label}</span>
       <span className={`${prefixCls}-item-content`} key="content">
         {children}

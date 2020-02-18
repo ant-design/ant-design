@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import shallowEqual from 'shallowequal';
 import omit from 'omit.js';
 import Checkbox, { CheckboxChangeEvent } from './Checkbox';
@@ -173,7 +173,7 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       },
     };
 
-    const classString = classNames(groupPrefixCls, className);
+    const classString = cnb(groupPrefixCls, className);
     return (
       <div className={classString} style={style} {...domProps}>
         <GroupContext.Provider value={context}>{children}</GroupContext.Provider>

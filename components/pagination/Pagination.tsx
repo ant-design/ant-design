@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcPagination from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import {
   LeftOutlined,
   RightOutlined,
@@ -116,7 +116,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
         {({ getPrefixCls, direction }: ConfigConsumerProps) => {
           const prefixCls = getPrefixCls('pagination', customizePrefixCls);
           const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
-          const extendedClassName = classNames(className, {
+          const extendedClassName = cnb(className, {
             mini: isSmall,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           });

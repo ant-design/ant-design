@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
@@ -119,12 +119,12 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
     const prefixCls = getPrefixCls('avatar', customizePrefixCls);
 
-    const sizeCls = classNames({
+    const sizeCls = cnb({
       [`${prefixCls}-lg`]: size === 'large',
       [`${prefixCls}-sm`]: size === 'small',
     });
 
-    const classString = classNames(prefixCls, className, sizeCls, {
+    const classString = cnb(prefixCls, className, sizeCls, {
       [`${prefixCls}-${shape}`]: shape,
       [`${prefixCls}-image`]: src && isImgExist,
       [`${prefixCls}-icon`]: icon,

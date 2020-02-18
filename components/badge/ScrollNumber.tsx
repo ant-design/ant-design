@@ -1,6 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getNumberArray(num: string | number | undefined | null) {
@@ -22,7 +22,7 @@ function renderNumberList(position: number, className: string) {
     childrenToReturn.push(
       <p
         key={i.toString()}
-        className={classNames(className, {
+        className={cnb(className, {
           current: position === i,
         })}
       >
@@ -182,7 +182,7 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
     const prefixCls = getPrefixCls('scroll-number', customizePrefixCls);
     const newProps = {
       ...restProps,
-      className: classNames(prefixCls, className),
+      className: cnb(prefixCls, className),
       title: title as string,
     };
 
@@ -197,7 +197,7 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
     }
     if (displayComponent) {
       return React.cloneElement(displayComponent, {
-        className: classNames(
+        className: cnb(
           `${prefixCls}-custom-component`,
           displayComponent.props && displayComponent.props.className,
         ),

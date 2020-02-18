@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
@@ -228,7 +228,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     const { expandedKeys, selectedKeys } = this.state;
 
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
-    const connectClassName = classNames(`${prefixCls}-directory`, className, {
+    const connectClassName = cnb(`${prefixCls}-directory`, className, {
       [`${prefixCls}-directory-rtl`]: direction === 'rtl',
     });
 

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface GroupProps {
@@ -20,7 +20,7 @@ const Group: React.StatelessComponent<GroupProps> = props => (
     {({ getPrefixCls, direction }: ConfigConsumerProps) => {
       const { prefixCls: customizePrefixCls, className = '' } = props;
       const prefixCls = getPrefixCls('input-group', customizePrefixCls);
-      const cls = classNames(
+      const cls = cnb(
         prefixCls,
         {
           [`${prefixCls}-lg`]: props.size === 'large',

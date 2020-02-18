@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import RcInputNumber from 'rc-input-number';
 import { UpOutlined, DownOutlined } from '@ant-design/icons';
 
@@ -63,7 +63,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
       <SizeContext.Consumer>
         {size => {
           const mergeSize = customizeSize || size;
-          const inputNumberClass = classNames(
+          const inputNumberClass = cnb(
             {
               [`${prefixCls}-lg`]: mergeSize === 'large',
               [`${prefixCls}-sm`]: mergeSize === 'small',

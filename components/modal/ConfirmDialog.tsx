@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import Dialog, { ModalFuncProps } from './Modal';
 import ActionButton from './ActionButton';
 import warning from '../_util/warning';
@@ -50,11 +50,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   const transitionName = props.transitionName || 'zoom';
   const maskTransitionName = props.maskTransitionName || 'fade';
 
-  const classString = classNames(
-    contentPrefixCls,
-    `${contentPrefixCls}-${props.type}`,
-    props.className,
-  );
+  const classString = cnb(contentPrefixCls, `${contentPrefixCls}-${props.type}`, props.className);
 
   const cancelButton = okCancel && (
     <ActionButton
@@ -71,7 +67,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     <Dialog
       prefixCls={prefixCls}
       className={classString}
-      wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
+      wrapClassName={cnb({ [`${contentPrefixCls}-centered`]: !!props.centered })}
       onCancel={() => close({ triggerCancel: true })}
       visible={visible}
       title=""

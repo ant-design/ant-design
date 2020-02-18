@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
 import CheckboxGroup, { CheckboxGroupContext, GroupContext } from './Group';
@@ -138,12 +138,12 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
       checkboxProps.checked = checkboxGroup.value.indexOf(props.value) !== -1;
       checkboxProps.disabled = props.disabled || checkboxGroup.disabled;
     }
-    const classString = classNames(className, {
+    const classString = cnb(className, {
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
       [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
     });
-    const checkboxClass = classNames({
+    const checkboxClass = cnb({
       [`${prefixCls}-indeterminate`]: indeterminate,
     });
     return (

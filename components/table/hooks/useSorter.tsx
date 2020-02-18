@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import {
   TransformColumns,
@@ -103,14 +103,14 @@ function injectSorter<RecordType>(
 
       const upNode: React.ReactNode = sortDirections.includes('ascend') && (
         <CaretUpOutlined
-          className={classNames(`${prefixCls}-column-sorter-up`, {
+          className={cnb(`${prefixCls}-column-sorter-up`, {
             active: sorterOrder === 'ascend',
           })}
         />
       );
       const downNode: React.ReactNode = sortDirections.includes('descend') && (
         <CaretDownOutlined
-          className={classNames(`${prefixCls}-column-sorter-down`, {
+          className={cnb(`${prefixCls}-column-sorter-down`, {
             active: sorterOrder === 'descend',
           })}
         />
@@ -118,12 +118,12 @@ function injectSorter<RecordType>(
 
       newColumn = {
         ...newColumn,
-        className: classNames(newColumn.className, { [`${prefixCls}-column-sort`]: sorterOrder }),
+        className: cnb(newColumn.className, { [`${prefixCls}-column-sort`]: sorterOrder }),
         title: (renderProps: ColumnTitleProps<RecordType>) => (
           <div className={`${prefixCls}-column-sorters`}>
             <span>{renderColumnTitle(column.title, renderProps)}</span>
             <span
-              className={classNames(`${prefixCls}-column-sorter`, {
+              className={cnb(`${prefixCls}-column-sorter`, {
                 [`${prefixCls}-column-sorter-full`]: upNode && downNode,
               })}
             >
@@ -152,7 +152,7 @@ function injectSorter<RecordType>(
             }
           };
 
-          cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+          cell.className = cnb(cell.className, `${prefixCls}-column-has-sorters`);
 
           return cell;
         },

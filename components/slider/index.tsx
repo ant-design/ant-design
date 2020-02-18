@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcSlider from 'rc-slider/lib/Slider';
 import RcRange from 'rc-slider/lib/Range';
 import RcHandle from 'rc-slider/lib/Handle';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -138,7 +138,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     } = this.props;
     const prefixCls = getPrefixCls('slider', customizePrefixCls);
     const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
-    const cls = classNames(className, {
+    const cls = cnb(className, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     // make reverse default on rtl direction

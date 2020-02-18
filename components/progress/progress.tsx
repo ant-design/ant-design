@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import {
   CloseOutlined,
@@ -126,7 +126,7 @@ export default class Progress extends React.Component<ProgressProps> {
       );
     }
 
-    const classString = classNames(
+    const classString = cnb(
       prefixCls,
       {
         [`${prefixCls}-${(type === 'dashboard' && 'circle') || (steps && 'steps') || type}`]: true,

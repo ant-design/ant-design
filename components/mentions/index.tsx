@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import * as React from 'react';
 import RcMentions from 'rc-mentions';
@@ -144,7 +144,7 @@ class Mentions extends React.Component<MentionProps, MentionState> {
     const prefixCls = getPrefixCls('mentions', customizePrefixCls);
     const mentionsProps = omit(restProps, ['loading']);
 
-    const mergedClassName = classNames(className, {
+    const mergedClassName = cnb(className, {
       [`${prefixCls}-disabled`]: disabled,
       [`${prefixCls}-focused`]: focused,
     });

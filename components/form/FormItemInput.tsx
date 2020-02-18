@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import {
   LoadingOutlined,
   CloseCircleFilled,
@@ -55,7 +55,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 
   const mergedWrapperCol: ColProps = wrapperCol || formContext.wrapperCol || {};
 
-  const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
+  const className = cnb(`${baseClassName}-control`, mergedWrapperCol.className);
 
   const [visible, cacheErrors] = useCacheErrors(
     errors,
@@ -106,7 +106,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
         >
           {({ className: motionClassName }: { className: string }) => {
             return (
-              <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
+              <div className={cnb(`${baseClassName}-explain`, motionClassName)} key="help">
                 {memoErrors.map((error, index) => (
                   // eslint-disable-next-line react/no-array-index-key
                   <div key={index}>{error}</div>

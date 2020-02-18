@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcCascader from 'rc-cascader';
 import arrayTreeFilter from 'array-tree-filter';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
 import {
@@ -471,7 +471,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         const prefixCls = getPrefixCls('cascader', customizePrefixCls);
         const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
 
-        const sizeCls = classNames({
+        const sizeCls = cnb({
           [`${inputPrefixCls}-lg`]: mergedSize === 'large',
           [`${inputPrefixCls}-sm`]: mergedSize === 'small',
         });
@@ -482,11 +482,11 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
               onClick={this.clearSelection}
             />
           ) : null;
-        const arrowCls = classNames({
+        const arrowCls = cnb({
           [`${prefixCls}-picker-arrow`]: true,
           [`${prefixCls}-picker-arrow-expand`]: state.popupVisible,
         });
-        const pickerCls = classNames(className, `${prefixCls}-picker`, {
+        const pickerCls = cnb(className, `${prefixCls}-picker`, {
           [`${prefixCls}-picker-rtl`]: isRtlLayout,
           [`${prefixCls}-picker-with-value`]: state.inputValue,
           [`${prefixCls}-picker-disabled`]: disabled,
@@ -555,7 +555,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
         const inputIcon = (suffixIcon &&
           (React.isValidElement<{ className?: string }>(suffixIcon) ? (
             React.cloneElement(suffixIcon, {
-              className: classNames({
+              className: cnb({
                 [suffixIcon.props.className!]: suffixIcon.props.className,
                 [`${prefixCls}-picker-arrow`]: true,
               }),
@@ -601,7 +601,7 @@ class Cascader extends React.Component<CascaderProps, CascaderState> {
 
         const getPopupContainer = props.getPopupContainer || getContextPopupContainer;
         const rest = omit(props, ['inputIcon', 'expandIcon', 'loadingIcon', 'bordered']);
-        const rcCascaderRtlPopupClassName = classNames(popupClassName, {
+        const rcCascaderRtlPopupClassName = cnb(popupClassName, {
           [`${prefixCls}-menu-${direction}`]: direction === 'rtl',
         });
         return (

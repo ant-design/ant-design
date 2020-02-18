@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { LoadingOutlined } from '@ant-design/icons';
 
 import TimelineItem, { TimeLineItemProps } from './TimelineItem';
@@ -37,7 +37,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     } = this.props;
     const prefixCls = getPrefixCls('timeline', customizePrefixCls);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
-    const classString = classNames(
+    const classString = cnb(
       prefixCls,
       {
         [`${prefixCls}-pending`]: !!pending,
@@ -78,7 +78,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
       const pendingClass = idx === itemsCount - 2 ? lastCls : '';
       const readyClass = idx === itemsCount - 1 ? lastCls : '';
       return React.cloneElement(ele, {
-        className: classNames([
+        className: cnb([
           ele.props.className,
           !reverse && !!pending ? pendingClass : readyClass,
           getPositionCls(ele, idx),

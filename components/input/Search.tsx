@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { SearchOutlined, LoadingOutlined } from '@ant-design/icons';
 import Input, { InputProps } from './Input';
 import Button from '../button';
@@ -179,13 +179,13 @@ export default class Search extends React.Component<SearchProps, any> {
     let inputClassName;
 
     if (enterButton) {
-      inputClassName = classNames(prefixCls, className, {
+      inputClassName = cnb(prefixCls, className, {
         [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-enter-button`]: !!enterButton,
         [`${prefixCls}-${size}`]: !!size,
       });
     } else {
-      inputClassName = classNames(prefixCls, className, {
+      inputClassName = cnb(prefixCls, className, {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       });
     }

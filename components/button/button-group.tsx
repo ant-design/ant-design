@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { SizeType } from '../config-provider/SizeContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -30,7 +30,7 @@ const ButtonGroup: React.SFC<ButtonGroupProps> = props => (
           break;
       }
 
-      const classes = classNames(
+      const classes = cnb(
         prefixCls,
         {
           [`${prefixCls}-${sizeCls}`]: sizeCls,

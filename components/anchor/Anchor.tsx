@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
 import AnchorLink from './AnchorLink';
@@ -294,13 +294,13 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState> {
     // https://github.com/facebook/react/issues/12397
     this.prefixCls = prefixCls;
 
-    const inkClass = classNames(`${prefixCls}-ink-ball`, {
+    const inkClass = cnb(`${prefixCls}-ink-ball`, {
       visible: activeLink,
     });
 
-    const wrapperClass = classNames(className, `${prefixCls}-wrapper`);
+    const wrapperClass = cnb(className, `${prefixCls}-wrapper`);
 
-    const anchorClass = classNames(prefixCls, {
+    const anchorClass = cnb(prefixCls, {
       fixed: !affix && !showInkInFixed,
     });
 

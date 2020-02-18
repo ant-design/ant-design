@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Animate from 'rc-animate';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getScroll from '../_util/getScroll';
@@ -68,7 +68,7 @@ export default class BackTop extends React.Component<BackTopProps, any> {
   renderBackTop = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', children } = this.props;
     const prefixCls = getPrefixCls('back-top', customizePrefixCls);
-    const classString = classNames(prefixCls, className, {
+    const classString = cnb(prefixCls, className, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
 

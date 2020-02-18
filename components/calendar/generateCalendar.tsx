@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import padStart from 'lodash/padStart';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
 import { Locale } from 'rc-picker/lib/interface';
@@ -188,7 +188,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
         return (
           <div
-            className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
+            className={cnb(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
               [`${calendarPrefixCls}-date-today`]: isSameDate(today, date),
             })}
           >
@@ -214,7 +214,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
 
         return (
           <div
-            className={classNames(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
+            className={cnb(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
               [`${calendarPrefixCls}-date-today`]: isSameMonth(today, date),
             })}
           >
@@ -235,7 +235,7 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
         {(mergedLocale: any) => {
           return (
             <div
-              className={classNames(calendarPrefixCls, className, {
+              className={cnb(calendarPrefixCls, className, {
                 [`${calendarPrefixCls}-full`]: fullscreen,
                 [`${calendarPrefixCls}-mini`]: !fullscreen,
               })}

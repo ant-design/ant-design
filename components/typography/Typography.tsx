@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 import { composeRef } from '../_util/ref';
@@ -43,7 +43,7 @@ const Typography: React.RefForwardingComponent<{}, InternalTypographyProps> = (
       {({ getPrefixCls, direction }: ConfigConsumerProps) => {
         const Component = component as any;
         const prefixCls = getPrefixCls('typography', customizePrefixCls);
-        const componentClassName = classNames(prefixCls, className, {
+        const componentClassName = cnb(prefixCls, className, {
           [`${prefixCls}-rtl`]: direction === 'rtl',
         });
         return (

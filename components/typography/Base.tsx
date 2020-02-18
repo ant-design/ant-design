@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import toArray from 'rc-util/lib/Children/toArray';
 import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
 import copy from 'copy-to-clipboard';
@@ -360,7 +360,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     return (
       <Tooltip key="copy" title={title}>
         <TransButton
-          className={classNames(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
+          className={cnb(`${prefixCls}-copy`, copied && `${prefixCls}-copy-success`)}
           onClick={this.onCopyClick}
           aria-label={title}
         >
@@ -463,7 +463,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           return (
             <ResizeObserver onResize={this.resizeOnNextFrame} disabled={!rows}>
               <Typography
-                className={classNames(className, {
+                className={cnb(className, {
                   [`${prefixCls}-${type}`]: type,
                   [`${prefixCls}-disabled`]: disabled,
                   [`${prefixCls}-ellipsis`]: rows,

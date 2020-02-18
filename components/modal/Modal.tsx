@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Dialog from 'rc-dialog';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import { CloseOutlined } from '@ant-design/icons';
 
@@ -194,7 +194,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
         {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
       </span>
     );
-    const wrapClassNameExtended = classNames(wrapClassName, {
+    const wrapClassNameExtended = cnb(wrapClassName, {
       [`${prefixCls}-centered`]: !!centered,
       [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
     });

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import Spin, { SpinProps } from '../spin';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
@@ -203,7 +203,7 @@ export default class List<T> extends React.Component<ListProps<T>, ListState> {
         break;
     }
 
-    const classString = classNames(prefixCls, className, {
+    const classString = cnb(prefixCls, className, {
       [`${prefixCls}-vertical`]: itemLayout === 'vertical',
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-split`]: split,

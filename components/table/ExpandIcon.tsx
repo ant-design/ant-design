@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { TableLocale } from './interface';
 
 interface DefaultExpandIconProps<RecordType> {
@@ -27,7 +27,7 @@ function renderExpandIcon(locale: TableLocale) {
           onExpand(record, e!);
           e.stopPropagation();
         }}
-        className={classNames(iconPrefix, {
+        className={cnb(iconPrefix, {
           [`${iconPrefix}-spaced`]: !expandable,
           [`${iconPrefix}-expanded`]: expandable && expanded,
           [`${iconPrefix}-collapsed`]: expandable && !expanded,

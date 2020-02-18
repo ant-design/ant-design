@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RcTabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { CloseOutlined, PlusOutlined } from '@ant-design/icons';
 import TabBar from './TabBar';
@@ -120,7 +120,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
       "`type=card|editable-card` doesn't have small or large size, it's by design.",
     );
     const prefixCls = getPrefixCls('tabs', customizePrefixCls);
-    const cls = classNames(className, {
+    const cls = cnb(className, {
       [`${prefixCls}-vertical`]: tabPosition === 'left' || tabPosition === 'right',
       [`${prefixCls}-${size}`]: !!size,
       [`${prefixCls}-card`]: type.indexOf('card') >= 0,
@@ -169,7 +169,7 @@ export default class Tabs extends React.Component<TabsProps, any> {
     ) : null;
 
     const { ...tabBarProps } = this.props;
-    const contentCls: string = classNames(
+    const contentCls: string = cnb(
       `${prefixCls}-${tabPosition}-content`,
       type.indexOf('card') >= 0 && `${prefixCls}-card-content`,
     );

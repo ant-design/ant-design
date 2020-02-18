@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getAction(actions: React.ReactNode[]) {
@@ -34,7 +34,7 @@ export interface CommentProps {
 
 export default class Comment extends React.Component<CommentProps, {}> {
   renderNested = (prefixCls: string, children: any) => {
-    return <div className={classNames(`${prefixCls}-nested`)}>{children}</div>;
+    return <div className={cnb(`${prefixCls}-nested`)}>{children}</div>;
   };
 
   renderComment = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
@@ -86,7 +86,7 @@ export default class Comment extends React.Component<CommentProps, {}> {
       </div>
     );
 
-    const cls = classNames(prefixCls, className, {
+    const cls = cnb(prefixCls, className, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     return (

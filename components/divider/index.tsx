@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface DividerProps {
@@ -26,7 +26,7 @@ const Divider: React.SFC<DividerProps> = props => (
       } = props;
       const prefixCls = getPrefixCls('divider', customizePrefixCls);
       const orientationPrefix = orientation.length > 0 ? `-${orientation}` : orientation;
-      const classString = classNames(className, prefixCls, `${prefixCls}-${type}`, {
+      const classString = cnb(className, prefixCls, `${prefixCls}-${type}`, {
         [`${prefixCls}-with-text${orientationPrefix}`]: children,
         [`${prefixCls}-dashed`]: !!dashed,
       });

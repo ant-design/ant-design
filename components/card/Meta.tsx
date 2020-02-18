@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CardMetaProps {
@@ -23,7 +23,7 @@ const Meta: React.SFC<CardMetaProps> = props => (
         ...others
       } = props;
       const prefixCls = getPrefixCls('card', customizePrefixCls);
-      const classString = classNames(`${prefixCls}-meta`, className);
+      const classString = cnb(`${prefixCls}-meta`, className);
       const avatarDom = avatar ? <div className={`${prefixCls}-meta-avatar`}>{avatar}</div> : null;
       const titleDom = title ? <div className={`${prefixCls}-meta-title`}>{title}</div> : null;
       const descriptionDom = description ? (

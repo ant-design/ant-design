@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { SiderProps } from './Sider';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -59,7 +59,7 @@ function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
 
 const Basic = (props: BasicPropsWithTagName) => {
   const { prefixCls, className, children, tagName, ...others } = props;
-  const classString = classNames(prefixCls, className);
+  const classString = cnb(prefixCls, className);
   return React.createElement(tagName, { className: classString, ...others }, children);
 };
 
@@ -87,7 +87,7 @@ class BasicLayout extends React.Component<BasicPropsWithTagName, BasicLayoutStat
 
   renderComponent = ({ direction }: ConfigConsumerProps) => {
     const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = this.props;
-    const classString = classNames(
+    const classString = cnb(
       prefixCls,
       {
         [`${prefixCls}-has-sider`]:

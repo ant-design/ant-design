@@ -1,6 +1,6 @@
 import * as React from 'react';
 import isEqual from 'lodash/isEqual';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { Field, FormInstance } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
@@ -155,7 +155,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     // ======================= Children =======================
     return (
       <Row
-        className={classNames(itemClassName)}
+        className={cnb(itemClassName)}
         style={style}
         key="row"
         {...omit(restProps, [

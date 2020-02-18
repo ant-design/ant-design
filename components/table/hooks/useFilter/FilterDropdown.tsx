@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import shallowEqual from 'shallowequal';
 import { FilterFilled } from '@ant-design/icons';
 import Menu from '../../../menu';
@@ -158,7 +158,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   // ======================== Style ========================
-  const dropdownMenuClass = classNames({
+  const dropdownMenuClass = cnb({
     [`${dropdownPrefixCls}-menu-without-submenu`]: !hasSubMenu(column.filters || []),
   });
 
@@ -221,11 +221,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }
 
   return (
-    <div className={classNames(`${prefixCls}-column`)}>
+    <div className={cnb(`${prefixCls}-column`)}>
       <span className={`${prefixCls}-column-title`}>{children}</span>
 
       <span
-        className={classNames(`${prefixCls}-trigger-container`, {
+        className={cnb(`${prefixCls}-trigger-container`, {
           [`${prefixCls}-trigger-container-open`]: mergedVisible,
         })}
         onClick={e => {
@@ -243,7 +243,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           <span
             role="button"
             tabIndex={-1}
-            className={classNames(`${prefixCls}-trigger`, {
+            className={cnb(`${prefixCls}-trigger`, {
               active: filtered,
             })}
           >

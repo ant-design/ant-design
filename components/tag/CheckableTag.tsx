@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CheckableTagProps {
@@ -21,7 +21,7 @@ export default class CheckableTag extends React.Component<CheckableTagProps> {
   renderCheckableTag = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, checked, ...restProps } = this.props;
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
-    const cls = classNames(
+    const cls = cnb(
       prefixCls,
       {
         [`${prefixCls}-checkable`]: true,

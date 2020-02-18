@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import shallowEqual from 'shallowequal';
 import Radio from './radio';
 import {
@@ -145,7 +145,7 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
       <SizeContext.Consumer>
         {size => {
           const mergedSize = customizeSize || size;
-          const classString = classNames(
+          const classString = cnb(
             groupPrefixCls,
             `${groupPrefixCls}-${buttonStyle}`,
             {

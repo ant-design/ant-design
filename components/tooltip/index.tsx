@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { AlignType, ActionType, BuildInPlacements } from 'rc-trigger/lib/interface';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -261,11 +261,11 @@ class Tooltip extends React.Component<TooltipProps, any> {
     );
 
     const childProps = child.props;
-    const childCls = classNames(childProps.className, {
+    const childCls = cnb(childProps.className, {
       [openClassName || `${prefixCls}-open`]: true,
     });
 
-    const customOverlayClassName = classNames(overlayClassName, {
+    const customOverlayClassName = cnb(overlayClassName, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     return (

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import Col, { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { FormContext, FormContextProps } from './context';
@@ -36,7 +36,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         const mergedLabelAlign: FormLabelAlign | undefined = labelAlign || contextLabelAlign;
 
         const labelClsBasic = `${prefixCls}-item-label`;
-        const labelColClassName = classNames(
+        const labelColClassName = cnb(
           labelClsBasic,
           mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
           mergedLabelCol.className,
@@ -51,7 +51,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelChildren = (label as string).replace(/[：|:]\s*$/, '');
         }
 
-        const labelClassName = classNames({
+        const labelClassName = cnb({
           [`${prefixCls}-item-required`]: required,
           [`${prefixCls}-item-no-colon`]: !computedColon,
         });

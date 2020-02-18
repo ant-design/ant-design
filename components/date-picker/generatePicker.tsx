@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import RCPicker, { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import {
@@ -192,7 +192,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
                   {...restProps}
                   {...additionalOverrideProps}
                   locale={locale!.lang}
-                  className={classNames(className, {
+                  className={cnb(className, {
                     [`${prefixCls}-${mergedSize}`]: mergedSize,
                     [`${prefixCls}-borderless`]: !bordered,
                   })}
@@ -268,7 +268,13 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     renderPicker = (locale: any) => {
       const { getPrefixCls, direction } = this.context;
-      const { prefixCls: customizePrefixCls, className, size, bordered = true, ...restProps } = this.props;
+      const {
+        prefixCls: customizePrefixCls,
+        className,
+        size,
+        bordered = true,
+        ...restProps
+      } = this.props;
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
@@ -290,7 +296,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
           allowClear
           transitionName="slide-up"
           {...restProps}
-          className={classNames(className, {
+          className={cnb(className, {
             [`${prefixCls}-${size}`]: size,
             [`${prefixCls}-borderless`]: !bordered,
           })}

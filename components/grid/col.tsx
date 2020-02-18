@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import RowContext from './RowContext';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -84,7 +84,7 @@ export default class Col extends React.Component<ColProps, {}> {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       };
     });
-    const classes = classNames(
+    const classes = cnb(
       prefixCls,
       {
         [`${prefixCls}-${span}`]: span !== undefined,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import ResizeObserver from 'rc-resize-observer';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -250,7 +250,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
   renderAffix = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { affixStyle, placeholderStyle } = this.state;
     const { prefixCls, children } = this.props;
-    const className = classNames({
+    const className = cnb({
       [getPrefixCls('affix', prefixCls)]: affixStyle,
     });
 

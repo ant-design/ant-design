@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import RcTable from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import Spin, { SpinProps } from '../spin';
@@ -311,12 +311,12 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
     let mergedRowClassName;
     if (typeof rowClassName === 'function') {
-      mergedRowClassName = classNames(rowClassName(record, index, indent));
+      mergedRowClassName = cnb(rowClassName(record, index, indent));
     } else {
-      mergedRowClassName = classNames(rowClassName);
+      mergedRowClassName = cnb(rowClassName);
     }
 
-    return classNames(
+    return cnb(
       {
         [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
       },
@@ -397,7 +397,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     spinProps = loading;
   }
 
-  const wrapperClassNames = classNames(`${prefixCls}-wrapper`, {
+  const wrapperClassNames = cnb(`${prefixCls}-wrapper`, {
     [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
   });
   return (
@@ -413,7 +413,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
           {...props}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={classNames(className, {
+          className={cnb(className, {
             [`${prefixCls}-middle`]: mergedSize === 'middle',
             [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-bordered`]: bordered,

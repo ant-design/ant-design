@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcTree, { TreeNode, TreeProps as RcTreeProps } from 'rc-tree';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { DataNode } from 'rc-tree/lib/interface';
 
 import DirectoryTree from './DirectoryTree';
@@ -183,7 +183,7 @@ export default class Tree extends React.Component<TreeProps, any> {
         ref={this.setTreeRef}
         {...props}
         prefixCls={prefixCls}
-        className={classNames(className, {
+        className={cnb(className, {
           [`${prefixCls}-icon-hide`]: !showIcon,
           [`${prefixCls}-block-node`]: blockNode,
           [`${prefixCls}-rtl`]: direction === 'rtl',

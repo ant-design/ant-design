@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import RowContext from './RowContext';
 import { tuple } from '../_util/type';
@@ -91,7 +91,7 @@ export default class Row extends React.Component<RowProps, RowState> {
     } = this.props;
     const prefixCls = getPrefixCls('row', customizePrefixCls);
     const gutter = this.getGutter();
-    const classes = classNames(
+    const classes = cnb(
       prefixCls,
       {
         [`${prefixCls}-${justify}`]: justify,

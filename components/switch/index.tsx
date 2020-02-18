@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcSwitch from 'rc-switch';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -72,7 +72,7 @@ export default class Switch extends React.Component<SwitchProps, {}> {
     return (
       <SizeContext.Consumer>
         {size => {
-          const classes = classNames(className, {
+          const classes = cnb(className, {
             [`${prefixCls}-small`]: (customizeSize || size) === 'small',
             [`${prefixCls}-loading`]: loading,
             [`${prefixCls}-rtl`]: direction === 'rtl',

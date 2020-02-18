@@ -1,6 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ColProps } from '../grid/col';
@@ -43,7 +43,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
   } = props;
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
-  const formClassName = classNames(
+  const formClassName = cnb(
     prefixCls,
     {
       [`${prefixCls}-${layout}`]: true,

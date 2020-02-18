@@ -1,6 +1,6 @@
 import * as React from 'react';
 import ScrollableInkTabBar from 'rc-tabs/lib/ScrollableInkTabBar';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { UpOutlined, LeftOutlined, DownOutlined, RightOutlined } from '@ant-design/icons';
 
 import { TabsProps } from './index';
@@ -50,7 +50,7 @@ export default class TabBar extends React.Component<TabsProps> {
     );
 
     // Additional className for style usage
-    const cls: string = classNames(
+    const cls: string = cnb(
       `${prefixCls}-${tabPosition}-bar`,
       {
         [`${prefixCls}-${size}-bar`]: !!size,

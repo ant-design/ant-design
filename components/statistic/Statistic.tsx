@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 
 import { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
@@ -42,7 +42,7 @@ const Statistic: React.SFC<StatisticProps & ConfigConsumerProps> = props => {
   if (valueRender) {
     valueNode = valueRender(valueNode);
   }
-  const cls = classNames(prefixCls, className, {
+  const cls = cnb(prefixCls, className, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
   return (

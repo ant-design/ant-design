@@ -6,7 +6,7 @@ import RcTreeSelect, {
   SHOW_CHILD,
   TreeSelectProps as RcTreeSelectProps,
 } from 'rc-tree-select';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
@@ -99,13 +99,9 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
     const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
     const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
 
-    const mergedDropdownClassName = classNames(
-      dropdownClassName,
-      `${treeSelectPrefixCls}-dropdown`,
-      {
-        [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
-      },
-    );
+    const mergedDropdownClassName = cnb(dropdownClassName, `${treeSelectPrefixCls}-dropdown`, {
+      [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
+    });
 
     const isMultiple = !!(treeCheckable || multiple);
 
@@ -139,7 +135,7 @@ class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
       <SizeContext.Consumer>
         {size => {
           const mergedSize = customizeSize || size;
-          const mergedClassName = classNames(
+          const mergedClassName = cnb(
             !customizePrefixCls && treeSelectPrefixCls,
             {
               [`${prefixCls}-lg`]: mergedSize === 'large',

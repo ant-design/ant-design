@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classnames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -118,7 +118,7 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
       const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
-      const className = classnames(prefixCls, customizeClassName, {
+      const className = cnb(prefixCls, customizeClassName, {
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
         [`${prefixCls}-ghost`]: ghost,

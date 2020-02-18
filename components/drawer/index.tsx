@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import { CloseOutlined } from '@ant-design/icons';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 
 import { ConfigConsumerProps } from '../config-provider';
@@ -232,7 +232,7 @@ class Drawer extends React.Component<DrawerProps & ConfigConsumerProps, IDrawerS
     } else {
       offsetStyle.height = height;
     }
-    const drawerClassName = classNames(className, haveMask, {
+    const drawerClassName = cnb(className, haveMask, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     return (

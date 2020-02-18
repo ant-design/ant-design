@@ -1,7 +1,7 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
 import { Settings } from '@ant-design/react-slick';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 // Use require over import (will be lifted up)
@@ -108,7 +108,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     props.vertical = dotPosition === 'left' || dotPosition === 'right';
     props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
 
-    const className = classNames(prefixCls, {
+    const className = cnb(prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-vertical`]: props.vertical,
     });

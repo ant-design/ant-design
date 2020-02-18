@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { EllipsisOutlined } from '@ant-design/icons';
 
 import Button from '../button';
@@ -92,7 +92,7 @@ export default class DropdownButton extends React.Component<DropdownButtonProps,
     const [leftButtonToRender, rightButtonToRender] = buttonsRender!([leftButton, rightButton]);
 
     return (
-      <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
+      <ButtonGroup {...restProps} className={cnb(prefixCls, className)}>
         {leftButtonToRender}
         <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
       </ButtonGroup>

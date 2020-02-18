@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { BarsOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
 
@@ -223,7 +223,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       minWidth: siderWidth, // https://github.com/ant-design/ant-design/issues/6349
       width: siderWidth,
     };
-    const siderCls = classNames(className, prefixCls, `${prefixCls}-${theme}`, {
+    const siderCls = cnb(className, prefixCls, `${prefixCls}-${theme}`, {
       [`${prefixCls}-collapsed`]: !!this.state.collapsed,
       [`${prefixCls}-has-trigger`]: collapsible && trigger !== null && !zeroWidthTrigger,
       [`${prefixCls}-below`]: !!this.state.below,

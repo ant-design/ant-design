@@ -12,7 +12,7 @@ import {
   CloseCircleFilled,
 } from '@ant-design/icons';
 import Animate from 'rc-animate';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
@@ -124,7 +124,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       closable = true;
     }
 
-    const alertCls = classNames(
+    const alertCls = cnb(
       prefixCls,
       `${prefixCls}-${type}`,
       {
@@ -159,7 +159,7 @@ export default class Alert extends React.Component<AlertProps, AlertState> {
       (icon &&
         (React.isValidElement<{ className?: string }>(icon) ? (
           React.cloneElement(icon, {
-            className: classNames(`${prefixCls}-icon`, {
+            className: cnb(`${prefixCls}-icon`, {
               [icon.props.className as string]: icon.props.className,
             }),
           })

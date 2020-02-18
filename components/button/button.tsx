@@ -1,6 +1,6 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { LoadingOutlined } from '@ant-design/icons';
 import omit from 'omit.js';
 
@@ -250,7 +250,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
 
           const iconType = loading ? 'loading' : icon;
 
-          const classes = classNames(prefixCls, className, {
+          const classes = cnb(prefixCls, className, {
             [`${prefixCls}-${type}`]: type,
             [`${prefixCls}-${shape}`]: shape,
             [`${prefixCls}-${sizeCls}`]: sizeCls,

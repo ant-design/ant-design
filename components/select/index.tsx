@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import getIcons from './utils/iconUtil';
@@ -125,14 +125,14 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
       'bordered',
     ]);
 
-    const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+    const rcSelectRtlDropDownClassName = cnb(dropdownClassName, {
       [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
     });
     return (
       <SizeContext.Consumer>
         {size => {
           const mergedSize = customizeSize || size;
-          const mergedClassName = classNames(className, {
+          const mergedClassName = cnb(className, {
             [`${prefixCls}-lg`]: mergedSize === 'large',
             [`${prefixCls}-sm`]: mergedSize === 'small',
             [`${prefixCls}-rtl`]: direction === 'rtl',

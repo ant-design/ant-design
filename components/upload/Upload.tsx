@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcUpload from 'rc-upload';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import uniqBy from 'lodash/uniqBy';
 import findIndex from 'lodash/findIndex';
 import Dragger from './Dragger';
@@ -236,7 +236,13 @@ class Upload extends React.Component<UploadProps, UploadState> {
       locale: propLocale,
       iconRender,
     } = this.props;
-    const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } = showUploadList as any;
+    const {
+      showRemoveIcon,
+      showPreviewIcon,
+      showDownloadIcon,
+      removeIcon,
+      downloadIcon,
+    } = showUploadList as any;
     const { fileList } = this.state;
     return (
       <UploadList
@@ -292,7 +298,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
     ) : null;
 
     if (type === 'drag') {
-      const dragCls = classNames(
+      const dragCls = cnb(
         prefixCls,
         {
           [`${prefixCls}-drag`]: true,
@@ -320,7 +326,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
       );
     }
 
-    const uploadButtonCls = classNames(prefixCls, {
+    const uploadButtonCls = cnb(prefixCls, {
       [`${prefixCls}-select`]: true,
       [`${prefixCls}-select-${listType}`]: true,
       [`${prefixCls}-disabled`]: disabled,
@@ -342,7 +348,7 @@ class Upload extends React.Component<UploadProps, UploadState> {
 
     if (listType === 'picture-card') {
       return (
-        <span className={classNames(className, `${prefixCls}-picture-card-wrapper`)}>
+        <span className={cnb(className, `${prefixCls}-picture-card-wrapper`)}>
           {uploadList}
           {uploadButton}
         </span>

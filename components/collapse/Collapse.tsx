@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { RightOutlined } from '@ant-design/icons';
 
 import CollapsePanel from './CollapsePanel';
@@ -54,7 +54,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
     return React.isValidElement(icon)
       ? React.cloneElement(icon as any, {
-          className: classNames(icon.props.className, `${prefixCls}-arrow`),
+          className: cnb(icon.props.className, `${prefixCls}-arrow`),
         })
       : icon;
   };
@@ -67,7 +67,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       expandIconPosition,
     } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-    const collapseClassName = classNames(
+    const collapseClassName = cnb(
       {
         [`${prefixCls}-borderless`]: !bordered,
         [`${prefixCls}-icon-position-${expandIconPosition}`]: true,

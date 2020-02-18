@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { CloseCircleFilled } from '@ant-design/icons';
 import { tuple } from '../_util/type';
 import { InputProps, getInputClassName } from './Input';
@@ -89,7 +89,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
     const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
-    const affixWrapperCls = classNames(className, `${prefixCls}-affix-wrapper`, {
+    const affixWrapperCls = cnb(className, `${prefixCls}-affix-wrapper`, {
       [`${prefixCls}-affix-wrapper-focused`]: focused,
       [`${prefixCls}-affix-wrapper-disabled`]: disabled,
       [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
@@ -124,12 +124,12 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     ) : null;
     const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
 
-    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
+    const mergedWrapperClassName = cnb(`${prefixCls}-wrapper`, {
       [wrapperClassName]: addonBefore || addonAfter,
       [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
-    const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
+    const mergedGroupClassName = cnb(className, `${prefixCls}-group-wrapper`, {
       [`${prefixCls}-group-wrapper-sm`]: size === 'small',
       [`${prefixCls}-group-wrapper-lg`]: size === 'large',
       [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
@@ -155,7 +155,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         value,
       });
     }
-    const affixWrapperCls = classNames(
+    const affixWrapperCls = cnb(
       className,
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,

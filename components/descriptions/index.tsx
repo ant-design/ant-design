@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import toArray from 'rc-util/lib/Children/toArray';
 import warning from '../_util/warning';
 import ResponsiveObserve, {
@@ -255,7 +255,7 @@ class Descriptions extends React.Component<
           >[]> = generateChildrenRows(cloneChildren, column);
           return (
             <div
-              className={classNames(prefixCls, className, {
+              className={cnb(prefixCls, className, {
                 [`${prefixCls}-${size}`]: size !== 'default',
                 [`${prefixCls}-bordered`]: !!bordered,
                 [`${prefixCls}-rtl`]: direction === 'rtl',

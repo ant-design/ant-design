@@ -8,7 +8,7 @@
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
 import { SelectProps as RcSelectProps } from 'rc-select';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import Select, { InternalSelectProps, OptionType } from '../select';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -25,7 +25,10 @@ export interface DataSourceItemObject {
 export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface AutoCompleteProps
-  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'> {
+  extends Omit<
+    InternalSelectProps<string>,
+    'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
+  > {
   dataSource?: DataSourceItemType[];
 }
 
@@ -113,7 +116,7 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
             ref={selectRef as any}
             {...omit(props, ['dataSource'])}
             prefixCls={prefixCls}
-            className={classNames(className, `${prefixCls}-auto-complete`)}
+            className={cnb(className, `${prefixCls}-auto-complete`)}
             mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
             getInputElement={getInputElement}
           >

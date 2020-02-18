@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { CloseOutlined } from '@ant-design/icons';
 
@@ -61,7 +61,7 @@ class Tag extends React.Component<TagProps, TagState> {
     const { visible } = this.state;
     const isPresetColor = this.isPresetColor();
     const prefixCls = getPrefixCls('tag', customizePrefixCls);
-    return classNames(
+    return cnb(
       prefixCls,
       {
         [`${prefixCls}-${color}`]: isPresetColor,

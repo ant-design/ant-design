@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ResizeObserver from 'rc-resize-observer';
 import omit from 'omit.js';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import calculateNodeHeight from './calculateNodeHeight';
 import raf from '../_util/raf';
 import { TextAreaProps } from './TextArea';
@@ -110,7 +110,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       'allowClear',
       'onResize',
     ]);
-    const cls = classNames(prefixCls, className, {
+    const cls = cnb(prefixCls, className, {
       [`${prefixCls}-disabled`]: disabled,
     });
     // Fix https://github.com/ant-design/ant-design/issues/6776

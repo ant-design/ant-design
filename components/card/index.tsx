@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import Grid from './Grid';
 import Meta from './Meta';
@@ -198,7 +198,7 @@ export default class Card extends React.Component<CardProps, {}> {
       <SizeContext.Consumer>
         {size => {
           const mergedSize = customizeSize || size;
-          const classString = classNames(prefixCls, className, {
+          const classString = cnb(prefixCls, className, {
             [`${prefixCls}-loading`]: loading,
             [`${prefixCls}-bordered`]: bordered,
             [`${prefixCls}-hoverable`]: hoverable,

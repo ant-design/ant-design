@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
@@ -88,7 +88,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
       ...restProps
     } = this.props;
     const suffixIcon = visibilityToggle && this.getIcon();
-    const inputClassName = classNames(prefixCls, className, {
+    const inputClassName = cnb(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
     const props = {

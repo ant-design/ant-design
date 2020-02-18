@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ListGridType, ColumnType } from './index';
 import { Col } from '../grid';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -39,7 +39,7 @@ export const Meta = (props: ListItemMetaProps) => (
       } = props;
 
       const prefixCls = getPrefixCls('list', customizePrefixCls);
-      const classString = classNames(`${prefixCls}-item-meta`, className);
+      const classString = cnb(`${prefixCls}-item-meta`, className);
 
       const content = (
         <div className={`${prefixCls}-item-meta-content`}>
@@ -118,7 +118,7 @@ export default class Item extends React.Component<ListItemProps, any> {
     const itemChildren = (
       <Tag
         {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
-        className={classNames(`${prefixCls}-item`, className, {
+        className={cnb(`${prefixCls}-item`, className, {
           [`${prefixCls}-item-no-flex`]: !this.isFlexMode(),
         })}
       >

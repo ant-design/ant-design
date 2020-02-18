@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import {
   LoadingOutlined,
   FileOutlined,
@@ -24,7 +24,7 @@ export default function renderSwitcherIcon(
   const switcherCls = `${prefixCls}-switcher-icon`;
   if (React.isValidElement(switcherIcon)) {
     return React.cloneElement(switcherIcon, {
-      className: classNames(switcherIcon.props.className || '', switcherCls),
+      className: cnb(switcherIcon.props.className || '', switcherCls),
     });
   }
 

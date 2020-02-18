@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import omit from 'omit.js';
 import Group from './Group';
 import Search from './Search';
@@ -62,7 +62,7 @@ export function getInputClassName(
   disabled?: boolean,
   direction?: any,
 ) {
-  return classNames(prefixCls, {
+  return cnb(prefixCls, {
     [`${prefixCls}-sm`]: size === 'small',
     [`${prefixCls}-lg`]: size === 'large',
     [`${prefixCls}-disabled`]: disabled,
@@ -215,7 +215,7 @@ class Input extends React.Component<InputProps, InputState> {
         onFocus={this.onFocus}
         onBlur={this.onBlur}
         onKeyDown={this.handleKeyDown}
-        className={classNames(
+        className={cnb(
           getInputClassName(prefixCls, customizeSize || size, disabled, this.direction),
           {
             [className!]: className && !addonBefore && !addonAfter,

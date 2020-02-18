@@ -1,5 +1,5 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { EnterOutlined } from '@ant-design/icons';
 import TextArea from '../input/TextArea';
@@ -49,8 +49,8 @@ class Editable extends React.Component<EditableProps, EditableState> {
     if (this.textarea && this.textarea.resizableTextArea) {
       const { textArea } = this.textarea.resizableTextArea;
       textArea.focus();
-      const { length } = textArea.value;  
-      textArea.setSelectionRange(length, length);  
+      const { length } = textArea.value;
+      textArea.setSelectionRange(length, length);
     }
   }
 
@@ -117,7 +117,7 @@ class Editable extends React.Component<EditableProps, EditableState> {
     const { current } = this.state;
     const { prefixCls, 'aria-label': ariaLabel, className, style, direction } = this.props;
 
-    const textAreaClassName = classNames(prefixCls, className, `${prefixCls}-edit-content`, {
+    const textAreaClassName = cnb(prefixCls, className, `${prefixCls}-edit-content`, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     });
     return (

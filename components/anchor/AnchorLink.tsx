@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { AntAnchor } from './Anchor';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -55,10 +55,10 @@ class AnchorLink extends React.Component<AnchorLinkProps, any> {
     const { prefixCls: customizePrefixCls, href, title, children, className, target } = this.props;
     const prefixCls = getPrefixCls('anchor', customizePrefixCls);
     const active = this.context.antAnchor.activeLink === href;
-    const wrapperClassName = classNames(className, `${prefixCls}-link`, {
+    const wrapperClassName = cnb(className, `${prefixCls}-link`, {
       [`${prefixCls}-link-active`]: active,
     });
-    const titleClassName = classNames(`${prefixCls}-link-title`, {
+    const titleClassName = cnb(`${prefixCls}-link-title`, {
       [`${prefixCls}-link-title-active`]: active,
     });
     return (

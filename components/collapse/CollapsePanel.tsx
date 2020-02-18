@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
-import classNames from 'classnames';
+import { cnb } from 'cnbuilder';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface CollapsePanelProps {
@@ -20,7 +20,7 @@ export default class CollapsePanel extends React.Component<CollapsePanelProps, {
   renderCollapsePanel = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className = '', showArrow = true } = this.props;
     const prefixCls = getPrefixCls('collapse', customizePrefixCls);
-    const collapsePanelClassName = classNames(
+    const collapsePanelClassName = cnb(
       {
         [`${prefixCls}-no-arrow`]: !showArrow,
       },
