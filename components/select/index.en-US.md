@@ -103,10 +103,10 @@ See the [dropdownRender example](/components/select/#components-select-demo-cust
 
 ### Why sometime customize Option cause scroll break?
 
-Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less:
+Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 
 ```tsx
-<Select listItemHeight={10} />
+<Select listItemHeight={10} listHeight={250} />
 ```
 
-Note: `listItemHeight` is an internal prop. Please only modify when necessary.
+Note: `listItemHeight` and `listHeight` are internal props. Please only modify when necessary.
