@@ -74,22 +74,22 @@ const Demo = () => (
 4.0 中会采用按需引入的方式：
 
 ```diff
-import { Button } from 'antd';
+  import { Button } from 'antd';
 
-// tree-shaking supported
+  // tree-shaking supported
 - import { Icon } from 'antd';
 + import { SmileOutlined } from '@ant-design/icons';
 
-const Demo = () => (
-  <div>
--    <Icon type="smile" />
-+    <SmileOutlined />
-    <Button icon={<SmileOutlined />} />
-  </div>
-);
+  const Demo = () => (
+    <div>
+-     <Icon type="smile" />
++     <SmileOutlined />
+      <Button icon={<SmileOutlined />} />
+    </div>
+  );
 
-// or directly import
-import SmileOutlined from '@ant-design/icons/SmileOutlined';
+  // or directly import
+  import SmileOutlined from '@ant-design/icons/SmileOutlined';
 ```
 
 你将仍然可以通过兼容包继续使用：
@@ -129,8 +129,8 @@ const Demo = () => (
   columns={[
     {
       title: 'Age',
--      dataIndex: 'user.age',
-+      dataIndex: ['user', 'age'],
+-       dataIndex: 'user.age',
++       dataIndex: ['user', 'age'],
     },
   ]}
 />
