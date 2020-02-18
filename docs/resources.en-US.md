@@ -35,12 +35,12 @@ Please find below some of the design resources and tools about Ant Design that w
   - A Sketch plugin collection
   - http://kitchen.alipay.com
 - Ant Design Landing
-  - https://gw.alipayobjects.com/zos/basement_prod/c1633c8b-d147-45b5-b229-b619d9d1683f.svg
+  - https://gw.alipayobjects.com/zos/basement_prod/b443f4be-5116-49b7-873f-a7c8502b8f0e.svg
   - Landing Templates
   - https://landing.ant.design/docs/download-cn
 - Ant UX
   - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
-  - A series prototypes that help creating application structure and user flow
+  - A set of page logic prototype libraries
   - http://ux.ant.design
 - Ant Design Prototype (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg

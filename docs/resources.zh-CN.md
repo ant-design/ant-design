@@ -35,12 +35,12 @@ toc: false
   - Sketch 工具集
   - http://kitchen.alipay.com
 - Ant Design Landing
-  - https://gw.alipayobjects.com/zos/basement_prod/c1633c8b-d147-45b5-b229-b619d9d1683f.svg
+  - https://gw.alipayobjects.com/zos/basement_prod/b443f4be-5116-49b7-873f-a7c8502b8f0e.svg
   - 首页模板集
   - https://landing.ant.design/docs/download-cn
 - Ant UX
   - https://gw.alipayobjects.com/zos/basement_prod/51682163-e01a-46fe-810c-ac0062379717.svg
-  - 一套页面逻辑原型库，帮你梳理页面逻辑
+  - 一套页面逻辑原型库
   - http://ux.ant.design
 - Ant Design 原型 (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
