@@ -100,3 +100,13 @@ Select component to select value from options.
 ### The dropdown is closed when click `dropdownRender` area?
 
 See the [dropdownRender example](/components/select/#components-select-demo-custom-dropdown-menu).
+
+### Why sometime customize Option cause scroll break?
+
+Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less:
+
+```tsx
+<Select listItemHeight={10} />
+```
+
+Note: `listItemHeight` is an internal prop. Please only modify when necessary.
