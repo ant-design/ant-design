@@ -108,7 +108,10 @@ const Demo = () => (
 
 #### Component refactoring
 
-- Form rewrite. No need to use `Form.create`. See [here](/components/form/v3) for migration documentation.
+- Form rewrite.
+  - No need to use `Form.create`.
+  - Nest fields definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
+  - See [here](/components/form/v3) for migration documentation.
 - DatePicker rewrite
   - Provide the `picker` property for selector switching.
   - Range selection can now select start and end times individually.
@@ -117,7 +120,9 @@ const Demo = () => (
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
-- Table will keep at least one column even if `columns` is empty.
+- Table rewrite.
+  - will keep at least one column even if `columns` is empty.
+  - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
 
 ## Start upgrading
 
