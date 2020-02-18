@@ -3,7 +3,6 @@ category: 设计模式 - 探索
 type: 模板文档
 order: 2
 title: 工作台
-skip: true
 ---
 工作台常被作为应用的主页，是一个为用户提供便利的交通枢纽。工作台提供常用信息入口，以中心辐射的方式导航至应用的各功能模块；呈现用户当前需要关注的信息，缩短获取关键信息的路径；同时允许用户在工作台直接操作一些高频任务。
 
@@ -56,47 +55,4 @@ skip: true
 
 #### 模板 - 新手引导
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBmQauTEAsAAAAAAAAAAABkARQnAQ">
-
-**什么时候使用**
-
-当新用户到达平台，尚未开始任何工作时，帮助缩短新用户学习时长。
-
-**涉及哪些功能**
-
-使用帮助；空状态引导；
-
-**设计建议**
-
-向用户介绍平台用途，并引导用户开始工作；<br/>
-如果需要用户管理复杂的对象，提供 Demo 预览入口；
-
-
-### 设计建议
-
-#### 选择合适的导航方式
-这类页面一般会提供两类导航形式。<br/>
-用户知道他想要使用的功能，需要利用导航获取。例如：
-
-<div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xlYoTIf8NpwAAAAAAAAAAABkARQnAQ">
-</div>
-
-<br/>
-发现类导航，用户须完成某任务，但不知道使用哪个功能来完成。例如：
-
-
-<div>
-  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9nKdRJBAu8sAAAAAAAAAAABkARQnAQ">
-</div>
-
-#### 按照使用频次布置内容
-
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1tfiR5-xKUQAAAAAAAAAAABkARQnAQ">
-
-用户在日常工作中最常使用的内容，按照使用频次将内容布置以下各区域。
-
-### 如何验证设计结果
-
-5s 原则，即中级用户（既非新手也非专家）是否能在 5s 内找到需要的信息。<br/>
-从工作台页开始，点击三次能够获取目标内容。
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBm
