@@ -3,7 +3,6 @@ category: 设计模式 - 探索
 type: 模板文档
 order: 1
 title: 表单页
-skip: true
 ---
 
 表单页是一种用于信息添加、录入的页面类型。用来确保用户按照要求录入信息提交给系统使用或引导用户进行应用设置。
@@ -68,6 +67,7 @@ skip: true
 ## 如何设计
 
 表单类页面模板聚焦于提交一次表单的过程体验。按照任务的复杂度，提供四种解决问题的布局方式：
+
 - 普通布局
 - 任务拆解和编排
 - 填写和预览
@@ -117,15 +117,15 @@ skip: true
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ">
 
-可编辑表格：建议条目表单数 2～5项 时使用，以使得每行内容可被完整呈现。
+可编辑表格：建议条目表单数 2 ～ 5 项 时使用，以使得每行内容可被完整呈现。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ">
 
-折叠面板编辑：建议条目表单数在 6～8项 时使用。
+折叠面板编辑：建议条目表单数在 6 ～ 8 项 时使用。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ttDGTLid8M4AAAAAAAAAAABkARQnAQ">
 
-抽屉编辑：建议条目表单表单数 >8项 时使用。
+抽屉编辑：建议条目表单表单数 >8 项 时使用。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*p_wLTJEYOBgAAAAAAAAAAABkARQnAQ">
 
@@ -144,10 +144,12 @@ skip: true
 **使用建议**
 
 每个页面选择一种设置模式：
+
 > - 即时生效模式：用户在修改选项即生效；
 > - 提交生效模式：当设置项之间有关联关系，使用提交生效模式。
 
 根据设置项数量确定是否需要分组：
+
 > - 数量 <7 项，不建议分组；
 > - 数量 7~ 15 个建议分组；
 > - 数量 >15 个建议使用页签分组；
@@ -171,7 +173,7 @@ skip: true
 
 ### 布局方式
 
-在单个表单页中需要根据内容量进行合理地布局，以兼顾页面展示和用户效率。表单页布局可由简到繁划分为4个梯度，每一级梯度都兼容前一种布局方式。
+在单个表单页中需要根据内容量进行合理地布局，以兼顾页面展示和用户效率。表单页布局可由简到繁划分为 4 个梯度，每一级梯度都兼容前一种布局方式。
 
 #### 基础布局
 

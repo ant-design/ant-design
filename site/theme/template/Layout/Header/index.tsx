@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GitHubButton from 'react-github-button';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { MenuOutlined } from '@ant-design/icons';
+import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
 
 import * as utils from '../../utils';
@@ -15,7 +15,7 @@ import Navigation from './Navigation';
 
 import './index.less';
 
-const RESPONSIVE_XS = 1050;
+const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
 const { Option } = Select;
@@ -266,16 +266,16 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           {
             xxl: 4,
             xl: 5,
-            lg: 5,
-            md: 5,
+            lg: 6,
+            md: 6,
             sm: 24,
             xs: 24,
           },
           {
             xxl: 20,
             xl: 19,
-            lg: 19,
-            md: 19,
+            lg: 18,
+            md: 18,
             sm: 0,
             xs: 0,
           },
@@ -293,7 +293,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             arrowPointAtCenter
             onVisibleChange={this.onMenuVisibleChange}
           >
-            <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
+            <UnorderedListOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
           </Popover>
         )}
         <Row style={{ flexFlow: 'nowrap' }}>
