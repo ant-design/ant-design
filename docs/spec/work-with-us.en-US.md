@@ -36,7 +36,7 @@ ReactDOM.render(
   
 ## UI/UX Designer
 
-Please submit your work and resume: momo.zxy # alipay.com
+Please submit your work and resume: lindong.lld@alipay.com
 
 - Post level: P6 / P7
 - Position/Location: Hangzhou
