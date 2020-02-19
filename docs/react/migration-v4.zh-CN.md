@@ -115,7 +115,9 @@ const Demo = () => (
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
-- Tree、Select、TreeSelect、AutoComplete 使用虚拟滚动。
+- Tree、Select、TreeSelect、AutoComplete 重新写
+  - 使用虚拟滚动。
+  - `onBlur` 时不再修改选中值。
   - `dropdownMatchSelectWidth` 不再自动适应内容宽度，请用数字设置下拉宽度。
 - Grid 组件使用 flex 布局。
 - Button 的 `danger` 现在作为一个属性而不是按钮类型。
