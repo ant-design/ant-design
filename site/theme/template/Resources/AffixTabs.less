@@ -1,4 +1,5 @@
 @import '../../../../components/style/themes/default.less';
+@import './index.less';
 
 .resource-affix-tabs {
   position: fixed;
@@ -6,7 +7,7 @@
   right: 0;
   left: 0;
   z-index: 11;
-  padding: 0 24px;
+  padding: 0 @resource-padding;
   background: #fff;
   box-shadow: @shadow-2;
   transform: translateY(-100%);

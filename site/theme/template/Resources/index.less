@@ -1,15 +1,16 @@
 @import '../../../../components/style/themes/default.less';
 
 @ArticleMaxWidth: 1208px;
+@resource-padding: 40px;
 
 #resources-page {
   article {
-    padding: 0 24px;
+    padding: 0 @resource-padding;
 
     // Title
     .title-region {
-      margin: 0 -24px;
-      padding: 0 24px;
+      margin: 0 -@resource-padding;
+      padding: 0 @resource-padding;
       overflow: hidden;
       background: url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ);
       background-size: cover;
