@@ -252,7 +252,7 @@ describe('Form', () => {
           );
         };
 
-        mount(<Demo />, { attachTo: document.body });
+        const wrapper = mount(<Demo />, { attachTo: document.body });
 
         expect(scrollIntoView).not.toHaveBeenCalled();
         const form = callGetForm();
@@ -265,6 +265,8 @@ describe('Form', () => {
           block: 'start',
           scrollMode: 'if-needed',
         });
+
+        wrapper.unmount();
       });
     }
 
@@ -305,6 +307,8 @@ describe('Form', () => {
     wrapper.find('form').simulate('submit');
     await delay(50);
     expect(scrollIntoView).toHaveBeenCalled();
+
+    wrapper.unmount();
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
