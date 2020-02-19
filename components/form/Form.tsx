@@ -3,6 +3,7 @@ import omit from 'omit.js';
 import classNames from 'classnames';
 import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
+import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { ColProps } from '../grid/col';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { FormContext } from './context';
@@ -23,6 +24,7 @@ export interface FormProps extends Omit<RcFormProps, 'form'> {
   wrapperCol?: ColProps;
   form?: FormInstance;
   size?: SizeType;
+  scrollToFirstError?: boolean;
 }
 
 const InternalForm: React.FC<FormProps> = (props, ref) => {
@@ -40,6 +42,8 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     className = '',
     layout = 'horizontal',
     size,
+    scrollToFirstError,
+    onFinishFailed,
   } = props;
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -62,12 +66,23 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     'labelAlign',
     'labelCol',
     'colon',
+    'scrollToFirstError',
   ]);
 
   const [wrapForm] = useForm(form);
   wrapForm.__INTERNAL__.name = name;
 
   React.useImperativeHandle(ref, () => wrapForm);
+
+  const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
+    if (onFinishFailed) {
+      onFinishFailed(errorInfo);
+    }
+
+    if (scrollToFirstError && errorInfo.errorFields.length) {
+      wrapForm.scrollToField(errorInfo.errorFields[0].name);
+    }
+  };
 
   return (
     <SizeContextProvider size={size}>
@@ -81,7 +96,13 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
           colon,
         }}
       >
-        <FieldForm id={name} {...formProps} form={wrapForm} className={formClassName} />
+        <FieldForm
+          id={name}
+          {...formProps}
+          onFinishFailed={onInternalFinishFailed}
+          form={wrapForm}
+          className={formClassName}
+        />
       </FormContext.Provider>
     </SizeContextProvider>
   );
