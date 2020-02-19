@@ -95,6 +95,12 @@ class Footer extends React.Component {
             openExternal: true,
           },
           {
+            title: 'Umi Hooks',
+            description: <FormattedMessage id="app.footer.hooks" />,
+            url: 'github.com/umijs/hooks',
+            openExternal: true,
+          },
+          {
             title: 'Ant Motion',
             description: <FormattedMessage id="app.footer.motion" />,
             url: 'https://motion.ant.design',
