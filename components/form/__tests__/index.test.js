@@ -291,6 +291,22 @@ describe('Form', () => {
     });
   });
 
+  it('scrollToFirstError', async () => {
+    const wrapper = mount(
+      <Form scrollToFirstError>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+      { attachTo: document.body },
+    );
+
+    expect(scrollIntoView).not.toHaveBeenCalled();
+    wrapper.find('form').simulate('submit');
+    await delay(50);
+    expect(scrollIntoView).toHaveBeenCalled();
+  });
+
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
     const wrapper = mount(
       <Form>
