@@ -44,11 +44,11 @@ Please find below some of the design resources and tools about Ant Design that w
   - http://ux.ant.design
 - Ant Design Prototype (xiaopiu)
   - https://gw.alipayobjects.com/zos/basement_prod/77e6a9ae-24a9-4be6-be42-f7fa8ee0eecf.svg
-  - Online Ant Design library and interactive prototype
+  - Online library and prototype
   - https://www.xiaopiu.com/topic/ant-design
 - UI Kit for Figma
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
-  - Large library of components and styles for Desktop
+  - Library of components for Desktop
   - https://www.antforfigma.com
 
 ## Articles
@@ -86,30 +86,30 @@ Please find below the books that inspired us, saved our time and helped us to ov
 <div class="next-block-use-cards"></div>
 
 - About Face 4
-  - https://gw.alipayobjects.com/zos/basement_prod/817f143b-b325-44e2-b3af-2c32f5af09b4.svg
+  - https://gw.alipayobjects.com/zos/basement_prod/5653d1e8-b9ae-4563-bcf6-e654baaafa80.svg
   - An interactive design guide for digital products and systems
-  - http://book.douban.com/subject/26642302/
-- Web 界面设计
-  - https://gw.alipayobjects.com/zos/basement_prod/2a453990-a63a-4be2-ac70-8235fbaaeb1d.svg
+  - https://www.wiley.com/en-sg/About+Face%3A+The+Essentials+of+Interaction+Design%2C+4th+Edition-p-9781118766576
+- Designing Web Interfaces
+  - https://gw.alipayobjects.com/zos/basement_prod/3125a6d3-3a3a-4ca2-bcac-198645b5cf73.svg
   - Best practices, patterns, and principles for designing web interfaces
-  - http://book.douban.com/subject/3821157/
-- 界面设计模式
-  - https://gw.alipayobjects.com/zos/basement_prod/2f253f4f-6cc8-45eb-a123-9059336982d9.svg
+  - http://shop.oreilly.com/product/9780596516253.do
+- Designing Interfaces
+  - https://gw.alipayobjects.com/zos/basement_prod/9d7c722c-0e17-4567-95a3-fbcdcee3d710.svg
   - Interface Design Guidelines
-  - http://book.douban.com/subject/25716088/
-- 写给大家看的设计书
-  - https://gw.alipayobjects.com/zos/basement_prod/13c2b17d-05c3-4645-ba9d-25b7abd5172d.svg
-  - Basic principles that good design must follow
-  - http://book.douban.com/subject/3323633/
-- 设计心理学 1
-  - https://gw.alipayobjects.com/zos/basement_prod/c1129d77-7072-4ca4-8552-28de924154c0.svg
+  - https://www.amazon.com/Designing-Interfaces-Patterns-Effective-Interaction/dp/1449379702/ref=pd_sbs_14_t_1/131-2623973-6077764?_encoding=UTF8&pd_rd_i=1449379702&pd_rd_r=ebe12a8d-435f-474b-a593-72aadf26c45a&pd_rd_w=18rob&pd_rd_wg=bhRFl&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=8V8CD0EE336ZZEG15DEN&psc=1&refRID=8V8CD0EE336ZZEG15DEN
+- Non-Designer's Design Book, The, 4th Edition
+  - https://gw.alipayobjects.com/zos/basement_prod/11d4d885-5d74-45b8-b66e-a7d62f903902.svg
+  - Basic Principles of Good Design
+  - http://www.peachpit.com/store/non-designers-design-book-9780133966152
+- The Design of Everyday Things
+  - https://gw.alipayobjects.com/zos/basement_prod/e4fd4406-0f4a-4f20-9254-d873da8835a7.svg
   - Emphasizes a people-oriented design philosophy
-  - http://book.douban.com/subject/26102860/
-- 设计心理学 3
-  - https://gw.alipayobjects.com/zos/basement_prod/9332f989-44b1-4c8a-b90c-6140bb0b0985.svg
+  - https://jnd.org/the-design-of-everyday-things-revised-and-expanded-edition/
+- Emotional Design
+  - https://gw.alipayobjects.com/zos/basement_prod/4b534ae4-803e-4235-874c-14e68d803bf1.svg
   - Explain the role of emotional factors in design
-  - http://book.douban.com/subject/26424688/
-- Web 表单设计
-  - https://gw.alipayobjects.com/zos/basement_prod/5c287576-4b6b-4bf7-95ee-2b85c1bfc482.svg
-  - he essence of form design
-  - http://book.douban.com/subject/4886100/
+  - https://www.amazon.com/Emotional-Design-Love-Everyday-Things/dp/0465051367
+- Web Form Design
+  - https://gw.alipayobjects.com/zos/basement_prod/3a5f21c4-2dd0-4cad-8d91-0b574dd42789.svg
+  - The Essence of Form Design
+  - https://rosenfeldmedia.com/books/web-form-design/
