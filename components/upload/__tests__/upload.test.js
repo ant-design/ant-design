@@ -498,4 +498,12 @@ describe('Upload', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('it should be treated as file but not an image', () => {
+    const file = { status: 'done', uid: '-1', type: 'video/mp4', url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png' };
+    const wrapper = mount(
+      <Upload listType="picture-card" fileList={[file]} />,
+    );
+    expect(wrapper.find('img').length).toBe(0);
+  });
 });
