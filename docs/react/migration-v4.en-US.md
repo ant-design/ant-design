@@ -115,7 +115,9 @@ const Demo = () => (
 - DatePicker rewrite
   - Provide the `picker` property for selector switching.
   - Range selection can now select start and end times individually.
-- Tree, Select, TreeSelect, AutoComplete use virtual scrolling.
+- Tree, Select, TreeSelect, AutoComplete rewrite
+  - use virtual scrolling.
+  - `onBlur` no longer trigger value change.
   - `dropdownMatchSelectWidth` no longer automatically adapts to the content width, please set the dropdown width with numbers.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
