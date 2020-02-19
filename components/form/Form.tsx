@@ -8,7 +8,7 @@ import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import { FormContext } from './context';
 import { FormLabelAlign } from './interface';
 import { useForm, FormInstance } from './util';
-import { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
+import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
 
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
 
@@ -26,6 +26,7 @@ export interface FormProps extends Omit<RcFormProps, 'form'> {
 }
 
 const InternalForm: React.FC<FormProps> = (props, ref) => {
+  const contextSize = React.useContext(SizeContext);
   const { getPrefixCls, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
 
   const {
@@ -39,7 +40,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
     hideRequiredMark,
     className = '',
     layout = 'horizontal',
-    size,
+    size = contextSize,
   } = props;
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -49,6 +50,7 @@ const InternalForm: React.FC<FormProps> = (props, ref) => {
       [`${prefixCls}-${layout}`]: true,
       [`${prefixCls}-hide-required-mark`]: hideRequiredMark,
       [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${size}`]: size,
     },
     className,
   );
