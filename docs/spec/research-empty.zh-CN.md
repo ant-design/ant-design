@@ -3,8 +3,9 @@ category: 设计模式 - 探索
 type: 全局规则
 order: 3
 title: 空状态
-skip: true
+
 ---
+
 任何内容区域（页面、区块、组件、单数据）没有内容/数据显示给用户时，就会出现空状态。
 
 ## 设计目标
@@ -60,6 +61,7 @@ skip: true
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1snUQrPg0_IAAAAAAAAAAABkARQnAQ">
 
 #### 使用引导变形
+
 使用引导由状态提示、帮助引导、建议操作三个部分组成，设计时可根据业务流程选择模块来构成页面和变形。针对处于复杂流程中某一环的空状态页面，也可提供流程引导模块帮助用户全局理解操作流程，同时可提供文字按钮进行流程相关的快捷操作。
 
 
@@ -87,5 +89,5 @@ skip: true
 
 - [Salesforce 空状态设计准则](https://www.lightningdesignsystem.com/guidelines/empty-state/#Message)
 - [PREDIX 空状态设计准则](https://www.predix-ui.com/#/design/communication/empty-states)
-- [Material design 设计准则](https://material.io/design/communication/empty-states.html#content)
+- [Material Design 设计准则](https://material.io/design/communication/empty-states.html#content)
 
