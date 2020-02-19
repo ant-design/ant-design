@@ -119,13 +119,15 @@ const Demo = () => (
   - use virtual scrolling.
   - `onBlur` no longer trigger value change.
   - `dropdownMatchSelectWidth` no longer automatically adapts to the content width, please set the dropdown width with numbers.
+  - AutoComplete no longer support `optionLabelProp`. Please set Option `value` directly.
 - The Grid component uses flex layout.
 - Button's `danger` is now treated as a property instead of a button type.
 - Input, Select set `value` to `undefined` is uncontrolled mode now.
 - Table rewrite.
+
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
-  
+
 ```diff
 <Table
   columns={[
@@ -136,6 +138,7 @@ const Demo = () => (
     },
   ]}
 />
+```
 
 ## Start upgrading
 
