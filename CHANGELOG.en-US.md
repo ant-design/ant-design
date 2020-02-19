@@ -15,6 +15,65 @@ timeline: true
 
 ---
 
+## 4.0.0-rc.5
+
+`2020-02-16`
+
+- 🐞 Fix Form.Item `validateFirst` prevent form submit. [#21329](https://github.com/ant-design/ant-design/pull/21329)
+- 🐞 Fix InputNumber cursor position issue when deleting consecutive identical numbers. [#21344](https://github.com/ant-design/ant-design/pull/21344)
+- 💄 Remove Menu excess background color. [#21365](https://github.com/ant-design/ant-design/pull/21365)
+- 💄 Optimize the mouse style for the `disabled` state of the DatePicker component. [#21352](https://github.com/ant-design/ant-design/pull/21352)
+- 🐞 Fix Affix throws `Cannot read property getBoundingClientRect` in mobile device. [#21350](https://github.com/ant-design/ant-design/pull/21350)
+- 🐞 Fix the problem that the label width is incorrect when the screen is less than `xs`. [#21222](https://github.com/ant-design/ant-design/pull/21222)
+- 🐞 Fix Input `size` is `large` height style. [#21338](https://github.com/ant-design/ant-design/pull/21338)
+- 🐞 Fix Badge `color` not working when contains children. [#21333](https://github.com/ant-design/ant-design/pull/21333)
+- 🐞 Fix Alert close button extra padding. [#21325](https://github.com/ant-design/ant-design/pull/21325)
+- 💄 Tweak Steps 1px align issue. [#21306](https://github.com/ant-design/ant-design/pull/21306)
+- 💄 Fix legacy Button.Group `large` size style issue. [#21307](https://github.com/ant-design/ant-design/pull/21307)
+- 💄 Fix Input border radius with suffix, style in Firefox, TextArea allowClear style issues. [#21316](https://github.com/ant-design/ant-design/pull/21316)
+- 🐞 Pagination will pass `disabled` prop to prev/next buttons return by `itemRender`. [#21361](https://github.com/ant-design/ant-design/pull/21361)
+- 🇦🇿 Added Azerbaijani translation. [#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
+- Typescript
+  - 🔷 Menu export `MenuItemGroupProps`. [#21356](https://github.com/ant-design/ant-design/pull/21356)
+  - 🔷 Table export `ColumnProps`. [#21321](https://github.com/ant-design/ant-design/pull/21321)
+
+## 4.0.0-rc.4
+
+`2020-02-09`
+
+- 📖 Add [color palette](https://preview-21101-ant-design.surge.sh/docs/spec/dark-cn#%E5%9F%BA%E7%A1%80%E8%89%B2%E6%9D%BF) and [palette generation tool](https://preview-21101-ant-design.surge.sh/docs/spec/dark-cn#%E8%89%B2%E6%9D%BF%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7) for dark theme. [#21101](https://github.com/ant-design/ant-design/pull/21101)
+- 🌟 Add `style` field for `options` prop of Checkbox.Group and Radio.Group. [#21219](https://github.com/ant-design/ant-design/pull/21219)
+- 🌟 Add `validateFirst` prop for Form.Item. [#21178](https://github.com/ant-design/ant-design/pull/21178)
+- 🌟 Add `useModal` hook for Modal to support `context` access. [#20949](https://github.com/ant-design/ant-design/pull/20949)
+- 🌟 Add `useNotification` hook for Notification to support `context` access. [#21275](https://github.com/ant-design/ant-design/pull/21275)
+- 🌟 Add `bordered` prop for Select、TreeSelect、DatePicker、TimePicker and Cascader. [#21242](https://github.com/ant-design/ant-design/pull/21242)
+- 🌟 Add `selectAllLabels` prop for Transfer. [#21139](https://github.com/ant-design/ant-design/pull/21139) [@morenyang](https://github.com/morenyang)
+- 💄 Redesign the style of ink bar for Tabs. [#21256](https://github.com/ant-design/ant-design/pull/21256)
+- 💄 Add less variable `@form-item-label-font-size`. [#21216](https://github.com/ant-design/ant-design/pull/21216)
+- 🐞 Fix Badge style for Badge with Typography. [#21235](https://github.com/ant-design/ant-design/pull/21235)
+- 🐞 Fix Checkbox not work when Checkbox and Checkbox.Group are separated by other component. [#21146](https://github.com/ant-design/ant-design/pull/21146) [@morenyang](https://github.com/morenyang)
+- 🐞 Fix Collapse.Panel wrong content width when `extra` prop is set. [#21202](https://github.com/ant-design/ant-design/pull/21202) [@zhiyuc123](https://github.com/zhiyuc123)
+- Form
+  - 🐞 Fix Form.Item `required` validation not work when name is not set. [#21168](https://github.com/ant-design/ant-design/pull/21168)
+  - 🐞 Fix Form.Item data binding not work when `name` is `0`. [#21186](https://github.com/ant-design/ant-design/pull/21186) [@wanjas](https://github.com/wanjas)
+  - 🐞 Fix Form.Item shaking when `help` prop change from valuable to `undefined`. [#21211](https://github.com/ant-design/ant-design/pull/21211)
+- Input
+  - 🐞 Fix worng validating style when `prefix` is set. [#21121](https://github.com/ant-design/ant-design/pull/21121)
+  - 🐞 Fix `size` prop not work when `prefix` or `affix` is set. [#21290](https://github.com/ant-design/ant-design/pull/21290) [@yoyo837](https://github.com/yoyo837)
+- 🐞 Fix Radio.Group style with Badge. [#21215](https://github.com/ant-design/ant-design/pull/21215)
+- 🐞 Fix Select no margin between lines when mode is `tags` or `multiple`. [#21175](https://github.com/ant-design/ant-design/pull/21175)
+- 🐞 Fix Slider dots focus style. [#21244](https://github.com/ant-design/ant-design/pull/21244) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
+- 🐞 Fix Steps icon not align when `size="small"` and `labelPlacement="vertical"`. [#21258](https://github.com/ant-design/ant-design/pull/21258)
+- Table
+  - 🐞 Fix `expandIcon` prop not work when data item has no `children` field. [#21169](https://github.com/ant-design/ant-design/pull/21169)
+  - 🐞 Fix Column `sorter` prop not work. [#21194](https://github.com/ant-design/ant-design/pull/21194)
+  - 🐞 Fix custom filter's typing not work. [#21218](https://github.com/ant-design/ant-design/pull/21218)
+- 🐞 Fix TimePicker `defaultOpenValue` prop not work. [#21198](https://github.com/ant-design/ant-design/pull/21198)
+- Transfer
+  - 🐞 Fix wrong unit for checkbox label of header. [#21136](https://github.com/ant-design/ant-design/pull/21136) [@morenyang](https://github.com/morenyang)
+  - 🐞 Fix icon not align in search input. [#21247](https://github.com/ant-design/ant-design/pull/21247)
+- 🐞 Fix Typography not focus at the end of textarea when editable is true. [#21268](https://github.com/ant-design/ant-design/pull/21268)
+
 ## 4.0.0-rc.3
 
 `2020-01-27`

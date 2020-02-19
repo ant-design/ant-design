@@ -202,7 +202,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
   };
 
   expandFolderNode = (event: React.MouseEvent<HTMLElement>, node: any) => {
-    const { isLeaf } = node.props;
+    const { isLeaf } = node;
 
     if (isLeaf || event.shiftKey || event.metaKey || event.ctrlKey) {
       return;

@@ -13,8 +13,6 @@ export default class ColorPaletteTool extends Component {
     primaryColor: '#1890ff',
     backgroundColor: '#141414',
     primaryColorInstance: null,
-    // eslint-disable-next-line react/no-unused-state
-    backgroundColorInstance: null,
   };
 
   handleChangeColor = (e, color) => {
@@ -25,14 +23,12 @@ export default class ColorPaletteTool extends Component {
     });
   };
 
-  handleChangeBackgroundColor = (e, color) => {
+  handleChangeBackgroundColor = e => {
     const value = e.target ? e.target.value : e;
     this.setState({
       backgroundColor: value,
-      // eslint-disable-next-line react/no-unused-state
-      backgroundColorInstance: color,
     });
-  }
+  };
 
   renderColorValidation() {
     const { primaryColorInstance } = this.state;
@@ -49,7 +45,11 @@ export default class ColorPaletteTool extends Component {
         ).toFixed(2)}）`;
       }
     }
-    return <span className="color-palette-picker-validation color-palette-picker-validation-dark">{text.trim()}</span>;
+    return (
+      <span className="color-palette-picker-validation color-palette-picker-validation-dark">
+        {text.trim()}
+      </span>
+    );
   }
 
   render() {
@@ -68,7 +68,11 @@ export default class ColorPaletteTool extends Component {
               <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                 <Row>
                   <Col span={18}>
-                    <ColorPicker type="chrome" color={primaryColor} onChange={this.handleChangeColor} />
+                    <ColorPicker
+                      type="chrome"
+                      color={primaryColor}
+                      onChange={this.handleChangeColor}
+                    />
                   </Col>
                   <Col span={6}>
                     <span className="color-palette-pick-hex">{primaryColor}</span>
@@ -83,7 +87,11 @@ export default class ColorPaletteTool extends Component {
               <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                 <Row>
                   <Col span={18}>
-                    <ColorPicker type="chrome" color={backgroundColor} onChange={this.handleChangeBackgroundColor} />
+                    <ColorPicker
+                      type="chrome"
+                      color={backgroundColor}
+                      onChange={this.handleChangeBackgroundColor}
+                    />
                   </Col>
                   <Col span={6}>
                     <span className="color-palette-pick-hex">{backgroundColor}</span>

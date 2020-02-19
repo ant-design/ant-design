@@ -472,6 +472,75 @@ describe('Upload List', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+  it('should support custom onClick in custom icon', async () => {
+    const handleRemove = jest.fn();
+    const handleChange = jest.fn();
+    const myClick = jest.fn();
+    const wrapper = mount(
+      <Upload
+        listType="picture-card"
+        defaultFileList={fileList}
+        onRemove={handleRemove}
+        onChange={handleChange}
+        showUploadList={{
+          showRemoveIcon: true,
+          removeIcon: (
+            <i className="custom-delete" onClick={myClick}>
+              RM
+            </i>
+          ),
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    wrapper
+      .find('.custom-delete')
+      .at(0)
+      .simulate('click');
+    expect(handleRemove).toHaveBeenCalledWith(fileList[0]);
+    expect(myClick).toHaveBeenCalled();
+    wrapper
+      .find('.custom-delete')
+      .at(1)
+      .simulate('click');
+    expect(handleRemove).toHaveBeenCalledWith(fileList[1]);
+    expect(myClick).toHaveBeenCalled();
+    await sleep();
+    expect(handleChange.mock.calls.length).toBe(2);
+  });
+  it('should support removeIcon and downloadIcon', () => {
+    const list = [
+      {
+        name: 'image',
+        status: 'uploading',
+        uid: '-4',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+      {
+        name: 'image',
+        status: 'done',
+        uid: '-5',
+        url: 'https://cdn.xxx.com/aaa',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload
+        listType="picture"
+        defaultFileList={list}
+        showUploadList={{
+          showRemoveIcon: true,
+          showDownloadIcon: true,
+          removeIcon: <i>RM</i>,
+          downloadIcon: <i>DL</i>,
+        }}
+      >
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 
   // https://github.com/ant-design/ant-design/issues/7762
   it('work with form validation', async () => {

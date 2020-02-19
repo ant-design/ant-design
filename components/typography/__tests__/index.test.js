@@ -287,6 +287,17 @@ describe('Typography', () => {
         wrapper.find('TextArea').simulate('blur');
       });
     });
+
+    it('should focus at the end of textarea', () => {
+      const wrapper = mount(<Paragraph editable>content</Paragraph>);
+      wrapper
+        .find('.ant-typography-edit')
+        .first()
+        .simulate('click');
+      const textareaNode = wrapper.find('textarea').getDOMNode();
+      expect(textareaNode.selectionStart).toBe(7);
+      expect(textareaNode.selectionEnd).toBe(7);
+    });
   });
 
   it('warning if use setContentRef', () => {

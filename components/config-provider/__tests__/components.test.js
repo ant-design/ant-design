@@ -21,6 +21,7 @@ import DatePicker from '../../date-picker';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
+import Empty from '../../empty';
 import Form from '../../form';
 import { Row, Col } from '../../grid';
 import Input from '../../input';
@@ -232,6 +233,9 @@ describe('ConfigProvider', () => {
         </div>
       ));
     });
+
+    // Empty
+    testPair('Empty', props => <Empty {...props} />);
 
     // Divider
     testPair('Divider', props => <Divider {...props} />);

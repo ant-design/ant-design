@@ -33,6 +33,7 @@ async function withGithub(url, json, method) {
 
   // Find my comment
   const updateComment = comments.find(({ body }) => body.includes(REPLACE_MARK));
+  // eslint-disable-next-line no-console
   console.log('Origin comment:', updateComment);
 
   // Update
@@ -51,5 +52,6 @@ async function withGithub(url, json, method) {
     );
   }
 
+  // eslint-disable-next-line no-console
   console.log(res);
 })();

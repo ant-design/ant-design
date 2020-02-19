@@ -200,6 +200,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -239,6 +240,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -473,6 +475,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -512,6 +515,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"
@@ -763,6 +767,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -802,6 +807,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"

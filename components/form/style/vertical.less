@@ -24,6 +24,13 @@
   .@{form-prefix-cls}-item .@{form-prefix-cls}-item-label {
     .make-vertical-layout-label();
   }
+  .@{form-prefix-cls}-item {
+    .@{form-prefix-cls}-item-label,
+    .@{form-prefix-cls}-item-control {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
 }
 
 .@{form-prefix-cls}-vertical {

@@ -171,6 +171,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           'labelCol',
           'normalize',
           'required',
+          'validateFirst',
           'validateStatus',
           'valuePropName',
           'wrapperCol',
@@ -278,12 +279,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
           });
 
           triggers.forEach(eventName => {
-            if (eventName in mergedControl && eventName in children.props) {
-              childProps[eventName] = (...args: any[]) => {
-                mergedControl[eventName](...args);
-                children.props[eventName](...args);
-              };
-            }
+            childProps[eventName] = (...args: any[]) => {
+              mergedControl[eventName]?.(...args);
+              children.props[eventName]?.(...args);
+            };
           });
 
           childNode = React.cloneElement(children, childProps);

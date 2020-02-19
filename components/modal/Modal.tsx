@@ -95,7 +95,6 @@ export interface ModalFuncProps {
   cancelButtonProps?: NativeButtonProps;
   centered?: boolean;
   width?: string | number;
-  iconClassName?: string;
   okText?: React.ReactNode;
   okType?: ButtonType;
   cancelText?: React.ReactNode;
