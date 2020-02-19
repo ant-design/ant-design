@@ -62,10 +62,10 @@ title: 导航
 ---
 
 ## 类型
-正确理解和使用导航组件对产品全局体验至关重要。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*nPJATYmSNfEAAAAAAAAAAABkARQnAQ">
 
+正确理解和使用导航组件对产品全局体验至关重要。
 我们将导航划分为以下 5 种类型：
 1.全局导航
 2.返回类导航
@@ -80,26 +80,25 @@ title: 导航
 
 #### 侧边导航
 
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*40B3Ro-mgZMAAAAAAAAAAABkARQnAQ">
+
 - 很多菜单时使用，建议菜单多于 6 项时使用。
 - 可以承载多个层级，但建议 1-3 个层级。
 - 企业级产品推荐使用侧栏导航，其可见性更好易于扫读，各菜单重要性受菜单排列顺序影响较小。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*40B3Ro-mgZMAAAAAAAAAAABkARQnAQ">
-
 #### 顶部导航
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5EwpRYexpKEAAAAAAAAAAABkARQnAQ">
 
 - 各菜单权重常常与排列顺序呈正相关，即排列顺序影响用户使用频次；
 - 建议 2~7 项内容使用；
 - 建议 1-2 个层级；超出 2 个层级时，建议采用弹出式导航。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5EwpRYexpKEAAAAAAAAAAABkARQnAQ">
-
 #### 弹出式导航
 
-用于拓展导航承载层级，适用于大型网站。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5EwpRYexpKEAAAAAAAAAAABkARQnAQ">
 
+用于拓展导航承载层级，适用于大型网站。
 
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mAM0Tb0Xm64AAAAAAAAAAABkARQnAQ" alt="正确示范">
 
@@ -113,10 +112,10 @@ title: 导航
 
 
 #### 实用工具
-通常放在网站的右上角，是一种习惯用法，用户习惯在这个位置找到这些内容。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2pgHSoZ3eo0AAAAAAAAAAABkARQnAQ">
 
+通常放在网站的右上角，是一种习惯用法，用户习惯在这个位置找到这些内容。
 内容通常包括：
 • 全局搜索
 • 通知中心
@@ -126,8 +125,10 @@ title: 导航
 • 登录工具 
 • 语言切换
 
-**不要将页面内的操作放到实用工具中。**
+
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WuJmS77zlhoAAAAAAAAAAABkARQnAQ">
+
+**不要将页面内的操作放到实用工具中。**
 
 ### 子站点导航
 企业级产品常采用层级+数据库混合结构的信息架构，这种信息架构通常层级较深，为了实现用户感知层面的浅平宽，将较深几个层级组织为一个子站点，降低单个站点层级数量，减轻用户认知负担。
@@ -139,18 +140,17 @@ title: 导航
 
 #### 沉浸式导航
 
-用于处理较为复杂或需要较大工作空间的任务。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_WWLSoS3HTQAAAAAAAAAAABkARQnAQ">
+
+用于处理较为复杂或需要较大工作空间的任务。
 
 
 #### 多级站点导航
 
-- 菜单数量较多的子站点使用 
-- 子站点设计上，应明显区别于全站导航，使得进入子站点需要成较大的过渡波动，提示用户进入了新的空间。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3vH9Q7hjO1UAAAAAAAAAAABkARQnAQ">
 
+- 菜单数量较多的子站点使用 
+- 子站点设计上，应明显区别于全站导航，使得进入子站点需要成较大的过渡波动，提示用户进入了新的空间。
 
 
 ### 页内导航
@@ -159,34 +159,34 @@ title: 导航
 
 #### 页头
 
-页头位于页内容上方，主要作用是申明页面主题、页内信息导航、页面级内容操作。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*rB5gRaunTfoAAAAAAAAAAABkARQnAQ">
+
+页头位于页内容上方，主要作用是申明页面主题、页内信息导航、页面级内容操作。
 
 #### Tree 树型控件
 
-页面内多层次的结构展示。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*THGrRL49Z0oAAAAAAAAAAABkARQnAQ">
+
+页面内多层次的结构展示。
 
 
 #### 锚点
 
-在各个页面分区之间跳转，当平铺呈现的内容过长时使用。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3_nmQpZTeP8AAAAAAAAAAABkARQnAQ">
+
+在各个页面分区之间跳转，当平铺呈现的内容过长时使用。
 
 #### 回到顶部
 
-循环播放一系列内容。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*OPxsRZ0ebrkAAAAAAAAAAABkARQnAQ">
-
-#### 走马灯
 
 快速回到页面顶部。
 
+#### 走马灯
+
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*TRscT7iW9q8AAAAAAAAAAABkARQnAQ">
+
+循环播放一系列内容。
 
 
 ### 下钻类导航
@@ -196,33 +196,35 @@ title: 导航
 
 #### 面包屑
 
-反映当前页面在网站结构中的位置，在少于三个层级是无需展示，此时的全局导航能直接呈现位置。用户可通过面包屑返回上级页面。
-
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zD2cRouwEvQAAAAAAAAAAABkARQnAQ">
+
+反映当前页面在网站结构中的位置，在少于三个层级是无需展示，此时的全局导航能直接呈现位置。用户可通过面包屑返回上级页面。
 
 #### 返回按钮
 
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1uw-TZSF4CQAAAAAAAAAAABkARQnAQ">
+
 **一般标题会和面包屑一起出现，有面包屑时标题默认不推荐使用返回按钮。** 
 页头中的返回按钮相当于一个短面包屑，用于返回上一层级页面。适用于子站点场景，该场景隐藏了全站导航，用户需要通过返回按钮回到上级页面。
-
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1uw-TZSF4CQAAAAAAAAAAABkARQnAQ">
 
 
 ### 联想类导航
 
 #### 步骤条
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NwPbQpqE5woAAAAAAAAAAABkARQnAQ">
+
 按照预先定义的顺序引导用户一步一步前后移动。 
 在一系列页面的每一页上都展示步骤条，并标记当前页面在这条线性路径上的位置。
 适用于： 
 • 用户访问路径是线性的； 
 • 步骤条将复杂的任务分解为易于处理的小任务，减少用户出错，更快完成任务。 
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NwPbQpqE5woAAAAAAAAAAABkARQnAQ">
-
 #### 上一篇下一篇
-协助我们移动到其他关系紧密的网页。
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DNEKRbDbqvEAAAAAAAAAAABkARQnAQ">
+
+协助我们移动到其他关系紧密的网页。
 
 ---
 
