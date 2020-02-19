@@ -128,7 +128,7 @@ const Demo = () => (
   - will keep at least one column even if `columns` is empty.
   - Nest `dataIndex` definition changes from `'xxx.yyy'` to `['xxx', 'yyy']`.
 
-````diff
+```diff
 <Table
   columns={[
     {
@@ -138,6 +138,7 @@ const Demo = () => (
     },
   ]}
 />
+```
 
 ## Start upgrading
 
@@ -157,7 +158,7 @@ yarn global add @ant-design/codemod-v4
 
 # Execute
 antd4-codemod src
-````
+```
 
 <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QdcbQoLC-cQAAAAAAAAAAABkARQnAQ" alt="codemod running" width="720" />
 
