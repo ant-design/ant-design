@@ -60,7 +60,7 @@ function toList([, ...items]: ContentUnit[]) {
       return [
         'div',
         {
-          className: 'ant-col ant-col-6 gutter-row',
+          className: 'ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 gutter-row',
           style: 'padding: 12px;',
         },
         [
