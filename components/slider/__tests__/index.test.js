@@ -4,10 +4,13 @@ import Slider from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import focusTest from '../../../tests/shared/focusTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
+  focusTest(Slider);
 
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
@@ -76,5 +79,12 @@ describe('Slider', () => {
       </ConfigProvider>,
     );
     expect(render(wrapper)).toMatchSnapshot();
+  });
+
+  it('should keepAlign by calling forcePopupAlign', async () => {
+    const wrapper = mount(<Slider defaultValue={30} tooltipVisible />);
+    wrapper.find('Tooltip').instance().tooltip.forcePopupAlign = jest.fn();
+    await sleep(0);
+    expect(wrapper.find('Tooltip').instance().tooltip.forcePopupAlign).toHaveBeenCalled();
   });
 });

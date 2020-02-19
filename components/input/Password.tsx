@@ -91,16 +91,17 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
-    return (
-      <Input
-        {...omit(restProps, ['suffix'])}
-        type={this.state.visible ? 'text' : 'password'}
-        size={size}
-        className={inputClassName}
-        prefixCls={inputPrefixCls}
-        suffix={suffixIcon}
-        ref={this.saveInput}
-      />
-    );
+    const props = {
+      ...omit(restProps, ['suffix']),
+      type: this.state.visible ? 'text' : 'password',
+      className: inputClassName,
+      prefixCls: inputPrefixCls,
+      suffix: suffixIcon,
+      ref: this.saveInput,
+    };
+    if (size) {
+      props.size = size;
+    }
+    return <Input {...props} />;
   }
 }

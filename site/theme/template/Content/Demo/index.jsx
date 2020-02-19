@@ -182,12 +182,14 @@ class Demo extends React.Component {
         .replace(/([a-zA-Z]*)\s+as\s+([a-zA-Z]*)/, '$1:$2'),
       css: prefillStyle,
       editors: '001',
-      css_external: 'https://unpkg.com/antd/dist/antd.css',
+      // eslint-disable-next-line no-undef
+      css_external: `https://unpkg.com/antd@${antdReproduceVersion}/dist/antd.css`,
       js_external: [
         'react@16.x/umd/react.development.js',
         'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
-        'antd/dist/antd-with-locales.js',
+        // eslint-disable-next-line no-undef
+        `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
       ]
@@ -204,8 +206,10 @@ class Demo extends React.Component {
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
         if (matches && matches[1] && !line.includes('antd')) {
-          const [dep] = matches[1].split('/');
-          if (dep) {
+          const paths = matches[1].split('/');
+
+          if (paths.length) {
+            const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
             acc[dep] = 'latest';
           }
         }
@@ -214,6 +218,11 @@ class Demo extends React.Component {
       // eslint-disable-next-line no-undef
       { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
+
+    if (dependencies['@ant-design/icons']) {
+      // eslint-disable-next-line no-undef
+      dependencies['@ant-design/icons'] = antdReproduceVersion;
+    }
 
     // Reorder source code
     let parsedSourceCode = sourceCode;
@@ -291,21 +300,23 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <form
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <input
-                  type="submit"
-                  value="Create New Pen with Prefilled Data"
-                  className="code-box-codepen"
-                />
-              </Tooltip>
-            </form>
+            {!dependencies['@ant-design/icons'] && (
+              <form
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+                onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                  <input
+                    type="submit"
+                    value="Create New Pen with Prefilled Data"
+                    className="code-box-codepen"
+                  />
+                </Tooltip>
+              </form>
+            )}
             <form
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"

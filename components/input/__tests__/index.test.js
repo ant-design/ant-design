@@ -30,12 +30,30 @@ describe('Input', () => {
 
   it('should support maxLength', () => {
     const wrapper = mount(<Input maxLength={3} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('select()', () => {
     const wrapper = mount(<Input />);
     wrapper.instance().select();
+  });
+
+  it('should support size', () => {
+    const wrapper = mount(<Input size="large" />);
+    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support size in form', () => {
+    const wrapper = mount(
+      <Form size="large">
+        <Form.Item>
+          <Input />
+        </Form.Item>
+      </Form>,
+    );
+    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   describe('focus trigger warning', () => {
@@ -70,16 +88,32 @@ describe('Input', () => {
 focusTest(TextArea);
 
 describe('TextArea', () => {
+  const originalGetComputedStyle = window.getComputedStyle;
   beforeAll(() => {
+    Object.defineProperty(window, 'getComputedStyle', {
+      value: node => ({
+        getPropertyValue: prop => {
+          if (prop === 'box-sizing') {
+            return originalGetComputedStyle(node)[prop] || 'border-box';
+          }
+          return originalGetComputedStyle(node)[prop];
+        },
+      }),
+    });
     jest.useFakeTimers();
   });
 
   afterAll(() => {
+    Object.defineProperty(window, 'getComputedStyle', {
+      value: originalGetComputedStyle,
+    });
     jest.useRealTimers();
   });
 
   it('should auto calculate height according to content length', () => {
-    const wrapper = mount(<TextArea value="" readOnly autoSize />);
+    const wrapper = mount(
+      <TextArea value="" readOnly autoSize={{ minRows: 2, maxRows: 6 }} wrap="off" />,
+    );
     const mockFunc = jest.spyOn(wrapper.instance().resizableTextArea, 'resizeTextarea');
     wrapper.setProps({ value: '1111\n2222\n3333' });
     jest.runAllTimers();
@@ -110,12 +144,12 @@ describe('TextArea', () => {
 
   it('should support disabled', () => {
     const wrapper = mount(<TextArea disabled />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should support maxLength', () => {
     const wrapper = mount(<TextArea maxLength={10} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('calculateNodeStyling works correctly', () => {
@@ -126,10 +160,10 @@ describe('TextArea', () => {
     const value = calculateNodeStyling(wrapper, true);
     expect(value).toEqual({
       borderSize: 2,
-      boxSizing: '',
+      boxSizing: 'border-box',
       paddingSize: 4,
       sizingStyle:
-        'letter-spacing:normal;line-height:normal;padding-top:2px;padding-bottom:2px;font-family:-webkit-small-control;font-weight:;font-size:;font-variant:;text-rendering:auto;text-transform:none;width:;text-indent:0;padding-left:2px;padding-right:2px;border-width:1px;box-sizing:',
+        'letter-spacing:normal;line-height:normal;padding-top:2px;padding-bottom:2px;font-family:-webkit-small-control;font-weight:;font-size:;font-variant:;text-rendering:auto;text-transform:none;width:;text-indent:0;padding-left:2px;padding-right:2px;border-width:1px;box-sizing:border-box',
     });
   });
 
@@ -150,9 +184,9 @@ describe('TextArea', () => {
   it('minRows or maxRows is not null', () => {
     const wrapper = document.createElement('textarea');
     expect(calculateNodeHeight(wrapper, 1, 1)).toEqual({
-      height: 0,
+      height: 2,
       maxHeight: 9007199254740991,
-      minHeight: -4,
+      minHeight: 2,
       overflowY: undefined,
     });
     wrapper.style.boxSizing = 'content-box';
@@ -245,7 +279,7 @@ describe('As Form Control', () => {
 describe('Input.Search', () => {
   it('should support suffix', () => {
     const wrapper = mount(<Input.Search suffix="suffix" />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
 
@@ -254,12 +288,12 @@ describe('Input allowClear', () => {
     const wrapper = mount(<Input allowClear />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
     expect(wrapper.find('input').getDOMNode().value).toEqual('111');
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper
       .find('.ant-input-clear-icon')
       .at(0)
       .simulate('click');
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('input').getDOMNode().value).toEqual('');
   });
 
@@ -268,7 +302,7 @@ describe('Input allowClear', () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find('input').getDOMNode().value).toEqual('');
       expect(wrapper.find('.ant-input-clear-icon').exists()).toEqual(false);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
@@ -279,7 +313,7 @@ describe('Input allowClear', () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find('input').getDOMNode().value).toEqual('');
       expect(wrapper.find('.ant-input-clear-icon').exists()).toEqual(false);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
@@ -353,12 +387,12 @@ describe('TextArea allowClear', () => {
     const wrapper = mount(<TextArea allowClear />);
     wrapper.find('textarea').simulate('change', { target: { value: '111' } });
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('111');
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper
       .find('.ant-input-textarea-clear-icon')
       .at(0)
       .simulate('click');
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
   });
 
@@ -367,7 +401,7 @@ describe('TextArea allowClear', () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
       expect(wrapper.find('.ant-input-textarea-clear-icon').exists()).toEqual(false);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
@@ -378,7 +412,7 @@ describe('TextArea allowClear', () => {
     wrappers.forEach(wrapper => {
       expect(wrapper.find('textarea').getDOMNode().value).toEqual('');
       expect(wrapper.find('.ant-textarea-clear-icon').exists()).toEqual(false);
-      expect(wrapper).toMatchSnapshot();
+      expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
@@ -455,5 +489,12 @@ describe('TextArea allowClear', () => {
     wrapper.setProps({ value: 'Light' });
     wrapper.find('input').simulate('change', { target: { value: 'Bamboo' } });
     expect(wrapper.find('input').props().value).toEqual('Light');
+  });
+
+  it('click outside should also get focus', () => {
+    const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
+    const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
+    wrapper.find('.test-suffix').simulate('mouseUp');
+    expect(onFocus).toHaveBeenCalled();
   });
 });

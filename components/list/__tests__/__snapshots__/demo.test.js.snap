@@ -1319,6 +1319,7 @@ exports[`renders ./components/list/demo/vertical.md correctly 1`] = `
       >
         <a
           class="ant-pagination-item-link"
+          disabled=""
         >
           <span
             aria-label="left"

@@ -46,7 +46,7 @@ class OverlayVisible extends React.Component {
         onVisibleChange={this.handleVisibleChange}
         visible={this.state.visible}
       >
-        <a className="ant-dropdown-link" href="#">
+        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
           Hover me <DownOutlined />
         </a>
       </Dropdown>

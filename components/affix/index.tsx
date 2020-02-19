@@ -227,7 +227,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
       const offsetBottom = this.getOffsetBottom();
 
       const targetNode = target();
-      if (targetNode) {
+      if (targetNode && this.placeholderNode) {
         const targetRect = getTargetRect(targetNode);
         const placeholderReact = getTargetRect(this.placeholderNode);
         const fixedTop = getFixedTop(placeholderReact, targetRect, offsetTop);

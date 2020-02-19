@@ -37,6 +37,7 @@ interface ClearableInputProps extends BasicProps {
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
+  triggerFocus: () => void;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -77,6 +78,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       allowClear,
       direction,
       style,
+      triggerFocus,
     } = this.props;
     const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
@@ -96,7 +98,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
     });
     return (
-      <span className={affixWrapperCls} style={style}>
+      <span className={affixWrapperCls} style={style} onMouseUp={triggerFocus}>
         {prefixNode}
         {React.cloneElement(element, {
           style: null,

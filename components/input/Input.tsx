@@ -142,9 +142,9 @@ class Input extends React.Component<InputProps, InputState> {
     }
   }
 
-  focus() {
+  focus = () => {
     this.input.focus();
-  }
+  };
 
   blur() {
     this.input.blur();
@@ -263,6 +263,7 @@ class Input extends React.Component<InputProps, InputState> {
       <SizeContext.Consumer>
         {size => (
           <ClearableLabeledInput
+            size={size}
             {...this.props}
             prefixCls={prefixCls}
             inputType="input"
@@ -272,6 +273,7 @@ class Input extends React.Component<InputProps, InputState> {
             ref={this.saveClearableInput}
             direction={direction}
             focused={focused}
+            triggerFocus={this.focus}
           />
         )}
       </SizeContext.Consumer>

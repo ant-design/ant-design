@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { mount } from 'enzyme';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
@@ -127,7 +127,7 @@ describe('Form', () => {
 
       const wrapper = mount(
         <Form
-          onFinish={(v) => {
+          onFinish={v => {
             if (typeof v.list[0] === 'object') {
               /* old version led to SyntheticEvent be passed as an value here
                 that led to weird infinite loop somewhere and OutOfMemory crash */
@@ -146,16 +146,10 @@ describe('Form', () => {
                     <Input />
                   </Form.Item>
                 ))}
-                <Button
-                  className="add"
-                  onClick={add}
-                >
+                <Button className="add" onClick={add}>
                   Add
                 </Button>
-                <Button
-                  className="remove"
-                  onClick={() => remove(0)}
-                >
+                <Button className="remove" onClick={() => remove(0)}>
                   Remove
                 </Button>
               </>
@@ -521,5 +515,29 @@ describe('Form', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Form.Item] `null` is passed as `name` property',
     );
+  });
+
+  // https://github.com/ant-design/ant-design/issues/21415
+  it('Component.props.onChange is null', () => {
+    // eslint-disable-next-line
+    class CustomComponent extends Component {
+      static defaultProps = {
+        onChange: null,
+      };
+
+      render() {
+        return <input {...this.props} />;
+      }
+    }
+    expect(() => {
+      const wrapper = mount(
+        <Form>
+          <Form.Item name="custom">
+            <CustomComponent />
+          </Form.Item>
+        </Form>,
+      );
+      wrapper.find(CustomComponent).simulate('change', { value: '123' });
+    }).not.toThrow();
   });
 });

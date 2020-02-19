@@ -83,7 +83,7 @@ const menu = (
 
 ReactDOM.render(
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" href="#">
+    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
       Hover to check menu style <DownOutlined />
     </a>
   </Dropdown>,

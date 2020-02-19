@@ -11,6 +11,8 @@ import raf from '../_util/raf';
 import collapseMotion from '../_util/motion';
 import MenuContext, { MenuTheme } from './MenuContext';
 
+export { MenuItemGroupProps } from 'rc-menu/es/MenuItemGroup';
+
 export interface SelectParam {
   key: string;
   keyPath: Array<string>;

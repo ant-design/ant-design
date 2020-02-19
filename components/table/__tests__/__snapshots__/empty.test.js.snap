@@ -586,6 +586,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="left"
@@ -625,6 +626,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
         >
           <a
             class="ant-pagination-item-link"
+            disabled=""
           >
             <span
               aria-label="right"

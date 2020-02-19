@@ -2,6 +2,7 @@
 @import '../../style/mixins/index';
 @import './mixin';
 @import './affix';
+@import './allow-clear';
 
 // Input styles
 .@{ant-prefix}-input {
@@ -35,19 +36,6 @@
   &:hover {
     color: @input-icon-hover-color;
   }
-}
-
-.@{ant-prefix}-input-clear-icon {
-  .clear-icon;
-  vertical-align: 0;
-}
-
-.@{ant-prefix}-input-textarea-clear-icon {
-  .clear-icon;
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 8px 8px 0 0;
 }
 
 @import './search-input';
