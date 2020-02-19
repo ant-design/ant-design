@@ -6979,11 +6979,15 @@ exports[`ConfigProvider components Form configProvider 1`] = `
       <div
         class="config-form-item-control-input"
       >
-        <input
-          class="config-input"
-          type="text"
-          value=""
-        />
+        <div
+          class="config-form-item-control-input-content"
+        >
+          <input
+            class="config-input"
+            type="text"
+            value=""
+          />
+        </div>
       </div>
       <div
         class="config-form-item-explain"
@@ -7010,11 +7014,15 @@ exports[`ConfigProvider components Form normal 1`] = `
       <div
         class="ant-form-item-control-input"
       >
-        <input
-          class="ant-input"
-          type="text"
-          value=""
-        />
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            type="text"
+            value=""
+          />
+        </div>
       </div>
       <div
         class="ant-form-item-explain"
@@ -7041,11 +7049,15 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
       <div
         class="prefix-Form-item-control-input"
       >
-        <input
-          class="prefix-Form"
-          type="text"
-          value=""
-        />
+        <div
+          class="prefix-Form-item-control-input-content"
+        >
+          <input
+            class="prefix-Form"
+            type="text"
+            value=""
+          />
+        </div>
       </div>
       <div
         class="prefix-Form-item-explain"
