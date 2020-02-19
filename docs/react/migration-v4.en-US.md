@@ -115,6 +115,7 @@ const Demo = () => (
 - DatePicker rewrite
   - Provide the `picker` property for selector switching.
   - Range selection can now select start and end times individually.
+  - `onPanelChange` will also trigger when panel value changed.
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
   - `onBlur` no longer trigger value change.
