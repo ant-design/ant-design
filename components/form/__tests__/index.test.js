@@ -294,8 +294,10 @@ describe('Form', () => {
   });
 
   it('scrollToFirstError', async () => {
+    const onFinishFailed = jest.fn();
+
     const wrapper = mount(
-      <Form scrollToFirstError>
+      <Form scrollToFirstError onFinishFailed={onFinishFailed}>
         <Form.Item name="test" rules={[{ required: true }]}>
           <input />
         </Form.Item>
@@ -307,6 +309,7 @@ describe('Form', () => {
     wrapper.find('form').simulate('submit');
     await delay(50);
     expect(scrollIntoView).toHaveBeenCalled();
+    expect(onFinishFailed).toHaveBeenCalled();
 
     wrapper.unmount();
   });
