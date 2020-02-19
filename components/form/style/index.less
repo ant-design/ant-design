@@ -25,6 +25,26 @@
   &-rtl {
     direction: rtl;
   }
+
+  // ================================================================
+  // =                             Size                             =
+  // ================================================================
+  .formSize(@input-height) {
+    .@{form-item-prefix-cls}-label > label {
+      height: @input-height;
+    }
+
+    .@{form-item-prefix-cls}-control-input {
+      min-height: @input-height;
+    }
+  }
+
+  &-small {
+    .formSize(@input-height-sm);
+  }
+  &-large {
+    .formSize(@input-height-lg);
+  }
 }
 
 .explainAndExtraDistance(@num) when (@num>=0) {
@@ -141,28 +161,6 @@
     font-size: @font-size-base;
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition
-  }
-}
-
-// ==================================================================
-// =                              Size                              =
-// ==================================================================
-.@{form-prefix-cls} {
-  .formSize(@input-height) {
-    .@{form-item-prefix-cls}-label > label {
-      height: @input-height;
-    }
-
-    .@{form-item-prefix-cls}-control-input {
-      min-height: @input-height;
-    }
-  }
-
-  &-small {
-    .formSize(@input-height-sm);
-  }
-  &-large {
-    .formSize(@input-height-lg);
   }
 }
 

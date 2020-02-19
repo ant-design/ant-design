@@ -61,7 +61,7 @@ const Demo = () => {
         rate: 3.5,
       }}
     >
-      <Form.Item label="Plain Text" help="2333">
+      <Form.Item label="Plain Text">
         <span className="ant-form-text">China</span>
       </Form.Item>
       <Form.Item
