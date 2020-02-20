@@ -105,7 +105,7 @@ React1.width = (ReactSize1 + ShadowSize) * 2;
 React1.height = (ReactSize1 + ShadowSize) * 2;
 
 // ================================== Diamond 1 ===================================
-const DiamondSize1 = 220;
+const DiamondSize1 = 400;
 const Diamond1 = () => {
   const start = ShadowSize;
   const center = ShadowSize + DiamondSize1;
@@ -138,7 +138,7 @@ export default function Background() {
   const [circleFrames, setCircleFrames] = React.useState<any[]>(randomFrames(550, 200));
   const [circle2Frames, setCircle2Frames] = React.useState<any[]>(randomFrames(0, 448));
   const [reactFrames, setReactFrames] = React.useState<any[]>(randomFrames(1400, 300));
-  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, -30));
+  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, -230));
 
   return (
     <div className="home-banner-background">
@@ -155,7 +155,7 @@ export default function Background() {
             setCircleFrames(randomFrames(550, 200));
             setCircle2Frames(randomFrames(0, 448));
             setReactFrames(randomFrames(1400, 300));
-            setDiamondFrames(randomFrames(1100, -30));
+            setDiamondFrames(randomFrames(1100, -230));
           }
         }}
         shapes={[
