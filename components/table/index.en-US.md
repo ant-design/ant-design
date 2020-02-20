@@ -71,6 +71,7 @@ const columns = [
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |  |
 | expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - | 3.11.3 |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` | 3.0.1 |
+| expandIconColumnIndex | The index of `expandIcon` which column will be inserted when `expandIconAsCell` is false | 0 |  |
 | footer | Table footer renderer | Function(currentPageData) |  |  |
 | indentSize | Indent size in pixels of tree data | number | 15 |  |
 | loading | Loading status of table | boolean\|[object](https://ant.design/components/spin-cn/#API) ([more](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | `false` |  |

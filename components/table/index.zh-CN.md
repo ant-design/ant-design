@@ -76,6 +76,7 @@ const columns = [
 | expandedRowRender | 额外的展开行 | Function(record, index, indent, expanded):ReactNode | - |  |
 | expandIcon | 自定义展开图标，参考[示例](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - | 3.11.3 |
 | expandRowByClick | 通过点击行来展开子行 | boolean | `false` | 3.0.1 |
+| expandIconColumnIndex | 展开的图标显示在哪一列，如果没有 `rowSelection`，默认显示在第一列，否则显示在选择框后面 | `number` |  |
 | footer | 表格尾部 | Function(currentPageData) |  |  |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 |  |
 | loading | 页面是否加载中 | boolean\|[object](https://ant.design/components/spin-cn/#API) ([更多](https://github.com/ant-design/ant-design/issues/4544#issuecomment-271533135)) | false |  |
