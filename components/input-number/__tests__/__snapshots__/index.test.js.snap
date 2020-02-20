@@ -74,6 +74,7 @@ exports[`InputNumber rtl render component should be rendered correctly in RTL di
       min="-9007199254740991"
       role="spinbutton"
       step="1"
+      type="tel"
       value=""
     />
   </div>

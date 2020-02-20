@@ -339,6 +339,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             min="1"
             role="spinbutton"
             step="1"
+            type="tel"
             value="1"
           />
         </div>
@@ -459,6 +460,7 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
             min="0"
             role="spinbutton"
             step="0.01"
+            type="tel"
             value="0.00"
           />
         </div>

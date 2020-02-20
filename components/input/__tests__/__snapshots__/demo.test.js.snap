@@ -425,6 +425,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         min="-9007199254740991"
         role="spinbutton"
         step="1"
+        type="tel"
         value=""
       />
     </div>
@@ -1266,6 +1267,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           min="-9007199254740991"
           role="spinbutton"
           step="1"
+          type="tel"
           value=""
         />
       </div>

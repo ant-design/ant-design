@@ -74,6 +74,7 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
           return (
             <RcInputNumber
               ref={this.saveInputNumber}
+              type="tel"
               className={inputNumberClass}
               upHandler={upIcon}
               downHandler={downIcon}
