@@ -16,7 +16,7 @@ export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
  */
 interface BasicProps {
   prefixCls: string;
-  inputType: (typeof ClearableInputType)[number];
+  inputType: typeof ClearableInputType[number];
   value?: any;
   defaultValue?: any;
   allowClear?: boolean;
@@ -25,13 +25,14 @@ interface BasicProps {
   className?: string;
   style?: object;
   disabled?: boolean;
+  readOnly?: boolean;
 }
 
 /**
  * This props only for input.
  */
 interface ClearableInputProps extends BasicProps {
-  size?: (typeof InputSizes)[number];
+  size?: typeof InputSizes[number];
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
@@ -40,8 +41,15 @@ interface ClearableInputProps extends BasicProps {
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, inputType, handleReset } = this.props;
-    if (!allowClear || disabled || value === undefined || value === null || value === '') {
+    const { allowClear, value, disabled, readOnly, inputType, handleReset } = this.props;
+    if (
+      !allowClear ||
+      disabled ||
+      readOnly ||
+      value === undefined ||
+      value === null ||
+      value === ''
+    ) {
       return null;
     }
     const className =
