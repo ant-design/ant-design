@@ -420,6 +420,9 @@ describe('Upload', () => {
     const mockRemove = jest.fn(() => false);
     const props = {
       onRemove: mockRemove,
+      showUploadList: {
+        showDownloadIcon: true,
+      },
       fileList: [
         {
           uid: '-1',
