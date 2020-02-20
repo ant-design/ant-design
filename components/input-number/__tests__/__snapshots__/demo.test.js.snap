@@ -77,6 +77,7 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
       min="1"
       role="spinbutton"
       step="1"
+      type="tel"
       value="3"
     />
   </div>
@@ -159,6 +160,7 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
       min="0"
       role="spinbutton"
       step="0.1"
+      type="tel"
       value=""
     />
   </div>
@@ -244,6 +246,7 @@ exports[`renders ./components/input-number/demo/disabled.md correctly 1`] = `
         min="1"
         role="spinbutton"
         step="1"
+        type="tel"
         value="3"
       />
     </div>
@@ -339,6 +342,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         min="-9007199254740991"
         role="spinbutton"
         step="1"
+        type="tel"
         value="$ 1,000"
       />
     </div>
@@ -419,6 +423,7 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         min="0"
         role="spinbutton"
         step="1"
+        type="tel"
         value="100%"
       />
     </div>
@@ -506,6 +511,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         min="1"
         role="spinbutton"
         step="1"
+        type="tel"
         value="3"
       />
     </div>
@@ -586,6 +592,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         min="1"
         role="spinbutton"
         step="1"
+        type="tel"
         value="3"
       />
     </div>
@@ -666,6 +673,7 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         min="1"
         role="spinbutton"
         step="1"
+        type="tel"
         value="3"
       />
     </div>

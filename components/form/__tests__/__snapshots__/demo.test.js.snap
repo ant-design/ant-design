@@ -1831,6 +1831,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
+                type="tel"
                 value=""
               />
             </div>
@@ -3226,6 +3227,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                   min="-9007199254740991"
                   role="spinbutton"
                   step="1"
+                  type="tel"
                   value=""
                 />
               </div>
@@ -4064,6 +4066,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 min="1"
                 role="spinbutton"
                 step="1"
+                type="tel"
                 value="3"
               />
             </div>
@@ -6064,6 +6067,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 min="-9007199254740991"
                 role="spinbutton"
                 step="1"
+                type="tel"
                 value=""
               />
             </div>
@@ -6442,6 +6446,7 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
                 min="8"
                 role="spinbutton"
                 step="1"
+                type="tel"
                 value="11"
               />
             </div>

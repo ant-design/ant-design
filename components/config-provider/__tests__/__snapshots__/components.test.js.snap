@@ -7328,6 +7328,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
       min="-9007199254740991"
       role="spinbutton"
       step="1"
+      type="tel"
       value=""
     />
   </div>
@@ -7408,6 +7409,7 @@ exports[`ConfigProvider components InputNumber normal 1`] = `
       min="-9007199254740991"
       role="spinbutton"
       step="1"
+      type="tel"
       value=""
     />
   </div>
@@ -7488,6 +7490,7 @@ exports[`ConfigProvider components InputNumber prefixCls 1`] = `
       min="-9007199254740991"
       role="spinbutton"
       step="1"
+      type="tel"
       value=""
     />
   </div>
