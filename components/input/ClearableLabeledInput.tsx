@@ -26,6 +26,7 @@ interface BasicProps {
   disabled?: boolean;
   direction?: any;
   focused?: boolean;
+  readOnly?: boolean;
 }
 
 /**
@@ -42,8 +43,15 @@ interface ClearableInputProps extends BasicProps {
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, inputType, handleReset } = this.props;
-    if (!allowClear || disabled || value === undefined || value === null || value === '') {
+    const { allowClear, value, disabled, readOnly, inputType, handleReset } = this.props;
+    if (
+      !allowClear ||
+      disabled ||
+      readOnly ||
+      value === undefined ||
+      value === null ||
+      value === ''
+    ) {
       return null;
     }
     const className =
