@@ -25,7 +25,7 @@ export interface FormProps extends Omit<RcFormProps, 'form'> {
   size?: SizeType;
 }
 
-const InternalForm: React.FC<FormProps> = (props, ref) => {
+const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
   const { getPrefixCls, direction }: ConfigConsumerProps = React.useContext(ConfigContext);
 
