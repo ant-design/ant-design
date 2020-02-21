@@ -44,12 +44,7 @@ title: 工作台
 
 **涉及哪些功能**
 
-- 使用帮助
-- 核心数据
-- 快捷入口
-- 待办清单
-- 关注
-- 运营模块
+使用帮助；核心数据；快捷入口；待办清单；关注；运营模块。
 
 **设计建议**
 
@@ -58,5 +53,44 @@ title: 工作台
 - 提供基于角色的差异化视图。
 
 #### 模板 - 新手引导
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBmQauTEAsAAAAAAAAAAABkARQnAQ">
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*LQBm
+**什么时候使用**
+- 当新用户到达平台，尚未开始任何工作时，缩短新用户学习时长。
+- 部分模块无内容时，请参见「空状态」指引；
+
+**涉及哪些功能**
+
+使用帮助；空状态引导
+
+**设计建议**
+- 向用户介绍平台用途，并引导用户开始工作；
+- 如果需要用户管理复杂的对象，提供 Demo 预览入口；
+
+### 设计建议
+
+#### 选择合适的导航方式
+
+这类页面一般会提供两类导航形式。<br/>
+
+① 用户知道他想要使用的功能，需要利用导航获取。例如：
+<div>
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xlYoTIf8NpwAAAAAAAAAAABkARQnAQ">
+</div>
+
+② 发现类导航，用户须完成某任务，但不知道使用哪个功能来完成。例如：
+<div>
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9nKdRJBAu8sAAAAAAAAAAABkARQnAQ">
+</div>
+
+#### 按照使用频次布置内容
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1tfiR5-xKUQAAAAAAAAAAABkARQnAQ">
+
+用户在日常工作中最常使用的内容，按照使用频次将内容布置以下各区域。
+
+#### 考虑异常状态
+详见异常状态
+
+> 另，关于是否应该推荐用户个性化定制，这部分内容尚在探索中。
+
+
