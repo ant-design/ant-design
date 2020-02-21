@@ -20,14 +20,14 @@ title: 异常页
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*te8yTbLcqrgAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>友好</h4>
-      使用友好、清晰的语言来表达，不要使用难懂的术语，让用户产生困惑。</p>
+      使用友好、清晰的语言来表达，不要使用难懂的术语，让用户产生困惑。
     </div>
   </div>
   <div>
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zHCcQqaRvmoAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>提供邀请</h4>
-      引导用户进入下一个交互层次的提醒和暗示，以表明在下一个界面可以做什么。</p>
+      引导用户进入下一个交互层次的提醒和暗示，以表明在下一个界面可以做什么。
     </div>
   </div>
 </div>
