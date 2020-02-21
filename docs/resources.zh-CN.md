@@ -91,7 +91,7 @@ toc: false
   - http://book.douban.com/subject/26642302/
 - Web 界面设计
   - https://gw.alipayobjects.com/zos/basement_prod/2a453990-a63a-4be2-ac70-8235fbaaeb1d.svg
-  - 设计 Web 界面的最佳实践、模式和原理
+  - Web 界面的最佳实践、模式和原理
   - http://book.douban.com/subject/3821157/
 - 界面设计模式
   - https://gw.alipayobjects.com/zos/basement_prod/2f253f4f-6cc8-45eb-a123-9059336982d9.svg
