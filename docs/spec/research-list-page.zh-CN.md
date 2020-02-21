@@ -59,7 +59,7 @@ title: 列表页
 
 #### 模版 - 标准列表
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uAGRTY5EMvIAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3KMbRrbjvzkAAAAAAAAAAABkARQnAQ">
 
 **什么时候使用**
 提供每条条目的概览信息，点击列表可导航至条目详情。页面内常提供统计功能，供用户了解总体进展。可作为简易版的工作台使用。
@@ -95,7 +95,8 @@ title: 列表页
 #### 批量操作
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NvPKR5HZQ9MAAAAAAAAAAABkARQnAQ">
-页级的批量操作影响整个页面，此时批量操作工具栏可布置于页底。
+
+页级的批量操作影响整个页面，可布置于页底。
 
 ## 扩展阅读
 
