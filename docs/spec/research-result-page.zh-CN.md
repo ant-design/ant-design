@@ -81,10 +81,10 @@ title: 结果页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PQotS7GJC1gAAAAAAAAAAABkARQnAQ">
 
-结果页可提供以下内容：
-1. 结果反馈：明确告知用户提交结果；
-2. 结果解释（可选）：若需要对结果简要解释使用；
-3. 建议操作：引导用户继续完成后续工作；
+结果页可提供以下内容：<br/>
+1. 结果反馈：明确告知用户提交结果；<br/>
+2. 结果解释（可选）：若需要对结果简要解释使用；<br/>
+3. 建议操作：引导用户继续完成后续工作；<br/>
 4. 补充信息（可选）：在通知结果的同时，有补充信息需要反馈给用户；营销模块。
 
 #### 模板 - 基础结果页
