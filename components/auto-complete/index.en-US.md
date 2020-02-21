@@ -24,7 +24,6 @@ When there is a need for autocomplete functionality.
 | defaultValue | Initial selected option. | string\|string\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns `true`, the option will be included in the filtered set; Otherwise, it will be excluded. | boolean or function(inputValue, option) | true |  |
-| optionLabelProp | Which prop value of option will render as content of select. | string | `children` |  |
 | placeholder | placeholder of input | string | - |  |
 | value | selected option | string\|string\[]\|{ key: string, label: string\|ReactNode }\|Array&lt;{ key: string, label: string\|ReactNode }> | - |  |
 | onBlur | Called when leaving the component. | function() | - |  |

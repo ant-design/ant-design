@@ -376,9 +376,11 @@ describe('Input allowClear', () => {
     wrapper.unmount();
   });
 
-  it('should not support allowClear when it is disabled', () => {
-    const wrapper = mount(<Input allowClear defaultValue="111" disabled />);
-    expect(wrapper.find('.ant-input-clear-icon').length).toBe(0);
+  ['disabled', 'readOnly'].forEach(prop => {
+    it(`should not support allowClear when it is ${prop}`, () => {
+      const wrapper = mount(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
+      expect(wrapper.find('.ant-input-clear-icon').length).toBe(0);
+    });
   });
 });
 

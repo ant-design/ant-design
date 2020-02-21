@@ -82,3 +82,7 @@ title: TreeSelect
 ### onChange 时如何获得父节点信息？
 
 从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/wk080nn81k>
+
+### 自定义 Option 样式导致滚动异常怎么办？
+
+请参考 Select 的 [FAQ](/components/select)。
