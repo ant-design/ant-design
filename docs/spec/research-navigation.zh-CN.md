@@ -27,13 +27,12 @@ title: 导航
     <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NfLHQJfGmUQAAAAAAAAAAABkARQnAQ" />
     <div>
       <h4>高效</h4>
-     1. 多接入点：对同一目的地提供多个链接。 
-        
-2. 捷径：提供访问内容的捷径，如相关链接。
-
-3. 逃生舱：点击 logo 回到首页重新启动信息搜寻。 </div>
-     </div>
-   </div>
+      <p>1. 多接入点：对同一目的地提供多个链接。</p>
+      <p>2. 捷径：提供访问内容的捷径，如相关链接。</p>
+      <p>3. 逃生舱：点击 logo 回到首页重新启动信息搜寻。</p>
+    </div>
+  </div>
+</div>
 
 ---
 
