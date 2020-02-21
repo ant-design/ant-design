@@ -1,86 +1,119 @@
 ---
-category: 设计模式 - 探索
-type: 全局规则
+category:
+  zh-CN: 设计模式
+  en-US: Design Patterns
+type:
+  zh-CN: 模板文档
+  en-US: Template Document
 order: 2
-title: 消息与反馈
+title:
+  zh-CN: 数据可视化页
+  en-US: Visualization Page
 ---
 
-## 1. 设计目标
+用于在必要时向用户反馈操作结果或传达消息。
+
+## 设计目标
 
 在不同事件下用户都能感知与操作场景和紧急程度匹配的结果反馈或消息提示，做到合理有效的信息传达。
 
-## 2. 反馈方式
+---
+## 反馈方式
 
 在设计时需要考虑用户试图完成的任务以及需要引起注意的方式，采用何种反馈方式。反馈方式列举如下图：
 
 <div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aY0STaH2-4sAAAAAAAAAAABkARQnAQ" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SKfjS7vyRP4AAAAAAAAAAABkARQnAQ">
 </div>
 
-## 3. 何时使用
+## 何时使用
 
 <div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5yUuSo39b6AAAAAAAAAAAABkARQnAQ" />
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vv37RaVAXhAAAAAAAAAAAABkARQnAQ">
 </div>
 
 ### 成功
 
 #### 留在原地
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*J38FQZ4Ey-MAAAAAAAAAAABkARQnAQ" />
-</div>
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qQ8NTKMH-2IAAAAAAAAAAABkARQnAQ">
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*9cJuRZFUhmkAAAAAAAAAAABkARQnAQ" />
-</div>
+**对话框 Model**
+
+在不跳转页面打断用户工作流程的前提下，告知用户重要的成功结果。
+
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NPVGQr6f5-4AAAAAAAAAAABkARQnAQ">
+
+**全局提示 Message**
+
+在不希望在用户执行操作时中断用户前提下显示一条简短的成功消息。
 
 #### 跳转
 
-失败&警告提示应尽量停留在原页面，方便用户修改错误。
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0EdyRa7WeUAAAAAAAAAAAABkARQnAQ">
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1nJLRImNsxAAAAAAAAAAAABkARQnAQ" />
-</div>
+**独占式 Inline Text & Illustration**
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*th0FTLAEMG8AAAAAAAAAAABkARQnAQ" />
-</div>
+• 长流程步骤表单在最后告知用户成功结果；
+• 需要展示较复杂的补充信息（例如配置信息详情）。
+
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*524fSKE97wYAAAAAAAAAAABkARQnAQ">
+
+**全局提示 Message**
+
+在不希望在用户执行操作时中断用户前提下显示一条简短的成功消息。
 
 ### 失败
 
 #### 留在原地
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*pDjMSr_lq6MAAAAAAAAAAABkARQnAQ" />
-</div>
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*S03WS5uHqDsAAAAAAAAAAABkARQnAQ">
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ppMmQZ34BUQAAAAAAAAAAABkARQnAQ" />
-</div>
+**对话框 Model**
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xZgWTK_bsUAAAAAAAAAAAABkARQnAQ" />
-</div>
+提醒用户完成当前工作流之外的重要操作（例如警告信息不安全）。
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*laMwSpR3OjAAAAAAAAAAAABkARQnAQ" />
-</div>
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4sHLQowCs6IAAAAAAAAAAABkARQnAQ">
+
+**警告提示 Alert**
+
+提醒用户系统中需要立即引起注意的错误信息。
+
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qg51Sq2A_M4AAAAAAAAAAABkARQnAQ">
+
+**表单校验提示**
+
+• 用户输入的内容不符合字段或表单的要求；
+• 用户跳过了必填字段；
+• 系统检测到表单数据中的错误。
+
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QeWqTIWqrWEAAAAAAAAAAABkARQnAQ">
+
+**通知提醒框 Notification**
+
+• 向用户告知重要的问题或失败状态，希望用户立马做出决策。
+• 反馈后台进程失败&告警结果。
 
 #### 跳转
 
-失败&警告提示应尽量停留在原页面，方便用户修改错误。
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7ES2TrY6UJgAAAAAAAAAAABkARQnAQ">
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*61_ySI_xinUAAAAAAAAAAABkARQnAQ" />
-</div>
+**独占式 Inline Text & Illustration**
+
+• 长流程步骤表单最后出现第三方原因造成的失败结果（例如应用引擎创建失败）。
+• 需要展示失败详情。
 
 ### 后台操作
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*H9vsRqp7lHcAAAAAAAAAAABkARQnAQ" />
-</div>
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*owL_SK1xmggAAAAAAAAAAABkARQnAQ">
 
-<div>
-  <img alt="buttons" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*HHxWR7oQmYMAAAAAAAAAAABkARQnAQ" />
-</div>
+**通知提醒框 Notification**
+
+• 向用户告知重要的问题或失败状态，希望用户立马做出决策。
+• 反馈后台进程结果。
+
+<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IGpqRbPGZxQAAAAAAAAAAABkARQnAQ">
+
+**通知中心**
+
+向用户通知相关活动信息（例如用户需要审批的项目或者用户申请的审批进程）。
