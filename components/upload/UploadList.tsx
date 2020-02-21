@@ -16,7 +16,7 @@ export default class UploadList extends React.Component<UploadListProps, any> {
       showInfo: false,
     },
     showRemoveIcon: true,
-    showDownloadIcon: true,
+    showDownloadIcon: false,
     showPreviewIcon: true,
     previewFile: previewImage,
   };
