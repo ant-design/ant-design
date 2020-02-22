@@ -45,6 +45,10 @@ export default class InputNumber extends React.Component<InputNumberProps, any> 
     this.inputNumberRef = inputNumberRef;
   };
 
+  getInputNumber() {
+    return this.inputNumberRef;
+  }
+
   focus() {
     this.inputNumberRef.focus();
   }
