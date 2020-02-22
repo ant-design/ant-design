@@ -9,7 +9,7 @@ High performance Form component with data scope management. Including data colle
 
 ## When to use
 
-- When you need to create a instance or collect information.
+- When you need to create an instance or collect information.
 - When you need to validate fields in certain rules.
 
 ## API
@@ -38,7 +38,7 @@ High performance Form component with data scope management. Including data colle
 
 ### validateMessages
 
-Form provides [default verification error messages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts). You can modify template by configuring `validateMessages` property. A common usage is to configure localization:
+Form provides [default verification error messages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts). You can modify the template by configuring `validateMessages` property. A common usage is to configure localization:
 
 ```jsx
 const validateMessages = {
@@ -93,11 +93,11 @@ Form field component for data bidirectional binding, validation, layout, and so 
 
 ### dependencies
 
-Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream updated. A common scenario is user register form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-register).
+Used when there are dependencies between fields. If a field has the `dependencies` prop, this field will automatically trigger updates and validations when upstream is updated. A common scenario is a user registration form with "password" and "confirm password" fields. The "Confirm Password" validation depends on the "Password" field. After setting `dependencies`, the "Password" field update will re-trigger the validation of "Check Password". You can refer [examples](#components-form-demo-register).
 
 ### shouldUpdate
 
-Form updates only the modified field-related components for performance optimization purposes by incremental update. In most case, you only need to write code or do validation with the [`dependencies`](#dependencies) property. And in some specific case, such as a new field option appears with a filed value changed, or just want to keep some area updating by form update. You can modify the update logic of Form.Item via the `shouldUpdate`.
+Form updates only the modified field-related components for performance optimization purposes by incremental update. In most cases, you only need to write code or do validation with the [`dependencies`](#dependencies) property. In some specific cases, such as when a new field option appears with a filed value changed, or you just want to keep some area updating by form update, you can modify the update logic of Form.Item via the `shouldUpdate`.
 
 When `shouldUpdate` is `true`, any Form update will cause the Form.Item to be re-rendered. This is very helpful for custom rendering some areas:
 
@@ -238,7 +238,7 @@ validateFields()
 
 #### Rule
 
-Rule support config object, an also support function to get config object:
+Rule support config object, and also support function to get config object:
 
 ```tsx
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
@@ -261,7 +261,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 ## Migrate to v4
 
-If you are the user of v3, you can ref [migrate doc](/components/form/v3)。
+If you are a user of v3, you can ref [migrate doc](/components/form/v3)。
 
 <style>
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
@@ -295,11 +295,11 @@ validator(rule, value, callback) => {
 }
 ```
 
-### Why get form warning when used in Modal?
+### Why is there a form warning when used in Modal?
 
 > Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
 
-Before Modal open, children element do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view example.
+Before Modal open, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
 
 <style>
   .site-form-item-icon {
