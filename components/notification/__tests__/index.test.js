@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import notification from '..';
 
 describe('notification', () => {
@@ -12,6 +13,30 @@ describe('notification', () => {
 
   afterEach(() => {
     notification.destroy();
+  });
+
+  it.only('not duplicate create holder', () => {
+    const originRender = ReactDOM.render;
+    const argsList = [];
+    const spyRender = jest.spyOn(ReactDOM, 'render').mockImplementation((...args) => {
+      argsList.push(args);
+    });
+    for (let i = 0; i < 5; i += 1) {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        prefixCls: 'additional-holder',
+      });
+    }
+
+    argsList.forEach(args => {
+      originRender(...args);
+    });
+
+    const count = document.querySelectorAll('.additional-holder').length;
+    expect(count).toEqual(1);
+
+    spyRender.mockRestore();
   });
 
   it('should be able to hide manually', () => {
