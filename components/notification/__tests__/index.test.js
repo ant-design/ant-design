@@ -15,7 +15,7 @@ describe('notification', () => {
     notification.destroy();
   });
 
-  it.only('not duplicate create holder', () => {
+  it('not duplicate create holder', () => {
     const originRender = ReactDOM.render;
     const argsList = [];
     const spyRender = jest.spyOn(ReactDOM, 'render').mockImplementation((...args) => {

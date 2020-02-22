@@ -14,7 +14,9 @@ export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bot
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-const notificationInstance: { [key: string]: RCNotificationInstance } = {};
+const notificationInstance: {
+  [key: string]: Promise<RCNotificationInstance>;
+} = {};
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
@@ -107,8 +109,12 @@ function getNotificationInstance(
   const prefixCls = `${outerPrefixCls}-notice`;
 
   const cacheKey = `${outerPrefixCls}-${placement}`;
-  if (notificationInstance[cacheKey]) {
-    callback({ prefixCls, instance: notificationInstance[cacheKey] });
+  const cacheInstance = notificationInstance[cacheKey];
+  if (cacheInstance) {
+    Promise.resolve(cacheInstance).then(instance => {
+      callback({ prefixCls, instance });
+    });
+
     return;
   }
 
@@ -118,22 +124,24 @@ function getNotificationInstance(
     </span>
   );
 
-  Notification.newInstance(
-    {
-      prefixCls: outerPrefixCls,
-      className: `${outerPrefixCls}-${placement}`,
-      style: getPlacementStyle(placement, top, bottom),
-      getContainer,
-      closeIcon: closeIconToRender,
-    },
-    notification => {
-      notificationInstance[cacheKey] = notification;
-      callback({
-        prefixCls,
-        instance: notification,
-      });
-    },
-  );
+  notificationInstance[cacheKey] = new Promise(resolve => {
+    Notification.newInstance(
+      {
+        prefixCls: outerPrefixCls,
+        className: `${outerPrefixCls}-${placement}`,
+        style: getPlacementStyle(placement, top, bottom),
+        getContainer,
+        closeIcon: closeIconToRender,
+      },
+      notification => {
+        resolve(notification);
+        callback({
+          prefixCls,
+          instance: notification,
+        });
+      },
+    );
+  });
 }
 
 const typeToIcon = {
@@ -210,13 +218,17 @@ const api: any = {
   },
   close(key: string) {
     Object.keys(notificationInstance).forEach(cacheKey =>
-      notificationInstance[cacheKey].removeNotice(key),
+      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+        instance.removeNotice(key);
+      }),
     );
   },
   config: setNotificationConfig,
   destroy() {
     Object.keys(notificationInstance).forEach(cacheKey => {
-      notificationInstance[cacheKey].destroy();
+      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+        instance.destroy();
+      });
       delete notificationInstance[cacheKey];
     });
   },
