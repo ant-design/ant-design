@@ -7,7 +7,7 @@ type:
   en-US: Template Document
 order: 2
 title:
-  zh-CN: 数据可视化页
+  zh-CN: 消息与反馈
   en-US: Visualization Page
 ---
 
@@ -32,17 +32,19 @@ title:
   <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vv37RaVAXhAAAAAAAAAAAABkARQnAQ">
 </div>
 
+
 ### 成功
 
 #### 留在原地
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qQ8NTKMH-2IAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qQ8NTKMH-2IAAAAAAAAAAABkARQnAQ">
+
 
 **对话框 Model**
 
 在不跳转页面打断用户工作流程的前提下，告知用户重要的成功结果。
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NPVGQr6f5-4AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NPVGQr6f5-4AAAAAAAAAAABkARQnAQ">
 
 **全局提示 Message**
 
@@ -50,14 +52,14 @@ title:
 
 #### 跳转
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0EdyRa7WeUAAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0EdyRa7WeUAAAAAAAAAAAABkARQnAQ">
 
 **独占式 Inline Text & Illustration**
 
 • 长流程步骤表单在最后告知用户成功结果；
 • 需要展示较复杂的补充信息（例如配置信息详情）。
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*524fSKE97wYAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*524fSKE97wYAAAAAAAAAAABkARQnAQ">
 
 **全局提示 Message**
 
@@ -67,19 +69,19 @@ title:
 
 #### 留在原地
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*S03WS5uHqDsAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*S03WS5uHqDsAAAAAAAAAAABkARQnAQ">
 
 **对话框 Model**
 
 提醒用户完成当前工作流之外的重要操作（例如警告信息不安全）。
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4sHLQowCs6IAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4sHLQowCs6IAAAAAAAAAAABkARQnAQ">
 
 **警告提示 Alert**
 
 提醒用户系统中需要立即引起注意的错误信息。
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qg51Sq2A_M4AAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Qg51Sq2A_M4AAAAAAAAAAABkARQnAQ">
 
 **表单校验提示**
 
@@ -87,7 +89,7 @@ title:
 • 用户跳过了必填字段；
 • 系统检测到表单数据中的错误。
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QeWqTIWqrWEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QeWqTIWqrWEAAAAAAAAAAABkARQnAQ">
 
 **通知提醒框 Notification**
 
@@ -96,7 +98,7 @@ title:
 
 #### 跳转
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7ES2TrY6UJgAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*7ES2TrY6UJgAAAAAAAAAAABkARQnAQ">
 
 **独占式 Inline Text & Illustration**
 
@@ -105,15 +107,17 @@ title:
 
 ### 后台操作
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*owL_SK1xmggAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*owL_SK1xmggAAAAAAAAAAABkARQnAQ">
 
 **通知提醒框 Notification**
 
 • 向用户告知重要的问题或失败状态，希望用户立马做出决策。
 • 反馈后台进程结果。
 
-<img class="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IGpqRbPGZxQAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*IGpqRbPGZxQAAAAAAAAAAABkARQnAQ">
 
 **通知中心**
 
 向用户通知相关活动信息（例如用户需要审批的项目或者用户申请的审批进程）。
+
+
