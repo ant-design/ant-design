@@ -178,4 +178,42 @@ describe('Descriptions', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/20255
+  it('columns 5 with customize', () => {
+    const wrapper = mount(
+      <Descriptions layout="vertical" column={4}>
+        {/* 1 1 1 1 */}
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+        {/* 2 2 */}
+        <Descriptions.Item label="bamboo" span={2}>
+          bamboo
+        </Descriptions.Item>
+        <Descriptions.Item label="bamboo" span={2}>
+          bamboo
+        </Descriptions.Item>
+        {/* 3 1 */}
+        <Descriptions.Item label="bamboo" span={3}>
+          bamboo
+        </Descriptions.Item>
+        <Descriptions.Item label="bamboo">bamboo</Descriptions.Item>
+      </Descriptions>,
+    );
+
+    function matchSpan(rowIndex, spans) {
+      const tr = wrapper.find('tr').at(rowIndex);
+      const tds = tr.find('th');
+      expect(tds).toHaveLength(spans.length);
+      tds.forEach((td, index) => {
+        expect(td.props().colSpan).toEqual(spans[index]);
+      });
+    }
+
+    matchSpan(0, [1, 1, 1, 1]);
+    matchSpan(2, [2, 2]);
+    matchSpan(4, [3, 1]);
+  });
 });
