@@ -52,9 +52,6 @@ exports[`Descriptions Descriptions support style 1`] = `
             colspan="1"
           >
             <span
-              class="ant-descriptions-item-label ant-descriptions-item-colon ant-descriptions-item-no-label"
-            />
-            <span
               class="ant-descriptions-item-content"
             >
               Cloud Database
@@ -268,7 +265,7 @@ exports[`Descriptions vertical layout 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
@@ -277,7 +274,7 @@ exports[`Descriptions vertical layout 1`] = `
             >
               Product
             </span>
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -296,7 +293,7 @@ exports[`Descriptions vertical layout 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
@@ -305,7 +302,7 @@ exports[`Descriptions vertical layout 1`] = `
             >
               Billing
             </span>
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -324,7 +321,7 @@ exports[`Descriptions vertical layout 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
@@ -333,7 +330,7 @@ exports[`Descriptions vertical layout 1`] = `
             >
               time
             </span>
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
@@ -352,7 +349,7 @@ exports[`Descriptions vertical layout 1`] = `
         <tr
           class="ant-descriptions-row"
         >
-          <td
+          <th
             class="ant-descriptions-item"
             colspan="1"
           >
@@ -361,7 +358,7 @@ exports[`Descriptions vertical layout 1`] = `
             >
               Amount
             </span>
-          </td>
+          </th>
         </tr>
         <tr
           class="ant-descriptions-row"
