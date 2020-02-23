@@ -58,7 +58,7 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -104,7 +104,7 @@ describe('Descriptions', () => {
         {hasDiscount && <Descriptions.Item label="Discount">$20.00</Descriptions.Item>}
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -118,7 +118,7 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.unmount();
   });
 
@@ -130,7 +130,7 @@ describe('Descriptions', () => {
         </Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Descriptions support colon', () => {
@@ -139,7 +139,7 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('Descriptions support style', () => {
@@ -148,7 +148,7 @@ describe('Descriptions', () => {
         <Descriptions.Item>Cloud Database</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('keep key', () => {
