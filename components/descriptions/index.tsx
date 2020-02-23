@@ -110,7 +110,7 @@ export interface DescriptionsProps {
 function Descriptions({
   prefixCls: customizePrefixCls,
   title,
-  column,
+  column = DEFAULT_COLUMN_MAP,
   colon = true,
   bordered,
   layout,
@@ -142,7 +142,7 @@ function Descriptions({
   return (
     <div
       className={classNames(prefixCls, {
-        [`${prefixCls}-${size}`]: size !== 'default',
+        [`${prefixCls}-${size}`]: size && size !== 'default',
         [`${prefixCls}-bordered`]: !!bordered,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       })}
