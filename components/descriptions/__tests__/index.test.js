@@ -158,7 +158,7 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
 
-    expect(wrapper.find('Col').key()).toBe('label-bamboo');
+    expect(wrapper.find('Cell').key()).toBe('item-bamboo');
   });
 
   // https://github.com/ant-design/ant-design/issues/19887

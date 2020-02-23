@@ -12,7 +12,7 @@ import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';
 
-const DEFAULT_COLUMN_MAP = {
+const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
   xxl: 3,
   xl: 3,
   lg: 3,
@@ -21,10 +21,7 @@ const DEFAULT_COLUMN_MAP = {
   xs: 1,
 };
 
-function getColumn(
-  column: DescriptionsProps['column'],
-  screens: Partial<Record<Breakpoint, boolean>>,
-): number {
+function getColumn(column: DescriptionsProps['column'], screens: ScreenMap): number {
   if (typeof column === 'number') {
     return column;
   }
@@ -43,18 +40,17 @@ function getColumn(
 
 function getFilledItem(
   node: React.ReactElement,
-  span: number,
+  span: number | undefined,
   rowRestCol: number,
-  noWarning = false,
 ): React.ReactElement {
   let clone = node;
 
-  if (rowRestCol > span) {
+  if (span === undefined || rowRestCol > span) {
     clone = React.cloneElement(node, {
       span: rowRestCol,
     });
     warning(
-      !noWarning,
+      span === undefined,
       'Descriptions',
       'Sum of column `span` in a line not match `column` of Descriptions.',
     );
@@ -64,27 +60,28 @@ function getFilledItem(
 }
 
 function getRows(children: React.ReactNode, column: number) {
-  const childNodes = toArray(children);
+  const childNodes = toArray(children).filter(n => n);
   const rows: React.ReactElement[][] = [];
 
   let tmpRow: React.ReactElement[] = [];
   let rowRestCol = column;
 
   childNodes.forEach((node, index) => {
-    const span: number = node.props?.span || 1;
+    const span: number | undefined = node.props?.span;
+    const mergedSpan = span || 1;
 
     // Additional handle last one
     if (index === childNodes.length - 1) {
-      tmpRow.push(getFilledItem(node, span, rowRestCol, true));
+      tmpRow.push(getFilledItem(node, span, rowRestCol));
       rows.push(tmpRow);
       return;
     }
 
-    if (span < rowRestCol) {
-      rowRestCol -= span;
+    if (mergedSpan < rowRestCol) {
+      rowRestCol -= mergedSpan;
       tmpRow.push(node);
     } else {
-      tmpRow.push(getFilledItem(node, span, rowRestCol));
+      tmpRow.push(getFilledItem(node, mergedSpan, rowRestCol));
       rows.push(tmpRow);
       rowRestCol = column;
       tmpRow = [];
@@ -115,11 +112,13 @@ function Descriptions({
   bordered,
   layout,
   children,
+  className,
+  style,
   size,
 }: DescriptionsProps) {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('descriptions', customizePrefixCls);
-  const [screens, setScreens] = React.useState<Partial<Record<Breakpoint, boolean>>>({});
+  const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 
   // Responsive
@@ -141,11 +140,12 @@ function Descriptions({
 
   return (
     <div
-      className={classNames(prefixCls, {
+      className={classNames(prefixCls, className, {
         [`${prefixCls}-${size}`]: size && size !== 'default',
         [`${prefixCls}-bordered`]: !!bordered,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       })}
+      style={style}
     >
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
 
