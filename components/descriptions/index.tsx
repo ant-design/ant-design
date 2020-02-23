@@ -45,7 +45,7 @@ function getFilledItem(
 ): React.ReactElement {
   let clone = node;
 
-  if (span === undefined || rowRestCol > span) {
+  if (span === undefined || span > rowRestCol) {
     clone = React.cloneElement(node, {
       span: rowRestCol,
     });

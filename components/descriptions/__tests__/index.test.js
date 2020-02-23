@@ -30,7 +30,7 @@ describe('Descriptions', () => {
       </Descriptions>,
     );
     expect(wrapper.find('tr')).toHaveLength(5);
-    expect(wrapper.find('.ant-descriptions-item-no-label')).toHaveLength(1);
+    expect(wrapper.find('.ant-descriptions-item-label')).toHaveLength(4);
     wrapper.unmount();
   });
 
@@ -71,7 +71,7 @@ describe('Descriptions', () => {
         <Descriptions.Item label="Amount">$80.00</Descriptions.Item>
       </Descriptions>,
     );
-    expect(wrapper.instance().getColumn()).toBe(8);
+    expect(wrapper.find('td').reduce((total, td) => total + td.props().colSpan, 0)).toBe(8);
     wrapper.unmount();
   });
 
