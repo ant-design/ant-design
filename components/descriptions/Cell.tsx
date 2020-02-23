@@ -52,10 +52,9 @@ const Cell: React.FC<CellProps> = ({
     >
       {label && (
         <span
-          className={classNames(
-            `${itemPrefixCls}-item-label`,
-            colon && `${itemPrefixCls}-item-colon`,
-          )}
+          className={classNames(`${itemPrefixCls}-item-label`, {
+            [`${itemPrefixCls}-item-colon`]: !bordered && colon,
+          })}
         >
           {label}
         </span>
