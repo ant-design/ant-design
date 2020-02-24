@@ -41,6 +41,7 @@ Select component to select value from options.
 | maxTagCount | Max tag count to show | number | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode/function(omittedValues) | - |  |
+| tagRender | Customize tag render | (props) => ReactNode | - |  |
 | mode | Set mode of Select | `multiple` \| `tags` | - |  |
 | notFoundContent | Specify content to show when no result matches.. | string | 'Not Found' |  |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true | string | value |  |
@@ -100,3 +101,13 @@ Select component to select value from options.
 ### The dropdown is closed when click `dropdownRender` area?
 
 See the [dropdownRender example](/components/select/#components-select-demo-custom-dropdown-menu).
+
+### Why sometime customize Option cause scroll break?
+
+Virtual scroll internal set item height as `32px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
+
+```tsx
+<Select listItemHeight={10} listHeight={250} />
+```
+
+Note: `listItemHeight` and `listHeight` are internal props. Please only modify when necessary.

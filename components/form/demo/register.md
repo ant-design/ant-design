@@ -97,10 +97,6 @@ const RegistrationForm = () => {
     console.log('Received values of form: ', values);
   };
 
-  const onFinishFailed = ({ errorFields }) => {
-    form.scrollToField(errorFields[0].name);
-  };
-
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select style={{ width: 70 }}>
@@ -131,11 +127,11 @@ const RegistrationForm = () => {
       form={form}
       name="register"
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       initialValues={{
         residence: ['zhejiang', 'hangzhou', 'xihu'],
         prefix: '86',
       }}
+      scrollToFirstError
     >
       <Form.Item
         name="email"

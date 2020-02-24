@@ -295,7 +295,7 @@ exports[`Upload List should be uploading when upload a file 2`] = `
                 </span>
               </div>
               <span
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 title="foo.png"
               >
                 foo.png
@@ -303,32 +303,6 @@ exports[`Upload List should be uploading when upload a file 2`] = `
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -456,7 +430,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 </span>
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/aaa.zip"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -467,32 +441,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -549,7 +497,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/aaa"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -561,32 +509,6 @@ exports[`Upload List should non-image format file preview 1`] = `
                 class="ant-upload-list-item-card-actions picture"
               >
                 <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
-                <a
                   title="Remove file"
                 >
                   <span
@@ -662,7 +584,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 </span>
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/aaa.xx"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -673,32 +595,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -775,7 +671,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 </span>
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/aaa.png/xx.xx"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -786,32 +682,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -868,7 +738,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/xx.xx/aaa.png"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -879,32 +749,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -961,7 +805,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/xx.xx/aaa.png"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -972,32 +816,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -1054,7 +872,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/xx.xx/aaa.png?query=123"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -1065,32 +883,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -1147,7 +939,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/xx.xx/aaa.png#anchor"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -1158,32 +950,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -1240,7 +1006,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://cdn.xxx.com/xx.xx/aaa.png?query=some.query.with.dot"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -1251,32 +1017,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -1333,7 +1073,7 @@ exports[`Upload List should non-image format file preview 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 href="https://publish-pic-cpu.baidu.com/1296beb3-50d9-4276-885f-52645cbb378e.jpeg@w_228%2ch_152"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -1344,32 +1084,6 @@ exports[`Upload List should non-image format file preview 1`] = `
               <span
                 class="ant-upload-list-item-card-actions picture"
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -1395,6 +1109,161 @@ exports[`Upload List should non-image format file preview 1`] = `
                       />
                     </svg>
                   </span>
+                </a>
+              </span>
+            </span>
+          </div>
+        </div>
+      </span>
+    </div>
+  </div>
+</span>
+`;
+
+exports[`Upload List should support removeIcon and downloadIcon 1`] = `
+<span
+  class=""
+>
+  <div
+    class="ant-upload ant-upload-select ant-upload-select-picture"
+  >
+    <span
+      class="ant-upload"
+      role="button"
+      tabindex="0"
+    >
+      <input
+        accept=""
+        style="display: none;"
+        type="file"
+      />
+      <button
+        type="button"
+      >
+        upload
+      </button>
+    </span>
+  </div>
+  <div
+    class="ant-upload-list ant-upload-list-picture"
+  >
+    <div
+      class=""
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-uploading ant-upload-list-item-list-type-picture"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <div
+                class="ant-upload-list-item-thumbnail"
+              >
+                <span
+                  aria-label="loading"
+                  class="anticon anticon-loading"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="anticon-spin"
+                    data-icon="loading"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="0 0 1024 1024"
+                    width="1em"
+                  >
+                    <path
+                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+                    />
+                  </svg>
+                </span>
+              </div>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                href="https://cdn.xxx.com/aaa"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image"
+              >
+                image
+              </a>
+              <span
+                class="ant-upload-list-item-card-actions picture"
+              >
+                <a
+                  title="Remove file"
+                >
+                  <i
+                    title="Remove file"
+                  >
+                    RM
+                  </i>
+                </a>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-upload-list-item-progress"
+          />
+        </div>
+      </span>
+    </div>
+    <div
+      class=""
+    >
+      <span>
+        <div
+          class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-picture"
+        >
+          <div
+            class="ant-upload-list-item-info"
+          >
+            <span>
+              <a
+                class="ant-upload-list-item-thumbnail"
+                href="https://cdn.xxx.com/aaa"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  alt="image"
+                  class="ant-upload-list-item-image"
+                  src="https://cdn.xxx.com/aaa"
+                />
+              </a>
+              <a
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                href="https://cdn.xxx.com/aaa"
+                rel="noopener noreferrer"
+                target="_blank"
+                title="image"
+              >
+                image
+              </a>
+              <span
+                class="ant-upload-list-item-card-actions picture"
+              >
+                <a
+                  title="Download file"
+                >
+                  <i
+                    title="Download file"
+                  >
+                    DL
+                  </i>
+                </a>
+                <a
+                  title="Remove file"
+                >
+                  <i
+                    title="Remove file"
+                  >
+                    RM
+                  </i>
                 </a>
               </span>
             </span>
@@ -1512,7 +1381,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
                 />
               </a>
               <a
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-0"
                 href="https://cdn.xxx.com/aaa"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -1522,34 +1391,7 @@ exports[`Upload List should support showRemoveIcon and showPreviewIcon 1`] = `
               </a>
               <span
                 class="ant-upload-list-item-card-actions picture"
-              >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
-              </span>
+              />
             </span>
           </div>
         </div>

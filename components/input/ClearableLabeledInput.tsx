@@ -26,6 +26,7 @@ interface BasicProps {
   disabled?: boolean;
   direction?: any;
   focused?: boolean;
+  readOnly?: boolean;
 }
 
 /**
@@ -37,12 +38,20 @@ interface ClearableInputProps extends BasicProps {
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
+  triggerFocus: () => void;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, inputType, handleReset } = this.props;
-    if (!allowClear || disabled || value === undefined || value === null || value === '') {
+    const { allowClear, value, disabled, readOnly, inputType, handleReset } = this.props;
+    if (
+      !allowClear ||
+      disabled ||
+      readOnly ||
+      value === undefined ||
+      value === null ||
+      value === ''
+    ) {
       return null;
     }
     const className =
@@ -77,6 +86,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       allowClear,
       direction,
       style,
+      triggerFocus,
     } = this.props;
     const suffixNode = this.renderSuffix(prefixCls);
     if (!hasPrefixSuffix(this.props)) {
@@ -96,7 +106,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
     });
     return (
-      <span className={affixWrapperCls} style={style}>
+      <span className={affixWrapperCls} style={style} onMouseUp={triggerFocus}>
         {prefixNode}
         {React.cloneElement(element, {
           style: null,
