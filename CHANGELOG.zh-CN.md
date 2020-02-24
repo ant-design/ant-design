@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.26.12
+
+`2020-02-24`
+
+- 🐞 修复 Input 在设置 `readOnly` 时 `allowClear` 仍然可以清除的问题。[#21492](https://github.com/ant-design/ant-design/pull/21492)
+- 🐞 修复 Upload 列表默认情况下不展现下载按钮。[#21496](https://github.com/ant-design/ant-design/pull/21496)
+
+
 ## 3.26.11
 
 `2020-02-17`
