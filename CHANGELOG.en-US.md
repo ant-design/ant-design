@@ -15,6 +15,14 @@ timeline: true
 
 ---
 
+## 3.26.12
+
+`2020-02-24`
+
+- 🐞 Fix Input with `readOnly` still clearable by `allowClear`. [#21492](https://github.com/ant-design/ant-design/pull/21492)
+- 🐞 Fix Upload won't showing download icon defaultly. [#21496](https://github.com/ant-design/ant-design/pull/21496)
+- ⚡️  Improve Button render performance. [#21217](https://github.com/ant-design/ant-design/pull/21217)
+
 ## 3.26.11
 
 `2020-02-17`
