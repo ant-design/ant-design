@@ -20,7 +20,7 @@ timeline: true
 `2020-02-24`
 
 - Form
-  - 🌟 support `scrollToFirstError` to simplify submit scroll logic.
+  - 🌟 support `scrollToFirstError` to simplify submit scroll logic. [#21462](https://github.com/ant-design/ant-design/pull/21462)
   - 🐞 Fix Form.Item with `help` align style. [#21476](https://github.com/ant-design/ant-design/pull/21476)
   - 🐞 Fix Form throw error when using BraftEditor. [#21425](https://github.com/ant-design/ant-design/pull/21425)
   - 🐞 Fix Form fields shake when switching the validing info. [#21302](https://github.com/ant-design/ant-design/pull/21302) [@yoyo837](https://github.com/yoyo837)
