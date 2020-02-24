@@ -13,7 +13,7 @@ export interface TimelineProps {
   pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
   reverse?: boolean;
-  mode?: 'left' | 'alternate' | 'right';
+  mode?: 'left' | 'alternate' | 'right' | 'label';
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
