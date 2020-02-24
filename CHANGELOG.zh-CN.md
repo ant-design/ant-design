@@ -23,7 +23,6 @@ timeline: true
 - 🐞 修复 Descriptions 大量问题。[#21542](https://github.com/ant-design/ant-design/pull/21542)
 - 🐞 修复 Notification 第一次重复调用无法堆叠的问题。[#21531](https://github.com/ant-design/ant-design/pull/21531)
 - 🐞 修复 Table 选择在树形结构子节点为 null 会崩溃的问题。[#21528](https://github.com/ant-design/ant-design/pull/21528)
-- 💄 优化 Upload `showDownloadIcon` 默认不展示。[b4636](https://github.com/ant-design/ant-design/commit/b4636ab2dfdb006c14bdb3d5d7de09e1650c3567)
 - 🐞 修复 Input 在设置 `readOnly `时 `allowClear` 仍然可以清除的问题。[#21494](https://github.com/ant-design/ant-design/pull/21494)
 - 🐞 修复 Form.Item 设置 `help` 时的样式问题。[#21476](https://github.com/ant-design/ant-design/pull/21476)
 - 🐞 修复 Upload 识别图片类型逻辑错误。[#21473](https://github.com/ant-design/ant-design/pull/21473) [@holynewbie](https://github.com/holynewbie)
@@ -32,6 +31,7 @@ timeline: true
 - 🐞 修复 Form 验证信息切换时表单项抖动。[#21302](https://github.com/ant-design/ant-design/pull/21302) [@yoyo837](https://github.com/yoyo837)
 - 🐞 修复 Input 点击 `prefix` / `suffix` 不会获得焦点的问题。[#21413](https://github.com/ant-design/ant-design/pull/21413)
 - 🐞 修复 TreeSelect 弹出层不更新的问题。[#21410](https://github.com/ant-design/ant-design/pull/21410)
+- 💄 优化 Upload `showDownloadIcon` 默认不展示。[b4636](https://github.com/ant-design/ant-design/commit/b4636ab2dfdb006c14bdb3d5d7de09e1650c3567)
 - 💄 优化 Divider 内嵌文字的默认 padding，并新增 `@divider-text-padding` 变量。[#21407](https://github.com/ant-design/ant-design/pull/21407)
 - Typescript
   - 🐞 修复 Form 组件类型。[#21483](https://github.com/ant-design/ant-design/pull/21483) [#21411](https://github.com/ant-design/ant-design/pull/21411)
