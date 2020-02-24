@@ -21,6 +21,7 @@ timeline: true
 
 - 🐞 修复 Input 在设置 `readOnly` 时 `allowClear` 仍然可以清除的问题。[#21492](https://github.com/ant-design/ant-design/pull/21492)
 - 🐞 修复 Upload 列表默认情况下不展现下载按钮。[#21496](https://github.com/ant-design/ant-design/pull/21496)
+- 💄 优化 Button 渲染性能。[#21217](https://github.com/ant-design/ant-design/pull/21217)
 
 
 ## 3.26.11
