@@ -4,6 +4,7 @@ title:
   zh-CN: 自定义交互图标
   en-US: custom action icon
 ---
+
 ## zh-CN
 
 使用 `showUploadList` 设置列表交互图标。

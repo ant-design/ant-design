@@ -490,7 +490,11 @@ describe('Upload List', () => {
         onChange={handleChange}
         showUploadList={{
           showRemoveIcon: true,
-          removeIcon: <i className="custom-delete" onClick={myClick}>RM</i>,
+          removeIcon: (
+            <i className="custom-delete" onClick={myClick}>
+              RM
+            </i>
+          ),
         }}
       >
         <button type="button">upload</button>
@@ -609,8 +613,8 @@ describe('Upload List', () => {
         items={items}
         locale={{ downloadFile: '' }}
         showUploadList={{ showDownloadIcon: true }}
-       />,
-     ).instance();
+      />,
+    ).instance();
     expect(wrapper.handleDownload(file)).toBe(undefined);
   });
 
@@ -646,7 +650,7 @@ describe('Upload List', () => {
     expect(wrapper.find('.ant-upload-list-item-thumbnail').length).toBe(1);
   });
 
-  it('extname should work correctly when url exists', (done) => {
+  it('extname should work correctly when url exists', done => {
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
     const wrapper = mount(
       <UploadList
