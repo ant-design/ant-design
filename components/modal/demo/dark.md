@@ -365,7 +365,7 @@ class App extends React.Component {
             disabled={disabled}
           />
           <Transfer disabled={disabled}>
-             {() => <Table columns={columns} dataSource={data} />}
+             {() => <Table id="components-transfer-table" columns={columns} disabled={disabled} dataSource={data} />}
           </Transfer>
           <Anchor>
             <Link href="#components-anchor-demo-basic" title="Basic demo" />
@@ -485,5 +485,8 @@ ReactDOM.render(<App />, mountNode);
   [data-theme="dark"] #table-demo-summary tfoot th,
   [data-theme="dark"] #table-demo-summary tfoot td {
     background: #272727;
+  }
+  [data-theme="dark"] #components-transfer-table.ant-table td {
+    background: transparent;
   }
 </style>
