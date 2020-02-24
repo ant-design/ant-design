@@ -87,11 +87,11 @@ Please find below the books that inspired us, saved our time and helped us to ov
 
 - About Face 4
   - https://gw.alipayobjects.com/zos/basement_prod/5653d1e8-b9ae-4563-bcf6-e654baaafa80.svg
-  - An interactive design guide for digital products and systems
+  - The Interactive Design Guide for Digital Products and System
   - https://www.wiley.com/en-sg/About+Face%3A+The+Essentials+of+Interaction+Design%2C+4th+Edition-p-9781118766576
 - Designing Web Interfaces
   - https://gw.alipayobjects.com/zos/basement_prod/3125a6d3-3a3a-4ca2-bcac-198645b5cf73.svg
-  - Best practices, patterns, and principles for designing web interfaces
+  - Best Practice, Patterns and Principles for Web Interface
   - http://shop.oreilly.com/product/9780596516253.do
 - Designing Interfaces
   - https://gw.alipayobjects.com/zos/basement_prod/9d7c722c-0e17-4567-95a3-fbcdcee3d710.svg
@@ -103,11 +103,11 @@ Please find below the books that inspired us, saved our time and helped us to ov
   - http://www.peachpit.com/store/non-designers-design-book-9780133966152
 - The Design of Everyday Things
   - https://gw.alipayobjects.com/zos/basement_prod/e4fd4406-0f4a-4f20-9254-d873da8835a7.svg
-  - Emphasizes a people-oriented design philosophy
+  - About the People-oriented Design Philosophy
   - https://jnd.org/the-design-of-everyday-things-revised-and-expanded-edition/
 - Emotional Design
   - https://gw.alipayobjects.com/zos/basement_prod/4b534ae4-803e-4235-874c-14e68d803bf1.svg
-  - Explain the role of emotional factors in design
+  - Explain the Role of Emotional Factors in Design
   - https://www.amazon.com/Emotional-Design-Love-Everyday-Things/dp/0465051367
 - Web Form Design
   - https://gw.alipayobjects.com/zos/basement_prod/3a5f21c4-2dd0-4cad-8d91-0b574dd42789.svg
