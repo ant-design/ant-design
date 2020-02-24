@@ -7,11 +7,13 @@ title: 表单页
 
 表单页是一种用于信息添加、录入的页面类型。用来确保用户按照要求录入信息提交给系统使用或引导用户进行应用设置。
 
+<br>
+
 ## 设计目标
 
 帮助用户明确当前页面任务，快速查找和定位修改目标，轻松准确地理解表单项含义及生效后果，同时简化填写流程，确保用户准确、轻松、快速地完成任务。
 
----
+<br>
 
 ## 设计原则
 
@@ -45,7 +47,7 @@ title: 表单页
 
 在表单页中组织呈现各表单项时要注意简洁表达，高效准确，避免增加用户录入信息的成本。
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k9DyRYLzjcoAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*k9DyRYLzjcoAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
 一个表单页中针对同一种内容类型的表单项不要使用不同的组件或表现形式，会增加用户理解成本。
 
@@ -58,11 +60,11 @@ title: 表单页
 
 <br />
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EC9uR6LiI0IAAAAAAAAAAABkARQnAQ" alt="错误示范">
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EC9uR6LiI0IAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
 预填提示避免正确的废话，列如一个叫姓名的表单项输入提示是“请输入姓名”。
 
----
+<br>
 
 ## 如何设计
 
@@ -111,25 +113,35 @@ title: 表单页
 
 适用于页面中需要添加一个或多个对象，且每个对象都需要添加或编辑多组数据的情况。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NLEeSLhLA3EAAAAAAAAAAABkARQnAQ">
+<div>
+  <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NLEeSLhLA3EAAAAAAAAAAABkARQnAQ">
 
-动态增减：建议条目表单数 ≤3 项，并且每个输入框不需要单独的标题使用。
+  动态增减：建议条目表单数 ≤3 项，并且每个输入框不需要单独的标题使用。
+</div>
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ">
+<div>
+  <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ">
 
-可编辑表格：建议条目表单数 2 ～ 5 项 时使用，以使得每行内容可被完整呈现。
+  可编辑表格：建议条目表单数 2 ～ 5 项 时使用，以使得每行内容可被完整呈现。
+</div>
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ">
+<div>
+  <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ">
 
-折叠面板编辑：建议条目表单数在 6 ～ 8 项 时使用。
+  折叠面板编辑：建议条目表单数在 6 ～ 8 项 时使用。
+</div>
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ttDGTLid8M4AAAAAAAAAAABkARQnAQ">
+<div>
+  <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ttDGTLid8M4AAAAAAAAAAABkARQnAQ">
 
-抽屉编辑：建议条目表单表单数 >8 项 时使用。
+  抽屉编辑：建议条目表单表单数 >8 项 时使用。
+</div>
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*p_wLTJEYOBgAAAAAAAAAAABkARQnAQ">
+<div>
+  <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*p_wLTJEYOBgAAAAAAAAAAABkARQnAQ">
 
-规则树：应用于规则编辑场景。
+  规则树：应用于规则编辑场景。
+</div>
 
 ### 特定场景模板
 
@@ -154,15 +166,21 @@ title: 表单页
 > - 数量 7~ 15 个建议分组；
 > - 数量 >15 个建议使用页签分组；
 
+<br>
+
 #### 模板 - 登录
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ba6DR5U23nAAAAAAAAAAAABkARQnAQ">
 
+Ant Design 标准登录模板
+
 #### 模板 - 注册
+
+Ant Design 标准注册模板
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6U_gQ6MbrSYAAAAAAAAAAABkARQnAQ">
 
----
+<br>
 
 ## 设计建议
 
@@ -187,11 +205,11 @@ title: 表单页
 
 在空间有限时，较短宽度且具有相关性的表单项可多个组合在一行中，形成分组的暗示。
 
-<br />
+<div>
+  <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Nd_nQLmFQQwAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Nd_nQLmFQQwAAAAAAAAAAABkARQnAQ" alt="错误示范">
-
-为避免和弱分组布局的阅读顺序混淆，一个区域内禁用多列表单。
+  为避免和弱分组布局的阅读顺序混淆，一个区域内禁用多列表单。
+</div>
 
 #### 区域内分组
 
@@ -205,7 +223,7 @@ title: 表单页
 
 关于使用何种布局方式的判断，和[详情页](https://next.ant.design/docs/spec/detail-page-cn#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
 
----
+<br>
 
 ## 扩展阅读
 
