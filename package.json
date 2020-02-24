@@ -139,7 +139,7 @@
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^2.3.0",
-    "@ant-design/colors": "^4.0.0-alpha.0",
+    "@ant-design/colors": "^4.0.0-alpha.1",
     "@ant-design/hitu": "^0.0.0-alpha.13",
     "@ant-design/tools": "^8.0.4",
     "@packtracker/webpack-plugin": "^2.0.1",
