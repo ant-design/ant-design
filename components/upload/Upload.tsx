@@ -236,7 +236,13 @@ class Upload extends React.Component<UploadProps, UploadState> {
       locale: propLocale,
       iconRender,
     } = this.props;
-    const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } = showUploadList as any;
+    const {
+      showRemoveIcon,
+      showPreviewIcon,
+      showDownloadIcon,
+      removeIcon,
+      downloadIcon,
+    } = showUploadList as any;
     const { fileList } = this.state;
     return (
       <UploadList

@@ -115,6 +115,7 @@ const Demo = () => (
 - DatePicker 重写
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
+  - `onPanelChange` 在面板值变化时也会触发。
 - Tree、Select、TreeSelect、AutoComplete 重新写
   - 使用虚拟滚动。
   - `onBlur` 时不再修改选中值。
