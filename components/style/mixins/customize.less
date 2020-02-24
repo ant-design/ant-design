@@ -118,50 +118,17 @@
         // =========================== Content ============================
         .@{table-prefix-cls}-container {
           border: @popover-border;
-          border-right: 0;
-          border-bottom: 0;
         }
 
         // ========================== Expandable ==========================
         .@{table-prefix-cls}-expanded-row-fixed {
-          margin: -@table-padding-vertical (-@table-padding-horizontal - @border-width-base);
-
           &::after {
-            position: absolute;
-            top: 0;
-            right: @border-width-base;
-            bottom: 0;
             border-right: @popover-border;
-            content: '';
           }
         }
 
-        &.@{table-prefix-cls}-fixed-column {
-          tr.@{table-prefix-cls}-expanded-row,
-          tr.@{table-prefix-cls}-placeholder {
-            > td {
-              border-right: 0;
-            }
-          }
-        }
-
-        // Size related
-        &.@{table-prefix-cls}-middle {
-          .@{table-prefix-cls}-expanded-row-fixed {
-            margin: -@table-padding-vertical-md (-@table-padding-horizontal-md - @border-width-base);
-          }
-        }
-
-        &.@{table-prefix-cls}-small {
-          .@{table-prefix-cls}-expanded-row-fixed {
-            margin: -@table-padding-vertical-sm (-@table-padding-horizontal-sm - @border-width-base);
-          }
-        }
-
-        // ============================ Footer ============================
         .@{table-prefix-cls}-footer {
           border: @popover-border;
-          border-top: 0;
         }
       }
       .@{table-prefix-cls}-filter-trigger-container-open {
