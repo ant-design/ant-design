@@ -32,14 +32,19 @@ timeline: true
   - 🐞 修复 Input 在设置 `readOnly` 时 `allowClear` 仍然可以清除的问题。[#21494](https://github.com/ant-design/ant-design/pull/21494)
   - 🐞 修复 Input 点击 `prefix` / `suffix` 不会获得焦点的问题。[#21413](https://github.com/ant-design/ant-design/pull/21413)
 - Table
-  - 🐞 修复 Table 选择在树形结构子节点为 null 会崩溃的问题。[#21528](https://github.com/ant-design/ant-design/pull/21528)
+  - 🐞 修复 Table 选择在树形结构子节点为 `null` 会崩溃的问题。[#21528](https://github.com/ant-design/ant-design/pull/21528)
   - 🐞 修复 Table 在 `small` 尺寸下固定列的样式问题。[#21431](https://github.com/ant-design/ant-design/pull/21431)
+- Descriptions
+  - 🐞 修复非 `bordered` 时，`label` 不存在仍然会渲染 label 元素的问题。[#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 修复 `vertical` 下且非 `bordered` 标题也是 `td` 的问题。[#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 修复 `vertical` 且 `bordered` 布局混乱的问题。[#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 修复 `style` 无法作用于 `Item` 的问题。[#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 修复 `border` 下 `th` 还会额外获得无用的 `-colon` className 的问题。[#21542](https://github.com/ant-design/ant-design/pull/21542)
 - 🌟 Select 增加 `tagRender` 支持自定义 tag 内容。[#21064](https://github.com/ant-design/ant-design/pull/21064) [@fguitton](https://github.com/fguitton)
 - 💄 调整 Picker 的 `onPanelChange` 在面板值变化时也会触发。[#21455](https://github.com/ant-design/ant-design/pull/21455)
-- 🐞 修复 Descriptions 大量问题。[#21542](https://github.com/ant-design/ant-design/pull/21542)
 - 🐞 修复 Notification 第一次重复调用无法堆叠的问题。[#21531](https://github.com/ant-design/ant-design/pull/21531)
 - 🐞 修复 TreeSelect 弹出层不更新的问题。[#21410](https://github.com/ant-design/ant-design/pull/21410)
-- 💄 优化 Divider 内嵌文字的默认 padding，并新增 `@divider-text-padding` 变量。[#21407](https://github.com/ant-design/ant-design/pull/21407)
+- 💄 优化 Divider 内嵌文字的默认 `padding`，并新增 `@divider-text-padding` 变量。[#21407](https://github.com/ant-design/ant-design/pull/21407)
 - Typescript
   - 🐞 修复 Form 组件类型。[#21483](https://github.com/ant-design/ant-design/pull/21483) [#21411](https://github.com/ant-design/ant-design/pull/21411)
 

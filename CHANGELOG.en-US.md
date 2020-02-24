@@ -31,15 +31,20 @@ timeline: true
   - 🐞 Fix Input with `readOnly` still clearable by `allowClear`. [#21494](https://github.com/ant-design/ant-design/pull/21494)
   - 🐞 Fix Input click with `prefix` / `suffix` not get focused. [#21413](https://github.com/ant-design/ant-design/pull/21413)
 - Table
-  - 🐞 Fix Table selection crash when record children is null. [#21528](https://github.com/ant-design/ant-design/pull/21528)
+  - 🐞 Fix Table selection crash when record children is `null`. [#21528](https://github.com/ant-design/ant-design/pull/21528)
   - 🐞 Fix Table fixed column style with `small` size. [#21431](https://github.com/ant-design/ant-design/pull/21431)
+- Descriptions
+  - 🐞 Fix `label` does not have the problem of still rendering the label element when not using `bordered`. [#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 Fix Non-bordered titles under `vertical` are also a problem for `td`. [#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 Fix `vertical` and `bordered` layout issues. [#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 Fix the problem of `style` not working on `Item`. [#21542](https://github.com/ant-design/ant-design/pull/21542)
+  - 🐞 Fix `th` will also get the useless `-colon` className problem under `border`. [#21542](https://github.com/ant-design/ant-design/pull/21542)
 - 🌟 Select added `tagRender` for customized tag rendering. [#21064](https://github.com/ant-design/ant-design/pull/21064) [@fguitton](https://github.com/fguitton)
 - 💄 Picker `onPanelChange` will also trigger when panel value changed. [#21455](https://github.com/ant-design/ant-design/pull/21455)
-- 🐞 Fix Descriptions lots of issue. [#21542](https://github.com/ant-design/ant-design/pull/21542)
 - 🐞 Fix Notification first call multiple time can not stack. [#21531](https://github.com/ant-design/ant-design/pull/21531)
 - 🐞 Fix TreeSelect popup do not update issue. [#21410](https://github.com/ant-design/ant-design/pull/21410)
 - 💄 Optimize Upload `showDownloadIcon` default doesn't show. [b4636](https://github.com/ant-design/ant-design/commit/b4636ab2dfdb006c14bdb3d5d7de09e1650c3567)
-- 💄 Tweak Divider inner text padding and add `@divider-text-padding`. [#21407](https://github.com/ant-design/ant-design/pull/21407)
+- 💄 Tweak Divider inner text `padding` and add `@divider-text-padding`. [#21407](https://github.com/ant-design/ant-design/pull/21407)
 - Typescript
   - 🐞 Fix Form types. [#21483](https://github.com/ant-design/ant-design/pull/21483) [#21411](https://github.com/ant-design/ant-design/pull/21411)
 
