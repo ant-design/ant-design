@@ -18,19 +18,17 @@ interface LineProps extends ProgressProps {
  *   '100%': '#ffffff'
  * }
  */
-export const sortGradient = (gradients: ProgressGradient) => {
-  let tempArr = [];
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [key, value] of Object.entries(gradients)) {
-    const formatKey = parseFloat(key.replace(/%/g, ''));
-    if (isNaN(formatKey)) {
-      return {};
+export const sortGradient = (gradients: StringGradients) => {
+  let tempArr: any[] = [];
+  Object.keys(gradients).forEach(key => {
+    const formattedKey = parseFloat(key.replace(/%/g, ''));
+    if (!isNaN(formattedKey)) {
+      tempArr.push({
+        key: formattedKey,
+        value: gradients[key],
+      });
     }
-    tempArr.push({
-      key: formatKey,
-      value,
-    });
-  }
+  });
   tempArr = tempArr.sort((a, b) => a.key - b.key);
   return tempArr.map(({ key, value }) => `${value} ${key}%`).join(', ');
 };
