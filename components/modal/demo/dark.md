@@ -17,6 +17,7 @@ Basic modal.
 ```jsx
 import { Modal, DatePicker, Slider, Tree, Badge, Collapse, Timeline, Tabs, Anchor, Table, Card, Button, Calendar, Transfer, Switch, Typography, Dropdown } from 'antd';
 import moment from 'moment';
+import difference from 'lodash/difference';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;
@@ -228,12 +229,62 @@ const dataFixed = [
   },
 ];
 
+const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
+  <Transfer {...restProps} showSelectAll={false}>
+    {({
+      direction,
+      filteredItems,
+      onItemSelectAll,
+      onItemSelect,
+      selectedKeys: listSelectedKeys,
+      disabled: listDisabled,
+    }) => {
+      const columns = direction === 'left' ? leftColumns : rightColumns;
+
+      const rowSelection = {
+        getCheckboxProps: item => ({ disabled: listDisabled || item.disabled }),
+        onSelectAll(selected, selectedRows) {
+          const treeSelectedKeys = selectedRows
+            .filter(item => !item.disabled)
+            .map(({ key }) => key);
+          const diffKeys = selected
+            ? difference(treeSelectedKeys, listSelectedKeys)
+            : difference(listSelectedKeys, treeSelectedKeys);
+          onItemSelectAll(diffKeys, selected);
+        },
+        onSelect({ key }, selected) {
+          onItemSelect(key, selected);
+        },
+        selectedRowKeys: listSelectedKeys,
+      };
+
+      return (
+        <Table
+          id="components-transfer-table"
+          rowSelection={rowSelection}
+          columns={columns}
+          dataSource={filteredItems}
+          size="small"
+          style={{ pointerEvents: listDisabled ? 'none' : null }}
+          onRow={({ key, disabled: itemDisabled }) => ({
+            onClick: () => {
+              if (itemDisabled || listDisabled) return;
+              onItemSelect(key, !listSelectedKeys.includes(key));
+            },
+          })}
+        />
+      );
+    }}
+  </Transfer>
+);
+
 class App extends React.Component {
   state = {
     visible: false,
     targetKeys: oriTargetKeys,
     selectedKeys: [],
     disabled: false,
+    showSearch: false,
   };
 
   handleDisable = (disabled) => {
@@ -242,7 +293,19 @@ class App extends React.Component {
     })
   }
 
-   handleTransferChange = (nextTargetKeys) => {
+  handleTableTransferChange = nextTargetKeys => {
+    this.setState({ targetKeys: nextTargetKeys });
+  }
+
+  triggerDisable = disabled => {
+    this.setState({ disabled });
+  };
+
+  triggerShowSearch = showSearch => {
+    this.setState({ showSearch });
+  };
+
+  handleTransferChange = (nextTargetKeys) => {
     this.setState({ targetKeys: nextTargetKeys });
   };
 
@@ -271,7 +334,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { disabled, selectedKeys, targetKeys } = this.state;
+    const { disabled, selectedKeys, targetKeys, showSearch } = this.state;
     const columns = [
       {
         title: 'Name',
@@ -354,7 +417,7 @@ class App extends React.Component {
               <p>{text}</p>
             </Panel>
           </Collapse>
-           <Transfer
+          <Transfer
             dataSource={mockData}
             titles={['Source', 'Target']}
             targetKeys={targetKeys}
@@ -364,9 +427,46 @@ class App extends React.Component {
             render={item => item.title}
             disabled={disabled}
           />
-          <Transfer disabled={disabled}>
-             {() => <Table id="components-transfer-table" columns={columns} disabled={disabled} dataSource={data} />}
-          </Transfer>
+          <TableTransfer
+            dataSource={mockData}
+            targetKeys={targetKeys}
+            disabled={disabled}
+            showSearch={showSearch}
+            onChange={this.handleTableTransferChange}
+            filterOption={(inputValue, item) =>
+              item.title.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
+            }
+            leftColumns={[
+              {
+                dataIndex: 'title',
+                title: 'Name',
+              },
+              {
+                dataIndex: 'description',
+                title: 'Description',
+              },
+            ]}
+            rightColumns={[
+              {
+                dataIndex: 'title',
+                title: 'Name',
+              },
+            ]}
+          />
+          <Switch
+            unCheckedChildren="disabled"
+            checkedChildren="disabled"
+            checked={disabled}
+            onChange={this.triggerDisable}
+            style={{ marginTop: 16 }}
+          />
+          <Switch
+            unCheckedChildren="showSearch"
+            checkedChildren="showSearch"
+            checked={showSearch}
+            onChange={this.triggerShowSearch}
+            style={{ marginTop: 16 }}
+          />
           <Anchor>
             <Link href="#components-anchor-demo-basic" title="Basic demo" />
             <Link href="#components-anchor-demo-static" title="Static demo" />

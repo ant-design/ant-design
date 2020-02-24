@@ -42,20 +42,25 @@
         }
       }
     }
-    .@{table-prefix-cls} {
-      background-color: @background;
-      tfoot {
+    .@{table-prefix-cls}.@{table-prefix-cls}-small {
+      thead {
         > tr {
-          > th,
-          > td {
+          > th {
+            background-color: @background;
             border-bottom: @popover-border;
           }
         }
       }
-      thead {
+    }
+    .@{table-prefix-cls} {
+      background-color: @background;
+      .@{table-prefix-cls}-row-expand-icon {
+        border: @popover-border;
+      }
+      tfoot {
         > tr {
-          > th {
-            background-color: #272727;
+          > th,
+          > td {
             border-bottom: @popover-border;
           }
         }
