@@ -45,7 +45,7 @@ const TimelineItem: React.SFC<TimeLineItemProps> = props => (
 
       return (
         <li {...omit(restProps, ['position'])} className={itemClassName}>
-          <div className={`${prefixCls}-item-label`}>{label}</div>
+          {label && <div className={`${prefixCls}-item-label`}>{label}</div>}
           <div className={`${prefixCls}-item-tail`} />
           <div
             className={dotClassName}

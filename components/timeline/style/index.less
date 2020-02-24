@@ -233,15 +233,18 @@
     }
   }
   &.@{timeline-prefix-cls}-label {
-    .@{timeline-prefix-cls}-item-content {
-      left: calc(50% - 4px);
-      width: calc(50% - 14px);
-    }
     .@{timeline-prefix-cls}-item-label {
       position: absolute;
       top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
-      width: calc(50% - 14px);
+      width: calc(50% - 12px);
       text-align: right;
+    }
+    .@{timeline-prefix-cls}-item-right {
+      .@{timeline-prefix-cls}-item-label {
+        left: calc(50% + 14px);
+        width: calc(50% - 14px);
+        text-align: left;
+      }
     }
   }
 }

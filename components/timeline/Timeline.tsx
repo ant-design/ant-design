@@ -13,7 +13,7 @@ export interface TimelineProps {
   pendingDot?: React.ReactNode;
   style?: React.CSSProperties;
   reverse?: boolean;
-  mode?: 'left' | 'alternate' | 'right' | 'label';
+  mode?: 'left' | 'alternate' | 'right';
 }
 
 export default class Timeline extends React.Component<TimelineProps, any> {
@@ -37,16 +37,6 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     } = this.props;
     const prefixCls = getPrefixCls('timeline', customizePrefixCls);
     const pendingNode = typeof pending === 'boolean' ? null : pending;
-    const classString = classNames(
-      prefixCls,
-      {
-        [`${prefixCls}-pending`]: !!pending,
-        [`${prefixCls}-reverse`]: !!reverse,
-        [`${prefixCls}-${mode}`]: !!mode,
-        [`${prefixCls}-rtl`]: direction === 'rtl',
-      },
-      className,
-    );
 
     const pendingItem = pending ? (
       <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
@@ -85,6 +75,22 @@ export default class Timeline extends React.Component<TimelineProps, any> {
         ]),
       });
     });
+
+    const hasLabelItem = timeLineItems.some(
+      (item: React.ReactElement<any>) => !!item && !!item.props && !!item.props.label,
+    );
+
+    const classString = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-pending`]: !!pending,
+        [`${prefixCls}-reverse`]: !!reverse,
+        [`${prefixCls}-${mode}`]: !!mode && !hasLabelItem,
+        [`${prefixCls}-label`]: hasLabelItem,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      className,
+    );
 
     return (
       <ul {...restProps} className={classString}>
