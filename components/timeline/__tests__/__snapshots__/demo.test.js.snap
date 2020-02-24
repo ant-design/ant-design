@@ -435,6 +435,153 @@ exports[`renders ./components/timeline/demo/custom.md correctly 1`] = `
 </ul>
 `;
 
+exports[`renders ./components/timeline/demo/label.md correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+    style="margin-bottom:20px"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked"
+    >
+      <span
+        class="ant-radio ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+          value="left"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Left
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="right"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Right
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper"
+    >
+      <span
+        class="ant-radio"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+          value="alternate"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span>
+        Alternate
+      </span>
+    </label>
+  </div>,
+  <ul
+    class="ant-timeline ant-timeline-label"
+  >
+    <li
+      class="ant-timeline-item ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-label"
+      >
+        2015-09-01
+      </div>
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Create a services
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-label"
+      >
+        2015-09-01 09:12:11
+      </div>
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Solve initial network problems
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Technical testing
+      </div>
+    </li>
+    <li
+      class="ant-timeline-item ant-timeline-item-last ant-timeline-item-left"
+    >
+      <div
+        class="ant-timeline-item-label"
+      >
+        2015-09-01 09:12:11
+      </div>
+      <div
+        class="ant-timeline-item-tail"
+      />
+      <div
+        class="ant-timeline-item-head ant-timeline-item-head-blue"
+      />
+      <div
+        class="ant-timeline-item-content"
+      >
+        Network problems being solved
+      </div>
+    </li>
+  </ul>,
+]
+`;
+
 exports[`renders ./components/timeline/demo/pending.md correctly 1`] = `
 <div>
   <ul
