@@ -37,17 +37,16 @@ title: 列表页
 ### 基础布局
 
 #### 单列布局
+
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*c0iNQIBusPMAAAAAAAAAAABkARQnAQ">
 
 从上往下堆叠，数据过滤模块在最上方，过滤数据后，用户再由总体到具体的的浏览逻辑理解和分析。
-
 
 #### 双栏布局
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*h8MsSr8UXCEAAAAAAAAAAABkARQnAQ">
 
 将数据过滤模块放置在侧栏，当过滤条件过多，横向空间充裕时使用。
-
 
 #### [模版 - 查询表格](https://preview.pro.ant.design/list/table-list)
 
@@ -61,37 +60,32 @@ title: 列表页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3KMbRrbjvzkAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用**
-提供每条条目的概览信息，点击列表可导航至条目详情。页面内常提供统计功能，供用户了解总体进展。可作为简易版的工作台使用。
+**什么时候使用** 提供每条条目的概览信息，点击列表可导航至条目详情。页面内常提供统计功能，供用户了解总体进展。可作为简易版的工作台使用。
 
 #### [模板 - 卡片列表](https://preview.pro.ant.design/list/card-list)
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*coEVT7uElCUAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用**
-用户无需以特定顺序浏览条目，将每个条目以富有吸引力的方式呈现。
+**什么时候使用** 用户无需以特定顺序浏览条目，将每个条目以富有吸引力的方式呈现。
 
 #### 模版 - 搜索列表
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yW4QQKNi_0QAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用**
-以搜索为主寻找特定条目信息，通过关键词一次性在众多主题下的条目中搜寻结果。可对大量不同种类的内容进行搜索和筛选，满足对模糊目标的查找需求。
+**什么时候使用** 以搜索为主寻找特定条目信息，通过关键词一次性在众多主题下的条目中搜寻结果。可对大量不同种类的内容进行搜索和筛选，满足对模糊目标的查找需求。
 
-**涉及哪些操作**
-筛选、搜索
+**涉及哪些操作** 筛选、搜索
 
 #### 模版 - 成员管理
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aJxDR6oP19gAAAAAAAAAAABkARQnAQ">
 
-**什么时候使用**
-成员管理是用于展示和管理某对象中所包含的成员的基本信息和权限信息的页面，管理操作通常包括添加成员、删除成员、成员角色与权限赋予等。
+**什么时候使用** 成员管理是用于展示和管理某对象中所包含的成员的基本信息和权限信息的页面，管理操作通常包括添加成员、删除成员、成员角色与权限赋予等。
 
-**涉及哪些操作**
-筛选、删除等
+**涉及哪些操作** 筛选、删除等
 
 ## 设计建议
+
 #### 批量操作
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NvPKR5HZQ9MAAAAAAAAAAABkARQnAQ">
@@ -109,6 +103,3 @@ title: 列表页
 - [文章：数据表格设计](https://medium.com/@taras.bakusevych/data-tables-design-3c705b106a64)
 - [文章：Designing Tables for Reusability](https://uxdesign.cc/designing-tables-for-reusability-490a3760533)
 - [文章：可供性与设计](http://www.woshipm.com/pd/1479.html)
-
-
-

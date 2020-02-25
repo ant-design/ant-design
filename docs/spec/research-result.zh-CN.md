@@ -9,14 +9,11 @@ title: 结果页
 
 ## 设何时使用
 
-当完成一个流程操作后，需给与用户明确的结果反馈时，例如分步表单的最后一步。<br/>
-当有大量的信息需要在结果页展示时。
-
+当完成一个流程操作后，需给与用户明确的结果反馈时，例如分步表单的最后一步。<br/> 当有大量的信息需要在结果页展示时。
 
 ## 设计目标
 
 向用户传达任务完成结果，引导用户进行下一步操作，通过有效的反馈建立起用户对系统的信任。
-
 
 ## 设计原则
 
@@ -49,7 +46,6 @@ title: 结果页
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*98B4QKjg-QoAAAAAAAAAAABkARQnAQ" alt="正确示范">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EgnGQ4zImuMAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
-
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*lVo2RKb6mL4AAAAAAAAAAABkARQnAQ" alt="正确示范">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4RFCTLatKrcAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
@@ -74,7 +70,6 @@ title: 结果页
 
 若结果状态为成功时，可在主按钮上告知用户几秒后自动跳转。
 
-
 ## 如何设计
 
 ### 基础布局
@@ -82,6 +77,7 @@ title: 结果页
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PQotS7GJC1gAAAAAAAAAAABkARQnAQ">
 
 结果页可提供以下内容：<br/>
+
 1. 结果反馈：明确告知用户提交结果；<br/>
 2. 结果解释（可选）：若需要对结果简要解释使用；<br/>
 3. 建议操作：引导用户继续完成后续工作；<br/>
@@ -93,18 +89,15 @@ title: 结果页
 
 显示结果状态并引导用户进行下一步操作。
 
-
 #### 模板 - 复杂结果页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*SWabTZptxEcAAAAAAAAAAABkARQnAQ">
 
 除结果状态和引导操作等基础信息外，同时展示相关推荐、流程进度、错误详情等信息。
 
-
 #### 补充信息类型
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QjpBRpyx5ecAAAAAAAAAAABkARQnAQ">
-
 
 ## 延伸阅读
 
