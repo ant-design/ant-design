@@ -95,6 +95,9 @@ describe('Progress', () => {
     expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20' })).toBe(
       'test10 10%, test20 20%, test30 30%',
     );
+    expect(sortGradient({ '10%': 'test10', '30%': 'test30', '20%': 'test20', dummy: 'test' })).toBe(
+      'test10 10%, test20 20%, test30 30%',
+    );
   });
 
   it('should show success status when percent is 100', () => {
