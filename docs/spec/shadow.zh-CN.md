@@ -14,7 +14,7 @@ title: 阴影
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*o-OFQK5hJP0AAAAAAAAAAABkARQnAQ" alt="高度">
 </div>
 
-**第 0 层：** 物体紧贴地面，投影与物体完全重叠，在界面中不对此层定义阴影值。如：输入框等；
+**第 0 层**：物体紧贴地面，投影与物体完全重叠，在界面中不对此层定义阴影值。如：输入框等；
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*li3zQbxRuOMAAAAAAAAAAABkARQnAQ" alt="高度">
