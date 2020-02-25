@@ -228,8 +228,8 @@ const api: any = {
     Object.keys(notificationInstance).forEach(cacheKey => {
       Promise.resolve(notificationInstance[cacheKey]).then(instance => {
         instance.destroy();
+        delete notificationInstance[cacheKey];
       });
-      delete notificationInstance[cacheKey];
     });
   },
 };
