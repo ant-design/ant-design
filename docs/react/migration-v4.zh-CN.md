@@ -116,6 +116,7 @@ const Demo = () => (
   - 提供 `picker` 属性用于选择器切换。
   - 范围选择现在可以单独选择开始和结束时间。
   - `onPanelChange` 在面板值变化时也会触发。
+  - [自定义单元格样式](/components/date-picker-cn/#components-date-picker-demo-date-render)的类名从 `ant-calendar-date` 改为 `ant-picker-cell-inner`。
 - Tree、Select、TreeSelect、AutoComplete 重新写
   - 使用虚拟滚动。
   - `onBlur` 时不再修改选中值。
