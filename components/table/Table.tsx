@@ -453,6 +453,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
 
   const calcBodyHeight = React.useCallback(
+    // 别处用的debounce，我感觉resize应该throttle才对吧？？？
     throttle(() => {
       if (props.scroll && props.scroll.y === true && internalRefs.body.current) {
         // const tbody = internalRefs.body.current.querySelectorAll('.ant-table-tbody')[0];
