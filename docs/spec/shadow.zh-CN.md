@@ -32,7 +32,7 @@ title: 阴影
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yNOwR6Gqy4MAAAAAAAAAAABkARQnAQ" alt="高度">
 </div>
 
-**第 3 层：** 物体位于高层级，该物体的运动和其他层级没有关联，如：对话框等。
+**第 3 层**：物体位于高层级，该物体的运动和其他层级没有关联，如：对话框等。
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4pFoR4gWL2oAAAAAAAAAAABkARQnAQ" alt="高度">
