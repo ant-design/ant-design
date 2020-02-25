@@ -28,6 +28,7 @@ title: Progress
 | strokeLinecap | - | `round` \| `square` | `round` |
 | strokeColor | 进度条的色彩 | string | - |
 | successPercent | 已完成的分段百分比 | number | 0 |
+| trailColor | 未完成的分段的颜色 | string | - |
 
 ### `type="line"`
 

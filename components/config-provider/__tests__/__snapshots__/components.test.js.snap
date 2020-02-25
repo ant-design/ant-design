@@ -6979,11 +6979,15 @@ exports[`ConfigProvider components Form configProvider 1`] = `
       <div
         class="config-form-item-control-input"
       >
-        <input
-          class="config-input"
-          type="text"
-          value=""
-        />
+        <div
+          class="config-form-item-control-input-content"
+        >
+          <input
+            class="config-input"
+            type="text"
+            value=""
+          />
+        </div>
       </div>
       <div
         class="config-form-item-explain"
@@ -7010,11 +7014,15 @@ exports[`ConfigProvider components Form normal 1`] = `
       <div
         class="ant-form-item-control-input"
       >
-        <input
-          class="ant-input"
-          type="text"
-          value=""
-        />
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            type="text"
+            value=""
+          />
+        </div>
       </div>
       <div
         class="ant-form-item-explain"
@@ -7041,11 +7049,15 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
       <div
         class="prefix-Form-item-control-input"
       >
-        <input
-          class="prefix-Form"
-          type="text"
-          value=""
-        />
+        <div
+          class="prefix-Form-item-control-input-content"
+        >
+          <input
+            class="prefix-Form"
+            type="text"
+            value=""
+          />
+        </div>
       </div>
       <div
         class="prefix-Form-item-explain"
@@ -18779,7 +18791,7 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
                 </span>
               </div>
               <span
-                class="config-upload-list-item-name config-upload-list-item-name-icon-count-2"
+                class="config-upload-list-item-name config-upload-list-item-name-icon-count-1"
                 title="xxx.png"
               >
                 xxx.png
@@ -18787,32 +18799,6 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
               <span
                 class="config-upload-list-item-card-actions "
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -18908,7 +18894,7 @@ exports[`ConfigProvider components Upload normal 1`] = `
                 </span>
               </div>
               <span
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 title="xxx.png"
               >
                 xxx.png
@@ -18916,32 +18902,6 @@ exports[`ConfigProvider components Upload normal 1`] = `
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >
@@ -19037,7 +18997,7 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
                 </span>
               </div>
               <span
-                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-2"
+                class="ant-upload-list-item-name ant-upload-list-item-name-icon-count-1"
                 title="xxx.png"
               >
                 xxx.png
@@ -19045,32 +19005,6 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
               <span
                 class="ant-upload-list-item-card-actions "
               >
-                <a
-                  title="Download file"
-                >
-                  <span
-                    aria-label="download"
-                    class="anticon anticon-download"
-                    role="img"
-                    tabindex="-1"
-                    title="Download file"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      class=""
-                      data-icon="download"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M505.7 661a8 8 0 0012.6 0l112-141.7c4.1-5.2.4-12.9-6.3-12.9h-74.1V168c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v338.3H400c-6.7 0-10.4 7.7-6.3 12.9l112 141.8zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
-                </a>
                 <a
                   title="Remove file"
                 >

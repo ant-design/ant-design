@@ -31,7 +31,7 @@ export default function useLazyKVMap<RecordType>(
           kvMap.set(rowKey, record);
 
           if (childrenColumnName in record) {
-            dig((record as any)[childrenColumnName]);
+            dig((record as any)[childrenColumnName] || []);
           }
         });
       }

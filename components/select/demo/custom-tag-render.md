@@ -16,23 +16,13 @@ Allows for custom rendering of tags
 ```jsx
 import { Select, Tag } from 'antd';
 
-const options = [
-  {value: 'gold'},
-  {value: 'lime'},
-  {value: 'green'},
-  {value: 'cyan'},
-];
+const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 
 function tagRender(props) {
   const { label, value, closable, onClose } = props;
 
   return (
-    <Tag
-      color={value}
-      closable={closable}
-      onClose={onClose} 
-      style={{ marginRight: 3 }}
-    >
+    <Tag color={value} closable={closable} onClose={onClose} style={{ marginRight: 3 }}>
       {label}
     </Tag>
   );

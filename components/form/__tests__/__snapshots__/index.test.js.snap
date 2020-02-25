@@ -16,7 +16,11 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
       <div
         class="ant-form-item-control-input"
       >
-        text
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          text
+        </div>
       </div>
     </div>
   </div>
@@ -38,7 +42,11 @@ exports[`Form rtl render component should be rendered correctly in RTL direction
   >
     <div
       class="ant-form-item-control-input"
-    />
+    >
+      <div
+        class="ant-form-item-control-input-content"
+      />
+    </div>
   </div>
 </div>
 `;
