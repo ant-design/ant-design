@@ -88,7 +88,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
 }
 
 export interface ColumnGroupType<RecordType> extends ColumnType<RecordType> {
-  children: ColumnsType<RecordType>;
+  children?: ColumnsType<RecordType>;
 }
 
 export type ColumnsType<RecordType = unknown> = (
