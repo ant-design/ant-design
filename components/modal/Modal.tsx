@@ -151,7 +151,7 @@ export default class Modal extends React.Component<ModalProps, {}> {
     const { okText, okType, cancelText, confirmLoading } = this.props;
     return (
       <div>
-        <Button onClick={this.handleCancel} {...this.props.cancelButtonProps}>
+        <Button onClick={this.handleCancel} disabled={confirmLoading} {...this.props.cancelButtonProps}>
           {cancelText || locale.cancelText}
         </Button>
         <Button
