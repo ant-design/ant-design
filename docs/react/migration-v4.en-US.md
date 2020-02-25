@@ -116,6 +116,7 @@ const Demo = () => (
   - Provide the `picker` property for selector switching.
   - Range selection can now select start and end times individually.
   - `onPanelChange` will also trigger when panel value changed.
+  - [Date cell className of Custom style demo](/components/date-picker/#components-date-picker-demo-date-render) changed from `ant-calendar-date` to `ant-picker-cell-inner`.
 - Tree, Select, TreeSelect, AutoComplete rewrite
   - use virtual scrolling.
   - `onBlur` no longer trigger value change.
