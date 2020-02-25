@@ -69,6 +69,7 @@ const Line: React.SFC<LineProps> = props => {
     strokeColor,
     strokeLinecap,
     children,
+    trailColor,
   } = props;
   let backgroundProps;
   if (strokeColor && typeof strokeColor !== 'string') {
@@ -76,6 +77,12 @@ const Line: React.SFC<LineProps> = props => {
   } else {
     backgroundProps = {
       background: strokeColor,
+    };
+  }
+  let trailStyle;
+  if (trailColor && typeof trailColor === 'string') {
+    trailStyle = {
+      backgroundColor: trailColor,
     };
   }
   const percentStyle = {
@@ -96,7 +103,7 @@ const Line: React.SFC<LineProps> = props => {
   return (
     <>
       <div className={`${prefixCls}-outer`}>
-        <div className={`${prefixCls}-inner`}>
+        <div className={`${prefixCls}-inner`} style={trailStyle}>
           <div className={`${prefixCls}-bg`} style={percentStyle} />
           {successSegment}
         </div>

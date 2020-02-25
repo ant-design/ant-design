@@ -76,6 +76,11 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('render trailColor progress', () => {
+    const wrapper = mount(<Progress status="normal" trailColor="#ffffff" />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('get correct line-gradient', () => {
     expect(handleGradient({ from: 'test', to: 'test' }).backgroundImage).toBe(
       'linear-gradient(to right, test, test)',
