@@ -15,6 +15,7 @@ import Github from './Github';
 
 import './index.less';
 
+const RESPONSIVE_MOBILE = 768;
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
@@ -165,7 +166,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   render() {
     const { menuVisible, windowWidth, searching } = this.state;
-    const { isMobile } = this.context;
     const {
       location,
       themeConfig,
@@ -183,9 +183,14 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     const isHome = ['', 'index', 'index-cn'].includes(pathname);
 
     const isZhCN = locale === 'zh-CN';
+    let isMobile = false;
     let responsive: null | 'narrow' | 'crowded' = null;
     if (windowWidth < RESPONSIVE_XS) {
       responsive = 'crowded';
+
+      if (windowWidth < RESPONSIVE_MOBILE) {
+        isMobile = true;
+      }
     } else if (windowWidth < RESPONSIVE_SM) {
       responsive = 'narrow';
     }
