@@ -50,6 +50,8 @@ module.exports = {
     'app.home.design-patterns': 'Design patterns',
     'app.home.more': 'Learn More',
     'app.home.play-video': 'Play video',
+    'app.home.qr': '4.0 is out',
+    'app.home.qr.desc': '4.0 is out',
     'app.home.getting-started': 'Getting Started',
     'app.home.design-language': 'Design Language',
     'app.home.product-antv-slogan': 'A new generation of data visualization solution',

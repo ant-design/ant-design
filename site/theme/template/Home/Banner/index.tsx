@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from 'antd';
+import { Button, Popover } from 'antd';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { PlayCircleFilled } from '@ant-design/icons';
@@ -29,6 +29,29 @@ export default function Banner() {
           <a className="banner-video">
             <PlayCircleFilled /> <FormattedMessage id="app.home.play-video" />
           </a>
+
+          {isZhCN && (
+            <div className="banner-qr">
+              <Popover
+                placement="bottom"
+                content={
+                  <div className="banner-qr-code">
+                    <img
+                      alt="qr"
+                      src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eafgRK7InNMAAAAAAAAAAABkARQnAQ"
+                    />
+                    <p>
+                      <FormattedMessage id="app.home.qr.desc" />
+                    </p>
+                  </div>
+                }
+              >
+                <a>
+                  <FormattedMessage id="app.home.qr" />
+                </a>
+              </Popover>
+            </div>
+          )}
 
           <div className="home-banner-content-operations">
             <Link to={getLocalizedPathname('/docs/react/introduce', isZhCN)}>

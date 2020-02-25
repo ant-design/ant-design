@@ -49,6 +49,8 @@ module.exports = {
     'app.home.design-patterns': '设计模式',
     'app.home.more': '更多内容',
     'app.home.play-video': '播放视频',
+    'app.home.qr': '4.0 正式版发布',
+    'app.home.qr.desc': '扫描二维码查看',
     'app.home.getting-started': '开始使用',
     'app.home.design-language': '设计语言',
     'app.home.product-antv-slogan': '全新一代数据可视化解决方案',
