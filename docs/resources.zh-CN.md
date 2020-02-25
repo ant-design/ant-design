@@ -50,6 +50,10 @@ toc: false
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - 在 Figma 使用 Ant Design 进行设计
   - https://www.antforfigma.com
+- 全新 Chart 组件包
+  - https://gw.alipayobjects.com/zos/basement_prod/a9dc586a-fe0a-4c7d-ab4f-f5ed779b963d.svg
+  - 桌面组件 Chart 模板包
+  - https://gw.alipayobjects.com/os/basement_prod/862ee74f-4ac5-482c-b1ae-3165684cedbe.sketch
 
 ## 文章
 
