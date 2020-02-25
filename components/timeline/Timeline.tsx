@@ -77,7 +77,7 @@ export default class Timeline extends React.Component<TimelineProps, any> {
     });
 
     const hasLabelItem = timeLineItems.some(
-      (item: React.ReactElement<any>) => !!item && !!item.props && !!item.props.label,
+      (item: React.ReactElement<any>) => !!item?.props?.label,
     );
 
     const classString = classNames(
