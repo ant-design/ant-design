@@ -20,7 +20,7 @@ title: 阴影
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*li3zQbxRuOMAAAAAAAAAAABkARQnAQ" alt="高度">
 </div>
 
-**第 1 层：** 物体位于低层级，此时物体被操作(悬停、点击等)触发为悬浮状态，当操作完成或取消时，悬停状态反馈也跟随消失，物体回归到原有的层级中，如：卡片 hover 等；
+**第 1 层**: 物体位于低层级，此时物体被操作(悬停、点击等)触发为悬浮状态，当操作完成或取消时，悬停状态反馈也跟随消失，物体回归到原有的层级中，如：卡片 hover 等；
 
 <div>
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*mXnoSI8MWuEAAAAAAAAAAABkARQnAQ" alt="高度">
