@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
 import omit from 'omit.js';
 import Checkbox, { CheckboxChangeEvent } from './Checkbox';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -48,7 +47,7 @@ export const GroupContext = React.createContext<{ checkboxGroup: any }>({
   checkboxGroup: undefined,
 });
 
-class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
+class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
   };
@@ -75,10 +74,6 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       value: props.value || props.defaultValue || [],
       registeredValues: [],
     };
-  }
-
-  shouldComponentUpdate(nextProps: CheckboxGroupProps, nextState: CheckboxGroupState) {
-    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   getOptions() {

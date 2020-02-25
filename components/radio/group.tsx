@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
 import Radio from './radio';
 import {
   RadioGroupProps,
@@ -24,7 +23,7 @@ function getCheckedValue(children: React.ReactNode) {
   return matched ? { value } : undefined;
 }
 
-class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
+class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     buttonStyle: 'outline' as RadioGroupButtonStyle,
   };
@@ -74,10 +73,6 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
         name: this.props.name,
       },
     };
-  }
-
-  shouldComponentUpdate(nextProps: RadioGroupProps, nextState: RadioGroupState) {
-    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   onRadioChange = (ev: RadioChangeEvent) => {
