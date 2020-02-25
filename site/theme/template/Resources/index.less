@@ -2,6 +2,7 @@
 
 @ArticleMaxWidth: 1208px;
 @resource-padding: 40px;
+@resource-padding-xs: 24px;
 
 #resources-page {
   article {
@@ -112,6 +113,20 @@
       margin: 0 auto;
       padding-right: 0;
       padding-left: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 767.99px) {
+  #resources-page {
+    article {
+      padding: 0 @resource-padding-xs;
+
+      // Title
+      .title-region {
+        margin: 0 -@resource-padding-xs;
+        padding: 0 @resource-padding-xs;
+      }
     }
   }
 }

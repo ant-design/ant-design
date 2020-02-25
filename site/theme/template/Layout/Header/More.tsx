@@ -6,7 +6,7 @@ import { SharedProps } from './interface';
 
 export function getEcosystemGroup({ isZhCN }: SharedProps): React.ReactElement {
   return (
-    <Menu.ItemGroup title={<FormattedMessage id="app.header.menu.ecosystem" />}>
+    <Menu.ItemGroup key="ecosystem" title={<FormattedMessage id="app.header.menu.ecosystem" />}>
       <Menu.Item key="pro">
         <a
           href="http://pro.ant.design"
