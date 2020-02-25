@@ -131,7 +131,7 @@
     "rc-trigger": "~4.0.0-rc.0",
     "rc-upload": "~3.0.0-alpha.0",
     "rc-util": "^4.20.0",
-    "rc-virtual-list": "^0.0.0-alpha.25",
+    "rc-virtual-list": "^0.0.0-rc.1",
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
     "shallowequal": "^1.1.0",
