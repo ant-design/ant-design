@@ -1,7 +1,7 @@
 {
-  "buildCommand": "build",
+  "buildCommand": "dist",
   "publishDirectory": {
-    "antd": "lib"
+    "antd": "dist"
   },
   "sandboxes": ["antd-reproduction-template-6e93z"]
 }
