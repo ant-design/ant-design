@@ -39,7 +39,7 @@ ReactDOM.render(
     </Row>
 
     <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
-      Align Center
+      Align Middle
     </Divider>
     <Row justify="space-around" align="middle">
       <Col span={4}>
