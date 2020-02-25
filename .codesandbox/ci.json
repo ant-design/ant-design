@@ -1,5 +1,4 @@
 {
-  "installCommand": "install",
   "buildCommand": "build",
   "publishDirectory": {
     "antd": "lib"
