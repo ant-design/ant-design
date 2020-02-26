@@ -34,8 +34,9 @@ export default function Banner() {
             <div className="banner-qr">
               <Popover
                 placement="bottom"
+                overlayClassName="banner-qr-code"
                 content={
-                  <div className="banner-qr-code">
+                  <div>
                     <img
                       alt="qr"
                       src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eafgRK7InNMAAAAAAAAAAABkARQnAQ"
