@@ -56,7 +56,9 @@ title: 导航
 
 完善的导航应该允许用户沿多种路径移动：
 
-<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Q9WMS64xs2gAAAAAAAAAAABkARQnAQ">
+<div>
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Q9WMS64xs2gAAAAAAAAAAABkARQnAQ">
+</div>
 
 **A-平移**：同层级跳转
 
@@ -90,7 +92,9 @@ title: 导航
 
 全局导航体现网站的核心组织结构。
 
-<img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PgY8S6Mx3x8AAAAAAAAAAABkARQnAQ">
+<div>
+  <img src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PgY8S6Mx3x8AAAAAAAAAAABkARQnAQ">
+</div>
 
 #### 侧边导航
 
@@ -114,15 +118,13 @@ title: 导航
 
 #### 弹出式导航
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*5EwpRYexpKEAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8lgCQb8copwAAAAAAAAAAABkARQnAQ" alt="正确示范">
+
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_k8wR4PoOSsAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
 用于拓展导航承载层级，适用于大型网站。
 
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*8lgCQb8copwAAAAAAAAAAABkARQnAQ" alt="正确示范">
-
 站点地图式导航可以让用户对整个网站的可用功能一目了然。
-
-<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_k8wR4PoOSsAAAAAAAAAAABkARQnAQ" alt="错误示范">
 
 1. 不要让用户延着狭窄的悬停路径获取导航菜单；
 

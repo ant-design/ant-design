@@ -115,7 +115,7 @@ title: 表单页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ"/>
 
-可编辑表格：建议条目表单数 2 ～ 5 项 时使用，以使得每行内容可被完整呈现。
+可编辑表格：建议条目表单数 2 ~ 5 项 时使用，以使得每行内容可被完整呈现。
 
 <br />
 
