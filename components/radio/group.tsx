@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Radio from './radio';
 import {
@@ -10,6 +9,7 @@ import {
 } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
+import { RadioGroupContextProvider } from './context';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -26,10 +26,6 @@ function getCheckedValue(children: React.ReactNode) {
 class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     buttonStyle: 'outline' as RadioGroupButtonStyle,
-  };
-
-  static childContextTypes = {
-    radioGroup: PropTypes.any,
   };
 
   static getDerivedStateFromProps(nextProps: RadioGroupProps) {
@@ -61,17 +57,6 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
     }
     this.state = {
       value,
-    };
-  }
-
-  getChildContext() {
-    return {
-      radioGroup: {
-        onChange: this.onRadioChange,
-        value: this.state.value,
-        disabled: this.props.disabled,
-        name: this.props.name,
-      },
     };
   }
 
@@ -167,7 +152,18 @@ class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
   };
 
   render() {
-    return <ConfigConsumer>{this.renderGroup}</ConfigConsumer>;
+    return (
+      <RadioGroupContextProvider
+        value={{
+          onChange: this.onRadioChange,
+          value: this.state.value,
+          disabled: this.props.disabled,
+          name: this.props.name,
+        }}
+      >
+        <ConfigConsumer>{this.renderGroup}</ConfigConsumer>
+      </RadioGroupContextProvider>
+    );
   }
 }
 
