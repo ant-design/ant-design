@@ -89,7 +89,7 @@ Please find below the books that inspired us, saved our time and helped us to ov
 
 <div class="next-block-use-cards"></div>
 
-- About Face 4 #E1E8B7
+- About Face 4 #C7EBD6
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GA-CRIRqKjgAAAAAAAAAAABkARQnAQ
   - The Interactive Design Guide for Digital Products and System
   - https://www.wiley.com/en-sg/About+Face%3A+The+Essentials+of+Interaction+Design%2C+4th+Edition-p-9781118766576
@@ -101,15 +101,15 @@ Please find below the books that inspired us, saved our time and helped us to ov
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*slN2QpTvIs0AAAAAAAAAAABkARQnAQ
   - Interface Design Guidelines
   - https://www.amazon.com/Designing-Interfaces-Patterns-Effective-Interaction/dp/1449379702/ref=pd_sbs_14_t_1/131-2623973-6077764?_encoding=UTF8&pd_rd_i=1449379702&pd_rd_r=ebe12a8d-435f-474b-a593-72aadf26c45a&pd_rd_w=18rob&pd_rd_wg=bhRFl&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=8V8CD0EE336ZZEG15DEN&psc=1&refRID=8V8CD0EE336ZZEG15DEN
-- Non-Designer's Design Book, The, 4th Edition #AFBCC8
+- Non-Designer's Design Book, The, 4th Edition #FAF0CD
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1HbNSIju7pEAAAAAAAAAAABkARQnAQ
   - Basic Principles of Good Design
   - http://www.peachpit.com/store/non-designers-design-book-9780133966152
-- The Design of Everyday Things #B7D9B7
+- The Design of Everyday Things #F8F3D1
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4woBSLvOjfMAAAAAAAAAAABkARQnAQ
   - About the People-oriented Design Philosophy
   - https://jnd.org/the-design-of-everyday-things-revised-and-expanded-edition/
-- Emotional Design #EFBDB5
+- Emotional Design #E8EEB4
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6ZQJQoKRORsAAAAAAAAAAABkARQnAQ
   - Explain the Role of Emotional Factors in Design
   - https://www.amazon.com/Emotional-Design-Love-Everyday-Things/dp/0465051367
