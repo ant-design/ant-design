@@ -10,14 +10,14 @@ Here list all the resources that related with Ant Design.
 
 ## Design Resources
 
-Please find below some of the design resources and tools about Ant Design that we consider valuable. More of this is still being collected. You can leave feedback about Sketch Symbols [here](https://www.yuque.com/kitchen/topics/51).
+Please find below some of the design resources and tools about Ant Design that we consider valuable. More of this is still being collected. You can leave feedback about Sketch Symbols [here](https://www.yuque.com/kitchen/topics/216).
 
 <div class="next-block-use-cards"></div>
 
 - RENEW Sketch Symbols
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - Sketch Symbols for Desktop
-  - https://github.com/ant-design/ant-design/releases/download/resource/Ant.Design.Components.4.0.Beta.sketch
+  - https://gw.alipayobjects.com/os/basement_prod/5905b7b9-f63a-46d6-bb90-fd47613d4884.zip
 - Mobile Components
   - https://gw.alipayobjects.com/zos/basement_prod/c0c3852c-d245-4330-886b-cb02ef49eb6d.svg
   - Sketch Symbols File for Mobile
