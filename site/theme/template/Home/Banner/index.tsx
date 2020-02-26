@@ -13,6 +13,8 @@ export default function Banner() {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
 
+  let qrNode: React.ReactElement | null = null;
+
   return (
     <div className="home-banner">
       <Background />

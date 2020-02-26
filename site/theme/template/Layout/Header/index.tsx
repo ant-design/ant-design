@@ -12,10 +12,10 @@ import SearchBox from './SearchBox';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
+import SiteContext from '../SiteContext';
 
 import './index.less';
 
-const RESPONSIVE_MOBILE = 768;
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
 
@@ -65,7 +65,6 @@ interface HeaderState {
 class Header extends React.Component<HeaderProps, HeaderState> {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-    isMobile: PropTypes.bool.isRequired,
     theme: PropTypes.oneOf(['default', 'dark']),
     direction: PropTypes.string,
   };
@@ -165,152 +164,153 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   };
 
   render() {
-    const { menuVisible, windowWidth, searching } = this.state;
-    const {
-      location,
-      themeConfig,
-      intl: { locale },
-    } = this.props;
-    const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
-    const versionOptions = Object.keys(docVersions).map(version => (
-      <Option value={docVersions[version]} key={version}>
-        {version}
-      </Option>
-    ));
-
-    const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
-
-    const isHome = ['', 'index', 'index-cn'].includes(pathname);
-
-    const isZhCN = locale === 'zh-CN';
-    let isMobile = false;
-    let responsive: null | 'narrow' | 'crowded' = null;
-    if (windowWidth < RESPONSIVE_XS) {
-      responsive = 'crowded';
-
-      if (windowWidth < RESPONSIVE_MOBILE) {
-        isMobile = true;
-      }
-    } else if (windowWidth < RESPONSIVE_SM) {
-      responsive = 'narrow';
-    }
-
-    const headerClassName = classNames({
-      clearfix: true,
-      'home-header': isHome,
-    });
-
-    const sharedProps = {
-      isZhCN,
-    };
-
-    const searchBox = (
-      <SearchBox
-        key="search"
-        {...sharedProps}
-        responsive={responsive}
-        onTriggerFocus={this.onTriggerSearching}
-      />
-    );
-
-    const navigationNode = (
-      <Navigation
-        key="nav"
-        {...sharedProps}
-        location={location}
-        responsive={responsive}
-        isMobile={isMobile}
-        pathname={pathname}
-        directionText={this.getNextDirectionText()}
-        onLangChange={this.onLangChange}
-        onDirectionChange={this.onDirectionChange}
-      />
-    );
-
-    let menu: (React.ReactElement | null)[] = [
-      navigationNode,
-      <Select
-        key="version"
-        className="version"
-        size="small"
-        defaultValue={antdVersion}
-        onChange={this.handleVersionChange}
-        getPopupContainer={trigger => trigger.parentNode}
-      >
-        {versionOptions}
-      </Select>,
-      <Button
-        size="small"
-        onClick={this.onLangChange}
-        className="header-button header-lang-button"
-        key="lang-button"
-      >
-        <FormattedMessage id="app.header.lang" />
-      </Button>,
-      <Button
-        size="small"
-        onClick={this.onDirectionChange}
-        className="header-button header-direction-button"
-        key="direction-button"
-      >
-        {this.getNextDirectionText()}
-      </Button>,
-      <More key="more" {...sharedProps} />,
-      <Github key="github" responsive={responsive} />,
-    ];
-
-    if (windowWidth < RESPONSIVE_XS) {
-      menu = searching ? [] : [navigationNode];
-    } else if (windowWidth < RESPONSIVE_SM) {
-      menu = searching ? [] : menu;
-    }
-
-    const colProps = isHome
-      ? [{ flex: 'none' }, { flex: 'auto' }]
-      : [
-          {
-            xxl: 4,
-            xl: 5,
-            lg: 6,
-            md: 6,
-            sm: 24,
-            xs: 24,
-          },
-          {
-            xxl: 20,
-            xl: 19,
-            lg: 18,
-            md: 18,
-            sm: 0,
-            xs: 0,
-          },
-        ];
-
     return (
-      <header id="header" className={headerClassName}>
-        {isMobile && (
-          <Popover
-            overlayClassName="popover-menu"
-            placement="bottomRight"
-            content={menu}
-            trigger="click"
-            visible={menuVisible}
-            arrowPointAtCenter
-            onVisibleChange={this.onMenuVisibleChange}
-          >
-            <UnorderedListOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
-          </Popover>
-        )}
-        <Row style={{ flexFlow: 'nowrap' }}>
-          <Col {...colProps[0]}>
-            <Logo {...sharedProps} />
-          </Col>
-          <Col {...colProps[1]} className="menu-row">
-            {searchBox}
-            {!isMobile && menu}
-          </Col>
-        </Row>
-      </header>
+      <SiteContext.Consumer>
+        {({ isMobile }) => {
+          const { menuVisible, windowWidth, searching } = this.state;
+          const {
+            location,
+            themeConfig,
+            intl: { locale },
+          } = this.props;
+          const docVersions = { ...themeConfig.docVersions, [antdVersion]: antdVersion };
+          const versionOptions = Object.keys(docVersions).map(version => (
+            <Option value={docVersions[version]} key={version}>
+              {version}
+            </Option>
+          ));
+
+          const pathname = location.pathname.replace(/(^\/|\/$)/g, '');
+
+          const isHome = ['', 'index', 'index-cn'].includes(pathname);
+
+          const isZhCN = locale === 'zh-CN';
+          let responsive: null | 'narrow' | 'crowded' = null;
+          if (windowWidth < RESPONSIVE_XS) {
+            responsive = 'crowded';
+          } else if (windowWidth < RESPONSIVE_SM) {
+            responsive = 'narrow';
+          }
+
+          const headerClassName = classNames({
+            clearfix: true,
+            'home-header': isHome,
+          });
+
+          const sharedProps = {
+            isZhCN,
+          };
+
+          const searchBox = (
+            <SearchBox
+              key="search"
+              {...sharedProps}
+              responsive={responsive}
+              onTriggerFocus={this.onTriggerSearching}
+            />
+          );
+
+          const navigationNode = (
+            <Navigation
+              key="nav"
+              {...sharedProps}
+              location={location}
+              responsive={responsive}
+              isMobile={isMobile}
+              pathname={pathname}
+              directionText={this.getNextDirectionText()}
+              onLangChange={this.onLangChange}
+              onDirectionChange={this.onDirectionChange}
+            />
+          );
+
+          let menu: (React.ReactElement | null)[] = [
+            navigationNode,
+            <Select
+              key="version"
+              className="version"
+              size="small"
+              defaultValue={antdVersion}
+              onChange={this.handleVersionChange}
+              getPopupContainer={trigger => trigger.parentNode}
+            >
+              {versionOptions}
+            </Select>,
+            <Button
+              size="small"
+              onClick={this.onLangChange}
+              className="header-button header-lang-button"
+              key="lang-button"
+            >
+              <FormattedMessage id="app.header.lang" />
+            </Button>,
+            <Button
+              size="small"
+              onClick={this.onDirectionChange}
+              className="header-button header-direction-button"
+              key="direction-button"
+            >
+              {this.getNextDirectionText()}
+            </Button>,
+            <More key="more" {...sharedProps} />,
+            <Github key="github" responsive={responsive} />,
+          ];
+
+          if (windowWidth < RESPONSIVE_XS) {
+            menu = searching ? [] : [navigationNode];
+          } else if (windowWidth < RESPONSIVE_SM) {
+            menu = searching ? [] : menu;
+          }
+
+          const colProps = isHome
+            ? [{ flex: 'none' }, { flex: 'auto' }]
+            : [
+                {
+                  xxl: 4,
+                  xl: 5,
+                  lg: 6,
+                  md: 6,
+                  sm: 24,
+                  xs: 24,
+                },
+                {
+                  xxl: 20,
+                  xl: 19,
+                  lg: 18,
+                  md: 18,
+                  sm: 0,
+                  xs: 0,
+                },
+              ];
+
+          return (
+            <header id="header" className={headerClassName}>
+              {isMobile && (
+                <Popover
+                  overlayClassName="popover-menu"
+                  placement="bottomRight"
+                  content={menu}
+                  trigger="click"
+                  visible={menuVisible}
+                  arrowPointAtCenter
+                  onVisibleChange={this.onMenuVisibleChange}
+                >
+                  <UnorderedListOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
+                </Popover>
+              )}
+              <Row style={{ flexFlow: 'nowrap' }}>
+                <Col {...colProps[0]}>
+                  <Logo {...sharedProps} />
+                </Col>
+                <Col {...colProps[1]} className="menu-row">
+                  {searchBox}
+                  {!isMobile && menu}
+                </Col>
+              </Row>
+            </header>
+          );
+        }}
+      </SiteContext.Consumer>
     );
   }
 }
