@@ -81,14 +81,14 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
 
 const Demo = () => {
   const onFinish = values => {
-    console.log('Received values of form: ', values);
+    console.log('Received values from form: ', values);
   };
 
   const checkPrice = (rule, value) => {
     if (value.number > 0) {
       return Promise.resolve();
     }
-    return Promise.reject('Price must greater than zero!');
+    return Promise.reject('Price must be greater than zero!');
   };
 
   return (
