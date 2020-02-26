@@ -39,7 +39,7 @@ interface ResourcesProps {
   };
 }
 
-type ContentUnit = string | Record<string, string> | ContentUnit[];
+type ContentUnit = string | Record<string, any> | ContentUnit[];
 
 function getUnitString(unit: ContentUnit[]): string {
   if (!unit) return '';
@@ -48,7 +48,7 @@ function getUnitString(unit: ContentUnit[]): string {
   return Array.isArray(last) ? getUnitString(last) : (last as string);
 }
 
-function toList([, ...items]: ContentUnit[]) {
+function toList([, ...items]: ContentUnit[]): ContentUnit[] {
   return [
     'div',
     { className: 'ant-row resource-cards', style: 'margin: -12px -12px 0 -12px' },
@@ -97,7 +97,7 @@ function toList([, ...items]: ContentUnit[]) {
 }
 
 function injectCards(content: ContentUnit[]): ContentUnit[] {
-  const newContent: ContentUnit = [];
+  const newContent: ContentUnit[] = [];
 
   for (let i = 0; i < content.length; i += 1) {
     const unit = content[i];
