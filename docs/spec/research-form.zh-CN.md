@@ -121,7 +121,7 @@ title: 表单页
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ" />
 
-折叠面板编辑：建议条目表单数在 6 ～ 8 项 时使用。
+折叠面板编辑：建议条目表单数在 6 ~ 8 项 时使用。
 
 <br />
 
