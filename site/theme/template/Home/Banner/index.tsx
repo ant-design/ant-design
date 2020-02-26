@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Popover } from 'antd';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { PlayCircleFilled } from '@ant-design/icons';
+import { PlayCircleFilled, MobileFilled } from '@ant-design/icons';
 import Background from './Background';
 import { getLocalizedPathname } from '../../utils';
 import Logo from './Logo';
@@ -34,13 +34,13 @@ export default function Banner() {
               src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eafgRK7InNMAAAAAAAAAAABkARQnAQ"
             />
             <p>
-              <FormattedMessage id="app.home.qr.desc" />
+              <MobileFilled /> <FormattedMessage id="app.home.qr.desc" />
             </p>
           </div>
         }
       >
         <a>
-          <FormattedMessage id="app.home.qr" />
+          <MobileFilled /> <FormattedMessage id="app.home.qr" />
         </a>
       </Popover>
     );
