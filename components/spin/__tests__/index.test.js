@@ -51,5 +51,5 @@ describe('Spin', () => {
     const wrapper = mount(<Spin />);
     expect(wrapper).toMatchSnapshot();
     Spin.setDefaultIndicator(null);
-  })
+  });
 });

@@ -779,4 +779,18 @@ describe('Table.rowSelection', () => {
     expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeTruthy();
     expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
   });
+
+  it('should not crash when children is empty', () => {
+    const wrapper = mount(
+      createTable({ dataSource: [{ id: 1, name: 'Hello', age: 10, children: null }] }),
+    );
+    wrapper.find('.ant-table-row-expand-icon').simulate('click');
+
+    expect(() => {
+      wrapper
+        .find('input')
+        .last()
+        .simulate('change');
+    }).not.toThrow();
+  });
 });

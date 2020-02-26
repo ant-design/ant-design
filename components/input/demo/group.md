@@ -180,6 +180,6 @@ ReactDOM.render(<CompactDemo />, mountNode);
 
 <style>
 [data-theme="dark"] .site-input-group-wrapper .site-input-split {
-  background-color: #141414;
+  background-color: transparent;
 }
 </style>

@@ -252,7 +252,7 @@ describe('Form', () => {
           );
         };
 
-        mount(<Demo />, { attachTo: document.body });
+        const wrapper = mount(<Demo />, { attachTo: document.body });
 
         expect(scrollIntoView).not.toHaveBeenCalled();
         const form = callGetForm();
@@ -265,6 +265,8 @@ describe('Form', () => {
           block: 'start',
           scrollMode: 'if-needed',
         });
+
+        wrapper.unmount();
       });
     }
 
@@ -289,6 +291,27 @@ describe('Form', () => {
         getForm: () => form,
       };
     });
+  });
+
+  it('scrollToFirstError', async () => {
+    const onFinishFailed = jest.fn();
+
+    const wrapper = mount(
+      <Form scrollToFirstError onFinishFailed={onFinishFailed}>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+      { attachTo: document.body },
+    );
+
+    expect(scrollIntoView).not.toHaveBeenCalled();
+    wrapper.find('form').simulate('submit');
+    await delay(50);
+    expect(scrollIntoView).toHaveBeenCalled();
+    expect(onFinishFailed).toHaveBeenCalled();
+
+    wrapper.unmount();
   });
 
   it('Form.Item should support data-*、aria-* and custom attribute', () => {
