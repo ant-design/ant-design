@@ -1,17 +1,17 @@
 ---
 order: 5
 title:
-  zh-CN: Label 用法
-  en-US: Label Usage
+  zh-CN: 标签
+  en-US: Label
 ---
 
 ## zh-CN
 
-使用 `Label` 单独展示时间。
+使用 `label` 标签单独展示时间。
 
 ## en-US
 
-Use `Label` show time alone.
+Use `label` show time alone.
 
 ```jsx
 import { useState } from 'react';
