@@ -101,4 +101,4 @@ title: Select
 
 ### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
 
-看下 [dropdownRender 例子](/components/select/#components-select-demo-custom-dropdown-menu) 里的说明。
+看下 [dropdownRender 例子](#components-select-demo-custom-dropdown-menu) 里的说明。

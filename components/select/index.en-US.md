@@ -98,4 +98,4 @@ Select component to select value from options.
 
 ### The dropdown is closed when click `dropdownRender` area?
 
-See the [dropdownRender example](/components/select/#components-select-demo-custom-dropdown-menu).
+See the instruction in [dropdownRender example](#components-select-demo-custom-dropdown-menu).
