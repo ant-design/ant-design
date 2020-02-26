@@ -1,5 +1,7 @@
 ---
-category: 全局样式
+category:
+  zh-CN: 全局样式
+  en-US: Global Styles
 order: 6
 title:
   zh-CN: 暗黑模式
