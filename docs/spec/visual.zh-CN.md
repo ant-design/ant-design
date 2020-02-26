@@ -10,7 +10,7 @@ title: 可视化
 
 # 前端实现
 
-AntV 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2 ，欢迎社区贡献其他框架的实现版本。
+[AntV](https://antv.vision/zh) 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2 ，欢迎社区贡献其他框架的实现版本。
 
 - [G2 可视化引擎](https://g2.antv.vision/zh)
 - [G2Plot 开箱即用的图表库](https://g2plot.antv.vision/zh) 🔥
@@ -22,25 +22,18 @@ AntV 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基�
 
 # 如何设计
 
-## 了解用户
+### 了解用户
 
-用户是谁？他们要从可视化作品上获取什么信息？在企业级产品的，我们的用户可能是公司高层、BI 分析师、运营、数据开发等不同角色，不一样的角色在使用可视化作品时，其目的以及使用路径会有所不同。建议在设计开始前对使用者进行充分剖析，以便完整地讲述你的数据故事，准确呈现你的数据见解。
+用户是谁？他们要从可视化作品上获取什么信息？在企业级产品中，用户可能是公司高层、BI 分析师、运营、数据开发等不同角色，不一样的角色在使用可视化作品时，其目的以及使用路径会有所不同。建议在设计开始前对使用者进行充分剖析，以便完整地讲述你的数据故事，准确呈现你的数据见解。
 
 <br />
 
-## 设计原则
+### 设计原则
 
-- 准确：从数据转化到可视表达时不歪曲，不误导，不遗漏，忠实反映数据里包含的信息。
-- 有效：信息传达有重点，克制不冗余，避免信息过载，用最适量的数据-油墨比（Data-ink Ratio）表达对用户最有用的信息。
-- 清晰：表现方式清楚易读，具条理性，可以帮助用户快速达成目标，在最少的时间内获取更多的信息。
+- 准确：从数据转化到可视表达时不歪曲，不误导，不遗漏，忠实反映数据里包含的信息；
+- 有效：信息传达有重点，克制不冗余，避免信息过载，用最适量的数据-油墨比（Data-ink Ratio）表达对用户最有用的信息；
+- 清晰：表现方式清楚易读，具条理性，可以帮助用户快速达成目标，在最少的时间内获取更多的信息；
 - 美：对数据的完美表达，合理利用视觉元素进行艺术创作，不过度修饰，给用户优雅的体验。
-
-<br />
-
-# 设计资源
-
-- 最新的图表资产已登陆 「AntDesign 官网 -- 资源 -- AntDesign Chart 资源包」
-- 也可以访问 [Kitchen](https://kitchen.alipay.com/)官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈图表生成器」，用保真数据动态生成图表。
 
 <br />
 
@@ -48,7 +41,7 @@ AntV 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基�
 
 ### 选择正确的图表类型
 
-我们为您提供了完整的图表用法说明，帮助用户更正确地选择图表类型。
+我们提供了完整的图表用法说明，帮助您更正确地选择图表类型。
 
 
 #### 时间类
@@ -81,16 +74,21 @@ AntV 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基�
 
 显示同一维度上占比关系。
 
+<br />
+
 获取更多图表用法内容，请前往 [AntV 图表用法](https://antv-2018.alipay.com/zh-cn/vis/chart/index.html)
 
 <br />
 
 ### 色板
 
-
 <img class="preview-img no-padding" align="right" description="AntV 官方默认色板示例" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*58AFS77miwoAAAAAAAAAAABkARQnAQ" />
 
-AntV 提供了一套默认的图表颜色，包括颜色的用法，更多内容请前往 [AntV - 设计语言 - 视觉](https://antv.vision/zh/docs/specification/principles/visual/)
+AntV 提供了一套默认的图表颜色，包括颜色的用法，
+
+<br />
+
+获取更多色板，请前往 [AntV - 设计语言 - 视觉](https://antv.vision/zh/docs/specification/principles/visual/)
 
 <br />
 
@@ -137,28 +135,38 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，更多内容
 
 <br />
 
+获取组件使用建议，请前往 [AntV - 设计语言 - 图表组件设计指引](https://antv.vision/zh/docs/specification/components/titlenotes)
+
+<br />
+
 ### 图表布局适应
 
 <img class="preview-img no-padding" align="right" description="图表响应式示意" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*0vfXTIlbSXwAAAAAAAAAAABkARQnAQ" />
 
+数据可视化始终面对海量数据量与有限屏幕空间的冲突，如何解决不同端、不同屏幕尺寸下内容的适配问题，在有限的空间内帮助用户更快地理解信息和更快地分析洞察，是我们一直致力研究的问题。
+
 <img class="preview-img no-padding" align="right" description="设计思路" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WsO3T5klNMIAAAAAAAAAAABkARQnAQ" />
 
-作为大量数据的视觉化呈现形式，图表为用户理解信息和分析洞察提供关键路径。可视化分类众多，在页面的用例广泛，使用场景复杂。如何让系统理解和配合用户的意图，以合适的方式，自动优雅地展现图表，以帮助用户穿梭在不同设备之间无缝地感受到背后的信息本身？
-
-我们发展出一套适用于全量图表的布局适应规则，从图表内原子组件和整体图表为层级整理了适用于所有图表的布局适应体系。以右侧动图为例，图中横轴的轴标签跟随图表尺寸发生了不同角度的旋转。
-
-更多内容更新中，设计流程与方法将于三月后发布，敬请期待。
+在 Ant Design 的可视化体系中，我们发展出一套适用于全量图表的布局适应规则，从整体图表、图表内原子组件梳理了适用于所有图表的布局适应体系。以右侧动图为例，图中横轴的轴标签跟随具体尺寸发生了旋转。更多内容即将发布，敬请期待。
 
 <br />
 
 ### 交互
 
-<img class="preview-img no-padding" align="right" description="图表的联动交互示意" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QXtKSIMgaOUAAAAAAAAAAABkARQnAQ" />
+<div style="text-align:center;">
+  <img alt="Background" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QXtKSIMgaOUAAAAAAAAAAABkARQnAQ" />
+</div>
 
 区别于传统数据报表相对静态的表现形式，交互式图表并不停留在信息展示层面。用户通过与图不断产生交互，从数据中获取更深层次的分析和信息。
 
 在数据可视化中，我们根据用户的意识层次及每层次对应的目标，将交互动作拆解成“数据获取、信息加工、知识流转”三层。其匹配“概览第一，聚焦过滤，再按需查看详情”的可视化信息检索箴言。亦符合人类寻求信息的基本逻辑：先大体，再局部，然后聚焦兴趣点进行探索，这是一个由表及里的过程。
 
 更多交互式图表内容请前往 [ AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
+
+
+# 设计资源
+
+- 最新的图表资产已登陆 「AntDesign 官网 -- 资源 -- AntDesign Chart 资源包」
+- 也可以访问 [Kitchen](https://kitchen.alipay.com/)官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈图表生成器」，用保真数据动态生成图表。
 
 <br />
