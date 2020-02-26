@@ -19,7 +19,7 @@ export default function Banner() {
   if (isMobile) {
     qrNode = (
       <a href="http://antd4.antfin.com/">
-        <FormattedMessage id="app.home.qr" />
+        <MobileFilled /> <FormattedMessage id="app.home.qr" />
       </a>
     );
   } else {
@@ -34,7 +34,7 @@ export default function Banner() {
               src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eafgRK7InNMAAAAAAAAAAABkARQnAQ"
             />
             <p>
-              <MobileFilled /> <FormattedMessage id="app.home.qr.desc" />
+              <FormattedMessage id="app.home.qr.desc" />
             </p>
           </div>
         }
