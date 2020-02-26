@@ -158,7 +158,7 @@ title: 表单页
 
 > - 数量 <7 项，不建议分组；
 > - 数量 7~ 15 个建议分组；
-> - 数量 >15 个建议使用页签分组；
+> - 数量 >15 个建议使用页签分组。
 
 #### [模板 - 登录](https://preview.pro.ant.design/user/login)
 
@@ -177,7 +177,7 @@ Ant Design 标准注册模板
 ### 前期准备
 
 - 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](https://next.ant.design/components/form-cn/)；
-- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](https://ant.design/docs/spec/data-entry-cn#header) 确定所使用的组件；
+- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](https://next.ant.design/docs/spec/data-entry-cn/) 确定所使用的组件。
 
 ### 布局方式
 
