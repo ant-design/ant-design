@@ -142,13 +142,13 @@ title: 表单页
 > - 数量 7~ 15 个建议分组；
 > - 数量 >15 个建议使用页签分组；
 
-#### 模板 - 登录
+#### [模板 - 登录](https://preview.pro.ant.design/user/login)
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ba6DR5U23nAAAAAAAAAAAABkARQnAQ" />
 
 Ant Design 标准登录模板
 
-#### 模板 - 注册
+#### [模板 - 注册](https://preview.pro.ant.design/user/register)
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6U_gQ6MbrSYAAAAAAAAAAABkARQnAQ" />
 
