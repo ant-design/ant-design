@@ -257,7 +257,7 @@ exports[`renders ./components/grid/demo/flex-align.md correctly 1`] = `
     </div>
   </div>
   <p>
-    Align Center
+    Align Middle
   </p>
   <div
     class="ant-row ant-row-space-around ant-row-middle"
