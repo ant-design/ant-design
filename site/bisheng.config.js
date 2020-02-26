@@ -86,6 +86,7 @@ module.exports = {
       '0.12.x': 'http://012x.ant.design',
       '1.x': 'http://1x.ant.design',
       '2.x': 'http://2x.ant.design',
+      '3.x': 'http://3x.ant.design',
     },
   },
   filePathMapper(filePath) {
