@@ -107,15 +107,33 @@ title: 表单页
 
 **什么时候用**
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NLEeSLhLA3EAAAAAAAAAAABkARQnAQ" description="动态增减：建议条目表单数 ≤3 项，并且每个输入框不需要单独的标题使用。" />
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*NLEeSLhLA3EAAAAAAAAAAABkARQnAQ" />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ" description="可编辑表格：建议条目表单数 2 ～ 5 项 时使用，以使得每行内容可被完整呈现。" />
+动态增减：建议条目表单数 ≤3 项，并且每个输入框不需要单独的标题使用。
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ" description="折叠面板编辑：建议条目表单数在 6 ～ 8 项 时使用。" />
+<br />
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ttDGTLid8M4AAAAAAAAAAABkARQnAQ" description="抽屉编辑：建议条目表单表单数 >8 项 时使用。" />
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*PvoTSbqKywEAAAAAAAAAAABkARQnAQ"/>
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*p_wLTJEYOBgAAAAAAAAAAABkARQnAQ" description="规则树：应用于规则编辑场景。" />
+可编辑表格：建议条目表单数 2 ～ 5 项 时使用，以使得每行内容可被完整呈现。
+
+<br />
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DWlCQazb-HQAAAAAAAAAAABkARQnAQ" />
+
+折叠面板编辑：建议条目表单数在 6 ～ 8 项 时使用。
+
+<br />
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*ttDGTLid8M4AAAAAAAAAAABkARQnAQ" />
+
+抽屉编辑：建议条目表单表单数 >8 项 时使用。
+
+<br />
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*p_wLTJEYOBgAAAAAAAAAAABkARQnAQ" />
+
+规则树：应用于规则编辑场景。
 
 适用于页面中需要添加一个或多个对象，且每个对象都需要添加或编辑多组数据的情况。
 
