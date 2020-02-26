@@ -100,9 +100,9 @@ title: 导航
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*fNW0Rak8sL8AAAAAAAAAAABkARQnAQ">
 
-- 很多菜单时使用，建议菜单多于 6 项时使用。
+- 很多菜单时使用，建议菜单多于 6 项时使用；
 
-- 可以承载多个层级，但建议 1-3 个层级。
+- 可以承载多个层级，但建议 1-3 个层级；
 
 - 企业级产品推荐使用侧栏导航，其可见性更好易于扫读，各菜单重要性受菜单排列顺序影响较小。
 
@@ -218,7 +218,7 @@ title: 导航
 
 ### 下钻类导航
 
-点击进入信息架构下层内容，默认站内跳转，站外新开标签页，典型场景为[列表下钻至详情](www.baidu.com)。
+点击进入信息架构下层内容，默认站内跳转，站外新开标签页，典型场景为列表下钻至详情。
 
 ### 返回类导航
 
@@ -279,7 +279,7 @@ title: 导航
 - [阿里云-控制台导内容区导航系统](https://xconsole.aliyun-inc.com/spec/hxzewz)
 - [Material Design Navigation](https://material.io/design/navigation/understanding-navigation.html#)
 - [Predix Navigation](https://www.predix-ui.com/#/design/foundation/navigation)
-- [Windows-UWP 应用的导航设计基础知识](https://docs.microsoft.com/zh-cn/windows/uwp/design/basics/navigate-between-two-pages)
-- [When you should use a breadcrumb navigation?](https://uxmovement.com/navigation/when-you-should-use-a-breadcrumb-navigation/)
+- [Windows-UWP 应用的导航设计基础知识](https://docs.microsoft.com/zh-cn/windows/uwp/design/basics/navigation-basics)
+- [When You Should Use a Breadcrumb Navigation?](https://uxmovement.com/navigation/when-you-should-use-a-breadcrumb-navigation/)
 - 书籍：《web 信息架构》— 导航系统
 - 书籍：《web 导航设计》
