@@ -117,7 +117,8 @@
   }
 
   &.@{timeline-prefix-cls}-alternate,
-  &.@{timeline-prefix-cls}-right {
+  &.@{timeline-prefix-cls}-right,
+  &.@{timeline-prefix-cls}-label {
     .@{timeline-prefix-cls}-item {
       &-tail,
       &-head,
@@ -229,6 +230,21 @@
     }
     .@{timeline-prefix-cls}-item-content {
       min-height: 48px;
+    }
+  }
+  &.@{timeline-prefix-cls}-label {
+    .@{timeline-prefix-cls}-item-label {
+      position: absolute;
+      top: -(@font-size-base * @line-height-base - @font-size-base) + 1px;
+      width: calc(50% - 12px);
+      text-align: right;
+    }
+    .@{timeline-prefix-cls}-item-right {
+      .@{timeline-prefix-cls}-item-label {
+        left: calc(50% + 14px);
+        width: calc(50% - 14px);
+        text-align: left;
+      }
     }
   }
 }
