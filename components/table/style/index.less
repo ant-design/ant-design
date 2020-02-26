@@ -445,15 +445,13 @@
     box-shadow: @box-shadow-base;
 
     .@{ant-prefix}-dropdown-menu {
+      // https://github.com/ant-design/ant-design/issues/4916
+      // https://github.com/ant-design/ant-design/issues/19542
+      max-height: calc(100vh - 130px);
+      overflow-x: hidden;
       border: 0;
       border-radius: @border-radius-base @border-radius-base 0 0;
       box-shadow: none;
-
-      // https://github.com/ant-design/ant-design/issues/4916
-      &-without-submenu {
-        max-height: 400px;
-        overflow-x: hidden;
-      }
 
       &-item > label + span {
         padding-right: 0;
