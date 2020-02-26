@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
 import { FilterFilled } from '@ant-design/icons';
 import Menu from '../../../menu';
 import Checkbox from '../../../checkbox';
@@ -89,9 +88,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     typeof filterDropdownVisible === 'boolean' ? filterDropdownVisible : visible;
 
   // ===================== Select Keys =====================
-  const [propFilteredKeys, setPropFilteredKeys] = React.useState(
-    filterState && filterState.filteredKeys,
-  );
+  const propFilteredKeys = filterState && filterState.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
   const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
@@ -99,13 +96,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   React.useEffect(() => {
-    // Sync internal filtered keys when props key changed
-    const newFilteredKeys = filterState && filterState.filteredKeys;
-    if (!shallowEqual(propFilteredKeys, newFilteredKeys)) {
-      setPropFilteredKeys(newFilteredKeys);
-      onSelectKeys({ selectedKeys: newFilteredKeys || [] });
-    }
-  }, [filterState]);
+    onSelectKeys({ selectedKeys: propFilteredKeys || [] });
+  }, [propFilteredKeys]);
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);

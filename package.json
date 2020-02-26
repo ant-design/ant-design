@@ -134,7 +134,6 @@
     "rc-virtual-list": "~1.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
-    "shallowequal": "^1.1.0",
     "warning": "~4.0.3"
   },
   "devDependencies": {
@@ -155,7 +154,6 @@
     "@types/react": "^16.9.21",
     "@types/react-color": "^3.0.1",
     "@types/react-dom": "^16.9.5",
-    "@types/shallowequal": "^1.1.1",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",

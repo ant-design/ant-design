@@ -149,6 +149,25 @@ describe('CheckboxGroup', () => {
     expect(onChange).toHaveBeenCalledWith([2]);
   });
 
+  it('checkbox should register value again after value changed', () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <Checkbox.Group defaultValue={[1]} onChange={onChange}>
+        <Checkbox key={1} value={1} />
+      </Checkbox.Group>,
+    );
+
+    wrapper.setProps({
+      children: [<Checkbox key={1} value={2} />],
+    });
+    expect(
+      wrapper
+        .find('.ant-checkbox-input')
+        .at(0)
+        .prop('checked'),
+    ).toBe(false);
+  });
+
   // https://github.com/ant-design/ant-design/issues/17297
   it('onChange should keep the order of the original values', () => {
     const onChange = jest.fn();

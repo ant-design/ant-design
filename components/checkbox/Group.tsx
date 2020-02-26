@@ -36,16 +36,12 @@ export interface CheckboxGroupState {
 }
 
 export interface CheckboxGroupContext {
-  checkboxGroup: {
-    toggleOption: (option: CheckboxOptionType) => void;
-    value: any;
-    disabled: boolean;
-  };
+  toggleOption?: (option: CheckboxOptionType) => void;
+  value?: any;
+  disabled?: boolean;
 }
 
-export const GroupContext = React.createContext<{ checkboxGroup: any }>({
-  checkboxGroup: undefined,
-});
+export const GroupContext = React.createContext<CheckboxGroupContext | null>(null);
 
 class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
@@ -156,16 +152,14 @@ class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGrou
     }
 
     const context = {
-      checkboxGroup: {
-        toggleOption: this.toggleOption,
-        value: this.state.value,
-        disabled: this.props.disabled,
-        name: this.props.name,
+      toggleOption: this.toggleOption,
+      value: this.state.value,
+      disabled: this.props.disabled,
+      name: this.props.name,
 
-        // https://github.com/ant-design/ant-design/issues/16376
-        registerValue: this.registerValue,
-        cancelValue: this.cancelValue,
-      },
+      // https://github.com/ant-design/ant-design/issues/16376
+      registerValue: this.registerValue,
+      cancelValue: this.cancelValue,
     };
 
     const classString = classNames(groupPrefixCls, className);
