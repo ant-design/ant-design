@@ -457,7 +457,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     throttle(() => {
       if (props.scroll && props.scroll.y === true && internalRefs.body.current) {
         // const tbody = internalRefs.body.current.querySelectorAll('.ant-table-tbody')[0];
-        const antdTable = internalRefs.body.current.closest(`.${prefixCls}-table`);
+        const antdTable = internalRefs.body.current.closest(`.${prefixCls}`);
         const thead = antdTable ? antdTable.querySelectorAll('thead')[0] : null;
         const doms: Element[] = [];
         if (thead) {
