@@ -9,7 +9,7 @@ title: 空状态
 
 ## 设计目标
 
-- 空状态应给予提示，帮助让用户了解空状态原因，避免产生误解与迷失。
+- 空状态应给予提示，帮助让用户了解空状态原因，避免产生误解与迷失；
 
 - 给予用户推荐操作提示，帮助用户摆脱空状态。
 
@@ -75,4 +75,4 @@ title: 空状态
 
 - [Salesforce 空状态设计准则](https://www.lightningdesignsystem.com/guidelines/empty-state/#Message)
 - [PREDIX 空状态设计准则](https://www.predix-ui.com/#/design/communication/empty-states)
-- [Material Design 设计准则](https://material.io/design/communication/empty-states.html#content)
+- [Material Design 空状态设计准则](https://material.io/design/communication/empty-states.html#content)
