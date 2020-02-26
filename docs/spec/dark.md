@@ -4,7 +4,6 @@ order: 6
 title:
   zh-CN: 暗黑模式
   en-US: Dark Theme
-skip: true
 ---
 
 暗黑模式是指把所有 UI 换成黑色或者深色的一个主题模式。
