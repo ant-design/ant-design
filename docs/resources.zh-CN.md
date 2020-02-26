@@ -89,32 +89,32 @@ toc: false
 
 <div class="next-block-use-cards"></div>
 
-- About Face 4
-  - https://gw.alipayobjects.com/zos/basement_prod/817f143b-b325-44e2-b3af-2c32f5af09b4.svg
+- About Face 4 #E1E8B7
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KKZWRozT8D8AAAAAAAAAAABkARQnAQ
   - 一本数字产品和系统的交互设计指南
   - http://book.douban.com/subject/26642302/
-- Web 界面设计
-  - https://gw.alipayobjects.com/zos/basement_prod/2a453990-a63a-4be2-ac70-8235fbaaeb1d.svg
+- Web 界面设计 #009C94
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*yB0oQ42f0kEAAAAAAAAAAABkARQnAQ
   - Web 界面的最佳实践、模式和原理
   - http://book.douban.com/subject/3821157/
-- 界面设计模式
-  - https://gw.alipayobjects.com/zos/basement_prod/2f253f4f-6cc8-45eb-a123-9059336982d9.svg
+- 界面设计模式 #9489CF
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*aFAfTKIjR_IAAAAAAAAAAABkARQnAQ
   - 界面设计总体思路指引
   - http://book.douban.com/subject/25716088/
-- 写给大家看的设计书
-  - https://gw.alipayobjects.com/zos/basement_prod/13c2b17d-05c3-4645-ba9d-25b7abd5172d.svg
+- 写给大家看的设计书 #AFBCC8
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tTvXQYApsIIAAAAAAAAAAABkARQnAQ
   - 优秀设计所必须遵循的基本原则
   - http://book.douban.com/subject/3323633/
-- 设计心理学 1
-  - https://gw.alipayobjects.com/zos/basement_prod/c1129d77-7072-4ca4-8552-28de924154c0.svg
+- 设计心理学 1 #B7D9B7
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*12W8R7nPxxUAAAAAAAAAAABkARQnAQ
   - 强调以人为本的设计哲学
   - http://book.douban.com/subject/26102860/
-- 设计心理学 3
-  - https://gw.alipayobjects.com/zos/basement_prod/9332f989-44b1-4c8a-b90c-6140bb0b0985.svg
+- 设计心理学 3 #EFBDB5
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*a5VNSamt2EIAAAAAAAAAAABkARQnAQ
   - 解释情感因素在设计领域扮演的角色
   - http://book.douban.com/subject/26424688/
-- Web 表单设计
-  - https://gw.alipayobjects.com/zos/basement_prod/5c287576-4b6b-4bf7-95ee-2b85c1bfc482.svg
+- Web 表单设计 #C2DAED
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*vXfQS7sStNYAAAAAAAAAAABkARQnAQ
   - 表单设计的真谛
   - http://book.douban.com/subject/4886100/
 

@@ -53,10 +53,18 @@ function toList([, ...items]: ContentUnit[]) {
     'div',
     { className: 'ant-row resource-cards', style: 'margin: -12px -12px 0 -12px' },
     ...items.map(([, title, [, image, description, link]]: any) => {
-      const titleStr = getUnitString(title);
+      let titleStr = getUnitString(title);
       const imageStr = getUnitString(image);
       const descStr = getUnitString(description);
       const linkStr = getUnitString(link);
+
+      let coverColor: string | null = null;
+      const titleMatch = titleStr.match(/(.*)(#[\dA-Fa-f]{6})/);
+      if (titleMatch) {
+        titleStr = titleMatch[1].trim();
+        coverColor = titleMatch[2];
+      }
+
       return [
         'div',
         {
@@ -72,6 +80,12 @@ function toList([, ...items]: ContentUnit[]) {
               className: 'resource-card-image',
               src: imageStr,
               alt: titleStr,
+              style: coverColor
+                ? {
+                    backgroundColor: coverColor,
+                    objectFit: 'contain',
+                  }
+                : {},
             },
           ],
           ['p', { className: 'resource-card-title' }, titleStr],

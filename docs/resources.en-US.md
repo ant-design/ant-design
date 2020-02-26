@@ -89,31 +89,31 @@ Please find below the books that inspired us, saved our time and helped us to ov
 
 <div class="next-block-use-cards"></div>
 
-- About Face 4
-  - https://gw.alipayobjects.com/zos/basement_prod/5653d1e8-b9ae-4563-bcf6-e654baaafa80.svg
+- About Face 4 #E1E8B7
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*GA-CRIRqKjgAAAAAAAAAAABkARQnAQ
   - The Interactive Design Guide for Digital Products and System
   - https://www.wiley.com/en-sg/About+Face%3A+The+Essentials+of+Interaction+Design%2C+4th+Edition-p-9781118766576
-- Designing Web Interfaces
-  - https://gw.alipayobjects.com/zos/basement_prod/3125a6d3-3a3a-4ca2-bcac-198645b5cf73.svg
+- Designing Web Interfaces #009C94
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KK2xSJu0M80AAAAAAAAAAABkARQnAQ
   - Best Practice, Patterns and Principles for Web Interface
   - http://shop.oreilly.com/product/9780596516253.do
-- Designing Interfaces
-  - https://gw.alipayobjects.com/zos/basement_prod/9d7c722c-0e17-4567-95a3-fbcdcee3d710.svg
+- Designing Interfaces #9489CF
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*slN2QpTvIs0AAAAAAAAAAABkARQnAQ
   - Interface Design Guidelines
   - https://www.amazon.com/Designing-Interfaces-Patterns-Effective-Interaction/dp/1449379702/ref=pd_sbs_14_t_1/131-2623973-6077764?_encoding=UTF8&pd_rd_i=1449379702&pd_rd_r=ebe12a8d-435f-474b-a593-72aadf26c45a&pd_rd_w=18rob&pd_rd_wg=bhRFl&pf_rd_p=5cfcfe89-300f-47d2-b1ad-a4e27203a02a&pf_rd_r=8V8CD0EE336ZZEG15DEN&psc=1&refRID=8V8CD0EE336ZZEG15DEN
-- Non-Designer's Design Book, The, 4th Edition
-  - https://gw.alipayobjects.com/zos/basement_prod/11d4d885-5d74-45b8-b66e-a7d62f903902.svg
+- Non-Designer's Design Book, The, 4th Edition #AFBCC8
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1HbNSIju7pEAAAAAAAAAAABkARQnAQ
   - Basic Principles of Good Design
   - http://www.peachpit.com/store/non-designers-design-book-9780133966152
-- The Design of Everyday Things
-  - https://gw.alipayobjects.com/zos/basement_prod/e4fd4406-0f4a-4f20-9254-d873da8835a7.svg
+- The Design of Everyday Things #B7D9B7
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*4woBSLvOjfMAAAAAAAAAAABkARQnAQ
   - About the People-oriented Design Philosophy
   - https://jnd.org/the-design-of-everyday-things-revised-and-expanded-edition/
-- Emotional Design
-  - https://gw.alipayobjects.com/zos/basement_prod/4b534ae4-803e-4235-874c-14e68d803bf1.svg
+- Emotional Design #EFBDB5
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6ZQJQoKRORsAAAAAAAAAAABkARQnAQ
   - Explain the Role of Emotional Factors in Design
   - https://www.amazon.com/Emotional-Design-Love-Everyday-Things/dp/0465051367
-- Web Form Design
-  - https://gw.alipayobjects.com/zos/basement_prod/3a5f21c4-2dd0-4cad-8d91-0b574dd42789.svg
+- Web Form Design #C2DAED
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VhhwRo7axKQAAAAAAAAAAABkARQnAQ
   - The Essence of Form Design
   - https://rosenfeldmedia.com/books/web-form-design/
