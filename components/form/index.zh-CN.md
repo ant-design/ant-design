@@ -25,12 +25,14 @@ title: Form
 | form | 经 `Form.useForm()` 创建的 form 控制实例，不提供时会自动创建 | [FormInstance](#FormInstance) | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记 | boolean | false |
 | initialValues | 表单默认值，只有初始化以及重置时生效 | object | - |
-| labelAlign | label 标签的文本对齐方式 | 'left' \| 'right' | 'right' |
-| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) |  |
-| layout | 表单布局 | 'horizontal'\|'vertical'\|'inline' | 'horizontal' |
+| labelAlign | label 标签的文本对齐方式 | `left` \| `right` | `right` |
+| labelCol | label 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | [object](https://ant.design/components/grid/#Col) | - |
+| layout | 表单布局 | `horizontal` \| `vertical` \| `inline` | `horizontal` |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - |
+| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | false | - |
+| size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |
 | validateMessages | 验证提示模板，说明[见下](#validateMessages) | [ValidateMessages](https://github.com/react-component/field-form/blob/master/src/utils/messages.ts) | - |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) |  |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | [object](https://ant.design/components/grid/#Col) | - |
 | onFinish | 提交表单且数据验证成功后回调事件 | Function(values) | - |
 | onFinishFailed | 提交表单且数据验证失败后回调事件 | Function({ values, errorFields, outOfDate }) | - |
 | onFieldsChange | 字段更新时触发回调事件 | Function(changedFields, allFields) | - |
@@ -77,6 +79,7 @@ const validateMessages = {
 | htmlFor | 设置子元素 label `htmlFor` 属性 | string | - |
 | noStyle | 为 `true` 时不带样式，作为纯字段控件使用 | boolean | false |
 | label | `label` 标签的文本 | string\|ReactNode | - |
+| labelAlign | 标签文本对齐方式 | `left` \| `right` | `right` |
 | labelCol | `label` 标签布局，同 `<Col>` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}`。你可以通过 Form 的 `labelCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准 | [object](/components/grid/#Col) | - |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
 | normalize | 转换字段值给控件 | (value, prevValue, prevValues) => any | - |
@@ -84,10 +87,11 @@ const validateMessages = {
 | rules | 校验规则，设置字段的校验逻辑。点击[此处](#components-form-demo-basic)查看示例 | [Rule](#Rule)[] | - |
 | shouldUpdate | 自定义字段更新逻辑，说明[见下](#shouldUpdate) | boolean \| (prevValue, curValue) => boolean | false |
 | trigger | 设置收集字段值变更的时机 | string | onChange |
-| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string |  |
+| validateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验 | boolean | false |
+| validateStatus | 校验状态，如不设置，则会根据校验规则自动生成，可选：'success' 'warning' 'error' 'validating' | string | - |
 | validateTrigger | 设置字段校验的时机 | string \| string[] | onChange |
-| valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | value |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) |  |
+| valuePropName | 子节点的值的属性，如 Switch 的是 'checked' | string | 'value' |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 `labelCol`。你可以通过 Form 的 `wrapperCol` 进行统一设置。当和 Form 同时设置时，以 Item 为准。 | [object](/components/grid/#Col) | - |
 
 ### dependencies
 
@@ -132,7 +136,7 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | name | 字段名，支持数组 | [NamePath](#NamePath) | - |
-| children | 渲染函数 | (fields: Field[], operation: { add, remove }) => React.ReactNode | - |
+| children | 渲染函数 | (fields: Field[], operation: { add, remove, move }) => React.ReactNode | - |
 
 ```tsx
 <Form.List>
@@ -175,14 +179,14 @@ Form 通过增量更新方式，只更新被修改的字段相关组件以达到
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
 | getFieldValue | 获取对应字段名的值 | (name: [NamePath](#NamePath)) => any |
-| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[]) => any |
+| getFieldsValue | 获取一组字段名对应的值，会按照对应结构返回 | (nameList?: [NamePath](#NamePath)[], filterFunc?: (meta: { touched: boolean, validating: boolean }) => boolean) => any |
 | getFieldError | 获取对应字段名的错误信息 | (name: [NamePath](#NamePath)) => string[] |
 | getFieldsError | 获取一组字段名对应的错误信息，返回为数组形式 | (nameList?: [NamePath](#NamePath)[]) => FieldError[] |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)[], allTouched?: boolean) => boolean |
 | isFieldValidating | 检查一组字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |
 | resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)[]) => void |
-| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath)) => void |
+| scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/blob/ece40bd9143f48caf4b99503425ecb16b0ad8249/src/types.ts#L10)]) => void |
 | setFields | 设置一组字段状态 | (fields: FieldData[]) => void |
 | setFieldsValue | 设置表单的值 | (values) => void |
 | submit | 提交表单，与点击 `submit` 按钮效果相同 | () => void |
@@ -236,6 +240,12 @@ validateFields()
 
 #### Rule
 
+Rule 支持接收 object 进行配置，也支持 function 来动态获取 from 的数据：
+
+```tsx
+type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
+```
+
 | 名称 | 说明 | 类型 |
 | --- | --- | --- |
 | enum | 是否匹配枚举中的值 | any[] |
@@ -259,7 +269,7 @@ validateFields()
 .code-box-demo .ant-form:not(.ant-form-inline):not(.ant-form-vertical) {
   max-width: 600px;
 }
-.markdown.api-container table td:last-child {
+.markdown.api-container table td:nth-of-type(4) {
   white-space: nowrap;
   word-wrap: break-word;
 }
@@ -286,3 +296,18 @@ validator(rule, value, callback) => {
   }
 }
 ```
+
+### 为何在 Modal 中调用 form 控制台会报错？
+
+> Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
+
+这是因为你在调用 form 方法时，Modal 还未初始化导致 form 没有关联任何 Form 组件。你可以通过给 Modal 设置 `forceRender` 将其预渲染。示例点击[此处](https://codesandbox.io/s/antd-reproduction-template-ibu5c)。
+
+<style>
+  .site-form-item-icon {
+    color: rgba(0, 0, 0, 0.25);
+  }
+  [data-theme="dark"] .site-form-item-icon {
+    color: rgba(255,255,255,.3);
+  }
+</style>

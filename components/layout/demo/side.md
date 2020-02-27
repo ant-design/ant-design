@@ -22,7 +22,13 @@ The level of the aside navigation is scalable. The first, second, and third leve
 
 ```jsx
 import { Layout, Menu, Breadcrumb } from 'antd';
-import { Desktop, PieChart, File, Team, User } from '@ant-design/icons';
+import {
+  DesktopOutlined,
+  PieChartOutlined,
+  FileOutlined,
+  TeamOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -44,18 +50,18 @@ class SiderDemo extends React.Component {
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
-              <PieChart />
+              <PieChartOutlined />
               <span>Option 1</span>
             </Menu.Item>
             <Menu.Item key="2">
-              <Desktop />
+              <DesktopOutlined />
               <span>Option 2</span>
             </Menu.Item>
             <SubMenu
               key="sub1"
               title={
                 <span>
-                  <User />
+                  <UserOutlined />
                   <span>User</span>
                 </span>
               }
@@ -68,7 +74,7 @@ class SiderDemo extends React.Component {
               key="sub2"
               title={
                 <span>
-                  <Team />
+                  <TeamOutlined />
                   <span>Team</span>
                 </span>
               }
@@ -77,18 +83,20 @@ class SiderDemo extends React.Component {
               <Menu.Item key="8">Team 2</Menu.Item>
             </SubMenu>
             <Menu.Item key="9">
-              <File />
+              <FileOutlined />
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
+        <Layout className="site-layout">
+          <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
               <Breadcrumb.Item>Bill</Breadcrumb.Item>
             </Breadcrumb>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>Bill is a cat.</div>
+            <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+              Bill is a cat.
+            </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
@@ -106,4 +114,14 @@ ReactDOM.render(<SiderDemo />, mountNode);
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
+
+.site-layout .site-layout-background {
+  background: #fff;
+}
 ```
+
+<style>
+  [data-theme="dark"] .site-layout .site-layout-background {
+    background: #141414;
+  }
+</style>

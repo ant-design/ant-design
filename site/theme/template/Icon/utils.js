@@ -46,32 +46,3 @@ export function withThemeSuffix(type, theme) {
   }
   return result;
 }
-
-// For alias or compatibility
-export function alias(type) {
-  let newType = type;
-  switch (type) {
-    case 'cross':
-      newType = 'close';
-      break;
-    // https://github.com/ant-design/ant-design/issues/13007
-    case 'interation':
-      newType = 'interaction';
-      break;
-    // https://github.com/ant-design/ant-design/issues/16810
-    case 'canlendar':
-      newType = 'calendar';
-      break;
-    // https://github.com/ant-design/ant-design/issues/17448
-    case 'colum-height':
-      newType = 'column-height';
-      break;
-    default:
-  }
-  warning(
-    newType === type,
-    'Icon',
-    `Icon '${type}' was a typo and is now deprecated, please use '${newType}' instead.`,
-  );
-  return newType;
-}

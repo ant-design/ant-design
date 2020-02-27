@@ -25,6 +25,7 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
   </label>
   <label
     class="my-checkbox-group-item my-checkbox-wrapper"
+    style="font-size:12px"
   >
     <span
       class="my-checkbox"
@@ -43,4 +44,10 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
     </span>
   </label>
 </div>
+`;
+
+exports[`CheckboxGroup rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-checkbox-group"
+/>
 `;

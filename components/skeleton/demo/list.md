@@ -15,7 +15,7 @@ Use skeleton in list component.
 
 ```jsx
 import { Skeleton, Switch, List, Avatar } from 'antd';
-import { Star, Like, Message } from '@ant-design/icons';
+import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
 
 const listData = [];
 for (let i = 0; i < 3; i++) {
@@ -62,9 +62,9 @@ class App extends React.Component {
               key={item.title}
               actions={
                 !loading && [
-                  <IconText icon={Star} text="156" key="list-vertical-star-o" />,
-                  <IconText icon={Like} text="156" key="list-vertical-like-o" />,
-                  <IconText icon={Message} text="2" key="list-vertical-message" />,
+                  <IconText icon={StarOutlined} text="156" key="list-vertical-star-o" />,
+                  <IconText icon={LikeOutlined} text="156" key="list-vertical-like-o" />,
+                  <IconText icon={MessageOutlined} text="2" key="list-vertical-message" />,
                 ]
               }
               extra={

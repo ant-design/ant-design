@@ -74,7 +74,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               </svg>
             </span>
             <span
-              style="padding-left:8px;cursor:auto"
+              class="comment-action"
             >
               0
             </span>
@@ -104,7 +104,7 @@ exports[`renders ./components/comment/demo/basic.md correctly 1`] = `
               </svg>
             </span>
             <span
-              style="padding-left:8px;cursor:auto"
+              class="comment-action"
             >
               0
             </span>
@@ -152,7 +152,7 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
         >
           <div>
             <div
-              class="ant-row-flex ant-form-item"
+              class="ant-row ant-form-item"
             >
               <div
                 class="ant-col ant-form-item-control"
@@ -160,15 +160,19 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                 <div
                   class="ant-form-item-control-input"
                 >
-                  <textarea
-                    class="ant-input"
-                    rows="4"
-                  />
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <textarea
+                      class="ant-input"
+                      rows="4"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
             <div
-              class="ant-row-flex ant-form-item"
+              class="ant-row ant-form-item"
             >
               <div
                 class="ant-col ant-form-item-control"
@@ -176,14 +180,18 @@ exports[`renders ./components/comment/demo/editor.md correctly 1`] = `
                 <div
                   class="ant-form-item-control-input"
                 >
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="submit"
+                  <div
+                    class="ant-form-item-control-input-content"
                   >
-                    <span>
-                      Add Comment
-                    </span>
-                  </button>
+                    <button
+                      class="ant-btn ant-btn-primary"
+                      type="submit"
+                    >
+                      <span>
+                        Add Comment
+                      </span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

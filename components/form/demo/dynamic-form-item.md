@@ -15,7 +15,7 @@ Add or remove form items dynamically.
 
 ```jsx
 import { Form, Input, Button } from 'antd';
-import { MinusCircle, Plus } from '@ant-design/icons';
+import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const formItemLayout = {
   labelCol: {
@@ -67,7 +67,7 @@ const DynamicFieldSet = () => {
                     <Input placeholder="passenger name" style={{ width: '60%', marginRight: 8 }} />
                   </Form.Item>
                   {fields.length > 1 ? (
-                    <MinusCircle
+                    <MinusCircleOutlined
                       className="dynamic-delete-button"
                       onClick={() => {
                         remove(field.name);
@@ -84,7 +84,7 @@ const DynamicFieldSet = () => {
                   }}
                   style={{ width: '60%' }}
                 >
-                  <Plus /> Add field
+                  <PlusOutlined /> Add field
                 </Button>
               </Form.Item>
             </div>
@@ -121,3 +121,12 @@ ReactDOM.render(<DynamicFieldSet />, mountNode);
   opacity: 0.5;
 }
 ```
+
+<style>
+  [data-theme="dark"] .dynamic-delete-button {
+    color: rgba(255,255,255,.45);
+  }
+  [data-theme="dark"] .dynamic-delete-button:hover {
+    color: rgba(255,255,255,.65);
+  }
+</style>

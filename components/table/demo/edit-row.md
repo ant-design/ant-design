@@ -1,5 +1,5 @@
 ---
-order: 23
+order: 24
 title:
   en-US: Editable Rows
   zh-CN: 可编辑行
@@ -14,6 +14,7 @@ title:
 Table with editable rows.
 
 ```tsx
+import React, { useState } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
 
 interface Item {
@@ -78,8 +79,8 @@ const EditableCell: React.FC<EditableCellProps> = ({
 
 const EditableTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = React.useState(originData);
-  const [editingKey, setEditingKey] = React.useState('');
+  const [data, setData] = useState(originData);
+  const [editingKey, setEditingKey] = useState('');
 
   const isEditing = record => record.key === editingKey;
 

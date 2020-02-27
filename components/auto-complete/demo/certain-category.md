@@ -15,11 +15,9 @@ Demonstration of [Lookup Patterns: Certain Category](https://ant.design/docs/spe
 
 ```tsx
 import { Input, AutoComplete } from 'antd';
-import { Search, User } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 
-const { Option, OptGroup } = AutoComplete;
-
-function renderTitle(title: string) {
+const renderTitle = (title: string) => {
   return (
     <span>
       {title}
@@ -33,21 +31,26 @@ function renderTitle(title: string) {
       </a>
     </span>
   );
-}
+};
 
-function renderItem(title: string, count: number) {
+const renderItem = (title: string, count: number) => {
   return {
     value: title,
     label: (
-      <>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
         {title}
-        <span className="certain-search-item-count">
-          <User /> {count}
+        <span>
+          <UserOutlined /> {count}
         </span>
-      </>
+      </div>
     ),
   };
-}
+};
 
 const options = [
   {
@@ -64,34 +67,23 @@ const options = [
   },
 ];
 
-function Complete() {
+const Complete: React.FC = () => {
   return (
-    <div className="certain-category-search-wrapper" style={{ width: 250 }}>
-      <AutoComplete
-        className="certain-category-search"
-        dropdownClassName="certain-category-search-dropdown"
-        dropdownMatchSelectWidth={500}
-        style={{ width: '100%' }}
-        options={options}
-      >
-        <Input
-          size="large"
-          suffix={<Search className="certain-category-icon" />}
-          placeholder="input here"
-        />
-      </AutoComplete>
-    </div>
+    <AutoComplete
+      dropdownClassName="certain-category-search-dropdown"
+      dropdownMatchSelectWidth={500}
+      style={{ width: 250 }}
+      options={options}
+    >
+      <Input.Search size="large" placeholder="input here" />
+    </AutoComplete>
   );
-}
+};
 
 ReactDOM.render(<Complete />, mountNode);
 ```
 
 ```css
-.certain-category-search.ant-select-auto-complete .ant-input-affix-wrapper .ant-input-suffix {
-  right: 12px;
-}
-
 .certain-category-search-dropdown .ant-select-dropdown-menu-item-group-title {
   color: #666;
   font-weight: bold;
@@ -112,21 +104,5 @@ ReactDOM.render(<Complete />, mountNode);
 
 .certain-category-search-dropdown .ant-select-dropdown-menu {
   max-height: 300px;
-}
-
-.certain-search-item-count {
-  position: absolute;
-  color: #999;
-  right: 16px;
-}
-
-.certain-category-search.ant-select-focused .certain-category-icon {
-  color: #108ee9;
-}
-
-.certain-category-icon {
-  color: #6e6e6e;
-  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-  font-size: 16px;
 }
 ```

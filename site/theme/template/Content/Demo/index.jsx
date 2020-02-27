@@ -5,13 +5,14 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip } from 'antd';
-import { Snippets, Check } from '@ant-design/icons';
-
+import { Tooltip, Alert } from 'antd';
+import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
 import EditButton from '../EditButton';
-import ErrorBoundary from '../ErrorBoundary';
 import BrowserFrame from '../../BrowserFrame';
+
+const { ErrorBoundary } = Alert;
 
 function compress(string) {
   return LZString.compressToBase64(string)
@@ -21,6 +22,8 @@ function compress(string) {
 }
 
 class Demo extends React.Component {
+  iframeRef = React.createRef();
+
   state = {
     codeExpand: false,
     copied: false,
@@ -36,19 +39,20 @@ class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipVisible } = this.state;
-    const { expand } = this.props;
+    const { expand, theme } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
-      copyTooltipVisible !== nextState.copyTooltipVisible
+      copyTooltipVisible !== nextState.copyTooltipVisible ||
+      nextProps.theme !== theme
     );
   }
 
   getSourceCode() {
-    const { highlightedCode } = this.props;
+    const { highlightedCodes } = this.props;
     if (typeof document !== 'undefined') {
       const div = document.createElement('div');
-      div.innerHTML = highlightedCode[1].highlighted;
+      div.innerHTML = highlightedCodes.jsx;
       return div.textContent;
     }
     return '';
@@ -99,6 +103,13 @@ class Demo extends React.Component {
     });
   }
 
+  handleIframeReady = () => {
+    const { theme, setIframeTheme } = this.props;
+    if (this.iframeRef.current) {
+      setIframeTheme(this.iframeRef.current, theme);
+    }
+  };
+
   render() {
     const { state } = this;
     const { props } = this;
@@ -113,12 +124,20 @@ class Demo extends React.Component {
       expand,
       utils,
       intl: { locale },
+      theme,
     } = props;
     const { copied, copyTooltipVisible } = state;
     if (!this.liveDemo) {
       this.liveDemo = meta.iframe ? (
         <BrowserFrame>
-          <iframe src={src} height={meta.iframe} title="demo" />
+          <iframe
+            ref={this.iframeRef}
+            onLoad={this.handleIframeReady}
+            src={src}
+            height={meta.iframe}
+            title="demo"
+            className="iframe-demo"
+          />
         </BrowserFrame>
       ) : (
         preview(React, ReactDOM)
@@ -163,12 +182,14 @@ class Demo extends React.Component {
         .replace(/([a-zA-Z]*)\s+as\s+([a-zA-Z]*)/, '$1:$2'),
       css: prefillStyle,
       editors: '001',
-      css_external: 'https://unpkg.com/antd/dist/antd.css',
+      // eslint-disable-next-line no-undef
+      css_external: `https://unpkg.com/antd@${antdReproduceVersion}/dist/antd.css`,
       js_external: [
         'react@16.x/umd/react.development.js',
         'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
-        'antd/dist/antd-with-locales.js',
+        // eslint-disable-next-line no-undef
+        `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
       ]
@@ -185,37 +206,61 @@ class Demo extends React.Component {
       (acc, line) => {
         const matches = line.match(/import .+? from '(.+)';$/);
         if (matches && matches[1] && !line.includes('antd')) {
-          const [dep] = matches[1].split('/');
-          if (dep) {
+          const paths = matches[1].split('/');
+
+          if (paths.length) {
+            const dep = paths[0].startsWith('@') ? `${paths[0]}/${paths[1]}` : paths[0];
             acc[dep] = 'latest';
           }
         }
         return acc;
       },
-      { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
+      // eslint-disable-next-line no-undef
+      { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
-    const codesanboxPrefillConfig = {
-      files: {
-        'package.json': {
-          content: {
-            dependencies,
-          },
-        },
-        'index.css': {
-          content: (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), ''),
-        },
-        'index.js': {
-          content: `
-import React from 'react';
+
+    if (dependencies['@ant-design/icons']) {
+      // eslint-disable-next-line no-undef
+      dependencies['@ant-design/icons'] = antdReproduceVersion;
+    }
+
+    // Reorder source code
+    let parsedSourceCode = sourceCode;
+    let importReactContent = "import React from 'react';";
+
+    const importReactReg = /import(\D*)from 'react';/;
+    const matchImportReact = parsedSourceCode.match(importReactReg);
+    if (matchImportReact) {
+      importReactContent = matchImportReact[0];
+      parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
+    }
+
+    const indexJsContent = `
+${importReactContent}
 import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-${sourceCode.replace('mountNode', "document.getElementById('container')")}
-          `,
-        },
+${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
+`.trim();
+    const indexCssContent = (style || '').replace(new RegExp(`#${meta.id}\\s*`, 'g'), '');
+    const codesanboxPrefillConfig = {
+      files: {
+        'package.json': { content: { dependencies } },
+        'index.css': { content: indexCssContent },
+        'index.js': { content: indexJsContent },
         'index.html': {
           content: html,
         },
+      },
+    };
+    const stackblitzPrefillConfig = {
+      title: `${localizedTitle} - Ant Design Demo`,
+      template: 'create-react-app',
+      dependencies,
+      files: {
+        'index.css': indexCssContent,
+        'index.js': indexJsContent,
+        'index.html': html,
       },
     };
     return (
@@ -255,21 +300,23 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            <form
-              action="https://codepen.io/pen/define"
-              method="POST"
-              target="_blank"
-              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                <input
-                  type="submit"
-                  value="Create New Pen with Prefilled Data"
-                  className="code-box-codepen"
-                />
-              </Tooltip>
-            </form>
+            {!dependencies['@ant-design/icons'] && (
+              <form
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+                onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+              >
+                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                  <input
+                    type="submit"
+                    value="Create New Pen with Prefilled Data"
+                    className="code-box-codepen"
+                  />
+                </Tooltip>
+              </form>
+            )}
             <form
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
@@ -289,15 +336,29 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
+            <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
+              <span
+                className="code-box-code-action"
+                onClick={() => {
+                  this.track({ type: 'stackblitz', demo: meta.id });
+                  stackblitzSdk.openProject(stackblitzPrefillConfig);
+                }}
+              >
+                <ThunderboltOutlined />
+              </span>
+            </Tooltip>
             <CopyToClipboard text={sourceCode} onCopy={() => this.handleCodeCopied(meta.id)}>
               <Tooltip
                 visible={copyTooltipVisible}
                 onVisibleChange={this.onCopyTooltipVisibleChange}
                 title={<FormattedMessage id={`app.demo.${copied ? 'copied' : 'copy'}`} />}
               >
-                {React.createElement(copied && copyTooltipVisible ? Check : Snippets, {
-                  className: 'code-box-code-copy',
-                })}
+                {React.createElement(
+                  copied && copyTooltipVisible ? CheckOutlined : SnippetsOutlined,
+                  {
+                    className: 'code-box-code-copy',
+                  },
+                )}
               </Tooltip>
             </CopyToClipboard>
             <Tooltip
@@ -306,13 +367,21 @@ ${sourceCode.replace('mountNode', "document.getElementById('container')")}
               <span className="code-expand-icon">
                 <img
                   alt="expand code"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg"
+                  src={
+                    theme === 'dark'
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/btT3qDZn1U/wSAkBuJFbdxsosKKpqyq.svg'
+                      : 'https://gw.alipayobjects.com/zos/rmsportal/wSAkBuJFbdxsosKKpqyq.svg'
+                  }
                   className={codeExpand ? 'code-expand-icon-hide' : 'code-expand-icon-show'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />
                 <img
                   alt="expand code"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg"
+                  src={
+                    theme === 'dark'
+                      ? 'https://gw.alipayobjects.com/zos/antfincdn/CjZPwcKUG3/OpROPHYqWmrMDBFMZtKF.svg'
+                      : 'https://gw.alipayobjects.com/zos/rmsportal/OpROPHYqWmrMDBFMZtKF.svg'
+                  }
                   className={codeExpand ? 'code-expand-icon-show' : 'code-expand-icon-hide'}
                   onClick={() => this.handleCodeExpand(meta.id)}
                 />

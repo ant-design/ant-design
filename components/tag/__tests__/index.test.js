@@ -2,10 +2,13 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Tag', () => {
   mountTest(Tag);
   mountTest(Tag.CheckableTag);
+  rtlTest(Tag);
+  rtlTest(Tag.CheckableTag);
 
   beforeAll(() => {
     jest.useFakeTimers();
@@ -37,6 +40,16 @@ describe('Tag', () => {
     wrapper.find('.anticon-close').simulate('click');
     jest.runAllTimers();
     expect(wrapper.find('.ant-tag:not(.ant-tag-hidden)').length).toBe(1);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/20344
+  it('should not trigger onClick when click close icon', () => {
+    const onClose = jest.fn();
+    const onClick = jest.fn();
+    const wrapper = mount(<Tag closable onClose={onClose} onClick={onClick} />);
+    wrapper.find('.anticon-close').simulate('click');
+    expect(onClose).toHaveBeenCalled();
+    expect(onClick).not.toHaveBeenCalled();
   });
 
   describe('visibility', () => {

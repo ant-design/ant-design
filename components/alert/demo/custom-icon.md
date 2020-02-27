@@ -14,11 +14,11 @@ title:
 
 A relevant icon makes information clearer and more friendly.
 
-```jsx
+```tsx
 import { Alert } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
-const icon = <Smile />;
+const icon = <SmileOutlined />;
 
 ReactDOM.render(
   <div>

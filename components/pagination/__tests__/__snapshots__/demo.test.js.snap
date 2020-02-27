@@ -12,6 +12,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   >
     <a
       class="ant-pagination-item-link"
+      disabled=""
     >
       <span
         aria-label="left"
@@ -295,6 +296,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -512,11 +514,13 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
               disabled=""
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -686,7 +690,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     class="ant-pagination-disabled ant-pagination-prev"
     title="Previous Page"
   >
-    <a>
+    <a
+      disabled=""
+    >
       Previous
     </a>
   </li>
@@ -963,7 +969,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -1137,7 +1143,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           disabled=""
           type="text"
@@ -1162,6 +1168,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1273,6 +1280,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1392,6 +1400,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              readonly=""
               role="combobox"
               style="opacity:0"
               value=""
@@ -1434,7 +1443,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
       <div
         class="ant-pagination-options-quick-jumper"
       >
-        Goto
+        Go to
         <input
           type="text"
           value=""
@@ -1458,6 +1467,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1819,7 +1829,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
     <span
       class="ant-pagination-slash"
     >
-      ／
+      /
     </span>
     5
   </li>
@@ -1875,6 +1885,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"
@@ -1992,6 +2003,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     >
       <a
         class="ant-pagination-item-link"
+        disabled=""
       >
         <span
           aria-label="left"

@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -29,6 +30,7 @@ export interface AvatarProps {
 
 export interface AvatarState {
   scale: number;
+  mounted: boolean;
   isImgExist: boolean;
 }
 
@@ -40,6 +42,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   state = {
     scale: 1,
+    mounted: false,
     isImgExist: true,
   };
 
@@ -53,6 +56,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
 
   componentDidMount() {
     this.setScale();
+    this.setState({ mounted: true });
   }
 
   componentDidUpdate(prevProps: AvatarProps) {
@@ -105,7 +109,13 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       ...others
     } = this.props;
 
-    const { isImgExist, scale } = this.state;
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'Avatar',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
+
+    const { isImgExist, scale, mounted } = this.state;
 
     const prefixCls = getPrefixCls('avatar', customizePrefixCls);
 
@@ -144,6 +154,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
           WebkitTransform: transformString,
           transform: transformString,
         };
+
         const sizeChildrenStyle: React.CSSProperties =
           typeof size === 'number'
             ? {
@@ -160,9 +171,15 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
           </span>
         );
       } else {
+        const childrenStyle: React.CSSProperties = {};
+        if (!mounted) {
+          childrenStyle.opacity = 0;
+        }
+
         children = (
           <span
             className={`${prefixCls}-string`}
+            style={{ opacity: 0 }}
             ref={(node: HTMLElement) => (this.avatarChildren = node)}
           >
             {children}

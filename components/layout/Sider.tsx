@@ -1,30 +1,11 @@
-import createContext, { Context } from '@ant-design/create-react-context';
-
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { Bars, Right, Left } from '@ant-design/icons';
+import { BarsOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
 
 import { LayoutContext, LayoutContextProps } from './layout';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import isNumeric from '../_util/isNumeric';
-
-// matchMedia polyfill for
-// https://github.com/WickyNilliams/enquire.js/issues/82
-// TODO: Will be removed in antd 4.0 because we will no longer support ie9
-if (typeof window !== 'undefined') {
-  const matchMediaPolyfill = (mediaQuery: string) => {
-    return {
-      media: mediaQuery,
-      matches: false,
-      addListener() {},
-      removeListener() {},
-    };
-  };
-  // ref: https://github.com/ant-design/ant-design/issues/18774
-  if (!window.matchMedia) window.matchMedia = matchMediaPolyfill as any;
-}
 
 const dimensionMaxMap = {
   xs: '479.98px',
@@ -40,7 +21,7 @@ export interface SiderContextProps {
   collapsedWidth?: string | number;
 }
 
-export const SiderContext: Context<SiderContextProps> = createContext({});
+export const SiderContext: React.Context<SiderContextProps> = React.createContext({});
 
 export type CollapseType = 'clickTrigger' | 'responsive';
 
@@ -53,6 +34,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   defaultCollapsed?: boolean;
   reverseArrow?: boolean;
   onCollapse?: (collapsed: boolean, type: CollapseType) => void;
+  zeroWidthTriggerStyle?: React.CSSProperties;
   trigger?: React.ReactNode;
   width?: number | string;
   collapsedWidth?: number | string;
@@ -187,6 +169,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       style,
       width,
       collapsedWidth,
+      zeroWidthTriggerStyle,
       ...others
     } = this.props;
     const prefixCls = getPrefixCls('layout-sider', customizePrefixCls);
@@ -197,6 +180,7 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
       'breakpoint',
       'onBreakpoint',
       'siderHook',
+      'zeroWidthTriggerStyle',
     ]);
     const rawWidth = this.state.collapsed ? collapsedWidth : width;
     // use "px" as fallback unit for width
@@ -209,13 +193,14 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
           className={`${prefixCls}-zero-width-trigger ${prefixCls}-zero-width-trigger-${
             reverseArrow ? 'right' : 'left'
           }`}
+          style={zeroWidthTriggerStyle}
         >
-          <Bars />
+          <BarsOutlined />
         </span>
       ) : null;
     const iconObj = {
-      expanded: reverseArrow ? <Right /> : <Left />,
-      collapsed: reverseArrow ? <Left /> : <Right />,
+      expanded: reverseArrow ? <RightOutlined /> : <LeftOutlined />,
+      collapsed: reverseArrow ? <LeftOutlined /> : <RightOutlined />,
     };
     const status = this.state.collapsed ? 'collapsed' : 'expanded';
     const defaultTrigger = iconObj[status];
@@ -267,8 +252,6 @@ class InternalSider extends React.Component<InternalSideProps, SiderState> {
     );
   }
 }
-
-polyfill(InternalSider);
 
 // eslint-disable-next-line react/prefer-stateless-function
 export default class Sider extends React.Component {

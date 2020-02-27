@@ -7,12 +7,12 @@
 @import './inline';
 @import './horizontal';
 @import './vertical';
+@import './status';
 @import './mixin';
 
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 @form-font-height: ceil(@font-size-base * @line-height-base);
-@form-label-margin-top: floor((@input-height-base - @form-font-height) / 2);
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -20,9 +20,39 @@
 
   .@{form-prefix-cls}-text {
     display: inline-block;
-    margin-top: @form-label-margin-top;
     padding-right: 8px;
   }
+
+  &-rtl {
+    direction: rtl;
+  }
+
+  // ================================================================
+  // =                             Size                             =
+  // ================================================================
+  .formSize(@input-height) {
+    .@{form-item-prefix-cls}-label > label {
+      height: @input-height;
+    }
+
+    .@{form-item-prefix-cls}-control-input {
+      min-height: @input-height;
+    }
+  }
+
+  &-small {
+    .formSize(@input-height-sm);
+  }
+  &-large {
+    .formSize(@input-height-lg);
+  }
+}
+
+.explainAndExtraDistance(@num) when (@num>=0) {
+  padding-top: floor(@num);
+}
+.explainAndExtraDistance(@num) when (@num<0) {
+  margin-top: floor(@num);
 }
 
 // ================================================================
@@ -54,12 +84,16 @@
 
     > label {
       position: relative;
-      display: inline-block;
-      margin-top: @form-label-margin-top;
+      // display: inline;
+      display: inline-flex;
+      align-items: center;
+      height: 100%;
+      height: @input-height-base;
       color: @label-color;
+      font-size: @form-item-label-font-size;
 
       > .@{iconfont-css-prefix} {
-        font-size: @font-size-base;
+        font-size: @form-item-label-font-size;
         vertical-align: top;
       }
 
@@ -67,7 +101,7 @@
         display: inline-block;
         margin-right: 4px;
         color: @label-required-color;
-        font-size: @font-size-base;
+        font-size: @form-item-label-font-size;
         font-family: SimSun, sans-serif;
         line-height: 1;
         content: '*';
@@ -87,7 +121,7 @@
 
         position: relative;
         top: -0.5px;
-        margin: 0 8px 0 2px;
+        margin: 0 @form-item-label-colon-margin-right 0 @form-item-label-colon-margin-left;
       }
 
       &.@{form-item-prefix-cls}-no-colon::after {
@@ -110,285 +144,24 @@
 
   &-control-input {
     position: relative;
-    .clearfix;
+    display: flex;
+    align-items: center;
+    min-height: @input-height-base;
+
+    &-content {
+      flex: auto;
+    }
   }
 
   &-explain,
   &-extra {
     clear: both;
     min-height: @form-item-margin-bottom;
-    padding-top: floor((@form-item-margin-bottom - @form-font-height) / 2);
+    .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2);
     color: @text-color-secondary;
     font-size: @font-size-base;
     line-height: @line-height-base;
     transition: color 0.3s @ease-out; // sync input color transition
-  }
-
-  // ================================================================
-  // =                            Status                            =
-  // ================================================================
-  /* Some non-status related component style is in `components.less` */
-
-  &-has-feedback {
-    // ========================= Input =========================
-    .@{ant-prefix}-input {
-      padding-right: 24px;
-    }
-
-    // Fix issue: https://github.com/ant-design/ant-design/issues/7854
-    .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
-      .@{ant-prefix}-input-suffix {
-        right: 28px;
-      }
-    }
-
-    .@{ant-prefix}-input-password-icon {
-      margin-right: 18px;
-    }
-
-    // ======================== Switch =========================
-    .@{ant-prefix}-switch {
-      margin: 2px 0 4px;
-    }
-
-    // ======================== Select =========================
-    // Fix overlapping between feedback icon and <Select>'s arrow.
-    // https://github.com/ant-design/ant-design/issues/4431
-    > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
-    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
-    :not(.@{ant-prefix}-input-group-addon)
-      > .@{ant-prefix}-select
-      .@{ant-prefix}-select-selection__clear {
-      right: 28px;
-    }
-    > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
-    :not(.@{ant-prefix}-input-group-addon)
-      > .@{ant-prefix}-select
-      .@{ant-prefix}-select-selection-selected-value {
-      padding-right: 42px;
-    }
-
-    // ======================= Cascader ========================
-    .@{ant-prefix}-cascader-picker {
-      &-arrow {
-        margin-right: 17px;
-      }
-      &-clear {
-        right: 28px;
-      }
-    }
-
-    // ======================== Picker =========================
-    // Fix issue: https://github.com/ant-design/ant-design/issues/4783
-    .@{ant-prefix}-calendar-picker,
-    .@{ant-prefix}-time-picker {
-      &-icon,
-      &-clear {
-        right: 28px;
-      }
-    }
-
-    // ===================== Status Group ======================
-    &.@{form-item-prefix-cls} {
-      &-has-success,
-      &-has-warning,
-      &-has-error,
-      &-is-validating {
-        // ====================== Icon ======================
-        .@{form-item-prefix-cls}-children-icon {
-          position: absolute;
-          top: 50%;
-          right: 0;
-          z-index: 1;
-          width: @input-height-base;
-          height: 20px;
-          margin-top: -10px;
-          font-size: @font-size-base;
-          line-height: 20px;
-          text-align: center;
-          visibility: visible;
-          animation: zoomIn 0.3s @ease-out-back;
-          pointer-events: none;
-
-          & svg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-          }
-        }
-      }
-    }
-  }
-
-  // ======================== Success ========================
-  &-has-success {
-    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
-      color: @success-color;
-      animation-name: diffZoomIn1 !important;
-    }
-  }
-
-  // ======================== Warning ========================
-  &-has-warning {
-    .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg);
-
-    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
-      color: @warning-color;
-      animation-name: diffZoomIn3 !important;
-    }
-
-    //select
-    .@{ant-prefix}-select {
-      &-selection {
-        border-color: @warning-color;
-        &:hover {
-          border-color: @warning-color;
-        }
-      }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
-        .active(@warning-color);
-      }
-    }
-
-    // arrow and icon
-    .@{ant-prefix}-calendar-picker-icon::after,
-    .@{ant-prefix}-time-picker-icon::after,
-    .@{ant-prefix}-picker-icon::after,
-    .@{ant-prefix}-select-arrow,
-    .@{ant-prefix}-cascader-picker-arrow {
-      color: @warning-color;
-    }
-
-    //input-number, timepicker
-    .@{ant-prefix}-input-number,
-    .@{ant-prefix}-time-picker-input {
-      border-color: @warning-color;
-      &-focused,
-      &:focus {
-        .active(@warning-color);
-      }
-      &:not([disabled]):hover {
-        border-color: @warning-color;
-      }
-    }
-
-    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
-      .active(@warning-color);
-    }
-  }
-
-  // ========================= Error =========================
-  &-has-error {
-    .form-control-validation(@error-color; @error-color; @form-error-input-bg);
-
-    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
-      color: @error-color;
-      animation-name: diffZoomIn2 !important;
-    }
-
-    //select
-    .@{ant-prefix}-select {
-      &-selection {
-        border-color: @error-color;
-        &:hover {
-          border-color: @error-color;
-        }
-      }
-      &-open .@{ant-prefix}-select-selection,
-      &-focused .@{ant-prefix}-select-selection {
-        .active(@error-color);
-      }
-    }
-
-    .@{ant-prefix}-select.@{ant-prefix}-select-auto-complete {
-      .@{ant-prefix}-input:focus {
-        border-color: @error-color;
-      }
-    }
-
-    .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
-      &-selection {
-        border-color: transparent;
-        box-shadow: none;
-      }
-    }
-
-    // arrow and icon
-    .@{ant-prefix}-calendar-picker-icon::after,
-    .@{ant-prefix}-time-picker-icon::after,
-    .@{ant-prefix}-picker-icon::after,
-    .@{ant-prefix}-select-arrow,
-    .@{ant-prefix}-cascader-picker-arrow {
-      color: @error-color;
-    }
-
-    //input-number, timepicker
-    .@{ant-prefix}-input-number,
-    .@{ant-prefix}-time-picker-input {
-      border-color: @error-color;
-      &-focused,
-      &:focus {
-        .active(@error-color);
-      }
-      &:not([disabled]):hover {
-        border-color: @error-color;
-      }
-    }
-    .@{ant-prefix}-mention-wrapper {
-      .@{ant-prefix}-mention-editor {
-        &,
-        &:not([disabled]):hover {
-          border-color: @error-color;
-        }
-      }
-      &.@{ant-prefix}-mention-active:not([disabled]) .@{ant-prefix}-mention-editor,
-      .@{ant-prefix}-mention-editor:not([disabled]):focus {
-        .active(@error-color);
-      }
-    }
-
-    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
-      .active(@error-color);
-    }
-
-    // transfer
-    .@{ant-prefix}-transfer {
-      &-list {
-        border-color: @error-color;
-
-        &-search:not([disabled]) {
-          border-color: @input-border-color;
-
-          &:hover {
-            .hover();
-          }
-
-          &:focus {
-            .active();
-          }
-        }
-      }
-    }
-  }
-
-  // Patch to keep error explain color
-  &-has-error-leave {
-    .@{form-item-prefix-cls}-explain {
-      color: @error-color;
-    }
-  }
-
-  // ====================== Validating =======================
-  &-is-validating {
-    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
-      display: inline-block;
-      color: @primary-color;
-    }
   }
 }
 

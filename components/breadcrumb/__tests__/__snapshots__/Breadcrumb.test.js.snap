@@ -32,6 +32,12 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
 </div>
 `;
 
+exports[`Breadcrumb rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-breadcrumb ant-breadcrumb-rtl"
+/>
+`;
+
 exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 <div
   class="ant-breadcrumb"
@@ -149,6 +155,39 @@ exports[`Breadcrumb should render a menu 1`] = `
       <span>
         second
       </span>
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+</div>
+`;
+
+exports[`Breadcrumb should support custom attribute 1`] = `
+<div
+  class="ant-breadcrumb"
+  data-custom="custom"
+>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+      data-custom="custom-item"
+    >
+      xxx
+    </span>
+    <span
+      class="ant-breadcrumb-separator"
+    >
+      /
+    </span>
+  </span>
+  <span>
+    <span
+      class="ant-breadcrumb-link"
+    >
+      yyy
     </span>
     <span
       class="ant-breadcrumb-separator"

@@ -13,7 +13,7 @@ title:
 
 A non-case-sensitive AutoComplete
 
-```jsx
+```tsx
 import { AutoComplete } from 'antd';
 
 const options = [
@@ -22,14 +22,14 @@ const options = [
   { value: 'Wall Street' },
 ];
 
-function Complete() {
+const Complete: React.FC = () => {
   return (
     <AutoComplete
       style={{ width: 200 }}
       options={options}
       placeholder="try to type `b`"
       filterOption={(inputValue, option) =>
-        option.children.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
+        option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
       }
     />
   );

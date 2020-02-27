@@ -15,7 +15,7 @@ Use a form in Drawer with a submit button.
 
 ```jsx
 import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker } from 'antd';
-import { Plus } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -38,13 +38,31 @@ class DrawerForm extends React.Component {
     return (
       <div>
         <Button type="primary" onClick={this.showDrawer}>
-          <Plus /> New account
+          <PlusOutlined /> New account
         </Button>
         <Drawer
           title="Create a new account"
           width={720}
           onClose={this.onClose}
           visible={this.state.visible}
+          bodyStyle={{ paddingBottom: 80 }}
+          footer={
+            <div
+              style={{
+                textAlign: 'right',
+              }}
+            >
+              <Button
+                onClick={this.onClose}
+                style={{ marginRight: 8 }}
+              >
+                Cancel
+              </Button>
+              <Button onClick={this.onClose} type="primary">
+                Submit
+              </Button>
+            </div>
+          }
         >
           <Form layout="vertical" hideRequiredMark>
             <Row gutter={16}>
@@ -141,25 +159,6 @@ class DrawerForm extends React.Component {
               </Col>
             </Row>
           </Form>
-          <div
-            style={{
-              position: 'absolute',
-              left: 0,
-              bottom: 0,
-              width: '100%',
-              borderTop: '1px solid #e9e9e9',
-              padding: '10px 16px',
-              background: '#fff',
-              textAlign: 'right',
-            }}
-          >
-            <Button onClick={this.onClose} style={{ marginRight: 8 }}>
-              Cancel
-            </Button>
-            <Button onClick={this.onClose} type="primary">
-              Submit
-            </Button>
-          </div>
         </Drawer>
       </div>
     );
@@ -168,3 +167,23 @@ class DrawerForm extends React.Component {
 
 ReactDOM.render(<DrawerForm />, mountNode);
 ```
+
+```css
+.site-form-in-drawer-wrapper {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding: 10px 16px;
+  border-top: 1px solid #e9e9e9;
+  background: #fff;
+  text-align: right;
+}
+```
+
+<style>
+[data-theme="dark"] .site-form-in-drawer-wrapper {
+  border-top: 1px solid #303030;
+  background: #1f1f1f;
+}
+</style>

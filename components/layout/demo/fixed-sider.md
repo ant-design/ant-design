@@ -17,14 +17,14 @@ When dealing with long content, a fixed sider can provide a better user experien
 ```jsx
 import { Layout, Menu } from 'antd';
 import {
-  Appstore,
-  BarChart,
-  Cloud,
-  Shop,
-  Team,
-  User,
-  Upload as IconUpload,
-  VideoCamera,
+  AppstoreOutlined,
+  BarChartOutlined,
+  CloudOutlined,
+  ShopOutlined,
+  TeamOutlined,
+  UserOutlined,
+  UploadOutlined,
+  VideoCameraOutlined,
 } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -42,43 +42,43 @@ ReactDOM.render(
       <div className="logo" />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
         <Menu.Item key="1">
-          <User />
+          <UserOutlined />
           <span className="nav-text">nav 1</span>
         </Menu.Item>
         <Menu.Item key="2">
-          <VideoCamera />
+          <VideoCameraOutlined />
           <span className="nav-text">nav 2</span>
         </Menu.Item>
         <Menu.Item key="3">
-          <IconUpload />
+          <UploadOutlined />
           <span className="nav-text">nav 3</span>
         </Menu.Item>
         <Menu.Item key="4">
-          <BarChart />
+          <BarChartOutlined />
           <span className="nav-text">nav 4</span>
         </Menu.Item>
         <Menu.Item key="5">
-          <Cloud />
+          <CloudOutlined />
           <span className="nav-text">nav 5</span>
         </Menu.Item>
         <Menu.Item key="6">
-          <Appstore />
+          <AppstoreOutlined />
           <span className="nav-text">nav 6</span>
         </Menu.Item>
         <Menu.Item key="7">
-          <Team />
+          <TeamOutlined />
           <span className="nav-text">nav 7</span>
         </Menu.Item>
         <Menu.Item key="8">
-          <Shop />
+          <ShopOutlined />
           <span className="nav-text">nav 8</span>
         </Menu.Item>
       </Menu>
     </Sider>
-    <Layout style={{ marginLeft: 200 }}>
-      <Header style={{ background: '#fff', padding: 0 }} />
+    <Layout className="site-layout" style={{ marginLeft: 200 }}>
+      <Header className="site-layout-background" style={{ padding: 0 }} />
       <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-        <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
+        <div className="site-layout-background" style={{ padding: 24, textAlign: 'center' }}>
           ...
           <br />
           Really
@@ -189,4 +189,13 @@ ReactDOM.render(
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
+.site-layout .site-layout-background {
+  background: #fff;
+}
 ```
+
+<style>
+  [data-theme="dark"] .site-layout .site-layout-background {
+    background: #141414;
+  }
+</style>

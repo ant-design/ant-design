@@ -14,4 +14,18 @@
   &-columns {
     justify-content: space-between;
   }
+  &-item {
+    .page-wrapper-rtl & {
+      display: flex;
+      justify-content: flex-start;
+      text-align: right;
+    }
+
+    &-icon {
+      .page-wrapper-rtl & {
+        margin-right: 0;
+        margin-left: 0.4em;
+      }
+    }
+  }
 }

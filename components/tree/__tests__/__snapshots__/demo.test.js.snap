@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/tree/demo/basic.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
   <div
     role="tree"
   >
@@ -10,9 +12,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -281,12 +283,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/basic-controlled.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
   <div
     role="tree"
   >
@@ -295,9 +299,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -768,12 +772,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/customized-icon.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree"
+>
   <div
     role="tree"
   >
@@ -782,9 +788,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -953,12 +959,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/directory.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-directory ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -967,9 +975,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-directory ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -1298,12 +1306,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/draggable.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree draggable-tree ant-tree-icon-hide ant-tree-block-node"
+>
   <div
     role="tree"
   >
@@ -1312,9 +1322,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree draggable-tree ant-tree-icon-hide ant-tree-block-node"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -1635,12 +1645,14 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/dynamic.md correctly 1`] = `
-Array [
+<div
+  class="ant-tree ant-tree-icon-hide"
+>
   <div
     role="tree"
   >
@@ -1649,9 +1661,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -1753,12 +1765,580 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</div>
 `;
 
 exports[`renders ./components/tree/demo/line.md correctly 1`] = `
-Array [
+<div>
+  <div
+    style="margin-bottom:16px"
+  >
+    showLine: 
+    <button
+      aria-checked="true"
+      checked=""
+      class="ant-switch ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
+    <br />
+    <br />
+    showIcon: 
+    <button
+      aria-checked="false"
+      class="ant-switch"
+      role="switch"
+      type="button"
+    >
+      <span
+        class="ant-switch-inner"
+      />
+    </button>
+  </div>
+  <div
+    class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+  >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-tree-list"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
+        >
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="minus-square"
+                class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="minus-square"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                  />
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="parent 1"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                parent 1
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-open"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher_open"
+            >
+              <span
+                aria-label="minus-square"
+                class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="minus-square"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                  />
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open"
+              title="parent 1-0"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                parent 1-0
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              />
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            >
+              <span
+                aria-label="file"
+                class="anticon anticon-file ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="file"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="leaf"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                leaf
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              />
+              <span
+                class="ant-tree-indent-unit"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            >
+              <span
+                aria-label="file"
+                class="anticon anticon-file ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="file"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="leaf"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                leaf
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-start"
+              />
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            >
+              <span
+                aria-label="file"
+                class="anticon anticon-file ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="file"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M854.6 288.6L639.4 73.4c-6-6-14.1-9.4-22.6-9.4H192c-17.7 0-32 14.3-32 32v832c0 17.7 14.3 32 32 32h640c17.7 0 32-14.3 32-32V311.3c0-8.5-3.4-16.7-9.4-22.7zM790.2 326H602V137.8L790.2 326zm1.8 562H232V136h302v216a42 42 0 0042 42h216v494z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title="leaf"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                leaf
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher_close"
+            >
+              <span
+                aria-label="plus-square"
+                class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus-square"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                  />
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title="parent 1-1"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                parent 1-1
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              aria-hidden="true"
+              class="ant-tree-indent"
+            >
+              <span
+                class="ant-tree-indent-unit ant-tree-indent-unit-end"
+              />
+            </span>
+            <span
+              class="ant-tree-switcher ant-tree-switcher_close"
+            >
+              <span
+                aria-label="plus-square"
+                class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="plus-square"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
+                  />
+                  <path
+                    d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title="parent 1-2"
+            >
+              <span
+                class="ant-tree-title"
+              >
+                parent 1-2
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tree/demo/search.md correctly 1`] = `
+<div>
+  <span
+    class="ant-input-search ant-input-affix-wrapper"
+    style="margin-bottom:8px"
+  >
+    <input
+      class="ant-input"
+      placeholder="Search"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-suffix"
+    >
+      <span
+        aria-label="search"
+        class="anticon anticon-search ant-input-search-icon"
+        role="img"
+        tabindex="-1"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="search"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+          />
+        </svg>
+      </span>
+    </span>
+  </span>
+  <div
+    class="ant-tree ant-tree-icon-hide"
+  >
+    <div
+      role="tree"
+    >
+      <input
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-tree-list"
+    >
+      <div>
+        <div
+          class="ant-tree-list-holder-inner"
+          style="display:flex;flex-direction:column"
+        >
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher_close"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title=""
+            >
+              <span
+                class="ant-tree-title"
+              >
+                <span>
+                  <span
+                    class="site-tree-search-value"
+                  />
+                  0-0
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher_close"
+            >
+              <span
+                aria-label="caret-down"
+                class="anticon anticon-caret-down ant-tree-switcher-icon"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  class=""
+                  data-icon="caret-down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="0 0 1024 1024"
+                  width="1em"
+                >
+                  <path
+                    d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
+              title=""
+            >
+              <span
+                class="ant-tree-title"
+              >
+                <span>
+                  <span
+                    class="site-tree-search-value"
+                  />
+                  0-1
+                </span>
+              </span>
+            </span>
+          </div>
+          <div
+            class="ant-tree-treenode ant-tree-treenode-switcher-close"
+          >
+            <span
+              class="ant-tree-switcher ant-tree-switcher-noop"
+            />
+            <span
+              class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+              title=""
+            >
+              <span
+                class="ant-tree-title"
+              >
+                <span>
+                  <span
+                    class="site-tree-search-value"
+                  />
+                  0-2
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/tree/demo/switcher-icon.md correctly 1`] = `
+<div
+  class="ant-tree ant-tree-icon-hide ant-tree-show-line"
+>
   <div
     role="tree"
   >
@@ -1767,9 +2347,9 @@ Array [
       tabindex="0"
       value=""
     />
-  </div>,
+  </div>
   <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide ant-tree-show-line"
+    class="ant-tree-list"
   >
     <div>
       <div
@@ -1783,14 +2363,14 @@ Array [
             class="ant-tree-switcher ant-tree-switcher_open"
           >
             <span
-              aria-label="minus-square"
-              class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+              aria-label="down"
+              class="anticon anticon-down ant-tree-switcher-icon"
               role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="minus-square"
+                data-icon="down"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1798,10 +2378,7 @@ Array [
                 width="1em"
               >
                 <path
-                  d="M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                />
-                <path
-                  d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                 />
               </svg>
             </span>
@@ -1832,14 +2409,14 @@ Array [
             class="ant-tree-switcher ant-tree-switcher_open"
           >
             <span
-              aria-label="minus-square"
-              class="anticon anticon-minus-square ant-tree-switcher-line-icon"
+              aria-label="down"
+              class="anticon anticon-down ant-tree-switcher-icon"
               role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="minus-square"
+                data-icon="down"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -1847,10 +2424,7 @@ Array [
                 width="1em"
               >
                 <path
-                  d="M328 544h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                />
-                <path
-                  d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                 />
               </svg>
             </span>
@@ -2028,14 +2602,14 @@ Array [
             class="ant-tree-switcher ant-tree-switcher_close"
           >
             <span
-              aria-label="plus-square"
-              class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+              aria-label="down"
+              class="anticon anticon-down ant-tree-switcher-icon"
               role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="plus-square"
+                data-icon="down"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -2043,10 +2617,7 @@ Array [
                 width="1em"
               >
                 <path
-                  d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                />
-                <path
-                  d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                 />
               </svg>
             </span>
@@ -2077,14 +2648,14 @@ Array [
             class="ant-tree-switcher ant-tree-switcher_close"
           >
             <span
-              aria-label="plus-square"
-              class="anticon anticon-plus-square ant-tree-switcher-line-icon"
+              aria-label="down"
+              class="anticon anticon-down ant-tree-switcher-icon"
               role="img"
             >
               <svg
                 aria-hidden="true"
                 class=""
-                data-icon="plus-square"
+                data-icon="down"
                 fill="currentColor"
                 focusable="false"
                 height="1em"
@@ -2092,10 +2663,7 @@ Array [
                 width="1em"
               >
                 <path
-                  d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"
-                />
-                <path
-                  d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
                 />
               </svg>
             </span>
@@ -2108,175 +2676,6 @@ Array [
               class="ant-tree-title"
             >
               parent 1-2
-            </span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders ./components/tree/demo/search.md correctly 1`] = `
-<div>
-  <span
-    class="ant-input-search ant-input-affix-wrapper"
-    style="margin-bottom:8px"
-  >
-    <input
-      class="ant-input"
-      placeholder="Search"
-      type="text"
-      value=""
-    />
-    <span
-      class="ant-input-suffix"
-    >
-      <span
-        aria-label="search"
-        class="anticon anticon-search ant-input-search-icon"
-        role="img"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="search"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-          />
-        </svg>
-      </span>
-    </span>
-  </span>
-  <div
-    role="tree"
-  >
-    <input
-      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-      tabindex="0"
-      value=""
-    />
-  </div>
-  <div
-    class="ant-tree-list ant-tree ant-tree-icon-hide"
-  >
-    <div>
-      <div
-        class="ant-tree-list-holder-inner"
-        style="display:flex;flex-direction:column"
-      >
-        <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
-        >
-          <span
-            class="ant-tree-switcher ant-tree-switcher_close"
-          >
-            <span
-              aria-label="caret-down"
-              class="anticon anticon-caret-down ant-tree-switcher-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
-            title=""
-          >
-            <span
-              class="ant-tree-title"
-            >
-              <span>
-                <span
-                  style="color:#f50"
-                />
-                0-0
-              </span>
-            </span>
-          </span>
-        </div>
-        <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
-        >
-          <span
-            class="ant-tree-switcher ant-tree-switcher_close"
-          >
-            <span
-              aria-label="caret-down"
-              class="anticon anticon-caret-down ant-tree-switcher-icon"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                class=""
-                data-icon="caret-down"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="0 0 1024 1024"
-                width="1em"
-              >
-                <path
-                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                />
-              </svg>
-            </span>
-          </span>
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"
-            title=""
-          >
-            <span
-              class="ant-tree-title"
-            >
-              <span>
-                <span
-                  style="color:#f50"
-                />
-                0-1
-              </span>
-            </span>
-          </span>
-        </div>
-        <div
-          class="ant-tree-treenode ant-tree-treenode-switcher-close"
-        >
-          <span
-            class="ant-tree-switcher ant-tree-switcher-noop"
-          />
-          <span
-            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
-            title=""
-          >
-            <span
-              class="ant-tree-title"
-            >
-              <span>
-                <span
-                  style="color:#f50"
-                />
-                0-2
-              </span>
             </span>
           </span>
         </div>

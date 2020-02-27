@@ -31,7 +31,6 @@ Array [
   "InputNumber",
   "Layout",
   "List",
-  "LocaleProvider",
   "message",
   "Menu",
   "Mentions",
@@ -63,7 +62,6 @@ Array [
   "Timeline",
   "Tooltip",
   "Typography",
-  "Mention",
   "Upload",
   "version",
 ]

@@ -18,7 +18,6 @@ import { Drawer, List, Avatar, Divider, Col, Row } from 'antd';
 
 const pStyle = {
   fontSize: 16,
-  color: 'rgba(0,0,0,0.85)',
   lineHeight: '24px',
   display: 'block',
   marginBottom: 16,
@@ -26,18 +25,18 @@ const pStyle = {
 
 const DescriptionItem = ({ title, content }) => (
   <div
+    className="site-description-item-profile-wrapper"
     style={{
       fontSize: 14,
       lineHeight: '22px',
       marginBottom: 7,
-      color: 'rgba(0,0,0,0.65)',
     }}
   >
     <p
+      className="site-description-item-profile-p"
       style={{
         marginRight: 8,
         display: 'inline-block',
-        color: 'rgba(0,0,0,0.85)',
       }}
     >
       {title}:
@@ -88,7 +87,7 @@ class App extends React.Component {
                   <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
                 }
                 title={<a href="https://ant.design/index-cn">{item.name}</a>}
-                description="Progresser AFX"
+                description="Progresser XTech"
               />
             </List.Item>
           )}
@@ -100,11 +99,15 @@ class App extends React.Component {
           onClose={this.onClose}
           visible={this.state.visible}
         >
-          <p style={{ ...pStyle, marginBottom: 24 }}>User Profile</p>
-          <p style={pStyle}>Personal</p>
+          <p className="site-description-item-profile-p" style={{ ...pStyle, marginBottom: 24 }}>
+            User Profile
+          </p>
+          <p className="site-description-item-profile-p" style={pStyle}>
+            Personal
+          </p>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Full Name" content="Lily" />{' '}
+              <DescriptionItem title="Full Name" content="Lily" />
             </Col>
             <Col span={12}>
               <DescriptionItem title="Account" content="AntDesign@example.com" />
@@ -135,7 +138,9 @@ class App extends React.Component {
             </Col>
           </Row>
           <Divider />
-          <p style={pStyle}>Company</p>
+          <p className="site-description-item-profile-p" style={pStyle}>
+            Company
+          </p>
           <Row>
             <Col span={12}>
               <DescriptionItem title="Position" content="Programmer" />
@@ -146,7 +151,7 @@ class App extends React.Component {
           </Row>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Department" content="AFX" />
+              <DescriptionItem title="Department" content="XTech" />
             </Col>
             <Col span={12}>
               <DescriptionItem title="Supervisor" content={<a>Lin</a>} />
@@ -161,7 +166,9 @@ class App extends React.Component {
             </Col>
           </Row>
           <Divider />
-          <p style={pStyle}>Contacts</p>
+          <p className="site-description-item-profile-p" style={pStyle}>
+            Contacts
+          </p>
           <Row>
             <Col span={12}>
               <DescriptionItem title="Email" content="AntDesign@example.com" />
@@ -190,3 +197,21 @@ class App extends React.Component {
 
 ReactDOM.render(<App />, mountNode);
 ```
+
+```css
+.site-description-item-profile-wrapper {
+  color: rgba(0, 0, 0, 0.65);
+}
+.site-description-item-profile-p {
+  color: rgba(0, 0, 0, 0.85);
+}
+```
+
+<style>
+[data-theme="dark"] .site-description-item-profile-p {
+  color: rgba(255,255,255,0.85);
+}
+[data-theme="dark"] .site-description-item-profile-wrapper {
+  color: rgba(255,255,255,0.65);
+}
+</style>

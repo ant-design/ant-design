@@ -99,8 +99,7 @@ exports[`renders ./components/tag/demo/animation.md correctly 1`] = `
     </div>
   </div>
   <span
-    class="ant-tag"
-    style="background:#fff;border-style:dashed"
+    class="ant-tag site-tag-plus"
   >
     <span
       aria-label="plus"
@@ -380,8 +379,7 @@ exports[`renders ./components/tag/demo/control.md correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-tag"
-    style="background:#fff;border-style:dashed"
+    class="ant-tag site-tag-plus"
   >
     <span
       aria-label="plus"
@@ -454,11 +452,11 @@ exports[`renders ./components/tag/demo/controlled.md correctly 1`] = `
 
 exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
 <div>
-  <h6
-    style="margin-right:8px;display:inline"
+  <span
+    style="margin-right:8px"
   >
     Categories:
-  </h6>
+  </span>
   <span
     class="ant-tag ant-tag-checkable"
   >
@@ -478,6 +476,36 @@ exports[`renders ./components/tag/demo/hot-tags.md correctly 1`] = `
     class="ant-tag ant-tag-checkable"
   >
     Sports
+  </span>
+</div>
+`;
+
+exports[`renders ./components/tag/demo/status.md correctly 1`] = `
+<div>
+  <span
+    class="ant-tag ant-tag-success"
+  >
+    success
+  </span>
+  <span
+    class="ant-tag ant-tag-processing"
+  >
+    processing
+  </span>
+  <span
+    class="ant-tag ant-tag-error"
+  >
+    error
+  </span>
+  <span
+    class="ant-tag ant-tag-default"
+  >
+    default
+  </span>
+  <span
+    class="ant-tag ant-tag-warning"
+  >
+    warning
   </span>
 </div>
 `;

@@ -1,6 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Loading, CloseCircleFilled, CheckCircleFilled, ExclamationCircleFilled } from '@ant-design/icons';
+import {
+  LoadingOutlined,
+  CloseCircleFilled,
+  CheckCircleFilled,
+  ExclamationCircleFilled,
+} from '@ant-design/icons';
+import useMemo from 'rc-util/lib/hooks/useMemo';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
 
 import Col, { ColProps } from '../grid/col';
@@ -12,8 +18,6 @@ interface FormItemInputMiscProps {
   prefixCls: string;
   children: React.ReactNode;
   errors: React.ReactNode[];
-  touched: boolean;
-  validating: boolean;
   hasFeedback?: boolean;
   validateStatus?: ValidateStatus;
   onDomErrorVisibleChange: (visible: boolean) => void;
@@ -29,19 +33,22 @@ const iconMap: { [key: string]: any } = {
   success: CheckCircleFilled,
   warning: ExclamationCircleFilled,
   error: CloseCircleFilled,
-  validating: Loading,
-}
+  validating: LoadingOutlined,
+};
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
   prefixCls,
   wrapperCol,
   children,
+  help,
   errors,
   onDomErrorVisibleChange,
   hasFeedback,
   validateStatus,
   extra,
 }) => {
+  const [, forceUpdate] = React.useState({});
+
   const baseClassName = `${prefixCls}-item`;
 
   const formContext = React.useContext(FormContext);
@@ -50,19 +57,29 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
-  const [visible, cacheErrors] = useCacheErrors(errors, changedVisible => {
-    if (changedVisible) {
-      onDomErrorVisibleChange(true);
-    }
-  });
+  const [visible, cacheErrors] = useCacheErrors(
+    errors,
+    changedVisible => {
+      if (changedVisible) {
+        onDomErrorVisibleChange(true);
+      }
+      forceUpdate({});
+    },
+    !!help,
+  );
+
+  const memoErrors = useMemo(
+    () => cacheErrors,
+    visible,
+    (_, nextVisible) => nextVisible,
+  );
 
   // Should provides additional icon if `hasFeedback`
-  // const iconType = getIconType(validateStatus);
-  const iconNode = validateStatus && iconMap[validateStatus];
+  const IconNode = validateStatus && iconMap[validateStatus];
   const icon =
-    hasFeedback && iconNode ? (
+    hasFeedback && IconNode ? (
       <span className={`${baseClassName}-children-icon`}>
-        {iconNode}
+        <IconNode />
       </span>
     ) : null;
 
@@ -75,7 +92,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
     <FormContext.Provider value={subFormContext}>
       <Col {...mergedWrapperCol} className={className}>
         <div className={`${baseClassName}-control-input`}>
-          {children}
+          <div className={`${baseClassName}-control-input-content`}>{children}</div>
           {icon}
         </div>
         <CSSMotion
@@ -90,7 +107,10 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
           {({ className: motionClassName }: { className: string }) => {
             return (
               <div className={classNames(`${baseClassName}-explain`, motionClassName)} key="help">
-                {cacheErrors}
+                {memoErrors.map((error, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <div key={index}>{error}</div>
+                ))}
               </div>
             );
           }}

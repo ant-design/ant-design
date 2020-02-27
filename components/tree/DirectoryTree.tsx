@@ -3,19 +3,13 @@ import classNames from 'classnames';
 import omit from 'omit.js';
 import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
+import { EventDataNode, DataNode } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
-import { polyfill } from 'react-lifecycles-compat';
-import { File, FolderOpen, Folder } from '@ant-design/icons';
+import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
-import Tree, {
-  TreeProps,
-  AntdTreeNodeAttribute,
-  AntTreeNodeExpandedEvent,
-  AntTreeNodeSelectedEvent,
-  AntTreeNode,
-} from './Tree';
-import { calcRangeKeys, convertDirectoryKeysToNodes } from './util';
+import Tree, { TreeProps, AntdTreeNodeAttribute } from './Tree';
+import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 
@@ -31,9 +25,9 @@ export interface DirectoryTreeState {
 function getIcon(props: AntdTreeNodeAttribute): React.ReactNode {
   const { isLeaf, expanded } = props;
   if (isLeaf) {
-    return <File />;
+    return <FileOutlined />;
   }
-  return expanded ? <FolderOpen /> : <Folder />;
+  return expanded ? <FolderOpenOutlined /> : <FolderOutlined />;
 }
 
 function getTreeData({ treeData, children }: DirectoryTreeProps) {
@@ -61,7 +55,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
 
   tree: Tree;
 
-  onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => void;
+  onDebounceExpand: (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => void;
 
   // Shift click usage
   lastSelectedKey?: string;
@@ -96,7 +90,14 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     });
   }
 
-  onExpand = (expandedKeys: string[], info: AntTreeNodeExpandedEvent) => {
+  onExpand = (
+    expandedKeys: string[],
+    info: {
+      node: EventDataNode;
+      expanded: boolean;
+      nativeEvent: MouseEvent;
+    },
+  ) => {
     const { onExpand } = this.props;
 
     this.setUncontrolledState({ expandedKeys });
@@ -109,7 +110,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     return undefined;
   };
 
-  onClick = (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => {
+  onClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
     const { onClick, expandAction } = this.props;
 
     // Expand the tree
@@ -122,7 +123,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     }
   };
 
-  onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => {
+  onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
     const { onDoubleClick, expandAction } = this.props;
 
     // Expand the tree
@@ -135,7 +136,16 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     }
   };
 
-  onSelect = (keys: string[], event: AntTreeNodeSelectedEvent) => {
+  onSelect = (
+    keys: string[],
+    event: {
+      event: 'select';
+      selected: boolean;
+      node: any;
+      selectedNodes: DataNode[];
+      nativeEvent: MouseEvent;
+    },
+  ) => {
     const { onSelect, multiple } = this.props;
     const { expandedKeys = [] } = this.state;
     const { node, nativeEvent } = event;
@@ -145,7 +155,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     const newState: DirectoryTreeState = {};
 
     // We need wrap this event since some value is not same
-    const newEvent: AntTreeNodeSelectedEvent = {
+    const newEvent: any = {
       ...event,
       selected: true, // Directory selected always true
     };
@@ -191,8 +201,8 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     this.tree = node;
   };
 
-  expandFolderNode = (event: React.MouseEvent<HTMLElement>, node: AntTreeNode) => {
-    const { isLeaf } = node.props;
+  expandFolderNode = (event: React.MouseEvent<HTMLElement>, node: any) => {
+    const { isLeaf } = node;
 
     if (isLeaf || event.shiftKey || event.metaKey || event.ctrlKey) {
       return;
@@ -213,12 +223,14 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     }
   };
 
-  renderDirectoryTree = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderDirectoryTree = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, ...props } = this.props;
     const { expandedKeys, selectedKeys } = this.state;
 
     const prefixCls = getPrefixCls('tree', customizePrefixCls);
-    const connectClassName = classNames(`${prefixCls}-directory`, className);
+    const connectClassName = classNames(`${prefixCls}-directory`, className, {
+      [`${prefixCls}-directory-rtl`]: direction === 'rtl',
+    });
 
     return (
       <Tree
@@ -242,7 +254,5 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     return <ConfigConsumer>{this.renderDirectoryTree}</ConfigConsumer>;
   }
 }
-
-polyfill(DirectoryTree);
 
 export default DirectoryTree;

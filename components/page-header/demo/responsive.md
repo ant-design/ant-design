@@ -1,6 +1,6 @@
 ---
-order: 4
-iframe: 240
+order: 6
+iframe: 210
 title:
   zh-CN: 响应式
   en-US: responsive
@@ -64,6 +64,7 @@ const Content = ({ children, extra }) => {
 ReactDOM.render(
   <div>
     <PageHeader
+      className="site-page-header-responsive"
       onBack={() => window.history.back()}
       title="Title"
       subTitle="This is a subtitle"
@@ -88,9 +89,22 @@ ReactDOM.render(
 );
 ```
 
+```css
+.site-page-header-responsive {
+  border: 1px solid rgb(235, 237, 240);
+}
+```
+
 <style>
+[data-theme="dark"] .site-page-header-responsive {
+  border: 1px solid #303030;
+}
 tr:last-child td {
   padding-bottom: 0;
+}
+.ant-statistic-content {
+  font-size: 20px;
+  line-height: 28px;
 }
 #components-page-header-demo-responsive .content {
   display: flex;

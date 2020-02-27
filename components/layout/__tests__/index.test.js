@@ -4,6 +4,7 @@ import Layout from '..';
 import Icon from '../../icon';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Sider, Content } = Layout;
 
@@ -11,6 +12,10 @@ describe('Layout', () => {
   mountTest(Layout);
   mountTest(Content);
   mountTest(Sider);
+
+  rtlTest(Layout);
+  rtlTest(Content);
+  rtlTest(Sider);
 
   it('detect the sider as children', async () => {
     const wrapper = mount(
@@ -154,16 +159,6 @@ describe('Sider', () => {
     errorSpy.mockRestore();
   });
 
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: true,
-        addListener: () => {},
-        removeListener: () => {},
-      })),
-    });
-  });
-
   it('should trigger onBreakpoint', async () => {
     const onBreakpoint = jest.fn();
 
@@ -184,5 +179,21 @@ describe('Sider', () => {
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Menu] `inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
     );
+  });
+
+  it('zeroWidthTriggerStyle should work', () => {
+    const wrapper = mount(
+      <Sider collapsedWidth={0} collapsible zeroWidthTriggerStyle={{ background: '#F96' }}>
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu.Item key="1">
+            <Icon type="user" />
+            <span>nav 1</span>
+          </Menu.Item>
+        </Menu>
+      </Sider>,
+    );
+    expect(wrapper.find('.ant-layout-sider-zero-width-trigger').props().style).toEqual({
+      background: '#F96',
+    });
   });
 });

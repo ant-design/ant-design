@@ -4,10 +4,15 @@ import { message } from 'antd';
 
 export default class ColorBlock extends Component {
   getTextStyle() {
-    const { color, index } = this.props;
+    const { color, index, dark } = this.props;
+    const colorMap = {
+      default: ['#fff', 'unset'],
+      dark: ['#314659', '#fff'],
+    }
+    const [lastColor, firstColor] = dark ? colorMap.dark : colorMap.default;
     return {
       background: color,
-      color: index > 5 ? '#fff' : 'unset',
+      color: index > 5 ? lastColor : firstColor,
       fontWeight: index === 6 ? 'bold' : 'normal',
     };
   }

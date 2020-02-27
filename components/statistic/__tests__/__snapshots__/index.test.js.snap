@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Statistic rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-statistic ant-statistic-rtl"
+>
+  <div
+    class="ant-statistic-content"
+  >
+    <span
+      class="ant-statistic-content-value"
+    >
+      <span
+        class="ant-statistic-content-value-int"
+      >
+        0
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Statistic support negetive number 1`] = `
 <div
   class="ant-statistic"

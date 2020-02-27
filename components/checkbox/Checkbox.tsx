@@ -1,10 +1,8 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
 import shallowEqual from 'shallowequal';
-import CheckboxGroup, { CheckboxGroupContext } from './Group';
+import CheckboxGroup, { CheckboxGroupContext, GroupContext } from './Group';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import warning from '../_util/warning';
 
@@ -53,9 +51,7 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
     indeterminate: false,
   };
 
-  static contextTypes = {
-    checkboxGroup: PropTypes.any,
-  };
+  static contextType = GroupContext;
 
   context: any;
 
@@ -173,7 +169,5 @@ class Checkbox extends React.Component<CheckboxProps, {}> {
     return <ConfigConsumer>{this.renderCheckbox}</ConfigConsumer>;
   }
 }
-
-polyfill(Checkbox);
 
 export default Checkbox;

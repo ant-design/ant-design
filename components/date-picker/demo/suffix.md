@@ -1,5 +1,5 @@
 ---
-order: 13
+order: 99
 debug: true
 title:
   zh-CN: 后缀图标
@@ -16,10 +16,10 @@ Basic use case. Users can select or input a date in panel.
 
 ```jsx
 import { DatePicker } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
-const smileIcon = <Smile />;
-const { MonthPicker, RangePicker, WeekPicker } = DatePicker;
+const smileIcon = <SmileOutlined />;
+const { RangePicker } = DatePicker;
 
 function onChange(date, dateString) {
   console.log(date, dateString);
@@ -29,19 +29,19 @@ ReactDOM.render(
   <div>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <br />
-    <MonthPicker suffixIcon={smileIcon} onChange={onChange} placeholder="Select month" />
+    <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
     <br />
     <RangePicker suffixIcon={smileIcon} onChange={onChange} />
     <br />
-    <WeekPicker suffixIcon={smileIcon} onChange={onChange} placeholder="Select week" />
+    <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="week" />
     <br />
     <DatePicker suffixIcon="ab" onChange={onChange} />
     <br />
-    <MonthPicker suffixIcon="ab" onChange={onChange} placeholder="Select month" />
+    <DatePicker suffixIcon="ab" onChange={onChange} picker="month" />
     <br />
     <RangePicker suffixIcon="ab" onChange={onChange} />
     <br />
-    <WeekPicker suffixIcon="ab" onChange={onChange} placeholder="Select week" />
+    <DatePicker suffixIcon="ab" onChange={onChange} picker="week" />
   </div>,
   mountNode,
 );

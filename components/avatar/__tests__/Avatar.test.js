@@ -2,9 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Avatar Render', () => {
   mountTest(Avatar);
+  rtlTest(Avatar);
 
   let originOffsetWidth;
   beforeAll(() => {
@@ -132,5 +134,16 @@ describe('Avatar Render', () => {
     });
     wrapper.setProps({ children: 'xx' });
     expect(wrapper.state().scale).toBe(0.32);
+  });
+
+  it('should warning when pass a string as icon props', () => {
+    const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(<Avatar size={64} icon="aa" />);
+    expect(warnSpy).not.toHaveBeenCalled();
+    mount(<Avatar size={64} icon="user" />);
+    expect(warnSpy).toHaveBeenCalledWith(
+      `Warning: [antd: Avatar] \`icon\` is using ReactNode instead of string naming in v4. Please check \`user\` at https://ant.design/components/icon`,
+    );
+    warnSpy.mockRestore();
   });
 });

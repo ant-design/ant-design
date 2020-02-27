@@ -35,6 +35,7 @@ export default {
     removeFile: 'Видалити файл',
     uploadError: 'Помилка завантаження',
     previewFile: 'Попередній перегляд файлу',
+    downloadFile: 'Завантажити файл',
   },
   Empty: {
     description: 'Даних немає',

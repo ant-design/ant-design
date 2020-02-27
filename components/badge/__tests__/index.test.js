@@ -3,9 +3,11 @@ import { mount, render } from 'enzyme';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Badge', () => {
   mountTest(Badge);
+  rtlTest(Badge);
 
   beforeEach(() => {
     jest.useFakeTimers();
@@ -108,6 +110,24 @@ describe('Badge', () => {
         <Badge count="-10" />
         <Badge count={-10} />
       </div>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/21331
+  it('render Badge status/color when contains children', () => {
+    const wrapper = render(
+      <>
+        <Badge count={5} status="success">
+          <a />
+        </Badge>
+        <Badge count={5} color="blue">
+          <a />
+        </Badge>
+        <Badge count={5} color="#08c">
+          <a />
+        </Badge>
+      </>,
     );
     expect(wrapper).toMatchSnapshot();
   });

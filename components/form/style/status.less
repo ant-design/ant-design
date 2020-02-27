@@ -1,0 +1,290 @@
+@import './index.less';
+
+.@{form-item-prefix-cls} {
+  // ================================================================
+  // =                            Status                            =
+  // ================================================================
+  /* Some non-status related component style is in `components.less` */
+
+  &-has-feedback {
+    // ========================= Input =========================
+    .@{ant-prefix}-input {
+      padding-right: 24px;
+    }
+    // https://github.com/ant-design/ant-design/issues/19884
+    .@{ant-prefix}-input-affix-wrapper {
+      .@{ant-prefix}-input-suffix {
+        padding-right: 18px;
+      }
+    }
+
+    // Fix issue: https://github.com/ant-design/ant-design/issues/7854
+    .@{ant-prefix}-input-search:not(.@{ant-prefix}-input-search-enter-button) {
+      .@{ant-prefix}-input-suffix {
+        right: 28px;
+
+        .@{form-prefix-cls}-rtl & {
+          right: auto;
+          left: 28px;
+        }
+      }
+    }
+
+    .@{ant-prefix}-input-password-icon {
+      .@{form-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 18px;
+      }
+    }
+
+    // ======================== Switch =========================
+    .@{ant-prefix}-switch {
+      margin: 2px 0 4px;
+    }
+
+    // ======================== Select =========================
+    // Fix overlapping between feedback icon and <Select>'s arrow.
+    // https://github.com/ant-design/ant-design/issues/4431
+    > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection__clear,
+    :not(.@{ant-prefix}-input-group-addon) > .@{ant-prefix}-select .@{ant-prefix}-select-arrow,
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection__clear {
+      right: 28px;
+
+      .@{form-prefix-cls}-rtl & {
+        right: auto;
+        left: 28px;
+      }
+    }
+    > .@{ant-prefix}-select .@{ant-prefix}-select-selection-selected-value,
+    :not(.@{ant-prefix}-input-group-addon)
+      > .@{ant-prefix}-select
+      .@{ant-prefix}-select-selection-selected-value {
+      padding-right: 42px;
+
+      .@{form-prefix-cls}-rtl & {
+        padding-right: 0;
+        padding-left: 42px;
+      }
+    }
+
+    // ======================= Cascader ========================
+    .@{ant-prefix}-cascader-picker {
+      &-arrow {
+        margin-right: 17px;
+
+        .@{form-prefix-cls}-rtl & {
+          margin-right: 0;
+          margin-left: 17px;
+        }
+      }
+      &-clear {
+        right: 28px;
+
+        .@{form-prefix-cls}-rtl & {
+          right: auto;
+          left: 28px;
+        }
+      }
+    }
+
+    // ======================== Picker =========================
+    // Fix issue: https://github.com/ant-design/ant-design/issues/4783
+    .@{ant-prefix}-picker {
+      padding-right: @input-padding-horizontal-base + @font-size-base * 1.3;
+
+      &-large {
+        padding-right: @input-padding-horizontal-lg + @font-size-base * 1.3;
+      }
+
+      &-small {
+        padding-right: @input-padding-horizontal-sm + @font-size-base * 1.3;
+      }
+    }
+
+    // ===================== Status Group ======================
+    &.@{form-item-prefix-cls} {
+      &-has-success,
+      &-has-warning,
+      &-has-error,
+      &-is-validating {
+        // ====================== Icon ======================
+        .@{form-item-prefix-cls}-children-icon {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          z-index: 1;
+          width: @input-height-base;
+          height: 20px;
+          margin-top: -10px;
+          font-size: @font-size-base;
+          line-height: 20px;
+          text-align: center;
+          visibility: visible;
+          animation: zoomIn 0.3s @ease-out-back;
+          pointer-events: none;
+
+          .@{form-prefix-cls}-rtl & {
+            right: auto;
+            left: 0;
+          }
+
+          & svg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+          }
+        }
+      }
+    }
+  }
+
+  // ======================== Success ========================
+  &-has-success {
+    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
+      color: @success-color;
+      animation-name: diffZoomIn1 !important;
+    }
+  }
+
+  // ======================== Warning ========================
+  &-has-warning {
+    .form-control-validation(@warning-color; @warning-color; @form-warning-input-bg);
+
+    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
+      color: @warning-color;
+      animation-name: diffZoomIn3 !important;
+    }
+
+    //select
+    .@{ant-prefix}-select {
+      .@{ant-prefix}-select-selector {
+        border-color: @warning-color !important;
+      }
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
+        .active(@warning-color);
+      }
+    }
+
+    //input-number, timepicker
+    .@{ant-prefix}-input-number,
+    .@{ant-prefix}-picker {
+      border-color: @warning-color;
+      &-focused,
+      &:focus {
+        .active(@warning-color);
+      }
+      &:not([disabled]):hover {
+        border-color: @warning-color;
+      }
+    }
+
+    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+      .active(@warning-color);
+    }
+  }
+
+  // ========================= Error =========================
+  &-has-error {
+    .form-control-validation(@error-color; @error-color; @form-error-input-bg);
+
+    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
+      color: @error-color;
+      animation-name: diffZoomIn2 !important;
+    }
+
+    //select
+    .@{ant-prefix}-select {
+      .@{ant-prefix}-select-selector {
+        border-color: @error-color !important;
+      }
+      &.@{ant-prefix}-select-open .@{ant-prefix}-select-selector,
+      &.@{ant-prefix}-select-focused .@{ant-prefix}-select-selector {
+        .active(@error-color);
+      }
+    }
+
+    // fixes https://github.com/ant-design/ant-design/issues/20482
+    .@{ant-prefix}-input-group-addon .@{ant-prefix}-select {
+      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
+        .@{ant-prefix}-select-selector {
+        border: 0;
+      }
+    }
+
+    .@{ant-prefix}-select.@{ant-prefix}-select-auto-complete {
+      .@{ant-prefix}-input:focus {
+        border-color: @error-color;
+      }
+    }
+
+    //input-number, timepicker
+    .@{ant-prefix}-input-number,
+    .@{ant-prefix}-picker {
+      border-color: @error-color;
+      &-focused,
+      &:focus {
+        .active(@error-color);
+      }
+      &:not([disabled]):hover {
+        border-color: @error-color;
+      }
+    }
+    .@{ant-prefix}-mention-wrapper {
+      .@{ant-prefix}-mention-editor {
+        &,
+        &:not([disabled]):hover {
+          border-color: @error-color;
+        }
+      }
+      &.@{ant-prefix}-mention-active:not([disabled]) .@{ant-prefix}-mention-editor,
+      .@{ant-prefix}-mention-editor:not([disabled]):focus {
+        .active(@error-color);
+      }
+    }
+
+    .@{ant-prefix}-cascader-picker:focus .@{ant-prefix}-cascader-input {
+      .active(@error-color);
+    }
+
+    // transfer
+    .@{ant-prefix}-transfer {
+      &-list {
+        border-color: @error-color;
+
+        &-search:not([disabled]) {
+          border-color: @input-border-color;
+
+          &:hover {
+            .hover();
+          }
+
+          &:focus {
+            .active();
+          }
+        }
+      }
+    }
+  }
+
+  // Patch to keep error explain color
+  &-has-error-leave {
+    .@{form-item-prefix-cls}-explain {
+      color: @error-color;
+    }
+  }
+
+  // ====================== Validating =======================
+  &-is-validating {
+    &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
+      display: inline-block;
+      color: @primary-color;
+    }
+  }
+}

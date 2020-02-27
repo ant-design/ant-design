@@ -15,7 +15,7 @@ If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not suppor
 
 ```jsx
 import { Upload, Button } from 'antd';
-import { Upload as IconUpload } from '@ant-design/icons';
+import { UploadOutlined } from '@ant-design/icons';
 
 const fileList = [
   {
@@ -28,9 +28,7 @@ const fileList = [
   {
     uid: '-2',
     name: 'yyy.png',
-    status: 'done',
-    url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-    thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    status: 'error',
   },
 ];
 
@@ -51,14 +49,14 @@ ReactDOM.render(
   <div>
     <Upload {...props}>
       <Button>
-        <IconUpload /> Upload
+        <UploadOutlined /> Upload
       </Button>
     </Upload>
     <br />
     <br />
     <Upload {...props2}>
       <Button>
-        <IconUpload /> Upload
+        <UploadOutlined /> Upload
       </Button>
     </Upload>
   </div>,
@@ -72,6 +70,10 @@ ReactDOM.render(
   float: left;
   width: 200px;
   margin-right: 8px;
+}
+
+.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+  float: right;
 }
 .upload-list-inline .ant-upload-animate-enter {
   animation-name: uploadAnimateInlineIn;

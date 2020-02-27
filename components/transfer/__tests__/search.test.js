@@ -25,6 +25,7 @@ describe('Transfer.Search', () => {
   });
 
   it('onSearch', () => {
+    jest.useFakeTimers();
     const dataSource = [
       {
         key: 'a',
@@ -68,6 +69,7 @@ describe('Transfer.Search', () => {
       .at(0)
       .simulate('click');
     expect(onSearch).toHaveBeenCalledWith('left', '');
+    jest.useRealTimers();
   });
 
   it('legacy props#onSearchChange doesnot work anymore', () => {

@@ -232,11 +232,11 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout"
+    class="ant-layout site-layout"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="ant-layout-header site-layout-background"
+      style="padding:0"
     >
       <span
         aria-label="menu-fold"
@@ -261,8 +261,8 @@ exports[`renders ./components/layout/demo/custom-trigger.md correctly 1`] = `
       </span>
     </header>
     <main
-      class="ant-layout-content"
-      style="margin:24px 16px;padding:24px;background:#fff;min-height:280px"
+      class="ant-layout-content site-layout-background"
+      style="margin:24px 16px;padding:24px;min-height:280px"
     >
       Content
     </main>
@@ -295,6 +295,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -319,6 +320,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -343,6 +345,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -367,6 +370,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -379,7 +383,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     </ul>
   </header>
   <main
-    class="ant-layout-content"
+    class="ant-layout-content site-layout"
     style="padding:0 50px;margin-top:64px"
   >
     <div
@@ -424,7 +428,8 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
       </span>
     </div>
     <div
-      style="background:#fff;padding:24px;min-height:380px"
+      class="site-layout-background"
+      style="padding:24px;min-height:380px"
     >
       Content
     </div>
@@ -708,19 +713,20 @@ exports[`renders ./components/layout/demo/fixed-sider.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout"
+    class="ant-layout site-layout"
     style="margin-left:200px"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="ant-layout-header site-layout-background"
+      style="padding:0"
     />
     <main
       class="ant-layout-content"
       style="margin:24px 16px 0;overflow:initial"
     >
       <div
-        style="padding:24px;background:#fff;text-align:center"
+        class="site-layout-background"
+        style="padding:24px;text-align:center"
       >
         ...
         <br />
@@ -978,15 +984,16 @@ exports[`renders ./components/layout/demo/responsive.md correctly 1`] = `
     class="ant-layout"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="ant-layout-header site-layout-sub-header-background"
+      style="padding:0"
     />
     <main
       class="ant-layout-content"
       style="margin:24px 16px 0"
     >
       <div
-        style="padding:24px;background:#fff;min-height:360px"
+        class="site-layout-background"
+        style="padding:24px;min-height:360px"
       >
         content
       </div>
@@ -1086,6 +1093,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            role="button"
             style="padding-left:24px"
           >
             <span>
@@ -1127,6 +1135,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="true"
             class="ant-menu-submenu-title"
+            role="button"
             style="padding-left:24px"
           >
             <span>
@@ -1215,11 +1224,11 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
     </div>
   </aside>
   <section
-    class="ant-layout"
+    class="ant-layout site-layout"
   >
     <header
-      class="ant-layout-header"
-      style="background:#fff;padding:0"
+      class="ant-layout-header site-layout-background"
+      style="padding:0"
     />
     <main
       class="ant-layout-content"
@@ -1255,7 +1264,8 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
         </span>
       </div>
       <div
-        style="padding:24px;background:#fff;min-height:360px"
+        class="site-layout-background"
+        style="padding:24px;min-height:360px"
       >
         Bill is a cat.
       </div>
@@ -1272,7 +1282,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
 
 exports[`renders ./components/layout/demo/top.md correctly 1`] = `
 <section
-  class="layout ant-layout"
+  class="ant-layout layout"
 >
   <header
     class="ant-layout-header"
@@ -1294,6 +1304,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1318,6 +1329,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1342,6 +1354,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1366,6 +1379,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1423,7 +1437,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
       </span>
     </div>
     <div
-      style="background:#fff;padding:24px;min-height:280px"
+      class="site-layout-content"
     >
       Content
     </div>
@@ -1442,7 +1456,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
   class="ant-layout"
 >
   <header
-    class="header ant-layout-header"
+    class="ant-layout-header header"
   >
     <div
       class="logo"
@@ -1461,6 +1475,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1485,6 +1500,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1509,6 +1525,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1533,6 +1550,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1590,12 +1608,12 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
       </span>
     </div>
     <section
-      class="ant-layout"
-      style="padding:24px 0;background:#fff"
+      class="ant-layout site-layout-background"
+      style="padding:24px 0"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark"
-        style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+        class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+        style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
       >
         <div
           class="ant-layout-sider-children"
@@ -1614,6 +1632,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 aria-haspopup="true"
                 aria-owns="sub1$Menu"
                 class="ant-menu-submenu-title"
+                role="button"
                 style="padding-left:24px"
               >
                 <span>
@@ -1644,7 +1663,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 />
               </div>
               <ul
-                class="ant-menu  ant-menu-sub ant-menu-inline"
+                class="ant-menu ant-menu-sub ant-menu-inline"
                 id="sub1$Menu"
                 role="menu"
               >
@@ -1686,6 +1705,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                role="button"
                 style="padding-left:24px"
               >
                 <span>
@@ -1725,6 +1745,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
+                role="button"
                 style="padding-left:24px"
               >
                 <span>
@@ -1781,7 +1802,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
   class="ant-layout"
 >
   <header
-    class="header ant-layout-header"
+    class="ant-layout-header header"
   >
     <div
       class="logo"
@@ -1800,6 +1821,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1824,6 +1846,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1848,6 +1871,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1872,6 +1896,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
+          role="button"
         >
           <span>
             ···
@@ -1887,8 +1912,8 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
     class="ant-layout"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark"
-      style="background:#fff;flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+      class="site-layout-background ant-layout-sider ant-layout-sider-dark"
+      style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
     >
       <div
         class="ant-layout-sider-children"
@@ -1907,6 +1932,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               aria-haspopup="true"
               aria-owns="sub1$Menu"
               class="ant-menu-submenu-title"
+              role="button"
               style="padding-left:24px"
             >
               <span>
@@ -1937,7 +1963,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               />
             </div>
             <ul
-              class="ant-menu  ant-menu-sub ant-menu-inline"
+              class="ant-menu ant-menu-sub ant-menu-inline"
               id="sub1$Menu"
               role="menu"
             >
@@ -1979,6 +2005,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              role="button"
               style="padding-left:24px"
             >
               <span>
@@ -2018,6 +2045,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
+              role="button"
               style="padding-left:24px"
             >
               <span>
@@ -2098,8 +2126,8 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </span>
       </div>
       <main
-        class="ant-layout-content"
-        style="background:#fff;padding:24px;margin:0;min-height:280px"
+        class="ant-layout-content site-layout-background"
+        style="padding:24px;margin:0;min-height:280px"
       >
         Content
       </main>

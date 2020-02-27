@@ -15,7 +15,7 @@ An event will be triggered when you click menu items, in which you can make diff
 
 ```jsx
 import { Menu, Dropdown, message } from 'antd';
-import { Down } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons';
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -31,8 +31,8 @@ const menu = (
 
 ReactDOM.render(
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" href="#">
-      Hover me, Click menu item <Down />
+    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+      Hover me, Click menu item <DownOutlined />
     </a>
   </Dropdown>,
   mountNode,

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
 import classNames from 'classnames';
-import { Right } from '@ant-design/icons';
+import { RightOutlined } from '@ant-design/icons';
 
 import CollapsePanel from './CollapsePanel';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -46,19 +46,20 @@ export default class Collapse extends React.Component<CollapseProps, any> {
 
   renderExpandIcon = (panelProps: PanelProps = {}, prefixCls: string) => {
     const { expandIcon } = this.props;
-    const icon = expandIcon ? (
+    const icon = (expandIcon ? (
       expandIcon(panelProps)
     ) : (
-      <Right rotate={panelProps.isActive ? 90 : undefined} />
-    );
+      <RightOutlined rotate={panelProps.isActive ? 90 : undefined} />
+    )) as React.ReactNode;
+
     return React.isValidElement(icon)
       ? React.cloneElement(icon as any, {
-          className: `${prefixCls}-arrow`,
+          className: classNames(icon.props.className, `${prefixCls}-arrow`),
         })
       : icon;
   };
 
-  renderCollapse = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderCollapse = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       className = '',
@@ -70,6 +71,7 @@ export default class Collapse extends React.Component<CollapseProps, any> {
       {
         [`${prefixCls}-borderless`]: !bordered,
         [`${prefixCls}-icon-position-${expandIconPosition}`]: true,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
     );

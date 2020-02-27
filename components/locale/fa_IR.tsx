@@ -35,6 +35,7 @@ export default {
     removeFile: 'حذف فایل',
     uploadError: 'خطا در آپلود',
     previewFile: 'مشاهده‌ی فایل',
+    downloadFile: 'دریافت فایل',
   },
   Empty: {
     description: 'داده‌ای موجود نیست',

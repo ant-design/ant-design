@@ -1,13 +1,17 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
-import { TransferItem, TransferDirection, RenderResult, RenderResultObject } from './index';
+import {
+  TransferItem,
+  TransferDirection,
+  RenderResult,
+  RenderResultObject,
+  SelectAllLabel,
+} from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
-import triggerEvent from '../_util/triggerEvent';
 
 const defaultRender = () => null;
 
@@ -46,11 +50,11 @@ export interface TransferListProps {
   itemsUnit: string;
   renderList?: RenderListFunction;
   footer?: (props: TransferListProps) => React.ReactNode;
-  lazy?: boolean | {};
-  onScroll: Function;
+  onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
   showSelectAll?: boolean;
+  selectAllLabel?: SelectAllLabel;
 }
 
 interface TransferListState {
@@ -75,7 +79,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     dataSource: [],
     titleText: '',
     showSearch: false,
-    lazy: {},
   };
 
   timer: number;
@@ -220,18 +223,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     } = e;
     this.setState({ filterValue });
     handleFilter(e);
-    if (!filterValue) {
-      return;
-    }
-    // Manually trigger scroll event for lazy search bug
-    // https://github.com/ant-design/ant-design/issues/5631
-    this.triggerScrollTimer = window.setTimeout(() => {
-      const transferNode = ReactDOM.findDOMNode(this) as Element;
-      const listNode = transferNode.querySelectorAll('.ant-transfer-list-content')[0];
-      if (listNode) {
-        triggerEvent(listNode, 'scroll');
-      }
-    }, 0);
   };
 
   handleClear = () => {
@@ -262,6 +253,21 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     };
   };
 
+  getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
+    const { itemsUnit, itemUnit, selectAllLabel } = this.props;
+    if (selectAllLabel) {
+      return typeof selectAllLabel === 'function'
+        ? selectAllLabel({ selectedCount, totalCount })
+        : selectAllLabel;
+    }
+    const unit = totalCount > 1 ? itemsUnit : itemUnit;
+    return (
+      <>
+        {(selectedCount > 0 ? `${selectedCount}/` : '') + totalCount} {unit}
+      </>
+    );
+  };
+
   render() {
     const { filterValue } = this.state;
     const {
@@ -275,8 +281,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       style,
       searchPlaceholder,
       notFoundContent,
-      itemUnit,
-      itemsUnit,
       renderList,
       onItemSelectAll,
       showSelectAll,
@@ -294,7 +298,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
 
     // ================================= List Body =================================
-    const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
     const listBody = this.getListBody(
       prefixCls,
@@ -326,10 +329,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         <div className={`${prefixCls}-header`}>
           {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
-            <span>
-              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + filteredItems.length}{' '}
-              {unit}
-            </span>
+            <span>{this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}</span>
             <span className={`${prefixCls}-header-title`}>{titleText}</span>
           </span>
         </div>

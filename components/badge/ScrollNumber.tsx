@@ -1,7 +1,6 @@
 import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 function getNumberArray(num: string | number | undefined | null) {
@@ -17,12 +16,16 @@ function getNumberArray(num: string | number | undefined | null) {
     : [];
 }
 
-function renderNumberList(position: number) {
+function renderNumberList(position: number, className: string) {
   const childrenToReturn: React.ReactElement<any>[] = [];
   for (let i = 0; i < 30; i++) {
-    const currentClassName = position === i ? 'current' : '';
     childrenToReturn.push(
-      <p key={i.toString()} className={currentClassName}>
+      <p
+        key={i.toString()}
+        className={classNames(className, {
+          current: position === i,
+        })}
+      >
         {i % 10}
       </p>,
     );
@@ -138,7 +141,7 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
           },
           key: i,
         },
-        renderNumberList(position),
+        renderNumberList(position, `${prefixCls}-only-unit`),
       );
     }
 
@@ -207,7 +210,5 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
     return <ConfigConsumer>{this.renderScrollNumber}</ConfigConsumer>;
   }
 }
-
-polyfill(ScrollNumber);
 
 export default ScrollNumber;

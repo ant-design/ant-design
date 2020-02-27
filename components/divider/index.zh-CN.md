@@ -14,10 +14,10 @@ subtitle: 分割线
 
 ## API
 
-| 参数        | 说明             | 类型                          | 默认值       | 版本  |
-| ----------- | ---------------- | ----------------------------- | ------------ | ----- |
-| className   | 分割线样式类     | string                        | -            | 3.5.4 |
-| dashed      | 是否虚线         | boolean                       | false        |       |
-| orientation | 分割线标题的位置 | enum: `left` `right`          | `center`     | 3.4.1 |
-| style       | 分割线样式对象   | object                        | -            | 3.5.4 |
-| type        | 水平还是垂直类型 | enum: `horizontal` `vertical` | `horizontal` |       |
+| 参数        | 说明             | 类型                          | 默认值       | 版本 |
+| ----------- | ---------------- | ----------------------------- | ------------ | ---- |
+| className   | 分割线样式类     | string                        | -            |      |
+| dashed      | 是否虚线         | boolean                       | false        |      |
+| orientation | 分割线标题的位置 | `left` \| `right` \| `center` | `center`     |      |
+| style       | 分割线样式对象   | object                        | -            |      |
+| type        | 水平还是垂直类型 | `horizontal` \| `vertical`    | `horizontal` |      |

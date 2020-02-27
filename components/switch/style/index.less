@@ -10,7 +10,7 @@
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  min-width: 44px;
+  min-width: @switch-min-width;
   height: @switch-height;
   line-height: @switch-height - 2px;
   vertical-align: middle;
@@ -20,13 +20,20 @@
   cursor: pointer;
   transition: all @switch-duration;
   user-select: none;
-
+  &-rtl {
+    direction: rtl;
+  }
   &-inner {
     display: block;
     margin-right: 6px;
     margin-left: 24px;
     color: @text-color-inverse;
     font-size: @font-size-sm;
+
+    .@{switch-prefix-cls}-rtl & {
+      margin-right: 24px;
+      margin-left: 6px;
+    }
   }
 
   &-loading-icon,
@@ -36,11 +43,17 @@
     left: 1px;
     width: @switch-height - 4px;
     height: @switch-height - 4px;
-    background-color: @component-background;
+    background-color: @switch-bg;
     border-radius: 18px;
     cursor: pointer;
     transition: all @switch-duration @ease-in-out-circ;
     content: ' ';
+
+    .@{switch-prefix-cls}-rtl& {
+      left: 100%;
+      margin-left: -1px;
+      transform: translateX(-100%);
+    }
   }
 
   &::after {
@@ -88,7 +101,7 @@
   }
 
   &-small {
-    min-width: 28px;
+    min-width: @switch-sm-min-width;
     height: @switch-sm-height;
     line-height: @switch-sm-height - 2px;
 
@@ -96,6 +109,11 @@
       margin-right: 3px;
       margin-left: 18px;
       font-size: @font-size-sm;
+
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 18px;
+        margin-left: 3px;
+      }
     }
 
     &::after {
@@ -112,12 +130,21 @@
   &-small &-loading-icon {
     width: @switch-sm-height - 4px;
     height: @switch-sm-height - 4px;
+
+    .@{switch-prefix-cls}-rtl& {
+      margin-left: 12px;
+    }
   }
 
   &-small&-checked {
     .@{switch-prefix-cls}-inner {
       margin-right: 18px;
       margin-left: 3px;
+
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 3px;
+        margin-left: 18px;
+      }
     }
   }
 
@@ -138,18 +165,33 @@
     .@{switch-prefix-cls}-inner {
       margin-right: 24px;
       margin-left: 6px;
+
+      .@{switch-prefix-cls}-rtl& {
+        margin-right: 6px;
+        margin-left: 24px;
+      }
     }
 
     &::after {
       left: 100%;
       margin-left: -1px;
       transform: translateX(-100%);
+
+      .@{switch-prefix-cls}-rtl& {
+        left: 1px;
+        margin-left: 0;
+        transform: translateX(0);
+      }
     }
   }
 
   &-checked &-loading-icon {
     left: 100%;
     margin-left: -19px;
+
+    .@{switch-prefix-cls}-rtl& {
+      margin-left: -41px;
+    }
   }
 
   &-loading,

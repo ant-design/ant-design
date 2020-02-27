@@ -3,6 +3,8 @@
 @import '../../input/style/mixin';
 
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
+@picker-rtl-cls: ~'@{cascader-prefix-cls}-picker-rtl';
+@menu-rtl-cls: ~'@{cascader-prefix-cls}-menu-rtl';
 
 .@{cascader-prefix-cls} {
   .reset-component;
@@ -17,6 +19,12 @@
     // because input.less will compile after cascader.less
     background-color: transparent !important;
     cursor: pointer;
+
+    .@{picker-rtl-cls} & {
+      padding-right: @input-padding-horizontal-base;
+      padding-left: 24px;
+      text-align: right;
+    }
   }
 
   &-picker-show-search &-input.@{ant-prefix}-input {
@@ -28,7 +36,7 @@
 
     position: relative;
     display: inline-block;
-    background-color: @component-background;
+    background-color: @cascader-bg;
     border-radius: @border-radius-base;
     outline: 0;
     cursor: pointer;
@@ -51,6 +59,11 @@
       .active;
     }
 
+    &-borderless .@{cascader-prefix-cls}-input {
+      border-color: transparent !important;
+      box-shadow: none !important;
+    }
+
     &-show-search&-focused {
       color: @disabled-color;
     }
@@ -67,6 +80,11 @@
       line-height: 20px;
       white-space: nowrap;
       text-overflow: ellipsis;
+
+      .@{picker-rtl-cls} & {
+        padding: 0 @control-padding-horizontal 0 20px;
+        text-align: right;
+      }
     }
 
     &-clear {
@@ -86,6 +104,11 @@
       transition: color 0.3s ease, opacity 0.15s ease;
       &:hover {
         color: @text-color-secondary;
+      }
+
+      .@{picker-rtl-cls} & {
+        right: auto;
+        left: @control-padding-horizontal;
       }
     }
 
@@ -109,6 +132,11 @@
       &&-expand {
         transform: rotate(180deg);
       }
+
+      .@{picker-rtl-cls} & {
+        right: auto;
+        left: @control-padding-horizontal;
+      }
     }
   }
 
@@ -120,21 +148,25 @@
   &-picker-small &-picker-clear,
   &-picker-small &-picker-arrow {
     right: @control-padding-horizontal-sm;
+
+    .@{picker-rtl-cls} & {
+      right: auto;
+      left: @control-padding-horizontal;
+    }
   }
 
   &-menus {
     position: absolute;
     z-index: @zindex-dropdown;
-    font-size: @font-size-base;
+    font-size: @cascader-dropdown-font-size;
     white-space: nowrap;
-    background: @component-background;
+    background: @cascader-menu-bg;
     border-radius: @border-radius-base;
     box-shadow: @box-shadow-base;
 
     ul,
     ol {
       margin: 0;
-      padding: 0;
       list-style: none;
     }
 
@@ -165,11 +197,11 @@
     min-width: 111px;
     height: 180px;
     margin: 0;
-    padding: 0;
+    padding: @cascader-dropdown-edge-child-vertical-padding 0;
     overflow: auto;
     vertical-align: top;
     list-style: none;
-    border-right: @border-width-base @border-style-base @border-color-split;
+    border-right: @border-width-base @border-style-base @cascader-menu-border-color-split;
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
     &:first-child {
@@ -183,10 +215,21 @@
     &:only-child {
       border-radius: @border-radius-base;
     }
+    &-rtl {
+      direction: rtl;
+      border-right: none;
+      border-left: @border-width-base @border-style-base @border-color-split;
+      &:last-child {
+        margin-right: 0;
+        margin-left: -1px;
+        border-left-color: transparent;
+        border-radius: 0 0 4px 4px;
+      }
+    }
   }
   &-menu-item {
-    padding: 5px @control-padding-horizontal;
-    line-height: 22px;
+    padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
+    line-height: @cascader-dropdown-line-height;
     white-space: nowrap;
     cursor: pointer;
     transition: all 0.3s;
@@ -204,12 +247,17 @@
       &,
       &:hover {
         font-weight: @select-item-selected-font-weight;
-        background-color: @background-color-light;
+        background-color: @cascader-item-selected-bg;
       }
     }
     &-expand {
       position: relative;
       padding-right: 24px;
+
+      .@{menu-rtl-cls} & {
+        padding-right: @control-padding-horizontal;
+        padding-left: 24px;
+      }
     }
 
     &-expand &-expand-icon,
@@ -219,6 +267,11 @@
       position: absolute;
       right: @control-padding-horizontal;
       color: @text-color-secondary;
+
+      .@{menu-rtl-cls} & {
+        right: auto;
+        left: @control-padding-horizontal;
+      }
     }
 
     & &-keyword {

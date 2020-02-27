@@ -8,11 +8,27 @@
   white-space: initial;
   text-align: left;
 
+  .@{form-prefix-cls}-rtl& {
+    text-align: right;
+  }
   > label {
     margin: 0;
 
     &::after {
       display: none;
+    }
+  }
+}
+
+.make-vertical-layout() {
+  .@{form-prefix-cls}-item .@{form-prefix-cls}-item-label {
+    .make-vertical-layout-label();
+  }
+  .@{form-prefix-cls}-item {
+    .@{form-prefix-cls}-item-label,
+    .@{form-prefix-cls}-item-control {
+      flex: 0 0 100%;
+      max-width: 100%;
     }
   }
 }
@@ -31,6 +47,7 @@
 }
 
 @media (max-width: @screen-xs-max) {
+  .make-vertical-layout();
   .@{ant-prefix}-col-xs-24.@{form-item-prefix-cls}-label {
     .make-vertical-layout-label();
   }

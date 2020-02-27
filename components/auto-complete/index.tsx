@@ -25,7 +25,7 @@ export interface DataSourceItemObject {
 export type DataSourceItemType = string | DataSourceItemObject;
 
 export interface AutoCompleteProps
-  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp'> {
+  extends Omit<InternalSelectProps<string>, 'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'> {
   dataSource?: DataSourceItemType[];
 }
 
@@ -68,13 +68,19 @@ const AutoComplete: React.RefForwardingComponent<Select, AutoCompleteProps> = (p
           }
           switch (typeof item) {
             case 'string':
-              return <Option key={item}>{item}</Option>;
-            case 'object':
               return (
-                <Option key={(item as DataSourceItemObject).value}>
+                <Option key={item} value={item}>
+                  {item}
+                </Option>
+              );
+            case 'object': {
+              const { value: optionValue } = item as DataSourceItemObject;
+              return (
+                <Option key={optionValue} value={optionValue}>
                   {(item as DataSourceItemObject).text}
                 </Option>
               );
+            }
             default:
               throw new Error('AutoComplete[dataSource] only supports type `string[] | Object[]`.');
           }

@@ -18,11 +18,12 @@ Three columns layout is often used for advanced searching of data table.
 Because the width of label is not fixed, you may need to adjust it by customizing its style.
 
 ```tsx
+import React, { useState } from 'react';
 import { Form, Row, Col, Input, Button } from 'antd';
-import { Down, Up } from '@ant-design/icons';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 
 const AdvancedSearchForm = () => {
-  const [expand, setExpand] = React.useState(false);
+  const [expand, setExpand] = useState(false);
   const [form] = Form.useForm();
 
   const getFields = () => {
@@ -80,7 +81,7 @@ const AdvancedSearchForm = () => {
               setExpand(!expand);
             }}
           >
-            Collapse {expand ? <Up /> : <Down />}
+            {expand ? <UpOutlined /> : <DownOutlined />} Collapse
           </a>
         </Col>
       </Row>
@@ -102,7 +103,7 @@ ReactDOM.render(
   padding: 24px;
   background: #fbfbfb;
   border: 1px solid #d9d9d9;
-  border-radius: 6px;
+  border-radius: 2px;
 }
 
 .ant-advanced-search-form .ant-form-item {
@@ -121,10 +122,20 @@ ReactDOM.render(
 #components-form-demo-advanced-search .search-result-list {
   margin-top: 16px;
   border: 1px dashed #e9e9e9;
-  border-radius: 6px;
+  border-radius: 2px;
   background-color: #fafafa;
   min-height: 200px;
   text-align: center;
   padding-top: 80px;
+}
+[data-theme="dark"] .ant-advanced-search-form  {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #434343;
+  padding: 24px;
+  border-radius: 2px;
+}
+[data-theme="dark"] #components-form-demo-advanced-search .search-result-list {
+  border: 1px dashed #434343;
+  background: rgba(255,255,255,0.04);
 }
 </style>

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { Eye, EyeInvisible } from '@ant-design/icons';
+import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 import Input, { InputProps } from './Input';
 
@@ -34,7 +34,7 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     visible: false,
   };
 
-  onChange = () => {
+  onVisibleChange = () => {
     const { disabled } = this.props;
     if (disabled) {
       return;
@@ -46,9 +46,9 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
   getIcon() {
     const { prefixCls, action } = this.props;
     const iconTrigger = ActionMap[action!] || '';
-    const icon = this.state.visible ? Eye : EyeInvisible;
+    const icon = this.state.visible ? EyeOutlined : EyeInvisibleOutlined;
     const iconProps = {
-      [iconTrigger]: this.onChange,
+      [iconTrigger]: this.onVisibleChange,
       className: `${prefixCls}-icon`,
       key: 'passwordIcon',
       onMouseDown: (e: MouseEvent) => {
@@ -91,16 +91,17 @@ export default class Password extends React.Component<PasswordProps, PasswordSta
     const inputClassName = classNames(prefixCls, className, {
       [`${prefixCls}-${size}`]: !!size,
     });
-    return (
-      <Input
-        {...omit(restProps, ['suffix'])}
-        type={this.state.visible ? 'text' : 'password'}
-        size={size}
-        className={inputClassName}
-        prefixCls={inputPrefixCls}
-        suffix={suffixIcon}
-        ref={this.saveInput}
-      />
-    );
+    const props = {
+      ...omit(restProps, ['suffix']),
+      type: this.state.visible ? 'text' : 'password',
+      className: inputClassName,
+      prefixCls: inputPrefixCls,
+      suffix: suffixIcon,
+      ref: this.saveInput,
+    };
+    if (size) {
+      props.size = size;
+    }
+    return <Input {...props} />;
   }
 }

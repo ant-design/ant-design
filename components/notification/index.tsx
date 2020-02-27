@@ -1,20 +1,28 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
+import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
 import {
-  Close, CheckCircle, CloseCircle,
-  ExclamationCircle, InfoCircle,
+  CloseOutlined,
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+  InfoCircleOutlined,
 } from '@ant-design/icons';
+import createUseNotification from './hooks/useNotification';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-const notificationInstance: { [key: string]: any } = {};
+const notificationInstance: {
+  [key: string]: Promise<RCNotificationInstance>;
+} = {};
 let defaultDuration = 4.5;
 let defaultTop = 24;
 let defaultBottom = 24;
 let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
+let defaultCloseIcon: React.ReactNode;
 
 export interface ConfigProps {
   top?: number;
@@ -22,10 +30,11 @@ export interface ConfigProps {
   duration?: number;
   placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
+  closeIcon?: React.ReactNode;
 }
 
 function setNotificationConfig(options: ConfigProps) {
-  const { duration, placement, bottom, top, getContainer } = options;
+  const { duration, placement, bottom, top, getContainer, closeIcon } = options;
   if (duration !== undefined) {
     defaultDuration = duration;
   }
@@ -40,6 +49,9 @@ function setNotificationConfig(options: ConfigProps) {
   }
   if (getContainer !== undefined) {
     defaultGetContainer = getContainer;
+  }
+  if (closeIcon !== undefined) {
+    defaultCloseIcon = closeIcon;
   }
 }
 
@@ -82,49 +94,61 @@ function getPlacementStyle(
   return style;
 }
 
-type NotificationInstanceProps = {
-  prefixCls: string;
-  placement?: NotificationPlacement;
-  getContainer?: () => HTMLElement;
-  top?: number;
-  bottom?: number;
-};
-
 function getNotificationInstance(
-  {
-    prefixCls,
+  args: ArgsProps,
+  callback: (info: { prefixCls: string; instance: RCNotificationInstance }) => void,
+) {
+  const {
     placement = defaultPlacement,
-    getContainer = defaultGetContainer,
     top,
     bottom,
-  }: NotificationInstanceProps,
-  callback: (n: any) => void,
-) {
-  const cacheKey = `${prefixCls}-${placement}`;
-  if (notificationInstance[cacheKey]) {
-    callback(notificationInstance[cacheKey]);
+    getContainer = defaultGetContainer,
+    closeIcon = defaultCloseIcon,
+  } = args;
+  const outerPrefixCls = args.prefixCls || 'ant-notification';
+  const prefixCls = `${outerPrefixCls}-notice`;
+
+  const cacheKey = `${outerPrefixCls}-${placement}`;
+  const cacheInstance = notificationInstance[cacheKey];
+  if (cacheInstance) {
+    Promise.resolve(cacheInstance).then(instance => {
+      callback({ prefixCls, instance });
+    });
+
     return;
   }
-  (Notification as any).newInstance(
-    {
-      prefixCls,
-      className: `${prefixCls}-${placement}`,
-      style: getPlacementStyle(placement, top, bottom),
-      getContainer,
-      closeIcon: <Close className={`${prefixCls}-close-icon`} />,
-    },
-    (notification: any) => {
-      notificationInstance[cacheKey] = notification;
-      callback(notification);
-    },
+
+  const closeIconToRender = (
+    <span className={`${outerPrefixCls}-close-x`}>
+      {closeIcon || <CloseOutlined className={`${outerPrefixCls}-close-icon`} />}
+    </span>
   );
+
+  notificationInstance[cacheKey] = new Promise(resolve => {
+    Notification.newInstance(
+      {
+        prefixCls: outerPrefixCls,
+        className: `${outerPrefixCls}-${placement}`,
+        style: getPlacementStyle(placement, top, bottom),
+        getContainer,
+        closeIcon: closeIconToRender,
+      },
+      notification => {
+        resolve(notification);
+        callback({
+          prefixCls,
+          instance: notification,
+        });
+      },
+    );
+  });
 }
 
 const typeToIcon = {
-  success: CheckCircle,
-  info: InfoCircle,
-  error: CloseCircle,
-  warning: ExclamationCircle,
+  success: CheckCircleOutlined,
+  info: InfoCircleOutlined,
+  error: CloseCircleOutlined,
+  warning: ExclamationCircleOutlined,
 };
 
 export interface ArgsProps {
@@ -144,11 +168,10 @@ export interface ArgsProps {
   top?: number;
   bottom?: number;
   getContainer?: () => HTMLElement;
+  closeIcon?: React.ReactNode;
 }
 
-function notice(args: ArgsProps) {
-  const outerPrefixCls = args.prefixCls || 'ant-notification';
-  const prefixCls = `${outerPrefixCls}-notice`;
+function getRCNoticeProps(args: ArgsProps, prefixCls: string) {
   const duration = args.duration === undefined ? defaultDuration : args.duration;
 
   let iconNode: React.ReactNode = null;
@@ -165,53 +188,48 @@ function notice(args: ArgsProps) {
       <span className={`${prefixCls}-message-single-line-auto-margin`} />
     ) : null;
 
-  const { placement, top, bottom, getContainer } = args;
-
-  getNotificationInstance(
-    {
-      prefixCls: outerPrefixCls,
-      placement,
-      top,
-      bottom,
-      getContainer,
-    },
-    (notification: any) => {
-      notification.notice({
-        content: (
-          <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
-            {iconNode}
-            <div className={`${prefixCls}-message`}>
-              {autoMarginTag}
-              {args.message}
-            </div>
-            <div className={`${prefixCls}-description`}>{args.description}</div>
-            {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
-          </div>
-        ),
-        duration,
-        closable: true,
-        onClose: args.onClose,
-        onClick: args.onClick,
-        key: args.key,
-        style: args.style || {},
-        className: args.className,
-      });
-    },
-  );
+  return {
+    content: (
+      <div className={iconNode ? `${prefixCls}-with-icon` : ''}>
+        {iconNode}
+        <div className={`${prefixCls}-message`}>
+          {autoMarginTag}
+          {args.message}
+        </div>
+        <div className={`${prefixCls}-description`}>{args.description}</div>
+        {args.btn ? <span className={`${prefixCls}-btn`}>{args.btn}</span> : null}
+      </div>
+    ),
+    duration,
+    closable: true,
+    onClose: args.onClose,
+    onClick: args.onClick,
+    key: args.key,
+    style: args.style || {},
+    className: args.className,
+  };
 }
 
 const api: any = {
-  open: notice,
+  open: (args: ArgsProps) => {
+    getNotificationInstance(args, ({ prefixCls, instance }) => {
+      instance.notice(getRCNoticeProps(args, prefixCls));
+    });
+  },
   close(key: string) {
     Object.keys(notificationInstance).forEach(cacheKey =>
-      notificationInstance[cacheKey].removeNotice(key),
+      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+        instance.removeNotice(key);
+      }),
     );
   },
   config: setNotificationConfig,
   destroy() {
     Object.keys(notificationInstance).forEach(cacheKey => {
-      notificationInstance[cacheKey].destroy();
-      delete notificationInstance[cacheKey];
+      Promise.resolve(notificationInstance[cacheKey]).then(instance => {
+        instance.destroy();
+      });
+      delete notificationInstance[cacheKey]; // lgtm[js/missing-await]
     });
   },
 };
@@ -225,17 +243,24 @@ const api: any = {
 });
 
 api.warn = api.warning;
+api.useNotification = createUseNotification(getNotificationInstance, getRCNoticeProps);
 
-export interface NotificationApi {
+export interface NotificationInstance {
   success(args: ArgsProps): void;
   error(args: ArgsProps): void;
   info(args: ArgsProps): void;
-  warn(args: ArgsProps): void;
   warning(args: ArgsProps): void;
   open(args: ArgsProps): void;
+}
+
+export interface NotificationApi extends NotificationInstance {
+  warn(args: ArgsProps): void;
   close(key: string): void;
   config(options: ConfigProps): void;
   destroy(): void;
+
+  // Hooks
+  useNotification: () => [NotificationInstance, React.ReactElement];
 }
 
 export default api as NotificationApi;

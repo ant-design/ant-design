@@ -1,7 +1,7 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import omit from 'omit.js';
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
@@ -67,12 +67,6 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
     separator: '/',
   };
 
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    separator: PropTypes.node,
-    routes: PropTypes.array,
-  };
-
   getPath = (path: string, params: any) => {
     path = (path || '').replace(/^\//, '');
     Object.keys(params).forEach(key => {
@@ -104,12 +98,12 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         paths.push(path);
       }
       // generated overlay by route.children
-      let overlay = null;
+      let overlay;
       if (route.children && route.children.length) {
         overlay = (
           <Menu>
             {route.children.map(child => (
-              <Menu.Item key={child.breadcrumbName || child.path}>
+              <Menu.Item key={child.path || child.breadcrumbName}>
                 {itemRender(child, params, routes, this.addChildPath(paths, child.path, params))}
               </Menu.Item>
             ))}
@@ -118,14 +112,14 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       }
 
       return (
-        <BreadcrumbItem overlay={overlay} separator={separator} key={route.breadcrumbName || path}>
+        <BreadcrumbItem overlay={overlay} separator={separator} key={path || route.breadcrumbName}>
           {itemRender(route, params, routes, paths)}
         </BreadcrumbItem>
       );
     });
   };
 
-  renderBreadcrumb = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderBreadcrumb = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     let crumbs;
     const {
       prefixCls: customizePrefixCls,
@@ -134,6 +128,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       className,
       routes,
       children,
+      ...restProps
     } = this.props;
     const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
     if (routes && routes.length > 0) {
@@ -147,7 +142,8 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
 
         warning(
           element.type &&
-            (element.type.__ANT_BREADCRUMB_ITEM || element.type.__ANT_BREADCRUMB_SEPARATOR),
+            (element.type.__ANT_BREADCRUMB_ITEM === true ||
+              element.type.__ANT_BREADCRUMB_SEPARATOR === true),
           'Breadcrumb',
           "Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
         );
@@ -158,8 +154,15 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         });
       });
     }
+    const breadcrumbClassName = classNames(className, prefixCls, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
-      <div className={classNames(className, prefixCls)} style={style}>
+      <div
+        className={breadcrumbClassName}
+        style={style}
+        {...omit(restProps, ['itemRender', 'linkRender', 'nameRender', 'params'])}
+      >
         {crumbs}
       </div>
     );

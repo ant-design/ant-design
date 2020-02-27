@@ -9,6 +9,7 @@ import TransferItem from '../ListItem';
 import Button from '../../button';
 import Checkbox from '../../checkbox';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
@@ -30,7 +31,6 @@ const listCommonProps = {
   ],
   selectedKeys: ['a'],
   targetKeys: ['b'],
-  lazy: false,
 };
 
 const listDisabledProps = {
@@ -47,7 +47,6 @@ const listDisabledProps = {
   ],
   selectedKeys: ['a', 'b'],
   targetKeys: [],
-  lazy: false,
 };
 
 const searchTransferProps = {
@@ -91,11 +90,11 @@ const searchTransferProps = {
   ],
   selectedKeys: [],
   targetKeys: ['3', '4'],
-  lazy: false,
 };
 
 describe('Transfer', () => {
   mountTest(Transfer);
+  rtlTest(Transfer);
 
   it('should render correctly', () => {
     const wrapper = render(<Transfer {...listCommonProps} />);
@@ -111,6 +110,24 @@ describe('Transfer', () => {
       .at(0)
       .simulate('click'); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
+  });
+
+  it('should move selected keys to left list', () => {
+    const handleChange = jest.fn();
+    const wrapper = mount(
+      <Transfer
+        {...listCommonProps}
+        selectedKeys={['a']}
+        targetKeys={['a']}
+        onChange={handleChange}
+      />,
+    );
+    wrapper
+      .find(TransferOperation)
+      .find(Button)
+      .at(1)
+      .simulate('click'); // move selected keys to left list
+    expect(handleChange).toHaveBeenCalledWith([], 'left', ['a']);
   });
 
   it('should move selected keys expect disabled to corresponding list', () => {
@@ -229,7 +246,7 @@ describe('Transfer', () => {
       .at(0)
       .find('input')
       .simulate('change', { target: { value: 'content2' } });
-    expect(headerText(wrapper)).toEqual('1 items');
+    expect(headerText(wrapper)).toEqual('1 item');
   });
 
   it('should display the correct locale', () => {
@@ -433,8 +450,11 @@ describe('Transfer', () => {
     const style = {
       backgroundColor: 'red',
     };
-    const listStyle = {
+    const leftStyle = {
       backgroundColor: 'blue',
+    };
+    const rightStyle = {
+      backgroundColor: 'red',
     };
     const operationStyle = {
       backgroundColor: 'yellow',
@@ -444,7 +464,7 @@ describe('Transfer', () => {
       <Transfer
         {...listCommonProps}
         style={style}
-        listStyle={listStyle}
+        listStyle={({ direction }) => (direction === 'left' ? leftStyle : rightStyle)}
         operationStyle={operationStyle}
       />,
     );
@@ -456,7 +476,65 @@ describe('Transfer', () => {
 
     expect(wrapper.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(listSource.prop('style')).toHaveProperty('backgroundColor', 'blue');
-    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'blue');
+    expect(listTarget.prop('style')).toHaveProperty('backgroundColor', 'red');
     expect(operation.prop('style')).toHaveProperty('backgroundColor', 'yellow');
+  });
+
+  it('should support onScroll', () => {
+    const onScroll = jest.fn();
+    const component = mount(<Transfer {...listCommonProps} onScroll={onScroll} />);
+    component
+      .find('.ant-transfer-list')
+      .at(0)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
+    expect(onScroll).toHaveBeenLastCalledWith('left', expect.anything());
+    component
+      .find('.ant-transfer-list')
+      .at(1)
+      .find('.ant-transfer-list-content')
+      .at(0)
+      .simulate('scroll');
+    expect(onScroll).toHaveBeenLastCalledWith('right', expect.anything());
+  });
+
+  it('should support rowKey is function', () => {
+    expect(() => {
+      mount(<Transfer {...listCommonProps} rowKey={record => record.key} />);
+    }).not.toThrow();
+  });
+
+  it('should support render value and label in item', () => {
+    const component = mount(
+      <Transfer
+        dataSource={[
+          {
+            key: 'a',
+            title: 'title',
+          },
+        ]}
+        render={record => ({ value: `${record.title} value`, label: 'label' })}
+      />,
+    );
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should render correct checkbox label when checkboxLabel is defined', () => {
+    const selectAllLabels = ['Checkbox Label'];
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
+    expect(headerText(wrapper)).toEqual('Checkbox Label');
+  });
+
+  it('should render correct checkbox label when checkboxLabel is a function', () => {
+    const selectAllLabels = [
+      ({ selectedCount, totalCount }) => (
+        <span>
+          {selectedCount} of {totalCount}
+        </span>
+      ),
+    ];
+    const wrapper = mount(<Transfer {...listCommonProps} selectAllLabels={selectAllLabels} />);
+    expect(headerText(wrapper)).toEqual('1 of 2');
   });
 });

@@ -3,14 +3,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Upload from '..';
 import Form from '../../form';
-import { T, fileToObject, genPercentAdd, getFileItem, removeFileItem } from '../utils';
+import { T, fileToObject, getFileItem, removeFileItem } from '../utils';
 import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Upload', () => {
   mountTest(Upload);
-  mountTest(Upload.Dragger);
+  rtlTest(Upload);
 
   beforeEach(() => setup());
   afterEach(() => teardown());
@@ -44,6 +45,30 @@ describe('Upload', () => {
       onChange: ({ file }) => {
         if (file.status !== 'uploading') {
           expect(data).toHaveBeenCalled();
+          done();
+        }
+      },
+    };
+
+    const wrapper = mount(
+      <Upload {...props}>
+        <button type="button">upload</button>
+      </Upload>,
+    );
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+  });
+
+  it('beforeUpload can be falsy', done => {
+    const props = {
+      action: 'http://upload.com',
+      beforeUpload: false,
+      onChange: ({ file }) => {
+        if (file.status !== 'uploading') {
           done();
         }
       },
@@ -132,41 +157,6 @@ describe('Upload', () => {
         files: [mockFile],
       },
     });
-  });
-
-  it('should increase percent automaticly when call autoUpdateProgress in IE', done => {
-    let uploadInstance;
-    let lastPercent = -1;
-    const props = {
-      action: 'http://upload.com',
-      onChange: ({ file }) => {
-        if (file.percent === 0 && file.status === 'uploading') {
-          // manually call it
-          uploadInstance.autoUpdateProgress(0, file);
-        }
-        if (file.status === 'uploading') {
-          expect(file.percent).toBeGreaterThan(lastPercent);
-          lastPercent = file.percent;
-        }
-        if (file.status === 'done' || file.status === 'error') {
-          done();
-        }
-      },
-    };
-
-    const wrapper = mount(
-      <Upload {...props}>
-        <button type="button">upload</button>
-      </Upload>,
-    );
-
-    wrapper.find('input').simulate('change', {
-      target: {
-        files: [{ file: 'foo.png' }],
-      },
-    });
-
-    uploadInstance = wrapper.instance();
   });
 
   it('should not stop upload when return value of beforeUpload is not false', done => {
@@ -278,24 +268,6 @@ describe('Upload', () => {
       });
     });
 
-    it('should be able to progress from 0.1 ', () => {
-      // 0.1 -> 0.98
-      const getPercent = genPercentAdd();
-      let curPercent = 0;
-      curPercent = getPercent(curPercent);
-      expect(curPercent).toBe(0.1);
-    });
-
-    it('should be able to progress to 0.98 ', () => {
-      // 0.1 -> 0.98
-      const getPercent = genPercentAdd();
-      let curPercent = 0;
-      for (let i = 0; i < 500; i += 1) {
-        curPercent = getPercent(curPercent);
-      }
-      expect(parseFloat(curPercent.toFixed(2))).toBe(0.98);
-    });
-
     it('should be able to get fileItem', () => {
       const file = { uid: '-1', name: 'item.jpg' };
       const fileList = [
@@ -396,12 +368,78 @@ describe('Upload', () => {
 
     const wrapper = mount(<Upload {...props} />);
 
-    wrapper.find('div.ant-upload-list-item .anticon-close').simulate('click');
+    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
 
     setImmediate(() => {
       wrapper.update();
 
       expect(mockRemove).toHaveBeenCalled();
+      expect(props.fileList).toHaveLength(1);
+      expect(props.fileList[0].status).toBe('done');
+      done();
+    });
+  });
+
+  // https://github.com/ant-design/ant-design/issues/18902
+  it('should not abort uploading until return value of onRemove is resolved as true', done => {
+    let wrapper;
+
+    const props = {
+      onRemove: () =>
+        new Promise(
+          resolve =>
+            setTimeout(() => {
+              wrapper.update();
+              expect(props.fileList).toHaveLength(1);
+              expect(props.fileList[0].status).toBe('uploading');
+              resolve(true);
+            }),
+          100,
+        ),
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'uploading',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+      onChange: () => {
+        expect(props.fileList).toHaveLength(1);
+        expect(props.fileList[0].status).toBe('removed');
+        done();
+      },
+    };
+
+    wrapper = mount(<Upload {...props} />);
+
+    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
+  });
+
+  it('should not stop download when return use onDownload', done => {
+    const mockRemove = jest.fn(() => false);
+    const props = {
+      onRemove: mockRemove,
+      showUploadList: {
+        showDownloadIcon: true,
+      },
+      fileList: [
+        {
+          uid: '-1',
+          name: 'foo.png',
+          status: 'done',
+          url: 'http://www.baidu.com/xxx.png',
+        },
+      ],
+    };
+
+    const wrapper = mount(<Upload {...props} onDownload={() => {}} />);
+
+    wrapper.find('div.ant-upload-list-item .anticon-download').simulate('click');
+
+    setImmediate(() => {
+      wrapper.update();
+
       expect(props.fileList).toHaveLength(1);
       expect(props.fileList[0].status).toBe('done');
       done();
@@ -462,5 +500,16 @@ describe('Upload', () => {
       'Warning: [antd: Upload] `value` is not validate prop, do you mean `fileList`?',
     );
     errorSpy.mockRestore();
+  });
+
+  it('it should be treated as file but not an image', () => {
+    const file = {
+      status: 'done',
+      uid: '-1',
+      type: 'video/mp4',
+      url: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+    };
+    const wrapper = mount(<Upload listType="picture-card" fileList={[file]} />);
+    expect(wrapper.find('img').length).toBe(0);
   });
 });

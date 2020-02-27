@@ -20,29 +20,6 @@ export function fileToObject(file: RcFile): UploadFile {
   } as UploadFile;
 }
 
-/**
- * 生成Progress percent: 0.1 -> 0.98
- *   - for ie
- */
-export function genPercentAdd() {
-  let k = 0.1;
-  const i = 0.01;
-  const end = 0.98;
-  return (s: number) => {
-    let start = s;
-    if (start >= end) {
-      return start;
-    }
-
-    start += k;
-    k -= i;
-    if (k < 0.001) {
-      k = 0.001;
-    }
-    return start;
-  };
-}
-
 export function getFileItem(file: UploadFile, fileList: UploadFile[]) {
   const matchKey = file.uid !== undefined ? 'uid' : 'name';
   return fileList.filter(item => item[matchKey] === file[matchKey])[0];
@@ -58,23 +35,25 @@ export function removeFileItem(file: UploadFile, fileList: UploadFile[]) {
 }
 
 // ==================== Default Image Preview ====================
-const extname = (url: string) => {
-  if (!url) {
-    return '';
-  }
+const extname = (url: string = '') => {
   const temp = url.split('/');
   const filename = temp[temp.length - 1];
   const filenameWithoutSuffix = filename.split(/#|\?/)[0];
   return (/\.[^./\\]*$/.exec(filenameWithoutSuffix) || [''])[0];
 };
-const isImageFileType = (type: string): boolean => !!type && type.indexOf('image/') === 0;
+
+const isImageFileType = (type: string): boolean => type.indexOf('image/') === 0;
+
 export const isImageUrl = (file: UploadFile): boolean => {
-  if (isImageFileType(file.type)) {
-    return true;
+  if (file.type) {
+    return isImageFileType(file.type);
   }
   const url: string = (file.thumbUrl || file.url) as string;
   const extension = extname(url);
-  if (/^data:image\//.test(url) || /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg)$/i.test(extension)) {
+  if (
+    /^data:image\//.test(url) ||
+    /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg|ico)$/i.test(extension)
+  ) {
     return true;
   }
   if (/^data:/.test(url)) {
@@ -91,7 +70,7 @@ export const isImageUrl = (file: UploadFile): boolean => {
 const MEASURE_SIZE = 200;
 export function previewImage(file: File | Blob): Promise<string> {
   return new Promise(resolve => {
-    if (!isImageFileType(file.type)) {
+    if (!file.type || !isImageFileType(file.type)) {
       resolve('');
       return;
     }

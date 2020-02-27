@@ -6,6 +6,8 @@ import Title from '../Title';
 import Paragraph from '../Paragraph';
 import Base from '../Base'; // eslint-disable-line import/no-named-as-default
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import Typography from '../Typography';
 
 jest.mock('copy-to-clipboard');
 
@@ -13,6 +15,10 @@ describe('Typography', () => {
   mountTest(Paragraph);
   mountTest(Base);
   mountTest(Title);
+
+  rtlTest(Paragraph);
+  rtlTest(Base);
+  rtlTest(Title);
 
   const LINE_STR_COUNT = 20;
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -95,11 +101,53 @@ describe('Typography', () => {
         wrapper.unmount();
       });
 
+      it('should middle ellipsis', () => {
+        const suffix = '--suffix';
+        const wrapper = mount(
+          <Base ellipsis={{ rows: 1, suffix }} component="p">
+            {fullStr}
+          </Base>,
+        );
+
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual('Bamboo is...--suffix');
+        wrapper.unmount();
+      });
+
+      it('should front or middle ellipsis', () => {
+        const suffix = '--The information is very important';
+        const wrapper = mount(
+          <Base ellipsis={{ rows: 1, suffix }} component="p">
+            {fullStr}
+          </Base>,
+        );
+
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual('...--The information is very important');
+
+        wrapper.setProps({ ellipsis: { rows: 2, suffix } });
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual('Ba...--The information is very important');
+
+        wrapper.setProps({ ellipsis: { rows: 99, suffix } });
+        jest.runAllTimers();
+        wrapper.update();
+        expect(wrapper.find('p').text()).toEqual(fullStr + suffix);
+
+        wrapper.unmount();
+      });
+
       it('connect children', () => {
+        const bamboo = 'Bamboo';
+        const is = ' is ';
+
         const wrapper = mount(
           <Base ellipsis component="p" editable>
-            {'Bamboo'}
-            {' is '}
+            {bamboo}
+            {is}
             <code>Little</code>
             <code>Light</code>
           </Base>,
@@ -230,6 +278,7 @@ describe('Typography', () => {
           wrapper.find('TextArea').simulate('keyUp', { keyCode: KeyCode.ESC });
         },
         onChange => {
+          // eslint-disable-next-line
           expect(onChange).not.toHaveBeenCalled();
         },
       );
@@ -238,5 +287,25 @@ describe('Typography', () => {
         wrapper.find('TextArea').simulate('blur');
       });
     });
+
+    it('should focus at the end of textarea', () => {
+      const wrapper = mount(<Paragraph editable>content</Paragraph>);
+      wrapper
+        .find('.ant-typography-edit')
+        .first()
+        .simulate('click');
+      const textareaNode = wrapper.find('textarea').getDOMNode();
+      expect(textareaNode.selectionStart).toBe(7);
+      expect(textareaNode.selectionEnd).toBe(7);
+    });
+  });
+
+  it('warning if use setContentRef', () => {
+    function refFunc() {}
+    mount(<Typography setContentRef={refFunc} />);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
+    );
   });
 });

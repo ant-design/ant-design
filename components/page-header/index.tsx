@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { ArrowLeft } from '@ant-design/icons';
+import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Tag from '../tag';
@@ -22,6 +22,7 @@ export interface PageHeaderProps {
   avatar?: AvatarProps;
   onBack?: (e: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
+  ghost?: boolean;
 }
 
 const renderBack = (
@@ -57,10 +58,18 @@ const renderBreadcrumb = (breadcrumb: BreadcrumbProps) => {
   return <Breadcrumb {...breadcrumb} />;
 };
 
-const renderTitle = (prefixCls: string, props: PageHeaderProps) => {
-  const { title, avatar, subTitle, tags, extra, backIcon, onBack } = props;
+const getBackIcon = (props: PageHeaderProps, direction: string = 'ltr') => {
+  if (props.backIcon !== undefined) {
+    return props.backIcon;
+  }
+  return direction === 'rtl' ? <ArrowRightOutlined /> : <ArrowLeftOutlined />;
+};
+
+const renderTitle = (prefixCls: string, props: PageHeaderProps, direction: string = 'ltr') => {
+  const { title, avatar, subTitle, tags, extra, onBack } = props;
   const headingPrefixCls = `${prefixCls}-heading`;
   if (title || subTitle || tags || extra) {
+    const backIcon = getBackIcon(props, direction);
     const backIconDom = renderBack(prefixCls, backIcon, onBack);
     return (
       <div className={headingPrefixCls}>
@@ -89,7 +98,7 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => {
 
 const PageHeader: React.SFC<PageHeaderProps> = props => (
   <ConfigConsumer>
-    {({ getPrefixCls }: ConfigConsumerProps) => {
+    {({ getPrefixCls, pageHeader, direction }: ConfigConsumerProps) => {
       const {
         prefixCls: customizePrefixCls,
         style,
@@ -98,18 +107,28 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
         breadcrumb,
         className: customizeClassName,
       } = props;
+      let ghost: undefined | boolean = true;
+
+      // Use `ghost` from `props` or from `ConfigProvider` instead.
+      if ('ghost' in props) {
+        ghost = props.ghost;
+      } else if (pageHeader && 'ghost' in pageHeader) {
+        ghost = pageHeader.ghost;
+      }
 
       const prefixCls = getPrefixCls('page-header', customizePrefixCls);
       const breadcrumbDom = breadcrumb && breadcrumb.routes ? renderBreadcrumb(breadcrumb) : null;
       const className = classnames(prefixCls, customizeClassName, {
         'has-breadcrumb': breadcrumbDom,
         'has-footer': footer,
+        [`${prefixCls}-ghost`]: ghost,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
       });
 
       return (
         <div className={className} style={style}>
           {breadcrumbDom}
-          {renderTitle(prefixCls, props)}
+          {renderTitle(prefixCls, props, direction)}
           {children && renderChildren(prefixCls, children)}
           {renderFooter(prefixCls, footer)}
         </div>
@@ -117,9 +136,5 @@ const PageHeader: React.SFC<PageHeaderProps> = props => (
     }}
   </ConfigConsumer>
 );
-
-PageHeader.defaultProps = {
-  backIcon: <ArrowLeft />,
-};
 
 export default PageHeader;

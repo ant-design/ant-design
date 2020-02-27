@@ -2,9 +2,11 @@ import React from 'react';
 import { mount } from 'enzyme';
 import AutoComplete from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('AutoComplete with Custom Input Element Render', () => {
   mountTest(AutoComplete);
+  rtlTest(AutoComplete);
 
   it('AutoComplete with custom Input render perfectly', () => {
     const wrapper = mount(
@@ -22,7 +24,12 @@ describe('AutoComplete with Custom Input Element Render', () => {
 
   it('AutoComplete should work when dataSource is object array', () => {
     const wrapper = mount(
-      <AutoComplete dataSource={[{ text: 'text', value: 'value' }, { text: 'abc', value: 'xxx' }]}>
+      <AutoComplete
+        dataSource={[
+          { text: 'text', value: 'value' },
+          { text: 'abc', value: 'xxx' },
+        ]}
+      >
         <input />
       </AutoComplete>,
     );

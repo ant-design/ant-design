@@ -12,7 +12,19 @@ export interface RcFile extends File {
   readonly webkitRelativePath: string;
 }
 
-export interface UploadFile {
+export interface RcCustomRequestOptions {
+  onProgress: (event: { percent: number }, file: File) => void;
+  onError: (error: Error) => void;
+  onSuccess: (response: object, file: File) => void;
+  data: object;
+  filename: string;
+  file: File;
+  withCredentials: boolean;
+  action: string;
+  headers: object;
+}
+
+export interface UploadFile<T = any> {
   uid: string;
   size: number;
   name: string;
@@ -24,10 +36,12 @@ export interface UploadFile {
   percent?: number;
   thumbUrl?: string;
   originFileObj?: File | Blob;
-  response?: any;
+  response?: T;
   error?: any;
   linkProps?: any;
   type: string;
+  xhr?: T;
+  preview?: string;
 }
 
 export interface UploadChangeParam<T extends object = UploadFile> {
@@ -40,11 +54,13 @@ export interface UploadChangeParam<T extends object = UploadFile> {
 export interface ShowUploadListInterface {
   showRemoveIcon?: boolean;
   showPreviewIcon?: boolean;
+  showDownloadIcon?: boolean;
 }
 
 export interface UploadLocale {
   uploading?: string;
   removeFile?: string;
+  downloadFile?: string;
   uploadError?: string;
   previewFile?: string;
 }
@@ -65,6 +81,7 @@ export interface UploadProps {
   action?: string | ((file: RcFile) => string) | ((file: RcFile) => PromiseLike<string>);
   directory?: boolean;
   data?: object | ((file: UploadFile) => object);
+  method?: 'POST' | 'PUT' | 'post' | 'put';
   headers?: HttpRequestHeader;
   showUploadList?: boolean | ShowUploadListInterface;
   multiple?: boolean;
@@ -74,18 +91,20 @@ export interface UploadProps {
   listType?: UploadListType;
   className?: string;
   onPreview?: (file: UploadFile) => void;
+  onDownload?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean | Promise<void | boolean>;
   supportServerRender?: boolean;
   style?: React.CSSProperties;
   disabled?: boolean;
   prefixCls?: string;
-  customRequest?: (option: object) => void;
+  customRequest?: (options: RcCustomRequestOptions) => void;
   withCredentials?: boolean;
   openFileDialogOnClick?: boolean;
   locale?: UploadLocale;
   id?: string;
   previewFile?: PreviewFileHandler;
   transformFile?: TransformFileHandler;
+  iconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
 }
 
 export interface UploadState {
@@ -96,12 +115,17 @@ export interface UploadState {
 export interface UploadListProps {
   listType?: UploadListType;
   onPreview?: (file: UploadFile) => void;
+  onDownload?: (file: UploadFile) => void;
   onRemove?: (file: UploadFile) => void | boolean;
   items?: Array<UploadFile>;
   progressAttr?: Object;
   prefixCls?: string;
   showRemoveIcon?: boolean;
+  showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;
+  removeIcon?: React.ReactNode;
+  downloadIcon?: React.ReactNode;
   locale: UploadLocale;
   previewFile?: PreviewFileHandler;
+  iconRender?: (file: UploadFile, listType?: UploadListType) => React.ReactNode;
 }

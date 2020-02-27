@@ -1,16 +1,16 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 import toArray from 'rc-util/lib/Children/toArray';
+import findDOMNode from 'rc-util/lib/Dom/findDOMNode';
 import copy from 'copy-to-clipboard';
 import omit from 'omit.js';
-import { Edit, Check, Copy } from '@ant-design/icons';
-
-import { withConfigConsumer, ConfigConsumerProps, configConsumerProps } from '../config-provider';
+import { EditOutlined, CheckOutlined, CopyOutlined } from '@ant-design/icons';
+import ResizeObserver from 'rc-resize-observer';
+import { ConfigConsumerProps, configConsumerProps } from '../config-provider';
+import { withConfigConsumer } from '../config-provider/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import warning from '../_util/warning';
 import TransButton from '../_util/transButton';
-import ResizeObserver from '../_util/resizeObserver';
 import raf from '../_util/raf';
 import isStyleSupport from '../_util/styleChecker';
 import Tooltip from '../tooltip';
@@ -37,16 +37,17 @@ interface EditConfig {
 interface EllipsisConfig {
   rows?: number;
   expandable?: boolean;
+  suffix?: string;
   onExpand?: () => void;
 }
 
 export interface BlockProps extends TypographyProps {
+  title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
   type?: BaseType;
   disabled?: boolean;
   ellipsis?: boolean | EllipsisConfig;
-
   // decorations
   code?: boolean;
   mark?: boolean;
@@ -268,8 +269,9 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
   canUseCSSEllipsis(): boolean {
     const { clientRendered } = this.state;
     const { editable, copyable } = this.props;
-    const { rows, expandable } = this.getEllipsis();
+    const { rows, expandable, suffix } = this.getEllipsis();
 
+    if (suffix) return false;
     // Can't use css ellipsis since we need to provide the place for button
     if (editable || copyable || expandable || !clientRendered) {
       return false;
@@ -284,7 +286,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
 
   syncEllipsis() {
     const { ellipsisText, isEllipsis, expanded } = this.state;
-    const { rows } = this.getEllipsis();
+    const { rows, suffix } = this.getEllipsis();
     const { children } = this.props;
     if (!rows || rows < 0 || !this.content || expanded) return;
 
@@ -298,8 +300,8 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     );
 
     const { content, text, ellipsis } = measure(
-      this.content,
-      rows,
+      findDOMNode(this.content),
+      { rows, suffix },
       children,
       this.renderOperations(true),
       ELLIPSIS_STR,
@@ -343,7 +345,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onEditClick}
           aria-label={this.editStr}
         >
-          <Edit role="button" />
+          <EditOutlined role="button" />
         </TransButton>
       </Tooltip>
     );
@@ -362,14 +364,14 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
           onClick={this.onCopyClick}
           aria-label={title}
         >
-          {copied ? <Check /> : <Copy />}
+          {copied ? <CheckOutlined /> : <CopyOutlined />}
         </TransButton>
       </Tooltip>
     );
   }
 
   renderEditInput() {
-    const { children, prefixCls, className, style } = this.props;
+    const { children, prefixCls, className, style, direction } = this.props;
     return (
       <Editable
         value={typeof children === 'string' ? children : ''}
@@ -378,6 +380,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
         prefixCls={prefixCls}
         className={className}
         style={style}
+        direction={direction}
       />
     );
   }
@@ -398,9 +401,10 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
       type,
       disabled,
       style,
+      title,
       ...restProps
     } = this.props;
-    const { rows } = this.getEllipsis();
+    const { rows, suffix } = this.getEllipsis();
 
     const textProps = omit(restProps, [
       'prefixCls',
@@ -421,17 +425,28 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     const cssLineClamp = rows && rows > 1 && cssEllipsis;
 
     let textNode: React.ReactNode = children;
-    let ariaLabel: string | null = null;
+    let ariaLabel: string | undefined;
 
     // Only use js ellipsis when css ellipsis not support
     if (rows && isEllipsis && !expanded && !cssEllipsis) {
-      ariaLabel = String(children);
+      ariaLabel = title;
+      if (!title && (typeof children === 'string' || typeof children === 'number')) {
+        ariaLabel = String(children);
+      }
       // We move full content to outer element to avoid repeat read the content by accessibility
       textNode = (
-        <span title={String(children)} aria-hidden="true">
+        <span title={ariaLabel} aria-hidden="true">
           {ellipsisContent}
           {ELLIPSIS_STR}
+          {suffix}
         </span>
+      );
+    } else {
+      textNode = (
+        <>
+          {children}
+          {suffix}
+        </>
       );
     }
 
@@ -460,7 +475,7 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
                   WebkitLineClamp: cssLineClamp ? rows : null,
                 }}
                 component={component}
-                setContentRef={this.setContentRef}
+                ref={this.setContentRef}
                 aria-label={ariaLabel}
                 {...textProps}
               >
@@ -483,8 +498,6 @@ class Base extends React.Component<InternalBlockProps & ConfigConsumerProps, Bas
     return this.renderContent();
   }
 }
-
-polyfill(Base);
 
 export default withConfigConsumer<InternalBlockProps>({
   prefixCls: 'typography',

@@ -1,5 +1,5 @@
 ---
-order: 22
+order: 23
 title:
   en-US: Editable Cells
   zh-CN: 可编辑单元格
@@ -14,6 +14,7 @@ title:
 Table with editable cells.
 
 ```tsx
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
 
 const EditableContext = React.createContext<any>();
@@ -58,11 +59,11 @@ const EditableCell: React.FC<EditableCellProps> = ({
   handleSave,
   ...restProps
 }) => {
-  const [editing, setEditing] = React.useState(false);
-  const inputRef = React.useRef();
-  const form = React.useContext(EditableContext);
+  const [editing, setEditing] = useState(false);
+  const inputRef = useRef();
+  const form = useContext(EditableContext);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (editing) {
       inputRef.current.focus();
     }
@@ -246,5 +247,9 @@ ReactDOM.render(<EditableTable />, mountNode);
   border: 1px solid #d9d9d9;
   border-radius: 4px;
   padding: 4px 11px;
+}
+
+[data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
+  border: 1px solid #434343;
 }
 ```

@@ -4,7 +4,9 @@ exports[`Modal render correctly 1`] = `
 <div>
   <div>
     <div>
-      <div>
+      <div
+        class="ant-modal-root"
+      >
         <div
           class="ant-modal-mask fade-appear"
         />
@@ -101,7 +103,9 @@ exports[`Modal render without footer 1`] = `
 <div>
   <div>
     <div>
-      <div>
+      <div
+        class="ant-modal-root"
+      >
         <div
           class="ant-modal-mask fade-appear"
         />
@@ -172,8 +176,12 @@ exports[`Modal render without footer 1`] = `
 </div>
 `;
 
+exports[`Modal rtl render component should be rendered correctly in RTL direction 1`] = `null`;
+
 exports[`Modal support closeIcon 1`] = `
-<div>
+<div
+  class="ant-modal-root"
+>
   <div
     class="ant-modal-mask fade-appear"
   />

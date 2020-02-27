@@ -15,11 +15,11 @@ Custom icon.
 
 ```jsx
 import { Result, Button } from 'antd';
-import { Smile } from '@ant-design/icons';
+import { SmileOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <Result
-    icon={<Smile />}
+    icon={<SmileOutlined />}
     title="Great, we have done all the operations!"
     extra={<Button type="primary">Next</Button>}
   />,

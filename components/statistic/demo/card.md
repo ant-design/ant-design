@@ -15,10 +15,10 @@ Display statistic data in Card.
 
 ```jsx
 import { Statistic, Card, Row, Col } from 'antd';
-import { ArrowUp, ArrowDown } from '@ant-design/icons';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <div style={{ background: '#ECECEC', padding: '30px' }}>
+  <div className="site-statistic-demo-card">
     <Row gutter={16}>
       <Col span={12}>
         <Card>
@@ -27,7 +27,7 @@ ReactDOM.render(
             value={11.28}
             precision={2}
             valueStyle={{ color: '#3f8600' }}
-            prefix={<ArrowUp />}
+            prefix={<ArrowUpOutlined />}
             suffix="%"
           />
         </Card>
@@ -39,7 +39,7 @@ ReactDOM.render(
             value={9.3}
             precision={2}
             valueStyle={{ color: '#cf1322' }}
-            prefix={<ArrowDown />}
+            prefix={<ArrowDownOutlined />}
             suffix="%"
           />
         </Card>
@@ -49,3 +49,16 @@ ReactDOM.render(
   mountNode,
 );
 ```
+
+```css
+.site-statistic-demo-card {
+  background: #ececec;
+  padding: 30px;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-statistic-demo-card {
+    background: #303030;
+  }
+</style>

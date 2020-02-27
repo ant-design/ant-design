@@ -3,7 +3,7 @@
 
 @card-prefix-cls: ~'@{ant-prefix}-card';
 @card-head-height: 48px;
-@card-hover-border: fade(@black, 9%);
+@card-hoverable-hover-border: transparent;
 @card-action-icon-size: 16px;
 
 @gradient-min: fade(@card-skeleton-bg, 20%);
@@ -17,10 +17,14 @@
   border-radius: @card-radius;
   transition: all 0.3s;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-hoverable {
     cursor: pointer;
     &:hover {
-      border-color: @card-hover-border;
+      border-color: @card-hoverable-hover-border;
       box-shadow: @card-shadow;
     }
   }
@@ -76,6 +80,11 @@
     color: @text-color;
     font-weight: normal;
     font-size: @font-size-base;
+
+    .@{card-prefix-cls}-rtl & {
+      margin-right: auto;
+      margin-left: 0;
+    }
   }
 
   &-body {
@@ -98,11 +107,16 @@
       1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
       0 1px 0 0 @border-color-split inset;
     transition: all 0.3s;
+
+    .@{card-prefix-cls}-rtl & {
+      float: right;
+    }
+
     &-hoverable {
       &:hover {
         position: relative;
         z-index: 1;
-        box-shadow: @box-shadow-base;
+        box-shadow: @card-shadow;
       }
     }
   }
@@ -117,10 +131,14 @@
   }
 
   &-cover {
+    margin-right: -1px;
+    margin-left: -1px;
+
     > * {
       display: block;
       width: 100%;
     }
+
     img {
       border-radius: @card-radius @card-radius 0 0;
     }
@@ -140,11 +158,15 @@
       color: @text-color-secondary;
       text-align: center;
 
+      .@{card-prefix-cls}-rtl & {
+        float: right;
+      }
+
       > span {
         position: relative;
         display: block;
         min-width: 32px;
-        font-size: 14px;
+        font-size: @font-size-base;
         line-height: 22px;
         cursor: pointer;
 
@@ -203,6 +225,12 @@
     &-avatar {
       float: left;
       padding-right: 16px;
+
+      .@{card-prefix-cls}-rtl & {
+        float: right;
+        padding-right: 0;
+        padding-left: 16px;
+      }
     }
 
     &-detail {

@@ -4,8 +4,9 @@ import * as React from 'react';
 import omit from 'omit.js';
 import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
-import { Down, Loading, Check, Close, CloseCircleFilled } from '@ant-design/icons';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import getIcons from './utils/iconUtil';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 type RawValue = string | number;
 
@@ -21,8 +22,9 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
   suffixIcon?: React.ReactNode;
-  size?: 'large' | 'default' | 'small';
+  size?: SizeType;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
+  bordered?: boolean;
 }
 
 export interface SelectProps<VT>
@@ -43,6 +45,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
   static defaultProps = {
     transitionName: 'slide-up',
     choiceTransitionName: 'zoom',
+    bordered: true,
   };
 
   selectRef = React.createRef<RcSelect<ValueType>>();
@@ -73,19 +76,22 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     return mode;
   };
 
-  renderSelect = ({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+  renderSelect = ({
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    renderEmpty,
+    direction,
+  }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
-      suffixIcon,
-      clearIcon,
-      menuItemSelectedIcon,
-      removeIcon,
-      loading,
       notFoundContent,
       className,
-      size,
+      size: customizeSize,
       listHeight = 256,
       listItemHeight = 32,
+      getPopupContainer,
+      dropdownClassName,
+      bordered,
     } = this.props as InternalSelectProps<ValueType>;
 
     const prefixCls = getPrefixCls('select', customizePrefixCls);
@@ -94,7 +100,7 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     const isMultiple = mode === 'multiple' || mode === 'tags';
 
     // ===================== Empty =====================
-    let mergedNotFound;
+    let mergedNotFound: React.ReactNode;
     if (notFoundContent !== undefined) {
       mergedNotFound = notFoundContent;
     } else if (mode === 'combobox') {
@@ -104,61 +110,55 @@ class Select<ValueType extends SelectValue = SelectValue> extends React.Componen
     }
 
     // ===================== Icons =====================
-    // Clear Icon
-    let mergedClearIcon = clearIcon;
-    if (!clearIcon) {
-      mergedClearIcon = <CloseCircleFilled />;
-    }
-
-    // Arrow item icon
-    let mergedSuffixIcon = null;
-    if (suffixIcon !== undefined) {
-      mergedSuffixIcon = suffixIcon;
-    } else if (loading) {
-      mergedSuffixIcon = <Loading spin />;
-    } else {
-      mergedSuffixIcon = <Down />;
-    }
-
-    // Checked item icon
-    let mergedItemIcon = null;
-    if (menuItemSelectedIcon !== undefined) {
-      mergedItemIcon = menuItemSelectedIcon;
-    } else if (isMultiple) {
-      mergedItemIcon = <Check />;
-    } else {
-      mergedItemIcon = null;
-    }
-
-    let mergedRemoveIcon = null;
-    if (removeIcon !== undefined) {
-      mergedRemoveIcon = removeIcon;
-    } else {
-      mergedRemoveIcon = <Close />;
-    }
-
-    const selectProps = omit(this.props, ['prefixCls', 'suffixIcon', 'size']);
-
-    const mergedClassName = classNames(className, {
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-sm`]: size === 'small',
+    const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
+      ...this.props,
+      multiple: isMultiple,
     });
 
+    const selectProps = omit(this.props, [
+      'prefixCls',
+      'suffixIcon',
+      'itemIcon',
+      'removeIcon',
+      'clearIcon',
+      'size',
+      'bordered',
+    ]);
+
+    const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+    });
     return (
-      <RcSelect<ValueType>
-        ref={this.selectRef}
-        {...selectProps}
-        listHeight={listHeight}
-        listItemHeight={listItemHeight}
-        mode={mode}
-        prefixCls={prefixCls}
-        inputIcon={mergedSuffixIcon}
-        menuItemSelectedIcon={mergedItemIcon}
-        removeIcon={mergedRemoveIcon}
-        clearIcon={mergedClearIcon}
-        notFoundContent={mergedNotFound}
-        className={mergedClassName}
-      />
+      <SizeContext.Consumer>
+        {size => {
+          const mergedSize = customizeSize || size;
+          const mergedClassName = classNames(className, {
+            [`${prefixCls}-lg`]: mergedSize === 'large',
+            [`${prefixCls}-sm`]: mergedSize === 'small',
+            [`${prefixCls}-rtl`]: direction === 'rtl',
+            [`${prefixCls}-borderless`]: !bordered,
+          });
+
+          return (
+            <RcSelect<ValueType>
+              ref={this.selectRef}
+              {...selectProps}
+              listHeight={listHeight}
+              listItemHeight={listItemHeight}
+              mode={mode}
+              prefixCls={prefixCls}
+              inputIcon={suffixIcon}
+              menuItemSelectedIcon={itemIcon}
+              removeIcon={removeIcon}
+              clearIcon={clearIcon}
+              notFoundContent={mergedNotFound}
+              className={mergedClassName}
+              getPopupContainer={getPopupContainer || getContextPopupContainer}
+              dropdownClassName={rcSelectRtlDropDownClassName}
+            />
+          );
+        }}
+      </SizeContext.Consumer>
     );
   };
 

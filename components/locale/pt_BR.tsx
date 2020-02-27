@@ -35,8 +35,15 @@ export default {
     removeFile: 'Remover arquivo',
     uploadError: 'Erro no envio',
     previewFile: 'Visualizar arquivo',
+    downloadFile: 'Baixar arquivo',
   },
   Empty: {
     description: 'Não há dados',
+  },
+  Text: {
+    edit: 'editar',
+    copy: 'copiar',
+    copied: 'copiado',
+    expand: 'expandir',
   },
 };

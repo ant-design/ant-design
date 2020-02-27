@@ -3,20 +3,22 @@ import { mount } from 'enzyme';
 import Menu from '..';
 import Icon from '../../icon';
 import Layout from '../../layout';
-import raf from '../../_util/raf';
 import mountTest from '../../../tests/shared/mountTest';
-
-jest.mock('mutationobserver-shim', () => {
-  global.MutationObserver = function MutationObserver() {
-    this.observe = () => {};
-    this.disconnect = () => {};
-  };
-});
+import rtlTest from '../../../tests/shared/rtlTest';
+import { resetWarned } from '../../_util/warning';
 
 const { SubMenu } = Menu;
 
 describe('Menu', () => {
   mountTest(() => (
+    <Menu>
+      <Menu.Item />
+      <Menu.ItemGroup />
+      <Menu.SubMenu />
+    </Menu>
+  ));
+
+  rtlTest(() => (
     <Menu>
       <Menu.Item />
       <Menu.ItemGroup />
@@ -83,10 +85,6 @@ describe('Menu', () => {
         .at(0)
         .hasClass('ant-menu-hidden'),
     ).not.toBe(true);
-
-    const rafCount = Object.keys(raf.ids).length;
-    wrapper.unmount();
-    expect(Object.keys(raf.ids).length).toBe(rafCount - 1);
   });
 
   it('should accept defaultOpenKeys in mode vertical', () => {
@@ -569,15 +567,49 @@ describe('Menu', () => {
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
-  it('get correct animation type when switched from inline', () => {
-    const wrapper = mount(<Menu mode="inline" />);
-    wrapper.setProps({ mode: 'horizontal' });
-    expect(
-      wrapper
-        .find('InternalMenu')
-        .instance()
-        .getMenuOpenAnimation(''),
-    ).toBe('');
+  describe('motion', () => {
+    it('get correct animation type when switched from inline', () => {
+      const wrapper = mount(<Menu mode="inline" />);
+      wrapper.setProps({ mode: 'horizontal' });
+      expect(
+        wrapper
+          .find('InternalMenu')
+          .instance()
+          .getOpenMotionProps(''),
+      ).toEqual({ motion: { motionName: '' } });
+    });
+
+    it('warning if use `openAnimation` as object', () => {
+      resetWarned();
+
+      const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      mount(<Menu openAnimation={{}} />);
+      expect(warnSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Menu] `openAnimation` do not support object. Please use `motion` instead.',
+      );
+      warnSpy.mockRestore();
+    });
+
+    it('motion object', () => {
+      const motion = { test: true };
+      const wrapper = mount(<Menu motion={motion} />);
+      expect(
+        wrapper
+          .find('InternalMenu')
+          .instance()
+          .getOpenMotionProps(''),
+      ).toEqual({ motion });
+    });
+
+    it('legacy openTransitionName', () => {
+      const wrapper = mount(<Menu openTransitionName="legacy" />);
+      expect(
+        wrapper
+          .find('InternalMenu')
+          .instance()
+          .getOpenMotionProps(''),
+      ).toEqual({ openTransitionName: 'legacy' });
+    });
   });
 
   it('MenuItem should not render Tooltip when inlineCollapsed is false', () => {
@@ -695,7 +727,12 @@ describe('Menu', () => {
     wrapper.setProps({ inlineCollapsed: true });
     jest.runAllTimers();
     wrapper.update();
-    expect(wrapper.find('.ant-menu-submenu-popup:not(.ant-menu-submenu-hidden)').length).toBe(0);
+    expect(
+      wrapper
+        .find('Trigger')
+        .map(node => node.prop('popupVisible'))
+        .findIndex(node => !!node),
+    ).toBe(-1);
     wrapper.setProps({ inlineCollapsed: false });
     expect(wrapper.find('.ant-menu-item-selected').getDOMNode().textContent).toBe('Option 2');
     jest.useRealTimers();

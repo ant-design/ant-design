@@ -4,6 +4,7 @@ import Affix from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
 import { spyElementPrototype } from '../../__tests__/util/domHook';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const events = {};
 
@@ -40,6 +41,8 @@ class AffixMounter extends React.Component {
 }
 
 describe('Affix Render', () => {
+  rtlTest(Affix);
+
   let wrapper;
   let domMock;
 
@@ -182,7 +185,7 @@ describe('Affix Render', () => {
         // Mock trigger resize
         updateCalled.mockReset();
         wrapper
-          .find('ReactResizeObserver')
+          .find('ResizeObserver')
           .at(index)
           .instance()
           .onResize([{ target: { getBoundingClientRect: () => ({ width: 99, height: 99 }) } }]);

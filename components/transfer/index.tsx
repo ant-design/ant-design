@@ -1,7 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { polyfill } from 'react-lifecycles-compat';
 import List, { TransferListProps } from './list';
 import Operation from './operation';
 import Search from './search';
@@ -27,11 +25,19 @@ type TransferRender = (item: TransferItem) => RenderResult;
 
 export interface TransferItem {
   key: string;
-  title: string;
+  title?: string;
   description?: string;
   disabled?: boolean;
   [name: string]: any;
 }
+
+export interface ListStyle {
+  direction: TransferDirection;
+}
+
+export type SelectAllLabel =
+  | React.ReactNode
+  | ((info: { selectedCount: number; totalCount: number }) => React.ReactNode);
 
 export interface TransferProps {
   prefixCls?: string;
@@ -44,7 +50,7 @@ export interface TransferProps {
   onChange?: (targetKeys: string[], direction: string, moveKeys: string[]) => void;
   onSelectChange?: (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => void;
   style?: React.CSSProperties;
-  listStyle?: React.CSSProperties;
+  listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties;
   operationStyle?: React.CSSProperties;
   titles?: string[];
   operations?: string[];
@@ -54,10 +60,10 @@ export interface TransferProps {
   footer?: (props: TransferListProps) => React.ReactNode;
   rowKey?: (record: TransferItem) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
-  lazy?: {} | boolean;
-  onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => void;
+  onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
   children?: (props: TransferListBodyProps) => React.ReactNode;
   showSelectAll?: boolean;
+  selectAllLabels?: SelectAllLabel[];
 }
 
 export interface TransferLocale {
@@ -80,28 +86,7 @@ class Transfer extends React.Component<TransferProps, any> {
     dataSource: [],
     locale: {},
     showSearch: false,
-  };
-
-  static propTypes = {
-    prefixCls: PropTypes.string,
-    disabled: PropTypes.bool,
-    dataSource: PropTypes.array as PropTypes.Validator<TransferItem[]>,
-    render: PropTypes.func,
-    targetKeys: PropTypes.array,
-    onChange: PropTypes.func,
-    height: PropTypes.number,
-    style: PropTypes.object,
-    listStyle: PropTypes.object,
-    operationStyle: PropTypes.object,
-    className: PropTypes.string,
-    titles: PropTypes.array,
-    operations: PropTypes.array,
-    showSearch: PropTypes.bool,
-    filterOption: PropTypes.func,
-    locale: PropTypes.object,
-    footer: PropTypes.func,
-    rowKey: PropTypes.func,
-    lazy: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
+    listStyle: () => {},
   };
 
   static getDerivedStateFromProps(nextProps: TransferProps) {
@@ -254,16 +239,16 @@ class Transfer extends React.Component<TransferProps, any> {
   onRightItemSelect = (selectedKey: string, checked: boolean) =>
     this.onItemSelect('right', selectedKey, checked);
 
-  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLDivElement>) => {
+  handleScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
     const { onScroll } = this.props;
     if (onScroll) {
       onScroll(direction, e);
     }
   };
 
-  handleLeftScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('left', e);
+  handleLeftScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('left', e);
 
-  handleRightScroll = (e: React.SyntheticEvent<HTMLDivElement>) => this.handleScroll('right', e);
+  handleRightScroll = (e: React.SyntheticEvent<HTMLUListElement>) => this.handleScroll('right', e);
 
   handleSelectChange(direction: TransferDirection, holder: string[]) {
     const { sourceSelectedKeys, targetSelectedKeys } = this.state;
@@ -278,6 +263,16 @@ class Transfer extends React.Component<TransferProps, any> {
       onSelectChange(sourceSelectedKeys, holder);
     }
   }
+
+  handleListStyle = (
+    listStyle: ((style: ListStyle) => React.CSSProperties) | React.CSSProperties,
+    direction: TransferDirection,
+  ) => {
+    if (typeof listStyle === 'function') {
+      return listStyle({ direction });
+    }
+    return listStyle;
+  };
 
   separateDataSource() {
     const { dataSource, rowKey, targetKeys = [] } = this.props;
@@ -307,7 +302,7 @@ class Transfer extends React.Component<TransferProps, any> {
 
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
-      {({ getPrefixCls, renderEmpty }: ConfigConsumerProps) => {
+      {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => {
         const {
           prefixCls: customizePrefixCls,
           className,
@@ -320,7 +315,6 @@ class Transfer extends React.Component<TransferProps, any> {
           operationStyle,
           filterOption,
           render,
-          lazy,
           children,
           showSelectAll,
         } = this.props;
@@ -339,9 +333,11 @@ class Transfer extends React.Component<TransferProps, any> {
         const cls = classNames(className, prefixCls, {
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-customize-list`]: !!children,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
         });
 
         const titles = this.props.titles || locale.titles;
+        const selectAllLabels = this.props.selectAllLabels || [];
         return (
           <div className={cls} style={style}>
             <List
@@ -349,7 +345,7 @@ class Transfer extends React.Component<TransferProps, any> {
               titleText={titles[0]}
               dataSource={leftDataSource}
               filterOption={filterOption}
-              style={listStyle}
+              style={this.handleListStyle(listStyle, 'left')}
               checkedKeys={sourceSelectedKeys}
               handleFilter={this.handleLeftFilter}
               handleClear={this.handleLeftClear}
@@ -359,11 +355,11 @@ class Transfer extends React.Component<TransferProps, any> {
               showSearch={showSearch}
               renderList={children}
               footer={footer}
-              lazy={lazy}
               onScroll={this.handleLeftScroll}
               disabled={disabled}
               direction="left"
               showSelectAll={showSelectAll}
+              selectAllLabel={selectAllLabels[0]}
               {...locale}
             />
             <Operation
@@ -376,13 +372,14 @@ class Transfer extends React.Component<TransferProps, any> {
               moveToLeft={this.moveToLeft}
               style={operationStyle}
               disabled={disabled}
+              direction={direction}
             />
             <List
               prefixCls={`${prefixCls}-list`}
               titleText={titles[1]}
               dataSource={rightDataSource}
               filterOption={filterOption}
-              style={listStyle}
+              style={this.handleListStyle(listStyle, 'right')}
               checkedKeys={targetSelectedKeys}
               handleFilter={this.handleRightFilter}
               handleClear={this.handleRightClear}
@@ -392,11 +389,11 @@ class Transfer extends React.Component<TransferProps, any> {
               showSearch={showSearch}
               renderList={children}
               footer={footer}
-              lazy={lazy}
               onScroll={this.handleRightScroll}
               disabled={disabled}
               direction="right"
               showSelectAll={showSelectAll}
+              selectAllLabel={selectAllLabels[1]}
               {...locale}
             />
           </div>
@@ -413,7 +410,5 @@ class Transfer extends React.Component<TransferProps, any> {
     );
   }
 }
-
-polyfill(Transfer);
 
 export default Transfer;

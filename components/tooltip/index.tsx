@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import RcTooltip from 'rc-tooltip';
 import classNames from 'classnames';
+import { AlignType, ActionType, BuildInPlacements } from 'rc-trigger/lib/interface';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
@@ -20,8 +20,6 @@ export type TooltipPlacement =
   | 'leftBottom'
   | 'rightTop'
   | 'rightBottom';
-
-export type TooltipTrigger = 'hover' | 'focus' | 'click' | 'contextMenu';
 
 // https://github.com/react-component/tooltip
 // https://github.com/yiminghe/dom-align
@@ -42,14 +40,14 @@ export interface AbstractTooltipProps {
   className?: string;
   overlayStyle?: React.CSSProperties;
   placement?: TooltipPlacement;
-  builtinPlacements?: Object;
+  builtinPlacements?: BuildInPlacements;
   defaultVisible?: boolean;
   visible?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   transitionName?: string;
-  trigger?: TooltipTrigger;
+  trigger?: ActionType;
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
@@ -58,19 +56,19 @@ export interface AbstractTooltipProps {
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   children?: React.ReactNode;
   // align is a more higher api
-  align?: TooltipAlignConfig;
+  align?: AlignType;
   /** Internal. Hide tooltip when hidden. This will be renamed in future. */
   destroyTooltipOnHide?: boolean;
 }
 
 export type RenderFunction = () => React.ReactNode;
 
-interface TooltipPropsWithOverlay extends AbstractTooltipProps {
+export interface TooltipPropsWithOverlay extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay: React.ReactNode | RenderFunction;
 }
 
-interface TooltipPropsWithTitle extends AbstractTooltipProps {
+export interface TooltipPropsWithTitle extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
 }
@@ -95,9 +93,9 @@ const splitObject = (obj: any, keys: string[]) => {
 function getDisabledCompatibleChildren(element: React.ReactElement<any>) {
   const elementType = element.type as any;
   if (
-    (elementType.__ANT_BUTTON ||
-      elementType.__ANT_SWITCH ||
-      elementType.__ANT_CHECKBOX ||
+    (elementType.__ANT_BUTTON === true ||
+      elementType.__ANT_SWITCH === true ||
+      elementType.__ANT_CHECKBOX === true ||
       element.type === 'button') &&
     element.props.disabled
   ) {
@@ -174,7 +172,7 @@ class Tooltip extends React.Component<TooltipProps, any> {
   };
 
   getPopupDomNode() {
-    return this.tooltip.getPopupDomNode();
+    return (this.tooltip as any).getPopupDomNode();
   }
 
   getPlacements() {
@@ -226,21 +224,29 @@ class Tooltip extends React.Component<TooltipProps, any> {
 
   isNoTitle() {
     const { title, overlay } = this.props;
-    return !title && !overlay; // overlay for old version compatibility
+    return !title && !overlay && title !== 0; // overlay for old version compatibility
+  }
+
+  getOverlay() {
+    const { title, overlay } = this.props;
+    if (title === 0) {
+      return title;
+    }
+    return overlay || title || '';
   }
 
   renderTooltip = ({
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    direction,
   }: ConfigConsumerProps) => {
     const { props, state } = this;
     const {
       prefixCls: customizePrefixCls,
-      title,
-      overlay,
       openClassName,
       getPopupContainer,
       getTooltipContainer,
+      overlayClassName,
     } = props;
     const children = props.children as React.ReactElement<any>;
     const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
@@ -259,14 +265,18 @@ class Tooltip extends React.Component<TooltipProps, any> {
       [openClassName || `${prefixCls}-open`]: true,
     });
 
+    const customOverlayClassName = classNames(overlayClassName, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
     return (
       <RcTooltip
         {...this.props}
         prefixCls={prefixCls}
+        overlayClassName={customOverlayClassName}
         getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
         ref={this.saveTooltip}
         builtinPlacements={this.getPlacements()}
-        overlay={overlay || title || ''}
+        overlay={this.getOverlay()}
         visible={visible}
         onVisibleChange={this.onVisibleChange}
         onPopupAlign={this.onPopupAlign}
@@ -280,7 +290,5 @@ class Tooltip extends React.Component<TooltipProps, any> {
     return <ConfigConsumer>{this.renderTooltip}</ConfigConsumer>;
   }
 }
-
-polyfill(Tooltip);
 
 export default Tooltip;

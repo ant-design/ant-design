@@ -57,6 +57,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -110,11 +111,13 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
           disabled=""
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -172,6 +175,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -229,6 +233,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -374,6 +379,7 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -404,6 +410,129 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/select/demo/bordered.md correctly 1`] = `
+Array [
+  <div
+    class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
+    style="width:120px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-item"
+      >
+        Lucy
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+  <div
+    class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow ant-select-disabled"
+    style="width:120px"
+  >
+    <div
+      class="ant-select-selector"
+    >
+      <span
+        class="ant-select-selection-search"
+      >
+        <input
+          aria-activedescendant="undefined_list_0"
+          aria-autocomplete="list"
+          aria-controls="undefined_list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          aria-owns="undefined_list"
+          autocomplete="off"
+          class="ant-select-selection-search-input"
+          disabled=""
+          readonly=""
+          role="combobox"
+          style="opacity:0"
+          value=""
+        />
+      </span>
+      <span
+        class="ant-select-selection-item"
+      >
+        Lucy
+      </span>
+    </div>
+    <span
+      aria-hidden="true"
+      class="ant-select-arrow"
+      style="user-select:none;-webkit-user-select:none"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+]
+`;
+
 exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 <div>
   <div
@@ -424,6 +553,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -481,6 +611,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -526,7 +657,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:120px"
+  style="width:240px"
 >
   <div
     class="ant-select-selector"
@@ -542,15 +673,16 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
       />
     </span>
     <span
-      class="ant-select-selection-item"
+      class="ant-select-selection-placeholder"
     >
-      Lucy
+      custom dropdown render
     </span>
   </div>
   <span
@@ -583,8 +715,104 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 </div>
 `;
 
+exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
+<div
+  class="ant-select ant-select-multiple ant-select-show-search"
+  style="width:100%"
+>
+  <div
+    class="ant-select-selector"
+  >
+    <span>
+      <span
+        class="ant-tag ant-tag-gold"
+        style="margin-right:3px"
+      >
+        gold
+        <span
+          aria-label="close"
+          class="anticon anticon-close"
+          role="img"
+          tabindex="-1"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="close"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
+    <span>
+      <span
+        class="ant-tag ant-tag-cyan"
+        style="margin-right:3px"
+      >
+        cyan
+        <span
+          aria-label="close"
+          class="anticon anticon-close"
+          role="img"
+          tabindex="-1"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="close"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
+    <span
+      class="ant-select-selection-search"
+      style="width:0"
+    >
+      <input
+        aria-activedescendant="undefined_list_0"
+        aria-autocomplete="list"
+        aria-controls="undefined_list"
+        aria-haspopup="listbox"
+        aria-owns="undefined_list"
+        autocomplete="off"
+        class="ant-select-selection-search-input"
+        readonly=""
+        role="combobox"
+        style="opacity:0"
+        value=""
+      />
+      <span
+        aria-hidden="true"
+        class="ant-select-selection-search-mirror"
+      >
+         
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/select/demo/debug.md correctly 1`] = `
-<div>
+<div
+  style="width:500px;position:relative;z-index:1;border:1px solid red;background:#FFF"
+>
   <input
     class="ant-input"
     style="width:100px"
@@ -609,6 +837,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -703,6 +932,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -716,7 +946,9 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
       </span>
     </div>
   </div>
-  <span>
+  <span
+    class="debug-align"
+  >
     AntDesign
   </span>
   <button
@@ -750,6 +982,7 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -789,6 +1022,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -922,6 +1156,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -956,6 +1191,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -1053,6 +1289,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -1087,6 +1324,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -1147,6 +1385,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -1181,6 +1420,7 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
         aria-owns="undefined_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        readonly=""
         role="combobox"
         style="opacity:0"
         value=""
@@ -1285,6 +1525,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -1416,6 +1657,7 @@ exports[`renders ./components/select/demo/size.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -1556,6 +1798,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""
@@ -1609,11 +1852,13 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
           disabled=""
+          readonly=""
           role="combobox"
           style="opacity:0"
           value=""

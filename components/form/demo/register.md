@@ -14,6 +14,7 @@ title:
 Fill in this form to create a new account for you.
 
 ```tsx
+import React, { useState } from 'react';
 import {
   Form,
   Input,
@@ -26,7 +27,7 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
-import { QuestionCircle } from '@ant-design/icons';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -96,10 +97,6 @@ const RegistrationForm = () => {
     console.log('Received values of form: ', values);
   };
 
-  const onFinishFailed = ({ errorFields }) => {
-    form.scrollToField(errorFields[0].name);
-  };
-
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select style={{ width: 70 }}>
@@ -109,7 +106,7 @@ const RegistrationForm = () => {
     </Form.Item>
   );
 
-  const [autoCompleteResult, setAutoCompleteResult] = React.useState([]);
+  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   const onWebsiteChange = value => {
     if (!value) {
@@ -119,9 +116,10 @@ const RegistrationForm = () => {
     }
   };
 
-  const websiteOptions = autoCompleteResult.map(website => (
-    <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
-  ));
+  const websiteOptions = autoCompleteResult.map(website => ({
+    label: website,
+    value: website,
+  }));
 
   return (
     <Form
@@ -129,11 +127,11 @@ const RegistrationForm = () => {
       form={form}
       name="register"
       onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       initialValues={{
         residence: ['zhejiang', 'hangzhou', 'xihu'],
         prefix: '86',
       }}
+      scrollToFirstError
     >
       <Form.Item
         name="email"
@@ -181,7 +179,7 @@ const RegistrationForm = () => {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject('Two passwords that you enter is inconsistent!');
+              return Promise.reject('The two passwords that you entered do not match!');
             },
           }),
         ]}
@@ -195,7 +193,7 @@ const RegistrationForm = () => {
           <span>
             Nickname&nbsp;
             <Tooltip title="What do you want others to call you?">
-              <QuestionCircle />
+              <QuestionCircleOutlined />
             </Tooltip>
           </span>
         }
@@ -227,7 +225,7 @@ const RegistrationForm = () => {
         label="Website"
         rules={[{ required: true, message: 'Please input website!' }]}
       >
-        <AutoComplete dataSource={websiteOptions} onChange={onWebsiteChange} placeholder="website">
+        <AutoComplete options={websiteOptions} onChange={onWebsiteChange} placeholder="website">
           <Input />
         </AutoComplete>
       </Form.Item>

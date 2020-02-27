@@ -1,5 +1,5 @@
 ---
-order: 4
+order: 5
 title:
   zh-CN: 多种形态的 PageHeader
   en-US: Various forms of PageHeader
@@ -19,6 +19,7 @@ import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 ReactDOM.render(
   <div>
     <PageHeader
+      className="site-page-header"
       onBack={() => window.history.back()}
       title="Title"
       subTitle="This is a subtitle"
@@ -56,7 +57,7 @@ ReactDOM.render(
         </Button>,
       ]}
     >
-      <Row type="flex">
+      <Row>
         <Statistic title="Status" value="Pending" />
         <Statistic
           title="Price"

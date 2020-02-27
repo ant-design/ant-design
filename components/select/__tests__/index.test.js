@@ -5,13 +5,14 @@ import Select from '..';
 import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/warning';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Option } = Select;
 
 describe('Select', () => {
   focusTest(Select);
   mountTest(Select);
+  rtlTest(Select);
 
   function toggleOpen(wrapper) {
     act(() => {
@@ -126,15 +127,5 @@ describe('Select', () => {
       jest.runAllTimers();
       expect(wrapper.render()).toMatchSnapshot();
     });
-  });
-
-  it('not warning if user use `inputValue`', () => {
-    resetWarned();
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    mount(<Select inputValue="" />);
-    expect(errorSpy).not.toHaveBeenCalled();
-
-    errorSpy.mockRestore();
   });
 });

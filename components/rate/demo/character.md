@@ -15,11 +15,11 @@ Replace the default star to other character like alphabet, digit, iconfont or ev
 
 ```jsx
 import { Rate } from 'antd';
-import { Heart } from '@ant-design/icons';
+import { HeartOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
-    <Rate character={<Heart />} allowHalf />
+    <Rate character={<HeartOutlined />} allowHalf />
     <br />
     <Rate character="A" allowHalf style={{ fontSize: 36 }} />
     <br />

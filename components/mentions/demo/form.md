@@ -56,7 +56,6 @@ const App = () => {
           <Option value="zombieJ">zombieJ</Option>
           <Option value="yesmeck">yesmeck</Option>
         </Mentions>
-        ,
       </Form.Item>
       <Form.Item
         name="bio"
