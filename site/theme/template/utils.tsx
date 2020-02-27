@@ -114,7 +114,7 @@ export function isZhCN(pathname: string) {
   return /-cn\/?$/.test(pathname);
 }
 
-export function getLocalizedPathname(path: string, zhCN: boolean) {
+export function getLocalizedPathname(path: string, zhCN?: boolean) {
   const pathname = path.startsWith('/') ? path : `/${path}`;
   if (!zhCN) {
     // to enUS
@@ -175,7 +175,7 @@ export function loadScript(src: string) {
   });
 }
 
-export function getMetaDescription(jml: any[]) {
+export function getMetaDescription(jml?: any[] | null) {
   const COMMON_TAGS = ['h1', 'h2', 'h3', 'p', 'img', 'a', 'code', 'strong'];
   if (!Array.isArray(jml)) {
     return '';

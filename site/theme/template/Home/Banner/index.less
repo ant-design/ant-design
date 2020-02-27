@@ -6,8 +6,10 @@
   position: relative;
   height: 512px;
   overflow: hidden;
-  background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(235, 245, 255, 0.58)),
-    linear-gradient(150deg, #fbfcfd, #f8fcff);
+  // background: radial-gradient(rgba(255, 255, 255, 0.5), rgba(235, 245, 255, 0.58)),
+  // linear-gradient(150deg, #fbfcfd, #f8fcff);
+  background: url(https://gw.alipayobjects.com/zos/basement_prod/a8cf2dfe-ff6a-4a2e-ab73-f72dced0df99.svg);
+  background-size: cover;
 
   &-holder {
     position: relative;
@@ -30,6 +32,18 @@
       display: none;
       margin: 20px auto 0;
       color: @home-color;
+    }
+
+    .banner-qr {
+      margin: 8px auto 0;
+      color: @home-color;
+      font-weight: normal;
+      text-align: center;
+
+      .anticon {
+        display: inline-block;
+        margin-right: 8px;
+      }
     }
 
     &-operations {
@@ -62,6 +76,23 @@
         }
       }
     }
+  }
+}
+
+.banner-qr-code {
+  .ant-popover-inner-content {
+    padding: 12px 12px;
+  }
+
+  img {
+    width: 136px;
+    height: 136px;
+  }
+
+  p {
+    margin: 8px 0 0 0;
+    color: #314659;
+    text-align: center;
   }
 }
 

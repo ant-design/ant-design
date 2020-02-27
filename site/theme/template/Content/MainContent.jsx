@@ -13,6 +13,7 @@ import { DarkIcon, DefaultIcon } from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
+import SiteContext from '../Layout/SiteContext';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
@@ -59,7 +60,6 @@ const getSideBarOpenKeys = nextProps => {
 
 class MainContent extends Component {
   static contextTypes = {
-    isMobile: PropTypes.bool.isRequired,
     theme: PropTypes.oneOf(['default', 'dark']),
     setTheme: PropTypes.func,
     setIframeTheme: PropTypes.func,
@@ -286,113 +286,122 @@ class MainContent extends Component {
   };
 
   render() {
-    const { isMobile, theme, setIframeTheme } = this.context;
-    const { openKeys } = this.state;
-    const {
-      localizedPageData,
-      demos,
-      intl: { formatMessage },
-    } = this.props;
-    const { meta } = localizedPageData;
-    const activeMenuItem = this.getActiveMenuItem();
-    const menuItems = this.getMenuItems();
-    const menuItemsForFooterNav = this.getMenuItems({
-      before: <LeftOutlined className="footer-nav-icon-before" />,
-      after: <RightOutlined className="footer-nav-icon-after" />,
-    });
-    const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
-    const mainContainerClass = classNames('main-container', {
-      'main-container-component': !!demos,
-    });
-    const menuChild = (
-      <Menu
-        inlineIndent={30}
-        className="aside-container menu-site"
-        mode="inline"
-        openKeys={openKeys}
-        selectedKeys={[activeMenuItem]}
-        onOpenChange={this.handleMenuOpenChange}
-      >
-        {menuItems}
-      </Menu>
-    );
-    const componentPage = /^\/?components/.test(this.props.location.pathname);
-
     return (
-      <div className="main-wrapper">
-        <Row>
-          {isMobile ? (
-            <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
-              {menuChild}
-            </MobileMenu>
-          ) : (
-            <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
-              <Affix>
-                <section className="main-menu-inner">{menuChild}</section>
-              </Affix>
-            </Col>
-          )}
-          <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
-            <section className={mainContainerClass}>
-              {demos ? (
-                <ComponentDoc
-                  {...this.props}
-                  doc={localizedPageData}
-                  demos={demos}
-                  theme={theme}
-                  setIframeTheme={setIframeTheme}
-                />
-              ) : (
-                <Article {...this.props} content={localizedPageData} />
-              )}
-              <ContributorsList
-                className="contributors-list"
-                fileName={meta.filename}
-                renderItem={(item, loading) =>
-                  loading ? (
-                    <Avatar style={{ opacity: 0.3 }} />
-                  ) : (
-                    <Tooltip
-                      title={`${formatMessage({ id: 'app.content.contributors' })}: ${
-                        item.username
-                      }`}
-                      key={item.username}
-                    >
-                      <a
-                        href={`https://github.com/${item.username}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+      <SiteContext.Consumer>
+        {({ isMobile }) => {
+          const { theme, setIframeTheme } = this.context;
+          const { openKeys } = this.state;
+          const {
+            localizedPageData,
+            demos,
+            intl: { formatMessage },
+          } = this.props;
+          const { meta } = localizedPageData;
+          const activeMenuItem = this.getActiveMenuItem();
+          const menuItems = this.getMenuItems();
+          const menuItemsForFooterNav = this.getMenuItems({
+            before: <LeftOutlined className="footer-nav-icon-before" />,
+            after: <RightOutlined className="footer-nav-icon-after" />,
+          });
+          const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
+          const mainContainerClass = classNames('main-container', {
+            'main-container-component': !!demos,
+          });
+          const menuChild = (
+            <Menu
+              inlineIndent={30}
+              className="aside-container menu-site"
+              mode="inline"
+              openKeys={openKeys}
+              selectedKeys={[activeMenuItem]}
+              onOpenChange={this.handleMenuOpenChange}
+            >
+              {menuItems}
+            </Menu>
+          );
+          const componentPage = /^\/?components/.test(this.props.location.pathname);
+
+          return (
+            <div className="main-wrapper">
+              <Row>
+                {isMobile ? (
+                  <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
+                    {menuChild}
+                  </MobileMenu>
+                ) : (
+                  <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
+                    <Affix>
+                      <section className="main-menu-inner">{menuChild}</section>
+                    </Affix>
+                  </Col>
+                )}
+                <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+                  <section className={mainContainerClass}>
+                    {demos ? (
+                      <ComponentDoc
+                        {...this.props}
+                        doc={localizedPageData}
+                        demos={demos}
+                        theme={theme}
+                        setIframeTheme={setIframeTheme}
+                      />
+                    ) : (
+                      <Article {...this.props} content={localizedPageData} />
+                    )}
+                    <ContributorsList
+                      className="contributors-list"
+                      fileName={meta.filename}
+                      renderItem={(item, loading) =>
+                        loading ? (
+                          <Avatar style={{ opacity: 0.3 }} />
+                        ) : (
+                          <Tooltip
+                            title={`${formatMessage({ id: 'app.content.contributors' })}: ${
+                              item.username
+                            }`}
+                            key={item.username}
+                          >
+                            <a
+                              href={`https://github.com/${item.username}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Avatar src={item.url}>{item.username}</Avatar>
+                            </a>
+                          </Tooltip>
+                        )
+                      }
+                      repo="ant-design"
+                      owner="ant-design"
+                    />
+                  </section>
+                  {componentPage && (
+                    <div className="fixed-widgets">
+                      <Tooltip
+                        getPopupContainer={node => node.parentNode}
+                        title={formatMessage({ id: `app.theme.switch.${theme}` })}
+                        overlayClassName="fixed-widgets-tooltip"
                       >
-                        <Avatar src={item.url}>{item.username}</Avatar>
-                      </a>
-                    </Tooltip>
-                  )
-                }
-                repo="ant-design"
-                owner="ant-design"
-              />
-            </section>
-            {componentPage && (
-              <div className="fixed-widgets">
-                <Tooltip
-                  getPopupContainer={node => node.parentNode}
-                  title={formatMessage({ id: `app.theme.switch.${theme}` })}
-                  overlayClassName="fixed-widgets-tooltip"
-                >
-                  <Avatar
-                    className={classNames('fixed-widgets-avatar', `fixed-widgets-avatar-${theme}`)}
-                    size={44}
-                    onClick={this.changeTheme}
-                    icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
-                  />
-                </Tooltip>
-              </div>
-            )}
-            <PrevAndNext prev={prev} next={next} />
-            <Footer />
-          </Col>
-        </Row>
-      </div>
+                        <Avatar
+                          className={classNames(
+                            'fixed-widgets-avatar',
+                            `fixed-widgets-avatar-${theme}`,
+                          )}
+                          size={44}
+                          onClick={this.changeTheme}
+                          icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
+                        />
+                      </Tooltip>
+                    </div>
+                  )}
+                  <PrevAndNext prev={prev} next={next} />
+                  <Footer />
+                </Col>
+              </Row>
+            </div>
+          );
+        }}
+      </SiteContext.Consumer>
     );
   }
 }

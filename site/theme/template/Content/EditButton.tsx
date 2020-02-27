@@ -4,7 +4,12 @@ import { EditOutlined } from '@ant-design/icons';
 
 const branchUrl = 'https://github.com/ant-design/ant-design/edit/master/';
 
-export default function EditButton({ title, filename }) {
+export interface EditButtonProps {
+  title: React.ReactNode;
+  filename?: string;
+}
+
+export default function EditButton({ title, filename }: EditButtonProps) {
   return (
     <Tooltip title={title}>
       <a

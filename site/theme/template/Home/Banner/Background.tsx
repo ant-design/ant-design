@@ -2,8 +2,8 @@ import * as React from 'react';
 import Hitu from '@ant-design/hitu';
 import './Background.less';
 
-const RANDOM_OFFSET = 20;
-const TOTAL_FRAMES = 500;
+const RANDOM_OFFSET = 50;
+const TOTAL_FRAMES = 600;
 
 function randomFrames(x: number, y: number): any[] {
   const common = { x, y, cubic: Hitu.CUBIC_EASE_IN_OUT };
@@ -63,7 +63,7 @@ const Circle2 = () => (
       </filter>
       <linearGradient id="banner-circle-fill-2" x1="0%" y1="0%" x2="0%" y2="100%">
         <stop offset="0%" style={{ stopColor: '#FAFCFE' }} />
-        <stop offset="100%" style={{ stopColor: '#F9FCFE' }} />
+        <stop offset="50%" style={{ stopColor: '#F3F9FC' }} />
       </linearGradient>
     </defs>
     <circle
@@ -87,8 +87,8 @@ const React1 = () => (
         <feDropShadow dx="10" dy="10" stdDeviation="10" floodColor="rgba(0,0,0,0.05)" />
       </filter>
       <linearGradient id="banner-rect-fill-1" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" style={{ stopColor: '#F8FBFF' }} />
-        <stop offset="100%" style={{ stopColor: '#F9FCFF' }} />
+        <stop offset="25%" style={{ stopColor: '#F8FCFF' }} />
+        <stop offset="100%" style={{ stopColor: '#F8FBFF' }} />
       </linearGradient>
     </defs>
     <rect
@@ -105,21 +105,21 @@ React1.width = (ReactSize1 + ShadowSize) * 2;
 React1.height = (ReactSize1 + ShadowSize) * 2;
 
 // ================================== Diamond 1 ===================================
-const DiamondSize1 = 180;
+const DiamondSize1 = 400;
 const Diamond1 = () => {
   const start = ShadowSize;
   const center = ShadowSize + DiamondSize1;
   const end = ShadowSize + DiamondSize1 * 2;
 
   return (
-    <svg>
+    <svg width={center * 2} height={center * 2}>
       <defs>
         <filter id="banner-diamond-shadow-1">
           <feDropShadow dx="10" dy="10" stdDeviation="10" floodColor="rgba(0,0,0,0.05)" />
         </filter>
         <linearGradient id="banner-diamond-fill-1" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style={{ stopColor: '#F8FBFF' }} />
-          <stop offset="100%" style={{ stopColor: '#F9FCFF' }} />
+          <stop offset="60%" style={{ stopColor: '#FCFDFF' }} />
+          <stop offset="100%" style={{ stopColor: '#FCFDFE' }} />
         </linearGradient>
       </defs>
 
@@ -138,13 +138,13 @@ export default function Background() {
   const [circleFrames, setCircleFrames] = React.useState<any[]>(randomFrames(550, 200));
   const [circle2Frames, setCircle2Frames] = React.useState<any[]>(randomFrames(0, 448));
   const [reactFrames, setReactFrames] = React.useState<any[]>(randomFrames(1400, 300));
-  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, -20));
+  const [diamondFrames, setDiamondFrames] = React.useState<any[]>(randomFrames(1100, -230));
 
   return (
     <div className="home-banner-background">
       <img
         alt="background"
-        src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_fCZRqKuJBgAAAAAAAAAAABkARQnAQ"
+        src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*kJM2Q6uPXCAAAAAAAAAAAABkARQnAQ"
       />
       <Hitu
         width={1440}
@@ -155,7 +155,7 @@ export default function Background() {
             setCircleFrames(randomFrames(550, 200));
             setCircle2Frames(randomFrames(0, 448));
             setReactFrames(randomFrames(1400, 300));
-            setDiamondFrames(randomFrames(1100, -20));
+            setDiamondFrames(randomFrames(1100, -230));
           }
         }}
         shapes={[

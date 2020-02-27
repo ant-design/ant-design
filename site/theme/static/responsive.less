@@ -11,23 +11,6 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: @screen-xl) {
-  #search-box {
-    display: none;
-  }
-  #logo {
-    padding: 0 40px;
-  }
-  .banner-wrapper .banner-title-wrapper {
-    h1 {
-      font-size: 36px;
-    }
-    p {
-      font-size: 16px;
-    }
-  }
-}
-
 @media only screen and (max-width: @screen-lg) {
   .main-container {
     padding-right: 48px;
@@ -45,16 +28,6 @@
 }
 
 @media only screen and (max-width: 767.99px) {
-  #header {
-    text-align: center;
-    #logo {
-      float: initial;
-      padding-right: 0;
-    }
-  }
-  #search-box {
-    display: none;
-  }
   .preview-image-boxes {
     float: none;
     width: 100%;
@@ -73,44 +46,6 @@
   div.version {
     display: block;
     margin: 29px auto 16px;
-  }
-
-  .popover-menu {
-    width: 300px;
-    div.version {
-      margin: 16px auto;
-    }
-    .ant-popover-inner {
-      overflow: hidden;
-      &-content {
-        padding: 0;
-        .ant-select {
-          display: block;
-          width: 60%;
-        }
-        .ant-btn {
-          margin: 16px 8% 0 8px;
-        }
-      }
-    }
-    #nav a.header-link {
-      color: #333;
-    }
-  }
-
-  ul#nav,
-  ul#nav li {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  ul#nav li {
-    padding: 0 !important;
-    line-height: 40px;
-    border: 0;
-    a {
-      color: #333;
-    }
   }
 
   .toc {
