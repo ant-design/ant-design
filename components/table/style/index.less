@@ -318,15 +318,14 @@
 
     // Reset menu
     .@{dropdown-prefix-cls}-menu {
+      // https://github.com/ant-design/ant-design/issues/4916
+      // https://github.com/ant-design/ant-design/issues/19542
+      max-height: calc(100vh - 130px);
+      overflow-x: hidden;
       border: 0;
       box-shadow: none;
-
-      // https://github.com/ant-design/ant-design/issues/4916
-      &-without-submenu {
-        max-height: 400px;
-        overflow-x: hidden;
-      }
     }
+
     min-width: 96px;
     background-color: @table-filter-dropdown-bg;
 

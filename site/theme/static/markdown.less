@@ -128,7 +128,7 @@
 }
 
 .markdown pre {
-  font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-family: @code-family;
   background: @site-markdown-code-bg;
   border-radius: @border-radius-base;
 }
@@ -193,7 +193,7 @@
 .markdown .anchor {
   margin-left: 8px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity .3s;
 
   .ant-row-rtl & {
     margin-right: 8px;
@@ -298,6 +298,8 @@
   }
 }
 
+@demo-grid-color: #0092ff;
+
 .grid-demo,
 [id^='components-grid-demo-'] {
   .demo-row,
@@ -359,16 +361,15 @@
     min-height: 30px;
     margin-top: 8px;
     margin-bottom: 8px;
-    padding: 5px 0;
     color: #fff;
     text-align: center;
     border-radius: 0;
   }
   .code-box-demo .ant-row > div:not(.gutter-row) {
     padding: 16px 0;
-    background: #00a0e9;
+    background: @demo-grid-color;
     &:nth-child(2n + 1) {
-      background: fade(#00a0e9, 70%);
+      background: fade(@demo-grid-color, 75%);
     }
   }
   .ant-row .demo-col,
@@ -382,11 +383,11 @@
     border: none;
   }
   .ant-row .demo-col-1 {
-    background: fade(#00a0e9, 70%);
+    background: fade(@demo-grid-color, 75%);
   }
   .ant-row .demo-col-2,
   .code-box-demo .ant-row .demo-col-2 {
-    background: fade(#00a0e9, 50%);
+    background: fade(@demo-grid-color, 50%);
   }
   .ant-row .demo-col-3,
   .code-box-demo .ant-row .demo-col-3 {
@@ -395,7 +396,7 @@
   }
   .ant-row .demo-col-4,
   .code-box-demo .ant-row .demo-col-4 {
-    background: fade(#00a0e9, 60%);
+    background: fade(@demo-grid-color, 60%);
   }
   .ant-row .demo-col-5,
   .code-box-demo .ant-row .demo-col-5 {

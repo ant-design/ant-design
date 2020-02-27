@@ -229,7 +229,7 @@ const api: any = {
       Promise.resolve(notificationInstance[cacheKey]).then(instance => {
         instance.destroy();
       });
-      delete notificationInstance[cacheKey];
+      delete notificationInstance[cacheKey]; // lgtm[js/missing-await]
     });
   },
 };
