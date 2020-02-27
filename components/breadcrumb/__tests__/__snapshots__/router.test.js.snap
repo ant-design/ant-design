@@ -100,7 +100,7 @@ exports[`react router react router 3 1`] = `
       </span>
     </BreadcrumbItem>
     <BreadcrumbItem
-      key="Application List"
+      key="apps"
       separator="/"
     >
       <span>
@@ -121,7 +121,7 @@ exports[`react router react router 3 1`] = `
       </span>
     </BreadcrumbItem>
     <BreadcrumbItem
-      key="Application:id"
+      key="1"
       separator="/"
     >
       <span>
@@ -142,7 +142,7 @@ exports[`react router react router 3 1`] = `
       </span>
     </BreadcrumbItem>
     <BreadcrumbItem
-      key="Detail"
+      key="detail"
       separator="/"
     >
       <span>
