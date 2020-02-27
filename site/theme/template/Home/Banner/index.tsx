@@ -35,7 +35,7 @@ export default function Banner() {
           <div>
             <img
               alt="qr"
-              src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eafgRK7InNMAAAAAAAAAAABkARQnAQ"
+              src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DKgST5luH_cAAAAAAAAAAABkARQnAQ"
             />
             <p>
               <FormattedMessage id="app.home.qr.desc" />
