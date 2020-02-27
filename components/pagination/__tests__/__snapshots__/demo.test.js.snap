@@ -7,7 +7,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
 >
   <li
     aria-disabled="true"
-    class="ant-pagination-disabled ant-pagination-prev"
+    class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
     <a
@@ -83,7 +83,7 @@ exports[`renders ./components/pagination/demo/basic.md correctly 1`] = `
   </li>
   <li
     aria-disabled="false"
-    class=" ant-pagination-next"
+    class="ant-pagination-next"
     tabindex="0"
     title="Next Page"
   >
@@ -123,7 +123,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
   >
     <li
       aria-disabled="false"
-      class=" ant-pagination-prev"
+      class="ant-pagination-prev"
       tabindex="0"
       title="Previous Page"
     >
@@ -247,7 +247,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -345,7 +345,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
   >
     <li
       aria-disabled="false"
-      class=" ant-pagination-prev"
+      class="ant-pagination-prev"
       tabindex="0"
       title="Previous Page"
     >
@@ -469,7 +469,7 @@ exports[`renders ./components/pagination/demo/changer.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -572,7 +572,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
 >
   <li
     aria-disabled="false"
-    class=" ant-pagination-prev"
+    class="ant-pagination-prev"
     tabindex="0"
     title="Previous Page"
   >
@@ -648,7 +648,7 @@ exports[`renders ./components/pagination/demo/controlled.md correctly 1`] = `
   </li>
   <li
     aria-disabled="false"
-    class=" ant-pagination-next"
+    class="ant-pagination-next"
     tabindex="0"
     title="Next Page"
   >
@@ -687,7 +687,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
 >
   <li
     aria-disabled="true"
-    class="ant-pagination-disabled ant-pagination-prev"
+    class="ant-pagination-prev ant-pagination-disabled"
     title="Previous Page"
   >
     <a
@@ -791,7 +791,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
   </li>
   <li
     aria-disabled="false"
-    class=" ant-pagination-next"
+    class="ant-pagination-next"
     tabindex="0"
     title="Next Page"
   >
@@ -810,7 +810,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
   >
     <li
       aria-disabled="false"
-      class=" ant-pagination-prev"
+      class="ant-pagination-prev"
       tabindex="0"
       title="Previous Page"
     >
@@ -934,7 +934,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -984,7 +984,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
   >
     <li
       aria-disabled="false"
-      class=" ant-pagination-prev"
+      class="ant-pagination-prev"
       tabindex="0"
       title="Previous Page"
     >
@@ -1108,7 +1108,7 @@ exports[`renders ./components/pagination/demo/jump.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -1163,7 +1163,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
   >
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-prev"
+      class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -1239,7 +1239,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -1275,7 +1275,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
   >
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-prev"
+      class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -1351,7 +1351,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -1462,7 +1462,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-prev"
+      class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -1538,7 +1538,7 @@ exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -1578,7 +1578,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
 >
   <li
     aria-disabled="false"
-    class=" ant-pagination-prev"
+    class="ant-pagination-prev"
     tabindex="0"
     title="Previous Page"
   >
@@ -1750,7 +1750,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
   </li>
   <li
     aria-disabled="false"
-    class=" ant-pagination-next"
+    class="ant-pagination-next"
     tabindex="0"
     title="Next Page"
   >
@@ -1784,11 +1784,11 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
 
 exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
 <ul
-  class="ant-pagination ant-pagination-simple "
+  class="ant-pagination ant-pagination-simple"
 >
   <li
     aria-disabled="false"
-    class=" ant-pagination-prev"
+    class="ant-pagination-prev"
     tabindex="0"
     title="Previous Page"
   >
@@ -1835,7 +1835,7 @@ exports[`renders ./components/pagination/demo/simple.md correctly 1`] = `
   </li>
   <li
     aria-disabled="false"
-    class=" ant-pagination-next"
+    class="ant-pagination-next"
     tabindex="0"
     title="Next Page"
   >
@@ -1880,7 +1880,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-prev"
+      class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -1956,7 +1956,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
@@ -1998,7 +1998,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-prev"
+      class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -2074,7 +2074,7 @@ exports[`renders ./components/pagination/demo/total.md correctly 1`] = `
     </li>
     <li
       aria-disabled="false"
-      class=" ant-pagination-next"
+      class="ant-pagination-next"
       tabindex="0"
       title="Next Page"
     >
