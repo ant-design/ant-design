@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Button, Popover } from 'antd';
 import { Link } from 'bisheng/router';
 import { FormattedMessage, useIntl } from 'react-intl';
-import { PlayCircleFilled, MobileFilled } from '@ant-design/icons';
+import { PlayCircleFilled } from '@ant-design/icons';
 import Background from './Background';
 import { getLocalizedPathname } from '../../utils';
 import Logo from './Logo';
@@ -19,7 +19,11 @@ export default function Banner() {
   if (isMobile) {
     qrNode = (
       <a href="http://antd4.antfin.com/">
-        <MobileFilled /> <FormattedMessage id="app.home.qr" />
+        <img
+          alt="mobile"
+          src="https://gw.alipayobjects.com/zos/basement_prod/d2fa63a8-3e9d-4f59-80c7-1fd1d0cd9118.svg"
+        />
+        <FormattedMessage id="app.home.qr" />
       </a>
     );
   } else {
@@ -40,7 +44,11 @@ export default function Banner() {
         }
       >
         <a>
-          <MobileFilled /> <FormattedMessage id="app.home.qr" />
+          <img
+            alt="mobile"
+            src="https://gw.alipayobjects.com/zos/basement_prod/d2fa63a8-3e9d-4f59-80c7-1fd1d0cd9118.svg"
+          />
+          <FormattedMessage id="app.home.qr" />
         </a>
       </Popover>
     );
