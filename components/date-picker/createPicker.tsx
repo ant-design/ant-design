@@ -224,7 +224,9 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
 
       const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
-        <div>
+        <div
+          className = {props.disabled ? 'ant-input-disabled': undefined}
+        >
           <input
             ref={this.saveInput}
             disabled={props.disabled}
