@@ -159,12 +159,12 @@ class Demo extends React.Component {
         .replace(/([a-zA-Z]*)\s+as\s+([a-zA-Z]*)/, '$1:$2'),
       css: prefillStyle,
       editors: '001',
-      css_external: 'https://unpkg.com/antd/dist/antd.css',
+      css_external: 'https://unpkg.com/antd@3.x/dist/antd.css',
       js_external: [
         'react@16.x/umd/react.development.js',
         'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
-        'antd/dist/antd-with-locales.js',
+        'antd@3.x/dist/antd-with-locales.js',
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
       ]
@@ -174,8 +174,8 @@ class Demo extends React.Component {
     };
     const riddlePrefillConfig = {
       title: `${localizedTitle} - Ant Design Demo`,
-      js: sourceCode,
-      css: prefillStyle,
+      js: sourceCode.replace("'antd';", "'antd@3.x';"),
+      css: prefillStyle.replace(" 'antd/", " 'antd@3.x/"),
     };
     const dependencies = sourceCode.split('\n').reduce(
       (acc, line) => {
@@ -188,7 +188,7 @@ class Demo extends React.Component {
         }
         return acc;
       },
-      { react: 'latest', 'react-dom': 'latest', antd: 'latest' },
+      { react: 'latest', 'react-dom': 'latest', antd: '3.x' },
     );
     const indexJsContent = `
 import React from 'react';

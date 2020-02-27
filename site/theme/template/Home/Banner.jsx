@@ -90,6 +90,7 @@ const Banner = ({ isMobile }) => {
             key="promote"
             className="banner-promote"
             style={{
+              display: 'none',
               width: isZhCN ? 412 : 522,
             }}
           >
