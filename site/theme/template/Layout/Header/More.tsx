@@ -60,7 +60,14 @@ export default (props: SharedProps) => {
     <Dropdown overlay={menu} placement="bottomRight">
       <Button size="small" className="header-button">
         <FormattedMessage id="app.header.menu.more" />
-        <DownOutlined />
+        <DownOutlined
+          style={{
+            fontSize: '9px',
+            marginLeft: 2,
+            verticalAlign: 'middle',
+            marginTop: -1,
+          }}
+        />
       </Button>
     </Dropdown>
   );
