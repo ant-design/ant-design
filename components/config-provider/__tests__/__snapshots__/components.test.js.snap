@@ -8243,7 +8243,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
   >
     <li
       aria-disabled="true"
-      class="config-pagination-disabled config-pagination-prev"
+      class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -8283,7 +8283,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="config-pagination-disabled config-pagination-next"
+      class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
       <a
@@ -8389,7 +8389,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
   >
     <li
       aria-disabled="true"
-      class="config-pagination-disabled config-pagination-prev"
+      class="config-pagination-prev config-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -8429,7 +8429,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="config-pagination-disabled config-pagination-next"
+      class="config-pagination-next config-pagination-disabled"
       title="Next Page"
     >
       <a
@@ -8540,7 +8540,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
   >
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-prev"
+      class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -8580,7 +8580,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-next"
+      class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
       <a
@@ -8686,7 +8686,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
   >
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-prev"
+      class="ant-pagination-prev ant-pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -8726,7 +8726,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="ant-pagination-disabled ant-pagination-next"
+      class="ant-pagination-next ant-pagination-disabled"
       title="Next Page"
     >
       <a
@@ -8837,7 +8837,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
   >
     <li
       aria-disabled="true"
-      class="prefix-Pagination-disabled prefix-Pagination-prev"
+      class="prefix-Pagination-prev prefix-Pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -8877,7 +8877,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="prefix-Pagination-disabled prefix-Pagination-next"
+      class="prefix-Pagination-next prefix-Pagination-disabled"
       title="Next Page"
     >
       <a
@@ -8983,7 +8983,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
   >
     <li
       aria-disabled="true"
-      class="prefix-Pagination-disabled prefix-Pagination-prev"
+      class="prefix-Pagination-prev prefix-Pagination-disabled"
       title="Previous Page"
     >
       <a
@@ -9023,7 +9023,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
     <li
       aria-disabled="true"
-      class="prefix-Pagination-disabled prefix-Pagination-next"
+      class="prefix-Pagination-next prefix-Pagination-disabled"
       title="Next Page"
     >
       <a
@@ -11775,7 +11775,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
       >
         <li
           aria-disabled="true"
-          class="config-pagination-disabled config-pagination-prev"
+          class="config-pagination-prev config-pagination-disabled"
           title="Previous Page"
         >
           <a
@@ -11815,7 +11815,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
         </li>
         <li
           aria-disabled="true"
-          class="config-pagination-disabled config-pagination-next"
+          class="config-pagination-next config-pagination-disabled"
           title="Next Page"
         >
           <a
@@ -12114,7 +12114,7 @@ exports[`ConfigProvider components Table normal 1`] = `
       >
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
+          class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
           <a
@@ -12154,7 +12154,7 @@ exports[`ConfigProvider components Table normal 1`] = `
         </li>
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
+          class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
           <a
@@ -12453,7 +12453,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
       >
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
+          class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
           <a
@@ -12493,7 +12493,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
         </li>
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
+          class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
           <a
