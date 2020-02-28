@@ -46,31 +46,29 @@ function renderCells(
         );
       }
 
-      return (
-        <React.Fragment key={key || index}>
-          <Cell
-            key={`label-${key || index}`}
-            className={className}
-            style={style}
-            span={1}
-            colon={colon}
-            component={component[0]}
-            itemPrefixCls={itemPrefixCls}
-            bordered={bordered}
-            label={label}
-          />
-          <Cell
-            key={`content-${key || index}`}
-            className={className}
-            style={style}
-            span={span * 2 - 1}
-            component={component[1]}
-            itemPrefixCls={itemPrefixCls}
-            bordered={bordered}
-            content={children}
-          />
-        </React.Fragment>
-      );
+      return [
+        <Cell
+          key={`label-${key || index}`}
+          className={className}
+          style={style}
+          span={1}
+          colon={colon}
+          component={component[0]}
+          itemPrefixCls={itemPrefixCls}
+          bordered={bordered}
+          label={label}
+        />,
+        <Cell
+          key={`content-${key || index}`}
+          className={className}
+          style={style}
+          span={span * 2 - 1}
+          component={component[1]}
+          itemPrefixCls={itemPrefixCls}
+          bordered={bordered}
+          content={children}
+        />,
+      ];
     },
   );
 }
