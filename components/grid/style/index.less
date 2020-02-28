@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+.@{ant-prefix}-row + .@{ant-prefix}-row::before {
+  clear: both;
+}
+
 .@{ant-prefix}-row-flex {
   display: flex;
   flex-flow: row wrap;
