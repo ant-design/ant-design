@@ -78,12 +78,14 @@ describe('site test', () => {
   });
 
   for (const component of components) {
-    it(`Component ${component} zh Page`, async () => {
-      await expectComponent(component);
-    });
+    if (component.split('/').length < 3) {
+      it(`Component ${component} zh Page`, async () => {
+        await expectComponent(component);
+      });
 
-    it(`Component ${component} en Page`, async () => {
-      await expectComponent(component);
-    });
+      it(`Component ${component} en Page`, async () => {
+        await expectComponent(component);
+      });
+    }
   }
 });
