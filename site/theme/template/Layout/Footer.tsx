@@ -172,13 +172,16 @@ class Footer extends React.Component<WrappedComponentProps> {
             url: 'https://seeconf.antfin.com/',
             openExternal: true,
           },
-          {
+          isZhCN && {
             icon: <UsergroupAddOutlined />,
             title: <FormattedMessage id="app.footer.work_with_us" />,
-            url: getLocalizedPathname('/docs/resources', isZhCN),
+            url: getLocalizedPathname('/docs/resources', isZhCN, {
+              zhCN: '加入我们',
+              enUS: 'JoinUs',
+            }),
             LinkComponent: Link,
           },
-        ],
+        ].filter(n => n),
       },
       {
         title: <FormattedMessage id="app.footer.help" />,
