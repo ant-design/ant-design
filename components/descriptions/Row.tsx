@@ -47,7 +47,7 @@ function renderCells(
       }
 
       return (
-        <>
+        <React.Fragment key={key || index}>
           <Cell
             key={`label-${key || index}`}
             className={className}
@@ -69,7 +69,7 @@ function renderCells(
             bordered={bordered}
             content={children}
           />
-        </>
+        </React.Fragment>
       );
     },
   );
