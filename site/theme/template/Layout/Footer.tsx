@@ -175,7 +175,7 @@ class Footer extends React.Component<WrappedComponentProps> {
           {
             icon: <UsergroupAddOutlined />,
             title: <FormattedMessage id="app.footer.work_with_us" />,
-            url: getLocalizedPathname('/docs/spec/work-with-us', isZhCN),
+            url: getLocalizedPathname('/docs/resources', isZhCN),
             LinkComponent: Link,
           },
         ],
