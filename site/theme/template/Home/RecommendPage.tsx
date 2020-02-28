@@ -34,7 +34,7 @@ const LIST: Recommend[] = [
     title: 'HiTu·让人人都是插画师',
     description: '图形化设计资产「海兔」帮助大家解决通用层面的需求，把设计师从重复劳动中解放出来。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*sybfTLM-CA8AAAAAAAAAAABkARQnAQ',
-    href: 'https://next.ant.design/docs/spec/illustration-cn',
+    href: 'https://ant.design/docs/spec/illustration-cn',
   },
 ];
 
