@@ -87,6 +87,7 @@ const columns = [
 | onRow | 设置行属性 | Function(record, index) | - |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
 | sortDirections | 支持的排序方式，取值为 `'ascend'` `'descend'` | Array | `['ascend', 'descend']` |
+| showSorterTooltip | 表头是否显示下一次排序的 tooltip 提示 | boolean | `true` |
 
 #### onRow 用法
 
@@ -143,6 +144,7 @@ const columns = [
 | onFilter | 本地模式下，确定筛选的运行函数 | Function | - |
 | onFilterDropdownVisibleChange | 自定义筛选菜单可见变化时调用 | function(visible) {} | - |
 | onHeaderCell | 设置头部单元格属性 | Function(column) | - |
+| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中`showSorterTooltip` | boolean | `true` |
 
 ### ColumnGroup
 

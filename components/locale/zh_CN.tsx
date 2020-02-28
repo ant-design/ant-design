@@ -23,6 +23,9 @@ export default {
     sortTitle: '排序',
     expand: '展开行',
     collapse: '关闭行',
+    triggerDesc: '点击降序',
+    triggerAsc: '点击升序',
+    cancelSort: '取消排序',
   },
   Modal: {
     okText: '确定',
