@@ -221,7 +221,7 @@ class Demo extends React.Component {
 
     if (dependencies['@ant-design/icons']) {
       // eslint-disable-next-line no-undef
-      dependencies['@ant-design/icons'] = antdReproduceVersion;
+      dependencies['@ant-design/icons'] = 'latest';
     }
 
     // Reorder source code
