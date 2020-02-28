@@ -19,6 +19,7 @@ timeline: true
 
 `2020-02-28`
 
+- 🏆 Ant Design v4 发布！点击[此处](https://github.com/ant-design/ant-design/issues/21656)查看更多信息。
 - 🐞 Breadcrumb 使用 `path` 作为默认 key 以修复 `name` 作为 key 重名的冲突问题。[#21583](https://github.com/ant-design/ant-design/pull/21583) [@douxc](https://github.com/douxc)
 - 🌟 Timeline.Item 支持 `label`。[#21560](https://github.com/ant-design/ant-design/pull/21560) [@shaodahong](https://github.com/shaodahong)
 - 🐞 修复 Table 筛选菜单高度溢出屏幕的问题。[#21602](https://github.com/ant-design/ant-design/pull/21602)

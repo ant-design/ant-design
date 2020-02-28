@@ -19,6 +19,7 @@ timeline: true
 
 `2020-02-28`
 
+- 🏆 Ant Design v4 is out! Check [here](https://github.com/ant-design/ant-design/issues/21656) for more info.
 - 🐞 Breadcrumb use `path` as default key to fix `name` key conflict. [#21583](https://github.com/ant-design/ant-design/pull/21583) [@douxc](https://github.com/douxc)
 - 🌟 Timeline.Item support `label`. [#21560](https://github.com/ant-design/ant-design/pull/21560) [@shaodahong](https://github.com/shaodahong)
 - 🐞 Fix Table filter menu max height style with many items. [#21602](https://github.com/ant-design/ant-design/pull/21602)
