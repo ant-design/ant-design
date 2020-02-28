@@ -46,31 +46,29 @@ function renderCells(
         );
       }
 
-      return (
-        <>
-          <Cell
-            key={`label-${key || index}`}
-            className={className}
-            style={style}
-            span={1}
-            colon={colon}
-            component={component[0]}
-            itemPrefixCls={itemPrefixCls}
-            bordered={bordered}
-            label={label}
-          />
-          <Cell
-            key={`content-${key || index}`}
-            className={className}
-            style={style}
-            span={span * 2 - 1}
-            component={component[1]}
-            itemPrefixCls={itemPrefixCls}
-            bordered={bordered}
-            content={children}
-          />
-        </>
-      );
+      return [
+        <Cell
+          key={`label-${key || index}`}
+          className={className}
+          style={style}
+          span={1}
+          colon={colon}
+          component={component[0]}
+          itemPrefixCls={itemPrefixCls}
+          bordered={bordered}
+          label={label}
+        />,
+        <Cell
+          key={`content-${key || index}`}
+          className={className}
+          style={style}
+          span={span * 2 - 1}
+          component={component[1]}
+          itemPrefixCls={itemPrefixCls}
+          bordered={bordered}
+          content={children}
+        />,
+      ];
     },
   );
 }
@@ -78,22 +76,22 @@ function renderCells(
 export interface RowProps {
   prefixCls: string;
   vertical: boolean;
-  children: React.ReactElement<DescriptionsItemProps>[];
+  row: React.ReactElement<DescriptionsItemProps>[];
   bordered?: boolean;
   colon: boolean;
   index: number;
 }
 
 const Row: React.FC<RowProps> = props => {
-  const { prefixCls, vertical, children, index, bordered } = props;
+  const { prefixCls, vertical, row, index, bordered } = props;
   if (vertical) {
     return (
       <>
         <tr key={`label-${index}`} className={`${prefixCls}-row`}>
-          {renderCells(children, props, { component: 'th', type: 'label', showLabel: true })}
+          {renderCells(row, props, { component: 'th', type: 'label', showLabel: true })}
         </tr>
         <tr key={`content-${index}`} className={`${prefixCls}-row`}>
-          {renderCells(children, props, {
+          {renderCells(row, props, {
             component: 'td',
             type: 'content',
             showContent: true,
@@ -105,7 +103,7 @@ const Row: React.FC<RowProps> = props => {
 
   return (
     <tr key={index} className={`${prefixCls}-row`}>
-      {renderCells(children, props, {
+      {renderCells(row, props, {
         component: bordered ? ['th', 'td'] : 'td',
         type: 'item',
         showLabel: true,
