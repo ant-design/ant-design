@@ -3,8 +3,6 @@ const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { version } = require('../package.json');
 
-const isNextVersion = !version.match(/^\d+\.\d+\.\d+$/);
-
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -148,7 +146,7 @@ module.exports = {
 
     config.plugins.push(
       new webpack.DefinePlugin({
-        antdReproduceVersion: JSON.stringify(isNextVersion ? 'next' : 'latest'),
+        antdReproduceVersion: version,
       }),
     );
 
