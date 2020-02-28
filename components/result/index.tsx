@@ -27,7 +27,7 @@ export const ExceptionMap = {
   '403': unauthorized,
 };
 
-export type ExceptionStatusType = keyof typeof ExceptionMap;
+export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
 export interface ResultProps {
@@ -60,7 +60,7 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
   );
 
-  if (ExceptionStatus.includes(status as ResultStatusType)) {
+  if (ExceptionStatus.includes(`${status}`)) {
     const SVGComponent = ExceptionMap[status as ExceptionStatusType];
     return (
       <div className={`${className} ${prefixCls}-image`}>
