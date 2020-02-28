@@ -146,7 +146,7 @@ module.exports = {
 
     config.plugins.push(
       new webpack.DefinePlugin({
-        antdReproduceVersion: version,
+        antdReproduceVersion: JSON.stringify(version),
       }),
     );
 
