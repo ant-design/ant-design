@@ -68,7 +68,6 @@ title: 表单页
 
 - 普通布局
 - 任务拆解和编排
-- 填写和预览
 - 特定场景
 
 ### 普通布局
@@ -201,9 +200,15 @@ Ant Design 标准注册模板
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eU8dRZUTEM8AAAAAAAAAAABkARQnAQ" />
 
-当一个区域中内容较多且存在可分类归纳性时，可通过区分标题来进行区域内分组。
+当一个区域中内容较多且可被分类归纳时，可通过区分标题来进行区域内分组。
 
 #### 卡片分组
+
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VPEZRLBm1zwAAAAAAAAAAABkARQnAQ" />
+
+当一个页面中内容众多（通常大于两屏）且可被分类归纳时，可通过卡片分组来承载，每个卡片需要包含一个大标题。
+
+#### 判断布局方式
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
 
