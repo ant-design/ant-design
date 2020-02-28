@@ -43,7 +43,7 @@ title: 阴影
 阴影的方向是由光源与物体的相对位置所决定的。假定光源所处高度不变，光源与物体的距离和物体与阴影的距离成正比。光源越远，则阴影距离物体越远。阴影的方向在界面里通常使用 `X, Y` 坐标轴来表示。
 
 <div>
-<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*1oijTJh2HEIAAAAAAAAAAABkARQnAQ" alt="阴影值">
+<img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KgGmQ79c38oAAAAAAAAAAABkARQnAQ" alt="光源">
 </div>
 
 ## 阴影值
