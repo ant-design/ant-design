@@ -3,7 +3,7 @@ order: 99
 title:
   en-US: Custom selection group
   zh-CN: 自定义选择项组
-only: true
+debug: true
 ---
 
 ## zh-CN
