@@ -1,4 +1,9 @@
-import { GetRowKey, ColumnType as RcColumnType, ExpandableConfig } from 'rc-table/lib/interface';
+import {
+  GetRowKey,
+  ColumnType as RcColumnType,
+  RenderedCell as RcRenderedCell,
+  ExpandableConfig,
+} from 'rc-table/lib/interface';
 import { CheckboxProps } from '../checkbox';
 import { PaginationConfig } from '../pagination';
 
@@ -125,6 +130,12 @@ export interface TableRowSelection<T> {
   fixed?: boolean;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
+  renderCell?: (
+    value: boolean,
+    record: T,
+    index: number,
+    originNode: React.ReactNode,
+  ) => React.ReactNode | RcRenderedCell<T>;
 }
 
 export type TransformColumns<RecordType> = (
