@@ -124,8 +124,7 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
       ...(resizeStatus === RESIZE_STATUS_RESIZING
         ? // React will warning when mix `overflow` & `overflowY`.
           // We need to define this separately.
-          // { overflowX: 'hidden', overflowY: 'hidden' }
-          { overflow: 'hidden' }
+          { overflowX: 'hidden', overflowY: 'hidden' }
         : null),
     };
     return (

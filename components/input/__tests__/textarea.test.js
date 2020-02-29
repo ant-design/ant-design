@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
-import Form from '../../form';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import calculateNodeHeight, { calculateNodeStyling } from '../calculateNodeHeight';
@@ -34,6 +33,8 @@ describe('TextArea', () => {
   });
 
   it('should auto calculate height according to content length', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
     const wrapper = mount(
       <TextArea value="" readOnly autoSize={{ minRows: 2, maxRows: 6 }} wrap="off" />,
     );
@@ -46,6 +47,9 @@ describe('TextArea', () => {
     expect(mockFunc).toHaveBeenCalledTimes(2);
     wrapper.update();
     expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
+
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
   });
 
   it('should support onPressEnter and onKeyDown', () => {
