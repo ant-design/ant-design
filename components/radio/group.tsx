@@ -1,7 +1,5 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
 import Radio from './radio';
 import {
   RadioGroupProps,
@@ -11,6 +9,7 @@ import {
 } from './interface';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
+import { RadioGroupContextProvider } from './context';
 
 function getCheckedValue(children: React.ReactNode) {
   let value = null;
@@ -24,13 +23,9 @@ function getCheckedValue(children: React.ReactNode) {
   return matched ? { value } : undefined;
 }
 
-class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
+class RadioGroup extends React.PureComponent<RadioGroupProps, RadioGroupState> {
   static defaultProps = {
     buttonStyle: 'outline' as RadioGroupButtonStyle,
-  };
-
-  static childContextTypes = {
-    radioGroup: PropTypes.any,
   };
 
   static getDerivedStateFromProps(nextProps: RadioGroupProps) {
@@ -63,21 +58,6 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
     this.state = {
       value,
     };
-  }
-
-  getChildContext() {
-    return {
-      radioGroup: {
-        onChange: this.onRadioChange,
-        value: this.state.value,
-        disabled: this.props.disabled,
-        name: this.props.name,
-      },
-    };
-  }
-
-  shouldComponentUpdate(nextProps: RadioGroupProps, nextState: RadioGroupState) {
-    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   onRadioChange = (ev: RadioChangeEvent) => {
@@ -172,7 +152,18 @@ class RadioGroup extends React.Component<RadioGroupProps, RadioGroupState> {
   };
 
   render() {
-    return <ConfigConsumer>{this.renderGroup}</ConfigConsumer>;
+    return (
+      <RadioGroupContextProvider
+        value={{
+          onChange: this.onRadioChange,
+          value: this.state.value,
+          disabled: this.props.disabled,
+          name: this.props.name,
+        }}
+      >
+        <ConfigConsumer>{this.renderGroup}</ConfigConsumer>
+      </RadioGroupContextProvider>
+    );
   }
 }
 

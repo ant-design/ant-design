@@ -8,7 +8,13 @@ declare module '*.svg' {
   export default src;
 }
 
+declare module 'bisheng/collect';
+
 declare module 'bisheng/router';
+
+declare module 'react-github-button';
+
+declare module 'jsonml.js/*';
 
 declare module 'rc-pagination/*';
 

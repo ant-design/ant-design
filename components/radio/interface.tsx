@@ -22,13 +22,11 @@ export interface RadioGroupState {
   value: any;
 }
 
-export interface RadioGroupContext {
-  radioGroup: {
-    onChange: React.ChangeEventHandler<HTMLInputElement>;
-    value: any;
-    disabled: boolean;
-    name: string;
-  };
+export interface RadioGroupContextProps {
+  onChange: (e: RadioChangeEvent) => void;
+  value: any;
+  disabled?: boolean;
+  name?: string;
 }
 
 export type RadioProps = AbstractCheckboxProps<RadioChangeEvent>;

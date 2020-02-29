@@ -13,7 +13,7 @@ Radio.
 
 ## API
 
-### Radio
+### Radio/Radio.Button
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |

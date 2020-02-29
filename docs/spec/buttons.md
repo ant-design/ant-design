@@ -26,7 +26,7 @@ title:
 
 #### ① 次按钮
 
-常规按钮，用于非主要动作。
+常规按钮，用于非主要动作。如果不确定选择哪种按钮，次按钮永远是最安全的选择。
 
 #### ② 主按钮
 
@@ -55,8 +55,14 @@ title:
 
 ### Do&Don't
 
+<img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*di8jS5EWYSIAAAAAAAAAAABkARQnAQ" alt="错误示范" description="不要在一个按钮区放置超过一个主按钮">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3WUkT5pD1SUAAAAAAAAAAABkARQnAQ" alt="正确示范" description="1、强调一个主要操作；<br/>2、操作无主次，次按钮是最安全的选择。。">
+
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zBtTRq2xbTYAAAAAAAAAAABkARQnAQ" alt="错误示范" description="不要在按钮中放置两个图标。">
-<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EpwSTpaGPBgAAAAAAAAAAABkARQnAQ" alt="正确示范" description="按照主次展示全部操作。<br>将次要操作收纳至右侧下拉按钮中。">
+<img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*EpwSTpaGPBgAAAAAAAAAAABkARQnAQ" alt="正确示范" description="按照主次展示全部操作。<br/>将次要操作收纳至右侧下拉按钮中。">
+
+
+
 
 ### 特殊按钮
 
@@ -86,7 +92,7 @@ title:
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*32zdRqTjDhYAAAAAAAAAAABkARQnAQ">
 
-经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。
+经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。一个屏幕空间中，建议只有一个行动号召按钮。
 
 ## 位置
 

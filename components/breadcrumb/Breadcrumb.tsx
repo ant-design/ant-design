@@ -103,7 +103,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
         overlay = (
           <Menu>
             {route.children.map(child => (
-              <Menu.Item key={child.breadcrumbName || child.path}>
+              <Menu.Item key={child.path || child.breadcrumbName}>
                 {itemRender(child, params, routes, this.addChildPath(paths, child.path, params))}
               </Menu.Item>
             ))}
@@ -112,7 +112,7 @@ export default class Breadcrumb extends React.Component<BreadcrumbProps, any> {
       }
 
       return (
-        <BreadcrumbItem overlay={overlay} separator={separator} key={route.breadcrumbName || path}>
+        <BreadcrumbItem overlay={overlay} separator={separator} key={path || route.breadcrumbName}>
           {itemRender(route, params, routes, paths)}
         </BreadcrumbItem>
       );

@@ -3,8 +3,6 @@ const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { version } = require('../package.json');
 
-const isNextVersion = !version.match(/^\d+\.\d+\.\d+$/);
-
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -36,6 +34,7 @@ module.exports = {
     docs: './docs',
     changelog: ['CHANGELOG.zh-CN.md', 'CHANGELOG.en-US.md'],
     'components/form/v3': ['components/form/v3.zh-CN.md', 'components/form/v3.en-US.md'],
+    'docs/resources': ['./docs/resources.zh-CN.md', './docs/resources.en-US.md'],
   },
   theme: './site/theme',
   htmlTemplate: './site/theme/static/template.html',
@@ -46,8 +45,8 @@ module.exports = {
       'Global Styles': 1,
       设计模式: 2,
       'Design Patterns': 2,
-      其他: 6,
-      Other: 6,
+      '设计模式 - 探索': 3,
+      'Design Patterns (Research)': 3,
       Components: 100,
       组件: 100,
     },
@@ -79,12 +78,13 @@ module.exports = {
       'Template Document': 3,
     },
     docVersions: {
-      '0.9.x': 'http://09x.ant.design',
-      '0.10.x': 'http://010x.ant.design',
-      '0.11.x': 'http://011x.ant.design',
-      '0.12.x': 'http://012x.ant.design',
-      '1.x': 'http://1x.ant.design',
+      '3.x': 'http://3x.ant.design',
       '2.x': 'http://2x.ant.design',
+      '1.x': 'http://1x.ant.design',
+      '0.12.x': 'http://012x.ant.design',
+      '0.11.x': 'http://011x.ant.design',
+      '0.10.x': 'http://010x.ant.design',
+      '0.9.x': 'http://09x.ant.design',
     },
   },
   filePathMapper(filePath) {
@@ -146,7 +146,7 @@ module.exports = {
 
     config.plugins.push(
       new webpack.DefinePlugin({
-        antdReproduceVersion: JSON.stringify(isNextVersion ? 'next' : 'latest'),
+        antdReproduceVersion: JSON.stringify(version),
       }),
     );
 

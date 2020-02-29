@@ -26,51 +26,84 @@ You can use a array to set vertical spacing, `[horizontal, vertical]` `[16, { xs
 > vertical gutter was supported after `3.24.0`.
 
 ```jsx
-import { Row, Col } from 'antd';
+import { Row, Col, Divider } from 'antd';
+
+const style = { background: '#0092ff', padding: '8px 0' };
 
 ReactDOM.render(
-  <div className="gutter-example">
+  <>
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      Horizontal
+    </Divider>
     <Row gutter={16}>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
     </Row>
-    <Row gutter={[{ xs: 8, sm: 16, md: 24, lg: 32 }, 20]}>
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      Responsive
+    </Divider>
+    <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
       <Col className="gutter-row" span={6}>
-        <div className="gutter-box">col-6</div>
+        <div style={style}>col-6</div>
       </Col>
     </Row>
-  </div>,
+    <Divider orientation="left" style={{ color: '#333', fontWeight: 'normal' }}>
+      Vertical
+    </Divider>
+    <Row gutter={[16, 24]}>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+      <Col className="gutter-row" span={6}>
+        <div style={style}>col-6</div>
+      </Col>
+    </Row>
+  </>,
   mountNode,
 );
 ```
 
 ```css
-.gutter-example .ant-row > div {
-  background: transparent;
-  border: 0;
-}
 .gutter-box {
+  padding: 8px 0;
   background: #00a0e9;
-  padding: 5px 0;
 }
 ```
 

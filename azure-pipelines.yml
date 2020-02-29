@@ -42,3 +42,20 @@ stages:
             export DEPLOY_DOMAIN=https://preview-${SYSTEM_PULLREQUEST_PULLREQUESTNUMBER}-ant-design.surge.sh
             node ./scripts/azure-github-comment.js "[<img width="306" src="https://user-images.githubusercontent.com/5378891/72400743-23dbb200-3785-11ea-9d13-1a2d92743846.png">]($DEPLOY_DOMAIN)"
           displayName: 'Update comment on github'
+    - job: Build_Site_Failed
+      dependsOn: Build_Site
+      condition: failed()
+      steps:
+        - checkout: self
+          displayName: 'Checkout'
+          clean: true
+          fetchDepth: 1
+        - task: NodeTool@0
+          displayName: 'Install Node.js'
+          inputs:
+            versionSpec: '12.13.1'
+        - script: npm install
+          displayName: 'Install modules'
+        - script: |
+            node ./scripts/azure-github-comment.js "[<img width="534" src="https://user-images.githubusercontent.com/5378891/75333447-1e63a280-58c1-11ea-975d-235367fd1522.png">](https://dev.azure.com/ant-design/ant-design/_build/results?buildId=$(Build.BuildId))"
+          displayName: 'Comment on github'

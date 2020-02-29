@@ -1,7 +1,6 @@
 @import './index';
 
 @picker-cell-inner-cls: ~'@{picker-prefix-cls}-cell-inner';
-@picker-legacy-cell-cls: ~'@{ant-prefix}-calendar-date';
 
 .@{picker-prefix-cls} {
   @picker-arrow-size: 7px;
@@ -428,7 +427,6 @@
     }
 
     .picker-cell-inner(~'@{picker-cell-inner-cls}');
-    .picker-cell-inner(~'@{picker-legacy-cell-cls}');
   }
 
   &-decade-panel,
@@ -699,6 +697,20 @@
           }
         }
       }
+    }
+  }
+}
+
+// Fix IE11 render bug by css hacks
+// https://github.com/ant-design/ant-design/issues/21559
+// https://codepen.io/afc163-1472555193/pen/mdJRaNj?editors=0110
+/* stylelint-disable-next-line */
+_:-ms-fullscreen,
+:root {
+  .@{picker-prefix-cls}-range-wrapper {
+    .@{picker-prefix-cls}-month-panel .@{picker-prefix-cls}-cell,
+    .@{picker-prefix-cls}-year-panel .@{picker-prefix-cls}-cell {
+      padding: 21px 0;
     }
   }
 }

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import classNames from 'classnames';
-import shallowEqual from 'shallowequal';
 import omit from 'omit.js';
 import Checkbox, { CheckboxChangeEvent } from './Checkbox';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -37,18 +36,14 @@ export interface CheckboxGroupState {
 }
 
 export interface CheckboxGroupContext {
-  checkboxGroup: {
-    toggleOption: (option: CheckboxOptionType) => void;
-    value: any;
-    disabled: boolean;
-  };
+  toggleOption?: (option: CheckboxOptionType) => void;
+  value?: any;
+  disabled?: boolean;
 }
 
-export const GroupContext = React.createContext<{ checkboxGroup: any }>({
-  checkboxGroup: undefined,
-});
+export const GroupContext = React.createContext<CheckboxGroupContext | null>(null);
 
-class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupState> {
+class CheckboxGroup extends React.PureComponent<CheckboxGroupProps, CheckboxGroupState> {
   static defaultProps = {
     options: [],
   };
@@ -75,10 +70,6 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
       value: props.value || props.defaultValue || [],
       registeredValues: [],
     };
-  }
-
-  shouldComponentUpdate(nextProps: CheckboxGroupProps, nextState: CheckboxGroupState) {
-    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   getOptions() {
@@ -161,16 +152,14 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, CheckboxGroupSta
     }
 
     const context = {
-      checkboxGroup: {
-        toggleOption: this.toggleOption,
-        value: this.state.value,
-        disabled: this.props.disabled,
-        name: this.props.name,
+      toggleOption: this.toggleOption,
+      value: this.state.value,
+      disabled: this.props.disabled,
+      name: this.props.name,
 
-        // https://github.com/ant-design/ant-design/issues/16376
-        registerValue: this.registerValue,
-        cancelValue: this.cancelValue,
-      },
+      // https://github.com/ant-design/ant-design/issues/16376
+      registerValue: this.registerValue,
+      cancelValue: this.cancelValue,
     };
 
     const classString = classNames(groupPrefixCls, className);

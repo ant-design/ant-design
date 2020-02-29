@@ -81,6 +81,7 @@ const columns = [
 | onHeaderRow | Set props on per header row | Function(column, index) | - |
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
+| sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
 
 #### onRow usage
 
@@ -130,7 +131,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | render | Renderer of the table cell. The return value should be a ReactNode, or an object for [colSpan/rowSpan config](#components-table-demo-colspan-rowspan) | Function(text, record, index) {} | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If you need sort buttons only, set to `true` | Function\|boolean | - |
 | sortOrder | Order of sorted values: `'ascend'` `'descend'` `false` | boolean\|string | - |
-| sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
+| sortDirections | supported sort way, override `sortDirections` in `Table`, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
 | title | Title of this column | ReactNode\|({ sortOrder, sortColumn, filters }) => ReactNode | - |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string\|number | - |
 | onCell | Set props on per cell | Function(record, rowIndex) | - |
@@ -163,7 +164,7 @@ Properties for expandable.
 | childrenColumnName | The column contains children to display | string\[] | children |
 | defaultExpandAllRows | Expand all rows initially | boolean | `false` |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - |
-| expandIcon | Customize row expand Icon. Ref [example](http://react-component.github.io/table/examples/expandIcon.html) | Function(props):ReactNode | - |
+| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | Function(props):ReactNode | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - |
 | expandedRowRender | Expanded container render for each row | Function(record, index, indent, expanded):ReactNode | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | `false` |
