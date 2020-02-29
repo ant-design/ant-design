@@ -17,7 +17,7 @@ import { toArray, getFieldId } from './util';
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
-type RenderChildren = (form: FormInstance) => React.ReactElement;
+type RenderChildren = (form: FormInstance) => React.ReactElement | null;
 type RcFieldProps = Omit<FieldProps, 'children'>;
 type ChildrenType = React.ReactElement | RenderChildren | React.ReactElement[] | null;
 type ChildrenNodeType = Exclude<ChildrenType, RenderChildren>;
