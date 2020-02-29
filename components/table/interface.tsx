@@ -23,6 +23,9 @@ export interface TableLocale {
   sortTitle?: string;
   expand?: string;
   collapse?: string;
+  triggerDesc?: string;
+  triggerAsc?: string;
+  cancelSort?: string;
 }
 
 export type SortOrder = 'descend' | 'ascend' | null;
@@ -74,6 +77,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
+  showSorterTooltip?: boolean;
 
   // Filter
   filters?: ColumnFilterItem[];

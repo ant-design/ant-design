@@ -82,6 +82,7 @@ const columns = [
 | onRow | Set props on per row | Function(record, index) | - |
 | getPopupContainer | the render container of dropdowns in table | (triggerNode) => HTMLElement | `() => TableHtmlElement` |
 | sortDirections | supported sort way, could be `'ascend'`, `'descend'` | Array | `['ascend', 'descend']` |
+| showSorterTooltip | header show next sorter direction tooltip | boolean | `true` |
 
 #### onRow usage
 
@@ -138,6 +139,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | onFilter | Callback executed when the confirm filter button is clicked | Function | - |
 | onFilterDropdownVisibleChange | Callback executed when `filterDropdownVisible` is changed | function(visible) {} | - |
 | onHeaderCell | Set props on per header cell | Function(column) | - |
+| showSorterTooltip | header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean | `true` |
 
 ### ColumnGroup
 
