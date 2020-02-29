@@ -28,7 +28,7 @@ const data = [];
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
-    name: i % 2 == 0 ? `Edward King ${i}` : 'Another Row',
+    name: i % 2 === 0 ? `Edward King ${i}` : 'Another Row',
   });
 }
 
