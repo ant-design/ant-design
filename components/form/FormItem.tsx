@@ -94,9 +94,11 @@ function FormItem(props: FormItemProps): React.ReactElement {
     ? updateItemErrors
     : (subName: string, subErrors: string[]) => {
         if (!isEqual(inlineErrors[subName], subErrors)) {
-          setInlineErrors({
-            ...inlineErrors,
-            [subName]: subErrors,
+          Promise.resolve().then(() => {
+            setInlineErrors({
+              ...inlineErrors,
+              [subName]: subErrors,
+            });
           });
         }
       };
