@@ -30,6 +30,7 @@ export interface TreeSelectProps<T>
     RcTreeSelectProps<T>,
     'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
   > {
+  suffixIcon?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
 }
