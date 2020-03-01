@@ -99,6 +99,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     rowKey,
     rowClassName,
     columns,
+    children,
     onChange,
     getPopupContainer,
     loading,
@@ -211,7 +212,8 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter<RecordType>({
     prefixCls,
-    columns: columns || [],
+    columns,
+    children,
     onSorterChange,
     sortDirections: sortDirections || ['ascend', 'descend'],
   });

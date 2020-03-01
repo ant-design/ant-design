@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons';
 import {
   TransformColumns,
@@ -259,7 +260,8 @@ export function getSortData<RecordType>(
 
 interface SorterConfig<RecordType> {
   prefixCls: string;
-  columns: ColumnsType<RecordType>;
+  columns?: ColumnsType<RecordType>;
+  children?: React.ReactNode;
   onSorterChange: (
     sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
     sortStates: SortState<RecordType>[],
@@ -270,6 +272,7 @@ interface SorterConfig<RecordType> {
 export default function useFilterSorter<RecordType>({
   prefixCls,
   columns,
+  children,
   onSorterChange,
   sortDirections,
 }: SorterConfig<RecordType>): [
@@ -278,13 +281,17 @@ export default function useFilterSorter<RecordType>({
   ColumnTitleProps<RecordType>,
   () => SorterResult<RecordType> | SorterResult<RecordType>[],
 ] {
+  const mergedColumns = React.useMemo(() => {
+    return columns || convertChildrenToColumns(children);
+  }, [children, columns]);
+
   const [sortStates, setSortStates] = React.useState<SortState<RecordType>[]>(
-    collectSortStates(columns, true),
+    collectSortStates(mergedColumns, true),
   );
 
   const mergedSorterStates = React.useMemo(() => {
     let validate = true;
-    const collectedStates = collectSortStates(columns, false);
+    const collectedStates = collectSortStates(mergedColumns, false);
 
     // Return if not controlled
     if (!collectedStates.length) {
@@ -325,7 +332,7 @@ export default function useFilterSorter<RecordType>({
     });
 
     return validateStates;
-  }, [columns, sortStates]);
+  }, [mergedColumns, sortStates]);
 
   // Get render columns title required props
   const columnTitleSorterProps = React.useMemo<ColumnTitleProps<RecordType>>(() => {
