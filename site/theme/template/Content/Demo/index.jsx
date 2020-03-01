@@ -219,10 +219,7 @@ class Demo extends React.Component {
       { react: 'latest', 'react-dom': 'latest', antd: antdReproduceVersion },
     );
 
-    if (dependencies['@ant-design/icons']) {
-      // eslint-disable-next-line no-undef
-      dependencies['@ant-design/icons'] = 'latest';
-    }
+    dependencies['@ant-design/icons'] = 'latest';
 
     // Reorder source code
     let parsedSourceCode = sourceCode;
