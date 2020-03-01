@@ -190,6 +190,7 @@ class Demo extends React.Component {
         'moment/min/moment-with-locales.js',
         // eslint-disable-next-line no-undef
         `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
+        `@ant-design/icons/dist/index.umd.js`,
         'react-router-dom/umd/react-router-dom.min.js',
         'react-router@3.x/umd/ReactRouter.min.js',
       ]
