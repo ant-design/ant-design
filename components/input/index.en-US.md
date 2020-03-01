@@ -24,7 +24,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | id | The ID for input | string |  |
 | maxLength | max length | number |  |
 | prefix | The prefix icon for the Input. | string\|ReactNode |  |
-| size | The size of the input box. Note: in the context of a form, the `large` size is used. Available: `large` `default` `small` | string | `default` |
+| size | The size of the input box. Note: in the context of a form, the `large` size is used. | `large` \| `middle` \| `small` |  |
 | suffix | The suffix icon for the Input. | string\|ReactNode |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)(use `Input.TextArea` instead of `type="textarea"`) | string | `text` |
 | value | The input content value | string |  |

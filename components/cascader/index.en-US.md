@@ -39,7 +39,7 @@ Cascade selection box.
 | popupPlacement | use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` |  |
 | popupVisible | set visible of cascader popup | boolean | - |  |
 | showSearch | Whether show search input in single mode. | boolean\|object | false |  |
-| size | input size, one of `large` `default` `small` | string | `default` |  |
+| size | input size | `large` \| `middle` \| `small` |  |  |
 | style | additional style | string | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | value | selected value | string\[] | - |  |
