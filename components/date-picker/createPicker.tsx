@@ -223,9 +223,10 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
         ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
 
       const dataOrAriaProps = getDataOrAriaProps(props);
+      const disabledStyle = getPrefixCls('input-disabled')
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
         <div
-          className = {props.disabled ? 'ant-input-disabled': undefined}
+          className = {props.disabled ? disabledStyle: undefined}
         >
           <input
             ref={this.saveInput}
