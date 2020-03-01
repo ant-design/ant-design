@@ -40,7 +40,7 @@ subtitle: 按钮
 | icon | 设置按钮的图标组件 | ReactNode | - |  |
 | loading | 设置按钮载入状态 | boolean \| { delay: number } | `false` |  |
 | shape | 设置按钮形状，可选值为 `circle`、 `round` 或者不设 | string | - |  |
-| size | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default` |  |
+| size | 设置按钮大小 | `large` \| `middle` \| `small` | 无 |  |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 设置按钮类型，可选值为 `primary` `dashed` `link` 或者不设 | string | - |  |
 | onClick | 点击按钮时的回调 | (event) => void | - |  |
