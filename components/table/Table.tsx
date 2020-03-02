@@ -117,7 +117,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     ConfigContext,
   );
   const mergedSize = customizeSize || size;
-  const tableLocale = locale || contextLocale.Table;
+  const tableLocale = { ...contextLocale.Table, ...locale } as TableLocale;
   const rawData: RecordType[] = dataSource || EMPTY_LIST;
 
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -241,6 +241,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const [transformFilterColumns, filterStates, getFilters] = useFilter<RecordType>({
     prefixCls,
+    locale: tableLocale,
     dropdownPrefixCls,
     columns: columns || [],
     onFilterChange,
@@ -308,6 +309,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     getRecordByKey,
     expandType,
     childrenColumnName,
+    locale: tableLocale,
   });
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
