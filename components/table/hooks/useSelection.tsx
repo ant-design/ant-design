@@ -16,8 +16,6 @@ import {
   TransformColumns,
   ExpandType,
 } from '../interface';
-import { ConfigContext } from '../../config-provider';
-import defaultLocale from '../../locale/en_US';
 
 const EMPTY_LIST: any[] = [];
 
@@ -37,6 +35,7 @@ interface UseSelectionConfig<RecordType> {
   getRecordByKey: (key: Key) => RecordType;
   expandType: ExpandType;
   childrenColumnName: string;
+  locale: TableLocale;
 }
 
 type INTERNAL_SELECTION_ITEM = SelectionItem | typeof SELECTION_ALL | typeof SELECTION_INVERT;
@@ -78,8 +77,6 @@ export default function useSelection<RecordType>(
     fixed,
   } = rowSelection || {};
 
-  const { locale = defaultLocale } = React.useContext(ConfigContext);
-  const tableLocale = (locale.Table || {}) as TableLocale;
   const {
     prefixCls,
     data,
@@ -88,6 +85,7 @@ export default function useSelection<RecordType>(
     getRowKey,
     expandType,
     childrenColumnName,
+    locale: tableLocale,
   } = config;
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
