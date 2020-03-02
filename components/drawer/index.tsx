@@ -21,6 +21,7 @@ type placementType = typeof PlacementTypes[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
+  forceRender?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   maskClosable?: boolean;
   mask?: boolean;
