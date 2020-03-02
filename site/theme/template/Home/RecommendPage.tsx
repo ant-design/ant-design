@@ -20,7 +20,7 @@ const LIST: Recommend[] = [
     description:
       'Ant Design 4.0 正式版于 2 月 28 日提前发布！设计资产不断丰富，设计工具层出不穷，为百万设计者和开发者创造快乐工作。',
     img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
-    href: 'https://ant.design/docs/react/introduce-cn',
+    href: 'https://zhuanlan.zhihu.com/p/109633620',
     popularize: true,
   },
   {
