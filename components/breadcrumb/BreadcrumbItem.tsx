@@ -10,6 +10,7 @@ export interface BreadcrumbItemProps {
   separator?: React.ReactNode;
   href?: string;
   overlay?: DropDownProps['overlay'];
+  dropdownProps?: DropDownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
 }
 
@@ -58,10 +59,10 @@ export default class BreadcrumbItem extends React.Component<BreadcrumbItemProps,
    * Wrap a DropDown
    */
   renderBreadcrumbNode = (breadcrumbItem: React.ReactNode, prefixCls: string) => {
-    const { overlay } = this.props;
+    const { overlay, dropdownProps } = this.props;
     if (overlay) {
       return (
-        <DropDown overlay={overlay} placement="bottomCenter">
+        <DropDown overlay={overlay} placement="bottomCenter" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
