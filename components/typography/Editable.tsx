@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import { EnterOutlined } from '@ant-design/icons';
+import EnterOutlined from '@ant-design/icons/EnterOutlined';
 import TextArea from '../input/TextArea';
 
 interface EditableProps {

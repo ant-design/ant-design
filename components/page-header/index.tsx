@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import { ArrowLeftOutlined, ArrowRightOutlined } from '@ant-design/icons';
+import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
+import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import Tag from '../tag';

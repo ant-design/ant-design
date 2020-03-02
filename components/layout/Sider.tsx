@@ -1,7 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { BarsOutlined, RightOutlined, LeftOutlined } from '@ant-design/icons';
+import BarsOutlined from '@ant-design/icons/BarsOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
 import { LayoutContext, LayoutContextProps } from './layout';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';

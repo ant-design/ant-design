@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { SearchOutlined, LoadingOutlined } from '@ant-design/icons';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Input, { InputProps } from './Input';
 import Button from '../button';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';

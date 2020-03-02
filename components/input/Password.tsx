@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
+import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
 import Input, { InputProps } from './Input';
 

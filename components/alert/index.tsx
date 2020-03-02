@@ -1,16 +1,14 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {
-  CloseOutlined,
-  CheckCircleOutlined,
-  ExclamationCircleOutlined,
-  InfoCircleOutlined,
-  CloseCircleOutlined,
-  CheckCircleFilled,
-  ExclamationCircleFilled,
-  InfoCircleFilled,
-  CloseCircleFilled,
-} from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import Animate from 'rc-animate';
 import classNames from 'classnames';
 

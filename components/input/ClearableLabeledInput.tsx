@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { CloseCircleFilled } from '@ant-design/icons';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { tuple } from '../_util/type';
 import { InputProps, getInputClassName } from './Input';
 import { SizeType } from '../config-provider/SizeContext';
