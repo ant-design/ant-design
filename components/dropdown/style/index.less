@@ -181,11 +181,11 @@
 
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
-        right: 2px;
+        right: @padding-xs;
 
         .@{dropdown-prefix-cls}-rtl & {
           right: auto;
-          left: 2px;
+          left: @padding-xs;
         }
 
         &-icon {
@@ -203,11 +203,11 @@
     }
 
     &-submenu-title {
-      padding-right: 26px;
+      padding-right: @control-padding-horizontal + @padding-xs + @font-size-sm;
 
       .@{dropdown-prefix-cls}-rtl & {
         padding-right: @control-padding-horizontal;
-        padding-left: 26px;
+        padding-left: @control-padding-horizontal + @padding-xs + @font-size-sm;
       }
     }
 
