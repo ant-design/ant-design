@@ -2,7 +2,7 @@ import * as React from 'react';
 import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
-import { CloseOutlined } from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import useModal from './useModal';
 import { getConfirmLocale } from './locale';

@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcSwitch from 'rc-switch';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { LoadingOutlined } from '@ant-design/icons';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 
 import Wave from '../_util/wave';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
