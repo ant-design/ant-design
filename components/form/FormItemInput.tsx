@@ -90,8 +90,10 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
     <FormContext.Provider value={subFormContext}>
       <Col {...mergedWrapperCol} className={className}>
         <div className={`${baseClassName}-control-input`}>
-          <div className={`${baseClassName}-control-input-content`}>{children}</div>
-          {icon}
+          <div className={`${baseClassName}-control-input-content`}>
+            {children}
+            {icon}
+          </div>
         </div>
         <CSSMotion
           visible={visible}

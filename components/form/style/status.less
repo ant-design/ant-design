@@ -114,11 +114,12 @@
         .@{form-item-prefix-cls}-children-icon {
           position: absolute;
           top: 50%;
-          right: 0;
           z-index: 1;
+          float: left;
           width: @input-height-base;
           height: 20px;
           margin-top: -10px;
+          margin-left: -@input-height-base;
           font-size: @font-size-base;
           line-height: 20px;
           text-align: center;
@@ -283,7 +284,6 @@
   // ====================== Validating =======================
   &-is-validating {
     &.@{form-item-prefix-cls}-has-feedback .@{form-item-prefix-cls}-children-icon {
-      display: inline-block;
       color: @primary-color;
     }
   }
