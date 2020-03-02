@@ -93,7 +93,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : <IconComponent />}
+            {args.icon || (IconComponent && <IconComponent />)}
             <span>{args.content}</span>
           </div>
         ),
