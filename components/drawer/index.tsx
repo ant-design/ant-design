@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import { CloseOutlined } from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
