@@ -1517,9 +1517,9 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       value=""
     />
     <input
-      class="ant-input"
+      class="ant-input site-input-right"
       placeholder="Maximum"
-      style="width:100px;text-align:center;border-left:0"
+      style="width:100px;text-align:center"
       type="text"
       value=""
     />

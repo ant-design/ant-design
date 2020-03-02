@@ -141,7 +141,14 @@ class CompactDemo extends React.Component {
             placeholder="~"
             disabled
           />
-          <Input style={{ width: 100, textAlign: 'center', borderLeft: 0 }} placeholder="Maximum" />
+          <Input
+            className="site-input-right"
+            style={{
+              width: 100,
+              textAlign: 'center',
+            }}
+            placeholder="Maximum"
+          />
         </InputGroup>
         <br />
         <InputGroup compact>
@@ -175,6 +182,14 @@ ReactDOM.render(<CompactDemo />, mountNode);
 ```css
 .site-input-group-wrapper .site-input-split {
   background-color: #fff;
+}
+
+.site-input-group-wrapper .site-input-right {
+  border-left-width: 0;
+}
+
+.site-input-group-wrapper .site-input-right:hover {
+  border-left-width: 1px;
 }
 ```
 
