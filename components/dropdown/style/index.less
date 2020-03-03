@@ -181,11 +181,11 @@
 
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
-        right: @padding-xs;
+        right: 0;
 
         .@{dropdown-prefix-cls}-rtl & {
           right: auto;
-          left: @padding-xs;
+          left: 0;
         }
 
         &-icon {
@@ -203,11 +203,11 @@
     }
 
     &-submenu-title {
-      padding-right: @control-padding-horizontal + @padding-xs + @font-size-sm;
+      padding-right: @control-padding-horizontal + @font-size-sm;
 
       .@{dropdown-prefix-cls}-rtl & {
         padding-right: @control-padding-horizontal;
-        padding-left: @control-padding-horizontal + @padding-xs + @font-size-sm;
+        padding-left: @control-padding-horizontal + @font-size-sm;
       }
     }
 
