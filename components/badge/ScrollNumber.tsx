@@ -82,14 +82,18 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
     this.lastCount = prevState.count;
     const { animateStarted } = this.state;
     if (animateStarted) {
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState(
-        (__, props) => ({
-          animateStarted: false,
-          count: props.count,
-        }),
-        this.onAnimated,
-      );
+      // Let browser has time to reset the scroller before actually
+      // performing the transition.
+      setTimeout(() => {
+        // eslint-disable-next-line react/no-did-update-set-state
+        this.setState(
+          (__, props) => ({
+            animateStarted: false,
+            count: props.count,
+          }),
+          this.onAnimated,
+        );
+      }, 16);
     }
   }
 
@@ -127,6 +131,7 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
   renderCurrentNumber(prefixCls: string, num: number | string, i: number) {
     if (typeof num === 'number') {
       const position = this.getPositionByNum(num, i);
+      console.log('digit', i, 'index', position);
       const removeTransition =
         this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
       return React.createElement(
