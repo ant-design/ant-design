@@ -26,7 +26,7 @@ export interface PlacementsConfig {
   autoAdjustOverflow?: boolean | AdjustOverflow;
 }
 
-export function getOverflowOptions(autoAdjustOverflow: boolean | AdjustOverflow) {
+export function getOverflowOptions(autoAdjustOverflow?: boolean | AdjustOverflow) {
   if (typeof autoAdjustOverflow === 'boolean') {
     return autoAdjustOverflow ? autoAdjustOverflowEnabled : autoAdjustOverflowDisabled;
   }
@@ -36,12 +36,12 @@ export function getOverflowOptions(autoAdjustOverflow: boolean | AdjustOverflow)
   };
 }
 
-export default function getPlacements(config: PlacementsConfig = {}) {
+export default function getPlacements(config: PlacementsConfig) {
   const {
     arrowWidth = 5,
     horizontalArrowShift = 16,
-    verticalArrowShift = 12,
-    autoAdjustOverflow = true,
+    verticalArrowShift = 8,
+    autoAdjustOverflow,
   } = config;
   const placementMap: BuildInPlacements = {
     left: {

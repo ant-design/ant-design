@@ -245,12 +245,58 @@ describe('Tooltip', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
-  it('should display zero', async () => {
+  it('should display zero', () => {
     const wrapper = mount(
       <Tooltip title={0} visible>
         <div />
       </Tooltip>,
     );
     expect(wrapper.find('.ant-tooltip-inner').getDOMNode().innerHTML).toBe('0');
+  });
+  
+  it('autoAdjustOverflow should be object or undefined', () => {
+    expect(() => {
+      mount(
+        <Tooltip title={0} visible autoAdjustOverflow={{ adjustX: 0, adjustY: 0 }}>
+          <div />
+        </Tooltip>,
+      );
+    }).not.toThrow();
+
+    expect(() => {
+      mount(
+        <Tooltip title={0} visible autoAdjustOverflow={undefined}>
+          <div />
+        </Tooltip>,
+      );
+    }).not.toThrow();
+  });
+
+  it('support other placement', async () => {
+    const wrapper = mount(
+      <Tooltip
+        title="xxxxx"
+        placement="bottomLeft"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+      >
+        <span>
+          Hello world!
+        </span>
+      </Tooltip>,
+    );
+
+    expect(wrapper.find('span')).toHaveLength(1);
+    const button = wrapper.find('span').at(0);
+    button.simulate('mouseenter');
+    await sleep(50);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-bottomLeft');
+    button.simulate('mouseleave');
+    wrapper.setProps({
+      placement: 'topRight',
+    });
+    button.simulate('mouseenter');
+    await sleep(50);
+    expect(wrapper.instance().getPopupDomNode().className).toContain('placement-topRight');
   });
 });
