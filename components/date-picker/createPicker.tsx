@@ -220,11 +220,8 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
           })
         ) : (
           <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
-        ))) || <Icon type="calendar" className={classNames({
-          [`${prefixCls}-picker-icon`]: true,
-        })} />;
+        ))) || <Icon type="calendar" className={`${prefixCls}-picker-icon`} />;
 
-       
       const dataOrAriaProps = getDataOrAriaProps(props);
       const input = ({ value: inputValue }: { value: moment.Moment | null }) => (
         <div>
