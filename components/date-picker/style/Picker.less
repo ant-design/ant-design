@@ -102,8 +102,14 @@
     line-height: 1;
   }
 
+  .@{ant-prefix}-input-disabled + &-icon {
+    cursor: not-allowed;
+  }
+
   &-small &-clear,
   &-small &-icon {
     right: @control-padding-horizontal-sm;
   }
+  
 }
+

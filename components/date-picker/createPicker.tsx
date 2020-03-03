@@ -216,14 +216,12 @@ export default function createPicker(TheCalendar: React.ComponentClass): any {
             className: classNames({
               [suffixIcon.props.className!]: suffixIcon.props.className,
               [`${prefixCls}-picker-icon`]: true,
-              [`${prefixCls}-disabled`]: props.disabled,
             }),
           })
         ) : (
           <span className={`${prefixCls}-picker-icon`}>{suffixIcon}</span>
         ))) || <Icon type="calendar" className={classNames({
           [`${prefixCls}-picker-icon`]: true,
-          [`${prefixCls}-disabled`]: props.disabled,
         })} />;
 
        
