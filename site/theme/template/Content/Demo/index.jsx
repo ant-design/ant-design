@@ -172,7 +172,8 @@ class Demo extends React.Component {
       title: `${localizedTitle} - Ant Design Demo`,
       html,
       js: sourceCode
-        .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'antd';/, 'const { $1 } = antd;')
+        .replace(/import\s+\{(\s+[^}]*\s+)\}\s+from\s+'antd';/, 'const { $1 } = antd;')
+        .replace(/import\s+\{(\s+[^}]*\s+)\}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
         .replace("import moment from 'moment';", '')
         .replace(/import\s+\{\s+(.*)\s+\}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
@@ -298,23 +299,21 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
                 />
               </Tooltip>
             </form>
-            {!dependencies['@ant-design/icons'] && (
-              <form
-                action="https://codepen.io/pen/define"
-                method="POST"
-                target="_blank"
-                onClick={() => this.track({ type: 'codepen', demo: meta.id })}
-              >
-                <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-                <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-                  <input
-                    type="submit"
-                    value="Create New Pen with Prefilled Data"
-                    className="code-box-codepen"
-                  />
-                </Tooltip>
-              </form>
-            )}
+            <form
+              action="https://codepen.io/pen/define"
+              method="POST"
+              target="_blank"
+              onClick={() => this.track({ type: 'codepen', demo: meta.id })}
+            >
+              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
+              <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
+                <input
+                  type="submit"
+                  value="Create New Pen with Prefilled Data"
+                  className="code-box-codepen"
+                />
+              </Tooltip>
+            </form>
             <form
               action="https://codesandbox.io/api/v1/sandboxes/define"
               method="POST"
