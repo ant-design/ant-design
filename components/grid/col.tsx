@@ -65,7 +65,7 @@ export default class Col extends React.Component<ColProps, {}> {
     ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].forEach(size => {
       let sizeProps: ColSize = {};
       const propSize = (props as any)[size];
-      if (typeof propSize === 'number') {
+      if (typeof propSize === 'number' || typeof propSize === 'string') {
         sizeProps.span = propSize;
       } else if (typeof propSize === 'object') {
         sizeProps = propSize || {};
