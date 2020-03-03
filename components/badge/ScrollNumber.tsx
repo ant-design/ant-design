@@ -131,7 +131,6 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
   renderCurrentNumber(prefixCls: string, num: number | string, i: number) {
     if (typeof num === 'number') {
       const position = this.getPositionByNum(num, i);
-      console.log('digit', i, 'index', position);
       const removeTransition =
         this.state.animateStarted || getNumberArray(this.lastCount)[i] === undefined;
       return React.createElement(
