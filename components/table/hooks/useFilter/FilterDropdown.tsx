@@ -76,7 +76,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const { filterDropdownVisible, onFilterDropdownVisibleChange } = column;
   const [visible, setVisible] = React.useState(false);
 
-  const filtered: boolean = !!(filterState && filterState.filteredKeys);
+  const filtered: boolean = !!(
+    filterState &&
+    (filterState.filteredKeys || filterState.forceFiltered)
+  );
   const triggerVisible = (newVisible: boolean) => {
     setVisible(newVisible);
     if (onFilterDropdownVisibleChange) {
