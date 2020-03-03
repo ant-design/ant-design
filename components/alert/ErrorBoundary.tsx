@@ -33,7 +33,6 @@ export default class ErrorBoundary extends React.Component<
     const errorMessage = typeof message === 'undefined' ? (error || '').toString() : message;
     const errorDescription = typeof description === 'undefined' ? componentStack : description;
     if (error) {
-      // You can render any custom fallback UI
       return (
         <Alert type="error" message={errorMessage} description={<pre>{errorDescription}</pre>} />
       );
