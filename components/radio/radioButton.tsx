@@ -19,7 +19,7 @@ const RadioButton = (props: RadioButtonProps) => {
           radioProps.checked = props.value === radioGroupContext.value;
           radioProps.disabled = props.disabled || radioGroupContext.disabled;
         }
-        return <Radio prefixCls={prefixCls} {...radioProps} />;
+        return <Radio prefixCls={prefixCls} {...radioProps} type="radio" />;
       }}
     </ConfigConsumer>
   );
