@@ -101,13 +101,13 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | order | raster order | number | 0 |  |
 | pull | the number of cells that raster is moved to the left | number | 0 |  |
 | push | the number of cells that raster is moved to the right | number | 0 |  |
-| span | raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
-| xs | `<576px` and also default setting, could be a `span` value or an object containing above props | number\|object | - |  |
-| sm | `≥576px`, could be a `span` value or an object containing above props | number\|object | - |  |
-| md | `≥768px`, could be a `span` value or an object containing above props | number\|object | - |  |
-| lg | `≥992px`, could be a `span` value or an object containing above props | number\|object | - |  |
-| xl | `≥1200px`, could be a `span` value or an object containing above props | number\|object | - |  |
-| xxl | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |  |
+| span | raster number of cells to occupy, 0 corresponds to `display: none` | number \| string | none |  |
+| xs | `<576px` and also default setting, could be a `span` value or an object containing above props | number \| string \| object | - |  |
+| sm | `≥576px`, could be a `span` value or an object containing above props | number \| string \| object | - |  |
+| md | `≥768px`, could be a `span` value or an object containing above props | number \| string \| object | - |  |
+| lg | `≥992px`, could be a `span` value or an object containing above props | number \| string \| object | - |  |
+| xl | `≥1200px`, could be a `span` value or an object containing above props | number \| string \| object | - |  |
+| xxl | `≥1600px`, could be a `span` value or an object containing above props | number \| string \| object | - |  |
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
 
