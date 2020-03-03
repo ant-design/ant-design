@@ -16,19 +16,19 @@ interface Recommend {
 
 const LIST: Recommend[] = [
   {
-    title: '语雀·我们都喜欢的文档工具',
+    title: 'Ant Design 4.0 正式版来了！',
     description:
-      '「语雀」致力于打造新一代 Office，是一个「专业的云端知识库」。在阿里内部已是 10 万员工进行文档编写、知识沉淀的标配。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*2_q2TZo-_zoAAAAAAAAAAABkARQnAQ',
-    href: 'https://www.yuque.com/dashboard',
+      'Ant Design 4.0 正式版于 2 月 28 日提前发布！设计资产不断丰富，设计工具层出不穷，为百万设计者和开发者创造快乐工作。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*G0nDS5-aESoAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/109633620',
     popularize: true,
   },
   {
-    title: 'AntV·让数据栩栩如生',
+    title: '我的按钮究竟该放哪儿！？',
     description:
-      'AntV 是蚂蚁金服全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、无限可能的数据可视化最佳实践。',
-    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*6C3USLyLwh4AAAAAAAAAAABkARQnAQ',
-    href: 'https://antv.vision/zh',
+      '按钮是一种使用广泛的基础界面元素，我们需要并一直在探索建立按钮设计规范。Ant Design 提供了丰富的按钮类型以覆盖各种场景。',
+    img: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*wXuKQ6-ssWMAAAAAAAAAAABkARQnAQ',
+    href: 'https://zhuanlan.zhihu.com/p/109644406',
   },
   {
     title: 'HiTu·让人人都是插画师',

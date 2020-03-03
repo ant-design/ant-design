@@ -740,4 +740,25 @@ describe('Table.sorter', () => {
 
     expect(wrapper.find('th.ant-table-column-sort')).toHaveLength(1);
   });
+
+  it('surger should support sorterOrder', () => {
+    const wrapper = mount(
+      <Table>
+        <Table.Column key="name" title="Name" dataIndex="name" sortOrder="ascend" sorter />
+      </Table>,
+    );
+
+    expect(
+      wrapper
+        .find('.ant-table-column-sorter-up')
+        .last()
+        .hasClass('active'),
+    ).toBeTruthy();
+    expect(
+      wrapper
+        .find('.ant-table-column-sorter-down')
+        .last()
+        .hasClass('active'),
+    ).toBeFalsy();
+  });
 });

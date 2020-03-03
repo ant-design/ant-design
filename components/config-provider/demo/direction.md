@@ -32,6 +32,7 @@ import {
   Steps,
   Rate,
   Badge,
+  Divider,
 } from 'antd';
 
 import {
@@ -187,10 +188,10 @@ class Page extends React.Component {
   render() {
     const { currentStep } = this.state;
     return (
-      <div className="direction-components example">
+      <div className="direction-components">
         <Row>
           <Col span={24}>
-            <h3 className="demo-block-title">Cascader example:</h3>
+            <Divider orientation="left">Cascader example</Divider>
             <Cascader
               suffixIcon={<SearchIcon />}
               options={cascaderOptions}
@@ -212,7 +213,7 @@ class Page extends React.Component {
         <br />
         <Row>
           <Col span={12}>
-            <h3 className="demo-block-title">Switch example:</h3>
+            <Divider orientation="left">Switch example</Divider>
             &nbsp;&nbsp;
             <Switch defaultChecked />
             &nbsp;&nbsp;
@@ -221,7 +222,7 @@ class Page extends React.Component {
             <Switch size="small" loading />
           </Col>
           <Col span={12}>
-            <h3 className="demo-block-title">Radio Group example:</h3>
+            <Divider orientation="left">Radio Group example</Divider>
 
             <Radio.Group defaultValue="c" buttonStyle="solid">
               <Radio.Button value="a">تهران</Radio.Button>
@@ -236,7 +237,7 @@ class Page extends React.Component {
         <br />
         <Row>
           <Col span={12}>
-            <h3 className="demo-block-title">Button example:</h3>
+            <Divider orientation="left">Button example</Divider>
             <div className="button-demo">
               <Button type="primary" icon={<DownloadOutlined />} />
               <Button type="primary" shape="circle" icon={<DownloadOutlined />} />
@@ -267,7 +268,7 @@ class Page extends React.Component {
             </div>
           </Col>
           <Col span={12}>
-            <h3 className="demo-block-title">Tree example:</h3>
+            <Divider orientation="left">Tree example</Divider>
             <Tree
               showLine
               checkable
@@ -290,7 +291,7 @@ class Page extends React.Component {
         <br />
         <Row>
           <Col span={24}>
-            <h3 className="demo-block-title">Input (Input Group) example:</h3>
+            <Divider orientation="left">Input (Input Group) example</Divider>
             <InputGroup size="large">
               <Row gutter={8}>
                 <Col span={5}>
@@ -327,10 +328,9 @@ class Page extends React.Component {
               />
             </div>
             <br />
-
             <Row>
               <Col span={12}>
-                <h3 className="demo-block-title">Select example:</h3>
+                <Divider orientation="left">Select example</Divider>
                 <Select mode="multiple" defaultValue="مورچه" style={{ width: 120 }}>
                   <Option value="jack">Jack</Option>
                   <Option value="مورچه">مورچه</Option>
@@ -360,7 +360,7 @@ class Page extends React.Component {
                 </Select>
               </Col>
               <Col span={12}>
-                <h3 className="demo-block-title">TreeSelect example:</h3>
+                <Divider orientation="left">TreeSelect example</Divider>
                 <div>
                   <TreeSelect
                     showSearch
@@ -390,7 +390,7 @@ class Page extends React.Component {
             <br />
             <Row>
               <Col span={24}>
-                <h3 className="demo-block-title">Modal example:</h3>
+                <Divider orientation="left">Modal example</Divider>
                 <div>
                   <Button type="primary" onClick={this.showModal}>
                     Open Modal
@@ -411,7 +411,7 @@ class Page extends React.Component {
             <br />
             <Row>
               <Col span={24}>
-                <h3 className="demo-block-title">Steps example:</h3>
+                <Divider orientation="left">Steps example</Divider>
                 <div>
                   <Steps progressDot current={currentStep}>
                     <Step title="Finished" description="This is a description." />
@@ -430,7 +430,7 @@ class Page extends React.Component {
             <br />
             <Row>
               <Col span={12}>
-                <h3 className="demo-block-title">Rate example:</h3>
+                <Divider orientation="left">Rate example</Divider>
                 <div>
                   <Rate defaultValue={2.5} />
                   <br />
@@ -440,7 +440,7 @@ class Page extends React.Component {
                 </div>
               </Col>
               <Col span={12}>
-                <h3 className="demo-block-title">Badge example:</h3>
+                <Divider orientation="left">Badge example</Divider>
                 <div>
                   <div>
                     <Badge count={this.state.badgeCount}>
@@ -471,14 +471,14 @@ class Page extends React.Component {
         <br />
         <Row>
           <Col span={24}>
-            <h3 className="demo-block-title">Pagination example:</h3>
+            <Divider orientation="left">Pagination example</Divider>
             <Pagination showSizeChanger defaultCurrent={3} total={500} />
           </Col>
         </Row>
         <br />
         <Row>
           <Col span={24}>
-            <h3 className="demo-block-title">Grid System example:</h3>
+            <Divider orientation="left">Grid System example</Divider>
             <div className="grid-demo">
               <div className="code-box-demo">
                 <p>
@@ -538,10 +538,10 @@ class App extends React.Component {
   };
 
   render() {
-    const { direction } = this.state;
+    const { direction, popupPlacement } = this.state;
     return (
-      <div>
-        <div className="change-direction">
+      <>
+        <div style={{ marginBottom: 16 }}>
           <span style={{ marginRight: 16 }}>Change direction of components: </span>
           <Radio.Group defaultValue="ltr" onChange={this.changeDirection}>
             <Radio.Button key="ltr" value="ltr">
@@ -553,9 +553,9 @@ class App extends React.Component {
           </Radio.Group>
         </div>
         <ConfigProvider direction={direction}>
-          <Page className={direction} popupPlacement={this.state.popupPlacement} />
+          <Page className={direction} popupPlacement={popupPlacement} />
         </ConfigProvider>
-      </div>
+      </>
     );
   }
 }
@@ -564,26 +564,6 @@ ReactDOM.render(<App />, mountNode);
 ```
 
 ```css
-.direction-components {
-  padding-top: 16px;
-  border-top: 1px solid rgba(150, 150, 150, 0.5);
-}
-
-.example {
-  margin: 16px 0;
-}
-
-.example > * {
-  margin-right: 8px;
-}
-
-.change-direction {
-  margin-bottom: 16px;
-}
-.demo-block-title {
-  margin: 0 8px 18px 8px;
-  border-bottom: 1px solid rgba(150, 150, 150, 0.5);
-}
 .button-demo .ant-btn,
 .button-demo .ant-btn-group {
   margin-right: 8px;
@@ -594,6 +574,7 @@ ReactDOM.render(<App />, mountNode);
   margin-right: 0;
   margin-left: 0;
 }
+
 .head-example {
   display: inline-block;
   width: 42px;

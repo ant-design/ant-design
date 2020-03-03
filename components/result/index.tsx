@@ -1,11 +1,9 @@
 import * as React from 'react';
 import classnames from 'classnames';
-import {
-  CheckCircleFilled,
-  CloseCircleFilled,
-  ExclamationCircleFilled,
-  WarningFilled,
-} from '@ant-design/icons';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import WarningFilled from '@ant-design/icons/WarningFilled';
 
 import { ConfigConsumerProps, ConfigConsumer } from '../config-provider';
 import warning from '../_util/warning';

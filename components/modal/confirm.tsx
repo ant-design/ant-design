@@ -1,11 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import {
-  InfoCircleOutlined,
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  ExclamationCircleOutlined,
-} from '@ant-design/icons';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import { getConfirmLocale } from './locale';
 import { ModalFuncProps, destroyFns } from './Modal';
 import ConfirmDialog from './ConfirmDialog';

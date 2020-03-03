@@ -4,7 +4,8 @@ import RcTabs, { TabPane } from 'rc-tabs';
 import TabContent from 'rc-tabs/lib/TabContent';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { CloseOutlined, PlusOutlined } from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import TabBar from './TabBar';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';

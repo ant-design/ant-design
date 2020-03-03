@@ -50,7 +50,7 @@ title: Select
 | placeholder | 选择框默认文字 | string | - |  |
 | showArrow | 是否显示下拉小箭头 | boolean | true |  |
 | showSearch | 使单选模式可搜索 | boolean | false |  |
-| size | 选择框大小，可选 `large` `small` | string | default |  |
+| size | 选择框大小 | `large` \| `middle` \| `small` | 无 |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | clearIcon | 自定义的多选框清空图标 | ReactNode | - |  |

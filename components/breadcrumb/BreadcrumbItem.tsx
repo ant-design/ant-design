@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DownOutlined } from '@ant-design/icons';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import omit from 'omit.js';
 
 import DropDown, { DropDownProps } from '../dropdown/dropdown';

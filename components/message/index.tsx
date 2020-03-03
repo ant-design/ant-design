@@ -1,12 +1,10 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import {
-  LoadingOutlined,
-  ExclamationCircleFilled,
-  CloseCircleFilled,
-  CheckCircleFilled,
-  InfoCircleFilled,
-} from '@ant-design/icons';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 
 let defaultDuration = 3;
 let defaultTop: number;
@@ -93,7 +91,7 @@ function notice(args: ArgsProps): MessageType {
               args.type ? ` ${prefixCls}-${args.type}` : ''
             }`}
           >
-            {args.icon ? args.icon : <IconComponent />}
+            {args.icon || (IconComponent && <IconComponent />)}
             <span>{args.content}</span>
           </div>
         ),

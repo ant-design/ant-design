@@ -1,13 +1,11 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
 import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
-import {
-  CloseOutlined,
-  CheckCircleOutlined,
-  CloseCircleOutlined,
-  ExclamationCircleOutlined,
-  InfoCircleOutlined,
-} from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
 
 export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';

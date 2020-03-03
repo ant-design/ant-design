@@ -14,7 +14,9 @@ import {
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
 import { PickerMode } from 'rc-picker/lib/interface';
-import { CalendarOutlined, ClockCircleOutlined, CloseCircleFilled } from '@ant-design/icons';
+import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
+import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { ConfigContext, ConfigConsumerProps } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import enUS from './locale/en_US';
@@ -268,7 +270,13 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
 
     renderPicker = (locale: any) => {
       const { getPrefixCls, direction } = this.context;
-      const { prefixCls: customizePrefixCls, className, size, bordered = true, ...restProps } = this.props;
+      const {
+        prefixCls: customizePrefixCls,
+        className,
+        size,
+        bordered = true,
+        ...restProps
+      } = this.props;
       const { format, showTime, picker } = this.props as any;
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
 

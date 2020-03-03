@@ -149,6 +149,11 @@ class ComponentDoc extends React.Component {
         <Affix className="toc-affix" offsetTop={16}>
           <ul id="demo-toc" className="toc">
             {jumper}
+            {doc.api && (
+              <li key="API" title="API">
+                <a href="#API">API</a>
+              </li>
+            )}
           </ul>
         </Affix>
         <section className="markdown">

@@ -33,7 +33,7 @@ Radio group can wrap a group of `Radio`。
 | disabled | Disable all radio buttons | boolean | false |
 | name | The `name` property of all `input[type="radio"]` children | string |  |
 | options | set children optional | string\[] \| Array&lt;{ label: string value: string disabled?: boolean }> |  |
-| size | size for radio button style | `large` \| `default` \| `small` | `default` |
+| size | size for radio button style | `large` \| `middle` \| `small` |  |
 | value | Used for setting the currently selected value. | any |  |
 | onChange | The callback function that is triggered when the state changes. | Function(e:Event) |  |
 | buttonStyle | style type of radio button | `outline` \| `solid` | `outline` |

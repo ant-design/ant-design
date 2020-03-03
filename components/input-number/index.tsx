@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcInputNumber from 'rc-input-number';
-import { UpOutlined, DownOutlined } from '@ant-design/icons';
+import UpOutlined from '@ant-design/icons/UpOutlined';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import { Omit } from '../_util/type';

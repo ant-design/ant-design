@@ -94,7 +94,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
               <thead>
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-column-has-sorters"
+                    class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -110,7 +110,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                         >
                           <span
                             aria-label="caret-up"
-                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            class="anticon anticon-caret-up ant-table-column-sorter-up active"
                             role="img"
                           >
                             <svg
@@ -162,7 +162,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell"
+                    class="ant-table-cell ant-table-column-sort"
                   >
                     1
                   </td>

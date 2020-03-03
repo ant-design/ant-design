@@ -30,6 +30,7 @@ export interface TreeSelectProps<T>
     RcTreeSelectProps<T>,
     'showTreeIcon' | 'treeMotion' | 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'
   > {
+  suffixIcon?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
 }
@@ -37,11 +38,11 @@ export interface TreeSelectProps<T>
 class TreeSelect<T> extends React.Component<TreeSelectProps<T>, {}> {
   static TreeNode = TreeNode;
 
-  static SHOW_ALL = SHOW_ALL;
+  static SHOW_ALL: typeof SHOW_ALL = SHOW_ALL;
 
-  static SHOW_PARENT = SHOW_PARENT;
+  static SHOW_PARENT: typeof SHOW_PARENT = SHOW_PARENT;
 
-  static SHOW_CHILD = SHOW_CHILD;
+  static SHOW_CHILD: typeof SHOW_CHILD = SHOW_CHILD;
 
   static defaultProps = {
     transitionName: 'slide-up',

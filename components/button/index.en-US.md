@@ -37,7 +37,7 @@ To get a customized button, just set `type`/`shape`/`size`/`loading`/`disabled`.
 | icon | set the icon component of button | ReactNode | - |  |
 | loading | set the loading status of button | boolean \| { delay: number } | `false` |  |
 | shape | can be set to `circle`, `round` or omitted | string | - |  |
-| size | can be set to `small` `large` or omitted | string | `default` |  |
+| size | set the size of button | `large` \| `middle` \| `small` |  |  |
 | target | same as target attribute of a, works when href is specified | string | - |  |
 | type | can be set to `primary` `ghost` `dashed` `link` or omitted (meaning `default`) | string | `default` |  |
 | onClick | set the handler to handle `click` event | (event) => void | - |  |

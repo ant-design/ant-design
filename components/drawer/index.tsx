@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcDrawer from 'rc-drawer';
-import { CloseOutlined } from '@ant-design/icons';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'omit.js';
 
@@ -21,6 +21,7 @@ type placementType = typeof PlacementTypes[number];
 export interface DrawerProps {
   closable?: boolean;
   destroyOnClose?: boolean;
+  forceRender?: boolean;
   getContainer?: string | HTMLElement | getContainerFunc | false;
   maskClosable?: boolean;
   mask?: boolean;

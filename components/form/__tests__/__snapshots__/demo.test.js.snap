@@ -4435,7 +4435,6 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           <div
             class="ant-checkbox-group"
             id="validate_other_checkbox-group"
-            style="width:100%"
           >
             <div
               class="ant-row"
@@ -4445,6 +4444,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+                  style="line-height:32px"
                 >
                   <span
                     class="ant-checkbox ant-checkbox-checked"
@@ -4469,6 +4469,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled"
+                  style="line-height:32px"
                 >
                   <span
                     class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
@@ -4494,6 +4495,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper"
+                  style="line-height:32px"
                 >
                   <span
                     class="ant-checkbox"
@@ -4517,6 +4519,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper"
+                  style="line-height:32px"
                 >
                   <span
                     class="ant-checkbox"
@@ -4540,6 +4543,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <label
                   class="ant-checkbox-wrapper"
+                  style="line-height:32px"
                 >
                   <span
                     class="ant-checkbox"
@@ -4555,6 +4559,30 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   </span>
                   <span>
                     E
+                  </span>
+                </label>
+              </div>
+              <div
+                class="ant-col ant-col-8"
+              >
+                <label
+                  class="ant-checkbox-wrapper"
+                  style="line-height:32px"
+                >
+                  <span
+                    class="ant-checkbox"
+                  >
+                    <input
+                      class="ant-checkbox-input"
+                      type="checkbox"
+                      value="F"
+                    />
+                    <span
+                      class="ant-checkbox-inner"
+                    />
+                  </span>
+                  <span>
+                    F
                   </span>
                 </label>
               </div>
