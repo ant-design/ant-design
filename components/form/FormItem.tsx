@@ -63,6 +63,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
     validateStatus,
     children,
     required,
+    label,
     trigger = 'onChange',
     validateTrigger = 'onChange',
     ...restProps
@@ -204,9 +205,15 @@ function FormItem(props: FormItemProps): React.ReactElement {
     return renderLayout(children as ChildrenNodeType);
   }
 
+  const variables: Record<string, string> = {};
+  if (typeof label === 'string') {
+    variables.label = label;
+  }
+
   return (
     <Field
       {...props}
+      messageVariables={variables}
       trigger={trigger}
       validateTrigger={validateTrigger}
       onReset={() => {
