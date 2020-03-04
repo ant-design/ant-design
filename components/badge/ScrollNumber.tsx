@@ -100,7 +100,9 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
     }
   }
 
-  componentWillUnmount() {}
+  componentWillUnmount() {
+    this.clearTimeout();
+  }
 
   getPositionByNum(num: number, i: number) {
     const { count } = this.state;
