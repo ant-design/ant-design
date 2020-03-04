@@ -35,8 +35,7 @@ timeline: true
 - 🐞 修复 Table 固定列在排序状态时的样式问题。[#21679](https://github.com/ant-design/ant-design/pull/21679)
 - 💄 优化 Calendar 在窄屏幕下的标题样式。[f287708](https://github.com/ant-design/ant-design/commit/f287708db554d7060a2e48c16c0b82536e7c7f3d)
 - 💄 Radio.Group 不再折行。[c8a8e5d9](https://github.com/ant-design/ant-design/commit/c8a8e5d95b055c525ed1c02af8c1726de3266468)
-- 🌟 Carousel `dots` 支持对象传递 `dotsClass`。[#21708](https://github.com/ant-design/ant-design/pull/21708) [@yoyo837](https://github.com/yoyo837)
-- 🌟 重构 icons 导入代码以降低没有开启 tree shaking 的打包尺寸。[#21752](https://github.com/ant-design/ant-design/pull/21752)
+- 🛠 重构 icons 导入代码以降低没有开启 tree shaking 的打包尺寸。[#21752](https://github.com/ant-design/ant-design/pull/21752)
 - Typescript
   - 🐞 修复 Radio.Button 的类型定义。[#21807](https://github.com/ant-design/ant-design/pull/21807) [@jhoneybee](https://github.com/jhoneybee)
   - 🐞 修复了 TreeSelect.SHOW\_\* 的类型问题。[#21791](https://github.com/ant-design/ant-design/pull/21791) [@TennyZhuang](https://github.com/TennyZhuang)

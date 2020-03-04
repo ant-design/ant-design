@@ -35,8 +35,7 @@ timeline: true
 - 🐞 Fix Table fixed column with sorted status style issue. [#21679](https://github.com/ant-design/ant-design/pull/21679)
 - 💄 Optimize Calendar header style in small screen. [f287708](https://github.com/ant-design/ant-design/commit/f287708db554d7060a2e48c16c0b82536e7c7f3d)
 - 💄 Radio.Group not wrapping now. [c8a8e5d9](https://github.com/ant-design/ant-design/commit/c8a8e5d95b055c525ed1c02af8c1726de3266468)
-- 🌟 Carousel `dots` support pass `dotsClass`. [#21708](https://github.com/ant-design/ant-design/pull/21708) [@yoyo837](https://github.com/yoyo837)
-- 🌟 Refactor icons import code to reduce webpack disabled tree shaking bundle size. [#21752](https://github.com/ant-design/ant-design/pull/21752)
+- 🛠 Refactor icons import code to reduce webpack disabled tree shaking bundle size. [#21752](https://github.com/ant-design/ant-design/pull/21752)
 - Typescript
   - 🐞 Fix Radio.Button type error. [#21807](https://github.com/ant-design/ant-design/pull/21807) [@jhoneybee](https://github.com/jhoneybee)
   - 🐞 fix TreeSelect.SHOW\_\* type. [#21791](https://github.com/ant-design/ant-design/pull/21791) [@TennyZhuang](https://github.com/TennyZhuang)
