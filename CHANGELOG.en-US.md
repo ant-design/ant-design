@@ -20,29 +20,29 @@ timeline: true
 `2020-03-04`
 
 - 🐞 Fix Form help control will get `react@16.13` warning. [#21800](https://github.com/ant-design/ant-design/pull/21800) [#21702](https://github.com/ant-design/ant-design/pull/21702)
+- 🐞 Fix Form.Item exceed Form width when content is too long. [#21682](https://github.com/ant-design/ant-design/pull/21682)
 - 🐞 Fix TextArea style get warning in `react@16.13`. [#21703](https://github.com/ant-design/ant-design/pull/21703)
+- 🐞 Fix Input.Search extra border when has `prefix`. [#21753](https://github.com/ant-design/ant-design/pull/21753)
 - 🐞 Fix Dropdown menu arrow position. [#21768](https://github.com/ant-design/ant-design/pull/21768) [@xrkffgg](https://github.com/xrkffgg)
 - 🐞 Fix Table column with `filtered` not working. [#21825](https://github.com/ant-design/ant-design/pull/21825)
 - 🐞 Fix Table locale not work. [#21772](https://github.com/ant-design/ant-design/pull/21772)
+- 🐞 Fix Table.Column `sortOrder` is not working in JSX mode. [#21719](https://github.com/ant-design/ant-design/pull/21719)
+- 🐞 Fix Table fixed column with sorted status style issue. [#21679](https://github.com/ant-design/ant-design/pull/21679)
 - 🐞 Fix List `bordered` and `split` props conflict. [#21784](https://github.com/ant-design/ant-design/pull/21784) [@MXWXZ](https://github.com/MXWXZ)
 - 🐞 Fix Menu.Item `a` tag hidden bug. [#21699](https://github.com/ant-design/ant-design/pull/21699) [@shaodahong](https://github.com/shaodahong)
-- 🐞 Fix Input.Search extra border when has `prefix`. [#21753](https://github.com/ant-design/ant-design/pull/21753)
 - 🐞 Fix `message.open` crash when `icon` is not passed. [#21747](https://github.com/ant-design/ant-design/pull/21747) [@AshoneA](https://github.com/AshoneA)
-- 🐞 Fix Table.Column `sortOrder` is not working in JSX mode. [#21719](https://github.com/ant-design/ant-design/pull/21719)
 - 🐞 Fix Result `status` cannot assigned to string or number type. [#21691](https://github.com/ant-design/ant-design/pull/21691)
 - 🐞 Fix Descriptions warning for duplicate key. [#21688](https://github.com/ant-design/ant-design/pull/21688)
-- 🐞 Fix Form.Item exceed Form width when content is too long. [#21682](https://github.com/ant-design/ant-design/pull/21682)
-- 🐞 Fix Table fixed column with sorted status style issue. [#21679](https://github.com/ant-design/ant-design/pull/21679)
 - 💄 Optimize Calendar header style in small screen. [#21813](https://github.com/ant-design/ant-design/pull/21813)
 - 💄 Radio.Group not wrapping now. [#21813](https://github.com/ant-design/ant-design/pull/21813)
 - 🛠 Refactor icons import code to reduce webpack disabled tree shaking bundle size. [#21752](https://github.com/ant-design/ant-design/pull/21752)
 - Typescript
   - 🐞 Fix Radio.Button type error. [#21807](https://github.com/ant-design/ant-design/pull/21807) [@jhoneybee](https://github.com/jhoneybee)
   - 🐞 fix TreeSelect.SHOW\_\* type. [#21791](https://github.com/ant-design/ant-design/pull/21791) [@TennyZhuang](https://github.com/TennyZhuang)
+  - 🐞 Fix TreeSelect missing `suffix` define. [#21714](https://github.com/ant-design/ant-design/pull/21714)
   - 🐞 Fix Drawer `forceRender` TypeScript definite. [#21774](https://github.com/ant-design/ant-design/pull/21774)
   - 🐞 Fix Tree `treeData` define. [#21756](https://github.com/ant-design/ant-design/pull/21756)
   - 🐞 Fix Form.Item `renderProps` return type define. [#21716](https://github.com/ant-design/ant-design/pull/21716)
-  - 🐞 Fix TreeSelect missing `suffix` define. [#21714](https://github.com/ant-design/ant-design/pull/21714)
 
 ## 4.0.0
 
