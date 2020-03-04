@@ -22,7 +22,7 @@ title: 介绍
 - [设计模式](/docs/spec/overview)
 - [可视化](/docs/spec/visual)
 - [插画](/docs/spec/illustration)
-- [设计资源](/docs/spec/download)
+- [设计资源](/docs/resources)
 - [Sketch 工具集](http://kitchen.alipay.com/)
 - [文章](/docs/spec/article)
 

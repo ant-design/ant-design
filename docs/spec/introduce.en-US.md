@@ -22,7 +22,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 - [Design patterns](/docs/spec/overview)
 - [Visualization](/docs/spec/visual)
 - [Illustrations](/docs/spec/illustration)
-- [Design resources](/docs/spec/download)
+- [Design resources](/docs/resources)
 - [Sketch toolbox](http://kitchen.alipay.com/)
 - [Articles](/docs/spec/article)
 
