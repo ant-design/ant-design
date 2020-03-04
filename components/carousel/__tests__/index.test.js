@@ -126,4 +126,18 @@ describe('Carousel', () => {
       ).toBeTruthy();
     });
   });
+
+  describe('dots precise control by plain object', () => {
+    it('use dots to provide dotsClasse', () => {
+      const wrapper = mount(
+        <Carousel dots={{ className: 'customDots' }}>
+          <div>1</div>
+          <div>2</div>
+          <div>3</div>
+        </Carousel>,
+      );
+      wrapper.update();
+      expect(wrapper.find('.slick-dots').hasClass('customDots')).toBeTruthy();
+    });
+  });
 });
