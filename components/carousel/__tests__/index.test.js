@@ -130,7 +130,7 @@ describe('Carousel', () => {
   describe('dots precise control by plain object', () => {
     it('use dots to provide dotsClasse', () => {
       const wrapper = mount(
-        <Carousel dots={{ dotsClass: 'customDots' }}>
+        <Carousel dots={{ className: 'customDots' }}>
           <div>1</div>
           <div>2</div>
           <div>3</div>

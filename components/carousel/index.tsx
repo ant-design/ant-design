@@ -25,7 +25,7 @@ export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
   dots?:
     | boolean
     | {
-        dotsClass?: string;
+        className?: string;
       };
 }
 
@@ -117,7 +117,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     const dsClass = classNames(
       dotsClass,
       `${dotsClass}-${dotPosition || 'bottom'}`,
-      typeof props.dots === 'boolean' ? false : props.dots?.dotsClass,
+      typeof props.dots === 'boolean' ? false : props.dots?.className,
     );
 
     const className = classNames(prefixCls, {
