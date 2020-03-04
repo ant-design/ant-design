@@ -61,7 +61,6 @@ export default defineConfig({
 +   { path: '/products', component: '@/pages/products' },
   ],
 });
-
 ```
 
 运行 `yarn start` 然后在浏览器里打开 [http://localhost:8000/products](http://localhost:8000/products)，你应该能看到对应的页面。
@@ -161,25 +160,6 @@ const Products = ({ dispatch, products }) => {
 export default connect(({ products }) => ({
   products,
 }))(Products);
-```
-
-最后，我们还需要一些初始数据让这个应用 run 起来。编辑 `src/app.js`：
-
-```js
-export const dva = {
-  config: {
-    onError(err) {
-      err.preventDefault();
-      console.error(err.message);
-    },
-    initialState: {
-      products: [
-        { name: 'dva', id: 1 },
-        { name: 'antd', id: 2 },
-      ],
-    },
-  },
-};
 ```
 
 执行启动命令：
