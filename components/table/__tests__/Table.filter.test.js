@@ -1198,4 +1198,19 @@ describe('Table.filter', () => {
         .text(),
     ).toEqual('Reset');
   });
+
+  it('filtered should work', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filtered: true,
+          },
+        ],
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-trigger').hasClass('active')).toBeTruthy();
+  });
 });

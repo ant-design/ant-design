@@ -85,6 +85,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   showSorterTooltip?: boolean;
 
   // Filter
+  filtered?: boolean;
   filters?: ColumnFilterItem[];
   filterDropdown?: React.ReactNode | ((props: FilterDropdownProps) => React.ReactNode);
   filterMultiple?: boolean;

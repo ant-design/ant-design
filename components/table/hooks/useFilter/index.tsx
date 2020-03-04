@@ -16,6 +16,7 @@ export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
   key: Key;
   filteredKeys?: Key[] | null;
+  forceFiltered?: boolean;
 }
 
 function collectFilterStates<RecordType>(
@@ -37,6 +38,7 @@ function collectFilterStates<RecordType>(
           column,
           key: getColumnKey(column, columnPos),
           filteredKeys: column.filteredValue,
+          forceFiltered: column.filtered,
         });
       } else {
         // Uncontrolled
@@ -45,6 +47,7 @@ function collectFilterStates<RecordType>(
           key: getColumnKey(column, columnPos),
           filteredKeys:
             init && column.defaultFilteredValue ? column.defaultFilteredValue! : undefined,
+          forceFiltered: column.filtered,
         });
       }
     }
