@@ -1,5 +1,4 @@
 import * as React from 'react';
-import isPlainObject from 'lodash/isPlainObject';
 import debounce from 'lodash/debounce';
 import { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
@@ -15,18 +14,13 @@ export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
 
 // Carousel
-export interface CarouselProps extends Omit<Settings, 'dots' | 'dotsClass'> {
+export interface CarouselProps extends Settings {
   effect?: CarouselEffect;
   style?: React.CSSProperties;
   prefixCls?: string;
   slickGoTo?: number;
   dotPosition?: DotPosition;
   children?: React.ReactNode;
-  dots?:
-    | boolean
-    | {
-        dotsClass?: string;
-      };
 }
 
 export default class Carousel extends React.Component<CarouselProps, {}> {
@@ -112,13 +106,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
     const dotsClass = 'slick-dots';
     const dotPosition = this.getDotPosition();
     props.vertical = dotPosition === 'left' || dotPosition === 'right';
-
-    const enableDots = props.dots === true || isPlainObject(props.dots);
-    const dsClass = classNames(
-      dotsClass,
-      `${dotsClass}-${dotPosition || 'bottom'}`,
-      typeof props.dots === 'boolean' ? false : props.dots?.dotsClass,
-    );
+    props.dotsClass = `${dotsClass} ${dotsClass}-${dotPosition || 'bottom'}`;
 
     const className = classNames(prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -127,7 +115,7 @@ export default class Carousel extends React.Component<CarouselProps, {}> {
 
     return (
       <div className={className}>
-        <SlickCarousel ref={this.saveSlick} {...props} dots={enableDots} dotsClass={dsClass} />
+        <SlickCarousel ref={this.saveSlick} {...props} />
       </div>
     );
   };
