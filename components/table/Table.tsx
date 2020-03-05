@@ -54,13 +54,7 @@ interface ChangeEventInfo<RecordType> {
 export interface TableProps<RecordType>
   extends Omit<
     RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'expandIconColumnIndex'
-    | 'scroll'
+    'transformColumns' | 'internalHooks' | 'internalRefs' | 'data' | 'columns' | 'scroll'
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
