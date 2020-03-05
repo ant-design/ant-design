@@ -791,6 +791,7 @@ exports[`Picker format by locale date 1`] = `
       placeholder="请选择日期"
       readonly=""
       size="12"
+      title="2000-01-01"
       value="2000-01-01"
     />
     <span
@@ -856,6 +857,7 @@ exports[`Picker format by locale dateTime 1`] = `
       placeholder="请选择日期"
       readonly=""
       size="21"
+      title="2000-01-01 00:00:00"
       value="2000-01-01 00:00:00"
     />
     <span
@@ -921,6 +923,7 @@ exports[`Picker format by locale month 1`] = `
       placeholder="请选择月份"
       readonly=""
       size="12"
+      title="2000-01"
       value="2000-01"
     />
     <span
@@ -986,6 +989,7 @@ exports[`Picker format by locale week 1`] = `
       placeholder="请选择周"
       readonly=""
       size="12"
+      title="1999-52周"
       value="1999-52周"
     />
     <span
