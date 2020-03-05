@@ -854,7 +854,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                 className="ant-transfer-list-content"
                 onScroll={[Function]}
               >
-                <ListItem
+                <Memo(ListItem)
                   checked={false}
                   item={
                     Object {
@@ -916,7 +916,7 @@ exports[`Transfer should support render value and label in item 1`] = `
                       label
                     </span>
                   </li>
-                </ListItem>
+                </Memo(ListItem)>
               </ul>
             </ListBody>
           </div>
