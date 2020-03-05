@@ -9,8 +9,12 @@
   padding: @page-header-padding-vertical @page-header-padding;
   background-color: @component-background;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-ghost {
-    background-color: inherit;
+    background-color: @page-header-ghost-bg;
   }
 
   &.has-breadcrumb {
@@ -27,6 +31,13 @@
     margin-right: 16px;
     font-size: 16px;
     line-height: 1;
+
+    .@{pageheader-prefix-cls}-rtl & {
+      float: right;
+      margin-right: 0;
+      margin-left: 16px;
+    }
+
     &-button {
       .operation-unit();
       color: @page-header-back-color;
@@ -56,11 +67,23 @@
       font-weight: 600;
       font-size: @heading-4-size;
       line-height: 32px;
+
+      .@{pageheader-prefix-cls}-rtl & {
+        float: right;
+        padding-right: 0;
+        padding-left: 12px;
+      }
     }
 
     .@{ant-prefix}-avatar {
       float: left;
       margin-right: 12px;
+
+      .@{pageheader-prefix-cls}-rtl & {
+        float: right;
+        margin-right: 0;
+        margin-left: 12px;
+      }
     }
 
     &-sub-title {
@@ -70,20 +93,44 @@
       color: @text-color-secondary;
       font-size: 14px;
       line-height: 22px;
+
+      .@{pageheader-prefix-cls}-rtl & {
+        float: right;
+        margin-right: 0;
+        margin-left: 12px;
+      }
     }
 
     &-tags {
       float: left;
       margin: 4px 0;
+
+      .@{pageheader-prefix-cls}-rtl & {
+        float: right;
+      }
     }
 
     &-extra {
       float: right;
+
+      .@{pageheader-prefix-cls}-rtl & {
+        float: left;
+      }
+
       > * {
         margin-left: 8px;
+
+        .@{pageheader-prefix-cls}-rtl & {
+          margin-right: 8px;
+          margin-left: 0;
+        }
       }
       > *:first-child {
         margin-left: 0;
+
+        .@{pageheader-prefix-cls}-rtl & {
+          margin-right: 0;
+        }
       }
     }
   }
@@ -98,9 +145,15 @@
     .@{ant-prefix}-tabs-bar {
       margin-bottom: 1px;
       border-bottom: 0;
-      .@{ant-prefix}-tabs-nav .@{ant-prefix}-tabs-tab {
-        padding: 8px;
-        font-size: 16px;
+      .@{ant-prefix}-tabs-nav {
+        .@{pageheader-prefix-cls}-rtl & {
+          float: right;
+        }
+
+        .@{ant-prefix}-tabs-tab {
+          padding: @tabs-horizontal-padding-sm;
+          font-size: 16px;
+        }
       }
     }
   }

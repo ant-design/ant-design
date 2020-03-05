@@ -73,11 +73,9 @@ Following is a brief look at how it works:
 - The column grid system is a value of 1-24 to represent its range spans. For example, three columns of equal width can be created by `<Col span={8} />`.
 - If the sum of `col` spans in a `row` are more than 24, then the overflowing `col` as a whole will start a new line arrangement.
 
-## Flex layout
+Our grid systems base on Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
 
-Our grid systems support Flex layout to allow the elements within the parent to be aligned horizontally - left, center, right, wide arrangement, and decentralized arrangement. The Grid system also supports vertical alignment - top aligned, vertically centered, bottom-aligned. You can also define the order of elements by using `order`.
-
-Flex layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
+Layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
 
 ## API
 
@@ -90,17 +88,17 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | the vertical alignment of the flex layout: `top` `middle` `bottom` | string | `top` |  |
-| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` (supported after `3.24.0`) | number/object/array | 0 |  |
-| justify | horizontal arrangement of the flex layout: `start` `end` `center` `space-around` `space-between` | string | `start` |  |
-| type | layout mode, optional `flex`, [browser support](http://caniuse.com/#search=flex) | string |  |  |
+| align | vertical alignment | `top` \| `middle` \| `bottom` | `top` |  |
+| gutter | spacing between grids, could be a number or a object like `{ xs: 8, sm: 16, md: 24}`. or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number/object/array | 0 |  |  |
+| justify | horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` | `start` |  |
 
 ### Col
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| flex | flex layout style | string \| number | - |  |
 | offset | the number of cells to offset Col from the left | number | 0 |  |
-| order | raster order, used in `flex` layout mode | number | 0 |  |
+| order | raster order | number | 0 |  |
 | pull | the number of cells that raster is moved to the left | number | 0 |  |
 | push | the number of cells that raster is moved to the right | number | 0 |  |
 | span | raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
@@ -111,10 +109,11 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | xl | `≥1200px`, could be a `span` value or an object containing above props | number\|object | - |  |
 | xxl | `≥1600px`, could be a `span` value or an object containing above props | number\|object | - |  |
 
-The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints)(not including `occasionally part`).
+The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
 
-## FAQ
-
-### How to support IE9 when using responsive?
-
-You can use [matchMedia polyfill](https://github.com/paulirish/matchMedia.js/) to handle this.
+<style>
+  [data-theme="dark"] #components-grid-demo-playground pre {
+    background: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,.65);
+  }
+</style>

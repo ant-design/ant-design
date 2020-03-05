@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import classNames from 'classnames';
-import Icon from '../icon';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { tuple } from '../_util/type';
-import { InputProps, InputSizes, getInputClassName } from './Input';
+import { InputProps, getInputClassName } from './Input';
+import { SizeType } from '../config-provider/SizeContext';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -16,47 +16,49 @@ export function hasPrefixSuffix(props: InputProps | ClearableInputProps) {
  */
 interface BasicProps {
   prefixCls: string;
-  inputType: (typeof ClearableInputType)[number];
+  inputType: typeof ClearableInputType[number];
   value?: any;
-  defaultValue?: any;
   allowClear?: boolean;
   element: React.ReactElement<any>;
   handleReset: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   className?: string;
   style?: object;
   disabled?: boolean;
+  direction?: any;
+  focused?: boolean;
+  readOnly?: boolean;
 }
 
 /**
  * This props only for input.
  */
 interface ClearableInputProps extends BasicProps {
-  size?: (typeof InputSizes)[number];
+  size?: SizeType;
   suffix?: React.ReactNode;
   prefix?: React.ReactNode;
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
+  triggerFocus: () => void;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, inputType, handleReset } = this.props;
-    if (!allowClear || disabled || value === undefined || value === null || value === '') {
+    const { allowClear, value, disabled, readOnly, inputType, handleReset } = this.props;
+    if (
+      !allowClear ||
+      disabled ||
+      readOnly ||
+      value === undefined ||
+      value === null ||
+      value === ''
+    ) {
       return null;
     }
     const className =
       inputType === ClearableInputType[0]
         ? `${prefixCls}-textarea-clear-icon`
         : `${prefixCls}-clear-icon`;
-    return (
-      <Icon
-        type="close-circle"
-        theme="filled"
-        onClick={handleReset}
-        className={className}
-        role="button"
-      />
-    );
+    return <CloseCircleFilled onClick={handleReset} className={className} role="button" />;
   }
 
   renderSuffix(prefixCls: string) {
@@ -73,39 +75,51 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   }
 
   renderLabeledIcon(prefixCls: string, element: React.ReactElement<any>) {
-    const props = this.props;
-    const suffix = this.renderSuffix(prefixCls);
-    if (!hasPrefixSuffix(props)) {
+    const {
+      focused,
+      value,
+      prefix,
+      className,
+      size,
+      suffix,
+      disabled,
+      allowClear,
+      direction,
+      style,
+      triggerFocus,
+    } = this.props;
+    const suffixNode = this.renderSuffix(prefixCls);
+    if (!hasPrefixSuffix(this.props)) {
       return React.cloneElement(element, {
-        value: props.value,
+        value,
       });
     }
 
-    const prefix = props.prefix ? (
-      <span className={`${prefixCls}-prefix`}>{props.prefix}</span>
-    ) : null;
+    const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
 
-    const affixWrapperCls = classNames(props.className, `${prefixCls}-affix-wrapper`, {
-      [`${prefixCls}-affix-wrapper-sm`]: props.size === 'small',
-      [`${prefixCls}-affix-wrapper-lg`]: props.size === 'large',
-      [`${prefixCls}-affix-wrapper-input-with-clear-btn`]:
-        props.suffix && props.allowClear && this.props.value,
+    const affixWrapperCls = classNames(className, `${prefixCls}-affix-wrapper`, {
+      [`${prefixCls}-affix-wrapper-focused`]: focused,
+      [`${prefixCls}-affix-wrapper-disabled`]: disabled,
+      [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+      [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+      [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
+      [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
     });
     return (
-      <span className={affixWrapperCls} style={props.style}>
-        {prefix}
+      <span className={affixWrapperCls} style={style} onMouseUp={triggerFocus}>
+        {prefixNode}
         {React.cloneElement(element, {
           style: null,
-          value: props.value,
-          className: getInputClassName(prefixCls, props.size, props.disabled),
+          value,
+          className: getInputClassName(prefixCls, size, disabled),
         })}
-        {suffix}
+        {suffixNode}
       </span>
     );
   }
 
   renderInputWithLabel(prefixCls: string, labeledElement: React.ReactElement<any>) {
-    const { addonBefore, addonAfter, style, size, className } = this.props;
+    const { addonBefore, addonAfter, style, size, className, direction } = this.props;
     // Not wrap when there is not addons
     if (!addonBefore && !addonAfter) {
       return labeledElement;
@@ -120,11 +134,13 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
     const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, {
       [wrapperClassName]: addonBefore || addonAfter,
+      [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
     const mergedGroupClassName = classNames(className, `${prefixCls}-group-wrapper`, {
       [`${prefixCls}-group-wrapper-sm`]: size === 'small',
       [`${prefixCls}-group-wrapper-lg`]: size === 'large',
+      [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
     });
 
     // Need another wrapper for changing display:table to display:inline-block
@@ -175,7 +191,5 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     return this.renderClearableLabeledInput();
   }
 }
-
-polyfill(ClearableLabeledInput);
 
 export default ClearableLabeledInput;

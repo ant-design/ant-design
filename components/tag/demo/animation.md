@@ -14,8 +14,9 @@ title:
 Animating the Tag by using [rc-tween-one](https://github.com/react-component/tween-one).
 
 ```jsx
-import { Tag, Input, Icon } from 'antd';
+import { Tag, Input } from 'antd';
 import { TweenOneGroup } from 'rc-tween-one';
+import { PlusOutlined } from '@ant-design/icons';
 
 class EditableTagGroup extends React.Component {
   state = {
@@ -108,8 +109,8 @@ class EditableTagGroup extends React.Component {
           />
         )}
         {!inputVisible && (
-          <Tag onClick={this.showInput} style={{ background: '#fff', borderStyle: 'dashed' }}>
-            <Icon type="plus" /> New Tag
+          <Tag onClick={this.showInput} className="site-tag-plus">
+            <PlusOutlined /> New Tag
           </Tag>
         )}
       </div>
@@ -119,3 +120,17 @@ class EditableTagGroup extends React.Component {
 
 ReactDOM.render(<EditableTagGroup />, mountNode);
 ```
+
+```css
+.site-tag-plus {
+  background: #fff;
+  border-style: dashed;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-tag-plus {
+    background: transparent;
+    border-style: dashed;
+  }
+</style>

@@ -1,7 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
-import * as moment from 'moment';
-import interopDefault from '../_util/interopDefault';
 import Statistic, { StatisticProps } from './Statistic';
 import { formatCountdown, countdownValueType, FormatConfig } from './utils';
 
@@ -14,7 +11,7 @@ interface CountdownProps extends StatisticProps {
 }
 
 function getTime(value?: countdownValueType) {
-  return interopDefault(moment)(value).valueOf();
+  return new Date(value as any).getTime();
 }
 
 class Countdown extends React.Component<CountdownProps, {}> {
@@ -85,7 +82,5 @@ class Countdown extends React.Component<CountdownProps, {}> {
     );
   }
 }
-
-polyfill(Countdown);
 
 export default Countdown;

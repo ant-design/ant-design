@@ -2,7 +2,6 @@ import * as React from 'react';
 import RcMenu, { Divider, ItemGroup } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import { polyfill } from 'react-lifecycles-compat';
 import SubMenu from './SubMenu';
 import Item from './MenuItem';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -11,6 +10,8 @@ import { SiderContext, SiderContextProps } from '../layout/Sider';
 import raf from '../_util/raf';
 import collapseMotion from '../_util/motion';
 import MenuContext, { MenuTheme } from './MenuContext';
+
+export { MenuItemGroupProps } from 'rc-menu/es/MenuItemGroup';
 
 export interface SelectParam {
   key: string;
@@ -118,13 +119,6 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
 
   constructor(props: InternalMenuProps) {
     super(props);
-
-    warning(
-      !('onOpen' in props || 'onClose' in props),
-      'Menu',
-      '`onOpen` and `onClose` are removed, please use `onOpenChange` instead, ' +
-        'see: https://u.ant.design/menu-on-open-change.',
-    );
 
     warning(
       !('inlineCollapsed' in props && props.mode !== 'inline'),
@@ -281,7 +275,7 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
   }
 
-  renderMenu = ({ getPopupContainer, getPrefixCls }: ConfigConsumerProps) => {
+  renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, theme, collapsedWidth } = this.props;
     const passProps = omit(this.props, ['collapsedWidth', 'siderCollapsed']);
     const menuMode = this.getRealMenuMode();
@@ -316,32 +310,30 @@ class InternalMenu extends React.Component<InternalMenuProps, MenuState> {
     }
 
     return (
-      <RcMenu
-        getPopupContainer={getPopupContainer}
-        {...passProps}
-        {...menuProps}
-        prefixCls={prefixCls}
-        onTransitionEnd={this.handleTransitionEnd}
-        onMouseEnter={this.handleMouseEnter}
-      />
-    );
-  };
-
-  render() {
-    return (
       <MenuContext.Provider
         value={{
           inlineCollapsed: this.getInlineCollapsed() || false,
           antdMenuTheme: this.props.theme,
+          direction,
         }}
       >
-        <ConfigConsumer>{this.renderMenu}</ConfigConsumer>
+        <RcMenu
+          getPopupContainer={getPopupContainer}
+          {...passProps}
+          {...menuProps}
+          prefixCls={prefixCls}
+          onTransitionEnd={this.handleTransitionEnd}
+          onMouseEnter={this.handleMouseEnter}
+          direction={direction}
+        />
       </MenuContext.Provider>
     );
+  };
+
+  render() {
+    return <ConfigConsumer>{this.renderMenu}</ConfigConsumer>;
   }
 }
-
-polyfill(InternalMenu);
 
 // We should keep this as ref-able
 export default class Menu extends React.Component<MenuProps, {}> {

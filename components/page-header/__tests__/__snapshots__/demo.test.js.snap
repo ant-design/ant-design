@@ -3,8 +3,7 @@
 exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header ant-page-header-ghost"
-    style="border:1px solid rgb(235, 237, 240)"
+    class="ant-page-header site-page-header ant-page-header-ghost"
   >
     <div
       class="ant-page-header-heading"
@@ -19,9 +18,10 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
           style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
           tabindex="0"
         >
-          <i
-            aria-label="icon: arrow-left"
+          <span
+            aria-label="arrow-left"
             class="anticon anticon-arrow-left"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -34,10 +34,10 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
               />
             </svg>
-          </i>
+          </span>
         </div>
       </div>
       <span
@@ -198,9 +198,10 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
           style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
           tabindex="0"
         >
-          <i
-            aria-label="icon: arrow-left"
+          <span
+            aria-label="arrow-left"
             class="anticon anticon-arrow-left"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -213,10 +214,10 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
               />
             </svg>
-          </i>
+          </span>
         </div>
       </div>
       <span
@@ -271,7 +272,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
       class="ant-page-header-content"
     >
       <div
-        class="ant-row-flex"
+        class="ant-row"
       >
         <div
           class="ant-statistic"
@@ -364,8 +365,7 @@ exports[`renders ./components/page-header/demo/actions.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 <div
-  class="ant-page-header ant-page-header-ghost"
-  style="border:1px solid rgb(235, 237, 240)"
+  class="ant-page-header site-page-header ant-page-header-ghost"
 >
   <div
     class="ant-page-header-heading"
@@ -380,9 +380,10 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
         style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
         tabindex="0"
       >
-        <i
-          aria-label="icon: arrow-left"
+        <span
+          aria-label="arrow-left"
           class="anticon anticon-arrow-left"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -395,10 +396,10 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+              d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
             />
           </svg>
-        </i>
+        </span>
       </div>
     </div>
     <span
@@ -417,8 +418,7 @@ exports[`renders ./components/page-header/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb ant-page-header-ghost"
-  style="border:1px solid rgb(235, 237, 240)"
+  class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
   <div
     class="ant-breadcrumb"
@@ -489,8 +489,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 <div
-  class="ant-page-header has-breadcrumb ant-page-header-ghost"
-  style="border:1px solid rgb(235, 237, 240)"
+  class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
   <div
     class="ant-breadcrumb"
@@ -603,9 +602,10 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         style="border:none;padding:0"
         type="button"
       >
-        <i
-          aria-label="icon: ellipsis"
+        <span
+          aria-label="ellipsis"
           class="anticon anticon-ellipsis"
+          role="img"
           style="font-size:20px;vertical-align:top"
         >
           <svg
@@ -619,10 +619,10 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
             width="1em"
           >
             <path
-              d="M176 511a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0zm280 0a56 56 0 1 0 112 0 56 56 0 1 0-112 0z"
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
             />
           </svg>
-        </i>
+        </span>
       </button>
     </span>
   </div>
@@ -630,7 +630,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     class="ant-page-header-content"
   >
     <div
-      class="ant-row-flex content"
+      class="ant-row content"
     >
       <div
         class="main"
@@ -650,7 +650,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
             Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
           </div>
           <div
-            class="ant-row-flex contentLink"
+            class="ant-row contentLink"
           >
             <a
               style="margin-right:16px;display:flex;align-items:center"
@@ -687,11 +687,11 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
       </div>
       <div
         class="extra"
-        style="margin-left:80px"
+        style="margin-left:80px;margin-top:16px"
       >
         <img
           alt="content"
-          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
         />
       </div>
     </div>
@@ -701,7 +701,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 
 exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
 <div
-  style="background-color:#F5F5F5;padding:24px"
+  class="site-page-header-ghost-wrapper"
 >
   <div
     class="ant-page-header"
@@ -719,9 +719,10 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
           style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
           tabindex="0"
         >
-          <i
-            aria-label="icon: arrow-left"
+          <span
+            aria-label="arrow-left"
             class="anticon anticon-arrow-left"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -734,10 +735,10 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
               />
             </svg>
-          </i>
+          </span>
         </div>
       </div>
       <span
@@ -887,8 +888,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
 exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
 <div>
   <div
-    class="ant-page-header has-footer ant-page-header-ghost"
-    style="border:1px solid rgb(235, 237, 240)"
+    class="ant-page-header site-page-header-responsive has-footer ant-page-header-ghost"
   >
     <div
       class="ant-page-header-heading"
@@ -903,9 +903,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
           style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
           tabindex="0"
         >
-          <i
-            aria-label="icon: arrow-left"
+          <span
+            aria-label="arrow-left"
             class="anticon anticon-arrow-left"
+            role="img"
           >
             <svg
               aria-hidden="true"
@@ -918,10 +919,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
               width="1em"
             >
               <path
-                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 0 0 0 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
+                d="M872 474H286.9l350.2-304c5.6-4.9 2.2-14-5.2-14h-88.5c-3.9 0-7.6 1.4-10.5 3.9L155 487.8a31.96 31.96 0 000 48.3L535.1 866c1.5 1.3 3.3 2 5.2 2h91.5c7.4 0 10.8-9.2 5.2-14L286.9 550H872c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"
               />
             </svg>
-          </i>
+          </span>
         </div>
       </div>
       <span
@@ -1156,9 +1157,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
               <span
                 class="ant-tabs-tab-prev-icon"
               >
-                <i
-                  aria-label="icon: left"
+                <span
+                  aria-label="left"
                   class="anticon anticon-left ant-tabs-tab-prev-icon-target"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -1171,10 +1173,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 0 0 0 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                      d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
                     />
                   </svg>
-                </i>
+                </span>
               </span>
             </span>
             <span
@@ -1184,9 +1186,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
               <span
                 class="ant-tabs-tab-next-icon"
               >
-                <i
-                  aria-label="icon: right"
+                <span
+                  aria-label="right"
                   class="anticon anticon-right ant-tabs-tab-next-icon-target"
+                  role="img"
                 >
                   <svg
                     aria-hidden="true"
@@ -1199,10 +1202,10 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 0 0 302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 0 0 0-50.4z"
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
                     />
                   </svg>
-                </i>
+                </span>
               </span>
             </span>
             <div

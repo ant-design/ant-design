@@ -5,7 +5,6 @@ import KeyCode from 'rc-util/lib/KeyCode';
 import delayRaf from '../raf';
 import throttleByAnimationFrame from '../throttleByAnimationFrame';
 import getDataOrAriaProps from '../getDataOrAriaProps';
-import triggerEvent from '../triggerEvent';
 import Wave from '../wave';
 import TransButton from '../transButton';
 import openAnimation from '../openAnimation';
@@ -126,19 +125,6 @@ describe('Test utils function', () => {
     });
   });
 
-  it('triggerEvent', () => {
-    const button = document.createElement('button');
-    button.addEventListener(
-      'click',
-      () => {
-        button.style.width = '100px';
-      },
-      true,
-    );
-    triggerEvent(button, 'click');
-    expect(button.style.width).toBe('100px');
-  });
-
   describe('wave', () => {
     it('bindAnimationEvent should return when node is null', () => {
       const wrapper = mount(
@@ -183,9 +169,6 @@ describe('Test utils function', () => {
     });
 
     it('should not throw when no children', () => {
-      if (process.env.REACT === '15') {
-        return;
-      }
       expect(() => mount(<Wave />)).not.toThrow();
     });
   });

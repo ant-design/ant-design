@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Icon from '../icon';
+
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import warning from '../_util/warning';
 
 export interface AvatarProps {
   /** Shape of avatar, options:`circle`, `square` */
@@ -15,8 +16,8 @@ export interface AvatarProps {
   src?: string;
   /** Srcset of image avatar */
   srcSet?: string;
-  /** Type of the Icon to be used in avatar */
-  icon?: string | React.ReactNode;
+  /** icon to be used in avatar */
+  icon?: React.ReactNode;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
@@ -108,6 +109,12 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
       ...others
     } = this.props;
 
+    warning(
+      !(typeof icon === 'string' && icon.length > 2),
+      'Avatar',
+      `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
+    );
+
     const { isImgExist, scale, mounted } = this.state;
 
     const prefixCls = getPrefixCls('avatar', customizePrefixCls);
@@ -137,11 +144,7 @@ export default class Avatar extends React.Component<AvatarProps, AvatarState> {
     if (src && isImgExist) {
       children = <img src={src} srcSet={srcSet} onError={this.handleImgLoadError} alt={alt} />;
     } else if (icon) {
-      if (typeof icon === 'string') {
-        children = <Icon type={icon} />;
-      } else {
-        children = icon;
-      }
+      children = icon;
     } else {
       const childrenNode = this.avatarChildren;
       if (childrenNode || scale !== 1) {

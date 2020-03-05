@@ -1,10 +1,7 @@
 @import '../../style/themes/index';
 
-// Preserve the typo for compatibility
-// https://github.com/ant-design/ant-design/issues/14628
-@dawer-prefix-cls: ~'@{ant-prefix}-drawer';
-
-@drawer-prefix-cls: @dawer-prefix-cls;
+@drawer-prefix-cls: ~'@{ant-prefix}-drawer';
+@picker-prefix-cls: ~'@{ant-prefix}-picker';
 
 .@{drawer-prefix-cls} {
   position: fixed;
@@ -16,6 +13,10 @@
   > * {
     transition: transform @animation-duration-slow @ease-base-out,
       box-shadow @animation-duration-slow @ease-base-out;
+  }
+
+  &-rtl {
+    direction: rtl;
   }
 
   &-content-wrapper {
@@ -44,6 +45,14 @@
   }
 
   &-left {
+    left: 0;
+
+    .@{drawer-prefix-cls} {
+      &-content-wrapper {
+        left: 0;
+      }
+    }
+
     &.@{drawer-prefix-cls}-open {
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-right;
@@ -141,7 +150,7 @@
     position: relative;
     z-index: 1;
     overflow: auto;
-    background-color: @component-background;
+    background-color: @drawer-bg;
     background-clip: padding-box;
     border: 0;
   }
@@ -170,6 +179,11 @@
     transition: color @animation-duration-slow;
     text-rendering: auto;
 
+    .@{drawer-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+    }
+
     &:focus,
     &:hover {
       color: @icon-color-hover;
@@ -181,25 +195,37 @@
     position: relative;
     padding: @drawer-header-padding;
     color: @text-color;
-    background: @component-background;
+    background: @drawer-bg;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
   }
 
   &-header-no-title {
     color: @text-color;
-    background: @component-background;
+    background: @drawer-bg;
+  }
+
+  &-wrapper-body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100%;
   }
 
   &-body {
+    flex-grow: 1;
     padding: @drawer-body-padding;
+    overflow: auto;
     font-size: @font-size-base;
     line-height: @line-height-base;
     word-wrap: break-word;
   }
-  &-wrapper-body {
-    height: 100%;
-    overflow: auto;
+
+  &-footer {
+    flex-shrink: 0;
+    padding: @drawer-footer-padding-vertical @drawer-footer-padding-vertical;
+    border-top: @border-width-base @border-style-base @border-color-split;
   }
 
   &-mask {
@@ -216,6 +242,13 @@
   &-open {
     &-content {
       box-shadow: @shadow-2;
+    }
+  }
+
+  // =================== Hook Components ===================
+  .@{picker-prefix-cls} {
+    &-clear {
+      background: @popover-background;
     }
   }
 }

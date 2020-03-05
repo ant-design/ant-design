@@ -41,7 +41,7 @@ exports[`Transfer.List should render correctly 1`] = `
       class="ant-transfer-list-content"
     >
       <li
-        class="ant-transfer-list-content-item"
+        class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
       >
         <label
           class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"

@@ -15,12 +15,14 @@ Use `confirm()` to show a confirmation modal dialog. Let onCancel/onOk function 
 
 ```jsx
 import { Modal, Button } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 const { confirm } = Modal;
 
 function showConfirm() {
   confirm({
     title: 'Do you want to delete these items?',
+    icon: <ExclamationCircleOutlined />,
     content: 'When clicked the OK button, this dialog will be closed after 1 second',
     onOk() {
       return new Promise((resolve, reject) => {

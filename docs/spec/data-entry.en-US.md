@@ -1,6 +1,7 @@
 ---
-category: Patterns
-order: 9
+category: Design Patterns
+type: Global Rules
+order: 3
 title: Data Entry
 ---
 

@@ -14,7 +14,8 @@ title:
 An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
 ```jsx
-import { Menu, Dropdown, Icon, message } from 'antd';
+import { Menu, Dropdown, message } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
 
 const onClick = ({ key }) => {
   message.info(`Click on item ${key}`);
@@ -30,8 +31,8 @@ const menu = (
 
 ReactDOM.render(
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" href="#">
-      Hover me, Click menu item <Icon type="down" />
+    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+      Hover me, Click menu item <DownOutlined />
     </a>
   </Dropdown>,
   mountNode,

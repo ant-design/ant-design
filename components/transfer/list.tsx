@@ -1,13 +1,16 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import omit from 'omit.js';
 import classNames from 'classnames';
-import PureRenderMixin from 'rc-util/lib/PureRenderMixin';
 import Checkbox from '../checkbox';
-import { TransferItem, TransferDirection, RenderResult, RenderResultObject } from './index';
+import {
+  TransferItem,
+  TransferDirection,
+  RenderResult,
+  RenderResultObject,
+  SelectAllLabel,
+} from './index';
 import Search from './search';
 import defaultRenderList, { TransferListBodyProps, OmitProps } from './renderListBody';
-import triggerEvent from '../_util/triggerEvent';
 
 const defaultRender = () => null;
 
@@ -35,9 +38,6 @@ export interface TransferListProps {
   style?: React.CSSProperties;
   checkedKeys: string[];
   handleFilter: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSelect: (selectedItem: TransferItem, checked: boolean) => void;
-  /** [Legacy] Only used when `body` prop used. */
-  handleSelectAll: (dataSource: TransferItem[], checkAll: boolean) => void;
   onItemSelect: (key: string, check: boolean) => void;
   onItemSelectAll: (dataSource: string[], checkAll: boolean) => void;
   handleClear: () => void;
@@ -47,14 +47,13 @@ export interface TransferListProps {
   notFoundContent: React.ReactNode;
   itemUnit: string;
   itemsUnit: string;
-  body?: (props: TransferListProps) => React.ReactNode;
   renderList?: RenderListFunction;
   footer?: (props: TransferListProps) => React.ReactNode;
-  lazy?: boolean | {};
-  onScroll: Function;
+  onScroll: (e: React.UIEvent<HTMLUListElement>) => void;
   disabled?: boolean;
   direction: TransferDirection;
   showSelectAll?: boolean;
+  selectAllLabel?: SelectAllLabel;
 }
 
 interface TransferListState {
@@ -74,12 +73,14 @@ function renderListNode(renderList: RenderListFunction | undefined, props: Trans
   };
 }
 
-export default class TransferList extends React.Component<TransferListProps, TransferListState> {
+export default class TransferList extends React.PureComponent<
+  TransferListProps,
+  TransferListState
+> {
   static defaultProps = {
     dataSource: [],
     titleText: '',
     showSearch: false,
-    lazy: {},
   };
 
   timer: number;
@@ -91,10 +92,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     this.state = {
       filterValue: '',
     };
-  }
-
-  shouldComponentUpdate(...args: any[]) {
-    return PureRenderMixin.shouldComponentUpdate.apply(this, args);
   }
 
   componentWillUnmount() {
@@ -141,7 +138,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     filterValue: string,
     filteredItems: TransferItem[],
     notFoundContent: React.ReactNode,
-    bodyDom: React.ReactNode,
     filteredRenderItems: RenderedItem[],
     checkedKeys: string[],
     renderList?: RenderListFunction,
@@ -161,40 +157,35 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       </div>
     ) : null;
 
-    let listBody: React.ReactNode = bodyDom;
-    if (!listBody) {
-      let bodyNode: React.ReactNode;
+    const { bodyContent, customize } = renderListNode(renderList, {
+      ...omit(this.props, OmitProps),
+      filteredItems,
+      filteredRenderItems,
+      selectedKeys: checkedKeys,
+    });
 
-      const { bodyContent, customize } = renderListNode(renderList, {
-        ...omit(this.props, OmitProps),
-        filteredItems,
-        filteredRenderItems,
-        selectedKeys: checkedKeys,
-      });
-
-      // We should wrap customize list body in a classNamed div to use flex layout.
-      if (customize) {
-        bodyNode = <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>;
-      } else {
-        bodyNode = filteredItems.length ? (
-          bodyContent
-        ) : (
-          <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
-        );
-      }
-
-      listBody = (
-        <div
-          className={classNames(
-            showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
-          )}
-        >
-          {search}
-          {bodyNode}
-        </div>
+    let bodyNode: React.ReactNode;
+    // We should wrap customize list body in a classNamed div to use flex layout.
+    if (customize) {
+      bodyNode = <div className={`${prefixCls}-body-customize-wrapper`}>{bodyContent}</div>;
+    } else {
+      bodyNode = filteredItems.length ? (
+        bodyContent
+      ) : (
+        <div className={`${prefixCls}-body-not-found`}>{notFoundContent}</div>
       );
     }
-    return listBody;
+
+    return (
+      <div
+        className={classNames(
+          showSearch ? `${prefixCls}-body ${prefixCls}-body-with-search` : `${prefixCls}-body`,
+        )}
+      >
+        {search}
+        {bodyNode}
+      </div>
+    );
   }
 
   getCheckBox(
@@ -230,18 +221,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     } = e;
     this.setState({ filterValue });
     handleFilter(e);
-    if (!filterValue) {
-      return;
-    }
-    // Manually trigger scroll event for lazy search bug
-    // https://github.com/ant-design/ant-design/issues/5631
-    this.triggerScrollTimer = window.setTimeout(() => {
-      const transferNode = ReactDOM.findDOMNode(this) as Element;
-      const listNode = transferNode.querySelectorAll('.ant-transfer-list-content')[0];
-      if (listNode) {
-        triggerEvent(listNode, 'scroll');
-      }
-    }, 0);
   };
 
   handleClear = () => {
@@ -272,6 +251,21 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     };
   };
 
+  getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
+    const { itemsUnit, itemUnit, selectAllLabel } = this.props;
+    if (selectAllLabel) {
+      return typeof selectAllLabel === 'function'
+        ? selectAllLabel({ selectedCount, totalCount })
+        : selectAllLabel;
+    }
+    const unit = totalCount > 1 ? itemsUnit : itemUnit;
+    return (
+      <>
+        {(selectedCount > 0 ? `${selectedCount}/` : '') + totalCount} {unit}
+      </>
+    );
+  };
+
   render() {
     const { filterValue } = this.state;
     const {
@@ -280,14 +274,11 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       titleText,
       checkedKeys,
       disabled,
-      body,
       footer,
       showSearch,
       style,
       searchPlaceholder,
       notFoundContent,
-      itemUnit,
-      itemsUnit,
       renderList,
       onItemSelectAll,
       showSelectAll,
@@ -295,7 +286,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
 
     // Custom Layout
     const footerDom = footer && footer(this.props);
-    const bodyDom = body && body(this.props);
 
     const listCls = classNames(prefixCls, {
       [`${prefixCls}-with-footer`]: !!footerDom,
@@ -306,7 +296,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
     const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
 
     // ================================= List Body =================================
-    const unit = dataSource.length > 1 ? itemsUnit : itemUnit;
 
     const listBody = this.getListBody(
       prefixCls,
@@ -314,7 +303,6 @@ export default class TransferList extends React.Component<TransferListProps, Tra
       filterValue,
       filteredItems,
       notFoundContent,
-      bodyDom,
       filteredRenderItems,
       checkedKeys,
       renderList,
@@ -339,10 +327,7 @@ export default class TransferList extends React.Component<TransferListProps, Tra
         <div className={`${prefixCls}-header`}>
           {checkAllCheckbox}
           <span className={`${prefixCls}-header-selected`}>
-            <span>
-              {(checkedKeys.length > 0 ? `${checkedKeys.length}/` : '') + filteredItems.length}{' '}
-              {unit}
-            </span>
+            <span>{this.getSelectAllLabel(checkedKeys.length, filteredItems.length)}</span>
             <span className={`${prefixCls}-header-title`}>{titleText}</span>
           </span>
         </div>

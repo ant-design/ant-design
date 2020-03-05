@@ -30,4 +30,16 @@ describe('Tree', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('switcherIcon in Tree should not render at leaf nodes', () => {
+    const wrapper = mount(
+      <Tree switcherIcon={<i className="switcherIcon" />} defaultExpandAll>
+        <TreeNode icon="icon">
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          <TreeNode id="node2" title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(wrapper.find('.switcherIcon').length).toBe(1);
+  });
 });

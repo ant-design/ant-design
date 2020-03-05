@@ -11,6 +11,10 @@
   border-bottom: 0;
   border-radius: @collapse-panel-border-radius;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   & > &-item {
     border-bottom: @border-width-base @border-style-base @border-color-base;
 
@@ -29,6 +33,12 @@
       line-height: 22px;
       cursor: pointer;
       transition: all 0.3s;
+      .clearfix;
+
+      .@{collapse-prefix-cls}-rtl & {
+        padding: @collapse-header-padding;
+        padding-right: @collapse-header-padding-extra;
+      }
 
       .@{collapse-prefix-cls}-arrow {
         .iconfont-mixin();
@@ -42,11 +52,19 @@
 
         & svg {
           transition: transform 0.24s;
+
+          .@{collapse-prefix-cls}-rtl& {
+            transform: rotate(180deg);
+          }
         }
       }
 
       .@{collapse-prefix-cls}-extra {
         float: right;
+
+        .@{collapse-prefix-cls}-rtl& {
+          float: left;
+        }
       }
 
       &:focus {
@@ -57,6 +75,11 @@
     &.@{collapse-prefix-cls}-no-arrow {
       > .@{collapse-prefix-cls}-header {
         padding-left: 12px;
+
+        .@{collapse-prefix-cls}-rtl& {
+          padding-right: 12px;
+          padding-left: 0;
+        }
       }
     }
   }
@@ -102,7 +125,7 @@
   }
 
   &-borderless {
-    background-color: @component-background;
+    background-color: @collapse-header-bg;
     border: 0;
   }
 

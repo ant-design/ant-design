@@ -34,14 +34,10 @@ describe('site test', () => {
     });
     return resp;
   };
+
   const handleComponentName = name => {
-    const componentMap = {
-      descriptions: 'description list',
-    };
-    // eslint-disable-next-line no-unused-vars
-    const [_, componentName] = name.split('/');
-    const compName = componentName.toLowerCase().replace('-', '');
-    return componentMap[compName] || compName;
+    const componentName = name.split('/')[1];
+    return componentName.toLowerCase().replace('-', '');
   };
 
   const expectComponent = async component => {
@@ -82,12 +78,14 @@ describe('site test', () => {
   });
 
   for (const component of components) {
-    it(`Component ${component} zh Page`, async () => {
-      await expectComponent(component);
-    });
+    if (component.split('/').length < 3) {
+      it(`Component ${component} zh Page`, async () => {
+        await expectComponent(component);
+      });
 
-    it(`Component ${component} en Page`, async () => {
-      await expectComponent(component);
-    });
+      it(`Component ${component} en Page`, async () => {
+        await expectComponent(component);
+      });
+    }
   }
 });

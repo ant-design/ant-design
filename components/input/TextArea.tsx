@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { polyfill } from 'react-lifecycles-compat';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import ResizableTextArea, { AutoSizeType } from './ResizableTextArea';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
@@ -9,11 +8,10 @@ export type HTMLTextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement
 
 export interface TextAreaProps extends HTMLTextareaProps {
   prefixCls?: string;
-  /* deprecated, use autoSize instead */
-  autosize?: boolean | AutoSizeType;
   autoSize?: boolean | AutoSizeType;
   onPressEnter?: React.KeyboardEventHandler<HTMLTextAreaElement>;
   allowClear?: boolean;
+  onResize?: (size: { width: number; height: number }) => void;
 }
 
 export interface TextAreaState {
@@ -48,9 +46,9 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     }
   }
 
-  focus() {
+  focus = () => {
     this.resizableTextArea.textArea.focus();
-  }
+  };
 
   blur() {
     this.resizableTextArea.textArea.blur();
@@ -114,6 +112,7 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
         element={this.renderTextArea(prefixCls)}
         handleReset={this.handleReset}
         ref={this.saveClearableInput}
+        triggerFocus={this.focus}
       />
     );
   };
@@ -122,7 +121,5 @@ class TextArea extends React.Component<TextAreaProps, TextAreaState> {
     return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
   }
 }
-
-polyfill(TextArea);
 
 export default TextArea;

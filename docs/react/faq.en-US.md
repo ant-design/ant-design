@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 11
 title: FAQ
 ---
 
@@ -9,7 +9,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 ### Are you going to provide Sass/Stylus(etc.) style file?
 
-No, but you can convert Less to Sass/Stylus(etc.) with tools that you can find on Google.
+No plan, but you can convert Less to Sass/Stylus(etc.) with tools that you can find on Google.
 
 ### `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
@@ -52,13 +52,9 @@ or (ES6 way with tree shaking):
 import { Menu, Breadcrumb, Icon } from 'antd';
 ```
 
-### How can I optimize momentjs bundle size with webpack?
+### How to replace Moment.js to Day.js to reduce bundle size？
 
-See: https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
-
-### How to replace momentjs to Day.js to reduce bundle size？
-
-We provide `antd-dayjs-webpack-plugin` plugin to replace `momentjs` to `Day.js` directly without changing a line of existing code. More info at [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin).
+Please refer to [Replace Moment.js](/docs/react/replace-moment).
 
 ### It doesn't work when I change `defaultValue` dynamically.
 
@@ -119,7 +115,7 @@ Like [the explaination](https://github.com/ant-design/ant-design/issues/11586#is
 
 ##### Workaround
 
-You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are planing to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) for those requirments.
+You can refer to [this article](https://juejin.im/post/5cf65c366fb9a07eca6968f9) or [this article](https://www.cnblogs.com/zyl-Tara/p/10197177.html), using `mode` and `onPanelChange` to encapsulate a `YearPicker` or `MonthRangePicker` for your needs. Or you can wait for our [antd@4.0](https://github.com/ant-design/ant-design/issues/16911), in which we are planing (already) to [add more XxxPickers](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884) for those requirments.
 
 ### How to spell Ant Design correctly?
 

@@ -13,22 +13,23 @@ title:
 
 Three sizes and two shapes are available.
 
-```jsx
+```tsx
 import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <div>
     <div>
-      <Avatar size={64} icon="user" />
-      <Avatar size="large" icon="user" />
-      <Avatar icon="user" />
-      <Avatar size="small" icon="user" />
+      <Avatar size={64} icon={<UserOutlined />} />
+      <Avatar size="large" icon={<UserOutlined />} />
+      <Avatar icon={<UserOutlined />} />
+      <Avatar size="small" icon={<UserOutlined />} />
     </div>
     <div>
-      <Avatar shape="square" size={64} icon="user" />
-      <Avatar shape="square" size="large" icon="user" />
-      <Avatar shape="square" icon="user" />
-      <Avatar shape="square" size="small" icon="user" />
+      <Avatar shape="square" size={64} icon={<UserOutlined />} />
+      <Avatar shape="square" size="large" icon={<UserOutlined />} />
+      <Avatar shape="square" icon={<UserOutlined />} />
+      <Avatar shape="square" size="small" icon={<UserOutlined />} />
     </div>
   </div>,
   mountNode,

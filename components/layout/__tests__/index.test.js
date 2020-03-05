@@ -4,6 +4,7 @@ import Layout from '..';
 import Icon from '../../icon';
 import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Sider, Content } = Layout;
 
@@ -11,6 +12,10 @@ describe('Layout', () => {
   mountTest(Layout);
   mountTest(Content);
   mountTest(Sider);
+
+  rtlTest(Layout);
+  rtlTest(Content);
+  rtlTest(Sider);
 
   it('detect the sider as children', async () => {
     const wrapper = mount(
@@ -152,16 +157,6 @@ describe('Sider', () => {
 
   afterAll(() => {
     errorSpy.mockRestore();
-  });
-
-  beforeAll(() => {
-    Object.defineProperty(window, 'matchMedia', {
-      value: jest.fn(() => ({
-        matches: true,
-        addListener: () => {},
-        removeListener: () => {},
-      })),
-    });
   });
 
   it('should trigger onBreakpoint', async () => {

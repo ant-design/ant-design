@@ -6,6 +6,10 @@
 .@{statistic-prefix-cls} {
   .reset-component;
 
+  &-rtl {
+    direction: rtl;
+  }
+
   &-title {
     margin-bottom: 4px;
     color: @text-color-secondary;
@@ -30,11 +34,21 @@
 
     &-prefix {
       margin-right: 4px;
+
+      .@{statistic-prefix-cls}-rtl & {
+        margin-right: 0;
+        margin-left: 4px;
+      }
     }
 
     &-suffix {
       margin-left: 4px;
       font-size: @statistic-unit-font-size;
+
+      .@{statistic-prefix-cls}-rtl & {
+        margin-right: 4px;
+        margin-left: 0;
+      }
     }
   }
 }

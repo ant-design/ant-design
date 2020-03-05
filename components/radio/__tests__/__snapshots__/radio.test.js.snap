@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Radio rtl render component should be rendered correctly in RTL direction 1`] = `
+<label
+  class="ant-radio-wrapper ant-radio-wrapper-rtl"
+>
+  <span
+    class="ant-radio"
+  >
+    <input
+      class="ant-radio-input"
+      type="radio"
+    />
+    <span
+      class="ant-radio-inner"
+    />
+  </span>
+</label>
+`;
+
+exports[`Radio rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl"
+/>
+`;
+
+exports[`Radio rtl render component should be rendered correctly in RTL direction 3`] = `
+<label
+  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl"
+>
+  <span
+    class="ant-radio-button"
+  >
+    <input
+      class="ant-radio-button-input"
+      type="radio"
+    />
+    <span
+      class="ant-radio-button-inner"
+    />
+  </span>
+</label>
+`;
+
 exports[`Radio should render correctly 1`] = `
 <label
   class="customized ant-radio-wrapper"

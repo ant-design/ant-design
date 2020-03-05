@@ -1,5 +1,5 @@
 ---
-order: 25
+order: 26
 title:
   en-US: Drag sorting
   zh-CN: 拖拽排序
@@ -15,71 +15,46 @@ By using custom components, we can integrate table with react-dnd to implement d
 
 ```jsx
 import { Table } from 'antd';
-import { DndProvider, DragSource, DropTarget } from 'react-dnd';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-let dragingIndex = -1;
+const type = 'DragbleBodyRow';
 
-class BodyRow extends React.Component {
-  render() {
-    const { isOver, connectDragSource, connectDropTarget, moveRow, ...restProps } = this.props;
-    const style = { ...restProps.style, cursor: 'move' };
-
-    let { className } = restProps;
-    if (isOver) {
-      if (restProps.index > dragingIndex) {
-        className += ' drop-over-downward';
+const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
+  const ref = React.useRef();
+  const [{ isOver, dropClassName }, drop] = useDrop({
+    accept: type,
+    collect: monitor => {
+      const { index: dragIndex } = monitor.getItem() || {};
+      if (dragIndex === index) {
+        return {};
       }
-      if (restProps.index < dragingIndex) {
-        className += ' drop-over-upward';
-      }
-    }
-
-    return connectDragSource(
-      connectDropTarget(<tr {...restProps} className={className} style={style} />),
-    );
-  }
-}
-
-const rowSource = {
-  beginDrag(props) {
-    dragingIndex = props.index;
-    return {
-      index: props.index,
-    };
-  },
+      return {
+        isOver: monitor.isOver(),
+        dropClassName: dragIndex < index ? ' drop-over-downward' : ' drop-over-upward',
+      };
+    },
+    drop: item => {
+      moveRow(item.index, index);
+    },
+  });
+  const [, drag] = useDrag({
+    item: { type, index },
+    collect: monitor => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+  drop(drag(ref));
+  return (
+    <tr
+      ref={ref}
+      className={`${className}${isOver ? dropClassName : ''}`}
+      style={{ cursor: 'move', ...style }}
+      {...restProps}
+    />
+  );
 };
-
-const rowTarget = {
-  drop(props, monitor) {
-    const dragIndex = monitor.getItem().index;
-    const hoverIndex = props.index;
-
-    // Don't replace items with themselves
-    if (dragIndex === hoverIndex) {
-      return;
-    }
-
-    // Time to actually perform the action
-    props.moveRow(dragIndex, hoverIndex);
-
-    // Note: we're mutating the monitor item here!
-    // Generally it's better to avoid mutations,
-    // but it's good here for the sake of performance
-    // to avoid expensive index searches.
-    monitor.getItem().index = hoverIndex;
-  },
-};
-
-const DragableBodyRow = DropTarget('row', rowTarget, (connect, monitor) => ({
-  connectDropTarget: connect.dropTarget(),
-  isOver: monitor.isOver(),
-}))(
-  DragSource('row', rowSource, connect => ({
-    connectDragSource: connect.dragSource(),
-  }))(BodyRow),
-);
 
 const columns = [
   {
@@ -136,7 +111,10 @@ class DragSortingTable extends React.Component {
     this.setState(
       update(this.state, {
         data: {
-          $splice: [[dragIndex, 1], [hoverIndex, 0, dragRow]],
+          $splice: [
+            [dragIndex, 1],
+            [hoverIndex, 0, dragRow],
+          ],
         },
       }),
     );

@@ -1,17 +1,319 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
-@import '../../button/style/mixin';
+@import './panel';
 
-@calendar-prefix-cls: ~'@{ant-prefix}-calendar';
-@calendar-timepicker-prefix-cls: ~'@{ant-prefix}-calendar-time-picker';
+@picker-prefix-cls: ~'@{ant-prefix}-picker';
+@picker-text-height: 40px;
 
-@import 'Picker';
-@import 'Calendar';
-@import 'RangePicker';
-@import 'TimePicker';
-@import 'MonthPanel';
-@import 'YearPanel';
-@import 'DecadePanel';
-@import 'MonthPicker';
-@import 'WeekPicker';
+.picker-padding(@input-height, @font-size, @padding-horizontal) {
+  // font height probably 22.0001， So use floor better
+  @font-height: floor(@font-size * @line-height-base) + 2;
+  @padding-top: (@input-height - @font-height) / 2;
+  @padding-bottom: @input-height - @font-height - @padding-top;
+  padding: @padding-top @padding-horizontal @padding-bottom;
+}
+
+.@{picker-prefix-cls} {
+  @vertical-fix-base: @input-height-base - ceil(@font-size-base * @line-height-base) - 2 *
+    @input-padding-vertical-base - 2 * @border-width-base;
+  @vertical-fix-lg: @input-height-lg - ceil(@font-size-lg * @line-height-base) - 2 *
+    @input-padding-vertical-lg - 2 * @border-width-base;
+  @vertical-fix-sm: @input-height-sm - ceil(@font-size-base * @line-height-base) - 2 *
+    @input-padding-vertical-sm - 2 * @border-width-base;
+  @arrow-size: 10px;
+
+  .reset-component;
+  .picker-padding(@input-height-base, @font-size-base, @input-padding-horizontal-base);
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: @picker-bg;
+  border: @border-width-base @border-style-base @select-border-color;
+  border-radius: @border-radius-base;
+  transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
+
+  &-rtl {
+    direction: rtl;
+  }
+
+  &:hover,
+  &-focused {
+    .hover();
+  }
+
+  &-focused {
+    .active();
+  }
+
+  &&-disabled {
+    background: @input-disabled-bg;
+    border-color: @select-border-color;
+    cursor: not-allowed;
+  }
+
+  &&-borderless {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  // ======================== Input =========================
+  &-input {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+
+    > input {
+      .input();
+      flex: auto;
+
+      // Fix Firefox flex not correct:
+      // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
+      min-width: 1px;
+      height: auto;
+      padding: 0;
+      background: transparent;
+
+      border: 0;
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      &[disabled] {
+        background: transparent;
+      }
+    }
+
+    &:hover {
+      .@{picker-prefix-cls}-clear {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Size
+  &-large {
+    .picker-padding(@input-height-lg, @font-size-lg, @input-padding-horizontal-lg);
+
+    .@{picker-prefix-cls}-input > input {
+      font-size: @font-size-lg;
+    }
+  }
+
+  &-small {
+    .picker-padding(@input-height-sm, @font-size-base, @input-padding-horizontal-sm);
+  }
+
+  &-suffix {
+    align-self: center;
+    margin-left: @padding-xs / 2;
+    color: @disabled-color;
+    pointer-events: none;
+
+    .@{picker-prefix-cls}-rtl & {
+      margin-right: @padding-xs / 2;
+      margin-left: 0;
+    }
+  }
+
+  &-clear {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    color: @disabled-color;
+    background: @component-background;
+    transform: translateY(-50%);
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity @animation-duration-slow, color @animation-duration-slow;
+
+    &:hover {
+      color: @text-color-secondary;
+    }
+
+    .@{picker-prefix-cls}-rtl & {
+      right: auto;
+      left: 0;
+    }
+  }
+
+  &-separator {
+    display: inline-block;
+    align-self: center;
+    width: 2em;
+    height: @font-size-lg;
+    color: @disabled-color;
+    font-size: @font-size-lg;
+    line-height: @font-size-lg;
+    text-align: center;
+
+    .@{picker-prefix-cls}-rtl & {
+      transform: rotate(180deg);
+      transform-origin: 50% 60%;
+    }
+  }
+
+  // ======================== Range =========================
+  &-range {
+    position: relative;
+    display: inline-flex;
+
+    // Clear
+    .@{picker-prefix-cls}-clear {
+      right: @input-padding-horizontal-base;
+
+      .@{picker-prefix-cls}-rtl& {
+        right: auto;
+        left: @input-padding-horizontal-base;
+      }
+    }
+
+    &:hover {
+      .@{picker-prefix-cls}-clear {
+        opacity: 1;
+      }
+    }
+
+    // Active bar
+    .@{picker-prefix-cls}-active-bar {
+      bottom: -@border-width-base;
+      height: 2px;
+      margin-left: @input-padding-horizontal-base;
+      background: @primary-color;
+      opacity: 0;
+      transition: all @animation-duration-slow ease-out;
+      pointer-events: none;
+    }
+
+    &.@{picker-prefix-cls}-focused {
+      .@{picker-prefix-cls}-active-bar {
+        opacity: 1;
+      }
+    }
+  }
+
+  // ======================= Dropdown =======================
+  &-dropdown {
+    .reset-component;
+    position: absolute;
+    z-index: @zindex-picker;
+
+    &-hidden {
+      display: none;
+    }
+
+    &-placement-bottomLeft {
+      .@{picker-prefix-cls}-range-arrow {
+        top: @arrow-size / 2 - @arrow-size / 3;
+        display: block;
+        transform: rotate(-45deg);
+      }
+    }
+
+    &-placement-topLeft {
+      .@{picker-prefix-cls}-range-arrow {
+        bottom: @arrow-size / 2 - @arrow-size / 3;
+        display: block;
+        transform: rotate(135deg);
+      }
+    }
+  }
+
+  &-dropdown-range {
+    padding: (@arrow-size * 2 / 3) 0;
+
+    &-hidden {
+      display: none;
+    }
+  }
+
+  // Time picker with additional style
+  &-dropdown &-panel > &-time-panel {
+    padding-top: @padding-xs / 2;
+  }
+
+  // ======================== Ranges ========================
+  &-ranges {
+    margin-bottom: 0;
+    padding: @padding-xs / 2 @padding-sm;
+    overflow: hidden;
+    line-height: @picker-text-height - 2 * @border-width-base - @padding-xs / 2;
+    text-align: left;
+    list-style: none;
+
+    .@{picker-prefix-cls}-dropdown-rtl & {
+      text-align: right;
+    }
+
+    > li {
+      display: inline-block;
+    }
+
+    .@{picker-prefix-cls}-preset span {
+      cursor: pointer;
+    }
+
+    .@{picker-prefix-cls}-ok {
+      float: right;
+      margin-left: @padding-xs;
+
+      .@{picker-prefix-cls}-dropdown-rtl & {
+        float: left;
+        margin-right: @padding-xs;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &-range-wrapper {
+    display: flex;
+  }
+
+  &-range-arrow {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    width: @arrow-size;
+    height: @arrow-size;
+    margin-left: @input-padding-horizontal-base * 1.5;
+    transition: left @animation-duration-slow ease-out;
+
+    &::after {
+      position: absolute;
+      top: @border-width-base;
+      right: @border-width-base;
+      width: @arrow-size;
+      height: @arrow-size;
+      border: @arrow-size / 2 solid @border-color-split;
+      border-color: @calendar-bg @calendar-bg transparent transparent;
+      content: '';
+    }
+  }
+
+  &-panel-container {
+    overflow: hidden;
+    vertical-align: top;
+    background: @calendar-bg;
+    border-radius: @border-radius-base;
+    box-shadow: @box-shadow-base;
+    transition: margin @animation-duration-slow;
+
+    .@{picker-prefix-cls}-panels {
+      display: inline-flex;
+      flex-wrap: nowrap;
+    }
+
+    .@{picker-prefix-cls}-panel {
+      vertical-align: top;
+      background: transparent;
+      border-width: 0 0 @border-width-base 0;
+      border-radius: 0;
+
+      &-focused {
+        border-color: @border-color-split;
+      }
+    }
+  }
+}

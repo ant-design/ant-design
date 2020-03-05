@@ -21,9 +21,23 @@ function onPanelChange(value, mode) {
 }
 
 ReactDOM.render(
-  <div style={{ width: 300, border: '1px solid #d9d9d9', borderRadius: 4 }}>
+  <div className="site-calendar-demo-card">
     <Calendar fullscreen={false} onPanelChange={onPanelChange} />
   </div>,
   mountNode,
 );
 ```
+
+```css
+.site-calendar-demo-card {
+  width: 300px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+}
+```
+
+<style>
+  [data-theme="dark"] .site-calendar-demo-card {
+    border: 1px solid #303030;
+  }
+</style>

@@ -14,26 +14,43 @@ title:
 You can customize icons for different nodes.
 
 ```jsx
-import { Tree, Icon } from 'antd';
+import { Tree } from 'antd';
+import {
+  DownOutlined,
+  FrownOutlined,
+  SmileOutlined,
+  MehOutlined,
+  FrownFilled,
+} from '@ant-design/icons';
 
-const { TreeNode } = Tree;
+const treeData = [
+  {
+    title: 'parent 1',
+    key: '0-0',
+    icon: <SmileOutlined />,
+    children: [
+      {
+        title: 'leaf',
+        key: '0-0-0',
+        icon: <MehOutlined />,
+      },
+      {
+        title: 'leaf',
+        key: '0-0-1',
+        icon: ({ selected }) => (selected ? <FrownFilled /> : <FrownOutlined />),
+      },
+    ],
+  },
+];
 
 ReactDOM.render(
   <Tree
     showIcon
     defaultExpandAll
     defaultSelectedKeys={['0-0-0']}
-    switcherIcon={<Icon type="down" />}
-  >
-    <TreeNode icon={<Icon type="smile-o" />} title="parent 1" key="0-0">
-      <TreeNode icon={<Icon type="meh-o" />} title="leaf" key="0-0-0" />
-      <TreeNode
-        icon={({ selected }) => <Icon type={selected ? 'frown' : 'frown-o'} />}
-        title="leaf"
-        key="0-0-1"
-      />
-    </TreeNode>
-  </Tree>,
+    switcherIcon={<DownOutlined />}
+    treeData={treeData}
+  />,
   mountNode,
 );
 ```

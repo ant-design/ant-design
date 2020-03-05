@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 11
 title: FAQ
 ---
 
@@ -9,7 +9,7 @@ title: FAQ
 
 ### 你们会提供 Sass/Stylus 等格式的样式文件吗？
 
-不。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
+暂无计划。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
 
 ### 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
@@ -52,13 +52,9 @@ import 'antd/es/menu/style/css';
 import { Menu, Breadcrumb, Icon } from 'antd';
 ```
 
-### 如何配置 webpack 以优化 momentjs 的打包大小？
+### 如何使用 Day.js 替换 Moment.js 来减小打包大小？
 
-参考：https://github.com/jmblog/how-to-optimize-momentjs-with-webpack 。
-
-### 如何使用 Day.js 替换 momentjs 来减小打包大小？
-
-我们提供了 `antd-dayjs-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Day.js`。请参考 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin)。
+可以参考[替换 Moment.js](/docs/react/replace-moment)。
 
 ### 当我动态改变 `defaultValue` 的时候它并没有生效。
 
@@ -114,16 +110,18 @@ import { Menu, Breadcrumb, Icon } from 'antd';
 
 ### 当我指定了 DatePicker/RangePicker 的 `mode` 属性后，点击后无法选择年份/月份？
 
-在业务开发中，你可能有年份选择，月份范围选择，周范围选择等需求，此时你给现有组件增加了 `mode` 属性，却发现无法进行点击选择行为，面板也不会关闭。
+在业务开发中，你可能有年份选择，月份范围选择，周范围选择等需求，此时你给现有组件增加了 `mode` 属性，却发现无法进行点击选择行为，面板也不会关闭。如果给面板添加 `disabledDate` 也不会相应禁用对应的年/月/周。
 
 - 重现链接：https://codesandbox.io/s/dank-brook-v1csy
 - 相同 issue：[#15572](https://github.com/ant-design/ant-design/issues/15572)、[#16436](https://github.com/ant-design/ant-design/issues/16436)、[#11938](https://github.com/ant-design/ant-design/issues/11938)、[#11735](https://github.com/ant-design/ant-design/issues/11735)、[#11586](https://github.com/ant-design/ant-design/issues/11586)、[#10425](https://github.com/ant-design/ant-design/issues/10425)、[#11053](https://github.com/ant-design/ant-design/issues/11053)
 
 就像[这个回复](https://github.com/ant-design/ant-design/issues/15572#issuecomment-475476135)里解释的一样，这是因为 `<DatePicker mode="year" />` 不等于 `YearPicker`，`<RangePicker mode="month" />` 不等于 `MonthRangePicker`。 `mode` 属性是在 antd 3.0 时，为了控制面板展现状态而添加的属性，以支持[展示时间面板](https://github.com/ant-design/ant-design/issues/5190)等需求而添加的。`mode` 只会简单的改变当前显示的面板，不会修改默认的交互行为（比如 DatePicker 依然是点击日才会完成选择并关闭面板）。
 
+同样的，`disabledDate` 对于任何 `<DatePicker />` 也只会针对**日面板**生效，[并不会对 `<DatePicker mode="year/month" />` 上的年/月面板生效](https://github.com/ant-design/ant-design/issues/9008#issuecomment-358554118)。
+
 ##### 解决办法
 
-你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。我们计划在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求。
+你可以参照 [这篇文章](https://juejin.im/post/5cf65c366fb9a07eca6968f9) 或者 [这篇文章](https://www.cnblogs.com/zyl-Tara/p/10197177.html) 里的做法，利用 `mode` 和 `onPanelChange` 等方法去封装一个 `YearPicker` 等组件。我们计划（已经支持）在 [antd@4.0](https://github.com/ant-design/ant-design/issues/16911) 中直接[添加更多相关日期组件](https://github.com/ant-design/ant-design/issues/4524#issuecomment-480576884)来支持这些需求。届时不再需要使用 `mode="year|month"`，而是直接可以用 `YearPicker` `MonthPicker`，并且 `disabledDate` 也可以正确作用于这些 Picker。
 
 ### 如何正确的拼写 Ant Design？
 

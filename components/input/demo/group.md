@@ -74,7 +74,7 @@ class CompactDemo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="site-input-group-wrapper">
         <InputGroup size="large">
           <Row gutter={8}>
             <Col span={5}>
@@ -131,16 +131,24 @@ class CompactDemo extends React.Component {
           </Select>
           <Input style={{ width: 100, textAlign: 'center' }} placeholder="Minimum" />
           <Input
+            className="site-input-split"
             style={{
               width: 30,
               borderLeft: 0,
+              borderRight: 0,
               pointerEvents: 'none',
-              backgroundColor: '#fff',
             }}
             placeholder="~"
             disabled
           />
-          <Input style={{ width: 100, textAlign: 'center', borderLeft: 0 }} placeholder="Maximum" />
+          <Input
+            className="site-input-right"
+            style={{
+              width: 100,
+              textAlign: 'center',
+            }}
+            placeholder="Maximum"
+          />
         </InputGroup>
         <br />
         <InputGroup compact>
@@ -170,3 +178,23 @@ class CompactDemo extends React.Component {
 
 ReactDOM.render(<CompactDemo />, mountNode);
 ```
+
+```css
+.site-input-group-wrapper .site-input-split {
+  background-color: #fff;
+}
+
+.site-input-group-wrapper .site-input-right {
+  border-left-width: 0;
+}
+
+.site-input-group-wrapper .site-input-right:hover {
+  border-left-width: 1px;
+}
+```
+
+<style>
+[data-theme="dark"] .site-input-group-wrapper .site-input-split {
+  background-color: transparent;
+}
+</style>

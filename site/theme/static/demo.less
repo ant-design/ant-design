@@ -13,9 +13,40 @@
   width: 100%;
   margin: 0 0 16px;
   border: 1px solid @site-border-color-split;
-  border-radius: @border-radius-sm;
+  border-radius: @border-radius-base;
   transition: all 0.2s;
-
+  .code-box-title {
+    &,
+    a {
+      color: @site-text-color;
+      background: @component-background;
+    }
+  }
+  .code-box-description {
+    p {
+      color: @site-text-color;
+    }
+  }
+  a.edit-button .anticon {
+    color: @icon-color;
+    &:hover {
+      color: @icon-color-hover;
+    }
+  }
+  &,
+  .code-box-demo {
+    background-color: @component-background;
+  }
+  .markdown {
+    pre {
+      margin: 0.5em 0;
+      padding: 6px 12px;
+    }
+    pre code {
+      margin: 0;
+      background: #f5f5f5;
+    }
+  }
   &:target {
     border: 1px solid @primary-color;
   }
@@ -28,8 +59,14 @@
     cursor: pointer;
     opacity: 0.75;
     transition: all 0.3s;
+
     &:hover {
       opacity: 1;
+    }
+
+    .ant-row-rtl & {
+      margin-right: 8px;
+      margin-left: 0;
     }
   }
 
@@ -39,9 +76,15 @@
     margin-left: 16px;
     padding: 1px 8px;
     color: #777;
-    background: #fff;
-    border-radius: @border-radius-sm @border-radius-sm 0 0;
+    background: @body-background;
+    border-radius: @border-radius-base @border-radius-base 0 0;
     transition: background-color 0.4s;
+
+    .ant-row-rtl & {
+      margin-right: 16px;
+      margin-left: 0;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
 
     a,
     a:hover {
@@ -62,13 +105,20 @@
     padding-right: 6px;
     font-size: 12px;
     text-decoration: none;
-    background: #fff;
+    background: inherit;
     transform: scale(0.9);
+
+    .ant-row-rtl & {
+      right: auto;
+      left: -21px;
+      padding-right: 0;
+      padding-left: 6px;
+    }
   }
 
   &-demo {
     padding: 42px 24px 50px;
-    color: rgba(0, 0, 0, 0.65);
+    color: @site-text-color;
     border-bottom: 1px solid @site-border-color-split;
   }
 
@@ -82,7 +132,7 @@
       position: relative;
       width: 100%;
       font-size: @font-size-base;
-      border-radius: 0 0 @border-radius-sm @border-radius-sm;
+      border-radius: 0 0 @border-radius-base @border-radius-base;
       transition: background-color 0.4s;
     }
 
@@ -101,6 +151,11 @@
       padding-right: 25px;
       font-size: 12px;
       word-break: break-word;
+
+      .ant-row-rtl & {
+        padding-right: 0;
+        padding-left: 25px;
+      }
     }
   }
 
@@ -124,6 +179,11 @@
     box-shadow: none;
     transition: all 0.4s;
     user-select: none;
+
+    .ant-row-rtl & {
+      right: 0;
+      left: auto;
+    }
   }
 
   .code-expand-icon-show {
@@ -146,7 +206,7 @@
   .highlight-wrapper {
     display: none;
     overflow: auto;
-    border-radius: 0 0 @border-radius-sm @border-radius-sm;
+    border-radius: 0 0 @border-radius-base @border-radius-base;
 
     &-expand {
       display: block;
@@ -155,10 +215,15 @@
 
   .highlight {
     position: relative;
+
+    .ant-tabs-nav-scroll {
+      text-align: center;
+    }
+
     pre {
       margin: 0;
       padding: 0;
-      background: #fff;
+      background: @component-background;
     }
     &:not(:first-child) {
       border-top: 1px dashed @site-border-color-split;
@@ -186,8 +251,17 @@
       margin-left: 16px;
       vertical-align: top;
 
+      .ant-row-rtl & {
+        margin-right: 16px;
+        margin-left: 0;
+      }
+
       &:first-child {
         margin-left: 0;
+
+        .ant-row-rtl & {
+          margin-right: 0;
+        }
       }
     }
 
@@ -204,6 +278,9 @@
     line-height: 18px;
     cursor: pointer;
     transition: all 0.24s;
+    &:hover {
+      color: @icon-color-hover;
+    }
   }
 
   &-code-copy {
@@ -213,13 +290,13 @@
     font-size: 14px;
     line-height: 20px;
     text-align: center;
-    background: #fff;
+    background: @component-background;
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.24s;
 
     &:hover {
-      color: @site-text-color-secondary;
+      color: @icon-color-hover;
       transform: scale(1.2);
     }
     &.anticon-check {
@@ -238,7 +315,11 @@
       no-repeat;
     border: 0;
     cursor: pointer;
+    opacity: 0.65;
     transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &-riddle {
@@ -252,7 +333,11 @@
       no-repeat;
     border: 0;
     cursor: pointer;
+    opacity: 0.65;
     transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &-codesandbox {
@@ -265,7 +350,11 @@
       no-repeat;
     border: 0;
     cursor: pointer;
+    opacity: 0.65;
     transition: all 0.3s;
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .highlight-wrapper:hover &-code-copy,
@@ -279,7 +368,7 @@
     width: auto;
     margin: 0;
     code {
-      background: #fff;
+      background: @component-background;
       border: none;
     }
   }
@@ -295,4 +384,22 @@
 
 .show-riddle-button .code-box-riddle {
   display: block;
+}
+
+.all-code-box-controls {
+  float: right;
+
+  .ant-row-rtl & {
+    float: left;
+  }
+}
+
+.ant-row-rtl {
+  #components-tooltip-demo-placement,
+  #components-popover-demo-placement,
+  #components-popconfirm-demo-placement {
+    .code-box-demo {
+      direction: ltr;
+    }
+  }
 }

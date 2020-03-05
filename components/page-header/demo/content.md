@@ -14,7 +14,8 @@ title:
 Show all props.Used all the capabilities provided by pageHeader.
 
 ```jsx
-import { PageHeader, Menu, Dropdown, Icon, Button, Tag, Typography, Row } from 'antd';
+import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
@@ -47,8 +48,7 @@ const DropdownMenu = () => {
           padding: 0,
         }}
       >
-        <Icon
-          type="ellipsis"
+        <EllipsisOutlined
           style={{
             fontSize: 20,
             verticalAlign: 'top',
@@ -104,7 +104,7 @@ const content = (
       easier for designers to have a clear psychological expectation of color when adjusting colors,
       as well as facilitate communication in teams.
     </Paragraph>
-    <Row className="contentLink" type="flex">
+    <Row className="contentLink">
       <IconLink
         src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
         text="Quick Start"
@@ -123,7 +123,7 @@ const content = (
 
 const Content = ({ children, extraContent }) => {
   return (
-    <Row className="content" type="flex">
+    <Row className="content">
       <div className="main" style={{ flex: 1 }}>
         {children}
       </div>
@@ -131,6 +131,7 @@ const Content = ({ children, extraContent }) => {
         className="extra"
         style={{
           marginLeft: 80,
+          marginTop: 16,
         }}
       >
         {extraContent}
@@ -142,9 +143,7 @@ const Content = ({ children, extraContent }) => {
 ReactDOM.render(
   <PageHeader
     title="Title"
-    style={{
-      border: '1px solid rgb(235, 237, 240)',
-    }}
+    className="site-page-header"
     subTitle="This is a subtitle"
     tags={<Tag color="blue">Running</Tag>}
     extra={[
@@ -161,7 +160,7 @@ ReactDOM.render(
     <Content
       extraContent={
         <img
-          src="https://gw.alipayobjects.com/mdn/mpaas_user/afts/img/A*KsfVQbuLRlYAAAAAAAAAAABjAQAAAQ/original"
+          src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
           alt="content"
         />
       }

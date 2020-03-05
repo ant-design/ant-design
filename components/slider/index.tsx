@@ -2,7 +2,9 @@ import * as React from 'react';
 import RcSlider from 'rc-slider/lib/Slider';
 import RcRange from 'rc-slider/lib/Range';
 import RcHandle from 'rc-slider/lib/Handle';
-import Tooltip, { TooltipPlacement } from '../tooltip';
+import classNames from 'classnames';
+import { TooltipPlacement } from '../tooltip';
+import SliderTooltip from './SliderTooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 
 export interface SliderMarks {
@@ -94,7 +96,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
     const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
     return (
-      <Tooltip
+      <SliderTooltip
         prefixCls={tooltipPrefixCls}
         title={tipFormatter ? tipFormatter(value) : ''}
         visible={visible}
@@ -110,7 +112,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
           onMouseEnter={() => this.toggleTooltipVisible(index, true)}
           onMouseLeave={() => this.toggleTooltipVisible(index, false)}
         />
-      </Tooltip>
+      </SliderTooltip>
     );
   };
 
@@ -126,19 +128,28 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     this.rcSlider.blur();
   }
 
-  renderSlider = ({ getPrefixCls }: ConfigConsumerProps) => {
+  renderSlider = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
       prefixCls: customizePrefixCls,
       tooltipPrefixCls: customizeTooltipPrefixCls,
       range,
+      className,
       ...restProps
     } = this.props;
     const prefixCls = getPrefixCls('slider', customizePrefixCls);
     const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
+    const cls = classNames(className, {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    });
+    // make reverse default on rtl direction
+    if (direction === 'rtl' && !restProps.vertical) {
+      restProps.reverse = !restProps.reverse;
+    }
     if (range) {
       return (
         <RcRange
           {...restProps}
+          className={cls}
           ref={this.saveSlider}
           handle={(info: HandleGeneratorInfo) =>
             this.handleWithTooltip({
@@ -155,6 +166,7 @@ export default class Slider extends React.Component<SliderProps, SliderState> {
     return (
       <RcSlider
         {...restProps}
+        className={cls}
         ref={this.saveSlider}
         handle={(info: HandleGeneratorInfo) =>
           this.handleWithTooltip({

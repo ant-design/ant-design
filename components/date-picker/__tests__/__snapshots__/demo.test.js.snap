@@ -2,133 +2,365 @@
 
 exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select month"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
-      </span>
-      <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
-        readonly=""
-        tabindex="-1"
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
         >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </span>
-  </span>
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
   <br />
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <span
-      style="display:inline-block;width:100%"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-picker-input ant-input"
         placeholder="Select week"
         readonly=""
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select month"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select year"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/bordered.md correctly 1`] = `
+<div>
+  <div
+    class="ant-picker ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select date"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select week"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select month"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select year"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -144,74 +376,281 @@ exports[`renders ./components/date-picker/demo/basic.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start week"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End week"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start month"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End month"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range ant-picker-borderless"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start year"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End year"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
       </span>
+    </div>
+  </div>
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
+        placeholder="Start date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -227,111 +666,139 @@ exports[`renders ./components/date-picker/demo/date-render.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker ant-picker-disabled"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input ant-input-disabled"
-        disabled=""
-        placeholder="Select date"
-        readonly=""
-        value="2015-06-06"
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input ant-input-disabled"
-        disabled=""
-        placeholder="Select date"
-        readonly=""
-        value="2015-06"
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-    tabindex="-1"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input ant-input-disabled"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
+        disabled=""
+        placeholder="Select date"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-disabled"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        disabled=""
+        placeholder="Select month"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range ant-picker-disabled"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
         disabled=""
         placeholder="Start date"
         readonly=""
-        tabindex="-1"
-        value="2015-06-06"
+        size="12"
+        value=""
       />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-separator"
       >
-         ~ 
+        →
       </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-range-picker-input"
         disabled=""
         placeholder="End date"
         readonly=""
-        tabindex="-1"
-        value="2015-06-06"
+        size="12"
+        value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -347,109 +814,222 @@ exports[`renders ./components/date-picker/demo/disabled.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        disabled=""
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      class="ant-picker-clear"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
-    style="min-width:195px"
+  <div
+    class="ant-picker"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select month"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-    style="width:350px"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="21"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
       </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
+        placeholder="Select month"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="21"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="21"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -465,154 +1045,135 @@ exports[`renders ./components/date-picker/demo/disabled-date.md correctly 1`] = 
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <span
-    class="ant-calendar-picker"
-    style="min-width:195px"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
-      </span>
-      <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
-        readonly=""
-        tabindex="-1"
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
         >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </span>
-  </span>
-  <span
-    class="ant-calendar-picker"
-    style="width:350px"
-    tabindex="0"
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
   >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="21"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
       </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
+        placeholder="Start date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -628,250 +1189,347 @@ exports[`renders ./components/date-picker/demo/extra-footer.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
-  <span
-    class="ant-calendar-picker"
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
   >
-    <div>
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
       <input
-        class="ant-calendar-picker-input ant-input"
+        placeholder="Start date"
+        readonly=""
+        size="21"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="21"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
         placeholder="Select month"
         readonly=""
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+      <span
+        class="ant-picker-suffix"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
         >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value="2015/01/01"
-      />
-      <i
-        aria-label="icon: close-circle"
-        class="anticon anticon-close-circle ant-calendar-picker-clear"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </i>
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value="01/01/2015"
-      />
-      <i
-        aria-label="icon: close-circle"
-        class="anticon anticon-close-circle ant-calendar-picker-clear"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </i>
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value="2015/01"
-      />
-      <i
-        aria-label="icon: close-circle"
-        class="anticon anticon-close-circle ant-calendar-picker-clear"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </i>
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
-        value="2015/01/01"
+        size="12"
+        value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
       </span>
+      <span
+        class="ant-picker-clear"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-range-picker-input"
+        placeholder="Select date"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        class="ant-picker-clear"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select month"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span
+        class="ant-picker-clear"
+      >
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
         placeholder="End date"
         readonly=""
-        tabindex="-1"
-        value="2015/01/01"
+        size="12"
+        value=""
       />
-      <i
-        aria-label="icon: close-circle"
-        class="anticon anticon-close-circle ant-calendar-picker-clear"
-        tabindex="-1"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 0 1-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </i>
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -887,76 +1545,120 @@ exports[`renders ./components/date-picker/demo/format.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+    <span
+      class="ant-picker-clear"
+    >
+      <span
+        aria-label="close-circle"
+        class="anticon anticon-close-circle"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="close-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
-    style="min-width:195px"
+  <div
+    class="ant-picker"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start month"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="21"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
       </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End month"
+        placeholder="Start month"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End month"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -972,43 +1674,57 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
+  <div
+    class="ant-picker ant-picker-range"
   >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input ant-picker-input-active"
     >
       <input
-        class="ant-calendar-range-picker-input"
         placeholder="Start date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-separator"
       >
-         ~ 
+        →
       </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-range-picker-input"
         placeholder="End date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1024,40 +1740,53 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-calendar-picker"
-    style="width:350px"
-    tabindex="0"
+  <div
+    class="ant-picker ant-picker-range"
   >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input ant-picker-input-active"
     >
       <input
-        class="ant-calendar-range-picker-input"
         placeholder="Start date"
         readonly=""
-        tabindex="-1"
+        size="21"
         value=""
       />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-separator"
       >
-         ~ 
+        →
       </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-range-picker-input"
         placeholder="End date"
         readonly=""
-        tabindex="-1"
+        size="21"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1073,9 +1802,323 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`]
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
+<div>
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="21"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="21"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start week"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End week"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start month"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End month"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start year"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End year"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          class=""
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
 </div>
 `;
 
@@ -1145,133 +2188,127 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
   </div>
   <br />
   <br />
-  <span
-    class="ant-calendar-picker ant-calendar-picker-default"
+  <div
+    class="ant-picker ant-picker-default"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select date"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker ant-calendar-picker-default"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select Month"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker ant-calendar-picker-default"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
-      </span>
-      <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
-        readonly=""
-        tabindex="-1"
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
         >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </span>
-  </span>
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
   <br />
-  <span
-    class="ant-calendar-picker ant-calendar-picker-default"
+  <div
+    class="ant-picker ant-picker-default"
   >
-    <span
-      style="display:inline-block;width:100%"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select Week"
+        placeholder="Select month"
         readonly=""
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range ant-picker-default"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1287,210 +2324,255 @@ exports[`renders ./components/date-picker/demo/size.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-default"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="Select week"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
-    style="min-width:195px"
+  <div
+    class="ant-picker"
   >
-    <div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-picker-input ant-input"
         placeholder="Start"
         readonly=""
+        size="21"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+      <span
+        class="ant-picker-suffix"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
         >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
-  </span>
-  <span
-    class="ant-calendar-picker"
-    style="min-width:195px"
+  </div>
+  <div
+    class="ant-picker"
   >
-    <div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-picker-input ant-input"
         placeholder="End"
         readonly=""
+        size="21"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+      <span
+        class="ant-picker-suffix"
       >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
         >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-picker-input ant-input"
         placeholder="Select date"
         readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: smile"
-        class="anticon anticon-smile ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="smile"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-  >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select month"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: smile"
-        class="anticon anticon-smile ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="smile"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
-    >
-      <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start date"
-        readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
-      </span>
-      <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
-        readonly=""
-        tabindex="-1"
-        value=""
-      />
-      <i
-        aria-label="icon: smile"
-        class="anticon anticon-smile ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="smile"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="smile"
+          class="anticon anticon-smile"
+          role="img"
         >
-          <path
-            d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
-          />
-        </svg>
-      </i>
-    </span>
-  </span>
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="smile"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
   <br />
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <span
-      style="display:inline-block;width:100%"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select week"
+        placeholder="Select month"
         readonly=""
+        size="12"
         value=""
       />
-      <i
-        aria-label="icon: smile"
-        class="anticon anticon-smile ant-calendar-picker-icon"
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="smile"
+          class="anticon anticon-smile"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="smile"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        placeholder="Start date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="smile"
+        class="anticon anticon-smile"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1503,170 +2585,241 @@ exports[`renders ./components/date-picker/demo/suffix.md correctly 1`] = `
           width="1em"
         >
           <path
-            d="M288 421a48 48 0 1 0 96 0 48 48 0 1 0-96 0zm352 0a48 48 0 1 0 96 0 48 48 0 1 0-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 0 1 248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 0 1 249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 0 1 775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 0 1 775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 0 0-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 0 0-8-8.4z"
+            d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-picker-input ant-input"
+        placeholder="Select week"
+        readonly=""
+        size="12"
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="smile"
+          class="anticon anticon-smile"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="smile"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
         placeholder="Select date"
         readonly=""
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-picker-icon"
+        class="ant-picker-suffix"
       >
         ab
       </span>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-calendar-picker"
+  <div
+    class="ant-picker"
   >
-    <div>
+    <div
+      class="ant-picker-input"
+    >
       <input
-        class="ant-calendar-picker-input ant-input"
         placeholder="Select month"
         readonly=""
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-picker-icon"
+        class="ant-picker-suffix"
       >
         ab
       </span>
     </div>
-  </span>
+  </div>
   <br />
-  <span
-    class="ant-calendar-picker"
-    tabindex="0"
+  <div
+    class="ant-picker ant-picker-range"
   >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input ant-picker-input-active"
     >
       <input
-        class="ant-calendar-range-picker-input"
         placeholder="Start date"
         readonly=""
-        tabindex="-1"
+        size="12"
         value=""
       />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-separator"
       >
-         ~ 
+        →
       </span>
-      <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End date"
-        readonly=""
-        tabindex="-1"
-        value=""
-      />
-      <span
-        class="ant-calendar-picker-icon"
-      >
-        ab
-      </span>
-    </span>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-  >
-    <span
-      style="display:inline-block;width:100%"
+    </div>
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-picker-input ant-input"
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      ab
+    </span>
+  </div>
+  <br />
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
         placeholder="Select week"
         readonly=""
+        size="12"
         value=""
       />
       <span
-        class="ant-calendar-picker-icon"
+        class="ant-picker-suffix"
       >
         ab
       </span>
-    </span>
-  </span>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
 <div>
-  <span
-    class="ant-calendar-picker"
-    style="min-width:195px"
+  <div
+    class="ant-picker"
   >
-    <div>
-      <input
-        class="ant-calendar-picker-input ant-input"
-        placeholder="Select Time"
-        readonly=""
-        value=""
-      />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
-      >
-        <svg
-          aria-hidden="true"
-          class=""
-          data-icon="calendar"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-          />
-        </svg>
-      </i>
-    </div>
-  </span>
-  <br />
-  <span
-    class="ant-calendar-picker"
-    style="width:350px"
-    tabindex="0"
-  >
-    <span
-      class="ant-calendar-picker-input ant-input"
+    <div
+      class="ant-picker-input"
     >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="Start Time"
+        placeholder="Select date"
         readonly=""
-        tabindex="-1"
+        size="21"
         value=""
       />
       <span
-        class="ant-calendar-range-picker-separator"
+        class="ant-picker-suffix"
       >
-         ~ 
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            class=""
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
       </span>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
       <input
-        class="ant-calendar-range-picker-input"
-        placeholder="End Time"
+        placeholder="Start date"
         readonly=""
-        tabindex="-1"
+        size="18"
         value=""
       />
-      <i
-        aria-label="icon: calendar"
-        class="anticon anticon-calendar ant-calendar-picker-icon"
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        class="ant-picker-separator"
+      >
+        →
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        placeholder="End date"
+        readonly=""
+        size="18"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
       >
         <svg
           aria-hidden="true"
@@ -1682,8 +2835,8 @@ exports[`renders ./components/date-picker/demo/time.md correctly 1`] = `
             d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
           />
         </svg>
-      </i>
+      </span>
     </span>
-  </span>
+  </div>
 </div>
 `;

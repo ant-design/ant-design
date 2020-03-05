@@ -5,6 +5,11 @@
     .@{steps-prefix-cls}-item {
       &-container {
         margin-left: -12px;
+
+        .@{steps-prefix-cls}-rtl& {
+          margin-right: -12px;
+          margin-left: 0;
+        }
       }
     }
   }
@@ -21,6 +26,12 @@
       text-align: left;
       transition: opacity 0.3s;
 
+      .@{steps-prefix-cls}-rtl& {
+        margin-right: -16px;
+        margin-left: 0;
+        text-align: right;
+      }
+
       .@{steps-prefix-cls}-item-content {
         max-width: @steps-nav-content-max-width;
       }
@@ -31,6 +42,10 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+
+        .@{steps-prefix-cls}-rtl& {
+          padding-left: 0;
+        }
 
         &::after {
           display: none;
@@ -68,6 +83,14 @@
       border-left: none;
       transform: rotate(45deg);
       content: '';
+
+      .@{steps-prefix-cls}-rtl& {
+        right: 100%;
+        left: auto;
+        margin-right: -2px;
+        margin-left: 0;
+        transform: rotate(225deg);
+      }
     }
 
     &::before {
@@ -87,5 +110,38 @@
   .@{steps-prefix-cls}-item.@{steps-prefix-cls}-item-active::before {
     left: 0;
     width: 100%;
+  }
+}
+
+@media (max-width: @screen-xs) {
+  .@{steps-prefix-cls}-navigation {
+    > .@{steps-prefix-cls}-item {
+      margin-right: 0 !important;
+      &::before {
+        display: none;
+      }
+      &.@{steps-prefix-cls}-item-active::before {
+        top: 0;
+        right: 0;
+        left: unset;
+        display: block;
+        width: 3px;
+        height: calc(100% - 24px);
+      }
+      &::after {
+        position: relative;
+        top: -2px;
+        left: 50%;
+        display: block;
+        width: 8px;
+        height: 8px;
+        margin-bottom: 8px;
+        text-align: center;
+        transform: rotate(135deg);
+      }
+      > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
+        visibility: hidden;
+      }
+    }
   }
 }

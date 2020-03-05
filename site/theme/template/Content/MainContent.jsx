@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'bisheng/router';
-import { Row, Col, Menu, Icon, Affix } from 'antd';
-import { FormattedMessage, injectIntl } from 'react-intl';
+import { Row, Col, Menu, Affix, Tooltip, Avatar } from 'antd';
+import { injectIntl } from 'react-intl';
+import { LeftOutlined, RightOutlined, ExportOutlined } from '@ant-design/icons';
+import ContributorsList from '@qixian.cs/github-contributors-list';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import MobileMenu from 'rc-drawer';
+
+import { DarkIcon, DefaultIcon } from './ThemeIcon';
 import Article from './Article';
 import PrevAndNext from './PrevAndNext';
 import Footer from '../Layout/Footer';
+import SiteContext from '../Layout/SiteContext';
 import ComponentDoc from './ComponentDoc';
 import * as utils from '../utils';
 
@@ -23,15 +28,18 @@ function getModuleData(props) {
         .filter(item => item)
         .slice(0, 2)
         .join('/');
-  const moduleData =
-    moduleName === 'components' ||
-    moduleName === 'docs/react' ||
-    moduleName === 'changelog' ||
-    moduleName === 'changelog-cn'
-      ? [...props.picked.components, ...props.picked['docs/react'], ...props.picked.changelog]
-      : props.picked[moduleName];
   const excludedSuffix = utils.isZhCN(props.location.pathname) ? 'en-US.md' : 'zh-CN.md';
-  return moduleData.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
+  let data;
+  switch (moduleName) {
+    case 'docs/react':
+    case 'changelog':
+    case 'changelog-cn':
+      data = [...props.picked['docs/react'], ...props.picked.changelog];
+      break;
+    default:
+      data = props.picked[moduleName];
+  }
+  return data.filter(({ meta }) => !meta.filename.endsWith(excludedSuffix));
 }
 
 function fileNameToPath(filename) {
@@ -50,27 +58,11 @@ const getSideBarOpenKeys = nextProps => {
   return shouldOpenKeys;
 };
 
-const getSubMenuTitle = menuItem => {
-  if (menuItem.title !== 'Components') {
-    return menuItem.title;
-  }
-  let count = 0;
-  menuItem.children.forEach(item => {
-    if (item.children) {
-      count += item.children.length;
-    }
-  });
-  return (
-    <h4>
-      <FormattedMessage id="app.header.menu.components" />
-      <span className="menu-antd-components-count">{count}</span>
-    </h4>
-  );
-};
-
 class MainContent extends Component {
   static contextTypes = {
-    isMobile: PropTypes.bool.isRequired,
+    theme: PropTypes.oneOf(['default', 'dark']),
+    setTheme: PropTypes.func,
+    setIframeTheme: PropTypes.func,
   };
 
   state = {
@@ -126,16 +118,23 @@ class MainContent extends Component {
       themeConfig.typeOrder,
     );
     return menuItems.map(menuItem => {
+      if (menuItem.type === 'type') {
+        return (
+          <Menu.ItemGroup title={menuItem.title} key={menuItem.title}>
+            {menuItem.children
+              .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
+              .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+          </Menu.ItemGroup>
+        );
+      }
       if (menuItem.children) {
         return (
-          <SubMenu title={getSubMenuTitle(menuItem)} key={menuItem.title}>
+          <SubMenu title={menuItem.title} key={menuItem.title}>
             {menuItem.children.map(child => {
               if (child.type === 'type') {
                 return (
                   <Menu.ItemGroup title={child.title} key={child.title}>
-                    {child.children
-                      .sort((a, b) => a.title.charCodeAt(0) - b.title.charCodeAt(0))
-                      .map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
+                    {child.children.map(leaf => this.generateMenuItem(false, leaf, footerNavIcons))}
                   </Menu.ItemGroup>
                 );
               }
@@ -255,7 +254,7 @@ class MainContent extends Component {
         className="menu-item-link-outside"
       >
         {before}
-        {text} <Icon type="export" />
+        {text} <ExportOutlined />
         {after}
       </a>
     );
@@ -280,66 +279,129 @@ class MainContent extends Component {
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
+  changeTheme = () => {
+    const { theme, setTheme } = this.context;
+    const nextTheme = theme !== 'dark' ? 'dark' : 'default';
+    setTheme(nextTheme);
+  };
+
   render() {
-    const { isMobile } = this.context;
-    const { openKeys } = this.state;
-    const { localizedPageData, demos } = this.props;
-    const activeMenuItem = this.getActiveMenuItem();
-    const menuItems = this.getMenuItems();
-    const menuItemsForFooterNav = this.getMenuItems({
-      before: <Icon className="footer-nav-icon-before" type="left" />,
-      after: <Icon className="footer-nav-icon-after" type="right" />,
-    });
-    const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
-    const mainContainerClass = classNames('main-container', {
-      'main-container-component': !!demos,
-    });
-    const menuChild = (
-      <Menu
-        inlineIndent={40}
-        className="aside-container menu-site"
-        mode="inline"
-        openKeys={openKeys}
-        selectedKeys={[activeMenuItem]}
-        onOpenChange={this.handleMenuOpenChange}
-      >
-        {menuItems}
-      </Menu>
-    );
     return (
-      <div className="main-wrapper">
-        <Row>
-          {isMobile ? (
-            <MobileMenu
-              iconChild={[
-                <Icon key="menu-unfold" type="menu-unfold" />,
-                <Icon key="menu-fold" type="menu-fold" />,
-              ]}
-              key="Mobile-menu"
-              wrapperClassName="drawer-wrapper"
+      <SiteContext.Consumer>
+        {({ isMobile }) => {
+          const { theme, setIframeTheme } = this.context;
+          const { openKeys } = this.state;
+          const {
+            localizedPageData,
+            demos,
+            intl: { formatMessage },
+          } = this.props;
+          const { meta } = localizedPageData;
+          const activeMenuItem = this.getActiveMenuItem();
+          const menuItems = this.getMenuItems();
+          const menuItemsForFooterNav = this.getMenuItems({
+            before: <LeftOutlined className="footer-nav-icon-before" />,
+            after: <RightOutlined className="footer-nav-icon-after" />,
+          });
+          const { prev, next } = this.getFooterNav(menuItemsForFooterNav, activeMenuItem);
+          const mainContainerClass = classNames('main-container', {
+            'main-container-component': !!demos,
+          });
+          const menuChild = (
+            <Menu
+              inlineIndent={30}
+              className="aside-container menu-site"
+              mode="inline"
+              openKeys={openKeys}
+              selectedKeys={[activeMenuItem]}
+              onOpenChange={this.handleMenuOpenChange}
             >
-              {menuChild}
-            </MobileMenu>
-          ) : (
-            <Col xxl={4} xl={5} lg={6} md={24} sm={24} xs={24} className="main-menu">
-              <Affix>
-                <section className="main-menu-inner">{menuChild}</section>
-              </Affix>
-            </Col>
-          )}
-          <Col xxl={20} xl={19} lg={18} md={24} sm={24} xs={24}>
-            <section className={mainContainerClass}>
-              {demos ? (
-                <ComponentDoc {...this.props} doc={localizedPageData} demos={demos} />
-              ) : (
-                <Article {...this.props} content={localizedPageData} />
-              )}
-            </section>
-            <PrevAndNext prev={prev} next={next} />
-            <Footer />
-          </Col>
-        </Row>
-      </div>
+              {menuItems}
+            </Menu>
+          );
+          const componentPage = /^\/?components/.test(this.props.location.pathname);
+
+          return (
+            <div className="main-wrapper">
+              <Row>
+                {isMobile ? (
+                  <MobileMenu key="Mobile-menu" wrapperClassName="drawer-wrapper">
+                    {menuChild}
+                  </MobileMenu>
+                ) : (
+                  <Col xxl={4} xl={5} lg={6} md={6} sm={24} xs={24} className="main-menu">
+                    <Affix>
+                      <section className="main-menu-inner">{menuChild}</section>
+                    </Affix>
+                  </Col>
+                )}
+                <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+                  <section className={mainContainerClass}>
+                    {demos ? (
+                      <ComponentDoc
+                        {...this.props}
+                        doc={localizedPageData}
+                        demos={demos}
+                        theme={theme}
+                        setIframeTheme={setIframeTheme}
+                      />
+                    ) : (
+                      <Article {...this.props} content={localizedPageData} />
+                    )}
+                    <ContributorsList
+                      className="contributors-list"
+                      fileName={meta.filename}
+                      renderItem={(item, loading) =>
+                        loading ? (
+                          <Avatar style={{ opacity: 0.3 }} />
+                        ) : (
+                          <Tooltip
+                            title={`${formatMessage({ id: 'app.content.contributors' })}: ${
+                              item.username
+                            }`}
+                            key={item.username}
+                          >
+                            <a
+                              href={`https://github.com/${item.username}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <Avatar src={item.url}>{item.username}</Avatar>
+                            </a>
+                          </Tooltip>
+                        )
+                      }
+                      repo="ant-design"
+                      owner="ant-design"
+                    />
+                  </section>
+                  {componentPage && (
+                    <div className="fixed-widgets">
+                      <Tooltip
+                        getPopupContainer={node => node.parentNode}
+                        title={formatMessage({ id: `app.theme.switch.${theme}` })}
+                        overlayClassName="fixed-widgets-tooltip"
+                      >
+                        <Avatar
+                          className={classNames(
+                            'fixed-widgets-avatar',
+                            `fixed-widgets-avatar-${theme}`,
+                          )}
+                          size={44}
+                          onClick={this.changeTheme}
+                          icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
+                        />
+                      </Tooltip>
+                    </div>
+                  )}
+                  <PrevAndNext prev={prev} next={next} />
+                  <Footer />
+                </Col>
+              </Row>
+            </div>
+          );
+        }}
+      </SiteContext.Consumer>
     );
   }
 }

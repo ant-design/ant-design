@@ -28,23 +28,23 @@ To display a notification message at any of the four corners of the viewport. Ty
 
 The properties of config are as follows:
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |  |
-| btn | Customized close button | ReactNode | - |  |
-| className | Customized CSS class | string | - |  |
-| description | The content of notification box (required) | string\|ReactNode | - |  |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
-| icon | Customized icon | ReactNode | - |  |
-| key | The unique identifier of the Notification | string | - |  |
-| message | The title of notification box (required) | string\|ReactNode | - |  |
-| onClose | Specify a function that will be called when the close button is clicked | Function | - |  |
-| onClick | Specify a function that will be called when the notification is clicked | Function | - | 3.11.0 |
-| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
-| style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |  |
-| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |  |
-| closeIcon | custom close icon | ReactNode | - | 3.26.0 |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |
+| btn | Customized close button | ReactNode | - |
+| className | Customized CSS class | string | - |
+| description | The content of notification box (required) | string\|ReactNode | - |
+| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
+| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
+| icon | Customized icon | ReactNode | - |
+| closeIcon | custom close icon | ReactNode | - |
+| key | The unique identifier of the Notification | string | - |
+| message | The title of notification box (required) | string\|ReactNode | - |
+| onClose | Specify a function that will be called when the close button is clicked | Function | - |
+| onClick | Specify a function that will be called when the notification is clicked | Function | - |
+| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
+| style | Customized inline style | [React.CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
+| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |
 
 `notification` also provides a global `config()` method that can be used for specifying the default options. Once this method is used, all the notification boxes will take into account these globally defined options when displaying.
 
@@ -58,11 +58,35 @@ notification.config({
 });
 ```
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |  |
-| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |  |
-| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |  |
-| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |  |
-| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |  |
-| closeIcon | custom close icon | ReactNode | - | 3.25.0 |
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottomRight` or `bottomLeft` (unit: pixels). | number | 24 |
+| closeIcon | custom close icon | ReactNode | - |
+| duration | Time in seconds before Notification is closed. When set to 0 or null, it will never be closed automatically | number | 4.5 |
+| getContainer | Return the mount node for Notification | () => HTMLNode | () => document.body |
+| placement | Position of Notification, can be one of `topLeft` `topRight` `bottomLeft` `bottomRight` | string | `topRight` |
+| top | Distance from the top of the viewport, when `placement` is `topRight` or `topLeft` (unit: pixels). | number | 24 |
+
+## FAQ
+
+### Why I can not access context, redux in notification?
+
+antd will dynamic create React instance by `ReactDOM.render` when call notification methods. Whose context is different with origin code located context.
+
+When you need context info (like ConfigProvider context), you can use `notification.useNotification` to get `api` instance and `contextHolder` node. And put it in your children:
+
+```tsx
+const [api, contextHolder] = notification.useNotification();
+
+return (
+  <Context1.Provider value="Ant">
+    {/* contextHolder is in Context1 which mean api will not get context of Context1 */}
+    {contextHolder}
+    <Context2.Provider value="Design">
+      {/* contextHolder is out of Context2 which mean api will not get context of Context2 */}
+    </Context2.Provider>
+  </Context1.Provider>
+);
+```
+
+**Note:** You must insert `contextHolder` into your children with hooks. You can use origin method if you do not need context connection.

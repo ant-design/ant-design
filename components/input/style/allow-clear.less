@@ -1,0 +1,47 @@
+@import './index';
+
+.clear-icon() {
+  color: @disabled-color;
+  font-size: @font-size-sm;
+  // https://github.com/ant-design/ant-design/pull/18151
+  // https://codesandbox.io/s/wizardly-sun-u10br
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: @text-color-secondary;
+  }
+
+  &:active {
+    color: @text-color;
+  }
+
+  + i {
+    margin-left: 6px;
+  }
+}
+
+// ========================= Input =========================
+.@{ant-prefix}-input-clear-icon {
+  .clear-icon;
+  margin: 0 @input-affix-margin;
+  vertical-align: -1px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// ======================= TextArea ========================
+.@{ant-prefix}-input-affix-wrapper-textarea-with-clear-btn {
+  padding: 0;
+  border: 0;
+}
+
+.@{ant-prefix}-input-textarea-clear-icon {
+  .clear-icon;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 8px 8px 0 0;
+}

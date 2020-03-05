@@ -1,5 +1,7 @@
 import * as React from 'react';
-import Icon from '../icon';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
+
 import Input from '../input';
 
 export interface TransferSearchProps {
@@ -36,11 +38,11 @@ export default class Search extends React.Component<TransferSearchProps, any> {
     const icon =
       value && value.length > 0 ? (
         <a href="#" className={`${prefixCls}-action`} onClick={this.handleClear}>
-          <Icon type="close-circle" theme="filled" />
+          <CloseCircleFilled />
         </a>
       ) : (
         <span className={`${prefixCls}-action`}>
-          <Icon type="search" />
+          <SearchOutlined />
         </span>
       );
 

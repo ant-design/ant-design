@@ -1,10 +1,12 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render, mount } from 'enzyme';
 import Drawer from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Drawer', () => {
   mountTest(Drawer);
+  rtlTest(Drawer);
 
   it('render correctly', () => {
     const wrapper = render(
@@ -78,4 +80,28 @@ describe('Drawer', () => {
     );
     expect(wrapper).toMatchSnapshot();
   });
+
+  it('have a footer', () => {
+    const wrapper = render(
+      <Drawer visible footer="Test Footer" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('forceRender works', () => {
+    const wrapper = mount(
+      <Drawer>
+        <button type="button" className="forceRender">should not be rendered</button>
+      </Drawer>,
+    );
+    expect(wrapper.find('button.forceRender').length).toBe(0);
+    const wrapper2 = mount(
+      <Drawer forceRender>
+        <button type="button" className="forceRender">should be rendered</button>
+      </Drawer>,
+    );
+    expect(wrapper2.find('button.forceRender').length).toBe(1);
+  })
 });

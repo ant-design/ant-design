@@ -3,10 +3,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 import moment from 'moment';
 import MockDate from 'mockdate';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import {
-  LocaleProvider,
   Pagination,
   DatePicker,
   TimePicker,
@@ -17,12 +15,14 @@ import {
   Select,
   Transfer,
 } from '../..';
+import LocaleProvider from '..';
 import arEG from '../ar_EG';
+import azAZ from '../az_AZ';
 import bgBG from '../bg_BG';
 import caES from '../ca_ES';
 import csCZ from '../cs_CZ';
-import daDK from '../da_DK';
 import deDE from '../de_DE';
+import daDK from '../da_DK';
 import elGR from '../el_GR';
 import enGB from '../en_GB';
 import enUS from '../en_US';
@@ -37,17 +37,19 @@ import hiIN from '../hi_IN';
 import hrHR from '../hr_HR';
 import huHU from '../hu_HU';
 import hyAM from '../hy_AM';
+import idID from '../id_ID';
 import isIS from '../is_IS';
 import itIT from '../it_IT';
 import jaJP from '../ja_JP';
 import knIN from '../kn_IN';
 import koKR from '../ko_KR';
 import kuIQ from '../ku_IQ';
+import lvLV from '../lv_LV';
 import mkMK from '../mk_MK';
 import mnMN from '../mn_MN';
 import msMY from '../ms_MY';
 import nbNO from '../nb_NO';
-import neNP from '../ne-NP';
+import neNP from '../ne_NP';
 import nlBE from '../nl_BE';
 import nlNL from '../nl_NL';
 import plPL from '../pl_PL';
@@ -64,12 +66,11 @@ import thTH from '../th_TH';
 import trTR from '../tr_TR';
 import ukUA from '../uk_UA';
 import viVN from '../vi_VN';
-import idID from '../id_ID';
-import lvLV from '../lv_LV';
 import zhCN from '../zh_CN';
 import zhTW from '../zh_TW';
 
 const locales = [
+  azAZ,
   arEG,
   bgBG,
   caES,
@@ -248,21 +249,5 @@ describe('Locale Provider', () => {
     expect(wrapper.render()).toMatchSnapshot();
     wrapper.setState({ locale: null });
     expect(wrapper.render()).toMatchSnapshot();
-  });
-
-  it('warning if use LocaleProvider', () => {
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    resetWarned();
-
-    mount(
-      <LocaleProvider locale={{}}>
-        <div />
-      </LocaleProvider>,
-    );
-    expect(errorSpy).toHaveBeenCalledWith(
-      'Warning: [antd: LocaleProvider] `LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
-    );
-
-    errorSpy.mockRestore();
   });
 });

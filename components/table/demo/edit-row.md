@@ -1,5 +1,5 @@
 ---
-order: 23
+order: 24
 title:
   en-US: Editable Rows
   zh-CN: 可编辑行
@@ -13,132 +13,91 @@ title:
 
 Table with editable rows.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form } from 'antd';
 
-const data = [];
+interface Item {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const originData: Item[] = [];
 for (let i = 0; i < 100; i++) {
-  data.push({
+  originData.push({
     key: i.toString(),
     name: `Edrward ${i}`,
     age: 32,
     address: `London Park no. ${i}`,
   });
 }
-const EditableContext = React.createContext();
-
-class EditableCell extends React.Component {
-  getInput = () => {
-    if (this.props.inputType === 'number') {
-      return <InputNumber />;
-    }
-    return <Input />;
-  };
-
-  renderCell = ({ getFieldDecorator }) => {
-    const {
-      editing,
-      dataIndex,
-      title,
-      inputType,
-      record,
-      index,
-      children,
-      ...restProps
-    } = this.props;
-    return (
-      <td {...restProps}>
-        {editing ? (
-          <Form.Item style={{ margin: 0 }}>
-            {getFieldDecorator(dataIndex, {
-              rules: [
-                {
-                  required: true,
-                  message: `Please Input ${title}!`,
-                },
-              ],
-              initialValue: record[dataIndex],
-            })(this.getInput())}
-          </Form.Item>
-        ) : (
-          children
-        )}
-      </td>
-    );
-  };
-
-  render() {
-    return <EditableContext.Consumer>{this.renderCell}</EditableContext.Consumer>;
-  }
+interface EditableCellProps {
+  editing: boolean;
+  dataIndex: string;
+  title: React.ReactNode;
+  inputType: 'number' | 'text';
+  record: Item;
+  index: number;
+  children: React.ReactNode;
 }
 
-class EditableTable extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { data, editingKey: '' };
-    this.columns = [
-      {
-        title: 'name',
-        dataIndex: 'name',
-        width: '25%',
-        editable: true,
-      },
-      {
-        title: 'age',
-        dataIndex: 'age',
-        width: '15%',
-        editable: true,
-      },
-      {
-        title: 'address',
-        dataIndex: 'address',
-        width: '40%',
-        editable: true,
-      },
-      {
-        title: 'operation',
-        dataIndex: 'operation',
-        render: (text, record) => {
-          const { editingKey } = this.state;
-          const editable = this.isEditing(record);
-          return editable ? (
-            <span>
-              <EditableContext.Consumer>
-                {form => (
-                  <a
-                    onClick={() => this.save(form, record.key)}
-                    style={{ marginRight: 8 }}
-                  >
-                    Save
-                  </a>
-                )}
-              </EditableContext.Consumer>
-              <Popconfirm title="Sure to cancel?" onConfirm={() => this.cancel(record.key)}>
-                <a>Cancel</a>
-              </Popconfirm>
-            </span>
-          ) : (
-            <a disabled={editingKey !== ''} onClick={() => this.edit(record.key)}>
-              Edit
-            </a>
-          );
-        },
-      },
-    ];
-  }
+const EditableCell: React.FC<EditableCellProps> = ({
+  editing,
+  dataIndex,
+  title,
+  inputType,
+  record,
+  index,
+  children,
+  ...restProps
+}) => {
+  const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
 
-  isEditing = record => record.key === this.state.editingKey;
+  return (
+    <td {...restProps}>
+      {editing ? (
+        <Form.Item
+          name={dataIndex}
+          style={{ margin: 0 }}
+          rules={[
+            {
+              required: true,
+              message: `Please Input ${title}!`,
+            },
+          ]}
+        >
+          {inputNode}
+        </Form.Item>
+      ) : (
+        children
+      )}
+    </td>
+  );
+};
 
-  cancel = () => {
-    this.setState({ editingKey: '' });
+const EditableTable = () => {
+  const [form] = Form.useForm();
+  const [data, setData] = useState(originData);
+  const [editingKey, setEditingKey] = useState('');
+
+  const isEditing = record => record.key === editingKey;
+
+  const edit = record => {
+    form.setFieldsValue({ ...record });
+    setEditingKey(record.key);
   };
 
-  save(form, key) {
-    form.validateFields((error, row) => {
-      if (error) {
-        return;
-      }
-      const newData = [...this.state.data];
+  const cancel = () => {
+    setEditingKey('');
+  };
+
+  const save = async key => {
+    try {
+      const row = await form.validateFields();
+
+      const newData = [...data];
       const index = newData.findIndex(item => key === item.key);
       if (index > -1) {
         const item = newData[index];
@@ -146,61 +105,100 @@ class EditableTable extends React.Component {
           ...item,
           ...row,
         });
-        this.setState({ data: newData, editingKey: '' });
+        setData(newData);
+        setEditingKey('');
       } else {
         newData.push(row);
-        this.setState({ data: newData, editingKey: '' });
+        setData(newData);
+        setEditingKey('');
       }
-    });
-  }
+    } catch (errInfo) {
+      console.log('Validate Failed:', errInfo);
+      return;
+    }
+  };
 
-  edit(key) {
-    this.setState({ editingKey: key });
-  }
-
-  render() {
-    const components = {
-      body: {
-        cell: EditableCell,
+  const columns = [
+    {
+      title: 'name',
+      dataIndex: 'name',
+      width: '25%',
+      editable: true,
+    },
+    {
+      title: 'age',
+      dataIndex: 'age',
+      width: '15%',
+      editable: true,
+    },
+    {
+      title: 'address',
+      dataIndex: 'address',
+      width: '40%',
+      editable: true,
+    },
+    {
+      title: 'operation',
+      dataIndex: 'operation',
+      render: (text, record) => {
+        const editable = isEditing(record);
+        return editable ? (
+          <span>
+            <a href="javascript:;" onClick={() => save(record.key)} style={{ marginRight: 8 }}>
+              Save
+            </a>
+            <Popconfirm title="Sure to cancel?" onConfirm={() => cancel(record.key)}>
+              <a>Cancel</a>
+            </Popconfirm>
+          </span>
+        ) : (
+          <a disabled={editingKey !== ''} onClick={() => edit(record)}>
+            Edit
+          </a>
+        );
       },
+    },
+  ];
+
+  const components = {
+    body: {
+      cell: EditableCell,
+    },
+  };
+
+  const mergedColumns = columns.map(col => {
+    if (!col.editable) {
+      return col;
+    }
+    return {
+      ...col,
+      onCell: record => ({
+        record,
+        inputType: col.dataIndex === 'age' ? 'number' : 'text',
+        dataIndex: col.dataIndex,
+        title: col.title,
+        editing: isEditing(record),
+      }),
     };
+  });
 
-    const columns = this.columns.map(col => {
-      if (!col.editable) {
-        return col;
-      }
-      return {
-        ...col,
-        onCell: record => ({
-          record,
-          inputType: col.dataIndex === 'age' ? 'number' : 'text',
-          dataIndex: col.dataIndex,
-          title: col.title,
-          editing: this.isEditing(record),
-        }),
-      };
-    });
+  return (
+    <Form form={form} component={false}>
+      <Table
+        components={components}
+        bordered
+        dataSource={data}
+        columns={mergedColumns}
+        rowClassName="editable-row"
+        pagination={{
+          onChange: cancel,
+        }}
+      />
+    </Form>
+  );
+};
 
-    return (
-      <EditableContext.Provider value={this.props.form}>
-        <Table
-          components={components}
-          bordered
-          dataSource={this.state.data}
-          columns={columns}
-          rowClassName="editable-row"
-          pagination={{
-            onChange: this.cancel,
-          }}
-        />
-      </EditableContext.Provider>
-    );
-  }
-}
-
-const EditableFormTable = Form.create()(EditableTable);
-
-ReactDOM.render(<EditableFormTable />, mountNode);
+ReactDOM.render(<EditableTable />, mountNode);
 ```
 
 ```css

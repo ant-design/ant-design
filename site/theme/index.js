@@ -2,6 +2,7 @@ const path = require('path');
 
 const homeTmpl = './template/Home/index';
 const contentTmpl = './template/Content/index';
+const resourcesTmpl = './template/Resources/index';
 const appShellTmpl = './template/AppShell';
 
 function pickerGenerator(module) {
@@ -48,7 +49,7 @@ module.exports = {
   plugins: [
     'bisheng-plugin-description',
     'bisheng-plugin-toc?maxDepth=2&keepElem',
-    'bisheng-plugin-antd?injectProvider',
+    '@ant-design/bisheng-plugin?injectProvider',
     'bisheng-plugin-react?lang=__react',
   ],
   routes: {
@@ -77,12 +78,28 @@ module.exports = {
         component: contentTmpl,
       },
       {
+        path: 'components/form/v3',
+        component: contentTmpl,
+      },
+      {
+        path: 'components/form/v3-cn',
+        component: contentTmpl,
+      },
+      {
         path: 'components/:children/',
         component: contentTmpl,
       },
       {
         path: 'docs/spec/:children',
         component: contentTmpl,
+      },
+      {
+        path: 'docs/resources',
+        component: resourcesTmpl,
+      },
+      {
+        path: 'docs/resources-cn',
+        component: resourcesTmpl,
       },
     ],
   },
