@@ -31,15 +31,15 @@ const Cell: React.FC<CellProps> = ({
       <Component
         className={classNames(
           {
-            [`${itemPrefixCls}-item-label`]: label,
-            [`${itemPrefixCls}-item-content`]: content,
+            [`${itemPrefixCls}-item-label`]: label !== undefined,
+            [`${itemPrefixCls}-item-content`]: content !== undefined,
           },
           className,
         )}
         style={style}
         colSpan={span}
       >
-        {label || content}
+        {label !== undefined ? label : content}
       </Component>
     );
   }
