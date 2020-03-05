@@ -49,7 +49,7 @@ Select component to select value from options.
 | placeholder | Placeholder of select | string\|ReactNode | - |  |
 | showArrow | Whether to show the drop-down arrow | boolean | true |  |
 | showSearch | Whether show search input in single mode. | boolean | false |  |
-| size | Size of Select input. `default` `large` `small` | string | default |  |
+| size | Size of Select input. | `large` \| `middle` \| `small` |  |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | clearIcon | The custom clear icon | ReactNode | - |  |

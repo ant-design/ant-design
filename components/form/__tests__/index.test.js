@@ -563,4 +563,34 @@ describe('Form', () => {
       wrapper.find(CustomComponent).simulate('change', { value: '123' });
     }).not.toThrow();
   });
+
+  it('change `help` should not warning', () => {
+    const Demo = () => {
+      const [error, setError] = React.useState(null);
+
+      return (
+        <Form>
+          <Form.Item
+            help={error ? 'This is an error msg' : undefined}
+            validateStatus={error ? 'error' : ''}
+            label="Username"
+            name="username"
+          >
+            <input />
+          </Form.Item>
+
+          <Form.Item>
+            <button type="button" onClick={() => setError(!error)}>
+              Trigger
+            </button>
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+    wrapper.find('button').simulate('click');
+
+    expect(errorSpy).not.toHaveBeenCalled();
+  });
 });

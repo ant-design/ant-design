@@ -1171,4 +1171,46 @@ describe('Table.filter', () => {
       expect.anything(),
     );
   });
+
+  it('locale should work', () => {
+    const wrapper = mount(
+      createTable({
+        locale: { filterConfirm: 'Bamboo' },
+        columns: [
+          {
+            ...column,
+            filterDropdownVisible: true,
+          },
+        ],
+      }),
+    );
+
+    expect(
+      wrapper
+        .find('.ant-table-filter-dropdown-link')
+        .first()
+        .text(),
+    ).toEqual('Bamboo');
+    expect(
+      wrapper
+        .find('.ant-table-filter-dropdown-link')
+        .last()
+        .text(),
+    ).toEqual('Reset');
+  });
+
+  it('filtered should work', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filtered: true,
+          },
+        ],
+      }),
+    );
+
+    expect(wrapper.find('.ant-table-filter-trigger').hasClass('active')).toBeTruthy();
+  });
 });

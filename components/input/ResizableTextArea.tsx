@@ -121,7 +121,11 @@ class ResizableTextArea extends React.Component<TextAreaProps, TextAreaState> {
     const style = {
       ...this.props.style,
       ...textareaStyles,
-      ...(resizeStatus === RESIZE_STATUS_RESIZING ? { overflow: 'hidden' } : null),
+      ...(resizeStatus === RESIZE_STATUS_RESIZING
+        ? // React will warning when mix `overflow` & `overflowY`.
+          // We need to define this separately.
+          { overflowX: 'hidden', overflowY: 'hidden' }
+        : null),
     };
     return (
       <ResizeObserver onResize={this.handleResize} disabled={!(autoSize || onResize)}>

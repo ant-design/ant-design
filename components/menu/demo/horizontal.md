@@ -15,7 +15,11 @@ Horizontal top navigation menu.
 
 ```jsx
 import { Menu } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import {
+  MailOutlined,
+  AppstoreOutlined,
+  SettingOutlined,
+} from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 

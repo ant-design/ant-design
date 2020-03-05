@@ -68,7 +68,6 @@ title: 表单页
 
 - 普通布局
 - 任务拆解和编排
-- 填写和预览
 - 特定场景
 
 ### 普通布局
@@ -176,8 +175,8 @@ Ant Design 标准注册模板
 
 ### 前期准备
 
-- 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](https://next.ant.design/components/form-cn/)；
-- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](https://next.ant.design/docs/spec/data-entry-cn/) 确定所使用的组件。
+- 表单页的核心由表单项组成，设计前建议先熟悉[表单基础规则](https://ant.design/components/form-cn/)；
+- 梳理用户当前信息录入任务中所涉及的信息类型，[并根据 Ant Design 数据录入规则](https://ant.design/docs/spec/data-entry-cn/) 确定所使用的组件。
 
 ### 布局方式
 
@@ -201,13 +200,19 @@ Ant Design 标准注册模板
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*eU8dRZUTEM8AAAAAAAAAAABkARQnAQ" />
 
-当一个区域中内容较多且存在可分类归纳性时，可通过区分标题来进行区域内分组。
+当一个区域中内容较多且可被分类归纳时，可通过区分标题来进行区域内分组。
 
 #### 卡片分组
 
+<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*VPEZRLBm1zwAAAAAAAAAAABkARQnAQ" />
+
+当一个页面中内容众多（通常大于两屏）且可被分类归纳时，可通过卡片分组来承载，每个卡片需要包含一个大标题。
+
+#### 判断布局方式
+
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*DoKmSYGaYtYAAAAAAAAAAABkARQnAQ" />
 
-关于使用何种布局方式的判断，和[详情页](https://next.ant.design/docs/spec/detail-page-cn#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
+关于使用何种布局方式的判断，和[详情页](https://ant.design/docs/spec/detail-page-cn#%E8%AE%BE%E8%AE%A1%E5%BB%BA%E8%AE%AE)类似，应从信息的复杂度和关联性两个维度去梳理。随后可选择相匹配的模板，进行页面快速搭建。
 
 <br>
 
@@ -215,8 +220,8 @@ Ant Design 标准注册模板
 
 ### 会用到哪些模块或组件
 
-- [表单](https://next.ant.design/components/form-cn/#header)
-- [步骤条](https://next.ant.design/components/steps-cn/#header)
+- [表单](https://ant.design/components/form-cn/#header)
+- [步骤条](https://ant.design/components/steps-cn/#header)
 
 ### 外部参考文章
 

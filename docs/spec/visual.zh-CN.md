@@ -4,13 +4,12 @@ title: 可视化
 ---
 
 可视化语言是基于 Ant Design 衍生的一套具有数据可视化特性的设计指导原则，让数据表达更符合用户心理，以帮助『设计者』孵化出更具业务特性的数据可视化解决方案，屏蔽不必要的设计差异和实现成本，从而解放『设计者』和前端的生产力，实现数据图表的研发效能全面提高。
-同时，这是一份动态更新的设计文档，你的阅读和互动正是我们不断前进的动力，[GitHub 反馈地址](https://github.com/antvis/site/issues)
 
-<br />
+同时，这是一份动态更新的设计文档，你的阅读和互动正是我们不断前进的动力，[GitHub 反馈地址](https://github.com/antvis/site/issues)。
 
 # 前端实现
 
-[AntV](https://antv.vision/zh) 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2 ，欢迎社区贡献其他框架的实现版本。
+[AntV](https://antv.vision/zh) 是基于原生 JavaScipt 封装的可视化组件库，包含高交互基础图表库 G2Plot，流程与关系分析的图表库 G6，专注解决地理空间数据可视分析的 L7，适用于移动端的高性能图表库 F2，欢迎社区贡献其他框架的实现版本。
 
 - [G2 可视化引擎](https://g2.antv.vision/zh)
 - [G2Plot 开箱即用的图表库](https://g2plot.antv.vision/zh) 🔥
@@ -18,15 +17,11 @@ title: 可视化
 - [L7 地理空间数据可视分析引擎](https://l7.antv.vision/zh)
 - [F2 移动端可视化方案](https://f2.antv.vision/zh)
 
-<br />
-
 # 如何设计
 
 ### 了解用户
 
 用户是谁？他们要从可视化作品上获取什么信息？在企业级产品中，用户可能是公司高层、BI 分析师、运营、数据开发等不同角色，不一样的角色在使用可视化作品时，其目的以及使用路径会有所不同。建议在设计开始前对使用者进行充分剖析，以便完整地讲述你的数据故事，准确呈现你的数据见解。
-
-<br />
 
 ### 设计原则
 
@@ -35,14 +30,11 @@ title: 可视化
 - 清晰：表现方式清楚易读，具条理性，可以帮助用户快速达成目标，在最少的时间内获取更多的信息；
 - 美：对数据的完美表达，合理利用视觉元素进行艺术创作，不过度修饰，给用户优雅的体验。
 
-<br />
-
 ## 图表用法
 
 ### 选择正确的图表类型
 
 我们提供了完整的图表用法说明，帮助您更正确地选择图表类型。
-
 
 #### 时间类
 
@@ -74,11 +66,7 @@ title: 可视化
 
 显示同一维度上占比关系。
 
-<br />
-
 获取更多图表用法内容，请前往 [AntV 图表用法](https://antv-2018.alipay.com/zh-cn/vis/chart/index.html)
-
-<br />
 
 ### 色板
 
@@ -86,11 +74,7 @@ title: 可视化
 
 AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
-<br />
-
 获取更多色板，请前往 [AntV - 设计语言 - 视觉](https://antv.vision/zh/docs/specification/principles/visual/)
-
-<br />
 
 ### 组件使用建议
 
@@ -133,11 +117,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 图形是统计图表的视觉通道在形状上映射的视觉展现，是图表的主体部分，其他图表组件的目的是帮助读者更好地理解数据在图形上的映射关系。
 
-<br />
-
 获取组件使用建议，请前往 [AntV - 设计语言 - 图表组件设计指引](https://antv.vision/zh/docs/specification/components/titlenotes)
-
-<br />
 
 ### 图表布局适应
 
@@ -148,8 +128,6 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 <img class="preview-img no-padding" align="right" description="设计思路" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*WsO3T5klNMIAAAAAAAAAAABkARQnAQ" />
 
 在 Ant Design 的可视化体系中，我们发展出一套适用于全量图表的布局适应规则，从整体图表、图表内原子组件梳理了适用于所有图表的布局适应体系。以右侧动图为例，图中横轴的轴标签跟随具体尺寸发生了旋转。更多内容即将发布，敬请期待。
-
-<br />
 
 ### 交互
 
@@ -163,10 +141,7 @@ AntV 提供了一套默认的图表颜色，包括颜色的用法，
 
 更多交互式图表内容请前往 [ AntV -- 设计语言 -- 交互](https://antv.vision/zh/docs/specification/principles/interact)
 
-
 # 设计资源
 
 - 最新的图表资产已登陆 「AntDesign 官网 -- 资源 -- AntDesign Chart 资源包」
-- 也可以访问 [Kitchen](https://kitchen.alipay.com/)官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈图表生成器」，用保真数据动态生成图表。
-
-<br />
+- 也可以访问 [Kitchen](https://kitchen.alipay.com/) 官网下载 Sketch 插件，除了可以直接使用源文件之外，还可以使用 Kitchen「📈图表生成器」，用保真数据动态生成图表。

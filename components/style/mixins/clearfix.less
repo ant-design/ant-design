@@ -7,7 +7,8 @@
     content: '';
   }
   &::after {
-    display: block;
+    // https://github.com/ant-design/ant-design/issues/21864
+    display: table;
     clear: both;
     content: '';
   }

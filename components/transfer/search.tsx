@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { CloseCircleFilled, SearchOutlined } from '@ant-design/icons';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
 import Input from '../input';
 

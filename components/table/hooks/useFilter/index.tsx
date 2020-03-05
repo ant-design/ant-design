@@ -11,13 +11,12 @@ import {
 } from '../../interface';
 import { getColumnPos, renderColumnTitle, getColumnKey } from '../../util';
 import FilterDropdown from './FilterDropdown';
-import { ConfigContext } from '../../../config-provider';
-import defaultLocale from '../../../locale/en_US';
 
 export interface FilterState<RecordType> {
   column: ColumnType<RecordType>;
   key: Key;
   filteredKeys?: Key[] | null;
+  forceFiltered?: boolean;
 }
 
 function collectFilterStates<RecordType>(
@@ -39,6 +38,7 @@ function collectFilterStates<RecordType>(
           column,
           key: getColumnKey(column, columnPos),
           filteredKeys: column.filteredValue,
+          forceFiltered: column.filtered,
         });
       } else {
         // Uncontrolled
@@ -47,6 +47,7 @@ function collectFilterStates<RecordType>(
           key: getColumnKey(column, columnPos),
           filteredKeys:
             init && column.defaultFilteredValue ? column.defaultFilteredValue! : undefined,
+          forceFiltered: column.filtered,
         });
       }
     }
@@ -161,6 +162,7 @@ interface FilterConfig<RecordType> {
   prefixCls: string;
   dropdownPrefixCls?: string;
   columns: ColumnsType<RecordType>;
+  locale: TableLocale;
   onFilterChange: (
     filters: Record<string, Key[] | null>,
     filterStates: FilterState<RecordType>[],
@@ -174,14 +176,12 @@ function useFilter<RecordType>({
   columns,
   onFilterChange,
   getPopupContainer,
+  locale: tableLocale,
 }: FilterConfig<RecordType>): [
   TransformColumns<RecordType>,
   FilterState<RecordType>[],
   () => Record<string, Key[] | null>,
 ] {
-  const { locale = defaultLocale } = React.useContext(ConfigContext);
-  const tableLocale = (locale.Table || {}) as TableLocale;
-
   const [filterStates, setFilterStates] = React.useState<FilterState<RecordType>[]>(
     collectFilterStates(columns, true),
   );

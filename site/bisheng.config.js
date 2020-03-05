@@ -3,8 +3,6 @@ const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { version } = require('../package.json');
 
-const isNextVersion = !version.match(/^\d+\.\d+\.\d+$/);
-
 const { webpack } = getWebpackConfig;
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -80,13 +78,13 @@ module.exports = {
       'Template Document': 3,
     },
     docVersions: {
-      '0.9.x': 'http://09x.ant.design',
-      '0.10.x': 'http://010x.ant.design',
-      '0.11.x': 'http://011x.ant.design',
-      '0.12.x': 'http://012x.ant.design',
-      '1.x': 'http://1x.ant.design',
-      '2.x': 'http://2x.ant.design',
       '3.x': 'http://3x.ant.design',
+      '2.x': 'http://2x.ant.design',
+      '1.x': 'http://1x.ant.design',
+      '0.12.x': 'http://012x.ant.design',
+      '0.11.x': 'http://011x.ant.design',
+      '0.10.x': 'http://010x.ant.design',
+      '0.9.x': 'http://09x.ant.design',
     },
   },
   filePathMapper(filePath) {
@@ -148,7 +146,7 @@ module.exports = {
 
     config.plugins.push(
       new webpack.DefinePlugin({
-        antdReproduceVersion: JSON.stringify(isNextVersion ? 'next' : 'latest'),
+        antdReproduceVersion: JSON.stringify(version),
       }),
     );
 

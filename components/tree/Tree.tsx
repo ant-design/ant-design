@@ -88,15 +88,8 @@ export interface AntTreeNodeDropEvent {
   event: React.MouseEvent<HTMLElement>;
 }
 
-export interface TreeNodeNormal {
-  title?: React.ReactNode;
-  key: string;
-  isLeaf?: boolean;
-  disabled?: boolean;
-  disableCheckbox?: boolean;
-  selectable?: boolean;
-  children?: TreeNodeNormal[];
-}
+// [Legacy] Compatible for v3
+export type TreeNodeNormal = DataNode;
 
 export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
   showLine?: boolean;
@@ -140,7 +133,6 @@ export interface TreeProps extends Omit<RcTreeProps, 'prefixCls'> {
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;
-  treeData?: Array<TreeNodeNormal>;
 }
 
 export default class Tree extends React.Component<TreeProps, any> {

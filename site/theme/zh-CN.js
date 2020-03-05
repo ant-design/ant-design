@@ -30,7 +30,7 @@ module.exports = {
     'app.demo.codesandbox': '在 CodeSandbox 中打开',
     'app.demo.stackblitz': '在 Stackblitz 中打开',
     'app.demo.riddle': '在 Riddle 中打开',
-    'app.home.slogan': '一个 UI 设计语言',
+    'app.home.slogan': '一套企业级 UI 设计语言和 React 组件库',
     'app.home.introduce': '企业级产品设计体系，创造高效愉悦的工作体验',
     'app.home.recommend': '精彩推荐',
     'app.home.popularize': '推广',

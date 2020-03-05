@@ -160,9 +160,8 @@ function Descriptions({
                 prefixCls={prefixCls}
                 vertical={layout === 'vertical'}
                 bordered={bordered}
-              >
-                {row}
-              </Row>
+                row={row}
+              />
             ))}
           </tbody>
         </table>

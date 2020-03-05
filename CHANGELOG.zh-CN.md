@@ -15,6 +15,55 @@ timeline: true
 
 ---
 
+## 4.0.1
+
+`2020-03-04`
+
+- Form
+  - 🐞 修复 Form help 受控时会导致 `react@16.13` 报警告的问题。[#21800](https://github.com/ant-design/ant-design/pull/21800) [#21702](https://github.com/ant-design/ant-design/pull/21702)
+  - 🐞 修复 Form.Item 宽度在内容过长时会超出 Form 的样式问题。[#21682](https://github.com/ant-design/ant-design/pull/21682)
+- Input
+  - 🐞 修复 TextArea 样式在 `react@16.13` 下会报警告的问题。[#21703](https://github.com/ant-design/ant-design/pull/21703)
+  - 🐞 修复 Input.Search 有 `prefix` 时的右边框样式问题。[#21753](https://github.com/ant-design/ant-design/pull/21753)
+- Table
+  - 🐞 修复 Table column 的 `filtered` 属性无效的问题。[#21825](https://github.com/ant-design/ant-design/pull/21825)
+  - 🐞 修复 Table `locale` 无效的问题。[#21772](https://github.com/ant-design/ant-design/pull/21772)
+  - 🐞 修复 Table.Column `sortOrder` 在 JSX 模式下无效的问题。[#21719](https://github.com/ant-design/ant-design/pull/21719)
+  - 🐞 修复 Table 固定列在排序状态时的样式问题。[#21679](https://github.com/ant-design/ant-design/pull/21679)
+- 🐞 修复 Dropdown 菜单里箭头图标的位置。[#21768](https://github.com/ant-design/ant-design/pull/21768) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 修复 List 组件 `bordered` 和 `split` 属性冲突的问题。[#21784](https://github.com/ant-design/ant-design/pull/21784) [@MXWXZ](https://github.com/MXWXZ)
+- 🐞 修复 Menu.Item 中 `a` 标签换行无法显示的问题。[#21699](https://github.com/ant-design/ant-design/pull/21699) [@shaodahong](https://github.com/shaodahong)
+- 🐞 修复 `message.open` 中 `icon` 为空时报错的问题。[#21747](https://github.com/ant-design/ant-design/pull/21747) [@AshoneA](https://github.com/AshoneA)
+- 🐞 修复 Result `status` 属性不能赋值 string 或者 number 类型的问题。[#21691](https://github.com/ant-design/ant-design/pull/21691)
+- 🐞 修复 Descriptions 报 `key` 重复的警告信息。[#21688](https://github.com/ant-design/ant-design/pull/21688)
+- 💄 优化 Calendar 在窄屏幕下的标题样式。[#21813](https://github.com/ant-design/ant-design/pull/21813)
+- 💄 Radio.Group 不再折行。[#21813](https://github.com/ant-design/ant-design/pull/21813)
+- 🛠 重构 icons 导入代码以降低没有开启 tree shaking 的打包尺寸。[#21752](https://github.com/ant-design/ant-design/pull/21752)
+- Typescript
+  - 🐞 修复 Radio.Button 的类型定义。[#21807](https://github.com/ant-design/ant-design/pull/21807) [@jhoneybee](https://github.com/jhoneybee)
+  - 🐞 修复了 `TreeSelect.SHOW_*` 的类型问题。[#21791](https://github.com/ant-design/ant-design/pull/21791) [@TennyZhuang](https://github.com/TennyZhuang)
+  - 🐞 修复 TreeSelect 缺失 `suffix` 定义。[#21714](https://github.com/ant-design/ant-design/pull/21714)
+  - 🐞 修复 Drawer `forceRender` 的 TypeScript 定义。[#21774](https://github.com/ant-design/ant-design/pull/21774)
+  - 🐞 修复 Tree `treeData` 定义。[#21756](https://github.com/ant-design/ant-design/pull/21756)
+  - 🐞 修复 Form.Item `renderProps` 的类型定义。[#21716](https://github.com/ant-design/ant-design/pull/21716)
+
+## 4.0.0
+
+`2020-02-28`
+
+- 🏆 Ant Design v4 发布！点击[此处](https://github.com/ant-design/ant-design/issues/21656)查看更多信息。
+- 🐞 Breadcrumb 使用 `path` 作为默认 key 以修复 `name` 作为 key 重名的冲突问题。[#21583](https://github.com/ant-design/ant-design/pull/21583) [@douxc](https://github.com/douxc)
+- 🌟 Timeline.Item 支持 `label`。[#21560](https://github.com/ant-design/ant-design/pull/21560) [@shaodahong](https://github.com/shaodahong)
+- 🐞 修复 Table 筛选菜单高度溢出屏幕的问题。[#21602](https://github.com/ant-design/ant-design/pull/21602)
+- 💄 增加 Calendar 组件自定义显示内容的默认字体颜色。[#21598](https://github.com/ant-design/ant-design/pull/21598) [@xrkffgg](https://github.com/xrkffgg)
+- 🚮 移除 DatePicker 针对自定义单元格的 3.x 的兼容类名。[#21589](https://github.com/ant-design/ant-design/pull/21589)
+- 🐞 修复 RangePicker 在 IE11 下的样式渲染问题。[#21587](https://github.com/ant-design/ant-design/pull/21587)
+- 🛠 Progress 中 `strokeColor` 属性现在会忽略错误的百分比参数。[#21564](https://github.com/ant-design/ant-design/pull/21564) [@AshoneA](https://github.com/AshoneA)
+- 🐞 修复 Progress `trailColor` 属性在 `type=line` 时无效果的问题。[#21552](https://github.com/ant-design/ant-design/pull/21552) [@AshoneA](https://github.com/AshoneA)
+- 🐞 修复暗色主题下，组件在弹出层组件下的背景样式问题。[#21299](https://github.com/ant-design/ant-design/pull/21299)
+  - 💄 优化暗色主题下色板透明度。
+  - 🌟 新增 less 变量 `@popover-customize-border-color`、`@list-customize-card-bg`、`@table-expand-icon-bg`、`@steps-background`、`@pagination-item-input-bg` 用于主题定制。
+
 ## 4.0.0-rc.6
 
 `2020-02-24`
@@ -63,7 +112,7 @@ timeline: true
 - 🐞 修复 Alert 关闭按钮额外的 `padding`。[#21325](https://github.com/ant-design/ant-design/pull/21325)
 - 💄 微调 Steps 文本 1px 使其居中对齐。[#21306](https://github.com/ant-design/ant-design/pull/21306)
 - 💄 修复遗留的 Button.Group `large` 尺寸的样式问题。[#21307](https://github.com/ant-design/ant-design/pull/21307)
-- 💄 修正 TextArea `allowClear` 中的输入边框半径的样式问题和 Input `Suffix` 在 Firefox 下的样式问题。[#21316](https://github.com/ant-design/ant-design/pull/21316)
+- 💄 修正 TextArea `allowClear` 中的输入边框半径的样式问题和 Input `suffix` 在 Firefox 下的样式问题。[#21316](https://github.com/ant-design/ant-design/pull/21316)
 - 🐞 Pagination 自定义 `itemRender` 返回的上一页下一页现在会补充 `disabled` 属性。[#21361](https://github.com/ant-design/ant-design/pull/21361)
 - 🇦🇿 添加了阿塞拜疆语翻译。[#21387](https://github.com/ant-design/ant-design/pull/21387) [@orkhan-huseyn](https://github.com/orkhan-huseyn)
 - Typescript
@@ -96,7 +145,7 @@ timeline: true
 - 🐞 修复 Radio.Group 中使用 Badge 的样式问题。[#21215](https://github.com/ant-design/ant-design/pull/21215)
 - 🐞 修复 Select 在多选或标签模式下上下行之间没有外间距的问题。[#21175](https://github.com/ant-design/ant-design/pull/21175)
 - 🐞 修复 Slider 的锚点聚焦样式错误的问题。[#21244](https://github.com/ant-design/ant-design/pull/21244) [@Kermit-Xuan](https://github.com/Kermit-Xuan)
-- 🐞 修复 Steps 在 size="small" 和 labelPlacement="vertical" 时图标没有对齐的问题。[#21258](https://github.com/ant-design/ant-design/pull/21258)
+- 🐞 修复 Steps 在 `size="small"` 和 `labelPlacement="vertical"` 时图标没有对齐的问题。[#21258](https://github.com/ant-design/ant-design/pull/21258)
 - Table
   - 🐞 修复数据项没有 `children` 字段时 `expandIcon` 属性不生效的问题。[#21169](https://github.com/ant-design/ant-design/pull/21169)
   - 🐞 修复 Column 的 `sorter` 属性不生效的问题。[#21194](https://github.com/ant-design/ant-design/pull/21194)
@@ -112,15 +161,14 @@ timeline: true
 `2020-01-27`
 
 - 🛠 移除 Countdown 组件的 `moment` 依赖。[#21108](https://github.com/ant-design/ant-design/pull/21108) [@morenyang](https://github.com/morenyang)
-- 🐞 修复 Input `suffix / prefix` 样式与 `addonBefore / addonAfter` 冲突的问题。[#21105](https://github.com/ant-design/ant-design/pull/21105) [@zombieJ](https://github.com/zombieJ)
-- 💄 完善 Timeline 组件 RTL 模式下样式。[#21068](https://github.com/ant-design/ant-design/pull/21068) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 修复 Input `suffix / prefix` 样式与 `addonBefore / addonAfter` 冲突的问题。[#21105](https://github.com/ant-design/ant-design/pull/21105)
+- 💄 完善 Timeline 组件 RTL 模式下的样式。[#21068](https://github.com/ant-design/ant-design/pull/21068) [@xrkffgg](https://github.com/xrkffgg)
 - 💄 更新基本样式 `clearfix` 移除过时的 `zoom` 属性。[#21109](https://github.com/ant-design/ant-design/pull/21109) [@morenyang](https://github.com/morenyang)
-- 💄Card 组件使用 `@font-size-base` 变量以代替固定的 `14px`。[#21107](https://github.com/ant-design/ant-design/pull/21107) [@morenyang](https://github.com/morenyang)
+- 💄 Card 组件使用 `@font-size-base` 变量以代替固定的 `14px`。[#21107](https://github.com/ant-design/ant-design/pull/21107) [@morenyang](https://github.com/morenyang)
 - 💄 调整 Layout 组件传入的 `className` 到最后以提高其优先级。[#21074](https://github.com/ant-design/ant-design/pull/21074) [@yoyo837](https://github.com/yoyo837)
-
 - Typescript
   - 🐞 修复 Tree 中 AntTreeNodeMouseEvent 的定义问题。[#21102](https://github.com/ant-design/ant-design/pull/21102) [@Jirka-Lhotka](https://github.com/Jirka-Lhotka)
-  - 🐞 修复 Form.Item 返回的类型定义。[#21067](https://github.com/ant-design/ant-design/pull/21067) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 修复 Form.Item 返回的类型定义。[#21067](https://github.com/ant-design/ant-design/pull/21067)
 
 ## 4.0.0-rc.2
 

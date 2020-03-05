@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import * as React from 'react';
 import classNames from 'classnames';
-import { LoadingOutlined } from '@ant-design/icons';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import omit from 'omit.js';
 
 import Group from './button-group';

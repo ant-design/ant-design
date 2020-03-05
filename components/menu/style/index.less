@@ -62,7 +62,9 @@
   }
 
   &-item > a {
-    display: block;
+    &:only-child {
+      display: block;
+    }
     color: @menu-item-color;
     &:hover {
       color: @menu-highlight-color;
@@ -372,7 +374,9 @@
 
     > .@{menu-prefix-cls}-item {
       > a {
-        display: block;
+        &:only-child {
+          display: block;
+        }
         color: @menu-item-color;
         &:hover {
           color: @menu-highlight-color;
@@ -520,6 +524,9 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+    }
+    .anticon {
+      display: block;
     }
   }
 

@@ -1,11 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {
-  LoadingOutlined,
-  CloseCircleFilled,
-  CheckCircleFilled,
-  ExclamationCircleFilled,
-} from '@ant-design/icons';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import useMemo from 'rc-util/lib/hooks/useMemo';
 import CSSMotion from 'rc-animate/lib/CSSMotion';
 
@@ -61,7 +59,14 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = ({
     errors,
     changedVisible => {
       if (changedVisible) {
-        onDomErrorVisibleChange(true);
+        /**
+         * We trigger in sync to avoid dom shaking but this get warning in react 16.13.
+         * So use Promise to keep in micro async to handle this.
+         * https://github.com/ant-design/ant-design/issues/21698#issuecomment-593743485
+         */
+        Promise.resolve().then(() => {
+          onDomErrorVisibleChange(true);
+        });
       }
       forceUpdate({});
     },

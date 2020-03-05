@@ -4,13 +4,11 @@ import arrayTreeFilter from 'array-tree-filter';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import KeyCode from 'rc-util/lib/KeyCode';
-import {
-  CloseCircleFilled,
-  DownOutlined,
-  RightOutlined,
-  RedoOutlined,
-  LeftOutlined,
-} from '@ant-design/icons';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
+import RedoOutlined from '@ant-design/icons/RedoOutlined';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
 import Input from '../input';
 import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';

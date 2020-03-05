@@ -12,13 +12,26 @@ const { TabPane } = Tabs;
 export default () => {
   const containerRef = React.useRef<HTMLDivElement>(null);
   const idsRef = React.useRef<string[]>([]);
-  const [, forceUpdate] = React.useState<{}>({});
+  const [loaded, setLoaded] = React.useState(false);
   const [fixedId, setFixedId] = React.useState<string | null>(null);
+
+  function scrollToId(id: string) {
+    const newTop =
+      document.getElementById(id)!.offsetTop - containerRef.current!.offsetHeight - VIEW_BALANCE;
+    scrollTo(newTop);
+  }
 
   React.useEffect(() => {
     idsRef.current = Array.from(document.querySelectorAll('h2[id]')).map(({ id }) => id);
-    forceUpdate({});
+    setLoaded(true);
   }, []);
+
+  React.useEffect(() => {
+    const hashId = decodeURIComponent((location.hash || '').slice(1));
+    if (hashId) {
+      scrollToId(hashId);
+    }
+  }, [loaded]);
 
   const onSyncAffix = React.useMemo(() => {
     function doSync() {
@@ -63,11 +76,7 @@ export default () => {
       <Tabs
         activeKey={fixedId || undefined}
         onChange={key => {
-          const newTop =
-            document.getElementById(key)!.offsetTop -
-            containerRef.current!.offsetHeight -
-            VIEW_BALANCE;
-          scrollTo(newTop);
+          scrollToId(key);
         }}
       >
         {idsRef.current.map(id => (

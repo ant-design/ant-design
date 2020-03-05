@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.0.0-rc.6",
+  "version": "4.0.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "keywords": [
     "ant",
@@ -91,7 +91,7 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/icons": "^4.0.0-rc.0",
+    "@ant-design/icons": "^4.0.0",
     "@ant-design/react-slick": "~0.25.5",
     "array-tree-filter": "^2.1.0",
     "classnames": "~2.2.6",
@@ -114,7 +114,7 @@
     "rc-mentions": "~1.0.0",
     "rc-menu": "~8.0.1",
     "rc-notification": "~4.0.0",
-    "rc-pagination": "~1.21.0",
+    "rc-pagination": "~2.0.1",
     "rc-picker": "~1.1.0",
     "rc-progress": "~2.5.0",
     "rc-rate": "~2.5.1",
@@ -123,7 +123,7 @@
     "rc-slider": "~9.2.1",
     "rc-steps": "~3.5.0",
     "rc-switch": "~1.9.0",
-    "rc-table": "~7.0.0",
+    "rc-table": "~7.1.0",
     "rc-tabs": "~10.0.0",
     "rc-tooltip": "~4.0.0",
     "rc-tree": "~3.0.0",
@@ -131,10 +131,9 @@
     "rc-trigger": "~4.0.0",
     "rc-upload": "~3.0.0",
     "rc-util": "^4.20.0",
-    "rc-virtual-list": "^0.0.0",
+    "rc-virtual-list": "~1.0.0",
     "resize-observer-polyfill": "^1.5.1",
     "scroll-into-view-if-needed": "^2.2.20",
-    "shallowequal": "^1.1.0",
     "warning": "~4.0.3"
   },
   "devDependencies": {
@@ -155,11 +154,10 @@
     "@types/react": "^16.9.21",
     "@types/react-color": "^3.0.1",
     "@types/react-dom": "^16.9.5",
-    "@types/shallowequal": "^1.1.1",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^2.19.0",
     "@typescript-eslint/parser": "^2.19.0",
-    "antd-pro-merge-less": "^2.0.28",
+    "antd-pro-merge-less": "^3.0.3",
     "antd-theme-generator": "^1.1.6",
     "babel-eslint": "^10.0.1",
     "babel-plugin-add-react-displayname": "^0.0.5",
@@ -251,8 +249,8 @@
     "yaml-front-matter": "^4.0.0"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

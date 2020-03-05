@@ -208,7 +208,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
       >
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-prev"
+          class="ant-pagination-prev ant-pagination-disabled"
           title="Previous Page"
         >
           <a
@@ -248,7 +248,7 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
         </li>
         <li
           aria-disabled="true"
-          class="ant-pagination-disabled ant-pagination-next"
+          class="ant-pagination-next ant-pagination-disabled"
           title="Next Page"
         >
           <a

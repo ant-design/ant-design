@@ -62,7 +62,12 @@ export default function Home() {
         <BlockContent
           title={<FormattedMessage id="app.home.more" />}
           extra={
-            <Link to={getLocalizedPathname('/docs/spec/article', isZhCN)}>
+            <Link
+              to={getLocalizedPathname('/docs/resources', isZhCN, {
+                zhCN: '文章',
+                enUS: 'Articles',
+              })}
+            >
               <FormattedMessage id="app.home.view-more" />
             </Link>
           }

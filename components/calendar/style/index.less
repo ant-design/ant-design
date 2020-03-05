@@ -12,14 +12,9 @@
   &-header {
     display: flex;
     justify-content: flex-end;
-    padding: 11px 16px 11px 0;
-
-    .@{calendar-prefix-cls}-year-select {
-      min-width: 85px;
-    }
+    padding: @padding-sm 0;
 
     .@{calendar-prefix-cls}-month-select {
-      min-width: 70px;
       margin-left: @padding-xs;
     }
 
@@ -40,7 +35,7 @@
     }
 
     .@{calendar-picker-prefix-cls}-body {
-      padding: @padding-xs @padding-sm;
+      padding: @padding-xs 0;
     }
 
     .@{calendar-picker-prefix-cls}-content {
@@ -63,21 +58,6 @@
 
   // ========================== Full ==========================
   &-full {
-    .@{calendar-prefix-cls}-header {
-      .@{calendar-prefix-cls}-year-select {
-        width: 90px;
-      }
-
-      .@{calendar-prefix-cls}-month-select {
-        width: 80px;
-        margin-left: @padding-xs;
-      }
-
-      .@{calendar-prefix-cls}-mode-switch {
-        margin-left: @padding-md;
-      }
-    }
-
     .@{calendar-picker-prefix-cls}-panel {
       display: block;
       width: 100%;
@@ -165,3 +145,31 @@
     }
   }
 }
+
+@media only screen and (max-width: @screen-xs) {
+  .@{calendar-prefix-cls} {
+    &-header {
+      display: block;
+
+      .@{calendar-prefix-cls}-year-select {
+        width: 50%;
+      }
+  
+      .@{calendar-prefix-cls}-month-select {
+        width: ~'calc(50% - @{padding-xs})';
+      }
+
+      .@{calendar-prefix-cls}-mode-switch {
+        width: 100%;
+        margin-top: @padding-xs;
+        margin-left: 0;
+
+        > label {
+          width: 50%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+

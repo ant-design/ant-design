@@ -47,9 +47,9 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
       config.plugins.push(
         new PacktrackerPlugin({
-          project_token: '8adbb892-ee4a-4d6f-93bb-a03219fb6778',
+          project_token: '30c6a021-96c0-4d67-8bd2-0d2fcbd8962b',
           upload: process.env.CI === 'true',
-          fail_build: true,
+          fail_build: false,
           exclude_assets: name => !['antd.min.js', 'antd.min.css'].includes(name),
         }),
         new BundleAnalyzerPlugin({
@@ -83,9 +83,9 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       // https://docs.packtracker.io/uploading-your-webpack-stats/webpack-plugin
       config.plugins.push(
         new PacktrackerPlugin({
-          project_token: '8adbb892-ee4a-4d6f-93bb-a03219fb6778',
+          project_token: '30c6a021-96c0-4d67-8bd2-0d2fcbd8962b',
           upload: process.env.CI === 'true',
-          fail_build: true,
+          fail_build: false,
           exclude_assets: name => !['antd.dark.min.js', 'antd.dark.min.css'].includes(name),
         }),
       );
