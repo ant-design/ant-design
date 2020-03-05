@@ -4939,7 +4939,7 @@ exports[`renders ./components/table/demo/fixed-columns.md correctly 1`] = `
         >
           <div
             class="ant-table-content"
-            style="overflow-x:scroll"
+            style="overflow-x:scroll;overflow-y:hidden"
           >
             <table
               style="width:1300px;min-width:100%;table-layout:fixed"
