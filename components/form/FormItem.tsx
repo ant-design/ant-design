@@ -67,11 +67,23 @@ function FormItem(props: FormItemProps): React.ReactElement {
     validateTrigger = 'onChange',
     ...restProps
   } = props;
+  const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
-  const [domErrorVisible, setDomErrorVisible] = React.useState(!!help);
-  const [inlineErrors, setInlineErrors] = React.useState<Record<string, string[]>>({});
+  const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const [inlineErrors, innerSetInlineErrors] = React.useState<Record<string, string[]>>({});
+
+  function setDomErrorVisible(visible: boolean) {
+    if (!destroyRef.current) {
+      innerSetDomErrorVisible(visible);
+    }
+  }
+  function setInlineErrors(errors: Record<string, string[]>) {
+    if (!destroyRef.current) {
+      innerSetInlineErrors(errors);
+    }
+  }
 
   const { name: formName } = formContext;
   const hasName = hasValidName(name);
@@ -82,6 +94,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   // Should clean up if Field removed
   React.useEffect(() => {
     return () => {
+      destroyRef.current = true;
       updateItemErrors(nameRef.current.join('__SPLIT__'), []);
     };
   }, []);
