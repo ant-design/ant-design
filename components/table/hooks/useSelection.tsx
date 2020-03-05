@@ -35,6 +35,7 @@ interface UseSelectionConfig<RecordType> {
   getRecordByKey: (key: Key) => RecordType;
   expandType: ExpandType;
   childrenColumnName: string;
+  expandIconColumnIndex?: number;
   locale: TableLocale;
 }
 
@@ -86,6 +87,7 @@ export default function useSelection<RecordType>(
     expandType,
     childrenColumnName,
     locale: tableLocale,
+    expandIconColumnIndex,
   } = config;
 
   const [innerSelectedKeys, setInnerSelectedKeys] = React.useState<Key[]>();
@@ -410,7 +412,7 @@ export default function useSelection<RecordType>(
         render: renderCell,
       };
 
-      if (expandType === 'row' && columns.length) {
+      if (expandType === 'row' && columns.length && !expandIconColumnIndex) {
         const [expandColumn, ...restColumns] = columns;
         return [
           expandColumn,
