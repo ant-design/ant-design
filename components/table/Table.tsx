@@ -54,13 +54,7 @@ interface ChangeEventInfo<RecordType> {
 export interface TableProps<RecordType>
   extends Omit<
     RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'expandIconColumnIndex'
-    | 'scroll'
+    'transformColumns' | 'internalHooks' | 'internalRefs' | 'data' | 'columns' | 'scroll'
   > {
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
@@ -106,6 +100,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandIcon,
     expandable,
     expandedRowRender,
+    expandIconColumnIndex,
     indentSize,
     childrenColumnName = 'children',
     scroll,
@@ -122,6 +117,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
+
+  const mergedExpandable: ExpandableConfig<RecordType> = {
+    expandIconColumnIndex,
+    ...expandable,
+  };
 
   const expandType: ExpandType = React.useMemo<ExpandType>(() => {
     if (rawData.some(item => (item as any)[childrenColumnName])) {
@@ -310,6 +310,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandType,
     childrenColumnName,
     locale: tableLocale,
+    expandIconColumnIndex: mergedExpandable.expandIconColumnIndex,
   });
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
@@ -329,9 +330,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   };
 
   // ========================== Expandable ==========================
-  const mergedExpandable: ExpandableConfig<RecordType> = {
-    ...expandable,
-  };
 
   // Pass origin render status into `rc-table`, this can be removed when refactor with `rc-table`
   (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
@@ -341,8 +339,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
-  if (expandType === 'nest' && !('expandIconColumnIndex' in mergedExpandable)) {
+  if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
     mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
+  } else if (mergedExpandable.expandIconColumnIndex! > 0 && rowSelection) {
+    mergedExpandable.expandIconColumnIndex! -= 1;
   }
 
   // Indent size
