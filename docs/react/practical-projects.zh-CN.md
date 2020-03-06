@@ -11,64 +11,30 @@ title: 项目实战
 
 > 你可能也会对 [Ant Design Pro](https://pro.ant.design/) 感兴趣，这是一个基于 umi、dva 和 ant design 的开箱即用的中台前端/设计解决方案。
 
-本文会引导你使用 Umi UI、dva 和 antd 从 0 开始创建一个简单应用。
+本文会引导你使用 Umi、dva 和 antd 从 0 开始创建一个简单应用。
 
-## 安装 Umi UI
+## 安装 Umi
 
-推荐使用 yarn 安装 Umi UI，执行以下命令。
-
-> 如果你使用 npm，可执行 `npm install umi -g`，效果一致。
+推荐使用 yarn 创建 Umi 脚手架，执行以下命令。
 
 ```bash
-$ yarn global add umi
-$ umi -v
-2.10.4
+$ mkdir myapp && cd myapp
+$ yarn create @umijs/umi-app
+$ yarn
 ```
 
-确保 umi 版本在 2.10.0 以上。
+> 如果你使用 npm，可执行 `npx @umijs/create-umi-app`，效果一致。
 
-## 创建新应用
+## 安装插件集
 
-启动 Umi UI，
+执行以下命令，安装插件集（包括 antd、dva、国际化等常用插件）：
 
 ```bash
-$ umi ui
-
-🚀 Starting Umi UI using umi@2.10.4...
-🧨  Ready on http://localhost:3000/
+# 或 npm i @umijs/preset-react -D
+$ yarn add @umijs/preset-react -D
 ```
 
-启动后， Umi UI 会自动打开浏览器，点击 `创建项目`，选择路径并输入 `应用名`，如下图：
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/1%24I%24KuXNop/60f0bae2-d803-4339-bc09-8df618ebd916.png" width="718" />
-
-点击 `下一步`，选择 `基础模板`，技术栈选上 `antd` 和 `dva`，然后点击 `完成`。
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/9gmy78Evsp/7978f0b2-8b8c-44fa-84df-bfe9dc6065f4.png" width="718" />
-
-进入到项目创建流程，等待几分钟，
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/cT35jkUl4j/8381545c-7f89-48ef-9e93-8adcdd6a3bb4.png" width="718" />
-
-创建完成后，进入到 `总览`，点击快捷入口 `本地启动`，
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/vGsor%24iku8/531acbd7-f48e-4246-bc77-152117ef56db.png" width="718" />
-
-在任务页中，点击 `启动`，
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/RRYNqxBs9g/72ec5739-ac1f-40a6-8f7a-204c7faba0a7.png" width="718" />
-
-按提示，点击 [http://localhost:8000](http://localhost:8000)，你会看到 umi 的欢迎界面。
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/2Bm%24zoeBpz/ba708131-c7ac-41f0-92a0-c86007291b6a.png" width="718" />
-
-## 使用 antd
-
-前面选择 antd 之后，会自动处理 antd 的依赖以及按需加载。你可以检查 `配置`，确保 antd 已开启。
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/0EFiWipONe/7aea9287-09ff-4396-bb20-d8da28483c2c.png" width="718" />
-
-> 而如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，package.json 里声明的 antd 依赖会被优先使用。
+> 插件默认使用 `"antd": "^4.0.0"`，如果要使用固定版本的 antd，你可以在项目里安装额外的 antd 依赖，`package.json` 里声明的 antd 依赖会被优先使用。
 
 ## 新建路由
 
@@ -77,14 +43,27 @@ $ umi ui
 然后通过命令创建 `/products` 路由，
 
 ```bash
-$ umi g page products
+$ npx umi g page products --typescript
 
-   create src/pages/products.js
-   create src/pages/products.css
-✔  success
+Write: src/pages/products.tsx
+Write: src/pages/products.css
 ```
 
-然后在浏览器里打开 [http://localhost:8000/products](http://localhost:8000/products)，你应该能看到对应的页面。
+在 `.umirc.ts` 中配置路由，如果有国际化需要，可以配置 `locale` 开启 antd 国际化：
+
+```diff
+import { defineConfig } from 'umi';
+
+export default defineConfig({
++ locale: { antd: true },
+  routes: [
+    { path: '/', component: '@/pages/index' },
++   { path: '/products', component: '@/pages/products' },
+  ],
+});
+```
+
+运行 `yarn start` 然后在浏览器里打开 [http://localhost:8000/products](http://localhost:8000/products)，你应该能看到对应的页面。
 
 ## 编写 UI Component
 
@@ -92,11 +71,7 @@ $ umi g page products
 
 我们来编写一个 `ProductList` component，这样就能在不同的地方显示产品列表了。
 
-点击 `在编辑器中打开`，
-
-<img src="https://gw.alipayobjects.com/zos/antfincdn/ffPr49NZ%26p/64fa0ad5-9a7a-43c0-b308-ffe28e680a8b.png" width="718" />
-
-然后新建 `src/components/ProductList.js` 文件：
+然后新建 `src/components/ProductList.tsx` 文件：
 
 ```js
 import { Table, Popconfirm, Button } from 'antd';
@@ -130,12 +105,15 @@ export default ProductList;
 
 dva 通过 `model` 的概念把一个领域的模型管理起来，包含同步更新 state 的 reducers，处理异步逻辑的 effects，订阅数据源的 subscriptions 。
 
-新建 model `src/models/products.js`，
+新建 model `src/models/products.ts`，
 
 ```js
 export default {
   namespace: 'products',
-  state: [],
+  state: [
+    { name: 'dva', id: 'dva' },
+    { name: 'antd', id: 'antd' },
+  ],
   reducers: {
     delete(state, { payload: id }) {
       return state.filter(item => item.id !== id);
@@ -158,11 +136,11 @@ umi 里约定 `src/models` 下的 model 会被自动注入，你无需手动注�
 
 dva 提供了 `connect` 方法。如果你熟悉 redux，这个 connect 来自 react-redux。
 
-编辑 `src/pages/products.js`，替换为以下内容：
+编辑 `src/pages/products.tsx`，替换为以下内容：
 
 ```js
-import { connect } from 'dva';
-import ProductList from '../components/ProductList';
+import { connect } from 'umi';
+import ProductList from '@/components/ProductList';
 
 const Products = ({ dispatch, products }) => {
   function handleDelete(id) {
@@ -184,34 +162,25 @@ export default connect(({ products }) => ({
 }))(Products);
 ```
 
-最后，我们还需要一些初始数据让这个应用 run 起来。编辑 `src/app.js`：
+执行启动命令：
 
-```js
-export const dva = {
-  config: {
-    onError(err) {
-      err.preventDefault();
-      console.error(err.message);
-    },
-    initialState: {
-      products: [
-        { name: 'dva', id: 1 },
-        { name: 'antd', id: 2 },
-      ],
-    },
-  },
-};
+```bash
+$ yarn start
 ```
 
-刷新浏览器，应该能看到以下效果：
+访问 [http://localhost:8000](http://localhost:8000/)，应该能看到以下效果：
 
-<img src="https://zos.alipayobjects.com/rmsportal/GQJeDDeUCSTRMMg.gif" />
+<img src="https://gw.alipayobjects.com/zos/antfincdn/dPsy4tFHN3/umi.gif" />
 
 ## 构建应用
 
-完成开发并且在开发环境验证之后，就需要部署给我们的用户了。点击 `构建`，
+完成开发并且在开发环境验证之后，就需要部署给我们的用户了，执行以下命令：
 
-<img src="https://gw.alipayobjects.com/zos/antfincdn/D%2671c0zDk%26/a6c69c76-28e1-4001-9228-3affe8468e2f.png" width="718" />
+```bash
+$ yarn build
+```
+
+![](https://gw.alipayobjects.com/zos/antfincdn/Zd3f%242NdOK/b911d244-f1a5-4d61-adc5-3710cd86cd1b.png)
 
 构建会打包所有的资源，包含 JavaScript, CSS, web fonts, images, html 等。你可以在 `dist/` 目录下找到这些文件。
 

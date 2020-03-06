@@ -26,7 +26,7 @@
   }
   border-right-width: @border-width-base !important;
   outline: 0;
-  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, 20%);
+  box-shadow: @input-outline-offset @outline-blur-size @outline-width fade(@color, @outline-fade);
 
   .@{input-rtl-cls} & {
     border-right-width: 0;

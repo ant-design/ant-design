@@ -216,4 +216,15 @@ describe('Descriptions', () => {
     matchSpan(2, [2, 2]);
     matchSpan(4, [3, 1]);
   });
+
+  it('number value should render correct', () => {
+    const wrapper = mount(
+      <Descriptions bordered>
+        <Descriptions.Item label={0}>{0}</Descriptions.Item>
+      </Descriptions>,
+    );
+
+    expect(wrapper.find('th').hasClass('ant-descriptions-item-label')).toBeTruthy();
+    expect(wrapper.find('td').hasClass('ant-descriptions-item-content')).toBeTruthy();
+  });
 });

@@ -5847,6 +5847,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
         placeholder="Select date"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -5890,6 +5891,7 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
         placeholder="Select date"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -5933,6 +5935,7 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
         placeholder="Select date"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -5976,6 +5979,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
         placeholder="Select month"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -6019,6 +6023,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
         placeholder="Select month"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -6062,6 +6067,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
         placeholder="Select month"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -6303,6 +6309,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
         placeholder="Select week"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -6346,6 +6353,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
         placeholder="Select week"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -6389,6 +6397,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
         placeholder="Select week"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -7775,7 +7784,7 @@ exports[`ConfigProvider components Menu configProvider 1`] = `
           class="config-menu-item-group-list"
         >
           <li
-            class="config-menu-item"
+            class="config-menu-item config-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -7829,7 +7838,7 @@ exports[`ConfigProvider components Menu normal 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -7883,7 +7892,7 @@ exports[`ConfigProvider components Menu prefixCls 1`] = `
           class="prefix-Menu-item-group-list"
         >
           <li
-            class="prefix-Menu-item"
+            class="prefix-Menu-item prefix-Menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -12978,6 +12987,7 @@ Array [
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -14388,6 +14398,7 @@ Array [
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -15798,6 +15809,7 @@ Array [
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span

@@ -54,3 +54,4 @@ site/theme/template/Content/Article.jsx
 site/theme/template/Content/EditButton.jsx
 site/theme/template/Resources/*.jsx
 site/theme/template/Resources/**/*.jsx
+site/theme/template/NotFound.jsx

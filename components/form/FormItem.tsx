@@ -17,10 +17,9 @@ import { toArray, getFieldId } from './util';
 const ValidateStatuses = tuple('success', 'warning', 'error', 'validating', '');
 export type ValidateStatus = typeof ValidateStatuses[number];
 
-type RenderChildren = (form: FormInstance) => React.ReactElement | null;
+type RenderChildren = (form: FormInstance) => React.ReactNode;
 type RcFieldProps = Omit<FieldProps, 'children'>;
 type ChildrenType = React.ReactElement | RenderChildren | React.ReactElement[] | null;
-type ChildrenNodeType = Exclude<ChildrenType, RenderChildren>;
 
 export interface FormItemProps
   extends FormItemLabelProps,
@@ -68,11 +67,23 @@ function FormItem(props: FormItemProps): React.ReactElement {
     validateTrigger = 'onChange',
     ...restProps
   } = props;
+  const destroyRef = React.useRef(false);
   const { getPrefixCls } = React.useContext(ConfigContext);
   const formContext = React.useContext(FormContext);
   const { updateItemErrors } = React.useContext(FormItemContext);
-  const [domErrorVisible, setDomErrorVisible] = React.useState(!!help);
-  const [inlineErrors, setInlineErrors] = React.useState<Record<string, string[]>>({});
+  const [domErrorVisible, innerSetDomErrorVisible] = React.useState(!!help);
+  const [inlineErrors, innerSetInlineErrors] = React.useState<Record<string, string[]>>({});
+
+  function setDomErrorVisible(visible: boolean) {
+    if (!destroyRef.current) {
+      innerSetDomErrorVisible(visible);
+    }
+  }
+  function setInlineErrors(errors: Record<string, string[]>) {
+    if (!destroyRef.current) {
+      innerSetInlineErrors(errors);
+    }
+  }
 
   const { name: formName } = formContext;
   const hasName = hasValidName(name);
@@ -83,6 +94,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   // Should clean up if Field removed
   React.useEffect(() => {
     return () => {
+      destroyRef.current = true;
       updateItemErrors(nameRef.current.join('__SPLIT__'), []);
     };
   }, []);
@@ -105,7 +117,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
       };
 
   function renderLayout(
-    baseChildren: ChildrenNodeType,
+    baseChildren: React.ReactNode,
     fieldId?: string,
     meta?: Meta,
     isRequired?: boolean,
@@ -202,7 +214,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
   const isRenderProps = typeof children === 'function';
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children as ChildrenNodeType);
+    return renderLayout(children);
   }
 
   const variables: Record<string, string> = {};
@@ -257,7 +269,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           id: fieldId,
         };
 
-        let childNode: ChildrenNodeType = null;
+        let childNode: React.ReactNode = null;
         if (Array.isArray(children) && hasName) {
           warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;

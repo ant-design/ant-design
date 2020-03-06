@@ -84,7 +84,6 @@ Select component to select value from options.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | disabled | Disable this option | boolean | false |  |
-| key | Same usage as `value`. If React request you to set this property, you can set it to value of option, and then omit value property. | string |  |  |
 | title | `title` of Select after select this Option | string | - |  |
 | value | default to filter with this property | string\|number | - |  |
 | className | additional class to option | string | - |  |

@@ -181,7 +181,6 @@ class Tooltip extends React.Component<TooltipProps, any> {
       builtinPlacements ||
       getPlacements({
         arrowPointAtCenter,
-        verticalArrowShift: 8,
         autoAdjustOverflow,
       })
     );
@@ -200,9 +199,6 @@ class Tooltip extends React.Component<TooltipProps, any> {
         placements[key].points[0] === align.points[0] &&
         placements[key].points[1] === align.points[1],
     )[0];
-    if (!placement) {
-      return;
-    }
     // 根据当前坐标设置动画点
     const rect = domNode.getBoundingClientRect();
     const transformOrigin = {

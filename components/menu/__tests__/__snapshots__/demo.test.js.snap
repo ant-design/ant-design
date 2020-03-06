@@ -175,7 +175,7 @@ exports[`renders ./components/menu/demo/horizontal.md correctly 1`] = `
     </div>
   </li>
   <li
-    class="ant-menu-item"
+    class="ant-menu-item ant-menu-item-only-child"
     role="menuitem"
   >
     <a
@@ -273,14 +273,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item ant-menu-item-selected"
+            class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
             role="menuitem"
             style="padding-left:48px"
           >
             Option 1
           </li>
           <li
-            class="ant-menu-item"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -301,14 +301,14 @@ exports[`renders ./components/menu/demo/inline.md correctly 1`] = `
           class="ant-menu-item-group-list"
         >
           <li
-            class="ant-menu-item"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
             Option 3
           </li>
           <li
-            class="ant-menu-item"
+            class="ant-menu-item ant-menu-item-only-child"
             role="menuitem"
             style="padding-left:48px"
           >
@@ -573,28 +573,28 @@ exports[`renders ./components/menu/demo/inline-collapsed.md correctly 1`] = `
         role="menu"
       >
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 5
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 6
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 7
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -701,28 +701,28 @@ exports[`renders ./components/menu/demo/sider-current.md correctly 1`] = `
       role="menu"
     >
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 1
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 2
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
         Option 3
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
         style="padding-left:48px"
       >
@@ -953,14 +953,14 @@ exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
         role="menu"
       >
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 3
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
@@ -1102,28 +1102,28 @@ exports[`renders ./components/menu/demo/theme.md correctly 1`] = `
         role="menu"
       >
         <li
-          class="ant-menu-item ant-menu-item-selected"
+          class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 1
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 2
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >
           Option 3
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:48px"
         >

@@ -413,6 +413,8 @@ describe('Form', () => {
       ).toEqual("'name' is required");
 
       await change(wrapper, 0, 'p');
+      await delay(100);
+      wrapper.update();
       expect(
         wrapper
           .find('.ant-form-item-explain')
@@ -614,5 +616,31 @@ describe('Form', () => {
         .first()
         .text(),
     ).toEqual('Bamboo is good!');
+  });
+
+  it('return same form instance', () => {
+    const instances = new Set();
+
+    const App = () => {
+      const [form] = Form.useForm();
+      instances.add(form);
+      const [, forceUpdate] = React.useState({});
+      return (
+        <button
+          type="button"
+          onClick={() => {
+            forceUpdate({});
+          }}
+        >
+          Refresh
+        </button>
+      );
+    };
+
+    const wrapper = mount(<App />);
+    for (let i = 0; i < 5; i += 1) {
+      wrapper.find('button').simulate('click');
+    }
+    expect(instances.size).toEqual(1);
   });
 });

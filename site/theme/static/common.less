@@ -83,16 +83,31 @@ a {
     > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item,
     &.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-item {
       padding-left: 40px !important;
+
+      .ant-row-rtl & {
+        padding-right: 40px !important;
+        padding-left: 16px !important;
+      }
     }
 
     // Nest Category > Type > Article
     &.ant-menu-inline {
       .ant-menu-item-group-title {
         padding-left: 56px;
+
+        .ant-row-rtl & {
+          padding-right: 56px;
+          padding-left: 16px;
+        }
       }
 
       .ant-menu-item-group-list > .ant-menu-item {
         padding-left: 80px !important;
+
+        .ant-row-rtl & {
+          padding-right: 80px !important;
+          padding-left: 16px !important;
+        }
       }
     }
 

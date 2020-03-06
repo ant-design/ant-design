@@ -12,6 +12,7 @@ Array [
         placeholder="Select date"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -621,6 +622,7 @@ Array [
         placeholder="Избери дата"
         readonly=""
         size="12"
+        title="2000-01-01"
         value="2000-01-01"
       />
       <span
