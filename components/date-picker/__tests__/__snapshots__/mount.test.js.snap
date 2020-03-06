@@ -11,6 +11,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       placeholder="Select date"
       readonly=""
       size="12"
+      title=""
       value=""
     />
     <span
@@ -52,6 +53,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       placeholder="Select month"
       readonly=""
       size="12"
+      title=""
       value=""
     />
     <span
@@ -93,6 +95,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
       placeholder="Select week"
       readonly=""
       size="12"
+      title=""
       value=""
     />
     <span

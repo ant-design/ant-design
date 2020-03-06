@@ -12,6 +12,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -54,6 +55,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="11"
+        title=""
         value=""
       />
       <span
@@ -95,6 +97,7 @@ exports[`renders ./components/time-picker/demo/12hours.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -140,6 +143,7 @@ exports[`renders ./components/time-picker/demo/addon.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
+      title=""
       value=""
     />
     <span
@@ -184,6 +188,7 @@ exports[`renders ./components/time-picker/demo/basic.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
+      title=""
       value=""
     />
     <span
@@ -229,6 +234,7 @@ exports[`renders ./components/time-picker/demo/disabled.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
+      title=""
       value=""
     />
     <span
@@ -273,6 +279,7 @@ exports[`renders ./components/time-picker/demo/hide-column.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
+      title=""
       value=""
     />
     <span
@@ -341,6 +348,7 @@ exports[`renders ./components/time-picker/demo/interval-options.md correctly 1`]
       placeholder="Select time"
       readonly=""
       size="10"
+      title=""
       value=""
     />
     <span
@@ -455,6 +463,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -520,6 +529,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -585,6 +595,7 @@ exports[`renders ./components/time-picker/demo/size.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -654,6 +665,7 @@ exports[`renders ./components/time-picker/demo/suffix.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
+      title=""
       value=""
     />
     <span
@@ -695,6 +707,7 @@ exports[`renders ./components/time-picker/demo/value.md correctly 1`] = `
       placeholder="Select time"
       readonly=""
       size="10"
+      title=""
       value=""
     />
     <span
