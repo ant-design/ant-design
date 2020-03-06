@@ -306,7 +306,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 1
@@ -331,7 +331,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item ant-menu-item-selected"
+        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -356,7 +356,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 3
@@ -1170,7 +1170,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
           <div />
         </li>
         <li
-          class="ant-menu-item"
+          class="ant-menu-item ant-menu-item-only-child"
           role="menuitem"
           style="padding-left:24px"
         >
@@ -1315,7 +1315,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 1
@@ -1340,7 +1340,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item ant-menu-item-selected"
+        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -1365,7 +1365,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 3
@@ -1486,7 +1486,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 1
@@ -1511,7 +1511,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item ant-menu-item-selected"
+        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -1536,7 +1536,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 3
@@ -1668,28 +1668,28 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
                 role="menu"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected"
+                  class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
                   role="menuitem"
                   style="padding-left:48px"
                 >
                   option1
                 </li>
                 <li
-                  class="ant-menu-item"
+                  class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
                   style="padding-left:48px"
                 >
                   option2
                 </li>
                 <li
-                  class="ant-menu-item"
+                  class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
                   style="padding-left:48px"
                 >
                   option3
                 </li>
                 <li
-                  class="ant-menu-item"
+                  class="ant-menu-item ant-menu-item-only-child"
                   role="menuitem"
                   style="padding-left:48px"
                 >
@@ -1832,7 +1832,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 1
@@ -1857,7 +1857,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item ant-menu-item-selected"
+        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
         role="menuitem"
       >
         nav 2
@@ -1882,7 +1882,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
         </div>
       </li>
       <li
-        class="ant-menu-item"
+        class="ant-menu-item ant-menu-item-only-child"
         role="menuitem"
       >
         nav 3
@@ -1968,28 +1968,28 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
               role="menu"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
                 role="menuitem"
                 style="padding-left:48px"
               >
                 option1
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
               >
                 option2
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
               >
                 option3
               </li>
               <li
-                class="ant-menu-item"
+                class="ant-menu-item ant-menu-item-only-child"
                 role="menuitem"
                 style="padding-left:48px"
               >

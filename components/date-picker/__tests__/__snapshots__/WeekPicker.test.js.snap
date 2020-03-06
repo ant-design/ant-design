@@ -12,7 +12,6 @@ exports[`WeekPicker should support style prop 1`] = `
       placeholder="Select week"
       readonly=""
       size="12"
-      title=""
       value=""
     />
     <span
