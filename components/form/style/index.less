@@ -73,7 +73,8 @@
   // =                            Label                           =
   // ==============================================================
   &-label {
-    display: inline-flex;
+    display: inline-block;
+    flex-grow: 0;
     overflow: hidden;
     white-space: nowrap;
     text-align: right;
@@ -136,6 +137,7 @@
   &-control {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 
     &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
       width: 100%;
