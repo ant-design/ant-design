@@ -27,6 +27,11 @@
         border: @border-width-base @border-style-base @input-border-color;
         border-left: 0;
       }
+
+      &:hover,
+      &:focus {
+        border-color: @input-hover-border-color;
+      }
     }
 
     &.@{ant-prefix}-input-affix-wrapper {
