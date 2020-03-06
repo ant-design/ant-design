@@ -13,6 +13,7 @@
 @form-prefix-cls: ~'@{ant-prefix}-form';
 @form-item-prefix-cls: ~'@{form-prefix-cls}-item';
 @form-font-height: ceil(@font-size-base * @line-height-base);
+@form-item-label-height: @input-height-base;
 
 .@{form-prefix-cls} {
   .reset-component;
@@ -87,8 +88,7 @@
       // display: inline;
       display: inline-flex;
       align-items: center;
-      height: 100%;
-      height: @input-height-base;
+      height: @form-item-label-height;
       color: @label-color;
       font-size: @form-item-label-font-size;
 

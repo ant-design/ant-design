@@ -27,6 +27,7 @@ describe('Badge', () => {
     expect(wrapper).toMatchSnapshot();
     wrapper = mount(<Badge count="3.5" />);
     expect(wrapper).toMatchSnapshot();
+    expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it('badge dot not showing count == 0', () => {

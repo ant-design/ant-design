@@ -47,11 +47,6 @@ describe('Table.expand', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('should support expandIconColumnIndex', () => {
-    const wrapper = mount(<Table columns={[]} dataSource={data} expandIconColumnIndex={1} />);
-    expect(wrapper.render()).toMatchSnapshot();
-  });
-
   it('expandRowByClick should not block click icon', () => {
     const wrapper = mount(
       <Table
@@ -99,5 +94,66 @@ describe('Table.expand', () => {
     );
 
     expect(wrapper.find('.expand-icon')).toHaveLength(1);
+  });
+
+  describe('expandIconColumnIndex', () => {
+    it('basic', () => {
+      const wrapper = mount(
+        <Table
+          columns={[{ dataIndex: 'key' }]}
+          dataSource={[{ key: 'bamboo' }]}
+          expandable={{
+            expandIconColumnIndex: 1,
+            expandedRowRender: () => '',
+          }}
+        />,
+      );
+
+      expect(
+        wrapper
+          .find('td')
+          .at(0)
+          .text(),
+      ).toEqual('bamboo');
+      expect(
+        wrapper
+          .find('td')
+          .at(1)
+          .find('.ant-table-row-expand-icon').length,
+      ).toBeTruthy();
+    });
+
+    it('work with selection', () => {
+      const wrapper = mount(
+        <Table
+          columns={[{ dataIndex: 'key' }]}
+          dataSource={[{ key: 'bamboo' }]}
+          expandable={{
+            expandIconColumnIndex: 2,
+            expandedRowRender: () => '',
+          }}
+          rowSelection={{}}
+        />,
+      );
+
+      expect(
+        wrapper
+          .find('td')
+          .at(0)
+          .find('.ant-checkbox-input').length,
+      ).toBeTruthy();
+      expect(
+        wrapper
+          .find('td')
+          .at(1)
+          .text(),
+      ).toEqual('bamboo');
+      expect(
+        wrapper
+          .find('td')
+          .at(2)
+          .find('.ant-table-row-expand-icon').length,
+      ).toBeTruthy();
+    });
   });
 });

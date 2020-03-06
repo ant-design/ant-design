@@ -556,13 +556,13 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       tabindex="0"
     >
       <li
-        class="ant-dropdown-menu-item"
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
         role="menuitem"
       >
         Select all data
       </li>
       <li
-        class="ant-dropdown-menu-item"
+        class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
         role="menuitem"
       >
         Invert current page

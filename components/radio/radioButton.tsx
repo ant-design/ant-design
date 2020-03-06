@@ -7,7 +7,7 @@ import RadioGroupContext from './context';
 
 export type RadioButtonProps = AbstractCheckboxProps<RadioChangeEvent>;
 
-const RadioButton = (props: RadioButtonProps) => {
+const RadioButton = (props: RadioButtonProps, ref: React.Ref<any>) => {
   const radioGroupContext = React.useContext(RadioGroupContext);
 
   return (
@@ -19,10 +19,10 @@ const RadioButton = (props: RadioButtonProps) => {
           radioProps.checked = props.value === radioGroupContext.value;
           radioProps.disabled = props.disabled || radioGroupContext.disabled;
         }
-        return <Radio prefixCls={prefixCls} {...radioProps} type="radio" />;
+        return <Radio prefixCls={prefixCls} {...radioProps} type="radio" ref={ref} />;
       }}
     </ConfigConsumer>
   );
 };
 
-export default RadioButton;
+export default React.forwardRef(RadioButton);

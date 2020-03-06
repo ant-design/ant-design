@@ -440,6 +440,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         placeholder="Select date"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -479,6 +480,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         placeholder="Select time"
         readonly=""
         size="10"
+        title=""
         value=""
       />
       <span
@@ -812,6 +814,7 @@ exports[`renders ./components/input/demo/align.md correctly 1`] = `
         placeholder="Select month"
         readonly=""
         size="12"
+        title=""
         value=""
       />
       <span
@@ -1292,6 +1295,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           placeholder="Select date"
           readonly=""
           size="12"
+          title=""
           value=""
         />
         <span
