@@ -290,6 +290,7 @@ describe('ConfigProvider', () => {
           <Input {...props} />
           <Input.Search {...props} />
         </Input.Group>
+        <Input.Password {...props} />
         <Input.TextArea {...props} />
       </div>
     ));
