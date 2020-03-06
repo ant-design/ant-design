@@ -413,6 +413,9 @@ describe('Form', () => {
       ).toEqual("'name' is required");
 
       await change(wrapper, 0, 'p');
+      await delay(100);
+      wrapper.update();
+
       expect(
         wrapper
           .find('.ant-form-item-explain')
