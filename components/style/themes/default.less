@@ -126,6 +126,7 @@
 @outline-blur-size: 0;
 @outline-width: 2px;
 @outline-color: @primary-color;
+@outline-fade: 20%;
 
 @background-color-light: hsv(0, 0, 98%); // background of header and selected item
 @background-color-base: hsv(0, 0, 96%); // Default grey background color
@@ -512,7 +513,7 @@
 @table-border-radius-base: @border-radius-base;
 @table-footer-bg: @background-color-light;
 @table-footer-color: @heading-color;
-@table-header-bg-sm: @table-bg;
+@table-header-bg-sm: @table-header-bg;
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: darken(@table-header-bg, 3%);

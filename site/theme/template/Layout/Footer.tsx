@@ -123,7 +123,10 @@ class Footer extends React.Component<WrappedComponentProps> {
         },
         {
           title: <FormattedMessage id="app.footer.design-resources" />,
-          url: getLocalizedPathname('/docs/resources', isZhCN),
+          url: getLocalizedPathname('/docs/resources', isZhCN, {
+            zhCN: '设计资源',
+            enUS: 'Design-Resources',
+          }),
           LinkComponent: Link,
         },
         {

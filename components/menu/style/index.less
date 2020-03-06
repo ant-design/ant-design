@@ -148,7 +148,9 @@
   &-vertical-left&-sub,
   &-vertical-right&-sub {
     min-width: 160px;
+    max-height: 100vh;
     padding: 0;
+    overflow: auto;
     border-right: 0;
     transform-origin: 0 0;
 
@@ -201,6 +203,16 @@
       .@{menu-prefix-cls}-rtl & {
         margin-right: auto;
         margin-left: 10px;
+      }
+    }
+
+    &.@{menu-prefix-cls}-item-only-child {
+      .@{iconfont-css-prefix} {
+        margin-right: 0;
+
+        .@{menu-prefix-cls}-rtl & {
+          margin-left: 0;
+        }
       }
     }
   }

@@ -1,6 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+function notEmpty(val: any) {
+  return val !== undefined && val !== null;
+}
+
 export interface CellProps {
   itemPrefixCls: string;
   span: number;
@@ -31,15 +35,15 @@ const Cell: React.FC<CellProps> = ({
       <Component
         className={classNames(
           {
-            [`${itemPrefixCls}-item-label`]: label,
-            [`${itemPrefixCls}-item-content`]: content,
+            [`${itemPrefixCls}-item-label`]: notEmpty(label),
+            [`${itemPrefixCls}-item-content`]: notEmpty(content),
           },
           className,
         )}
         style={style}
         colSpan={span}
       >
-        {label || content}
+        {notEmpty(label) ? label : content}
       </Component>
     );
   }

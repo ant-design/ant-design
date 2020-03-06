@@ -3099,6 +3099,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
                   placeholder="Select date"
                   readonly=""
                   size="12"
+                  title=""
                   value=""
                 />
                 <span
@@ -3346,6 +3347,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 placeholder="Select date"
                 readonly=""
                 size="12"
+                title=""
                 value=""
               />
               <span
@@ -3411,6 +3413,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 placeholder="Select date"
                 readonly=""
                 size="21"
+                title=""
                 value=""
               />
               <span
@@ -3476,6 +3479,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 placeholder="Select month"
                 readonly=""
                 size="12"
+                title=""
                 value=""
               />
               <span
@@ -3717,6 +3721,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
                 placeholder="Select time"
                 readonly=""
                 size="10"
+                title=""
                 value=""
               />
               <span
@@ -5500,6 +5505,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 placeholder="Select date"
                 readonly=""
                 size="12"
+                title=""
                 value=""
               />
               <span
@@ -5589,6 +5595,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 placeholder="Select time"
                 readonly=""
                 size="10"
+                title=""
                 value=""
               />
               <span
@@ -5893,6 +5900,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         placeholder="Select date"
                         readonly=""
                         size="12"
+                        title=""
                         value=""
                       />
                       <span
@@ -5960,6 +5968,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                         placeholder="Select date"
                         readonly=""
                         size="12"
+                        title=""
                         value=""
                       />
                       <span
