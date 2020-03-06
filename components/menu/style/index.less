@@ -203,6 +203,16 @@
         margin-left: 10px;
       }
     }
+
+    &.@{menu-prefix-cls}-item-only-child {
+      .@{iconfont-css-prefix} {
+        margin-right: 0;
+
+        .@{menu-prefix-cls}-rtl & {
+          margin-left: 0;
+        }
+      }
+    }
   }
 
   & > &-item-divider {
