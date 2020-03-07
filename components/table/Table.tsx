@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import omit from 'omit.js';
 import RcTable from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import Spin, { SpinProps } from '../spin';
@@ -84,6 +85,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     size: customizeSize,
     bordered,
     dropdownPrefixCls,
@@ -107,6 +109,9 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
   } = props;
+
+  const tableProps = omit(props, ['className', 'style']) as TableProps<RecordType>;
+
   const size = React.useContext(SizeContext);
   const { locale: contextLocale = defaultLocale, renderEmpty, direction } = React.useContext(
     ConfigContext,
@@ -401,12 +406,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     spinProps = loading;
   }
 
-  const wrapperClassNames = classNames(`${prefixCls}-wrapper`, {
+  const wrapperClassNames = classNames(`${prefixCls}-wrapper`, className, {
     [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
   });
   return (
     <div
       className={wrapperClassNames}
+      style={style}
       onTouchMove={e => {
         e.preventDefault();
       }}
@@ -414,10 +420,10 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>
-          {...props}
+          {...tableProps}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
-          className={classNames(className, {
+          className={classNames({
             [`${prefixCls}-middle`]: mergedSize === 'middle',
             [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-bordered`]: bordered,
