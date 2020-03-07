@@ -23,7 +23,7 @@ title: TreeSelect
 | defaultValue | 指定默认选中的条目 | string/string\[] | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |  |
-| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`。 | boolean | true |  |
+| dropdownMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`。`false` 时会关闭虚拟滚动 | boolean \| number | true |  |
 | dropdownStyle | 下拉菜单的样式 | object | - |  |
 | filterTreeNode | 是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值 | boolean\|Function(inputValue: string, treeNode: TreeNode) (函数需要返回 bool 值) | Function |  |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | Function(triggerNode) | () => document.body |  |
@@ -50,6 +50,7 @@ title: TreeSelect
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | 'value' |  |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | 'title' |  |
 | value | 指定当前选中的条目 | string/string\[] | - |  |
+| virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.1.0 |
 | onChange | 选中树节点时调用此函数 | function(value, label, extra) | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
 | onSelect | 被选中时调用 | function(value, node, extra) | - |  |
