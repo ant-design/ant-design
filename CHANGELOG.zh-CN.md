@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 3.26.13
+
+`2020-03-07`
+
+- 🐞 修复 Result `status` 属性不能赋值 `string` 或者 `number` 类型的问题。[#21691](https://github.com/ant-design/ant-design/pull/21691)
+- 🐞 修复 Badge 数字在 10 和 11 切换时的动画错误。[#21887](https://github.com/ant-design/ant-design/pull/21887) [@wendellhu95](https://github.com/wendellhu95)
+- 🐞 修复 DatePicker 日历图标在禁用时的手型。[#21655](https://github.com/ant-design/ant-design/pull/21655) [@jhoneybee](https://github.com/jhoneybee)
+- 🐞 修复 Grid 多个 Row 之间的边距叠加问题。[#21518](https://github.com/ant-design/ant-design/pull/21518) [@felipeptcho](https://github.com/felipeptcho)
+- 🐞 修复 Table 筛选菜单高度溢出屏幕的问题。[#21602](https://github.com/ant-design/ant-design/pull/21602)
+
 ## 3.26.12
 
 `2020-02-24`
