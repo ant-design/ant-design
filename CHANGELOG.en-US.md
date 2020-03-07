@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 3.26.13
+
+`2020-03-07`
+
+- 🐞 Fix Result `status` cannot assigned to `string` or `number` type. [#21691](https://github.com/ant-design/ant-design/pull/21691)
+- 🐞 Fix Badge animation when switch between 10 and 11. [#21887](https://github.com/ant-design/ant-design/pull/21887) [@wendellhu95](https://github.com/wendellhu95)
+- 🐞 Fix DatePicker disabled icon cursor style. [#21655](https://github.com/ant-design/ant-design/pull/21655) [@jhoneybee](https://github.com/jhoneybee)
+- 🐞 Fix Grid multiple Rows `margin` overlapping. [#21518](https://github.com/ant-design/ant-design/pull/21518) [@felipeptcho](https://github.com/felipeptcho)
+- 🐞 Fix Table filter menu max height with many items. [#21602](https://github.com/ant-design/ant-design/pull/21602)
+
+
 ## 3.26.12
 
 `2020-02-24`
