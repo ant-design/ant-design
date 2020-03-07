@@ -1255,9 +1255,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell"
                   title="2000-08-27"
@@ -1378,9 +1376,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view config-picker-cell-selected"
                   title="2000-09-03"
@@ -1501,9 +1497,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view"
                   title="2000-09-10"
@@ -1624,9 +1618,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view"
                   title="2000-09-17"
@@ -1747,9 +1739,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell config-picker-cell-in-view"
                   title="2000-09-24"
@@ -1870,9 +1860,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="config-picker-cell"
                   title="2000-10-01"
@@ -2262,7 +2250,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
                   </div>
                 </td>
                 <td
-                  class="config-picker-cell config-picker-cell-selected config-picker-cell-in-view"
+                  class="config-picker-cell config-picker-cell-in-view config-picker-cell-selected"
                   title="2000-09"
                 >
                   <div
@@ -2546,9 +2534,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2000-08-27"
@@ -2669,9 +2655,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
                   title="2000-09-03"
@@ -2792,9 +2776,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2000-09-10"
@@ -2915,9 +2897,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2000-09-17"
@@ -3038,9 +3018,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell ant-picker-cell-in-view"
                   title="2000-09-24"
@@ -3161,9 +3139,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="ant-picker-cell"
                   title="2000-10-01"
@@ -3553,7 +3529,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-selected"
                   title="2000-09"
                 >
                   <div
@@ -3837,9 +3813,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               </tr>
             </thead>
             <tbody>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell"
                   title="2000-08-27"
@@ -3960,9 +3934,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view prefix-Calendar-cell-selected"
                   title="2000-09-03"
@@ -4083,9 +4055,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view"
                   title="2000-09-10"
@@ -4206,9 +4176,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view"
                   title="2000-09-17"
@@ -4329,9 +4297,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell prefix-Calendar-cell-in-view"
                   title="2000-09-24"
@@ -4452,9 +4418,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
               </tr>
-              <tr
-                class=""
-              >
+              <tr>
                 <td
                   class="prefix-Calendar-cell"
                   title="2000-10-01"
@@ -4844,7 +4808,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
                   </div>
                 </td>
                 <td
-                  class="prefix-Calendar-cell prefix-Calendar-cell-selected prefix-Calendar-cell-in-view"
+                  class="prefix-Calendar-cell prefix-Calendar-cell-in-view prefix-Calendar-cell-selected"
                   title="2000-09"
                 >
                   <div
