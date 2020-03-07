@@ -19,27 +19,54 @@ import { Tree } from 'antd';
 
 const { TreeNode } = Tree;
 
-const initTreeDate = [
+interface DataNode {
+  title: string;
+  key: string;
+  isLeaf?: boolean;
+  children?: DataNode[];
+}
+
+const initTreeDate: DataNode[] = [
   { title: 'Expand to load', key: '0' },
   { title: 'Expand to load', key: '1' },
   { title: 'Tree Node', key: '2', isLeaf: true },
 ];
 
+// It's just a simple demo. You can use tree map to optimize update perf.
+function updateTreeData(list: DataNode[], key: React.Key, children: DataNode[]): DataNode[] {
+  return list.map(node => {
+    if (node.key === key) {
+      return {
+        ...node,
+        children,
+      };
+    } else if (node.children) {
+      return {
+        ...node,
+        children: updateTreeData(node.children, key, children),
+      };
+    }
+    return node;
+  });
+}
+
 const Demo: React.FC<{}> = () => {
   const [treeData, setTreeData] = useState(initTreeDate);
 
-  function onLoadData({ props: { data } }) {
+  function onLoadData({ key, children }) {
     return new Promise(resolve => {
-      if (data.children) {
+      if (children) {
         resolve();
         return;
       }
       setTimeout(() => {
-        data.children = [
-          { title: 'Child Node', key: `${data.key}-0` },
-          { title: 'Child Node', key: `${data.key}-1` },
-        ];
-        setTreeData([...treeData]);
+        setTreeData(origin =>
+          updateTreeData(origin, key, [
+            { title: 'Child Node', key: `${key}-0` },
+            { title: 'Child Node', key: `${key}-1` },
+          ]),
+        );
+
         resolve();
       }, 1000);
     });
@@ -61,14 +88,14 @@ class Demo1 extends React.Component {
     const { treeData } = this.state;
     return new Promise(resolve => {
       const { props } = treeNode;
-      if (treeNode.props.children) {
+      if (treeNode.children) {
         resolve();
         return;
       }
       setTimeout(() => {
-        treeNode.props.dataRef.children = [
-          { title: 'Child Node', key: `${treeNode.props.eventKey}-0` },
-          { title: 'Child Node', key: `${treeNode.props.eventKey}-1` },
+        treeNode.children = [
+          { title: 'Child Node', key: `${treeNode.eventKey}-0` },
+          { title: 'Child Node', key: `${treeNode.eventKey}-1` },
         ];
         this.setState({
           treeData: [...this.state.treeData],
