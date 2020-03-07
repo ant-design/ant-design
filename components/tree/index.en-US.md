@@ -92,4 +92,4 @@ Before `3.4.0`: The number of treeNodes can be very large, but when `checkable=t
 
 ### How to hide file icon when use showLine?
 
-File icon realize by using switcherIcon. You can overwrite the style to hide it: https://codesandbox.io/s/883vo47xp8
+File icon realize by using switcherIcon. You can overwrite the style to hide it: https://codesandbox.io/s/long-moon-go9e2

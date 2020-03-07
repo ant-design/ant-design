@@ -93,4 +93,4 @@ subtitle: 树形控件
 
 ### 在 showLine 时，如何隐藏子节点图标？
 
-文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：https://codesandbox.io/s/883vo47xp8
+文件图标通过 switcherIcon 来实现，如果不需要你可以覆盖对应的样式：https://codesandbox.io/s/long-moon-go9e2
