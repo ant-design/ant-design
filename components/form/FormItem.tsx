@@ -287,10 +287,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           const childProps = { ...children.props, ...mergedControl };
 
           // We should keep user origin event handler
-          const triggers = new Set<string>();
-          [...toArray(trigger), ...toArray(validateTrigger)].forEach(eventName => {
-            triggers.add(eventName);
-          });
+          const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
 
           triggers.forEach(eventName => {
             childProps[eventName] = (...args: any[]) => {
