@@ -15,6 +15,40 @@ timeline: true
 
 ---
 
+## 4.0.2
+
+`2020-03-08`
+
+- Form
+  - 🐞 Fix nest Form.Item dynamic remove will warning in React. [#21896](https://github.com/ant-design/ant-design/pull/21896)
+  - ⚡️ Form `useForm` now return same instance for perfermance. [#21927](https://github.com/ant-design/ant-design/pull/21927)
+  - ⚡️ Refactor Form.Item render logic that will only render once when children is a pure component. [#21991](https://github.com/ant-design/ant-design/pull/21991)
+  - ⚡️ FormContext use a memoized value to avoid trigger FormItem's unintentional renders. [#21980](https://github.com/ant-design/ant-design/pull/21980) [@qiqiboy](https://github.com/qiqiboy)
+- Table
+  - 🐞 Fix Table dropdown popup at abnormal direction. [#21905](https://github.com/ant-design/ant-design/pull/21905)
+  - 🐞 Fix Table `expandIconColumnIndex` display order with `rowSelection`. [#21915](https://github.com/ant-design/ant-design/pull/21915)
+  - 🐞 Fix Table `size="small"` header background color is not same as other size. [#21942](https://github.com/ant-design/ant-design/pull/21942)
+  - 🐞 Fix Table `className` and `style` works on wrong node. [#21974](https://github.com/ant-design/ant-design/pull/21974)
+- Select
+  - 🐞 Fix Select align issue with empty string value. [#21880](https://github.com/ant-design/ant-design/pull/21880)
+  - 🐞 Fix small size Select tag text not align middle. [#21940](https://github.com/ant-design/ant-design/pull/21940) [@xrkffgg](https://github.com/xrkffgg)
+- Menu
+  - 🐞 Fix Menu bottom margin is missing. [#21867](https://github.com/ant-design/ant-design/pull/21867)
+  - 🐞 Fix horizontal Menu extra margin of Menu.Item with only icon. [#21925](https://github.com/ant-design/ant-design/pull/21925)
+  - 🐞 Fix Menu popup menu overflow issue when contains too many items. [#21930](https://github.com/ant-design/ant-design/pull/21930)
+- 🐞 Fix Badge animation when switch between 10 and 11. [#21834](https://github.com/ant-design/ant-design/pull/21834) [@wendellhu95](https://github.com/wendellhu95)
+- 🐞 Fix Radio.Button inside Tooltip throws `Function components cannot be given refs` warning. [#21895](https://github.com/ant-design/ant-design/pull/21895) [@AshoneA](https://github.com/AshoneA)
+- 🐞 Fix Descriptions miss style when content is falsy. [#21901](https://github.com/ant-design/ant-design/pull/21901)
+- 🐞 Fix DatePicker cursor style on `seperator`. [#21937](https://github.com/ant-design/ant-design/pull/21937) [@xrkffgg](https://github.com/xrkffgg)
+- 🐞 Fix ConfigProvider `prefixCls` not working on Input.Password. [#21953](https://github.com/ant-design/ant-design/pull/21953) [@tdida](https://github.com/tdida)
+- 🐞 Fix Carousel `dots` not align center. [#21960](https://github.com/ant-design/ant-design/pull/21960) [@liusiasi](https://github.com/liusiasi)
+- 🐞 Fix Input.Search border style in `rtl` mode. [#21946](https://github.com/ant-design/ant-design/pull/21946) [@xrkffgg](https://github.com/xrkffgg)
+- Less
+  - 🆕 Add `@outline-fade` variable. [#20227](https://github.com/ant-design/ant-design/pull/20227) [@Satloff](https://github.com/Satloff)
+  - 🆕 Add `@form-item-label-height` variable. [#21912](https://github.com/ant-design/ant-design/pull/21912)
+- TypeScript
+  - 🌟 Improve Form.Item `renderProps` definite. [#21911](https://github.com/ant-design/ant-design/pull/21911)
+
 ## 4.0.1
 
 `2020-03-04`
