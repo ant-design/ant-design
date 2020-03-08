@@ -23,6 +23,7 @@ type ChildrenType = React.ReactElement | RenderChildren | React.ReactElement[] |
 
 interface MemoInputProps {
   value: any;
+  update: number;
   children: any;
 }
 
@@ -31,7 +32,7 @@ const MemoInput = React.memo<MemoInputProps>(
     return children;
   },
   (prev, next) => {
-    return prev.value === next.value;
+    return prev.value === next.value && prev.update === next.update;
   },
 );
 
@@ -230,6 +231,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
     return renderLayout(children);
   }
 
+  // Record for real component render
+  const updateRef = React.useRef(0);
+  updateRef.current += 1;
+
   return (
     <Field
       {...props}
@@ -311,7 +316,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
           });
 
           childNode = (
-            <MemoInput value={mergedControl[props.valuePropName || 'value']}>
+            <MemoInput
+              value={mergedControl[props.valuePropName || 'value']}
+              update={updateRef.current}
+            >
               {React.cloneElement(children, childProps)}
             </MemoInput>
           );
