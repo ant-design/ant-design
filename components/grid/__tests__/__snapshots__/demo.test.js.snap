@@ -6,7 +6,7 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col ant-col-24"
+      class="ant-col"
     >
       col
     </div>
@@ -15,12 +15,12 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col ant-col-12"
+      class="ant-col"
     >
       col-12
     </div>
     <div
-      class="ant-col ant-col-12"
+      class="ant-col"
     >
       col-12
     </div>
@@ -29,17 +29,17 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col ant-col-8"
+      class="ant-col"
     >
       col-8
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col"
     >
       col-8
     </div>
     <div
-      class="ant-col ant-col-8"
+      class="ant-col"
     >
       col-8
     </div>
@@ -48,22 +48,22 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col ant-col-6"
+      class="ant-col"
     >
       col-6
     </div>
     <div
-      class="ant-col ant-col-6"
+      class="ant-col"
     >
       col-6
     </div>
     <div
-      class="ant-col ant-col-6"
+      class="ant-col"
     >
       col-6
     </div>
     <div
-      class="ant-col ant-col-6"
+      class="ant-col"
     >
       col-6
     </div>
