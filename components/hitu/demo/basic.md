@@ -14,11 +14,11 @@ title:
 Use HiTu assets through `@ant-design/hitu-assets`.
 
 ```jsx
-import { Common_Primary_Plant01 } from '@ant-design/hitu-assets';
+import { Common_Primary_Plant01 as Plant } from '@ant-design/hitu-assets';
 
 ReactDOM.render(
   <div style={{ textAlign: 'center' }}>
-    <Common_Primary_Plant01 style={{ width: 200, height: 200 }} />
+    <Plant style={{ width: 200, height: 200 }} />
   </div>,
   mountNode,
 );
