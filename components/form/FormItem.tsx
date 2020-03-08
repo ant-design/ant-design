@@ -21,6 +21,20 @@ type RenderChildren = (form: FormInstance) => React.ReactNode;
 type RcFieldProps = Omit<FieldProps, 'children'>;
 type ChildrenType = React.ReactElement | RenderChildren | React.ReactElement[] | null;
 
+interface MemoInputProps {
+  value: any;
+  children: any;
+}
+
+const MemoInput = React.memo<MemoInputProps>(
+  ({ children }) => {
+    return children;
+  },
+  (prev, next) => {
+    return prev.value === next.value;
+  },
+);
+
 export interface FormItemProps
   extends FormItemLabelProps,
     FormItemInputProps,
@@ -296,7 +310,11 @@ function FormItem(props: FormItemProps): React.ReactElement {
             };
           });
 
-          childNode = React.cloneElement(children, childProps);
+          childNode = (
+            <MemoInput value={mergedControl[props.valuePropName || 'value']}>
+              {React.cloneElement(children, childProps)}
+            </MemoInput>
+          );
         } else if (isRenderProps && shouldUpdate && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
