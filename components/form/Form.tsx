@@ -74,7 +74,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   const [wrapForm] = useForm(form);
   wrapForm.__INTERNAL__.name = name;
 
-  const formContextValue = React.memo(
+  const formContextValue = React.useMemo(
     () => ({
       name,
       labelAlign,
