@@ -21,7 +21,10 @@ $('lib/*')
   .isDirectory()
   .filter(
     filename =>
-      !filename.endsWith('style') && !filename.endsWith('_util') && !filename.endsWith('locale'),
+      !filename.endsWith('style') &&
+      !filename.endsWith('_util') &&
+      !filename.endsWith('locale') &&
+      !filename.includes('/hitu'),
   )
   .hasFile('index.js')
   .hasFile('index.d.ts')
