@@ -145,8 +145,8 @@ describe('TextArea', () => {
 
   it('should trigger onResize', () => {
     const onResize = jest.fn();
-    const wrapper = mount(<TextArea onResize={onResize} autosize />);
-
+    const wrapper = mount(<TextArea onResize={onResize} autoSize />);
+    jest.runAllTimers();
     wrapper
       .find('ResizeObserver')
       .instance()
