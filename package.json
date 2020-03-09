@@ -25,6 +25,10 @@
   "contributors": [
     "ant"
   ],
+  "funding": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/ant-design"
+  },
   "files": [
     "dist",
     "lib",
