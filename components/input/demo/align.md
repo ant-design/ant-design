@@ -83,7 +83,6 @@ ReactDOM.render(
       </Option>
       <Option value="Yiminghe">yiminghe</Option>
     </Select>
-    <Select style={{ width: 100 }} combobox defaultValue="jack" />
     <TreeSelect style={{ width: 100 }} />
     <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} />
     <RangePicker />
@@ -93,9 +92,7 @@ ReactDOM.render(
       <RadioButton value="b">Shanghai</RadioButton>
     </RadioGroup>
     <AutoComplete style={{ width: 100 }} placeholder="input here" />
-
     <br />
-
     <Input prefix="$" addonBefore="Http://" addonAfter=".com" defaultValue="mysite" />
   </div>,
   mountNode,
