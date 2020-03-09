@@ -331,6 +331,7 @@ Ant Design 4.0-rc 发布，发布文档请查看[此处](https://github.com/ant-
   - 🌟 范围选择器可以为开始与结束时间单独设置 `disabled`。
   - 🌟 范围选择器可以允许开始与结束时间为空。
   - 🌟 优化手工输入与键盘交互支持。
+  - 🌟 支持 `inputReadOnly` 禁用手动输入。
 - 🌟 移除 Icon，使用 `@ant-design/icons` 代替。[#18217](https://github.com/ant-design/ant-design/pull/18217)
 - Skeleton
   - 🌟 支持 Skeleton.Avatar 占位组件。[#19898](https://github.com/ant-design/ant-design/pull/19898) [@Rustin-Liu](https://github.com/Rustin-Liu)

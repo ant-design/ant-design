@@ -331,6 +331,7 @@ Ant Design 4.0-rc released! Here is the release [document](https://github.com/an
   - 🌟 The range selector can be set to `disabled` separately for the start and end time.
   - 🌟 The range selector allows empty start and end times.
   - 🌟 Optimized manual input and keyboard interaction support.
+  - 🌟 Added `inputReadOnly` to disable manual input.
 - 🌟 Remove Icon and use `@ ant-design / icons` instead. [#18217](https://github.com/ant-design/ant-design/pull/18217)
 - Skeleton
   - 🌟 Support Skeleton.Avatar placeholder component. [#19898](https://github.com/ant-design/ant-design/pull/19898) [@Rustin-Liu](https://github.com/Rustin-Liu)
