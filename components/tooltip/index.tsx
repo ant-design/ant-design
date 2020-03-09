@@ -47,7 +47,7 @@ export interface AbstractTooltipProps {
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   transitionName?: string;
-  trigger?: ActionType;
+  trigger?: ActionType | ActionType[];
   openClassName?: string;
   arrowPointAtCenter?: boolean;
   autoAdjustOverflow?: boolean | AdjustOverflow;
