@@ -57,6 +57,7 @@ export interface TableProps<RecordType>
     RcTableProps<RecordType>,
     'transformColumns' | 'internalHooks' | 'internalRefs' | 'data' | 'columns' | 'scroll'
   > {
+  ref?: React.Ref<HTMLDivElement>;
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
@@ -110,6 +111,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     sortDirections,
     locale,
     showSorterTooltip = true,
+    ref,
   } = props;
 
   const tableProps = omit(props, ['className', 'style']) as TableProps<RecordType>;
@@ -417,6 +419,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     <div
       className={wrapperClassNames}
       style={style}
+      ref={ref}
       onTouchMove={e => {
         e.preventDefault();
       }}
@@ -448,13 +451,19 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
 }
 
-Table.defaultProps = {
+const RefTable = function<RecordType extends object = any>() {
+  return React.forwardRef<HTMLDivElement, TableProps<RecordType>>((props, ref) => (
+    <Table {...props} ref={ref} />
+  ));
+};
+
+RefTable.defaultProps = {
   rowKey: 'key',
 };
 
-Table.SELECTION_ALL = SELECTION_ALL;
-Table.SELECTION_INVERT = SELECTION_INVERT;
-Table.Column = Column;
-Table.ColumnGroup = ColumnGroup;
+RefTable.SELECTION_ALL = SELECTION_ALL;
+RefTable.SELECTION_INVERT = SELECTION_INVERT;
+RefTable.Column = Column;
+RefTable.ColumnGroup = ColumnGroup;
 
-export default Table;
+export default RefTable;
