@@ -57,7 +57,8 @@
 
   &-heading {
     width: 100%;
-    overflow: hidden;
+    .clearfix;
+
     &-title {
       display: block;
       float: left;
@@ -137,7 +138,6 @@
 
   &-content {
     padding-top: 12px;
-    overflow: hidden;
   }
 
   &-footer {
@@ -158,14 +158,14 @@
     }
   }
 
-  @media (max-width: @screen-sm) {
+  @media (max-width: @screen-md) {
     &-heading {
       &-extra {
         display: block;
         float: unset;
+        clear: both;
         width: 100%;
         padding-top: 12px;
-        overflow: hidden;
       }
     }
   }
