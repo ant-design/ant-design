@@ -451,10 +451,16 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
 }
 
-const RefTable = function<RecordType extends object = any>() {
-  return React.forwardRef<HTMLDivElement, TableProps<RecordType>>((props, ref) => (
-    <Table {...props} ref={ref} />
-  ));
+const RefTable = function<RecordType extends object = any>(props: TableProps<RecordType>) {
+  const { children, ...rest } = props;
+  const Component = React.forwardRef<HTMLDivElement, TableProps<RecordType>>(
+    ({ children: innerChildren, ...innerRest }, ref) => (
+      <Table {...innerRest} ref={ref}>
+        {innerChildren}
+      </Table>
+    ),
+  );
+  return <Component {...rest}>{children}</Component>;
 };
 
 RefTable.defaultProps = {
