@@ -6,7 +6,7 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col"
+      class="ant-col ant-col-24"
     >
       col
     </div>
@@ -15,12 +15,12 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col"
+      class="ant-col ant-col-12"
     >
       col-12
     </div>
     <div
-      class="ant-col"
+      class="ant-col ant-col-12"
     >
       col-12
     </div>
@@ -29,17 +29,17 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col"
+      class="ant-col ant-col-8"
     >
       col-8
     </div>
     <div
-      class="ant-col"
+      class="ant-col ant-col-8"
     >
       col-8
     </div>
     <div
-      class="ant-col"
+      class="ant-col ant-col-8"
     >
       col-8
     </div>
@@ -48,22 +48,22 @@ Array [
     class="ant-row"
   >
     <div
-      class="ant-col"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
     <div
-      class="ant-col"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
     <div
-      class="ant-col"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
     <div
-      class="ant-col"
+      class="ant-col ant-col-6"
     >
       col-6
     </div>
@@ -782,7 +782,7 @@ Array [
   <span
     style="margin-right:6px"
   >
-    Horizontal Gutter (px): 
+    Horizontal Gutter (px):
   </span>,
   <div
     style="width:50%"
@@ -880,7 +880,7 @@ Array [
   <span
     style="margin-right:6px"
   >
-    Vertical Gutter (px): 
+    Vertical Gutter (px):
   </span>,
   <div
     style="width:50%"
