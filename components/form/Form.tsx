@@ -74,6 +74,18 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   const [wrapForm] = useForm(form);
   wrapForm.__INTERNAL__.name = name;
 
+  const formContextValue = React.useMemo(
+    () => ({
+      name,
+      labelAlign,
+      labelCol,
+      wrapperCol,
+      vertical: layout === 'vertical',
+      colon,
+    }),
+    [name, labelAlign, labelCol, wrapperCol, layout, colon],
+  );
+
   React.useImperativeHandle(ref, () => wrapForm);
 
   const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
@@ -89,14 +101,7 @@ const InternalForm: React.ForwardRefRenderFunction<unknown, FormProps> = (props,
   return (
     <SizeContextProvider size={size}>
       <FormContext.Provider
-        value={{
-          name,
-          labelAlign,
-          labelCol,
-          wrapperCol,
-          vertical: layout === 'vertical',
-          colon,
-        }}
+        value={formContextValue}
       >
         <FieldForm
           id={name}

@@ -145,8 +145,8 @@ describe('TextArea', () => {
 
   it('should trigger onResize', () => {
     const onResize = jest.fn();
-    const wrapper = mount(<TextArea onResize={onResize} autosize />);
-
+    const wrapper = mount(<TextArea onResize={onResize} autoSize />);
+    jest.runAllTimers();
     wrapper
       .find('ResizeObserver')
       .instance()
@@ -283,5 +283,24 @@ describe('TextArea allowClear', () => {
     const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
     wrapper.find('.test-suffix').simulate('mouseUp');
     expect(onFocus).toHaveBeenCalled();
+  });
+
+  it('scroll to bottom when autoSize', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(<Input.TextArea autoSize />, { attachTo: document.body });
+    wrapper.find('textarea').simulate('focus');
+    wrapper
+      .find('textarea')
+      .getDOMNode()
+      .focus();
+    const setSelectionRangeFn = jest.spyOn(
+      wrapper.find('textarea').getDOMNode(),
+      'setSelectionRange',
+    );
+    wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
+    jest.runAllTimers();
+    jest.useRealTimers();
+    expect(setSelectionRangeFn).toHaveBeenCalled();
+    wrapper.unmount();
   });
 });

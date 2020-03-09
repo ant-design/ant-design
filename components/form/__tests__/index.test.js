@@ -643,4 +643,35 @@ describe('Form', () => {
     }
     expect(instances.size).toEqual(1);
   });
+
+  it('avoid re-render', async () => {
+    let renderTimes = 0;
+
+    const MyInput = ({ value = '', ...props }) => {
+      renderTimes += 1;
+      return <input value={value} {...props} />;
+    };
+
+    const Demo = () => (
+      <Form>
+        <Form.Item name="username" rules={[{ required: true }]}>
+          <MyInput />
+        </Form.Item>
+      </Form>
+    );
+
+    const wrapper = mount(<Demo />);
+    renderTimes = 0;
+
+    wrapper.find('input').simulate('change', {
+      target: {
+        value: 'a',
+      },
+    });
+
+    await delay();
+
+    expect(renderTimes).toEqual(1);
+    expect(wrapper.find('input').props().value).toEqual('a');
+  });
 });

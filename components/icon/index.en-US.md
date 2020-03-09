@@ -20,6 +20,7 @@ ReactDOM.render(<IconDisplay />, mountNode);
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| className | className of Icon  | `string` | - |  |
 | style | Style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
 | spin | Rotate icon with animation | boolean | false |  |
 | rotate | Rotate by n degrees (not working in IE9) | number | - |  |

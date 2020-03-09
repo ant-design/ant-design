@@ -344,9 +344,11 @@
 @input-padding-horizontal-base: @input-padding-horizontal;
 @input-padding-horizontal-sm: @control-padding-horizontal-sm - 1px;
 @input-padding-horizontal-lg: @input-padding-horizontal;
-@input-padding-vertical-base: round(
-    (@input-height-base - @font-size-base * @line-height-base) / 2 * 10
-  ) / 10 - @border-width-base;
+@input-padding-vertical-base: max(
+  round((@input-height-base - @font-size-base * @line-height-base) / 2 * 10) / 10 -
+    @border-width-base,
+  3px
+);
 @input-padding-vertical-sm: round((@input-height-sm - @font-size-base * @line-height-base) / 2 * 10) /
   10 - @border-width-base;
 @input-padding-vertical-lg: ceil((@input-height-lg - @font-size-lg * @line-height-base) / 2 * 10) /

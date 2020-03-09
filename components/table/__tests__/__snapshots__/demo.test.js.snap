@@ -9544,7 +9544,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
 
 exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper components-table-demo-nested"
 >
   <div
     class="ant-spin-nested-loading"
@@ -9553,7 +9553,7 @@ exports[`renders ./components/table/demo/nested-table.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table components-table-demo-nested"
+        class="ant-table"
       >
         <div
           class="ant-table-container"
@@ -13178,7 +13178,7 @@ exports[`renders ./components/table/demo/summary.md correctly 1`] = `
 
 exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="ant-table-wrapper virtual-table"
 >
   <div
     class="ant-spin-nested-loading"
@@ -13187,7 +13187,7 @@ exports[`renders ./components/table/demo/virtual-list.md correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table virtual-table ant-table-fixed-header ant-table-fixed-column"
+        class="ant-table ant-table-fixed-header ant-table-fixed-column"
       >
         <div
           class="ant-table-container"

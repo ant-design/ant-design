@@ -21,6 +21,21 @@ type RenderChildren = (form: FormInstance) => React.ReactNode;
 type RcFieldProps = Omit<FieldProps, 'children'>;
 type ChildrenType = React.ReactElement | RenderChildren | React.ReactElement[] | null;
 
+interface MemoInputProps {
+  value: any;
+  update: number;
+  children: any;
+}
+
+const MemoInput = React.memo<MemoInputProps>(
+  ({ children }) => {
+    return children;
+  },
+  (prev, next) => {
+    return prev.value === next.value && prev.update === next.update;
+  },
+);
+
 export interface FormItemProps
   extends FormItemLabelProps,
     FormItemInputProps,
@@ -217,6 +232,10 @@ function FormItem(props: FormItemProps): React.ReactElement {
     return renderLayout(children);
   }
 
+  // Record for real component render
+  const updateRef = React.useRef(0);
+  updateRef.current += 1;
+
   const variables: Record<string, string> = {};
   if (typeof label === 'string') {
     variables.label = label;
@@ -294,10 +313,7 @@ function FormItem(props: FormItemProps): React.ReactElement {
           const childProps = { ...children.props, ...mergedControl };
 
           // We should keep user origin event handler
-          const triggers = new Set<string>();
-          [...toArray(trigger), ...toArray(validateTrigger)].forEach(eventName => {
-            triggers.add(eventName);
-          });
+          const triggers = new Set<string>([...toArray(trigger), ...toArray(validateTrigger)]);
 
           triggers.forEach(eventName => {
             childProps[eventName] = (...args: any[]) => {
@@ -306,7 +322,14 @@ function FormItem(props: FormItemProps): React.ReactElement {
             };
           });
 
-          childNode = React.cloneElement(children, childProps);
+          childNode = (
+            <MemoInput
+              value={mergedControl[props.valuePropName || 'value']}
+              update={updateRef.current}
+            >
+              {React.cloneElement(children, childProps)}
+            </MemoInput>
+          );
         } else if (isRenderProps && shouldUpdate && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
