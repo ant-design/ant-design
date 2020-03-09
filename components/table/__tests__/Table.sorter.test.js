@@ -150,6 +150,45 @@ describe('Table.sorter', () => {
     expect(sorter3.columnKey).toBe('name');
   });
 
+  it('hover header show sorter tooltip', () => {
+    // tooltip has delay
+    jest.useFakeTimers();
+    const wrapper = mount(createTable({}));
+    // default show sorter tooltip
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
+    // set table props showSorterTooltip is false
+    wrapper.setProps({ showSorterTooltip: false });
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeFalsy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
+    // set table props showSorterTooltip is false, column showSorterTooltip is true
+    wrapper.setProps({
+      showSorterTooltip: false,
+      columns: [{ ...column, showSorterTooltip: true }],
+    });
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
+    // set table props showSorterTooltip is true, column showSorterTooltip is false
+    wrapper.setProps({
+      showSorterTooltip: true,
+      columns: [{ ...column, showSorterTooltip: false }],
+    });
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
+    jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeFalsy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
+  });
+
   it('works with grouping columns in controlled mode', () => {
     const columns = [
       {

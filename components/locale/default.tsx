@@ -22,6 +22,9 @@ export default {
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
+    triggerDesc: 'Click sort by descend',
+    triggerAsc: 'Click sort by ascend',
+    cancelSort: 'Click to cancel sort',
   },
   Modal: {
     okText: 'OK',

@@ -188,6 +188,7 @@
 
   // ============================ Sorter ============================
   thead th.@{table-prefix-cls}-column-has-sorters {
+    padding: 0;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -210,6 +211,8 @@
   &-column-sorters {
     display: inline-flex;
     align-items: center;
+    width: 100%;
+    padding: @table-padding-vertical @table-padding-horizontal;
   }
 
   &-column-sorter {
