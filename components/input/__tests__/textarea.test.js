@@ -284,4 +284,23 @@ describe('TextArea allowClear', () => {
     wrapper.find('.test-suffix').simulate('mouseUp');
     expect(onFocus).toHaveBeenCalled();
   });
+
+  it('scroll to bottom when autoSize', () => {
+    jest.useFakeTimers();
+    const wrapper = mount(<Input.TextArea autoSize />, { attachTo: document.body });
+    wrapper.find('textarea').simulate('focus');
+    wrapper
+      .find('textarea')
+      .getDOMNode()
+      .focus();
+    const setSelectionRangeFn = jest.spyOn(
+      wrapper.find('textarea').getDOMNode(),
+      'setSelectionRange',
+    );
+    wrapper.find('textarea').simulate('input', { target: { value: '\n1' } });
+    jest.runAllTimers();
+    jest.useRealTimers();
+    expect(setSelectionRangeFn).toHaveBeenCalled();
+    wrapper.unmount();
+  });
 });
