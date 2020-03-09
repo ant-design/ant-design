@@ -1,10 +1,12 @@
 import * as React from 'react';
-import Tooltip, { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
+
+import Tooltip, { AbstractTooltipProps, TooltipPlacement, RenderFunction } from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import getRenderPropValue from './getRenderPropValue';
 
 export interface PopoverProps extends AbstractTooltipProps {
-  title?: React.ReactNode;
-  content?: React.ReactNode;
+  title?: React.ReactNode | RenderFunction;
+  content?: React.ReactNode | RenderFunction;
 }
 
 export default class Popover extends React.Component<PopoverProps, {}> {
@@ -27,8 +29,8 @@ export default class Popover extends React.Component<PopoverProps, {}> {
     const { title, content } = this.props;
     return (
       <div>
-        {title && <div className={`${prefixCls}-title`}>{title}</div>}
-        <div className={`${prefixCls}-inner-content`}>{content}</div>
+        {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
+        <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
       </div>
     );
   }
