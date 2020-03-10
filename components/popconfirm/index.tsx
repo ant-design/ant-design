@@ -1,15 +1,15 @@
 import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-
 import Tooltip, { AbstractTooltipProps } from '../tooltip';
 import Button from '../button';
 import { ButtonType, NativeButtonProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
-  title: React.ReactNode;
+  title: React.ReactNode | RenderFunction;
   disabled?: boolean;
   onConfirm?: (e?: React.MouseEvent<HTMLElement>) => void;
   onCancel?: (e?: React.MouseEvent<HTMLElement>) => void;
@@ -122,7 +122,7 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
         <div className={`${prefixCls}-inner-content`}>
           <div className={`${prefixCls}-message`}>
             {icon}
-            <div className={`${prefixCls}-message-title`}>{title}</div>
+            <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
           </div>
           <div className={`${prefixCls}-buttons`}>
             <Button onClick={this.onCancel} size="small" {...cancelButtonProps}>
