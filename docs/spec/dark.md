@@ -14,10 +14,15 @@ en-US: Dark mode is a theme that makes all UI elements darker.
 zh-CN: ## 何时使用
 en-US: ## When to use
 
+zh-CN:
 - 当需要长时间在暗光环境下工作时，建议使用暗黑模式，减小亮度对比带来的视觉压力，保证使用者的体验舒适。
 - 当需要沉浸式的专注工作内容时，建议使用暗黑模式，可以帮助使用者更关注凸显出来的内容和操作。
   > 如同在电影院看电影时要全场关灯，是一样的原理。
-
+en-US:
+  -When you're in a dark environment as it prevents eye strain
+-When you're trying to highlight content
+  > It's like turning off the lights in the movie theater.
+  
 ## 设计原则
 
 1. **内容的舒适性**
