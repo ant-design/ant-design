@@ -123,8 +123,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {
     triggerVisible(false);
 
+    const selectKeys = getFilteredKeysSync();
     const mergedKeys = keys && keys.length ? keys : null;
-    if (mergedKeys === null && (!filterState || !filterState.filteredKeys)) {
+    if (mergedKeys === null && !selectKeys!.length) {
       return null;
     }
 
