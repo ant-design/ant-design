@@ -140,6 +140,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onReset = () => {
+    setFilteredKeysSync([]);
     internalTriggerFilter([]);
   };
 
