@@ -35,7 +35,7 @@ import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 ReactDOM.render(<ColorPalettes dark />, mountNode);
 ```
 
-### 色板生成工具
+### Swatch Generation Tool
 
 同样，我们也提供了一套暗色下的色板生成工具，需要选择你的主色以及页面的背景色，我们会为你生成一套暗色下的色板
 
