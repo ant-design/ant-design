@@ -37,7 +37,7 @@ ReactDOM.render(<ColorPalettes dark />, mountNode);
 
 ### Swatch Generation Tool
 
-同样，我们也提供了一套暗色下的色板生成工具，需要选择你的主色以及页面的背景色，我们会为你生成一套暗色下的色板
+Similarly, we also provide a set of tools for generating swatches in dark colors. You need to select your main color and the background color of the page. We will generate a set of swatches in dark colors for you.
 
 ```__react
 import ColorPaletteToolDark from '../../site/theme/template/Color/ColorPaletteToolDark';
