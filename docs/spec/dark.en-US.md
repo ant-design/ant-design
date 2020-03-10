@@ -27,7 +27,7 @@ The information content in the dark mode needs to be consistent with the light m
 
 In the application of colors, we are based on 12 sets of basic swatches and combine longer rule processing to make colors better blend under different environmental colors.
 
-### Basic Swatches
+### Color Pallete
 
 ```__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
@@ -35,9 +35,9 @@ import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 ReactDOM.render(<ColorPalettes dark />, mountNode);
 ```
 
-### Swatch Generation Tool
+### Color Pallete Generation Tool
 
-Similarly, we also provide a set of tools for generating swatches in dark colors. You need to select your main color and the background color of the page. We will generate a set of swatches in dark colors for you.
+Additionally, we also provide a set of tools for generating color palletes in dark colors. You need to select your primary color and the background color of the page. We will generate a dark mode color pallete for you.
 
 ```__react
 import ColorPaletteToolDark from '../../site/theme/template/Color/ColorPaletteToolDark';
