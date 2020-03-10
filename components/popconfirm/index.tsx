@@ -118,20 +118,18 @@ class Popconfirm extends React.Component<PopconfirmProps, PopconfirmState> {
       icon,
     } = this.props;
     return (
-      <div>
-        <div className={`${prefixCls}-inner-content`}>
-          <div className={`${prefixCls}-message`}>
-            {icon}
-            <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
-          </div>
-          <div className={`${prefixCls}-buttons`}>
-            <Button onClick={this.onCancel} size="small" {...cancelButtonProps}>
-              {cancelText || popconfirmLocale.cancelText}
-            </Button>
-            <Button onClick={this.onConfirm} type={okType} size="small" {...okButtonProps}>
-              {okText || popconfirmLocale.okText}
-            </Button>
-          </div>
+      <div className={`${prefixCls}-inner-content`}>
+        <div className={`${prefixCls}-message`}>
+          {icon}
+          <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
+        </div>
+        <div className={`${prefixCls}-buttons`}>
+          <Button onClick={this.onCancel} size="small" {...cancelButtonProps}>
+            {cancelText || popconfirmLocale.cancelText}
+          </Button>
+          <Button onClick={this.onConfirm} type={okType} size="small" {...okButtonProps}>
+            {okText || popconfirmLocale.okText}
+          </Button>
         </div>
       </div>
     );
