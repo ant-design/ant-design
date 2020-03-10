@@ -28,7 +28,7 @@ export interface PaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   showTotal?: (total: number, range: [number, number]) => React.ReactNode;
   size?: 'default' | 'small';
-  autoResize?: boolean;
+  responsive?: boolean;
   simple?: boolean;
   style?: React.CSSProperties;
   locale?: Object;
@@ -58,7 +58,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
   componentDidMount() {
     this.token = ResponsiveObserve.subscribe(screens => {
       const { xs } = screens;
-      const { size, autoResize } = this.props;
+      const { size, responsive: autoResize } = this.props;
       const inferredSmall = !!(xs && !size && autoResize);
       if (this.inferredSmall !== inferredSmall) {
         this.inferredSmall = inferredSmall;
