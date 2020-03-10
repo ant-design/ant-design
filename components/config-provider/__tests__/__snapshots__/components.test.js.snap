@@ -11763,16 +11763,23 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               <div
                                 class="config-table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="config-table-filter-dropdown-link confirm"
+                                <button
+                                  class="config-btn config-btn-link config-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="config-table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="config-btn config-btn-primary config-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -12102,16 +12109,23 @@ exports[`ConfigProvider components Table normal 1`] = `
                               <div
                                 class="ant-table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="ant-table-filter-dropdown-link confirm"
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="ant-table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -12441,16 +12455,23 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               <div
                                 class="prefix-Table-filter-dropdown-btns"
                               >
-                                <a
-                                  class="prefix-Table-filter-dropdown-link confirm"
+                                <button
+                                  class="ant-btn ant-btn-link ant-btn-sm"
+                                  disabled=""
+                                  type="button"
                                 >
-                                  OK
-                                </a>
-                                <a
-                                  class="prefix-Table-filter-dropdown-link clear"
+                                  <span>
+                                    Reset
+                                  </span>
+                                </button>
+                                <button
+                                  class="ant-btn ant-btn-primary ant-btn-sm"
+                                  type="button"
                                 >
-                                  Reset
-                                </a>
+                                  <span>
+                                    OK
+                                  </span>
+                                </button>
                               </div>
                             </div>
                           </div>
