@@ -1,17 +1,17 @@
 ---
 category: Global Styles
 order: 6
-title: Dark Theme
+title: Dark Mode
 ---
 
 
 Dark mode is a theme where all UI elements are darkened.
 
-## When to use
+## Applications of dark mode
 
-- When working continuously in a dark environment, it is recommended to use the dark mode to change the visual pressure caused by the brightness contrast to ensure the user's experience.
-- When immersive and focused work content is required, dark mode is recommended to help users pay more attention to the highlighted content and operations.
-  > The famous principle of turning off the lights when watching a movie in a movie theater is the same principle.
+- Dark mode is reccomended when you are in a dark environment as it prevents eye strain.
+- Dark mode is great for highlighting important content
+  > It works similarly to turning off the lights in a movie theater.
 
 ## Design Principles
 
