@@ -4,7 +4,6 @@ order: 6
 title: Dark Mode
 ---
 
-
 Dark mode is a theme where all UI elements are darkened.
 
 ## When to use
