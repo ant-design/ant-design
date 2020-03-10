@@ -5,12 +5,14 @@ category:
 order: 6
 title:
   zh-CN: 暗黑模式
-  en-US: Dark Theme
+  en-US: Dark Mode
 ---
 
-暗黑模式是指把所有 UI 换成黑色或者深色的一个主题模式。
+zh-CN: 暗黑模式是指把所有 UI 换成黑色或者深色的一个主题模式。
+en-US: Dark mode is a theme that makes all UI elements darker.
 
-## 何时使用
+zh-CN: ## 何时使用
+en-US: ## When to use
 
 - 当需要长时间在暗光环境下工作时，建议使用暗黑模式，减小亮度对比带来的视觉压力，保证使用者的体验舒适。
 - 当需要沉浸式的专注工作内容时，建议使用暗黑模式，可以帮助使用者更关注凸显出来的内容和操作。
