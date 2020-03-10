@@ -5,7 +5,7 @@ title: Dark Theme
 ---
 
 
-Diablo mode refers to a theme mode where all UIs are changed to black or dark.
+Dark mode is a theme where all UI elements are darkened.
 
 ## When to use
 
@@ -13,7 +13,7 @@ Diablo mode refers to a theme mode where all UIs are changed to black or dark.
 -When immersive and focused work content is required, dark mode is recommended to help users pay more attention to the highlighted content and operations.
 The famous principle of turning off the lights when watching a movie in a movie theater is the same principle.
 
-##Design Principles
+## Design Principles
 
 1. ** Comfort of content **
 
