@@ -35,7 +35,7 @@ import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
 ReactDOM.render(<ColorPalettes dark />, mountNode);
 ```
 
-### Color Pallete Generation Tool
+### Color Pallete Generator
 
 Additionally, we also provide a set of tools for generating color palletes in dark colors. You need to select your primary color and the background color of the page. We will generate a dark mode color pallete for you.
 
