@@ -1,36 +1,33 @@
 ---
-category:
-  zh-CN: 全局样式
-  en-US: Global Styles
+category: Global Styles
 order: 6
-title:
-  zh-CN: 暗黑模式
-  en-US: Dark Theme
+title: Dark Theme
 ---
 
-暗黑模式是指把所有 UI 换成黑色或者深色的一个主题模式。
 
-## 何时使用
+Diablo mode refers to a theme mode where all UIs are changed to black or dark.
 
-- 当需要长时间在暗光环境下工作时，建议使用暗黑模式，减小亮度对比带来的视觉压力，保证使用者的体验舒适。
-- 当需要沉浸式的专注工作内容时，建议使用暗黑模式，可以帮助使用者更关注凸显出来的内容和操作。
-  > 如同在电影院看电影时要全场关灯，是一样的原理。
+## When to use
 
-## 设计原则
+-When working continuously in a dark environment, it is recommended to use the dark mode to change the visual pressure caused by the brightness contrast to ensure the user's experience.
+-When immersive and focused work content is required, dark mode is recommended to help users pay more attention to the highlighted content and operations.
+The famous principle of turning off the lights when watching a movie in a movie theater is the same principle.
 
-1. **内容的舒适性**
+##Design Principles
 
-   暗黑模式下避免使用对比很强的色彩或内容，长时间使用会带来疲劳感。
+1. ** Comfort of content **
 
-2. **信息的一致性**
+Avoid using highly contrasting colors or content in dark mode. Continuous use will bring fatigue.
 
-   暗黑模式下的信息内容需要和浅色模式保持一致性，不应该打破原有的层级关系。
+2. ** Consistency of Information **
 
-## 色彩
+The information content in the dark mode needs to be consistent with the light mode, and the initialization hierarchical relationship should not be broken.
 
-颜色的应用上，我们基于 12 套基础色板，并结合透明度规则处理，来让色彩在不同的环境色下可以更好融合。
+##color
 
-### 基础色板
+In the application of colors, we are based on 12 sets of basic swatches and combine longer rule processing to make colors better blend under different environmental colors.
+
+### Basic Swatches
 
 ```__react
 import ColorPalettes from '../../site/theme/template/Color/ColorPalettes';
