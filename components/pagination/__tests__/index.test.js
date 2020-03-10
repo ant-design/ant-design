@@ -38,7 +38,7 @@ describe('Pagination', () => {
   });
 
   it('should autometically be small when size is not specified', async () => {
-    const wrapper = mount(<Pagination autoResize />);
+    const wrapper = mount(<Pagination responsive />);
     expect(
       wrapper
         .find('ul')
