@@ -27,10 +27,10 @@ export default class Popover extends React.Component<PopoverProps, {}> {
   getOverlay(prefixCls: string) {
     const { title, content } = this.props;
     return (
-      <div>
+      <>
         {title && <div className={`${prefixCls}-title`}>{getRenderPropValue(title)}</div>}
         <div className={`${prefixCls}-inner-content`}>{getRenderPropValue(content)}</div>
-      </div>
+      </>
     );
   }
 
