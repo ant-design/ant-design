@@ -1,8 +1,7 @@
 import * as React from 'react';
-
-import Tooltip, { AbstractTooltipProps, TooltipPlacement, RenderFunction } from '../tooltip';
+import Tooltip, { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import getRenderPropValue from './getRenderPropValue';
+import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;

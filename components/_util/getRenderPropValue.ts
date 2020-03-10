@@ -1,6 +1,10 @@
-import { RenderFunction } from '../tooltip';
+import React from 'react';
 
-const getRenderPropValue = (propValue?: React.ReactNode | RenderFunction): React.ReactNode => {
+export type RenderFunction = () => React.ReactNode;
+
+export const getRenderPropValue = (
+  propValue?: React.ReactNode | RenderFunction,
+): React.ReactNode => {
   if (!propValue) {
     return null;
   }
@@ -12,5 +16,3 @@ const getRenderPropValue = (propValue?: React.ReactNode | RenderFunction): React
 
   return propValue;
 };
-
-export default getRenderPropValue;
