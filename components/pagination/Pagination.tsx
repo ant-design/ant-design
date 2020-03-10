@@ -58,8 +58,8 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
   componentDidMount() {
     this.token = ResponsiveObserve.subscribe(screens => {
       const { xs } = screens;
-      const { size, responsive: autoResize } = this.props;
-      const inferredSmall = !!(xs && !size && autoResize);
+      const { size, responsive } = this.props;
+      const inferredSmall = !!(xs && !size && responsive);
       if (this.inferredSmall !== inferredSmall) {
         this.inferredSmall = inferredSmall;
         this.forceUpdate();
