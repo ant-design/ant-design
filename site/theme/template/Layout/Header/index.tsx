@@ -65,7 +65,7 @@ interface HeaderState {
 class Header extends React.Component<HeaderProps, HeaderState> {
   static contextTypes = {
     router: PropTypes.object.isRequired,
-    theme: PropTypes.oneOf(['default', 'dark', 'narrow']),
+    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
     direction: PropTypes.string,
   };
 

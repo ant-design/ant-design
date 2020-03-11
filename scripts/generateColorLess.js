@@ -3,7 +3,7 @@ const path = require('path');
 const { generateTheme } = require('antd-theme-generator');
 const genCss = require('antd-pro-merge-less');
 const dark = require('./dark-vars');
-const narrow = require('./narrow-vars');
+const compact = require('./compact-vars');
 
 genCss(
   path.join(__dirname, '..'),
@@ -18,10 +18,10 @@ genCss(
       },
     },
     {
-      theme: 'narrow',
-      fileName: './_site/narrow.css',
+      theme: 'compact',
+      fileName: './_site/compact.css',
       modifyVars: {
-        ...narrow,
+        ...compact,
       },
     },
   ],

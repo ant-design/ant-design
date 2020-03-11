@@ -60,7 +60,7 @@ const getSideBarOpenKeys = nextProps => {
 
 class MainContent extends Component {
   static contextTypes = {
-    theme: PropTypes.oneOf(['default', 'dark', 'narrow']),
+    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
     setTheme: PropTypes.func,
     setIframeTheme: PropTypes.func,
   };
@@ -279,10 +279,10 @@ class MainContent extends Component {
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
-  changeNarrowTheme = () => {
+  changeCompactTheme = () => {
     // todo: separate with changeDarkTheme temporal
     const { theme, setTheme } = this.context;
-    const nextTheme = theme !== 'narrow' ? 'narrow' : 'default';
+    const nextTheme = theme !== 'compact' ? 'compact' : 'default';
     setTheme(nextTheme);
   };
 
@@ -388,7 +388,7 @@ class MainContent extends Component {
                       <Tooltip
                         getPopupContainer={node => node.parentNode}
                         title={formatMessage({
-                          id: `app.theme.switch.${theme === 'narrow' ? 'narrow' : 'normal'}`,
+                          id: `app.theme.switch.${theme === 'compact' ? 'compact' : 'normal'}`,
                         })}
                         overlayClassName="fixed-widgets-tooltip"
                       >
@@ -398,8 +398,8 @@ class MainContent extends Component {
                             `fixed-widgets-avatar-${theme}`,
                           )}
                           size={44}
-                          onClick={this.changeNarrowTheme}
-                          icon={theme === 'narrow' ? <DarkIcon /> : <DefaultIcon />}
+                          onClick={this.changeCompactTheme}
+                          icon={theme === 'compact' ? <DarkIcon /> : <DefaultIcon />}
                         />
                       </Tooltip>
                       <Tooltip

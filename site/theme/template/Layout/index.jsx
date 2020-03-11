@@ -63,7 +63,7 @@ const SITE_THEME_STORE_KEY = 'site-theme';
 const timestamp = new Date().getTime();
 const themeMap = {
   dark: `/dark.css?${timestamp}`,
-  narrow: `/narrow.css?${timestamp}`,
+  compact: `/compact.css?${timestamp}`,
 };
 const themeConfig = {
   themeMap,
@@ -76,7 +76,7 @@ export default class Layout extends React.Component {
   };
 
   static childContextTypes = {
-    theme: PropTypes.oneOf(['default', 'dark', 'narrow']),
+    theme: PropTypes.oneOf(['default', 'dark', 'compact']),
     setTheme: PropTypes.func,
     direction: PropTypes.string,
     setIframeTheme: PropTypes.func,
