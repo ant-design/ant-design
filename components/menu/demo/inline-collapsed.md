@@ -25,7 +25,7 @@ import {
   MenuFoldOutlined,
   PieChartOutlined,
   DesktopOutlined,
-  InboxOutlined,
+  ContainerOutlined,
   MailOutlined,
 } from '@ant-design/icons';
 
@@ -64,7 +64,7 @@ class App extends React.Component {
             <span>Option 2</span>
           </Menu.Item>
           <Menu.Item key="3">
-            <InboxOutlined />
+            <ContainerOutlined />
             <span>Option 3</span>
           </Menu.Item>
           <SubMenu
