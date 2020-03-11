@@ -124,8 +124,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   const prefixCls = getPrefixCls('table', customizePrefixCls);
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
-  console.log('>>>', dropdownPrefixCls);
-
   const mergedExpandable: ExpandableConfig<RecordType> = {
     expandIconColumnIndex,
     ...expandable,

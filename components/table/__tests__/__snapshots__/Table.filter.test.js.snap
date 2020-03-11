@@ -849,22 +849,22 @@ exports[`Table.filter should support getPopupContainer 1`] = `
 
 exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="test-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="test-spin-nested-loading"
   >
     <div
-      class="ant-spin-container"
+      class="test-spin-container"
     >
       <div
-        class="ant-table"
+        class="test-table"
       >
         <div
-          class="ant-table-container"
+          class="test-table-container"
         >
           <div
-            class="ant-table-content"
+            class="test-table-content"
           >
             <table
               style="table-layout: auto;"
@@ -875,21 +875,21 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
               <thead>
                 <tr>
                   <th
-                    class="ant-table-cell"
+                    class="test-table-cell"
                   >
                     <div
-                      class="ant-table-filter-column"
+                      class="test-table-filter-column"
                     >
                       <span
-                        class="ant-table-filter-column-title"
+                        class="test-table-filter-column-title"
                       >
                         Name
                       </span>
                       <span
-                        class="ant-table-filter-trigger-container ant-table-filter-trigger-container-open"
+                        class="test-table-filter-trigger-container test-table-filter-trigger-container-open"
                       >
                         <span
-                          class="ant-table-filter-trigger ant-dropdown-trigger"
+                          class="test-table-filter-trigger test-dropdown-trigger"
                           role="button"
                           tabindex="-1"
                         >
@@ -916,33 +916,33 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                         </span>
                         <div>
                           <div
-                            class="ant-dropdown"
+                            class="test-dropdown"
                             style="opacity: 0;"
                           >
                             <div
-                              class="ant-table-filter-dropdown"
+                              class="test-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                class="test-dropdown-menu test-dropdown-menu-light test-dropdown-menu-root test-dropdown-menu-vertical"
                                 role="menu"
                               >
                                 <li
-                                  class="ant-dropdown-menu-item"
+                                  class="test-dropdown-menu-item"
                                   role="menuitem"
                                 >
                                   <label
-                                    class="ant-checkbox-wrapper"
+                                    class="test-checkbox-wrapper"
                                   >
                                     <span
-                                      class="ant-checkbox"
+                                      class="test-checkbox"
                                     >
                                       <input
-                                        class="ant-checkbox-input"
+                                        class="test-checkbox-input"
                                         type="checkbox"
                                         value=""
                                       />
                                       <span
-                                        class="ant-checkbox-inner"
+                                        class="test-checkbox-inner"
                                       />
                                     </span>
                                   </label>
@@ -951,22 +951,22 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                   </span>
                                 </li>
                                 <li
-                                  class="ant-dropdown-menu-item"
+                                  class="test-dropdown-menu-item"
                                   role="menuitem"
                                 >
                                   <label
-                                    class="ant-checkbox-wrapper"
+                                    class="test-checkbox-wrapper"
                                   >
                                     <span
-                                      class="ant-checkbox"
+                                      class="test-checkbox"
                                     >
                                       <input
-                                        class="ant-checkbox-input"
+                                        class="test-checkbox-input"
                                         type="checkbox"
                                         value=""
                                       />
                                       <span
-                                        class="ant-checkbox-inner"
+                                        class="test-checkbox-inner"
                                       />
                                     </span>
                                   </label>
@@ -975,33 +975,33 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                                   </span>
                                 </li>
                                 <li
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                  class="test-dropdown-menu-submenu test-dropdown-menu-submenu-vertical"
                                   role="menuitem"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
-                                    class="ant-dropdown-menu-submenu-title"
+                                    class="test-dropdown-menu-submenu-title"
                                     role="button"
                                     title="Title"
                                   >
                                     Title
                                     <i
-                                      class="ant-dropdown-menu-submenu-arrow"
+                                      class="test-dropdown-menu-submenu-arrow"
                                     />
                                   </div>
                                 </li>
                               </ul>
                               <div
-                                class="ant-table-filter-dropdown-btns"
+                                class="test-table-filter-dropdown-btns"
                               >
                                 <a
-                                  class="ant-table-filter-dropdown-link confirm"
+                                  class="test-table-filter-dropdown-link confirm"
                                 >
                                   OK
                                 </a>
                                 <a
-                                  class="ant-table-filter-dropdown-link clear"
+                                  class="test-table-filter-dropdown-link clear"
                                 >
                                   Reset
                                 </a>
@@ -1021,44 +1021,44 @@ exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] =
                 </tr>
               </thead>
               <tbody
-                class="ant-table-tbody"
+                class="test-table-tbody"
               >
                 <tr
-                  class="ant-table-row ant-table-row-level-0"
+                  class="test-table-row test-table-row-level-0"
                   data-row-key="0"
                 >
                   <td
-                    class="ant-table-cell"
+                    class="test-table-cell"
                   >
                     Jack
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0"
+                  class="test-table-row test-table-row-level-0"
                   data-row-key="1"
                 >
                   <td
-                    class="ant-table-cell"
+                    class="test-table-cell"
                   >
                     Lucy
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0"
+                  class="test-table-row test-table-row-level-0"
                   data-row-key="2"
                 >
                   <td
-                    class="ant-table-cell"
+                    class="test-table-cell"
                   >
                     Tom
                   </td>
                 </tr>
                 <tr
-                  class="ant-table-row ant-table-row-level-0"
+                  class="test-table-row test-table-row-level-0"
                   data-row-key="3"
                 >
                   <td
-                    class="ant-table-cell"
+                    class="test-table-cell"
                   >
                     Jerry
                   </td>
