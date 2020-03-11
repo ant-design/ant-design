@@ -189,10 +189,14 @@
         }
 
         &-icon {
-          margin-right: 0;
+          margin-right: 0 !important;
           color: @text-color-secondary;
           font-style: normal;
           .iconfont-size-under-12px(10px);
+
+          .@{dropdown-prefix-cls}-rtl & {
+            margin-left: 0 !important;
+          }
         }
       }
     }
