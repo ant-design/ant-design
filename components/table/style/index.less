@@ -58,10 +58,17 @@
     // Fixed first or last should special process
     &.@{table-prefix-cls}-cell-fix-left-last,
     &.@{table-prefix-cls}-cell-fix-right-first {
+      display: flex;
       overflow: visible;
+
+      > .@{table-prefix-cls}-row-indent,
+      > .@{table-prefix-cls}-row-expand-icon {
+        flex: none;
+      }
 
       .@{table-prefix-cls}-cell-content {
         display: block;
+        flex: auto;
         overflow: hidden;
         text-overflow: ellipsis;
       }
