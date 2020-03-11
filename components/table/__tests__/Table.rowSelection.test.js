@@ -491,6 +491,21 @@ describe('Table.rowSelection', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('fix expand on th left when selection column fixed on the left', () => {
+    const wrapper = render(
+      createTable({
+        expandable: {
+          expandedRowRender() {
+            return <div />;
+          },
+        },
+        rowSelection: { fixed: true },
+      }),
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
   it('fix selection column on the left when any other column is fixed', () => {
     const wrapper = render(
       createTable({

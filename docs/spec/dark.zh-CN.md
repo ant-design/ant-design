@@ -1,11 +1,7 @@
 ---
-category:
-  zh-CN: 全局样式
-  en-US: Global Styles
+category: 全局样式
 order: 6
-title:
-  zh-CN: 暗黑模式
-  en-US: Dark Theme
+title: 暗黑模式
 ---
 
 暗黑模式是指把所有 UI 换成黑色或者深色的一个主题模式。

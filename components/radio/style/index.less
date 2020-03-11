@@ -180,9 +180,14 @@ span.@{radio-prefix-cls} + * {
   // strange align fix for chrome but works
   // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
   border-top-width: @border-width-base + 0.02px;
-  border-left: 0;
+  border-left-width: 0;
   cursor: pointer;
   transition: color 0.3s, background 0.3s, border-color 0.3s, box-shadow 0.3s;
+
+  &-rtl {
+    border-right-width: 0;
+    border-left-width: @border-width-base;
+  }
 
   a {
     color: @radio-button-color;
@@ -220,6 +225,11 @@ span.@{radio-prefix-cls} + * {
       background-color: @border-color-base;
       transition: background-color 0.3s;
       content: '';
+
+      .@{radio-prefix-cls}-button-wrapper-rtl& {
+        right: -1px;
+        left: 0;
+      }
     }
   }
 

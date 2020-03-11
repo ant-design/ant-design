@@ -49,7 +49,7 @@ ReactDOM.render(
     <Title level={3}>Ant Design 3.0</Title>
     <iframe
       title="Ant Design 3.0 Select demo"
-      src="https://codesandbox.io/embed/beautiful-banzai-m72lv?view=preview"
+      src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
       style={{ width: '100%', height: 300 }}
     />
   </div>,

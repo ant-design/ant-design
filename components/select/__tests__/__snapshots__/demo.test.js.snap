@@ -403,7 +403,7 @@ exports[`renders ./components/select/demo/big-data.md correctly 1`] = `
     Ant Design 3.0
   </h3>
   <iframe
-    src="https://codesandbox.io/embed/beautiful-banzai-m72lv?view=preview"
+    src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
     style="width:100%;height:300px"
     title="Ant Design 3.0 Select demo"
   />

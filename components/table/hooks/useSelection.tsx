@@ -436,11 +436,11 @@ export default function useSelection<RecordType>(
 
       if (expandType === 'row' && columns.length && !expandIconColumnIndex) {
         const [expandColumn, ...restColumns] = columns;
-        return [
-          expandColumn,
-          { ...selectionColumn, fixed: fixed || getFixedType(restColumns[0]) },
-          ...restColumns,
-        ];
+        const selectionFixed = fixed || getFixedType(restColumns[0]);
+        if (selectionFixed) {
+          expandColumn.fixed = selectionFixed;
+        }
+        return [expandColumn, { ...selectionColumn, fixed: selectionFixed }, ...restColumns];
       }
       return [{ ...selectionColumn, fixed: fixed || getFixedType(columns[0]) }, ...columns];
     },

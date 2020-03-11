@@ -228,13 +228,13 @@ function FormItem(props: FormItemProps): React.ReactElement {
 
   const isRenderProps = typeof children === 'function';
 
-  if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children);
-  }
-
   // Record for real component render
   const updateRef = React.useRef(0);
   updateRef.current += 1;
+
+  if (!hasName && !isRenderProps && !dependencies) {
+    return renderLayout(children);
+  }
 
   const variables: Record<string, string> = {};
   if (typeof label === 'string') {

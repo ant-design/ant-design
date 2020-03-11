@@ -424,13 +424,13 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
         {topPaginationNode}
         <RcTable<RecordType>
           {...tableProps}
+          direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
           className={classNames({
             [`${prefixCls}-middle`]: mergedSize === 'middle',
             [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-bordered`]: bordered,
-            [`${prefixCls}-rtl`]: direction === 'rtl',
           })}
           data={pageData}
           rowKey={getRowKey}

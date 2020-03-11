@@ -630,68 +630,61 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     class="ant-page-header-content"
   >
     <div
-      class="ant-row content"
+      class="ant-row"
     >
       <div
-        class="main"
         style="flex:1"
       >
         <div
-          class="content"
+          class="ant-typography"
         >
-          <div
-            class="ant-typography"
+          Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
+        </div>
+        <div
+          class="ant-typography"
+        >
+          Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
+        </div>
+        <div>
+          <a
+            style="margin-right:16px"
           >
-            Ant Design interprets the color system into two levels: a system-level color system and a product-level color system.
-          </div>
-          <div
-            class="ant-typography"
+            <img
+              alt="Quick Start"
+              src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
+              style="margin-right:8px"
+            />
+            Quick Start
+          </a>
+          <a
+            style="margin-right:16px"
           >
-            Ant Design's design team preferred to design with the HSB color model, which makes it easier for designers to have a clear psychological expectation of color when adjusting colors, as well as facilitate communication in teams.
-          </div>
-          <div
-            class="ant-row contentLink"
+            <img
+              alt=" Product Info"
+              src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
+              style="margin-right:8px"
+            />
+             Product Info
+          </a>
+          <a
+            style="margin-right:16px"
           >
-            <a
-              style="margin-right:16px;display:flex;align-items:center"
-            >
-              <img
-                alt="start"
-                src="https://gw.alipayobjects.com/zos/rmsportal/MjEImQtenlyueSmVEfUD.svg"
-                style="margin-right:8px"
-              />
-              Quick Start
-            </a>
-            <a
-              style="margin-right:16px;display:flex;align-items:center"
-            >
-              <img
-                alt="start"
-                src="https://gw.alipayobjects.com/zos/rmsportal/NbuDUAuBlIApFuDvWiND.svg"
-                style="margin-right:8px"
-              />
-               Product Info
-            </a>
-            <a
-              style="margin-right:16px;display:flex;align-items:center"
-            >
-              <img
-                alt="start"
-                src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
-                style="margin-right:8px"
-              />
-              Product Doc
-            </a>
-          </div>
+            <img
+              alt="Product Doc"
+              src="https://gw.alipayobjects.com/zos/rmsportal/ohOEPSYdDTNnyMbGuyLb.svg"
+              style="margin-right:8px"
+            />
+            Product Doc
+          </a>
         </div>
       </div>
       <div
-        class="extra"
-        style="margin-left:80px;margin-top:16px"
+        class="image"
       >
         <img
           alt="content"
           src="https://gw.alipayobjects.com/zos/antfincdn/K%24NnlsB%26hz/pageHeader.svg"
+          width="100%"
         />
       </div>
     </div>

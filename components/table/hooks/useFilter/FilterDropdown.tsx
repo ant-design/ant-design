@@ -141,6 +141,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onReset = () => {
+    setFilteredKeysSync([]);
     internalTriggerFilter([]);
   };
 
@@ -188,7 +189,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          {renderFilterItems(column.filters!, prefixCls, getFilteredKeysSync(), filterMultiple)}
+          {renderFilterItems(column.filters || [], prefixCls, getFilteredKeysSync(), filterMultiple)}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
           <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
