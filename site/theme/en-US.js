@@ -3,6 +3,8 @@ module.exports = {
   messages: {
     'app.theme.switch.dark': 'Switch default mode',
     'app.theme.switch.default': 'Switch dark mode',
+    'app.theme.switch.normal': 'Switch narrow mode',
+    'app.theme.switch.narrow': 'Switch normal mode',
     'app.header.search': 'Search...',
     'app.header.menu.documentation': 'Docs',
     'app.header.menu.components': 'Components',

@@ -60,7 +60,7 @@ const getSideBarOpenKeys = nextProps => {
 
 class MainContent extends Component {
   static contextTypes = {
-    theme: PropTypes.oneOf(['default', 'dark']),
+    theme: PropTypes.oneOf(['default', 'dark', 'narrow']),
     setTheme: PropTypes.func,
     setIframeTheme: PropTypes.func,
   };
@@ -279,7 +279,14 @@ class MainContent extends Component {
     return this.flattenMenu((menu.props && menu.props.children) || menu.children);
   }
 
-  changeTheme = () => {
+  changeNarrowTheme = () => {
+    // todo: separate with changeDarkTheme temporal
+    const { theme, setTheme } = this.context;
+    const nextTheme = theme !== 'narrow' ? 'narrow' : 'default';
+    setTheme(nextTheme);
+  };
+
+  changeDarkTheme = () => {
     const { theme, setTheme } = this.context;
     const nextTheme = theme !== 'dark' ? 'dark' : 'default';
     setTheme(nextTheme);
@@ -377,9 +384,12 @@ class MainContent extends Component {
                   </section>
                   {componentPage && (
                     <div className="fixed-widgets">
+                      {/* todo: replace right icon  */}
                       <Tooltip
                         getPopupContainer={node => node.parentNode}
-                        title={formatMessage({ id: `app.theme.switch.${theme}` })}
+                        title={formatMessage({
+                          id: `app.theme.switch.${theme === 'narrow' ? 'narrow' : 'normal'}`,
+                        })}
                         overlayClassName="fixed-widgets-tooltip"
                       >
                         <Avatar
@@ -388,7 +398,24 @@ class MainContent extends Component {
                             `fixed-widgets-avatar-${theme}`,
                           )}
                           size={44}
-                          onClick={this.changeTheme}
+                          onClick={this.changeNarrowTheme}
+                          icon={theme === 'narrow' ? <DarkIcon /> : <DefaultIcon />}
+                        />
+                      </Tooltip>
+                      <Tooltip
+                        getPopupContainer={node => node.parentNode}
+                        title={formatMessage({
+                          id: `app.theme.switch.${theme === 'dark' ? 'dark' : 'default'}`,
+                        })}
+                        overlayClassName="fixed-widgets-tooltip"
+                      >
+                        <Avatar
+                          className={classNames(
+                            'fixed-widgets-avatar',
+                            `fixed-widgets-avatar-${theme}`,
+                          )}
+                          size={44}
+                          onClick={this.changeDarkTheme}
                           icon={theme === 'dark' ? <DarkIcon /> : <DefaultIcon />}
                         />
                       </Tooltip>
