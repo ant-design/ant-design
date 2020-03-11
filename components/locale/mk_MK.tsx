@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/mk_MK';
 import DatePicker from '../date-picker/locale/mk_MK';
 import TimePicker from '../time-picker/locale/mk_MK';
 import Calendar from '../calendar/locale/mk_MK';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'mk',
   Pagination,
   DatePicker,
@@ -56,3 +57,5 @@ export default {
     back: 'Назад',
   },
 };
+
+export default localeValues;
