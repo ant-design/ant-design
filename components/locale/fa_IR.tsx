@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/fa_IR';
 import DatePicker from '../date-picker/locale/fa_IR';
 import TimePicker from '../time-picker/locale/fa_IR';
 import Calendar from '../calendar/locale/fa_IR';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'fa',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'داده‌ای موجود نیست',
   },
 };
+
+export default localeValues;

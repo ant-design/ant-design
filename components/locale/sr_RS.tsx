@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/sr_RS';
 import DatePicker from '../date-picker/locale/sr_RS';
 import TimePicker from '../time-picker/locale/sr_RS';
 import Calendar from '../calendar/locale/sr_RS';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'sr',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'Nema podataka',
   },
 };
+
+export default localeValues;

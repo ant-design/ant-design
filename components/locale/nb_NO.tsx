@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/nb_NO';
 import DatePicker from '../date-picker/locale/nb_NO';
 import TimePicker from '../time-picker/locale/nb_NO';
 import Calendar from '../calendar/locale/nb_NO';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'nb',
   DatePicker,
   TimePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'Ingen data',
   },
 };
+
+export default localeValues;
