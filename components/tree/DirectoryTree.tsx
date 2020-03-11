@@ -151,7 +151,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
     const { onSelect, multiple } = this.props;
     const { expandedKeys = [] } = this.state;
     const { node, nativeEvent } = event;
-    const { eventKey = '' } = node.props;
+    const { eventKey = '' } = node;
 
     const treeData = getTreeData(this.props);
     const newState: DirectoryTreeState = {};
@@ -188,7 +188,7 @@ class DirectoryTree extends React.Component<DirectoryTreeProps, DirectoryTreeSta
       newSelectedKeys = [eventKey];
       this.lastSelectedKey = eventKey;
       this.cachedSelectedKeys = newSelectedKeys;
-      newEvent.selectedNodes = [event.node.props.data];
+      newEvent.selectedNodes = [node.data];
     }
     newState.selectedKeys = newSelectedKeys;
 
