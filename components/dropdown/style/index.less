@@ -181,15 +181,15 @@
 
       .@{dropdown-prefix-cls}-menu-submenu-arrow {
         position: absolute;
-        right: 0;
+        right: @padding-xs;
 
         .@{dropdown-prefix-cls}-rtl & {
           right: auto;
-          left: 0;
+          left: @padding-xs;
         }
 
         &-icon {
-          margin-right: 0;
+          margin-right: 0 !important;
           color: @text-color-secondary;
           font-style: normal;
           .iconfont-size-under-12px(10px);
