@@ -914,7 +914,7 @@ describe('Table.filter', () => {
 
   it('should support getPopupContainer from ConfigProvider', () => {
     const wrapper = mount(
-      <ConfigProvider prefixCls="test" getPopupContainer={node => node.parentNode}>
+      <ConfigProvider getPopupContainer={node => node.parentNode}>
         {createTable({
           columns: [
             {

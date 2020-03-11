@@ -11764,11 +11764,11 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               class="config-table-filter-dropdown"
                             >
                               <ul
-                                class="ant-dropdown-menu ant-dropdown-menu-light ant-dropdown-menu-root ant-dropdown-menu-vertical"
+                                class="config-dropdown-menu config-dropdown-menu-light config-dropdown-menu-root config-dropdown-menu-vertical"
                                 role="menu"
                               >
                                 <li
-                                  class="ant-dropdown-menu-item"
+                                  class="config-dropdown-menu-item"
                                   role="menuitem"
                                 >
                                   <label
@@ -11791,19 +11791,19 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                   </span>
                                 </li>
                                 <li
-                                  class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+                                  class="config-dropdown-menu-submenu config-dropdown-menu-submenu-vertical"
                                   role="menuitem"
                                 >
                                   <div
                                     aria-expanded="false"
                                     aria-haspopup="true"
-                                    class="ant-dropdown-menu-submenu-title"
+                                    class="config-dropdown-menu-submenu-title"
                                     role="button"
                                     title="Submenu"
                                   >
                                     Submenu
                                     <i
-                                      class="ant-dropdown-menu-submenu-arrow"
+                                      class="config-dropdown-menu-submenu-arrow"
                                     />
                                   </div>
                                 </li>
