@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/fi_FI';
 import DatePicker from '../date-picker/locale/fi_FI';
 import TimePicker from '../time-picker/locale/fi_FI';
 import Calendar from '../calendar/locale/fi_FI';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'fi',
   Pagination,
   DatePicker,
@@ -42,3 +43,5 @@ export default {
     description: 'Ei kohteita',
   },
 };
+
+export default localeValues;

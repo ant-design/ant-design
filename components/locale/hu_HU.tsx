@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/hu_HU';
 import DatePicker from '../date-picker/locale/hu_HU';
 import TimePicker from '../time-picker/locale/hu_HU';
 import Calendar from '../calendar/locale/hu_HU';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'hu',
   Pagination,
   DatePicker,
@@ -42,3 +43,5 @@ export default {
     description: 'Nincs adat',
   },
 };
+
+export default localeValues;

@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/is_IS';
 import DatePicker from '../date-picker/locale/is_IS';
 import TimePicker from '../time-picker/locale/is_IS';
 import Calendar from '../calendar/locale/is_IS';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'is',
   Pagination,
   DatePicker,
@@ -41,3 +42,5 @@ export default {
     description: 'Engin gögn',
   },
 };
+
+export default localeValues;

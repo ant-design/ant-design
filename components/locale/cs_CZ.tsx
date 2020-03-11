@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/cs_CZ';
 import DatePicker from '../date-picker/locale/cs_CZ';
 import TimePicker from '../time-picker/locale/cs_CZ';
 import Calendar from '../calendar/locale/cs_CZ';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'cs',
   Pagination,
   DatePicker,
@@ -39,3 +40,5 @@ export default {
     description: 'Žádná data',
   },
 };
+
+export default localeValues;

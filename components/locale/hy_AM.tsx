@@ -1,3 +1,5 @@
+import { Locale } from '../locale-provider';
+
 const datePickerLocale = {
   lang: {
     locale: 'hy-am',
@@ -35,7 +37,7 @@ const datePickerLocale = {
   },
 };
 
-export default {
+const localeValues: Locale = {
   locale: 'hy-am',
   Pagination: {
     // Options.jsx
@@ -108,3 +110,5 @@ export default {
     back: 'Հետ',
   },
 };
+
+export default localeValues;

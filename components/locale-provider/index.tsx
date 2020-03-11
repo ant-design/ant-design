@@ -1,22 +1,34 @@
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { ModalLocale, changeConfirmLocale } from '../modal/locale';
 import warning from '../_util/warning';
+
+import { ModalLocale, changeConfirmLocale } from '../modal/locale';
+import { TransferLocale as TransferLocaleForEmpty } from '../empty';
+import { PaginationLocale } from '../pagination/Pagination';
+import { TableLocale } from '../table/interface';
+import { PopconfirmLocale } from '../popconfirm';
+import { UploadLocale } from '../upload/interface';
+import { TransferLocale } from '../transfer';
 
 export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
-  Pagination?: Object;
+  Pagination?: PaginationLocale;
   DatePicker?: Object;
   TimePicker?: Object;
   Calendar?: Object;
-  Table?: Object;
+  Table?: TableLocale;
   Modal?: ModalLocale;
-  Popconfirm?: Object;
-  Transfer?: Object;
+  Popconfirm?: PopconfirmLocale;
+  Transfer?: Partial<TransferLocale>;
   Select?: Object;
-  Upload?: Object;
+  Upload?: UploadLocale;
+  Empty?: TransferLocaleForEmpty;
+  global?: Object;
+  PageHeader?: Object;
+  Icon?: Object;
+  Text?: Object;
 }
 
 export interface LocaleProviderProps {

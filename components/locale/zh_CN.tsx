@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/zh_CN';
 import DatePicker from '../date-picker/locale/zh_CN';
 import TimePicker from '../time-picker/locale/zh_CN';
 import Calendar from '../calendar/locale/zh_CN';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'zh-cn',
   Pagination,
   DatePicker,
@@ -64,3 +65,5 @@ export default {
     back: '返回',
   },
 };
+
+export default localeValues;
