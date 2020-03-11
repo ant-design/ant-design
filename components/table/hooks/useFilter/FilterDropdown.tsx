@@ -187,7 +187,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           openKeys={openKeys}
           onOpenChange={onOpenChange}
         >
-          {renderFilterItems(column.filters!, prefixCls, getFilteredKeysSync(), filterMultiple)}
+          {renderFilterItems(column.filters || [], prefixCls, getFilteredKeysSync(), filterMultiple)}
         </Menu>
         <div className={`${prefixCls}-dropdown-btns`}>
           <a className={`${prefixCls}-dropdown-link confirm`} onClick={onConfirm}>
