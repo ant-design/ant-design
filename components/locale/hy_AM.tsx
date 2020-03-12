@@ -1,6 +1,7 @@
 import { Locale } from '../locale-provider';
+import { PickerLocale } from '../date-picker/generatePicker';
 
-const datePickerLocale = {
+const datePickerLocale: PickerLocale = {
   lang: {
     locale: 'hy-am',
     placeholder: 'Ընտրեք ամսաթիվը',

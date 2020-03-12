@@ -1,7 +1,9 @@
 import CalendarLocale from 'rc-picker/lib/locale/zh_CN';
 import TimePickerLocale from '../../time-picker/locale/zh_CN';
+import { PickerLocale } from '../generatePicker';
 
-const locale = {
+// 统一合并为完整的 Locale
+const locale: PickerLocale = {
   lang: {
     placeholder: '请选择日期',
     yearPlaceholder: '请选择年份',

@@ -13,7 +13,7 @@ import {
   RangePickerDateProps as RCRangePickerDateProps,
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
-import { PickerMode } from 'rc-picker/lib/interface';
+import { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
@@ -24,6 +24,7 @@ import { getPlaceholder, getRangePlaceholder } from './util';
 import PickerButton from './PickerButton';
 import PickerTag from './PickerTag';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { TimePickerLocale } from '../time-picker';
 
 const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -78,9 +79,32 @@ type InjectDefaultProps<Props> = Omit<
   | 'hideHeader'
   | 'components'
 > & {
-  locale?: typeof enUS;
+  locale?: PickerLocale;
   size?: SizeType;
   bordered?: boolean;
+};
+
+export type PickerLocale = {
+  lang: RcPickerLocale & AdditionalPickerLocaleLangProps;
+  timePickerLocale: TimePickerLocale;
+} & AdditionalPickerLocaleProps;
+
+export type AdditionalPickerLocaleProps = {
+  dateFormat?: string;
+  dateTimeFormat?: string;
+  weekFormat?: string;
+  monthFormat?: string;
+};
+
+export type AdditionalPickerLocaleLangProps = {
+  placeholder: string;
+  yearPlaceholder?: string;
+  monthPlaceholder?: string;
+  weekPlaceholder?: string;
+  rangeYearPlaceholder?: [string, string];
+  rangeMonthPlaceholder?: [string, string];
+  rangeWeekPlaceholder?: [string, string];
+  rangePlaceholder?: [string, string];
 };
 
 // Picker Props
@@ -140,12 +164,12 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
         };
         result.lang = {
           ...result.lang,
-          ...((locale || {}) as any).lang,
+          ...((locale || {}) as PickerLocale).lang,
         };
         return result;
       };
 
-      renderPicker = (locale: any) => {
+      renderPicker = (locale: PickerLocale) => {
         const { getPrefixCls, direction } = this.context;
         const {
           prefixCls: customizePrefixCls,
@@ -263,12 +287,12 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
       };
       result.lang = {
         ...result.lang,
-        ...((locale || {}) as any).lang,
+        ...((locale || {}) as PickerLocale).lang,
       };
       return result;
     };
 
-    renderPicker = (locale: any) => {
+    renderPicker = (locale: PickerLocale) => {
       const { getPrefixCls, direction } = this.context;
       const {
         prefixCls: customizePrefixCls,

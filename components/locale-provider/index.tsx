@@ -9,13 +9,14 @@ import { TableLocale } from '../table/interface';
 import { PopconfirmLocale } from '../popconfirm';
 import { UploadLocale } from '../upload/interface';
 import { TransferLocale } from '../transfer';
+import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 
 export const ANT_MARK = 'internalMark';
 
 export interface Locale {
   locale: string;
   Pagination?: PaginationLocale;
-  DatePicker?: Object;
+  DatePicker?: DatePickerLocale;
   TimePicker?: Object;
   Calendar?: Object;
   Table?: TableLocale;
