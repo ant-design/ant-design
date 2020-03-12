@@ -9,6 +9,12 @@
   color: @breadcrumb-base-color;
   font-size: @breadcrumb-font-size;
 
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+
   &-rtl {
     direction: rtl;
 
