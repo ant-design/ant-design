@@ -286,7 +286,7 @@
     height: @pagination-item-size-sm;
     margin-right: 8px;
 
-    .@{pagination-prefix-cls}-rtl & {
+    .@{pagination-prefix-cls}-rtl& {
       margin-right: 0;
       margin-left: 8px;
     }
@@ -307,7 +307,7 @@
         border-color: @primary-color;
       }
 
-      .@{pagination-prefix-cls}-rtl & {
+      .@{pagination-prefix-cls}-rtl& {
         margin-right: 0;
         margin-left: 8px;
       }
@@ -359,6 +359,12 @@
 
   &.mini &-options {
     margin-left: 2px;
+
+    .@{pagination-prefix-cls}-rtl& {
+      margin-right: 2px;
+      margin-left: 0;
+    }
+
     &-quick-jumper {
       height: @pagination-item-size-sm;
       line-height: @pagination-item-size-sm;
