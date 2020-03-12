@@ -1,5 +1,7 @@
 @import './index';
 
+@selection-item-padding: ceil(@font-size-base * 1.25);
+
 .@{select-prefix-cls}-single {
   // ========================= Selector =========================
   .@{select-prefix-cls}-selector {
@@ -62,11 +64,11 @@
 
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-item,
   &.@{select-prefix-cls}-show-arrow .@{select-prefix-cls}-selection-placeholder {
-    padding-right: @font-size-base;
+    padding-right: @selection-item-padding;
 
     .@{select-prefix-cls}-rtl& {
       padding-right: 0;
-      padding-left: @font-size-base;
+      padding-left: @selection-item-padding;
     }
   }
 
