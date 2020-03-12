@@ -16,6 +16,12 @@ Using `reverse` to render slider reversely.
 ```jsx
 import { Slider, Switch } from 'antd';
 
+const style = {
+  display: 'inline-block',
+  height: 300,
+  marginLeft: 70,
+};
+
 class Demo extends React.Component {
   state = {
     reverse: true,
@@ -31,6 +37,9 @@ class Demo extends React.Component {
       <div>
         <Slider defaultValue={30} reverse={reverse} />
         <Slider range defaultValue={[20, 50]} reverse={reverse} />
+        <div style={style}>
+          <Slider defaultValue={30} vertical reverse={reverse} />
+        </div>
         Reversed: <Switch size="small" checked={reverse} onChange={this.handleReverseChange} />
       </div>
     );
