@@ -196,7 +196,7 @@ const columns = [
 | onChange | 选中项发生变化时的回调 | Function(selectedRowKeys, selectedRows) | - |
 | onSelect | 用户手动选择/取消选择某行的回调 | Function(record, selected, selectedRows, nativeEvent) | - |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | Function(selected, selectedRows, changeRows) | - |
-| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRowKeys) | - |
 
 ### scroll
 
