@@ -1,4 +1,7 @@
-const datePickerLocale = {
+import { Locale } from '../locale-provider';
+import { PickerLocale } from '../date-picker/generatePicker';
+
+const datePickerLocale: PickerLocale = {
   lang: {
     locale: 'hy-am',
     placeholder: 'Ընտրեք ամսաթիվը',
@@ -35,7 +38,7 @@ const datePickerLocale = {
   },
 };
 
-export default {
+const localeValues: Locale = {
   locale: 'hy-am',
   Pagination: {
     // Options.jsx
@@ -108,3 +111,5 @@ export default {
     back: 'Հետ',
   },
 };
+
+export default localeValues;

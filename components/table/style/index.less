@@ -195,6 +195,7 @@
 
   // ============================ Sorter ============================
   thead th.@{table-prefix-cls}-column-has-sorters {
+    padding: 0;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -217,6 +218,8 @@
   &-column-sorters {
     display: inline-flex;
     align-items: center;
+    width: 100%;
+    padding: @table-padding-vertical @table-padding-horizontal;
   }
 
   &-column-sorter {
@@ -333,7 +336,7 @@
       box-shadow: none;
     }
 
-    min-width: 96px;
+    min-width: 120px;
     background-color: @table-filter-dropdown-bg;
 
     border-radius: @border-radius-base;
@@ -356,7 +359,7 @@
     &-btns {
       display: flex;
       justify-content: space-between;
-      padding: 7px 8px;
+      padding: 7px 8px 7px 3px;
       overflow: hidden;
       background-color: @table-filter-btns-bg;
       border-top: @border-width-base @border-style-base @border-color-split;

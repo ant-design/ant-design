@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/sk_SK';
 import DatePicker from '../date-picker/locale/sk_SK';
 import TimePicker from '../time-picker/locale/sk_SK';
 import Calendar from '../calendar/locale/sk_SK';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'sk',
   Pagination,
   DatePicker,
@@ -60,3 +61,5 @@ export default {
     back: 'Späť',
   },
 };
+
+export default localeValues;

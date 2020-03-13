@@ -2,8 +2,9 @@ import Pagination from 'rc-pagination/lib/locale/az_AZ';
 import DatePicker from '../date-picker/locale/az_AZ';
 import TimePicker from '../time-picker/locale/az_AZ';
 import Calendar from '../calendar/locale/az_AZ';
+import { Locale } from '../locale-provider';
 
-export default {
+const localeValues: Locale = {
   locale: 'az',
   Pagination,
   DatePicker,
@@ -43,3 +44,5 @@ export default {
     previewFile: 'Fayla önbaxış',
   },
 };
+
+export default localeValues;
