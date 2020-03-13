@@ -89,7 +89,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     style,
     size: customizeSize,
     bordered,
-    dropdownPrefixCls,
+    dropdownPrefixCls: customizeDropdownPrefixCls,
     dataSource,
     pagination,
     rowSelection,
@@ -124,6 +124,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('table', customizePrefixCls);
+  const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
   const mergedExpandable: ExpandableConfig<RecordType> = {
     expandIconColumnIndex,

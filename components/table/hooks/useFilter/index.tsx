@@ -160,7 +160,7 @@ export function getFilterData<RecordType>(
 
 interface FilterConfig<RecordType> {
   prefixCls: string;
-  dropdownPrefixCls?: string;
+  dropdownPrefixCls: string;
   columns: ColumnsType<RecordType>;
   locale: TableLocale;
   onFilterChange: (
@@ -172,7 +172,7 @@ interface FilterConfig<RecordType> {
 
 function useFilter<RecordType>({
   prefixCls,
-  dropdownPrefixCls = 'ant-dropdown',
+  dropdownPrefixCls,
   columns,
   onFilterChange,
   getPopupContainer,

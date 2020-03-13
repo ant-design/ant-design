@@ -59,7 +59,9 @@
     }
 
     &:focus {
+      border-color: @slider-handle-color-focus;
       outline: none;
+      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
     }
 
     &.@{ant-prefix}-tooltip-open {
